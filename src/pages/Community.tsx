@@ -37,6 +37,7 @@ const MAIN_CATEGORIES = [
   { key: "dzemat_moschee", label: "Džemati & Moscheen" },
   { key: "restaurant", label: "Restaurants" },
   { key: "cafe", label: "Cafés" },
+  { key: "baeckerei", label: "Bäckereien" },
   { key: "balkan_markt", label: "Balkan-Märkte" },
   { key: "verein", label: "Vereine" },
   { key: "kulturverein", label: "Kulturvereine" },
