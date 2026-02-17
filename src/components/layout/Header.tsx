@@ -10,24 +10,24 @@ export default function Header() {
   const { t, language, setLanguage, languages, currentFlag } = useLanguage();
 
   return (
-    <header className="sticky top-0 z-50 border-b bg-background/90 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-2xl">
       <div className="container flex h-14 items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary font-heading text-xs font-bold text-primary-foreground">
+        <Link to="/" className="flex items-center gap-2.5 group">
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary font-heading text-[11px] font-black tracking-tight text-primary-foreground transition-transform duration-200 group-hover:scale-105">
             BD
           </div>
-          <span className="font-heading text-lg font-bold">
+          <span className="font-heading text-lg font-extrabold tracking-tight">
             Balkan<span className="text-gold">DE</span>
           </span>
         </Link>
 
-        {/* Right side: language + login */}
-        <div className="flex items-center gap-2">
+        {/* Right side */}
+        <div className="flex items-center gap-1.5">
           {/* Language Picker */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="sm" className="gap-1.5 text-sm">
+              <Button variant="ghost" size="sm" className="gap-1.5 text-sm h-9 px-3">
                 <span className="text-base leading-none">{currentFlag}</span>
                 <ChevronDown className="h-3 w-3 text-muted-foreground" />
               </Button>
@@ -37,7 +37,7 @@ export default function Header() {
                 <DropdownMenuItem
                   key={lang.code}
                   onClick={() => setLanguage(lang.code)}
-                  className={language === lang.code ? "bg-accent" : ""}
+                  className={language === lang.code ? "bg-accent font-medium" : ""}
                 >
                   <span className="mr-2 text-base leading-none">{lang.flag}</span>
                   {lang.name}
@@ -47,12 +47,12 @@ export default function Header() {
           </DropdownMenu>
 
           {!loading && !user && (
-            <Button variant="ghost" size="sm" asChild>
+            <Button variant="ghost" size="sm" asChild className="h-9 text-sm">
               <Link to="/login">{t("nav.login")}</Link>
             </Button>
           )}
           {!loading && user && (
-            <Button variant="ghost" size="sm" onClick={signOut}>
+            <Button variant="ghost" size="sm" onClick={signOut} className="h-9 text-sm">
               {t("nav.logout")}
             </Button>
           )}
