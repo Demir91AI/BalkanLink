@@ -59,6 +59,7 @@ type TranslationKeys = {
   "portal.formulare": string; "portal.formulare.desc": string;
   "portal.tools": string; "portal.tools.desc": string;
   "portal.ambasade": string; "portal.ambasade.desc": string;
+  "portal.community": string; "portal.community.desc": string;
   // Footer
   "footer.imprint": string; "footer.privacy": string; "footer.contact": string;
   "footer.copyright": string; "footer.disclaimer": string;
@@ -191,6 +192,7 @@ const portalBs: Partial<TranslationKeys> = {
   "portal.formulare": "Formulari", "portal.formulare.desc": "Svi važni obrasci na jednom mjestu.",
   "portal.tools": "Alati", "portal.tools.desc": "Generatori, kalkulatori, provjere.",
   "portal.ambasade": "Ambasade", "portal.ambasade.desc": "Diplomatska predstavništva u Njemačkoj.",
+  "portal.community": "Zajednica", "portal.community.desc": "Restorani, trgovine, udruženja i događaji balkanske zajednice.",
   "footer.imprint": "Impressum", "footer.privacy": "Zaštita podataka", "footer.contact": "Kontakt",
   "footer.copyright": "Sva prava zadržana.", "footer.disclaimer": "Disclaimer",
   "cta.register": "Registruj se besplatno",
@@ -228,6 +230,7 @@ const portalDe: Partial<TranslationKeys> = {
   "portal.formulare": "Formulare", "portal.formulare.desc": "Alle wichtigen Formulare an einem Ort.",
   "portal.tools": "Werkzeuge", "portal.tools.desc": "Generatoren, Rechner, Prüfungen.",
   "portal.ambasade": "Botschaften", "portal.ambasade.desc": "Diplomatische Vertretungen in Deutschland.",
+  "portal.community": "Community", "portal.community.desc": "Restaurants, Shops, Vereine und Events der Balkan-Community.",
   "footer.imprint": "Impressum", "footer.privacy": "Datenschutz", "footer.contact": "Kontakt",
   "footer.copyright": "Alle Rechte vorbehalten.", "footer.disclaimer": "Disclaimer",
   "cta.register": "Jetzt kostenlos registrieren",
@@ -265,6 +268,7 @@ const portalEn: Partial<TranslationKeys> = {
   "portal.formulare": "Forms", "portal.formulare.desc": "All important forms in one place.",
   "portal.tools": "Tools", "portal.tools.desc": "Generators, calculators, checks.",
   "portal.ambasade": "Embassies", "portal.ambasade.desc": "Diplomatic missions in Germany.",
+  "portal.community": "Community", "portal.community.desc": "Restaurants, shops, associations and events of the Balkan community.",
   "footer.imprint": "Imprint", "footer.privacy": "Privacy Policy", "footer.contact": "Contact",
   "footer.copyright": "All rights reserved.", "footer.disclaimer": "Disclaimer",
   "cta.register": "Register for free",
@@ -302,6 +306,7 @@ const portalSq: Partial<TranslationKeys> = {
   "portal.formulare": "Formularët", "portal.formulare.desc": "Të gjitha formularët e rëndësishëm.",
   "portal.tools": "Mjetet", "portal.tools.desc": "Gjeneratorë, kalkulatorë, kontrolle.",
   "portal.ambasade": "Ambasadat", "portal.ambasade.desc": "Përfaqësitë diplomatike në Gjermani.",
+  "portal.community": "Komuniteti", "portal.community.desc": "Restorante, dyqane, shoqata dhe ngjarje të komunitetit ballkanik.",
   "footer.imprint": "Impressum", "footer.privacy": "Mbrojtja e të dhënave", "footer.contact": "Kontakti",
   "footer.copyright": "Të gjitha të drejtat e rezervuara.", "footer.disclaimer": "Disclaimer",
   "cta.register": "Regjistrohu falas",
@@ -339,6 +344,7 @@ const portalMk: Partial<TranslationKeys> = {
   "portal.formulare": "Формулари", "portal.formulare.desc": "Сите важни обрасци на едно место.",
   "portal.tools": "Алатки", "portal.tools.desc": "Генератори, калкулатори, проверки.",
   "portal.ambasade": "Амбасади", "portal.ambasade.desc": "Дипломатски претставништва во Германија.",
+  "portal.community": "Заедница", "portal.community.desc": "Ресторани, продавници, здруженија и настани на балканската заедница.",
   "footer.imprint": "Impressum", "footer.privacy": "Заштита на податоци", "footer.contact": "Контакт",
   "footer.copyright": "Сите права задржани.", "footer.disclaimer": "Disclaimer",
   "cta.register": "Регистрирај се бесплатно",

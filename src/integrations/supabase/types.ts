@@ -14,6 +14,54 @@ export type Database = {
   }
   public: {
     Tables: {
+      community_listings: {
+        Row: {
+          address: string | null
+          bundesland: string
+          city: string
+          created_at: string
+          description: string | null
+          google_maps_url: string | null
+          id: string
+          instagram: string | null
+          main_category: string
+          name: string
+          origin_country: string
+          sub_category: string
+          website: string | null
+        }
+        Insert: {
+          address?: string | null
+          bundesland: string
+          city: string
+          created_at?: string
+          description?: string | null
+          google_maps_url?: string | null
+          id?: string
+          instagram?: string | null
+          main_category: string
+          name: string
+          origin_country: string
+          sub_category: string
+          website?: string | null
+        }
+        Update: {
+          address?: string | null
+          bundesland?: string
+          city?: string
+          created_at?: string
+          description?: string | null
+          google_maps_url?: string | null
+          id?: string
+          instagram?: string | null
+          main_category?: string
+          name?: string
+          origin_country?: string
+          sub_category?: string
+          website?: string | null
+        }
+        Relationships: []
+      }
       directory_listings: {
         Row: {
           address: string | null

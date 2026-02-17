@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plane, Building2, Briefcase, Users, Scale, FileText, Wrench, Landmark, ArrowRight } from "lucide-react";
+import { Plane, Building2, Briefcase, Users, Scale, FileText, Wrench, Landmark, Heart, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
@@ -30,6 +30,7 @@ export default function Index() {
     { title: t("portal.formulare"), desc: t("portal.formulare.desc"), icon: FileText, to: "/formulare" },
     { title: t("portal.tools"), desc: t("portal.tools.desc"), icon: Wrench, to: "/generatoren" },
     { title: t("portal.ambasade"), desc: t("portal.ambasade.desc"), icon: Landmark, to: "/ambasade-konzulati" },
+    { title: t("portal.community"), desc: t("portal.community.desc"), icon: Heart, to: "/community" },
   ];
 
   const nextSlide = useCallback(() => {
