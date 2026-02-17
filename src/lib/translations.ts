@@ -20,7 +20,7 @@ export const LANGUAGES: LanguageInfo[] = [
 ];
 
 type TranslationKeys = {
-  "nav.home": string; "nav.qa": string; "nav.directory": string;
+  "nav.home": string; "nav.qa": string; "nav.directory": string; "nav.missions": string;
   "nav.login": string; "nav.register": string; "nav.logout": string;
   "hero.slide1.title": string; "hero.slide1.subtitle": string;
   "hero.slide2.title": string; "hero.slide2.subtitle": string;
@@ -45,71 +45,101 @@ type TranslationKeys = {
   "dir.fieldWebsite": string; "dir.fieldDescription": string;
   "dir.submit": string; "dir.submitting": string;
   "dir.submitSuccess": string; "dir.submitError": string; "dir.loginRequired": string;
+  "missions.title": string; "missions.subtitle": string;
+  "missions.filterCountry": string; "missions.filterCity": string; "missions.filterType": string;
+  "missions.allCountries": string; "missions.allCities": string; "missions.allTypes": string;
+  "missions.embassy": string; "missions.consulate": string;
+  "missions.results": string; "missions.clearFilters": string; "missions.empty": string;
 };
 
-// Shared directory keys for BS/HR/ME (similar languages)
-const dirBs = {
+const dirBs: Partial<TranslationKeys> = {
   "dir.title": "Poslovni imenik",
   "dir.subtitle": "Pronađi balkanske biznise u Njemačkoj.",
   "dir.add": "Dodaj biznis",
   "dir.searchPlaceholder": "Pretraži po imenu, gradu...",
-  "dir.filterCity": "Grad",
-  "dir.filterCategory": "Kategorija",
-  "dir.filterOrigin": "Zemlja porijekla",
-  "dir.allCities": "Svi gradovi",
-  "dir.allCategories": "Sve kategorije",
-  "dir.allOrigins": "Sve zemlje",
-  "dir.results": "rezultata",
-  "dir.clearFilters": "Obriši filtere",
-  "dir.empty": "Nema biznisa za prikaz.",
+  "dir.filterCity": "Grad", "dir.filterCategory": "Kategorija", "dir.filterOrigin": "Zemlja porijekla",
+  "dir.allCities": "Svi gradovi", "dir.allCategories": "Sve kategorije", "dir.allOrigins": "Sve zemlje",
+  "dir.results": "rezultata", "dir.clearFilters": "Obriši filtere", "dir.empty": "Nema biznisa za prikaz.",
   "dir.submitTitle": "Dodaj svoj biznis",
   "dir.submitSubtitle": "Popuni formu i tvoj biznis će biti vidljiv nakon provjere.",
   "dir.backToDirectory": "Nazad na imenik",
-  "dir.fieldName": "Naziv biznisa",
-  "dir.fieldCategory": "Kategorija",
-  "dir.fieldCity": "Grad",
-  "dir.fieldOrigin": "Zemlja porijekla",
-  "dir.fieldAddress": "Adresa",
-  "dir.fieldPhone": "Telefon",
-  "dir.fieldWebsite": "Web stranica",
-  "dir.fieldDescription": "Opis",
-  "dir.submit": "Pošalji",
-  "dir.submitting": "Šalje se...",
+  "dir.fieldName": "Naziv biznisa", "dir.fieldCategory": "Kategorija", "dir.fieldCity": "Grad",
+  "dir.fieldOrigin": "Zemlja porijekla", "dir.fieldAddress": "Adresa", "dir.fieldPhone": "Telefon",
+  "dir.fieldWebsite": "Web stranica", "dir.fieldDescription": "Opis",
+  "dir.submit": "Pošalji", "dir.submitting": "Šalje se...",
   "dir.submitSuccess": "Biznis je dodan! Bit će vidljiv nakon provjere.",
   "dir.submitError": "Greška. Pokušaj ponovo.",
   "dir.loginRequired": "Moraš biti prijavljen da dodaš biznis.",
 };
 
-const dirSq = {
+const dirSq: Partial<TranslationKeys> = {
   "dir.title": "Drejtoria e bizneseve",
   "dir.subtitle": "Gjej bizneset ballkanike në Gjermani.",
   "dir.add": "Shto biznes",
   "dir.searchPlaceholder": "Kërko sipas emrit, qytetit...",
-  "dir.filterCity": "Qyteti",
-  "dir.filterCategory": "Kategoria",
-  "dir.filterOrigin": "Vendi i origjinës",
-  "dir.allCities": "Të gjitha qytetet",
-  "dir.allCategories": "Të gjitha kategoritë",
-  "dir.allOrigins": "Të gjitha vendet",
-  "dir.results": "rezultate",
-  "dir.clearFilters": "Pastro filtrat",
-  "dir.empty": "Nuk ka biznese për të shfaqur.",
+  "dir.filterCity": "Qyteti", "dir.filterCategory": "Kategoria", "dir.filterOrigin": "Vendi i origjinës",
+  "dir.allCities": "Të gjitha qytetet", "dir.allCategories": "Të gjitha kategoritë", "dir.allOrigins": "Të gjitha vendet",
+  "dir.results": "rezultate", "dir.clearFilters": "Pastro filtrat", "dir.empty": "Nuk ka biznese për të shfaqur.",
   "dir.submitTitle": "Shto biznesin tënd",
   "dir.submitSubtitle": "Plotëso formularin dhe biznesi yt do të jetë i dukshëm pas verifikimit.",
   "dir.backToDirectory": "Kthehu në drejtori",
-  "dir.fieldName": "Emri i biznesit",
-  "dir.fieldCategory": "Kategoria",
-  "dir.fieldCity": "Qyteti",
-  "dir.fieldOrigin": "Vendi i origjinës",
-  "dir.fieldAddress": "Adresa",
-  "dir.fieldPhone": "Telefoni",
-  "dir.fieldWebsite": "Faqja web",
-  "dir.fieldDescription": "Përshkrimi",
-  "dir.submit": "Dërgo",
-  "dir.submitting": "Duke dërguar...",
+  "dir.fieldName": "Emri i biznesit", "dir.fieldCategory": "Kategoria", "dir.fieldCity": "Qyteti",
+  "dir.fieldOrigin": "Vendi i origjinës", "dir.fieldAddress": "Adresa", "dir.fieldPhone": "Telefoni",
+  "dir.fieldWebsite": "Faqja web", "dir.fieldDescription": "Përshkrimi",
+  "dir.submit": "Dërgo", "dir.submitting": "Duke dërguar...",
   "dir.submitSuccess": "Biznesi u shtua! Do të jetë i dukshëm pas verifikimit.",
   "dir.submitError": "Gabim. Provo përsëri.",
   "dir.loginRequired": "Duhet të jesh i kyçur për të shtuar biznes.",
+};
+
+const missionsBs: Partial<TranslationKeys> = {
+  "nav.missions": "Ambasade",
+  "missions.title": "Balkanske ambasade i konzulati u Njemačkoj",
+  "missions.subtitle": "Pronađi diplomatska predstavništva balkanskih zemalja u Njemačkoj.",
+  "missions.filterCountry": "Zemlja", "missions.filterCity": "Grad", "missions.filterType": "Tip",
+  "missions.allCountries": "Sve zemlje", "missions.allCities": "Svi gradovi", "missions.allTypes": "Svi tipovi",
+  "missions.embassy": "Ambasada", "missions.consulate": "Generalni konzulat",
+  "missions.results": "rezultata", "missions.clearFilters": "Obriši filtere", "missions.empty": "Nema rezultata.",
+};
+
+const missionsSq: Partial<TranslationKeys> = {
+  "nav.missions": "Ambasadat",
+  "missions.title": "Ambasadat dhe konsullatat ballkanike në Gjermani",
+  "missions.subtitle": "Gjej përfaqësitë diplomatike të vendeve ballkanike në Gjermani.",
+  "missions.filterCountry": "Vendi", "missions.filterCity": "Qyteti", "missions.filterType": "Lloji",
+  "missions.allCountries": "Të gjitha vendet", "missions.allCities": "Të gjitha qytetet", "missions.allTypes": "Të gjitha llojet",
+  "missions.embassy": "Ambasadë", "missions.consulate": "Konsullatë e përgjithshme",
+  "missions.results": "rezultate", "missions.clearFilters": "Pastro filtrat", "missions.empty": "Nuk ka rezultate.",
+};
+
+const missionsMk: Partial<TranslationKeys> = {
+  "nav.missions": "Амбасади",
+  "missions.title": "Балкански амбасади и конзулати во Германија",
+  "missions.subtitle": "Пронајди дипломатски претставништва на балканските земји во Германија.",
+  "missions.filterCountry": "Земја", "missions.filterCity": "Град", "missions.filterType": "Тип",
+  "missions.allCountries": "Сите земји", "missions.allCities": "Сите градови", "missions.allTypes": "Сите типови",
+  "missions.embassy": "Амбасада", "missions.consulate": "Генерален конзулат",
+  "missions.results": "резултати", "missions.clearFilters": "Избриши филтри", "missions.empty": "Нема резултати.",
+};
+
+const missionsDe: Partial<TranslationKeys> = {
+  "nav.missions": "Botschaften",
+  "missions.title": "Balkan-Botschaften und Konsulate in Deutschland",
+  "missions.subtitle": "Finde diplomatische Vertretungen der Balkanländer in Deutschland.",
+  "missions.filterCountry": "Land", "missions.filterCity": "Stadt", "missions.filterType": "Typ",
+  "missions.allCountries": "Alle Länder", "missions.allCities": "Alle Städte", "missions.allTypes": "Alle Typen",
+  "missions.embassy": "Botschaft", "missions.consulate": "Generalkonsulat",
+  "missions.results": "Ergebnisse", "missions.clearFilters": "Filter löschen", "missions.empty": "Keine Ergebnisse.",
+};
+
+const missionsEn: Partial<TranslationKeys> = {
+  "nav.missions": "Embassies",
+  "missions.title": "Balkan Embassies and Consulates in Germany",
+  "missions.subtitle": "Find diplomatic missions of Balkan countries in Germany.",
+  "missions.filterCountry": "Country", "missions.filterCity": "City", "missions.filterType": "Type",
+  "missions.allCountries": "All countries", "missions.allCities": "All cities", "missions.allTypes": "All types",
+  "missions.embassy": "Embassy", "missions.consulate": "Consulate General",
+  "missions.results": "results", "missions.clearFilters": "Clear filters", "missions.empty": "No results.",
 };
 
 const translations: Record<Language, TranslationKeys> = {
@@ -132,7 +162,7 @@ const translations: Record<Language, TranslationKeys> = {
     "qa.title": "Pitanja i odgovori", "qa.subtitle": "Pronađi odgovor na svoje pitanje — brzo i na našem jeziku.",
     "qa.search": "Pretraži...", "qa.all": "Sve teme", "qa.results": "rezultata",
     "qa.empty": "Nema rezultata. Pokušaj sa drugim pojmom.",
-    ...dirBs,
+    ...dirBs as any, ...missionsBs as any,
   },
   hr: {
     "nav.home": "Početna", "nav.qa": "Pitanja i odgovori", "nav.directory": "Imenik",
@@ -153,9 +183,8 @@ const translations: Record<Language, TranslationKeys> = {
     "qa.title": "Pitanja i odgovori", "qa.subtitle": "Pronađi odgovor na svoje pitanje — brzo i na tvom jeziku.",
     "qa.search": "Pretraži...", "qa.all": "Sve teme", "qa.results": "rezultata",
     "qa.empty": "Nema rezultata. Pokušaj s drugim pojmom.",
-    ...dirBs,
-    "dir.filterOrigin": "Zemlja podrijetla",
-    "dir.fieldOrigin": "Zemlja podrijetla",
+    ...dirBs as any, ...missionsBs as any,
+    "dir.filterOrigin": "Zemlja podrijetla", "dir.fieldOrigin": "Zemlja podrijetla",
     "dir.backToDirectory": "Natrag na imenik",
   },
   sr: {
@@ -177,12 +206,13 @@ const translations: Record<Language, TranslationKeys> = {
     "qa.title": "Pitanja i odgovori", "qa.subtitle": "Pronađi odgovor na svoje pitanje — brzo i na tvom jeziku.",
     "qa.search": "Pretraži...", "qa.all": "Sve teme", "qa.results": "rezultata",
     "qa.empty": "Nema rezultata. Pokušaj sa drugim pojmom.",
-    ...dirBs,
+    ...dirBs as any, ...missionsBs as any,
     "dir.subtitle": "Pronađi balkanske biznise u Nemačkoj.",
-    "dir.filterOrigin": "Zemlja porekla",
-    "dir.fieldOrigin": "Zemlja porekla",
+    "dir.filterOrigin": "Zemlja porekla", "dir.fieldOrigin": "Zemlja porekla",
     "dir.submitSubtitle": "Popuni formu i tvoj biznis će biti vidljiv nakon provere.",
     "dir.submitSuccess": "Biznis je dodat! Biće vidljiv nakon provere.",
+    "missions.title": "Balkanske ambasade i konzulati u Nemačkoj",
+    "missions.subtitle": "Pronađi diplomatska predstavništva balkanskih zemalja u Nemačkoj.",
   },
   me: {
     "nav.home": "Početna", "nav.qa": "Pitanja i odgovori", "nav.directory": "Imenik",
@@ -203,7 +233,7 @@ const translations: Record<Language, TranslationKeys> = {
     "qa.title": "Pitanja i odgovori", "qa.subtitle": "Pronađi odgovor na svoje pitanje — brzo i na tvom jeziku.",
     "qa.search": "Pretraži...", "qa.all": "Sve teme", "qa.results": "rezultata",
     "qa.empty": "Nema rezultata. Pokušaj sa drugim pojmom.",
-    ...dirBs,
+    ...dirBs as any, ...missionsBs as any,
   },
   sq: {
     "nav.home": "Ballina", "nav.qa": "Pyetje dhe përgjigje", "nav.directory": "Drejtoria",
@@ -224,7 +254,7 @@ const translations: Record<Language, TranslationKeys> = {
     "qa.title": "Pyetje dhe përgjigje", "qa.subtitle": "Gjej përgjigjen e pyetjes tënde — shpejt dhe në gjuhën tënde.",
     "qa.search": "Kërko...", "qa.all": "Të gjitha temat", "qa.results": "rezultate",
     "qa.empty": "Nuk ka rezultate. Provo me një term tjetër.",
-    ...dirSq,
+    ...dirSq as any, ...missionsSq as any,
   },
   xk: {
     "nav.home": "Ballina", "nav.qa": "Pyetje dhe përgjigje", "nav.directory": "Drejtoria",
@@ -245,7 +275,7 @@ const translations: Record<Language, TranslationKeys> = {
     "qa.title": "Pyetje dhe përgjigje", "qa.subtitle": "Gjej përgjigjen e pyetjes tënde — shpejt dhe në gjuhën tënde.",
     "qa.search": "Kërko...", "qa.all": "Të gjitha temat", "qa.results": "rezultate",
     "qa.empty": "Nuk ka rezultate. Provo me një term tjetër.",
-    ...dirSq,
+    ...dirSq as any, ...missionsSq as any,
   },
   mk: {
     "nav.home": "Почетна", "nav.qa": "Прашања и одговори", "nav.directory": "Именик",
@@ -281,6 +311,7 @@ const translations: Record<Language, TranslationKeys> = {
     "dir.submitSuccess": "Бизнисот е додаден! Ќе биде видлив по проверка.",
     "dir.submitError": "Грешка. Обиди се повторно.",
     "dir.loginRequired": "Мора да бидеш најавен за да додадеш бизнис.",
+    ...missionsMk as any,
   },
   de: {
     "nav.home": "Startseite", "nav.qa": "Fragen & Antworten", "nav.directory": "Verzeichnis",
@@ -316,6 +347,7 @@ const translations: Record<Language, TranslationKeys> = {
     "dir.submitSuccess": "Geschäft hinzugefügt! Wird nach Prüfung sichtbar.",
     "dir.submitError": "Fehler. Versuche es erneut.",
     "dir.loginRequired": "Du musst angemeldet sein, um ein Geschäft hinzuzufügen.",
+    ...missionsDe as any,
   },
   en: {
     "nav.home": "Home", "nav.qa": "Q&A", "nav.directory": "Directory",
@@ -351,6 +383,7 @@ const translations: Record<Language, TranslationKeys> = {
     "dir.submitSuccess": "Business added! It will be visible after review.",
     "dir.submitError": "Error. Please try again.",
     "dir.loginRequired": "You must be signed in to add a business.",
+    ...missionsEn as any,
   },
 };
 

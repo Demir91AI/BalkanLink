@@ -56,6 +56,39 @@ export type Database = {
         }
         Relationships: []
       }
+      missions: {
+        Row: {
+          address_line: string
+          city: string
+          country_code: string
+          country_name: string
+          created_at: string
+          id: string
+          mission_type: string
+          postal_code: string
+        }
+        Insert: {
+          address_line: string
+          city: string
+          country_code: string
+          country_name: string
+          created_at?: string
+          id?: string
+          mission_type: string
+          postal_code: string
+        }
+        Update: {
+          address_line?: string
+          city?: string
+          country_code?: string
+          country_name?: string
+          created_at?: string
+          id?: string
+          mission_type?: string
+          postal_code?: string
+        }
+        Relationships: []
+      }
       payments: {
         Row: {
           amount: number
