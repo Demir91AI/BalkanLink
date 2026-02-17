@@ -1,4 +1,4 @@
-export type Language = "bs" | "hr" | "sr" | "me" | "sq" | "mk" | "de" | "en";
+export type Language = "bs" | "hr" | "sr" | "me" | "sq" | "mk" | "xk" | "de" | "en";
 
 export interface LanguageInfo {
   code: Language;
@@ -13,6 +13,7 @@ export const LANGUAGES: LanguageInfo[] = [
   { code: "sr", name: "Srpski", country: "Srbija", flag: "🇷🇸" },
   { code: "me", name: "Crnogorski", country: "Crna Gora", flag: "🇲🇪" },
   { code: "sq", name: "Shqip", country: "Shqipëria", flag: "🇦🇱" },
+  { code: "xk", name: "Shqip (Kosovo)", country: "Kosova", flag: "🇽🇰" },
   { code: "mk", name: "Македонски", country: "Македонија", flag: "🇲🇰" },
   { code: "de", name: "Deutsch", country: "Deutschland", flag: "🇩🇪" },
   { code: "en", name: "English", country: "United Kingdom", flag: "🇬🇧" },
@@ -199,6 +200,39 @@ const translations: Record<Language, TranslationKeys> = {
     "qa.empty": "Nema rezultata. Pokušaj sa drugim pojmom.",
   },
   sq: {
+    "nav.home": "Ballina",
+    "nav.qa": "Pyetje dhe përgjigje",
+    "nav.directory": "Drejtoria",
+    "nav.login": "Hyrje",
+    "nav.register": "Regjistrohu",
+    "nav.logout": "Dilni",
+    "hero.slide1.title": "Udhëzuesi yt për jetën në Gjermani",
+    "hero.slide1.subtitle": "Informacione të verifikuara, hap pas hapi — në gjuhën tënde.",
+    "hero.slide2.title": "Qytete që bëhen shtëpi",
+    "hero.slide2.subtitle": "Mynih, Berlin, Frankfurt — gjej rrugën tënde.",
+    "hero.slide3.title": "Karrierë pa kufij",
+    "hero.slide3.subtitle": "Punë, CV, intervistë dhe të drejtat e punës — gjithçka në një vend.",
+    "cta.new.title": "Fillo këtu",
+    "cta.new.desc": "Dokumentet, regjistrimi, hapat e parë.",
+    "cta.daily.title": "Jeta & këshilla",
+    "cta.daily.desc": "Banesë, punë, taksa, shëndetësi.",
+    "cta.help.title": "Kam nevojë ndihmë",
+    "cta.help.desc": "Zgjidhje të shpejta për probleme.",
+    "countries.title": "Për gjithë Ballkanin",
+    "categories.title": "Kategoritë",
+    "categories.subtitle": "Zgjidh temën dhe gjej përgjigjen për disa sekonda.",
+    "business.title": "Ke biznes?",
+    "business.subtitle": "Shto biznesin tënd në drejtorinë tonë dhe bëhu i dukshëm.",
+    "business.search": "Kërko drejtorinë",
+    "business.add": "Shto biznesin tënd",
+    "qa.title": "Pyetje dhe përgjigje",
+    "qa.subtitle": "Gjej përgjigjen e pyetjes tënde — shpejt dhe në gjuhën tënde.",
+    "qa.search": "Kërko...",
+    "qa.all": "Të gjitha temat",
+    "qa.results": "rezultate",
+    "qa.empty": "Nuk ka rezultate. Provo me një term tjetër.",
+  },
+  xk: {
     "nav.home": "Ballina",
     "nav.qa": "Pyetje dhe përgjigje",
     "nav.directory": "Drejtoria",
