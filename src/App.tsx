@@ -42,12 +42,16 @@ const App = () => (
             <Routes>
               <Route element={<Layout />}>
                 <Route path="/" element={<Index />} />
+                <Route path="/dolazak" element={<PocniOvdje />} />
                 <Route path="/pocni-ovdje" element={<PocniOvdje />} />
+                <Route path="/zivot" element={<ZivotSavjeti />} />
                 <Route path="/zivot-savjeti" element={<ZivotSavjeti />} />
+                <Route path="/probleme" element={<TrebamPomoc />} />
                 <Route path="/trebam-pomoc" element={<TrebamPomoc />} />
                 <Route path="/formulare" element={<Formulare />} />
                 <Route path="/familie" element={<Familie />} />
                 <Route path="/foerderungen" element={<Foerderungen />} />
+                <Route path="/tools" element={<Generatoren />} />
                 <Route path="/generatoren" element={<Generatoren />} />
                 <Route path="/premium" element={<Premium />} />
                 <Route path="/qa" element={<QA />} />
@@ -55,6 +59,7 @@ const App = () => (
                 <Route path="/directory" element={<Directory />} />
                 <Route path="/directory/submit" element={<DirectorySubmit />} />
                 <Route path="/ambasade-konzulati" element={<Missions />} />
+                <Route path="/ambasade" element={<Missions />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />

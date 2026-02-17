@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, LogOut, ChevronDown } from "lucide-react";
+import { Menu, LogOut, ChevronDown, Crown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { Badge } from "@/components/ui/badge";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -20,7 +21,7 @@ export default function Header() {
     { label: "Förderungen", to: "/foerderungen" },
     { label: "Tools", to: "/generatoren" },
     { label: t("nav.missions"), to: "/ambasade-konzulati" },
-    { label: "Premium", to: "/premium" },
+    { label: "Premium", to: "/premium", isPremium: true },
   ];
 
   return (
@@ -44,7 +45,14 @@ export default function Header() {
                 pathname === link.to ? "bg-accent text-accent-foreground" : "text-muted-foreground"
               }`}
             >
-              {link.label}
+              {link.isPremium ? (
+                <span className="inline-flex items-center gap-1.5">
+                  <Crown className="h-3.5 w-3.5 text-amber-500" />
+                  {link.label}
+                </span>
+              ) : (
+                link.label
+              )}
             </Link>
           ))}
         </nav>
@@ -75,10 +83,10 @@ export default function Header() {
           {!loading && !user && (
             <>
               <Button variant="ghost" size="sm" asChild>
-                <Link to="/login">{t("nav.login")}</Link>
+                <Link to="/login">Anmelden</Link>
               </Button>
               <Button size="sm" asChild>
-                <Link to="/register">{t("nav.register")}</Link>
+                <Link to="/register">Registrieren</Link>
               </Button>
             </>
           )}
@@ -133,17 +141,24 @@ export default function Header() {
                       pathname === link.to ? "bg-accent text-accent-foreground" : "text-muted-foreground"
                     }`}
                   >
-                    {link.label}
+                    {link.isPremium ? (
+                      <span className="inline-flex items-center gap-1.5">
+                        <Crown className="h-3.5 w-3.5 text-amber-500" />
+                        {link.label}
+                      </span>
+                    ) : (
+                      link.label
+                    )}
                   </Link>
                 ))}
                 <div className="my-4 border-t" />
                 {!loading && !user && (
                   <>
                     <Button variant="ghost" size="sm" asChild className="justify-start">
-                      <Link to="/login" onClick={() => setOpen(false)}>{t("nav.login")}</Link>
+                      <Link to="/login" onClick={() => setOpen(false)}>Anmelden</Link>
                     </Button>
                     <Button size="sm" asChild>
-                      <Link to="/register" onClick={() => setOpen(false)}>{t("nav.register")}</Link>
+                      <Link to="/register" onClick={() => setOpen(false)}>Registrieren</Link>
                     </Button>
                   </>
                 )}

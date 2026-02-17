@@ -5,6 +5,7 @@ import { Compass, MapPin, LifeBuoy, Search, ArrowRight, Globe, Landmark } from "
 import { Button } from "@/components/ui/button";
 import { CATEGORIES } from "@/lib/categories";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useAuth } from "@/contexts/AuthContext";
 import { LANGUAGES } from "@/lib/translations";
 
 import heroArrival from "@/assets/hero-arrival.jpg";
@@ -24,6 +25,7 @@ const item = {
 export default function Index() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const { t } = useLanguage();
+  const { user, loading } = useAuth();
 
   const slides = [
     { image: heroArrival, headline: t("hero.slide1.title"), subtitle: t("hero.slide1.subtitle") },
@@ -32,9 +34,9 @@ export default function Index() {
   ];
 
   const heroCards = [
-    { title: t("cta.new.title"), description: t("cta.new.desc"), icon: Compass, to: "/pocni-ovdje" },
-    { title: t("cta.daily.title"), description: t("cta.daily.desc"), icon: MapPin, to: "/zivot-savjeti" },
-    { title: t("cta.help.title"), description: t("cta.help.desc"), icon: LifeBuoy, to: "/trebam-pomoc" },
+    { title: t("cta.new.title"), description: t("cta.new.desc"), icon: Compass, to: "/dolazak" },
+    { title: t("cta.daily.title"), description: t("cta.daily.desc"), icon: MapPin, to: "/zivot" },
+    { title: t("cta.help.title"), description: t("cta.help.desc"), icon: LifeBuoy, to: "/probleme" },
   ];
 
   const nextSlide = useCallback(() => {
@@ -102,6 +104,17 @@ export default function Index() {
           </div>
         </div>
       </section>
+
+      {/* Mobile CTA — Register */}
+      {!loading && !user && (
+        <section className="border-b bg-primary py-4 lg:hidden">
+          <div className="container flex justify-center">
+            <Button size="lg" variant="secondary" asChild className="w-full max-w-sm font-semibold">
+              <Link to="/register">Jetzt registrieren</Link>
+            </Button>
+          </div>
+        </section>
+      )}
 
       {/* Quick-Access Cards */}
       <section className="border-b bg-background py-10">
