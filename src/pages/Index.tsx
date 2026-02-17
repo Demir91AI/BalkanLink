@@ -6,9 +6,14 @@ import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 
-import heroArrival from "@/assets/hero-arrival.jpg";
-import heroLiving from "@/assets/hero-living.jpg";
-import heroWork from "@/assets/hero-work.jpg";
+import heroBerlin from "@/assets/hero-berlin.jpg";
+import heroMuenchen from "@/assets/hero-muenchen.jpg";
+import heroFrankfurt from "@/assets/hero-frankfurt.jpg";
+import heroHamburg from "@/assets/hero-hamburg.jpg";
+import heroKoeln from "@/assets/hero-koeln.jpg";
+import heroStuttgart from "@/assets/hero-stuttgart.jpg";
+import heroDuesseldorf from "@/assets/hero-duesseldorf.jpg";
+import heroNuernberg from "@/assets/hero-nuernberg.jpg";
 
 export default function Index() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -16,9 +21,14 @@ export default function Index() {
   const { user, loading } = useAuth();
 
   const slides = [
-    { image: heroArrival, headline: t("hero.slide1.title"), subtitle: t("hero.slide1.subtitle") },
-    { image: heroLiving, headline: t("hero.slide2.title"), subtitle: t("hero.slide2.subtitle") },
-    { image: heroWork, headline: t("hero.slide3.title"), subtitle: t("hero.slide3.subtitle") },
+    { image: heroBerlin, headline: t("hero.slide1.title"), subtitle: t("hero.slide1.subtitle"), city: "Berlin" },
+    { image: heroMuenchen, headline: t("hero.slide2.title"), subtitle: t("hero.slide2.subtitle"), city: "München" },
+    { image: heroFrankfurt, headline: t("hero.slide3.title"), subtitle: t("hero.slide3.subtitle"), city: "Frankfurt" },
+    { image: heroHamburg, headline: t("hero.slide1.title"), subtitle: t("hero.slide1.subtitle"), city: "Hamburg" },
+    { image: heroKoeln, headline: t("hero.slide2.title"), subtitle: t("hero.slide2.subtitle"), city: "Köln" },
+    { image: heroStuttgart, headline: t("hero.slide3.title"), subtitle: t("hero.slide3.subtitle"), city: "Stuttgart" },
+    { image: heroDuesseldorf, headline: t("hero.slide1.title"), subtitle: t("hero.slide1.subtitle"), city: "Düsseldorf" },
+    { image: heroNuernberg, headline: t("hero.slide2.title"), subtitle: t("hero.slide2.subtitle"), city: "Nürnberg" },
   ];
 
   const portalCards = [
