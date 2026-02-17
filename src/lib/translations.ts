@@ -50,8 +50,47 @@ type TranslationKeys = {
   "missions.allCountries": string; "missions.allCities": string; "missions.allTypes": string;
   "missions.embassy": string; "missions.consulate": string;
   "missions.results": string; "missions.clearFilters": string; "missions.empty": string;
+  // Portal cards on index
+  "portal.dolazak": string; "portal.dolazak.desc": string;
+  "portal.stan": string; "portal.stan.desc": string;
+  "portal.jobs": string; "portal.jobs.desc": string;
+  "portal.familie": string; "portal.familie.desc": string;
+  "portal.foerderungen": string; "portal.foerderungen.desc": string;
+  "portal.formulare": string; "portal.formulare.desc": string;
+  "portal.tools": string; "portal.tools.desc": string;
+  "portal.ambasade": string; "portal.ambasade.desc": string;
+  // Footer
+  "footer.imprint": string; "footer.privacy": string; "footer.contact": string;
+  "footer.copyright": string; "footer.disclaimer": string;
+  // Wohnungen page
+  "wohnungen.title": string; "wohnungen.subtitle": string;
+  "wohnungen.city": string; "wohnungen.bundesland": string; "wohnungen.radius": string;
+  "wohnungen.allGermany": string; "wohnungen.maxRent": string; "wohnungen.rooms": string;
+  "wohnungen.wg": string; "wohnungen.furnished": string; "wohnungen.shortTerm": string;
+  "wohnungen.longTerm": string; "wohnungen.search": string; "wohnungen.showMore": string;
+  "wohnungen.showLess": string; "wohnungen.portals": string;
+  "wohnungen.portalBig": string; "wohnungen.portalWg": string; "wohnungen.portalSocial": string; "wohnungen.portalShort": string;
+  // Jobs page
+  "jobs.title": string; "jobs.subtitle": string;
+  "jobs.city": string; "jobs.bundesland": string; "jobs.radius": string;
+  "jobs.allGermany": string; "jobs.branche": string; "jobs.vertragsart": string;
+  "jobs.noDeutsch": string; "jobs.mitUnterkunft": string; "jobs.quereinsteiger": string;
+  "jobs.schnellerEinstieg": string; "jobs.search": string; "jobs.showMore": string;
+  "jobs.showLess": string; "jobs.portals": string;
+  "jobs.portalStaatlich": string; "jobs.portalGross": string; "jobs.portalSpezial": string;
+  "jobs.allBranchen": string;
+  // Branche options
+  "branche.pflege": string; "branche.bau": string; "branche.logistik": string;
+  "branche.produktion": string; "branche.reinigung": string; "branche.gastro": string;
+  "branche.it": string; "branche.handwerk": string; "branche.buero": string; "branche.ausbildung": string;
+  // Vertragsart options
+  "vertrag.vollzeit": string; "vertrag.teilzeit": string; "vertrag.minijob": string;
+  "vertrag.ausbildung": string; "vertrag.praktikum": string;
+  // Register CTA
+  "cta.register": string;
 };
 
+// --- Shared partial blocks ---
 const dirBs: Partial<TranslationKeys> = {
   "dir.title": "Poslovni imenik",
   "dir.subtitle": "Pronađi balkanske biznise u Njemačkoj.",
@@ -142,6 +181,192 @@ const missionsEn: Partial<TranslationKeys> = {
   "missions.results": "results", "missions.clearFilters": "Clear filters", "missions.empty": "No results.",
 };
 
+// --- Shared new keys for bs/hr/sr/me ---
+const portalBs: Partial<TranslationKeys> = {
+  "portal.dolazak": "Dolazak", "portal.dolazak.desc": "Dokumenti, prijava, prvi koraci u Njemačkoj.",
+  "portal.stan": "Stan & prijava", "portal.stan.desc": "Pronađi stan i prijavi adresu.",
+  "portal.jobs": "Posao", "portal.jobs.desc": "Pronađi posao u Njemačkoj.",
+  "portal.familie": "Porodica", "portal.familie.desc": "Kindergeld, škola, porodična prava.",
+  "portal.foerderungen": "Pomoći", "portal.foerderungen.desc": "Socijalna pomoć, stambeni dodatak, BAföG.",
+  "portal.formulare": "Formulari", "portal.formulare.desc": "Svi važni obrasci na jednom mjestu.",
+  "portal.tools": "Alati", "portal.tools.desc": "Generatori, kalkulatori, provjere.",
+  "portal.ambasade": "Ambasade", "portal.ambasade.desc": "Diplomatska predstavništva u Njemačkoj.",
+  "footer.imprint": "Impressum", "footer.privacy": "Zaštita podataka", "footer.contact": "Kontakt",
+  "footer.copyright": "Sva prava zadržana.", "footer.disclaimer": "Disclaimer",
+  "cta.register": "Registruj se besplatno",
+  "wohnungen.title": "Pretraga stanova", "wohnungen.subtitle": "Pronađi stan u cijeloj Njemačkoj.",
+  "wohnungen.city": "Grad", "wohnungen.bundesland": "Savezna država", "wohnungen.radius": "Udaljenost",
+  "wohnungen.allGermany": "Cijela Njemačka", "wohnungen.maxRent": "Maks. hladna kirija",
+  "wohnungen.rooms": "Broj soba", "wohnungen.wg": "WG", "wohnungen.furnished": "Namješteno",
+  "wohnungen.shortTerm": "Kratkoročno", "wohnungen.longTerm": "Dugoročno",
+  "wohnungen.search": "Traži stanove", "wohnungen.showMore": "Prikaži više", "wohnungen.showLess": "Prikaži manje",
+  "wohnungen.portals": "Portali za stanove",
+  "wohnungen.portalBig": "Veliki portali", "wohnungen.portalWg": "WG & studenti",
+  "wohnungen.portalSocial": "Socijalno & zadruge", "wohnungen.portalShort": "Kratkoročno",
+  "jobs.title": "Pretraga poslova", "jobs.subtitle": "Pronađi posao u cijeloj Njemačkoj.",
+  "jobs.city": "Grad", "jobs.bundesland": "Savezna država", "jobs.radius": "Udaljenost",
+  "jobs.allGermany": "Cijela Njemačka", "jobs.branche": "Branša", "jobs.vertragsart": "Vrsta ugovora",
+  "jobs.noDeutsch": "Bez znanja njemačkog", "jobs.mitUnterkunft": "Sa smještajem",
+  "jobs.quereinsteiger": "Mogući prekvalifikanti", "jobs.schnellerEinstieg": "Brzi početak",
+  "jobs.search": "Traži poslove", "jobs.showMore": "Prikaži više", "jobs.showLess": "Prikaži manje",
+  "jobs.portals": "Portali za poslove",
+  "jobs.portalStaatlich": "Državni", "jobs.portalGross": "Veliki portali", "jobs.portalSpezial": "Specijalizirani",
+  "jobs.allBranchen": "Sve branše",
+  "branche.pflege": "Njega", "branche.bau": "Građevina", "branche.logistik": "Logistika",
+  "branche.produktion": "Proizvodnja", "branche.reinigung": "Čišćenje", "branche.gastro": "Gastronomija",
+  "branche.it": "IT", "branche.handwerk": "Zanat", "branche.buero": "Kancelarija", "branche.ausbildung": "Obrazovanje",
+  "vertrag.vollzeit": "Puno radno vrijeme", "vertrag.teilzeit": "Pola radnog vremena",
+  "vertrag.minijob": "Minijob", "vertrag.ausbildung": "Obrazovanje", "vertrag.praktikum": "Praktikum",
+};
+
+const portalDe: Partial<TranslationKeys> = {
+  "portal.dolazak": "Ankunft", "portal.dolazak.desc": "Dokumente, Anmeldung, erste Schritte in Deutschland.",
+  "portal.stan": "Wohnung & Anmeldung", "portal.stan.desc": "Wohnung finden und Adresse anmelden.",
+  "portal.jobs": "Arbeit", "portal.jobs.desc": "Arbeit in Deutschland finden.",
+  "portal.familie": "Familie", "portal.familie.desc": "Kindergeld, Schule, Familienrechte.",
+  "portal.foerderungen": "Förderungen", "portal.foerderungen.desc": "Sozialleistungen, Wohngeld, BAföG.",
+  "portal.formulare": "Formulare", "portal.formulare.desc": "Alle wichtigen Formulare an einem Ort.",
+  "portal.tools": "Werkzeuge", "portal.tools.desc": "Generatoren, Rechner, Prüfungen.",
+  "portal.ambasade": "Botschaften", "portal.ambasade.desc": "Diplomatische Vertretungen in Deutschland.",
+  "footer.imprint": "Impressum", "footer.privacy": "Datenschutz", "footer.contact": "Kontakt",
+  "footer.copyright": "Alle Rechte vorbehalten.", "footer.disclaimer": "Disclaimer",
+  "cta.register": "Jetzt kostenlos registrieren",
+  "wohnungen.title": "Wohnungssuche", "wohnungen.subtitle": "Finde eine Wohnung in ganz Deutschland.",
+  "wohnungen.city": "Stadt", "wohnungen.bundesland": "Bundesland", "wohnungen.radius": "Umkreis",
+  "wohnungen.allGermany": "Ganz Deutschland", "wohnungen.maxRent": "Max. Kaltmiete",
+  "wohnungen.rooms": "Zimmeranzahl", "wohnungen.wg": "WG", "wohnungen.furnished": "Möbliert",
+  "wohnungen.shortTerm": "Kurzzeit", "wohnungen.longTerm": "Langzeit",
+  "wohnungen.search": "Wohnungen suchen", "wohnungen.showMore": "Mehr anzeigen", "wohnungen.showLess": "Weniger anzeigen",
+  "wohnungen.portals": "Wohnungsportale",
+  "wohnungen.portalBig": "Große Portale", "wohnungen.portalWg": "WG & Studenten",
+  "wohnungen.portalSocial": "Sozial & Genossenschaften", "wohnungen.portalShort": "Kurzzeit",
+  "jobs.title": "Jobsuche", "jobs.subtitle": "Finde einen Job in ganz Deutschland.",
+  "jobs.city": "Stadt", "jobs.bundesland": "Bundesland", "jobs.radius": "Umkreis",
+  "jobs.allGermany": "Ganz Deutschland", "jobs.branche": "Branche", "jobs.vertragsart": "Vertragsart",
+  "jobs.noDeutsch": "Ohne Deutschkenntnisse", "jobs.mitUnterkunft": "Mit Unterkunft",
+  "jobs.quereinsteiger": "Quereinsteiger möglich", "jobs.schnellerEinstieg": "Schneller Einstieg",
+  "jobs.search": "Jobs suchen", "jobs.showMore": "Mehr anzeigen", "jobs.showLess": "Weniger anzeigen",
+  "jobs.portals": "Jobportale",
+  "jobs.portalStaatlich": "Staatlich", "jobs.portalGross": "Große Portale", "jobs.portalSpezial": "Spezialportale",
+  "jobs.allBranchen": "Alle Branchen",
+  "branche.pflege": "Pflege", "branche.bau": "Bau", "branche.logistik": "Logistik & Lager",
+  "branche.produktion": "Produktion", "branche.reinigung": "Reinigung", "branche.gastro": "Gastronomie",
+  "branche.it": "IT", "branche.handwerk": "Handwerk", "branche.buero": "Büro", "branche.ausbildung": "Ausbildung",
+  "vertrag.vollzeit": "Vollzeit", "vertrag.teilzeit": "Teilzeit",
+  "vertrag.minijob": "Minijob", "vertrag.ausbildung": "Ausbildung", "vertrag.praktikum": "Praktikum",
+};
+
+const portalEn: Partial<TranslationKeys> = {
+  "portal.dolazak": "Arrival", "portal.dolazak.desc": "Documents, registration, first steps in Germany.",
+  "portal.stan": "Housing & Registration", "portal.stan.desc": "Find housing and register your address.",
+  "portal.jobs": "Jobs", "portal.jobs.desc": "Find work in Germany.",
+  "portal.familie": "Family", "portal.familie.desc": "Child benefit, schools, family rights.",
+  "portal.foerderungen": "Benefits", "portal.foerderungen.desc": "Social benefits, housing benefit, BAföG.",
+  "portal.formulare": "Forms", "portal.formulare.desc": "All important forms in one place.",
+  "portal.tools": "Tools", "portal.tools.desc": "Generators, calculators, checks.",
+  "portal.ambasade": "Embassies", "portal.ambasade.desc": "Diplomatic missions in Germany.",
+  "footer.imprint": "Imprint", "footer.privacy": "Privacy Policy", "footer.contact": "Contact",
+  "footer.copyright": "All rights reserved.", "footer.disclaimer": "Disclaimer",
+  "cta.register": "Register for free",
+  "wohnungen.title": "Housing Search", "wohnungen.subtitle": "Find an apartment across Germany.",
+  "wohnungen.city": "City", "wohnungen.bundesland": "State", "wohnungen.radius": "Radius",
+  "wohnungen.allGermany": "All of Germany", "wohnungen.maxRent": "Max. cold rent",
+  "wohnungen.rooms": "Rooms", "wohnungen.wg": "Shared flat", "wohnungen.furnished": "Furnished",
+  "wohnungen.shortTerm": "Short-term", "wohnungen.longTerm": "Long-term",
+  "wohnungen.search": "Search apartments", "wohnungen.showMore": "Show more", "wohnungen.showLess": "Show less",
+  "wohnungen.portals": "Housing portals",
+  "wohnungen.portalBig": "Major portals", "wohnungen.portalWg": "Shared flats & students",
+  "wohnungen.portalSocial": "Social & cooperatives", "wohnungen.portalShort": "Short-term",
+  "jobs.title": "Job Search", "jobs.subtitle": "Find a job across Germany.",
+  "jobs.city": "City", "jobs.bundesland": "State", "jobs.radius": "Radius",
+  "jobs.allGermany": "All of Germany", "jobs.branche": "Industry", "jobs.vertragsart": "Contract type",
+  "jobs.noDeutsch": "No German required", "jobs.mitUnterkunft": "With accommodation",
+  "jobs.quereinsteiger": "Career changers welcome", "jobs.schnellerEinstieg": "Quick start",
+  "jobs.search": "Search jobs", "jobs.showMore": "Show more", "jobs.showLess": "Show less",
+  "jobs.portals": "Job portals",
+  "jobs.portalStaatlich": "Government", "jobs.portalGross": "Major portals", "jobs.portalSpezial": "Specialized",
+  "jobs.allBranchen": "All industries",
+  "branche.pflege": "Healthcare", "branche.bau": "Construction", "branche.logistik": "Logistics",
+  "branche.produktion": "Manufacturing", "branche.reinigung": "Cleaning", "branche.gastro": "Hospitality",
+  "branche.it": "IT", "branche.handwerk": "Trades", "branche.buero": "Office", "branche.ausbildung": "Training",
+  "vertrag.vollzeit": "Full-time", "vertrag.teilzeit": "Part-time",
+  "vertrag.minijob": "Mini job", "vertrag.ausbildung": "Apprenticeship", "vertrag.praktikum": "Internship",
+};
+
+const portalSq: Partial<TranslationKeys> = {
+  "portal.dolazak": "Mbërritja", "portal.dolazak.desc": "Dokumentet, regjistrimi, hapat e parë në Gjermani.",
+  "portal.stan": "Banesa & regjistrimi", "portal.stan.desc": "Gjej banesë dhe regjistro adresën.",
+  "portal.jobs": "Punë", "portal.jobs.desc": "Gjej punë në Gjermani.",
+  "portal.familie": "Familja", "portal.familie.desc": "Kindergeld, shkolla, të drejtat familjare.",
+  "portal.foerderungen": "Ndihma", "portal.foerderungen.desc": "Ndihma sociale, strehimi, BAföG.",
+  "portal.formulare": "Formularët", "portal.formulare.desc": "Të gjitha formularët e rëndësishëm.",
+  "portal.tools": "Mjetet", "portal.tools.desc": "Gjeneratorë, kalkulatorë, kontrolle.",
+  "portal.ambasade": "Ambasadat", "portal.ambasade.desc": "Përfaqësitë diplomatike në Gjermani.",
+  "footer.imprint": "Impressum", "footer.privacy": "Mbrojtja e të dhënave", "footer.contact": "Kontakti",
+  "footer.copyright": "Të gjitha të drejtat e rezervuara.", "footer.disclaimer": "Disclaimer",
+  "cta.register": "Regjistrohu falas",
+  "wohnungen.title": "Kërkimi i banesës", "wohnungen.subtitle": "Gjej banesë në gjithë Gjermaninë.",
+  "wohnungen.city": "Qyteti", "wohnungen.bundesland": "Landi", "wohnungen.radius": "Rrethi",
+  "wohnungen.allGermany": "E gjithë Gjermania", "wohnungen.maxRent": "Qiraja max.",
+  "wohnungen.rooms": "Dhomat", "wohnungen.wg": "WG", "wohnungen.furnished": "E mobiluar",
+  "wohnungen.shortTerm": "Afatshkurtër", "wohnungen.longTerm": "Afatgjatë",
+  "wohnungen.search": "Kërko banesa", "wohnungen.showMore": "Shfaq më shumë", "wohnungen.showLess": "Shfaq më pak",
+  "wohnungen.portals": "Portalet e banesave",
+  "wohnungen.portalBig": "Portalet kryesore", "wohnungen.portalWg": "WG & studentë",
+  "wohnungen.portalSocial": "Sociale & kooperativa", "wohnungen.portalShort": "Afatshkurtër",
+  "jobs.title": "Kërkimi i punës", "jobs.subtitle": "Gjej punë në gjithë Gjermaninë.",
+  "jobs.city": "Qyteti", "jobs.bundesland": "Landi", "jobs.radius": "Rrethi",
+  "jobs.allGermany": "E gjithë Gjermania", "jobs.branche": "Sektori", "jobs.vertragsart": "Lloji i kontratës",
+  "jobs.noDeutsch": "Pa gjermanisht", "jobs.mitUnterkunft": "Me strehim",
+  "jobs.quereinsteiger": "Ndërrim profesioni", "jobs.schnellerEinstieg": "Fillim i shpejtë",
+  "jobs.search": "Kërko punë", "jobs.showMore": "Shfaq më shumë", "jobs.showLess": "Shfaq më pak",
+  "jobs.portals": "Portalet e punës",
+  "jobs.portalStaatlich": "Shtetëror", "jobs.portalGross": "Portalet kryesore", "jobs.portalSpezial": "Të specializuar",
+  "jobs.allBranchen": "Të gjitha sektorët",
+  "branche.pflege": "Kujdesi", "branche.bau": "Ndërtimtaria", "branche.logistik": "Logjistika",
+  "branche.produktion": "Prodhimi", "branche.reinigung": "Pastrimi", "branche.gastro": "Gastronomia",
+  "branche.it": "IT", "branche.handwerk": "Zejtaria", "branche.buero": "Zyra", "branche.ausbildung": "Formimi",
+  "vertrag.vollzeit": "Kohë e plotë", "vertrag.teilzeit": "Gjysmë kohe",
+  "vertrag.minijob": "Minijob", "vertrag.ausbildung": "Formim", "vertrag.praktikum": "Praktikë",
+};
+
+const portalMk: Partial<TranslationKeys> = {
+  "portal.dolazak": "Пристигнување", "portal.dolazak.desc": "Документи, пријава, први чекори во Германија.",
+  "portal.stan": "Стан & пријава", "portal.stan.desc": "Пронајди стан и пријави адреса.",
+  "portal.jobs": "Работа", "portal.jobs.desc": "Пронајди работа во Германија.",
+  "portal.familie": "Семејство", "portal.familie.desc": "Kindergeld, училиште, семејни права.",
+  "portal.foerderungen": "Помош", "portal.foerderungen.desc": "Социјална помош, станбен додаток, BAföG.",
+  "portal.formulare": "Формулари", "portal.formulare.desc": "Сите важни обрасци на едно место.",
+  "portal.tools": "Алатки", "portal.tools.desc": "Генератори, калкулатори, проверки.",
+  "portal.ambasade": "Амбасади", "portal.ambasade.desc": "Дипломатски претставништва во Германија.",
+  "footer.imprint": "Impressum", "footer.privacy": "Заштита на податоци", "footer.contact": "Контакт",
+  "footer.copyright": "Сите права задржани.", "footer.disclaimer": "Disclaimer",
+  "cta.register": "Регистрирај се бесплатно",
+  "wohnungen.title": "Пребарување станови", "wohnungen.subtitle": "Пронајди стан во цела Германија.",
+  "wohnungen.city": "Град", "wohnungen.bundesland": "Сојузна држава", "wohnungen.radius": "Растојание",
+  "wohnungen.allGermany": "Цела Германија", "wohnungen.maxRent": "Макс. ладна кирија",
+  "wohnungen.rooms": "Број на соби", "wohnungen.wg": "WG", "wohnungen.furnished": "Наместен",
+  "wohnungen.shortTerm": "Краткорочно", "wohnungen.longTerm": "Долгорочно",
+  "wohnungen.search": "Барај станови", "wohnungen.showMore": "Прикажи повеќе", "wohnungen.showLess": "Прикажи помалку",
+  "wohnungen.portals": "Портали за станови",
+  "wohnungen.portalBig": "Големи портали", "wohnungen.portalWg": "WG & студенти",
+  "wohnungen.portalSocial": "Социјално & задруги", "wohnungen.portalShort": "Краткорочно",
+  "jobs.title": "Пребарување работа", "jobs.subtitle": "Пронајди работа во цела Германија.",
+  "jobs.city": "Град", "jobs.bundesland": "Сојузна држава", "jobs.radius": "Растојание",
+  "jobs.allGermany": "Цела Германија", "jobs.branche": "Бранша", "jobs.vertragsart": "Вид на договор",
+  "jobs.noDeutsch": "Без знаење германски", "jobs.mitUnterkunft": "Со сместување",
+  "jobs.quereinsteiger": "Преквалификанти", "jobs.schnellerEinstieg": "Брз почеток",
+  "jobs.search": "Барај работа", "jobs.showMore": "Прикажи повеќе", "jobs.showLess": "Прикажи помалку",
+  "jobs.portals": "Портали за работа",
+  "jobs.portalStaatlich": "Државни", "jobs.portalGross": "Големи портали", "jobs.portalSpezial": "Специјализирани",
+  "jobs.allBranchen": "Сите бранши",
+  "branche.pflege": "Нега", "branche.bau": "Градежништво", "branche.logistik": "Логистика",
+  "branche.produktion": "Производство", "branche.reinigung": "Чистење", "branche.gastro": "Гастрономија",
+  "branche.it": "IT", "branche.handwerk": "Занает", "branche.buero": "Канцеларија", "branche.ausbildung": "Образование",
+  "vertrag.vollzeit": "Полно работно време", "vertrag.teilzeit": "Половина работно време",
+  "vertrag.minijob": "Minijob", "vertrag.ausbildung": "Образование", "vertrag.praktikum": "Практика",
+};
+
 const translations: Record<Language, TranslationKeys> = {
   bs: {
     "nav.home": "Početna", "nav.qa": "Pitanja i odgovori", "nav.directory": "Imenik",
@@ -162,7 +387,7 @@ const translations: Record<Language, TranslationKeys> = {
     "qa.title": "Pitanja i odgovori", "qa.subtitle": "Pronađi odgovor na svoje pitanje — brzo i na našem jeziku.",
     "qa.search": "Pretraži...", "qa.all": "Sve teme", "qa.results": "rezultata",
     "qa.empty": "Nema rezultata. Pokušaj sa drugim pojmom.",
-    ...dirBs as any, ...missionsBs as any,
+    ...dirBs as any, ...missionsBs as any, ...portalBs as any,
   },
   hr: {
     "nav.home": "Početna", "nav.qa": "Pitanja i odgovori", "nav.directory": "Imenik",
@@ -183,7 +408,7 @@ const translations: Record<Language, TranslationKeys> = {
     "qa.title": "Pitanja i odgovori", "qa.subtitle": "Pronađi odgovor na svoje pitanje — brzo i na tvom jeziku.",
     "qa.search": "Pretraži...", "qa.all": "Sve teme", "qa.results": "rezultata",
     "qa.empty": "Nema rezultata. Pokušaj s drugim pojmom.",
-    ...dirBs as any, ...missionsBs as any,
+    ...dirBs as any, ...missionsBs as any, ...portalBs as any,
     "dir.filterOrigin": "Zemlja podrijetla", "dir.fieldOrigin": "Zemlja podrijetla",
     "dir.backToDirectory": "Natrag na imenik",
   },
@@ -206,7 +431,7 @@ const translations: Record<Language, TranslationKeys> = {
     "qa.title": "Pitanja i odgovori", "qa.subtitle": "Pronađi odgovor na svoje pitanje — brzo i na tvom jeziku.",
     "qa.search": "Pretraži...", "qa.all": "Sve teme", "qa.results": "rezultata",
     "qa.empty": "Nema rezultata. Pokušaj sa drugim pojmom.",
-    ...dirBs as any, ...missionsBs as any,
+    ...dirBs as any, ...missionsBs as any, ...portalBs as any,
     "dir.subtitle": "Pronađi balkanske biznise u Nemačkoj.",
     "dir.filterOrigin": "Zemlja porekla", "dir.fieldOrigin": "Zemlja porekla",
     "dir.submitSubtitle": "Popuni formu i tvoj biznis će biti vidljiv nakon provere.",
@@ -233,7 +458,7 @@ const translations: Record<Language, TranslationKeys> = {
     "qa.title": "Pitanja i odgovori", "qa.subtitle": "Pronađi odgovor na svoje pitanje — brzo i na tvom jeziku.",
     "qa.search": "Pretraži...", "qa.all": "Sve teme", "qa.results": "rezultata",
     "qa.empty": "Nema rezultata. Pokušaj sa drugim pojmom.",
-    ...dirBs as any, ...missionsBs as any,
+    ...dirBs as any, ...missionsBs as any, ...portalBs as any,
   },
   sq: {
     "nav.home": "Ballina", "nav.qa": "Pyetje dhe përgjigje", "nav.directory": "Drejtoria",
@@ -254,7 +479,7 @@ const translations: Record<Language, TranslationKeys> = {
     "qa.title": "Pyetje dhe përgjigje", "qa.subtitle": "Gjej përgjigjen e pyetjes tënde — shpejt dhe në gjuhën tënde.",
     "qa.search": "Kërko...", "qa.all": "Të gjitha temat", "qa.results": "rezultate",
     "qa.empty": "Nuk ka rezultate. Provo me një term tjetër.",
-    ...dirSq as any, ...missionsSq as any,
+    ...dirSq as any, ...missionsSq as any, ...portalSq as any,
   },
   xk: {
     "nav.home": "Ballina", "nav.qa": "Pyetje dhe përgjigje", "nav.directory": "Drejtoria",
@@ -275,7 +500,7 @@ const translations: Record<Language, TranslationKeys> = {
     "qa.title": "Pyetje dhe përgjigje", "qa.subtitle": "Gjej përgjigjen e pyetjes tënde — shpejt dhe në gjuhën tënde.",
     "qa.search": "Kërko...", "qa.all": "Të gjitha temat", "qa.results": "rezultate",
     "qa.empty": "Nuk ka rezultate. Provo me një term tjetër.",
-    ...dirSq as any, ...missionsSq as any,
+    ...dirSq as any, ...missionsSq as any, ...portalSq as any,
   },
   mk: {
     "nav.home": "Почетна", "nav.qa": "Прашања и одговори", "nav.directory": "Именик",
@@ -311,7 +536,7 @@ const translations: Record<Language, TranslationKeys> = {
     "dir.submitSuccess": "Бизнисот е додаден! Ќе биде видлив по проверка.",
     "dir.submitError": "Грешка. Обиди се повторно.",
     "dir.loginRequired": "Мора да бидеш најавен за да додадеш бизнис.",
-    ...missionsMk as any,
+    ...missionsMk as any, ...portalMk as any,
   },
   de: {
     "nav.home": "Startseite", "nav.qa": "Fragen & Antworten", "nav.directory": "Verzeichnis",
@@ -347,7 +572,7 @@ const translations: Record<Language, TranslationKeys> = {
     "dir.submitSuccess": "Geschäft hinzugefügt! Wird nach Prüfung sichtbar.",
     "dir.submitError": "Fehler. Versuche es erneut.",
     "dir.loginRequired": "Du musst angemeldet sein, um ein Geschäft hinzuzufügen.",
-    ...missionsDe as any,
+    ...missionsDe as any, ...portalDe as any,
   },
   en: {
     "nav.home": "Home", "nav.qa": "Q&A", "nav.directory": "Directory",
@@ -383,7 +608,7 @@ const translations: Record<Language, TranslationKeys> = {
     "dir.submitSuccess": "Business added! It will be visible after review.",
     "dir.submitError": "Error. Please try again.",
     "dir.loginRequired": "You must be signed in to add a business.",
-    ...missionsEn as any,
+    ...missionsEn as any, ...portalEn as any,
   },
 };
 
