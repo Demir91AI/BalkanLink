@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
+import { useAuth } from "@/contexts/AuthContext";
 
 const navLinks = [
   { label: "Početna", to: "/" },
@@ -13,11 +14,11 @@ const navLinks = [
 export default function Header() {
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
+  const { user, loading, signOut } = useAuth();
 
   return (
     <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-md">
       <div className="container flex h-16 items-center justify-between">
-        {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary font-heading text-sm font-bold text-primary-foreground">
             BD
@@ -27,7 +28,6 @@ export default function Header() {
           </span>
         </Link>
 
-        {/* Desktop nav */}
         <nav className="hidden items-center gap-1 md:flex">
           {navLinks.map((link) => (
             <Link
@@ -42,17 +42,25 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Desktop CTA */}
         <div className="hidden items-center gap-2 md:flex">
-          <Button variant="ghost" size="sm" asChild>
-            <Link to="/login">Prijava</Link>
-          </Button>
-          <Button size="sm" asChild>
-            <Link to="/register">Registracija</Link>
-          </Button>
+          {!loading && !user && (
+            <>
+              <Button variant="ghost" size="sm" asChild>
+                <Link to="/login">Prijava</Link>
+              </Button>
+              <Button size="sm" asChild>
+                <Link to="/register">Registracija</Link>
+              </Button>
+            </>
+          )}
+          {!loading && user && (
+            <Button variant="ghost" size="sm" onClick={signOut}>
+              <LogOut className="mr-2 h-4 w-4" />
+              Odjava
+            </Button>
+          )}
         </div>
 
-        {/* Mobile menu */}
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild className="md:hidden">
             <Button variant="ghost" size="icon">
@@ -78,12 +86,22 @@ export default function Header() {
                 </Link>
               ))}
               <div className="my-4 border-t" />
-              <Button variant="ghost" size="sm" asChild className="justify-start">
-                <Link to="/login" onClick={() => setOpen(false)}>Prijava</Link>
-              </Button>
-              <Button size="sm" asChild>
-                <Link to="/register" onClick={() => setOpen(false)}>Registracija</Link>
-              </Button>
+              {!loading && !user && (
+                <>
+                  <Button variant="ghost" size="sm" asChild className="justify-start">
+                    <Link to="/login" onClick={() => setOpen(false)}>Prijava</Link>
+                  </Button>
+                  <Button size="sm" asChild>
+                    <Link to="/register" onClick={() => setOpen(false)}>Registracija</Link>
+                  </Button>
+                </>
+              )}
+              {!loading && user && (
+                <Button variant="ghost" size="sm" onClick={() => { signOut(); setOpen(false); }} className="justify-start">
+                  <LogOut className="mr-2 h-4 w-4" />
+                  Odjava
+                </Button>
+              )}
             </nav>
           </SheetContent>
         </Sheet>
