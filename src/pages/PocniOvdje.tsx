@@ -61,12 +61,12 @@ function pt(lang: string, key: string): string {
 }
 
 const cards = [
-  { icon: Home, titleKey: "anmeldung", descKey: "anmeldungDesc", to: "/dolazak/anmeldung" },
-  { icon: FileText, titleKey: "aufenthalt", descKey: "aufenthaltDesc", to: "/dolazak/aufenthalt" },
-  { icon: CreditCard, titleKey: "steuer", descKey: "steuerDesc", to: "/dolazak/steuer" },
-  { icon: Heart, titleKey: "kranken", descKey: "krankenDesc", to: "/dolazak/krankenversicherung" },
-  { icon: Landmark, titleKey: "bank", descKey: "bankDesc", to: "/dolazak/bankkonto" },
-  { icon: ClipboardList, titleKey: "schritte", descKey: "schritteDesc", to: "/dolazak/erste-schritte" },
+  { icon: Home, titleKey: "anmeldung", descKey: "anmeldungDesc", to: "/dolazak/prijava-prebivalista" },
+  { icon: FileText, titleKey: "aufenthalt", descKey: "aufenthaltDesc", to: "/dolazak/boravisna-dozvola" },
+  { icon: CreditCard, titleKey: "steuer", descKey: "steuerDesc", to: "/dolazak/steuer-id-i-porezna-klasa" },
+  { icon: Heart, titleKey: "kranken", descKey: "krankenDesc", to: "/dolazak/zdravstveno-osiguranje" },
+  { icon: Landmark, titleKey: "bank", descKey: "bankDesc", to: "/dolazak/bankovni-racun" },
+  { icon: ClipboardList, titleKey: "schritte", descKey: "schritteDesc", to: "/dolazak/prvi-koraci" },
 ];
 
 export default function PocniOvdje() {
