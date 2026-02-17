@@ -1,81 +1,87 @@
-import { ArrowRight, HandCoins } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowRight, Home, Briefcase, HeartPulse, GraduationCap } from "lucide-react";
+import { motion } from "framer-motion";
+import { getGuidesByCategory, type Guide } from "@/lib/guide-data";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const items = [
-  {
-    title: "Wohngeld",
-    desc: "Stambeni dodatak za osobe sa niskim primanjima.",
-    law: "WoGG",
-    link: "https://www.gesetze-im-internet.de/wogg/",
-  },
-  {
-    title: "Bürgergeld",
-    desc: "Osnovna naknada za tražitelje posla.",
-    law: "SGB II",
-    link: "https://www.gesetze-im-internet.de/sgb_2/",
-  },
-  {
-    title: "Aufstiegs-BAföG",
-    desc: "Podrška za stručno usavršavanje i majstorske ispite.",
-    law: "AFBG",
-    link: "https://www.gesetze-im-internet.de/afbg/",
-  },
-  {
-    title: "Pflegeunterstützungsgeld",
-    desc: "Naknada za zaposlene koji njegu člana porodice.",
-    law: "SGB XI",
-    link: "https://www.gesetze-im-internet.de/sgb_11/",
-  },
-  {
-    title: "Weitere staatliche Hilfen",
-    desc: "Pregled dodatnih državnih pomoći i naknada.",
-    law: "SGB XII",
-    link: "https://www.gesetze-im-internet.de/sgb_12/",
-  },
-];
+type LangKey = "de" | "bs" | "en";
+function getLangKey(lang: string): LangKey {
+  if (lang === "de") return "de";
+  if (lang === "en") return "en";
+  return "bs";
+}
+
+const categoryMeta: Record<Guide["category"], { icon: any; label: { de: string; bs: string; en: string } }> = {
+  wohnen: { icon: Home, label: { de: "Wohnen", bs: "Stanovanje", en: "Housing" } },
+  arbeit: { icon: Briefcase, label: { de: "Arbeit", bs: "Posao", en: "Work" } },
+  gesundheit: { icon: HeartPulse, label: { de: "Gesundheit", bs: "Zdravlje", en: "Health" } },
+  bildung: { icon: GraduationCap, label: { de: "Kinder & Bildung", bs: "Djeca i obrazovanje", en: "Children & Education" } },
+  familie: { icon: Home, label: { de: "Familie", bs: "Porodica", en: "Family" } },
+};
+
+const titles = {
+  de: { title: "Förderungen & Zuschüsse", subtitle: "Alle staatlichen Hilfen — mit Ausfüllhilfe und Schritt-für-Schritt Anleitung." },
+  bs: { title: "Pomoći i naknade", subtitle: "Sve državne pomoći — sa uputstvima za popunjavanje korak po korak." },
+  en: { title: "Benefits & Subsidies", subtitle: "All government benefits — with step-by-step filling guides." },
+};
 
 export default function Foerderungen() {
+  const { language } = useLanguage();
+  const lk = getLangKey(language);
+  const t = titles[lk];
+
+  const categories: Guide["category"][] = ["wohnen", "arbeit", "gesundheit", "bildung"];
+
   return (
     <>
       <section className="border-b bg-primary py-12">
         <div className="container text-center">
-          <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">
-            Förderungen & Zuschüsse
-          </h1>
-          <p className="mt-2 text-sm text-primary-foreground/80 md:text-base">
-            Državne pomoći i naknade na koje imaš pravo.
-          </p>
+          <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">{t.title}</h1>
+          <p className="mt-2 text-sm text-primary-foreground/80 md:text-base">{t.subtitle}</p>
         </div>
       </section>
 
       <section className="py-12">
-        <div className="container max-w-3xl">
-          <div className="space-y-3">
-            {items.map((item, idx) => (
-              <div
-                key={idx}
-                className="flex items-start gap-4 rounded-lg border bg-card p-5 shadow-sm"
-              >
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
-                  <HandCoins className="h-5 w-5" strokeWidth={1.5} />
+        <div className="container max-w-3xl space-y-10">
+          {categories.map((cat) => {
+            const meta = categoryMeta[cat];
+            const guides = getGuidesByCategory(cat);
+            if (guides.length === 0) return null;
+            const CatIcon = meta.icon;
+            return (
+              <div key={cat}>
+                <div className="mb-4 flex items-center gap-2">
+                  <CatIcon className="h-5 w-5 text-gold" strokeWidth={1.5} />
+                  <h2 className="text-base font-bold">{meta.label[lk]}</h2>
                 </div>
-                <div className="min-w-0 flex-1">
-                  <h2 className="text-sm font-semibold">{item.title}</h2>
-                  <p className="mt-1 text-xs text-muted-foreground">{item.desc}</p>
-                  <p className="mt-2 text-xs text-muted-foreground">
-                    <span className="font-medium">Zakon:</span> {item.law} —{" "}
-                    <a
-                      href={item.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary underline hover:no-underline"
+                <motion.div
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true }}
+                  variants={{ hidden: {}, show: { transition: { staggerChildren: 0.05 } } }}
+                  className="grid gap-3 sm:grid-cols-2"
+                >
+                  {guides.map((guide) => (
+                    <motion.div
+                      key={guide.slug}
+                      variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}
                     >
-                      Službeni izvor
-                    </a>
-                  </p>
-                </div>
+                      <Link
+                        to={`/guide/${guide.slug}`}
+                        className="group flex items-center gap-3 rounded-xl border bg-card p-4 shadow-sm transition-all duration-300 hover:border-gold/40 hover:shadow-md"
+                      >
+                        <div className="min-w-0 flex-1">
+                          <h3 className="text-sm font-semibold">{guide.title[lk]}</h3>
+                          <p className="mt-0.5 text-xs text-muted-foreground line-clamp-1">{guide.who[lk]}</p>
+                        </div>
+                        <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground/30 transition-colors group-hover:text-gold" />
+                      </Link>
+                    </motion.div>
+                  ))}
+                </motion.div>
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </section>
     </>

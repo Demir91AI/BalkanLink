@@ -15,7 +15,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 30% 12%;
 
-    --primary: 220 85% 30%;
+    --primary: 220 85% 22%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 220 15% 95%;
@@ -27,12 +27,15 @@
     --accent: 220 15% 93%;
     --accent-foreground: 220 30% 20%;
 
+    --gold: 42 78% 52%;
+    --gold-foreground: 42 10% 10%;
+
     --destructive: 0 70% 40%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 220 13% 90%;
     --input: 220 13% 90%;
-    --ring: 220 85% 30%;
+    --ring: 220 85% 22%;
 
     --radius: 0.5rem;
 
@@ -43,12 +46,12 @@
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 220 25% 20%;
-    --sidebar-primary: 220 85% 30%;
+    --sidebar-primary: 220 85% 22%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 220 15% 93%;
     --sidebar-accent-foreground: 220 30% 20%;
     --sidebar-border: 220 13% 90%;
-    --sidebar-ring: 220 85% 30%;
+    --sidebar-ring: 220 85% 22%;
   }
 
   .dark {
@@ -61,7 +64,7 @@
     --popover: 222 40% 9%;
     --popover-foreground: 210 30% 95%;
 
-    --primary: 220 70% 50%;
+    --primary: 220 70% 45%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 220 25% 16%;
@@ -73,12 +76,15 @@
     --accent: 220 25% 16%;
     --accent-foreground: 210 30% 90%;
 
+    --gold: 42 70% 48%;
+    --gold-foreground: 42 10% 95%;
+
     --destructive: 0 55% 35%;
     --destructive-foreground: 210 30% 95%;
 
     --border: 220 25% 18%;
     --input: 220 25% 18%;
-    --ring: 220 70% 50%;
+    --ring: 220 70% 45%;
 
     --success: 145 50% 38%;
     --success-foreground: 0 0% 100%;
@@ -87,12 +93,12 @@
 
     --sidebar-background: 222 40% 8%;
     --sidebar-foreground: 210 20% 90%;
-    --sidebar-primary: 220 70% 50%;
+    --sidebar-primary: 220 70% 45%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 220 25% 16%;
     --sidebar-accent-foreground: 210 20% 90%;
     --sidebar-border: 220 25% 18%;
-    --sidebar-ring: 220 70% 50%;
+    --sidebar-ring: 220 70% 45%;
   }
 }
 
@@ -107,5 +113,23 @@
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading tracking-tight;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/10 backdrop-blur-xl border border-white/20;
+  }
+  .glass-dark {
+    @apply bg-black/20 backdrop-blur-xl border border-white/10;
+  }
+  .text-gold {
+    color: hsl(var(--gold));
+  }
+  .bg-gold {
+    background-color: hsl(var(--gold));
+  }
+  .border-gold {
+    border-color: hsl(var(--gold));
   }
 }

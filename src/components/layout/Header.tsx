@@ -10,7 +10,7 @@ export default function Header() {
   const { t, language, setLanguage, languages, currentFlag } = useLanguage();
 
   return (
-    <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b bg-background/90 backdrop-blur-xl">
       <div className="container flex h-14 items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
@@ -18,7 +18,7 @@ export default function Header() {
             BD
           </div>
           <span className="font-heading text-lg font-bold">
-            Balkan<span className="text-primary">DE</span>
+            Balkan<span className="text-gold">DE</span>
           </span>
         </Link>
 
