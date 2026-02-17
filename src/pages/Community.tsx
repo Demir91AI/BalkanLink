@@ -1,308 +1,585 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { GERMAN_CITIES_FULL, BUNDESLAENDER, UMKREIS_OPTIONS } from "@/lib/germany-data";
 import {
-  UtensilsCrossed, Store, Users, Moon, Calendar,
-  MapPin, Globe, ExternalLink, Instagram, ChevronDown, ChevronUp,
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { GERMAN_CITIES_FULL } from "@/lib/germany-data";
+import {
+  MapPin,
+  Globe,
+  Instagram,
+  ChevronDown,
+  ExternalLink,
 } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+
+/* ─── constants ─── */
 
 const ORIGIN_COUNTRIES = [
-  { code: "BIH", label: "Bosnien und Herzegowina", flag: "🇧🇦" },
-  { code: "HR", label: "Kroatien", flag: "🇭🇷" },
-  { code: "SRB", label: "Serbien", flag: "🇷🇸" },
-  { code: "CG", label: "Montenegro", flag: "🇲🇪" },
-  { code: "MK", label: "Nordmazedonien", flag: "🇲🇰" },
-  { code: "AL", label: "Albanien", flag: "🇦🇱" },
-  { code: "KS", label: "Kosovo", flag: "🇽🇰" },
+  { code: "BIH", label: "Bosnien und Herzegowina" },
+  { code: "HR", label: "Kroatien" },
+  { code: "SRB", label: "Serbien" },
+  { code: "CG", label: "Montenegro" },
+  { code: "MK", label: "Nordmazedonien" },
+  { code: "AL", label: "Albanien" },
+  { code: "KS", label: "Kosovo" },
 ];
 
-interface CategoryGroup {
-  key: string;
-  icon: LucideIcon;
-  subs: string[];
-}
-
-const CATEGORY_GROUPS: CategoryGroup[] = [
-  { key: "restaurants", icon: UtensilsCrossed, subs: ["Restaurant", "Café", "Bäckerei", "Grill"] },
-  { key: "shops", icon: Store, subs: ["Supermarkt", "Metzgerei", "Spezialitätenladen"] },
-  { key: "vereine", icon: Users, subs: ["Sportverein", "Folklor", "Studentenverein", "Humanitäre Organisation", "Kulturverein"] },
-  { key: "moscheen", icon: Moon, subs: ["Moschee", "Gemeinde", "Kulturzentrum"] },
-  { key: "events", icon: Calendar, subs: ["Konzert", "Sportturnier", "Kulturabend", "Religiöses Fest"] },
+const MAIN_CATEGORIES = [
+  { key: "restaurants", label: "Restaurants" },
+  { key: "shops", label: "Shops" },
+  { key: "vereine", label: "Vereine" },
+  { key: "moscheen", label: "Moscheen / Džemate" },
+  { key: "events", label: "Veranstaltungen" },
 ];
 
-const ALL_SUBS = CATEGORY_GROUPS.flatMap((g) => g.subs);
+/* ─── translations ─── */
 
-// Translation keys for community page
 const T: Record<string, Record<string, string>> = {
-  bs: {
-    title: "Balkanska zajednica u Njemačkoj",
-    subtitle: "Pronađi restorane, trgovine, udruženja i događaje balkanske zajednice.",
-    city: "Grad", bundesland: "Savezna država", radius: "Udaljenost",
-    origin: "Zemlja porijekla", category: "Kategorija",
-    allOrigins: "Sve zemlje", allCategories: "Sve kategorije", allBundeslaender: "Sve države",
-    results: "rezultata", noResults: "Nema rezultata.",
-    restaurants: "Restorani & kafići", shops: "Balkanske trgovine",
-    vereine: "Udruženja & kultura", moscheen: "Džamije & zajednice", events: "Događaji",
-    website: "Web stranica", address: "Adresa", maps: "Google Maps",
-  },
   de: {
     title: "Balkan Community in Deutschland",
-    subtitle: "Finde Restaurants, Shops, Vereine und Veranstaltungen der Balkan-Community.",
-    city: "Stadt", bundesland: "Bundesland", radius: "Umkreis",
-    origin: "Herkunftsland", category: "Kategorie",
-    allOrigins: "Alle Länder", allCategories: "Alle Kategorien", allBundeslaender: "Alle Bundesländer",
-    results: "Ergebnisse", noResults: "Keine Ergebnisse.",
-    restaurants: "Restaurants & Cafés", shops: "Balkan Shops",
-    vereine: "Vereine & Kultur", moscheen: "Moscheen & Gemeinden", events: "Veranstaltungen",
-    website: "Website", address: "Adresse", maps: "Google Maps",
+    subtitle:
+      "Finde Restaurants, Shops, Vereine und Gemeinden – strukturiert und schnell.",
+    country: "Herkunftsland",
+    city: "Stadt suchen…",
+    category: "Kategorie",
+    allCountries: "Alle Länder",
+    allCategories: "Alle Kategorien",
+    results: "Einträge",
+    cities: "Städte",
+    noResults: "Keine Einträge gefunden.",
+    maps: "Google Maps",
+    website: "Website",
+  },
+  bs: {
+    title: "Balkanska zajednica u Njemačkoj",
+    subtitle:
+      "Pronađi restorane, trgovine, udruženja i zajednice – strukturirano i brzo.",
+    country: "Zemlja porijekla",
+    city: "Traži grad…",
+    category: "Kategorija",
+    allCountries: "Sve zemlje",
+    allCategories: "Sve kategorije",
+    results: "unosa",
+    cities: "gradova",
+    noResults: "Nema pronađenih unosa.",
+    maps: "Google Maps",
+    website: "Web stranica",
   },
   en: {
     title: "Balkan Community in Germany",
-    subtitle: "Find restaurants, shops, associations and events of the Balkan community.",
-    city: "City", bundesland: "State", radius: "Radius",
-    origin: "Country of origin", category: "Category",
-    allOrigins: "All countries", allCategories: "All categories", allBundeslaender: "All states",
-    results: "results", noResults: "No results.",
-    restaurants: "Restaurants & Cafés", shops: "Balkan Shops",
-    vereine: "Associations & Culture", moscheen: "Mosques & Communities", events: "Events",
-    website: "Website", address: "Address", maps: "Google Maps",
-  },
-  sq: {
-    title: "Komuniteti Ballkanik në Gjermani",
-    subtitle: "Gjej restorante, dyqane, shoqata dhe ngjarje të komunitetit ballkanik.",
-    city: "Qyteti", bundesland: "Landi", radius: "Rrethi",
-    origin: "Vendi i origjinës", category: "Kategoria",
-    allOrigins: "Të gjitha vendet", allCategories: "Të gjitha kategoritë", allBundeslaender: "Të gjitha shtetet",
-    results: "rezultate", noResults: "Nuk ka rezultate.",
-    restaurants: "Restorante & kafene", shops: "Dyqane Ballkanike",
-    vereine: "Shoqata & kulturë", moscheen: "Xhami & komunitete", events: "Ngjarje",
-    website: "Faqja web", address: "Adresa", maps: "Google Maps",
-  },
-  mk: {
-    title: "Балканска заедница во Германија",
-    subtitle: "Пронајди ресторани, продавници, здруженија и настани на балканската заедница.",
-    city: "Град", bundesland: "Сојузна држава", radius: "Растојание",
-    origin: "Земја на потекло", category: "Категорија",
-    allOrigins: "Сите земји", allCategories: "Сите категории", allBundeslaender: "Сите држави",
-    results: "резултати", noResults: "Нема резултати.",
-    restaurants: "Ресторани & кафулиња", shops: "Балкански продавници",
-    vereine: "Здруженија & култура", moscheen: "Џамии & заедници", events: "Настани",
-    website: "Веб страница", address: "Адреса", maps: "Google Maps",
+    subtitle:
+      "Find restaurants, shops, associations and communities – structured and fast.",
+    country: "Country of origin",
+    city: "Search city…",
+    category: "Category",
+    allCountries: "All countries",
+    allCategories: "All categories",
+    results: "entries",
+    cities: "cities",
+    noResults: "No entries found.",
+    maps: "Google Maps",
+    website: "Website",
   },
 };
 
-function ct(lang: string, key: string): string {
-  const langGroup = ["bs", "hr", "sr", "me"].includes(lang) ? "bs" : ["sq", "xk"].includes(lang) ? "sq" : lang === "mk" ? "mk" : lang === "de" ? "de" : "en";
-  return T[langGroup]?.[key] ?? T.en[key] ?? key;
+function t(lang: string, key: string): string {
+  const g = ["bs", "hr", "sr", "me"].includes(lang)
+    ? "bs"
+    : lang === "de"
+    ? "de"
+    : "en";
+  return T[g]?.[key] ?? T.en[key] ?? key;
 }
+
+/* ─── types ─── */
+
+interface Listing {
+  id: string;
+  name: string;
+  city: string;
+  bundesland: string;
+  origin_country: string;
+  main_category: string;
+  sub_category: string;
+  address: string | null;
+  description: string | null;
+  website: string | null;
+  instagram: string | null;
+  google_maps_url: string | null;
+}
+
+/* ─── component ─── */
 
 export default function Community() {
   const { language } = useLanguage();
+
+  /* filters */
+  const [countryFilter, setCountryFilter] = useState("");
   const [cityInput, setCityInput] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const [bundesland, setBundesland] = useState("");
-  const [radius, setRadius] = useState("");
-  const [origin, setOrigin] = useState("");
-  const [category, setCategory] = useState("");
-  const [expandedGroups, setExpandedGroups] = useState<Record<string, boolean>>({});
+  const [categoryFilter, setCategoryFilter] = useState("");
 
-  const citySuggestions = useMemo(() => {
-    if (cityInput.length < 2) return [];
-    const q = cityInput.toLowerCase();
-    return GERMAN_CITIES_FULL.filter((c) => c.toLowerCase().includes(q)).slice(0, 8);
-  }, [cityInput]);
+  /* accordion state */
+  const [openCountries, setOpenCountries] = useState<Record<string, boolean>>(
+    {}
+  );
+  const [openCities, setOpenCities] = useState<Record<string, boolean>>({});
+  const [activeTabs, setActiveTabs] = useState<Record<string, string>>({});
 
-  const { data: listings = [], isLoading } = useQuery({
-    queryKey: ["community-listings", cityInput, bundesland, origin, category],
+  const cityRefs = useRef<Record<string, HTMLDivElement | null>>({});
+
+  /* query */
+  const { data: listings = [], isLoading } = useQuery<Listing[]>({
+    queryKey: ["community-listings"],
     queryFn: async () => {
-      let query = supabase.from("community_listings").select("*").order("name");
-      if (cityInput.length >= 2) query = query.ilike("city", `%${cityInput}%`);
-      if (bundesland) query = query.eq("bundesland", bundesland);
-      if (origin) query = query.eq("origin_country", origin);
-      if (category) query = query.eq("sub_category", category);
-      const { data, error } = await query;
+      const { data, error } = await supabase
+        .from("community_listings")
+        .select("*")
+        .order("name");
       if (error) throw error;
       return data;
     },
   });
 
-  const grouped = useMemo(() => {
-    const map: Record<string, typeof listings> = {};
-    for (const g of CATEGORY_GROUPS) map[g.key] = [];
-    for (const item of listings) {
-      const group = CATEGORY_GROUPS.find((g) => g.subs.includes(item.sub_category));
-      if (group) map[group.key].push(item);
+  /* city autocomplete */
+  const citySuggestions = useMemo(() => {
+    if (cityInput.length < 2) return [];
+    const q = cityInput.toLowerCase();
+    const citiesWithData = new Set(listings.map((l) => l.city));
+    return GERMAN_CITIES_FULL.filter(
+      (c) => c.toLowerCase().includes(q) && citiesWithData.has(c)
+    ).slice(0, 6);
+  }, [cityInput, listings]);
+
+  /* filtered data */
+  const filtered = useMemo(() => {
+    let result = listings;
+    if (countryFilter)
+      result = result.filter((l) => l.origin_country === countryFilter);
+    if (cityInput.length >= 2)
+      result = result.filter((l) =>
+        l.city.toLowerCase().includes(cityInput.toLowerCase())
+      );
+    if (categoryFilter)
+      result = result.filter((l) => l.main_category === categoryFilter);
+    return result;
+  }, [listings, countryFilter, cityInput, categoryFilter]);
+
+  /* build hierarchy: country → city → category → items */
+  const hierarchy = useMemo(() => {
+    const map: Record<
+      string,
+      {
+        label: string;
+        cities: Record<
+          string,
+          {
+            bundesland: string;
+            categories: Record<string, Listing[]>;
+          }
+        >;
+      }
+    > = {};
+
+    for (const item of filtered) {
+      const cInfo = ORIGIN_COUNTRIES.find(
+        (o) => o.code === item.origin_country
+      );
+      const countryLabel = cInfo?.label ?? item.origin_country;
+
+      if (!map[item.origin_country]) {
+        map[item.origin_country] = { label: countryLabel, cities: {} };
+      }
+      const country = map[item.origin_country];
+
+      if (!country.cities[item.city]) {
+        country.cities[item.city] = {
+          bundesland: item.bundesland,
+          categories: {},
+        };
+      }
+      const city = country.cities[item.city];
+
+      if (!city.categories[item.main_category]) {
+        city.categories[item.main_category] = [];
+      }
+      city.categories[item.main_category].push(item);
     }
-    return map;
-  }, [listings]);
 
-  const toggleGroup = (key: string) => setExpandedGroups((prev) => ({ ...prev, [key]: !prev[key] }));
+    /* sort countries alphabetically by label */
+    const sorted = Object.entries(map).sort((a, b) =>
+      a[1].label.localeCompare(b[1].label)
+    );
 
-  const originFlag = (code: string) => ORIGIN_COUNTRIES.find((o) => o.code === code)?.flag ?? "";
+    return sorted;
+  }, [filtered]);
+
+  /* auto-open when city is selected */
+  useEffect(() => {
+    if (cityInput.length < 2) return;
+    const match = listings.find(
+      (l) => l.city.toLowerCase() === cityInput.toLowerCase()
+    );
+    if (match) {
+      setOpenCountries((p) => ({ ...p, [match.origin_country]: true }));
+      const cityKey = `${match.origin_country}-${match.city}`;
+      setOpenCities((p) => ({ ...p, [cityKey]: true }));
+      setTimeout(() => {
+        cityRefs.current[cityKey]?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 200);
+    }
+  }, [cityInput, listings]);
+
+  const toggleCountry = (code: string) =>
+    setOpenCountries((p) => ({ ...p, [code]: !p[code] }));
+  const toggleCity = (key: string) =>
+    setOpenCities((p) => ({ ...p, [key]: !p[key] }));
+  const setTab = (cityKey: string, cat: string) =>
+    setActiveTabs((p) => ({ ...p, [cityKey]: cat }));
+
+  const countryEntries = (code: string) =>
+    filtered.filter((l) => l.origin_country === code).length;
+  const countryCities = (code: string) =>
+    new Set(filtered.filter((l) => l.origin_country === code).map((l) => l.city))
+      .size;
 
   return (
     <>
-      <section className="border-b bg-primary py-10">
-        <div className="container text-center">
-          <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">
-            {ct(language, "title")}
+      {/* ─── Hero ─── */}
+      <section className="relative bg-[hsl(var(--navy))] py-12">
+        <div className="container max-w-5xl text-center">
+          <h1 className="text-2xl font-bold text-white md:text-3xl lg:text-4xl">
+            {t(language, "title")}
           </h1>
-          <p className="mt-2 text-sm text-primary-foreground/80 md:text-base">
-            {ct(language, "subtitle")}
+          <p className="mx-auto mt-3 max-w-xl text-sm text-white/60 md:text-base">
+            {t(language, "subtitle")}
           </p>
         </div>
       </section>
 
-      <section className="py-8">
-        <div className="container max-w-5xl">
-          {/* Filters */}
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      {/* ─── Sticky Filter Bar ─── */}
+      <div className="sticky top-16 z-30 border-b border-white/10 bg-[hsl(var(--navy))]/95 backdrop-blur-md">
+        <div className="container max-w-5xl py-3">
+          <div className="grid gap-3 sm:grid-cols-3">
+            {/* Country */}
+            <Select
+              value={countryFilter}
+              onValueChange={(v) => setCountryFilter(v === "all" ? "" : v)}
+            >
+              <SelectTrigger className="border-white/10 bg-white/5 text-white placeholder:text-white/40">
+                <SelectValue placeholder={t(language, "country")} />
+              </SelectTrigger>
+              <SelectContent className="bg-[hsl(var(--navy))] border-white/10">
+                <SelectItem value="all" className="text-white/80 focus:bg-white/10 focus:text-white">
+                  {t(language, "allCountries")}
+                </SelectItem>
+                {ORIGIN_COUNTRIES.map((o) => (
+                  <SelectItem key={o.code} value={o.code} className="text-white/80 focus:bg-white/10 focus:text-white">
+                    {o.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+
             {/* City */}
             <div className="relative">
               <Input
-                placeholder={ct(language, "city")}
+                placeholder={t(language, "city")}
                 value={cityInput}
-                onChange={(e) => { setCityInput(e.target.value); setShowSuggestions(true); }}
+                onChange={(e) => {
+                  setCityInput(e.target.value);
+                  setShowSuggestions(true);
+                }}
                 onFocus={() => setShowSuggestions(true)}
                 onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
+                className="border-white/10 bg-white/5 text-white placeholder:text-white/40"
               />
               {showSuggestions && citySuggestions.length > 0 && (
-                <ul className="absolute z-20 mt-1 w-full rounded-md border bg-popover shadow-md">
+                <ul className="absolute z-50 mt-1 w-full rounded-md border border-white/10 bg-[hsl(var(--navy))] shadow-xl">
                   {citySuggestions.map((c) => (
                     <li key={c}>
                       <button
-                        className="w-full px-3 py-2 text-left text-sm hover:bg-accent"
-                        onMouseDown={() => { setCityInput(c); setShowSuggestions(false); }}
-                      >{c}</button>
+                        className="w-full px-3 py-2 text-left text-sm text-white/80 hover:bg-white/10"
+                        onMouseDown={() => {
+                          setCityInput(c);
+                          setShowSuggestions(false);
+                        }}
+                      >
+                        {c}
+                      </button>
                     </li>
                   ))}
                 </ul>
               )}
             </div>
 
-            {/* Bundesland */}
-            <Select value={bundesland} onValueChange={setBundesland}>
-              <SelectTrigger><SelectValue placeholder={ct(language, "bundesland")} /></SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">{ct(language, "allBundeslaender")}</SelectItem>
-                {BUNDESLAENDER.map((b) => <SelectItem key={b} value={b}>{b}</SelectItem>)}
-              </SelectContent>
-            </Select>
-
-            {/* Origin */}
-            <Select value={origin} onValueChange={setOrigin}>
-              <SelectTrigger><SelectValue placeholder={ct(language, "origin")} /></SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">{ct(language, "allOrigins")}</SelectItem>
-                {ORIGIN_COUNTRIES.map((o) => (
-                  <SelectItem key={o.code} value={o.code}>{o.flag} {o.label}</SelectItem>
+            {/* Category */}
+            <Select
+              value={categoryFilter}
+              onValueChange={(v) => setCategoryFilter(v === "all" ? "" : v)}
+            >
+              <SelectTrigger className="border-white/10 bg-white/5 text-white placeholder:text-white/40">
+                <SelectValue placeholder={t(language, "category")} />
+              </SelectTrigger>
+              <SelectContent className="bg-[hsl(var(--navy))] border-white/10">
+                <SelectItem value="all" className="text-white/80 focus:bg-white/10 focus:text-white">
+                  {t(language, "allCategories")}
+                </SelectItem>
+                {MAIN_CATEGORIES.map((c) => (
+                  <SelectItem key={c.key} value={c.key} className="text-white/80 focus:bg-white/10 focus:text-white">
+                    {c.label}
+                  </SelectItem>
                 ))}
               </SelectContent>
             </Select>
-
-            {/* Category */}
-            <Select value={category} onValueChange={setCategory}>
-              <SelectTrigger><SelectValue placeholder={ct(language, "category")} /></SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">{ct(language, "allCategories")}</SelectItem>
-                {ALL_SUBS.map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}
-              </SelectContent>
-            </Select>
           </div>
+        </div>
+      </div>
 
-          {/* Results */}
-          <p className="mt-6 text-sm text-muted-foreground">
-            {listings.length} {ct(language, "results")}
-          </p>
-
-          {isLoading && <p className="mt-8 text-center text-muted-foreground">...</p>}
-
-          {!isLoading && listings.length === 0 && (
-            <p className="mt-8 text-center text-muted-foreground">{ct(language, "noResults")}</p>
+      {/* ─── Main Content ─── */}
+      <section className="min-h-[60vh] bg-background py-8">
+        <div className="container max-w-5xl">
+          {isLoading && (
+            <p className="py-16 text-center text-muted-foreground">...</p>
           )}
 
-          {/* Grouped sections */}
-          {!isLoading && listings.length > 0 && (
-            <div className="mt-6 space-y-8">
-              {CATEGORY_GROUPS.map((group) => {
-                const items = grouped[group.key];
-                if (!items || items.length === 0) return null;
-                const expanded = expandedGroups[group.key] ?? true;
-                const Icon = group.icon;
-                return (
-                  <div key={group.key}>
-                    <button
-                      onClick={() => toggleGroup(group.key)}
-                      className="flex w-full items-center gap-2 text-left"
-                    >
-                      <Icon className="h-5 w-5 text-primary" strokeWidth={1.5} />
-                      <h2 className="text-lg font-semibold">{ct(language, group.key)}</h2>
-                      <span className="ml-1 text-xs text-muted-foreground">({items.length})</span>
-                      <span className="ml-auto">
-                        {expanded ? <ChevronUp className="h-4 w-4 text-muted-foreground" /> : <ChevronDown className="h-4 w-4 text-muted-foreground" />}
-                      </span>
-                    </button>
+          {!isLoading && hierarchy.length === 0 && (
+            <p className="py-16 text-center text-muted-foreground">
+              {t(language, "noResults")}
+            </p>
+          )}
 
-                    {expanded && (
-                      <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                        {items.map((item) => (
-                          <div key={item.id} className="rounded-lg border bg-card p-4 shadow-sm">
-                            <div className="flex items-start justify-between gap-2">
-                              <div>
-                                <h3 className="text-sm font-semibold">{item.name}</h3>
-                                <p className="mt-0.5 text-xs text-muted-foreground">
-                                  {item.city}, {item.bundesland}
-                                </p>
+          <div className="space-y-4">
+            {hierarchy.map(([code, country]) => {
+              const isOpen = openCountries[code] ?? false;
+              const cities = Object.entries(country.cities).sort((a, b) =>
+                a[0].localeCompare(b[0])
+              );
+
+              return (
+                <div
+                  key={code}
+                  className="overflow-hidden rounded-xl border border-border/50 bg-card/50 shadow-sm backdrop-blur-sm"
+                >
+                  {/* Country header */}
+                  <button
+                    onClick={() => toggleCountry(code)}
+                    className="flex w-full items-center gap-3 px-5 py-4 text-left transition-colors hover:bg-accent/30"
+                  >
+                    <h2 className="text-base font-semibold text-foreground md:text-lg">
+                      {country.label}
+                    </h2>
+                    <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+                      {countryCities(code)} {t(language, "cities")}
+                    </span>
+                    <span className="rounded-full bg-[hsl(var(--gold))]/10 px-2.5 py-0.5 text-xs font-medium text-[hsl(var(--gold))]">
+                      {countryEntries(code)} {t(language, "results")}
+                    </span>
+                    <ChevronDown
+                      className={`ml-auto h-4 w-4 text-muted-foreground transition-transform duration-300 ${
+                        isOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+
+                  {/* Cities */}
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="space-y-2 px-5 pb-5">
+                          {cities.map(([cityName, cityData]) => {
+                            const cityKey = `${code}-${cityName}`;
+                            const cityOpen = openCities[cityKey] ?? false;
+                            const catKeys = Object.keys(
+                              cityData.categories
+                            ).sort();
+                            const activeTab =
+                              activeTabs[cityKey] ?? catKeys[0] ?? "";
+                            const activeItems =
+                              cityData.categories[activeTab] ?? [];
+                            const totalItems = Object.values(
+                              cityData.categories
+                            ).reduce((s, a) => s + a.length, 0);
+
+                            return (
+                              <div
+                                key={cityKey}
+                                ref={(el) => {
+                                  cityRefs.current[cityKey] = el;
+                                }}
+                                className="overflow-hidden rounded-lg border border-border/30 bg-background/60"
+                              >
+                                {/* City header */}
+                                <button
+                                  onClick={() => toggleCity(cityKey)}
+                                  className="flex w-full items-center gap-2 px-4 py-3 text-left transition-colors hover:bg-accent/20"
+                                >
+                                  <MapPin className="h-3.5 w-3.5 text-muted-foreground" />
+                                  <span className="text-sm font-medium text-foreground">
+                                    {cityName}
+                                  </span>
+                                  <span className="text-xs text-muted-foreground">
+                                    {cityData.bundesland}
+                                  </span>
+                                  <span className="ml-auto text-xs text-muted-foreground">
+                                    {totalItems}
+                                  </span>
+                                  <ChevronDown
+                                    className={`h-3.5 w-3.5 text-muted-foreground transition-transform duration-300 ${
+                                      cityOpen ? "rotate-180" : ""
+                                    }`}
+                                  />
+                                </button>
+
+                                {/* Category tabs + items */}
+                                <AnimatePresence>
+                                  {cityOpen && (
+                                    <motion.div
+                                      initial={{ height: 0, opacity: 0 }}
+                                      animate={{
+                                        height: "auto",
+                                        opacity: 1,
+                                      }}
+                                      exit={{ height: 0, opacity: 0 }}
+                                      transition={{ duration: 0.25 }}
+                                      className="overflow-hidden"
+                                    >
+                                      <div className="px-4 pb-4">
+                                        {/* Pills */}
+                                        <div className="mb-3 flex flex-wrap gap-1.5 overflow-x-auto">
+                                          {catKeys.map((cat) => {
+                                            const catLabel =
+                                              MAIN_CATEGORIES.find(
+                                                (c) => c.key === cat
+                                              )?.label ?? cat;
+                                            const count =
+                                              cityData.categories[cat].length;
+                                            return (
+                                              <button
+                                                key={cat}
+                                                onClick={() =>
+                                                  setTab(cityKey, cat)
+                                                }
+                                                className={`rounded-full px-3 py-1 text-xs font-medium transition-all ${
+                                                  activeTab === cat
+                                                    ? "bg-primary text-primary-foreground shadow-sm"
+                                                    : "bg-muted/50 text-muted-foreground hover:bg-muted"
+                                                }`}
+                                              >
+                                                {catLabel} ({count})
+                                              </button>
+                                            );
+                                          })}
+                                        </div>
+
+                                        {/* Listing cards */}
+                                        <div className="grid gap-3 sm:grid-cols-2">
+                                          {activeItems
+                                            .sort((a, b) =>
+                                              a.name.localeCompare(b.name)
+                                            )
+                                            .map((item) => (
+                                              <motion.div
+                                                key={item.id}
+                                                initial={{ opacity: 0, y: 8 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                transition={{ duration: 0.2 }}
+                                                className="group rounded-lg border border-border/40 bg-card p-4 shadow-sm transition-shadow hover:shadow-md"
+                                              >
+                                                <h4 className="text-sm font-semibold text-foreground">
+                                                  {item.name}
+                                                </h4>
+                                                <p className="mt-0.5 text-xs text-muted-foreground">
+                                                  {item.sub_category} ·{" "}
+                                                  {item.city},{" "}
+                                                  {item.bundesland}
+                                                </p>
+
+                                                {item.description && (
+                                                  <p className="mt-2 text-xs leading-relaxed text-foreground/70">
+                                                    {item.description}
+                                                  </p>
+                                                )}
+
+                                                {item.address && (
+                                                  <p className="mt-2 flex items-center gap-1 text-xs text-muted-foreground">
+                                                    <MapPin className="h-3 w-3 shrink-0" />
+                                                    {item.address}
+                                                  </p>
+                                                )}
+
+                                                <div className="mt-3 flex flex-wrap gap-2">
+                                                  {item.google_maps_url && (
+                                                    <a
+                                                      href={
+                                                        item.google_maps_url
+                                                      }
+                                                      target="_blank"
+                                                      rel="noopener noreferrer"
+                                                      className="inline-flex items-center gap-1 rounded-md bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary transition-colors hover:bg-primary/20"
+                                                    >
+                                                      <ExternalLink className="h-3 w-3" />
+                                                      {t(language, "maps")}
+                                                    </a>
+                                                  )}
+                                                  {item.website && (
+                                                    <a
+                                                      href={item.website}
+                                                      target="_blank"
+                                                      rel="noopener noreferrer"
+                                                      className="inline-flex items-center gap-1 rounded-md bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary transition-colors hover:bg-primary/20"
+                                                    >
+                                                      <Globe className="h-3 w-3" />
+                                                      {t(language, "website")}
+                                                    </a>
+                                                  )}
+                                                  {item.instagram && (
+                                                    <a
+                                                      href={item.instagram}
+                                                      target="_blank"
+                                                      rel="noopener noreferrer"
+                                                      className="inline-flex items-center gap-1 rounded-md bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary transition-colors hover:bg-primary/20"
+                                                    >
+                                                      <Instagram className="h-3 w-3" />
+                                                      Instagram
+                                                    </a>
+                                                  )}
+                                                </div>
+                                              </motion.div>
+                                            ))}
+                                        </div>
+                                      </div>
+                                    </motion.div>
+                                  )}
+                                </AnimatePresence>
                               </div>
-                              <span className="text-lg leading-none">{originFlag(item.origin_country)}</span>
-                            </div>
-
-                            <p className="mt-1 text-xs text-muted-foreground">{item.sub_category}</p>
-
-                            {item.description && (
-                              <p className="mt-2 text-sm leading-relaxed text-foreground/80">{item.description}</p>
-                            )}
-
-                            {item.address && (
-                              <p className="mt-2 flex items-center gap-1 text-xs text-muted-foreground">
-                                <MapPin className="h-3 w-3" /> {item.address}
-                              </p>
-                            )}
-
-                            <div className="mt-3 flex flex-wrap gap-3">
-                              {item.google_maps_url && (
-                                <a href={item.google_maps_url} target="_blank" rel="noopener noreferrer"
-                                  className="inline-flex items-center gap-1 text-xs font-medium text-primary hover:underline">
-                                  <MapPin className="h-3 w-3" /> {ct(language, "maps")}
-                                </a>
-                              )}
-                              {item.website && (
-                                <a href={item.website} target="_blank" rel="noopener noreferrer"
-                                  className="inline-flex items-center gap-1 text-xs font-medium text-primary hover:underline">
-                                  <Globe className="h-3 w-3" /> {ct(language, "website")}
-                                </a>
-                              )}
-                              {item.instagram && (
-                                <a href={item.instagram} target="_blank" rel="noopener noreferrer"
-                                  className="inline-flex items-center gap-1 text-xs font-medium text-primary hover:underline">
-                                  <Instagram className="h-3 w-3" /> Instagram
-                                </a>
-                              )}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
+                            );
+                          })}
+                        </div>
+                      </motion.div>
                     )}
-                  </div>
-                );
-              })}
-            </div>
-          )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
     </>
