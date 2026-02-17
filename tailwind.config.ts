@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ["'Space Grotesk'", "system-ui", "sans-serif"],
-        body: ["'Inter'", "system-ui", "sans-serif"],
+        heading: ["'Source Sans 3'", "system-ui", "sans-serif"],
+        body: ["'Source Sans 3'", "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -51,12 +51,14 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        "balkan-gold": {
-          DEFAULT: "hsl(var(--balkan-gold))",
-          foreground: "hsl(var(--balkan-gold-foreground))",
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
         },
-        "balkan-red": "hsl(var(--balkan-red))",
-        "balkan-green": "hsl(var(--balkan-green))",
+        warning: {
+          DEFAULT: "hsl(var(--warning))",
+          foreground: "hsl(var(--warning-foreground))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
