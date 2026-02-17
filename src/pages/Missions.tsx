@@ -1,39 +1,118 @@
 import { useState } from "react";
-import { MapPin, Building, Landmark, Filter } from "lucide-react";
+import { useParams, Link } from "react-router-dom";
+import { MapPin, Building, Landmark, Filter, Phone, Mail, Globe, Info, ArrowLeft } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useMissions } from "@/hooks/useMissions";
 import { ORIGIN_COUNTRIES } from "@/lib/directory-constants";
 
 const MISSION_TYPES = ["Embassy", "Consulate General"] as const;
 
+function MissionDetail({ id, onBack }: { id: string; onBack: () => void }) {
+  const { t } = useLanguage();
+  const { data: missions, isLoading } = useMissions({ country: "", city: "", missionType: "" });
+  const mission = missions?.find((m) => m.id === id);
+
+  if (isLoading) return <div className="container py-8"><div className="h-48 animate-pulse rounded-xl border bg-muted" /></div>;
+  if (!mission) return (
+    <div className="container py-8 text-center">
+      <p className="text-muted-foreground">{t("missions.empty")}</p>
+      <Button variant="ghost" className="mt-4" onClick={onBack}><ArrowLeft className="mr-2 h-4 w-4" />Nazad</Button>
+    </div>
+  );
+
+  const originCountry = ORIGIN_COUNTRIES.find((c) => c.code === mission.country_code);
+  const isEmbassy = mission.mission_type === "Embassy";
+  const getMissionTypeLabel = (type: string) => type === "Embassy" ? t("missions.embassy") : t("missions.consulate");
+  const hasContact = mission.phone || mission.email || mission.website;
+
+  return (
+    <div className="container py-8">
+      <Button variant="ghost" size="sm" onClick={onBack} className="mb-6">
+        <ArrowLeft className="mr-2 h-4 w-4" />
+        {t("missions.title")}
+      </Button>
+
+      <div className="mx-auto max-w-lg rounded-xl border bg-card p-6 shadow-sm">
+        <div className="flex items-center gap-3 mb-4">
+          {originCountry && <span className="text-3xl leading-none">{originCountry.flag}</span>}
+          <div>
+            <h1 className="text-lg font-bold">{mission.country_name}</h1>
+            <span className={`inline-flex items-center gap-1 text-sm font-medium ${isEmbassy ? "text-primary" : "text-muted-foreground"}`}>
+              {isEmbassy ? <Landmark className="h-4 w-4" /> : <Building className="h-4 w-4" />}
+              {getMissionTypeLabel(mission.mission_type)}
+            </span>
+          </div>
+        </div>
+
+        <div className="flex items-start gap-2 text-sm text-muted-foreground mb-6">
+          <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
+          <div>
+            <div>{mission.address_line}</div>
+            <div>{mission.postal_code} {mission.city}</div>
+          </div>
+        </div>
+
+        {hasContact && (
+          <div className="border-t pt-4">
+            <h2 className="mb-3 text-sm font-semibold">Kontakt informacije</h2>
+            <div className="flex flex-col gap-2.5 text-sm">
+              {mission.phone && (
+                <div className="flex items-center gap-2 text-muted-foreground">
+                  <Phone className="h-4 w-4 shrink-0" />
+                  <a href={`tel:${mission.phone}`} className="hover:text-foreground">{mission.phone}</a>
+                </div>
+              )}
+              {mission.email && (
+                <div className="flex items-center gap-2 text-muted-foreground">
+                  <Mail className="h-4 w-4 shrink-0" />
+                  <a href={`mailto:${mission.email}`} className="hover:text-foreground">{mission.email}</a>
+                </div>
+              )}
+              {mission.website && (
+                <div className="flex items-center gap-2 text-muted-foreground">
+                  <Globe className="h-4 w-4 shrink-0" />
+                  <a
+                    href={mission.website.startsWith("http") ? mission.website : `https://${mission.website}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="truncate hover:text-foreground"
+                  >
+                    {mission.website.replace(/^https?:\/\//, "")}
+                  </a>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export default function Missions() {
   const { t } = useLanguage();
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
   const [missionType, setMissionType] = useState("");
+  const [selectedId, setSelectedId] = useState<string | null>(null);
 
   const { data: missions, isLoading } = useMissions({ country, city, missionType });
 
-  // Derive unique cities from data
   const uniqueCities = [...new Set(missions?.map((m) => m.city) ?? [])].sort();
 
-  const clearFilters = () => {
-    setCountry("");
-    setCity("");
-    setMissionType("");
-  };
-
+  const clearFilters = () => { setCountry(""); setCity(""); setMissionType(""); };
   const hasFilters = country || city || missionType;
 
-  const getMissionTypeLabel = (type: string) => {
-    if (type === "Embassy") return t("missions.embassy");
-    return t("missions.consulate");
-  };
+  const getMissionTypeLabel = (type: string) => type === "Embassy" ? t("missions.embassy") : t("missions.consulate");
+
+  if (selectedId) {
+    return <MissionDetail id={selectedId} onBack={() => setSelectedId(null)} />;
+  }
 
   return (
     <div className="container py-8">
-      {/* Header */}
       <div className="mb-8">
         <h1 className="text-2xl font-bold md:text-3xl">{t("missions.title")}</h1>
         <p className="mt-1 text-muted-foreground">{t("missions.subtitle")}</p>
@@ -42,35 +121,23 @@ export default function Missions() {
       {/* Filters */}
       <div className="mb-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
         <Select value={country} onValueChange={(v) => setCountry(v === "all" ? "" : v)}>
-          <SelectTrigger>
-            <SelectValue placeholder={t("missions.filterCountry")} />
-          </SelectTrigger>
+          <SelectTrigger><SelectValue placeholder={t("missions.filterCountry")} /></SelectTrigger>
           <SelectContent>
             <SelectItem value="all">{t("missions.allCountries")}</SelectItem>
             {ORIGIN_COUNTRIES.map((c) => (
-              <SelectItem key={c.code} value={c.code}>
-                <span className="mr-2">{c.flag}</span>{c.label}
-              </SelectItem>
+              <SelectItem key={c.code} value={c.code}><span className="mr-2">{c.flag}</span>{c.label}</SelectItem>
             ))}
           </SelectContent>
         </Select>
-
         <Select value={city} onValueChange={(v) => setCity(v === "all" ? "" : v)}>
-          <SelectTrigger>
-            <SelectValue placeholder={t("missions.filterCity")} />
-          </SelectTrigger>
+          <SelectTrigger><SelectValue placeholder={t("missions.filterCity")} /></SelectTrigger>
           <SelectContent>
             <SelectItem value="all">{t("missions.allCities")}</SelectItem>
-            {uniqueCities.map((c) => (
-              <SelectItem key={c} value={c}>{c}</SelectItem>
-            ))}
+            {uniqueCities.map((c) => (<SelectItem key={c} value={c}>{c}</SelectItem>))}
           </SelectContent>
         </Select>
-
         <Select value={missionType} onValueChange={(v) => setMissionType(v === "all" ? "" : v)}>
-          <SelectTrigger>
-            <SelectValue placeholder={t("missions.filterType")} />
-          </SelectTrigger>
+          <SelectTrigger><SelectValue placeholder={t("missions.filterType")} /></SelectTrigger>
           <SelectContent>
             <SelectItem value="all">{t("missions.allTypes")}</SelectItem>
             {MISSION_TYPES.map((type) => (
@@ -83,16 +150,11 @@ export default function Missions() {
       {hasFilters && (
         <div className="mb-4 flex items-center gap-2">
           <Filter className="h-4 w-4 text-muted-foreground" />
-          <span className="text-sm text-muted-foreground">
-            {missions?.length ?? 0} {t("missions.results")}
-          </span>
-          <button onClick={clearFilters} className="ml-auto text-xs text-muted-foreground hover:text-foreground">
-            {t("missions.clearFilters")}
-          </button>
+          <span className="text-sm text-muted-foreground">{missions?.length ?? 0} {t("missions.results")}</span>
+          <button onClick={clearFilters} className="ml-auto text-xs text-muted-foreground hover:text-foreground">{t("missions.clearFilters")}</button>
         </div>
       )}
 
-      {/* Cards */}
       {isLoading ? (
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {Array.from({ length: 8 }).map((_, i) => (
@@ -104,28 +166,30 @@ export default function Missions() {
           {missions.map((m) => {
             const originCountry = ORIGIN_COUNTRIES.find((c) => c.code === m.country_code);
             const isEmbassy = m.mission_type === "Embassy";
+            const hasContact = m.phone || m.email || m.website;
             return (
-              <div
+              <button
                 key={m.id}
-                className="flex flex-col gap-3 rounded-xl border bg-card p-5 shadow-sm transition-shadow hover:shadow-md"
+                onClick={() => setSelectedId(m.id)}
+                className="flex flex-col gap-3 rounded-xl border bg-card p-5 text-left shadow-sm transition-shadow hover:shadow-md"
               >
                 <div className="flex items-start justify-between gap-2">
                   <div className="flex items-center gap-2">
-                    {originCountry && (
-                      <span className="text-2xl leading-none">{originCountry.flag}</span>
-                    )}
+                    {originCountry && <span className="text-2xl leading-none">{originCountry.flag}</span>}
                     <div>
                       <h3 className="text-sm font-semibold leading-tight">{m.country_name}</h3>
-                      <span className={`inline-flex items-center gap-1 text-xs font-medium ${
-                        isEmbassy ? "text-primary" : "text-muted-foreground"
-                      }`}>
+                      <span className={`inline-flex items-center gap-1 text-xs font-medium ${isEmbassy ? "text-primary" : "text-muted-foreground"}`}>
                         {isEmbassy ? <Landmark className="h-3 w-3" /> : <Building className="h-3 w-3" />}
                         {getMissionTypeLabel(m.mission_type)}
                       </span>
                     </div>
                   </div>
+                  {hasContact && (
+                    <span className="shrink-0 rounded-full bg-primary/10 p-1" title="Kontakt dostupan">
+                      <Info className="h-3.5 w-3.5 text-primary" />
+                    </span>
+                  )}
                 </div>
-
                 <div className="mt-auto flex flex-col gap-1 text-sm text-muted-foreground">
                   <div className="flex items-start gap-1.5">
                     <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0" />
@@ -135,7 +199,7 @@ export default function Missions() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </button>
             );
           })}
         </div>
