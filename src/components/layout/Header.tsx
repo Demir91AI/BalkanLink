@@ -20,6 +20,8 @@ export default function Header() {
     { label: "Familie", to: "/familie" },
     { label: "Förderungen", to: "/foerderungen" },
     { label: "Tools", to: "/generatoren" },
+    { label: "Wohnungen", to: "/wohnungen" },
+    { label: "Jobs", to: "/stellenangebote" },
     { label: t("nav.missions"), to: "/ambasade-konzulati" },
     { label: "Premium", to: "/premium", isPremium: true },
   ];

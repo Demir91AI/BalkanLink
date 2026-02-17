@@ -1,0 +1,48 @@
+export const BUNDESLAENDER = [
+  "Baden-Württemberg",
+  "Bayern",
+  "Berlin",
+  "Brandenburg",
+  "Bremen",
+  "Hamburg",
+  "Hessen",
+  "Mecklenburg-Vorpommern",
+  "Niedersachsen",
+  "Nordrhein-Westfalen",
+  "Rheinland-Pfalz",
+  "Saarland",
+  "Sachsen",
+  "Sachsen-Anhalt",
+  "Schleswig-Holstein",
+  "Thüringen",
+] as const;
+
+export const GERMAN_CITIES_FULL = [
+  "Berlin", "Hamburg", "München", "Köln", "Frankfurt am Main", "Stuttgart", "Düsseldorf",
+  "Leipzig", "Dortmund", "Essen", "Bremen", "Dresden", "Hannover", "Nürnberg",
+  "Duisburg", "Bochum", "Wuppertal", "Bielefeld", "Bonn", "Münster",
+  "Mannheim", "Karlsruhe", "Augsburg", "Wiesbaden", "Mönchengladbach",
+  "Gelsenkirchen", "Aachen", "Braunschweig", "Kiel", "Chemnitz",
+  "Halle (Saale)", "Magdeburg", "Freiburg im Breisgau", "Krefeld", "Mainz",
+  "Lübeck", "Erfurt", "Oberhausen", "Rostock", "Kassel", "Hagen",
+  "Potsdam", "Saarbrücken", "Hamm", "Ludwigshafen", "Oldenburg",
+  "Mülheim an der Ruhr", "Osnabrück", "Leverkusen", "Heidelberg",
+  "Solingen", "Darmstadt", "Herne", "Neuss", "Regensburg", "Paderborn",
+  "Ingolstadt", "Offenbach am Main", "Würzburg", "Fürth", "Ulm",
+  "Heilbronn", "Pforzheim", "Wolfsburg", "Göttingen", "Bottrop",
+  "Reutlingen", "Koblenz", "Bremerhaven", "Erlangen", "Bergisch Gladbach",
+  "Trier", "Jena", "Remscheid", "Salzgitter", "Moers", "Siegen",
+  "Hildesheim", "Cottbus", "Gütersloh", "Kaiserslautern", "Witten",
+  "Schwerin", "Gera", "Iserlohn", "Düren", "Esslingen am Neckar",
+  "Ratingen", "Lünen", "Marl", "Velbert", "Minden", "Dessau-Roßlau",
+  "Villingen-Schwenningen", "Konstanz", "Norderstedt", "Dorsten",
+  "Detmold", "Marburg", "Arnsberg", "Lüdenscheid", "Gladbeck",
+  "Troisdorf", "Wilhelmshaven", "Castrop-Rauxel", "Herten", "Dinslaken",
+] as const;
+
+export const UMKREIS_OPTIONS = [
+  { value: "10", label: "10 km" },
+  { value: "25", label: "25 km" },
+  { value: "50", label: "50 km" },
+  { value: "100", label: "100 km" },
+] as const;
