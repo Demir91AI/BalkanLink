@@ -1,20 +1,8 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import {
-  Plane,
-  Home,
-  AlertTriangle,
-  Briefcase,
-  Car,
-  Receipt,
-  HeartPulse,
-  Users,
-  Scale,
-  ShieldAlert,
-  Building2,
-  Search,
-} from "lucide-react";
+import { Plane, Home, AlertTriangle, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CATEGORIES } from "@/lib/categories";
 
 const heroCards = [
   {
@@ -38,18 +26,6 @@ const heroCards = [
     to: "/qa?filter=problemi",
     color: "bg-balkan-red text-primary-foreground",
   },
-];
-
-const categories = [
-  { label: "Dolazak", icon: Plane, to: "/qa?filter=dolazak" },
-  { label: "Stan", icon: Building2, to: "/qa?filter=stan" },
-  { label: "Posao", icon: Briefcase, to: "/qa?filter=posao" },
-  { label: "Auto", icon: Car, to: "/qa?filter=auto" },
-  { label: "Porezi", icon: Receipt, to: "/qa?filter=porezi" },
-  { label: "Zdravstvo", icon: HeartPulse, to: "/qa?filter=zdravstvo" },
-  { label: "Porodica", icon: Users, to: "/qa?filter=porodica" },
-  { label: "Prava i pomoći", icon: Scale, to: "/qa?filter=prava-i-pomoci" },
-  { label: "Problemi", icon: ShieldAlert, to: "/qa?filter=problemi" },
 ];
 
 const container = {
@@ -87,7 +63,6 @@ export default function Index() {
           </motion.p>
         </div>
 
-        {/* Three CTA cards */}
         <motion.div
           variants={container}
           initial="hidden"
@@ -124,10 +99,10 @@ export default function Index() {
             viewport={{ once: true, amount: 0.2 }}
             className="grid grid-cols-3 gap-3 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-9"
           >
-            {categories.map((cat) => (
+            {CATEGORIES.map((cat) => (
               <motion.div key={cat.label} variants={item}>
                 <Link
-                  to={cat.to}
+                  to={`/qa?filter=${cat.slug}`}
                   className="group flex flex-col items-center gap-2 rounded-xl border bg-card p-4 text-center transition-colors hover:border-primary/40 hover:bg-secondary"
                 >
                   <cat.icon className="h-7 w-7 text-primary transition-transform group-hover:scale-110" />
