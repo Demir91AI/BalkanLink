@@ -1,57 +1,28 @@
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
+
   return (
-    <footer className="border-t bg-primary text-primary-foreground">
-      <div className="container py-10">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {/* Brand */}
-          <div>
-            <Link to="/" className="font-heading text-lg font-bold">
-              BalkanDE
-            </Link>
-            <p className="mt-2 text-sm text-primary-foreground/70">
-              Offizielles Informationsportal für das Leben in Deutschland.
-            </p>
-          </div>
+    <footer className="border-t bg-muted/50">
+      <div className="container py-8">
+        <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
+          <Link to="/" className="font-heading text-sm font-bold">
+            Balkan<span className="text-primary">DE</span>
+          </Link>
 
-          {/* Navigation */}
-          <div>
-            <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary-foreground/80">Navigation</h4>
-            <ul className="space-y-2 text-sm text-primary-foreground/70">
-              <li><Link to="/formulare" className="hover:text-primary-foreground transition-colors">Formulare & Anträge</Link></li>
-              <li><Link to="/familie" className="hover:text-primary-foreground transition-colors">Familie & Kinder</Link></li>
-              <li><Link to="/foerderungen" className="hover:text-primary-foreground transition-colors">Förderungen</Link></li>
-              <li><Link to="/generatoren" className="hover:text-primary-foreground transition-colors">Tools & Generatoren</Link></li>
-              <li><Link to="/ambasade-konzulati" className="hover:text-primary-foreground transition-colors">Botschaften & Konsulate</Link></li>
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary-foreground/80">Pravne informacije</h4>
-            <ul className="space-y-2 text-sm text-primary-foreground/70">
-              <li><Link to="/impressum" className="hover:text-primary-foreground transition-colors">Impressum</Link></li>
-              <li><Link to="/datenschutz" className="hover:text-primary-foreground transition-colors">Datenschutzerklärung</Link></li>
-              <li><Link to="/disclaimer" className="hover:text-primary-foreground transition-colors">Disclaimer</Link></li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary-foreground/80">Kontakt</h4>
-            <p className="text-sm text-primary-foreground/70">info@balkande.de</p>
-          </div>
+          <nav className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+            <Link to="/impressum" className="hover:text-foreground transition-colors">{t("footer.imprint")}</Link>
+            <Link to="/datenschutz" className="hover:text-foreground transition-colors">{t("footer.privacy")}</Link>
+            <Link to="/disclaimer" className="hover:text-foreground transition-colors">{t("footer.disclaimer")}</Link>
+            <span>info@balkande.de</span>
+          </nav>
         </div>
 
-        <div className="mt-10 border-t border-primary-foreground/20 pt-6">
-          <p className="text-center text-xs text-primary-foreground/60">
-            Alle Inhalte basieren auf offiziellen Bundesquellen.
-          </p>
-          <p className="mt-2 text-center text-xs text-primary-foreground/50">
-            © {new Date().getFullYear()} BalkanDE. Sva prava zadržana.
-          </p>
-        </div>
+        <p className="mt-6 text-center text-xs text-muted-foreground/60">
+          © {new Date().getFullYear()} BalkanDE. {t("footer.copyright")}
+        </p>
       </div>
     </footer>
   );

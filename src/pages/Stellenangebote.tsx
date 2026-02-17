@@ -8,20 +8,11 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { BUNDESLAENDER, GERMAN_CITIES_FULL, UMKREIS_OPTIONS } from "@/lib/germany-data";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const enc = encodeURIComponent;
 
-interface Portal {
-  name: string;
-  buildUrl: (city: string) => string;
-}
-
-const BRANCHEN = [
-  "Alle Branchen", "Pflege", "Bau", "Logistik & Lager", "Produktion",
-  "Reinigung", "Gastronomie", "IT", "Handwerk", "Büro", "Ausbildung",
-] as const;
-
-const VERTRAGSARTEN = ["Vollzeit", "Teilzeit", "Minijob", "Ausbildung", "Praktikum"] as const;
+interface Portal { name: string; buildUrl: (city: string) => string; }
 
 const PORTALE_STAATLICH: Portal[] = [
   { name: "Bundesagentur für Arbeit", buildUrl: (c) => `https://www.arbeitsagentur.de/jobsuche/suche?angebotsart=1&wo=${enc(c)}` },
@@ -41,35 +32,25 @@ const PORTALE_GROSS: Portal[] = [
 ];
 
 const PORTALE_SPEZIAL: Portal[] = [
-  { name: "Medwing (Pflege)", buildUrl: () => `https://www.medwing.com/de` },
-  { name: "Bau-Stellen (Bau)", buildUrl: () => `https://www.bau-stellen.de` },
-  { name: "Logistic-Jobs (Logistik)", buildUrl: () => `https://www.logistic-jobs.de` },
+  { name: "Medwing", buildUrl: () => `https://www.medwing.com/de` },
+  { name: "Bau-Stellen", buildUrl: () => `https://www.bau-stellen.de` },
+  { name: "Logistic-Jobs", buildUrl: () => `https://www.logistic-jobs.de` },
   { name: "Ausbildung.de", buildUrl: () => `https://www.ausbildung.de` },
 ];
 
 interface Filters {
-  city: string;
-  bundesland: string;
-  umkreis: string;
-  branche: string;
-  vertragsart: string;
-  ohneDeutsch: boolean;
-  mitUnterkunft: boolean;
-  quereinsteiger: boolean;
-  schnellerEinstieg: boolean;
+  city: string; bundesland: string; umkreis: string; branche: string; vertragsart: string;
+  ohneDeutsch: boolean; mitUnterkunft: boolean; quereinsteiger: boolean; schnellerEinstieg: boolean;
 }
 
+const BRANCHE_KEYS = ["pflege", "bau", "logistik", "produktion", "reinigung", "gastro", "it", "handwerk", "buero", "ausbildung"] as const;
+const VERTRAG_KEYS = ["vollzeit", "teilzeit", "minijob", "ausbildung", "praktikum"] as const;
+
 export default function Stellenangebote() {
+  const { t } = useLanguage();
   const [filters, setFilters] = useState<Filters>({
-    city: "",
-    bundesland: "",
-    umkreis: "25",
-    branche: "",
-    vertragsart: "",
-    ohneDeutsch: false,
-    mitUnterkunft: false,
-    quereinsteiger: false,
-    schnellerEinstieg: false,
+    city: "", bundesland: "", umkreis: "25", branche: "", vertragsart: "",
+    ohneDeutsch: false, mitUnterkunft: false, quereinsteiger: false, schnellerEinstieg: false,
   });
 
   const [showMore, setShowMore] = useState<Record<string, boolean>>({});
@@ -81,9 +62,7 @@ export default function Stellenangebote() {
   const handleCityInput = (value: string) => {
     setFilters((f) => ({ ...f, city: value }));
     if (value.length >= 2) {
-      const matches = GERMAN_CITIES_FULL.filter((c) =>
-        c.toLowerCase().startsWith(value.toLowerCase())
-      ).slice(0, 8);
+      const matches = GERMAN_CITIES_FULL.filter((c) => c.toLowerCase().startsWith(value.toLowerCase())).slice(0, 8);
       setCitySuggestions(matches);
       setShowSuggestions(true);
     } else {
@@ -91,57 +70,41 @@ export default function Stellenangebote() {
     }
   };
 
-  const selectCity = (city: string) => {
-    setFilters((f) => ({ ...f, city }));
-    setShowSuggestions(false);
-  };
-
-  const set = <K extends keyof Filters>(key: K, value: Filters[K]) =>
-    setFilters((f) => ({ ...f, [key]: value }));
-
-  const toggle = (key: "ohneDeutsch" | "mitUnterkunft" | "quereinsteiger" | "schnellerEinstieg") =>
-    setFilters((f) => ({ ...f, [key]: !f[key] }));
+  const selectCity = (city: string) => { setFilters((f) => ({ ...f, city })); setShowSuggestions(false); };
+  const set = <K extends keyof Filters>(key: K, value: Filters[K]) => setFilters((f) => ({ ...f, [key]: value }));
+  const toggle = (key: "ohneDeutsch" | "mitUnterkunft" | "quereinsteiger" | "schnellerEinstieg") => setFilters((f) => ({ ...f, [key]: !f[key] }));
 
   const portalGroups = useMemo(() => [
-    { title: "Staatliche Portale", portals: PORTALE_STAATLICH, tag: "staat" },
-    { title: "Große Jobportale", portals: PORTALE_GROSS, tag: "gross" },
-    { title: "Spezialportale", portals: PORTALE_SPEZIAL, tag: "spezial" },
-  ], []);
+    { title: t("jobs.portalStaatlich"), portals: PORTALE_STAATLICH, tag: "staat" },
+    { title: t("jobs.portalGross"), portals: PORTALE_GROSS, tag: "gross" },
+    { title: t("jobs.portalSpezial"), portals: PORTALE_SPEZIAL, tag: "spezial" },
+  ], [t]);
 
   return (
     <div className="min-h-screen bg-muted/30">
-      {/* Hero */}
       <section className="bg-primary py-12 text-primary-foreground md:py-16">
         <div className="container max-w-4xl text-center">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm">
-            <Briefcase className="h-4 w-4" /> Job Finder
+            <Briefcase className="h-4 w-4" /> {t("jobs.title")}
           </div>
-          <h1 className="font-heading text-3xl font-bold md:text-4xl">
-            Jobsuche in ganz Deutschland
-          </h1>
-          <p className="mx-auto mt-3 max-w-xl text-primary-foreground/80">
-            Durchsuche staatliche und private Jobportale mit einem Klick.
-            Keine eigene Datenbank – direkte Weiterleitung.
-          </p>
+          <h1 className="font-heading text-3xl font-bold md:text-4xl">{t("jobs.title")}</h1>
+          <p className="mx-auto mt-3 max-w-xl text-primary-foreground/80">{t("jobs.subtitle")}</p>
         </div>
       </section>
 
       <div className="container max-w-5xl py-8">
-        {/* Filter Card */}
         <Card className="mb-8 shadow-md">
           <CardHeader className="pb-4">
             <CardTitle className="flex items-center gap-2 text-lg">
-              <Search className="h-5 w-5 text-primary" />
-              Suchkriterien
+              <Search className="h-5 w-5 text-primary" /> {t("jobs.search")}
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
-            {/* Row 1: City + Bundesland */}
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="relative">
-                <Label className="mb-1.5 block text-sm font-medium">Stadt</Label>
+                <Label className="mb-1.5 block text-sm font-medium">{t("jobs.city")}</Label>
                 <Input
-                  placeholder="z. B. Berlin, München…"
+                  placeholder="Berlin, München…"
                   value={filters.city}
                   onChange={(e) => handleCityInput(e.target.value)}
                   onFocus={() => filters.city.length >= 2 && setShowSuggestions(true)}
@@ -150,82 +113,64 @@ export default function Stellenangebote() {
                 {showSuggestions && citySuggestions.length > 0 && (
                   <ul className="absolute z-50 mt-1 w-full rounded-md border bg-popover shadow-lg">
                     {citySuggestions.map((c) => (
-                      <li
-                        key={c}
-                        className="cursor-pointer px-3 py-2 text-sm hover:bg-accent"
-                        onMouseDown={() => selectCity(c)}
-                      >
-                        {c}
-                      </li>
+                      <li key={c} className="cursor-pointer px-3 py-2 text-sm hover:bg-accent" onMouseDown={() => selectCity(c)}>{c}</li>
                     ))}
                   </ul>
                 )}
               </div>
               <div>
-                <Label className="mb-1.5 block text-sm font-medium">Bundesland</Label>
+                <Label className="mb-1.5 block text-sm font-medium">{t("jobs.bundesland")}</Label>
                 <Select value={filters.bundesland} onValueChange={(v) => set("bundesland", v)}>
-                  <SelectTrigger><SelectValue placeholder="Ganz Deutschland" /></SelectTrigger>
+                  <SelectTrigger><SelectValue placeholder={t("jobs.allGermany")} /></SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="alle">Ganz Deutschland</SelectItem>
-                    {BUNDESLAENDER.map((b) => (
-                      <SelectItem key={b} value={b}>{b}</SelectItem>
-                    ))}
+                    <SelectItem value="alle">{t("jobs.allGermany")}</SelectItem>
+                    {BUNDESLAENDER.map((b) => (<SelectItem key={b} value={b}>{b}</SelectItem>))}
                   </SelectContent>
                 </Select>
               </div>
             </div>
 
-            {/* Row 2: Umkreis + Branche + Vertragsart */}
             <div className="grid gap-4 sm:grid-cols-3">
               <div>
-                <Label className="mb-1.5 block text-sm font-medium">Umkreis</Label>
+                <Label className="mb-1.5 block text-sm font-medium">{t("jobs.radius")}</Label>
                 <Select value={filters.umkreis} onValueChange={(v) => set("umkreis", v)}>
                   <SelectTrigger><SelectValue /></SelectTrigger>
                   <SelectContent>
-                    {UMKREIS_OPTIONS.map((o) => (
-                      <SelectItem key={o.value} value={o.value}>{o.label}</SelectItem>
-                    ))}
+                    {UMKREIS_OPTIONS.map((o) => (<SelectItem key={o.value} value={o.value}>{o.label}</SelectItem>))}
                   </SelectContent>
                 </Select>
               </div>
               <div>
-                <Label className="mb-1.5 block text-sm font-medium">Branche</Label>
+                <Label className="mb-1.5 block text-sm font-medium">{t("jobs.branche")}</Label>
                 <Select value={filters.branche} onValueChange={(v) => set("branche", v)}>
-                  <SelectTrigger><SelectValue placeholder="Alle Branchen" /></SelectTrigger>
+                  <SelectTrigger><SelectValue placeholder={t("jobs.allBranchen")} /></SelectTrigger>
                   <SelectContent>
-                    {BRANCHEN.map((b) => (
-                      <SelectItem key={b} value={b}>{b}</SelectItem>
-                    ))}
+                    <SelectItem value="alle">{t("jobs.allBranchen")}</SelectItem>
+                    {BRANCHE_KEYS.map((k) => (<SelectItem key={k} value={k}>{t(`branche.${k}` as any)}</SelectItem>))}
                   </SelectContent>
                 </Select>
               </div>
               <div>
-                <Label className="mb-1.5 block text-sm font-medium">Vertragsart</Label>
+                <Label className="mb-1.5 block text-sm font-medium">{t("jobs.vertragsart")}</Label>
                 <Select value={filters.vertragsart} onValueChange={(v) => set("vertragsart", v)}>
-                  <SelectTrigger><SelectValue placeholder="Alle" /></SelectTrigger>
+                  <SelectTrigger><SelectValue placeholder="—" /></SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="alle">Alle</SelectItem>
-                    {VERTRAGSARTEN.map((v) => (
-                      <SelectItem key={v} value={v}>{v}</SelectItem>
-                    ))}
+                    <SelectItem value="alle">—</SelectItem>
+                    {VERTRAG_KEYS.map((k) => (<SelectItem key={k} value={k}>{t(`vertrag.${k}` as any)}</SelectItem>))}
                   </SelectContent>
                 </Select>
               </div>
             </div>
 
-            {/* Row 3: Checkboxes */}
             <div className="flex flex-wrap gap-x-6 gap-y-3">
               {([
-                ["ohneDeutsch", "Ohne Deutschkenntnisse"],
-                ["mitUnterkunft", "Mit Unterkunft"],
-                ["quereinsteiger", "Quereinsteiger möglich"],
-                ["schnellerEinstieg", "Schneller Einstieg"],
-              ] as const).map(([key, label]) => (
+                ["ohneDeutsch", t("jobs.noDeutsch")],
+                ["mitUnterkunft", t("jobs.mitUnterkunft")],
+                ["quereinsteiger", t("jobs.quereinsteiger")],
+                ["schnellerEinstieg", t("jobs.schnellerEinstieg")],
+              ] as [keyof Pick<Filters, "ohneDeutsch" | "mitUnterkunft" | "quereinsteiger" | "schnellerEinstieg">, string][]).map(([key, label]) => (
                 <label key={key} className="flex cursor-pointer items-center gap-2 text-sm">
-                  <Checkbox
-                    checked={filters[key]}
-                    onCheckedChange={() => toggle(key)}
-                  />
+                  <Checkbox checked={filters[key]} onCheckedChange={() => toggle(key)} />
                   {label}
                 </label>
               ))}
@@ -233,69 +178,38 @@ export default function Stellenangebote() {
           </CardContent>
         </Card>
 
-        {/* Active Filters */}
         <div className="mb-6 flex flex-wrap items-center gap-2">
-          <span className="text-sm font-medium text-muted-foreground">Suche für:</span>
           <Badge variant="secondary" className="text-sm">{searchCity}</Badge>
-          {filters.bundesland && filters.bundesland !== "alle" && (
-            <Badge variant="outline" className="text-sm">{filters.bundesland}</Badge>
-          )}
-          {filters.branche && filters.branche !== "Alle Branchen" && (
-            <Badge variant="outline" className="text-sm">{filters.branche}</Badge>
-          )}
-          {filters.vertragsart && filters.vertragsart !== "alle" && (
-            <Badge variant="outline" className="text-sm">{filters.vertragsart}</Badge>
-          )}
-          {filters.ohneDeutsch && <Badge variant="outline" className="text-sm">Ohne Deutsch</Badge>}
-          {filters.mitUnterkunft && <Badge variant="outline" className="text-sm">Mit Unterkunft</Badge>}
+          {filters.bundesland && filters.bundesland !== "alle" && <Badge variant="outline" className="text-sm">{filters.bundesland}</Badge>}
+          {filters.branche && filters.branche !== "alle" && <Badge variant="outline" className="text-sm">{t(`branche.${filters.branche}` as any)}</Badge>}
+          {filters.vertragsart && filters.vertragsart !== "alle" && <Badge variant="outline" className="text-sm">{t(`vertrag.${filters.vertragsart}` as any)}</Badge>}
+          {filters.ohneDeutsch && <Badge variant="outline" className="text-sm">{t("jobs.noDeutsch")}</Badge>}
+          {filters.mitUnterkunft && <Badge variant="outline" className="text-sm">{t("jobs.mitUnterkunft")}</Badge>}
         </div>
 
-        {/* Portal Groups */}
         {portalGroups.map((group) => {
           const expanded = showMore[group.tag];
           const visiblePortals = expanded ? group.portals : group.portals.slice(0, 4);
-
           return (
             <section key={group.tag} className="mb-8">
               <h2 className="mb-4 font-heading text-xl font-bold">{group.title}</h2>
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                 {visiblePortals.map((portal) => (
-                  <a
-                    key={portal.name}
-                    href={portal.buildUrl(filters.city || "Deutschland")}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-center justify-between rounded-lg border bg-card p-4 shadow-sm transition-colors hover:border-primary/40 hover:shadow-md"
-                  >
+                  <a key={portal.name} href={portal.buildUrl(filters.city || "Deutschland")} target="_blank" rel="noopener noreferrer"
+                    className="group flex items-center justify-between rounded-lg border bg-card p-4 shadow-sm transition-colors hover:border-primary/40 hover:shadow-md">
                     <span className="text-sm font-medium">{portal.name}</span>
                     <ExternalLink className="h-4 w-4 text-muted-foreground transition-colors group-hover:text-primary" />
                   </a>
                 ))}
               </div>
               {group.portals.length > 4 && (
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="mt-3"
-                  onClick={() => setShowMore((s) => ({ ...s, [group.tag]: !expanded }))}
-                >
-                  {expanded ? (
-                    <><ChevronUp className="mr-1 h-4 w-4" /> Weniger anzeigen</>
-                  ) : (
-                    <><ChevronDown className="mr-1 h-4 w-4" /> Mehr anzeigen</>
-                  )}
+                <Button variant="ghost" size="sm" className="mt-3" onClick={() => setShowMore((s) => ({ ...s, [group.tag]: !expanded }))}>
+                  {expanded ? <><ChevronUp className="mr-1 h-4 w-4" /> {t("jobs.showLess")}</> : <><ChevronDown className="mr-1 h-4 w-4" /> {t("jobs.showMore")}</>}
                 </Button>
               )}
             </section>
           );
         })}
-
-        {/* Hinweis */}
-        <Card className="border-primary/20 bg-primary/5">
-          <CardContent className="py-4 text-center text-sm text-muted-foreground">
-            Alle Links führen direkt zu den jeweiligen Portalen. BalkanDE speichert keine Stellenanzeigen.
-          </CardContent>
-        </Card>
       </div>
     </div>
   );

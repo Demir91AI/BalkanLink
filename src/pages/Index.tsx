@@ -1,26 +1,14 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Compass, MapPin, LifeBuoy, Search, ArrowRight, Globe, Landmark } from "lucide-react";
+import { Plane, Building2, Briefcase, Users, Scale, FileText, Wrench, Landmark, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { CATEGORIES } from "@/lib/categories";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
-import { LANGUAGES } from "@/lib/translations";
 
 import heroArrival from "@/assets/hero-arrival.jpg";
 import heroLiving from "@/assets/hero-living.jpg";
 import heroWork from "@/assets/hero-work.jpg";
-
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.06 } },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 12 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.35 } },
-};
 
 export default function Index() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -33,10 +21,15 @@ export default function Index() {
     { image: heroWork, headline: t("hero.slide3.title"), subtitle: t("hero.slide3.subtitle") },
   ];
 
-  const heroCards = [
-    { title: t("cta.new.title"), description: t("cta.new.desc"), icon: Compass, to: "/dolazak" },
-    { title: t("cta.daily.title"), description: t("cta.daily.desc"), icon: MapPin, to: "/zivot" },
-    { title: t("cta.help.title"), description: t("cta.help.desc"), icon: LifeBuoy, to: "/probleme" },
+  const portalCards = [
+    { title: t("portal.dolazak"), desc: t("portal.dolazak.desc"), icon: Plane, to: "/dolazak" },
+    { title: t("portal.stan"), desc: t("portal.stan.desc"), icon: Building2, to: "/wohnungen" },
+    { title: t("portal.jobs"), desc: t("portal.jobs.desc"), icon: Briefcase, to: "/stellenangebote" },
+    { title: t("portal.familie"), desc: t("portal.familie.desc"), icon: Users, to: "/familie" },
+    { title: t("portal.foerderungen"), desc: t("portal.foerderungen.desc"), icon: Scale, to: "/foerderungen" },
+    { title: t("portal.formulare"), desc: t("portal.formulare.desc"), icon: FileText, to: "/formulare" },
+    { title: t("portal.tools"), desc: t("portal.tools.desc"), icon: Wrench, to: "/generatoren" },
+    { title: t("portal.ambasade"), desc: t("portal.ambasade.desc"), icon: Landmark, to: "/ambasade-konzulati" },
   ];
 
   const nextSlide = useCallback(() => {
@@ -50,9 +43,9 @@ export default function Index() {
 
   return (
     <>
-      {/* Hero — Slideshow */}
+      {/* Hero Slideshow */}
       <section className="relative overflow-hidden bg-foreground">
-        <div className="relative min-h-[360px] sm:min-h-[420px] lg:min-h-[520px]">
+        <div className="relative min-h-[320px] sm:min-h-[400px] lg:min-h-[480px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSlide}
@@ -72,7 +65,7 @@ export default function Index() {
             </motion.div>
           </AnimatePresence>
 
-          <div className="container relative z-10 flex h-full min-h-[360px] flex-col justify-end pb-10 pt-20 sm:min-h-[420px] sm:pb-14 lg:min-h-[520px] lg:pb-16">
+          <div className="container relative z-10 flex h-full min-h-[320px] flex-col justify-end pb-8 pt-16 sm:min-h-[400px] sm:pb-12 lg:min-h-[480px] lg:pb-14">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentSlide}
@@ -89,7 +82,7 @@ export default function Index() {
                 </p>
               </motion.div>
             </AnimatePresence>
-            <div className="mt-6 flex gap-2">
+            <div className="mt-5 flex gap-2">
               {slides.map((_, idx) => (
                 <button
                   key={idx}
@@ -105,125 +98,48 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Mobile CTA — Register */}
+      {/* Mobile Register CTA */}
       {!loading && !user && (
-        <section className="border-b bg-primary py-4 lg:hidden">
+        <section className="border-b bg-primary py-3 lg:hidden">
           <div className="container flex justify-center">
             <Button size="lg" variant="secondary" asChild className="w-full max-w-sm font-semibold">
-              <Link to="/register">Jetzt registrieren</Link>
+              <Link to="/register">{t("cta.register")}</Link>
             </Button>
           </div>
         </section>
       )}
 
-      {/* Quick-Access Cards */}
-      <section className="border-b bg-background py-10">
+      {/* Portal Grid */}
+      <section className="py-12">
         <div className="container">
-          <div className="grid gap-4 sm:grid-cols-3">
-            {heroCards.map((card, idx) => (
-              <Link
-                key={idx}
-                to={card.to}
-                className="group flex items-start gap-4 rounded-lg border bg-card p-5 shadow-sm transition-shadow hover:shadow-md"
-              >
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
-                  <card.icon className="h-5 w-5" strokeWidth={1.5} />
-                </div>
-                <div className="min-w-0">
-                  <h2 className="text-sm font-semibold">{card.title}</h2>
-                  <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{card.description}</p>
-                </div>
-                <ArrowRight className="ml-auto mt-1 h-4 w-4 shrink-0 text-muted-foreground/40 transition-transform group-hover:translate-x-0.5" />
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA — Embassies & Consulates */}
-      <section className="border-b bg-secondary py-12">
-        <div className="container flex flex-col items-center gap-4 text-center">
-          <Landmark className="h-7 w-7 text-primary" />
-          <h2 className="text-xl font-bold md:text-2xl">Traži ambasadu ili konzulat?</h2>
-          <p className="max-w-md text-sm text-muted-foreground">
-            Pronađi adresu, grad i tip misije za svoju državu u Njemačkoj.
-          </p>
-          <Button size="lg" asChild>
-            <Link to="/ambasade-konzulati">Pregledaj ambasade</Link>
-          </Button>
-        </div>
-      </section>
-
-      {/* Balkan Countries */}
-      <section className="border-b py-10">
-        <div className="container">
-          <div className="mb-6 flex items-center justify-center gap-2 text-center">
-            <Globe className="h-5 w-5 text-primary" />
-            <h2 className="text-lg font-semibold md:text-xl">{t("countries.title")}</h2>
-          </div>
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-            {LANGUAGES.filter((l) => !["de", "en"].includes(l.code)).map((lang) => (
-              <motion.div
-                key={lang.code}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.25 }}
-                className="flex items-center gap-2 rounded-md border bg-card px-4 py-2 text-sm font-medium shadow-sm"
-              >
-                <span className="text-lg leading-none">{lang.flag}</span>
-                <span>{lang.country}</span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Categories */}
-      <section className="py-14">
-        <div className="container">
-          <div className="mb-8 text-center">
-            <h2 className="text-2xl font-bold md:text-3xl">{t("categories.title")}</h2>
-            <p className="mt-2 text-muted-foreground">{t("categories.subtitle")}</p>
-          </div>
           <motion.div
-            variants={container}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, amount: 0.2 }}
-            className="grid grid-cols-3 gap-3 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-9"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.05 } } }}
+            className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
           >
-            {CATEGORIES.map((cat) => (
-              <motion.div key={cat.label} variants={item}>
+            {portalCards.map((card) => (
+              <motion.div
+                key={card.to}
+                variants={{ hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0, transition: { duration: 0.3 } } }}
+              >
                 <Link
-                  to={`/qa?filter=${cat.slug}`}
-                  className="group flex flex-col items-center gap-2 rounded-lg border bg-card p-4 text-center shadow-sm transition-all hover:border-primary/30 hover:shadow-md"
+                  to={card.to}
+                  className="group flex items-start gap-4 rounded-xl border bg-card p-5 shadow-sm transition-all hover:border-primary/30 hover:shadow-md"
                 >
-                  <cat.icon className="h-6 w-6 text-primary" />
-                  <span className="text-xs font-medium">{cat.label}</span>
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <card.icon className="h-5 w-5" strokeWidth={1.5} />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <h2 className="text-sm font-semibold">{card.title}</h2>
+                    <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{card.desc}</p>
+                  </div>
+                  <ArrowRight className="ml-auto mt-1 h-4 w-4 shrink-0 text-muted-foreground/40 transition-transform group-hover:translate-x-0.5" />
                 </Link>
               </motion.div>
             ))}
           </motion.div>
-        </div>
-      </section>
-
-      {/* CTA — Business Directory */}
-      <section className="border-t bg-secondary py-14">
-        <div className="container flex flex-col items-center gap-5 text-center">
-          <h2 className="text-2xl font-bold md:text-3xl">{t("business.title")}</h2>
-          <p className="max-w-md text-muted-foreground">{t("business.subtitle")}</p>
-          <div className="flex flex-wrap justify-center gap-3">
-            <Button size="lg" asChild>
-              <Link to="/directory">
-                <Search className="mr-2 h-4 w-4" />
-                {t("business.search")}
-              </Link>
-            </Button>
-            <Button size="lg" variant="outline" asChild>
-              <Link to="/directory/submit">{t("business.add")}</Link>
-            </Button>
-          </div>
         </div>
       </section>
     </>
