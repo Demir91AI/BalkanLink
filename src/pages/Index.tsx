@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Compass, MapPin, LifeBuoy, Search, ArrowRight, Globe } from "lucide-react";
+import { Compass, MapPin, LifeBuoy, Search, ArrowRight, Globe, Landmark } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CATEGORIES } from "@/lib/categories";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -123,6 +123,20 @@ export default function Index() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* CTA — Embassies & Consulates */}
+      <section className="border-b bg-muted/40 py-12">
+        <div className="container flex flex-col items-center gap-5 text-center">
+          <Landmark className="h-8 w-8 text-primary" />
+          <h2 className="text-xl font-bold md:text-2xl">Traži ambasadu ili konzulat?</h2>
+          <p className="max-w-md text-sm text-muted-foreground">
+            Pronađi adresu, grad i tip misije za svoju državu u Njemačkoj.
+          </p>
+          <Button size="lg" asChild>
+            <Link to="/ambasade-konzulati">Pregledaj ambasade</Link>
+          </Button>
         </div>
       </section>
 
