@@ -81,7 +81,7 @@ export default function Index() {
           </motion.div>
         </AnimatePresence>
 
-        {/* Gradient overlay — subtle, not heavy blur */}
+        {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/40 to-black/70" />
         <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent" />
 
@@ -105,20 +105,43 @@ export default function Index() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
-                className="mt-10"
+                className="mt-10 flex flex-col items-center gap-4"
               >
+                {/* Primary CTA — Gold gradient button */}
                 <Link
                   to="/register"
-                  className="btn-gold-gradient inline-flex items-center gap-2 rounded-full px-10 py-4 text-base font-bold tracking-wide"
+                  className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full px-10 py-4 text-base font-bold tracking-wide transition-all duration-300"
+                  style={{
+                    background: "linear-gradient(135deg, #D4AF37 0%, #E8C84A 50%, #D4AF37 100%)",
+                    color: "#1a1a1a",
+                    boxShadow: "0 4px 24px -4px rgba(212, 175, 55, 0.5), 0 0 40px -12px rgba(212, 175, 55, 0.3)",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.boxShadow = "0 8px 32px -4px rgba(212, 175, 55, 0.65), 0 0 60px -12px rgba(212, 175, 55, 0.4)";
+                    e.currentTarget.style.transform = "translateY(-2px)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.boxShadow = "0 4px 24px -4px rgba(212, 175, 55, 0.5), 0 0 40px -12px rgba(212, 175, 55, 0.3)";
+                    e.currentTarget.style.transform = "translateY(0)";
+                  }}
                 >
-                  {t("cta.register")}
-                  <ArrowRight className="h-4 w-4" />
+                  Kostenlos registrieren
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+
+                {/* Secondary CTA — subtle text link, no white box */}
+                <Link
+                  to="/dolazak"
+                  className="group inline-flex items-center gap-1.5 text-sm font-medium text-white/50 transition-colors duration-300 hover:text-gold"
+                >
+                  Erste Schritte ansehen
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
               </motion.div>
             )}
           </motion.div>
 
-          {/* City name — small caps at bottom */}
+          {/* City name */}
           <div className="absolute bottom-24 left-1/2 -translate-x-1/2">
             <AnimatePresence mode="wait">
               <motion.span
@@ -157,7 +180,6 @@ export default function Index() {
 
       {/* ─── DYNAMIC CATEGORY GRID ─── */}
       <section className="relative py-20 lg:py-28">
-        {/* Subtle bg texture */}
         <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/30 to-background" />
 
         <div className="container relative">
@@ -180,7 +202,6 @@ export default function Index() {
                   to={card.to}
                   className={`group relative flex items-start gap-4 overflow-hidden rounded-2xl border border-border/60 bg-gradient-to-br ${card.gradient} bg-card p-6 shadow-sm transition-all duration-400 hover:border-gold/30 hover:shadow-xl hover:shadow-gold/5 hover:-translate-y-1`}
                 >
-                  {/* Hover glow */}
                   <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gold/0 transition-all duration-500 group-hover:bg-gold/10 group-hover:blur-2xl" />
 
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/8 text-primary transition-all duration-300 group-hover:bg-gold/15 group-hover:text-gold group-hover:scale-110">
@@ -198,7 +219,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* ─── SEPARATOR ─── */}
       <div className="section-separator" />
     </>
   );
