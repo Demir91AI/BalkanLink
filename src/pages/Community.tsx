@@ -36,7 +36,8 @@ const MAIN_CATEGORIES = [
   { key: "restaurants", label: "Restaurants" },
   { key: "shops", label: "Shops" },
   { key: "vereine", label: "Vereine" },
-  { key: "moscheen", label: "Moscheen / Džemate" },
+  { key: "dzemat_moschee", label: "Džemat (Moschee)" },
+  { key: "kulturzentren", label: "Kulturzentren" },
   { key: "events", label: "Veranstaltungen" },
 ];
 
@@ -90,7 +91,7 @@ const T: Record<string, Record<string, string>> = {
   },
 };
 
-function t(lang: string, key: string): string {
+function tr(lang: string, key: string): string {
   const g = ["bs", "hr", "sr", "me"].includes(lang)
     ? "bs"
     : lang === "de"
@@ -128,9 +129,7 @@ export default function Community() {
   const [categoryFilter, setCategoryFilter] = useState("");
 
   /* accordion state */
-  const [openCountries, setOpenCountries] = useState<Record<string, boolean>>(
-    {}
-  );
+  const [openCountries, setOpenCountries] = useState<Record<string, boolean>>({});
   const [openCities, setOpenCities] = useState<Record<string, boolean>>({});
   const [activeTabs, setActiveTabs] = useState<Record<string, string>>({});
 
@@ -149,15 +148,18 @@ export default function Community() {
     },
   });
 
-  /* city autocomplete */
+  /* city autocomplete — show ALL cities with data, not just GERMAN_CITIES_FULL */
+  const allCitiesWithData = useMemo(() => {
+    return [...new Set(listings.map((l) => l.city))].sort();
+  }, [listings]);
+
   const citySuggestions = useMemo(() => {
-    if (cityInput.length < 2) return [];
+    if (cityInput.length < 1) return [];
     const q = cityInput.toLowerCase();
-    const citiesWithData = new Set(listings.map((l) => l.city));
-    return GERMAN_CITIES_FULL.filter(
-      (c) => c.toLowerCase().includes(q) && citiesWithData.has(c)
-    ).slice(0, 6);
-  }, [cityInput, listings]);
+    return allCitiesWithData
+      .filter((c) => c.toLowerCase().includes(q))
+      .slice(0, 8);
+  }, [cityInput, allCitiesWithData]);
 
   /* filtered data */
   const filtered = useMemo(() => {
@@ -257,19 +259,30 @@ export default function Community() {
   return (
     <>
       {/* ─── Hero ─── */}
-      <section className="relative bg-[hsl(var(--navy))] py-12">
-        <div className="container max-w-5xl text-center">
-          <h1 className="text-2xl font-bold text-white md:text-3xl lg:text-4xl">
-            {t(language, "title")}
-          </h1>
-          <p className="mx-auto mt-3 max-w-xl text-sm text-white/60 md:text-base">
-            {t(language, "subtitle")}
-          </p>
+      <section className="relative bg-[#0B1F3A] py-12">
+        <div className="absolute inset-0 bg-gradient-to-b from-white/[0.02] to-transparent" />
+        <div className="container relative max-w-5xl text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-2xl font-bold text-white md:text-3xl lg:text-4xl"
+          >
+            {tr(language, "title")}
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="mx-auto mt-3 max-w-xl text-sm text-white/50 md:text-base"
+          >
+            {tr(language, "subtitle")}
+          </motion.p>
         </div>
       </section>
 
       {/* ─── Sticky Filter Bar ─── */}
-      <div className="sticky top-16 z-30 border-b border-white/10 bg-[hsl(var(--navy))]/95 backdrop-blur-md">
+      <div className="sticky top-14 z-30 border-b border-white/10 bg-[#0B1F3A]/95 backdrop-blur-md">
         <div className="container max-w-5xl py-3">
           <div className="grid gap-3 sm:grid-cols-3">
             {/* Country */}
@@ -278,11 +291,11 @@ export default function Community() {
               onValueChange={(v) => setCountryFilter(v === "all" ? "" : v)}
             >
               <SelectTrigger className="border-white/10 bg-white/5 text-white placeholder:text-white/40">
-                <SelectValue placeholder={t(language, "country")} />
+                <SelectValue placeholder={tr(language, "country")} />
               </SelectTrigger>
-              <SelectContent className="bg-[hsl(var(--navy))] border-white/10">
+              <SelectContent className="bg-[#132A4A] border-white/10 z-50">
                 <SelectItem value="all" className="text-white/80 focus:bg-white/10 focus:text-white">
-                  {t(language, "allCountries")}
+                  {tr(language, "allCountries")}
                 </SelectItem>
                 {ORIGIN_COUNTRIES.map((o) => (
                   <SelectItem key={o.code} value={o.code} className="text-white/80 focus:bg-white/10 focus:text-white">
@@ -295,7 +308,7 @@ export default function Community() {
             {/* City */}
             <div className="relative">
               <Input
-                placeholder={t(language, "city")}
+                placeholder={tr(language, "city")}
                 value={cityInput}
                 onChange={(e) => {
                   setCityInput(e.target.value);
@@ -306,11 +319,11 @@ export default function Community() {
                 className="border-white/10 bg-white/5 text-white placeholder:text-white/40"
               />
               {showSuggestions && citySuggestions.length > 0 && (
-                <ul className="absolute z-50 mt-1 w-full rounded-md border border-white/10 bg-[hsl(var(--navy))] shadow-xl">
+                <ul className="absolute z-50 mt-1 w-full rounded-md border border-white/10 bg-[#132A4A] shadow-xl">
                   {citySuggestions.map((c) => (
                     <li key={c}>
                       <button
-                        className="w-full px-3 py-2 text-left text-sm text-white/80 hover:bg-white/10"
+                        className="w-full px-3 py-2 text-left text-sm text-white/80 hover:bg-white/10 hover:text-[#F4B400]"
                         onMouseDown={() => {
                           setCityInput(c);
                           setShowSuggestions(false);
@@ -330,11 +343,11 @@ export default function Community() {
               onValueChange={(v) => setCategoryFilter(v === "all" ? "" : v)}
             >
               <SelectTrigger className="border-white/10 bg-white/5 text-white placeholder:text-white/40">
-                <SelectValue placeholder={t(language, "category")} />
+                <SelectValue placeholder={tr(language, "category")} />
               </SelectTrigger>
-              <SelectContent className="bg-[hsl(var(--navy))] border-white/10">
+              <SelectContent className="bg-[#132A4A] border-white/10 z-50">
                 <SelectItem value="all" className="text-white/80 focus:bg-white/10 focus:text-white">
-                  {t(language, "allCategories")}
+                  {tr(language, "allCategories")}
                 </SelectItem>
                 {MAIN_CATEGORIES.map((c) => (
                   <SelectItem key={c.key} value={c.key} className="text-white/80 focus:bg-white/10 focus:text-white">
@@ -348,29 +361,34 @@ export default function Community() {
       </div>
 
       {/* ─── Main Content ─── */}
-      <section className="min-h-[60vh] bg-background py-8">
+      <section className="min-h-[60vh] bg-gradient-to-b from-background via-muted/20 to-background py-8">
         <div className="container max-w-5xl">
           {isLoading && (
-            <p className="py-16 text-center text-muted-foreground">...</p>
+            <div className="py-16 text-center">
+              <div className="mx-auto h-8 w-8 animate-spin rounded-full border-2 border-primary border-t-transparent" />
+            </div>
           )}
 
           {!isLoading && hierarchy.length === 0 && (
             <p className="py-16 text-center text-muted-foreground">
-              {t(language, "noResults")}
+              {tr(language, "noResults")}
             </p>
           )}
 
           <div className="space-y-4">
-            {hierarchy.map(([code, country]) => {
+            {hierarchy.map(([code, country], countryIdx) => {
               const isOpen = openCountries[code] ?? false;
               const cities = Object.entries(country.cities).sort((a, b) =>
                 a[0].localeCompare(b[0])
               );
 
               return (
-                <div
+                <motion.div
                   key={code}
-                  className="overflow-hidden rounded-xl border border-border/50 bg-card/50 shadow-sm backdrop-blur-sm"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: countryIdx * 0.05 }}
+                  className="overflow-hidden rounded-xl border border-border/50 bg-card/80 shadow-sm backdrop-blur-sm transition-shadow hover:shadow-md"
                 >
                   {/* Country header */}
                   <button
@@ -381,10 +399,10 @@ export default function Community() {
                       {country.label}
                     </h2>
                     <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
-                      {countryCities(code)} {t(language, "cities")}
+                      {countryCities(code)} {tr(language, "cities")}
                     </span>
-                    <span className="rounded-full bg-[hsl(var(--gold))]/10 px-2.5 py-0.5 text-xs font-medium text-[hsl(var(--gold))]">
-                      {countryEntries(code)} {t(language, "results")}
+                    <span className="rounded-full bg-gold/10 px-2.5 py-0.5 text-xs font-medium text-gold">
+                      {countryEntries(code)} {tr(language, "results")}
                     </span>
                     <ChevronDown
                       className={`ml-auto h-4 w-4 text-muted-foreground transition-transform duration-300 ${
@@ -431,14 +449,14 @@ export default function Community() {
                                   onClick={() => toggleCity(cityKey)}
                                   className="flex w-full items-center gap-2 px-4 py-3 text-left transition-colors hover:bg-accent/20"
                                 >
-                                  <MapPin className="h-3.5 w-3.5 text-muted-foreground" />
+                                  <MapPin className="h-3.5 w-3.5 text-gold/70" />
                                   <span className="text-sm font-medium text-foreground">
                                     {cityName}
                                   </span>
                                   <span className="text-xs text-muted-foreground">
                                     {cityData.bundesland}
                                   </span>
-                                  <span className="ml-auto text-xs text-muted-foreground">
+                                  <span className="ml-auto rounded-full bg-muted px-2 py-0.5 text-xs text-muted-foreground">
                                     {totalItems}
                                   </span>
                                   <ChevronDown
@@ -501,7 +519,7 @@ export default function Community() {
                                                 initial={{ opacity: 0, y: 8 }}
                                                 animate={{ opacity: 1, y: 0 }}
                                                 transition={{ duration: 0.2 }}
-                                                className="group rounded-lg border border-border/40 bg-card p-4 shadow-sm transition-shadow hover:shadow-md"
+                                                className="group rounded-lg border border-border/40 bg-card p-4 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 hover:border-gold/20"
                                               >
                                                 <h4 className="text-sm font-semibold text-foreground">
                                                   {item.name}
@@ -528,15 +546,13 @@ export default function Community() {
                                                 <div className="mt-3 flex flex-wrap gap-2">
                                                   {item.google_maps_url && (
                                                     <a
-                                                      href={
-                                                        item.google_maps_url
-                                                      }
+                                                      href={item.google_maps_url}
                                                       target="_blank"
                                                       rel="noopener noreferrer"
                                                       className="inline-flex items-center gap-1 rounded-md bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary transition-colors hover:bg-primary/20"
                                                     >
                                                       <ExternalLink className="h-3 w-3" />
-                                                      {t(language, "maps")}
+                                                      {tr(language, "maps")}
                                                     </a>
                                                   )}
                                                   {item.website && (
@@ -547,7 +563,7 @@ export default function Community() {
                                                       className="inline-flex items-center gap-1 rounded-md bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary transition-colors hover:bg-primary/20"
                                                     >
                                                       <Globe className="h-3 w-3" />
-                                                      {t(language, "website")}
+                                                      {tr(language, "website")}
                                                     </a>
                                                   )}
                                                   {item.instagram && (
@@ -576,7 +592,7 @@ export default function Community() {
                       </motion.div>
                     )}
                   </AnimatePresence>
-                </div>
+                </motion.div>
               );
             })}
           </div>
