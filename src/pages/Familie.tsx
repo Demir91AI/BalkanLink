@@ -1,95 +1,77 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Baby, BookOpen, GraduationCap, HandCoins, Heart, Users } from "lucide-react";
+import { motion } from "framer-motion";
+import { getGuidesByCategory } from "@/lib/guide-data";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const sections = [
-  {
-    title: "Kindergeld",
-    icon: Baby,
-    desc: "Dječji dodatak — za svako dijete do 18. godine (ili duže uz školovanje).",
-    link: "https://www.arbeitsagentur.de/familie-und-kinder/kindergeld",
-  },
-  {
-    title: "Kinderzuschlag",
-    icon: HandCoins,
-    desc: "Dodatak za djecu za porodice sa niskim primanjima.",
-    link: "https://www.arbeitsagentur.de/familie-und-kinder/kinderzuschlag",
-  },
-  {
-    title: "Elterngeld",
-    icon: Users,
-    desc: "Roditeljski dodatak — naknada za roditelje nakon rođenja djeteta.",
-    link: "https://www.bmfsfj.de/",
-  },
-  {
-    title: "Bildung & Teilhabe",
-    icon: BookOpen,
-    desc: "Lernförderung, Schulessen, Schulbedarf, Sport & Musik, Klassenfahrten.",
-    link: "https://www.gesetze-im-internet.de/sgb_2/",
-  },
-  {
-    title: "Kita & Betreuung",
-    icon: Heart,
-    desc: "Kita-Gebühren Zuschuss, Kostenübernahme Tagespflege.",
-    link: "https://www.gesetze-im-internet.de/sgb_8/",
-  },
-  {
-    title: "Mutterschaftsgeld",
-    icon: Heart,
-    desc: "Naknada za majke u periodu prije i nakon porođaja.",
-    link: "https://www.gesetze-im-internet.de/muschg/",
-  },
-  {
-    title: "Unterhaltsvorschuss",
-    icon: HandCoins,
-    desc: "Alimentacijski predujam za samohrane roditelje.",
-    link: "https://www.gesetze-im-internet.de/uhvorschg/",
-  },
-  {
-    title: "BAföG / Schüler-BAföG",
-    icon: GraduationCap,
-    desc: "Financijska podrška za studente i učenike.",
-    link: "https://www.gesetze-im-internet.de/baf_g/",
-  },
-];
+type LangKey = "de" | "bs" | "en";
+function getLangKey(lang: string): LangKey {
+  if (lang === "de") return "de";
+  if (lang === "en") return "en";
+  return "bs";
+}
+
+const iconMap: Record<string, any> = {
+  kindergeld: Baby,
+  kinderzuschlag: HandCoins,
+  elterngeld: Users,
+  "bildung-teilhabe": BookOpen,
+  unterhaltsvorschuss: HandCoins,
+};
+
+const titles = {
+  de: { title: "Familie & Kinder", subtitle: "Alle Leistungen und Ansprüche für Familien mit Kindern in Deutschland." },
+  bs: { title: "Porodica i djeca", subtitle: "Sve naknade i prava za porodice sa djecom u Njemačkoj." },
+  en: { title: "Family & Children", subtitle: "All benefits and rights for families with children in Germany." },
+};
 
 export default function Familie() {
+  const { language } = useLanguage();
+  const lk = getLangKey(language);
+  const familyGuides = getGuidesByCategory("familie");
+  const t = titles[lk];
+
   return (
     <>
       <section className="border-b bg-primary py-12">
         <div className="container text-center">
-          <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">
-            Familie & Kinder
-          </h1>
-          <p className="mt-2 text-sm text-primary-foreground/80 md:text-base">
-            Sve naknade i prava za porodice sa djecom u Njemačkoj.
-          </p>
+          <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">{t.title}</h1>
+          <p className="mt-2 text-sm text-primary-foreground/80 md:text-base">{t.subtitle}</p>
         </div>
       </section>
 
       <section className="py-12">
         <div className="container max-w-3xl">
-          <div className="grid gap-4 sm:grid-cols-2">
-            {sections.map((item, idx) => (
-              <div
-                key={idx}
-                className="flex flex-col gap-3 rounded-lg border bg-card p-5 shadow-sm"
-              >
-                <div className="flex h-10 w-10 items-center justify-center rounded-md bg-primary/10 text-primary">
-                  <item.icon className="h-5 w-5" strokeWidth={1.5} />
-                </div>
-                <h2 className="text-sm font-semibold">{item.title}</h2>
-                <p className="text-xs leading-relaxed text-muted-foreground">{item.desc}</p>
-                <a
-                  href={item.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-auto inline-flex items-center gap-1 text-xs font-medium text-primary hover:underline"
+          <motion.div
+            initial="hidden"
+            animate="show"
+            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.06 } } }}
+            className="grid gap-4 sm:grid-cols-2"
+          >
+            {familyGuides.map((guide) => {
+              const Icon = iconMap[guide.slug] || Heart;
+              return (
+                <motion.div
+                  key={guide.slug}
+                  variants={{ hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0 } }}
                 >
-                  Službeni izvor <ArrowRight className="h-3 w-3" />
-                </a>
-              </div>
-            ))}
-          </div>
+                  <Link
+                    to={`/guide/${guide.slug}`}
+                    className="group flex flex-col gap-3 rounded-xl border bg-card p-5 shadow-sm transition-all duration-300 hover:border-gold/40 hover:shadow-md hover:-translate-y-0.5"
+                  >
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-gold/10 group-hover:text-gold">
+                      <Icon className="h-5 w-5" strokeWidth={1.5} />
+                    </div>
+                    <h2 className="text-sm font-bold">{guide.title[lk]}</h2>
+                    <p className="text-xs leading-relaxed text-muted-foreground">{guide.who[lk]}</p>
+                    <span className="mt-auto inline-flex items-center gap-1 text-xs font-semibold text-primary group-hover:text-gold">
+                      {lk === "de" ? "Ausfüllhilfe öffnen" : lk === "en" ? "Open guide" : "Otvori vodič"} <ArrowRight className="h-3 w-3" />
+                    </span>
+                  </Link>
+                </motion.div>
+              );
+            })}
+          </motion.div>
         </div>
       </section>
     </>

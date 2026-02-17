@@ -21,14 +21,14 @@ export default function Index() {
   const { user, loading } = useAuth();
 
   const slides = [
-    { image: heroBerlin, headline: t("hero.slide1.title"), subtitle: t("hero.slide1.subtitle"), city: "Berlin" },
-    { image: heroMuenchen, headline: t("hero.slide2.title"), subtitle: t("hero.slide2.subtitle"), city: "München" },
-    { image: heroFrankfurt, headline: t("hero.slide3.title"), subtitle: t("hero.slide3.subtitle"), city: "Frankfurt" },
-    { image: heroHamburg, headline: t("hero.slide1.title"), subtitle: t("hero.slide1.subtitle"), city: "Hamburg" },
-    { image: heroKoeln, headline: t("hero.slide2.title"), subtitle: t("hero.slide2.subtitle"), city: "Köln" },
-    { image: heroStuttgart, headline: t("hero.slide3.title"), subtitle: t("hero.slide3.subtitle"), city: "Stuttgart" },
-    { image: heroDuesseldorf, headline: t("hero.slide1.title"), subtitle: t("hero.slide1.subtitle"), city: "Düsseldorf" },
-    { image: heroNuernberg, headline: t("hero.slide2.title"), subtitle: t("hero.slide2.subtitle"), city: "Nürnberg" },
+    { image: heroFrankfurt, city: "Frankfurt" },
+    { image: heroBerlin, city: "Berlin" },
+    { image: heroMuenchen, city: "München" },
+    { image: heroHamburg, city: "Hamburg" },
+    { image: heroKoeln, city: "Köln" },
+    { image: heroStuttgart, city: "Stuttgart" },
+    { image: heroDuesseldorf, city: "Düsseldorf" },
+    { image: heroNuernberg, city: "Nürnberg" },
   ];
 
   const portalCards = [
@@ -48,105 +48,120 @@ export default function Index() {
   }, [slides.length]);
 
   useEffect(() => {
-    const timer = setInterval(nextSlide, 5000);
+    const timer = setInterval(nextSlide, 7000);
     return () => clearInterval(timer);
   }, [nextSlide]);
 
   return (
     <>
-      {/* Hero Slideshow */}
-      <section className="relative overflow-hidden bg-foreground">
-        <div className="relative min-h-[320px] sm:min-h-[400px] lg:min-h-[480px]">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentSlide}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.8 }}
-              className="absolute inset-0"
-            >
-              <img
-                src={slides[currentSlide].image}
-                alt={slides[currentSlide].headline}
-                className="h-full w-full object-cover"
-                loading="eager"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-black/10" />
-            </motion.div>
-          </AnimatePresence>
+      {/* Cinematic Hero */}
+      <section className="relative h-[85vh] min-h-[500px] overflow-hidden bg-foreground">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentSlide}
+            initial={{ opacity: 0, scale: 1.08 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            className="absolute inset-0"
+          >
+            <img
+              src={slides[currentSlide].image}
+              alt={slides[currentSlide].city}
+              className="h-full w-full object-cover blur-[2px] scale-105"
+              loading="eager"
+            />
+          </motion.div>
+        </AnimatePresence>
 
-          <div className="container relative z-10 flex h-full min-h-[320px] flex-col justify-end pb-8 pt-16 sm:min-h-[400px] sm:pb-12 lg:min-h-[480px] lg:pb-14">
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
+
+        {/* Content */}
+        <div className="container relative z-10 flex h-full flex-col items-center justify-center text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="max-w-3xl"
+          >
+            <h1 className="text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
+              {t("hero.slide1.title")}
+            </h1>
+            <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">
+              {t("hero.slide1.subtitle")}
+            </p>
+
+            {!loading && !user && (
+              <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+                <Button size="lg" asChild className="bg-gold text-gold-foreground hover:bg-gold/90 font-semibold px-8">
+                  <Link to="/register">{t("cta.register")}</Link>
+                </Button>
+                <Button size="lg" variant="outline" asChild className="border-white/30 text-white hover:bg-white/10">
+                  <Link to="/dolazak">{t("portal.dolazak")}</Link>
+                </Button>
+              </div>
+            )}
+          </motion.div>
+
+          {/* City name */}
+          <div className="absolute bottom-20 left-1/2 -translate-x-1/2">
             <AnimatePresence mode="wait">
-              <motion.div
+              <motion.span
                 key={currentSlide}
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.5 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="text-xs font-medium uppercase tracking-[0.3em] text-white/40"
               >
-                <h1 className="max-w-2xl text-2xl font-bold leading-tight text-white sm:text-3xl lg:text-5xl">
-                  {slides[currentSlide].headline}
-                </h1>
-                <p className="mt-3 max-w-lg text-sm leading-relaxed text-white/80 sm:text-base lg:text-lg">
-                  {slides[currentSlide].subtitle}
-                </p>
-              </motion.div>
+                {slides[currentSlide].city}
+              </motion.span>
             </AnimatePresence>
-            <div className="mt-5 flex gap-2">
-              {slides.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentSlide(idx)}
-                  className={`h-1 rounded-full transition-all duration-300 ${
-                    idx === currentSlide ? "w-10 bg-white" : "w-4 bg-white/40 hover:bg-white/60"
-                  }`}
-                  aria-label={`Slide ${idx + 1}`}
-                />
-              ))}
-            </div>
+          </div>
+
+          {/* Dots */}
+          <div className="absolute bottom-8 flex gap-2">
+            {slides.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentSlide(idx)}
+                className={`h-1 rounded-full transition-all duration-500 ${
+                  idx === currentSlide ? "w-10 bg-gold" : "w-3 bg-white/30 hover:bg-white/50"
+                }`}
+                aria-label={`Slide ${idx + 1}`}
+              />
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Mobile Register CTA */}
-      {!loading && !user && (
-        <section className="border-b bg-primary py-3 lg:hidden">
-          <div className="container flex justify-center">
-            <Button size="lg" variant="secondary" asChild className="w-full max-w-sm font-semibold">
-              <Link to="/register">{t("cta.register")}</Link>
-            </Button>
-          </div>
-        </section>
-      )}
-
       {/* Portal Grid */}
-      <section className="py-12">
+      <section className="py-16 lg:py-20">
         <div className="container">
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.1 }}
-            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.05 } } }}
-            className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.06 } } }}
+            className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
           >
             {portalCards.map((card) => (
               <motion.div
                 key={card.to}
-                variants={{ hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0, transition: { duration: 0.3 } } }}
+                variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.4 } } }}
               >
                 <Link
                   to={card.to}
-                  className="group flex items-start gap-4 rounded-xl border bg-card p-5 shadow-sm transition-all hover:border-primary/30 hover:shadow-md"
+                  className="group flex items-start gap-4 rounded-xl border bg-card p-6 shadow-sm transition-all duration-300 hover:border-gold/40 hover:shadow-lg hover:-translate-y-0.5"
                 >
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-gold/10 group-hover:text-gold">
                     <card.icon className="h-5 w-5" strokeWidth={1.5} />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <h2 className="text-sm font-semibold">{card.title}</h2>
+                    <h2 className="text-sm font-bold">{card.title}</h2>
                     <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{card.desc}</p>
                   </div>
-                  <ArrowRight className="ml-auto mt-1 h-4 w-4 shrink-0 text-muted-foreground/40 transition-transform group-hover:translate-x-0.5" />
+                  <ArrowRight className="ml-auto mt-1 h-4 w-4 shrink-0 text-muted-foreground/30 transition-all group-hover:translate-x-0.5 group-hover:text-gold" />
                 </Link>
               </motion.div>
             ))}
