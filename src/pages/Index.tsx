@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plane, Home, AlertTriangle, Search, ChevronRight, ArrowRight } from "lucide-react";
+import { Compass, MapPin, LifeBuoy, Search, ArrowRight, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CATEGORIES } from "@/lib/categories";
 
@@ -12,43 +12,53 @@ import heroWork from "@/assets/hero-work.jpg";
 const slides = [
   {
     image: heroArrival,
-    headline: "Dobrodošao u Njemačku",
-    subtitle: "Sve što trebaš znati — od prvog dana do svakodnevnice.",
+    headline: "Tvoj vodič za život u Njemačkoj",
+    subtitle: "Provjerene informacije, korak po korak — na tvom jeziku.",
   },
   {
     image: heroLiving,
-    headline: "Pronađi svoj dom",
+    headline: "Dom daleko od doma",
     subtitle: "Stan, prijava, ugovori — vodimo te kroz svaki korak.",
   },
   {
     image: heroWork,
-    headline: "Posao i karijera",
-    subtitle: "Savjeti za posao, CV, intervju i radna prava.",
+    headline: "Karijera bez granica",
+    subtitle: "Posao, CV, intervju i radna prava — sve na jednom mjestu.",
   },
 ];
 
 const heroCards = [
   {
-    title: "Došao sam u Njemačku",
-    description: "Upravo si stigao? Ovdje su svi prvi koraci.",
-    icon: Plane,
+    title: "Novi u Njemačkoj",
+    description: "Prvi koraci, dokumenti, registracija.",
+    icon: Compass,
     to: "/qa?filter=dolazak",
     gradient: "from-primary to-primary/80",
   },
   {
-    title: "Već sam ovdje",
-    description: "Živiš u Njemačkoj i trebaš praktične savjete.",
-    icon: Home,
+    title: "Svakodnevnica",
+    description: "Stan, posao, porezi, zdravstvo.",
+    icon: MapPin,
     to: "/qa",
     gradient: "from-balkan-green to-balkan-green/80",
   },
   {
-    title: "Imam problem",
-    description: "Nešto nije u redu? Nađi rješenje brzo.",
-    icon: AlertTriangle,
+    title: "Hitna pomoć",
+    description: "Brza rješenja za probleme.",
+    icon: LifeBuoy,
     to: "/qa?filter=problemi",
     gradient: "from-balkan-red to-balkan-red/80",
   },
+];
+
+const balkanCountries = [
+  { name: "Bosna i Hercegovina", flag: "🇧🇦" },
+  { name: "Hrvatska", flag: "🇭🇷" },
+  { name: "Srbija", flag: "🇷🇸" },
+  { name: "Kosovo", flag: "🇽🇰" },
+  { name: "Albanija", flag: "🇦🇱" },
+  { name: "Makedonija", flag: "🇲🇰" },
+  { name: "Crna Gora", flag: "🇲🇪" },
 ];
 
 const container = {
@@ -79,7 +89,7 @@ export default function Index() {
       <section className="relative overflow-hidden bg-foreground">
         <div className="container relative flex flex-col lg:flex-row lg:items-stretch lg:gap-0">
           {/* Slideshow */}
-          <div className="relative min-h-[340px] flex-1 sm:min-h-[420px] lg:min-h-[520px]">
+          <div className="relative min-h-[320px] flex-1 sm:min-h-[400px] lg:min-h-[520px]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentSlide}
@@ -95,12 +105,12 @@ export default function Index() {
                   className="h-full w-full object-cover"
                   loading="eager"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
               </motion.div>
             </AnimatePresence>
 
             {/* Text overlay */}
-            <div className="relative z-10 flex h-full min-h-[340px] flex-col justify-end p-6 sm:min-h-[420px] sm:p-10 lg:min-h-[520px] lg:p-12">
+            <div className="relative z-10 flex h-full min-h-[320px] flex-col justify-end p-6 sm:min-h-[400px] sm:p-10 lg:min-h-[520px] lg:p-12">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentSlide}
@@ -109,22 +119,22 @@ export default function Index() {
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.5 }}
                 >
-                  <h1 className="max-w-lg text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
+                  <h1 className="max-w-lg text-2xl font-bold leading-tight text-white sm:text-3xl lg:text-5xl">
                     {slides[currentSlide].headline}
                   </h1>
-                  <p className="mt-3 max-w-md text-base text-white/80 sm:text-lg">
+                  <p className="mt-2 max-w-md text-sm text-white/80 sm:mt-3 sm:text-lg">
                     {slides[currentSlide].subtitle}
                   </p>
                 </motion.div>
               </AnimatePresence>
 
               {/* Slide indicators */}
-              <div className="mt-6 flex gap-2">
+              <div className="mt-5 flex gap-2">
                 {slides.map((_, idx) => (
                   <button
                     key={idx}
                     onClick={() => setCurrentSlide(idx)}
-                    className={`h-1.5 rounded-full transition-all duration-300 ${
+                    className={`h-1 rounded-full transition-all duration-300 ${
                       idx === currentSlide
                         ? "w-8 bg-white"
                         : "w-4 bg-white/40 hover:bg-white/60"
@@ -136,23 +146,48 @@ export default function Index() {
             </div>
           </div>
 
-          {/* Side CTA Cards */}
-          <div className="flex flex-row gap-0 lg:w-80 lg:flex-col">
+          {/* Side CTA Cards — compact, professional */}
+          <div className="flex flex-row gap-0 lg:w-72 lg:flex-col">
             {heroCards.map((card, idx) => (
               <Link
                 key={card.title}
                 to={card.to}
-                className={`group relative flex flex-1 flex-col items-center justify-center gap-2 bg-gradient-to-br p-5 text-center text-white transition-all hover:brightness-110 lg:items-start lg:gap-3 lg:p-6 lg:text-left ${card.gradient} ${
+                className={`group relative flex flex-1 flex-col items-center justify-center gap-1.5 bg-gradient-to-br p-4 text-center text-white transition-all hover:brightness-110 lg:items-start lg:justify-center lg:gap-2 lg:p-5 lg:text-left ${card.gradient} ${
                   idx < heroCards.length - 1 ? "border-r border-white/10 lg:border-b lg:border-r-0" : ""
                 }`}
               >
-                <card.icon className="h-7 w-7 lg:h-8 lg:w-8" />
-                <h2 className="text-sm font-bold sm:text-base lg:text-lg">{card.title}</h2>
-                <p className="hidden text-sm text-white/80 sm:block">
+                <card.icon className="h-5 w-5 lg:h-6 lg:w-6" strokeWidth={1.5} />
+                <h2 className="text-xs font-semibold sm:text-sm lg:text-base">{card.title}</h2>
+                <p className="hidden text-xs text-white/70 lg:block">
                   {card.description}
                 </p>
-                <ArrowRight className="hidden h-4 w-4 text-white/60 transition-transform group-hover:translate-x-1 lg:block" />
+                <ArrowRight className="hidden h-3.5 w-3.5 text-white/50 transition-transform group-hover:translate-x-1 lg:block" />
               </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Balkan Countries */}
+      <section className="border-b bg-secondary/40 py-10">
+        <div className="container">
+          <div className="mb-6 flex items-center justify-center gap-2 text-center">
+            <Globe className="h-5 w-5 text-primary" />
+            <h2 className="text-lg font-semibold md:text-xl">Za cijeli Balkan</h2>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+            {balkanCountries.map((country) => (
+              <motion.div
+                key={country.name}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3 }}
+                className="flex items-center gap-2 rounded-full border bg-card px-4 py-2 shadow-sm transition-shadow hover:shadow-md"
+              >
+                <span className="text-xl leading-none">{country.flag}</span>
+                <span className="text-sm font-medium">{country.name}</span>
+              </motion.div>
             ))}
           </div>
         </div>
