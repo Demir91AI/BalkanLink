@@ -17,6 +17,8 @@ import {
   ExternalLink,
   Search,
   Building2,
+  Flag,
+  Tag,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -32,12 +34,13 @@ const ORIGIN_COUNTRIES = [
 ];
 
 const MAIN_CATEGORIES = [
-  { key: "moschee", label: "Moschee" },
-  { key: "dzemat", label: "Džemat" },
-  { key: "restaurant", label: "Restaurant" },
-  { key: "balkan_markt", label: "Balkan-Markt" },
-  { key: "verein", label: "Verein" },
-  { key: "kulturverein", label: "Kulturverein" },
+  { key: "dzemat_moschee", label: "Džemati & Moscheen" },
+  { key: "restaurant", label: "Restaurants" },
+  { key: "cafe", label: "Cafés" },
+  { key: "balkan_markt", label: "Balkan-Märkte" },
+  { key: "verein", label: "Vereine" },
+  { key: "kulturverein", label: "Kulturvereine" },
+  { key: "events", label: "Events" },
 ];
 
 const categoryLabel = (key: string) =>
@@ -72,6 +75,8 @@ export default function Community() {
   const [cityInput, setCityInput] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [categoryFilter, setCategoryFilter] = useState("");
+  const [openCountries, setOpenCountries] = useState<Record<string, boolean>>({});
+  const [openCategories, setOpenCategories] = useState<Record<string, boolean>>({});
   const [openBundeslaender, setOpenBundeslaender] = useState<Record<string, boolean>>({});
   const [openCities, setOpenCities] = useState<Record<string, boolean>>({});
 
@@ -111,22 +116,50 @@ export default function Community() {
     return result;
   }, [listings, countryFilter, cityInput, categoryFilter]);
 
-  /* hierarchy: bundesland → city → listings */
+  /* hierarchy: country → category → bundesland → city → entries */
   const hierarchy = useMemo(() => {
-    const map: Record<string, Record<string, Listing[]>> = {};
+    const countryMap: Record<string, Record<string, Record<string, Record<string, Listing[]>>>> = {};
+
     for (const item of filtered) {
-      if (!map[item.bundesland]) map[item.bundesland] = {};
-      if (!map[item.bundesland][item.city]) map[item.bundesland][item.city] = [];
-      map[item.bundesland][item.city].push(item);
+      const country = item.origin_country;
+      const cat = item.main_category;
+      const bl = item.bundesland;
+      const city = item.city;
+
+      if (!countryMap[country]) countryMap[country] = {};
+      if (!countryMap[country][cat]) countryMap[country][cat] = {};
+      if (!countryMap[country][cat][bl]) countryMap[country][cat][bl] = {};
+      if (!countryMap[country][cat][bl][city]) countryMap[country][cat][bl][city] = [];
+      countryMap[country][cat][bl][city].push(item);
     }
-    return Object.entries(map)
-      .sort(([a], [b]) => a.localeCompare(b))
-      .map(([bl, cities]) => ({
-        bundesland: bl,
-        cities: Object.entries(cities)
-          .sort(([a], [b]) => a.localeCompare(b))
-          .map(([city, items]) => ({ city, items: items.sort((a, b) => a.name.localeCompare(b.name)) })),
-        totalEntries: Object.values(cities).reduce((s, a) => s + a.length, 0),
+
+    return ORIGIN_COUNTRIES
+      .filter((oc) => countryMap[oc.code])
+      .map((oc) => ({
+        code: oc.code,
+        label: oc.label,
+        totalEntries: filtered.filter((l) => l.origin_country === oc.code).length,
+        categories: MAIN_CATEGORIES
+          .filter((mc) => countryMap[oc.code]?.[mc.key])
+          .map((mc) => ({
+            key: mc.key,
+            label: mc.label,
+            totalEntries: Object.values(countryMap[oc.code][mc.key]).reduce(
+              (sum, cities) => sum + Object.values(cities).reduce((s, arr) => s + arr.length, 0), 0
+            ),
+            bundeslaender: Object.entries(countryMap[oc.code][mc.key])
+              .sort(([a], [b]) => a.localeCompare(b))
+              .map(([bl, cities]) => ({
+                bundesland: bl,
+                totalEntries: Object.values(cities).reduce((s, a) => s + a.length, 0),
+                cities: Object.entries(cities)
+                  .sort(([a], [b]) => a.localeCompare(b))
+                  .map(([city, items]) => ({
+                    city,
+                    items: items.sort((a, b) => a.name.localeCompare(b.name)),
+                  })),
+              })),
+          })),
       }));
   }, [filtered]);
 
@@ -135,16 +168,18 @@ export default function Community() {
     if (cityInput.length < 2) return;
     const match = filtered.find((l) => l.city.toLowerCase() === cityInput.toLowerCase());
     if (match) {
-      setOpenBundeslaender((p) => ({ ...p, [match.bundesland]: true }));
+      setOpenCountries((p) => ({ ...p, [match.origin_country]: true }));
+      setOpenCategories((p) => ({ ...p, [`${match.origin_country}_${match.main_category}`]: true }));
+      setOpenBundeslaender((p) => ({ ...p, [`${match.origin_country}_${match.main_category}_${match.bundesland}`]: true }));
       setOpenCities((p) => ({ ...p, [match.city]: true }));
       setTimeout(() => {
         cityRefs.current[match.city]?.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 250);
+      }, 350);
     }
   }, [cityInput, filtered]);
 
-  const toggleBl = (bl: string) => setOpenBundeslaender((p) => ({ ...p, [bl]: !p[bl] }));
-  const toggleCity = (city: string) => setOpenCities((p) => ({ ...p, [city]: !p[city] }));
+  const toggleKey = (setter: React.Dispatch<React.SetStateAction<Record<string, boolean>>>, key: string) =>
+    setter((p) => ({ ...p, [key]: !p[key] }));
 
   return (
     <>
@@ -166,7 +201,7 @@ export default function Community() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="mx-auto mt-3 max-w-xl text-sm text-white/50 md:text-base"
           >
-            Finde Restaurants, Shops, Vereine und Gemeinden – strukturiert und schnell.
+            Finde Džemate, Restaurants, Shops, Vereine und Gemeinden — strukturiert nach Herkunftsland.
           </motion.p>
         </div>
       </section>
@@ -256,52 +291,47 @@ export default function Community() {
             <p className="py-20 text-center text-white/40 text-lg">Keine Einträge gefunden.</p>
           )}
 
+          {/* Country level */}
           <div className="space-y-4">
-            {hierarchy.map((bl, idx) => {
-              const isOpen = openBundeslaender[bl.bundesland] ?? false;
+            {hierarchy.map((country, cIdx) => {
+              const countryOpen = openCountries[country.code] ?? false;
 
               return (
                 <motion.div
-                  key={bl.bundesland}
+                  key={country.code}
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.35, delay: idx * 0.04 }}
+                  transition={{ duration: 0.35, delay: cIdx * 0.05 }}
                   className="overflow-hidden rounded-xl"
                   style={{
-                    background: "linear-gradient(135deg, rgba(22,38,63,0.9), rgba(22,38,63,0.7))",
-                    border: "1px solid rgba(227,179,65,0.12)",
+                    background: "linear-gradient(135deg, rgba(22,38,63,0.95), rgba(22,38,63,0.75))",
+                    border: "1px solid rgba(227,179,65,0.15)",
                     boxShadow: "0 4px 24px rgba(0,0,0,0.3)",
                   }}
                 >
-                  {/* Bundesland header */}
+                  {/* Country header */}
                   <button
-                    onClick={() => toggleBl(bl.bundesland)}
+                    onClick={() => toggleKey(setOpenCountries, country.code)}
                     className="flex w-full items-center gap-3 px-5 py-4 text-left transition-all"
                     onMouseOver={(e) => (e.currentTarget.style.background = "rgba(31,53,87,0.5)")}
                     onMouseOut={(e) => (e.currentTarget.style.background = "transparent")}
                   >
-                    <Building2 className="h-5 w-5 text-[#E3B341]/70" />
-                    <h2 className="text-base font-bold text-white md:text-lg">{bl.bundesland}</h2>
+                    <Flag className="h-5 w-5 text-[#E3B341]/70" />
+                    <h2 className="text-base font-bold text-white md:text-lg">{country.label}</h2>
                     <span
                       className="rounded-full px-2.5 py-0.5 text-xs font-semibold"
                       style={{ background: "rgba(227,179,65,0.15)", color: "#E3B341" }}
                     >
-                      {bl.cities.length} {bl.cities.length === 1 ? "Stadt" : "Städte"}
-                    </span>
-                    <span
-                      className="rounded-full px-2.5 py-0.5 text-xs font-medium"
-                      style={{ background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.6)" }}
-                    >
-                      {bl.totalEntries} {bl.totalEntries === 1 ? "Eintrag" : "Einträge"}
+                      {country.totalEntries} {country.totalEntries === 1 ? "Eintrag" : "Einträge"}
                     </span>
                     <ChevronDown
-                      className={`ml-auto h-4 w-4 text-white/40 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                      className={`ml-auto h-4 w-4 text-white/40 transition-transform duration-300 ${countryOpen ? "rotate-180" : ""}`}
                     />
                   </button>
 
-                  {/* Cities */}
+                  {/* Categories within country */}
                   <AnimatePresence>
-                    {isOpen && (
+                    {countryOpen && (
                       <motion.div
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
@@ -310,42 +340,39 @@ export default function Community() {
                         className="overflow-hidden"
                       >
                         <div className="space-y-2 px-5 pb-5">
-                          {bl.cities.map(({ city, items }) => {
-                            const cityOpen = openCities[city] ?? false;
+                          {country.categories.map((cat) => {
+                            const catKey = `${country.code}_${cat.key}`;
+                            const catOpen = openCategories[catKey] ?? false;
 
                             return (
                               <div
-                                key={city}
-                                ref={(el) => { cityRefs.current[city] = el; }}
+                                key={catKey}
                                 className="overflow-hidden rounded-lg"
-                                style={{
-                                  background: "rgba(15,27,45,0.6)",
-                                  border: "1px solid rgba(255,255,255,0.06)",
-                                }}
+                                style={{ background: "rgba(15,27,45,0.6)", border: "1px solid rgba(255,255,255,0.06)" }}
                               >
-                                {/* City header */}
+                                {/* Category header */}
                                 <button
-                                  onClick={() => toggleCity(city)}
+                                  onClick={() => toggleKey(setOpenCategories, catKey)}
                                   className="flex w-full items-center gap-2 px-4 py-3 text-left transition-all"
                                   onMouseOver={(e) => (e.currentTarget.style.background = "rgba(31,53,87,0.4)")}
                                   onMouseOut={(e) => (e.currentTarget.style.background = "transparent")}
                                 >
-                                  <MapPin className="h-3.5 w-3.5 text-[#E3B341]/60" />
-                                  <span className="text-sm font-semibold text-white">{city}</span>
+                                  <Tag className="h-3.5 w-3.5 text-[#E3B341]/60" />
+                                  <span className="text-sm font-semibold text-white">{cat.label}</span>
                                   <span
                                     className="rounded-full px-2 py-0.5 text-xs font-medium"
                                     style={{ background: "rgba(227,179,65,0.1)", color: "#E3B341" }}
                                   >
-                                    {items.length}
+                                    {cat.totalEntries}
                                   </span>
                                   <ChevronDown
-                                    className={`ml-auto h-3.5 w-3.5 text-white/30 transition-transform duration-300 ${cityOpen ? "rotate-180" : ""}`}
+                                    className={`ml-auto h-3.5 w-3.5 text-white/30 transition-transform duration-300 ${catOpen ? "rotate-180" : ""}`}
                                   />
                                 </button>
 
-                                {/* Items */}
+                                {/* Bundesländer within category */}
                                 <AnimatePresence>
-                                  {cityOpen && (
+                                  {catOpen && (
                                     <motion.div
                                       initial={{ height: 0, opacity: 0 }}
                                       animate={{ height: "auto", opacity: 1 }}
@@ -353,92 +380,184 @@ export default function Community() {
                                       transition={{ duration: 0.25 }}
                                       className="overflow-hidden"
                                     >
-                                      <div className="grid gap-3 px-4 pb-4 sm:grid-cols-2">
-                                        {items.map((item) => (
-                                          <motion.div
-                                            key={item.id}
-                                            initial={{ opacity: 0, y: 8 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            transition={{ duration: 0.2 }}
-                                            className="group rounded-lg p-4 transition-all duration-300"
-                                            style={{
-                                              background: "rgba(22,38,63,0.8)",
-                                              border: "1px solid rgba(255,255,255,0.05)",
-                                              boxShadow: "0 2px 12px rgba(0,0,0,0.2)",
-                                            }}
-                                            onMouseOver={(e) => {
-                                              e.currentTarget.style.transform = "translateY(-2px)";
-                                              e.currentTarget.style.borderColor = "rgba(227,179,65,0.25)";
-                                              e.currentTarget.style.boxShadow = "0 8px 32px rgba(227,179,65,0.08)";
-                                            }}
-                                            onMouseOut={(e) => {
-                                              e.currentTarget.style.transform = "translateY(0)";
-                                              e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)";
-                                              e.currentTarget.style.boxShadow = "0 2px 12px rgba(0,0,0,0.2)";
-                                            }}
-                                          >
-                                            <h4 className="text-sm font-bold text-white">{item.name}</h4>
+                                      <div className="space-y-1.5 px-4 pb-4">
+                                        {cat.bundeslaender.map((bl) => {
+                                          const blKey = `${country.code}_${cat.key}_${bl.bundesland}`;
+                                          const blOpen = openBundeslaender[blKey] ?? false;
 
-                                            <div className="mt-1.5 flex flex-wrap gap-1.5">
-                                              <span
-                                                className="rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider"
-                                                style={{ background: "rgba(227,179,65,0.12)", color: "#E3B341" }}
+                                          return (
+                                            <div
+                                              key={blKey}
+                                              className="overflow-hidden rounded-md"
+                                              style={{ background: "rgba(22,38,63,0.5)", border: "1px solid rgba(255,255,255,0.04)" }}
+                                            >
+                                              {/* Bundesland header */}
+                                              <button
+                                                onClick={() => toggleKey(setOpenBundeslaender, blKey)}
+                                                className="flex w-full items-center gap-2 px-3 py-2.5 text-left transition-all"
+                                                onMouseOver={(e) => (e.currentTarget.style.background = "rgba(31,53,87,0.3)")}
+                                                onMouseOut={(e) => (e.currentTarget.style.background = "transparent")}
                                               >
-                                                {categoryLabel(item.main_category)}
-                                              </span>
-                                              <span
-                                                className="rounded-full px-2 py-0.5 text-[10px] font-medium"
-                                                style={{ background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.5)" }}
-                                              >
-                                                {countryLabel(item.origin_country)}
-                                              </span>
+                                                <Building2 className="h-3 w-3 text-white/40" />
+                                                <span className="text-xs font-semibold text-white/80">{bl.bundesland}</span>
+                                                <span className="text-[10px] text-white/40">
+                                                  ({bl.cities.length} {bl.cities.length === 1 ? "Stadt" : "Städte"}, {bl.totalEntries} {bl.totalEntries === 1 ? "Eintrag" : "Einträge"})
+                                                </span>
+                                                <ChevronDown
+                                                  className={`ml-auto h-3 w-3 text-white/25 transition-transform duration-300 ${blOpen ? "rotate-180" : ""}`}
+                                                />
+                                              </button>
+
+                                              {/* Cities within bundesland */}
+                                              <AnimatePresence>
+                                                {blOpen && (
+                                                  <motion.div
+                                                    initial={{ height: 0, opacity: 0 }}
+                                                    animate={{ height: "auto", opacity: 1 }}
+                                                    exit={{ height: 0, opacity: 0 }}
+                                                    transition={{ duration: 0.2 }}
+                                                    className="overflow-hidden"
+                                                  >
+                                                    <div className="space-y-1 px-3 pb-3">
+                                                      {bl.cities.map(({ city, items }) => {
+                                                        const cityOpen = openCities[city] ?? false;
+
+                                                        return (
+                                                          <div
+                                                            key={city}
+                                                            ref={(el) => { cityRefs.current[city] = el; }}
+                                                            className="overflow-hidden rounded"
+                                                            style={{ background: "rgba(15,27,45,0.4)", border: "1px solid rgba(255,255,255,0.03)" }}
+                                                          >
+                                                            <button
+                                                              onClick={() => toggleKey(setOpenCities, city)}
+                                                              className="flex w-full items-center gap-2 px-3 py-2 text-left transition-all"
+                                                              onMouseOver={(e) => (e.currentTarget.style.background = "rgba(31,53,87,0.3)")}
+                                                              onMouseOut={(e) => (e.currentTarget.style.background = "transparent")}
+                                                            >
+                                                              <MapPin className="h-3 w-3 text-[#E3B341]/50" />
+                                                              <span className="text-xs font-medium text-white/90">{city}</span>
+                                                              <span
+                                                                className="rounded-full px-1.5 py-0.5 text-[10px] font-medium"
+                                                                style={{ background: "rgba(227,179,65,0.08)", color: "#E3B341" }}
+                                                              >
+                                                                {items.length}
+                                                              </span>
+                                                              <ChevronDown
+                                                                className={`ml-auto h-3 w-3 text-white/20 transition-transform duration-300 ${cityOpen ? "rotate-180" : ""}`}
+                                                              />
+                                                            </button>
+
+                                                            {/* Entries */}
+                                                            <AnimatePresence>
+                                                              {cityOpen && (
+                                                                <motion.div
+                                                                  initial={{ height: 0, opacity: 0 }}
+                                                                  animate={{ height: "auto", opacity: 1 }}
+                                                                  exit={{ height: 0, opacity: 0 }}
+                                                                  transition={{ duration: 0.2 }}
+                                                                  className="overflow-hidden"
+                                                                >
+                                                                  <div className="grid gap-2 px-3 pb-3 sm:grid-cols-2">
+                                                                    {items.map((item) => (
+                                                                      <motion.div
+                                                                        key={item.id}
+                                                                        initial={{ opacity: 0, y: 6 }}
+                                                                        animate={{ opacity: 1, y: 0 }}
+                                                                        transition={{ duration: 0.15 }}
+                                                                        className="rounded-lg p-3.5 transition-all duration-300"
+                                                                        style={{
+                                                                          background: "rgba(22,38,63,0.8)",
+                                                                          border: "1px solid rgba(255,255,255,0.05)",
+                                                                          boxShadow: "0 2px 12px rgba(0,0,0,0.2)",
+                                                                        }}
+                                                                        onMouseOver={(e) => {
+                                                                          e.currentTarget.style.transform = "translateY(-1px)";
+                                                                          e.currentTarget.style.borderColor = "rgba(227,179,65,0.25)";
+                                                                          e.currentTarget.style.boxShadow = "0 6px 24px rgba(227,179,65,0.08)";
+                                                                        }}
+                                                                        onMouseOut={(e) => {
+                                                                          e.currentTarget.style.transform = "translateY(0)";
+                                                                          e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)";
+                                                                          e.currentTarget.style.boxShadow = "0 2px 12px rgba(0,0,0,0.2)";
+                                                                        }}
+                                                                      >
+                                                                        <h4 className="text-sm font-bold text-white">{item.name}</h4>
+
+                                                                        <div className="mt-1.5 flex flex-wrap gap-1.5">
+                                                                          <span
+                                                                            className="rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider"
+                                                                            style={{ background: "rgba(227,179,65,0.12)", color: "#E3B341" }}
+                                                                          >
+                                                                            {categoryLabel(item.main_category)}
+                                                                          </span>
+                                                                          <span
+                                                                            className="rounded-full px-2 py-0.5 text-[10px] font-medium"
+                                                                            style={{ background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.5)" }}
+                                                                          >
+                                                                            {countryLabel(item.origin_country)}
+                                                                          </span>
+                                                                        </div>
+
+                                                                        {item.address && (
+                                                                          <p className="mt-2 flex items-start gap-1.5 text-xs text-white/40">
+                                                                            <MapPin className="mt-0.5 h-3 w-3 shrink-0" />
+                                                                            {item.address}
+                                                                          </p>
+                                                                        )}
+
+                                                                        {item.description && (
+                                                                          <p className="mt-2 text-xs leading-relaxed text-white/50">
+                                                                            {item.description}
+                                                                          </p>
+                                                                        )}
+
+                                                                        <div className="mt-3 flex flex-wrap gap-2">
+                                                                          {item.google_maps_url && (
+                                                                            <a
+                                                                              href={item.google_maps_url}
+                                                                              target="_blank"
+                                                                              rel="noopener noreferrer"
+                                                                              className="inline-flex items-center gap-1 rounded-md px-2.5 py-1 text-xs font-medium transition-colors"
+                                                                              style={{ background: "rgba(227,179,65,0.1)", color: "#E3B341" }}
+                                                                              onMouseOver={(e) => (e.currentTarget.style.background = "rgba(227,179,65,0.2)")}
+                                                                              onMouseOut={(e) => (e.currentTarget.style.background = "rgba(227,179,65,0.1)")}
+                                                                            >
+                                                                              <ExternalLink className="h-3 w-3" />
+                                                                              Google Maps
+                                                                            </a>
+                                                                          )}
+                                                                          {item.website && (
+                                                                            <a
+                                                                              href={item.website}
+                                                                              target="_blank"
+                                                                              rel="noopener noreferrer"
+                                                                              className="inline-flex items-center gap-1 rounded-md px-2.5 py-1 text-xs font-medium transition-colors"
+                                                                              style={{ background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.7)" }}
+                                                                              onMouseOver={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "#E3B341"; }}
+                                                                              onMouseOut={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.color = "rgba(255,255,255,0.7)"; }}
+                                                                            >
+                                                                              <Globe className="h-3 w-3" />
+                                                                              Website
+                                                                            </a>
+                                                                          )}
+                                                                        </div>
+                                                                      </motion.div>
+                                                                    ))}
+                                                                  </div>
+                                                                </motion.div>
+                                                              )}
+                                                            </AnimatePresence>
+                                                          </div>
+                                                        );
+                                                      })}
+                                                    </div>
+                                                  </motion.div>
+                                                )}
+                                              </AnimatePresence>
                                             </div>
-
-                                            {item.address && (
-                                              <p className="mt-2 flex items-start gap-1.5 text-xs text-white/40">
-                                                <MapPin className="mt-0.5 h-3 w-3 shrink-0" />
-                                                {item.address}
-                                              </p>
-                                            )}
-
-                                            {item.description && (
-                                              <p className="mt-2 text-xs leading-relaxed text-white/50">
-                                                {item.description}
-                                              </p>
-                                            )}
-
-                                            <div className="mt-3 flex flex-wrap gap-2">
-                                              {item.google_maps_url && (
-                                                <a
-                                                  href={item.google_maps_url}
-                                                  target="_blank"
-                                                  rel="noopener noreferrer"
-                                                  className="inline-flex items-center gap-1 rounded-md px-2.5 py-1 text-xs font-medium transition-colors"
-                                                  style={{ background: "rgba(227,179,65,0.1)", color: "#E3B341" }}
-                                                  onMouseOver={(e) => (e.currentTarget.style.background = "rgba(227,179,65,0.2)")}
-                                                  onMouseOut={(e) => (e.currentTarget.style.background = "rgba(227,179,65,0.1)")}
-                                                >
-                                                  <ExternalLink className="h-3 w-3" />
-                                                  Google Maps
-                                                </a>
-                                              )}
-                                              {item.website && (
-                                                <a
-                                                  href={item.website}
-                                                  target="_blank"
-                                                  rel="noopener noreferrer"
-                                                  className="inline-flex items-center gap-1 rounded-md px-2.5 py-1 text-xs font-medium transition-colors"
-                                                  style={{ background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.7)" }}
-                                                  onMouseOver={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "#E3B341"; }}
-                                                  onMouseOut={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.color = "rgba(255,255,255,0.7)"; }}
-                                                >
-                                                  <Globe className="h-3 w-3" />
-                                                  Website
-                                                </a>
-                                              )}
-                                            </div>
-                                          </motion.div>
-                                        ))}
+                                          );
+                                        })}
                                       </div>
                                     </motion.div>
                                   )}
@@ -458,7 +577,7 @@ export default function Community() {
           {/* total count */}
           {!isLoading && filtered.length > 0 && (
             <p className="mt-8 text-center text-xs text-white/30">
-              {filtered.length} Einträge in {hierarchy.length} Bundesländern
+              {filtered.length} Einträge insgesamt
             </p>
           )}
         </div>
