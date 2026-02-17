@@ -5,22 +5,42 @@ export default function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="border-t bg-muted/50">
-      <div className="container py-8">
-        <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
-          <Link to="/" className="font-heading text-sm font-bold">
-            Balkan<span className="text-primary">DE</span>
-          </Link>
+    <footer className="border-t border-border/40 bg-primary text-primary-foreground">
+      <div className="container py-12">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {/* Brand */}
+          <div>
+            <Link to="/" className="font-heading text-lg font-extrabold tracking-tight">
+              Balkan<span className="text-gold">DE</span>
+            </Link>
+            <p className="mt-3 text-sm leading-relaxed text-primary-foreground/50">
+              {t("hero.slide1.subtitle")}
+            </p>
+          </div>
 
-          <nav className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-            <Link to="/impressum" className="hover:text-foreground transition-colors">{t("footer.imprint")}</Link>
-            <Link to="/datenschutz" className="hover:text-foreground transition-colors">{t("footer.privacy")}</Link>
-            <Link to="/disclaimer" className="hover:text-foreground transition-colors">{t("footer.disclaimer")}</Link>
-            <span>info@balkande.de</span>
-          </nav>
+          {/* Legal */}
+          <div>
+            <h4 className="mb-3 text-xs font-bold uppercase tracking-widest text-primary-foreground/40">Legal</h4>
+            <nav className="flex flex-col gap-2">
+              <Link to="/impressum" className="text-sm text-primary-foreground/70 transition-colors hover:text-gold">{t("footer.imprint")}</Link>
+              <Link to="/datenschutz" className="text-sm text-primary-foreground/70 transition-colors hover:text-gold">{t("footer.privacy")}</Link>
+              <Link to="/disclaimer" className="text-sm text-primary-foreground/70 transition-colors hover:text-gold">{t("footer.disclaimer")}</Link>
+            </nav>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="mb-3 text-xs font-bold uppercase tracking-widest text-primary-foreground/40">{t("footer.contact")}</h4>
+            <p className="text-sm text-primary-foreground/70">info@balkande.de</p>
+          </div>
+
+          {/* Spacer for grid alignment */}
+          <div className="hidden lg:block" />
         </div>
 
-        <p className="mt-6 text-center text-xs text-muted-foreground/60">
+        <div className="section-separator mt-8" />
+
+        <p className="mt-6 text-center text-xs text-primary-foreground/30">
           © {new Date().getFullYear()} BalkanDE. {t("footer.copyright")}
         </p>
       </div>
