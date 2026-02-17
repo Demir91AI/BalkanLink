@@ -20,6 +20,12 @@ import Directory from "./pages/Directory";
 import DirectorySubmit from "./pages/DirectorySubmit";
 import Missions from "./pages/Missions";
 import PocniOvdje from "./pages/PocniOvdje";
+import PrijavaPrebijalista from "./pages/dolazak/PrijavaPrebijalista";
+import BoravisnaDozvola from "./pages/dolazak/BoravisnaDozvola";
+import SteuerIdPoreznaKlasa from "./pages/dolazak/SteuerIdPoreznaKlasa";
+import ZdravstvenoOsiguranje from "./pages/dolazak/ZdravstvenoOsiguranje";
+import BankovniRacun from "./pages/dolazak/BankovniRacun";
+import PrviKoraci from "./pages/dolazak/PrviKoraci";
 import ZivotSavjeti from "./pages/ZivotSavjeti";
 import TrebamPomoc from "./pages/TrebamPomoc";
 import Formulare from "./pages/Formulare";
@@ -48,6 +54,12 @@ const App = () => (
                 <Route path="/" element={<Index />} />
                 <Route path="/dolazak" element={<PocniOvdje />} />
                 <Route path="/pocni-ovdje" element={<PocniOvdje />} />
+                <Route path="/dolazak/prijava-prebivalista" element={<PrijavaPrebijalista />} />
+                <Route path="/dolazak/boravisna-dozvola" element={<BoravisnaDozvola />} />
+                <Route path="/dolazak/steuer-id-i-porezna-klasa" element={<SteuerIdPoreznaKlasa />} />
+                <Route path="/dolazak/zdravstveno-osiguranje" element={<ZdravstvenoOsiguranje />} />
+                <Route path="/dolazak/bankovni-racun" element={<BankovniRacun />} />
+                <Route path="/dolazak/prvi-koraci" element={<PrviKoraci />} />
                 <Route path="/zivot" element={<ZivotSavjeti />} />
                 <Route path="/zivot-savjeti" element={<ZivotSavjeti />} />
                 <Route path="/probleme" element={<TrebamPomoc />} />
