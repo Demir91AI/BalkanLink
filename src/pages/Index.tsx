@@ -32,9 +32,9 @@ export default function Index() {
   ];
 
   const heroCards = [
-    { title: t("cta.new.title"), description: t("cta.new.desc"), icon: Compass, to: "/qa?filter=dolazak" },
-    { title: t("cta.daily.title"), description: t("cta.daily.desc"), icon: MapPin, to: "/qa" },
-    { title: t("cta.help.title"), description: t("cta.help.desc"), icon: LifeBuoy, to: "/qa?filter=problemi" },
+    { title: t("cta.new.title"), description: t("cta.new.desc"), icon: Compass, to: "/pocni-ovdje" },
+    { title: t("cta.daily.title"), description: t("cta.daily.desc"), icon: MapPin, to: "/zivot-savjeti" },
+    { title: t("cta.help.title"), description: t("cta.help.desc"), icon: LifeBuoy, to: "/trebam-pomoc" },
   ];
 
   const nextSlide = useCallback(() => {

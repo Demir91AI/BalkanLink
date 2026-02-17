@@ -19,6 +19,14 @@ import QADetail from "./pages/QADetail";
 import Directory from "./pages/Directory";
 import DirectorySubmit from "./pages/DirectorySubmit";
 import Missions from "./pages/Missions";
+import PocniOvdje from "./pages/PocniOvdje";
+import ZivotSavjeti from "./pages/ZivotSavjeti";
+import TrebamPomoc from "./pages/TrebamPomoc";
+import Formulare from "./pages/Formulare";
+import Familie from "./pages/Familie";
+import Foerderungen from "./pages/Foerderungen";
+import Generatoren from "./pages/Generatoren";
+import Premium from "./pages/Premium";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,6 +42,14 @@ const App = () => (
             <Routes>
               <Route element={<Layout />}>
                 <Route path="/" element={<Index />} />
+                <Route path="/pocni-ovdje" element={<PocniOvdje />} />
+                <Route path="/zivot-savjeti" element={<ZivotSavjeti />} />
+                <Route path="/trebam-pomoc" element={<TrebamPomoc />} />
+                <Route path="/formulare" element={<Formulare />} />
+                <Route path="/familie" element={<Familie />} />
+                <Route path="/foerderungen" element={<Foerderungen />} />
+                <Route path="/generatoren" element={<Generatoren />} />
+                <Route path="/premium" element={<Premium />} />
                 <Route path="/qa" element={<QA />} />
                 <Route path="/qa/:id" element={<QADetail />} />
                 <Route path="/directory" element={<Directory />} />
