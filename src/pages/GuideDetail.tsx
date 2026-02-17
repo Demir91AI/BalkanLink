@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, CheckCircle2, AlertTriangle, Clock, FileText, ExternalLink, Building2 } from "lucide-react";
+import { ArrowLeft, CheckCircle2, AlertTriangle, Clock, FileText, ExternalLink, Building2, Info } from "lucide-react";
 import { motion } from "framer-motion";
 import { getGuideBySlug } from "@/lib/guide-data";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -10,6 +10,46 @@ function getLangKey(lang: string): LangKey {
   if (lang === "de") return "de";
   if (lang === "en") return "en";
   return "bs";
+}
+
+/**
+ * Determines which link buttons to show.
+ * Rules:
+ * 1. If PDF and Portal are identical → show only one button
+ * 2. PDF button only if URL ends with .pdf or is clearly a PDF
+ * 3. Online-Portal only if a real portal URL exists
+ * 4. If neither exists but officialInfoUrl does → show "Offizielle Info"
+ * 5. Never show empty/placeholder buttons
+ */
+function getLinksToShow(officialPdf: string, onlineLink: string, officialInfoUrl?: string) {
+  const hasPdf = officialPdf && officialPdf.trim() !== "";
+  const hasPortal = onlineLink && onlineLink.trim() !== "";
+  const hasInfo = officialInfoUrl && officialInfoUrl.trim() !== "";
+
+  // Dedup: if both URLs are identical, show only one
+  if (hasPdf && hasPortal && officialPdf.trim() === onlineLink.trim()) {
+    // Determine which label to use based on URL pattern
+    const isPdfUrl = officialPdf.toLowerCase().endsWith(".pdf");
+    return isPdfUrl
+      ? [{ type: "pdf" as const, url: officialPdf }]
+      : [{ type: "portal" as const, url: onlineLink }];
+  }
+
+  const links: { type: "pdf" | "portal" | "info"; url: string }[] = [];
+
+  if (hasPdf) {
+    links.push({ type: "pdf", url: officialPdf });
+  }
+  if (hasPortal) {
+    links.push({ type: "portal", url: onlineLink });
+  }
+
+  // If no PDF and no portal, fall back to info URL
+  if (links.length === 0 && hasInfo) {
+    links.push({ type: "info", url: officialInfoUrl! });
+  }
+
+  return links;
 }
 
 export default function GuideDetail() {
@@ -36,6 +76,12 @@ export default function GuideDetail() {
   };
   const labels = sectionLabels[lk];
 
+  const buttonLabels = {
+    de: { pdf: "PDF / Formular", portal: "Online-Portal", info: "Offizielle Info" },
+    bs: { pdf: "PDF / Formular", portal: "Online-Portal", info: "Službene informacije" },
+    en: { pdf: "PDF / Form", portal: "Online Portal", info: "Official Info" },
+  };
+
   const categoryPaths: Record<string, string> = {
     familie: "/familie",
     wohnen: "/foerderungen",
@@ -43,6 +89,8 @@ export default function GuideDetail() {
     gesundheit: "/foerderungen",
     bildung: "/foerderungen",
   };
+
+  const linksToShow = getLinksToShow(guide.officialPdf, guide.onlineLink, guide.officialInfoUrl);
 
   return (
     <>
@@ -138,28 +186,54 @@ export default function GuideDetail() {
             </motion.div>
           </div>
 
-          {/* Links */}
-          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} className="rounded-xl border bg-card p-6 shadow-sm">
-            <h2 className="mb-3 text-sm font-bold">{labels.links}</h2>
-            <div className="flex flex-col gap-2 sm:flex-row">
-              <a
-                href={guide.officialPdf}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2.5 text-xs font-semibold text-primary transition-colors hover:bg-primary/20"
-              >
-                <FileText className="h-4 w-4" /> PDF / {labels.form}
-              </a>
-              <a
-                href={guide.onlineLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg bg-gold/10 px-4 py-2.5 text-xs font-semibold text-gold transition-colors hover:bg-gold/20"
-              >
-                <ExternalLink className="h-4 w-4" /> Online-Portal
-              </a>
-            </div>
-          </motion.div>
+          {/* Links — only show if at least one link exists */}
+          {linksToShow.length > 0 && (
+            <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} className="rounded-xl border bg-card p-6 shadow-sm">
+              <h2 className="mb-3 text-sm font-bold">{labels.links}</h2>
+              <div className="flex flex-col gap-2 sm:flex-row">
+                {linksToShow.map((link, i) => {
+                  if (link.type === "pdf") {
+                    return (
+                      <a
+                        key={i}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2.5 text-xs font-semibold text-primary transition-colors hover:bg-primary/20"
+                      >
+                        <FileText className="h-4 w-4" /> {buttonLabels[lk].pdf}
+                      </a>
+                    );
+                  }
+                  if (link.type === "portal") {
+                    return (
+                      <a
+                        key={i}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-lg bg-gold/10 px-4 py-2.5 text-xs font-semibold text-gold transition-colors hover:bg-gold/20"
+                      >
+                        <ExternalLink className="h-4 w-4" /> {buttonLabels[lk].portal}
+                      </a>
+                    );
+                  }
+                  // info type
+                  return (
+                    <a
+                      key={i}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2.5 text-xs font-semibold text-primary transition-colors hover:bg-primary/20"
+                    >
+                      <Info className="h-4 w-4" /> {buttonLabels[lk].info}
+                    </a>
+                  );
+                })}
+              </div>
+            </motion.div>
+          )}
         </div>
       </section>
     </>
