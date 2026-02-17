@@ -7,6 +7,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { CATEGORIES, getCategoryBySlug } from "@/lib/categories";
 import { useQaItems } from "@/hooks/useQaItems";
 import { useAuth } from "@/contexts/AuthContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -14,6 +15,7 @@ export default function QA() {
   const [searchParams, setSearchParams] = useSearchParams();
   const activeFilter = searchParams.get("filter") || "";
   const [searchText, setSearchText] = useState("");
+  const { t } = useLanguage();
 
   const { data: items, isLoading } = useQaItems({
     search: searchText || undefined,
@@ -33,29 +35,22 @@ export default function QA() {
 
   return (
     <div className="container py-8 md:py-12">
-      {/* Header */}
       <div className="mb-8 max-w-2xl">
-        <h1 className="text-3xl font-bold md:text-4xl">Pitanja i odgovori</h1>
-        <p className="mt-2 text-muted-foreground">
-          Pronađi odgovor na svoje pitanje — brzo i na našem jeziku.
-        </p>
+        <h1 className="text-3xl font-bold md:text-4xl">{t("qa.title")}</h1>
+        <p className="mt-2 text-muted-foreground">{t("qa.subtitle")}</p>
       </div>
 
       <div className="flex flex-col gap-8 lg:flex-row">
-        {/* Sidebar — categories */}
         <aside className="w-full shrink-0 lg:w-60">
-          {/* Search inside sidebar on desktop */}
           <div className="relative mb-4">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
-              placeholder="Pretraži..."
+              placeholder={t("qa.search")}
               className="pl-10 bg-card"
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}
             />
           </div>
-
-          {/* Category list — vertical on lg, horizontal scroll on mobile */}
           <nav className="flex gap-1.5 overflow-x-auto pb-2 lg:flex-col lg:overflow-visible lg:pb-0">
             <button
               onClick={() => {
@@ -70,7 +65,7 @@ export default function QA() {
               )}
             >
               <Search className="h-4 w-4" />
-              <span>Sve teme</span>
+              <span>{t("qa.all")}</span>
             </button>
             {CATEGORIES.map((cat) => {
               const isActive = activeFilter === cat.slug;
@@ -93,20 +88,17 @@ export default function QA() {
           </nav>
         </aside>
 
-        {/* Main content */}
         <main className="min-w-0 flex-1">
-          {/* Active filter label */}
           {activeCategory && (
             <div className="mb-5 flex items-center gap-2.5 rounded-lg border bg-secondary/50 px-4 py-3">
               <activeCategory.icon className="h-5 w-5 text-primary" />
               <h2 className="text-lg font-semibold">{activeCategory.label}</h2>
               <Badge variant="secondary" className="ml-auto text-xs">
-                {items?.length ?? 0} rezultata
+                {items?.length ?? 0} {t("qa.results")}
               </Badge>
             </div>
           )}
 
-          {/* Results */}
           {isLoading ? (
             <div className="space-y-4">
               {[1, 2, 3, 4].map((i) => (
@@ -127,7 +119,7 @@ export default function QA() {
           ) : (
             <div className="flex flex-col items-center gap-3 rounded-xl border border-dashed py-16 text-center">
               <Search className="h-10 w-10 text-muted-foreground/40" />
-              <p className="text-muted-foreground">Nema rezultata. Pokušaj sa drugim pojmom.</p>
+              <p className="text-muted-foreground">{t("qa.empty")}</p>
             </div>
           )}
         </main>
@@ -141,9 +133,7 @@ function QaCard({ item }: { item: ReturnType<typeof useQaItems>["data"] extends 
   const cat = getCategoryBySlug(item.category);
 
   return (
-    <motion.div
-      variants={{ hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0 } }}
-    >
+    <motion.div variants={{ hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0 } }}>
       <Link
         to={`/qa/${item.id}`}
         className="group flex items-center gap-4 rounded-xl border bg-card p-5 transition-all hover:border-primary/30 hover:shadow-md"
@@ -166,26 +156,17 @@ function QaCard({ item }: { item: ReturnType<typeof useQaItems>["data"] extends 
           <h3 className="font-semibold leading-snug group-hover:text-primary transition-colors">
             {item.question}
           </h3>
-          <p className="mt-1.5 text-sm text-muted-foreground line-clamp-2">
-            {item.short_answer}
-          </p>
+          <p className="mt-1.5 text-sm text-muted-foreground line-clamp-2">{item.short_answer}</p>
           {item.tags && item.tags.length > 0 && (
             <div className="mt-2.5 flex flex-wrap gap-1.5">
               {item.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full bg-muted px-2 py-0.5 text-xs text-muted-foreground"
-                >
-                  {tag}
-                </span>
+                <span key={tag} className="rounded-full bg-muted px-2 py-0.5 text-xs text-muted-foreground">{tag}</span>
               ))}
             </div>
           )}
         </div>
         <div className="flex shrink-0 items-center gap-2">
-          {item.is_premium && !userIsPremium && (
-            <Lock className="h-4 w-4 text-muted-foreground" />
-          )}
+          {item.is_premium && !userIsPremium && <Lock className="h-4 w-4 text-muted-foreground" />}
           <ChevronRight className="h-4 w-4 text-muted-foreground/50 transition-transform group-hover:translate-x-0.5" />
         </div>
       </Link>
