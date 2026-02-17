@@ -7,6 +7,48 @@ import { useQaItem } from "@/hooks/useQaItems";
 import { useAuth } from "@/contexts/AuthContext";
 import { getCategoryBySlug } from "@/lib/categories";
 
+function FormattedContent({ text }: { text: string }) {
+  const lines = text.split(/\\n|\n/).filter((l) => l.trim() !== "");
+  const elements: React.ReactNode[] = [];
+  let listItems: { num: string; text: string }[] = [];
+
+  const flushList = () => {
+    if (listItems.length === 0) return;
+    elements.push(
+      <ol key={`ol-${elements.length}`} className="mb-3 list-decimal space-y-1 pl-5">
+        {listItems.map((li, i) => (
+          <li key={i}>{li.text}</li>
+        ))}
+      </ol>
+    );
+    listItems = [];
+  };
+
+  for (const line of lines) {
+    const numMatch = line.match(/^(\d+)\.\s+(.*)/);
+    const bulletMatch = line.match(/^[-•]\s+(.*)/);
+    if (numMatch) {
+      listItems.push({ num: numMatch[1], text: numMatch[2] });
+    } else if (bulletMatch) {
+      flushList();
+      elements.push(
+        <ul key={`ul-${elements.length}`} className="mb-3 list-disc space-y-1 pl-5">
+          <li>{bulletMatch[1]}</li>
+        </ul>
+      );
+    } else {
+      flushList();
+      elements.push(
+        <p key={`p-${elements.length}`} className="mb-2 last:mb-0">
+          {line}
+        </p>
+      );
+    }
+  }
+  flushList();
+  return <>{elements}</>;
+}
+
 export default function QADetail() {
   const { id } = useParams<{ id: string }>();
   const { data: item, isLoading, error } = useQaItem(id || "");
@@ -89,11 +131,7 @@ export default function QADetail() {
           <h2 className="mb-3 text-lg font-semibold">Detaljno objašnjenje</h2>
           {canViewFull ? (
             <div className="prose prose-sm max-w-none rounded-xl border bg-card p-5">
-              {item.step_by_step.split("\n").map((line, i) => (
-                <p key={i} className="mb-2 last:mb-0">
-                  {line}
-                </p>
-              ))}
+              <FormattedContent text={item.step_by_step} />
             </div>
           ) : (
             <div className="relative overflow-hidden rounded-xl border bg-card p-5">
