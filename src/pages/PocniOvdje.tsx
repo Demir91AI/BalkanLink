@@ -1,156 +1,110 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, FileText, Home, CreditCard, Heart, Landmark, ClipboardList } from "lucide-react";
+import { ArrowRight, Home, FileText, CreditCard, Heart, Landmark, ClipboardList } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const steps = [
-  {
-    icon: Home,
-    title: "Anmeldung & Wohnsitz",
-    description: "Prijavi svoje prebivalište u Njemačkoj — prvi i najvažniji korak.",
-    content: [
-      "Odmah nakon dolaska u Njemačku moraš prijaviti svoje prebivalište (Wohnsitzanmeldung) u roku od 14 dana.",
-      "Za prijavu ti treba: pasoš, ugovor o najmu (Mietvertrag) i potvrda stanodavca (Wohnungsgeberbestätigung).",
-      "Idi u nadležni Bürgeramt ili Einwohnermeldeamt u svom gradu.",
-    ],
-    law: "BMG — Bundesmeldegesetz",
-    source: "https://www.gesetze-im-internet.de/bmg/",
+const T: Record<string, Record<string, string>> = {
+  bs: {
+    title: "Počni ovdje",
+    subtitle: "Najvažniji koraci za tvoj početak u Njemačkoj.",
+    anmeldung: "Prijava prebivališta", anmeldungDesc: "Prijavi svoju adresu u roku od 14 dana.",
+    aufenthalt: "Boravišna dozvola", aufenthaltDesc: "Viza, plava karta ili slobodan pristup — saznaj šta ti treba.",
+    steuer: "Steuer-ID i porezna klasa", steuerDesc: "Poreski broj dobijaš automatski nakon prijave.",
+    kranken: "Zdravstveno osiguranje", krankenDesc: "Javno ili privatno — obavezno za sve.",
+    bank: "Bankovni račun", bankDesc: "Otvori račun u prvoj sedmici.",
+    schritte: "Prvi koraci", schritteDesc: "Kompletna lista za prve sedmice.",
   },
-  {
-    icon: FileText,
-    title: "Aufenthalt & Visum",
-    description: "Boravišna dozvola, viza, plava karta — koji tip ti treba?",
-    content: [
-      "Državljani EU ne trebaju vizu. Državljani trećih zemalja trebaju boravišnu dozvolu (Aufenthaltstitel).",
-      "Vrste: Aufenthaltserlaubnis, Blaue Karte EU, Niederlassungserlaubnis.",
-      "Zahtjev se podnosi kod Ausländerbehörde u tvom gradu.",
-    ],
-    law: "AufenthG — Aufenthaltsgesetz",
-    source: "https://www.gesetze-im-internet.de/aufenthg_2004/",
-    source2: "https://www.bamf.de/",
+  de: {
+    title: "Hier starten",
+    subtitle: "Die wichtigsten Schritte für deinen Start in Deutschland.",
+    anmeldung: "Anmeldung & Wohnsitz", anmeldungDesc: "Melde deine Adresse innerhalb von 14 Tagen an.",
+    aufenthalt: "Aufenthalt & Visum", aufenthaltDesc: "Visum, Blaue Karte oder freier Zugang — finde heraus, was du brauchst.",
+    steuer: "Steuer-ID & Steuerklasse", steuerDesc: "Die Steuer-ID bekommst du automatisch nach der Anmeldung.",
+    kranken: "Krankenversicherung", krankenDesc: "Gesetzlich oder privat — Pflicht für alle.",
+    bank: "Bankkonto eröffnen", bankDesc: "Eröffne dein Konto in der ersten Woche.",
+    schritte: "Erste Schritte", schritteDesc: "Die vollständige Checkliste für die ersten Wochen.",
   },
-  {
-    icon: CreditCard,
-    title: "Steuer-ID & Steuerklasse",
-    description: "Poreski identifikacioni broj i porezna klasa — kako ih dobiti.",
-    content: [
-      "Steuer-ID (porezni identifikacioni broj) dobijaš automatski poštom nakon prijave prebivališta.",
-      "Steuerklasse (porezna klasa) zavisi od bračnog statusa: I, II, III, IV, V ili VI.",
-      "Promjenu steuerklase možeš zatražiti kod Finanzamta.",
-    ],
-    law: "EStG — Einkommensteuergesetz",
-    source: "https://www.gesetze-im-internet.de/estg/",
-    source2: "https://www.bundesfinanzministerium.de/",
+  en: {
+    title: "Start here",
+    subtitle: "The most important steps for your start in Germany.",
+    anmeldung: "Registration & Residence", anmeldungDesc: "Register your address within 14 days.",
+    aufenthalt: "Residence Permit & Visa", aufenthaltDesc: "Visa, Blue Card or free access — find out what you need.",
+    steuer: "Tax ID & Tax Class", steuerDesc: "You receive your tax ID automatically after registration.",
+    kranken: "Health Insurance", krankenDesc: "Public or private — mandatory for everyone.",
+    bank: "Open Bank Account", bankDesc: "Open your account in the first week.",
+    schritte: "First Steps", schritteDesc: "The complete checklist for the first weeks.",
   },
-  {
-    icon: Heart,
-    title: "Krankenversicherung wählen",
-    description: "Javno ili privatno osiguranje — šta je bolje za tebe.",
-    content: [
-      "Zdravstveno osiguranje je obavezno u Njemačkoj.",
-      "Javno osiguranje (GKV): obavezno za zaposlene sa platom do granice oslobođenja.",
-      "Privatno osiguranje (PKV): za samozaposlene i zaposlene iznad granice.",
-    ],
-    law: "SGB V — Sozialgesetzbuch",
-    source: "https://www.gesetze-im-internet.de/sgb_5/",
-    source2: "https://www.bundesgesundheitsministerium.de/",
+  sq: {
+    title: "Fillo këtu",
+    subtitle: "Hapat më të rëndësishëm për fillimin tënd në Gjermani.",
+    anmeldung: "Regjistrimi i adresës", anmeldungDesc: "Regjistro adresën brenda 14 ditësh.",
+    aufenthalt: "Leja e qëndrimit", aufenthaltDesc: "Viza, Karta Blu ose qasje e lirë.",
+    steuer: "Steuer-ID & klasa tatimore", steuerDesc: "Numrin tatimor e merr automatikisht.",
+    kranken: "Sigurimi shëndetësor", krankenDesc: "Publik ose privat — i detyrueshëm.",
+    bank: "Llogari bankare", bankDesc: "Hape llogarinë në javën e parë.",
+    schritte: "Hapat e parë", schritteDesc: "Lista e plotë për javët e para.",
   },
-  {
-    icon: Landmark,
-    title: "Bankkonto eröffnen",
-    description: "Otvori bankovni račun — bez njega ništa ne funkcioniše.",
-    content: [
-      "Za otvaranje računa ti treba: pasoš i potvrda o prijavi prebivališta (Meldebescheinigung).",
-      "Svaka banka u Njemačkoj mora ponuditi osnovni račun (Basiskonto) prema zakonu.",
-      "Preporučujemo da račun otvoriš u prvoj sedmici nakon dolaska.",
-    ],
-    law: "ZKG — Zahlungskontengesetz",
-    source: "https://www.gesetze-im-internet.de/zkg/",
+  mk: {
+    title: "Почни тука",
+    subtitle: "Најважните чекори за твојот почеток во Германија.",
+    anmeldung: "Пријава на адреса", anmeldungDesc: "Пријави ја адресата во рок од 14 дена.",
+    aufenthalt: "Дозвола за престој", aufenthaltDesc: "Виза, Сина карта или слободен пристап.",
+    steuer: "Steuer-ID & даночна класа", steuerDesc: "Даночниот број го добиваш автоматски.",
+    kranken: "Здравствено осигурување", krankenDesc: "Јавно или приватно — задолжително.",
+    bank: "Банкарска сметка", bankDesc: "Отвори сметка во првата недела.",
+    schritte: "Први чекори", schritteDesc: "Комплетна листа за првите недели.",
   },
-  {
-    icon: ClipboardList,
-    title: "Erste Schritte nach Ankunft",
-    description: "Kompletna lista koraka za prve sedmice u Njemačkoj.",
-    content: [
-      "1. Prijavi prebivalište (Anmeldung)",
-      "2. Otvori bankovni račun",
-      "3. Zaključi zdravstveno osiguranje",
-      "4. Zatraži Steuer-ID",
-      "5. Prijavi se kod Ausländerbehörde (ako je potrebno)",
-      "6. Registruj se kod Arbeitsagentur (ako tražiš posao)",
-    ],
-    law: "BMG, AufenthG, SGB V",
-    source: "https://www.gesetze-im-internet.de/bmg/",
-  },
+};
+
+function pt(lang: string, key: string): string {
+  const g = ["bs", "hr", "sr", "me"].includes(lang) ? "bs" : ["sq", "xk"].includes(lang) ? "sq" : lang === "mk" ? "mk" : lang === "de" ? "de" : "en";
+  return T[g]?.[key] ?? T.en[key] ?? key;
+}
+
+const cards = [
+  { icon: Home, titleKey: "anmeldung", descKey: "anmeldungDesc", to: "/dolazak/anmeldung" },
+  { icon: FileText, titleKey: "aufenthalt", descKey: "aufenthaltDesc", to: "/dolazak/aufenthalt" },
+  { icon: CreditCard, titleKey: "steuer", descKey: "steuerDesc", to: "/dolazak/steuer" },
+  { icon: Heart, titleKey: "kranken", descKey: "krankenDesc", to: "/dolazak/krankenversicherung" },
+  { icon: Landmark, titleKey: "bank", descKey: "bankDesc", to: "/dolazak/bankkonto" },
+  { icon: ClipboardList, titleKey: "schritte", descKey: "schritteDesc", to: "/dolazak/erste-schritte" },
 ];
 
 export default function PocniOvdje() {
-  const { t } = useLanguage();
+  const { language } = useLanguage();
 
   return (
     <>
-      <section className="border-b bg-primary py-12">
+      <section className="border-b bg-primary py-10">
         <div className="container text-center">
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">
-            {t("cta.new.title")}
+            {pt(language, "title")}
           </h1>
           <p className="mt-2 text-sm text-primary-foreground/80 md:text-base">
-            Korak po korak vodič za tvoj početak u Njemačkoj.
+            {pt(language, "subtitle")}
           </p>
         </div>
       </section>
 
       <section className="py-12">
         <div className="container max-w-3xl">
-          <div className="space-y-6">
-            {steps.map((step, idx) => (
-              <div
-                key={idx}
-                className="rounded-lg border bg-card p-6 shadow-sm"
+          <div className="grid gap-4 sm:grid-cols-2">
+            {cards.map((card) => (
+              <Link
+                key={card.titleKey}
+                to={card.to}
+                className="group flex items-start gap-4 rounded-xl border bg-card p-5 shadow-sm transition-all hover:border-primary/30 hover:shadow-md"
               >
-                <div className="flex items-start gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
-                    <step.icon className="h-5 w-5" strokeWidth={1.5} />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <h2 className="text-base font-semibold">{step.title}</h2>
-                    <p className="mt-1 text-sm text-muted-foreground">{step.description}</p>
-                  </div>
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <card.icon className="h-5 w-5" strokeWidth={1.5} />
                 </div>
-
-                <div className="mt-4 space-y-2 pl-14">
-                  {step.content.map((line, i) => (
-                    <p key={i} className="text-sm leading-relaxed text-foreground/80">
-                      {line}
-                    </p>
-                  ))}
-                </div>
-
-                <div className="mt-4 border-t pt-3 pl-14">
-                  <p className="text-xs text-muted-foreground">
-                    <span className="font-medium">Gesetzliche Grundlage:</span> {step.law}
+                <div className="min-w-0 flex-1">
+                  <h2 className="text-sm font-semibold">{pt(language, card.titleKey)}</h2>
+                  <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                    {pt(language, card.descKey)}
                   </p>
-                  <div className="mt-1 flex flex-wrap gap-3">
-                    <a
-                      href={step.source}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-xs font-medium text-primary hover:underline"
-                    >
-                      Offizielle Quelle <ArrowRight className="h-3 w-3" />
-                    </a>
-                    {step.source2 && (
-                      <a
-                        href={step.source2}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-xs font-medium text-primary hover:underline"
-                      >
-                        Weitere Quelle <ArrowRight className="h-3 w-3" />
-                      </a>
-                    )}
-                  </div>
                 </div>
-              </div>
+                <ArrowRight className="ml-auto mt-1 h-4 w-4 shrink-0 text-muted-foreground/40 transition-transform group-hover:translate-x-0.5" />
+              </Link>
             ))}
           </div>
         </div>
