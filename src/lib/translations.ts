@@ -3,18 +3,19 @@ export type Language = "bs" | "hr" | "sr" | "me" | "sq" | "mk" | "de" | "en";
 export interface LanguageInfo {
   code: Language;
   name: string;
+  country: string;
   flag: string;
 }
 
 export const LANGUAGES: LanguageInfo[] = [
-  { code: "bs", name: "Bosanski", flag: "🇧🇦" },
-  { code: "hr", name: "Hrvatski", flag: "🇭🇷" },
-  { code: "sr", name: "Srpski", flag: "🇷🇸" },
-  { code: "me", name: "Crnogorski", flag: "🇲🇪" },
-  { code: "sq", name: "Shqip", flag: "🇦🇱" },
-  { code: "mk", name: "Македонски", flag: "🇲🇰" },
-  { code: "de", name: "Deutsch", flag: "🇩🇪" },
-  { code: "en", name: "English", flag: "🇬🇧" },
+  { code: "bs", name: "Bosanski", country: "Bosna i Hercegovina", flag: "🇧🇦" },
+  { code: "hr", name: "Hrvatski", country: "Hrvatska", flag: "🇭🇷" },
+  { code: "sr", name: "Srpski", country: "Srbija", flag: "🇷🇸" },
+  { code: "me", name: "Crnogorski", country: "Crna Gora", flag: "🇲🇪" },
+  { code: "sq", name: "Shqip", country: "Shqipëria", flag: "🇦🇱" },
+  { code: "mk", name: "Македонски", country: "Македонија", flag: "🇲🇰" },
+  { code: "de", name: "Deutsch", country: "Deutschland", flag: "🇩🇪" },
+  { code: "en", name: "English", country: "United Kingdom", flag: "🇬🇧" },
 ];
 
 type TranslationKeys = {
