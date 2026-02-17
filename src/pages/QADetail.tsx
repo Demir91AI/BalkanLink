@@ -1,0 +1,169 @@
+import { useParams, Link } from "react-router-dom";
+import { ArrowLeft, Crown, ExternalLink, Lock, Calendar } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
+import { useQaItem } from "@/hooks/useQaItems";
+import { useAuth } from "@/contexts/AuthContext";
+import { getCategoryBySlug } from "@/lib/categories";
+
+export default function QADetail() {
+  const { id } = useParams<{ id: string }>();
+  const { data: item, isLoading, error } = useQaItem(id || "");
+  const { isPremium, user } = useAuth();
+
+  if (isLoading) {
+    return (
+      <div className="container max-w-3xl py-10">
+        <Skeleton className="mb-4 h-8 w-48" />
+        <Skeleton className="mb-6 h-12 w-full" />
+        <Skeleton className="h-40 w-full" />
+      </div>
+    );
+  }
+
+  if (error || !item) {
+    return (
+      <div className="container max-w-3xl py-16 text-center">
+        <p className="text-muted-foreground">Pitanje nije pronađeno.</p>
+        <Button variant="outline" asChild className="mt-4">
+          <Link to="/qa">
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Nazad na listu
+          </Link>
+        </Button>
+      </div>
+    );
+  }
+
+  const cat = getCategoryBySlug(item.category);
+  const canViewFull = !item.is_premium || isPremium;
+
+  return (
+    <div className="container max-w-3xl py-10">
+      {/* Back */}
+      <Link
+        to="/qa"
+        className="mb-6 inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+      >
+        <ArrowLeft className="h-4 w-4" />
+        Sva pitanja
+      </Link>
+
+      {/* Meta */}
+      <div className="mb-4 flex flex-wrap items-center gap-2">
+        {cat && (
+          <Badge variant="secondary" className="gap-1">
+            <cat.icon className="h-3.5 w-3.5" />
+            {cat.label}
+          </Badge>
+        )}
+        {item.is_premium && (
+          <Badge className="gap-1 bg-balkan-gold text-balkan-gold-foreground">
+            <Crown className="h-3.5 w-3.5" />
+            Premium
+          </Badge>
+        )}
+        <span className="flex items-center gap-1 text-xs text-muted-foreground">
+          <Calendar className="h-3 w-3" />
+          {new Date(item.last_updated).toLocaleDateString("de-DE")}
+        </span>
+      </div>
+
+      {/* Question */}
+      <h1 className="mb-6 text-2xl font-bold leading-tight md:text-3xl">
+        {item.question}
+      </h1>
+
+      {/* Short answer — always visible */}
+      <div className="mb-8 rounded-xl border bg-secondary/50 p-5">
+        <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+          Kratak odgovor
+        </h2>
+        <p className="text-foreground leading-relaxed">{item.short_answer}</p>
+      </div>
+
+      {/* Step by step — premium gated */}
+      {item.step_by_step && (
+        <div className="mb-8">
+          <h2 className="mb-3 text-lg font-semibold">Detaljno objašnjenje</h2>
+          {canViewFull ? (
+            <div className="prose prose-sm max-w-none rounded-xl border bg-card p-5">
+              {item.step_by_step.split("\n").map((line, i) => (
+                <p key={i} className="mb-2 last:mb-0">
+                  {line}
+                </p>
+              ))}
+            </div>
+          ) : (
+            <div className="relative overflow-hidden rounded-xl border bg-card p-5">
+              {/* Blurred preview */}
+              <div className="pointer-events-none select-none blur-sm">
+                {item.step_by_step
+                  .split("\n")
+                  .slice(0, 3)
+                  .map((line, i) => (
+                    <p key={i} className="mb-2 text-sm text-muted-foreground">
+                      {line}
+                    </p>
+                  ))}
+              </div>
+              {/* Overlay */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center bg-background/80 backdrop-blur-sm">
+                <Lock className="mb-3 h-8 w-8 text-muted-foreground" />
+                <p className="mb-1 font-semibold">Premium sadržaj</p>
+                <p className="mb-4 text-center text-sm text-muted-foreground">
+                  {user
+                    ? "Otključaj detaljna objašnjenja uz Premium pristup."
+                    : "Prijavi se i otključaj sve sadržaje."}
+                </p>
+                <Button asChild>
+                  <Link to={user ? "/premium" : "/register"}>
+                    <Crown className="mr-2 h-4 w-4" />
+                    {user ? "Postani Premium" : "Registruj se"}
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Sources */}
+      {canViewFull && item.sources && item.sources.length > 0 && (
+        <div className="mb-8">
+          <h2 className="mb-3 text-lg font-semibold">Zvanični izvori</h2>
+          <ul className="space-y-2">
+            {item.sources.map((src, i) => (
+              <li key={i}>
+                <a
+                  href={src}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sm text-primary hover:underline"
+                >
+                  <ExternalLink className="h-3.5 w-3.5" />
+                  {src}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {/* Tags */}
+      {item.tags && item.tags.length > 0 && (
+        <div className="flex flex-wrap gap-1.5">
+          {item.tags.map((tag) => (
+            <span
+              key={tag}
+              className="rounded-full bg-muted px-2.5 py-1 text-xs text-muted-foreground"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
