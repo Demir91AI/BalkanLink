@@ -144,7 +144,7 @@ export default function Index() {
                 className="flex items-center gap-2 rounded-full border bg-card px-4 py-2 shadow-sm transition-shadow hover:shadow-md"
               >
                 <span className="text-xl leading-none">{lang.flag}</span>
-                <span className="text-sm font-medium">{lang.name}</span>
+                <span className="text-sm font-medium">{lang.country}</span>
               </motion.div>
             ))}
           </div>
