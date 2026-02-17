@@ -63,9 +63,12 @@ export type Database = {
           country_code: string
           country_name: string
           created_at: string
+          email: string | null
           id: string
           mission_type: string
+          phone: string | null
           postal_code: string
+          website: string | null
         }
         Insert: {
           address_line: string
@@ -73,9 +76,12 @@ export type Database = {
           country_code: string
           country_name: string
           created_at?: string
+          email?: string | null
           id?: string
           mission_type: string
+          phone?: string | null
           postal_code: string
+          website?: string | null
         }
         Update: {
           address_line?: string
@@ -83,9 +89,12 @@ export type Database = {
           country_code?: string
           country_name?: string
           created_at?: string
+          email?: string | null
           id?: string
           mission_type?: string
+          phone?: string | null
           postal_code?: string
+          website?: string | null
         }
         Relationships: []
       }
