@@ -26,6 +26,8 @@ import Formulare from "./pages/Formulare";
 import Familie from "./pages/Familie";
 import Foerderungen from "./pages/Foerderungen";
 import Generatoren from "./pages/Generatoren";
+import Wohnungen from "./pages/Wohnungen";
+import Stellenangebote from "./pages/Stellenangebote";
 import Premium from "./pages/Premium";
 import NotFound from "./pages/NotFound";
 
@@ -53,6 +55,8 @@ const App = () => (
                 <Route path="/foerderungen" element={<Foerderungen />} />
                 <Route path="/tools" element={<Generatoren />} />
                 <Route path="/generatoren" element={<Generatoren />} />
+                <Route path="/wohnungen" element={<Wohnungen />} />
+                <Route path="/stellenangebote" element={<Stellenangebote />} />
                 <Route path="/premium" element={<Premium />} />
                 <Route path="/qa" element={<QA />} />
                 <Route path="/qa/:id" element={<QADetail />} />
