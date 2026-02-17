@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { Search, Lock, Crown } from "lucide-react";
+import { Search, Lock, Crown, ChevronRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { CATEGORIES, getCategoryBySlug } from "@/lib/categories";
 import { useQaItems } from "@/hooks/useQaItems";
 import { useAuth } from "@/contexts/AuthContext";
 import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 export default function QA() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -32,89 +32,106 @@ export default function QA() {
   const activeCategory = activeFilter ? getCategoryBySlug(activeFilter) : null;
 
   return (
-    <div className="container py-10">
+    <div className="container py-8 md:py-12">
       {/* Header */}
-      <div className="mb-8">
+      <div className="mb-8 max-w-2xl">
         <h1 className="text-3xl font-bold md:text-4xl">Pitanja i odgovori</h1>
         <p className="mt-2 text-muted-foreground">
           Pronađi odgovor na svoje pitanje — brzo i na našem jeziku.
         </p>
       </div>
 
-      {/* Search */}
-      <div className="relative mb-6">
-        <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-        <Input
-          placeholder="Pretraži pitanja..."
-          className="pl-10"
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
-        />
-      </div>
+      <div className="flex flex-col gap-8 lg:flex-row">
+        {/* Sidebar — categories */}
+        <aside className="w-full shrink-0 lg:w-60">
+          {/* Search inside sidebar on desktop */}
+          <div className="relative mb-4">
+            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+            <Input
+              placeholder="Pretraži..."
+              className="pl-10 bg-card"
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
+            />
+          </div>
 
-      {/* Category filters */}
-      <div className="mb-8 flex flex-wrap gap-2">
-        {CATEGORIES.map((cat) => {
-          const isActive = activeFilter === cat.slug;
-          return (
-            <Button
-              key={cat.slug}
-              variant={isActive ? "default" : "outline"}
-              size="sm"
-              onClick={() => setFilter(cat.slug)}
-              className="gap-1.5"
+          {/* Category list — vertical on lg, horizontal scroll on mobile */}
+          <nav className="flex gap-1.5 overflow-x-auto pb-2 lg:flex-col lg:overflow-visible lg:pb-0">
+            <button
+              onClick={() => {
+                searchParams.delete("filter");
+                setSearchParams(searchParams, { replace: true });
+              }}
+              className={cn(
+                "flex shrink-0 items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
+                !activeFilter
+                  ? "bg-primary text-primary-foreground shadow-sm"
+                  : "text-muted-foreground hover:bg-secondary hover:text-foreground"
+              )}
             >
-              <cat.icon className="h-3.5 w-3.5" />
-              {cat.label}
-            </Button>
-          );
-        })}
-        {activeFilter && (
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => {
-              searchParams.delete("filter");
-              setSearchParams(searchParams, { replace: true });
-            }}
-          >
-            Pokaži sve
-          </Button>
-        )}
+              <Search className="h-4 w-4" />
+              <span>Sve teme</span>
+            </button>
+            {CATEGORIES.map((cat) => {
+              const isActive = activeFilter === cat.slug;
+              return (
+                <button
+                  key={cat.slug}
+                  onClick={() => setFilter(cat.slug)}
+                  className={cn(
+                    "flex shrink-0 items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
+                    isActive
+                      ? "bg-primary text-primary-foreground shadow-sm"
+                      : "text-muted-foreground hover:bg-secondary hover:text-foreground"
+                  )}
+                >
+                  <cat.icon className="h-4 w-4" />
+                  <span className="whitespace-nowrap">{cat.label}</span>
+                </button>
+              );
+            })}
+          </nav>
+        </aside>
+
+        {/* Main content */}
+        <main className="min-w-0 flex-1">
+          {/* Active filter label */}
+          {activeCategory && (
+            <div className="mb-5 flex items-center gap-2.5 rounded-lg border bg-secondary/50 px-4 py-3">
+              <activeCategory.icon className="h-5 w-5 text-primary" />
+              <h2 className="text-lg font-semibold">{activeCategory.label}</h2>
+              <Badge variant="secondary" className="ml-auto text-xs">
+                {items?.length ?? 0} rezultata
+              </Badge>
+            </div>
+          )}
+
+          {/* Results */}
+          {isLoading ? (
+            <div className="space-y-4">
+              {[1, 2, 3, 4].map((i) => (
+                <Skeleton key={i} className="h-28 w-full rounded-xl" />
+              ))}
+            </div>
+          ) : items && items.length > 0 ? (
+            <motion.div
+              initial="hidden"
+              animate="show"
+              variants={{ hidden: {}, show: { transition: { staggerChildren: 0.05 } } }}
+              className="space-y-3"
+            >
+              {items.map((item) => (
+                <QaCard key={item.id} item={item} />
+              ))}
+            </motion.div>
+          ) : (
+            <div className="flex flex-col items-center gap-3 rounded-xl border border-dashed py-16 text-center">
+              <Search className="h-10 w-10 text-muted-foreground/40" />
+              <p className="text-muted-foreground">Nema rezultata. Pokušaj sa drugim pojmom.</p>
+            </div>
+          )}
+        </main>
       </div>
-
-      {/* Active filter label */}
-      {activeCategory && (
-        <div className="mb-6 flex items-center gap-2">
-          <activeCategory.icon className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold">{activeCategory.label}</h2>
-        </div>
-      )}
-
-      {/* Results */}
-      {isLoading ? (
-        <div className="space-y-4">
-          {[1, 2, 3, 4].map((i) => (
-            <Skeleton key={i} className="h-28 w-full rounded-xl" />
-          ))}
-        </div>
-      ) : items && items.length > 0 ? (
-        <motion.div
-          initial="hidden"
-          animate="show"
-          variants={{ hidden: {}, show: { transition: { staggerChildren: 0.05 } } }}
-          className="space-y-3"
-        >
-          {items.map((item) => (
-            <QaCard key={item.id} item={item} />
-          ))}
-        </motion.div>
-      ) : (
-        <div className="flex flex-col items-center gap-3 py-16 text-center">
-          <Search className="h-10 w-10 text-muted-foreground/40" />
-          <p className="text-muted-foreground">Nema rezultata. Pokušaj sa drugim pojmom.</p>
-        </div>
-      )}
     </div>
   );
 }
@@ -129,47 +146,48 @@ function QaCard({ item }: { item: ReturnType<typeof useQaItems>["data"] extends 
     >
       <Link
         to={`/qa/${item.id}`}
-        className="group block rounded-xl border bg-card p-5 transition-all hover:border-primary/30 hover:shadow-md"
+        className="group flex items-center gap-4 rounded-xl border bg-card p-5 transition-all hover:border-primary/30 hover:shadow-md"
       >
-        <div className="flex items-start justify-between gap-3">
-          <div className="flex-1">
-            <div className="mb-2 flex flex-wrap items-center gap-2">
-              {cat && (
-                <Badge variant="secondary" className="gap-1 text-xs">
-                  <cat.icon className="h-3 w-3" />
-                  {cat.label}
-                </Badge>
-              )}
-              {item.is_premium && (
-                <Badge className="gap-1 bg-balkan-gold text-balkan-gold-foreground text-xs">
-                  <Crown className="h-3 w-3" />
-                  Premium
-                </Badge>
-              )}
-            </div>
-            <h3 className="font-semibold leading-snug group-hover:text-primary transition-colors">
-              {item.question}
-            </h3>
-            <p className="mt-1.5 text-sm text-muted-foreground line-clamp-2">
-              {item.short_answer}
-            </p>
+        <div className="flex-1 min-w-0">
+          <div className="mb-2 flex flex-wrap items-center gap-2">
+            {cat && (
+              <Badge variant="secondary" className="gap-1 text-xs">
+                <cat.icon className="h-3 w-3" />
+                {cat.label}
+              </Badge>
+            )}
+            {item.is_premium && (
+              <Badge className="gap-1 bg-balkan-gold text-balkan-gold-foreground text-xs">
+                <Crown className="h-3 w-3" />
+                Premium
+              </Badge>
+            )}
           </div>
-          {item.is_premium && !userIsPremium && (
-            <Lock className="mt-1 h-4 w-4 shrink-0 text-muted-foreground" />
+          <h3 className="font-semibold leading-snug group-hover:text-primary transition-colors">
+            {item.question}
+          </h3>
+          <p className="mt-1.5 text-sm text-muted-foreground line-clamp-2">
+            {item.short_answer}
+          </p>
+          {item.tags && item.tags.length > 0 && (
+            <div className="mt-2.5 flex flex-wrap gap-1.5">
+              {item.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full bg-muted px-2 py-0.5 text-xs text-muted-foreground"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
           )}
         </div>
-        {item.tags && item.tags.length > 0 && (
-          <div className="mt-3 flex flex-wrap gap-1.5">
-            {item.tags.map((tag) => (
-              <span
-                key={tag}
-                className="rounded-full bg-muted px-2 py-0.5 text-xs text-muted-foreground"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
+        <div className="flex shrink-0 items-center gap-2">
+          {item.is_premium && !userIsPremium && (
+            <Lock className="h-4 w-4 text-muted-foreground" />
+          )}
+          <ChevronRight className="h-4 w-4 text-muted-foreground/50 transition-transform group-hover:translate-x-0.5" />
+        </div>
       </Link>
     </motion.div>
   );
