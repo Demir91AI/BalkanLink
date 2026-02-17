@@ -17,6 +17,7 @@ export default function Header() {
     { label: t("nav.home"), to: "/" },
     { label: t("nav.qa"), to: "/qa" },
     { label: t("nav.directory"), to: "/directory" },
+    { label: t("nav.missions"), to: "/ambasade-konzulati" },
   ];
 
   return (

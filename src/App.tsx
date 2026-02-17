@@ -18,6 +18,7 @@ import QA from "./pages/QA";
 import QADetail from "./pages/QADetail";
 import Directory from "./pages/Directory";
 import DirectorySubmit from "./pages/DirectorySubmit";
+import Missions from "./pages/Missions";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -37,6 +38,7 @@ const App = () => (
                 <Route path="/qa/:id" element={<QADetail />} />
                 <Route path="/directory" element={<Directory />} />
                 <Route path="/directory/submit" element={<DirectorySubmit />} />
+                <Route path="/ambasade-konzulati" element={<Missions />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
