@@ -15,9 +15,12 @@ export default function Header() {
 
   const navLinks = [
     { label: t("nav.home"), to: "/" },
-    { label: t("nav.qa"), to: "/qa" },
-    { label: t("nav.directory"), to: "/directory" },
+    { label: "Formulare", to: "/formulare" },
+    { label: "Familie", to: "/familie" },
+    { label: "Förderungen", to: "/foerderungen" },
+    { label: "Tools", to: "/generatoren" },
     { label: t("nav.missions"), to: "/ambasade-konzulati" },
+    { label: "Premium", to: "/premium" },
   ];
 
   return (
@@ -32,7 +35,7 @@ export default function Header() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-1 lg:flex">
           {navLinks.map((link) => (
             <Link
               key={link.to}
@@ -46,7 +49,7 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-2 md:flex">
+        <div className="hidden items-center gap-2 lg:flex">
           {/* Language Picker */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -87,7 +90,7 @@ export default function Header() {
           )}
         </div>
 
-        <div className="flex items-center gap-1 md:hidden">
+        <div className="flex items-center gap-1 lg:hidden">
           {/* Mobile language picker */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>

@@ -19,9 +19,11 @@ export default function Footer() {
           <div>
             <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary-foreground/80">Navigation</h4>
             <ul className="space-y-2 text-sm text-primary-foreground/70">
-              <li><Link to="/qa" className="hover:text-primary-foreground transition-colors">Pitanja i odgovori</Link></li>
-              <li><Link to="/directory" className="hover:text-primary-foreground transition-colors">Imenik</Link></li>
-              <li><Link to="/ambasade-konzulati" className="hover:text-primary-foreground transition-colors">Ambasade i konzulati</Link></li>
+              <li><Link to="/formulare" className="hover:text-primary-foreground transition-colors">Formulare & Anträge</Link></li>
+              <li><Link to="/familie" className="hover:text-primary-foreground transition-colors">Familie & Kinder</Link></li>
+              <li><Link to="/foerderungen" className="hover:text-primary-foreground transition-colors">Förderungen</Link></li>
+              <li><Link to="/generatoren" className="hover:text-primary-foreground transition-colors">Tools & Generatoren</Link></li>
+              <li><Link to="/ambasade-konzulati" className="hover:text-primary-foreground transition-colors">Botschaften & Konsulate</Link></li>
             </ul>
           </div>
 
