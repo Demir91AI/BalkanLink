@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { Briefcase, Receipt, Home, Heart, Users, HandCoins, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import PremiumGate from "@/components/PremiumGate";
+import LegalDisclaimer from "@/components/LegalDisclaimer";
 
 const categories = [
   {
@@ -71,8 +73,72 @@ const categories = [
   },
 ];
 
+function CategoryCard({ cat, idx }: { cat: typeof categories[number]; idx: number }) {
+  if (cat.to) {
+    return (
+      <Link
+        to={cat.to}
+        className="group flex items-start gap-4 rounded-lg border bg-card p-6 shadow-sm transition-shadow hover:shadow-md"
+      >
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
+          <cat.icon className="h-5 w-5" strokeWidth={1.5} />
+        </div>
+        <div className="min-w-0 flex-1">
+          <h2 className="text-base font-semibold">{cat.title}</h2>
+          <p className="mt-1 text-sm text-muted-foreground">{cat.description}</p>
+        </div>
+        <ArrowRight className="mt-2 h-4 w-4 shrink-0 text-muted-foreground/40 transition-transform group-hover:translate-x-0.5" />
+      </Link>
+    );
+  }
+
+  return (
+    <div className="rounded-lg border bg-card p-6 shadow-sm">
+      <div className="flex items-start gap-4">
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
+          <cat.icon className="h-5 w-5" strokeWidth={1.5} />
+        </div>
+        <div className="min-w-0 flex-1">
+          <h2 className="text-base font-semibold">{cat.title}</h2>
+          <p className="mt-1 text-sm text-muted-foreground">{cat.description}</p>
+        </div>
+      </div>
+
+      {cat.content && (
+        <div className="mt-4 space-y-2 pl-14">
+          {cat.content.map((line, i) => (
+            <p key={i} className="text-sm leading-relaxed text-foreground/80">{line}</p>
+          ))}
+        </div>
+      )}
+
+      {cat.law && (
+        <div className="mt-4 border-t pt-3 pl-14">
+          <p className="text-xs text-muted-foreground">
+            <span className="font-medium">Gesetzliche Grundlage:</span> {cat.law}
+          </p>
+          <div className="mt-1 flex flex-wrap gap-3">
+            <a href={cat.source} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-medium text-primary hover:underline">
+              Offizielle Quelle <ArrowRight className="h-3 w-3" />
+            </a>
+            {cat.source2 && (
+              <a href={cat.source2} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-medium text-primary hover:underline">
+                Weitere Quelle <ArrowRight className="h-3 w-3" />
+              </a>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function ZivotSavjeti() {
   const { t } = useLanguage();
+
+  // First category is free, rest is premium
+  const freeItems = categories.slice(0, 1);
+  const premiumItems = categories.slice(1);
 
   return (
     <>
@@ -90,78 +156,28 @@ export default function ZivotSavjeti() {
       <section className="py-12">
         <div className="container max-w-3xl">
           <div className="space-y-6">
-            {categories.map((cat, idx) =>
-              cat.to ? (
-                <Link
-                  key={idx}
-                  to={cat.to}
-                  className="group flex items-start gap-4 rounded-lg border bg-card p-6 shadow-sm transition-shadow hover:shadow-md"
-                >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
-                    <cat.icon className="h-5 w-5" strokeWidth={1.5} />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <h2 className="text-base font-semibold">{cat.title}</h2>
-                    <p className="mt-1 text-sm text-muted-foreground">{cat.description}</p>
-                  </div>
-                  <ArrowRight className="mt-2 h-4 w-4 shrink-0 text-muted-foreground/40 transition-transform group-hover:translate-x-0.5" />
-                </Link>
-              ) : (
-                <div
-                  key={idx}
-                  className="rounded-lg border bg-card p-6 shadow-sm"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
-                      <cat.icon className="h-5 w-5" strokeWidth={1.5} />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <h2 className="text-base font-semibold">{cat.title}</h2>
-                      <p className="mt-1 text-sm text-muted-foreground">{cat.description}</p>
-                    </div>
-                  </div>
+            {/* FREE: first category */}
+            {freeItems.map((cat, idx) => (
+              <CategoryCard key={idx} cat={cat} idx={idx} />
+            ))}
 
-                  {cat.content && (
-                    <div className="mt-4 space-y-2 pl-14">
-                      {cat.content.map((line, i) => (
-                        <p key={i} className="text-sm leading-relaxed text-foreground/80">
-                          {line}
-                        </p>
-                      ))}
-                    </div>
-                  )}
-
-                  {cat.law && (
-                    <div className="mt-4 border-t pt-3 pl-14">
-                      <p className="text-xs text-muted-foreground">
-                        <span className="font-medium">Gesetzliche Grundlage:</span> {cat.law}
-                      </p>
-                      <div className="mt-1 flex flex-wrap gap-3">
-                        <a
-                          href={cat.source}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-xs font-medium text-primary hover:underline"
-                        >
-                          Offizielle Quelle <ArrowRight className="h-3 w-3" />
-                        </a>
-                        {cat.source2 && (
-                          <a
-                            href={cat.source2}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 text-xs font-medium text-primary hover:underline"
-                          >
-                            Weitere Quelle <ArrowRight className="h-3 w-3" />
-                          </a>
-                        )}
-                      </div>
-                    </div>
-                  )}
+            {/* PREMIUM: remaining categories */}
+            <PremiumGate
+              fallback={
+                <div className="space-y-6">
+                  {premiumItems.slice(0, 1).map((cat, idx) => (
+                    <CategoryCard key={idx} cat={cat} idx={idx} />
+                  ))}
                 </div>
-              )
-            )}
+              }
+            >
+              {premiumItems.map((cat, idx) => (
+                <CategoryCard key={idx} cat={cat} idx={idx + 1} />
+              ))}
+            </PremiumGate>
           </div>
+
+          <LegalDisclaimer />
         </div>
       </section>
     </>

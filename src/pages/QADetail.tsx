@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, Crown, ExternalLink, Lock, Calendar } from "lucide-react";
+import LegalDisclaimer from "@/components/LegalDisclaimer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -202,6 +203,8 @@ export default function QADetail() {
           ))}
         </div>
       )}
+
+      <LegalDisclaimer />
     </div>
   );
 }

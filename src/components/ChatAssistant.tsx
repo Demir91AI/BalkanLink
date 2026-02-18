@@ -3,6 +3,7 @@ import { MessageSquare, X, Send, Loader2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useAuth } from "@/contexts/AuthContext";
 import { Link } from "react-router-dom";
 
 type Msg = { role: "user" | "assistant"; content: string };
@@ -27,7 +28,6 @@ const ERROR_MSG: Record<string, string> = {
   en: "An error occurred. Please try again.",
 };
 
-/** Renders markdown with internal links as react-router Links */
 function ChatMarkdown({ content }: { content: string }) {
   return (
     <ReactMarkdown
@@ -60,6 +60,7 @@ function ChatMarkdown({ content }: { content: string }) {
 
 export default function ChatAssistant() {
   const { language } = useLanguage();
+  const { isPremium, user } = useAuth();
   const lk = language === "de" ? "de" : language === "en" ? "en" : "bs";
 
   const [open, setOpen] = useState(false);
@@ -69,14 +70,12 @@ export default function ChatAssistant() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
-  // Auto-scroll on new content
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [messages, loading]);
 
-  // Focus input when opened
   useEffect(() => {
     if (open) setTimeout(() => inputRef.current?.focus({ preventScroll: true }), 100);
   }, [open]);
@@ -111,7 +110,10 @@ export default function ChatAssistant() {
           "Content-Type": "application/json",
           Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
         },
-        body: JSON.stringify({ messages: newMessages }),
+        body: JSON.stringify({
+          messages: newMessages,
+          isPremium: isPremium,
+        }),
       });
 
       if (!resp.ok || !resp.body) {
@@ -151,7 +153,7 @@ export default function ChatAssistant() {
     } finally {
       setLoading(false);
     }
-  }, [input, loading, messages, lk]);
+  }, [input, loading, messages, lk, isPremium]);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" && !e.shiftKey) {
@@ -162,7 +164,6 @@ export default function ChatAssistant() {
 
   return (
     <>
-      {/* Trigger Button */}
       <AnimatePresence>
         {!open && (
           <motion.button
@@ -178,7 +179,6 @@ export default function ChatAssistant() {
         )}
       </AnimatePresence>
 
-      {/* Chat Panel */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -188,12 +188,11 @@ export default function ChatAssistant() {
             transition={{ duration: 0.2 }}
             className="fixed bottom-0 right-0 sm:bottom-6 sm:right-6 z-50 flex h-[85vh] sm:h-[75vh] max-h-[560px] w-full sm:w-[370px] sm:max-w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-t-2xl sm:rounded-2xl border bg-card shadow-2xl"
           >
-            {/* Header */}
             <div className="flex items-center justify-between border-b bg-primary px-3 py-2">
               <div>
                 <p className="text-[13px] font-semibold leading-tight text-primary-foreground">BalkanDE Assistent</p>
                 <p className="text-[9px] leading-tight text-primary-foreground/50">
-                  {lk === "de" ? "Digitaler Assistent" : lk === "en" ? "Digital Assistant" : "Digitalni savjetnik"}
+                  {isPremium ? "Premium" : (lk === "de" ? "Digitaler Assistent" : lk === "en" ? "Digital Assistant" : "Digitalni savjetnik")}
                 </p>
               </div>
               <button
@@ -204,9 +203,7 @@ export default function ChatAssistant() {
               </button>
             </div>
 
-            {/* Messages */}
             <div ref={scrollRef} className="flex-1 space-y-2 overflow-y-auto px-3 py-2.5">
-              {/* Welcome */}
               {messages.length === 0 && (
                 <div className="rounded-lg bg-muted px-3 py-2.5">
                   <p className="text-[13px] font-semibold leading-tight text-foreground mb-1">{lk === "de" ? "Digitaler Assistent BalkanDE" : lk === "en" ? "BalkanDE Digital Assistant" : "Digitalni asistent BalkanDE"}</p>
@@ -218,16 +215,10 @@ export default function ChatAssistant() {
                 <div key={i} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
                   <div
                     className={`max-w-[85%] rounded-lg px-3 py-2 text-[13px] leading-snug ${
-                      msg.role === "user"
-                        ? "bg-primary text-primary-foreground"
-                        : "bg-muted text-foreground"
+                      msg.role === "user" ? "bg-primary text-primary-foreground" : "bg-muted text-foreground"
                     }`}
                   >
-                    {msg.role === "assistant" ? (
-                      <ChatMarkdown content={msg.content} />
-                    ) : (
-                      msg.content
-                    )}
+                    {msg.role === "assistant" ? <ChatMarkdown content={msg.content} /> : msg.content}
                   </div>
                 </div>
               ))}
@@ -241,7 +232,6 @@ export default function ChatAssistant() {
               )}
             </div>
 
-            {/* Input */}
             <div className="border-t px-3 py-2">
               <div className="flex items-end gap-2">
                 <textarea
