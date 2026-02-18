@@ -36,6 +36,7 @@ import Wohnungen from "./pages/Wohnungen";
 import Stellenangebote from "./pages/Stellenangebote";
 import Premium from "./pages/Premium";
 import Community from "./pages/Community";
+import Dzamije from "./pages/Dzamije";
 import GuideDetail from "./pages/GuideDetail";
 import NotFound from "./pages/NotFound";
 
@@ -73,6 +74,7 @@ const App = () => (
                 <Route path="/stellenangebote" element={<Stellenangebote />} />
                 <Route path="/premium" element={<Premium />} />
                 <Route path="/community" element={<Community />} />
+                <Route path="/dzamije" element={<Dzamije />} />
                 <Route path="/guide/:slug" element={<GuideDetail />} />
                 <Route path="/qa" element={<QA />} />
                 <Route path="/qa/:id" element={<QADetail />} />
