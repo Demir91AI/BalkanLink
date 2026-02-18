@@ -35,16 +35,27 @@ export default function Dzamije() {
     },
   });
 
+  // Deduplicate by normalized name+address
+  const deduped = useMemo(() => {
+    const seen = new Set<string>();
+    return listings.filter((l) => {
+      const key = `${l.name.trim().toLowerCase().replace(/\s+/g, " ")}||${(l.address || "").trim().toLowerCase().replace(/\s+/g, " ")}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+  }, [listings]);
+
   const filtered = useMemo(() => {
-    if (searchInput.length < 2) return listings;
+    if (searchInput.length < 2) return deduped;
     const q = searchInput.toLowerCase();
-    return listings.filter(
+    return deduped.filter(
       (l) =>
         l.city.toLowerCase().includes(q) ||
         l.name.toLowerCase().includes(q) ||
         (l.address && l.address.toLowerCase().includes(q))
     );
-  }, [listings, searchInput]);
+  }, [deduped, searchInput]);
 
   const hierarchy = useMemo(() => {
     const blMap: Record<string, Record<string, Listing[]>> = {};
