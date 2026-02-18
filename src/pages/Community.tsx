@@ -106,39 +106,39 @@ export default function Community() {
     return result;
   }, [listings, cityInput, categoryFilter]);
 
-  /* hierarchy: category → bundesland → city → entries */
+  /* hierarchy: bundesland → city → category → entries */
   const hierarchy = useMemo(() => {
-    const catMap: Record<string, Record<string, Record<string, Listing[]>>> = {};
+    const blMap: Record<string, Record<string, Record<string, Listing[]>>> = {};
 
     for (const item of filtered) {
-      const cat = item.main_category;
       const bl = item.bundesland;
       const city = item.city;
+      const cat = item.main_category;
 
-      if (!catMap[cat]) catMap[cat] = {};
-      if (!catMap[cat][bl]) catMap[cat][bl] = {};
-      if (!catMap[cat][bl][city]) catMap[cat][bl][city] = [];
-      catMap[cat][bl][city].push(item);
+      if (!blMap[bl]) blMap[bl] = {};
+      if (!blMap[bl][city]) blMap[bl][city] = {};
+      if (!blMap[bl][city][cat]) blMap[bl][city][cat] = [];
+      blMap[bl][city][cat].push(item);
     }
 
-    return MAIN_CATEGORIES
-      .filter((mc) => catMap[mc.key])
-      .map((mc) => ({
-        key: mc.key,
-        label: mc.label,
-        totalEntries: Object.values(catMap[mc.key]).reduce(
-          (sum, cities) => sum + Object.values(cities).reduce((s, arr) => s + arr.length, 0), 0
+    return Object.entries(blMap)
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([bl, cities]) => ({
+        bundesland: bl,
+        totalEntries: Object.values(cities).reduce(
+          (sum, cats) => sum + Object.values(cats).reduce((s, arr) => s + arr.length, 0), 0
         ),
-        bundeslaender: Object.entries(catMap[mc.key])
+        cities: Object.entries(cities)
           .sort(([a], [b]) => a.localeCompare(b))
-          .map(([bl, cities]) => ({
-            bundesland: bl,
-            totalEntries: Object.values(cities).reduce((s, a) => s + a.length, 0),
-            cities: Object.entries(cities)
-              .sort(([a], [b]) => a.localeCompare(b))
-              .map(([city, items]) => ({
-                city,
-                items: items.sort((a, b) => a.name.localeCompare(b.name)),
+          .map(([city, cats]) => ({
+            city,
+            totalEntries: Object.values(cats).reduce((s, a) => s + a.length, 0),
+            categories: MAIN_CATEGORIES
+              .filter((mc) => cats[mc.key])
+              .map((mc) => ({
+                key: mc.key,
+                label: mc.label,
+                items: cats[mc.key].sort((a, b) => a.name.localeCompare(b.name)),
               })),
           })),
       }));
@@ -149,8 +149,7 @@ export default function Community() {
     if (cityInput.length < 2) return;
     const match = filtered.find((l) => l.city.toLowerCase() === cityInput.toLowerCase());
     if (match) {
-      setOpenCategories((p) => ({ ...p, [match.main_category]: true }));
-      setOpenBundeslaender((p) => ({ ...p, [`${match.main_category}_${match.bundesland}`]: true }));
+      setOpenBundeslaender((p) => ({ ...p, [match.bundesland]: true }));
       setOpenCities((p) => ({ ...p, [match.city]: true }));
       setTimeout(() => {
         cityRefs.current[match.city]?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -277,17 +276,17 @@ export default function Community() {
             <p className="py-20 text-center text-white/40 text-lg">Keine Einträge gefunden.</p>
           )}
 
-          {/* Category level */}
+          {/* Bundesland level */}
           <div className="space-y-4">
-            {hierarchy.map((cat, cIdx) => {
-              const catOpen = openCategories[cat.key] ?? false;
+            {hierarchy.map((bl, bIdx) => {
+              const blOpen = openBundeslaender[bl.bundesland] ?? false;
 
               return (
                 <motion.div
-                  key={cat.key}
+                  key={bl.bundesland}
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.35, delay: cIdx * 0.05 }}
+                  transition={{ duration: 0.35, delay: bIdx * 0.05 }}
                   className="overflow-hidden rounded-xl"
                   style={{
                     background: "linear-gradient(135deg, rgba(22,38,63,0.95), rgba(22,38,63,0.75))",
@@ -295,29 +294,29 @@ export default function Community() {
                     boxShadow: "0 4px 24px rgba(0,0,0,0.3)",
                   }}
                 >
-                  {/* Category header */}
+                  {/* Bundesland header */}
                   <button
-                    onClick={() => toggleKey(setOpenCategories, cat.key)}
+                    onClick={() => toggleKey(setOpenBundeslaender, bl.bundesland)}
                     className="flex w-full items-center gap-3 px-5 py-4 text-left transition-all"
                     onMouseOver={(e) => (e.currentTarget.style.background = "rgba(31,53,87,0.5)")}
                     onMouseOut={(e) => (e.currentTarget.style.background = "transparent")}
                   >
-                    <Tag className="h-5 w-5 text-[#E3B341]/70" />
-                    <h2 className="text-base font-bold text-white md:text-lg">{cat.label}</h2>
+                    <Building2 className="h-5 w-5 text-[#E3B341]/70" />
+                    <h2 className="text-base font-bold text-white md:text-lg">{bl.bundesland}</h2>
                     <span
                       className="rounded-full px-2.5 py-0.5 text-xs font-semibold"
                       style={{ background: "rgba(227,179,65,0.15)", color: "#E3B341" }}
                     >
-                      {cat.totalEntries} {cat.totalEntries === 1 ? "Eintrag" : "Einträge"}
+                      {bl.totalEntries} {bl.totalEntries === 1 ? "Eintrag" : "Einträge"}
                     </span>
                     <ChevronDown
-                      className={`ml-auto h-4 w-4 text-white/40 transition-transform duration-300 ${catOpen ? "rotate-180" : ""}`}
+                      className={`ml-auto h-4 w-4 text-white/40 transition-transform duration-300 ${blOpen ? "rotate-180" : ""}`}
                     />
                   </button>
 
-                  {/* Bundesländer within category */}
+                  {/* Cities within Bundesland */}
                   <AnimatePresence>
-                    {catOpen && (
+                    {blOpen && (
                       <motion.div
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
@@ -326,36 +325,36 @@ export default function Community() {
                         className="overflow-hidden"
                       >
                         <div className="space-y-1.5 px-5 pb-5">
-                          {cat.bundeslaender.map((bl) => {
-                            const blKey = `${cat.key}_${bl.bundesland}`;
-                            const blOpen = openBundeslaender[blKey] ?? false;
+                          {bl.cities.map(({ city, totalEntries, categories }) => {
+                            const cityOpen = openCities[city] ?? false;
 
                             return (
                               <div
-                                key={blKey}
+                                key={city}
+                                ref={(el) => { cityRefs.current[city] = el; }}
                                 className="overflow-hidden rounded-lg"
                                 style={{ background: "rgba(15,27,45,0.6)", border: "1px solid rgba(255,255,255,0.06)" }}
                               >
-                                {/* Bundesland header */}
+                                {/* City header */}
                                 <button
-                                  onClick={() => toggleKey(setOpenBundeslaender, blKey)}
+                                  onClick={() => toggleKey(setOpenCities, city)}
                                   className="flex w-full items-center gap-2 px-4 py-3 text-left transition-all"
                                   onMouseOver={(e) => (e.currentTarget.style.background = "rgba(31,53,87,0.4)")}
                                   onMouseOut={(e) => (e.currentTarget.style.background = "transparent")}
                                 >
-                                  <Building2 className="h-3.5 w-3.5 text-white/40" />
-                                  <span className="text-sm font-semibold text-white/80">{bl.bundesland}</span>
+                                  <MapPin className="h-3.5 w-3.5 text-[#E3B341]/50" />
+                                  <span className="text-sm font-semibold text-white/90">{city}</span>
                                   <span className="text-xs text-white/40">
-                                    ({bl.cities.length} {bl.cities.length === 1 ? "Stadt" : "Städte"}, {bl.totalEntries} {bl.totalEntries === 1 ? "Eintrag" : "Einträge"})
+                                    ({totalEntries} {totalEntries === 1 ? "Eintrag" : "Einträge"})
                                   </span>
                                   <ChevronDown
-                                    className={`ml-auto h-3.5 w-3.5 text-white/30 transition-transform duration-300 ${blOpen ? "rotate-180" : ""}`}
+                                    className={`ml-auto h-3.5 w-3.5 text-white/30 transition-transform duration-300 ${cityOpen ? "rotate-180" : ""}`}
                                   />
                                 </button>
 
-                                {/* Cities within bundesland */}
+                                {/* Categories within city */}
                                 <AnimatePresence>
-                                  {blOpen && (
+                                  {cityOpen && (
                                     <motion.div
                                       initial={{ height: 0, opacity: 0 }}
                                       animate={{ height: "auto", opacity: 1 }}
@@ -363,155 +362,109 @@ export default function Community() {
                                       transition={{ duration: 0.25 }}
                                       className="overflow-hidden"
                                     >
-                                      <div className="space-y-1 px-4 pb-4">
-                                        {bl.cities.map(({ city, items }) => {
-                                          const cityOpen = openCities[city] ?? false;
-
-                                          return (
-                                            <div
-                                              key={city}
-                                              ref={(el) => { cityRefs.current[city] = el; }}
-                                              className="overflow-hidden rounded-md"
-                                              style={{ background: "rgba(22,38,63,0.5)", border: "1px solid rgba(255,255,255,0.04)" }}
-                                            >
-                                              <button
-                                                onClick={() => toggleKey(setOpenCities, city)}
-                                                className="flex w-full items-center gap-2 px-3 py-2.5 text-left transition-all"
-                                                onMouseOver={(e) => (e.currentTarget.style.background = "rgba(31,53,87,0.3)")}
-                                                onMouseOut={(e) => (e.currentTarget.style.background = "transparent")}
-                                              >
-                                                <MapPin className="h-3 w-3 text-[#E3B341]/50" />
-                                                <span className="text-xs font-medium text-white/90">{city}</span>
-                                                <span
-                                                  className="rounded-full px-1.5 py-0.5 text-[10px] font-medium"
-                                                  style={{ background: "rgba(227,179,65,0.08)", color: "#E3B341" }}
-                                                >
-                                                  {items.length}
-                                                </span>
-                                                <ChevronDown
-                                                  className={`ml-auto h-3 w-3 text-white/20 transition-transform duration-300 ${cityOpen ? "rotate-180" : ""}`}
-                                                />
-                                              </button>
-
-                                              {/* Entries */}
-                                              <AnimatePresence>
-                                                {cityOpen && (
-                                                  <motion.div
-                                                    initial={{ height: 0, opacity: 0 }}
-                                                    animate={{ height: "auto", opacity: 1 }}
-                                                    exit={{ height: 0, opacity: 0 }}
-                                                    transition={{ duration: 0.2 }}
-                                                    className="overflow-hidden"
-                                                  >
-                                                    <div className="grid gap-2 px-3 pb-3 sm:grid-cols-2">
-                                                      {items.map((item) => (
-                                                        <motion.div
-                                                          key={item.id}
-                                                          initial={{ opacity: 0, y: 6 }}
-                                                          animate={{ opacity: 1, y: 0 }}
-                                                          transition={{ duration: 0.15 }}
-                                                          className="rounded-lg p-3.5 transition-all duration-300"
-                                                          style={{
-                                                            background: "rgba(22,38,63,0.8)",
-                                                            border: "1px solid rgba(255,255,255,0.05)",
-                                                            boxShadow: "0 2px 12px rgba(0,0,0,0.2)",
-                                                          }}
-                                                          onMouseOver={(e) => {
-                                                            e.currentTarget.style.transform = "translateY(-1px)";
-                                                            e.currentTarget.style.borderColor = "rgba(227,179,65,0.25)";
-                                                            e.currentTarget.style.boxShadow = "0 6px 24px rgba(227,179,65,0.08)";
-                                                          }}
-                                                          onMouseOut={(e) => {
-                                                            e.currentTarget.style.transform = "translateY(0)";
-                                                            e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)";
-                                                            e.currentTarget.style.boxShadow = "0 2px 12px rgba(0,0,0,0.2)";
-                                                          }}
-                                                        >
-                                                          <h4 className="text-sm font-bold text-white">{item.name}</h4>
-
-                                                          <div className="mt-1.5 flex flex-wrap gap-1.5">
-                                                            <span
-                                                              className="rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider"
-                                                              style={{ background: "rgba(227,179,65,0.12)", color: "#E3B341" }}
-                                                            >
-                                                              {categoryLabel(item.main_category)}
-                                                            </span>
-                                                          </div>
-
-                                                          {item.address && (
-                                                            <p className="mt-2 flex items-start gap-1.5 text-xs text-white/40">
-                                                              <MapPin className="mt-0.5 h-3 w-3 shrink-0" />
-                                                              {item.address}
-                                                            </p>
-                                                          )}
-
-                                                          <div className="mt-3 flex flex-wrap gap-2">
-                                                            {item.google_maps_url && (
-                                                              <a
-                                                                href={item.google_maps_url}
-                                                                target="_blank"
-                                                                rel="noopener noreferrer"
-                                                                className="inline-flex items-center gap-1 rounded-md px-2.5 py-1 text-xs font-medium transition-colors"
-                                                                style={{ background: "rgba(227,179,65,0.1)", color: "#E3B341" }}
-                                                                onMouseOver={(e) => (e.currentTarget.style.background = "rgba(227,179,65,0.2)")}
-                                                                onMouseOut={(e) => (e.currentTarget.style.background = "rgba(227,179,65,0.1)")}
-                                                              >
-                                                                <ExternalLink className="h-3 w-3" />
-                                                                Google Maps
-                                                              </a>
-                                                            )}
-                                                            {item.website && (
-                                                              <a
-                                                                href={item.website}
-                                                                target="_blank"
-                                                                rel="noopener noreferrer"
-                                                                className="inline-flex items-center gap-1 rounded-md px-2.5 py-1 text-xs font-medium transition-colors"
-                                                                style={{ background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.7)" }}
-                                                                onMouseOver={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "#E3B341"; }}
-                                                                onMouseOut={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.color = "rgba(255,255,255,0.7)"; }}
-                                                              >
-                                                                <Globe className="h-3 w-3" />
-                                                                Website
-                                                              </a>
-                                                            )}
-                                                            {item.description && item.description.startsWith("https://facebook.com") && (
-                                                              <a
-                                                                href={item.description}
-                                                                target="_blank"
-                                                                rel="noopener noreferrer"
-                                                                className="inline-flex items-center gap-1 rounded-md px-2.5 py-1 text-xs font-medium transition-colors"
-                                                                style={{ background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.7)" }}
-                                                                onMouseOver={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "#E3B341"; }}
-                                                                onMouseOut={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.color = "rgba(255,255,255,0.7)"; }}
-                                                              >
-                                                                <Facebook className="h-3 w-3" />
-                                                                Facebook
-                                                              </a>
-                                                            )}
-                                                            {item.instagram && (
-                                                              <a
-                                                                href={item.instagram}
-                                                                target="_blank"
-                                                                rel="noopener noreferrer"
-                                                                className="inline-flex items-center gap-1 rounded-md px-2.5 py-1 text-xs font-medium transition-colors"
-                                                                style={{ background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.7)" }}
-                                                                onMouseOver={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "#E3B341"; }}
-                                                                onMouseOut={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.color = "rgba(255,255,255,0.7)"; }}
-                                                              >
-                                                                <Instagram className="h-3 w-3" />
-                                                                Instagram
-                                                              </a>
-                                                            )}
-                                                          </div>
-                                                        </motion.div>
-                                                      ))}
-                                                    </div>
-                                                  </motion.div>
-                                                )}
-                                              </AnimatePresence>
+                                      <div className="space-y-2 px-4 pb-4">
+                                        {categories.map(({ key, label, items }) => (
+                                          <div key={key}>
+                                            <div className="mb-1.5 flex items-center gap-1.5">
+                                              <Tag className="h-3 w-3 text-[#E3B341]/60" />
+                                              <span className="text-xs font-semibold uppercase tracking-wider text-[#E3B341]/70">{label}</span>
                                             </div>
-                                          );
-                                        })}
+                                            <div className="grid gap-2 sm:grid-cols-2">
+                                              {items.map((item) => (
+                                                <motion.div
+                                                  key={item.id}
+                                                  initial={{ opacity: 0, y: 6 }}
+                                                  animate={{ opacity: 1, y: 0 }}
+                                                  transition={{ duration: 0.15 }}
+                                                  className="rounded-lg p-3.5 transition-all duration-300"
+                                                  style={{
+                                                    background: "rgba(22,38,63,0.8)",
+                                                    border: "1px solid rgba(255,255,255,0.05)",
+                                                    boxShadow: "0 2px 12px rgba(0,0,0,0.2)",
+                                                  }}
+                                                  onMouseOver={(e) => {
+                                                    e.currentTarget.style.transform = "translateY(-1px)";
+                                                    e.currentTarget.style.borderColor = "rgba(227,179,65,0.25)";
+                                                    e.currentTarget.style.boxShadow = "0 6px 24px rgba(227,179,65,0.08)";
+                                                  }}
+                                                  onMouseOut={(e) => {
+                                                    e.currentTarget.style.transform = "translateY(0)";
+                                                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)";
+                                                    e.currentTarget.style.boxShadow = "0 2px 12px rgba(0,0,0,0.2)";
+                                                  }}
+                                                >
+                                                  <h4 className="text-sm font-bold text-white">{item.name}</h4>
+
+                                                  {item.address && (
+                                                    <p className="mt-2 flex items-start gap-1.5 text-xs text-white/40">
+                                                      <MapPin className="mt-0.5 h-3 w-3 shrink-0" />
+                                                      {item.address}
+                                                    </p>
+                                                  )}
+
+                                                  <div className="mt-3 flex flex-wrap gap-2">
+                                                    {item.google_maps_url && (
+                                                      <a
+                                                        href={item.google_maps_url}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="inline-flex items-center gap-1 rounded-md px-2.5 py-1 text-xs font-medium transition-colors"
+                                                        style={{ background: "rgba(227,179,65,0.1)", color: "#E3B341" }}
+                                                        onMouseOver={(e) => (e.currentTarget.style.background = "rgba(227,179,65,0.2)")}
+                                                        onMouseOut={(e) => (e.currentTarget.style.background = "rgba(227,179,65,0.1)")}
+                                                      >
+                                                        <ExternalLink className="h-3 w-3" />
+                                                        Google Maps
+                                                      </a>
+                                                    )}
+                                                    {item.website && (
+                                                      <a
+                                                        href={item.website}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="inline-flex items-center gap-1 rounded-md px-2.5 py-1 text-xs font-medium transition-colors"
+                                                        style={{ background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.7)" }}
+                                                        onMouseOver={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "#E3B341"; }}
+                                                        onMouseOut={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.color = "rgba(255,255,255,0.7)"; }}
+                                                      >
+                                                        <Globe className="h-3 w-3" />
+                                                        Website
+                                                      </a>
+                                                    )}
+                                                    {item.description && item.description.startsWith("https://facebook.com") && (
+                                                      <a
+                                                        href={item.description}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="inline-flex items-center gap-1 rounded-md px-2.5 py-1 text-xs font-medium transition-colors"
+                                                        style={{ background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.7)" }}
+                                                        onMouseOver={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "#E3B341"; }}
+                                                        onMouseOut={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.color = "rgba(255,255,255,0.7)"; }}
+                                                      >
+                                                        <Facebook className="h-3 w-3" />
+                                                        Facebook
+                                                      </a>
+                                                    )}
+                                                    {item.instagram && (
+                                                      <a
+                                                        href={item.instagram}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="inline-flex items-center gap-1 rounded-md px-2.5 py-1 text-xs font-medium transition-colors"
+                                                        style={{ background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.7)" }}
+                                                        onMouseOver={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "#E3B341"; }}
+                                                        onMouseOut={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.color = "rgba(255,255,255,0.7)"; }}
+                                                      >
+                                                        <Instagram className="h-3 w-3" />
+                                                        Instagram
+                                                      </a>
+                                                    )}
+                                                  </div>
+                                                </motion.div>
+                                              ))}
+                                            </div>
+                                          </div>
+                                        ))}
                                       </div>
                                     </motion.div>
                                   )}
