@@ -14,6 +14,8 @@ import ResetPassword from "./pages/ResetPassword";
 import Impressum from "./pages/Impressum";
 import Datenschutz from "./pages/Datenschutz";
 import Disclaimer from "./pages/Disclaimer";
+import KiHinweis from "./pages/KiHinweis";
+import Mitgliedschaft from "./pages/Mitgliedschaft";
 import QA from "./pages/QA";
 import QADetail from "./pages/QADetail";
 import Directory from "./pages/Directory";
@@ -89,6 +91,9 @@ const App = () => (
                 <Route path="/impressum" element={<Impressum />} />
                 <Route path="/datenschutz" element={<Datenschutz />} />
                 <Route path="/disclaimer" element={<Disclaimer />} />
+                <Route path="/haftungsausschluss" element={<Disclaimer />} />
+                <Route path="/ki-hinweis" element={<KiHinweis />} />
+                <Route path="/mitgliedschaft" element={<Mitgliedschaft />} />
               </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>
