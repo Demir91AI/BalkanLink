@@ -1,8 +1,10 @@
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, CheckCircle2, AlertTriangle, Clock, FileText, ExternalLink, Building2, Info } from "lucide-react";
+import { ArrowLeft, CheckCircle2, AlertTriangle, Clock, FileText, ExternalLink, Building2, Info, Download } from "lucide-react";
 import { motion } from "framer-motion";
 import { getGuideBySlug } from "@/lib/guide-data";
+import { resolveGuideLinks, auditGuideLinks } from "@/lib/guide-links";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useEffect } from "react";
 
 type LangKey = "de" | "bs" | "en";
 
@@ -12,58 +14,34 @@ function getLangKey(lang: string): LangKey {
   return "bs";
 }
 
-/**
- * Determines which link buttons to show.
- * Rules:
- * 1. If PDF and Portal are identical → show only one button
- * 2. PDF button only if URL ends with .pdf or is clearly a PDF
- * 3. Online-Portal only if a real portal URL exists
- * 4. If neither exists but officialInfoUrl does → show "Offizielle Info"
- * 5. Never show empty/placeholder buttons
- */
-function getLinksToShow(officialPdf: string, onlineLink: string, officialInfoUrl?: string) {
-  const hasPdf = officialPdf && officialPdf.trim() !== "" && officialPdf.trim().toLowerCase().endsWith(".pdf");
-  const hasPortal = onlineLink && onlineLink.trim() !== "";
-  const hasInfo = officialInfoUrl && officialInfoUrl.trim() !== "";
-
-  // Dedup: if both URLs are identical, show only one
-  if (hasPdf && hasPortal && officialPdf.trim() === onlineLink.trim()) {
-    return [{ type: "pdf" as const, url: officialPdf }];
-  }
-
-  const links: { type: "pdf" | "portal" | "info"; url: string }[] = [];
-
-  if (hasPdf) {
-    links.push({ type: "pdf", url: officialPdf });
-  }
-  if (hasPortal) {
-    links.push({ type: "portal", url: onlineLink });
-  }
-
-  // If no PDF and no portal, fall back to info URL
-  if (links.length === 0 && hasInfo) {
-    links.push({ type: "info", url: officialInfoUrl! });
-  }
-
-  return links;
-}
-
-function hasPdfLink(officialPdf: string): boolean {
-  return !!(officialPdf && officialPdf.trim() !== "" && officialPdf.trim().toLowerCase().endsWith(".pdf"));
-}
-
 export default function GuideDetail() {
   const { slug } = useParams<{ slug: string }>();
   const { language } = useLanguage();
   const guide = getGuideBySlug(slug || "");
   const lk = getLangKey(language);
 
+  // DEV: audit links on first render
+  useEffect(() => {
+    if (import.meta.env.DEV) {
+      auditGuideLinks();
+    }
+  }, []);
+
   if (!guide) {
     return (
       <section className="py-20 text-center">
-        <p className="text-muted-foreground">Guide not found.</p>
+        <h2 className="mb-2 text-lg font-bold">
+          {lk === "de" ? "Seite nicht gefunden" : lk === "bs" ? "Stranica nije pronađena" : "Page not found"}
+        </h2>
+        <p className="text-muted-foreground">
+          {lk === "de"
+            ? "Der gewünschte Guide existiert nicht."
+            : lk === "bs"
+            ? "Traženi vodič ne postoji."
+            : "The requested guide does not exist."}
+        </p>
         <Link to="/formulare" className="mt-4 inline-block text-primary underline">
-          ← Back
+          ← {lk === "de" ? "Zurück" : lk === "bs" ? "Nazad" : "Back"}
         </Link>
       </section>
     );
@@ -77,9 +55,9 @@ export default function GuideDetail() {
   const labels = sectionLabels[lk];
 
   const buttonLabels = {
-    de: { pdf: "PDF / Formular", portal: "Online-Portal", info: "Offizielle Info" },
-    bs: { pdf: "PDF / Formular", portal: "Online-Portal", info: "Službene informacije" },
-    en: { pdf: "PDF / Form", portal: "Online Portal", info: "Official Info" },
+    de: { portal: "Online-Portal", downloads: "Formulare & Downloads", info: "Offizielle Info" },
+    bs: { portal: "Online-Portal", downloads: "Formulari i preuzimanja", info: "Službene informacije" },
+    en: { portal: "Online Portal", downloads: "Forms & Downloads", info: "Official Info" },
   };
 
   const categoryPaths: Record<string, string> = {
@@ -90,7 +68,26 @@ export default function GuideDetail() {
     bildung: "/foerderungen",
   };
 
-  const linksToShow = getLinksToShow(guide.officialPdf, guide.onlineLink, guide.officialInfoUrl);
+  // Use central link registry (Single Source of Truth)
+  const { links: registryLinks, showFallbackHint } = resolveGuideLinks(guide.slug);
+
+  const linkIcon = (type: string) => {
+    if (type === "portal") return <ExternalLink className="h-4 w-4" />;
+    if (type === "downloads") return <Download className="h-4 w-4" />;
+    return <Info className="h-4 w-4" />;
+  };
+
+  const linkStyle = (type: string) => {
+    if (type === "portal") return "bg-gold/10 text-gold hover:bg-gold/20";
+    if (type === "downloads") return "bg-primary/10 text-primary hover:bg-primary/20";
+    return "bg-muted text-muted-foreground hover:bg-muted/80";
+  };
+
+  const fallbackTexts = {
+    de: "Formular ist ggf. vor Ort erhältlich (Rathaus/Bürgerbüro/zuständige Behörde). Nutze das Online-Portal oder frage vor Ort nach.",
+    bs: "Formular je dostupan online ili na licu mjesta (Rathaus/Bürgerbüro/nadležna institucija). Ako PDF nije direktno dostupan, koristi Online-Portal ili preuzmi formular sa zvanične stranice.",
+    en: "The form may be available on-site (town hall/citizens' office/responsible authority). Use the online portal or ask in person.",
+  };
 
   return (
     <>
@@ -101,7 +98,7 @@ export default function GuideDetail() {
             to={categoryPaths[guide.category] || "/formulare"}
             className="mb-4 inline-flex items-center gap-1 text-xs text-primary-foreground/70 hover:text-primary-foreground"
           >
-            <ArrowLeft className="h-3 w-3" /> Back
+            <ArrowLeft className="h-3 w-3" /> {lk === "de" ? "Zurück" : lk === "bs" ? "Nazad" : "Back"}
           </Link>
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">
             {guide.title[lk]}
@@ -186,64 +183,33 @@ export default function GuideDetail() {
             </motion.div>
           </div>
 
-          {/* Links — only show if at least one link exists or fallback needed */}
-          {(linksToShow.length > 0 || !hasPdfLink(guide.officialPdf)) && (
-            <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} className="rounded-xl border bg-card p-6 shadow-sm">
-              <h2 className="mb-3 text-sm font-bold">{labels.links}</h2>
+          {/* Službeni linkovi — from central registry */}
+          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} className="rounded-xl border bg-card p-6 shadow-sm">
+            <h2 className="mb-3 text-sm font-bold">{labels.links}</h2>
+
+            {registryLinks.length > 0 && (
               <div className="flex flex-col gap-2 sm:flex-row">
-                {linksToShow.map((link, i) => {
-                  if (link.type === "pdf") {
-                    return (
-                      <a
-                        key={i}
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2.5 text-xs font-semibold text-primary transition-colors hover:bg-primary/20"
-                      >
-                        <FileText className="h-4 w-4" /> {buttonLabels[lk].pdf}
-                      </a>
-                    );
-                  }
-                  if (link.type === "portal") {
-                    return (
-                      <a
-                        key={i}
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 rounded-lg bg-gold/10 px-4 py-2.5 text-xs font-semibold text-gold transition-colors hover:bg-gold/20"
-                      >
-                        <ExternalLink className="h-4 w-4" /> {buttonLabels[lk].portal}
-                      </a>
-                    );
-                  }
-                  // info type
-                  return (
-                    <a
-                      key={i}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2.5 text-xs font-semibold text-primary transition-colors hover:bg-primary/20"
-                    >
-                      <Info className="h-4 w-4" /> {buttonLabels[lk].info}
-                    </a>
-                  );
-                })}
+                {registryLinks.map((link, i) => (
+                  <a
+                    key={i}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`inline-flex items-center gap-2 rounded-lg px-4 py-2.5 text-xs font-semibold transition-colors ${linkStyle(link.type)}`}
+                  >
+                    {linkIcon(link.type)} {buttonLabels[lk][link.type]}
+                  </a>
+                ))}
               </div>
-              {!hasPdfLink(guide.officialPdf) && (
-                <p className="mt-3 text-xs text-muted-foreground">
-                  <Info className="mr-1 inline h-3 w-3" />
-                  {lk === "de"
-                    ? "Formular ist ggf. vor Ort erhältlich (Rathaus/Bürgerbüro/zuständige Behörde). Nutze das Online-Portal oder frage vor Ort nach."
-                    : lk === "bs"
-                    ? "Formular je dostupan na licu mjesta (Rathaus/Bürgerbüro/nadležna institucija). Koristi Online-Portal ili pitaj na licu mjesta."
-                    : "The form may be available on-site (town hall/citizens' office/responsible authority). Use the online portal or ask in person."}
-                </p>
-              )}
-            </motion.div>
-          )}
+            )}
+
+            {showFallbackHint && (
+              <p className={`text-xs text-muted-foreground ${registryLinks.length > 0 ? "mt-3" : ""}`}>
+                <Info className="mr-1 inline h-3 w-3" />
+                {fallbackTexts[lk]}
+              </p>
+            )}
+          </motion.div>
         </div>
       </section>
     </>
