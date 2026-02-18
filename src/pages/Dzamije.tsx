@@ -2,14 +2,7 @@ import { useState, useMemo, useRef, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Input } from "@/components/ui/input";
-import {
-  MapPin,
-  Globe,
-  ChevronDown,
-  ExternalLink,
-  Search,
-  Building2,
-} from "lucide-react";
+import { MapPin, ChevronDown, Search, Building2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface Listing {
@@ -18,8 +11,6 @@ interface Listing {
   city: string;
   bundesland: string;
   address: string | null;
-  website: string | null;
-  google_maps_url: string | null;
 }
 
 export default function Dzamije() {
@@ -33,7 +24,7 @@ export default function Dzamije() {
     queryFn: async () => {
       const { data, error } = await supabase
         .from("community_listings")
-        .select("id, name, city, bundesland, address, website, google_maps_url")
+        .select("id, name, city, bundesland, address")
         .eq("origin_country", "BIH")
         .eq("main_category", "dzemat_moschee")
         .order("bundesland")
@@ -55,7 +46,6 @@ export default function Dzamije() {
     );
   }, [listings, searchInput]);
 
-  /* hierarchy: bundesland → city → entries */
   const hierarchy = useMemo(() => {
     const blMap: Record<string, Record<string, Listing[]>> = {};
     for (const item of filtered) {
@@ -79,7 +69,6 @@ export default function Dzamije() {
   const totalCities = hierarchy.reduce((s, bl) => s + bl.cityCount, 0);
   const totalEntries = filtered.length;
 
-  /* auto-open on search */
   useEffect(() => {
     if (searchInput.length < 2) return;
     const match = filtered.find((l) => l.city.toLowerCase() === searchInput.toLowerCase());
@@ -189,9 +178,7 @@ export default function Dzamije() {
                 >
                   <button
                     onClick={() => toggleKey(setOpenBundeslaender, bl.bundesland)}
-                    className="flex w-full items-center gap-3 px-5 py-4 text-left transition-all"
-                    onMouseOver={(e) => (e.currentTarget.style.background = "rgba(31,53,87,0.5)")}
-                    onMouseOut={(e) => (e.currentTarget.style.background = "transparent")}
+                    className="flex w-full items-center gap-3 px-5 py-4 text-left transition-all hover:bg-white/5"
                   >
                     <Building2 className="h-5 w-5 text-[#E3B341]/70" />
                     <h2 className="text-base font-bold text-white md:text-lg">{bl.bundesland}</h2>
@@ -222,9 +209,7 @@ export default function Dzamije() {
                               >
                                 <button
                                   onClick={() => toggleKey(setOpenCities, city)}
-                                  className="flex w-full items-center gap-2 px-4 py-3 text-left transition-all"
-                                  onMouseOver={(e) => (e.currentTarget.style.background = "rgba(31,53,87,0.4)")}
-                                  onMouseOut={(e) => (e.currentTarget.style.background = "transparent")}
+                                  className="flex w-full items-center gap-2 px-4 py-3 text-left transition-all hover:bg-white/5"
                                 >
                                   <MapPin className="h-3.5 w-3.5 text-[#E3B341]/50" />
                                   <span className="text-sm font-semibold text-white/90">{city}</span>
@@ -241,60 +226,18 @@ export default function Dzamije() {
                                       transition={{ duration: 0.25 }}
                                       className="overflow-hidden"
                                     >
-                                      <div className="grid gap-2 px-4 pb-4 sm:grid-cols-2">
+                                      <div className="space-y-1 px-4 pb-4">
                                         {items.map((item) => (
-                                          <motion.div
+                                          <div
                                             key={item.id}
-                                            initial={{ opacity: 0, y: 6 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            transition={{ duration: 0.15 }}
-                                            className="rounded-lg p-3.5 transition-all duration-300"
-                                            style={{
-                                              background: "rgba(22,38,63,0.8)",
-                                              border: "1px solid rgba(255,255,255,0.05)",
-                                              boxShadow: "0 2px 12px rgba(0,0,0,0.2)",
-                                            }}
-                                            onMouseOver={(e) => {
-                                              e.currentTarget.style.transform = "translateY(-1px)";
-                                              e.currentTarget.style.borderColor = "rgba(227,179,65,0.25)";
-                                            }}
-                                            onMouseOut={(e) => {
-                                              e.currentTarget.style.transform = "translateY(0)";
-                                              e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)";
-                                            }}
+                                            className="rounded-lg px-3.5 py-3"
+                                            style={{ background: "rgba(22,38,63,0.8)", border: "1px solid rgba(255,255,255,0.05)" }}
                                           >
                                             <h4 className="text-sm font-bold text-white">{item.name}</h4>
                                             {item.address && (
-                                              <p className="mt-2 flex items-start gap-1.5 text-xs text-white/40">
-                                                <MapPin className="mt-0.5 h-3 w-3 shrink-0" />
-                                                {item.address}
-                                              </p>
+                                              <p className="mt-1 text-xs text-white/40">{item.address}</p>
                                             )}
-                                            <div className="mt-3 flex flex-wrap gap-2">
-                                              {item.google_maps_url && (
-                                                <a
-                                                  href={item.google_maps_url}
-                                                  target="_blank"
-                                                  rel="noopener noreferrer"
-                                                  className="inline-flex items-center gap-1 rounded-md px-2.5 py-1 text-xs font-medium transition-colors"
-                                                  style={{ background: "rgba(227,179,65,0.1)", color: "#E3B341" }}
-                                                >
-                                                  <ExternalLink className="h-3 w-3" /> Google Maps
-                                                </a>
-                                              )}
-                                              {item.website && (
-                                                <a
-                                                  href={item.website}
-                                                  target="_blank"
-                                                  rel="noopener noreferrer"
-                                                  className="inline-flex items-center gap-1 rounded-md px-2.5 py-1 text-xs font-medium transition-colors"
-                                                  style={{ background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.7)" }}
-                                                >
-                                                  <Globe className="h-3 w-3" /> Website
-                                                </a>
-                                              )}
-                                            </div>
-                                          </motion.div>
+                                          </div>
                                         ))}
                                       </div>
                                     </motion.div>
