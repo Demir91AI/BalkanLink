@@ -29,9 +29,14 @@ import { motion, AnimatePresence } from "framer-motion";
 /* ─── constants ─── */
 
 const TOP_TABS = [
-  { key: "KOD_NASIH", label: "🏠 Kod naših", description: "Restorani, pekare, marketi" },
-  { key: "BIH", label: "🇧🇦 Bosna i Hercegovina", description: "Džemati, sport, kultura" },
-  { key: "HR", label: "🇭🇷 Hrvatska", description: "Misije, sport, kultura" },
+  { key: "KOD_NASIH", label: "🏠 Kod naših" },
+  { key: "BIH", label: "🇧🇦 Bosna i Hercegovina" },
+  { key: "HR", label: "🇭🇷 Hrvatska" },
+  { key: "SRB", label: "🇷🇸 Srbija" },
+  { key: "XK", label: "🇽🇰 Kosovo" },
+  { key: "ME", label: "🇲🇪 Crna Gora" },
+  { key: "MK", label: "🇲🇰 Makedonija" },
+  { key: "AL", label: "🇦🇱 Albanija" },
 ];
 
 const KOD_NASIH_CATEGORIES = [
@@ -43,6 +48,7 @@ const KOD_NASIH_CATEGORIES = [
 const NATIONAL_CATEGORIES = [
   { key: "dzemat_moschee", label: "Džemati & Moscheen" },
   { key: "misija_crkva", label: "Misija / Crkva" },
+  { key: "religijski_objekat", label: "Religijski objekat" },
   { key: "sport", label: "Sport" },
   { key: "kulturno_drustvo", label: "Kulturno društvo" },
 ];
