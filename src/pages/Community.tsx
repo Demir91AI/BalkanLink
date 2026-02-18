@@ -21,29 +21,36 @@ import {
   Facebook,
   Instagram,
   Church,
+  Home,
+  Phone,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 /* ─── constants ─── */
 
-const MAIN_CATEGORIES = [
-  { key: "dzemat_moschee", label: "Džemati & Moscheen" },
-  { key: "misija_crkva", label: "Misija / Crkva" },
+const TOP_TABS = [
+  { key: "KOD_NASIH", label: "🏠 Kod naših", description: "Restorani, pekare, marketi" },
+  { key: "BIH", label: "🇧🇦 Bosna i Hercegovina", description: "Džemati, sport, kultura" },
+  { key: "HR", label: "🇭🇷 Hrvatska", description: "Misije, sport, kultura" },
+];
+
+const KOD_NASIH_CATEGORIES = [
   { key: "restoran_kafic", label: "Restoran / Kafić" },
   { key: "baeckerei", label: "Bäckereien" },
   { key: "markt", label: "Märkte" },
+];
+
+const NATIONAL_CATEGORIES = [
+  { key: "dzemat_moschee", label: "Džemati & Moscheen" },
+  { key: "misija_crkva", label: "Misija / Crkva" },
   { key: "sport", label: "Sport" },
   { key: "kulturno_drustvo", label: "Kulturno društvo" },
 ];
 
-const COUNTRY_OPTIONS = [
-  { key: "", label: "Alle Länder" },
-  { key: "BIH", label: "🇧🇦 Bosna i Hercegovina" },
-  { key: "HR", label: "🇭🇷 Hrvatska" },
-];
+const ALL_CATEGORIES = [...KOD_NASIH_CATEGORIES, ...NATIONAL_CATEGORIES];
 
 const categoryLabel = (key: string) =>
-  MAIN_CATEGORIES.find((c) => c.key === key)?.label ?? key;
+  ALL_CATEGORIES.find((c) => c.key === key)?.label ?? key;
 
 /* ─── types ─── */
 
@@ -70,7 +77,7 @@ export default function Community() {
   const [cityInput, setCityInput] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [categoryFilter, setCategoryFilter] = useState("");
-  const [countryFilter, setCountryFilter] = useState("");
+  const [activeTab, setActiveTab] = useState("KOD_NASIH");
   const [openBundeslaender, setOpenBundeslaender] = useState<Record<string, boolean>>({});
   const [openCities, setOpenCities] = useState<Record<string, boolean>>({});
 
@@ -105,15 +112,17 @@ export default function Community() {
     return allCitiesWithData.filter((c) => c.toLowerCase().includes(q)).slice(0, 10);
   }, [cityInput, allCitiesWithData]);
 
+  /* which categories apply for active tab */
+  const activeCategories = activeTab === "KOD_NASIH" ? KOD_NASIH_CATEGORIES : NATIONAL_CATEGORIES;
+
   /* filtered */
   const filtered = useMemo(() => {
-    let result = listings;
-    if (countryFilter) result = result.filter((l) => l.origin_country === countryFilter);
+    let result = listings.filter((l) => l.origin_country === activeTab);
     if (cityInput.length >= 2)
       result = result.filter((l) => l.city.toLowerCase().includes(cityInput.toLowerCase()));
     if (categoryFilter) result = result.filter((l) => l.main_category === categoryFilter);
     return result;
-  }, [listings, cityInput, categoryFilter, countryFilter]);
+  }, [listings, cityInput, categoryFilter, activeTab]);
 
   /* hierarchy: bundesland → city → category → entries */
   const hierarchy = useMemo(() => {
@@ -142,7 +151,7 @@ export default function Community() {
           .map(([city, cats]) => ({
             city,
             totalEntries: Object.values(cats).reduce((s, a) => s + a.length, 0),
-            categories: MAIN_CATEGORIES
+            categories: activeCategories
               .filter((mc) => cats[mc.key])
               .map((mc) => ({
                 key: mc.key,
@@ -151,7 +160,7 @@ export default function Community() {
               })),
           })),
       }));
-  }, [filtered]);
+  }, [filtered, activeCategories]);
 
   /* auto-open when city is typed */
   useEffect(() => {
@@ -220,7 +229,7 @@ export default function Community() {
       {/* ─── Sticky Filter Bar ─── */}
       <div className="sticky top-14 z-30" style={{ background: "rgba(15,27,45,0.97)", borderBottom: "1px solid rgba(227,179,65,0.15)" }}>
         <div className="container max-w-5xl py-3">
-          <div className="grid gap-3 sm:grid-cols-3">
+          <div className="grid gap-3 sm:grid-cols-2">
             {/* City Search */}
             <div className="relative">
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/30" />
@@ -261,27 +270,31 @@ export default function Community() {
                 <SelectItem value="all" className="text-white/80 focus:text-white" style={{ background: "transparent" }}>
                   Alle Kategorien
                 </SelectItem>
-                {MAIN_CATEGORIES.map((c) => (
+                {activeCategories.map((c) => (
                   <SelectItem key={c.key} value={c.key} className="text-white/80 focus:text-white hover:!text-[#E3B341]" style={{ background: "transparent" }}>
                     {c.label}
                   </SelectItem>
                 ))}
               </SelectContent>
             </Select>
+          </div>
 
-            {/* Country */}
-            <Select value={countryFilter} onValueChange={(v) => setCountryFilter(v === "all" ? "" : v)}>
-              <SelectTrigger className="border-white/10 text-white placeholder:text-white/40" style={{ background: "#16263F" }}>
-                <SelectValue placeholder="Land" />
-              </SelectTrigger>
-              <SelectContent className="border-white/10 z-50" style={{ background: "#16263F" }}>
-                {COUNTRY_OPTIONS.map((c) => (
-                  <SelectItem key={c.key || "all"} value={c.key || "all"} className="text-white/80 focus:text-white hover:!text-[#E3B341]" style={{ background: "transparent" }}>
-                    {c.label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+          {/* Tab Buttons */}
+          <div className="mt-3 flex gap-2 overflow-x-auto pb-1">
+            {TOP_TABS.map((tab) => (
+              <button
+                key={tab.key}
+                onClick={() => { setActiveTab(tab.key); setCategoryFilter(""); }}
+                className="whitespace-nowrap rounded-lg px-4 py-2 text-sm font-semibold transition-all"
+                style={{
+                  background: activeTab === tab.key ? "rgba(227,179,65,0.15)" : "rgba(255,255,255,0.04)",
+                  color: activeTab === tab.key ? "#E3B341" : "rgba(255,255,255,0.5)",
+                  border: activeTab === tab.key ? "1px solid rgba(227,179,65,0.3)" : "1px solid rgba(255,255,255,0.08)",
+                }}
+              >
+                {tab.label}
+              </button>
+            ))}
           </div>
         </div>
       </div>
