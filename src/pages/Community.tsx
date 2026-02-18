@@ -29,7 +29,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const MAIN_CATEGORIES = [
   { key: "dzemat_moschee", label: "Džemati & Moscheen" },
   { key: "misija_crkva", label: "Misija / Crkva" },
-  { key: "restaurant", label: "Restaurants" },
+  { key: "restoran_kafic", label: "Restoran / Kafić" },
   { key: "baeckerei", label: "Bäckereien" },
   { key: "markt", label: "Märkte" },
   { key: "sport", label: "Sport" },
