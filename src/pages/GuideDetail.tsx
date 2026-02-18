@@ -22,17 +22,13 @@ function getLangKey(lang: string): LangKey {
  * 5. Never show empty/placeholder buttons
  */
 function getLinksToShow(officialPdf: string, onlineLink: string, officialInfoUrl?: string) {
-  const hasPdf = officialPdf && officialPdf.trim() !== "";
+  const hasPdf = officialPdf && officialPdf.trim() !== "" && officialPdf.trim().toLowerCase().endsWith(".pdf");
   const hasPortal = onlineLink && onlineLink.trim() !== "";
   const hasInfo = officialInfoUrl && officialInfoUrl.trim() !== "";
 
   // Dedup: if both URLs are identical, show only one
   if (hasPdf && hasPortal && officialPdf.trim() === onlineLink.trim()) {
-    // Determine which label to use based on URL pattern
-    const isPdfUrl = officialPdf.toLowerCase().endsWith(".pdf");
-    return isPdfUrl
-      ? [{ type: "pdf" as const, url: officialPdf }]
-      : [{ type: "portal" as const, url: onlineLink }];
+    return [{ type: "pdf" as const, url: officialPdf }];
   }
 
   const links: { type: "pdf" | "portal" | "info"; url: string }[] = [];
@@ -50,6 +46,10 @@ function getLinksToShow(officialPdf: string, onlineLink: string, officialInfoUrl
   }
 
   return links;
+}
+
+function hasPdfLink(officialPdf: string): boolean {
+  return !!(officialPdf && officialPdf.trim() !== "" && officialPdf.trim().toLowerCase().endsWith(".pdf"));
 }
 
 export default function GuideDetail() {
@@ -186,8 +186,8 @@ export default function GuideDetail() {
             </motion.div>
           </div>
 
-          {/* Links — only show if at least one link exists */}
-          {linksToShow.length > 0 && (
+          {/* Links — only show if at least one link exists or fallback needed */}
+          {(linksToShow.length > 0 || !hasPdfLink(guide.officialPdf)) && (
             <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} className="rounded-xl border bg-card p-6 shadow-sm">
               <h2 className="mb-3 text-sm font-bold">{labels.links}</h2>
               <div className="flex flex-col gap-2 sm:flex-row">
@@ -232,6 +232,16 @@ export default function GuideDetail() {
                   );
                 })}
               </div>
+              {!hasPdfLink(guide.officialPdf) && (
+                <p className="mt-3 text-xs text-muted-foreground">
+                  <Info className="mr-1 inline h-3 w-3" />
+                  {lk === "de"
+                    ? "Formular ist ggf. vor Ort erhältlich (Rathaus/Bürgerbüro/zuständige Behörde). Nutze das Online-Portal oder frage vor Ort nach."
+                    : lk === "bs"
+                    ? "Formular je dostupan na licu mjesta (Rathaus/Bürgerbüro/nadležna institucija). Koristi Online-Portal ili pitaj na licu mjesta."
+                    : "The form may be available on-site (town hall/citizens' office/responsible authority). Use the online portal or ask in person."}
+                </p>
+              )}
             </motion.div>
           )}
         </div>

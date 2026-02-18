@@ -94,7 +94,7 @@ export default function ZdravstvenoOsiguranje() {
         },
       ]}
       links={[
-        { type: "info", label: "Službene informacije (BMG)", url: "https://www.bundesgesundheitsministerium.de/krankenversicherung.html" },
+        { type: "info", label: "Službene informacije (BMG)", url: "https://www.bundesgesundheitsministerium.de/themen/krankenversicherung" },
       ]}
     />
   );

@@ -89,8 +89,8 @@ export default function PrviKoraci() {
         },
       ]}
       links={[
-        { type: "info", label: "Make it in Germany (vodič)", url: "https://www.make-it-in-germany.com/de/leben-in-deutschland/erste-schritte" },
-        { type: "portal", label: "GEZ prijava", url: "https://www.rundfunkbeitrag.de/anmelden" },
+        { type: "info", label: "Make it in Germany (vodič)", url: "https://www.make-it-in-germany.com/de/" },
+        { type: "portal", label: "GEZ prijava", url: "https://www.rundfunkbeitrag.de" },
       ]}
     />
   );
