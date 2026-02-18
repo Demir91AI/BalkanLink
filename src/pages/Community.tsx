@@ -26,6 +26,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const ORIGIN_COUNTRIES = [
   { code: "BIH", label: "Bosnien und Herzegowina" },
+  { code: "BALKAN", label: "Balkan" },
   { code: "SRB", label: "Serbien" },
   { code: "HR", label: "Kroatien" },
   { code: "KS", label: "Kosovo" },
