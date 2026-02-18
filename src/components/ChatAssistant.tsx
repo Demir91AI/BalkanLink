@@ -16,39 +16,52 @@ const PLACEHOLDER: Record<string, string> = {
 };
 
 const WELCOME: Record<string, string> = {
-  bs: `Dobrodošli u BalkanDE Formular-Assistent.
+  bs: `Dobrodošli u BalkanDE Zentral-Assistent.
 
-Ovaj digitalni asistent pomaže vam da razumijete i pravilno popunite njemačke administrativne obrasce.
-Dobijate strukturirana objašnjenja korak-po-korak, detaljna pojašnjenja svakog polja u formularu, listu potrebnih dokumenata, informacije o rokovima i najčešćim greškama.
+Ovaj digitalni asistent pokriva dvije oblasti:
 
-Možete postaviti pitanja u vezi sa:
-– Kindergeld
-– Bürgergeld
-– Wohngeld
-– Elterngeld
-– Prijava prebivališta
-– Steuer-ID i porezna klasa
-– Ostali formulari dostupni na platformi
+1) Administracija u Njemačkoj
+– Kindergeld, Bürgergeld, Wohngeld, Elterngeld
+– Prijava prebivališta, Steuer-ID, porezna klasa
+– Svi formulari dostupni na platformi
+
+2) Zajednica i društveni život
+– Džamije i džemati
+– Restorani, pekare, prodavnice
+– Kulturna udruženja i sport klubovi
 
 Primjer pitanja:
 „Rodilo mi se dijete, kako da podnesem zahtjev za Kindergeld?"
-„Kako da popunim Anlage Kind?"
+„Gdje je najbliža džamija u Frankfurtu?"
 „Koje dokumente trebam za Bürgergeld?"
 
-Asistent pruža opće i informativne smjernice.
 Ne unosite osjetljive podatke (Steuer-ID, IBAN, broj pasoša ili lične karte).
 
 Navedite svoju situaciju i dobićete jasan, strukturiran vodič.`,
-  de: `Willkommen beim BalkanDE Formular-Assistenten.
+  de: `Willkommen beim BalkanDE Zentral-Assistenten.
 
-Dieser digitale Assistent hilft Ihnen, deutsche Verwaltungsformulare zu verstehen und korrekt auszufüllen.
-Sie erhalten strukturierte Schritt-für-Schritt-Erklärungen, detaillierte Feld-für-Feld-Erläuterungen, eine Checkliste der benötigten Unterlagen sowie Hinweise zu Fristen und häufigen Fehlern.
+Dieser Assistent deckt zwei Bereiche ab:
+
+1) Verwaltung in Deutschland
+– Kindergeld, Bürgergeld, Wohngeld, Elterngeld
+– Anmeldung, Steuer-ID, Formulare
+
+2) Gemeinschaft und soziales Leben
+– Moscheen, Restaurants, Bäckereien
+– Kulturvereine und Sportclubs
 
 Stellen Sie Ihre Frage und Sie erhalten einen klaren, strukturierten Leitfaden.`,
-  en: `Welcome to the BalkanDE Form Assistant.
+  en: `Welcome to the BalkanDE Central Assistant.
 
-This digital assistant helps you understand and correctly fill out German administrative forms.
-You receive structured step-by-step explanations, detailed field-by-field guidance, a checklist of required documents, and information about deadlines and common mistakes.
+This assistant covers two areas:
+
+1) Administration in Germany
+– Kindergeld, Bürgergeld, Wohngeld, Elterngeld
+– Registration, Tax ID, forms
+
+2) Community and social life
+– Mosques, restaurants, bakeries
+– Cultural associations and sports clubs
 
 Describe your situation and you'll receive a clear, structured guide.`,
 };
@@ -223,7 +236,7 @@ export default function ChatAssistant() {
             {/* Header */}
             <div className="flex items-center justify-between border-b bg-primary px-4 py-3">
               <div>
-                <p className="text-sm font-semibold text-primary-foreground">BalkanDE Berater</p>
+                <p className="text-sm font-semibold text-primary-foreground">BalkanDE Assistent</p>
                 <p className="text-[10px] text-primary-foreground/60">
                   {lk === "de" ? "Digitaler Assistent" : lk === "en" ? "Digital Assistant" : "Digitalni savjetnik"}
                 </p>
