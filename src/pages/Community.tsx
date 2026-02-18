@@ -26,13 +26,10 @@ import { motion, AnimatePresence } from "framer-motion";
 const MAIN_CATEGORIES = [
   { key: "dzemat_moschee", label: "Džemati & Moscheen" },
   { key: "restaurant", label: "Restaurants" },
-  { key: "cafe", label: "Cafés" },
   { key: "baeckerei", label: "Bäckereien" },
-  { key: "balkan_markt", label: "Balkan-Märkte" },
-  { key: "verein", label: "Vereine" },
-  { key: "kulturverein", label: "Kulturvereine" },
+  { key: "markt", label: "Märkte" },
   { key: "sport", label: "Sport" },
-  { key: "events", label: "Events" },
+  { key: "kulturno_drustvo", label: "Kulturno društvo" },
 ];
 
 const categoryLabel = (key: string) =>
