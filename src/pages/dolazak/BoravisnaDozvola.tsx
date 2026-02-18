@@ -87,7 +87,7 @@ export default function BoravisnaDozvola() {
         },
       ]}
       links={[
-        { type: "portal", label: "Online termin – ambasada", url: "https://www.auswaertiges-amt.de/de/service/terminbuchung" },
+        { type: "portal", label: "Online termin – ambasada", url: "https://www.auswaertiges-amt.de/de/service/visa-und-aufenthalt" },
         { type: "info", label: "Službene informacije (BAMF)", url: "https://www.bamf.de/DE/Themen/MigrationAufenthalt/migrationaufenthalt-node.html" },
       ]}
     />

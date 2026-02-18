@@ -81,7 +81,7 @@ export default function BankovniRacun() {
         },
       ]}
       links={[
-        { type: "info", label: "Službene informacije (BaFin)", url: "https://www.bafin.de/DE/Verbraucher/BanijKontoZahlungsverkehr/Basiskonto/basiskonto_node.html" },
+        { type: "info", label: "Službene informacije (BaFin)", url: "https://www.bafin.de/DE/Verbraucher/BankKontoZahlungsverkehr/Basiskonto/basiskonto_node.html" },
       ]}
     />
   );

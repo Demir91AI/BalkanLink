@@ -77,8 +77,8 @@ export const guides: Guide[] = [
       bs: ["Zaboravljen porezni ID djeteta", "Prilog Dijete nije priložen", "Nedostaje potpis", "Navedeni tuđi bankovni podaci"],
       en: ["Missing child's tax ID", "Child attachment not included", "Missing signature", "Third-party bank details provided"],
     },
-    officialPdf: "https://www.arbeitsagentur.de/datei/antrag-auf-kindergeld_ba015394.pdf",
-    onlineLink: "https://web.arbeitsagentur.de/opal/kgo-start",
+    officialPdf: "",
+    onlineLink: "https://www.arbeitsagentur.de/familie-und-kinder/kindergeld-beantragen",
   },
   {
     slug: "kinderzuschlag",
@@ -122,8 +122,8 @@ export const guides: Guide[] = [
       bs: ["Nepotpuni dokazi o primanjima", "Nedostaje ugovor o najmu", "Imovina nije navedena ili pogrešno", "Režije nisu odvojene od hladne kirije"],
       en: ["Incomplete income proof (all 6 months needed)", "Missing rental contract", "Assets not declared or incorrect", "Utilities not separated from cold rent"],
     },
-    officialPdf: "https://www.arbeitsagentur.de/datei/antrag-auf-kinderzuschlag_ba013100.pdf",
-    onlineLink: "https://web.arbeitsagentur.de/kiz/ui/start",
+    officialPdf: "",
+    onlineLink: "https://www.arbeitsagentur.de/familie-und-kinder/kinderzuschlag",
   },
   {
     slug: "elterngeld",
@@ -440,8 +440,7 @@ export const guides: Guide[] = [
       en: ["Late registration → blocking period!", "Missed job-seeking registration", "Missing employer certificate", "Signed mutual termination → possible blocking period"],
     },
     officialPdf: "",
-    onlineLink: "https://www.arbeitsagentur.de/arbeitslosengeld-1/antrag-arbeitslosengeld",
-    officialInfoUrl: "https://www.arbeitsagentur.de/arbeitslos-arbeit-finden/arbeitslosengeld",
+    onlineLink: "https://www.arbeitsagentur.de/arbeitslos-arbeit-finden/arbeitslosengeld",
   },
   {
     slug: "kurzarbeitergeld",
@@ -528,7 +527,7 @@ export const guides: Guide[] = [
     },
     officialPdf: "",
     onlineLink: "",
-    officialInfoUrl: "https://www.bundesgesundheitsministerium.de/krankengeld",
+    officialInfoUrl: "https://www.bundesgesundheitsministerium.de/themen/krankenversicherung",
   },
   {
     slug: "pflegegrad",
@@ -574,7 +573,7 @@ export const guides: Guide[] = [
     },
     officialPdf: "",
     onlineLink: "",
-    officialInfoUrl: "https://www.bundesgesundheitsministerium.de/pflegegrade",
+    officialInfoUrl: "https://www.bundesgesundheitsministerium.de/themen/pflege",
   },
   {
     slug: "reha",
