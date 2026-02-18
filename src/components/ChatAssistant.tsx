@@ -16,9 +16,9 @@ const PLACEHOLDER: Record<string, string> = {
 };
 
 const WELCOME: Record<string, string> = {
-  bs: `Dobar dan i dobrodošli!\n\nKako vam mogu pomoći?\n\nPrimjer: „Kako popuniti Antrag za Kindergeld?"`,
-  de: `Guten Tag und herzlich willkommen!\n\nWie kann ich Ihnen helfen?\n\nBeispiel: „Wie fülle ich den Antrag auf Kindergeld aus?"`,
-  en: `Good day and welcome!\n\nHow can I help you?\n\nExample: "How do I fill out the Kindergeld application?"`,
+  bs: `Dobar dan i dobrodošli.\n\nDigitalni asistent vam pomaže sa:\n• Popunjavanjem formulara (npr. Kindergeld, Bürgergeld)\n• Objašnjenjem procedura korak po korak\n• Informacijama o institucijama, džematima, uslugama i dr.\n\nPrimjer: „Kako podnijeti zahtjev za Kindergeld?"`,
+  de: `Guten Tag und willkommen.\n\nDer digitale Assistent hilft Ihnen bei:\n• Ausfüllen von Formularen (z.B. Kindergeld, Bürgergeld)\n• Schritt-für-Schritt-Erklärungen von Verfahren\n• Informationen zu Institutionen, Gemeinden, Dienstleistungen u.a.\n\nBeispiel: „Wie beantrage ich Kindergeld?"`,
+  en: `Good day and welcome.\n\nThe digital assistant helps you with:\n• Filling out forms (e.g. Kindergeld, Bürgergeld)\n• Step-by-step procedure explanations\n• Information about institutions, communities, services and more\n\nExample: "How do I apply for Kindergeld?"`,
 };
 
 const ERROR_MSG: Record<string, string> = {
