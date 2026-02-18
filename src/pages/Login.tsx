@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -13,6 +14,7 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { t } = useLanguage();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -21,9 +23,9 @@ export default function Login() {
     setLoading(false);
 
     if (error) {
-      toast({ title: "Greška pri prijavi", description: error.message, variant: "destructive" });
+      toast({ title: t("auth.loginError"), description: error.message, variant: "destructive" });
     } else {
-      toast({ title: "Uspješna prijava!" });
+      toast({ title: t("auth.loginSuccess") });
       navigate("/");
     }
   };
@@ -32,27 +34,27 @@ export default function Login() {
     <div className="container flex min-h-[70vh] items-center justify-center py-12">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
-          <CardTitle className="text-2xl">Prijava</CardTitle>
-          <CardDescription>Unesite email i lozinku za pristup.</CardDescription>
+          <CardTitle className="text-2xl">{t("auth.loginTitle")}</CardTitle>
+          <CardDescription>{t("auth.loginDesc")}</CardDescription>
         </CardHeader>
         <form onSubmit={handleLogin}>
           <CardContent className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">{t("auth.email")}</Label>
               <Input id="email" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="vas@email.com" />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password">Lozinka</Label>
+              <Label htmlFor="password">{t("auth.password")}</Label>
               <Input id="password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} placeholder="••••••••" />
             </div>
           </CardContent>
           <CardFooter className="flex flex-col gap-3">
             <Button type="submit" className="w-full" disabled={loading}>
-              {loading ? "Prijavljivanje..." : "Prijavi se"}
+              {loading ? t("auth.loginLoading") : t("auth.loginButton")}
             </Button>
             <div className="flex w-full justify-between text-sm">
-              <Link to="/forgot-password" className="text-primary hover:underline">Zaboravljena lozinka?</Link>
-              <Link to="/register" className="text-primary hover:underline">Registruj se</Link>
+              <Link to="/forgot-password" className="text-primary hover:underline">{t("auth.forgotPassword")}</Link>
+              <Link to="/register" className="text-primary hover:underline">{t("nav.register")}</Link>
             </div>
           </CardFooter>
         </form>

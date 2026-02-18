@@ -85,10 +85,34 @@ type TranslationKeys = {
   "branche.produktion": string; "branche.reinigung": string; "branche.gastro": string;
   "branche.it": string; "branche.handwerk": string; "branche.buero": string; "branche.ausbildung": string;
   // Vertragsart options
-  "vertrag.vollzeit": string; "vertrag.teilzeit": string; "vertrag.minijob": string;
-  "vertrag.ausbildung": string; "vertrag.praktikum": string;
+  "vertrag.vollzeit": string; "vertrag.teilzeit": string;
+  "vertrag.ausbildung": string; "vertrag.praktikum": string; "vertrag.minijob": string;
   // Register CTA
   "cta.register": string;
+  // Auth
+  "auth.loginTitle": string; "auth.loginDesc": string; "auth.email": string; "auth.password": string;
+  "auth.loginButton": string; "auth.loginLoading": string; "auth.loginError": string; "auth.loginSuccess": string;
+  "auth.registerTitle": string; "auth.registerDesc": string; "auth.confirmPassword": string;
+  "auth.registerButton": string; "auth.registerLoading": string;
+  "auth.passwordMismatch": string; "auth.passwordTooShort": string;
+  "auth.registerError": string; "auth.registerSuccess": string; "auth.registerCheckEmail": string;
+  "auth.haveAccount": string; "auth.forgotPassword": string; "auth.noAccount": string;
+  "auth.forgotTitle": string; "auth.forgotDesc": string;
+  "auth.sendLink": string; "auth.sending": string;
+  "auth.checkEmail": string; "auth.checkEmailDesc": string; "auth.backToLogin": string;
+  "auth.resetTitle": string; "auth.resetDesc": string; "auth.newPassword": string;
+  "auth.saveButton": string; "auth.saving": string;
+  "auth.resetWaiting": string; "auth.resetWaitingDesc": string; "auth.passwordChanged": string;
+  "auth.minChars": string;
+  // Footer extras
+  "footer.legal": string; "footer.haftung": string; "footer.mitgliedschaft": string; "footer.kiHinweis": string;
+  // Hero CTA
+  "hero.cta.register": string; "hero.cta.firstSteps": string;
+  // 404
+  "notfound.title": string; "notfound.desc": string; "notfound.back": string;
+  // Common labels
+  "common.error": string; "common.legalBasis": string; "common.officialSource": string; "common.moreSource": string;
+  "common.all": string;
 };
 
 // --- Shared partial blocks ---
@@ -182,7 +206,6 @@ const missionsEn: Partial<TranslationKeys> = {
   "missions.results": "results", "missions.clearFilters": "Clear filters", "missions.empty": "No results.",
 };
 
-// --- Shared new keys for bs/hr/sr/me ---
 const portalBs: Partial<TranslationKeys> = {
   "portal.dolazak": "Dolazak", "portal.dolazak.desc": "Dokumenti, prijava, prvi koraci u Njemačkoj.",
   "portal.stan": "Stan & prijava", "portal.stan.desc": "Pronađi stan i prijavi adresu.",
@@ -373,6 +396,192 @@ const portalMk: Partial<TranslationKeys> = {
   "vertrag.minijob": "Minijob", "vertrag.ausbildung": "Образование", "vertrag.praktikum": "Практика",
 };
 
+const miscBs: Partial<TranslationKeys> = {
+  "auth.loginTitle": "Prijava", "auth.loginDesc": "Unesite email i lozinku za pristup.",
+  "auth.email": "Email", "auth.password": "Lozinka",
+  "auth.loginButton": "Prijavi se", "auth.loginLoading": "Prijavljivanje...",
+  "auth.loginError": "Greška pri prijavi", "auth.loginSuccess": "Uspješna prijava!",
+  "auth.registerTitle": "Registracija", "auth.registerDesc": "Kreirajte novi nalog sa email adresom.",
+  "auth.confirmPassword": "Potvrdite lozinku", "auth.registerButton": "Registruj se",
+  "auth.registerLoading": "Registracija...",
+  "auth.passwordMismatch": "Lozinke se ne poklapaju",
+  "auth.passwordTooShort": "Lozinka mora imati najmanje 6 znakova",
+  "auth.registerError": "Greška pri registraciji",
+  "auth.registerSuccess": "Registracija uspješna!",
+  "auth.registerCheckEmail": "Provjerite email za potvrdu.",
+  "auth.haveAccount": "Već imate nalog?", "auth.forgotPassword": "Zaboravljena lozinka?",
+  "auth.noAccount": "Nemate nalog?",
+  "auth.forgotTitle": "Zaboravljena lozinka", "auth.forgotDesc": "Unesite email za resetovanje lozinke.",
+  "auth.sendLink": "Pošalji link", "auth.sending": "Slanje...",
+  "auth.checkEmail": "Provjerite email",
+  "auth.checkEmailDesc": "Ako nalog postoji, poslaćemo vam link za resetovanje lozinke.",
+  "auth.backToLogin": "Nazad na prijavu",
+  "auth.resetTitle": "Nova lozinka", "auth.resetDesc": "Unesite novu lozinku za vaš nalog.",
+  "auth.newPassword": "Nova lozinka", "auth.saveButton": "Sačuvaj novu lozinku",
+  "auth.saving": "Čuvanje...",
+  "auth.resetWaiting": "Resetovanje lozinke",
+  "auth.resetWaitingDesc": "Otvorite link iz emaila da biste resetovali lozinku.",
+  "auth.passwordChanged": "Lozinka uspješno promijenjena!",
+  "auth.minChars": "Najmanje 6 znakova",
+  "footer.legal": "Pravne informacije", "footer.haftung": "Odricanje od odgovornosti",
+  "footer.mitgliedschaft": "Članstvo", "footer.kiHinweis": "KI napomena",
+  "hero.cta.register": "Registruj se besplatno", "hero.cta.firstSteps": "Pogledaj prve korake",
+  "notfound.title": "Stranica nije pronađena", "notfound.desc": "Stranica koju tražite ne postoji.",
+  "notfound.back": "Nazad na početnu",
+  "common.error": "Greška", "common.legalBasis": "Zakonska osnova",
+  "common.officialSource": "Zvanični izvor", "common.moreSource": "Dodatni izvor",
+  "common.all": "Sve",
+};
+
+const miscDe: Partial<TranslationKeys> = {
+  "auth.loginTitle": "Anmelden", "auth.loginDesc": "E-Mail und Passwort eingeben.",
+  "auth.email": "E-Mail", "auth.password": "Passwort",
+  "auth.loginButton": "Anmelden", "auth.loginLoading": "Anmeldung...",
+  "auth.loginError": "Anmeldefehler", "auth.loginSuccess": "Erfolgreich angemeldet!",
+  "auth.registerTitle": "Registrieren", "auth.registerDesc": "Neues Konto mit E-Mail erstellen.",
+  "auth.confirmPassword": "Passwort bestätigen", "auth.registerButton": "Registrieren",
+  "auth.registerLoading": "Registrierung...",
+  "auth.passwordMismatch": "Passwörter stimmen nicht überein",
+  "auth.passwordTooShort": "Passwort muss mindestens 6 Zeichen haben",
+  "auth.registerError": "Registrierungsfehler",
+  "auth.registerSuccess": "Registrierung erfolgreich!",
+  "auth.registerCheckEmail": "Überprüfen Sie Ihre E-Mail zur Bestätigung.",
+  "auth.haveAccount": "Bereits ein Konto?", "auth.forgotPassword": "Passwort vergessen?",
+  "auth.noAccount": "Noch kein Konto?",
+  "auth.forgotTitle": "Passwort vergessen", "auth.forgotDesc": "E-Mail eingeben zum Zurücksetzen.",
+  "auth.sendLink": "Link senden", "auth.sending": "Wird gesendet...",
+  "auth.checkEmail": "E-Mail prüfen",
+  "auth.checkEmailDesc": "Falls ein Konto existiert, senden wir einen Reset-Link.",
+  "auth.backToLogin": "Zurück zur Anmeldung",
+  "auth.resetTitle": "Neues Passwort", "auth.resetDesc": "Neues Passwort für Ihr Konto eingeben.",
+  "auth.newPassword": "Neues Passwort", "auth.saveButton": "Passwort speichern",
+  "auth.saving": "Wird gespeichert...",
+  "auth.resetWaiting": "Passwort zurücksetzen",
+  "auth.resetWaitingDesc": "Öffnen Sie den Link in der E-Mail.",
+  "auth.passwordChanged": "Passwort erfolgreich geändert!",
+  "auth.minChars": "Mindestens 6 Zeichen",
+  "footer.legal": "Rechtliches", "footer.haftung": "Haftungsausschluss",
+  "footer.mitgliedschaft": "Mitgliedschaft", "footer.kiHinweis": "KI-Hinweis",
+  "hero.cta.register": "Kostenlos registrieren", "hero.cta.firstSteps": "Erste Schritte ansehen",
+  "notfound.title": "Seite nicht gefunden", "notfound.desc": "Die gesuchte Seite existiert nicht.",
+  "notfound.back": "Zurück zur Startseite",
+  "common.error": "Fehler", "common.legalBasis": "Gesetzliche Grundlage",
+  "common.officialSource": "Offizielle Quelle", "common.moreSource": "Weitere Quelle",
+  "common.all": "Alle",
+};
+
+const miscEn: Partial<TranslationKeys> = {
+  "auth.loginTitle": "Sign In", "auth.loginDesc": "Enter your email and password.",
+  "auth.email": "Email", "auth.password": "Password",
+  "auth.loginButton": "Sign In", "auth.loginLoading": "Signing in...",
+  "auth.loginError": "Login error", "auth.loginSuccess": "Successfully signed in!",
+  "auth.registerTitle": "Sign Up", "auth.registerDesc": "Create a new account with your email.",
+  "auth.confirmPassword": "Confirm password", "auth.registerButton": "Sign Up",
+  "auth.registerLoading": "Signing up...",
+  "auth.passwordMismatch": "Passwords do not match",
+  "auth.passwordTooShort": "Password must be at least 6 characters",
+  "auth.registerError": "Registration error",
+  "auth.registerSuccess": "Registration successful!",
+  "auth.registerCheckEmail": "Check your email for confirmation.",
+  "auth.haveAccount": "Already have an account?", "auth.forgotPassword": "Forgot password?",
+  "auth.noAccount": "Don't have an account?",
+  "auth.forgotTitle": "Forgot Password", "auth.forgotDesc": "Enter your email to reset your password.",
+  "auth.sendLink": "Send link", "auth.sending": "Sending...",
+  "auth.checkEmail": "Check your email",
+  "auth.checkEmailDesc": "If an account exists, we'll send a reset link.",
+  "auth.backToLogin": "Back to sign in",
+  "auth.resetTitle": "New Password", "auth.resetDesc": "Enter a new password for your account.",
+  "auth.newPassword": "New password", "auth.saveButton": "Save new password",
+  "auth.saving": "Saving...",
+  "auth.resetWaiting": "Password Reset",
+  "auth.resetWaitingDesc": "Open the link from your email.",
+  "auth.passwordChanged": "Password changed successfully!",
+  "auth.minChars": "At least 6 characters",
+  "footer.legal": "Legal", "footer.haftung": "Disclaimer",
+  "footer.mitgliedschaft": "Membership", "footer.kiHinweis": "AI Notice",
+  "hero.cta.register": "Register for free", "hero.cta.firstSteps": "View first steps",
+  "notfound.title": "Page not found", "notfound.desc": "The page you're looking for doesn't exist.",
+  "notfound.back": "Back to home",
+  "common.error": "Error", "common.legalBasis": "Legal basis",
+  "common.officialSource": "Official source", "common.moreSource": "More sources",
+  "common.all": "All",
+};
+
+const miscSq: Partial<TranslationKeys> = {
+  "auth.loginTitle": "Hyrje", "auth.loginDesc": "Shkruani email-in dhe fjalëkalimin.",
+  "auth.email": "Email", "auth.password": "Fjalëkalimi",
+  "auth.loginButton": "Hyr", "auth.loginLoading": "Duke u kyçur...",
+  "auth.loginError": "Gabim gjatë hyrjes", "auth.loginSuccess": "Hyrja e suksesshme!",
+  "auth.registerTitle": "Regjistrohu", "auth.registerDesc": "Krijo llogari të re me email.",
+  "auth.confirmPassword": "Konfirmo fjalëkalimin", "auth.registerButton": "Regjistrohu",
+  "auth.registerLoading": "Duke u regjistruar...",
+  "auth.passwordMismatch": "Fjalëkalimet nuk përputhen",
+  "auth.passwordTooShort": "Fjalëkalimi duhet të ketë të paktën 6 karaktere",
+  "auth.registerError": "Gabim gjatë regjistrimit",
+  "auth.registerSuccess": "Regjistrimi i suksesshëm!",
+  "auth.registerCheckEmail": "Kontrollo email-in për konfirmim.",
+  "auth.haveAccount": "Ke tashmë llogari?", "auth.forgotPassword": "Harruat fjalëkalimin?",
+  "auth.noAccount": "Nuk ke llogari?",
+  "auth.forgotTitle": "Fjalëkalimi i harruar", "auth.forgotDesc": "Shkruaj email-in për të rivendosur fjalëkalimin.",
+  "auth.sendLink": "Dërgo linkun", "auth.sending": "Duke dërguar...",
+  "auth.checkEmail": "Kontrollo email-in",
+  "auth.checkEmailDesc": "Nëse llogaria ekziston, do t'ju dërgojmë link për rivendosje.",
+  "auth.backToLogin": "Kthehu te hyrja",
+  "auth.resetTitle": "Fjalëkalim i ri", "auth.resetDesc": "Shkruaj fjalëkalimin e ri.",
+  "auth.newPassword": "Fjalëkalimi i ri", "auth.saveButton": "Ruaj fjalëkalimin e ri",
+  "auth.saving": "Duke ruajtur...",
+  "auth.resetWaiting": "Rivendosja e fjalëkalimit",
+  "auth.resetWaitingDesc": "Hap linkun nga email-i.",
+  "auth.passwordChanged": "Fjalëkalimi u ndryshua me sukses!",
+  "auth.minChars": "Të paktën 6 karaktere",
+  "footer.legal": "Ligjore", "footer.haftung": "Mohimi i përgjegjësisë",
+  "footer.mitgliedschaft": "Anëtarësia", "footer.kiHinweis": "Njoftim AI",
+  "hero.cta.register": "Regjistrohu falas", "hero.cta.firstSteps": "Shiko hapat e parë",
+  "notfound.title": "Faqja nuk u gjet", "notfound.desc": "Faqja që kërkoni nuk ekziston.",
+  "notfound.back": "Kthehu në fillim",
+  "common.error": "Gabim", "common.legalBasis": "Baza ligjore",
+  "common.officialSource": "Burimi zyrtar", "common.moreSource": "Burime të tjera",
+  "common.all": "Të gjitha",
+};
+
+const miscMk: Partial<TranslationKeys> = {
+  "auth.loginTitle": "Најава", "auth.loginDesc": "Внесете email и лозинка.",
+  "auth.email": "Email", "auth.password": "Лозинка",
+  "auth.loginButton": "Најави се", "auth.loginLoading": "Најавување...",
+  "auth.loginError": "Грешка при најава", "auth.loginSuccess": "Успешна најава!",
+  "auth.registerTitle": "Регистрација", "auth.registerDesc": "Креирајте нов налог со email.",
+  "auth.confirmPassword": "Потврдете лозинка", "auth.registerButton": "Регистрирај се",
+  "auth.registerLoading": "Регистрација...",
+  "auth.passwordMismatch": "Лозинките не се совпаѓаат",
+  "auth.passwordTooShort": "Лозинката мора да има најмалку 6 знаци",
+  "auth.registerError": "Грешка при регистрација",
+  "auth.registerSuccess": "Регистрацијата е успешна!",
+  "auth.registerCheckEmail": "Проверете го email-от за потврда.",
+  "auth.haveAccount": "Веќе имате налог?", "auth.forgotPassword": "Заборавена лозинка?",
+  "auth.noAccount": "Немате налог?",
+  "auth.forgotTitle": "Заборавена лозинка", "auth.forgotDesc": "Внесете email за ресетирање.",
+  "auth.sendLink": "Испрати линк", "auth.sending": "Испраќање...",
+  "auth.checkEmail": "Проверете email",
+  "auth.checkEmailDesc": "Ако налогот постои, ќе ви испратиме линк за ресетирање.",
+  "auth.backToLogin": "Назад на најава",
+  "auth.resetTitle": "Нова лозинка", "auth.resetDesc": "Внесете нова лозинка за вашиот налог.",
+  "auth.newPassword": "Нова лозинка", "auth.saveButton": "Зачувај нова лозинка",
+  "auth.saving": "Зачувување...",
+  "auth.resetWaiting": "Ресетирање на лозинка",
+  "auth.resetWaitingDesc": "Отворете го линкот од email-от.",
+  "auth.passwordChanged": "Лозинката е успешно променета!",
+  "auth.minChars": "Најмалку 6 знаци",
+  "footer.legal": "Правни информации", "footer.haftung": "Одрекување од одговорност",
+  "footer.mitgliedschaft": "Членство", "footer.kiHinweis": "AI напомена",
+  "hero.cta.register": "Регистрирај се бесплатно", "hero.cta.firstSteps": "Погледни први чекори",
+  "notfound.title": "Страницата не е пронајдена", "notfound.desc": "Страницата не постои.",
+  "notfound.back": "Назад на почетна",
+  "common.error": "Грешка", "common.legalBasis": "Законска основа",
+  "common.officialSource": "Официјален извор", "common.moreSource": "Дополнителен извор",
+  "common.all": "Сите",
+};
+
+// --- Language definitions ---
 const translations: Record<Language, TranslationKeys> = {
   bs: {
     "nav.home": "Početna", "nav.qa": "Pitanja i odgovori", "nav.directory": "Imenik",
@@ -393,7 +602,7 @@ const translations: Record<Language, TranslationKeys> = {
     "qa.title": "Pitanja i odgovori", "qa.subtitle": "Pronađi odgovor na svoje pitanje — brzo i na našem jeziku.",
     "qa.search": "Pretraži...", "qa.all": "Sve teme", "qa.results": "rezultata",
     "qa.empty": "Nema rezultata. Pokušaj sa drugim pojmom.",
-    ...dirBs as any, ...missionsBs as any, ...portalBs as any,
+    ...dirBs as any, ...missionsBs as any, ...portalBs as any, ...miscBs as any,
   },
   hr: {
     "nav.home": "Početna", "nav.qa": "Pitanja i odgovori", "nav.directory": "Imenik",
@@ -414,7 +623,7 @@ const translations: Record<Language, TranslationKeys> = {
     "qa.title": "Pitanja i odgovori", "qa.subtitle": "Pronađi odgovor na svoje pitanje — brzo i na tvom jeziku.",
     "qa.search": "Pretraži...", "qa.all": "Sve teme", "qa.results": "rezultata",
     "qa.empty": "Nema rezultata. Pokušaj s drugim pojmom.",
-    ...dirBs as any, ...missionsBs as any, ...portalBs as any,
+    ...dirBs as any, ...missionsBs as any, ...portalBs as any, ...miscBs as any,
     "dir.filterOrigin": "Zemlja podrijetla", "dir.fieldOrigin": "Zemlja podrijetla",
     "dir.backToDirectory": "Natrag na imenik",
   },
@@ -437,7 +646,7 @@ const translations: Record<Language, TranslationKeys> = {
     "qa.title": "Pitanja i odgovori", "qa.subtitle": "Pronađi odgovor na svoje pitanje — brzo i na tvom jeziku.",
     "qa.search": "Pretraži...", "qa.all": "Sve teme", "qa.results": "rezultata",
     "qa.empty": "Nema rezultata. Pokušaj sa drugim pojmom.",
-    ...dirBs as any, ...missionsBs as any, ...portalBs as any,
+    ...dirBs as any, ...missionsBs as any, ...portalBs as any, ...miscBs as any,
     "dir.subtitle": "Pronađi balkanske biznise u Nemačkoj.",
     "dir.filterOrigin": "Zemlja porekla", "dir.fieldOrigin": "Zemlja porekla",
     "dir.submitSubtitle": "Popuni formu i tvoj biznis će biti vidljiv nakon provere.",
@@ -464,7 +673,7 @@ const translations: Record<Language, TranslationKeys> = {
     "qa.title": "Pitanja i odgovori", "qa.subtitle": "Pronađi odgovor na svoje pitanje — brzo i na tvom jeziku.",
     "qa.search": "Pretraži...", "qa.all": "Sve teme", "qa.results": "rezultata",
     "qa.empty": "Nema rezultata. Pokušaj sa drugim pojmom.",
-    ...dirBs as any, ...missionsBs as any, ...portalBs as any,
+    ...dirBs as any, ...missionsBs as any, ...portalBs as any, ...miscBs as any,
   },
   sq: {
     "nav.home": "Ballina", "nav.qa": "Pyetje dhe përgjigje", "nav.directory": "Drejtoria",
@@ -485,7 +694,7 @@ const translations: Record<Language, TranslationKeys> = {
     "qa.title": "Pyetje dhe përgjigje", "qa.subtitle": "Gjej përgjigjen e pyetjes tënde — shpejt dhe në gjuhën tënde.",
     "qa.search": "Kërko...", "qa.all": "Të gjitha temat", "qa.results": "rezultate",
     "qa.empty": "Nuk ka rezultate. Provo me një term tjetër.",
-    ...dirSq as any, ...missionsSq as any, ...portalSq as any,
+    ...dirSq as any, ...missionsSq as any, ...portalSq as any, ...miscSq as any,
   },
   xk: {
     "nav.home": "Ballina", "nav.qa": "Pyetje dhe përgjigje", "nav.directory": "Drejtoria",
@@ -506,7 +715,7 @@ const translations: Record<Language, TranslationKeys> = {
     "qa.title": "Pyetje dhe përgjigje", "qa.subtitle": "Gjej përgjigjen e pyetjes tënde — shpejt dhe në gjuhën tënde.",
     "qa.search": "Kërko...", "qa.all": "Të gjitha temat", "qa.results": "rezultate",
     "qa.empty": "Nuk ka rezultate. Provo me një term tjetër.",
-    ...dirSq as any, ...missionsSq as any, ...portalSq as any,
+    ...dirSq as any, ...missionsSq as any, ...portalSq as any, ...miscSq as any,
   },
   mk: {
     "nav.home": "Почетна", "nav.qa": "Прашања и одговори", "nav.directory": "Именик",
@@ -542,7 +751,7 @@ const translations: Record<Language, TranslationKeys> = {
     "dir.submitSuccess": "Бизнисот е додаден! Ќе биде видлив по проверка.",
     "dir.submitError": "Грешка. Обиди се повторно.",
     "dir.loginRequired": "Мора да бидеш најавен за да додадеш бизнис.",
-    ...missionsMk as any, ...portalMk as any,
+    ...missionsMk as any, ...portalMk as any, ...miscMk as any,
   },
   de: {
     "nav.home": "Startseite", "nav.qa": "Fragen & Antworten", "nav.directory": "Verzeichnis",
@@ -578,7 +787,7 @@ const translations: Record<Language, TranslationKeys> = {
     "dir.submitSuccess": "Geschäft hinzugefügt! Wird nach Prüfung sichtbar.",
     "dir.submitError": "Fehler. Versuche es erneut.",
     "dir.loginRequired": "Du musst angemeldet sein, um ein Geschäft hinzuzufügen.",
-    ...missionsDe as any, ...portalDe as any,
+    ...missionsDe as any, ...portalDe as any, ...miscDe as any,
   },
   en: {
     "nav.home": "Home", "nav.qa": "Q&A", "nav.directory": "Directory",
@@ -614,7 +823,7 @@ const translations: Record<Language, TranslationKeys> = {
     "dir.submitSuccess": "Business added! It will be visible after review.",
     "dir.submitError": "Error. Please try again.",
     "dir.loginRequired": "You must be signed in to add a business.",
-    ...missionsEn as any, ...portalEn as any,
+    ...missionsEn as any, ...portalEn as any, ...miscEn as any,
   },
 };
 
