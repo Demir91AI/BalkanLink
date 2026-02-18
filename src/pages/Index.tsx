@@ -60,7 +60,7 @@ export default function Index() {
   return (
     <>
       {/* ─── CINEMATIC HERO ─── */}
-      <section ref={heroRef} className="relative h-screen min-h-[600px] overflow-hidden bg-primary">
+      <section ref={heroRef} className="relative h-[85vh] min-h-[480px] max-h-[800px] overflow-hidden bg-primary">
         {/* Parallax image layer */}
         <AnimatePresence mode="wait">
           <motion.div
@@ -93,10 +93,10 @@ export default function Index() {
             transition={{ duration: 0.9, delay: 0.2 }}
             className="max-w-3xl"
           >
-            <h1 className="font-heading text-4xl font-black leading-[1.08] text-white sm:text-5xl md:text-6xl lg:text-7xl">
+            <h1 className="font-heading text-2xl font-black leading-[1.1] text-white sm:text-4xl md:text-5xl lg:text-6xl">
               {t("hero.slide1.title")}
             </h1>
-            <p className="mx-auto mt-5 max-w-lg text-base leading-relaxed text-white/60 sm:text-lg md:text-xl">
+            <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-white/60 sm:text-base md:text-lg">
               {t("hero.slide1.subtitle")}
             </p>
 
@@ -105,12 +105,12 @@ export default function Index() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
-                className="mt-10 flex flex-col items-center gap-4"
+                className="mt-6 sm:mt-10 flex flex-col items-center gap-3"
               >
                 {/* Primary CTA — Gold gradient button */}
                 <Link
                   to="/register"
-                  className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full px-10 py-4 text-base font-bold tracking-wide transition-all duration-300"
+                  className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full w-full sm:w-auto px-8 py-3.5 sm:px-10 sm:py-4 text-sm sm:text-base font-bold tracking-wide transition-all duration-300"
                   style={{
                     background: "linear-gradient(135deg, #D4AF37 0%, #E8C84A 50%, #D4AF37 100%)",
                     color: "#1a1a1a",
@@ -179,7 +179,7 @@ export default function Index() {
       <div className="section-separator" />
 
       {/* ─── DYNAMIC CATEGORY GRID ─── */}
-      <section className="relative py-20 lg:py-28">
+      <section className="relative py-10 sm:py-16 lg:py-20">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/30 to-background" />
 
         <div className="container relative">
@@ -200,11 +200,11 @@ export default function Index() {
               >
                 <Link
                   to={card.to}
-                  className={`group relative flex items-start gap-4 overflow-hidden rounded-2xl border border-border/60 bg-gradient-to-br ${card.gradient} bg-card p-6 shadow-sm transition-all duration-400 hover:border-gold/30 hover:shadow-xl hover:shadow-gold/5 hover:-translate-y-1`}
+                  className={`group relative flex items-start gap-3 sm:gap-4 overflow-hidden rounded-xl sm:rounded-2xl border border-border/60 bg-gradient-to-br ${card.gradient} bg-card p-4 sm:p-5 lg:p-6 shadow-sm transition-all duration-400 hover:border-gold/30 hover:shadow-xl hover:shadow-gold/5 hover:-translate-y-1`}
                 >
                   <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gold/0 transition-all duration-500 group-hover:bg-gold/10 group-hover:blur-2xl" />
 
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/8 text-primary transition-all duration-300 group-hover:bg-gold/15 group-hover:text-gold group-hover:scale-110">
+                  <div className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-lg sm:rounded-xl bg-primary/8 text-primary transition-all duration-300 group-hover:bg-gold/15 group-hover:text-gold group-hover:scale-110">
                     <card.icon className="h-5 w-5" strokeWidth={1.5} />
                   </div>
                   <div className="min-w-0 flex-1">
