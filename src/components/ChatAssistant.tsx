@@ -16,54 +16,9 @@ const PLACEHOLDER: Record<string, string> = {
 };
 
 const WELCOME: Record<string, string> = {
-  bs: `Dobrodošli u BalkanDE Zentral-Assistent.
-
-Ovaj digitalni asistent pokriva dvije oblasti:
-
-1) Administracija u Njemačkoj
-– Kindergeld, Bürgergeld, Wohngeld, Elterngeld
-– Prijava prebivališta, Steuer-ID, porezna klasa
-– Svi formulari dostupni na platformi
-
-2) Zajednica i društveni život
-– Džamije i džemati
-– Restorani, pekare, prodavnice
-– Kulturna udruženja i sport klubovi
-
-Primjer pitanja:
-„Rodilo mi se dijete, kako da podnesem zahtjev za Kindergeld?"
-„Gdje je najbliža džamija u Frankfurtu?"
-„Koje dokumente trebam za Bürgergeld?"
-
-Ne unosite osjetljive podatke (Steuer-ID, IBAN, broj pasoša ili lične karte).
-
-Navedite svoju situaciju i dobićete jasan, strukturiran vodič.`,
-  de: `Willkommen beim BalkanDE Zentral-Assistenten.
-
-Dieser Assistent deckt zwei Bereiche ab:
-
-1) Verwaltung in Deutschland
-– Kindergeld, Bürgergeld, Wohngeld, Elterngeld
-– Anmeldung, Steuer-ID, Formulare
-
-2) Gemeinschaft und soziales Leben
-– Moscheen, Restaurants, Bäckereien
-– Kulturvereine und Sportclubs
-
-Stellen Sie Ihre Frage und Sie erhalten einen klaren, strukturierten Leitfaden.`,
-  en: `Welcome to the BalkanDE Central Assistant.
-
-This assistant covers two areas:
-
-1) Administration in Germany
-– Kindergeld, Bürgergeld, Wohngeld, Elterngeld
-– Registration, Tax ID, forms
-
-2) Community and social life
-– Mosques, restaurants, bakeries
-– Cultural associations and sports clubs
-
-Describe your situation and you'll receive a clear, structured guide.`,
+  bs: `Dobar dan i dobrodošli!\n\nKako vam mogu pomoći?\n\nPrimjer: „Kako popuniti Antrag za Kindergeld?"`,
+  de: `Guten Tag und herzlich willkommen!\n\nWie kann ich Ihnen helfen?\n\nBeispiel: „Wie fülle ich den Antrag auf Kindergeld aus?"`,
+  en: `Good day and welcome!\n\nHow can I help you?\n\nExample: "How do I fill out the Kindergeld application?"`,
 };
 
 const ERROR_MSG: Record<string, string> = {
@@ -254,7 +209,7 @@ export default function ChatAssistant() {
               {/* Welcome */}
               {messages.length === 0 && (
                 <div className="rounded-xl bg-muted px-4 py-3">
-                  <p className="text-sm text-muted-foreground">{WELCOME[lk]}</p>
+                  <p className="text-sm leading-relaxed text-muted-foreground whitespace-pre-line">{WELCOME[lk]}</p>
                 </div>
               )}
 
