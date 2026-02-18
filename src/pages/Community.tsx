@@ -20,6 +20,7 @@ import {
   Tag,
   Facebook,
   Instagram,
+  Church,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -27,11 +28,18 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const MAIN_CATEGORIES = [
   { key: "dzemat_moschee", label: "Džemati & Moscheen" },
+  { key: "misija_crkva", label: "Misija / Crkva" },
   { key: "restaurant", label: "Restaurants" },
   { key: "baeckerei", label: "Bäckereien" },
   { key: "markt", label: "Märkte" },
   { key: "sport", label: "Sport" },
   { key: "kulturno_drustvo", label: "Kulturno društvo" },
+];
+
+const COUNTRY_OPTIONS = [
+  { key: "", label: "Alle Länder" },
+  { key: "BIH", label: "🇧🇦 Bosna i Hercegovina" },
+  { key: "HR", label: "🇭🇷 Hrvatska" },
 ];
 
 const categoryLabel = (key: string) =>
@@ -62,7 +70,7 @@ export default function Community() {
   const [cityInput, setCityInput] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [categoryFilter, setCategoryFilter] = useState("");
-  const [openCategories, setOpenCategories] = useState<Record<string, boolean>>({});
+  const [countryFilter, setCountryFilter] = useState("");
   const [openBundeslaender, setOpenBundeslaender] = useState<Record<string, boolean>>({});
   const [openCities, setOpenCities] = useState<Record<string, boolean>>({});
 
@@ -100,11 +108,12 @@ export default function Community() {
   /* filtered */
   const filtered = useMemo(() => {
     let result = listings;
+    if (countryFilter) result = result.filter((l) => l.origin_country === countryFilter);
     if (cityInput.length >= 2)
       result = result.filter((l) => l.city.toLowerCase().includes(cityInput.toLowerCase()));
     if (categoryFilter) result = result.filter((l) => l.main_category === categoryFilter);
     return result;
-  }, [listings, cityInput, categoryFilter]);
+  }, [listings, cityInput, categoryFilter, countryFilter]);
 
   /* hierarchy: bundesland → city → category → entries */
   const hierarchy = useMemo(() => {
@@ -172,7 +181,7 @@ export default function Community() {
             transition={{ duration: 0.5 }}
             className="text-2xl font-bold text-white md:text-4xl"
           >
-            Bosnische Community in Deutschland
+            Unsere Community in Deutschland
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 12 }}
@@ -180,7 +189,7 @@ export default function Community() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="mx-auto mt-3 max-w-xl text-sm text-white/50 md:text-base"
           >
-            Finde Džemate, Restaurants, Vereine und Gemeinden aus Bosnien und Herzegowina.
+            Finde Džemate, Misije, Restaurants, Vereine und Gemeinden aus Bosnien und Kroatien.
           </motion.p>
 
           {/* Stats */}
@@ -211,7 +220,7 @@ export default function Community() {
       {/* ─── Sticky Filter Bar ─── */}
       <div className="sticky top-14 z-30" style={{ background: "rgba(15,27,45,0.97)", borderBottom: "1px solid rgba(227,179,65,0.15)" }}>
         <div className="container max-w-5xl py-3">
-          <div className="grid gap-3 sm:grid-cols-2">
+          <div className="grid gap-3 sm:grid-cols-3">
             {/* City Search */}
             <div className="relative">
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/30" />
@@ -254,6 +263,20 @@ export default function Community() {
                 </SelectItem>
                 {MAIN_CATEGORIES.map((c) => (
                   <SelectItem key={c.key} value={c.key} className="text-white/80 focus:text-white hover:!text-[#E3B341]" style={{ background: "transparent" }}>
+                    {c.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+
+            {/* Country */}
+            <Select value={countryFilter} onValueChange={(v) => setCountryFilter(v === "all" ? "" : v)}>
+              <SelectTrigger className="border-white/10 text-white placeholder:text-white/40" style={{ background: "#16263F" }}>
+                <SelectValue placeholder="Land" />
+              </SelectTrigger>
+              <SelectContent className="border-white/10 z-50" style={{ background: "#16263F" }}>
+                {COUNTRY_OPTIONS.map((c) => (
+                  <SelectItem key={c.key || "all"} value={c.key || "all"} className="text-white/80 focus:text-white hover:!text-[#E3B341]" style={{ background: "transparent" }}>
                     {c.label}
                   </SelectItem>
                 ))}
