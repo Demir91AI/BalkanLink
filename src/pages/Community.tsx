@@ -31,6 +31,7 @@ const MAIN_CATEGORIES = [
   { key: "balkan_markt", label: "Balkan-Märkte" },
   { key: "verein", label: "Vereine" },
   { key: "kulturverein", label: "Kulturvereine" },
+  { key: "sport", label: "Sport" },
   { key: "events", label: "Events" },
 ];
 
