@@ -27,14 +27,14 @@ export interface GuideLinks {
 export const guideLinkRegistry: Record<string, GuideLinks> = {
   // ===================== FAMILIE =====================
   kindergeld: {
-    portalUrl: "https://www.arbeitsagentur.de/familie-und-kinder/kindergeld-beantragen",
-    downloadsUrl: "https://www.arbeitsagentur.de/familie-und-kinder/downloads-familie-und-kinder",
-    infoUrl: "https://www.arbeitsagentur.de/familie-und-kinder/kindergeld",
+    portalUrl: "https://www.arbeitsagentur.de/familie-und-kinder/kindergeld",
+    downloadsUrl: "",
+    infoUrl: "https://familienportal.de/familienportal/familienleistungen/kindergeld",
   },
   kinderzuschlag: {
     portalUrl: "https://www.arbeitsagentur.de/familie-und-kinder/kinderzuschlag",
-    downloadsUrl: "https://www.arbeitsagentur.de/familie-und-kinder/downloads-familie-und-kinder",
-    infoUrl: "https://www.arbeitsagentur.de/familie-und-kinder/kinderzuschlag",
+    downloadsUrl: "",
+    infoUrl: "https://familienportal.de/familienportal/familienleistungen/kinderzuschlag",
   },
   elterngeld: {
     portalUrl: "https://www.elterngeld-digital.de",
@@ -71,26 +71,26 @@ export const guideLinkRegistry: Record<string, GuideLinks> = {
 
   // ===================== ARBEIT =====================
   arbeitslosengeld: {
-    portalUrl: "https://www.arbeitsagentur.de/arbeitslos-arbeit-finden/arbeitslosengeld",
+    portalUrl: "https://www.arbeitsagentur.de/arbeitslosengeld",
     downloadsUrl: "",
-    infoUrl: "https://www.arbeitsagentur.de/arbeitslos-arbeit-finden/arbeitslosengeld",
+    infoUrl: "https://www.arbeitsagentur.de/finanzielle-hilfen/arbeitslosengeld-anspruch-hoehe-dauer",
   },
   kurzarbeitergeld: {
     portalUrl: "",
     downloadsUrl: "",
-    infoUrl: "https://www.arbeitsagentur.de/unternehmen/finanziell/kurzarbeitergeld",
+    infoUrl: "https://www.arbeitsagentur.de/kurzarbeit",
   },
 
   // ===================== GESUNDHEIT =====================
   krankengeld: {
     portalUrl: "",
     downloadsUrl: "",
-    infoUrl: "https://www.bundesgesundheitsministerium.de/themen/krankenversicherung",
+    infoUrl: "https://www.bundesgesundheitsministerium.de/krankengeld",
   },
   pflegegrad: {
     portalUrl: "",
     downloadsUrl: "",
-    infoUrl: "https://www.bundesgesundheitsministerium.de/themen/pflege",
+    infoUrl: "https://www.bundesgesundheitsministerium.de/pflege",
   },
   reha: {
     portalUrl: "https://www.eservice-drv.de/SelfServiceWeb/",

@@ -5,7 +5,6 @@ import { getGuideBySlug } from "@/lib/guide-data";
 import { resolveGuideLinks, auditGuideLinks } from "@/lib/guide-links";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useEffect, useMemo } from "react";
-import { useLinkHealth } from "@/hooks/useLinkHealth";
 
 type LangKey = "de" | "bs" | "en";
 
@@ -23,12 +22,7 @@ export default function GuideDetail() {
 
   // All hooks MUST be before early returns
   const resolved = useMemo(() => resolveGuideLinks(guide?.slug || ""), [guide?.slug]);
-  const { links: registryLinks, showFallbackHint } = resolved;
-
-  const allUrls = useMemo(() => registryLinks.map((l) => l.url), [registryLinks]);
-  const { deadLinks } = useLinkHealth(allUrls);
-  const liveLinks = useMemo(() => registryLinks.filter((l) => !deadLinks.has(l.url)), [registryLinks, deadLinks]);
-  const showFallback = showFallbackHint || liveLinks.length < registryLinks.length;
+  const { links: liveLinks, showFallbackHint: showFallback } = resolved;
 
   useEffect(() => {
     if (import.meta.env.DEV) {
