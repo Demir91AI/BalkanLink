@@ -78,7 +78,7 @@ export default function ChatAssistant() {
 
   // Focus input when opened
   useEffect(() => {
-    if (open) inputRef.current?.focus();
+    if (open) setTimeout(() => inputRef.current?.focus({ preventScroll: true }), 100);
   }, [open]);
 
   const sendMessage = useCallback(async () => {
