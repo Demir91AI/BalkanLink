@@ -3,6 +3,7 @@ import { ArrowRight, FileText } from "lucide-react";
 import { motion } from "framer-motion";
 import { guides } from "@/lib/guide-data";
 import { useLanguage } from "@/contexts/LanguageContext";
+import LegalDisclaimer from "@/components/LegalDisclaimer";
 
 type LangKey = "de" | "bs" | "en";
 function getLangKey(lang: string): LangKey {
@@ -60,6 +61,7 @@ export default function Formulare() {
               </motion.div>
             ))}
           </motion.div>
+          <LegalDisclaimer />
         </div>
       </section>
     </>

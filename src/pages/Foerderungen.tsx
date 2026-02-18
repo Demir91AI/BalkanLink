@@ -3,6 +3,7 @@ import { ArrowRight, Home, Briefcase, HeartPulse, GraduationCap } from "lucide-r
 import { motion } from "framer-motion";
 import { getGuidesByCategory, type Guide } from "@/lib/guide-data";
 import { useLanguage } from "@/contexts/LanguageContext";
+import LegalDisclaimer from "@/components/LegalDisclaimer";
 
 type LangKey = "de" | "bs" | "en";
 function getLangKey(lang: string): LangKey {
@@ -82,6 +83,7 @@ export default function Foerderungen() {
               </div>
             );
           })}
+          <LegalDisclaimer />
         </div>
       </section>
     </>
