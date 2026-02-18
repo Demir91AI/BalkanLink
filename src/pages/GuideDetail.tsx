@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 import { getGuideBySlug } from "@/lib/guide-data";
 import { resolveGuideLinks, auditGuideLinks } from "@/lib/guide-links";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
+import { useLinkHealth } from "@/hooks/useLinkHealth";
 
 type LangKey = "de" | "bs" | "en";
 
@@ -20,7 +21,15 @@ export default function GuideDetail() {
   const guide = getGuideBySlug(slug || "");
   const lk = getLangKey(language);
 
-  // DEV: audit links on first render
+  // All hooks MUST be before early returns
+  const resolved = useMemo(() => resolveGuideLinks(guide?.slug || ""), [guide?.slug]);
+  const { links: registryLinks, showFallbackHint } = resolved;
+
+  const allUrls = useMemo(() => registryLinks.map((l) => l.url), [registryLinks]);
+  const { deadLinks } = useLinkHealth(allUrls);
+  const liveLinks = useMemo(() => registryLinks.filter((l) => !deadLinks.has(l.url)), [registryLinks, deadLinks]);
+  const showFallback = showFallbackHint || liveLinks.length < registryLinks.length;
+
   useEffect(() => {
     if (import.meta.env.DEV) {
       auditGuideLinks();
@@ -67,9 +76,6 @@ export default function GuideDetail() {
     gesundheit: "/foerderungen",
     bildung: "/foerderungen",
   };
-
-  // Use central link registry (Single Source of Truth)
-  const { links: registryLinks, showFallbackHint } = resolveGuideLinks(guide.slug);
 
   const linkIcon = (type: string) => {
     if (type === "portal") return <ExternalLink className="h-4 w-4" />;
@@ -183,13 +189,13 @@ export default function GuideDetail() {
             </motion.div>
           </div>
 
-          {/* Službeni linkovi — from central registry */}
+          {/* Službeni linkovi — only live links shown */}
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} className="rounded-xl border bg-card p-6 shadow-sm">
             <h2 className="mb-3 text-sm font-bold">{labels.links}</h2>
 
-            {registryLinks.length > 0 && (
+            {liveLinks.length > 0 && (
               <div className="flex flex-col gap-2 sm:flex-row">
-                {registryLinks.map((link, i) => (
+                {liveLinks.map((link, i) => (
                   <a
                     key={i}
                     href={link.url}
@@ -203,8 +209,8 @@ export default function GuideDetail() {
               </div>
             )}
 
-            {showFallbackHint && (
-              <p className={`text-xs text-muted-foreground ${registryLinks.length > 0 ? "mt-3" : ""}`}>
+            {showFallback && (
+              <p className={`text-xs text-muted-foreground ${liveLinks.length > 0 ? "mt-3" : ""}`}>
                 <Info className="mr-1 inline h-3 w-3" />
                 {fallbackTexts[lk]}
               </p>
