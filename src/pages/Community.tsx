@@ -18,6 +18,8 @@ import {
   Search,
   Building2,
   Tag,
+  Facebook,
+  Instagram,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -443,12 +445,6 @@ export default function Community() {
                                                             </p>
                                                           )}
 
-                                                          {item.description && (
-                                                            <p className="mt-2 text-xs leading-relaxed text-white/50">
-                                                              {item.description}
-                                                            </p>
-                                                          )}
-
                                                           <div className="mt-3 flex flex-wrap gap-2">
                                                             {item.google_maps_url && (
                                                               <a
@@ -478,6 +474,20 @@ export default function Community() {
                                                                 Website
                                                               </a>
                                                             )}
+                                                            {item.description && item.description.startsWith("https://facebook.com") && (
+                                                              <a
+                                                                href={item.description}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                className="inline-flex items-center gap-1 rounded-md px-2.5 py-1 text-xs font-medium transition-colors"
+                                                                style={{ background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.7)" }}
+                                                                onMouseOver={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "#E3B341"; }}
+                                                                onMouseOut={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.color = "rgba(255,255,255,0.7)"; }}
+                                                              >
+                                                                <Facebook className="h-3 w-3" />
+                                                                Facebook
+                                                              </a>
+                                                            )}
                                                             {item.instagram && (
                                                               <a
                                                                 href={item.instagram}
@@ -488,7 +498,7 @@ export default function Community() {
                                                                 onMouseOver={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "#E3B341"; }}
                                                                 onMouseOut={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.color = "rgba(255,255,255,0.7)"; }}
                                                               >
-                                                                <Globe className="h-3 w-3" />
+                                                                <Instagram className="h-3 w-3" />
                                                                 Instagram
                                                               </a>
                                                             )}
