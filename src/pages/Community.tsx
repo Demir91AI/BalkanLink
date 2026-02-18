@@ -45,6 +45,13 @@ const KOD_NASIH_CATEGORIES = [
   { key: "markt", label: "Märkte" },
 ];
 
+/* Sub-groups for national tabs */
+const NATIONAL_SUBGROUPS = [
+  { key: "religija", label: "⛪ Religija", categories: ["dzemat_moschee", "misija_crkva", "religijski_objekat"] },
+  { key: "sport", label: "⚽ Sport", categories: ["sport"] },
+  { key: "kultura", label: "🎭 Kultura & Ostalo", categories: ["kulturno_drustvo"] },
+];
+
 const NATIONAL_CATEGORIES = [
   { key: "dzemat_moschee", label: "Džemati & Moscheen" },
   { key: "misija_crkva", label: "Misija / Crkva" },
@@ -86,6 +93,7 @@ export default function Community() {
   const [activeTab, setActiveTab] = useState("KOD_NASIH");
   const [openBundeslaender, setOpenBundeslaender] = useState<Record<string, boolean>>({});
   const [openCities, setOpenCities] = useState<Record<string, boolean>>({});
+  const [activeSubgroup, setActiveSubgroup] = useState("");
 
   const cityRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
@@ -127,8 +135,13 @@ export default function Community() {
     if (cityInput.length >= 2)
       result = result.filter((l) => l.city.toLowerCase().includes(cityInput.toLowerCase()));
     if (categoryFilter) result = result.filter((l) => l.main_category === categoryFilter);
+    // Sub-group filter for national tabs
+    if (activeTab !== "KOD_NASIH" && activeSubgroup) {
+      const sg = NATIONAL_SUBGROUPS.find((s) => s.key === activeSubgroup);
+      if (sg) result = result.filter((l) => sg.categories.includes(l.main_category));
+    }
     return result;
-  }, [listings, cityInput, categoryFilter, activeTab]);
+  }, [listings, cityInput, categoryFilter, activeTab, activeSubgroup]);
 
   /* hierarchy: bundesland → city → category → entries */
   const hierarchy = useMemo(() => {
@@ -290,7 +303,7 @@ export default function Community() {
             {TOP_TABS.map((tab) => (
               <button
                 key={tab.key}
-                onClick={() => { setActiveTab(tab.key); setCategoryFilter(""); }}
+                onClick={() => { setActiveTab(tab.key); setCategoryFilter(""); setActiveSubgroup(""); }}
                 className="whitespace-nowrap rounded-lg px-4 py-2 text-sm font-semibold transition-all"
                 style={{
                   background: activeTab === tab.key ? "rgba(227,179,65,0.15)" : "rgba(255,255,255,0.04)",
@@ -302,6 +315,37 @@ export default function Community() {
               </button>
             ))}
           </div>
+
+          {/* Sub-group filter chips for national tabs */}
+          {activeTab !== "KOD_NASIH" && (
+            <div className="mt-2 flex gap-2 overflow-x-auto pb-1">
+              <button
+                onClick={() => setActiveSubgroup("")}
+                className="whitespace-nowrap rounded-full px-3 py-1.5 text-xs font-semibold transition-all"
+                style={{
+                  background: !activeSubgroup ? "rgba(227,179,65,0.2)" : "rgba(255,255,255,0.04)",
+                  color: !activeSubgroup ? "#E3B341" : "rgba(255,255,255,0.5)",
+                  border: !activeSubgroup ? "1px solid rgba(227,179,65,0.3)" : "1px solid rgba(255,255,255,0.08)",
+                }}
+              >
+                Sve
+              </button>
+              {NATIONAL_SUBGROUPS.map((sg) => (
+                <button
+                  key={sg.key}
+                  onClick={() => setActiveSubgroup(activeSubgroup === sg.key ? "" : sg.key)}
+                  className="whitespace-nowrap rounded-full px-3 py-1.5 text-xs font-semibold transition-all"
+                  style={{
+                    background: activeSubgroup === sg.key ? "rgba(227,179,65,0.2)" : "rgba(255,255,255,0.04)",
+                    color: activeSubgroup === sg.key ? "#E3B341" : "rgba(255,255,255,0.5)",
+                    border: activeSubgroup === sg.key ? "1px solid rgba(227,179,65,0.3)" : "1px solid rgba(255,255,255,0.08)",
+                  }}
+                >
+                  {sg.label}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
