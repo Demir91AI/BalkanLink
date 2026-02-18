@@ -16,9 +16,41 @@ const PLACEHOLDER: Record<string, string> = {
 };
 
 const WELCOME: Record<string, string> = {
-  bs: "Dobrodošli. Kako vam mogu pomoći?",
-  de: "Willkommen. Wie kann ich Ihnen helfen?",
-  en: "Welcome. How can I help you?",
+  bs: `Dobrodošli u BalkanDE Formular-Assistent.
+
+Ovaj digitalni asistent pomaže vam da razumijete i pravilno popunite njemačke administrativne obrasce.
+Dobijate strukturirana objašnjenja korak-po-korak, detaljna pojašnjenja svakog polja u formularu, listu potrebnih dokumenata, informacije o rokovima i najčešćim greškama.
+
+Možete postaviti pitanja u vezi sa:
+– Kindergeld
+– Bürgergeld
+– Wohngeld
+– Elterngeld
+– Prijava prebivališta
+– Steuer-ID i porezna klasa
+– Ostali formulari dostupni na platformi
+
+Primjer pitanja:
+„Rodilo mi se dijete, kako da podnesem zahtjev za Kindergeld?"
+„Kako da popunim Anlage Kind?"
+„Koje dokumente trebam za Bürgergeld?"
+
+Asistent pruža opće i informativne smjernice.
+Ne unosite osjetljive podatke (Steuer-ID, IBAN, broj pasoša ili lične karte).
+
+Navedite svoju situaciju i dobićete jasan, strukturiran vodič.`,
+  de: `Willkommen beim BalkanDE Formular-Assistenten.
+
+Dieser digitale Assistent hilft Ihnen, deutsche Verwaltungsformulare zu verstehen und korrekt auszufüllen.
+Sie erhalten strukturierte Schritt-für-Schritt-Erklärungen, detaillierte Feld-für-Feld-Erläuterungen, eine Checkliste der benötigten Unterlagen sowie Hinweise zu Fristen und häufigen Fehlern.
+
+Stellen Sie Ihre Frage und Sie erhalten einen klaren, strukturierten Leitfaden.`,
+  en: `Welcome to the BalkanDE Form Assistant.
+
+This digital assistant helps you understand and correctly fill out German administrative forms.
+You receive structured step-by-step explanations, detailed field-by-field guidance, a checklist of required documents, and information about deadlines and common mistakes.
+
+Describe your situation and you'll receive a clear, structured guide.`,
 };
 
 const ERROR_MSG: Record<string, string> = {
