@@ -22,9 +22,11 @@ export default function Footer() {
           <div>
             <h4 className="mb-3 text-xs font-bold uppercase tracking-widest text-primary-foreground/40">Legal</h4>
             <nav className="flex flex-col gap-2">
-              <Link to="/impressum" className="text-sm text-primary-foreground/70 transition-colors hover:text-gold">{t("footer.imprint")}</Link>
-              <Link to="/datenschutz" className="text-sm text-primary-foreground/70 transition-colors hover:text-gold">{t("footer.privacy")}</Link>
-              <Link to="/disclaimer" className="text-sm text-primary-foreground/70 transition-colors hover:text-gold">{t("footer.disclaimer")}</Link>
+              <Link to="/impressum" className="text-sm text-primary-foreground/70 transition-colors hover:text-gold">Impressum</Link>
+              <Link to="/datenschutz" className="text-sm text-primary-foreground/70 transition-colors hover:text-gold">Datenschutz</Link>
+              <Link to="/haftungsausschluss" className="text-sm text-primary-foreground/70 transition-colors hover:text-gold">Haftungsausschluss</Link>
+              <Link to="/mitgliedschaft" className="text-sm text-primary-foreground/70 transition-colors hover:text-gold">Mitgliedschaft</Link>
+              <Link to="/ki-hinweis" className="text-sm text-primary-foreground/70 transition-colors hover:text-gold">KI-Hinweis</Link>
             </nav>
           </div>
 
