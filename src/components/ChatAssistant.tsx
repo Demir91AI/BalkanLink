@@ -16,9 +16,9 @@ const PLACEHOLDER: Record<string, string> = {
 };
 
 const WELCOME: Record<string, string> = {
-  bs: `Dobar dan i dobrodošli.\n\nDigitalni asistent vam pomaže sa:\n• Popunjavanjem formulara (npr. Kindergeld, Bürgergeld)\n• Objašnjenjem procedura korak po korak\n• Informacijama o institucijama, džematima, uslugama i dr.\n\nPrimjer: „Kako podnijeti zahtjev za Kindergeld?"`,
-  de: `Guten Tag und willkommen.\n\nDer digitale Assistent hilft Ihnen bei:\n• Ausfüllen von Formularen (z.B. Kindergeld, Bürgergeld)\n• Schritt-für-Schritt-Erklärungen von Verfahren\n• Informationen zu Institutionen, Gemeinden, Dienstleistungen u.a.\n\nBeispiel: „Wie beantrage ich Kindergeld?"`,
-  en: `Good day and welcome.\n\nThe digital assistant helps you with:\n• Filling out forms (e.g. Kindergeld, Bürgergeld)\n• Step-by-step procedure explanations\n• Information about institutions, communities, services and more\n\nExample: "How do I apply for Kindergeld?"`,
+  bs: "Digitalni asistent BalkanDE\nPruža pomoć pri popunjavanju formulara, objašnjava postupke korak po korak i daje opće informacije o institucijama i uslugama u Njemačkoj.\nPrimjer: \u201EKako podnijeti zahtjev za Kindergeld?\u201C",
+  de: "Digitaler Assistent BalkanDE\nHilft beim Ausfüllen von Formularen, erklärt Verfahren Schritt für Schritt und gibt allgemeine Informationen zu Institutionen und Dienstleistungen in Deutschland.\nBeispiel: \u201EWie beantrage ich Kindergeld?\u201C",
+  en: "BalkanDE Digital Assistant\nHelps with filling out forms, explains procedures step by step, and provides general information about institutions and services in Germany.\nExample: \u201CHow do I apply for Kindergeld?\u201D",
 };
 
 const ERROR_MSG: Record<string, string> = {
@@ -46,10 +46,10 @@ function ChatMarkdown({ content }: { content: string }) {
             </a>
           );
         },
-        p: ({ children }) => <p className="mb-2 last:mb-0">{children}</p>,
-        ol: ({ children }) => <ol className="mb-2 list-decimal space-y-1 pl-5">{children}</ol>,
-        ul: ({ children }) => <ul className="mb-2 list-disc space-y-1 pl-5">{children}</ul>,
-        li: ({ children }) => <li className="text-sm">{children}</li>,
+        p: ({ children }) => <p className="mb-1.5 last:mb-0">{children}</p>,
+        ol: ({ children }) => <ol className="mb-1.5 list-decimal space-y-0.5 pl-5">{children}</ol>,
+        ul: ({ children }) => <ul className="mb-1.5 list-disc space-y-0.5 pl-5">{children}</ul>,
+        li: ({ children }) => <li className="text-[13px] leading-snug">{children}</li>,
         strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
       }}
     >
@@ -186,13 +186,13 @@ export default function ChatAssistant() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-6 right-6 z-50 flex h-[520px] w-[380px] max-w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-2xl border bg-card shadow-2xl"
+            className="fixed bottom-6 right-6 z-50 flex h-[75vh] max-h-[560px] w-[370px] max-w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-2xl border bg-card shadow-2xl"
           >
             {/* Header */}
-            <div className="flex items-center justify-between border-b bg-primary px-4 py-3">
+            <div className="flex items-center justify-between border-b bg-primary px-3 py-2">
               <div>
-                <p className="text-sm font-semibold text-primary-foreground">BalkanDE Assistent</p>
-                <p className="text-[10px] text-primary-foreground/60">
+                <p className="text-[13px] font-semibold leading-tight text-primary-foreground">BalkanDE Assistent</p>
+                <p className="text-[9px] leading-tight text-primary-foreground/50">
                   {lk === "de" ? "Digitaler Assistent" : lk === "en" ? "Digital Assistant" : "Digitalni savjetnik"}
                 </p>
               </div>
@@ -205,18 +205,19 @@ export default function ChatAssistant() {
             </div>
 
             {/* Messages */}
-            <div ref={scrollRef} className="flex-1 space-y-3 overflow-y-auto p-4">
+            <div ref={scrollRef} className="flex-1 space-y-2 overflow-y-auto px-3 py-2.5">
               {/* Welcome */}
               {messages.length === 0 && (
-                <div className="rounded-xl bg-muted px-4 py-3">
-                  <p className="text-sm leading-relaxed text-muted-foreground whitespace-pre-line">{WELCOME[lk]}</p>
+                <div className="rounded-lg bg-muted px-3 py-2.5">
+                  <p className="text-[13px] font-semibold leading-tight text-foreground mb-1">{lk === "de" ? "Digitaler Assistent BalkanDE" : lk === "en" ? "BalkanDE Digital Assistant" : "Digitalni asistent BalkanDE"}</p>
+                  <p className="text-[12px] leading-snug text-muted-foreground">{WELCOME[lk].split("\n").slice(1).join(" ")}</p>
                 </div>
               )}
 
               {messages.map((msg, i) => (
                 <div key={i} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
                   <div
-                    className={`max-w-[85%] rounded-xl px-4 py-2.5 text-sm leading-relaxed ${
+                    className={`max-w-[85%] rounded-lg px-3 py-2 text-[13px] leading-snug ${
                       msg.role === "user"
                         ? "bg-primary text-primary-foreground"
                         : "bg-muted text-foreground"
@@ -233,7 +234,7 @@ export default function ChatAssistant() {
 
               {loading && messages[messages.length - 1]?.role === "user" && (
                 <div className="flex justify-start">
-                  <div className="rounded-xl bg-muted px-4 py-3">
+                  <div className="rounded-lg bg-muted px-3 py-2">
                     <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />
                   </div>
                 </div>
@@ -241,7 +242,7 @@ export default function ChatAssistant() {
             </div>
 
             {/* Input */}
-            <div className="border-t p-3">
+            <div className="border-t px-3 py-2">
               <div className="flex items-end gap-2">
                 <textarea
                   ref={inputRef}
@@ -250,12 +251,12 @@ export default function ChatAssistant() {
                   onKeyDown={handleKeyDown}
                   placeholder={PLACEHOLDER[lk]}
                   rows={1}
-                  className="flex-1 resize-none rounded-xl border bg-background px-3 py-2.5 text-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-primary"
+                  className="flex-1 resize-none rounded-lg border bg-background px-2.5 py-2 text-[13px] outline-none transition-colors placeholder:text-muted-foreground focus:border-primary"
                 />
                 <button
                   onClick={sendMessage}
                   disabled={!input.trim() || loading}
-                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground transition-opacity disabled:opacity-40"
+                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground transition-opacity disabled:opacity-40"
                 >
                   <Send className="h-4 w-4" />
                 </button>
