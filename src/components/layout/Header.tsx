@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Crown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Header() {
-  const { user, loading, signOut } = useAuth();
+  const { user, loading, isPremium, signOut } = useAuth();
   const { t, language, setLanguage, languages, currentFlag } = useLanguage();
 
   return (
@@ -24,6 +24,23 @@ export default function Header() {
 
         {/* Right side */}
         <div className="flex items-center gap-1.5">
+          {/* Premium CTA / Badge */}
+          {!loading && (
+            isPremium ? (
+              <Link to="/premium" className="mr-1 flex items-center gap-1.5 rounded-lg bg-gold/10 px-3 py-1.5 text-[12px] font-semibold text-gold ring-1 ring-gold/20 transition-colors hover:bg-gold/15">
+                <Crown className="h-3.5 w-3.5" />
+                <span className="hidden sm:inline">Premium član</span>
+              </Link>
+            ) : (
+              <Button variant="ghost" size="sm" asChild className="mr-1 h-8 gap-1.5 rounded-lg text-[12px] font-semibold text-gold hover:bg-gold/10 hover:text-gold">
+                <Link to="/premium">
+                  <Crown className="h-3.5 w-3.5" />
+                  <span className="hidden sm:inline">Premium</span>
+                </Link>
+              </Button>
+            )
+          )}
+
           {/* Language Picker */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
