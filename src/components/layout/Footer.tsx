@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { Star } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import logo from "@/assets/logo-balkanlink.png";
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -12,9 +11,8 @@ export default function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
-            <Link to="/" className="flex items-center gap-2">
-              <img src={logo} alt="BalkanLink" className="h-6 w-auto object-contain" />
-              <span className="font-heading text-[15px] font-extrabold tracking-tight">
+            <Link to="/" className="flex items-center">
+              <span className="font-heading text-base font-extrabold tracking-tight">
                 Balkan<span className="text-gold">Link</span>
               </span>
             </Link>
