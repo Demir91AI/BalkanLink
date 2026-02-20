@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
-import logo from "@/assets/logo-balkanlink.png";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { useAuth } from "@/contexts/AuthContext";
@@ -14,9 +13,8 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-white/8 bg-[#0B1F3A]/95 backdrop-blur-xl shadow-lg shadow-black/20">
       <div className="container flex h-14 items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2.5">
-          <img src={logo} alt="BalkanLink" className="h-7 w-auto object-contain" />
-          <span className="font-heading text-[17px] font-extrabold tracking-tight text-white">
+        <Link to="/" className="flex items-center">
+          <span className="font-heading text-lg font-extrabold tracking-tight text-white">
             Balkan<span className="text-gold">Link</span>
           </span>
         </Link>
