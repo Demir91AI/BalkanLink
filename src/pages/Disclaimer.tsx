@@ -14,7 +14,7 @@ export default function Disclaimer() {
           Für verbindliche Auskünfte wenden Sie sich bitte an die zuständige Behörde oder einen Rechtsanwalt.
         </p>
         <p>
-          BalkanDE übernimmt keine Haftung für Entscheidungen, die auf Grundlage der bereitgestellten Informationen getroffen werden.
+          BalkanLink übernimmt keine Haftung für Entscheidungen, die auf Grundlage der bereitgestellten Informationen getroffen werden.
         </p>
       </div>
     </div>

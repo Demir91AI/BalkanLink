@@ -6,19 +6,19 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const texts = {
   bs: {
-    title: "Ovaj sadržaj je dio BalkanDE Premium.",
+    title: "Ovaj sadržaj je dio BalkanLink Premium.",
     desc: "Otključaj kompletne upute, formulare i ličnu podršku.",
     cta: "Otključaj Premium",
     login: "Prijavi se",
   },
   de: {
-    title: "Dieser Inhalt ist Teil von BalkanDE Premium.",
+    title: "Dieser Inhalt ist Teil von BalkanLink Premium.",
     desc: "Erhalte vollständige Anleitungen, Formulare und persönliche Unterstützung.",
     cta: "Premium freischalten",
     login: "Anmelden",
   },
   en: {
-    title: "This content is part of BalkanDE Premium.",
+    title: "This content is part of BalkanLink Premium.",
     desc: "Get complete guides, forms, and personal support.",
     cta: "Unlock Premium",
     login: "Sign in",

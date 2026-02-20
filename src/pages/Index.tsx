@@ -1,9 +1,9 @@
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
-  Plane, Building2, Briefcase, Users, Scale, FileText,
-  Wrench, Landmark, Heart, ArrowRight,
+  Wrench, Briefcase, Building2, FileText, UtensilsCrossed, Users,
+  Bus, HelpCircle, ArrowRight, Crown, Check, Shield, Sparkles,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
@@ -17,13 +17,39 @@ import heroStuttgart from "@/assets/hero-stuttgart.jpg";
 import heroDuesseldorf from "@/assets/hero-duesseldorf.jpg";
 import heroNuernberg from "@/assets/hero-nuernberg.jpg";
 
+/* ── Feature cards data ── */
+const featureCards = [
+  { title: "Trebam majstora", icon: Wrench, to: "/community", color: "from-amber-500/15 to-amber-600/5" },
+  { title: "Tražim posao", icon: Briefcase, to: "/stellenangebote", color: "from-blue-500/15 to-blue-600/5" },
+  { title: "Tražim stan", icon: Building2, to: "/wohnungen", color: "from-emerald-500/15 to-emerald-600/5" },
+  { title: "Trebam pomoć s papirima", icon: FileText, to: "/formulare", color: "from-violet-500/15 to-violet-600/5" },
+  { title: "Naši restorani", icon: UtensilsCrossed, to: "/community", color: "from-rose-500/15 to-rose-600/5" },
+  { title: "Džemati i zajednice", icon: Users, to: "/dzamije", color: "from-cyan-500/15 to-cyan-600/5" },
+  { title: "Putovanja & prevoz", icon: Bus, to: "/community", color: "from-orange-500/15 to-orange-600/5" },
+  { title: "Imam pitanje", icon: HelpCircle, to: "/qa", color: "from-indigo-500/15 to-indigo-600/5" },
+];
+
+const communityExamples = [
+  "Prijava djeteta u školu",
+  "Selidba u novi grad",
+  "Inkasso pismo",
+  "Promjena posla",
+  "Kupovina auta",
+];
+
+const premiumBenefits = [
+  "Svi formulari",
+  "Provjereni kontakti",
+  "Pravni šabloni",
+  "Prioritet odgovora",
+  "Partner popusti",
+];
+
 export default function Index() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [activeUsers] = useState(() => 1240 + Math.floor(Math.random() * 300));
   const { t } = useLanguage();
   const { user, loading } = useAuth();
-  const heroRef = useRef<HTMLElement>(null);
-  const { scrollY } = useScroll();
-  const parallaxY = useTransform(scrollY, [0, 600], [0, 80]);
 
   const slides = [
     { image: heroFrankfurt, city: "FRANKFURT" },
@@ -34,18 +60,6 @@ export default function Index() {
     { image: heroStuttgart, city: "STUTTGART" },
     { image: heroDuesseldorf, city: "DÜSSELDORF" },
     { image: heroNuernberg, city: "NÜRNBERG" },
-  ];
-
-  const portalCards = [
-    { title: t("portal.dolazak"), desc: t("portal.dolazak.desc"), icon: Plane, to: "/dolazak", gradient: "from-blue-500/10 to-blue-600/5" },
-    { title: t("portal.stan"), desc: t("portal.stan.desc"), icon: Building2, to: "/wohnungen", gradient: "from-emerald-500/10 to-emerald-600/5" },
-    { title: t("portal.jobs"), desc: t("portal.jobs.desc"), icon: Briefcase, to: "/stellenangebote", gradient: "from-amber-500/10 to-amber-600/5" },
-    { title: t("portal.familie"), desc: t("portal.familie.desc"), icon: Users, to: "/familie", gradient: "from-rose-500/10 to-rose-600/5" },
-    { title: t("portal.foerderungen"), desc: t("portal.foerderungen.desc"), icon: Scale, to: "/foerderungen", gradient: "from-violet-500/10 to-violet-600/5" },
-    { title: t("portal.formulare"), desc: t("portal.formulare.desc"), icon: FileText, to: "/formulare", gradient: "from-cyan-500/10 to-cyan-600/5" },
-    { title: t("portal.tools"), desc: t("portal.tools.desc"), icon: Wrench, to: "/generatoren", gradient: "from-orange-500/10 to-orange-600/5" },
-    { title: t("portal.ambasade"), desc: t("portal.ambasade.desc"), icon: Landmark, to: "/ambasade-konzulati", gradient: "from-indigo-500/10 to-indigo-600/5" },
-    { title: t("portal.community"), desc: t("portal.community.desc"), icon: Heart, to: "/community", gradient: "from-pink-500/10 to-pink-600/5" },
   ];
 
   const nextSlide = useCallback(() => {
@@ -59,98 +73,86 @@ export default function Index() {
 
   return (
     <>
-      {/* ─── CINEMATIC HERO ─── */}
-      <section ref={heroRef} className="relative h-[85vh] min-h-[480px] max-h-[800px] overflow-hidden bg-primary">
-        {/* Parallax image layer */}
+      {/* ─── HERO ─── */}
+      <section className="relative h-[88vh] min-h-[520px] max-h-[860px] overflow-hidden bg-[#0B1F3A]">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
-            initial={{ opacity: 0, scale: 1.05 }}
+            initial={{ opacity: 0, scale: 1.04 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1.4, ease: "easeOut" }}
             className="absolute inset-0"
           >
-            <motion.img
+            <img
               src={slides[currentSlide].image}
               alt={slides[currentSlide].city}
               className="h-full w-full object-cover"
-              style={{ y: parallaxY }}
               loading="eager"
             />
           </motion.div>
         </AnimatePresence>
 
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/40 to-black/70" />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent" />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A]/70 via-[#0B1F3A]/50 to-[#0B1F3A]/85" />
 
         {/* Content */}
         <div className="container relative z-10 flex h-full flex-col items-center justify-center text-center">
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 36 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.2 }}
-            className="max-w-3xl"
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="max-w-2xl"
           >
-            <h1 className="font-heading text-2xl font-black leading-[1.1] text-white sm:text-4xl md:text-5xl lg:text-6xl">
-              {t("hero.slide1.title")}
+            {/* Logo mark */}
+            <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gold font-heading text-lg font-black text-[#0B1F3A]">
+              BL
+            </div>
+
+            <h1 className="font-heading text-3xl font-black leading-[1.1] text-white sm:text-4xl md:text-5xl lg:text-[3.5rem]">
+              Tvoj vodič za život
+              <br />
+              <span className="text-gold">u Njemačkoj.</span>
             </h1>
-            <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-white/60 sm:text-base md:text-lg">
-              {t("hero.slide1.subtitle")}
+            <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-white/50 sm:text-base md:text-lg">
+              Sve što ti treba — na jednom mjestu.
             </p>
 
             {!loading && !user && (
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="mt-6 sm:mt-10 flex flex-col items-center gap-3"
+                transition={{ duration: 0.5, delay: 0.6 }}
+                className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-4"
               >
-                {/* Primary CTA — Gold gradient button */}
                 <Link
                   to="/register"
-                  className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full w-full sm:w-auto px-8 py-3.5 sm:px-10 sm:py-4 text-sm sm:text-base font-bold tracking-wide transition-all duration-300"
-                  style={{
-                    background: "linear-gradient(135deg, #D4AF37 0%, #E8C84A 50%, #D4AF37 100%)",
-                    color: "#1a1a1a",
-                    boxShadow: "0 4px 24px -4px rgba(212, 175, 55, 0.5), 0 0 40px -12px rgba(212, 175, 55, 0.3)",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.boxShadow = "0 8px 32px -4px rgba(212, 175, 55, 0.65), 0 0 60px -12px rgba(212, 175, 55, 0.4)";
-                    e.currentTarget.style.transform = "translateY(-2px)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.boxShadow = "0 4px 24px -4px rgba(212, 175, 55, 0.5), 0 0 40px -12px rgba(212, 175, 55, 0.3)";
-                    e.currentTarget.style.transform = "translateY(0)";
-                  }}
+                  className="btn-gold-gradient group inline-flex items-center justify-center gap-2 rounded-full px-8 py-3.5 text-sm font-bold tracking-wide sm:px-10 sm:py-4 sm:text-base"
                 >
-                  {t("hero.cta.register")}
-                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  Registruj se besplatno
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
-
-                {/* Secondary CTA — subtle text link, no white box */}
                 <Link
                   to="/dolazak"
-                  className="group inline-flex items-center gap-1.5 text-sm font-medium text-white/50 transition-colors duration-300 hover:text-gold"
+                  className="group inline-flex items-center gap-1.5 text-sm font-medium text-white/40 transition-colors hover:text-gold"
                 >
-                  {t("hero.cta.firstSteps")}
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                  Pogledaj kako radi
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                 </Link>
               </motion.div>
             )}
           </motion.div>
 
-          {/* City name */}
-          <div className="absolute bottom-24 left-1/2 -translate-x-1/2">
+          {/* City label */}
+          <div className="absolute bottom-20 left-1/2 -translate-x-1/2">
             <AnimatePresence mode="wait">
               <motion.span
                 key={currentSlide}
-                initial={{ opacity: 0, y: 8 }}
+                initial={{ opacity: 0, y: 6 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.5 }}
-                className="text-[11px] font-semibold uppercase tracking-[0.4em] text-white/30"
+                exit={{ opacity: 0, y: -6 }}
+                transition={{ duration: 0.4 }}
+                className="text-[10px] font-semibold uppercase tracking-[0.5em] text-white/20"
               >
                 {slides[currentSlide].city}
               </motion.span>
@@ -158,7 +160,7 @@ export default function Index() {
           </div>
 
           {/* Dots */}
-          <div className="absolute bottom-10 flex gap-2">
+          <div className="absolute bottom-8 flex gap-2">
             {slides.map((_, idx) => (
               <button
                 key={idx}
@@ -166,7 +168,7 @@ export default function Index() {
                 className={`rounded-full transition-all duration-500 ${
                   idx === currentSlide
                     ? "h-2 w-8 bg-gold"
-                    : "h-2 w-2 bg-white/25 hover:bg-white/40"
+                    : "h-2 w-2 bg-white/20 hover:bg-white/40"
                 }`}
                 aria-label={`Slide ${idx + 1}`}
               />
@@ -175,46 +177,148 @@ export default function Index() {
         </div>
       </section>
 
-      {/* ─── ANIMATED SEPARATOR ─── */}
-      <div className="section-separator" />
-
-      {/* ─── DYNAMIC CATEGORY GRID ─── */}
-      <section className="relative py-10 sm:py-16 lg:py-20">
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/30 to-background" />
-
+      {/* ─── FEATURE CARDS ─── */}
+      <section className="relative py-14 sm:py-20">
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/20 to-background" />
         <div className="container relative">
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.05 }}
-            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.07 } } }}
-            className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.06 } } }}
+            className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4"
           >
-            {portalCards.map((card) => (
+            {featureCards.map((card) => (
               <motion.div
-                key={card.to}
+                key={card.to + card.title}
                 variants={{
-                  hidden: { opacity: 0, y: 28 },
-                  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+                  hidden: { opacity: 0, y: 24 },
+                  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
                 }}
               >
                 <Link
                   to={card.to}
-                  className={`group relative flex items-start gap-3 sm:gap-4 overflow-hidden rounded-xl sm:rounded-2xl border border-border/60 bg-gradient-to-br ${card.gradient} bg-card p-4 sm:p-5 lg:p-6 shadow-sm transition-all duration-400 hover:border-gold/30 hover:shadow-xl hover:shadow-gold/5 hover:-translate-y-1`}
+                  className={`group relative flex flex-col items-center gap-3 overflow-hidden rounded-2xl border border-border/50 bg-gradient-to-br ${card.color} bg-card p-5 sm:p-6 text-center shadow-sm transition-all duration-300 hover:border-gold/30 hover:shadow-xl hover:shadow-gold/5 hover:-translate-y-1`}
                 >
-                  <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gold/0 transition-all duration-500 group-hover:bg-gold/10 group-hover:blur-2xl" />
-
-                  <div className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-lg sm:rounded-xl bg-primary/8 text-primary transition-all duration-300 group-hover:bg-gold/15 group-hover:text-gold group-hover:scale-110">
+                  <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-[radial-gradient(circle_at_50%_0%,hsl(var(--gold)/0.08),transparent_70%)]" />
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/8 text-primary transition-all duration-300 group-hover:bg-gold/15 group-hover:text-gold group-hover:scale-110">
                     <card.icon className="h-5 w-5" strokeWidth={1.5} />
                   </div>
-                  <div className="min-w-0 flex-1">
-                    <h2 className="text-sm font-bold">{card.title}</h2>
-                    <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{card.desc}</p>
-                  </div>
-                  <ArrowRight className="ml-auto mt-1 h-4 w-4 shrink-0 text-muted-foreground/20 transition-all duration-300 group-hover:translate-x-1 group-hover:text-gold" />
+                  <h3 className="text-sm font-bold leading-snug">{card.title}</h3>
                 </Link>
               </motion.div>
             ))}
+          </motion.div>
+        </div>
+      </section>
+
+      <div className="section-separator" />
+
+      {/* ─── COMMUNITY SECTION ─── */}
+      <section className="py-14 sm:py-20">
+        <div className="container max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center"
+          >
+            <h2 className="font-heading text-2xl font-extrabold sm:text-3xl">
+              Snađi se brže <span className="text-gold">u Njemačkoj</span>
+            </h2>
+            <p className="mx-auto mt-3 max-w-lg text-sm text-muted-foreground">
+              Hiljade korisnika već koriste BalkanLink za svakodnevne situacije.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}
+            className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3"
+          >
+            {communityExamples.map((example, i) => (
+              <motion.div
+                key={i}
+                variants={{
+                  hidden: { opacity: 0, y: 16 },
+                  show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+                }}
+                className="flex items-center gap-3 rounded-xl border border-border/50 bg-card p-4 shadow-sm"
+              >
+                <Sparkles className="h-4 w-4 shrink-0 text-gold" />
+                <span className="text-sm font-medium">{example}</span>
+              </motion.div>
+            ))}
+
+            {/* Active users counter */}
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 16 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+              }}
+              className="flex items-center gap-3 rounded-xl border border-gold/20 bg-gold/5 p-4"
+            >
+              <div className="relative flex h-3 w-3">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold/60" />
+                <span className="relative inline-flex h-3 w-3 rounded-full bg-gold" />
+              </div>
+              <span className="text-sm font-semibold text-gold">
+                {activeUsers.toLocaleString("de-DE")}+ aktivnih korisnika
+              </span>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      <div className="section-separator" />
+
+      {/* ─── PREMIUM BLOCK ─── */}
+      <section className="relative overflow-hidden bg-[#0B1F3A] py-16 sm:py-20">
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }} />
+
+        <div className="container relative z-10 max-w-3xl text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10 ring-1 ring-gold/20">
+              <Shield className="h-6 w-6 text-gold" />
+            </div>
+
+            <h2 className="font-heading text-2xl font-extrabold text-white sm:text-3xl">
+              Sigurnost u <span className="text-gold">Njemačkoj</span>
+            </h2>
+            <p className="mx-auto mt-3 max-w-md text-sm text-white/40">
+              BalkanLink Plus ti daje potpuni pristup svemu što ti treba.
+            </p>
+
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              {premiumBenefits.map((b, i) => (
+                <div key={i} className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[13px] font-medium text-white/70">
+                  <Check className="h-3.5 w-3.5 text-gold" />
+                  {b}
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8">
+              <Link
+                to="/premium"
+                className="btn-gold-gradient group inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-sm font-bold"
+              >
+                <Crown className="h-4 w-4" />
+                Aktiviraj BalkanLink Plus
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+              <p className="mt-4 text-xs text-white/30">
+                Možeš otkazati u bilo kojem trenutku.
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>

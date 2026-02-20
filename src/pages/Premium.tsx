@@ -52,9 +52,9 @@ export default function Premium() {
             <Crown className="h-8 w-8 text-gold" />
           </div>
           <h1 className="font-heading text-3xl font-extrabold tracking-tight text-white md:text-5xl">
-            BalkanDE <span className="text-gold">Premium</span>
+            BalkanLink <span className="text-gold">Premium</span>
           </h1>
-          <p className="mx-auto mt-4 max-w-xl text-base text-white/60 md:text-lg">
+          <p className="mx-auto mt-4 max-w-xl text-base text-white/50 md:text-lg">
             Sve što ti treba za život u Njemačkoj — bez lutanja i gubljenja vremena.
           </p>
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
@@ -64,7 +64,7 @@ export default function Premium() {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </a>
             </Button>
-            <Button variant="ghost" size="lg" className="h-12 rounded-xl px-8 text-sm text-white/50 hover:text-white hover:bg-white/5" asChild>
+            <Button variant="ghost" size="lg" className="h-12 rounded-xl px-8 text-sm text-white/40 hover:text-white hover:bg-white/5" asChild>
               <Link to="/">Nastavi besplatno</Link>
             </Button>
           </div>
@@ -181,7 +181,7 @@ export default function Premium() {
               </div>
             </div>
 
-            {/* Yearly — highlighted */}
+            {/* Yearly */}
             <div className="relative flex flex-col rounded-2xl border-2 border-gold/40 bg-card p-7 shadow-md ring-2 ring-gold/10">
               <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-gold px-4 py-1 text-[11px] font-bold text-[#0B1F3A]">
                 Najpopularnije
