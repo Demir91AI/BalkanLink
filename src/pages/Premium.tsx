@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
 import { Link } from "react-router-dom";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
+import logo from "@/assets/logo-balkanlink.png";
 
 const freeFeatures = [
   { text: "Osnovne informacije", included: true },
@@ -48,9 +49,7 @@ export default function Premium() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0B1F3A]/80" />
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }} />
         <div className="container relative z-10 text-center">
-          <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gold/10 ring-1 ring-gold/20">
-            <Crown className="h-8 w-8 text-gold" />
-          </div>
+          <img src={logo} alt="BalkanLink" className="mx-auto mb-6 h-14 w-auto object-contain" />
           <h1 className="font-heading text-3xl font-extrabold tracking-tight text-white md:text-5xl">
             BalkanLink <span className="text-gold">Premium</span>
           </h1>

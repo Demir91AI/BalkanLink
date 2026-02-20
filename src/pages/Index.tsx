@@ -7,7 +7,7 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
-
+import logo from "@/assets/logo-balkanlink.png";
 import heroBerlin from "@/assets/hero-berlin.jpg";
 import heroMuenchen from "@/assets/hero-muenchen.jpg";
 import heroFrankfurt from "@/assets/hero-frankfurt.jpg";
@@ -105,9 +105,7 @@ export default function Index() {
             className="max-w-2xl"
           >
             {/* Logo mark */}
-            <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gold font-heading text-lg font-black text-[#0B1F3A]">
-              BL
-            </div>
+            <img src={logo} alt="BalkanLink" className="mx-auto mb-6 h-16 w-auto object-contain" />
 
             <h1 className="font-heading text-3xl font-black leading-[1.1] text-white sm:text-4xl md:text-5xl lg:text-[3.5rem]">
               Tvoj vodič za život

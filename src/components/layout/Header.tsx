@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ChevronDown, Crown, Menu, X } from "lucide-react";
+import logo from "@/assets/logo-balkanlink.png";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { useAuth } from "@/contexts/AuthContext";
@@ -16,9 +17,7 @@ export default function Header() {
       <div className="container flex h-14 items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 group" onClick={() => setMobileOpen(false)}>
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gold font-heading text-[11px] font-black tracking-tight text-[#0B1F3A] transition-transform duration-200 group-hover:scale-105">
-            BL
-          </div>
+          <img src={logo} alt="BalkanLink" className="h-8 w-auto object-contain" />
           <span className="font-heading text-lg font-extrabold tracking-tight text-white">
             Balkan<span className="text-gold">Link</span>
           </span>
