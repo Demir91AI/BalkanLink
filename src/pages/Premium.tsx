@@ -49,9 +49,8 @@ export default function Premium() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0B1F3A]/80" />
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }} />
         <div className="container relative z-10 text-center">
-          <img src={logo} alt="BalkanLink" className="mx-auto mb-6 h-14 w-auto object-contain" />
           <h1 className="font-heading text-3xl font-extrabold tracking-tight text-white md:text-5xl">
-            BalkanLink <span className="text-gold">Premium</span>
+            BalkanLink <span className="rounded-lg bg-gold/15 px-3 py-1 text-gold ring-1 ring-gold/25">Plus</span>
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-base text-white/50 md:text-lg">
             Sve što ti treba za život u Njemačkoj — bez lutanja i gubljenja vremena.
