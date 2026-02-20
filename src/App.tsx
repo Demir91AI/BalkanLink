@@ -29,6 +29,10 @@ import SteuerIdPoreznaKlasa from "./pages/dolazak/SteuerIdPoreznaKlasa";
 import ZdravstvenoOsiguranje from "./pages/dolazak/ZdravstvenoOsiguranje";
 import BankovniRacun from "./pages/dolazak/BankovniRacun";
 import PrviKoraci from "./pages/dolazak/PrviKoraci";
+import Sozialversicherung from "./pages/dolazak/Sozialversicherung";
+import Rundfunkbeitrag from "./pages/dolazak/Rundfunkbeitrag";
+import Fuehrerschein from "./pages/dolazak/Fuehrerschein";
+import AutoAnmelden from "./pages/dolazak/AutoAnmelden";
 import ZivotSavjeti from "./pages/ZivotSavjeti";
 import TrebamPomoc from "./pages/TrebamPomoc";
 import Formulare from "./pages/Formulare";
@@ -65,6 +69,10 @@ const App = () => (
                 <Route path="/dolazak/zdravstveno-osiguranje" element={<ZdravstvenoOsiguranje />} />
                 <Route path="/dolazak/bankovni-racun" element={<BankovniRacun />} />
                 <Route path="/dolazak/prvi-koraci" element={<PrviKoraci />} />
+                <Route path="/dolazak/sozialversicherung" element={<Sozialversicherung />} />
+                <Route path="/dolazak/rundfunkbeitrag" element={<Rundfunkbeitrag />} />
+                <Route path="/dolazak/fuehrerschein" element={<Fuehrerschein />} />
+                <Route path="/dolazak/auto-anmelden" element={<AutoAnmelden />} />
                 <Route path="/zivot" element={<ZivotSavjeti />} />
                 <Route path="/zivot-savjeti" element={<ZivotSavjeti />} />
                 <Route path="/probleme" element={<TrebamPomoc />} />
