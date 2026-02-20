@@ -17,23 +17,23 @@ export default function Footer() {
               </span>
             </Link>
             <p className="mt-3 text-[13px] leading-relaxed text-white/35">
-              Sve što ti treba za život u Njemačkoj — na jednom mjestu.
+              {t("footer.tagline")}
             </p>
           </div>
 
           {/* Navigation */}
           <div>
-            <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/25">Navigacija</h4>
+            <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/25">{t("footer.navSection")}</h4>
             <nav className="flex flex-col gap-2.5">
-              <Link to="/" className="text-[13px] text-white/50 transition-colors hover:text-gold">Početna</Link>
-              <Link to="/dolazak" className="text-[13px] text-white/50 transition-colors hover:text-gold">Kako radi</Link>
-              <Link to="/premium" className="text-[13px] text-white/50 transition-colors hover:text-gold">Premium</Link>
+              <Link to="/" className="text-[13px] text-white/50 transition-colors hover:text-gold">{t("footer.navHome")}</Link>
+              <Link to="/dolazak" className="text-[13px] text-white/50 transition-colors hover:text-gold">{t("footer.navHow")}</Link>
+              <Link to="/premium" className="text-[13px] text-white/50 transition-colors hover:text-gold">{t("footer.navPremium")}</Link>
             </nav>
           </div>
 
           {/* Legal */}
           <div>
-            <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/25">Pravne informacije</h4>
+            <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/25">{t("footer.legalSection")}</h4>
             <nav className="flex flex-col gap-2.5">
               <Link to="/impressum" className="text-[13px] text-white/50 transition-colors hover:text-gold">{t("footer.imprint")}</Link>
               <Link to="/datenschutz" className="text-[13px] text-white/50 transition-colors hover:text-gold">{t("footer.privacy")}</Link>
@@ -45,16 +45,16 @@ export default function Footer() {
 
           {/* Trust */}
           <div>
-            <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/25">Povjerenje</h4>
+            <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/25">{t("footer.trustSection")}</h4>
             <div className="flex items-center gap-1 text-gold">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="h-3.5 w-3.5 fill-current" />
               ))}
               <span className="ml-1.5 text-[13px] font-semibold text-white/60">4.9 / 5</span>
             </div>
-            <p className="mt-1.5 text-[12px] text-white/30">zadovoljstvo korisnika</p>
+            <p className="mt-1.5 text-[12px] text-white/30">{t("footer.trustRating")}</p>
             <p className="mt-4 text-[13px] font-medium text-white/40">
-              Preko <span className="text-gold font-semibold">10.000</span> ljudi koristi BalkanLink
+              <span className="text-gold font-semibold">10.000+</span> {t("footer.trustUsers")}
             </p>
           </div>
         </div>

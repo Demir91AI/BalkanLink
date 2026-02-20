@@ -21,7 +21,7 @@ export const LANGUAGES: LanguageInfo[] = [
 
 type TranslationKeys = {
   "nav.home": string; "nav.qa": string; "nav.directory": string; "nav.missions": string;
-  "nav.login": string; "nav.register": string; "nav.logout": string;
+  "nav.login": string; "nav.register": string; "nav.logout": string; "nav.plus": string;
   "hero.slide1.title": string; "hero.slide1.subtitle": string;
   "hero.slide2.title": string; "hero.slide2.subtitle": string;
   "hero.slide3.title": string; "hero.slide3.subtitle": string;
@@ -50,7 +50,6 @@ type TranslationKeys = {
   "missions.allCountries": string; "missions.allCities": string; "missions.allTypes": string;
   "missions.embassy": string; "missions.consulate": string;
   "missions.results": string; "missions.clearFilters": string; "missions.empty": string;
-  // Portal cards on index
   "portal.dolazak": string; "portal.dolazak.desc": string;
   "portal.stan": string; "portal.stan.desc": string;
   "portal.jobs": string; "portal.jobs.desc": string;
@@ -60,10 +59,11 @@ type TranslationKeys = {
   "portal.tools": string; "portal.tools.desc": string;
   "portal.ambasade": string; "portal.ambasade.desc": string;
   "portal.community": string; "portal.community.desc": string;
-  // Footer
   "footer.imprint": string; "footer.privacy": string; "footer.contact": string;
   "footer.copyright": string; "footer.disclaimer": string;
-  // Wohnungen page
+  "footer.tagline": string; "footer.navSection": string; "footer.legalSection": string;
+  "footer.trustSection": string; "footer.navHome": string; "footer.navHow": string;
+  "footer.navPremium": string; "footer.trustRating": string; "footer.trustUsers": string;
   "wohnungen.title": string; "wohnungen.subtitle": string;
   "wohnungen.city": string; "wohnungen.bundesland": string; "wohnungen.radius": string;
   "wohnungen.allGermany": string; "wohnungen.maxRent": string; "wohnungen.rooms": string;
@@ -71,7 +71,6 @@ type TranslationKeys = {
   "wohnungen.longTerm": string; "wohnungen.search": string; "wohnungen.showMore": string;
   "wohnungen.showLess": string; "wohnungen.portals": string;
   "wohnungen.portalBig": string; "wohnungen.portalWg": string; "wohnungen.portalSocial": string; "wohnungen.portalShort": string;
-  // Jobs page
   "jobs.title": string; "jobs.subtitle": string;
   "jobs.city": string; "jobs.bundesland": string; "jobs.radius": string;
   "jobs.allGermany": string; "jobs.branche": string; "jobs.vertragsart": string;
@@ -80,16 +79,12 @@ type TranslationKeys = {
   "jobs.showLess": string; "jobs.portals": string;
   "jobs.portalStaatlich": string; "jobs.portalGross": string; "jobs.portalSpezial": string;
   "jobs.allBranchen": string;
-  // Branche options
   "branche.pflege": string; "branche.bau": string; "branche.logistik": string;
   "branche.produktion": string; "branche.reinigung": string; "branche.gastro": string;
   "branche.it": string; "branche.handwerk": string; "branche.buero": string; "branche.ausbildung": string;
-  // Vertragsart options
   "vertrag.vollzeit": string; "vertrag.teilzeit": string;
   "vertrag.ausbildung": string; "vertrag.praktikum": string; "vertrag.minijob": string;
-  // Register CTA
   "cta.register": string;
-  // Auth
   "auth.loginTitle": string; "auth.loginDesc": string; "auth.email": string; "auth.password": string;
   "auth.loginButton": string; "auth.loginLoading": string; "auth.loginError": string; "auth.loginSuccess": string;
   "auth.registerTitle": string; "auth.registerDesc": string; "auth.confirmPassword": string;
@@ -104,15 +99,42 @@ type TranslationKeys = {
   "auth.saveButton": string; "auth.saving": string;
   "auth.resetWaiting": string; "auth.resetWaitingDesc": string; "auth.passwordChanged": string;
   "auth.minChars": string;
-  // Footer extras
   "footer.legal": string; "footer.haftung": string; "footer.mitgliedschaft": string; "footer.kiHinweis": string;
-  // Hero CTA
   "hero.cta.register": string; "hero.cta.firstSteps": string;
-  // 404
   "notfound.title": string; "notfound.desc": string; "notfound.back": string;
-  // Common labels
   "common.error": string; "common.legalBasis": string; "common.officialSource": string; "common.moreSource": string;
   "common.all": string;
+  // Home page
+  "home.hero.title": string; "home.hero.highlight": string; "home.hero.subtitle": string;
+  "home.hero.cta": string; "home.hero.howItWorks": string;
+  "home.card.majstor": string; "home.card.posao": string; "home.card.stan": string;
+  "home.card.papiri": string; "home.card.restorani": string; "home.card.dzamije": string;
+  "home.card.prevoz": string; "home.card.pitanje": string;
+  "home.trust.title": string; "home.trust.subtitle": string; "home.trust.community": string;
+  "home.example.1": string; "home.example.2": string; "home.example.3": string;
+  "home.example.4": string; "home.example.5": string;
+  "home.testimonials.title": string; "home.testimonials.cities": string;
+  "home.review1.text": string; "home.review2.text": string;
+  "home.review3.text": string; "home.review4.text": string;
+  "home.premium.title": string; "home.premium.subtitle": string;
+  "home.premium.step1": string; "home.premium.step2": string; "home.premium.step3": string;
+  "home.premium.step4": string; "home.premium.step5": string;
+  "home.premium.cta": string; "home.premium.cancel": string;
+  // Premium page
+  "premium.badge": string; "premium.title": string; "premium.subtitle": string;
+  "premium.price": string; "premium.heroCta": string; "premium.heroFree": string;
+  "premium.compareTitle": string; "premium.compareSubtitle": string;
+  "premium.row.categories": string; "premium.row.community": string;
+  "premium.row.ai": string; "premium.row.search": string;
+  "premium.row.forms": string; "premium.row.assistant": string;
+  "premium.row.templates": string; "premium.row.priority": string; "premium.row.badge": string;
+  "premium.pricingTitle": string; "premium.pricingSubtitle": string;
+  "premium.monthly": string; "premium.yearly": string;
+  "premium.perMonth": string; "premium.perYear": string;
+  "premium.flexible": string; "premium.bestOffer": string; "premium.save": string;
+  "premium.active": string; "premium.soon": string;
+  "premium.noContract": string; "premium.cancelAnytime": string; "premium.forCommunity": string;
+  "premium.free": string; "premium.function": string;
 };
 
 // --- Shared partial blocks ---
@@ -581,6 +603,166 @@ const miscMk: Partial<TranslationKeys> = {
   "common.all": "Сите",
 };
 
+// --- Home / Footer / Premium page keys ---
+const homeDe: Partial<TranslationKeys> = {
+  "nav.plus": "Plus",
+  "home.hero.title": "Dein Guide für das Leben", "home.hero.highlight": "in Deutschland.",
+  "home.hero.subtitle": "Alles was du brauchst — an einem Ort.",
+  "home.hero.cta": "Kostenlos starten", "home.hero.howItWorks": "So funktioniert BalkanLink →",
+  "home.card.majstor": "Handwerker finden", "home.card.posao": "Job suchen", "home.card.stan": "Wohnung suchen",
+  "home.card.papiri": "Hilfe mit Dokumenten", "home.card.restorani": "Balkan Restaurants",
+  "home.card.dzamije": "Gemeinden & Vereine", "home.card.prevoz": "Reisen & Transport", "home.card.pitanje": "Frage stellen",
+  "home.trust.title": "Über 10.000 Nutzer vertrauen", "home.trust.subtitle": "Die Balkan Community in Deutschland nutzt BalkanLink für den Alltag.",
+  "home.trust.community": "Menschen aus Südosteuropa — vereint in Deutschland",
+  "home.example.1": "Kind in der Schule anmelden", "home.example.2": "Umzug in eine neue Stadt",
+  "home.example.3": "Inkasso-Brief erhalten", "home.example.4": "Jobwechsel", "home.example.5": "Auto kaufen",
+  "home.testimonials.title": "Unsere Community sagt",
+  "home.testimonials.cities": "Berlin · München · Frankfurt · Stuttgart · Köln",
+  "home.review1.text": "Ohne BalkanLink hätte ich Tage mit der Informationssuche verloren. Jetzt habe ich alles an einem Ort.",
+  "home.review2.text": "Den Kindergeld-Antrag habe ich in 15 Minuten mit der Schritt-für-Schritt-Anleitung erledigt. Empfehlung!",
+  "home.review3.text": "Endlich eine Plattform, die uns versteht. Professionell, schnell und in unserer Sprache.",
+  "home.review4.text": "Alle Infos an einem Ort — von Wohnung bis Job. Die Balkan Community in Deutschland hat endlich ihre Plattform.",
+  "home.premium.title": "BalkanLink", "home.premium.subtitle": "Alles was du brauchst — ohne Umwege.",
+  "home.premium.step1": "Formulare Schritt-für-Schritt", "home.premium.step2": "Direktlinks zu offiziellen Behörden",
+  "home.premium.step3": "Geprüfte Kontakte", "home.premium.step4": "Priorisierte Antworten",
+  "home.premium.step5": "Partner Vorteile",
+  "home.premium.cta": "Plus aktivieren", "home.premium.cancel": "Jederzeit kündbar.",
+  "footer.tagline": "Alles was du für das Leben in Deutschland brauchst — an einem Ort.",
+  "footer.navSection": "Navigation", "footer.legalSection": "Rechtliches",
+  "footer.trustSection": "Vertrauen",
+  "footer.navHome": "Startseite", "footer.navHow": "Wie es funktioniert", "footer.navPremium": "Premium",
+  "footer.trustRating": "Nutzerzufriedenheit", "footer.trustUsers": "Nutzer verwenden BalkanLink",
+};
+
+const homeBs: Partial<TranslationKeys> = {
+  "nav.plus": "Plus",
+  "home.hero.title": "Tvoj vodič za život", "home.hero.highlight": "u Njemačkoj.",
+  "home.hero.subtitle": "Sve što ti treba — na jednom mjestu.",
+  "home.hero.cta": "Započni besplatno", "home.hero.howItWorks": "Kako radi BalkanLink →",
+  "home.card.majstor": "Trebam majstora", "home.card.posao": "Tražim posao", "home.card.stan": "Tražim stan",
+  "home.card.papiri": "Trebam pomoć s papirima", "home.card.restorani": "Balkan restorani",
+  "home.card.dzamije": "Džemati i zajednice", "home.card.prevoz": "Putovanja & prevoz", "home.card.pitanje": "Imam pitanje",
+  "home.trust.title": "Preko 10.000 korisnika koristi", "home.trust.subtitle": "Balkan zajednica u Njemačkoj koristi BalkanLink za svakodnevne situacije.",
+  "home.trust.community": "Ljudi iz jugoistočne Evrope — zajedno u Njemačkoj",
+  "home.example.1": "Prijava djeteta u školu", "home.example.2": "Selidba u novi grad",
+  "home.example.3": "Inkasso pismo", "home.example.4": "Promjena posla", "home.example.5": "Kupovina auta",
+  "home.testimonials.title": "Naša zajednica kaže",
+  "home.testimonials.cities": "Berlin · München · Frankfurt · Stuttgart · Köln",
+  "home.review1.text": "Bez BalkanLinka bih izgubila dane na traženje informacija. Sad sve imam na jednom mjestu.",
+  "home.review2.text": "Kindergeld zahtjev sam riješio za 15 minuta uz korak-po-korak vodič. Preporuka!",
+  "home.review3.text": "Konačno platforma koja razumije nas. Profesionalno, brzo i na našem jeziku.",
+  "home.review4.text": "Sve informacije na jednom mjestu — od stana do posla. Balkan zajednica u Njemačkoj konačno ima svoju platformu.",
+  "home.premium.title": "BalkanLink", "home.premium.subtitle": "Sve što ti treba — bez zaobilaznih puteva.",
+  "home.premium.step1": "Formulari korak po korak", "home.premium.step2": "Direktni linkovi na zvanične institucije",
+  "home.premium.step3": "Provjereni kontakti", "home.premium.step4": "Prioritetni odgovori",
+  "home.premium.step5": "Partnerske pogodnosti",
+  "home.premium.cta": "Aktiviraj Plus", "home.premium.cancel": "Otkaži u bilo kojem trenutku.",
+  "footer.tagline": "Sve što ti treba za život u Njemačkoj — na jednom mjestu.",
+  "footer.navSection": "Navigacija", "footer.legalSection": "Pravne informacije",
+  "footer.trustSection": "Povjerenje",
+  "footer.navHome": "Početna", "footer.navHow": "Kako radi", "footer.navPremium": "Premium",
+  "footer.trustRating": "zadovoljstvo korisnika", "footer.trustUsers": "ljudi koristi BalkanLink",
+};
+
+const homeEn: Partial<TranslationKeys> = {
+  "nav.plus": "Plus",
+  "home.hero.title": "Your guide to life", "home.hero.highlight": "in Germany.",
+  "home.hero.subtitle": "Everything you need — in one place.",
+  "home.hero.cta": "Get started free", "home.hero.howItWorks": "How BalkanLink works →",
+  "home.card.majstor": "Find a tradesperson", "home.card.posao": "Find a job", "home.card.stan": "Find housing",
+  "home.card.papiri": "Help with documents", "home.card.restorani": "Balkan restaurants",
+  "home.card.dzamije": "Communities & associations", "home.card.prevoz": "Travel & transport", "home.card.pitanje": "Ask a question",
+  "home.trust.title": "Over 10,000 users trust", "home.trust.subtitle": "The Balkan community in Germany uses BalkanLink for everyday life.",
+  "home.trust.community": "People from Southeast Europe — united in Germany",
+  "home.example.1": "Enrolling a child in school", "home.example.2": "Moving to a new city",
+  "home.example.3": "Debt collection letter", "home.example.4": "Changing jobs", "home.example.5": "Buying a car",
+  "home.testimonials.title": "Our community says",
+  "home.testimonials.cities": "Berlin · Munich · Frankfurt · Stuttgart · Cologne",
+  "home.review1.text": "Without BalkanLink I would have lost days searching for information. Now I have everything in one place.",
+  "home.review2.text": "I completed the child benefit application in 15 minutes with the step-by-step guide. Highly recommended!",
+  "home.review3.text": "Finally a platform that understands us. Professional, fast and in our language.",
+  "home.review4.text": "All info in one place — from housing to jobs. The Balkan community in Germany finally has its own platform.",
+  "home.premium.title": "BalkanLink", "home.premium.subtitle": "Everything you need — no detours.",
+  "home.premium.step1": "Forms step-by-step", "home.premium.step2": "Direct links to official authorities",
+  "home.premium.step3": "Verified contacts", "home.premium.step4": "Prioritised answers",
+  "home.premium.step5": "Partner benefits",
+  "home.premium.cta": "Activate Plus", "home.premium.cancel": "Cancel anytime.",
+  "footer.tagline": "Everything you need for life in Germany — in one place.",
+  "footer.navSection": "Navigation", "footer.legalSection": "Legal",
+  "footer.trustSection": "Trust",
+  "footer.navHome": "Home", "footer.navHow": "How it works", "footer.navPremium": "Premium",
+  "footer.trustRating": "user satisfaction", "footer.trustUsers": "people use BalkanLink",
+};
+
+const premiumDe: Partial<TranslationKeys> = {
+  "premium.badge": "Premium", "premium.title": "BalkanLink Premium",
+  "premium.subtitle": "Voller Zugang zu allem, was du für dein Leben in Deutschland brauchst.",
+  "premium.price": "Ab 9 €/Monat · Jederzeit kündbar",
+  "premium.heroCta": "Premium aktivieren", "premium.heroFree": "Weiter mit Free",
+  "premium.compareTitle": "Free vs. Premium",
+  "premium.compareSubtitle": "Vergleiche die Zugangsstufen und finde die richtige für dich.",
+  "premium.row.categories": "Zugriff auf alle Kategorien", "premium.row.community": "Orte & Community entdecken",
+  "premium.row.ai": "Einfache KI-Antworten", "premium.row.search": "Suche nutzen",
+  "premium.row.forms": "Schritt-für-Schritt Formularhilfe", "premium.row.assistant": "Persönlicher Assistent",
+  "premium.row.templates": "Vorlagen & Generatoren", "premium.row.priority": "Priorisierte Informationen",
+  "premium.row.badge": "Premium Badge im Profil",
+  "premium.pricingTitle": "Wähle deinen Plan", "premium.pricingSubtitle": "Kein Risiko. Jederzeit kündbar.",
+  "premium.monthly": "Monatlich", "premium.yearly": "Jährlich",
+  "premium.perMonth": "/ Monat", "premium.perYear": "/ Jahr",
+  "premium.flexible": "Flexibel, ohne Bindung.", "premium.bestOffer": "Bestes Angebot",
+  "premium.save": "Spare 59 € pro Jahr", "premium.active": "Aktiv ✓",
+  "premium.soon": "Bald verfügbar", "premium.free": "Free",
+  "premium.noContract": "Keine Vertragsbindung", "premium.cancelAnytime": "Jederzeit kündbar",
+  "premium.forCommunity": "Für die Balkan-Community in Deutschland",
+  "premium.function": "Funktion",
+};
+
+const premiumBs: Partial<TranslationKeys> = {
+  "premium.badge": "Premium", "premium.title": "BalkanLink Premium",
+  "premium.subtitle": "Potpuni pristup svemu što ti treba za život u Njemačkoj.",
+  "premium.price": "Od 9 €/mjesečno · Otkaži kad hoćeš",
+  "premium.heroCta": "Aktiviraj Premium", "premium.heroFree": "Nastavi s Free",
+  "premium.compareTitle": "Free vs. Premium",
+  "premium.compareSubtitle": "Uporedi nivoe pristupa i pronađi pravi za sebe.",
+  "premium.row.categories": "Pristup svim kategorijama", "premium.row.community": "Otkrij mjesta i zajednicu",
+  "premium.row.ai": "Jednostavni AI odgovori", "premium.row.search": "Koristi pretragu",
+  "premium.row.forms": "Formulari korak po korak", "premium.row.assistant": "Lični asistent",
+  "premium.row.templates": "Predlošci i generatori", "premium.row.priority": "Prioritetne informacije",
+  "premium.row.badge": "Premium oznaka u profilu",
+  "premium.pricingTitle": "Izaberi svoj plan", "premium.pricingSubtitle": "Bez rizika. Otkaži kad hoćeš.",
+  "premium.monthly": "Mjesečno", "premium.yearly": "Godišnje",
+  "premium.perMonth": "/ mjesec", "premium.perYear": "/ godina",
+  "premium.flexible": "Fleksibilno, bez obaveze.", "premium.bestOffer": "Najbolja ponuda",
+  "premium.save": "Uštedi 59 € godišnje", "premium.active": "Aktivno ✓",
+  "premium.soon": "Uskoro dostupno", "premium.free": "Free",
+  "premium.noContract": "Bez ugovornog vezivanja", "premium.cancelAnytime": "Otkaži kad hoćeš",
+  "premium.forCommunity": "Za Balkan zajednicu u Njemačkoj",
+  "premium.function": "Funkcija",
+};
+
+const premiumEn: Partial<TranslationKeys> = {
+  "premium.badge": "Premium", "premium.title": "BalkanLink Premium",
+  "premium.subtitle": "Full access to everything you need for life in Germany.",
+  "premium.price": "From €9/month · Cancel anytime",
+  "premium.heroCta": "Activate Premium", "premium.heroFree": "Continue with Free",
+  "premium.compareTitle": "Free vs. Premium",
+  "premium.compareSubtitle": "Compare access levels and find the right one for you.",
+  "premium.row.categories": "Access all categories", "premium.row.community": "Discover places & community",
+  "premium.row.ai": "Simple AI answers", "premium.row.search": "Use search",
+  "premium.row.forms": "Step-by-step form help", "premium.row.assistant": "Personal assistant",
+  "premium.row.templates": "Templates & generators", "premium.row.priority": "Prioritised information",
+  "premium.row.badge": "Premium badge on profile",
+  "premium.pricingTitle": "Choose your plan", "premium.pricingSubtitle": "No risk. Cancel anytime.",
+  "premium.monthly": "Monthly", "premium.yearly": "Yearly",
+  "premium.perMonth": "/ month", "premium.perYear": "/ year",
+  "premium.flexible": "Flexible, no commitment.", "premium.bestOffer": "Best offer",
+  "premium.save": "Save €59 per year", "premium.active": "Active ✓",
+  "premium.soon": "Coming soon", "premium.free": "Free",
+  "premium.noContract": "No contract", "premium.cancelAnytime": "Cancel anytime",
+  "premium.forCommunity": "For the Balkan community in Germany",
+  "premium.function": "Feature",
+};
+
 // --- Language definitions ---
 const translations: Record<Language, TranslationKeys> = {
   bs: {
@@ -602,7 +784,7 @@ const translations: Record<Language, TranslationKeys> = {
     "qa.title": "Pitanja i odgovori", "qa.subtitle": "Pronađi odgovor na svoje pitanje — brzo i na našem jeziku.",
     "qa.search": "Pretraži...", "qa.all": "Sve teme", "qa.results": "rezultata",
     "qa.empty": "Nema rezultata. Pokušaj sa drugim pojmom.",
-    ...dirBs as any, ...missionsBs as any, ...portalBs as any, ...miscBs as any,
+    ...dirBs as any, ...missionsBs as any, ...portalBs as any, ...miscBs as any, ...homeBs as any, ...premiumBs as any,
   },
   hr: {
     "nav.home": "Početna", "nav.qa": "Pitanja i odgovori", "nav.directory": "Imenik",
@@ -623,7 +805,7 @@ const translations: Record<Language, TranslationKeys> = {
     "qa.title": "Pitanja i odgovori", "qa.subtitle": "Pronađi odgovor na svoje pitanje — brzo i na tvom jeziku.",
     "qa.search": "Pretraži...", "qa.all": "Sve teme", "qa.results": "rezultata",
     "qa.empty": "Nema rezultata. Pokušaj s drugim pojmom.",
-    ...dirBs as any, ...missionsBs as any, ...portalBs as any, ...miscBs as any,
+    ...dirBs as any, ...missionsBs as any, ...portalBs as any, ...miscBs as any, ...homeBs as any, ...premiumBs as any,
     "dir.filterOrigin": "Zemlja podrijetla", "dir.fieldOrigin": "Zemlja podrijetla",
     "dir.backToDirectory": "Natrag na imenik",
   },
@@ -646,7 +828,7 @@ const translations: Record<Language, TranslationKeys> = {
     "qa.title": "Pitanja i odgovori", "qa.subtitle": "Pronađi odgovor na svoje pitanje — brzo i na tvom jeziku.",
     "qa.search": "Pretraži...", "qa.all": "Sve teme", "qa.results": "rezultata",
     "qa.empty": "Nema rezultata. Pokušaj sa drugim pojmom.",
-    ...dirBs as any, ...missionsBs as any, ...portalBs as any, ...miscBs as any,
+    ...dirBs as any, ...missionsBs as any, ...portalBs as any, ...miscBs as any, ...homeBs as any, ...premiumBs as any,
     "dir.subtitle": "Pronađi balkanske biznise u Nemačkoj.",
     "dir.filterOrigin": "Zemlja porekla", "dir.fieldOrigin": "Zemlja porekla",
     "dir.submitSubtitle": "Popuni formu i tvoj biznis će biti vidljiv nakon provere.",
@@ -673,7 +855,7 @@ const translations: Record<Language, TranslationKeys> = {
     "qa.title": "Pitanja i odgovori", "qa.subtitle": "Pronađi odgovor na svoje pitanje — brzo i na tvom jeziku.",
     "qa.search": "Pretraži...", "qa.all": "Sve teme", "qa.results": "rezultata",
     "qa.empty": "Nema rezultata. Pokušaj sa drugim pojmom.",
-    ...dirBs as any, ...missionsBs as any, ...portalBs as any, ...miscBs as any,
+    ...dirBs as any, ...missionsBs as any, ...portalBs as any, ...miscBs as any, ...homeBs as any, ...premiumBs as any,
   },
   sq: {
     "nav.home": "Ballina", "nav.qa": "Pyetje dhe përgjigje", "nav.directory": "Drejtoria",
@@ -694,7 +876,7 @@ const translations: Record<Language, TranslationKeys> = {
     "qa.title": "Pyetje dhe përgjigje", "qa.subtitle": "Gjej përgjigjen e pyetjes tënde — shpejt dhe në gjuhën tënde.",
     "qa.search": "Kërko...", "qa.all": "Të gjitha temat", "qa.results": "rezultate",
     "qa.empty": "Nuk ka rezultate. Provo me një term tjetër.",
-    ...dirSq as any, ...missionsSq as any, ...portalSq as any, ...miscSq as any,
+    ...dirSq as any, ...missionsSq as any, ...portalSq as any, ...miscSq as any, ...homeBs as any, ...premiumBs as any,
   },
   xk: {
     "nav.home": "Ballina", "nav.qa": "Pyetje dhe përgjigje", "nav.directory": "Drejtoria",
@@ -715,7 +897,7 @@ const translations: Record<Language, TranslationKeys> = {
     "qa.title": "Pyetje dhe përgjigje", "qa.subtitle": "Gjej përgjigjen e pyetjes tënde — shpejt dhe në gjuhën tënde.",
     "qa.search": "Kërko...", "qa.all": "Të gjitha temat", "qa.results": "rezultate",
     "qa.empty": "Nuk ka rezultate. Provo me një term tjetër.",
-    ...dirSq as any, ...missionsSq as any, ...portalSq as any, ...miscSq as any,
+    ...dirSq as any, ...missionsSq as any, ...portalSq as any, ...miscSq as any, ...homeBs as any, ...premiumBs as any,
   },
   mk: {
     "nav.home": "Почетна", "nav.qa": "Прашања и одговори", "nav.directory": "Именик",
@@ -751,7 +933,7 @@ const translations: Record<Language, TranslationKeys> = {
     "dir.submitSuccess": "Бизнисот е додаден! Ќе биде видлив по проверка.",
     "dir.submitError": "Грешка. Обиди се повторно.",
     "dir.loginRequired": "Мора да бидеш најавен за да додадеш бизнис.",
-    ...missionsMk as any, ...portalMk as any, ...miscMk as any,
+    ...missionsMk as any, ...portalMk as any, ...miscMk as any, ...homeBs as any, ...premiumBs as any,
   },
   de: {
     "nav.home": "Startseite", "nav.qa": "Fragen & Antworten", "nav.directory": "Verzeichnis",
@@ -787,7 +969,7 @@ const translations: Record<Language, TranslationKeys> = {
     "dir.submitSuccess": "Geschäft hinzugefügt! Wird nach Prüfung sichtbar.",
     "dir.submitError": "Fehler. Versuche es erneut.",
     "dir.loginRequired": "Du musst angemeldet sein, um ein Geschäft hinzuzufügen.",
-    ...missionsDe as any, ...portalDe as any, ...miscDe as any,
+    ...missionsDe as any, ...portalDe as any, ...miscDe as any, ...homeDe as any, ...premiumDe as any,
   },
   en: {
     "nav.home": "Home", "nav.qa": "Q&A", "nav.directory": "Directory",
@@ -823,10 +1005,10 @@ const translations: Record<Language, TranslationKeys> = {
     "dir.submitSuccess": "Business added! It will be visible after review.",
     "dir.submitError": "Error. Please try again.",
     "dir.loginRequired": "You must be signed in to add a business.",
-    ...missionsEn as any, ...portalEn as any, ...miscEn as any,
+    ...missionsEn as any, ...portalEn as any, ...miscEn as any, ...homeEn as any, ...premiumEn as any,
   },
 };
 
 export function getTranslation(lang: Language, key: keyof TranslationKeys): string {
-  return translations[lang]?.[key] ?? translations.bs[key] ?? key;
+  return translations[lang]?.[key] ?? translations.de[key] ?? key;
 }

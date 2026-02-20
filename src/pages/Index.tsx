@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Wrench, Briefcase, Building2, FileText, UtensilsCrossed, Users,
-  Bus, HelpCircle, ArrowRight, Check, Shield, Sparkles, Star,
+  Bus, HelpCircle, ArrowRight, Check, Sparkles, Star,
   FileCheck, Link2, UserCheck, Zap, Award,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -18,39 +18,35 @@ import heroStuttgart from "@/assets/hero-stuttgart.jpg";
 import heroDuesseldorf from "@/assets/hero-duesseldorf.jpg";
 import heroNuernberg from "@/assets/hero-nuernberg.jpg";
 
-/* ── Feature cards data ── */
+/* ── Feature cards config ── */
 const featureCards = [
-  { title: "Trebam majstora", icon: Wrench, to: "/community", color: "from-amber-500/15 to-amber-600/5" },
-  { title: "Tražim posao", icon: Briefcase, to: "/stellenangebote", color: "from-blue-500/15 to-blue-600/5" },
-  { title: "Tražim stan", icon: Building2, to: "/wohnungen", color: "from-emerald-500/15 to-emerald-600/5" },
-  { title: "Trebam pomoć s papirima", icon: FileText, to: "/formulare", color: "from-violet-500/15 to-violet-600/5" },
-  { title: "Naši restorani", icon: UtensilsCrossed, to: "/community", color: "from-rose-500/15 to-rose-600/5" },
-  { title: "Džemati i zajednice", icon: Users, to: "/dzamije", color: "from-cyan-500/15 to-cyan-600/5" },
-  { title: "Putovanja & prevoz", icon: Bus, to: "/community", color: "from-orange-500/15 to-orange-600/5" },
-  { title: "Imam pitanje", icon: HelpCircle, to: "/qa", color: "from-indigo-500/15 to-indigo-600/5" },
+  { key: "home.card.majstor" as const, icon: Wrench, to: "/community", color: "from-amber-500/15 to-amber-600/5" },
+  { key: "home.card.posao" as const, icon: Briefcase, to: "/stellenangebote", color: "from-blue-500/15 to-blue-600/5" },
+  { key: "home.card.stan" as const, icon: Building2, to: "/wohnungen", color: "from-emerald-500/15 to-emerald-600/5" },
+  { key: "home.card.papiri" as const, icon: FileText, to: "/formulare", color: "from-violet-500/15 to-violet-600/5" },
+  { key: "home.card.restorani" as const, icon: UtensilsCrossed, to: "/community", color: "from-rose-500/15 to-rose-600/5" },
+  { key: "home.card.dzamije" as const, icon: Users, to: "/dzamije", color: "from-cyan-500/15 to-cyan-600/5" },
+  { key: "home.card.prevoz" as const, icon: Bus, to: "/community", color: "from-orange-500/15 to-orange-600/5" },
+  { key: "home.card.pitanje" as const, icon: HelpCircle, to: "/qa", color: "from-indigo-500/15 to-indigo-600/5" },
 ];
 
-const communityExamples = [
-  "Prijava djeteta u školu",
-  "Selidba u novi grad",
-  "Inkasso pismo",
-  "Promjena posla",
-  "Kupovina auta",
+const exampleKeys = [
+  "home.example.1", "home.example.2", "home.example.3", "home.example.4", "home.example.5",
+] as const;
+
+const premiumStepKeys = [
+  { icon: FileCheck, key: "home.premium.step1" as const },
+  { icon: Link2, key: "home.premium.step2" as const },
+  { icon: UserCheck, key: "home.premium.step3" as const },
+  { icon: Zap, key: "home.premium.step4" as const },
+  { icon: Award, key: "home.premium.step5" as const },
 ];
 
-const premiumSteps = [
-  { icon: FileCheck, text: "Formulare Schritt-für-Schritt" },
-  { icon: Link2, text: "Direktlinks zu offiziellen Behörden" },
-  { icon: UserCheck, text: "Geprüfte Kontakte" },
-  { icon: Zap, text: "Priorisierte Antworten" },
-  { icon: Award, text: "Partner Vorteile" },
-];
-
-const testimonials = [
-  { name: "Amina H.", city: "München", text: "Bez BalkanLinka bih izgubila dane na traženje informacija. Sad sve imam na jednom mjestu." },
-  { name: "Emir K.", city: "Frankfurt", text: "Kindergeld zahtjev sam riješio za 15 minuta uz korak-po-korak vodič. Preporuka!" },
-  { name: "Lejla M.", city: "Berlin", text: "Konačno platforma koja razumije nas. Profesionalno, brzo i na našem jeziku." },
-  { name: "Darko S.", city: "Stuttgart", text: "Sve informacije na jednom mjestu — od stana do posla. Balkan Community u Njemačkoj konačno ima svoju platformu." },
+const reviews = [
+  { name: "Amina H.", city: "München", key: "home.review1.text" as const },
+  { name: "Emir K.", city: "Frankfurt", key: "home.review2.text" as const },
+  { name: "Lejla M.", city: "Berlin", key: "home.review3.text" as const },
+  { name: "Darko S.", city: "Stuttgart", key: "home.review4.text" as const },
 ];
 
 export default function Index() {
@@ -110,12 +106,12 @@ export default function Index() {
             className="max-w-2xl"
           >
             <h1 className="font-heading text-3xl font-black leading-[1.1] text-white sm:text-4xl md:text-5xl lg:text-[3.5rem]">
-              Dein Guide für das Leben
+              {t("home.hero.title")}
               <br />
-              <span className="text-gold">in Deutschland.</span>
+              <span className="text-gold">{t("home.hero.highlight")}</span>
             </h1>
             <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-white/50 sm:text-base md:text-lg">
-              Alles was du brauchst — an einem Ort.
+              {t("home.hero.subtitle")}
             </p>
 
             <motion.div
@@ -129,7 +125,7 @@ export default function Index() {
                   to="/register"
                   className="btn-gold-gradient group inline-flex items-center justify-center gap-2 rounded-full px-8 py-3.5 text-sm font-bold tracking-wide sm:px-10 sm:py-4 sm:text-base"
                 >
-                  Kostenlos starten
+                  {t("home.hero.cta")}
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               )}
@@ -137,7 +133,7 @@ export default function Index() {
                 to="/pocni-ovdje"
                 className="text-[13px] font-medium text-white/40 underline-offset-4 hover:text-white/60 hover:underline transition-colors"
               >
-                So funktioniert BalkanLink →
+                {t("home.hero.howItWorks")}
               </Link>
             </motion.div>
           </motion.div>
@@ -189,7 +185,7 @@ export default function Index() {
           >
             {featureCards.map((card) => (
               <motion.div
-                key={card.to + card.title}
+                key={card.key}
                 variants={{
                   hidden: { opacity: 0, y: 24 },
                   show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
@@ -203,7 +199,7 @@ export default function Index() {
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/8 text-primary transition-all duration-300 group-hover:bg-gold/15 group-hover:text-gold group-hover:scale-110">
                     <card.icon className="h-5 w-5" strokeWidth={1.5} />
                   </div>
-                  <h3 className="text-sm font-bold leading-snug">{card.title}</h3>
+                  <h3 className="text-sm font-bold leading-snug">{t(card.key)}</h3>
                 </Link>
               </motion.div>
             ))}
@@ -224,10 +220,10 @@ export default function Index() {
             className="text-center"
           >
             <h2 className="font-heading text-2xl font-extrabold sm:text-3xl">
-              Über 10.000 Nutzer vertrauen <span className="text-gold">BalkanLink</span>
+              {t("home.trust.title")} <span className="text-gold">BalkanLink</span>
             </h2>
             <p className="mx-auto mt-3 max-w-lg text-sm text-muted-foreground">
-              Die Balkan Community in Deutschland nutzt BalkanLink für den Alltag.
+              {t("home.trust.subtitle")}
             </p>
           </motion.div>
 
@@ -238,7 +234,7 @@ export default function Index() {
             variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}
             className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3"
           >
-            {communityExamples.map((example, i) => (
+            {exampleKeys.map((key, i) => (
               <motion.div
                 key={i}
                 variants={{
@@ -248,7 +244,7 @@ export default function Index() {
                 className="flex items-center gap-3 rounded-xl border border-border/50 bg-card p-4 shadow-sm"
               >
                 <Sparkles className="h-4 w-4 shrink-0 text-gold" />
-                <span className="text-sm font-medium">{example}</span>
+                <span className="text-sm font-medium">{t(key)}</span>
               </motion.div>
             ))}
 
@@ -264,7 +260,7 @@ export default function Index() {
                 <span className="relative inline-flex h-3 w-3 rounded-full bg-gold" />
               </div>
               <span className="text-sm font-semibold text-gold">
-                Menschen aus Südosteuropa — vereint in Deutschland
+                {t("home.trust.community")}
               </span>
             </motion.div>
           </motion.div>
@@ -284,10 +280,10 @@ export default function Index() {
             className="text-center"
           >
             <h2 className="font-heading text-2xl font-extrabold sm:text-3xl">
-              Unsere <span className="text-gold">Community</span> sagt
+              {t("home.testimonials.title")}
             </h2>
             <p className="mx-auto mt-2 max-w-md text-sm text-muted-foreground">
-              Berlin · München · Frankfurt · Stuttgart · Köln
+              {t("home.testimonials.cities")}
             </p>
           </motion.div>
 
@@ -298,7 +294,7 @@ export default function Index() {
             variants={{ hidden: {}, show: { transition: { staggerChildren: 0.1 } } }}
             className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
           >
-            {testimonials.map((review, i) => (
+            {reviews.map((review, i) => (
               <motion.div
                 key={i}
                 variants={{
@@ -317,7 +313,7 @@ export default function Index() {
                   </div>
                 </div>
                 <p className="flex-1 text-[13px] leading-relaxed text-muted-foreground">
-                  „{review.text}"
+                  „{t(review.key)}"
                 </p>
                 <div className="mt-3 flex gap-0.5 text-gold">
                   {[...Array(5)].map((_, j) => (
@@ -345,21 +341,21 @@ export default function Index() {
           >
             <div className="mx-auto mb-5 inline-flex items-center gap-2 rounded-full bg-gold/10 px-4 py-1.5 ring-1 ring-gold/20">
               <span className="text-gold text-sm">✨</span>
-              <span className="text-[12px] font-bold uppercase tracking-wider text-gold">Plus</span>
+              <span className="text-[12px] font-bold uppercase tracking-wider text-gold">{t("nav.plus")}</span>
             </div>
 
             <h2 className="font-heading text-2xl font-extrabold text-white sm:text-3xl">
-              BalkanLink <span className="text-gold">Plus</span>
+              {t("home.premium.title")} <span className="text-gold">{t("nav.plus")}</span>
             </h2>
             <p className="mx-auto mt-3 max-w-md text-sm text-white/40">
-              Alles was du brauchst — ohne Umwege.
+              {t("home.premium.subtitle")}
             </p>
 
             <div className="mt-8 space-y-3 max-w-sm mx-auto text-left">
-              {premiumSteps.map((step, i) => (
+              {premiumStepKeys.map((step, i) => (
                 <div key={i} className="flex items-center gap-3 rounded-xl border border-white/8 bg-white/[0.03] px-4 py-3">
                   <step.icon className="h-4 w-4 shrink-0 text-gold" strokeWidth={1.5} />
-                  <span className="text-[13px] font-medium text-white/70">{step.text}</span>
+                  <span className="text-[13px] font-medium text-white/70">{t(step.key)}</span>
                 </div>
               ))}
             </div>
@@ -369,11 +365,11 @@ export default function Index() {
                 to="/premium"
                 className="btn-gold-gradient group inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-sm font-bold"
               >
-                Plus aktivieren
+                {t("home.premium.cta")}
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
               <p className="mt-4 text-xs text-white/30">
-                Jederzeit kündbar.
+                {t("home.premium.cancel")}
               </p>
             </div>
           </motion.div>
