@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   Wrench, Briefcase, Building2, FileText, UtensilsCrossed, Users,
   Bus, HelpCircle, ArrowRight, Check, Shield, Sparkles, Star,
+  FileCheck, Link2, UserCheck, Zap, Award,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
@@ -37,17 +38,23 @@ const communityExamples = [
   "Kupovina auta",
 ];
 
-const premiumBenefits = [
-  "Svi formulari",
-  "Provjereni kontakti",
-  "Pravni šabloni",
-  "Prioritet odgovora",
-  "Partner popusti",
+const premiumSteps = [
+  { icon: FileCheck, text: "Formulare Schritt-für-Schritt" },
+  { icon: Link2, text: "Direktlinks zu offiziellen Behörden" },
+  { icon: UserCheck, text: "Geprüfte Kontakte" },
+  { icon: Zap, text: "Priorisierte Antworten" },
+  { icon: Award, text: "Partner Vorteile" },
+];
+
+const testimonials = [
+  { name: "Amina H.", city: "München", text: "Bez BalkanLinka bih izgubila dane na traženje informacija. Sad sve imam na jednom mjestu." },
+  { name: "Emir K.", city: "Frankfurt", text: "Kindergeld zahtjev sam riješio za 15 minuta uz korak-po-korak vodič. Preporuka!" },
+  { name: "Lejla M.", city: "Berlin", text: "Konačno platforma koja razumije nas. Profesionalno, brzo i na našem jeziku." },
+  { name: "Darko S.", city: "Stuttgart", text: "Sve informacije na jednom mjestu — od stana do posla. Balkan Community u Njemačkoj konačno ima svoju platformu." },
 ];
 
 export default function Index() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [activeUsers] = useState(() => 1240 + Math.floor(Math.random() * 300));
   const { t } = useLanguage();
   const { user, loading } = useAuth();
 
@@ -103,30 +110,36 @@ export default function Index() {
             className="max-w-2xl"
           >
             <h1 className="font-heading text-3xl font-black leading-[1.1] text-white sm:text-4xl md:text-5xl lg:text-[3.5rem]">
-              Tvoj vodič za život
+              Dein Guide für das Leben
               <br />
-              <span className="text-gold">u Njemačkoj.</span>
+              <span className="text-gold">in Deutschland.</span>
             </h1>
             <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-white/50 sm:text-base md:text-lg">
-              Sve što ti treba — na jednom mjestu.
+              Alles was du brauchst — an einem Ort.
             </p>
 
-            {!loading && !user && (
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                className="mt-8 flex justify-center"
-              >
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="mt-8 flex flex-col items-center gap-3"
+            >
+              {!loading && !user && (
                 <Link
                   to="/register"
                   className="btn-gold-gradient group inline-flex items-center justify-center gap-2 rounded-full px-8 py-3.5 text-sm font-bold tracking-wide sm:px-10 sm:py-4 sm:text-base"
                 >
-                  Registruj se besplatno
+                  Kostenlos starten
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
-              </motion.div>
-            )}
+              )}
+              <Link
+                to="/pocni-ovdje"
+                className="text-[13px] font-medium text-white/40 underline-offset-4 hover:text-white/60 hover:underline transition-colors"
+              >
+                So funktioniert BalkanLink →
+              </Link>
+            </motion.div>
           </motion.div>
 
           {/* City label */}
@@ -184,7 +197,7 @@ export default function Index() {
               >
                 <Link
                   to={card.to}
-                  className={`group relative flex flex-col items-center gap-3 overflow-hidden rounded-2xl border border-border/50 bg-gradient-to-br ${card.color} bg-card p-5 sm:p-6 text-center shadow-sm transition-all duration-300 hover:border-gold/30 hover:shadow-xl hover:shadow-gold/5 hover:-translate-y-1`}
+                  className={`group relative flex flex-col items-center gap-3 overflow-hidden rounded-2xl border border-border/50 bg-gradient-to-br ${card.color} bg-card p-5 sm:p-6 text-center shadow-sm transition-all duration-300 hover:border-gold/30 hover:shadow-lg hover:shadow-gold/5 hover:-translate-y-1`}
                 >
                   <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-[radial-gradient(circle_at_50%_0%,hsl(var(--gold)/0.08),transparent_70%)]" />
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/8 text-primary transition-all duration-300 group-hover:bg-gold/15 group-hover:text-gold group-hover:scale-110">
@@ -200,7 +213,7 @@ export default function Index() {
 
       <div className="section-separator" />
 
-      {/* ─── COMMUNITY SECTION ─── */}
+      {/* ─── TRUST / COMMUNITY SECTION ─── */}
       <section className="py-14 sm:py-20">
         <div className="container max-w-4xl">
           <motion.div
@@ -211,10 +224,10 @@ export default function Index() {
             className="text-center"
           >
             <h2 className="font-heading text-2xl font-extrabold sm:text-3xl">
-              Snađi se brže <span className="text-gold">u Njemačkoj</span>
+              Über 10.000 Nutzer vertrauen <span className="text-gold">BalkanLink</span>
             </h2>
             <p className="mx-auto mt-3 max-w-lg text-sm text-muted-foreground">
-              Hiljade korisnika već koriste BalkanLink za svakodnevne situacije.
+              Die Balkan Community in Deutschland nutzt BalkanLink für den Alltag.
             </p>
           </motion.div>
 
@@ -251,58 +264,9 @@ export default function Index() {
                 <span className="relative inline-flex h-3 w-3 rounded-full bg-gold" />
               </div>
               <span className="text-sm font-semibold text-gold">
-                {activeUsers.toLocaleString("de-DE")}+ aktivnih korisnika
+                Menschen aus Südosteuropa — vereint in Deutschland
               </span>
             </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      <div className="section-separator" />
-
-      {/* ─── PREMIUM BLOCK ─── */}
-      <section className="relative overflow-hidden bg-[#0B1F3A] py-16 sm:py-20">
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }} />
-
-        <div className="container relative z-10 max-w-3xl text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10 ring-1 ring-gold/20">
-              <Shield className="h-6 w-6 text-gold" />
-            </div>
-
-            <h2 className="font-heading text-2xl font-extrabold text-white sm:text-3xl">
-              Sigurnost u <span className="text-gold">Njemačkoj</span>
-            </h2>
-            <p className="mx-auto mt-3 max-w-md text-sm text-white/40">
-              BalkanLink Plus ti daje potpuni pristup svemu što ti treba.
-            </p>
-
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              {premiumBenefits.map((b, i) => (
-                <div key={i} className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[13px] font-medium text-white/70">
-                  <Check className="h-3.5 w-3.5 text-gold" />
-                  {b}
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-8">
-              <Link
-                to="/premium"
-                className="btn-gold-gradient group inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-sm font-bold"
-              >
-                Aktiviraj BalkanLink Plus
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-              <p className="mt-4 text-xs text-white/30">
-                Možeš otkazati u bilo kojem trenutku.
-              </p>
-            </div>
           </motion.div>
         </div>
       </section>
@@ -320,8 +284,11 @@ export default function Index() {
             className="text-center"
           >
             <h2 className="font-heading text-2xl font-extrabold sm:text-3xl">
-              Ljudi koji već koriste <span className="text-gold">BalkanLink</span>
+              Unsere <span className="text-gold">Community</span> sagt
             </h2>
+            <p className="mx-auto mt-2 max-w-md text-sm text-muted-foreground">
+              Berlin · München · Frankfurt · Stuttgart · Köln
+            </p>
           </motion.div>
 
           <motion.div
@@ -329,23 +296,19 @@ export default function Index() {
             whileInView="show"
             viewport={{ once: true }}
             variants={{ hidden: {}, show: { transition: { staggerChildren: 0.1 } } }}
-            className="mt-10 grid gap-5 sm:grid-cols-3"
+            className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
           >
-            {[
-              { name: "Amina H.", city: "München", text: "Bez BalkanLinka bih izgubila dane na traženje informacija. Sad sve imam na jednom mjestu." },
-              { name: "Emir K.", city: "Frankfurt", text: "Kindergeld zahtjev sam riješio za 15 minuta uz korak-po-korak vodič. Preporuka!" },
-              { name: "Lejla M.", city: "Berlin", text: "Konačno platforma koja razumije nas. Profesionalno, brzo i na našem jeziku." },
-            ].map((review, i) => (
+            {testimonials.map((review, i) => (
               <motion.div
                 key={i}
                 variants={{
                   hidden: { opacity: 0, y: 20 },
                   show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
                 }}
-                className="flex flex-col rounded-2xl border border-border/50 bg-card p-6 shadow-sm"
+                className="flex flex-col rounded-2xl border border-border/50 bg-card p-5 shadow-sm"
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gold/10 font-heading text-sm font-bold text-gold">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-gold/10 font-heading text-sm font-bold text-gold">
                     {review.name.charAt(0)}
                   </div>
                   <div>
@@ -354,15 +317,65 @@ export default function Index() {
                   </div>
                 </div>
                 <p className="flex-1 text-[13px] leading-relaxed text-muted-foreground">
-                  "{review.text}"
+                  „{review.text}"
                 </p>
-                <div className="mt-4 flex gap-0.5 text-gold">
+                <div className="mt-3 flex gap-0.5 text-gold">
                   {[...Array(5)].map((_, j) => (
                     <Star key={j} className="h-3.5 w-3.5 fill-current" />
                   ))}
                 </div>
               </motion.div>
             ))}
+          </motion.div>
+        </div>
+      </section>
+
+      <div className="section-separator" />
+
+      {/* ─── PREMIUM BLOCK ─── */}
+      <section className="relative overflow-hidden bg-[#0B1F3A] py-16 sm:py-20">
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }} />
+
+        <div className="container relative z-10 max-w-3xl text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="mx-auto mb-5 inline-flex items-center gap-2 rounded-full bg-gold/10 px-4 py-1.5 ring-1 ring-gold/20">
+              <span className="text-gold text-sm">✨</span>
+              <span className="text-[12px] font-bold uppercase tracking-wider text-gold">Plus</span>
+            </div>
+
+            <h2 className="font-heading text-2xl font-extrabold text-white sm:text-3xl">
+              BalkanLink <span className="text-gold">Plus</span>
+            </h2>
+            <p className="mx-auto mt-3 max-w-md text-sm text-white/40">
+              Alles was du brauchst — ohne Umwege.
+            </p>
+
+            <div className="mt-8 space-y-3 max-w-sm mx-auto text-left">
+              {premiumSteps.map((step, i) => (
+                <div key={i} className="flex items-center gap-3 rounded-xl border border-white/8 bg-white/[0.03] px-4 py-3">
+                  <step.icon className="h-4 w-4 shrink-0 text-gold" strokeWidth={1.5} />
+                  <span className="text-[13px] font-medium text-white/70">{step.text}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8">
+              <Link
+                to="/premium"
+                className="btn-gold-gradient group inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-sm font-bold"
+              >
+                Plus aktivieren
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+              <p className="mt-4 text-xs text-white/30">
+                Jederzeit kündbar.
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>

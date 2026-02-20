@@ -24,13 +24,13 @@ export default function Header() {
           {/* Plus nav link */}
           <Link
             to="/premium"
-            className={`mr-1 flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider transition-colors ${
+            className={`mr-1 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider transition-colors ${
               !loading && isPremium
                 ? "bg-gold/10 text-gold ring-1 ring-gold/20 hover:bg-gold/15"
                 : "text-gold/70 hover:bg-gold/10 hover:text-gold"
             }`}
           >
-            ✦ Plus
+            <span className="text-xs leading-none">✨</span> Plus
           </Link>
 
           {/* Language Picker */}
