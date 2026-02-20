@@ -85,7 +85,7 @@ interface Listing {
 /* ─── component ─── */
 
 export default function Community() {
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
 
   const [cityInput, setCityInput] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -203,13 +203,13 @@ export default function Community() {
       <section className="relative overflow-hidden" style={{ background: "#0F1B2D" }}>
         <div className="absolute inset-0 bg-gradient-to-br from-[#E3B341]/5 via-transparent to-[#E3B341]/3" />
         <div className="container relative max-w-5xl py-14 text-center">
-          <motion.h1
+           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="text-2xl font-bold text-white md:text-4xl"
           >
-            Unsere Community in Deutschland
+            {t("portal.community")}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 12 }}
@@ -217,7 +217,7 @@ export default function Community() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="mx-auto mt-3 max-w-xl text-sm text-white/50 md:text-base"
           >
-            Finde Džemate, Misije, Restaurants, Vereine und Gemeinden aus Bosnien und Kroatien.
+            {t("portal.community.desc")}
           </motion.p>
 
           {/* Stats */}
@@ -488,64 +488,7 @@ export default function Community() {
                                                     </p>
                                                   )}
 
-                                                  <div className="mt-3 flex flex-wrap gap-2">
-                                                    {item.google_maps_url && (
-                                                      <a
-                                                        href={item.google_maps_url}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="inline-flex items-center gap-1 rounded-md px-2.5 py-1 text-xs font-medium transition-colors"
-                                                        style={{ background: "rgba(227,179,65,0.1)", color: "#E3B341" }}
-                                                        onMouseOver={(e) => (e.currentTarget.style.background = "rgba(227,179,65,0.2)")}
-                                                        onMouseOut={(e) => (e.currentTarget.style.background = "rgba(227,179,65,0.1)")}
-                                                      >
-                                                        <ExternalLink className="h-3 w-3" />
-                                                        Google Maps
-                                                      </a>
-                                                    )}
-                                                    {item.website && (
-                                                      <a
-                                                        href={item.website}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="inline-flex items-center gap-1 rounded-md px-2.5 py-1 text-xs font-medium transition-colors"
-                                                        style={{ background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.7)" }}
-                                                        onMouseOver={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "#E3B341"; }}
-                                                        onMouseOut={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.color = "rgba(255,255,255,0.7)"; }}
-                                                      >
-                                                        <Globe className="h-3 w-3" />
-                                                        Website
-                                                      </a>
-                                                    )}
-                                                    {item.description && item.description.startsWith("https://facebook.com") && (
-                                                      <a
-                                                        href={item.description}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="inline-flex items-center gap-1 rounded-md px-2.5 py-1 text-xs font-medium transition-colors"
-                                                        style={{ background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.7)" }}
-                                                        onMouseOver={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "#E3B341"; }}
-                                                        onMouseOut={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.color = "rgba(255,255,255,0.7)"; }}
-                                                      >
-                                                        <Facebook className="h-3 w-3" />
-                                                        Facebook
-                                                      </a>
-                                                    )}
-                                                    {item.instagram && (
-                                                      <a
-                                                        href={item.instagram}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="inline-flex items-center gap-1 rounded-md px-2.5 py-1 text-xs font-medium transition-colors"
-                                                        style={{ background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.7)" }}
-                                                        onMouseOver={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "#E3B341"; }}
-                                                        onMouseOut={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.color = "rgba(255,255,255,0.7)"; }}
-                                                      >
-                                                        <Instagram className="h-3 w-3" />
-                                                        Instagram
-                                                      </a>
-                                                    )}
-                                                  </div>
+                                                  {/* Display only Name + Address — no website/social buttons */}
                                                 </motion.div>
                                               ))}
                                             </div>

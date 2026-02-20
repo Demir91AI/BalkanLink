@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   FileText, ChevronDown, ExternalLink, Download, CheckCircle2,
   Building2, Baby, Heart, Stethoscope, XCircle, Landmark, Crown, Lock,
+  Receipt, Banknote, Briefcase, Home, Car, CreditCard, Users, Shield,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
@@ -27,6 +28,7 @@ interface GuideCategory {
   steps: { de: string[]; bs: string[]; en: string[] };
   officialLink: string;
   officialLinkLabel: string;
+  noOnlineForm?: boolean;
   templateLink?: string;
 }
 
@@ -198,6 +200,358 @@ const categories: GuideCategory[] = [
     officialLinkLabel: "Krankenkassen-Vergleich",
   },
   {
+    id: "steuer",
+    icon: Receipt,
+    title: { de: "Steuer-ID & Steuerklasse", bs: "Porezni ID i porezna klasa", en: "Tax ID & Tax Class" },
+    description: {
+      de: "Die Steuer-ID wird automatisch nach der Anmeldung per Post zugesandt. Die Steuerklasse kann beim Finanzamt geändert werden.",
+      bs: "Porezni ID se automatski šalje poštom nakon prijave prebivališta. Porezna klasa se može promijeniti u Finanzamtu.",
+      en: "The tax ID is sent by mail after registration. The tax class can be changed at the tax office.",
+    },
+    documents: {
+      de: ["Meldebescheinigung", "Personalausweis / Reisepass", "Heiratsurkunde (bei Steuerklassenwechsel)", "Ggf. Scheidungsurteil"],
+      bs: ["Potvrda o prijavi", "Lična karta / pasoš", "Vjenčani list (za promjenu klase)", "Eventualno presuda o razvodu"],
+      en: ["Registration certificate", "ID / Passport", "Marriage certificate (for class change)", "Divorce decree if applicable"],
+    },
+    steps: {
+      de: [
+        "Steuer-ID wird automatisch ca. 2–4 Wochen nach Anmeldung per Post zugesandt.",
+        "Falls nicht erhalten: beim Bundeszentralamt für Steuern (BZSt) online nachfragen.",
+        "Steuerklasse prüfen (I = ledig, III/V oder IV/IV = verheiratet).",
+        'Steuerklassenwechsel über das Finanzamt beantragen (Formular "Antrag auf Steuerklassenwechsel").',
+        "Arbeitgeber informieren — neue Klasse erscheint automatisch in der Lohnabrechnung.",
+      ],
+      bs: [
+        "Porezni ID stiže automatski poštom 2–4 sedmice nakon prijave.",
+        "Ako nije stigao: pitajte online kod Bundeszentralamt für Steuern (BZSt).",
+        "Provjerite poreznu klasu (I = neoženjen, III/V ili IV/IV = oženjen).",
+        'Promjenu klase zatražite kod Finanzamta (formular "Antrag auf Steuerklassenwechsel").',
+        "Obavijestite poslodavca — nova klasa se automatski pojavljuje na platnoj listi.",
+      ],
+      en: [
+        "Tax ID is sent automatically by mail 2–4 weeks after registration.",
+        "If not received: request online at the Federal Central Tax Office (BZSt).",
+        "Check tax class (I = single, III/V or IV/IV = married).",
+        "Apply for tax class change at the tax office (form 'Antrag auf Steuerklassenwechsel').",
+        "Inform employer — new class appears automatically on payslip.",
+      ],
+    },
+    officialLink: "https://www.bzst.de/DE/Privatpersonen/SteuerlicheIdentifikationsnummer/steuerlicheidentifikationsnummer_node.html",
+    officialLinkLabel: "BZSt – Steuer-ID",
+  },
+  {
+    id: "bankkonto",
+    icon: Banknote,
+    title: { de: "Bankkonto eröffnen", bs: "Otvaranje bankovnog računa", en: "Open a Bank Account" },
+    description: {
+      de: "Ein deutsches Bankkonto ist für Gehalt, Miete und Sozialleistungen notwendig. Die Eröffnung ist auch online möglich.",
+      bs: "Njemački bankovni račun je potreban za platu, kiriju i socijalna davanja. Otvaranje je moguće i online.",
+      en: "A German bank account is needed for salary, rent, and social benefits. Opening is also possible online.",
+    },
+    documents: {
+      de: ["Personalausweis / Reisepass", "Meldebescheinigung", "Aufenthaltstitel (Nicht-EU)", "Ggf. Arbeitsvertrag"],
+      bs: ["Lična karta / pasoš", "Potvrda o prijavi", "Boravišna dozvola (ne-EU)", "Eventualno ugovor o radu"],
+      en: ["ID / Passport", "Registration certificate", "Residence permit (non-EU)", "Employment contract if applicable"],
+    },
+    steps: {
+      de: [
+        "Bank auswählen (z.B. Sparkasse, Deutsche Bank, Commerzbank, N26, ING).",
+        "Online-Antrag ausfüllen oder Termin in der Filiale vereinbaren.",
+        "PostIdent oder VideoIdent zur Identitätsprüfung durchführen.",
+        "Meldebescheinigung und Ausweisdokument bereithalten.",
+        "Girokarte und Online-Banking-Daten werden per Post zugesendet.",
+        "IBAN dem Arbeitgeber und Behörden mitteilen.",
+      ],
+      bs: [
+        "Odaberite banku (Sparkasse, Deutsche Bank, Commerzbank, N26, ING itd.).",
+        "Popunite online zahtjev ili zakažite termin u poslovnici.",
+        "Provedite PostIdent ili VideoIdent za identifikaciju.",
+        "Pripremite potvrdu o prijavi i ličnu kartu/pasoš.",
+        "Girokarte i podaci za online banking stižu poštom.",
+        "Proslijedite IBAN poslodavcu i institucijama.",
+      ],
+      en: [
+        "Choose a bank (Sparkasse, Deutsche Bank, Commerzbank, N26, ING, etc.).",
+        "Fill out online application or schedule a branch appointment.",
+        "Complete PostIdent or VideoIdent for identity verification.",
+        "Have registration certificate and ID ready.",
+        "Debit card and online banking details arrive by mail.",
+        "Share IBAN with employer and authorities.",
+      ],
+    },
+    officialLink: "https://www.bafin.de/DE/Verbraucher/BankeBauspwortkassen/Kontoeröffnung/kontoeröffnung_node.html",
+    officialLinkLabel: "BaFin – Kontoeröffnung",
+  },
+  {
+    id: "arbeit",
+    icon: Briefcase,
+    title: { de: "Arbeit & Arbeitsvertrag", bs: "Posao i ugovor o radu", en: "Employment & Work Contract" },
+    description: {
+      de: "Ein Arbeitsvertrag regelt Rechte und Pflichten. Vor Unterschrift sollte man alle Punkte genau prüfen.",
+      bs: "Ugovor o radu reguliše prava i obaveze. Prije potpisa treba pažljivo provjeriti sve tačke.",
+      en: "An employment contract defines rights and duties. Review all points carefully before signing.",
+    },
+    documents: {
+      de: ["Personalausweis / Reisepass", "Aufenthaltstitel mit Arbeitserlaubnis", "Sozialversicherungsausweis", "Steuer-ID", "Bankverbindung", "Ggf. Zeugnisse / Diplome"],
+      bs: ["Lična karta / pasoš", "Boravišna dozvola sa radnom dozvolom", "Kartica socijalnog osiguranja", "Porezni ID", "Bankovni podaci", "Eventualno diplome / svjedodžbe"],
+      en: ["ID / Passport", "Residence permit with work permit", "Social insurance card", "Tax ID", "Bank details", "Diplomas / certificates if applicable"],
+    },
+    steps: {
+      de: [
+        "Arbeitsvertrag vor Unterschrift vollständig lesen.",
+        "Probezeit prüfen (max. 6 Monate, Kündigungsfrist 2 Wochen).",
+        "Arbeitszeit, Gehalt, Urlaubstage (mind. 20 Tage) und Kündigungsfristen prüfen.",
+        "Sozialversicherungsausweis beim Rentenversicherungsträger beantragen (falls nicht vorhanden).",
+        "Steuer-ID und Bankverbindung dem Arbeitgeber mitteilen.",
+        "Krankenversicherung wählen und Arbeitgeber informieren.",
+        "Vertrag unterschreiben — ein Exemplar immer aufbewahren!",
+      ],
+      bs: [
+        "Ugovor o radu pročitajte kompletno prije potpisa.",
+        "Provjerite probni rok (max. 6 mjeseci, otkazni rok 2 sedmice).",
+        "Provjerite radno vrijeme, platu, dane godišnjeg odmora (min. 20) i otkazne rokove.",
+        "Kartica socijalnog osiguranja — zatražite kod nositelja penzijskog osiguranja.",
+        "Proslijedite porezni ID i bankovne podatke poslodavcu.",
+        "Odaberite zdravstveno osiguranje i obavijestite poslodavca.",
+        "Potpišite ugovor — uvijek zadržite jedan primjerak!",
+      ],
+      en: [
+        "Read the employment contract fully before signing.",
+        "Check probation period (max. 6 months, 2-week notice).",
+        "Verify working hours, salary, vacation days (min. 20), and notice periods.",
+        "Request social insurance card from pension insurance if not available.",
+        "Provide tax ID and bank details to employer.",
+        "Choose health insurance and inform employer.",
+        "Sign the contract — always keep a copy!",
+      ],
+    },
+    officialLink: "https://www.arbeitsagentur.de",
+    officialLinkLabel: "Agentur für Arbeit",
+  },
+  {
+    id: "wohnung",
+    icon: Home,
+    title: { de: "Wohnung & Mietvertrag", bs: "Stan i ugovor o najmu", en: "Housing & Rental Contract" },
+    description: {
+      de: "Ein Mietvertrag ist Pflicht und sollte vor Unterschrift genau geprüft werden. Die Kaution beträgt max. 3 Kaltmieten.",
+      bs: "Ugovor o najmu je obavezan i treba ga pažljivo pročitati. Kaucija iznosi max. 3 hladne kirije.",
+      en: "A rental contract is mandatory and should be checked carefully. Deposit is max. 3 months cold rent.",
+    },
+    documents: {
+      de: ["Personalausweis / Reisepass", "Meldebescheinigung", "Einkommensnachweis / Gehaltsnachweise", "SCHUFA-Auskunft", "Mieterselbstauskunft", "Ggf. Bürgschaft"],
+      bs: ["Lična karta / pasoš", "Potvrda o prijavi", "Dokaz o primanjima / platne liste", "SCHUFA izvještaj", "Samoprijava stanara", "Eventualno garancija"],
+      en: ["ID / Passport", "Registration certificate", "Income proof / salary slips", "SCHUFA report", "Tenant self-disclosure", "Guarantor letter if applicable"],
+    },
+    steps: {
+      de: [
+        "Wohnung auf Portalen suchen (ImmobilienScout24, WG-Gesucht, eBay Kleinanzeigen).",
+        "Besichtigungstermine vereinbaren und Unterlagen vorbereiten.",
+        "SCHUFA-Auskunft online bestellen (kostenlos 1x/Jahr bei meineSCHUFA.de).",
+        "Mietvertrag vor Unterschrift komplett lesen — auf Nebenkosten, Kündigungsfrist und Kaution achten.",
+        "Übergabeprotokoll bei Einzug erstellen (Zustand der Wohnung dokumentieren).",
+        "Innerhalb von 14 Tagen beim Bürgeramt anmelden.",
+      ],
+      bs: [
+        "Stanove tražite na portalima (ImmobilienScout24, WG-Gesucht, eBay Kleinanzeigen).",
+        "Dogovorite termine za razgledanje i pripremite dokumente.",
+        "Naručite SCHUFA izvještaj online (besplatno 1x godišnje na meineSCHUFA.de).",
+        "Ugovor o najmu pročitajte kompletno — obratite pažnju na režije, otkazni rok i kauciju.",
+        "Napravite zapisnik o primopredaji pri useljenju (dokumentirajte stanje stana).",
+        "U roku od 14 dana prijavite se u Bürgeramtu.",
+      ],
+      en: [
+        "Search apartments on portals (ImmobilienScout24, WG-Gesucht, eBay Kleinanzeigen).",
+        "Schedule viewing appointments and prepare documents.",
+        "Order SCHUFA report online (free 1x/year at meineSCHUFA.de).",
+        "Read rental contract fully — check utilities, notice period, and deposit.",
+        "Create handover protocol when moving in (document apartment condition).",
+        "Register at the citizens' office within 14 days.",
+      ],
+    },
+    officialLink: "https://www.mieterbund.de",
+    officialLinkLabel: "Deutscher Mieterbund",
+  },
+  {
+    id: "auto",
+    icon: Car,
+    title: { de: "Auto anmelden", bs: "Registracija automobila", en: "Register a Car" },
+    description: {
+      de: "Ein Auto muss innerhalb weniger Tage nach Kauf bei der Zulassungsstelle angemeldet werden.",
+      bs: "Automobil se mora registrirati u roku od nekoliko dana od kupovine kod Zulassungsstelle.",
+      en: "A car must be registered at the vehicle registration office within a few days of purchase.",
+    },
+    documents: {
+      de: ["Personalausweis / Reisepass", "eVB-Nummer (Versicherungsbestätigung)", "Fahrzeugbrief (Zulassungsbescheinigung Teil II)", "Fahrzeugschein (Teil I)", "Nachweis der Hauptuntersuchung (HU/TÜV)", "SEPA-Lastschriftmandat für Kfz-Steuer"],
+      bs: ["Lična karta / pasoš", "eVB-broj (potvrda o osiguranju)", "Prometna dozvola (Teil II)", "Saobraćajna dozvola (Teil I)", "TÜV izvještaj", "SEPA ovlaštenje za porez na vozilo"],
+      en: ["ID / Passport", "eVB number (insurance confirmation)", "Vehicle registration Part II", "Vehicle registration Part I", "TÜV inspection report", "SEPA mandate for vehicle tax"],
+    },
+    steps: {
+      de: [
+        "Kfz-Versicherung abschließen und eVB-Nummer erhalten.",
+        "Termin bei der Zulassungsstelle online buchen.",
+        "Alle Dokumente (Ausweis, eVB, Fahrzeugbrief, TÜV) mitbringen.",
+        "Kennzeichen bei einer Schilderprägestelle anfertigen lassen.",
+        "Zulassungsbescheinigung Teil I und II erhalten.",
+        "Kfz-Steuer wird automatisch vom Zoll eingezogen (SEPA-Mandat).",
+      ],
+      bs: [
+        "Zaključite osiguranje vozila i dobijte eVB-broj.",
+        "Zakažite termin online kod Zulassungsstelle.",
+        "Ponesete sve dokumente (pasoš, eVB, prometna, TÜV).",
+        "Tablice naručite kod Schilderprägestelle.",
+        "Preuzmite saobraćajnu dozvolu Teil I i II.",
+        "Porez na vozilo se automatski naplaćuje (SEPA ovlaštenje).",
+      ],
+      en: [
+        "Get car insurance and obtain eVB number.",
+        "Book appointment online at the vehicle registration office.",
+        "Bring all documents (ID, eVB, registration papers, TÜV).",
+        "Have license plates made at a plate maker.",
+        "Receive registration certificates Part I and II.",
+        "Vehicle tax is collected automatically (SEPA mandate).",
+      ],
+    },
+    officialLink: "https://www.kba.de",
+    officialLinkLabel: "Kraftfahrt-Bundesamt",
+    noOnlineForm: true,
+  },
+  {
+    id: "fuehrerschein",
+    icon: CreditCard,
+    title: { de: "Führerschein umschreiben", bs: "Prepis vozačke dozvole", en: "Convert Driving License" },
+    description: {
+      de: "Führerscheine aus Nicht-EU-Ländern müssen innerhalb von 6 Monaten umgeschrieben werden. EU-Führerscheine gelten unbegrenzt.",
+      bs: "Vozačke dozvole iz ne-EU zemalja moraju se prepisati u roku od 6 mjeseci. EU dozvole važe neograničeno.",
+      en: "Non-EU driving licenses must be converted within 6 months. EU licenses are valid indefinitely.",
+    },
+    documents: {
+      de: ["Personalausweis / Reisepass", "Meldebescheinigung", "Ausländischer Führerschein (Original + Übersetzung)", "Biometrisches Passfoto", "Sehtest-Bescheinigung", "Erste-Hilfe-Kurs-Bescheinigung"],
+      bs: ["Lična karta / pasoš", "Potvrda o prijavi", "Strana vozačka dozvola (original + prijevod)", "Biometrijska fotografija", "Potvrda o pregledu vida", "Potvrda o kursu prve pomoći"],
+      en: ["ID / Passport", "Registration certificate", "Foreign driving license (original + translation)", "Biometric photo", "Eye test certificate", "First aid course certificate"],
+    },
+    steps: {
+      de: [
+        "Prüfen, ob der Führerschein aus einem anerkannten Land stammt (Prüfungspflicht ja/nein).",
+        "Amtlich beglaubigte Übersetzung des Führerscheins anfertigen lassen.",
+        "Sehtest bei einem Optiker oder Augenarzt machen.",
+        "Erste-Hilfe-Kurs absolvieren (nur bei prüfungspflichtigen Ländern).",
+        "Antrag bei der Führerscheinstelle mit allen Dokumenten einreichen.",
+        "Ggf. theoretische und/oder praktische Prüfung ablegen.",
+        "Deutschen Führerschein abholen.",
+      ],
+      bs: [
+        "Provjerite da li dozvola dolazi iz priznate zemlje (obaveza polaganja da/ne).",
+        "Naručite službeni prevod vozačke dozvole.",
+        "Obavite pregled vida kod optičara ili oftalmologa.",
+        "Položite kurs prve pomoći (samo za zemlje sa obaveznim polaganjem).",
+        "Podnesite zahtjev sa svim dokumentima kod Führerscheinstelle.",
+        "Eventualno položite teorijski i/ili praktični ispit.",
+        "Preuzmite njemačku vozačku dozvolu.",
+      ],
+      en: [
+        "Check if your license is from a recognized country (exam required yes/no).",
+        "Get an officially certified translation of your license.",
+        "Take an eye test at an optician or ophthalmologist.",
+        "Complete first aid course (only for countries requiring exams).",
+        "Submit application with all documents at the license office.",
+        "Take theory and/or practical exam if required.",
+        "Pick up your German driving license.",
+      ],
+    },
+    officialLink: "https://www.adac.de/verkehr/rund-um-den-fuehrerschein/auslaendischer-fuehrerschein/",
+    officialLinkLabel: "ADAC – Führerschein",
+    noOnlineForm: true,
+  },
+  {
+    id: "familiennachzug",
+    icon: Users,
+    title: { de: "Familiennachzug", bs: "Spajanje porodice", en: "Family Reunification" },
+    description: {
+      de: "Familienangehörige aus Drittstaaten können unter bestimmten Voraussetzungen nachziehen. Der Antrag wird bei der Auslandsvertretung gestellt.",
+      bs: "Članovi porodice iz trećih zemalja mogu se pod određenim uvjetima pridružiti. Zahtjev se podnosi kod ambasade.",
+      en: "Family members from third countries can join under certain conditions. Application is made at the embassy.",
+    },
+    documents: {
+      de: ["Reisepass (gültig)", "Heiratsurkunde / Geburtsurkunde (beglaubigt + übersetzt)", "Aufenthaltstitel des in Deutschland lebenden Partners", "Nachweis ausreichenden Wohnraums", "Einkommensnachweis / Verpflichtungserklärung", "Ggf. A1-Sprachzertifikat Deutsch"],
+      bs: ["Pasoš (važeći)", "Vjenčani list / rodni list (ovjeren + preveden)", "Boravišna dozvola partnera u Njemačkoj", "Dokaz o dovoljnom stambenom prostoru", "Dokaz o primanjima / izjava o obavezi", "Eventualno A1-certifikat njemačkog jezika"],
+      en: ["Valid passport", "Marriage / birth certificate (certified + translated)", "Residence permit of partner in Germany", "Proof of sufficient living space", "Income proof / obligation declaration", "A1 German language certificate if applicable"],
+    },
+    steps: {
+      de: [
+        "Termin bei der deutschen Auslandsvertretung (Botschaft/Konsulat) im Herkunftsland buchen.",
+        "Alle Dokumente beglaubigen und übersetzen lassen.",
+        "Visumsantrag für Familiennachzug ausfüllen.",
+        "Ggf. A1-Sprachtest Deutsch ablegen (für Ehepartner).",
+        "Nachweis ausreichenden Wohnraums und Einkommen vorbereiten.",
+        "Visum wird geprüft — Bearbeitungszeit 2–6 Monate.",
+        "Nach Einreise: Aufenthaltstitel bei der Ausländerbehörde beantragen.",
+      ],
+      bs: [
+        "Zakažite termin u njemačkoj ambasadi/konzulatu u zemlji porijekla.",
+        "Sve dokumente ovjerite i prevedite.",
+        "Popunite zahtjev za vizu za spajanje porodice.",
+        "Eventualno položite A1-ispit njemačkog jezika (za supružnike).",
+        "Pripremite dokaz o stambenom prostoru i primanjima.",
+        "Viza se provjerava — obrada traje 2–6 mjeseci.",
+        "Nakon ulaska: podnesite zahtjev za boravišnu dozvolu kod Ausländerbehörde.",
+      ],
+      en: [
+        "Book appointment at the German embassy/consulate in the country of origin.",
+        "Have all documents certified and translated.",
+        "Fill out visa application for family reunification.",
+        "Take A1 German language test if required (for spouses).",
+        "Prepare proof of living space and income.",
+        "Visa is reviewed — processing takes 2–6 months.",
+        "After arrival: apply for residence permit at the foreigners' authority.",
+      ],
+    },
+    officialLink: "https://www.make-it-in-germany.com/de/visum-aufenthalt/familiennachzug",
+    officialLinkLabel: "Make it in Germany",
+  },
+  {
+    id: "aufenthaltstitel",
+    icon: Shield,
+    title: { de: "Aufenthaltstitel & Verlängerung", bs: "Boravišna dozvola i produženje", en: "Residence Permit & Extension" },
+    description: {
+      de: "Nicht-EU-Bürger benötigen einen Aufenthaltstitel. Die Verlängerung muss rechtzeitig vor Ablauf beantragt werden.",
+      bs: "Državljani ne-EU zemalja trebaju boravišnu dozvolu. Produženje se mora zatražiti pravovremeno prije isteka.",
+      en: "Non-EU citizens need a residence permit. Extension must be applied for in time before expiry.",
+    },
+    documents: {
+      de: ["Reisepass (gültig)", "Biometrisches Passfoto", "Meldebescheinigung", "Arbeitsvertrag oder Studiennachweis", "Krankenversicherungsnachweis", "Einkommensnachweis", "Ggf. Integrationskurs-Bescheinigung"],
+      bs: ["Pasoš (važeći)", "Biometrijska fotografija", "Potvrda o prijavi", "Ugovor o radu ili potvrda studija", "Dokaz o zdravstvenom osiguranju", "Dokaz o primanjima", "Eventualno potvrda o integrationom kursu"],
+      en: ["Valid passport", "Biometric photo", "Registration certificate", "Employment contract or study proof", "Health insurance proof", "Income proof", "Integration course certificate if applicable"],
+    },
+    steps: {
+      de: [
+        "Termin bei der Ausländerbehörde online buchen (mind. 6–8 Wochen vor Ablauf).",
+        "Alle erforderlichen Dokumente zusammenstellen.",
+        "Antrag auf Verlängerung / Erteilung des Aufenthaltstitels ausfüllen.",
+        "Gebühr bezahlen (ca. 70–100 €, je nach Titel).",
+        "Fiktionsbescheinigung erhalten (falls Bearbeitungszeit länger als Gültigkeit).",
+        "Aufenthaltstitel in elektronischer Form (eAT) wird per Post zugesendet.",
+      ],
+      bs: [
+        "Zakažite termin kod Ausländerbehörde online (min. 6–8 sedmica prije isteka).",
+        "Pripremite sve potrebne dokumente.",
+        "Popunite zahtjev za produženje / izdavanje boravišne dozvole.",
+        "Platite taksu (ca. 70–100 €, ovisno o vrsti).",
+        "Dobijete Fiktionsbescheinigung (ako obrada traje duže od važnosti).",
+        "Boravišna dozvola u elektronskom obliku (eAT) stiže poštom.",
+      ],
+      en: [
+        "Book appointment at the foreigners' authority online (min. 6–8 weeks before expiry).",
+        "Gather all required documents.",
+        "Fill out application for extension / issuance of residence permit.",
+        "Pay the fee (approx. €70–100, depending on type).",
+        "Receive fictional certificate if processing takes longer than validity.",
+        "Electronic residence permit (eAT) is sent by mail.",
+      ],
+    },
+    officialLink: "https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwsendererErsteSchritte/Aufenthaltstitel/aufenthaltstitel-node.html",
+    officialLinkLabel: "BAMF – Aufenthaltstitel",
+  },
+  {
     id: "kuendigung",
     icon: XCircle,
     title: { de: "Kündigungsschreiben", bs: "Otkazno pismo", en: "Termination Letter" },
@@ -295,9 +649,9 @@ const pageTitles = {
 };
 
 const labels = {
-  de: { documents: "Benötigte Dokumente", steps: "Schritt-für-Schritt Anleitung", officialLink: "Offizieller Link", template: "Vorlage herunterladen", premiumTitle: "Vollständige Anleitung nur mit BalkanLink Plus", premiumDesc: "Erhalte alle Schritte, Vorlagen und Dokument-Checklisten.", premiumCta: "Plus freischalten", loginCta: "Anmelden" },
-  bs: { documents: "Potrebni dokumenti", steps: "Korak po korak uputstvo", officialLink: "Zvanični link", template: "Preuzmi predložak", premiumTitle: "Kompletno uputstvo samo sa BalkanLink Plus", premiumDesc: "Dobij sve korake, predloške i liste dokumenata.", premiumCta: "Aktiviraj Plus", loginCta: "Prijavi se" },
-  en: { documents: "Required Documents", steps: "Step-by-Step Guide", officialLink: "Official Link", template: "Download Template", premiumTitle: "Full guide available with BalkanLink Plus", premiumDesc: "Get all steps, templates, and document checklists.", premiumCta: "Unlock Plus", loginCta: "Sign in" },
+  de: { documents: "Benötigte Dokumente", steps: "Schritt-für-Schritt Anleitung", officialLink: "Offizieller Link", template: "Vorlage herunterladen", premiumTitle: "Vollständige Anleitung nur mit BalkanLink Plus", premiumDesc: "Erhalte alle Schritte, Vorlagen und Dokument-Checklisten.", premiumCta: "Plus freischalten", loginCta: "Anmelden", noOnlineForm: "Formular persönlich im Rathaus oder Landratsamt erhältlich." },
+  bs: { documents: "Potrebni dokumenti", steps: "Korak po korak uputstvo", officialLink: "Zvanični link", template: "Preuzmi predložak", premiumTitle: "Kompletno uputstvo samo sa BalkanLink Plus", premiumDesc: "Dobij sve korake, predloške i liste dokumenata.", premiumCta: "Aktiviraj Plus", loginCta: "Prijavi se", noOnlineForm: "Formular dostupan lično u Rathaus ili Landratsamt." },
+  en: { documents: "Required Documents", steps: "Step-by-Step Guide", officialLink: "Official Link", template: "Download Template", premiumTitle: "Full guide available with BalkanLink Plus", premiumDesc: "Get all steps, templates, and document checklists.", premiumCta: "Unlock Plus", loginCta: "Sign in", noOnlineForm: "Form available in person at the town hall or district office." },
 };
 
 export default function Formulare() {
@@ -398,7 +752,7 @@ export default function Formulare() {
                               </ol>
                             </div>
 
-                            {/* Official link */}
+                            {/* Official link + no-online-form fallback */}
                             <div className="flex flex-wrap gap-2">
                               <a
                                 href={cat.officialLink}
@@ -421,6 +775,9 @@ export default function Formulare() {
                                 </a>
                               )}
                             </div>
+                            {cat.noOnlineForm && (
+                              <p className="text-xs text-muted-foreground italic">{l.noOnlineForm}</p>
+                            )}
                           </>
                         ) : (
                           /* Premium lock for non-Plus users */
