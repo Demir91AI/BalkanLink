@@ -17,9 +17,9 @@ const PLACEHOLDER: Record<string, string> = {
 };
 
 const WELCOME: Record<string, string> = {
-  bs: "Digitalni asistent BalkanDE\nPruža pomoć pri popunjavanju formulara, objašnjava postupke korak po korak i daje opće informacije o institucijama i uslugama u Njemačkoj.\nPrimjer: \u201EKako podnijeti zahtjev za Kindergeld?\u201C",
-  de: "Digitaler Assistent BalkanDE\nHilft beim Ausfüllen von Formularen, erklärt Verfahren Schritt für Schritt und gibt allgemeine Informationen zu Institutionen und Dienstleistungen in Deutschland.\nBeispiel: \u201EWie beantrage ich Kindergeld?\u201C",
-  en: "BalkanDE Digital Assistant\nHelps with filling out forms, explains procedures step by step, and provides general information about institutions and services in Germany.\nExample: \u201CHow do I apply for Kindergeld?\u201D",
+  bs: "Digitalni asistent BalkanLink\nPruža pomoć pri popunjavanju formulara, objašnjava postupke korak po korak i daje opće informacije o institucijama i uslugama u Njemačkoj.\nPrimjer: \u201EKako podnijeti zahtjev za Kindergeld?\u201C",
+  de: "Digitaler Assistent BalkanLink\nHilft beim Ausfüllen von Formularen, erklärt Verfahren Schritt für Schritt und gibt allgemeine Informationen zu Institutionen und Dienstleistungen in Deutschland.\nBeispiel: \u201EWie beantrage ich Kindergeld?\u201C",
+  en: "BalkanLink Digital Assistant\nHelps with filling out forms, explains procedures step by step, and provides general information about institutions and services in Germany.\nExample: \u201CHow do I apply for Kindergeld?\u201D",
 };
 
 const ERROR_MSG: Record<string, string> = {
@@ -190,7 +190,7 @@ export default function ChatAssistant() {
           >
             <div className="flex items-center justify-between border-b bg-primary px-3 py-2">
               <div>
-                <p className="text-[13px] font-semibold leading-tight text-primary-foreground">BalkanDE Assistent</p>
+                <p className="text-[13px] font-semibold leading-tight text-primary-foreground">BalkanLink Assistent</p>
                 <p className="text-[9px] leading-tight text-primary-foreground/50">
                   {isPremium ? "Premium" : (lk === "de" ? "Digitaler Assistent" : lk === "en" ? "Digital Assistant" : "Digitalni savjetnik")}
                 </p>
@@ -206,7 +206,7 @@ export default function ChatAssistant() {
             <div ref={scrollRef} className="flex-1 space-y-2 overflow-y-auto px-3 py-2.5">
               {messages.length === 0 && (
                 <div className="rounded-lg bg-muted px-3 py-2.5">
-                  <p className="text-[13px] font-semibold leading-tight text-foreground mb-1">{lk === "de" ? "Digitaler Assistent BalkanDE" : lk === "en" ? "BalkanDE Digital Assistant" : "Digitalni asistent BalkanDE"}</p>
+                  <p className="text-[13px] font-semibold leading-tight text-foreground mb-1">{lk === "de" ? "Digitaler Assistent BalkanLink" : lk === "en" ? "BalkanLink Digital Assistant" : "Digitalni asistent BalkanLink"}</p>
                   <p className="text-[12px] leading-snug text-muted-foreground">{WELCOME[lk].split("\n").slice(1).join(" ")}</p>
                 </div>
               )}

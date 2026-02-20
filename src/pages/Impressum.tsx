@@ -38,7 +38,7 @@ export default function Impressum() {
         <section>
           <h2 className="mb-2 text-lg font-semibold text-foreground">Hinweis</h2>
           <p>
-            BalkanDE ist eine unabhängige Informationsplattform.
+            BalkanLink ist eine unabhängige Informationsplattform.
             Es besteht keine Verbindung zu staatlichen Behörden.
           </p>
         </section>
