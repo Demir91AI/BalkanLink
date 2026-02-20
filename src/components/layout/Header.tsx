@@ -30,7 +30,7 @@ export default function Header() {
                 : "text-gold/70 hover:bg-gold/10 hover:text-gold"
             }`}
           >
-            <span className="text-xs leading-none">✨</span> Plus
+            <span className="text-xs leading-none">✨</span> {t("nav.plus")}
           </Link>
 
           {/* Language Picker */}
