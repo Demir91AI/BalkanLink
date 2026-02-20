@@ -1,6 +1,5 @@
 import { ArrowRight, AlertTriangle, FileX, Mail, Wallet, HomeIcon, Briefcase, HeartPulse } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import PremiumGate from "@/components/PremiumGate";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
 
 const problems = [
@@ -80,9 +79,6 @@ function ProblemCard({ item }: { item: typeof problems[number] }) {
 export default function TrebamPomoc() {
   const { t } = useLanguage();
 
-  const freeItems = problems.slice(0, 1);
-  const premiumItems = problems.slice(1);
-
   return (
     <>
       <section className="border-b bg-primary py-12">
@@ -99,21 +95,9 @@ export default function TrebamPomoc() {
       <section className="py-12">
         <div className="container max-w-3xl">
           <div className="space-y-6">
-            {freeItems.map((item, idx) => (
+            {problems.map((item, idx) => (
               <ProblemCard key={idx} item={item} />
             ))}
-
-            <PremiumGate
-              fallback={
-                <div className="space-y-6">
-                  <ProblemCard item={premiumItems[0]} />
-                </div>
-              }
-            >
-              {premiumItems.map((item, idx) => (
-                <ProblemCard key={idx} item={item} />
-              ))}
-            </PremiumGate>
           </div>
 
           <LegalDisclaimer />

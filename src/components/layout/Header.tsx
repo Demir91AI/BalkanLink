@@ -6,7 +6,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Header() {
-  const { user, loading, isPremium, signOut } = useAuth();
+  const { user, loading, signOut } = useAuth();
   const { t, language, setLanguage, languages, currentFlag } = useLanguage();
 
   return (
@@ -21,18 +21,6 @@ export default function Header() {
 
         {/* Right side */}
         <div className="flex items-center gap-1.5">
-          {/* Plus nav link */}
-          <Link
-            to="/premium"
-            className={`mr-1 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider transition-colors ${
-              !loading && isPremium
-                ? "bg-gold/10 text-gold ring-1 ring-gold/20 hover:bg-gold/15"
-                : "text-gold/70 hover:bg-gold/10 hover:text-gold"
-            }`}
-          >
-            <span className="text-xs leading-none">✨</span> {t("nav.plus")}
-          </Link>
-
           {/* Language Picker */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>

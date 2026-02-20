@@ -44,6 +44,10 @@ import Stellenangebote from "./pages/Stellenangebote";
 import Premium from "./pages/Premium";
 import Community from "./pages/Community";
 import Dzamije from "./pages/Dzamije";
+import Restorani from "./pages/Restorani";
+import Prodavnice from "./pages/Prodavnice";
+import TrebamMajstora from "./pages/TrebamMajstora";
+import Putovanja from "./pages/Putovanja";
 import GuideDetail from "./pages/GuideDetail";
 import NotFound from "./pages/NotFound";
 
@@ -87,6 +91,10 @@ const App = () => (
                 <Route path="/premium" element={<Premium />} />
                 <Route path="/community" element={<Community />} />
                 <Route path="/dzamije" element={<Dzamije />} />
+                <Route path="/restorani" element={<Restorani />} />
+                <Route path="/prodavnice" element={<Prodavnice />} />
+                <Route path="/trebam-majstora" element={<TrebamMajstora />} />
+                <Route path="/putovanja" element={<Putovanja />} />
                 <Route path="/guide/:slug" element={<GuideDetail />} />
                 <Route path="/qa" element={<QA />} />
                 <Route path="/qa/:id" element={<QADetail />} />

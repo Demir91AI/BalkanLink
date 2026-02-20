@@ -7,8 +7,7 @@ import {
   Receipt, Banknote, Briefcase, Home, Car, CreditCard, Users, Shield,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useAuth } from "@/contexts/AuthContext";
-import { Button } from "@/components/ui/button";
+// Premium system hidden — everything free
 import LegalDisclaimer from "@/components/LegalDisclaimer";
 
 type LangKey = "de" | "bs" | "en" | "sq" | "mk";
@@ -947,7 +946,6 @@ const labels: Record<LangKey, { documents: string; steps: string; officialLink: 
 
 export default function Formulare() {
   const { language } = useLanguage();
-  const { isPremium, user } = useAuth();
   const lk = getLk(language);
   const t = pageTitles[lk];
   const l = labels[lk];
@@ -1024,81 +1022,48 @@ export default function Formulare() {
                           </ul>
                         </div>
 
-                        {/* Steps — gated behind Plus */}
-                        {isPremium ? (
-                          <>
-                            <div>
-                              <h3 className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-muted-foreground">
-                                <Crown className="h-3.5 w-3.5 text-gold" /> {l.steps}
-                              </h3>
-                              <ol className="space-y-2">
-                                {cat.steps[lk].map((step, i) => (
-                                  <li key={i} className="flex items-start gap-3 text-sm">
-                                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold/10 text-[10px] font-bold text-gold">
-                                      {i + 1}
-                                    </span>
-                                    <span className="text-muted-foreground leading-relaxed">{step}</span>
-                                  </li>
-                                ))}
-                              </ol>
-                            </div>
+                        {/* Steps — free for all */}
+                        <div>
+                          <h3 className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-muted-foreground">
+                            <CheckCircle2 className="h-3.5 w-3.5 text-gold" /> {l.steps}
+                          </h3>
+                          <ol className="space-y-2">
+                            {cat.steps[lk].map((step, i) => (
+                              <li key={i} className="flex items-start gap-3 text-sm">
+                                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold/10 text-[10px] font-bold text-gold">
+                                  {i + 1}
+                                </span>
+                                <span className="text-muted-foreground leading-relaxed">{step}</span>
+                              </li>
+                            ))}
+                          </ol>
+                        </div>
 
-                            {/* Official link + no-online-form fallback */}
-                            <div className="flex flex-wrap gap-2">
-                              <a
-                                href={cat.officialLink}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 rounded-lg bg-gold/10 px-4 py-2.5 text-xs font-semibold text-gold transition-colors hover:bg-gold/20"
-                              >
-                                <ExternalLink className="h-4 w-4" />
-                                {cat.officialLinkLabel}
-                              </a>
-                              {cat.templateLink && (
-                                <a
-                                  href={cat.templateLink}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="inline-flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2.5 text-xs font-semibold text-primary transition-colors hover:bg-primary/20"
-                                >
-                                  <Download className="h-4 w-4" />
-                                  {l.template}
-                                </a>
-                              )}
-                            </div>
-                            {cat.noOnlineForm && (
-                              <p className="text-xs text-muted-foreground italic">{l.noOnlineForm}</p>
-                            )}
-                          </>
-                        ) : (
-                          /* Premium lock for non-Plus users */
-                          <div className="relative">
-                            {/* Blurred preview of first 2 steps */}
-                            <div className="pointer-events-none select-none blur-[5px] opacity-40 max-h-24 overflow-hidden" aria-hidden="true">
-                              <ol className="space-y-2">
-                                {cat.steps[lk].slice(0, 2).map((step, i) => (
-                                  <li key={i} className="flex items-start gap-3 text-sm">
-                                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold/10 text-[10px] font-bold text-gold">{i + 1}</span>
-                                    <span className="text-muted-foreground">{step}</span>
-                                  </li>
-                                ))}
-                              </ol>
-                            </div>
-
-                            <div className="relative -mt-2 flex flex-col items-center rounded-xl border border-gold/15 bg-gradient-to-b from-muted/60 to-muted/30 px-5 py-8 text-center backdrop-blur-sm">
-                              <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10 ring-1 ring-gold/20">
-                                <Lock className="h-5 w-5 text-gold" />
-                              </div>
-                              <p className="mb-1 text-sm font-bold">{l.premiumTitle}</p>
-                              <p className="mb-5 max-w-xs text-xs text-muted-foreground">{l.premiumDesc}</p>
-                              <Button className="btn-gold-gradient rounded-xl px-6" asChild>
-                                <Link to={user ? "/premium" : "/login"}>
-                                  <Crown className="mr-2 h-4 w-4" />
-                                  {user ? l.premiumCta : l.loginCta}
-                                </Link>
-                              </Button>
-                            </div>
-                          </div>
+                        {/* Official link + no-online-form fallback */}
+                        <div className="flex flex-wrap gap-2">
+                          <a
+                            href={cat.officialLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 rounded-lg bg-gold/10 px-4 py-2.5 text-xs font-semibold text-gold transition-colors hover:bg-gold/20"
+                          >
+                            <ExternalLink className="h-4 w-4" />
+                            {cat.officialLinkLabel}
+                          </a>
+                          {cat.templateLink && (
+                            <a
+                              href={cat.templateLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2.5 text-xs font-semibold text-primary transition-colors hover:bg-primary/20"
+                            >
+                              <Download className="h-4 w-4" />
+                              {l.template}
+                            </a>
+                          )}
+                        </div>
+                        {cat.noOnlineForm && (
+                          <p className="text-xs text-muted-foreground italic">{l.noOnlineForm}</p>
                         )}
                       </div>
                     </motion.div>
