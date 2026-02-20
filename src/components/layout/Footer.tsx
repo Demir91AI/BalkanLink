@@ -27,7 +27,7 @@ export default function Footer() {
             <nav className="flex flex-col gap-2.5">
               <Link to="/" className="text-[13px] text-white/50 transition-colors hover:text-gold">{t("footer.navHome")}</Link>
               <Link to="/dolazak" className="text-[13px] text-white/50 transition-colors hover:text-gold">{t("footer.navHow")}</Link>
-              <Link to="/premium" className="text-[13px] text-white/50 transition-colors hover:text-gold">{t("footer.navPremium")}</Link>
+              <Link to="/community" className="text-[13px] text-white/50 transition-colors hover:text-gold">{t("portal.community")}</Link>
             </nav>
           </div>
 
@@ -37,7 +37,6 @@ export default function Footer() {
             <nav className="flex flex-col gap-2.5">
               <Link to="/impressum" className="text-[13px] text-white/50 transition-colors hover:text-gold">{t("footer.imprint")}</Link>
               <Link to="/datenschutz" className="text-[13px] text-white/50 transition-colors hover:text-gold">{t("footer.privacy")}</Link>
-              <Link to="/mitgliedschaft" className="text-[13px] text-white/50 transition-colors hover:text-gold">{t("footer.mitgliedschaft")}</Link>
               <Link to="/haftungsausschluss" className="text-[13px] text-white/50 transition-colors hover:text-gold">{t("footer.haftung")}</Link>
               <Link to="/ki-hinweis" className="text-[13px] text-white/50 transition-colors hover:text-gold">{t("footer.kiHinweis")}</Link>
             </nav>

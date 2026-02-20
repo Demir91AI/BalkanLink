@@ -2,9 +2,8 @@ import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Wrench, Briefcase, Building2, FileText, UtensilsCrossed, Users,
-  Bus, HelpCircle, ArrowRight, Check, Sparkles, Star,
-  FileCheck, Link2, UserCheck, Zap, Award,
+  Wrench, Briefcase, Building2, FileText, UtensilsCrossed, ShoppingBag, Users,
+  Bus, HelpCircle, ArrowRight, Sparkles, Star,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
@@ -20,27 +19,20 @@ import heroNuernberg from "@/assets/hero-nuernberg.jpg";
 
 /* ── Feature cards config ── */
 const featureCards = [
-  { key: "home.card.majstor" as const, icon: Wrench, to: "/community", color: "from-amber-500/15 to-amber-600/5" },
+  { key: "home.card.majstor" as const, icon: Wrench, to: "/trebam-majstora", color: "from-amber-500/15 to-amber-600/5" },
   { key: "home.card.posao" as const, icon: Briefcase, to: "/stellenangebote", color: "from-blue-500/15 to-blue-600/5" },
   { key: "home.card.stan" as const, icon: Building2, to: "/wohnungen", color: "from-emerald-500/15 to-emerald-600/5" },
   { key: "home.card.papiri" as const, icon: FileText, to: "/formulare", color: "from-violet-500/15 to-violet-600/5" },
-  { key: "home.card.restorani" as const, icon: UtensilsCrossed, to: "/community", color: "from-rose-500/15 to-rose-600/5" },
-  { key: "home.card.dzamije" as const, icon: Users, to: "/dzamije", color: "from-cyan-500/15 to-cyan-600/5" },
-  { key: "home.card.prevoz" as const, icon: Bus, to: "/community", color: "from-orange-500/15 to-orange-600/5" },
+  { key: "home.card.restorani" as const, icon: UtensilsCrossed, to: "/restorani", color: "from-rose-500/15 to-rose-600/5" },
+  { key: "home.card.prodavnice" as const, icon: ShoppingBag, to: "/prodavnice", color: "from-teal-500/15 to-teal-600/5" },
+  { key: "home.card.zajednice" as const, icon: Users, to: "/community", color: "from-cyan-500/15 to-cyan-600/5" },
+  { key: "home.card.prevoz" as const, icon: Bus, to: "/putovanja", color: "from-orange-500/15 to-orange-600/5" },
   { key: "home.card.pitanje" as const, icon: HelpCircle, to: "/qa", color: "from-indigo-500/15 to-indigo-600/5" },
 ];
 
 const exampleKeys = [
   "home.example.1", "home.example.2", "home.example.3", "home.example.4", "home.example.5",
 ] as const;
-
-const premiumStepKeys = [
-  { icon: FileCheck, key: "home.premium.step1" as const },
-  { icon: Link2, key: "home.premium.step2" as const },
-  { icon: UserCheck, key: "home.premium.step3" as const },
-  { icon: Zap, key: "home.premium.step4" as const },
-  { icon: Award, key: "home.premium.step5" as const },
-];
 
 const reviews = [
   { name: "Amina H.", city: "München", key: "home.review1.text" as const },
@@ -181,7 +173,7 @@ export default function Index() {
             whileInView="show"
             viewport={{ once: true, amount: 0.05 }}
             variants={{ hidden: {}, show: { transition: { staggerChildren: 0.06 } } }}
-            className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4"
+            className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3"
           >
             {featureCards.map((card) => (
               <motion.div
@@ -322,56 +314,6 @@ export default function Index() {
                 </div>
               </motion.div>
             ))}
-          </motion.div>
-        </div>
-      </section>
-
-      <div className="section-separator" />
-
-      {/* ─── PREMIUM BLOCK ─── */}
-      <section className="relative overflow-hidden bg-[#0B1F3A] py-16 sm:py-20">
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }} />
-
-        <div className="container relative z-10 max-w-3xl text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="mx-auto mb-5 inline-flex items-center gap-2 rounded-full bg-gold/10 px-4 py-1.5 ring-1 ring-gold/20">
-              <span className="text-gold text-sm">✨</span>
-              <span className="text-[12px] font-bold uppercase tracking-wider text-gold">{t("nav.plus")}</span>
-            </div>
-
-            <h2 className="font-heading text-2xl font-extrabold text-white sm:text-3xl">
-              {t("home.premium.title")} <span className="text-gold">{t("nav.plus")}</span>
-            </h2>
-            <p className="mx-auto mt-3 max-w-md text-sm text-white/40">
-              {t("home.premium.subtitle")}
-            </p>
-
-            <div className="mt-8 space-y-3 max-w-sm mx-auto text-left">
-              {premiumStepKeys.map((step, i) => (
-                <div key={i} className="flex items-center gap-3 rounded-xl border border-white/8 bg-white/[0.03] px-4 py-3">
-                  <step.icon className="h-4 w-4 shrink-0 text-gold" strokeWidth={1.5} />
-                  <span className="text-[13px] font-medium text-white/70">{t(step.key)}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-8">
-              <Link
-                to="/premium"
-                className="btn-gold-gradient group inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-sm font-bold"
-              >
-                {t("home.premium.cta")}
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-              <p className="mt-4 text-xs text-white/30">
-                {t("home.premium.cancel")}
-              </p>
-            </div>
           </motion.div>
         </div>
       </section>
