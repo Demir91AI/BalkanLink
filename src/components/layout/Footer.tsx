@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
+import logo from "@/assets/logo-balkanlink.png";
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -11,9 +12,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link to="/" className="flex items-center gap-2">
-              <div className="flex h-7 w-7 items-center justify-center rounded-md bg-gold font-heading text-[10px] font-black text-[#0B1F3A]">
-                BL
-              </div>
+              <img src={logo} alt="BalkanLink" className="h-7 w-auto object-contain" />
               <span className="font-heading text-lg font-extrabold tracking-tight">
                 Balkan<span className="text-gold">Link</span>
               </span>

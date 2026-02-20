@@ -1,4 +1,5 @@
 import { useState } from "react";
+import logo from "@/assets/logo-balkanlink.png";
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -34,9 +35,7 @@ export default function Login() {
     <div className="container flex min-h-[70vh] items-center justify-center py-12">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
-          <div className="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-gold font-heading text-xs font-black text-[#0B1F3A]">
-            BL
-          </div>
+          <img src={logo} alt="BalkanLink" className="mx-auto mb-4 h-10 w-auto object-contain" />
           <CardTitle className="text-2xl">{t("auth.loginTitle")}</CardTitle>
           <CardDescription>{t("auth.loginDesc")}</CardDescription>
         </CardHeader>
