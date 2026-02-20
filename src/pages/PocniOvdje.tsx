@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Home, FileText, CreditCard, Heart, Landmark, ClipboardList } from "lucide-react";
+import { ArrowRight, Home, FileText, CreditCard, Heart, Landmark, ClipboardList, Shield, Radio, Car, KeyRound } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const T: Record<string, Record<string, string>> = {
@@ -11,6 +11,10 @@ const T: Record<string, Record<string, string>> = {
     steuer: "Steuer-ID i porezna klasa", steuerDesc: "Poreski broj dobijaš automatski nakon prijave.",
     kranken: "Zdravstveno osiguranje", krankenDesc: "Javno ili privatno — obavezno za sve.",
     bank: "Bankovni račun", bankDesc: "Otvori račun u prvoj sedmici.",
+    sozial: "Sozialversicherung", sozialDesc: "5 stubova socijalnog osiguranja za sve zaposlene.",
+    gez: "Rundfunkbeitrag (GEZ)", gezDesc: "TV/radio taksa — 18,36 € mjesečno po domaćinstvu.",
+    fuehrerschein: "Vozačka dozvola", fuehrerscheinDesc: "Zamjena ili priznavanje — rok 6 mjeseci.",
+    auto: "Auto anmelden", autoDesc: "Registracija vozila u Njemačkoj.",
     schritte: "Prvi koraci", schritteDesc: "Kompletna lista za prve sedmice.",
   },
   de: {
@@ -21,6 +25,10 @@ const T: Record<string, Record<string, string>> = {
     steuer: "Steuer-ID & Steuerklasse", steuerDesc: "Die Steuer-ID bekommst du automatisch nach der Anmeldung.",
     kranken: "Krankenversicherung", krankenDesc: "Gesetzlich oder privat — Pflicht für alle.",
     bank: "Bankkonto eröffnen", bankDesc: "Eröffne dein Konto in der ersten Woche.",
+    sozial: "Sozialversicherung", sozialDesc: "5 Säulen der Sozialversicherung für alle Beschäftigten.",
+    gez: "Rundfunkbeitrag (GEZ)", gezDesc: "TV-/Radioabgabe — 18,36 € monatlich pro Haushalt.",
+    fuehrerschein: "Führerschein", fuehrerscheinDesc: "Umschreibung oder Anerkennung — Frist 6 Monate.",
+    auto: "Auto anmelden", autoDesc: "Fahrzeugzulassung in Deutschland.",
     schritte: "Erste Schritte", schritteDesc: "Die vollständige Checkliste für die ersten Wochen.",
   },
   en: {
@@ -31,6 +39,10 @@ const T: Record<string, Record<string, string>> = {
     steuer: "Tax ID & Tax Class", steuerDesc: "You receive your tax ID automatically after registration.",
     kranken: "Health Insurance", krankenDesc: "Public or private — mandatory for everyone.",
     bank: "Open Bank Account", bankDesc: "Open your account in the first week.",
+    sozial: "Social Insurance", sozialDesc: "5 pillars of social insurance for all employees.",
+    gez: "Broadcasting Fee (GEZ)", gezDesc: "TV/radio fee — €18.36/month per household.",
+    fuehrerschein: "Driver's License", fuehrerscheinDesc: "Conversion or recognition — 6 month deadline.",
+    auto: "Register a Car", autoDesc: "Vehicle registration in Germany.",
     schritte: "First Steps", schritteDesc: "The complete checklist for the first weeks.",
   },
   sq: {
@@ -41,6 +53,10 @@ const T: Record<string, Record<string, string>> = {
     steuer: "Steuer-ID & klasa tatimore", steuerDesc: "Numrin tatimor e merr automatikisht.",
     kranken: "Sigurimi shëndetësor", krankenDesc: "Publik ose privat — i detyrueshëm.",
     bank: "Llogari bankare", bankDesc: "Hape llogarinë në javën e parë.",
+    sozial: "Sigurimet shoqërore", sozialDesc: "5 shtyllat e sigurimeve shoqërore.",
+    gez: "Taksa e transmetimit (GEZ)", gezDesc: "18,36 € në muaj për çdo familje.",
+    fuehrerschein: "Patenta e shoferit", fuehrerscheinDesc: "Konvertimi ose njohja — afati 6 muaj.",
+    auto: "Regjistrimi i makinës", autoDesc: "Regjistrimi i automjetit në Gjermani.",
     schritte: "Hapat e parë", schritteDesc: "Lista e plotë për javët e para.",
   },
   mk: {
@@ -51,6 +67,10 @@ const T: Record<string, Record<string, string>> = {
     steuer: "Steuer-ID & даночна класа", steuerDesc: "Даночниот број го добиваш автоматски.",
     kranken: "Здравствено осигурување", krankenDesc: "Јавно или приватно — задолжително.",
     bank: "Банкарска сметка", bankDesc: "Отвори сметка во првата недела.",
+    sozial: "Социјално осигурување", sozialDesc: "5 столба на социјалното осигурување.",
+    gez: "Радиодифузна такса (GEZ)", gezDesc: "18,36 € месечно по домаќинство.",
+    fuehrerschein: "Возачка дозвола", fuehrerscheinDesc: "Замена или признавање — рок 6 месеци.",
+    auto: "Регистрација на возило", autoDesc: "Регистрација на автомобил во Германија.",
     schritte: "Први чекори", schritteDesc: "Комплетна листа за првите недели.",
   },
 };
@@ -66,6 +86,10 @@ const cards = [
   { icon: CreditCard, titleKey: "steuer", descKey: "steuerDesc", to: "/dolazak/steuer-id-i-porezna-klasa" },
   { icon: Heart, titleKey: "kranken", descKey: "krankenDesc", to: "/dolazak/zdravstveno-osiguranje" },
   { icon: Landmark, titleKey: "bank", descKey: "bankDesc", to: "/dolazak/bankovni-racun" },
+  { icon: Shield, titleKey: "sozial", descKey: "sozialDesc", to: "/dolazak/sozialversicherung" },
+  { icon: Radio, titleKey: "gez", descKey: "gezDesc", to: "/dolazak/rundfunkbeitrag" },
+  { icon: KeyRound, titleKey: "fuehrerschein", descKey: "fuehrerscheinDesc", to: "/dolazak/fuehrerschein" },
+  { icon: Car, titleKey: "auto", descKey: "autoDesc", to: "/dolazak/auto-anmelden" },
   { icon: ClipboardList, titleKey: "schritte", descKey: "schritteDesc", to: "/dolazak/prvi-koraci" },
 ];
 

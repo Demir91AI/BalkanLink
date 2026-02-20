@@ -119,6 +119,43 @@ export const guideLinkRegistry: Record<string, GuideLinks> = {
     downloadsUrl: "",
     infoUrl: "https://www.bmfsfj.de/bmfsfj/themen/familie/kinderbetreuung",
   },
+
+  // ===================== ADDITIONAL =====================
+  mutterschaftsgeld: {
+    portalUrl: "",
+    downloadsUrl: "",
+    infoUrl: "https://www.bmfsfj.de/bmfsfj/themen/familie/familienleistungen/mutterschaftsleistungen",
+  },
+  familienversicherung: {
+    portalUrl: "",
+    downloadsUrl: "",
+    infoUrl: "https://www.bundesgesundheitsministerium.de/themen/krankenversicherung",
+  },
+  steuerklassenwechsel: {
+    portalUrl: "https://www.elster.de/eportal/start",
+    downloadsUrl: "",
+    infoUrl: "https://www.bundesfinanzministerium.de/Web/DE/Themen/Steuern/Steuerarten/Lohnsteuer/lohnsteuer.html",
+  },
+  kirchenaustritt: {
+    portalUrl: "",
+    downloadsUrl: "",
+    infoUrl: "https://www.kirchenaustritt.de",
+  },
+  "gez-anmeldung": {
+    portalUrl: "https://www.rundfunkbeitrag.de",
+    downloadsUrl: "",
+    infoUrl: "",
+  },
+  bildungsgutschein: {
+    portalUrl: "",
+    downloadsUrl: "",
+    infoUrl: "https://www.arbeitsagentur.de/karriere-und-weiterbildung/bildungsgutschein",
+  },
+  integrationskurs: {
+    portalUrl: "",
+    downloadsUrl: "",
+    infoUrl: "https://www.bamf.de/DE/Themen/Integration/ZuijAndInDeutschl/Integrationskurse/integrationskurse-node.html",
+  },
 };
 
 /**
