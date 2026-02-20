@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Wrench, Briefcase, Building2, FileText, UtensilsCrossed, Users,
-  Bus, HelpCircle, ArrowRight, Check, Shield, Sparkles,
+  Bus, HelpCircle, ArrowRight, Check, Shield, Sparkles, Star,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
@@ -314,6 +314,66 @@ export default function Index() {
                 Možeš otkazati u bilo kojem trenutku.
               </p>
             </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <div className="section-separator" />
+
+      {/* ─── TESTIMONIALS ─── */}
+      <section className="py-14 sm:py-20">
+        <div className="container max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center"
+          >
+            <h2 className="font-heading text-2xl font-extrabold sm:text-3xl">
+              Ljudi koji već koriste <span className="text-gold">BalkanLink</span>
+            </h2>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.1 } } }}
+            className="mt-10 grid gap-5 sm:grid-cols-3"
+          >
+            {[
+              { name: "Amina H.", city: "München", text: "Bez BalkanLinka bih izgubila dane na traženje informacija. Sad sve imam na jednom mjestu." },
+              { name: "Emir K.", city: "Frankfurt", text: "Kindergeld zahtjev sam riješio za 15 minuta uz korak-po-korak vodič. Preporuka!" },
+              { name: "Lejla M.", city: "Berlin", text: "Konačno platforma koja razumije nas. Profesionalno, brzo i na našem jeziku." },
+            ].map((review, i) => (
+              <motion.div
+                key={i}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+                }}
+                className="flex flex-col rounded-2xl border border-border/50 bg-card p-6 shadow-sm"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gold/10 font-heading text-sm font-bold text-gold">
+                    {review.name.charAt(0)}
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold">{review.name}</p>
+                    <p className="text-xs text-muted-foreground">{review.city}</p>
+                  </div>
+                </div>
+                <p className="flex-1 text-[13px] leading-relaxed text-muted-foreground">
+                  "{review.text}"
+                </p>
+                <div className="mt-4 flex gap-0.5 text-gold">
+                  {[...Array(5)].map((_, j) => (
+                    <Star key={j} className="h-3.5 w-3.5 fill-current" />
+                  ))}
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>
