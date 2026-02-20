@@ -1,24 +1,22 @@
 import { Link } from "react-router-dom";
-import { ChevronDown, Crown, Menu, X } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import logo from "@/assets/logo-balkanlink.png";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useState } from "react";
 
 export default function Header() {
   const { user, loading, isPremium, signOut } = useAuth();
   const { t, language, setLanguage, languages, currentFlag } = useLanguage();
-  const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/8 bg-[#0B1F3A]/95 backdrop-blur-xl shadow-lg shadow-black/20">
       <div className="container flex h-14 items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 group" onClick={() => setMobileOpen(false)}>
-          <img src={logo} alt="BalkanLink" className="h-8 w-auto object-contain" />
-          <span className="font-heading text-lg font-extrabold tracking-tight text-white">
+        <Link to="/" className="flex items-center gap-2.5">
+          <img src={logo} alt="BalkanLink" className="h-7 w-auto object-contain" />
+          <span className="font-heading text-[17px] font-extrabold tracking-tight text-white">
             Balkan<span className="text-gold">Link</span>
           </span>
         </Link>
@@ -28,16 +26,12 @@ export default function Header() {
           {/* Premium CTA / Badge */}
           {!loading && (
             isPremium ? (
-              <Link to="/premium" className="mr-1 flex items-center gap-1.5 rounded-lg bg-gold/10 px-3 py-1.5 text-[12px] font-semibold text-gold ring-1 ring-gold/20 transition-colors hover:bg-gold/15">
-                <Crown className="h-3.5 w-3.5" />
-                <span className="hidden sm:inline">Premium član</span>
+              <Link to="/premium" className="mr-1 flex items-center gap-1.5 rounded-full bg-gold/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-gold ring-1 ring-gold/20 transition-colors hover:bg-gold/15">
+                Plus
               </Link>
             ) : (
-              <Button variant="ghost" size="sm" asChild className="mr-1 h-8 gap-1.5 rounded-lg text-[12px] font-semibold text-gold hover:bg-gold/10 hover:text-gold">
-                <Link to="/premium">
-                  <Crown className="h-3.5 w-3.5" />
-                  <span className="hidden sm:inline">Premium</span>
-                </Link>
+              <Button variant="ghost" size="sm" asChild className="mr-1 h-7 gap-1 rounded-full px-3 text-[11px] font-bold uppercase tracking-wider text-gold/70 hover:bg-gold/10 hover:text-gold">
+                <Link to="/premium">Plus</Link>
               </Button>
             )
           )}

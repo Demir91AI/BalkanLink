@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Wrench, Briefcase, Building2, FileText, UtensilsCrossed, Users,
-  Bus, HelpCircle, ArrowRight, Crown, Check, Shield, Sparkles,
+  Bus, HelpCircle, ArrowRight, Check, Shield, Sparkles,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
-import logo from "@/assets/logo-balkanlink.png";
+
 import heroBerlin from "@/assets/hero-berlin.jpg";
 import heroMuenchen from "@/assets/hero-muenchen.jpg";
 import heroFrankfurt from "@/assets/hero-frankfurt.jpg";
@@ -104,8 +104,6 @@ export default function Index() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="max-w-2xl"
           >
-            {/* Logo mark */}
-            <img src={logo} alt="BalkanLink" className="mx-auto mb-6 h-16 w-auto object-contain" />
 
             <h1 className="font-heading text-3xl font-black leading-[1.1] text-white sm:text-4xl md:text-5xl lg:text-[3.5rem]">
               Tvoj vodič za život
@@ -309,7 +307,6 @@ export default function Index() {
                 to="/premium"
                 className="btn-gold-gradient group inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-sm font-bold"
               >
-                <Crown className="h-4 w-4" />
                 Aktiviraj BalkanLink Plus
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
