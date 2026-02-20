@@ -11,19 +11,30 @@ type Msg = { role: "user" | "assistant"; content: string };
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat-assistant`;
 
 const PLACEHOLDER: Record<string, string> = {
-  bs: "Postavite pitanje...",
+  bs: "Postavite pitanje...", hr: "Postavite pitanje...", sr: "Postavite pitanje...", me: "Postavite pitanje...",
+  sq: "Bëni një pyetje...", xk: "Bëni një pyetje...",
+  mk: "Поставете прашање...",
   de: "Stellen Sie eine Frage...",
   en: "Ask a question...",
 };
 
 const WELCOME: Record<string, string> = {
   bs: "Digitalni asistent BalkanLink\nPruža pomoć pri popunjavanju formulara, objašnjava postupke korak po korak i daje opće informacije o institucijama i uslugama u Njemačkoj.\nPrimjer: \u201EKako podnijeti zahtjev za Kindergeld?\u201C",
+  hr: "Digitalni asistent BalkanLink\nPruža pomoć pri popunjavanju formulara, objašnjava postupke korak po korak i daje opće informacije o institucijama i uslugama u Njemačkoj.\nPrimjer: \u201EKako podnijeti zahtjev za Kindergeld?\u201C",
+  sr: "Digitalni asistent BalkanLink\nPruža pomoć pri popunjavanju formulara, objašnjava postupke korak po korak i daje opšte informacije o institucijama i uslugama u Nemačkoj.\nPrimer: \u201EKako podneti zahtev za Kindergeld?\u201C",
+  me: "Digitalni asistent BalkanLink\nPruža pomoć pri popunjavanju formulara, objašnjava postupke korak po korak i daje opće informacije o institucijama i uslugama u Njemačkoj.\nPrimjer: \u201EKako podnijeti zahtjev za Kindergeld?\u201C",
+  sq: "Asistenti dixhital BalkanLink\nOfron ndihmë për plotësimin e formularëve, shpjegon procedurat hap pas hapi dhe jep informacione të përgjithshme rreth institucioneve dhe shërbimeve në Gjermani.\nShembull: \u201ESi të aplikoj për Kindergeld?\u201D",
+  xk: "Asistenti dixhital BalkanLink\nOfron ndihmë për plotësimin e formularëve, shpjegon procedurat hap pas hapi dhe jep informacione të përgjithshme rreth institucioneve dhe shërbimeve në Gjermani.\nShembull: \u201ESi të aplikoj për Kindergeld?\u201D",
+  mk: "Дигитален асистент BalkanLink\nНуди помош при пополнување формулари, објаснува постапки чекор по чекор и дава општи информации за институции и услуги во Германија.\nПример: \u201EКако да поднесам барање за Kindergeld?\u201C",
   de: "Digitaler Assistent BalkanLink\nHilft beim Ausfüllen von Formularen, erklärt Verfahren Schritt für Schritt und gibt allgemeine Informationen zu Institutionen und Dienstleistungen in Deutschland.\nBeispiel: \u201EWie beantrage ich Kindergeld?\u201C",
   en: "BalkanLink Digital Assistant\nHelps with filling out forms, explains procedures step by step, and provides general information about institutions and services in Germany.\nExample: \u201CHow do I apply for Kindergeld?\u201D",
 };
 
 const ERROR_MSG: Record<string, string> = {
-  bs: "Došlo je do greške. Pokušajte ponovo.",
+  bs: "Došlo je do greške. Pokušajte ponovo.", hr: "Došlo je do greške. Pokušajte ponovo.",
+  sr: "Došlo je do greške. Pokušajte ponovo.", me: "Došlo je do greške. Pokušajte ponovo.",
+  sq: "Ndodhi një gabim. Provoni përsëri.", xk: "Ndodhi një gabim. Provoni përsëri.",
+  mk: "Настана грешка. Обидете се повторно.",
   de: "Ein Fehler ist aufgetreten. Versuchen Sie es erneut.",
   en: "An error occurred. Please try again.",
 };
@@ -61,7 +72,7 @@ function ChatMarkdown({ content }: { content: string }) {
 export default function ChatAssistant() {
   const { language } = useLanguage();
   const { isPremium, user } = useAuth();
-  const lk = language === "de" ? "de" : language === "en" ? "en" : "bs";
+  const lk = language; // use full language code for lookups
 
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([]);
@@ -113,6 +124,7 @@ export default function ChatAssistant() {
         body: JSON.stringify({
           messages: newMessages,
           isPremium: isPremium,
+          language: language,
         }),
       });
 
@@ -153,7 +165,7 @@ export default function ChatAssistant() {
     } finally {
       setLoading(false);
     }
-  }, [input, loading, messages, lk, isPremium]);
+  }, [input, loading, messages, lk, isPremium, language]);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" && !e.shiftKey) {
@@ -192,7 +204,7 @@ export default function ChatAssistant() {
               <div>
                 <p className="text-[13px] font-semibold leading-tight text-primary-foreground">BalkanLink Assistent</p>
                 <p className="text-[9px] leading-tight text-primary-foreground/50">
-                  {isPremium ? "Premium" : (lk === "de" ? "Digitaler Assistent" : lk === "en" ? "Digital Assistant" : "Digitalni savjetnik")}
+                  {isPremium ? "Premium" : (WELCOME[lk]?.split("\n")[0] || "Digital Assistant")}
                 </p>
               </div>
               <button

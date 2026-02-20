@@ -1,18 +1,24 @@
 import { useLanguage } from "@/contexts/LanguageContext";
+import type { Language } from "@/lib/translations";
 
-const disclaimers: Record<string, string> = {
+const disclaimers: Record<Language, string> = {
   bs: "Ove informacije služe samo za orijentaciju i ne predstavljaju pravni savjet.",
+  hr: "Ove informacije služe samo za orijentaciju i ne predstavljaju pravni savjet.",
+  sr: "Ove informacije služe samo za orijentaciju i ne predstavljaju pravni savet.",
+  me: "Ove informacije služe samo za orijentaciju i ne predstavljaju pravni savjet.",
+  sq: "Këto informacione shërbejnë vetëm për orientim dhe nuk përbëjnë këshillë juridike.",
+  xk: "Këto informacione shërbejnë vetëm për orientim dhe nuk përbëjnë këshillë juridike.",
+  mk: "Овие информации служат само за ориентација и не претставуваат правен совет.",
   de: "Diese Informationen dienen nur zur Orientierung und stellen keine Rechtsberatung dar.",
   en: "This information is for orientation only and does not constitute legal advice.",
 };
 
 export default function LegalDisclaimer() {
   const { language } = useLanguage();
-  const lk = language === "de" ? "de" : language === "en" ? "en" : "bs";
 
   return (
     <p className="mt-8 text-center text-[11px] text-muted-foreground/60">
-      {disclaimers[lk]}
+      {disclaimers[language]}
     </p>
   );
 }

@@ -6,7 +6,19 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
-const FREE_SYSTEM_PROMPT = `Ti si "BalkanDE Zentral-Assistent" – digitalni savjetnik platforme "BalkanDE – Život u Njemačkoj".
+const LANG_NAMES: Record<string, string> = {
+  bs: "bosanski", hr: "hrvatski", sr: "srpski", me: "crnogorski",
+  sq: "shqip", xk: "shqip", mk: "македонски", de: "Deutsch", en: "English",
+};
+
+function buildSystemPrompt(isPremium: boolean, language: string): string {
+  const langName = LANG_NAMES[language] || "Deutsch";
+  const langInstruction = `VAŽNO: ODGOVARAJ ISKLJUČIVO na jeziku: ${langName}. Cijeli odgovor mora biti na tom jeziku. Nikada ne miješaj jezike.`;
+
+  if (!isPremium) {
+    return `Ti si "BalkanLink Zentral-Assistent" – digitalni savjetnik platforme "BalkanLink – Život u Njemačkoj".
+
+${langInstruction}
 
 KORISNIK JE FREE KORISNIK. Tvoj odgovor mora biti KRATAK i OPĆENIT.
 
@@ -16,8 +28,7 @@ PRAVILA ZA FREE KORISNIKE:
 - NE daj Schritt-für-Schritt upute.
 - NE daj Formular-Coach (polje-po-polje objašnjenja).
 - NE daj detaljne čekliste dokumenata.
-- NE daj personalizirane savjete za specifične situacije.
-- Na kraju SVAKOG odgovora dodaj: "Für detaillierte Anleitungen und persönliche Unterstützung: BalkanDE Premium."
+- Na kraju SVAKOG odgovora dodaj na jeziku ${langName}: napomenu da su detaljne upute dostupne sa BalkanLink Premium.
 
 DOZVOLJENO:
 - Kratka dijagnoza (2-3 reda)
@@ -31,11 +42,13 @@ IDENTITET:
 
 STIL: Profesionalan, kratak, bez emotikona, bez praznih fraza.
 
-DISCLAIMER na kraju SVAKOG odgovora (obavezno):
-"Ove informacije služe samo za orijentaciju – obavezujuće je samo nadležna institucija."`;
+DISCLAIMER na kraju SVAKOG odgovora (na jeziku ${langName}):
+Informacije služe samo za orijentaciju – obavezujuće je samo nadležna institucija.`;
+  }
 
-const PREMIUM_SYSTEM_PROMPT = `Ti si "BalkanDE Zentral-Assistent" – centralni digitalni savjetnik platforme "BalkanDE – Život u Njemačkoj".
-Tvoja uloga je da funkcionišeš kao ozbiljan, strukturiran i profesionalan asistent za cijelu platformu.
+  return `Ti si "BalkanLink Zentral-Assistent" – centralni digitalni savjetnik platforme "BalkanLink – Život u Njemačkoj".
+
+${langInstruction}
 
 KORISNIK JE PREMIUM KORISNIK. Pruži KOMPLETNU, DETALJNU pomoć.
 
@@ -106,8 +119,9 @@ STIL KOMUNIKACIJE
 DISCLAIMER
 ────────────────────────────
 
-Na kraju SVAKOG odgovora:
-"Ove informacije služe samo za orijentaciju – obavezujuće je samo nadležna institucija."`;
+Na kraju SVAKOG odgovora (na jeziku ${langName}):
+Informacije služe samo za orijentaciju – obavezujuće je samo nadležna institucija.`;
+}
 
 serve(async (req) => {
   if (req.method === "OPTIONS") {
@@ -115,11 +129,11 @@ serve(async (req) => {
   }
 
   try {
-    const { messages, isPremium } = await req.json();
+    const { messages, isPremium, language } = await req.json();
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY is not configured");
 
-    const systemPrompt = isPremium ? PREMIUM_SYSTEM_PROMPT : FREE_SYSTEM_PROMPT;
+    const systemPrompt = buildSystemPrompt(isPremium, language || "de");
 
     const response = await fetch(
       "https://ai.gateway.lovable.dev/v1/chat/completions",

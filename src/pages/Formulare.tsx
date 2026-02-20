@@ -11,21 +11,26 @@ import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
 
-type LangKey = "de" | "bs" | "en";
+type LangKey = "de" | "bs" | "en" | "sq" | "mk";
+type L9 = Record<LangKey, string>;
+type L9Arr = Record<LangKey, string[]>;
+
 function getLk(lang: string): LangKey {
   if (lang === "de") return "de";
   if (lang === "en") return "en";
-  return "bs";
+  if (lang === "sq" || lang === "xk") return "sq";
+  if (lang === "mk") return "mk";
+  return "bs"; // bs, hr, sr, me
 }
 
 /* ── Category data ── */
 interface GuideCategory {
   id: string;
   icon: typeof FileText;
-  title: { de: string; bs: string; en: string };
-  description: { de: string; bs: string; en: string };
-  documents: { de: string[]; bs: string[]; en: string[] };
-  steps: { de: string[]; bs: string[]; en: string[] };
+  title: L9;
+  description: L9;
+  documents: L9Arr;
+  steps: L9Arr;
   officialLink: string;
   officialLinkLabel: string;
   noOnlineForm?: boolean;
@@ -36,16 +41,20 @@ const categories: GuideCategory[] = [
   {
     id: "anmeldung",
     icon: Building2,
-    title: { de: "Anmeldung & Ummeldung", bs: "Prijava i odjava prebivališta", en: "Registration & Re-registration" },
+    title: { de: "Anmeldung & Ummeldung", bs: "Prijava i odjava prebivališta", en: "Registration & Re-registration", sq: "Regjistrimi & Ndryshimi i adresës", mk: "Пријава и одјава на живеалиште" },
     description: {
       de: "Innerhalb von 14 Tagen nach dem Einzug müssen Sie sich beim Einwohnermeldeamt anmelden. Bei Umzug innerhalb der Stadt ist eine Ummeldung nötig.",
       bs: "U roku od 14 dana od useljenja morate se prijaviti u nadležnom uredu. Kod preseljenja unutar grada potrebna je odjava/prijava.",
       en: "You must register at the residents' office within 14 days of moving in. Moving within the city requires re-registration.",
+      sq: "Brenda 14 ditëve pas shpërnguljes duhet të regjistroheni në zyrën e banorëve. Për lëvizje brenda qytetit nevojitet ndryshim adrese.",
+      mk: "Во рок од 14 дена по вселување мора да се пријавите во надлежниот уред. При селење во рамки на градот потребна е одјава/пријава.",
     },
     documents: {
       de: ["Personalausweis / Reisepass", "Wohnungsgeberbestätigung", "Mietvertrag (empfohlen)", "Ggf. Heirats-/Geburtsurkunde"],
       bs: ["Lična karta / pasoš", "Potvrda stanodavca (Wohnungsgeberbestätigung)", "Ugovor o najmu (preporučeno)", "Eventualno vjenčani list / rodni list"],
       en: ["ID / Passport", "Landlord confirmation", "Rental contract (recommended)", "Marriage/birth certificate if applicable"],
+      sq: ["Letërnjoftim / Pasaportë", "Konfirmimi i pronarit (Wohnungsgeberbestätigung)", "Kontratë qiraje (e rekomanduar)", "Certifikatë martese/lindjeje nëse ka"],
+      mk: ["Лична карта / пасош", "Потврда од станодавец (Wohnungsgeberbestätigung)", "Договор за наем (препорачано)", "Евентуално венчаница / извод на родени"],
     },
     steps: {
       de: [
@@ -69,6 +78,20 @@ const categories: GuideCategory[] = [
         "Fill out the registration form on-site.",
         "Take the registration certificate — needed for bank, tax ID, etc.",
       ],
+      sq: [
+        "Rezervoni një takim online në zyrën e qytetarëve (Bürgeramt).",
+        "Plotësoni konfirmimin e pronarit (Wohnungsgeberbestätigung).",
+        "Sillni të gjitha dokumentet: pasaportë, konfirmim, kontratë qiraje.",
+        "Plotësoni formularin e regjistrimit në vend.",
+        "Merrni certifikatën e regjistrimit — nevojitet për bankë, ID tatimor etj.",
+      ],
+      mk: [
+        "Резервирајте термин онлајн во надлежниот уред (Bürgeramt).",
+        "Нека станодавецот ви ја пополни потврдата (Wohnungsgeberbestätigung).",
+        "Понесете ги сите документи: пасош, потврда, договор за наем.",
+        "На лице место пополнете го формуларот за пријава.",
+        "Веднаш преземете ја потврдата за пријава — ви треба за банка, даночен ID итн.",
+      ],
     },
     officialLink: "https://service.berlin.de/dienstleistung/120686/",
     officialLinkLabel: "Bürgeramt Online-Termin",
@@ -76,16 +99,20 @@ const categories: GuideCategory[] = [
   {
     id: "kindergeld",
     icon: Baby,
-    title: { de: "Kindergeld beantragen", bs: "Zahtjev za Kindergeld", en: "Apply for Child Benefit" },
+    title: { de: "Kindergeld beantragen", bs: "Zahtjev za Kindergeld", en: "Apply for Child Benefit", sq: "Aplikimi për Kindergeld", mk: "Барање за Kindergeld" },
     description: {
       de: "Kindergeld wird für jedes Kind bis 18 Jahre gezahlt (bis 25 bei Ausbildung). Der Antrag wird bei der Familienkasse gestellt.",
       bs: "Kindergeld se isplaćuje za svako dijete do 18. godine (do 25. uz školovanje). Zahtjev se podnosi kod Familienkasse.",
       en: "Child benefit is paid for every child under 18 (up to 25 if in education). Apply at the Family Benefits Office.",
+      sq: "Kindergeld paguhet për çdo fëmijë deri në 18 vjeç (deri në 25 nëse vazhdon shkollimin). Aplikimi bëhet në Familienkasse.",
+      mk: "Kindergeld се исплаќа за секое дете до 18 години (до 25 со школување). Барањето се поднесува кај Familienkasse.",
     },
     documents: {
       de: ["Geburtsurkunde des Kindes", "Steuer-ID (Elternteil + Kind)", "Meldebescheinigung", "Aufenthaltstitel (Nicht-EU)", "Ggf. Schulbescheinigung (ab 18)"],
       bs: ["Rodni list djeteta", "Porezni ID (roditelj + dijete)", "Potvrda o prijavi", "Boravišna dozvola (ne-EU)", "Potvrda škole (od 18. godine)"],
       en: ["Child's birth certificate", "Tax ID (parent + child)", "Registration certificate", "Residence permit (non-EU)", "School certificate (from 18)"],
+      sq: ["Certifikata e lindjes së fëmijës", "ID tatimor (prindi + fëmija)", "Certifikata e regjistrimit", "Leja e qëndrimit (jo-BE)", "Certifikatë shkollore (nga 18)"],
+      mk: ["Извод на родени на детето", "Даночен ID (родител + дете)", "Потврда за пријава", "Дозвола за престој (не-ЕУ)", "Потврда од училиште (од 18 год.)"],
     },
     steps: {
       de: [
@@ -112,6 +139,22 @@ const categories: GuideCategory[] = [
         "Send to the responsible Family Benefits Office — online or by post.",
         "Processing: approx. 4–6 weeks. Retroactive payment from birth possible.",
       ],
+      sq: [
+        "Shkarkoni formularin KG1 dhe shtojcën për fëmijën (KG1-AnlKi).",
+        "Shkruani të dhënat personale, ID tatimor dhe të dhënat bankare.",
+        "Për çdo fëmijë plotësoni shtojcë të veçantë.",
+        "Bashkëngjitni dëshmitë (certifikatë lindjeje, regjistrim).",
+        "Dërgoni në Familienkasse — online ose me postë.",
+        "Përpunimi: rreth 4–6 javë. Pagesa retroaktive nga lindja e mundshme.",
+      ],
+      mk: [
+        "Преземете го формуларот KG1 и прилогот за дете (KG1-AnlKi).",
+        "Внесете лични податоци, даночен ID и банкарски податоци.",
+        "За секое дете пополнете посебен прилог.",
+        "Приложете докази (извод на родени, потврда за пријава).",
+        "Испратете до надлежната Familienkasse — онлајн или по пошта.",
+        "Обработка: околу 4–6 недели. Можна ретроактивна исплата од раѓање.",
+      ],
     },
     officialLink: "https://www.arbeitsagentur.de/familie-und-kinder/kindergeld-beantragen",
     officialLinkLabel: "Familienkasse Online",
@@ -119,16 +162,20 @@ const categories: GuideCategory[] = [
   {
     id: "elterngeld",
     icon: Heart,
-    title: { de: "Elterngeld beantragen", bs: "Zahtjev za Elterngeld", en: "Apply for Parental Allowance" },
+    title: { de: "Elterngeld beantragen", bs: "Zahtjev za Elterngeld", en: "Apply for Parental Allowance", sq: "Aplikimi për Elterngeld", mk: "Барање за Elterngeld" },
     description: {
       de: "Elterngeld ersetzt 65–67% des Nettoeinkommens nach der Geburt. Der Antrag muss innerhalb von 3 Monaten gestellt werden.",
       bs: "Elterngeld nadoknađuje 65–67% neto primanja nakon porođaja. Zahtjev mora biti podnesen u roku od 3 mjeseca.",
       en: "Parental allowance replaces 65–67% of net income after birth. Must be applied within 3 months.",
+      sq: "Elterngeld zëvendëson 65–67% të të ardhurave neto pas lindjes. Duhet aplikuar brenda 3 muajve.",
+      mk: "Elterngeld надоместува 65–67% од нето примањата после породување. Барањето мора да се поднесе во рок од 3 месеци.",
     },
     documents: {
       de: ["Geburtsurkunde (Original)", "Gehaltsnachweise (12 Monate)", "Arbeitgeberbescheinigung", "Krankenversicherungsnachweis", "Mutterschaftsgeldbescheinigung"],
       bs: ["Rodni list (original)", "Platne liste (12 mjeseci)", "Potvrda poslodavca", "Zdravstveno osiguranje", "Potvrda o porodiljskom dodatku"],
       en: ["Birth certificate (original)", "Salary slips (12 months)", "Employer certificate", "Health insurance proof", "Maternity benefit certificate"],
+      sq: ["Certifikata e lindjes (origjinal)", "Fletëpagesat (12 muaj)", "Certifikata e punëdhënësit", "Dëshmi e sigurimit shëndetësor", "Certifikata e benefitit të lehonisë"],
+      mk: ["Извод на родени (оригинал)", "Платни листи (12 месеци)", "Потврда од работодавач", "Здравствено осигурување", "Потврда за породилен додаток"],
     },
     steps: {
       de: [
@@ -155,6 +202,22 @@ const categories: GuideCategory[] = [
         "Request employer certificate for parental leave.",
         "Submit within 3 months after birth!",
       ],
+      sq: [
+        "Gjeni zyrën e Elterngeld të landit tuaj.",
+        "Shkarkoni formularin ose aplikoni online në elterngeld-digital.de.",
+        "Përcaktoni muajt e përfitimit për dy prindërit (max. 14 muaj baze).",
+        "Bashkëngjitni dëshmitë e të ardhurave për 12 muajt para lindjes.",
+        "Kërkoni certifikatën e punëdhënësit për pushimin prindëror.",
+        "Dorëzoni brenda 3 muajve pas lindjes!",
+      ],
+      mk: [
+        "Пронајдете ја надлежната Elterngeldstelle на вашата сојузна држава.",
+        "Преземете барање или поднесете онлајн на elterngeld-digital.de.",
+        "Одредете месеци за двата родители (макс. 14 месеци основно).",
+        "Приложете докази за примања 12 месеци пред породување.",
+        "Побарајте потврда од работодавач за родителско отсуство.",
+        "Поднесете барање во рок од 3 месеци од породување!",
+      ],
     },
     officialLink: "https://www.elterngeld-digital.de",
     officialLinkLabel: "Elterngeld Digital",
@@ -162,16 +225,20 @@ const categories: GuideCategory[] = [
   {
     id: "krankenversicherung",
     icon: Stethoscope,
-    title: { de: "Krankenversicherung anmelden", bs: "Prijava zdravstvenog osiguranja", en: "Register Health Insurance" },
+    title: { de: "Krankenversicherung anmelden", bs: "Prijava zdravstvenog osiguranja", en: "Register Health Insurance", sq: "Regjistrimi i sigurimit shëndetësor", mk: "Пријава на здравствено осигурување" },
     description: {
       de: "In Deutschland besteht Versicherungspflicht. Arbeitnehmer werden automatisch versichert, Selbständige müssen sich selbst anmelden.",
       bs: "U Njemačkoj postoji obavezno osiguranje. Zaposlenici su automatski osigurani, samostalni moraju se sami prijaviti.",
       en: "Health insurance is mandatory in Germany. Employees are automatically insured; self-employed must register themselves.",
+      sq: "Sigurimi shëndetësor është i detyrueshëm në Gjermani. Punëtorët sigurohen automatikisht; të vetëpunësuarit duhet të regjistrohen vetë.",
+      mk: "Здравственото осигурување е задолжително во Германија. Вработените се автоматски осигурани, самостојните мора сами да се пријават.",
     },
     documents: {
       de: ["Meldebescheinigung", "Arbeitsvertrag oder Gewerbeanmeldung", "Reisepass / Aufenthaltstitel", "Ggf. Nachweis Vorversicherung", "Bankverbindung"],
       bs: ["Potvrda o prijavi", "Ugovor o radu ili prijava obrta", "Pasoš / boravišna dozvola", "Eventualno dokaz prethodnog osiguranja", "Bankovni podaci"],
       en: ["Registration certificate", "Employment contract or business registration", "Passport / residence permit", "Proof of prior insurance if applicable", "Bank details"],
+      sq: ["Certifikata e regjistrimit", "Kontratë pune ose regjistrim biznesi", "Pasaportë / leje qëndrimi", "Dëshmi e sigurimit të mëparshëm nëse ka", "Të dhëna bankare"],
+      mk: ["Потврда за пријава", "Договор за работа или пријава на дејност", "Пасош / дозвола за престој", "Евентуално доказ за претходно осигурување", "Банкарски податоци"],
     },
     steps: {
       de: [
@@ -195,6 +262,20 @@ const categories: GuideCategory[] = [
         "Insurance card (eGK) arrives within 2–3 weeks.",
         "Inform your employer about your chosen insurer.",
       ],
+      sq: [
+        "Zgjidhni siguruesin shëndetësor (AOK, TK, Barmer, DAK etj.).",
+        "Plotësoni aplikimin online në faqen e siguruesit.",
+        "Ngarkoni ose dërgoni certifikatën e regjistrimit dhe kontratën e punës.",
+        "Karta e sigurimit (eGK) mbërrin brenda 2–3 javëve.",
+        "Informoni punëdhënësin për siguruesin e zgjedhur.",
+      ],
+      mk: [
+        "Изберете здравствена каса (AOK, TK, Barmer, DAK итн.).",
+        "Пополнете онлајн барање на страницата на касата.",
+        "Прикачете или испратете потврда за пријава и договор за работа.",
+        "Картичка за осигурување (eGK) пристигнува за 2–3 недели.",
+        "Информирајте го работодавачот за избраната каса.",
+      ],
     },
     officialLink: "https://www.krankenkassen.de",
     officialLinkLabel: "Krankenkassen-Vergleich",
@@ -202,16 +283,20 @@ const categories: GuideCategory[] = [
   {
     id: "steuer",
     icon: Receipt,
-    title: { de: "Steuer-ID & Steuerklasse", bs: "Porezni ID i porezna klasa", en: "Tax ID & Tax Class" },
+    title: { de: "Steuer-ID & Steuerklasse", bs: "Porezni ID i porezna klasa", en: "Tax ID & Tax Class", sq: "ID Tatimor & Klasa Tatimore", mk: "Даночен ID и даночна класа" },
     description: {
       de: "Die Steuer-ID wird automatisch nach der Anmeldung per Post zugesandt. Die Steuerklasse kann beim Finanzamt geändert werden.",
       bs: "Porezni ID se automatski šalje poštom nakon prijave prebivališta. Porezna klasa se može promijeniti u Finanzamtu.",
       en: "The tax ID is sent by mail after registration. The tax class can be changed at the tax office.",
+      sq: "ID tatimor dërgohet automatikisht me postë pas regjistrimit. Klasa tatimore mund të ndryshohet në zyrën tatimore.",
+      mk: "Даночниот ID автоматски се испраќа по пошта после пријавата. Даночната класа може да се промени во Finanzamt.",
     },
     documents: {
       de: ["Meldebescheinigung", "Personalausweis / Reisepass", "Heiratsurkunde (bei Steuerklassenwechsel)", "Ggf. Scheidungsurteil"],
       bs: ["Potvrda o prijavi", "Lična karta / pasoš", "Vjenčani list (za promjenu klase)", "Eventualno presuda o razvodu"],
       en: ["Registration certificate", "ID / Passport", "Marriage certificate (for class change)", "Divorce decree if applicable"],
+      sq: ["Certifikata e regjistrimit", "Letërnjoftim / Pasaportë", "Certifikatë martese (për ndryshim klase)", "Vendim divorci nëse ka"],
+      mk: ["Потврда за пријава", "Лична карта / пасош", "Венчаница (за промена на класа)", "Евентуално пресуда за развод"],
     },
     steps: {
       de: [
@@ -235,6 +320,20 @@ const categories: GuideCategory[] = [
         "Apply for tax class change at the tax office (form 'Antrag auf Steuerklassenwechsel').",
         "Inform employer — new class appears automatically on payslip.",
       ],
+      sq: [
+        "ID tatimor dërgohet automatikisht me postë 2–4 javë pas regjistrimit.",
+        "Nëse nuk e keni marrë: kërkoni online tek BZSt.",
+        "Kontrolloni klasën tatimore (I = i pamartuar, III/V ose IV/IV = i martuar).",
+        "Aplikoni për ndryshim klase tek zyra tatimore.",
+        "Informoni punëdhënësin — klasa e re shfaqet automatikisht në fletëpagesë.",
+      ],
+      mk: [
+        "Даночен ID се испраќа автоматски по пошта 2–4 недели после пријава.",
+        "Ако не е примен: прашајте онлајн кај BZSt.",
+        "Проверете даночна класа (I = неожен, III/V или IV/IV = оженет).",
+        "Промена на класа побарајте кај Finanzamt.",
+        "Информирајте го работодавачот — новата класа автоматски се појавува на платна листа.",
+      ],
     },
     officialLink: "https://www.bzst.de/DE/Privatpersonen/SteuerlicheIdentifikationsnummer/steuerlicheidentifikationsnummer_node.html",
     officialLinkLabel: "BZSt – Steuer-ID",
@@ -242,16 +341,20 @@ const categories: GuideCategory[] = [
   {
     id: "bankkonto",
     icon: Banknote,
-    title: { de: "Bankkonto eröffnen", bs: "Otvaranje bankovnog računa", en: "Open a Bank Account" },
+    title: { de: "Bankkonto eröffnen", bs: "Otvaranje bankovnog računa", en: "Open a Bank Account", sq: "Hapja e llogarisë bankare", mk: "Отворање банкарска сметка" },
     description: {
       de: "Ein deutsches Bankkonto ist für Gehalt, Miete und Sozialleistungen notwendig. Die Eröffnung ist auch online möglich.",
       bs: "Njemački bankovni račun je potreban za platu, kiriju i socijalna davanja. Otvaranje je moguće i online.",
       en: "A German bank account is needed for salary, rent, and social benefits. Opening is also possible online.",
+      sq: "Një llogari bankare gjermane nevojitet për pagë, qira dhe përfitime sociale. Hapja është e mundshme edhe online.",
+      mk: "Германска банкарска сметка е потребна за плата, кирија и социјални давања. Отворање е можно и онлајн.",
     },
     documents: {
       de: ["Personalausweis / Reisepass", "Meldebescheinigung", "Aufenthaltstitel (Nicht-EU)", "Ggf. Arbeitsvertrag"],
       bs: ["Lična karta / pasoš", "Potvrda o prijavi", "Boravišna dozvola (ne-EU)", "Eventualno ugovor o radu"],
       en: ["ID / Passport", "Registration certificate", "Residence permit (non-EU)", "Employment contract if applicable"],
+      sq: ["Letërnjoftim / Pasaportë", "Certifikata e regjistrimit", "Leje qëndrimi (jo-BE)", "Kontratë pune nëse ka"],
+      mk: ["Лична карта / пасош", "Потврда за пријава", "Дозвола за престој (не-ЕУ)", "Евентуално договор за работа"],
     },
     steps: {
       de: [
@@ -278,6 +381,22 @@ const categories: GuideCategory[] = [
         "Debit card and online banking details arrive by mail.",
         "Share IBAN with employer and authorities.",
       ],
+      sq: [
+        "Zgjidhni bankën (Sparkasse, Deutsche Bank, Commerzbank, N26, ING etj.).",
+        "Plotësoni aplikimin online ose caktoni takim në degë.",
+        "Kryeni PostIdent ose VideoIdent për verifikim identiteti.",
+        "Mbani gati certifikatën e regjistrimit dhe dokumentin e identitetit.",
+        "Karta e debitit dhe të dhënat e online banking mbërrijnë me postë.",
+        "Ndani IBAN-in me punëdhënësin dhe autoritetet.",
+      ],
+      mk: [
+        "Изберете банка (Sparkasse, Deutsche Bank, Commerzbank, N26, ING итн.).",
+        "Пополнете онлајн барање или закажете термин во филијала.",
+        "Спроведете PostIdent или VideoIdent за идентификација.",
+        "Подгответе потврда за пријава и документ за идентификација.",
+        "Картичка и податоци за онлајн банкарство пристигнуваат по пошта.",
+        "Проследете IBAN на работодавач и институции.",
+      ],
     },
     officialLink: "https://www.bafin.de/DE/Verbraucher/BankeBauspwortkassen/Kontoeröffnung/kontoeröffnung_node.html",
     officialLinkLabel: "BaFin – Kontoeröffnung",
@@ -285,16 +404,20 @@ const categories: GuideCategory[] = [
   {
     id: "arbeit",
     icon: Briefcase,
-    title: { de: "Arbeit & Arbeitsvertrag", bs: "Posao i ugovor o radu", en: "Employment & Work Contract" },
+    title: { de: "Arbeit & Arbeitsvertrag", bs: "Posao i ugovor o radu", en: "Employment & Work Contract", sq: "Punësimi & Kontrata e punës", mk: "Работа и договор за работа" },
     description: {
       de: "Ein Arbeitsvertrag regelt Rechte und Pflichten. Vor Unterschrift sollte man alle Punkte genau prüfen.",
       bs: "Ugovor o radu reguliše prava i obaveze. Prije potpisa treba pažljivo provjeriti sve tačke.",
       en: "An employment contract defines rights and duties. Review all points carefully before signing.",
+      sq: "Kontrata e punës rregullon të drejtat dhe detyrimet. Para nënshkrimit kontrolloni çdo pikë me kujdes.",
+      mk: "Договорот за работа ги регулира правата и обврските. Пред потпишување внимателно проверете ги сите точки.",
     },
     documents: {
       de: ["Personalausweis / Reisepass", "Aufenthaltstitel mit Arbeitserlaubnis", "Sozialversicherungsausweis", "Steuer-ID", "Bankverbindung", "Ggf. Zeugnisse / Diplome"],
       bs: ["Lična karta / pasoš", "Boravišna dozvola sa radnom dozvolom", "Kartica socijalnog osiguranja", "Porezni ID", "Bankovni podaci", "Eventualno diplome / svjedodžbe"],
       en: ["ID / Passport", "Residence permit with work permit", "Social insurance card", "Tax ID", "Bank details", "Diplomas / certificates if applicable"],
+      sq: ["Letërnjoftim / Pasaportë", "Leje qëndrimi me leje pune", "Karta e sigurimit social", "ID tatimor", "Të dhëna bankare", "Diploma / certifikata nëse ka"],
+      mk: ["Лична карта / пасош", "Дозвола за престој со работна дозвола", "Картичка за социјално осигурување", "Даночен ID", "Банкарски податоци", "Евентуално дипломи / сертификати"],
     },
     steps: {
       de: [
@@ -324,6 +447,24 @@ const categories: GuideCategory[] = [
         "Choose health insurance and inform employer.",
         "Sign the contract — always keep a copy!",
       ],
+      sq: [
+        "Lexoni kontratën e punës plotësisht para nënshkrimit.",
+        "Kontrolloni periudhën e provës (max. 6 muaj, njoftim 2 javë).",
+        "Verifikoni orarin, pagën, ditët e pushimit (min. 20) dhe afatet e njoftimit.",
+        "Kërkoni kartën e sigurimit social nga siguruesi i pensionit.",
+        "Dorëzoni ID tatimor dhe të dhëna bankare punëdhënësit.",
+        "Zgjidhni sigurimin shëndetësor dhe informoni punëdhënësin.",
+        "Nënshkruani kontratën — gjithmonë mbani një kopje!",
+      ],
+      mk: [
+        "Договорот за работа прочитајте го целосно пред потпишување.",
+        "Проверете пробен период (макс. 6 месеци, отказен рок 2 недели).",
+        "Проверете работно време, плата, денови одмор (мин. 20) и отказни рокови.",
+        "Картичка за социјално осигурување — побарајте кај пензиски фонд.",
+        "Проследете даночен ID и банкарски податоци на работодавачот.",
+        "Изберете здравствено осигурување и информирајте го работодавачот.",
+        "Потпишете го договорот — секогаш задржете еден примерок!",
+      ],
     },
     officialLink: "https://www.arbeitsagentur.de",
     officialLinkLabel: "Agentur für Arbeit",
@@ -331,16 +472,20 @@ const categories: GuideCategory[] = [
   {
     id: "wohnung",
     icon: Home,
-    title: { de: "Wohnung & Mietvertrag", bs: "Stan i ugovor o najmu", en: "Housing & Rental Contract" },
+    title: { de: "Wohnung & Mietvertrag", bs: "Stan i ugovor o najmu", en: "Housing & Rental Contract", sq: "Banesa & Kontrata e qirasë", mk: "Стан и договор за наем" },
     description: {
       de: "Ein Mietvertrag ist Pflicht und sollte vor Unterschrift genau geprüft werden. Die Kaution beträgt max. 3 Kaltmieten.",
       bs: "Ugovor o najmu je obavezan i treba ga pažljivo pročitati. Kaucija iznosi max. 3 hladne kirije.",
       en: "A rental contract is mandatory and should be checked carefully. Deposit is max. 3 months cold rent.",
+      sq: "Kontrata e qirasë është e detyrueshme dhe duhet kontrolluar me kujdes. Depozita max. 3 qira të ftohta.",
+      mk: "Договорот за наем е задолжителен и треба внимателно да се прочита. Кауцијата е макс. 3 ладни кирии.",
     },
     documents: {
       de: ["Personalausweis / Reisepass", "Meldebescheinigung", "Einkommensnachweis / Gehaltsnachweise", "SCHUFA-Auskunft", "Mieterselbstauskunft", "Ggf. Bürgschaft"],
       bs: ["Lična karta / pasoš", "Potvrda o prijavi", "Dokaz o primanjima / platne liste", "SCHUFA izvještaj", "Samoprijava stanara", "Eventualno garancija"],
       en: ["ID / Passport", "Registration certificate", "Income proof / salary slips", "SCHUFA report", "Tenant self-disclosure", "Guarantor letter if applicable"],
+      sq: ["Letërnjoftim / Pasaportë", "Certifikata e regjistrimit", "Dëshmi të ardhurave / fletëpagesa", "Raport SCHUFA", "Vetëdeklarim qiramarrësi", "Garanci nëse ka"],
+      mk: ["Лична карта / пасош", "Потврда за пријава", "Доказ за примања / платни листи", "SCHUFA извештај", "Самопријава на станар", "Евентуално гаранција"],
     },
     steps: {
       de: [
@@ -367,6 +512,22 @@ const categories: GuideCategory[] = [
         "Create handover protocol when moving in (document apartment condition).",
         "Register at the citizens' office within 14 days.",
       ],
+      sq: [
+        "Kërkoni banesa në portale (ImmobilienScout24, WG-Gesucht, eBay Kleinanzeigen).",
+        "Caktoni takime vizitimi dhe përgatitni dokumentet.",
+        "Porosisni raportin SCHUFA online (falas 1x/vit në meineSCHUFA.de).",
+        "Lexoni kontratën e qirasë plotësisht — kontrolloni shpenzimet, afatin e njoftimit dhe depozitën.",
+        "Krijoni protokollin e dorëzimit gjatë shpërnguljes (dokumentoni gjendjen e banesës).",
+        "Regjistrohuni në zyrën e qytetarëve brenda 14 ditëve.",
+      ],
+      mk: [
+        "Станови барајте на портали (ImmobilienScout24, WG-Gesucht, eBay Kleinanzeigen).",
+        "Договорете термини за разгледување и подгответе документи.",
+        "Нарачајте SCHUFA извештај онлајн (бесплатно 1x годишно на meineSCHUFA.de).",
+        "Договорот за наем прочитајте го целосно — внимавајте на режии, отказен рок и кауција.",
+        "Направете записник за примопредавање при вселување.",
+        "Во рок од 14 дена пријавете се во Bürgeramt.",
+      ],
     },
     officialLink: "https://www.mieterbund.de",
     officialLinkLabel: "Deutscher Mieterbund",
@@ -374,16 +535,20 @@ const categories: GuideCategory[] = [
   {
     id: "auto",
     icon: Car,
-    title: { de: "Auto anmelden", bs: "Registracija automobila", en: "Register a Car" },
+    title: { de: "Auto anmelden", bs: "Registracija automobila", en: "Register a Car", sq: "Regjistrimi i makinës", mk: "Регистрација на автомобил" },
     description: {
       de: "Ein Auto muss innerhalb weniger Tage nach Kauf bei der Zulassungsstelle angemeldet werden.",
       bs: "Automobil se mora registrirati u roku od nekoliko dana od kupovine kod Zulassungsstelle.",
       en: "A car must be registered at the vehicle registration office within a few days of purchase.",
+      sq: "Makina duhet regjistruar në zyrën e regjistrimit brenda disa ditëve pas blerjes.",
+      mk: "Автомобилот мора да се регистрира во рок од неколку дена од купувањето кај Zulassungsstelle.",
     },
     documents: {
       de: ["Personalausweis / Reisepass", "eVB-Nummer (Versicherungsbestätigung)", "Fahrzeugbrief (Zulassungsbescheinigung Teil II)", "Fahrzeugschein (Teil I)", "Nachweis der Hauptuntersuchung (HU/TÜV)", "SEPA-Lastschriftmandat für Kfz-Steuer"],
       bs: ["Lična karta / pasoš", "eVB-broj (potvrda o osiguranju)", "Prometna dozvola (Teil II)", "Saobraćajna dozvola (Teil I)", "TÜV izvještaj", "SEPA ovlaštenje za porez na vozilo"],
       en: ["ID / Passport", "eVB number (insurance confirmation)", "Vehicle registration Part II", "Vehicle registration Part I", "TÜV inspection report", "SEPA mandate for vehicle tax"],
+      sq: ["Letërnjoftim / Pasaportë", "Numri eVB (konfirmim sigurimi)", "Leja e qarkullimit (Teil II)", "Leja e qarkullimit (Teil I)", "Raporti TÜV", "Mandati SEPA për taksën e automjetit"],
+      mk: ["Лична карта / пасош", "eVB-број (потврда за осигурување)", "Сообраќајна дозвола (Teil II)", "Сообраќајна дозвола (Teil I)", "TÜV извештај", "SEPA овластување за данок на возило"],
     },
     steps: {
       de: [
@@ -410,6 +575,22 @@ const categories: GuideCategory[] = [
         "Receive registration certificates Part I and II.",
         "Vehicle tax is collected automatically (SEPA mandate).",
       ],
+      sq: [
+        "Siguroni automjetin dhe merrni numrin eVB.",
+        "Rezervoni takim online tek zyra e regjistrimit.",
+        "Sillni të gjitha dokumentet (ID, eVB, letrat e regjistrimit, TÜV).",
+        "Bëni targat tek prodhuesi i targave.",
+        "Merrni certifikatat e regjistrimit Teil I dhe II.",
+        "Taksa e automjetit mblidhet automatikisht (mandat SEPA).",
+      ],
+      mk: [
+        "Склучете осигурување на возило и добијте eVB-број.",
+        "Закажете термин онлајн кај Zulassungsstelle.",
+        "Понесете ги сите документи (пасош, eVB, сообраќајна, TÜV).",
+        "Таблички нарачајте кај Schilderprägestelle.",
+        "Преземете сообраќајна дозвола Teil I и II.",
+        "Данок на возило автоматски се наплаќа (SEPA овластување).",
+      ],
     },
     officialLink: "https://www.kba.de",
     officialLinkLabel: "Kraftfahrt-Bundesamt",
@@ -418,16 +599,20 @@ const categories: GuideCategory[] = [
   {
     id: "fuehrerschein",
     icon: CreditCard,
-    title: { de: "Führerschein umschreiben", bs: "Prepis vozačke dozvole", en: "Convert Driving License" },
+    title: { de: "Führerschein umschreiben", bs: "Prepis vozačke dozvole", en: "Convert Driving License", sq: "Konvertimi i patentës", mk: "Препис на возачка дозвола" },
     description: {
       de: "Führerscheine aus Nicht-EU-Ländern müssen innerhalb von 6 Monaten umgeschrieben werden. EU-Führerscheine gelten unbegrenzt.",
       bs: "Vozačke dozvole iz ne-EU zemalja moraju se prepisati u roku od 6 mjeseci. EU dozvole važe neograničeno.",
       en: "Non-EU driving licenses must be converted within 6 months. EU licenses are valid indefinitely.",
+      sq: "Patentët nga vendet jo-BE duhet konvertuar brenda 6 muajve. Patentët e BE vlejnë pa afat.",
+      mk: "Возачки дозволи од не-ЕУ земји мора да се препишат во рок од 6 месеци. ЕУ дозволи важат неограничено.",
     },
     documents: {
       de: ["Personalausweis / Reisepass", "Meldebescheinigung", "Ausländischer Führerschein (Original + Übersetzung)", "Biometrisches Passfoto", "Sehtest-Bescheinigung", "Erste-Hilfe-Kurs-Bescheinigung"],
       bs: ["Lična karta / pasoš", "Potvrda o prijavi", "Strana vozačka dozvola (original + prijevod)", "Biometrijska fotografija", "Potvrda o pregledu vida", "Potvrda o kursu prve pomoći"],
       en: ["ID / Passport", "Registration certificate", "Foreign driving license (original + translation)", "Biometric photo", "Eye test certificate", "First aid course certificate"],
+      sq: ["Letërnjoftim / Pasaportë", "Certifikata e regjistrimit", "Patenta e huaj (origjinal + përkthim)", "Foto biometrike", "Certifikata e testit të syve", "Certifikata e kursit të ndihmës së parë"],
+      mk: ["Лична карта / пасош", "Потврда за пријава", "Странска возачка дозвола (оригинал + превод)", "Биометриска фотографија", "Потврда за преглед на вид", "Потврда за курс прва помош"],
     },
     steps: {
       de: [
@@ -457,6 +642,24 @@ const categories: GuideCategory[] = [
         "Take theory and/or practical exam if required.",
         "Pick up your German driving license.",
       ],
+      sq: [
+        "Kontrolloni nëse patenta juaj vjen nga një vend i njohur (provim i detyrueshëm po/jo).",
+        "Bëni përkthimin zyrtarisht të certifikuar të patentës.",
+        "Bëni testin e syve tek optiku ose oftalmologu.",
+        "Përfundoni kursin e ndihmës së parë (vetëm për vendet me provim të detyrueshëm).",
+        "Dorëzoni aplikimin me të gjitha dokumentet tek zyra e patentës.",
+        "Jepni provimin teorik dhe/ose praktik nëse kërkohet.",
+        "Merrni patentën gjermane.",
+      ],
+      mk: [
+        "Проверете дали дозволата е од призната земја (обврска за полагање да/не).",
+        "Направете службен заверен превод на возачката дозвола.",
+        "Направете преглед на вид кај оптичар или офталмолог.",
+        "Положете курс прва помош (само за земји со обврска за полагање).",
+        "Поднесете барање со сите документи кај Führerscheinstelle.",
+        "Евентуално положете теоретски и/или практичен испит.",
+        "Преземете ја германската возачка дозвола.",
+      ],
     },
     officialLink: "https://www.adac.de/verkehr/rund-um-den-fuehrerschein/auslaendischer-fuehrerschein/",
     officialLinkLabel: "ADAC – Führerschein",
@@ -465,16 +668,20 @@ const categories: GuideCategory[] = [
   {
     id: "familiennachzug",
     icon: Users,
-    title: { de: "Familiennachzug", bs: "Spajanje porodice", en: "Family Reunification" },
+    title: { de: "Familiennachzug", bs: "Spajanje porodice", en: "Family Reunification", sq: "Bashkimi familjar", mk: "Спојување на семејство" },
     description: {
       de: "Familienangehörige aus Drittstaaten können unter bestimmten Voraussetzungen nachziehen. Der Antrag wird bei der Auslandsvertretung gestellt.",
       bs: "Članovi porodice iz trećih zemalja mogu se pod određenim uvjetima pridružiti. Zahtjev se podnosi kod ambasade.",
       en: "Family members from third countries can join under certain conditions. Application is made at the embassy.",
+      sq: "Anëtarët e familjes nga vendet e treta mund të bashkohen nën kushte të caktuara. Aplikimi bëhet në ambasadë.",
+      mk: "Членови на семејството од трети земји можат да се придружат под одредени услови. Барањето се поднесува во амбасада.",
     },
     documents: {
       de: ["Reisepass (gültig)", "Heiratsurkunde / Geburtsurkunde (beglaubigt + übersetzt)", "Aufenthaltstitel des in Deutschland lebenden Partners", "Nachweis ausreichenden Wohnraums", "Einkommensnachweis / Verpflichtungserklärung", "Ggf. A1-Sprachzertifikat Deutsch"],
       bs: ["Pasoš (važeći)", "Vjenčani list / rodni list (ovjeren + preveden)", "Boravišna dozvola partnera u Njemačkoj", "Dokaz o dovoljnom stambenom prostoru", "Dokaz o primanjima / izjava o obavezi", "Eventualno A1-certifikat njemačkog jezika"],
       en: ["Valid passport", "Marriage / birth certificate (certified + translated)", "Residence permit of partner in Germany", "Proof of sufficient living space", "Income proof / obligation declaration", "A1 German language certificate if applicable"],
+      sq: ["Pasaportë (e vlefshme)", "Certifikatë martese / lindjeje (e certifikuar + e përkthyer)", "Leja e qëndrimit e partnerit në Gjermani", "Dëshmi hapësire të mjaftueshme jetese", "Dëshmi të ardhurave / deklaratë detyrimi", "Certifikatë A1 gjermanisht nëse ka"],
+      mk: ["Пасош (важечки)", "Венчаница / извод на родени (заверен + преведен)", "Дозвола за престој на партнерот во Германија", "Доказ за доволен животен простор", "Доказ за примања / изјава за обврска", "Евентуално A1-сертификат за германски јазик"],
     },
     steps: {
       de: [
@@ -504,6 +711,24 @@ const categories: GuideCategory[] = [
         "Visa is reviewed — processing takes 2–6 months.",
         "After arrival: apply for residence permit at the foreigners' authority.",
       ],
+      sq: [
+        "Rezervoni takim në ambasadën/konsullatën gjermane në vendin e origjinës.",
+        "Certifikoni dhe përktheni të gjitha dokumentet.",
+        "Plotësoni aplikimin për vizë bashkimi familjar.",
+        "Jepni testin A1 të gjermanishtes nëse kërkohet (për bashkëshortë/t).",
+        "Përgatitni dëshmi hapësire jetese dhe të ardhurave.",
+        "Viza kontrollohet — përpunimi zgjat 2–6 muaj.",
+        "Pas hyrjes: aplikoni për leje qëndrimi tek zyra e të huajve.",
+      ],
+      mk: [
+        "Закажете термин во германска амбасада/конзулат во земјата на потекло.",
+        "Сите документи заверете и преведете.",
+        "Пополнете барање за виза за спојување на семејство.",
+        "Евентуално положете A1-испит за германски јазик (за сопруг/а).",
+        "Подгответе доказ за животен простор и примања.",
+        "Визата се проверува — обработка трае 2–6 месеци.",
+        "По влегување: поднесете барање за дозвола за престој кај Ausländerbehörde.",
+      ],
     },
     officialLink: "https://www.make-it-in-germany.com/de/visum-aufenthalt/familiennachzug",
     officialLinkLabel: "Make it in Germany",
@@ -511,16 +736,20 @@ const categories: GuideCategory[] = [
   {
     id: "aufenthaltstitel",
     icon: Shield,
-    title: { de: "Aufenthaltstitel & Verlängerung", bs: "Boravišna dozvola i produženje", en: "Residence Permit & Extension" },
+    title: { de: "Aufenthaltstitel & Verlängerung", bs: "Boravišna dozvola i produženje", en: "Residence Permit & Extension", sq: "Leja e qëndrimit & Zgjatja", mk: "Дозвола за престој и продолжување" },
     description: {
       de: "Nicht-EU-Bürger benötigen einen Aufenthaltstitel. Die Verlängerung muss rechtzeitig vor Ablauf beantragt werden.",
       bs: "Državljani ne-EU zemalja trebaju boravišnu dozvolu. Produženje se mora zatražiti pravovremeno prije isteka.",
       en: "Non-EU citizens need a residence permit. Extension must be applied for in time before expiry.",
+      sq: "Qytetarët jo-BE kanë nevojë për leje qëndrimi. Zgjatja duhet aplikuar para skadimit.",
+      mk: "Граѓаните од не-ЕУ земји потребуваат дозвола за престој. Продолжувањето мора да се побара навремено пред истекот.",
     },
     documents: {
       de: ["Reisepass (gültig)", "Biometrisches Passfoto", "Meldebescheinigung", "Arbeitsvertrag oder Studiennachweis", "Krankenversicherungsnachweis", "Einkommensnachweis", "Ggf. Integrationskurs-Bescheinigung"],
       bs: ["Pasoš (važeći)", "Biometrijska fotografija", "Potvrda o prijavi", "Ugovor o radu ili potvrda studija", "Dokaz o zdravstvenom osiguranju", "Dokaz o primanjima", "Eventualno potvrda o integrationom kursu"],
       en: ["Valid passport", "Biometric photo", "Registration certificate", "Employment contract or study proof", "Health insurance proof", "Income proof", "Integration course certificate if applicable"],
+      sq: ["Pasaportë (e vlefshme)", "Foto biometrike", "Certifikata e regjistrimit", "Kontratë pune ose dëshmi studimi", "Dëshmi sigurimi shëndetësor", "Dëshmi të ardhurave", "Certifikatë kursi integrimi nëse ka"],
+      mk: ["Пасош (важечки)", "Биометриска фотографија", "Потврда за пријава", "Договор за работа или потврда за студии", "Доказ за здравствено осигурување", "Доказ за примања", "Евентуално потврда за интеграционен курс"],
     },
     steps: {
       de: [
@@ -547,6 +776,22 @@ const categories: GuideCategory[] = [
         "Receive fictional certificate if processing takes longer than validity.",
         "Electronic residence permit (eAT) is sent by mail.",
       ],
+      sq: [
+        "Rezervoni takim online tek zyra e të huajve (min. 6–8 javë para skadimit).",
+        "Mblidhni të gjitha dokumentet e nevojshme.",
+        "Plotësoni aplikimin për zgjatje / lëshim të lejes së qëndrimit.",
+        "Paguani tarifën (rreth 70–100 €, varësisht nga lloji).",
+        "Merrni certifikatën fiktive nëse përpunimi zgjat më shumë se vlefshmëria.",
+        "Leja elektronike e qëndrimit (eAT) dërgohet me postë.",
+      ],
+      mk: [
+        "Закажете термин кај Ausländerbehörde онлајн (мин. 6–8 недели пред истек).",
+        "Подгответе ги сите потребни документи.",
+        "Пополнете барање за продолжување / издавање дозвола за престој.",
+        "Платете такса (околу 70–100 €, зависно од видот).",
+        "Добивате Fiktionsbescheinigung (ако обработката трае подолго од важноста).",
+        "Дозвола за престој во електронска форма (eAT) пристигнува по пошта.",
+      ],
     },
     officialLink: "https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwsendererErsteSchritte/Aufenthaltstitel/aufenthaltstitel-node.html",
     officialLinkLabel: "BAMF – Aufenthaltstitel",
@@ -554,16 +799,20 @@ const categories: GuideCategory[] = [
   {
     id: "kuendigung",
     icon: XCircle,
-    title: { de: "Kündigungsschreiben", bs: "Otkazno pismo", en: "Termination Letter" },
+    title: { de: "Kündigungsschreiben", bs: "Otkazno pismo", en: "Termination Letter", sq: "Letër largimi", mk: "Отказно писмо" },
     description: {
       de: "Ein Kündigungsschreiben muss schriftlich erfolgen und bestimmte Fristen einhalten. Hier findest du eine Schritt-für-Schritt Anleitung.",
       bs: "Otkazno pismo mora biti u pisanom obliku i poštovati rokove. Ovdje pronalazite korak-po-korak uputstvo.",
       en: "A termination letter must be in writing and observe notice periods. Here's a step-by-step guide.",
+      sq: "Letra e largimit duhet të jetë me shkrim dhe të respektojë afatet e njoftimit. Ja një udhëzues hap pas hapi.",
+      mk: "Отказното писмо мора да биде во писмена форма и да ги почитува роковите. Овде наоѓате чекор-по-чекор упатство.",
     },
     documents: {
       de: ["Arbeitsvertrag (für Kündigungsfristen)", "Personalausweis", "Ggf. ärztliches Attest (Sonderkündigung)"],
       bs: ["Ugovor o radu (za rokove otkazivanja)", "Lična karta", "Eventualno ljekarski nalaz (vanredni otkaz)"],
       en: ["Employment contract (for notice periods)", "ID", "Medical certificate if applicable (special termination)"],
+      sq: ["Kontratë pune (për afatet e njoftimit)", "Letërnjoftim", "Certifikatë mjekësore nëse ka (largim i veçantë)"],
+      mk: ["Договор за работа (за отказни рокови)", "Лична карта", "Евентуално лекарски наод (вонреден отказ)"],
     },
     steps: {
       de: [
@@ -590,6 +839,22 @@ const categories: GuideCategory[] = [
         "Hand-deliver with receipt confirmation OR send via registered mail.",
         "Keep a copy and proof of delivery.",
       ],
+      sq: [
+        "Kontrolloni afatin e njoftimit në kontratën e punës (standard: 4 javë deri më 15 ose fund muaji).",
+        "Shkruani letrën zyrtare të largimit — nënshkrimi me dorë është i detyrueshëm!",
+        "Marrësi: punëdhënësi me emrin e plotë të kompanisë dhe adresën.",
+        "Përfshini datën, emrin tuaj, temën 'Kündigung' dhe datën e dëshiruar të përfundimit.",
+        "Dorëzoni personalisht me konfirmim pranimi OSE dërgoni me postë të regjistruar.",
+        "Mbani një kopje të letrës dhe dëshmi të dorëzimit.",
+      ],
+      mk: [
+        "Проверете отказен рок во договорот за работа (стандард: 4 недели до 15. или крај на месец).",
+        "Составете писмен отказ — сопственоручен потпис е задолжителен!",
+        "Примач: работодавач со полно име на фирма и адреса.",
+        "Наведете датум, вашето име, наслов 'Kündigung' и посакуван датум на престанок.",
+        "Предајте лично со потврда за прием ИЛИ испратете со препорачана пошта.",
+        "Зачувајте копија од писмото и доказ за достава.",
+      ],
     },
     officialLink: "https://www.arbeitsagentur.de/arbeitslos-arbeit-finden/kuendigung",
     officialLinkLabel: "Agentur für Arbeit",
@@ -597,16 +862,20 @@ const categories: GuideCategory[] = [
   {
     id: "jobcenter",
     icon: Landmark,
-    title: { de: "Jobcenter & Behördengänge", bs: "Jobcenter i uredske obaveze", en: "Jobcenter & Office Visits" },
+    title: { de: "Jobcenter & Behördengänge", bs: "Jobcenter i uredske obaveze", en: "Jobcenter & Office Visits", sq: "Jobcenter & Vizitat zyrtare", mk: "Jobcenter и канцелариски обврски" },
     description: {
       de: "Beim Jobcenter können Bürgergeld, Weiterbildungen und Eingliederungshilfen beantragt werden. Hier der Ablauf.",
       bs: "Kod Jobcentera možete zatražiti Bürgergeld, dodatno obrazovanje i pomoć pri integraciji. Evo kako.",
       en: "At the Jobcenter you can apply for Bürgergeld, further education, and integration support. Here's how.",
+      sq: "Në Jobcenter mund të aplikoni për Bürgergeld, arsimim të mëtejshëm dhe ndihmë integrimi. Ja si.",
+      mk: "Кај Jobcenter можете да побарате Bürgergeld, дополнително образование и помош при интеграција. Еве како.",
     },
     documents: {
       de: ["Personalausweis / Aufenthaltstitel", "Meldebescheinigung", "Mietvertrag + Nebenkostenabrechnung", "Kontoauszüge (3 Monate)", "Arbeitsvertrag / Kündigung", "Einkommensnachweise"],
       bs: ["Lična karta / boravišna dozvola", "Potvrda o prijavi", "Ugovor o najmu + režije", "Izvodi iz računa (3 mjeseca)", "Ugovor o radu / otkaz", "Dokazi o primanjima"],
       en: ["ID / residence permit", "Registration certificate", "Rental contract + utilities", "Bank statements (3 months)", "Employment contract / termination", "Income proof"],
+      sq: ["Letërnjoftim / leje qëndrimi", "Certifikata e regjistrimit", "Kontratë qiraje + shpenzime", "Ekstrakte bankare (3 muaj)", "Kontratë pune / largim", "Dëshmi të ardhurave"],
+      mk: ["Лична карта / дозвола за престој", "Потврда за пријава", "Договор за наем + режии", "Извод од сметка (3 месеци)", "Договор за работа / отказ", "Докази за примања"],
     },
     steps: {
       de: [
@@ -636,22 +905,44 @@ const categories: GuideCategory[] = [
         "Discuss and sign the integration agreement.",
         "Attend regular follow-up appointments.",
       ],
+      sq: [
+        "Regjistrohuni online si kërkues pune në jobcenter.digital.",
+        "Takimi fillestar caktohet automatikisht.",
+        "Sillni të gjitha dokumentet në takim.",
+        "Plotësoni aplikimin për Bürgergeld — stafi ndihmon në vend.",
+        "Kostot e strehimit kontrollohen veçmas.",
+        "Diskutoni dhe nënshkruani marrëveshjen e integrimit.",
+        "Merrni pjesë rregullisht në takimet pasuese.",
+      ],
+      mk: [
+        "Пријавете се онлајн како барач на работа на jobcenter.digital.",
+        "Автоматски добивате термин за прв разговор.",
+        "Понесете ги сите документи на терминот.",
+        "Пополнете барање за Bürgergeld — службеник помага на лице место.",
+        "Трошоците за станување се проверуваат одделно.",
+        "Договорете и потпишете спогодба за интеграција.",
+        "Редовно доаѓајте на закажани термини.",
+      ],
     },
     officialLink: "https://www.jobcenter.digital",
     officialLinkLabel: "Jobcenter Digital",
   },
 ];
 
-const pageTitles = {
+const pageTitles: Record<LangKey, { title: string; subtitle: string }> = {
   de: { title: "Formulare & Hilfe", subtitle: "Praktische Schritt-für-Schritt Anleitungen für alle wichtigen Behördengänge." },
   bs: { title: "Formulari & Pomoć", subtitle: "Praktična uputstva korak po korak za sve važne uredske obaveze." },
   en: { title: "Forms & Help", subtitle: "Practical step-by-step guides for all important administrative tasks." },
+  sq: { title: "Formularët & Ndihma", subtitle: "Udhëzues praktik hap pas hapi për të gjitha detyrat administrative të rëndësishme." },
+  mk: { title: "Формулари & Помош", subtitle: "Практични упатства чекор по чекор за сите важни административни обврски." },
 };
 
-const labels = {
+const labels: Record<LangKey, { documents: string; steps: string; officialLink: string; template: string; premiumTitle: string; premiumDesc: string; premiumCta: string; loginCta: string; noOnlineForm: string }> = {
   de: { documents: "Benötigte Dokumente", steps: "Schritt-für-Schritt Anleitung", officialLink: "Offizieller Link", template: "Vorlage herunterladen", premiumTitle: "Vollständige Anleitung nur mit BalkanLink Plus", premiumDesc: "Erhalte alle Schritte, Vorlagen und Dokument-Checklisten.", premiumCta: "Plus freischalten", loginCta: "Anmelden", noOnlineForm: "Formular persönlich im Rathaus oder Landratsamt erhältlich." },
   bs: { documents: "Potrebni dokumenti", steps: "Korak po korak uputstvo", officialLink: "Zvanični link", template: "Preuzmi predložak", premiumTitle: "Kompletno uputstvo samo sa BalkanLink Plus", premiumDesc: "Dobij sve korake, predloške i liste dokumenata.", premiumCta: "Aktiviraj Plus", loginCta: "Prijavi se", noOnlineForm: "Formular dostupan lično u Rathaus ili Landratsamt." },
   en: { documents: "Required Documents", steps: "Step-by-Step Guide", officialLink: "Official Link", template: "Download Template", premiumTitle: "Full guide available with BalkanLink Plus", premiumDesc: "Get all steps, templates, and document checklists.", premiumCta: "Unlock Plus", loginCta: "Sign in", noOnlineForm: "Form available in person at the town hall or district office." },
+  sq: { documents: "Dokumentet e nevojshme", steps: "Udhëzues hap pas hapi", officialLink: "Linku zyrtar", template: "Shkarko shabllonin", premiumTitle: "Udhëzuesi i plotë vetëm me BalkanLink Plus", premiumDesc: "Merr të gjitha hapat, shabllonët dhe listat e dokumenteve.", premiumCta: "Aktivizo Plus", loginCta: "Hyr", noOnlineForm: "Formulari i disponueshëm personalisht në bashki ose zyrë rajonale." },
+  mk: { documents: "Потребни документи", steps: "Чекор по чекор упатство", officialLink: "Официјален линк", template: "Преземи шаблон", premiumTitle: "Целосно упатство само со BalkanLink Plus", premiumDesc: "Добијте ги сите чекори, шаблони и чеклисти за документи.", premiumCta: "Активирај Plus", loginCta: "Најави се", noOnlineForm: "Формулар достапен лично во Rathaus или Landratsamt." },
 };
 
 export default function Formulare() {
