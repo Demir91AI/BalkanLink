@@ -10,7 +10,7 @@ const corsHeaders = {
 
 const BUNDESLAENDER_CITIES: Record<string, string[]> = {
   "Baden-Württemberg": ["Stuttgart", "Mannheim", "Karlsruhe", "Freiburg", "Heilbronn", "Ulm", "Pforzheim"],
-  "Bayern": ["München", "Nürnberg", "Augsburg", "Regensburg", "Ingolstadt", "Würzburg"],
+  "Bayern": ["München", "Nürnberg", "Augsburg", "Regensburg", "Ingolstadt", "Würzburg", "Rosenheim", "Freilassing"],
   "Berlin": ["Berlin"],
   "Brandenburg": ["Potsdam", "Cottbus"],
   "Bremen": ["Bremen", "Bremerhaven"],
@@ -36,25 +36,14 @@ const CATEGORY_SEARCH_TERMS: Record<string, string[]> = {
 };
 
 const MAIN_CATEGORY_MAP: Record<string, string> = {
-  dzamije: "kultura",
-  kultura: "kultura",
-  prodavnice: "prodavnice",
-  restorani: "restorani",
-  sport: "sport",
+  dzamije: "kultura", kultura: "kultura", prodavnice: "prodavnice", restorani: "restorani", sport: "sport",
 };
 
 const SUB_CATEGORY_MAP: Record<string, string> = {
-  dzamije: "dzamije",
-  kultura: "udruzenja",
-  prodavnice: "marketi",
-  restorani: "restoran",
-  sport: "fudbal",
+  dzamije: "dzamije", kultura: "udruzenja", prodavnice: "marketi", restorani: "restoran", sport: "fudbal",
 };
 
-interface OriginRule {
-  code: string;
-  keywords: string[];
-}
+interface OriginRule { code: string; keywords: string[]; }
 
 const ORIGIN_RULES: OriginRule[] = [
   { code: "BIH", keywords: ["bosnisch", "bosna", "bosanski", "bosnien", "džemat", "bosnischer", "bosansko", "bošnjačk"] },
@@ -76,67 +65,80 @@ function detectOrigin(name: string, types: string[], searchTerm?: string): strin
   if (haystack.includes("moschee") || haystack.includes("mosque") || haystack.includes("islamic") || haystack.includes("džamija")) return "BIH";
   if (haystack.includes("orthodox")) return "SRB";
   if (haystack.includes("katolička") || haystack.includes("catholic mission")) return "HR";
-  // For generic Balkan searches, assign BALKAN as origin
   if (haystack.includes("balkan") || haystack.includes("ćevap") || haystack.includes("cevap") || haystack.includes("pljeskavica") || haystack.includes("burek")) return "BALKAN";
   return null;
 }
 
-function detectBundesland(city: string): string {
-  for (const [bl, cities] of Object.entries(BUNDESLAENDER_CITIES)) {
-    if (cities.some((c) => city.toLowerCase().includes(c.toLowerCase()) || c.toLowerCase().includes(city.toLowerCase()))) {
-      return bl;
-    }
-  }
-  return "Unbekannt";
+// ---------- PLACE DETAILS (authoritative data) ----------
+
+async function getPlaceDetails(placeId: string, apiKey: string) {
+  const url = `https://places.googleapis.com/v1/places/${placeId}`;
+  const res = await fetch(url, {
+    method: "GET",
+    headers: {
+      "X-Goog-Api-Key": apiKey,
+      "X-Goog-FieldMask": "id,displayName,formattedAddress,location,businessStatus,googleMapsUri,types,addressComponents",
+    },
+  });
+  if (!res.ok) return null;
+  return await res.json();
 }
 
-// ---------- GOOGLE PLACES API (NEW) - Text Search ----------
+function extractFromAddressComponents(components: any[]): { city: string | null; bundesland: string | null; postalCode: string | null } {
+  let city: string | null = null;
+  let bundesland: string | null = null;
+  let postalCode: string | null = null;
+  if (!components) return { city, bundesland, postalCode };
+  for (const comp of components) {
+    if (comp.types?.includes("locality")) city = comp.longText || comp.shortText || null;
+    if (comp.types?.includes("administrative_area_level_1")) bundesland = comp.longText || comp.shortText || null;
+    if (comp.types?.includes("postal_code")) postalCode = comp.longText || comp.shortText || null;
+  }
+  if (!city) {
+    for (const comp of components) {
+      if (comp.types?.includes("administrative_area_level_3")) { city = comp.longText || comp.shortText || null; break; }
+    }
+  }
+  return { city, bundesland, postalCode };
+}
+
+// ---------- TEXT SEARCH (discovery only) ----------
 
 async function searchPlaces(query: string, city: string, apiKey: string): Promise<any[]> {
   const textQuery = `${query} in ${city}, Deutschland`;
   const url = "https://places.googleapis.com/v1/places:searchText";
-
-  console.log(`Searching: "${textQuery}"`);
-
   const res = await fetch(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       "X-Goog-Api-Key": apiKey,
-      "X-Goog-FieldMask": "places.id,places.displayName,places.formattedAddress,places.types,places.googleMapsUri,places.location",
+      "X-Goog-FieldMask": "places.id,places.displayName,places.types",
     },
-    body: JSON.stringify({
-      textQuery,
-      languageCode: "de",
-      regionCode: "DE",
-      maxResultCount: 20,
-    }),
+    body: JSON.stringify({ textQuery, languageCode: "de", regionCode: "DE", maxResultCount: 20 }),
   });
-
-  if (!res.ok) {
-    const errText = await res.text();
-    console.error(`Places API error ${res.status}: ${errText}`);
-    return [];
-  }
-
+  if (!res.ok) return [];
   const data = await res.json();
-  const places = data.places || [];
-  console.log(`Found ${places.length} results for "${textQuery}"`);
-  return places;
+  return data.places || [];
+}
+
+// ---------- VALIDATION ----------
+
+function buildReviewReasons(detailCity: string | null, searchCity: string, postalCode: string | null, lat: number | null): string[] {
+  const reasons: string[] = [];
+  if (detailCity && searchCity && detailCity.toLowerCase() !== searchCity.toLowerCase()) reasons.push(`city_mismatch:${detailCity}vs${searchCity}`);
+  if (!postalCode) reasons.push("missing_postal_code");
+  if (!lat) reasons.push("missing_coordinates");
+  return reasons;
 }
 
 // ---------- MAIN HANDLER ----------
 
 Deno.serve(async (req) => {
-  if (req.method === "OPTIONS") {
-    return new Response(null, { headers: corsHeaders });
-  }
+  if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
 
   try {
     const GOOGLE_API_KEY = Deno.env.get("GOOGLE_PLACES_SERVER_KEY");
-    if (!GOOGLE_API_KEY) {
-      throw new Error("GOOGLE_PLACES_SERVER_KEY not configured");
-    }
+    if (!GOOGLE_API_KEY) throw new Error("GOOGLE_PLACES_SERVER_KEY not configured");
 
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
     const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
@@ -150,9 +152,7 @@ Deno.serve(async (req) => {
       categoryFilter = body.category || null;
       bundeslandFilter = body.bundesland || null;
       cityFilter = body.city || null;
-    } catch {
-      // No body = run all
-    }
+    } catch { /* defaults */ }
 
     const categories = categoryFilter
       ? { [categoryFilter]: CATEGORY_SEARCH_TERMS[categoryFilter] || [] }
@@ -167,9 +167,7 @@ Deno.serve(async (req) => {
       bundeslaender = BUNDESLAENDER_CITIES;
     }
 
-    let imported = 0;
-    let skipped = 0;
-    let total = 0;
+    let imported = 0, skipped = 0, total = 0, verified_skipped = 0;
 
     for (const [catKey, searchTerms] of Object.entries(categories)) {
       for (const [bl, cities] of Object.entries(bundeslaender)) {
@@ -179,58 +177,77 @@ Deno.serve(async (req) => {
             total += results.length;
 
             for (const place of results) {
-              const addr = place.formattedAddress || "";
               const placeName = place.displayName?.text || "";
-              
-              // Accept all places with an address (search is already scoped to Germany)
-              if (!addr) { skipped++; continue; }
-
               const origin = detectOrigin(placeName, place.types || [], term);
               if (!origin) { skipped++; continue; }
 
-              const detectedBl = detectBundesland(city);
+              // Check if already verified by admin — skip
+              const { data: existing } = await supabase
+                .from("community_listings")
+                .select("id, verified_by_admin")
+                .eq("google_place_id", place.id)
+                .maybeSingle();
+
+              if (existing?.verified_by_admin) {
+                verified_skipped++;
+                continue;
+              }
+
+              // Fetch Place Details for authoritative data
+              const details = await getPlaceDetails(place.id, GOOGLE_API_KEY);
+              if (!details) { skipped++; continue; }
+
+              // Skip permanently closed
+              if (details.businessStatus === "CLOSED_PERMANENTLY") { skipped++; continue; }
+
+              const detailName = details.displayName?.text || placeName;
+              const detailAddress = details.formattedAddress || "";
+              if (!detailAddress) { skipped++; continue; }
+
+              const { city: detailCity, bundesland: detailBl, postalCode } = extractFromAddressComponents(details.addressComponents);
+              const lat = details.location?.latitude || null;
+              const lng = details.location?.longitude || null;
+              const mapsUrl = details.googleMapsUri || `https://www.google.com/maps/place/?q=place_id:${place.id}`;
+
               const mainCat = MAIN_CATEGORY_MAP[catKey] || catKey;
               const subCat = SUB_CATEGORY_MAP[catKey] || catKey;
 
+              // Validation
+              const reviewReasons = buildReviewReasons(detailCity, city, postalCode, lat);
+
               const { error } = await supabase
                 .from("community_listings")
-                .upsert(
-                  {
-                    google_place_id: place.id,
-                    name: placeName,
-                    address: addr,
-                    city,
-                    bundesland: detectedBl !== "Unbekannt" ? detectedBl : bl,
-                    origin_country: origin,
-                    main_category: mainCat,
-                    sub_category: subCat,
-                    google_maps_url: place.googleMapsUri || `https://www.google.com/maps/place/?q=place_id:${place.id}`,
-                  },
-                  { onConflict: "google_place_id" }
-                );
+                .upsert({
+                  google_place_id: place.id,
+                  name: detailName,
+                  address: detailAddress,
+                  city: detailCity || city,
+                  bundesland: detailBl || bl,
+                  postal_code: postalCode,
+                  lat, lng,
+                  business_status: details.businessStatus || "OPERATIONAL",
+                  origin_country: origin,
+                  main_category: mainCat,
+                  sub_category: subCat,
+                  google_maps_url: mapsUrl,
+                  needs_review: reviewReasons.length > 0,
+                  review_reason: reviewReasons.length > 0 ? reviewReasons.join("; ") : null,
+                }, { onConflict: "google_place_id" });
 
-              if (error) {
-                console.error(`Upsert error for ${placeName}:`, error.message);
-                skipped++;
-              } else {
-                imported++;
-                console.log(`✅ Imported: ${placeName} (${origin}) → ${mainCat}/${subCat}`);
-              }
+              if (error) { console.error(`Upsert error for ${detailName}:`, error.message); skipped++; }
+              else { imported++; }
+
+              await new Promise((r) => setTimeout(r, 150));
             }
-
-            // Rate limit
             await new Promise((r) => setTimeout(r, 250));
           }
         }
       }
     }
 
-    const result = { success: true, total, imported, skipped, timestamp: new Date().toISOString() };
+    const result = { success: true, total, imported, skipped, verified_skipped, timestamp: new Date().toISOString() };
     console.log("Import complete:", result);
-
-    return new Response(JSON.stringify(result), {
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-    });
+    return new Response(JSON.stringify(result), { headers: { ...corsHeaders, "Content-Type": "application/json" } });
   } catch (error) {
     console.error("Import error:", error);
     return new Response(
