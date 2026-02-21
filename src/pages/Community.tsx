@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { BUNDESLAENDER } from "@/lib/germany-data";
+import ListingMapPreview from "@/components/ListingMapPreview";
 
 /* ─── constants ─── */
 
@@ -366,6 +367,7 @@ export default function Community() {
                                                         {item.address}
                                                       </p>
                                                     )}
+                                                    <ListingMapPreview address={item.address} name={item.name} googleMapsUrl={item.google_maps_url} />
                                                   </div>
                                                 ))}
                                               </div>
