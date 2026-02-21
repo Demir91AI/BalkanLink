@@ -28,19 +28,22 @@ const BUNDESLAENDER_CITIES: Record<string, string[]> = {
 };
 
 const CATEGORY_SEARCH_TERMS: Record<string, string[]> = {
-  dzamije: ["Moschee", "Islamisches Zentrum", "Džamija"],
-  kultura: ["Bosnischer Kulturverein", "Kroatischer Kulturverein", "Serbischer Kulturverein", "Balkan Verein"],
-  prodavnice: ["Balkan Supermarkt", "Balkan Lebensmittel", "Internationale Lebensmittel Balkan"],
-  restorani: ["Balkan Restaurant", "Bosnisches Restaurant", "Kroatisches Restaurant", "Serbisches Restaurant", "Balkan Grill", "Ćevapi"],
+  dzamije: ["Moschee", "Islamisches Zentrum", "Džamija", "Islamische Gemeinde"],
+  dzemati: ["Džemat", "Bosniakische Gemeinde", "Islamischer Kulturverein Bosniaken"],
+  kultura: ["Bosnischer Kulturverein", "Kroatischer Kulturverein", "Serbischer Kulturverein", "Balkan Verein", "Albanischer Kulturverein"],
+  prodavnice: ["Balkan Supermarkt", "Balkan Lebensmittel", "Internationale Lebensmittel Balkan", "Türkischer Supermarkt Balkan"],
+  restorani: ["Balkan Restaurant", "Bosnisches Restaurant", "Kroatisches Restaurant", "Serbisches Restaurant", "Balkan Grill", "Ćevapi", "Ćevabdžinica"],
+  pekare: ["Balkan Bäckerei", "Bosnische Bäckerei", "Burek Bäckerei", "Börek"],
+  mesnice: ["Balkan Metzgerei", "Halal Metzgerei Balkan", "Bosnische Metzgerei"],
   sport: ["Balkan Sportverein", "Bosnischer Fußballverein"],
 };
 
 const MAIN_CATEGORY_MAP: Record<string, string> = {
-  dzamije: "kultura", kultura: "kultura", prodavnice: "prodavnice", restorani: "restorani", sport: "sport",
+  dzamije: "kultura", dzemati: "kultura", kultura: "kultura", prodavnice: "prodavnice", restorani: "restorani", pekare: "restorani", mesnice: "prodavnice", sport: "sport",
 };
 
 const SUB_CATEGORY_MAP: Record<string, string> = {
-  dzamije: "dzamije", kultura: "udruzenja", prodavnice: "marketi", restorani: "restoran", sport: "fudbal",
+  dzamije: "dzamije", dzemati: "dzemati", kultura: "udruzenja", prodavnice: "marketi", restorani: "restoran", pekare: "pekara", mesnice: "mesnica", sport: "fudbal",
 };
 
 interface OriginRule { code: string; keywords: string[]; }
