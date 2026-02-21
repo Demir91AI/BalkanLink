@@ -19,8 +19,6 @@ interface Listing {
   google_maps_url: string | null;
 }
 
-const GASTRO_CATEGORIES = ["restoran_kafic"];
-
 export default function Restorani() {
   const { activeCountry } = useCountry();
   const { t } = useLanguage();
@@ -36,7 +34,7 @@ export default function Restorani() {
       const { data, error } = await supabase
         .from("community_listings")
         .select("id, name, city, bundesland, origin_country, main_category, address, google_maps_url")
-        .in("main_category", GASTRO_CATEGORIES)
+        .eq("main_category", "restorani")
         .order("name");
       if (error) throw error;
       return data;
@@ -51,7 +49,7 @@ export default function Restorani() {
 
   /* Show all listings for any country — data uses "KOD_NASIH" for shared Balkan restaurants */
   const filtered = useMemo(() => {
-    let result = listings.filter((l) => l.origin_country === activeCountry || l.origin_country === "KOD_NASIH");
+    let result = listings.filter((l) => l.origin_country === activeCountry || l.origin_country === "BALKAN");
     if (cityInput.length >= 2) result = result.filter((l) => l.city.toLowerCase().includes(cityInput.toLowerCase()));
     return result;
   }, [listings, activeCountry, cityInput]);

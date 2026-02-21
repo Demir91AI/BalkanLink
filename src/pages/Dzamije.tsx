@@ -25,8 +25,8 @@ export default function Dzamije() {
       const { data, error } = await supabase
         .from("community_listings")
         .select("id, name, city, bundesland, address")
-        .eq("origin_country", "BIH")
-        .eq("main_category", "dzemat_moschee")
+        .eq("main_category", "kultura")
+        .eq("sub_category", "dzamije")
         .order("bundesland")
         .order("city")
         .order("name");

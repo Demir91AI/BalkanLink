@@ -22,14 +22,9 @@ interface Listing {
 
 const SUBCATEGORIES = [
   { key: "", label: "Sve" },
-  { key: "markt", label: "🛒 Balkan marketi" },
-  { key: "mesnica", label: "🥩 Mesare" },
-  { key: "baeckerei", label: "🥖 Pekare" },
-  { key: "slatkisi", label: "🍬 Slatkiši & hrana" },
-  { key: "specijalizirane", label: "🏪 Specijalizirane prodavnice" },
+  { key: "marketi", label: "🛒 Balkan marketi" },
+  { key: "pekara", label: "🥖 Pekare" },
 ];
-
-const STORE_CATEGORIES = ["markt", "baeckerei", "mesnica"];
 
 export default function Prodavnice() {
   const { activeCountry } = useCountry();
@@ -47,7 +42,8 @@ export default function Prodavnice() {
       const { data, error } = await supabase
         .from("community_listings")
         .select("id, name, city, bundesland, origin_country, main_category, sub_category, address, google_maps_url")
-        .in("main_category", STORE_CATEGORIES)
+        .in("main_category", ["prodavnice", "restorani"])
+        .in("sub_category", ["marketi", "pekara"])
         .order("name");
       if (error) throw error;
       return data;
@@ -62,8 +58,8 @@ export default function Prodavnice() {
 
   /* Show all listings for any country — data uses "KOD_NASIH" for shared Balkan stores */
   const filtered = useMemo(() => {
-    let result = listings.filter((l) => l.origin_country === activeCountry || l.origin_country === "KOD_NASIH");
-    if (subFilter) result = result.filter((l) => l.main_category === subFilter);
+    let result = listings.filter((l) => l.origin_country === activeCountry || l.origin_country === "BALKAN");
+    if (subFilter) result = result.filter((l) => l.sub_category === subFilter);
     if (cityInput.length >= 2) result = result.filter((l) => l.city.toLowerCase().includes(cityInput.toLowerCase()));
     return result;
   }, [listings, activeCountry, subFilter, cityInput]);

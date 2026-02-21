@@ -46,7 +46,8 @@ export default function SportKlubovi() {
       const { data, error } = await supabase
         .from("community_listings")
         .select("id, name, city, bundesland, origin_country, main_category, sub_category, address, google_maps_url")
-        .eq("main_category", "sport")
+        .eq("main_category", "kultura")
+        .eq("sub_category", "udruzenja")
         .order("name");
       if (error) throw error;
       return data;
@@ -60,7 +61,7 @@ export default function SportKlubovi() {
   }, [cityInput, allCities]);
 
   const filtered = useMemo(() => {
-    let result = listings.filter((l) => l.origin_country === activeCountry);
+    let result = listings.filter((l) => l.origin_country === activeCountry || l.origin_country === "BALKAN");
     if (subFilter) result = result.filter((l) => l.sub_category === subFilter);
     if (cityInput.length >= 2) result = result.filter((l) => l.city.toLowerCase().includes(cityInput.toLowerCase()));
     return result;
