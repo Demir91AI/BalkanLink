@@ -109,7 +109,7 @@ type TranslationKeys = {
   "home.hero.cta": string; "home.hero.howItWorks": string;
   "home.card.majstor": string; "home.card.posao": string; "home.card.stan": string;
   "home.card.papiri": string; "home.card.restorani": string; "home.card.prodavnice": string;
-  "home.card.prevoz": string; "home.card.pitanje": string;
+  "home.card.prevoz": string; "home.card.pitanje": string; "home.card.kultura": string; "home.card.sport": string;
   "home.trust.title": string; "home.trust.subtitle": string; "home.trust.community": string;
   "home.example.1": string; "home.example.2": string; "home.example.3": string;
   "home.example.4": string; "home.example.5": string;
@@ -612,6 +612,7 @@ const homeDe: Partial<TranslationKeys> = {
   "home.card.majstor": "Handwerker finden", "home.card.posao": "Job suchen", "home.card.stan": "Wohnung suchen",
   "home.card.papiri": "Hilfe mit Dokumenten", "home.card.restorani": "Balkan Restaurants",
   "home.card.prodavnice": "Balkan Geschäfte", "home.card.prevoz": "Reisen & Transport", "home.card.pitanje": "Frage stellen",
+  "home.card.kultura": "Kultur & Gemeinschaft", "home.card.sport": "Sport & Vereine",
   "home.trust.title": "Über 10.000 Nutzer vertrauen", "home.trust.subtitle": "Die Balkan Community in Deutschland nutzt BalkanLink für den Alltag.",
   "home.trust.community": "Menschen aus Südosteuropa — vereint in Deutschland",
   "home.example.1": "Kind in der Schule anmelden", "home.example.2": "Umzug in eine neue Stadt",
@@ -640,8 +641,9 @@ const homeBs: Partial<TranslationKeys> = {
   "home.hero.subtitle": "Sve što ti treba — na jednom mjestu.",
   "home.hero.cta": "Započni besplatno", "home.hero.howItWorks": "Kako radi BalkanLink →",
   "home.card.majstor": "Trebam majstora", "home.card.posao": "Tražim posao", "home.card.stan": "Tražim stan",
-  "home.card.papiri": "Trebam pomoć s papirima", "home.card.restorani": "Balkan restorani",
+  "home.card.papiri": "Pomoć s papirima", "home.card.restorani": "Balkan restorani",
   "home.card.prodavnice": "Prodavnice", "home.card.prevoz": "Putovanja & prevoz", "home.card.pitanje": "Imam pitanje",
+  "home.card.kultura": "Kultura & Zajednice", "home.card.sport": "Sport & Klubovi",
   "home.trust.title": "Preko 10.000 korisnika koristi", "home.trust.subtitle": "Balkan zajednica u Njemačkoj koristi BalkanLink za svakodnevne situacije.",
   "home.trust.community": "Ljudi iz jugoistočne Evrope — zajedno u Njemačkoj",
   "home.example.1": "Prijava djeteta u školu", "home.example.2": "Selidba u novi grad",
@@ -672,6 +674,7 @@ const homeEn: Partial<TranslationKeys> = {
   "home.card.majstor": "Find a tradesperson", "home.card.posao": "Find a job", "home.card.stan": "Find housing",
   "home.card.papiri": "Help with documents", "home.card.restorani": "Balkan restaurants",
   "home.card.prodavnice": "Balkan shops", "home.card.prevoz": "Travel & transport", "home.card.pitanje": "Ask a question",
+  "home.card.kultura": "Culture & Communities", "home.card.sport": "Sports & Clubs",
   "home.trust.title": "Over 10,000 users trust", "home.trust.subtitle": "The Balkan community in Germany uses BalkanLink for everyday life.",
   "home.trust.community": "People from Southeast Europe — united in Germany",
   "home.example.1": "Enrolling a child in school", "home.example.2": "Moving to a new city",

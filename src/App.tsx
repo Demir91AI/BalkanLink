@@ -49,6 +49,7 @@ import Restorani from "./pages/Restorani";
 import Prodavnice from "./pages/Prodavnice";
 import TrebamMajstora from "./pages/TrebamMajstora";
 import Putovanja from "./pages/Putovanja";
+import SportKlubovi from "./pages/SportKlubovi";
 import GuideDetail from "./pages/GuideDetail";
 import NotFound from "./pages/NotFound";
 
@@ -97,6 +98,7 @@ const App = () => (
                 <Route path="/prodavnice" element={<Prodavnice />} />
                 <Route path="/trebam-majstora" element={<TrebamMajstora />} />
                 <Route path="/putovanja" element={<Putovanja />} />
+                <Route path="/sport" element={<SportKlubovi />} />
                 <Route path="/guide/:slug" element={<GuideDetail />} />
                 <Route path="/qa" element={<QA />} />
                 <Route path="/qa/:id" element={<QADetail />} />
