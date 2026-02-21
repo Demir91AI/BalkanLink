@@ -1,8 +1,10 @@
 import { useState, useMemo, useRef, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
+import { useCountry } from "@/contexts/CountryContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { Input } from "@/components/ui/input";
-import { MapPin, ChevronDown, Search, Building2, ShoppingBag } from "lucide-react";
+import { MapPin, ChevronDown, Search, Building2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface Listing {
@@ -10,6 +12,7 @@ interface Listing {
   name: string;
   city: string;
   bundesland: string;
+  origin_country: string;
   main_category: string;
   sub_category: string;
   address: string | null;
@@ -26,6 +29,8 @@ const SUBCATEGORIES = [
 const STORE_CATEGORIES = ["markt", "baeckerei", "mesnica"];
 
 export default function Prodavnice() {
+  const { activeCountry } = useCountry();
+  const { t } = useLanguage();
   const [cityInput, setCityInput] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [subFilter, setSubFilter] = useState("");
@@ -38,7 +43,7 @@ export default function Prodavnice() {
     queryFn: async () => {
       const { data, error } = await supabase
         .from("community_listings")
-        .select("id, name, city, bundesland, main_category, sub_category, address, google_maps_url")
+        .select("id, name, city, bundesland, origin_country, main_category, sub_category, address, google_maps_url")
         .in("main_category", STORE_CATEGORIES)
         .order("name");
       if (error) throw error;
@@ -53,11 +58,11 @@ export default function Prodavnice() {
   }, [cityInput, allCities]);
 
   const filtered = useMemo(() => {
-    let result = listings;
+    let result = listings.filter((l) => l.origin_country === activeCountry);
     if (subFilter) result = result.filter((l) => l.main_category === subFilter);
     if (cityInput.length >= 2) result = result.filter((l) => l.city.toLowerCase().includes(cityInput.toLowerCase()));
     return result;
-  }, [listings, subFilter, cityInput]);
+  }, [listings, activeCountry, subFilter, cityInput]);
 
   const hierarchy = useMemo(() => {
     const blMap: Record<string, Record<string, Listing[]>> = {};
@@ -102,7 +107,7 @@ export default function Prodavnice() {
         </div>
       </section>
 
-      <div className="sticky top-14 z-30" style={{ background: "rgba(15,27,45,0.97)", borderBottom: "1px solid rgba(227,179,65,0.15)" }}>
+      <div className="sticky top-[6.5rem] z-30" style={{ background: "rgba(15,27,45,0.97)", borderBottom: "1px solid rgba(227,179,65,0.15)" }}>
         <div className="container max-w-5xl py-3">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/30" />

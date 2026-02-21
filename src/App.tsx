@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import { CountryProvider } from "@/contexts/CountryContext";
 import Layout from "@/components/layout/Layout";
 import Index from "./pages/Index";
 import Login from "./pages/Login";
@@ -61,6 +62,7 @@ const App = () => (
       <BrowserRouter>
         <ScrollToTop />
         <LanguageProvider>
+          <CountryProvider>
           <AuthProvider>
             <Routes>
               <Route element={<Layout />}>
@@ -116,6 +118,7 @@ const App = () => (
               <Route path="*" element={<NotFound />} />
             </Routes>
           </AuthProvider>
+          </CountryProvider>
         </LanguageProvider>
       </BrowserRouter>
     </TooltipProvider>

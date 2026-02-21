@@ -2,6 +2,7 @@ import { useState, useMemo, useRef, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useCountry } from "@/contexts/CountryContext";
 import { Input } from "@/components/ui/input";
 import {
   MapPin,
@@ -15,15 +16,7 @@ import { BUNDESLAENDER } from "@/lib/germany-data";
 
 /* ─── constants ─── */
 
-const COUNTRY_TABS = [
-  { key: "BIH", label: "🇧🇦 Bosna i Hercegovina" },
-  { key: "HR", label: "🇭🇷 Hrvatska" },
-  { key: "SRB", label: "🇷🇸 Srbija" },
-  { key: "ME", label: "🇲🇪 Crna Gora" },
-  { key: "MK", label: "🇲🇰 Sjeverna Makedonija" },
-  { key: "XK", label: "🇽🇰 Kosovo" },
-  { key: "AL", label: "🇦🇱 Albanija" },
-];
+/* constants — country tabs removed, using global CountryContext */
 
 const SUBGROUP_FILTERS = [
   { key: "religija", label: "⛪ Religija", categories: ["dzemat_moschee", "misija_crkva", "religijski_objekat"] },
@@ -60,10 +53,10 @@ interface Listing {
 
 export default function Community() {
   const { t } = useLanguage();
+  const { activeCountry } = useCountry();
 
   const [cityInput, setCityInput] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const [activeTab, setActiveTab] = useState("BIH");
   const [openBundeslaender, setOpenBundeslaender] = useState<Record<string, boolean>>({});
   const [openCities, setOpenCities] = useState<Record<string, boolean>>({});
   const [activeSubgroup, setActiveSubgroup] = useState("religija");
@@ -95,9 +88,9 @@ export default function Community() {
 
   const communityCategories = ALL_CATEGORIES;
 
-  /* Filter listings by country, subgroup, and city search */
+  /* Filter listings by country (global), subgroup, and city search */
   const filtered = useMemo(() => {
-    let result = listings.filter((l) => l.origin_country === activeTab);
+    let result = listings.filter((l) => l.origin_country === activeCountry);
 
     const communityKeys = communityCategories.map((c) => c.key);
     result = result.filter((l) => communityKeys.includes(l.main_category));
@@ -110,7 +103,7 @@ export default function Community() {
     if (sg) result = result.filter((l) => sg.categories.includes(l.main_category));
 
     return result;
-  }, [listings, cityInput, activeTab, activeSubgroup, communityCategories]);
+  }, [listings, cityInput, activeCountry, activeSubgroup, communityCategories]);
 
   /* Build hierarchy: always show all 16 Bundesländer */
   const hierarchy = useMemo(() => {
@@ -220,7 +213,7 @@ export default function Community() {
       </section>
 
       {/* ─── Sticky Filter Bar ─── */}
-      <div className="sticky top-14 z-30" style={{ background: "rgba(15,27,45,0.97)", borderBottom: "1px solid rgba(227,179,65,0.15)" }}>
+      <div className="sticky top-[6.5rem] z-30" style={{ background: "rgba(15,27,45,0.97)", borderBottom: "1px solid rgba(227,179,65,0.15)" }}>
         <div className="container max-w-5xl py-3">
           {/* City Search */}
           <div className="relative">
@@ -248,24 +241,6 @@ export default function Community() {
                 ))}
               </ul>
             )}
-          </div>
-
-          {/* Country Tabs */}
-          <div className="mt-3 flex gap-2 overflow-x-auto pb-1">
-            {COUNTRY_TABS.map((tab) => (
-              <button
-                key={tab.key}
-                onClick={() => { setActiveTab(tab.key); }}
-                className="whitespace-nowrap rounded-lg px-4 py-2 text-sm font-semibold transition-all"
-                style={{
-                  background: activeTab === tab.key ? "rgba(227,179,65,0.15)" : "rgba(255,255,255,0.04)",
-                  color: activeTab === tab.key ? "#E3B341" : "rgba(255,255,255,0.5)",
-                  border: activeTab === tab.key ? "1px solid rgba(227,179,65,0.3)" : "1px solid rgba(255,255,255,0.08)",
-                }}
-              >
-                {tab.label}
-              </button>
-            ))}
           </div>
 
           {/* Sub-group filter chips — no "Sve" */}

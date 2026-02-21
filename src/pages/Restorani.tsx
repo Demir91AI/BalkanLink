@@ -1,9 +1,10 @@
 import { useState, useMemo, useRef, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
+import { useCountry } from "@/contexts/CountryContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { MapPin, ChevronDown, Search, Building2, UtensilsCrossed } from "lucide-react";
+import { MapPin, ChevronDown, Search, Building2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface Listing {
@@ -17,23 +18,13 @@ interface Listing {
   google_maps_url: string | null;
 }
 
-const ORIGIN_FILTERS = [
-  { key: "", label: "Alle Länder" },
-  { key: "BIH", label: "🇧🇦 BiH" },
-  { key: "HR", label: "🇭🇷 HR" },
-  { key: "SRB", label: "🇷🇸 SRB" },
-  { key: "AL", label: "🇦🇱 AL" },
-  { key: "XK", label: "🇽🇰 XK" },
-  { key: "MK", label: "🇲🇰 MK" },
-  { key: "ME", label: "🇲🇪 ME" },
-];
-
 const GASTRO_CATEGORIES = ["restoran_kafic"];
 
 export default function Restorani() {
+  const { activeCountry } = useCountry();
+  const { t } = useLanguage();
   const [cityInput, setCityInput] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const [originFilter, setOriginFilter] = useState("");
   const [openBl, setOpenBl] = useState<Record<string, boolean>>({});
   const [openCities, setOpenCities] = useState<Record<string, boolean>>({});
   const cityRefs = useRef<Record<string, HTMLDivElement | null>>({});
@@ -58,11 +49,10 @@ export default function Restorani() {
   }, [cityInput, allCities]);
 
   const filtered = useMemo(() => {
-    let result = listings;
-    if (originFilter) result = result.filter((l) => l.origin_country === originFilter);
+    let result = listings.filter((l) => l.origin_country === activeCountry);
     if (cityInput.length >= 2) result = result.filter((l) => l.city.toLowerCase().includes(cityInput.toLowerCase()));
     return result;
-  }, [listings, originFilter, cityInput]);
+  }, [listings, activeCountry, cityInput]);
 
   const hierarchy = useMemo(() => {
     const blMap: Record<string, Record<string, Listing[]>> = {};
@@ -107,12 +97,12 @@ export default function Restorani() {
         </div>
       </section>
 
-      <div className="sticky top-14 z-30" style={{ background: "rgba(15,27,45,0.97)", borderBottom: "1px solid rgba(227,179,65,0.15)" }}>
-        <div className="container max-w-5xl py-3 grid gap-3 sm:grid-cols-2">
+      <div className="sticky top-[6.5rem] z-30" style={{ background: "rgba(15,27,45,0.97)", borderBottom: "1px solid rgba(227,179,65,0.15)" }}>
+        <div className="container max-w-5xl py-3">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/30" />
             <Input
-              placeholder="Stadt suchen…"
+              placeholder={t("restorani.searchCity") || "Stadt suchen…"}
               value={cityInput}
               onChange={(e) => { setCityInput(e.target.value); setShowSuggestions(true); }}
               onFocus={() => setShowSuggestions(true)}
@@ -128,14 +118,6 @@ export default function Restorani() {
               </ul>
             )}
           </div>
-          <Select value={originFilter} onValueChange={(v) => setOriginFilter(v === "all" ? "" : v)}>
-            <SelectTrigger className="border-white/10 text-white" style={{ background: "#16263F" }}><SelectValue placeholder="Herkunftsland" /></SelectTrigger>
-            <SelectContent className="border-white/10 z-50" style={{ background: "#16263F" }}>
-              {ORIGIN_FILTERS.map((o) => (
-                <SelectItem key={o.key || "all"} value={o.key || "all"} className="text-white/80 focus:text-white">{o.label}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
         </div>
       </div>
 
