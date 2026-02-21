@@ -131,9 +131,9 @@ Deno.serve(async (req) => {
   }
 
   try {
-    const GOOGLE_API_KEY = Deno.env.get("VITE_GOOGLE_MAPS_API_KEY");
+    const GOOGLE_API_KEY = Deno.env.get("GOOGLE_PLACES_SERVER_KEY");
     if (!GOOGLE_API_KEY) {
-      throw new Error("VITE_GOOGLE_MAPS_API_KEY not configured");
+      throw new Error("GOOGLE_PLACES_SERVER_KEY not configured");
     }
 
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
