@@ -81,10 +81,10 @@ export default function Putovanja() {
         <div className="absolute inset-0 bg-gradient-to-br from-[#E3B341]/5 via-transparent to-[#E3B341]/3" />
         <div className="container relative max-w-5xl py-14 text-center">
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-2xl font-bold text-white md:text-4xl">
-            ✈️ Putovanja & Prevoz
+            🚗 Balkan Ride
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="mx-auto mt-3 max-w-xl text-sm text-white/50 md:text-base">
-            Bus prevoznici i zajedničke vožnje Njemačka ↔ Balkan.
+            Nudim prijevoz • Tražim prijevoz • Putujem na Balkan
           </motion.p>
         </div>
       </section>

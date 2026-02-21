@@ -1,11 +1,11 @@
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, Crown, ExternalLink, Lock, Calendar } from "lucide-react";
+import { ArrowLeft, ExternalLink, Calendar } from "lucide-react";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useQaItem } from "@/hooks/useQaItems";
-import { useAuth } from "@/contexts/AuthContext";
+
 import { getCategoryBySlug } from "@/lib/categories";
 
 function FormattedContent({ text }: { text: string }) {
@@ -53,7 +53,6 @@ function FormattedContent({ text }: { text: string }) {
 export default function QADetail() {
   const { id } = useParams<{ id: string }>();
   const { data: item, isLoading, error } = useQaItem(id || "");
-  const { isPremium, user } = useAuth();
 
   if (isLoading) {
     return (
@@ -80,7 +79,6 @@ export default function QADetail() {
   }
 
   const cat = getCategoryBySlug(item.category);
-  const canViewFull = !item.is_premium || isPremium;
 
   return (
     <div className="container max-w-3xl py-10">
@@ -101,12 +99,6 @@ export default function QADetail() {
             {cat.label}
           </Badge>
         )}
-        {item.is_premium && (
-          <Badge className="gap-1 bg-balkan-gold text-balkan-gold-foreground">
-            <Crown className="h-3.5 w-3.5" />
-            Premium
-          </Badge>
-        )}
         <span className="flex items-center gap-1 text-xs text-muted-foreground">
           <Calendar className="h-3 w-3" />
           {new Date(item.last_updated).toLocaleDateString("de-DE")}
@@ -118,7 +110,7 @@ export default function QADetail() {
         {item.question}
       </h1>
 
-      {/* Short answer — always visible */}
+      {/* Short answer */}
       <div className="mb-8 rounded-xl border bg-secondary/50 p-5">
         <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
           Kratak odgovor
@@ -126,50 +118,18 @@ export default function QADetail() {
         <p className="text-foreground leading-relaxed">{item.short_answer}</p>
       </div>
 
-      {/* Step by step — premium gated */}
+      {/* Step by step — fully visible */}
       {item.step_by_step && (
         <div className="mb-8">
           <h2 className="mb-3 text-lg font-semibold">Detaljno objašnjenje</h2>
-          {canViewFull ? (
-            <div className="prose prose-sm max-w-none rounded-xl border bg-card p-5">
-              <FormattedContent text={item.step_by_step} />
-            </div>
-          ) : (
-            <div className="relative overflow-hidden rounded-xl border bg-card p-5">
-              {/* Blurred preview */}
-              <div className="pointer-events-none select-none blur-sm">
-                {item.step_by_step
-                  .split("\n")
-                  .slice(0, 3)
-                  .map((line, i) => (
-                    <p key={i} className="mb-2 text-sm text-muted-foreground">
-                      {line}
-                    </p>
-                  ))}
-              </div>
-              {/* Overlay */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center bg-background/80 backdrop-blur-sm">
-                <Lock className="mb-3 h-8 w-8 text-muted-foreground" />
-                <p className="mb-1 font-semibold">Premium sadržaj</p>
-                <p className="mb-4 text-center text-sm text-muted-foreground">
-                  {user
-                    ? "Otključaj detaljna objašnjenja uz Premium pristup."
-                    : "Prijavi se i otključaj sve sadržaje."}
-                </p>
-                <Button asChild>
-                  <Link to={user ? "/premium" : "/register"}>
-                    <Crown className="mr-2 h-4 w-4" />
-                    {user ? "Postani Premium" : "Registruj se"}
-                  </Link>
-                </Button>
-              </div>
-            </div>
-          )}
+          <div className="prose prose-sm max-w-none rounded-xl border bg-card p-5">
+            <FormattedContent text={item.step_by_step} />
+          </div>
         </div>
       )}
 
       {/* Sources */}
-      {canViewFull && item.sources && item.sources.length > 0 && (
+      {item.sources && item.sources.length > 0 && (
         <div className="mb-8">
           <h2 className="mb-3 text-lg font-semibold">Zvanični izvori</h2>
           <ul className="space-y-2">
