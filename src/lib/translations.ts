@@ -1133,6 +1133,26 @@ const translations: Record<Language, TranslationKeys> = {
   },
 };
 
+// Country name translations injected into each language
+const countryNames: Record<string, Record<string, string>> = {
+  bs: { "country.BIH": "Bosna i Hercegovina", "country.SRB": "Srbija", "country.HR": "Hrvatska", "country.ME": "Crna Gora", "country.MK": "Sjeverna Makedonija", "country.XK": "Kosovo", "country.AL": "Albanija", "restorani.searchCity": "Traži grad…", "prodavnice.searchCity": "Traži grad…" },
+  hr: { "country.BIH": "Bosna i Hercegovina", "country.SRB": "Srbija", "country.HR": "Hrvatska", "country.ME": "Crna Gora", "country.MK": "Sjeverna Makedonija", "country.XK": "Kosovo", "country.AL": "Albanija", "restorani.searchCity": "Traži grad…", "prodavnice.searchCity": "Traži grad…" },
+  sr: { "country.BIH": "Bosna i Hercegovina", "country.SRB": "Srbija", "country.HR": "Hrvatska", "country.ME": "Crna Gora", "country.MK": "Severna Makedonija", "country.XK": "Kosovo", "country.AL": "Albanija", "restorani.searchCity": "Traži grad…", "prodavnice.searchCity": "Traži grad…" },
+  me: { "country.BIH": "Bosna i Hercegovina", "country.SRB": "Srbija", "country.HR": "Hrvatska", "country.ME": "Crna Gora", "country.MK": "Sjeverna Makedonija", "country.XK": "Kosovo", "country.AL": "Albanija", "restorani.searchCity": "Traži grad…", "prodavnice.searchCity": "Traži grad…" },
+  sq: { "country.BIH": "Bosna dhe Hercegovina", "country.SRB": "Serbia", "country.HR": "Kroacia", "country.ME": "Mali i Zi", "country.MK": "Maqedonia e Veriut", "country.XK": "Kosova", "country.AL": "Shqipëria", "restorani.searchCity": "Kërko qytetin…", "prodavnice.searchCity": "Kërko qytetin…" },
+  xk: { "country.BIH": "Bosna dhe Hercegovina", "country.SRB": "Serbia", "country.HR": "Kroacia", "country.ME": "Mali i Zi", "country.MK": "Maqedonia e Veriut", "country.XK": "Kosova", "country.AL": "Shqipëria", "restorani.searchCity": "Kërko qytetin…", "prodavnice.searchCity": "Kërko qytetin…" },
+  mk: { "country.BIH": "Босна и Херцеговина", "country.SRB": "Србија", "country.HR": "Хрватска", "country.ME": "Црна Гора", "country.MK": "Северна Македонија", "country.XK": "Косово", "country.AL": "Албанија", "restorani.searchCity": "Барај град…", "prodavnice.searchCity": "Барај град…" },
+  de: { "country.BIH": "Bosnien und Herzegowina", "country.SRB": "Serbien", "country.HR": "Kroatien", "country.ME": "Montenegro", "country.MK": "Nordmazedonien", "country.XK": "Kosovo", "country.AL": "Albanien", "restorani.searchCity": "Stadt suchen…", "prodavnice.searchCity": "Stadt suchen…" },
+  en: { "country.BIH": "Bosnia and Herzegovina", "country.SRB": "Serbia", "country.HR": "Croatia", "country.ME": "Montenegro", "country.MK": "North Macedonia", "country.XK": "Kosovo", "country.AL": "Albania", "restorani.searchCity": "Search city…", "prodavnice.searchCity": "Search city…" },
+};
+
+// Merge country names into translations
+for (const lang of Object.keys(translations) as Language[]) {
+  if (countryNames[lang]) {
+    Object.assign(translations[lang], countryNames[lang]);
+  }
+}
+
 export function getTranslation(lang: Language, key: keyof TranslationKeys): string {
   return translations[lang]?.[key] ?? translations.de[key] ?? key;
 }
