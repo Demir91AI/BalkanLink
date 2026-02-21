@@ -6,6 +6,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Input } from "@/components/ui/input";
 import { MapPin, ChevronDown, Search, Building2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import ListingMapPreview from "@/components/ListingMapPreview";
 
 interface Listing {
   id: string;
@@ -160,11 +161,7 @@ export default function Restorani() {
                                           <div key={item.id} className="rounded-lg p-3.5" style={{ background: "rgba(22,38,63,0.8)", border: "1px solid rgba(255,255,255,0.05)" }}>
                                             <h4 className="text-sm font-bold text-white">{item.name}</h4>
                                             {item.address && <p className="mt-1.5 flex items-start gap-1.5 text-xs text-white/40"><MapPin className="mt-0.5 h-3 w-3 shrink-0" />{item.address}</p>}
-                                            {item.google_maps_url && (
-                                              <a href={item.google_maps_url} target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex items-center gap-1 text-xs text-[#E3B341]/70 hover:text-[#E3B341]">
-                                                📍 Google Maps
-                                              </a>
-                                            )}
+                                            <ListingMapPreview address={item.address} name={item.name} googleMapsUrl={item.google_maps_url} />
                                           </div>
                                         ))}
                                       </div>
