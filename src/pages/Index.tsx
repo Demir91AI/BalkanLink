@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Wrench, Briefcase, Building2, FileText, UtensilsCrossed, ShoppingBag, Users,
+  Wrench, Briefcase, Building2, FileText, UtensilsCrossed, ShoppingBag,
   Bus, HelpCircle, ArrowRight, Sparkles, Star,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -25,7 +25,6 @@ const featureCards = [
   { key: "home.card.papiri" as const, icon: FileText, to: "/formulare", color: "from-violet-500/15 to-violet-600/5" },
   { key: "home.card.restorani" as const, icon: UtensilsCrossed, to: "/restorani", color: "from-rose-500/15 to-rose-600/5" },
   { key: "home.card.prodavnice" as const, icon: ShoppingBag, to: "/prodavnice", color: "from-teal-500/15 to-teal-600/5" },
-  { key: "home.card.zajednice" as const, icon: Users, to: "/community", color: "from-cyan-500/15 to-cyan-600/5" },
   { key: "home.card.prevoz" as const, icon: Bus, to: "/putovanja", color: "from-orange-500/15 to-orange-600/5" },
   { key: "home.card.pitanje" as const, icon: HelpCircle, to: "/qa", color: "from-indigo-500/15 to-indigo-600/5" },
 ];

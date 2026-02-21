@@ -4,13 +4,6 @@ import { supabase } from "@/integrations/supabase/client";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Input } from "@/components/ui/input";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import {
   MapPin,
   ChevronDown,
   Search,
@@ -18,6 +11,7 @@ import {
   Tag,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { BUNDESLAENDER } from "@/lib/germany-data";
 
 /* ─── constants ─── */
 
@@ -25,32 +19,25 @@ const COUNTRY_TABS = [
   { key: "BIH", label: "🇧🇦 Bosna i Hercegovina" },
   { key: "HR", label: "🇭🇷 Hrvatska" },
   { key: "SRB", label: "🇷🇸 Srbija" },
-  { key: "AL", label: "🇦🇱 Albanija" },
-  { key: "XK", label: "🇽🇰 Kosovo" },
-  { key: "MK", label: "🇲🇰 Sjeverna Makedonija" },
   { key: "ME", label: "🇲🇪 Crna Gora" },
-  { key: "SI", label: "🇸🇮 Slovenija" },
-  { key: "OTHER", label: "🌍 Ostali Balkan" },
+  { key: "MK", label: "🇲🇰 Sjeverna Makedonija" },
+  { key: "XK", label: "🇽🇰 Kosovo" },
+  { key: "AL", label: "🇦🇱 Albanija" },
 ];
 
 const SUBGROUP_FILTERS = [
   { key: "religija", label: "⛪ Religija", categories: ["dzemat_moschee", "misija_crkva", "religijski_objekat"] },
   { key: "sport", label: "⚽ Sport", categories: ["sport"] },
   { key: "kultura", label: "🎭 Kultura", categories: ["kulturno_drustvo"] },
-  { key: "omladina", label: "📚 Omladina & Edukacija", categories: ["omladina"] },
 ];
 
 const ALL_CATEGORIES = [
   { key: "dzemat_moschee", label: "Džamije / Islamski centri" },
   { key: "misija_crkva", label: "Katoličke misije / Crkve" },
-  { key: "religijski_objekat", label: "Pravoslavne crkve" },
+  { key: "religijski_objekat", label: "Pravoslavne crkve / Balkanski vjerski centri" },
   { key: "sport", label: "Sportski klubovi" },
   { key: "kulturno_drustvo", label: "Kulturna društva & Udruženja" },
-  { key: "omladina", label: "Omladina & Edukacija" },
 ];
-
-const categoryLabel = (key: string) =>
-  ALL_CATEGORIES.find((c) => c.key === key)?.label ?? key;
 
 /* ─── types ─── */
 
@@ -72,14 +59,14 @@ interface Listing {
 /* ─── component ─── */
 
 export default function Community() {
-  const { language, t } = useLanguage();
+  const { t } = useLanguage();
 
   const [cityInput, setCityInput] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [activeTab, setActiveTab] = useState("BIH");
   const [openBundeslaender, setOpenBundeslaender] = useState<Record<string, boolean>>({});
   const [openCities, setOpenCities] = useState<Record<string, boolean>>({});
-  const [activeSubgroup, setActiveSubgroup] = useState("");
+  const [activeSubgroup, setActiveSubgroup] = useState("religija");
 
   const cityRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
@@ -100,62 +87,54 @@ export default function Community() {
     [listings]
   );
 
-  const allBundeslaender = useMemo(
-    () => [...new Set(listings.map((l) => l.bundesland))].sort(),
-    [listings]
-  );
-
   const citySuggestions = useMemo(() => {
     if (cityInput.length < 1) return [];
     const q = cityInput.toLowerCase();
     return allCitiesWithData.filter((c) => c.toLowerCase().includes(q)).slice(0, 10);
   }, [cityInput, allCitiesWithData]);
 
-  /* Filter: exclude gastro/retail categories (those go to /restorani and /prodavnice) */
   const communityCategories = ALL_CATEGORIES;
 
+  /* Filter listings by country, subgroup, and city search */
   const filtered = useMemo(() => {
-    let result = listings.filter((l) => {
-      // Filter by country tab
-      if (activeTab === "OTHER") {
-        return !COUNTRY_TABS.slice(0, -1).some((ct) => ct.key === l.origin_country);
-      }
-      return l.origin_country === activeTab;
-    });
-    // Exclude gastro/retail — those belong to Restorani/Prodavnice pages
+    let result = listings.filter((l) => l.origin_country === activeTab);
+
     const communityKeys = communityCategories.map((c) => c.key);
     result = result.filter((l) => communityKeys.includes(l.main_category));
 
     if (cityInput.length >= 2)
       result = result.filter((l) => l.city.toLowerCase().includes(cityInput.toLowerCase()));
-    if (activeSubgroup) {
-      const sg = SUBGROUP_FILTERS.find((s) => s.key === activeSubgroup);
-      if (sg) result = result.filter((l) => sg.categories.includes(l.main_category));
-    }
+
+    // Always filter by active subgroup (no "Sve" option)
+    const sg = SUBGROUP_FILTERS.find((s) => s.key === activeSubgroup);
+    if (sg) result = result.filter((l) => sg.categories.includes(l.main_category));
+
     return result;
   }, [listings, cityInput, activeTab, activeSubgroup, communityCategories]);
 
+  /* Build hierarchy: always show all 16 Bundesländer */
   const hierarchy = useMemo(() => {
+    // Group filtered data
     const blMap: Record<string, Record<string, Record<string, Listing[]>>> = {};
-
     for (const item of filtered) {
       const bl = item.bundesland;
       const city = item.city;
       const cat = item.main_category;
-
       if (!blMap[bl]) blMap[bl] = {};
       if (!blMap[bl][city]) blMap[bl][city] = {};
       if (!blMap[bl][city][cat]) blMap[bl][city][cat] = [];
       blMap[bl][city][cat].push(item);
     }
 
-    return Object.entries(blMap)
-      .sort(([a], [b]) => a.localeCompare(b))
-      .map(([bl, cities]) => ({
+    // Always show all 16 Bundesländer
+    return BUNDESLAENDER.map((bl) => {
+      const cities = blMap[bl] || {};
+      const totalEntries = Object.values(cities).reduce(
+        (sum, cats) => sum + Object.values(cats).reduce((s, arr) => s + arr.length, 0), 0
+      );
+      return {
         bundesland: bl,
-        totalEntries: Object.values(cities).reduce(
-          (sum, cats) => sum + Object.values(cats).reduce((s, arr) => s + arr.length, 0), 0
-        ),
+        totalEntries,
         cities: Object.entries(cities)
           .sort(([a], [b]) => a.localeCompare(b))
           .map(([city, cats]) => ({
@@ -169,8 +148,14 @@ export default function Community() {
                 items: cats[mc.key].sort((a, b) => a.name.localeCompare(b.name)),
               })),
           })),
-      }));
+      };
+    });
   }, [filtered, communityCategories]);
+
+  /* Stats */
+  const totalEntries = filtered.length;
+  const bundeslaenderWithData = hierarchy.filter((bl) => bl.totalEntries > 0).length;
+  const citiesWithData = new Set(filtered.map((l) => l.city)).size;
 
   useEffect(() => {
     if (cityInput.length < 2) return;
@@ -199,7 +184,7 @@ export default function Community() {
             transition={{ duration: 0.5 }}
             className="text-2xl font-bold text-white md:text-4xl"
           >
-            Zajednice & Kultura
+            Kultura & religija
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 12 }}
@@ -218,15 +203,15 @@ export default function Community() {
               className="mx-auto mt-6 flex justify-center gap-6"
             >
               <div className="text-center">
-                <p className="text-2xl font-bold" style={{ color: "#E3B341" }}>{allBundeslaender.length}</p>
+                <p className="text-2xl font-bold" style={{ color: "#E3B341" }}>{bundeslaenderWithData}</p>
                 <p className="text-xs text-white/40">Bundesländer</p>
               </div>
               <div className="text-center">
-                <p className="text-2xl font-bold" style={{ color: "#E3B341" }}>{allCitiesWithData.length}</p>
+                <p className="text-2xl font-bold" style={{ color: "#E3B341" }}>{citiesWithData}</p>
                 <p className="text-xs text-white/40">Städte</p>
               </div>
               <div className="text-center">
-                <p className="text-2xl font-bold" style={{ color: "#E3B341" }}>{listings.length}</p>
+                <p className="text-2xl font-bold" style={{ color: "#E3B341" }}>{totalEntries}</p>
                 <p className="text-xs text-white/40">Einträge</p>
               </div>
             </motion.div>
@@ -270,7 +255,7 @@ export default function Community() {
             {COUNTRY_TABS.map((tab) => (
               <button
                 key={tab.key}
-                onClick={() => { setActiveTab(tab.key); setActiveSubgroup(""); }}
+                onClick={() => { setActiveTab(tab.key); }}
                 className="whitespace-nowrap rounded-lg px-4 py-2 text-sm font-semibold transition-all"
                 style={{
                   background: activeTab === tab.key ? "rgba(227,179,65,0.15)" : "rgba(255,255,255,0.04)",
@@ -283,23 +268,12 @@ export default function Community() {
             ))}
           </div>
 
-          {/* Sub-group filter chips */}
+          {/* Sub-group filter chips — no "Sve" */}
           <div className="mt-2 flex gap-2 overflow-x-auto pb-1">
-            <button
-              onClick={() => setActiveSubgroup("")}
-              className="whitespace-nowrap rounded-full px-3 py-1.5 text-xs font-semibold transition-all"
-              style={{
-                background: !activeSubgroup ? "rgba(227,179,65,0.2)" : "rgba(255,255,255,0.04)",
-                color: !activeSubgroup ? "#E3B341" : "rgba(255,255,255,0.5)",
-                border: !activeSubgroup ? "1px solid rgba(227,179,65,0.3)" : "1px solid rgba(255,255,255,0.08)",
-              }}
-            >
-              Sve
-            </button>
             {SUBGROUP_FILTERS.map((sg) => (
               <button
                 key={sg.key}
-                onClick={() => setActiveSubgroup(activeSubgroup === sg.key ? "" : sg.key)}
+                onClick={() => setActiveSubgroup(sg.key)}
                 className="whitespace-nowrap rounded-full px-3 py-1.5 text-xs font-semibold transition-all"
                 style={{
                   background: activeSubgroup === sg.key ? "rgba(227,179,65,0.2)" : "rgba(255,255,255,0.04)",
@@ -323,10 +297,6 @@ export default function Community() {
             </div>
           )}
 
-          {!isLoading && hierarchy.length === 0 && (
-            <p className="py-20 text-center text-white/40 text-lg">Keine Einträge gefunden.</p>
-          )}
-
           <div className="space-y-4">
             {hierarchy.map((bl, bIdx) => {
               const blOpen = openBundeslaender[bl.bundesland] ?? false;
@@ -336,7 +306,7 @@ export default function Community() {
                   key={bl.bundesland}
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.35, delay: bIdx * 0.05 }}
+                  transition={{ duration: 0.35, delay: bIdx * 0.02 }}
                   className="overflow-hidden rounded-xl"
                   style={{
                     background: "linear-gradient(135deg, rgba(22,38,63,0.95), rgba(22,38,63,0.75))",
@@ -366,71 +336,74 @@ export default function Community() {
                         className="overflow-hidden"
                       >
                         <div className="space-y-1.5 px-5 pb-5">
-                          {bl.cities.map(({ city, totalEntries, categories }) => {
-                            const cityOpen = openCities[city] ?? false;
-
-                            return (
-                              <div
-                                key={city}
-                                ref={(el) => { cityRefs.current[city] = el; }}
-                                className="overflow-hidden rounded-lg"
-                                style={{ background: "rgba(15,27,45,0.6)", border: "1px solid rgba(255,255,255,0.06)" }}
-                              >
-                                <button
-                                  onClick={() => toggleKey(setOpenCities, city)}
-                                  className="flex w-full items-center gap-2 px-4 py-3 text-left transition-all hover:bg-white/5"
+                          {bl.cities.length === 0 ? (
+                            <p className="py-4 text-center text-sm text-white/30">0 Einträge</p>
+                          ) : (
+                            bl.cities.map(({ city, totalEntries, categories }) => {
+                              const cityOpen = openCities[city] ?? false;
+                              return (
+                                <div
+                                  key={city}
+                                  ref={(el) => { cityRefs.current[city] = el; }}
+                                  className="overflow-hidden rounded-lg"
+                                  style={{ background: "rgba(15,27,45,0.6)", border: "1px solid rgba(255,255,255,0.06)" }}
                                 >
-                                  <MapPin className="h-3.5 w-3.5 text-[#E3B341]/50" />
-                                  <span className="text-sm font-semibold text-white/90">{city}</span>
-                                  <span className="text-xs text-white/40">({totalEntries})</span>
-                                  <ChevronDown className={`ml-auto h-3.5 w-3.5 text-white/30 transition-transform duration-300 ${cityOpen ? "rotate-180" : ""}`} />
-                                </button>
+                                  <button
+                                    onClick={() => toggleKey(setOpenCities, city)}
+                                    className="flex w-full items-center gap-2 px-4 py-3 text-left transition-all hover:bg-white/5"
+                                  >
+                                    <MapPin className="h-3.5 w-3.5 text-[#E3B341]/50" />
+                                    <span className="text-sm font-semibold text-white/90">{city}</span>
+                                    <span className="text-xs text-white/40">({totalEntries})</span>
+                                    <ChevronDown className={`ml-auto h-3.5 w-3.5 text-white/30 transition-transform duration-300 ${cityOpen ? "rotate-180" : ""}`} />
+                                  </button>
 
-                                <AnimatePresence>
-                                  {cityOpen && (
-                                    <motion.div
-                                      initial={{ height: 0, opacity: 0 }}
-                                      animate={{ height: "auto", opacity: 1 }}
-                                      exit={{ height: 0, opacity: 0 }}
-                                      transition={{ duration: 0.25 }}
-                                      className="overflow-hidden"
-                                    >
-                                      <div className="space-y-2 px-4 pb-4">
-                                        {categories.map(({ key, label, items }) => (
-                                          <div key={key}>
-                                            <div className="mb-1.5 flex items-center gap-1.5">
-                                              <Tag className="h-3 w-3 text-[#E3B341]/60" />
-                                              <span className="text-xs font-semibold uppercase tracking-wider text-[#E3B341]/70">{label}</span>
+                                  <AnimatePresence>
+                                    {cityOpen && (
+                                      <motion.div
+                                        initial={{ height: 0, opacity: 0 }}
+                                        animate={{ height: "auto", opacity: 1 }}
+                                        exit={{ height: 0, opacity: 0 }}
+                                        transition={{ duration: 0.25 }}
+                                        className="overflow-hidden"
+                                      >
+                                        <div className="space-y-2 px-4 pb-4">
+                                          {categories.map(({ key, label, items }) => (
+                                            <div key={key}>
+                                              <div className="mb-1.5 flex items-center gap-1.5">
+                                                <Tag className="h-3 w-3 text-[#E3B341]/60" />
+                                                <span className="text-xs font-semibold uppercase tracking-wider text-[#E3B341]/70">{label}</span>
+                                              </div>
+                                              <div className="grid gap-2 sm:grid-cols-2">
+                                                {items.map((item) => (
+                                                  <div
+                                                    key={item.id}
+                                                    className="rounded-lg p-3.5 transition-all duration-300 hover:-translate-y-0.5 hover:border-[rgba(227,179,65,0.25)]"
+                                                    style={{
+                                                      background: "rgba(22,38,63,0.8)",
+                                                      border: "1px solid rgba(255,255,255,0.05)",
+                                                    }}
+                                                  >
+                                                    <h4 className="text-sm font-bold text-white">{item.name}</h4>
+                                                    {item.address && (
+                                                      <p className="mt-2 flex items-start gap-1.5 text-xs text-white/40">
+                                                        <MapPin className="mt-0.5 h-3 w-3 shrink-0" />
+                                                        {item.address}
+                                                      </p>
+                                                    )}
+                                                  </div>
+                                                ))}
+                                              </div>
                                             </div>
-                                            <div className="grid gap-2 sm:grid-cols-2">
-                                              {items.map((item) => (
-                                                <div
-                                                  key={item.id}
-                                                  className="rounded-lg p-3.5 transition-all duration-300 hover:-translate-y-0.5 hover:border-[rgba(227,179,65,0.25)]"
-                                                  style={{
-                                                    background: "rgba(22,38,63,0.8)",
-                                                    border: "1px solid rgba(255,255,255,0.05)",
-                                                  }}
-                                                >
-                                                  <h4 className="text-sm font-bold text-white">{item.name}</h4>
-                                                  {item.address && (
-                                                    <p className="mt-2 flex items-start gap-1.5 text-xs text-white/40">
-                                                      <MapPin className="mt-0.5 h-3 w-3 shrink-0" />
-                                                      {item.address}
-                                                    </p>
-                                                  )}
-                                                </div>
-                                              ))}
-                                            </div>
-                                          </div>
-                                        ))}
-                                      </div>
-                                    </motion.div>
-                                  )}
-                                </AnimatePresence>
-                              </div>
-                            );
-                          })}
+                                          ))}
+                                        </div>
+                                      </motion.div>
+                                    )}
+                                  </AnimatePresence>
+                                </div>
+                              );
+                            })
+                          )}
                         </div>
                       </motion.div>
                     )}
@@ -440,9 +413,9 @@ export default function Community() {
             })}
           </div>
 
-          {!isLoading && filtered.length > 0 && (
+          {!isLoading && totalEntries > 0 && (
             <p className="mt-8 text-center text-xs text-white/30">
-              {filtered.length} Einträge insgesamt
+              {totalEntries} Einträge insgesamt
             </p>
           )}
         </div>

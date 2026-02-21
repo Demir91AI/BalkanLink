@@ -108,7 +108,7 @@ type TranslationKeys = {
   "home.hero.title": string; "home.hero.highlight": string; "home.hero.subtitle": string;
   "home.hero.cta": string; "home.hero.howItWorks": string;
   "home.card.majstor": string; "home.card.posao": string; "home.card.stan": string;
-  "home.card.papiri": string; "home.card.restorani": string; "home.card.dzamije": string;
+  "home.card.papiri": string; "home.card.restorani": string; "home.card.prodavnice": string;
   "home.card.prevoz": string; "home.card.pitanje": string;
   "home.trust.title": string; "home.trust.subtitle": string; "home.trust.community": string;
   "home.example.1": string; "home.example.2": string; "home.example.3": string;
@@ -611,7 +611,7 @@ const homeDe: Partial<TranslationKeys> = {
   "home.hero.cta": "Kostenlos starten", "home.hero.howItWorks": "So funktioniert BalkanLink →",
   "home.card.majstor": "Handwerker finden", "home.card.posao": "Job suchen", "home.card.stan": "Wohnung suchen",
   "home.card.papiri": "Hilfe mit Dokumenten", "home.card.restorani": "Balkan Restaurants",
-  "home.card.dzamije": "Gemeinden & Vereine", "home.card.prevoz": "Reisen & Transport", "home.card.pitanje": "Frage stellen",
+  "home.card.prodavnice": "Balkan Geschäfte", "home.card.prevoz": "Reisen & Transport", "home.card.pitanje": "Frage stellen",
   "home.trust.title": "Über 10.000 Nutzer vertrauen", "home.trust.subtitle": "Die Balkan Community in Deutschland nutzt BalkanLink für den Alltag.",
   "home.trust.community": "Menschen aus Südosteuropa — vereint in Deutschland",
   "home.example.1": "Kind in der Schule anmelden", "home.example.2": "Umzug in eine neue Stadt",
@@ -641,7 +641,7 @@ const homeBs: Partial<TranslationKeys> = {
   "home.hero.cta": "Započni besplatno", "home.hero.howItWorks": "Kako radi BalkanLink →",
   "home.card.majstor": "Trebam majstora", "home.card.posao": "Tražim posao", "home.card.stan": "Tražim stan",
   "home.card.papiri": "Trebam pomoć s papirima", "home.card.restorani": "Balkan restorani",
-  "home.card.dzamije": "Džemati i zajednice", "home.card.prevoz": "Putovanja & prevoz", "home.card.pitanje": "Imam pitanje",
+  "home.card.prodavnice": "Prodavnice", "home.card.prevoz": "Putovanja & prevoz", "home.card.pitanje": "Imam pitanje",
   "home.trust.title": "Preko 10.000 korisnika koristi", "home.trust.subtitle": "Balkan zajednica u Njemačkoj koristi BalkanLink za svakodnevne situacije.",
   "home.trust.community": "Ljudi iz jugoistočne Evrope — zajedno u Njemačkoj",
   "home.example.1": "Prijava djeteta u školu", "home.example.2": "Selidba u novi grad",
@@ -671,7 +671,7 @@ const homeEn: Partial<TranslationKeys> = {
   "home.hero.cta": "Get started free", "home.hero.howItWorks": "How BalkanLink works →",
   "home.card.majstor": "Find a tradesperson", "home.card.posao": "Find a job", "home.card.stan": "Find housing",
   "home.card.papiri": "Help with documents", "home.card.restorani": "Balkan restaurants",
-  "home.card.dzamije": "Communities & associations", "home.card.prevoz": "Travel & transport", "home.card.pitanje": "Ask a question",
+  "home.card.prodavnice": "Balkan shops", "home.card.prevoz": "Travel & transport", "home.card.pitanje": "Ask a question",
   "home.trust.title": "Over 10,000 users trust", "home.trust.subtitle": "The Balkan community in Germany uses BalkanLink for everyday life.",
   "home.trust.community": "People from Southeast Europe — united in Germany",
   "home.example.1": "Enrolling a child in school", "home.example.2": "Moving to a new city",
@@ -771,7 +771,7 @@ const homeSq: Partial<TranslationKeys> = {
   "home.hero.cta": "Fillo falas", "home.hero.howItWorks": "Si funksionon BalkanLink →",
   "home.card.majstor": "Gjej mjeshtër", "home.card.posao": "Gjej punë", "home.card.stan": "Gjej banesë",
   "home.card.papiri": "Ndihmë me dokumente", "home.card.restorani": "Restorante ballkanike",
-  "home.card.dzamije": "Komunitete & shoqata", "home.card.prevoz": "Udhëtime & transport", "home.card.pitanje": "Bëj një pyetje",
+  "home.card.prodavnice": "Dyqane ballkanike", "home.card.prevoz": "Udhëtime & transport", "home.card.pitanje": "Bëj një pyetje",
   "home.trust.title": "Mbi 10.000 përdorues i besojnë", "home.trust.subtitle": "Komuniteti ballkanik në Gjermani përdor BalkanLink për jetën e përditshme.",
   "home.trust.community": "Njerëz nga Evropa Juglindore — të bashkuar në Gjermani",
   "home.example.1": "Regjistrimi i fëmijës në shkollë", "home.example.2": "Shpërngulja në qytet të ri",
@@ -825,7 +825,7 @@ const homeMk: Partial<TranslationKeys> = {
   "home.hero.cta": "Започни бесплатно", "home.hero.howItWorks": "Како работи BalkanLink →",
   "home.card.majstor": "Најди мајстор", "home.card.posao": "Барај работа", "home.card.stan": "Барај стан",
   "home.card.papiri": "Помош со документи", "home.card.restorani": "Балкански ресторани",
-  "home.card.dzamije": "Заедници и здруженија", "home.card.prevoz": "Патувања и превоз", "home.card.pitanje": "Постави прашање",
+  "home.card.prodavnice": "Балкански продавници", "home.card.prevoz": "Патувања и превоз", "home.card.pitanje": "Постави прашање",
   "home.trust.title": "Преку 10.000 корисници веруваат во", "home.trust.subtitle": "Балканската заедница во Германија го користи BalkanLink за секојдневни ситуации.",
   "home.trust.community": "Луѓе од Југоисточна Европа — заедно во Германија",
   "home.example.1": "Запишување дете во училиште", "home.example.2": "Селидба во нов град",
