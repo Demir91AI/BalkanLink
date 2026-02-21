@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Briefcase, Receipt, Home, Heart, Users, HandCoins, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import PremiumGate from "@/components/PremiumGate";
+
 import LegalDisclaimer from "@/components/LegalDisclaimer";
 
 const categories = [
@@ -136,10 +136,6 @@ function CategoryCard({ cat, idx }: { cat: typeof categories[number]; idx: numbe
 export default function ZivotSavjeti() {
   const { t } = useLanguage();
 
-  // First category is free, rest is premium
-  const freeItems = categories.slice(0, 1);
-  const premiumItems = categories.slice(1);
-
   return (
     <>
       <section className="border-b bg-primary py-12">
@@ -156,25 +152,9 @@ export default function ZivotSavjeti() {
       <section className="py-12">
         <div className="container max-w-3xl">
           <div className="space-y-6">
-            {/* FREE: first category */}
-            {freeItems.map((cat, idx) => (
+            {categories.map((cat, idx) => (
               <CategoryCard key={idx} cat={cat} idx={idx} />
             ))}
-
-            {/* PREMIUM: remaining categories */}
-            <PremiumGate
-              fallback={
-                <div className="space-y-6">
-                  {premiumItems.slice(0, 1).map((cat, idx) => (
-                    <CategoryCard key={idx} cat={cat} idx={idx} />
-                  ))}
-                </div>
-              }
-            >
-              {premiumItems.map((cat, idx) => (
-                <CategoryCard key={idx} cat={cat} idx={idx + 1} />
-              ))}
-            </PremiumGate>
           </div>
 
           <LegalDisclaimer />

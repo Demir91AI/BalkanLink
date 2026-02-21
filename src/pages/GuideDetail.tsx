@@ -5,7 +5,7 @@ import { getGuideBySlug } from "@/lib/guide-data";
 import { resolveGuideLinks, auditGuideLinks } from "@/lib/guide-links";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useEffect, useMemo } from "react";
-import PremiumGate from "@/components/PremiumGate";
+
 import LegalDisclaimer from "@/components/LegalDisclaimer";
 
 type LangKey = "de" | "bs" | "en";
@@ -129,20 +129,7 @@ export default function GuideDetail() {
             </div>
           </motion.div>
 
-          {/* PREMIUM: Steps, Documents, Processing time, Mistakes, Links */}
-          <PremiumGate
-            fallback={
-              <div className="space-y-4">
-                <div className="rounded-xl border bg-card p-6 shadow-sm">
-                  <h2 className="mb-4 text-sm font-bold">{labels.steps}</h2>
-                  <div className="flex gap-3">
-                    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gold/15 text-xs font-bold text-gold">1</div>
-                    <p className="text-sm">{guide.steps[lk][0]?.field}</p>
-                  </div>
-                </div>
-              </div>
-            }
-          >
+          {/* Steps, Documents, Processing time, Mistakes, Links */}
             {/* Schritt für Schritt */}
             <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }} className="rounded-xl border bg-card p-6 shadow-sm">
               <h2 className="mb-4 text-sm font-bold">{labels.steps}</h2>
@@ -219,7 +206,6 @@ export default function GuideDetail() {
                 </p>
               )}
             </motion.div>
-          </PremiumGate>
 
           <LegalDisclaimer />
         </div>
