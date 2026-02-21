@@ -6,73 +6,101 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
-// ---------- CONFIG ----------
+// ---------- CITY CONFIG ----------
 
 const BUNDESLAENDER_CITIES: Record<string, string[]> = {
-  "Baden-Württemberg": ["Stuttgart", "Mannheim", "Karlsruhe", "Freiburg", "Heilbronn", "Ulm", "Pforzheim"],
-  "Bayern": ["München", "Nürnberg", "Augsburg", "Regensburg", "Ingolstadt", "Würzburg", "Rosenheim", "Freilassing"],
+  "Baden-Württemberg": ["Stuttgart", "Mannheim", "Karlsruhe", "Freiburg", "Heilbronn", "Ulm", "Pforzheim", "Reutlingen", "Esslingen", "Ludwigsburg", "Konstanz", "Villingen-Schwenningen", "Tübingen", "Sindelfingen", "Offenburg"],
+  "Bayern": ["München", "Nürnberg", "Augsburg", "Regensburg", "Ingolstadt", "Würzburg", "Fürth", "Erlangen", "Rosenheim", "Schweinfurt", "Bamberg", "Aschaffenburg", "Passau", "Freising", "Landshut"],
   "Berlin": ["Berlin"],
-  "Brandenburg": ["Potsdam", "Cottbus"],
+  "Brandenburg": ["Potsdam", "Cottbus", "Frankfurt (Oder)", "Brandenburg an der Havel"],
   "Bremen": ["Bremen", "Bremerhaven"],
   "Hamburg": ["Hamburg"],
-  "Hessen": ["Frankfurt am Main", "Wiesbaden", "Kassel", "Darmstadt", "Offenbach"],
-  "Mecklenburg-Vorpommern": ["Rostock", "Schwerin"],
-  "Niedersachsen": ["Hannover", "Braunschweig", "Osnabrück", "Oldenburg", "Wolfsburg"],
-  "Nordrhein-Westfalen": ["Köln", "Düsseldorf", "Dortmund", "Essen", "Duisburg", "Bochum", "Wuppertal", "Bielefeld", "Bonn", "Münster", "Gelsenkirchen", "Aachen"],
-  "Rheinland-Pfalz": ["Mainz", "Koblenz", "Ludwigshafen", "Trier", "Kaiserslautern"],
-  "Saarland": ["Saarbrücken"],
-  "Sachsen": ["Dresden", "Leipzig", "Chemnitz"],
-  "Sachsen-Anhalt": ["Magdeburg", "Halle"],
-  "Schleswig-Holstein": ["Kiel", "Lübeck"],
-  "Thüringen": ["Erfurt", "Jena"],
+  "Hessen": ["Frankfurt am Main", "Wiesbaden", "Kassel", "Darmstadt", "Offenbach am Main", "Hanau", "Gießen", "Marburg", "Fulda", "Rüsselsheim"],
+  "Mecklenburg-Vorpommern": ["Rostock", "Schwerin", "Neubrandenburg", "Stralsund", "Greifswald"],
+  "Niedersachsen": ["Hannover", "Braunschweig", "Osnabrück", "Oldenburg", "Wolfsburg", "Göttingen", "Salzgitter", "Hildesheim", "Wilhelmshaven", "Delmenhorst"],
+  "Nordrhein-Westfalen": ["Köln", "Düsseldorf", "Dortmund", "Essen", "Duisburg", "Bochum", "Wuppertal", "Bielefeld", "Bonn", "Münster", "Gelsenkirchen", "Aachen", "Mönchengladbach", "Krefeld", "Oberhausen", "Hagen", "Hamm", "Herne", "Solingen", "Leverkusen", "Neuss", "Paderborn", "Siegen", "Gütersloh", "Recklinghausen"],
+  "Rheinland-Pfalz": ["Mainz", "Koblenz", "Ludwigshafen", "Trier", "Kaiserslautern", "Worms", "Neustadt an der Weinstraße"],
+  "Saarland": ["Saarbrücken", "Neunkirchen", "Völklingen"],
+  "Sachsen": ["Dresden", "Leipzig", "Chemnitz", "Zwickau", "Plauen"],
+  "Sachsen-Anhalt": ["Magdeburg", "Halle (Saale)", "Dessau-Roßlau"],
+  "Schleswig-Holstein": ["Kiel", "Lübeck", "Flensburg", "Neumünster"],
+  "Thüringen": ["Erfurt", "Jena", "Gera", "Weimar", "Eisenach"],
 };
+
+// ---------- SEMANTIC KEYWORD CLUSTERS ----------
 
 const CATEGORY_SEARCH_TERMS: Record<string, string[]> = {
-  dzamije: ["Moschee", "Islamisches Zentrum", "Džamija", "Islamische Gemeinde"],
-  dzemati: ["Džemat", "Bosniakische Gemeinde", "Islamischer Kulturverein Bosniaken"],
-  kultura: ["Bosnischer Kulturverein", "Kroatischer Kulturverein", "Serbischer Kulturverein", "Balkan Verein", "Albanischer Kulturverein"],
-  prodavnice: ["Balkan Supermarkt", "Balkan Lebensmittel", "Internationale Lebensmittel Balkan", "Türkischer Supermarkt Balkan"],
-  restorani: ["Balkan Restaurant", "Bosnisches Restaurant", "Kroatisches Restaurant", "Serbisches Restaurant", "Balkan Grill", "Ćevapi", "Ćevabdžinica"],
-  pekare: ["Balkan Bäckerei", "Bosnische Bäckerei", "Burek Bäckerei", "Börek"],
-  mesnice: ["Balkan Metzgerei", "Halal Metzgerei Balkan", "Bosnische Metzgerei"],
-  sport: ["Balkan Sportverein", "Bosnischer Fußballverein"],
+  moscheen: [
+    "Moschee", "Islamisches Zentrum", "Islamische Gemeinde", "Islamischer Verein",
+    "Džamija", "Islamic Center", "Gebetsraum muslimisch",
+  ],
+  kirchen_gemeinden: [
+    "Kroatische Mission", "Kroatische Gemeinde", "Katholische Mission Kroatisch",
+    "Serbisch-Orthodoxe Kirche", "Serbische Orthodoxe Gemeinde", "Griechisch-Orthodoxe Kirche",
+  ],
+  restorani: [
+    "Cevapcici", "Cevapi", "Ćevapi", "Grillhaus", "Balkan Grill", "Pljeskavica",
+    "Grill Restaurant", "Rostilj", "Ćevabdžinica", "Balkan Restaurant",
+    "Bosnisches Restaurant", "Kroatisches Restaurant", "Serbisches Restaurant",
+  ],
+  pekare: [
+    "Burek", "Börek", "Pita Bäckerei", "Balkan Bäckerei", "Bosnische Bäckerei",
+    "Pekara", "Buregdžinica",
+  ],
+  mesnice_marketi: [
+    "Halal Metzgerei", "Balkan Markt", "Balkan Lebensmittel",
+    "Internationaler Supermarkt", "Türkischer Supermarkt", "Südländischer Supermarkt",
+    "Balkan Supermarkt", "Internationale Lebensmittel",
+  ],
+  kultura_sport: [
+    "Kulturverein Bosnisch", "Kulturverein Kroatisch", "Kulturverein Serbisch",
+    "Bosnischer Verein", "Kroatischer Verein", "Serbischer Verein",
+    "Albanischer Verein", "Balkan Verein", "Folklorverein", "Balkan Sportverein",
+    "Bosnischer Fußballverein",
+  ],
 };
 
+// Map search categories → DB main_category + sub_category
 const MAIN_CATEGORY_MAP: Record<string, string> = {
-  dzamije: "kultura", dzemati: "kultura", kultura: "kultura", prodavnice: "prodavnice", restorani: "restorani", pekare: "restorani", mesnice: "prodavnice", sport: "sport",
+  moscheen: "kultura", kirchen_gemeinden: "kultura", restorani: "restorani",
+  pekare: "restorani", mesnice_marketi: "prodavnice", kultura_sport: "kultura",
+};
+const SUB_CATEGORY_MAP: Record<string, string> = {
+  moscheen: "dzamije", kirchen_gemeinden: "crkve", restorani: "restoran",
+  pekare: "pekara", mesnice_marketi: "marketi", kultura_sport: "udruzenja",
 };
 
-const SUB_CATEGORY_MAP: Record<string, string> = {
-  dzamije: "dzamije", dzemati: "dzemati", kultura: "udruzenja", prodavnice: "marketi", restorani: "restoran", pekare: "pekara", mesnice: "mesnica", sport: "fudbal",
-};
+// ---------- ORIGIN DETECTION ----------
 
 interface OriginRule { code: string; keywords: string[]; }
 
 const ORIGIN_RULES: OriginRule[] = [
-  { code: "BIH", keywords: ["bosnisch", "bosna", "bosanski", "bosnien", "džemat", "bosnischer", "bosansko", "bošnjačk"] },
-  { code: "HR", keywords: ["kroatisch", "hrvatski", "kroatien", "katholische mission kroat", "hrvatska"] },
-  { code: "SRB", keywords: ["serbisch", "serbische kirche", "serbisch orthodox", "srpsk"] },
+  { code: "BIH", keywords: ["bosnisch", "bosna", "bosanski", "bosnien", "džemat", "bosnischer", "bosansko", "bošnjačk", "islamische gemeinde", "islamisches zentrum", "islamischer verein"] },
+  { code: "HR", keywords: ["kroatisch", "hrvatski", "kroatien", "katholische mission kroat", "hrvatska", "kroatische mission", "kroatische gemeinde"] },
+  { code: "SRB", keywords: ["serbisch", "serbische kirche", "serbisch orthodox", "srpsk", "serbische orthodoxe"] },
   { code: "ME", keywords: ["montenegro", "crnogorsk"] },
   { code: "MK", keywords: ["mazedonisch", "makedonisch", "makedonsk"] },
   { code: "XK", keywords: ["kosovar", "kosovo"] },
   { code: "AL", keywords: ["albanisch", "albania", "albansk", "shqiptar"] },
 ];
 
-function detectOrigin(name: string, types: string[], searchTerm?: string): string | null {
+function detectOrigin(name: string, types: string[], searchTerm?: string): string {
   const haystack = (name + " " + types.join(" ") + " " + (searchTerm || "")).toLowerCase();
   for (const rule of ORIGIN_RULES) {
     for (const kw of rule.keywords) {
       if (haystack.includes(kw)) return rule.code;
     }
   }
-  if (haystack.includes("moschee") || haystack.includes("mosque") || haystack.includes("islamic") || haystack.includes("džamija")) return "BIH";
+  // Semantic fallbacks
+  if (haystack.includes("moschee") || haystack.includes("mosque") || haystack.includes("islamic") || haystack.includes("džamija") || haystack.includes("gebetsraum")) return "BIH";
   if (haystack.includes("orthodox")) return "SRB";
   if (haystack.includes("katolička") || haystack.includes("catholic mission")) return "HR";
-  if (haystack.includes("balkan") || haystack.includes("ćevap") || haystack.includes("cevap") || haystack.includes("pljeskavica") || haystack.includes("burek")) return "BALKAN";
-  return null;
+  // Food/shop keywords → generic BALKAN
+  if (haystack.includes("cevap") || haystack.includes("ćevap") || haystack.includes("pljeskavica") || haystack.includes("burek") || haystack.includes("börek") || haystack.includes("grillhaus") || haystack.includes("rostilj") || haystack.includes("balkan") || haystack.includes("halal")) return "BALKAN";
+  return "BALKAN";
 }
 
-// ---------- PLACE DETAILS (authoritative data) ----------
+// ---------- PLACE DETAILS ----------
 
 async function getPlaceDetails(placeId: string, apiKey: string) {
   const url = `https://places.googleapis.com/v1/places/${placeId}`;
@@ -88,10 +116,7 @@ async function getPlaceDetails(placeId: string, apiKey: string) {
 }
 
 function extractFromAddressComponents(components: any[]): { city: string | null; bundesland: string | null; postalCode: string | null; country: string | null } {
-  let city: string | null = null;
-  let bundesland: string | null = null;
-  let postalCode: string | null = null;
-  let country: string | null = null;
+  let city: string | null = null, bundesland: string | null = null, postalCode: string | null = null, country: string | null = null;
   if (!components) return { city, bundesland, postalCode, country };
   for (const comp of components) {
     if (comp.types?.includes("locality")) city = comp.longText || comp.shortText || null;
@@ -107,7 +132,7 @@ function extractFromAddressComponents(components: any[]): { city: string | null;
   return { city, bundesland, postalCode, country };
 }
 
-// ---------- TEXT SEARCH (discovery only) ----------
+// ---------- TEXT SEARCH ----------
 
 async function searchPlaces(query: string, city: string, apiKey: string): Promise<any[]> {
   const textQuery = `${query} in ${city}, Deutschland`;
@@ -124,16 +149,6 @@ async function searchPlaces(query: string, city: string, apiKey: string): Promis
   if (!res.ok) return [];
   const data = await res.json();
   return data.places || [];
-}
-
-// ---------- VALIDATION ----------
-
-function buildReviewReasons(detailCity: string | null, searchCity: string, postalCode: string | null, lat: number | null): string[] {
-  const reasons: string[] = [];
-  if (detailCity && searchCity && detailCity.toLowerCase() !== searchCity.toLowerCase()) reasons.push(`city_mismatch:${detailCity}vs${searchCity}`);
-  if (!postalCode) reasons.push("missing_postal_code");
-  if (!lat) reasons.push("missing_coordinates");
-  return reasons;
 }
 
 // ---------- MAIN HANDLER ----------
@@ -182,40 +197,30 @@ Deno.serve(async (req) => {
             total += results.length;
 
             for (const place of results) {
-              // STRICT: skip any result without a place ID
               if (!place.id) { skipped++; continue; }
 
               const placeName = place.displayName?.text || "";
               const origin = detectOrigin(placeName, place.types || [], term);
-              if (!origin) { skipped++; continue; }
 
-              // Check if already verified by admin — skip
+              // Check if already verified by admin
               const { data: existing } = await supabase
                 .from("community_listings")
                 .select("id, verified_by_admin")
                 .eq("google_place_id", place.id)
                 .maybeSingle();
 
-              if (existing?.verified_by_admin) {
-                verified_skipped++;
-                continue;
-              }
+              if (existing?.verified_by_admin) { verified_skipped++; continue; }
 
-              // Fetch Place Details — AUTHORITATIVE source, never trust search results
+              // Fetch Place Details
               const details = await getPlaceDetails(place.id, GOOGLE_API_KEY);
               if (!details) { skipped++; continue; }
-
-              // Skip permanently closed
               if (details.businessStatus === "CLOSED_PERMANENTLY") { skipped++; continue; }
 
               const detailName = details.displayName?.text;
               const detailAddress = details.formattedAddress;
-              // STRICT: must have name and address from Place Details
               if (!detailName || !detailAddress) { skipped++; continue; }
 
               const { city: detailCity, bundesland: detailBl, postalCode, country } = extractFromAddressComponents(details.addressComponents);
-
-              // STRICT: only import places in Germany
               if (country && country !== "DE") { skipped++; continue; }
 
               const lat = details.location?.latitude || null;
@@ -226,9 +231,6 @@ Deno.serve(async (req) => {
               const mainCat = MAIN_CATEGORY_MAP[catKey] || catKey;
               const subCat = SUB_CATEGORY_MAP[catKey] || catKey;
 
-              const reviewReasons = buildReviewReasons(detailCity, city, postalCode, lat);
-
-              // UPSERT: always overwrite with latest Google data (except admin-verified)
               const { error } = await supabase
                 .from("community_listings")
                 .upsert({
@@ -245,17 +247,16 @@ Deno.serve(async (req) => {
                   sub_category: subCat,
                   google_maps_url: mapsUrl,
                   website,
-                  needs_review: reviewReasons.length > 0,
-                  review_reason: reviewReasons.length > 0 ? reviewReasons.join("; ") : null,
+                  needs_review: false,
                   source: "google_places",
                 }, { onConflict: "google_place_id" });
 
               if (error) { console.error(`Upsert error for ${detailName}:`, error.message); skipped++; }
               else { imported++; }
 
-              await new Promise((r) => setTimeout(r, 150));
+              await new Promise((r) => setTimeout(r, 120));
             }
-            await new Promise((r) => setTimeout(r, 250));
+            await new Promise((r) => setTimeout(r, 200));
           }
         }
       }
