@@ -10,38 +10,37 @@ import { BUNDESLAENDER } from "@/lib/germany-data";
 import ListingMapPreview from "@/components/ListingMapPreview";
 
 /* ─── Country-specific subcategory definitions ─── */
-const COUNTRY_SUBCATEGORIES: Record<string, { key: string; label: string; categories: string[] }[]> = {
+/* ─── Subcategory filters mapped to REAL DB sub_category values ─── */
+const COUNTRY_SUBCATEGORIES: Record<string, { key: string; label: string; subCategories: string[] }[]> = {
   BIH: [
-    { key: "dzemat_moschee", label: "🕌 Džemati & Džamije", categories: ["dzemat_moschee"] },
-    { key: "kulturno_drustvo", label: "🎭 Kulturna udruženja", categories: ["kulturno_drustvo"] },
+    { key: "dzamije", label: "🕌 Džemati & Džamije", subCategories: ["dzamije"] },
+    { key: "udruzenja", label: "🎭 Kulturna udruženja", subCategories: ["udruzenja"] },
   ],
   HR: [
-    { key: "misija_crkva", label: "⛪ Katoličke misije & Crkve", categories: ["misija_crkva"] },
-    { key: "kulturno_drustvo", label: "🎭 Hrvatska udruženja", categories: ["kulturno_drustvo"] },
+    { key: "crkve", label: "⛪ Katoličke misije & Crkve", subCategories: ["crkve"] },
+    { key: "udruzenja", label: "🎭 Hrvatska udruženja", subCategories: ["udruzenja"] },
   ],
   SRB: [
-    { key: "religijski_objekat", label: "☦️ Pravoslavne crkve", categories: ["religijski_objekat"] },
-    { key: "kulturno_drustvo", label: "🎭 Srpska udruženja & Kulturni centri", categories: ["kulturno_drustvo"] },
+    { key: "crkve", label: "☦️ Pravoslavne crkve", subCategories: ["crkve"] },
+    { key: "udruzenja", label: "🎭 Srpska udruženja & Kulturni centri", subCategories: ["udruzenja"] },
   ],
   ME: [
-    { key: "religijski_objekat", label: "🛕 Vjerske zajednice", categories: ["dzemat_moschee", "misija_crkva", "religijski_objekat"] },
-    { key: "kulturno_drustvo", label: "🎭 Kulturna udruženja", categories: ["kulturno_drustvo"] },
+    { key: "religija", label: "🛕 Vjerske zajednice", subCategories: ["dzamije", "crkve"] },
+    { key: "udruzenja", label: "🎭 Kulturna udruženja", subCategories: ["udruzenja"] },
   ],
   MK: [
-    { key: "religijski_objekat", label: "🛕 Верски заедници", categories: ["dzemat_moschee", "misija_crkva", "religijski_objekat"] },
-    { key: "kulturno_drustvo", label: "🎭 Културни здруженија", categories: ["kulturno_drustvo"] },
+    { key: "religija", label: "🛕 Верски заедници", subCategories: ["dzamije", "crkve"] },
+    { key: "udruzenja", label: "🎭 Културни здруженија", subCategories: ["udruzenja"] },
   ],
   XK: [
-    { key: "religijski_objekat", label: "🛕 Bashkësi fetare", categories: ["dzemat_moschee", "misija_crkva", "religijski_objekat"] },
-    { key: "kulturno_drustvo", label: "🎭 Shoqata kulturore", categories: ["kulturno_drustvo"] },
+    { key: "religija", label: "🛕 Bashkësi fetare", subCategories: ["dzamije", "crkve"] },
+    { key: "udruzenja", label: "🎭 Shoqata kulturore", subCategories: ["udruzenja"] },
   ],
   AL: [
-    { key: "religijski_objekat", label: "🛕 Bashkësi fetare", categories: ["dzemat_moschee", "misija_crkva", "religijski_objekat"] },
-    { key: "kulturno_drustvo", label: "🎭 Shoqata kulturore", categories: ["kulturno_drustvo"] },
+    { key: "religija", label: "🛕 Bashkësi fetare", subCategories: ["dzamije", "crkve"] },
+    { key: "udruzenja", label: "🎭 Shoqata kulturore", subCategories: ["udruzenja"] },
   ],
 };
-
-const ALL_COMMUNITY_CATS = ["dzemat_moschee", "misija_crkva", "religijski_objekat", "kulturno_drustvo"];
 
 interface Listing {
   id: string;
@@ -77,7 +76,7 @@ export default function Community() {
       const { data, error } = await supabase
         .from("community_listings")
         .select("*")
-        .in("main_category", ALL_COMMUNITY_CATS)
+        .eq("main_category", "kultura")
         .order("name");
       if (error) throw error;
       return data;
@@ -97,11 +96,11 @@ export default function Community() {
 
   /* Filter listings by country, subgroup, and city */
   const filtered = useMemo(() => {
-    let result = listings.filter((l) => l.origin_country === activeCountry);
+    let result = listings.filter((l) => l.origin_country === activeCountry || l.origin_country === "BALKAN");
 
     if (activeSubgroup) {
       const sg = subcats.find((s) => s.key === activeSubgroup);
-      if (sg) result = result.filter((l) => sg.categories.includes(l.main_category));
+      if (sg) result = result.filter((l) => sg.subCategories.includes(l.sub_category));
     }
 
     if (cityInput.length >= 2)
