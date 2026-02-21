@@ -49,8 +49,9 @@ export default function Restorani() {
     return allCities.filter((c) => c.toLowerCase().includes(cityInput.toLowerCase())).slice(0, 10);
   }, [cityInput, allCities]);
 
+  /* Show all listings for any country — data uses "KOD_NASIH" for shared Balkan restaurants */
   const filtered = useMemo(() => {
-    let result = listings.filter((l) => l.origin_country === activeCountry);
+    let result = listings.filter((l) => l.origin_country === activeCountry || l.origin_country === "KOD_NASIH");
     if (cityInput.length >= 2) result = result.filter((l) => l.city.toLowerCase().includes(cityInput.toLowerCase()));
     return result;
   }, [listings, activeCountry, cityInput]);
@@ -103,7 +104,7 @@ export default function Restorani() {
           <div className="relative">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/30" />
             <Input
-              placeholder={t("restorani.searchCity") || "Stadt suchen…"}
+              placeholder="Stadt suchen…"
               value={cityInput}
               onChange={(e) => { setCityInput(e.target.value); setShowSuggestions(true); }}
               onFocus={() => setShowSuggestions(true)}

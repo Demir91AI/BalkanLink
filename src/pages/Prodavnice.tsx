@@ -22,9 +22,11 @@ interface Listing {
 
 const SUBCATEGORIES = [
   { key: "", label: "Sve" },
-  { key: "markt", label: "Marketi & Supermarketi" },
-  { key: "mesnica", label: "Mesare" },
-  { key: "baeckerei", label: "Pekare" },
+  { key: "markt", label: "🛒 Balkan marketi" },
+  { key: "mesnica", label: "🥩 Mesare" },
+  { key: "baeckerei", label: "🥖 Pekare" },
+  { key: "slatkisi", label: "🍬 Slatkiši & hrana" },
+  { key: "specijalizirane", label: "🏪 Specijalizirane prodavnice" },
 ];
 
 const STORE_CATEGORIES = ["markt", "baeckerei", "mesnica"];
@@ -58,8 +60,9 @@ export default function Prodavnice() {
     return allCities.filter((c) => c.toLowerCase().includes(cityInput.toLowerCase())).slice(0, 10);
   }, [cityInput, allCities]);
 
+  /* Show all listings for any country — data uses "KOD_NASIH" for shared Balkan stores */
   const filtered = useMemo(() => {
-    let result = listings.filter((l) => l.origin_country === activeCountry);
+    let result = listings.filter((l) => l.origin_country === activeCountry || l.origin_country === "KOD_NASIH");
     if (subFilter) result = result.filter((l) => l.main_category === subFilter);
     if (cityInput.length >= 2) result = result.filter((l) => l.city.toLowerCase().includes(cityInput.toLowerCase()));
     return result;
@@ -103,7 +106,7 @@ export default function Prodavnice() {
             🛒 Balkan Prodavnice
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="mx-auto mt-3 max-w-xl text-sm text-white/50 md:text-base">
-            Marketi, mesare i pekare s balkanskim proizvodima u Njemačkoj.
+            Marketi, mesare, pekare i specijalizirane prodavnice s balkanskim proizvodima.
           </motion.p>
         </div>
       </section>

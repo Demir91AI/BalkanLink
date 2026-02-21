@@ -14,6 +14,45 @@ export type Database = {
   }
   public: {
     Tables: {
+      balkan_rides: {
+        Row: {
+          available_seats: number
+          contact_info: string
+          created_at: string
+          departure_city: string
+          destination_city: string
+          fuel_contribution: string | null
+          id: string
+          is_active: boolean
+          ride_date: string
+          user_id: string
+        }
+        Insert: {
+          available_seats?: number
+          contact_info: string
+          created_at?: string
+          departure_city: string
+          destination_city: string
+          fuel_contribution?: string | null
+          id?: string
+          is_active?: boolean
+          ride_date: string
+          user_id: string
+        }
+        Update: {
+          available_seats?: number
+          contact_info?: string
+          created_at?: string
+          departure_city?: string
+          destination_city?: string
+          fuel_contribution?: string | null
+          id?: string
+          is_active?: boolean
+          ride_date?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       community_listings: {
         Row: {
           address: string | null

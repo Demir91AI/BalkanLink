@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Wrench, Briefcase, Building2, FileText, UtensilsCrossed, ShoppingBag,
-  Bus, HelpCircle, ArrowRight, Sparkles, Star,
+  Bus, ArrowRight, Sparkles, Star, Users, Trophy,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
@@ -17,16 +17,17 @@ import heroStuttgart from "@/assets/hero-stuttgart.jpg";
 import heroDuesseldorf from "@/assets/hero-duesseldorf.jpg";
 import heroNuernberg from "@/assets/hero-nuernberg.jpg";
 
-/* ── Feature cards config ── */
+/* ── Feature cards config — 9 main categories ── */
 const featureCards = [
+  { key: "home.card.kultura" as const, icon: Users, to: "/community", color: "from-purple-500/15 to-purple-600/5" },
+  { key: "home.card.prodavnice" as const, icon: ShoppingBag, to: "/prodavnice", color: "from-teal-500/15 to-teal-600/5" },
+  { key: "home.card.restorani" as const, icon: UtensilsCrossed, to: "/restorani", color: "from-rose-500/15 to-rose-600/5" },
+  { key: "home.card.sport" as const, icon: Trophy, to: "/sport", color: "from-green-500/15 to-green-600/5" },
+  { key: "home.card.prevoz" as const, icon: Bus, to: "/putovanja", color: "from-orange-500/15 to-orange-600/5" },
   { key: "home.card.majstor" as const, icon: Wrench, to: "/trebam-majstora", color: "from-amber-500/15 to-amber-600/5" },
   { key: "home.card.posao" as const, icon: Briefcase, to: "/stellenangebote", color: "from-blue-500/15 to-blue-600/5" },
   { key: "home.card.stan" as const, icon: Building2, to: "/wohnungen", color: "from-emerald-500/15 to-emerald-600/5" },
   { key: "home.card.papiri" as const, icon: FileText, to: "/formulare", color: "from-violet-500/15 to-violet-600/5" },
-  { key: "home.card.restorani" as const, icon: UtensilsCrossed, to: "/restorani", color: "from-rose-500/15 to-rose-600/5" },
-  { key: "home.card.prodavnice" as const, icon: ShoppingBag, to: "/prodavnice", color: "from-teal-500/15 to-teal-600/5" },
-  { key: "home.card.prevoz" as const, icon: Bus, to: "/putovanja", color: "from-orange-500/15 to-orange-600/5" },
-  { key: "home.card.pitanje" as const, icon: HelpCircle, to: "/qa", color: "from-indigo-500/15 to-indigo-600/5" },
 ];
 
 const exampleKeys = [
@@ -163,7 +164,7 @@ export default function Index() {
         </div>
       </section>
 
-      {/* ─── FEATURE CARDS ─── */}
+      {/* ─── FEATURE CARDS — 9 main categories ─── */}
       <section className="relative py-14 sm:py-20">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/20 to-background" />
         <div className="container relative">
