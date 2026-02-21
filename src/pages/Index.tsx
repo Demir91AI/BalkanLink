@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  FileText, Briefcase, Building2, HeartPulse, GraduationCap,
+  FileText, Briefcase, Building2, HeartPulse, ScanSearch,
   ClipboardList, Landmark, Users, Trophy, Bus, Wallet,
   UtensilsCrossed, ShoppingBag, CakeSlice, Beef, Coffee, Store,
   ArrowRight, Car, Banknote,
@@ -28,6 +28,7 @@ const pomocItems = [
   { label: "Banka & Konto", icon: Wallet, to: "/dolazak/bankovni-racun" },
   { label: "Auto & Registracija", icon: Car, to: "/dolazak/auto-anmelden" },
   { label: "Förderungen & Pomoć države", icon: Banknote, to: "/foerderungen" },
+  { label: "Dokumenten-Check", icon: ScanSearch, to: "/dokumenten-check" },
 ];
 
 const zajednicaItems = [
