@@ -58,18 +58,22 @@ export type Database = {
           address: string | null
           bundesland: string
           business_status: string | null
+          category_confidence: number | null
           city: string
           created_at: string
           description: string | null
           google_maps_url: string | null
           google_place_id: string
           id: string
+          imported_at: string | null
           instagram: string | null
           lat: number | null
           lng: number | null
+          locked_fields: Json | null
           main_category: string
           name: string
           needs_review: boolean
+          origin_confidence: number | null
           origin_country: string
           override_address: string | null
           override_city: string | null
@@ -89,18 +93,22 @@ export type Database = {
           address?: string | null
           bundesland: string
           business_status?: string | null
+          category_confidence?: number | null
           city: string
           created_at?: string
           description?: string | null
           google_maps_url?: string | null
           google_place_id: string
           id?: string
+          imported_at?: string | null
           instagram?: string | null
           lat?: number | null
           lng?: number | null
+          locked_fields?: Json | null
           main_category: string
           name: string
           needs_review?: boolean
+          origin_confidence?: number | null
           origin_country: string
           override_address?: string | null
           override_city?: string | null
@@ -120,18 +128,22 @@ export type Database = {
           address?: string | null
           bundesland?: string
           business_status?: string | null
+          category_confidence?: number | null
           city?: string
           created_at?: string
           description?: string | null
           google_maps_url?: string | null
           google_place_id?: string
           id?: string
+          imported_at?: string | null
           instagram?: string | null
           lat?: number | null
           lng?: number | null
+          locked_fields?: Json | null
           main_category?: string
           name?: string
           needs_review?: boolean
+          origin_confidence?: number | null
           origin_country?: string
           override_address?: string | null
           override_city?: string | null
