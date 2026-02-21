@@ -1,11 +1,11 @@
 export default function KiHinweis() {
   return (
     <div className="container max-w-2xl py-16">
-      <h1 className="mb-8 text-3xl font-bold">KI-Hinweis</h1>
+      <h1 className="mb-8 text-3xl font-bold">Hinweis zum Assistenten</h1>
       <div className="space-y-6 text-sm text-muted-foreground">
         <p>
-          Der KI-Assistent auf dieser Plattform stellt keine Rechtsberatung dar.
-          Er gibt ausschließlich allgemeine, unverbindliche Informationen.
+          Der Assistent auf dieser Plattform stellt <strong>keine Rechtsberatung</strong> dar.
+          Er gibt ausschließlich allgemeine, unverbindliche Informationen zur Orientierung.
         </p>
 
         <section>
@@ -27,6 +27,14 @@ export default function KiHinweis() {
             <li>„Es kann sein"</li>
             <li>„Bitte prüfen Sie dies bei der zuständigen Behörde"</li>
           </ul>
+        </section>
+
+        <section>
+          <h2 className="mb-2 text-lg font-semibold text-foreground">Datenschutz</h2>
+          <p>
+            Eingegebene Texte werden ausschließlich zur Beantwortung der jeweiligen Anfrage verarbeitet und nicht dauerhaft gespeichert.
+            Bitte geben Sie keine sensiblen personenbezogenen Daten ein (Ausweisnummer, Steuer-ID, IBAN, Gesundheitsdaten).
+          </p>
         </section>
 
         <p>

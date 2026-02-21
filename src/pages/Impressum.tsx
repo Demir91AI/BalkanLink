@@ -8,7 +8,7 @@ export default function Impressum() {
           <p>
             <strong>Betreiber:</strong><br />
             [Vorname Nachname]<br />
-            [Adresse]<br />
+            [Straße Hausnummer]<br />
             [PLZ Ort]<br />
             Deutschland
           </p>
@@ -36,10 +36,29 @@ export default function Impressum() {
         </section>
 
         <section>
-          <h2 className="mb-2 text-lg font-semibold text-foreground">Hinweis</h2>
+          <h2 className="mb-2 text-lg font-semibold text-foreground">Hinweis zur Plattform</h2>
           <p>
-            BalkanLink ist eine unabhängige Informationsplattform.
-            Es besteht keine Verbindung zu staatlichen Behörden.
+            BalkanLink ist eine <strong>unabhängige Informationsplattform</strong>.
+            Es besteht keine Verbindung zu staatlichen Behörden, Botschaften oder offiziellen Stellen.
+          </p>
+          <p className="mt-2">
+            Die Plattform bietet allgemeine Informationen zur Orientierung und stellt keine Rechtsberatung,
+            Steuerberatung oder verbindliche behördliche Auskunft dar.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="mb-2 text-lg font-semibold text-foreground">Streitschlichtung</h2>
+          <p>
+            Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+            <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer"
+              className="ml-1 text-primary hover:underline">
+              https://ec.europa.eu/consumers/odr/
+            </a>
+          </p>
+          <p className="mt-1">
+            Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
+            Verbraucherschlichtungsstelle teilzunehmen.
           </p>
         </section>
 

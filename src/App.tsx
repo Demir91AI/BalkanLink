@@ -51,6 +51,7 @@ import TrebamMajstora from "./pages/TrebamMajstora";
 import Putovanja from "./pages/Putovanja";
 import SportKlubovi from "./pages/SportKlubovi";
 import GuideDetail from "./pages/GuideDetail";
+import DokumentenCheck from "./pages/DokumentenCheck";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -100,6 +101,7 @@ const App = () => (
                 <Route path="/putovanja" element={<Putovanja />} />
                 <Route path="/sport" element={<SportKlubovi />} />
                 <Route path="/guide/:slug" element={<GuideDetail />} />
+                <Route path="/dokumenten-check" element={<DokumentenCheck />} />
                 <Route path="/qa" element={<QA />} />
                 <Route path="/qa/:id" element={<QADetail />} />
                 <Route path="/directory" element={<Directory />} />
