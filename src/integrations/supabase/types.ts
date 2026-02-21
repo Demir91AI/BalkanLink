@@ -57,6 +57,7 @@ export type Database = {
         Row: {
           address: string | null
           bundesland: string
+          business_status: string | null
           city: string
           created_at: string
           description: string | null
@@ -64,15 +65,29 @@ export type Database = {
           google_place_id: string | null
           id: string
           instagram: string | null
+          lat: number | null
+          lng: number | null
           main_category: string
           name: string
+          needs_review: boolean
           origin_country: string
+          override_address: string | null
+          override_city: string | null
+          override_lat: number | null
+          override_lng: number | null
+          override_name: string | null
+          override_postal: string | null
+          override_updated_at: string | null
+          postal_code: string | null
+          review_reason: string | null
           sub_category: string
+          verified_by_admin: boolean
           website: string | null
         }
         Insert: {
           address?: string | null
           bundesland: string
+          business_status?: string | null
           city: string
           created_at?: string
           description?: string | null
@@ -80,15 +95,29 @@ export type Database = {
           google_place_id?: string | null
           id?: string
           instagram?: string | null
+          lat?: number | null
+          lng?: number | null
           main_category: string
           name: string
+          needs_review?: boolean
           origin_country: string
+          override_address?: string | null
+          override_city?: string | null
+          override_lat?: number | null
+          override_lng?: number | null
+          override_name?: string | null
+          override_postal?: string | null
+          override_updated_at?: string | null
+          postal_code?: string | null
+          review_reason?: string | null
           sub_category: string
+          verified_by_admin?: boolean
           website?: string | null
         }
         Update: {
           address?: string | null
           bundesland?: string
+          business_status?: string | null
           city?: string
           created_at?: string
           description?: string | null
@@ -96,10 +125,23 @@ export type Database = {
           google_place_id?: string | null
           id?: string
           instagram?: string | null
+          lat?: number | null
+          lng?: number | null
           main_category?: string
           name?: string
+          needs_review?: boolean
           origin_country?: string
+          override_address?: string | null
+          override_city?: string | null
+          override_lat?: number | null
+          override_lng?: number | null
+          override_name?: string | null
+          override_postal?: string | null
+          override_updated_at?: string | null
+          postal_code?: string | null
+          review_reason?: string | null
           sub_category?: string
+          verified_by_admin?: boolean
           website?: string | null
         }
         Relationships: []
