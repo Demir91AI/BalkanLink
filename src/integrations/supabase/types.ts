@@ -62,7 +62,7 @@ export type Database = {
           created_at: string
           description: string | null
           google_maps_url: string | null
-          google_place_id: string | null
+          google_place_id: string
           id: string
           instagram: string | null
           lat: number | null
@@ -80,6 +80,7 @@ export type Database = {
           override_updated_at: string | null
           postal_code: string | null
           review_reason: string | null
+          source: string
           sub_category: string
           verified_by_admin: boolean
           website: string | null
@@ -92,7 +93,7 @@ export type Database = {
           created_at?: string
           description?: string | null
           google_maps_url?: string | null
-          google_place_id?: string | null
+          google_place_id: string
           id?: string
           instagram?: string | null
           lat?: number | null
@@ -110,6 +111,7 @@ export type Database = {
           override_updated_at?: string | null
           postal_code?: string | null
           review_reason?: string | null
+          source?: string
           sub_category: string
           verified_by_admin?: boolean
           website?: string | null
@@ -122,7 +124,7 @@ export type Database = {
           created_at?: string
           description?: string | null
           google_maps_url?: string | null
-          google_place_id?: string | null
+          google_place_id?: string
           id?: string
           instagram?: string | null
           lat?: number | null
@@ -140,6 +142,7 @@ export type Database = {
           override_updated_at?: string | null
           postal_code?: string | null
           review_reason?: string | null
+          source?: string
           sub_category?: string
           verified_by_admin?: boolean
           website?: string | null

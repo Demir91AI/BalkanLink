@@ -80,29 +80,31 @@ async function getPlaceDetails(placeId: string, apiKey: string) {
     method: "GET",
     headers: {
       "X-Goog-Api-Key": apiKey,
-      "X-Goog-FieldMask": "id,displayName,formattedAddress,location,businessStatus,googleMapsUri,types,addressComponents",
+      "X-Goog-FieldMask": "id,displayName,formattedAddress,location,businessStatus,googleMapsUri,types,addressComponents,websiteUri,internationalPhoneNumber",
     },
   });
   if (!res.ok) return null;
   return await res.json();
 }
 
-function extractFromAddressComponents(components: any[]): { city: string | null; bundesland: string | null; postalCode: string | null } {
+function extractFromAddressComponents(components: any[]): { city: string | null; bundesland: string | null; postalCode: string | null; country: string | null } {
   let city: string | null = null;
   let bundesland: string | null = null;
   let postalCode: string | null = null;
-  if (!components) return { city, bundesland, postalCode };
+  let country: string | null = null;
+  if (!components) return { city, bundesland, postalCode, country };
   for (const comp of components) {
     if (comp.types?.includes("locality")) city = comp.longText || comp.shortText || null;
     if (comp.types?.includes("administrative_area_level_1")) bundesland = comp.longText || comp.shortText || null;
     if (comp.types?.includes("postal_code")) postalCode = comp.longText || comp.shortText || null;
+    if (comp.types?.includes("country")) country = comp.shortText || null;
   }
   if (!city) {
     for (const comp of components) {
       if (comp.types?.includes("administrative_area_level_3")) { city = comp.longText || comp.shortText || null; break; }
     }
   }
-  return { city, bundesland, postalCode };
+  return { city, bundesland, postalCode, country };
 }
 
 // ---------- TEXT SEARCH (discovery only) ----------
@@ -180,6 +182,9 @@ Deno.serve(async (req) => {
             total += results.length;
 
             for (const place of results) {
+              // STRICT: skip any result without a place ID
+              if (!place.id) { skipped++; continue; }
+
               const placeName = place.displayName?.text || "";
               const origin = detectOrigin(placeName, place.types || [], term);
               if (!origin) { skipped++; continue; }
@@ -196,28 +201,34 @@ Deno.serve(async (req) => {
                 continue;
               }
 
-              // Fetch Place Details for authoritative data
+              // Fetch Place Details — AUTHORITATIVE source, never trust search results
               const details = await getPlaceDetails(place.id, GOOGLE_API_KEY);
               if (!details) { skipped++; continue; }
 
               // Skip permanently closed
               if (details.businessStatus === "CLOSED_PERMANENTLY") { skipped++; continue; }
 
-              const detailName = details.displayName?.text || placeName;
-              const detailAddress = details.formattedAddress || "";
-              if (!detailAddress) { skipped++; continue; }
+              const detailName = details.displayName?.text;
+              const detailAddress = details.formattedAddress;
+              // STRICT: must have name and address from Place Details
+              if (!detailName || !detailAddress) { skipped++; continue; }
 
-              const { city: detailCity, bundesland: detailBl, postalCode } = extractFromAddressComponents(details.addressComponents);
+              const { city: detailCity, bundesland: detailBl, postalCode, country } = extractFromAddressComponents(details.addressComponents);
+
+              // STRICT: only import places in Germany
+              if (country && country !== "DE") { skipped++; continue; }
+
               const lat = details.location?.latitude || null;
               const lng = details.location?.longitude || null;
               const mapsUrl = details.googleMapsUri || `https://www.google.com/maps/place/?q=place_id:${place.id}`;
+              const website = details.websiteUri || null;
 
               const mainCat = MAIN_CATEGORY_MAP[catKey] || catKey;
               const subCat = SUB_CATEGORY_MAP[catKey] || catKey;
 
-              // Validation
               const reviewReasons = buildReviewReasons(detailCity, city, postalCode, lat);
 
+              // UPSERT: always overwrite with latest Google data (except admin-verified)
               const { error } = await supabase
                 .from("community_listings")
                 .upsert({
@@ -233,8 +244,10 @@ Deno.serve(async (req) => {
                   main_category: mainCat,
                   sub_category: subCat,
                   google_maps_url: mapsUrl,
+                  website,
                   needs_review: reviewReasons.length > 0,
                   review_reason: reviewReasons.length > 0 ? reviewReasons.join("; ") : null,
+                  source: "google_places",
                 }, { onConflict: "google_place_id" });
 
               if (error) { console.error(`Upsert error for ${detailName}:`, error.message); skipped++; }
