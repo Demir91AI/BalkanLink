@@ -61,6 +61,7 @@ export type Database = {
           created_at: string
           description: string | null
           google_maps_url: string | null
+          google_place_id: string | null
           id: string
           instagram: string | null
           main_category: string
@@ -76,6 +77,7 @@ export type Database = {
           created_at?: string
           description?: string | null
           google_maps_url?: string | null
+          google_place_id?: string | null
           id?: string
           instagram?: string | null
           main_category: string
@@ -91,6 +93,7 @@ export type Database = {
           created_at?: string
           description?: string | null
           google_maps_url?: string | null
+          google_place_id?: string | null
           id?: string
           instagram?: string | null
           main_category?: string

@@ -1,1 +1,7 @@
 project_id = "cvobntstjmlpozrbleyu"
+
+[functions.chat-assistant]
+verify_jwt = false
+
+[functions.import-places]
+verify_jwt = false
