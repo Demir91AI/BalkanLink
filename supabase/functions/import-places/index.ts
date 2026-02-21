@@ -66,8 +66,8 @@ const ORIGIN_RULES: OriginRule[] = [
   { code: "AL", keywords: ["albanisch", "albania", "albansk", "shqiptar"] },
 ];
 
-function detectOrigin(name: string, types: string[]): string | null {
-  const haystack = (name + " " + types.join(" ")).toLowerCase();
+function detectOrigin(name: string, types: string[], searchTerm?: string): string | null {
+  const haystack = (name + " " + types.join(" ") + " " + (searchTerm || "")).toLowerCase();
   for (const rule of ORIGIN_RULES) {
     for (const kw of rule.keywords) {
       if (haystack.includes(kw)) return rule.code;
@@ -76,6 +76,8 @@ function detectOrigin(name: string, types: string[]): string | null {
   if (haystack.includes("moschee") || haystack.includes("mosque") || haystack.includes("islamic") || haystack.includes("džamija")) return "BIH";
   if (haystack.includes("orthodox")) return "SRB";
   if (haystack.includes("katolička") || haystack.includes("catholic mission")) return "HR";
+  // For generic Balkan searches, assign BALKAN as origin
+  if (haystack.includes("balkan") || haystack.includes("ćevap") || haystack.includes("cevap") || haystack.includes("pljeskavica") || haystack.includes("burek")) return "BALKAN";
   return null;
 }
 
@@ -142,10 +144,12 @@ Deno.serve(async (req) => {
 
     let categoryFilter: string | null = null;
     let bundeslandFilter: string | null = null;
+    let cityFilter: string | null = null;
     try {
       const body = await req.json();
       categoryFilter = body.category || null;
       bundeslandFilter = body.bundesland || null;
+      cityFilter = body.city || null;
     } catch {
       // No body = run all
     }
@@ -154,9 +158,14 @@ Deno.serve(async (req) => {
       ? { [categoryFilter]: CATEGORY_SEARCH_TERMS[categoryFilter] || [] }
       : CATEGORY_SEARCH_TERMS;
 
-    const bundeslaender = bundeslandFilter
-      ? { [bundeslandFilter]: BUNDESLAENDER_CITIES[bundeslandFilter] || [] }
-      : BUNDESLAENDER_CITIES;
+    let bundeslaender: Record<string, string[]>;
+    if (cityFilter && bundeslandFilter) {
+      bundeslaender = { [bundeslandFilter]: [cityFilter] };
+    } else if (bundeslandFilter) {
+      bundeslaender = { [bundeslandFilter]: BUNDESLAENDER_CITIES[bundeslandFilter] || [] };
+    } else {
+      bundeslaender = BUNDESLAENDER_CITIES;
+    }
 
     let imported = 0;
     let skipped = 0;
@@ -171,15 +180,12 @@ Deno.serve(async (req) => {
 
             for (const place of results) {
               const addr = place.formattedAddress || "";
-              // Must be in Germany
-              if (!addr.includes("Germany") && !addr.includes("Deutschland")) {
-                skipped++;
-                continue;
-              }
+              const placeName = place.displayName?.text || "";
+              
+              // Accept all places with an address (search is already scoped to Germany)
               if (!addr) { skipped++; continue; }
 
-              const placeName = place.displayName?.text || "";
-              const origin = detectOrigin(placeName, place.types || []);
+              const origin = detectOrigin(placeName, place.types || [], term);
               if (!origin) { skipped++; continue; }
 
               const detectedBl = detectBundesland(city);
