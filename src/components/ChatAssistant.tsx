@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import { MessageSquare, X, Send, Loader2, Lock } from "lucide-react";
+import { MessageSquare, X, Send, Loader2, Lock, Info } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -39,6 +39,30 @@ const ERROR_MSG: Record<string, string> = {
   en: "An error occurred. Please try again.",
 };
 
+const INFO_NOTICE: Record<string, string> = {
+  bs: "ℹ️ Informativni odgovor – provjerite službenu instituciju.",
+  hr: "ℹ️ Informativni odgovor – provjerite službenu instituciju.",
+  sr: "ℹ️ Informativni odgovor – proverite službenu instituciju.",
+  me: "ℹ️ Informativni odgovor – provjerite službenu instituciju.",
+  sq: "ℹ️ Përgjigje informative – verifikoni pranë institucionit zyrtar.",
+  xk: "ℹ️ Përgjigje informative – verifikoni pranë institucionit zyrtar.",
+  mk: "ℹ️ Информативен одговор – проверете кај надлежната институција.",
+  de: "ℹ️ Informative Antwort – bitte bei der zuständigen Behörde prüfen.",
+  en: "ℹ️ Informational answer – please verify with the official institution.",
+};
+
+const DISCLAIMER: Record<string, string> = {
+  bs: "Ovaj asistent pruža opće informacije i ne predstavlja pravni savjet. Za obavezujuće informacije obratite se nadležnoj instituciji.",
+  hr: "Ovaj asistent pruža opće informacije i ne predstavlja pravni savjet. Za obvezujuće informacije obratite se nadležnoj instituciji.",
+  sr: "Ovaj asistent pruža opšte informacije i ne predstavlja pravni savet. Za obavezujuće informacije obratite se nadležnoj instituciji.",
+  me: "Ovaj asistent pruža opće informacije i ne predstavlja pravni savjet. Za obavezujuće informacije obratite se nadležnoj instituciji.",
+  sq: "Ky asistent ofron informacione të përgjithshme dhe nuk përbën këshillë juridike. Për informacione zyrtare kontaktoni institucionin përkatës.",
+  xk: "Ky asistent ofron informacione të përgjithshme dhe nuk përbën këshillë juridike. Për informacione zyrtare kontaktoni institucionin përkatës.",
+  mk: "Овој асистент дава општи информации и не претставува правен совет. За обврзувачки информации обратете се до надлежната институција.",
+  de: "Dieser Assistent gibt allgemeine Informationen und stellt keine Rechtsberatung dar. Für verbindliche Auskünfte wenden Sie sich an die zuständige Behörde.",
+  en: "This assistant provides general information and does not constitute legal advice. For binding information, contact the relevant authority.",
+};
+
 function ChatMarkdown({ content }: { content: string }) {
   return (
     <ReactMarkdown
@@ -72,12 +96,13 @@ function ChatMarkdown({ content }: { content: string }) {
 export default function ChatAssistant() {
   const { language } = useLanguage();
   const { isPremium, user } = useAuth();
-  const lk = language; // use full language code for lookups
+  const lk = language;
 
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [disclaimerShown, setDisclaimerShown] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
@@ -100,6 +125,11 @@ export default function ChatAssistant() {
     setMessages(newMessages);
     setInput("");
     setLoading(true);
+
+    // Show disclaimer once per session on first message
+    if (!disclaimerShown) {
+      setDisclaimerShown(true);
+    }
 
     let assistantSoFar = "";
 
@@ -132,7 +162,6 @@ export default function ChatAssistant() {
         throw new Error("Stream failed");
       }
 
-      // Check if this is a premium gate JSON response (not a stream)
       const contentType = resp.headers.get("content-type") || "";
       if (contentType.includes("application/json")) {
         const data = await resp.json();
@@ -185,7 +214,7 @@ export default function ChatAssistant() {
     } finally {
       setLoading(false);
     }
-  }, [input, loading, messages, lk, isPremium, language]);
+  }, [input, loading, messages, lk, isPremium, language, disclaimerShown]);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" && !e.shiftKey) {
@@ -236,10 +265,19 @@ export default function ChatAssistant() {
             </div>
 
             <div ref={scrollRef} className="flex-1 space-y-2 overflow-y-auto px-3 py-2.5">
+              {/* Welcome message */}
               {messages.length === 0 && (
                 <div className="rounded-lg bg-muted px-3 py-2.5">
                   <p className="text-[13px] font-semibold leading-tight text-foreground mb-1">{lk === "de" ? "Digitaler Assistent BalkanLink" : lk === "en" ? "BalkanLink Digital Assistant" : "Digitalni asistent BalkanLink"}</p>
                   <p className="text-[12px] leading-snug text-muted-foreground">{WELCOME[lk].split("\n").slice(1).join(" ")}</p>
+                </div>
+              )}
+
+              {/* Disclaimer – shown once per session after first message */}
+              {disclaimerShown && messages.length > 0 && messages.length <= 2 && (
+                <div className="flex items-start gap-1.5 rounded-md bg-muted/50 px-2.5 py-2 text-[11px] text-muted-foreground">
+                  <Info className="mt-0.5 h-3 w-3 shrink-0" />
+                  <span>{DISCLAIMER[lk]}</span>
                 </div>
               )}
 
@@ -282,6 +320,10 @@ export default function ChatAssistant() {
                               Postavi opće pitanje →
                             </button>
                           </div>
+                        )}
+                        {/* Info notice for free (non-gated) assistant answers */}
+                        {!msg.premiumGated && !isPremium && (
+                          <p className="mt-1.5 text-[10px] text-muted-foreground/70">{INFO_NOTICE[lk]}</p>
                         )}
                       </>
                     ) : (

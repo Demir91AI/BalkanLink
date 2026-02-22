@@ -12,53 +12,46 @@ const LANG_NAMES: Record<string, string> = {
 };
 
 // =====================================================================
-// INTENT CLASSIFIER — server-side enforcement (not bypassable by prompt)
+// INTENT CLASSIFIER — only gates PERSONAL assistance (form-filling, etc.)
+// General informational questions are ALWAYS free.
 // =====================================================================
 
 const PREMIUM_KEYWORDS = [
-  // Bosnian/Croatian/Serbian
-  "gdje", "kako", "upiši", "upisi", "popuniti", "popuni", "polje", "tačno", "tacno",
-  "korak", "korak po korak", "potpis", "dokument", "priložiti", "priloziti",
-  "prilog", "čeklista", "ceklista", "objasni korak", "korak za korak",
-  "detaljno", "detaljne upute", "polje po polje", "polje-po-polje",
-  "koji dokument", "koje dokumente", "što priložiti", "sta priloziti",
-  "kako popuniti", "kako ispuniti", "kako upisati", "šta upisati", "sta upisati",
-  "šta napisati", "sta napisati", "koje polje", "u koje polje", "u kom polju",
-  "koji obrazac", "tačan format", "tacan format", "format datuma",
-  "potpisati", "potpisan", "priložen", "prilozen",
+  // Form-filling & personal guidance (Bosnian/Croatian/Serbian)
+  "popuni za mene", "pomozi mi popuniti", "popuni formular",
+  "ispuni za mene", "ispuni formular",
+  "polje po polje", "polje-po-polje",
+  "objasni mi pismo", "objasni pismo", "pismo od amta", "pismo od amt",
+  "analiziraj dokument", "analiziraj moj", "provjeri moj dokument",
+  "moja situacija", "moj slučaj", "moj slucaj",
+  "personalizirano", "personalizovano", "lična pomoć", "licna pomoc",
   // German
-  "ausfüllen", "ausfullen", "schritt für schritt", "schritt fur schritt",
-  "feld für feld", "feld fur feld", "anlage", "nachweis", "eintragen",
-  "wo trage ich", "wo schreibe ich", "was trage ich ein", "was schreibe ich",
-  "welches feld", "in welches feld", "genau eintragen", "formular ausfüllen",
-  "welche unterlagen", "welche dokumente", "checkliste",
+  "formular ausfüllen für mich", "formular ausfullen fur mich",
+  "feld für feld ausfüllen", "feld fur feld ausfullen",
+  "brief erklären", "brief erklaren", "brief vom amt",
+  "mein dokument", "dokument analysieren", "meine situation",
+  "persönliche hilfe", "personliche hilfe", "individuell",
   // English
-  "step by step", "step-by-step", "field by field", "field-by-field",
-  "where do i write", "how to fill", "what exactly", "which field",
-  "which document", "what to attach", "checklist",
+  "fill form for me", "fill out my form",
+  "field by field filling", "explain my letter",
+  "analyze my document", "my situation", "my case",
+  "personal assistance", "personalized help",
 ];
 
-// Patterns that indicate detailed guidance requests
 const PREMIUM_PATTERNS = [
-  /gdje\s+(se\s+)?upis/i,
-  /kako\s+(se\s+)?(popun|ispun|upis)/i,
-  /objasni.*korak/i,
-  /korak\s+(po|za)\s+korak/i,
-  /polje\s+(po|za)\s+polje/i,
-  /šta\s+(da\s+)?(upis|napišem|unesem)/i,
-  /sta\s+(da\s+)?(upis|napisem|unesem)/i,
-  /koji\s+dokument/i,
-  /koje\s+dokumente/i,
-  /što\s+priloži/i,
-  /sta\s+prilozi/i,
-  /wo\s+(trage|schreibe)\s+ich/i,
-  /was\s+(trage|schreibe)\s+ich/i,
-  /schritt\s+f[uü]r\s+schritt/i,
-  /feld\s+f[uü]r\s+feld/i,
-  /how\s+to\s+fill/i,
-  /step\s+by\s+step/i,
-  /field\s+by\s+field/i,
-  /where\s+do\s+i\s+(write|enter|put)/i,
+  /popuni\s+(mi\s+)?(ovaj\s+)?formular/i,
+  /ispuni\s+(mi\s+)?(ovaj\s+)?formular/i,
+  /pomozi\s+mi\s+(popuniti|ispuniti)/i,
+  /objasni\s+(mi\s+)?(ovo\s+)?pismo/i,
+  /analiziraj\s+(mi\s+)?(ovaj\s+)?dokument/i,
+  /provjeri\s+(mi\s+)?(ovaj\s+)?dokument/i,
+  /moj[ae]?\s+(situacij|slučaj|slucaj|dokument)/i,
+  /formular\s+ausf[uü]llen\s+(f[uü]r\s+mich|bitte)/i,
+  /brief\s+(vom\s+amt\s+)?erkl[aä]ren/i,
+  /mein(e[rn]?)?\s+(dokument|brief|situation|fall)/i,
+  /fill\s+(out\s+)?my\s+(form|document)/i,
+  /explain\s+my\s+(letter|document)/i,
+  /analy[sz]e\s+my\s+(document|letter)/i,
 ];
 
 type Intent = "FREE_ALLOWED" | "PREMIUM_REQUIRED";
@@ -66,12 +59,10 @@ type Intent = "FREE_ALLOWED" | "PREMIUM_REQUIRED";
 function classifyIntent(message: string): Intent {
   const lower = message.toLowerCase().trim();
 
-  // Check patterns first (strongest signals)
   for (const pat of PREMIUM_PATTERNS) {
     if (pat.test(lower)) return "PREMIUM_REQUIRED";
   }
 
-  // Check keywords — require at least one keyword match
   for (const kw of PREMIUM_KEYWORDS) {
     if (lower.includes(kw)) return "PREMIUM_REQUIRED";
   }
@@ -92,31 +83,37 @@ function buildSystemPrompt(isPremium: boolean, language: string): string {
 
 ${langInstruction}
 
-KORISNIK JE FREE KORISNIK. Tvoj odgovor mora biti KRATAK i OPĆENIT.
+KORISNIK JE FREE KORISNIK. Tvoj odgovor mora biti INFORMATIVAN i KORISTAN.
 
 PRAVILA ZA FREE KORISNIKE:
-- Odgovaraj KRATKO (max. 3-5 rečenica).
-- Daj samo opći pregled teme, bez detalja.
-- NE daj Schritt-für-Schritt upute.
-- NE daj Formular-Coach (polje-po-polje objašnjenja).
-- NE daj detaljne čekliste dokumenata.
-- Na kraju SVAKOG odgovora dodaj na jeziku ${langName}: napomenu da su detaljne upute dostupne sa BalkanLink Premium.
+- Odgovaraj na OPĆA INFORMATIVNA pitanja potpuno i korisno.
+- Koristi svoje znanje o Njemačkoj, institucijama, zakonima i procesima.
+- Možeš objasniti šta je nešto, koji su koraci, koje institucije su nadležne.
+- Možeš dati opće upute i savjete.
 
-DOZVOLJENO:
-- Kratka dijagnoza (2-3 reda)
-- Ime nadležne institucije
-- Ime formulara
-- Opći savjet (1-2 rečenice)
-- Prijevod pojedinačnog polja (npr. Vorname = ime). Ali NE objašnjavaj GDJE se to polje nalazi ili KAKO ga popuniti.
+ŠTO JE DOZVOLJENO (FREE):
+- Opća objašnjenja tema (npr. "Šta je Kindergeld?", "Kako funkcionira zdravstveno osiguranje?")
+- Informacije o institucijama i nadležnostima
+- Opći koraci procesa
+- Prijevodi pojmova (npr. Vorname = ime)
+- Objašnjenja zakona i propisa na općem nivou
+
+ŠTO NIJE DOZVOLJENO (samo PREMIUM):
+- Popunjavanje formulara polje-po-polje
+- Analiza konkretnih dokumenata korisnika
+- Objašnjavanje pisama od institucija (Amt-Briefe)
+- Personalizirana migracijska pomoć za konkretnu situaciju korisnika
+- Upload i analiza dokumenata
+
+Ako korisnik traži nešto što zahtijeva Premium, kratko objasni da je ta funkcija dio BalkanLink Premium i predloži da postavi opće pitanje.
 
 IDENTITET:
 - Nisi pravnik i nisi institucija.
 - Daješ isključivo opće, neobavezujuće informacije.
 
-STIL: Profesionalan, kratak, bez emotikona, bez praznih fraza.
+STIL: Profesionalan, informativan, bez emotikona, bez praznih fraza.
 
-DISCLAIMER na kraju SVAKOG odgovora (na jeziku ${langName}):
-Informacije služe samo za orijentaciju – obavezujuće je samo nadležna institucija.`;
+NE DODAJ DISCLAIMER NA KRAJ SVAKOG ODGOVORA. Disclaimer se prikazuje posebno u interfejsu.`;
   }
 
   return `Ti si "BalkanLink Zentral-Assistent" – centralni digitalni savjetnik platforme "BalkanLink – Život u Njemačkoj".
@@ -188,51 +185,46 @@ STIL KOMUNIKACIJE
 - Bez praznih fraza
 - Postavi max. 3 potpitanja ako je potrebno
 
-────────────────────────────
-DISCLAIMER
-────────────────────────────
-
-Na kraju SVAKOG odgovora (na jeziku ${langName}):
-Informacije služe samo za orijentaciju – obavezujuće je samo nadležna institucija.`;
+NE DODAJ DISCLAIMER NA KRAJ SVAKOG ODGOVORA. Disclaimer se prikazuje posebno u interfejsu.`;
 }
 
 // Premium gate response messages per language
 const PREMIUM_GATE_MESSAGES: Record<string, { teaser: string; cta: string }> = {
   bs: {
-    teaser: "Ovo pitanje zahtijeva detaljne upute polje-po-polje.",
-    cta: "Detaljne upute, čekliste dokumenata i Formular-Coach su dostupni u BalkanLink Premium.",
+    teaser: "Ova funkcija zahtijeva BalkanLink Premium: popunjavanje formulara, analiza dokumenata i personalizirana pomoć.",
+    cta: "Ako imate opće pitanje, slobodno ga postavite – odgovorićemo besplatno!",
   },
   hr: {
-    teaser: "Ovo pitanje zahtijeva detaljne upute polje-po-polje.",
-    cta: "Detaljne upute, popisi dokumenata i Formular-Coach dostupni su u BalkanLink Premium.",
+    teaser: "Ova funkcija zahtijeva BalkanLink Premium: popunjavanje formulara, analiza dokumenata i personalizirana pomoć.",
+    cta: "Ako imate opće pitanje, slobodno ga postavite – odgovorit ćemo besplatno!",
   },
   sr: {
-    teaser: "Ovo pitanje zahteva detaljne upute polje-po-polje.",
-    cta: "Detaljne upute, čekliste dokumenata i Formular-Coach su dostupni u BalkanLink Premium.",
+    teaser: "Ova funkcija zahteva BalkanLink Premium: popunjavanje formulara, analiza dokumenata i personalizovana pomoć.",
+    cta: "Ako imate opšte pitanje, slobodno ga postavite – odgovorićemo besplatno!",
   },
   me: {
-    teaser: "Ovo pitanje zahtijeva detaljne upute polje-po-polje.",
-    cta: "Detaljne upute, čekliste dokumenata i Formular-Coach su dostupni u BalkanLink Premium.",
+    teaser: "Ova funkcija zahtijeva BalkanLink Premium: popunjavanje formulara, analiza dokumenata i personalizirana pomoć.",
+    cta: "Ako imate opće pitanje, slobodno ga postavite – odgovorićemo besplatno!",
   },
   de: {
-    teaser: "Diese Frage erfordert eine detaillierte Schritt-für-Schritt-Anleitung.",
-    cta: "Detaillierte Anleitungen, Dokument-Checklisten und der Formular-Coach sind mit BalkanLink Premium verfügbar.",
+    teaser: "Diese Funktion erfordert BalkanLink Premium: Formularhilfe, Dokumentenanalyse und persönliche Beratung.",
+    cta: "Stellen Sie gerne eine allgemeine Frage – wir antworten kostenlos!",
   },
   en: {
-    teaser: "This question requires detailed step-by-step guidance.",
-    cta: "Detailed instructions, document checklists, and the Form Coach are available with BalkanLink Premium.",
+    teaser: "This feature requires BalkanLink Premium: form filling, document analysis and personalized assistance.",
+    cta: "Feel free to ask a general question – we'll answer for free!",
   },
   sq: {
-    teaser: "Kjo pyetje kërkon udhëzime të hollësishme hap pas hapi.",
-    cta: "Udhëzimet e hollësishme, listat e dokumenteve dhe Form Coach janë të disponueshme me BalkanLink Premium.",
+    teaser: "Kjo veçori kërkon BalkanLink Premium: plotësimin e formularëve, analizën e dokumenteve dhe ndihmë të personalizuar.",
+    cta: "Bëni lirisht një pyetje të përgjithshme – do t'ju përgjigjemi falas!",
   },
   xk: {
-    teaser: "Kjo pyetje kërkon udhëzime të hollësishme hap pas hapi.",
-    cta: "Udhëzimet e hollësishme, listat e dokumenteve dhe Form Coach janë të disponueshme me BalkanLink Premium.",
+    teaser: "Kjo veçori kërkon BalkanLink Premium: plotësimin e formularëve, analizën e dokumenteve dhe ndihmë të personalizuar.",
+    cta: "Bëni lirisht një pyetje të përgjithshme – do t'ju përgjigjemi falas!",
   },
   mk: {
-    teaser: "Ова прашање бара детални упатства чекор по чекор.",
-    cta: "Детални упатства, листи на документи и Формулар-Коуч се достапни со BalkanLink Premium.",
+    teaser: "Оваа функција бара BalkanLink Premium: пополнување формулари, анализа на документи и персонализирана помош.",
+    cta: "Слободно поставете општо прашање – ќе одговориме бесплатно!",
   },
 };
 
@@ -247,19 +239,15 @@ serve(async (req) => {
     if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY is not configured");
 
     // ── SERVER-SIDE INTENT GATE ──
-    // Get the latest user message
     const lastUserMsg = [...messages].reverse().find((m: any) => m.role === "user");
     const userText = lastUserMsg?.content || "";
 
-    // Classify intent
     const intent = classifyIntent(userText);
 
-    // If PREMIUM_REQUIRED and user is NOT premium → block with gate response
     if (intent === "PREMIUM_REQUIRED" && !isPremium) {
       const lang = language || "bs";
       const gate = PREMIUM_GATE_MESSAGES[lang] || PREMIUM_GATE_MESSAGES["bs"];
 
-      // Return a non-streaming JSON response with premium_required flag
       return new Response(
         JSON.stringify({
           premium_required: true,
