@@ -9,42 +9,46 @@ import { BUNDESLAENDER } from "@/lib/germany-data";
 import ListingMapPreview from "@/components/ListingMapPreview";
 import { COUNTRIES, type CountryCode } from "@/contexts/CountryContext";
 
-/* ─── Subcategory definitions per section ─── */
-const RELIGION_SUBCATS: Record<string, { key: string; label: string; subs: string[] }[]> = {
+/* ─── Gemeinschaft subcategories (religion + culture combined) per country ─── */
+const GEMEINSCHAFT_SUBCATS: Record<string, { key: string; label: string; subs: string[] }[]> = {
   BIH: [
-    { key: "dzamije", label: "🕌 Moscheen & Džemati", subs: ["dzamije", "dzemat", "mosque", "islamic_center"] },
+    { key: "dzamije", label: "🕌 Džamije & Džemati", subs: ["dzamije", "dzemat", "mosque", "islamic_center"] },
+    { key: "kultur", label: "🎭 Kulturna udruženja", subs: ["udruzenja", "association", "cultural_center"] },
   ],
   HR: [
-    { key: "missionen", label: "⛪ Katholische Missionen", subs: ["crkve", "church", "mission", "catholic_mission", "parish"] },
+    { key: "missionen", label: "⛪ Katoličke misije & Crkve", subs: ["crkve", "church", "mission", "catholic_mission", "parish"] },
+    { key: "kultur", label: "🎭 Kulturna udruženja", subs: ["udruzenja", "association", "cultural_center"] },
   ],
   SRB: [
-    { key: "orthodox", label: "☦️ Orthodoxe Kirchen", subs: ["crkve", "church", "orthodox", "parish", "gemeinde"] },
+    { key: "orthodox", label: "☦️ Pravoslavne crkve", subs: ["crkve", "church", "orthodox", "parish", "gemeinde"] },
+    { key: "kultur", label: "🎭 Kulturna udruženja", subs: ["udruzenja", "association", "cultural_center"] },
   ],
   ME: [
-    { key: "religion", label: "🛕 Religiöse Gemeinden", subs: ["dzamije", "crkve", "mosque", "church", "islamic_center", "orthodox"] },
+    { key: "religion", label: "🛕 Vjerske zajednice", subs: ["dzamije", "crkve", "mosque", "church", "islamic_center", "orthodox"] },
+    { key: "kultur", label: "🎭 Kulturna udruženja", subs: ["udruzenja", "association", "cultural_center"] },
   ],
   MK: [
-    { key: "orthodox", label: "☦️ Orthodoxe Gemeinden", subs: ["crkve", "church", "orthodox", "parish"] },
-    { key: "islamic", label: "🕌 Islamische Gemeinden", subs: ["dzamije", "mosque", "islamic_center"] },
+    { key: "orthodox", label: "☦️ Pravoslavne zajednice", subs: ["crkve", "church", "orthodox", "parish"] },
+    { key: "islamic", label: "🕌 Islamske zajednice", subs: ["dzamije", "mosque", "islamic_center"] },
+    { key: "kultur", label: "🎭 Kulturna udruženja", subs: ["udruzenja", "association", "cultural_center"] },
   ],
   XK: [
-    { key: "moscheen", label: "🕌 Moscheen", subs: ["dzamije", "mosque", "islamic_center"] },
-    { key: "zentren", label: "🏛️ Kulturreligiöse Zentren", subs: ["crkve", "church", "cultural_center"] },
+    { key: "moscheen", label: "🕌 Džamije", subs: ["dzamije", "mosque", "islamic_center"] },
+    { key: "zentren", label: "🏛️ Kulturno-religiozni centri", subs: ["crkve", "church", "cultural_center"] },
+    { key: "kultur", label: "🎭 Kulturna udruženja", subs: ["udruzenja", "association"] },
   ],
   AL: [
-    { key: "moscheen", label: "🕌 Moscheen", subs: ["dzamije", "mosque", "islamic_center"] },
-    { key: "zentren", label: "🏛️ Kulturreligiöse Zentren", subs: ["crkve", "church", "cultural_center"] },
+    { key: "moscheen", label: "🕌 Džamije", subs: ["dzamije", "mosque", "islamic_center"] },
+    { key: "zentren", label: "🏛️ Kulturno-religiozni centri", subs: ["crkve", "church", "cultural_center"] },
+    { key: "kultur", label: "🎭 Kulturna udruženja", subs: ["udruzenja", "association"] },
   ],
 };
-
-const CULTURE_SUBS = ["udruzenja", "association", "cultural_center"];
 
 const SPORT_SUBCATS = [
   { key: "fudbal", label: "⚽ Fußball", subs: ["fudbal", "football", "soccer"] },
   { key: "kosarka", label: "🏀 Basketball", subs: ["kosarka", "basketball"] },
   { key: "borilacki", label: "🥊 Kampfsport", subs: ["borilacki", "boxing", "martial_arts", "mma"] },
   { key: "odbojka", label: "🏐 Volleyball", subs: ["volleyball", "odbojka"] },
-  { key: "folklor", label: "💃 Folklor & KUD", subs: ["folklor", "kud", "dance"] },
   { key: "ostalo", label: "🏅 Andere", subs: ["sport", "handball", "tennis"] },
 ];
 
@@ -60,14 +64,14 @@ interface Listing {
   google_maps_url: string | null;
 }
 
-type SectionKey = "religion" | "kultur" | "sport";
+type SectionKey = "gemeinschaft" | "sport";
 
 export default function CountryPage() {
   const { code } = useParams<{ code: string }>();
   const countryCode = (code?.toUpperCase() || "BIH") as CountryCode;
   const country = COUNTRIES.find((c) => c.code === countryCode);
 
-  const [activeSection, setActiveSection] = useState<SectionKey>("religion");
+  const [activeSection, setActiveSection] = useState<SectionKey>("gemeinschaft");
   const [activeSub, setActiveSub] = useState("");
   const [cityInput, setCityInput] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -103,16 +107,14 @@ export default function CountryPage() {
   const filtered = useMemo(() => {
     let result = listings;
 
-    if (activeSection === "religion") {
-      const religionSubs = RELIGION_SUBCATS[countryCode] || [];
-      const allReligionSubs = religionSubs.flatMap((s) => s.subs);
-      result = result.filter((l) => l.main_category === "kultura" && allReligionSubs.includes(l.sub_category));
+    if (activeSection === "gemeinschaft") {
+      const gemSubs = GEMEINSCHAFT_SUBCATS[countryCode] || [];
+      const allGemSubs = gemSubs.flatMap((s) => s.subs);
+      result = result.filter((l) => l.main_category === "kultura" && allGemSubs.includes(l.sub_category));
       if (activeSub) {
-        const sg = religionSubs.find((s) => s.key === activeSub);
+        const sg = gemSubs.find((s) => s.key === activeSub);
         if (sg) result = result.filter((l) => sg.subs.includes(l.sub_category));
       }
-    } else if (activeSection === "kultur") {
-      result = result.filter((l) => l.main_category === "kultura" && CULTURE_SUBS.includes(l.sub_category));
     } else {
       result = result.filter((l) => l.main_category === "sport");
       if (activeSub) {
@@ -167,16 +169,13 @@ export default function CountryPage() {
     setter((p) => ({ ...p, [key]: !p[key] }));
 
   const sections: { key: SectionKey; label: string; icon: typeof Landmark }[] = [
-    { key: "religion", label: "Religiöse Gemeinden", icon: Landmark },
-    { key: "kultur", label: "Kulturvereine", icon: Users },
+    { key: "gemeinschaft", label: "Gemeinschaft", icon: Users },
     { key: "sport", label: "Sportklubs", icon: Trophy },
   ];
 
-  const currentSubcats = activeSection === "religion"
-    ? (RELIGION_SUBCATS[countryCode] || [])
-    : activeSection === "sport"
-      ? SPORT_SUBCATS
-      : [];
+  const currentSubcats = activeSection === "gemeinschaft"
+    ? (GEMEINSCHAFT_SUBCATS[countryCode] || [])
+    : SPORT_SUBCATS;
 
   if (!country) return <div className="py-20 text-center text-muted-foreground">Land nicht gefunden.</div>;
 
@@ -201,11 +200,10 @@ export default function CountryPage() {
             <div className="mt-6 flex gap-6">
               {sections.map((s) => {
                 const count = listings.filter((l) => {
-                  if (s.key === "religion") {
-                    const allSubs = (RELIGION_SUBCATS[countryCode] || []).flatMap((x) => x.subs);
+                  if (s.key === "gemeinschaft") {
+                    const allSubs = (GEMEINSCHAFT_SUBCATS[countryCode] || []).flatMap((x) => x.subs);
                     return l.main_category === "kultura" && allSubs.includes(l.sub_category);
                   }
-                  if (s.key === "kultur") return l.main_category === "kultura" && CULTURE_SUBS.includes(l.sub_category);
                   return l.main_category === "sport";
                 }).length;
                 return (
