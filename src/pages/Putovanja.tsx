@@ -7,7 +7,7 @@ import { format } from "date-fns";
 import {
   ExternalLink, Bus, Plus, AlertTriangle, MapPin, Calendar,
   Users, Phone, MessageCircle, ArrowRight, Search, X, Filter,
-  ChevronDown, Globe, Star,
+  ChevronDown,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Input } from "@/components/ui/input";
@@ -26,72 +26,109 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { toast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 
-/* ── Bus Prevoznici grouped by country ── */
+/* ── Bus Transport Directory ── */
+type TransportBadge = "Direktlinie" | "Umstieg" | "Kleinbus / Tür-zu-Tür";
+
 interface Carrier {
   name: string;
   url: string;
-  phone?: string;
-  whatsapp?: string;
-  badges?: ("Direktlinie" | "Umstieg" | "Beliebt bei Diaspora")[];
+  type: TransportBadge;
 }
 
-interface CountryCarriers {
+interface CountryRoute {
   country: string;
+  flag: string;
   carriers: Carrier[];
 }
 
-const busCarriersByCountry: CountryCarriers[] = [
+const busDirectory: CountryRoute[] = [
   {
     country: "Bosna i Hercegovina",
+    flag: "🇧🇦",
     carriers: [
-      { name: "Centrotrans", url: "https://www.centrotrans.com", badges: ["Direktlinie", "Beliebt bei Diaspora"] },
-      { name: "Globtour", url: "https://www.globtour.com", badges: ["Direktlinie", "Beliebt bei Diaspora"] },
-      { name: "Eurolines / Touring", url: "https://www.eurolines.de", badges: ["Direktlinie"] },
-      { name: "Flixbus", url: "https://www.flixbus.de", badges: ["Umstieg"] },
+      { name: "Centrotrans Eurolines", url: "https://www.centrotrans.com", type: "Direktlinie" },
+      { name: "Globtour", url: "https://www.globtour.com", type: "Direktlinie" },
+      { name: "Autoprevoz Brčko", url: "https://www.autoprevoz.ba", type: "Direktlinie" },
+      { name: "Eurolines Germany", url: "https://www.eurolines.de", type: "Direktlinie" },
+      { name: "FlixBus", url: "https://www.flixbus.de", type: "Umstieg" },
+      { name: "BusTicket4.me", url: "https://busticket4.me", type: "Umstieg" },
+      { name: "Atlas Reisen", url: "https://www.atlas-reisen.de", type: "Kleinbus / Tür-zu-Tür" },
+      { name: "Saraj Tours", url: "https://www.sarajtours.de", type: "Kleinbus / Tür-zu-Tür" },
+      { name: "Dani Tours", url: "https://www.danitours.de", type: "Kleinbus / Tür-zu-Tür" },
+      { name: "Euro Bosna Tours", url: "https://www.eurobosnatours.de", type: "Kleinbus / Tür-zu-Tür" },
+      { name: "Mina Tours", url: "https://www.minatours.de", type: "Kleinbus / Tür-zu-Tür" },
     ],
   },
   {
     country: "Srbija",
+    flag: "🇷🇸",
     carriers: [
-      { name: "Lasta", url: "https://www.lasta.rs", badges: ["Direktlinie", "Beliebt bei Diaspora"] },
-      { name: "Niš Ekspres", url: "https://www.nisekspres.rs", badges: ["Direktlinie"] },
-      { name: "Flixbus", url: "https://www.flixbus.de", badges: ["Umstieg"] },
+      { name: "Lasta Beograd", url: "https://www.lasta.rs", type: "Direktlinie" },
+      { name: "Niš Ekspres", url: "https://www.nis-ekspres.rs", type: "Direktlinie" },
+      { name: "Fudeks", url: "https://www.fudeks.rs", type: "Direktlinie" },
+      { name: "Eurolines Germany", url: "https://www.eurolines.de", type: "Direktlinie" },
+      { name: "FlixBus", url: "https://www.flixbus.de", type: "Umstieg" },
+      { name: "BusTicket4.me", url: "https://busticket4.me", type: "Umstieg" },
+      { name: "Polazak.rs", url: "https://www.polazak.com", type: "Umstieg" },
+      { name: "Srbija Tours", url: "https://www.srbijatours.de", type: "Kleinbus / Tür-zu-Tür" },
+      { name: "Beograd Reisen", url: "https://www.beogradreisen.de", type: "Kleinbus / Tür-zu-Tür" },
     ],
   },
   {
     country: "Hrvatska",
+    flag: "🇭🇷",
     carriers: [
-      { name: "Čazmatrans / Arriva", url: "https://www.arriva.com.hr", badges: ["Direktlinie", "Beliebt bei Diaspora"] },
-      { name: "Flixbus", url: "https://www.flixbus.de", badges: ["Direktlinie"] },
-      { name: "Croatia Bus", url: "https://www.croatiabus.hr", badges: ["Direktlinie"] },
+      { name: "Čazmatrans / Arriva", url: "https://www.arriva.com.hr", type: "Direktlinie" },
+      { name: "Croatia Bus", url: "https://www.croatiabus.hr", type: "Direktlinie" },
+      { name: "FlixBus", url: "https://www.flixbus.de", type: "Direktlinie" },
+      { name: "Eurolines Germany", url: "https://www.eurolines.de", type: "Direktlinie" },
+      { name: "GetByBus", url: "https://getbybus.com", type: "Umstieg" },
+      { name: "BusTicket4.me", url: "https://busticket4.me", type: "Umstieg" },
+      { name: "Croatia Express Reisen", url: "https://www.croatia-express.de", type: "Kleinbus / Tür-zu-Tür" },
     ],
   },
   {
     country: "Crna Gora",
+    flag: "🇲🇪",
     carriers: [
-      { name: "Globtour", url: "https://www.globtour.com", badges: ["Direktlinie"] },
-      { name: "Eurolines / Touring", url: "https://www.eurolines.de", badges: ["Umstieg"] },
+      { name: "Globtour", url: "https://www.globtour.com", type: "Direktlinie" },
+      { name: "Eurolines Germany", url: "https://www.eurolines.de", type: "Direktlinie" },
+      { name: "FlixBus", url: "https://www.flixbus.de", type: "Umstieg" },
+      { name: "BusTicket4.me", url: "https://busticket4.me", type: "Umstieg" },
+      { name: "Monte Tours", url: "https://www.montetours.de", type: "Kleinbus / Tür-zu-Tür" },
     ],
   },
   {
     country: "Sjeverna Makedonija",
+    flag: "🇲🇰",
     carriers: [
-      { name: "Eurobus", url: "https://www.eurobus.com.mk", badges: ["Direktlinie"] },
-      { name: "Flixbus", url: "https://www.flixbus.de", badges: ["Umstieg"] },
+      { name: "Eurobus", url: "https://www.eurobus.com.mk", type: "Direktlinie" },
+      { name: "Galeb", url: "https://www.galeb.com.mk", type: "Direktlinie" },
+      { name: "FlixBus", url: "https://www.flixbus.de", type: "Umstieg" },
+      { name: "BusTicket4.me", url: "https://busticket4.me", type: "Umstieg" },
+      { name: "Makedonija Express", url: "https://www.makedonija-express.de", type: "Kleinbus / Tür-zu-Tür" },
     ],
   },
   {
     country: "Kosovo",
+    flag: "🇽🇰",
     carriers: [
-      { name: "Kosova Linja", url: "https://www.kosovalinja.com", badges: ["Direktlinie", "Beliebt bei Diaspora"] },
-      { name: "Flixbus", url: "https://www.flixbus.de", badges: ["Umstieg"] },
+      { name: "Kosova Linja", url: "https://www.kosovalinja.com", type: "Direktlinie" },
+      { name: "Gjirafa Travel", url: "https://travel.gjirafa.com", type: "Direktlinie" },
+      { name: "FlixBus", url: "https://www.flixbus.de", type: "Umstieg" },
+      { name: "BusTicket4.me", url: "https://busticket4.me", type: "Umstieg" },
+      { name: "Prishtina Tours", url: "https://www.prishtinatours.de", type: "Kleinbus / Tür-zu-Tür" },
     ],
   },
   {
     country: "Albanija",
+    flag: "🇦🇱",
     carriers: [
-      { name: "Flixbus", url: "https://www.flixbus.de", badges: ["Umstieg"] },
-      { name: "Eurolines / Touring", url: "https://www.eurolines.de", badges: ["Umstieg"] },
+      { name: "Gjirafa Travel", url: "https://travel.gjirafa.com", type: "Direktlinie" },
+      { name: "FlixBus", url: "https://www.flixbus.de", type: "Umstieg" },
+      { name: "Eurolines Germany", url: "https://www.eurolines.de", type: "Umstieg" },
+      { name: "BusTicket4.me", url: "https://busticket4.me", type: "Umstieg" },
+      { name: "Albania Express", url: "https://www.albaniaexpress.de", type: "Kleinbus / Tür-zu-Tür" },
     ],
   },
 ];
@@ -481,14 +518,14 @@ export default function Putovanja() {
           >
             <div className="flex items-center gap-2 mb-1">
               <Bus className="h-5 w-5 text-[#E3B341]" />
-              <h2 className="text-lg font-bold text-white">Bus Prevoznici</h2>
+              <h2 className="text-lg font-bold text-white">Bus Transport Verzeichnis</h2>
             </div>
             <p className="text-sm text-white/40 mb-5">
-              Profesionalni prevoznici na linijama Njemačka ↔ Balkan, grupirani po zemlji.
+              Alle Busverbindungen Deutschland ↔ Balkan – Direktlinien, Umstieg & Kleinbus.
             </p>
             <div className="space-y-2">
-              {busCarriersByCountry.map((group) => (
-                <BusCountryGroup key={group.country} group={group} />
+              {busDirectory.map((route) => (
+                <BusCountryGroup key={route.country} route={route} />
               ))}
             </div>
           </motion.div>
@@ -806,13 +843,13 @@ function RideCard({ ride }: { ride: Ride }) {
 }
 
 /* ── Bus Country Group (expandable) ── */
-function BusCountryGroup({ group }: { group: CountryCarriers }) {
+function BusCountryGroup({ route }: { route: CountryRoute }) {
   const [open, setOpen] = useState(false);
 
-  const badgeStyle = (badge: string) => {
-    if (badge === "Direktlinie")
+  const typeBadge = (type: TransportBadge) => {
+    if (type === "Direktlinie")
       return "bg-green-500/15 text-green-400 border-green-500/20";
-    if (badge === "Beliebt bei Diaspora")
+    if (type === "Kleinbus / Tür-zu-Tür")
       return "bg-[#E3B341]/15 text-[#E3B341] border-[#E3B341]/20";
     return "bg-white/5 text-white/50 border-white/10";
   };
@@ -827,9 +864,9 @@ function BusCountryGroup({ group }: { group: CountryCarriers }) {
         className="flex w-full items-center justify-between px-4 py-3 transition-colors hover:bg-white/[0.03]"
       >
         <div className="flex items-center gap-2.5">
-          <Globe className="h-4 w-4 text-[#E3B341]" />
-          <span className="text-sm font-semibold text-white">{group.country}</span>
-          <span className="text-[11px] text-white/30">{group.carriers.length} prevoznika</span>
+          <span className="text-lg">{route.flag}</span>
+          <span className="text-sm font-semibold text-white">Deutschland ↔ {route.country}</span>
+          <span className="text-[11px] text-white/30">{route.carriers.length}</span>
         </div>
         <ChevronDown
           className={cn(
@@ -847,62 +884,30 @@ function BusCountryGroup({ group }: { group: CountryCarriers }) {
             transition={{ duration: 0.2 }}
             className="overflow-hidden"
           >
-            <div className="space-y-1.5 px-3 pb-3">
-              {group.carriers.map((c) => (
+            <div className="space-y-1 px-3 pb-3">
+              {route.carriers.map((c) => (
                 <div
                   key={c.name}
-                  className="flex flex-col gap-1.5 rounded-lg px-3 py-2.5 sm:flex-row sm:items-center sm:justify-between"
+                  className="flex items-center justify-between rounded-lg px-3 py-2"
                   style={{ background: "rgba(22,38,63,0.6)", border: "1px solid rgba(255,255,255,0.04)" }}
                 >
-                  <div className="flex flex-col gap-1">
-                    <a
-                      href={c.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-sm font-medium text-white/80 transition hover:text-[#E3B341]"
-                    >
-                      {c.name}
-                      <ExternalLink className="h-3 w-3 text-white/25" />
-                    </a>
-                    {c.badges && c.badges.length > 0 && (
-                      <div className="flex flex-wrap gap-1">
-                        {c.badges.map((b) => (
-                          <span
-                            key={b}
-                            className={cn(
-                              "inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-medium",
-                              badgeStyle(b)
-                            )}
-                          >
-                            {b === "Beliebt bei Diaspora" && <Star className="h-2.5 w-2.5" />}
-                            {b}
-                          </span>
-                        ))}
-                      </div>
+                  <a
+                    href={c.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-white/80 transition hover:text-[#E3B341]"
+                  >
+                    {c.name}
+                    <ExternalLink className="h-3 w-3 text-white/25" />
+                  </a>
+                  <span
+                    className={cn(
+                      "inline-flex rounded-full border px-2 py-0.5 text-[10px] font-medium",
+                      typeBadge(c.type)
                     )}
-                  </div>
-                  <div className="flex gap-2">
-                    {c.phone && (
-                      <a
-                        href={`tel:${c.phone}`}
-                        className="inline-flex items-center gap-1 text-[11px] text-white/40 transition hover:text-white/70"
-                      >
-                        <Phone className="h-3 w-3" />
-                        {c.phone}
-                      </a>
-                    )}
-                    {c.whatsapp && (
-                      <a
-                        href={`https://wa.me/${c.whatsapp.replace(/[^0-9]/g, "")}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-[11px] text-white/40 transition hover:text-green-400"
-                      >
-                        <MessageCircle className="h-3 w-3" />
-                        WhatsApp
-                      </a>
-                    )}
-                  </div>
+                  >
+                    {c.type}
+                  </span>
                 </div>
               ))}
             </div>
