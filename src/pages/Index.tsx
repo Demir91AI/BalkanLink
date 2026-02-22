@@ -32,10 +32,11 @@ const pomocItems = [
 ];
 
 const zajednicaItems = [
-  { label: "Vjerske zajednice", icon: Landmark, to: "/dzamije" },
-  { label: "Kulturna udruženja", icon: Users, to: "/community" },
-  { label: "Folklor", icon: Users, to: "/community" },
-  { label: "Sportski klubovi", icon: Trophy, to: "/sport" },
+  { label: "Bosna i Hercegovina", icon: Landmark, to: "/community/bih" },
+  { label: "Hrvatska", icon: Landmark, to: "/community/hr" },
+  { label: "Srbija", icon: Landmark, to: "/community/srb" },
+  { label: "Crna Gora", icon: Landmark, to: "/community/me" },
+  { label: "Sve zemlje", icon: Users, to: "/community" },
 ];
 
 const lifestyleItems = [

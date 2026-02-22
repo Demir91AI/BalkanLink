@@ -44,6 +44,7 @@ import Wohnungen from "./pages/Wohnungen";
 import Stellenangebote from "./pages/Stellenangebote";
 import Premium from "./pages/Premium";
 import Community from "./pages/Community";
+import CountryPage from "./pages/CountryPage";
 import Dzamije from "./pages/Dzamije";
 import Restorani from "./pages/Restorani";
 import Prodavnice from "./pages/Prodavnice";
@@ -94,6 +95,7 @@ const App = () => (
                 <Route path="/stellenangebote" element={<Stellenangebote />} />
                 <Route path="/premium" element={<Premium />} />
                 <Route path="/community" element={<Community />} />
+                <Route path="/community/:code" element={<CountryPage />} />
                 <Route path="/dzamije" element={<Dzamije />} />
                 <Route path="/restorani" element={<Restorani />} />
                 <Route path="/prodavnice" element={<Prodavnice />} />
