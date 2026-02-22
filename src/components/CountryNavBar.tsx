@@ -1,37 +1,44 @@
-import { useCountry } from "@/contexts/CountryContext";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { motion } from "framer-motion";
+import { COUNTRIES } from "@/contexts/CountryContext";
 
 export default function CountryNavBar() {
-  const { activeCountry, setActiveCountry, countries } = useCountry();
-  const { t } = useLanguage();
-
   return (
     <div
-      className="sticky top-14 z-40 overflow-x-auto scrollbar-hide"
+      className="relative overflow-hidden"
       style={{
-        background: "rgba(11,31,58,0.97)",
-        borderBottom: "1px solid rgba(227,179,65,0.12)",
+        background: "linear-gradient(135deg, hsl(215 55% 6%) 0%, hsl(215 68% 12%) 100%)",
+        borderBottom: "1px solid hsl(45 93% 49% / 0.08)",
       }}
     >
-      <div className="container flex gap-1 py-2">
-        {countries.map((c) => {
-          const isActive = activeCountry === c.code;
-          return (
-            <button
-              key={c.code}
-              onClick={() => setActiveCountry(c.code)}
-              className="flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-lg px-3 py-2 text-sm font-semibold transition-all"
+      {/* Animated glow background */}
+      <div className="absolute inset-0 opacity-30">
+        <div
+          className="absolute -left-20 top-0 h-full w-40 animate-glow-pulse"
+          style={{ background: "linear-gradient(90deg, transparent, hsl(45 93% 49% / 0.1), transparent)" }}
+        />
+      </div>
+
+      <div className="container flex items-center justify-center gap-3 py-2.5 sm:gap-5">
+        {COUNTRIES.map((c, i) => (
+          <motion.div
+            key={c.code}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4, delay: i * 0.06 }}
+            className="group relative flex items-center justify-center"
+          >
+            <span className="text-xl transition-transform duration-500 group-hover:scale-125 sm:text-2xl">
+              {c.flag}
+            </span>
+            {/* Hover glow ring */}
+            <div
+              className="absolute inset-[-4px] rounded-full opacity-0 transition-opacity duration-500 group-hover:opacity-100"
               style={{
-                background: isActive ? "rgba(227,179,65,0.15)" : "transparent",
-                color: isActive ? "#E3B341" : "rgba(255,255,255,0.5)",
-                border: isActive ? "1px solid rgba(227,179,65,0.3)" : "1px solid transparent",
+                background: "radial-gradient(circle, hsl(45 93% 49% / 0.15), transparent 70%)",
               }}
-            >
-              <span className="text-base leading-none">{c.flag}</span>
-              <span className="hidden sm:inline">{t(c.nameKey)}</span>
-            </button>
-          );
-        })}
+            />
+          </motion.div>
+        ))}
       </div>
     </div>
   );
