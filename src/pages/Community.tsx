@@ -11,8 +11,8 @@ import flagAL from "@/assets/flags/al.png";
 
 const COUNTRY_CARDS = [
   { code: "bih", name: "Bosna i Hercegovina", flag: flagBIH },
-  { code: "hr",  name: "Hrvatska",            flag: flagHR },
   { code: "srb", name: "Srbija",              flag: flagSRB },
+  { code: "hr",  name: "Hrvatska",            flag: flagHR },
   { code: "me",  name: "Crna Gora",           flag: flagME },
   { code: "mk",  name: "Sjeverna Makedonija", flag: flagMK },
   { code: "xk",  name: "Kosovo",              flag: flagXK },
