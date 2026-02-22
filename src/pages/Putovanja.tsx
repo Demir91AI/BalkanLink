@@ -7,6 +7,7 @@ import { format } from "date-fns";
 import {
   ExternalLink, Bus, Plus, AlertTriangle, MapPin, Calendar,
   Users, Phone, MessageCircle, ArrowRight, Search, X, Filter,
+  ChevronDown, Globe, Star,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Input } from "@/components/ui/input";
@@ -25,14 +26,74 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { toast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 
-/* ── Bus Prevoznici ── */
-const busCompanies = [
-  { name: "Flixbus", url: "https://www.flixbus.de" },
-  { name: "Eurolines", url: "https://www.eurolines.de" },
-  { name: "Centrotrans", url: "https://www.centrotrans.com" },
-  { name: "Autoprevoz Čazmatrans", url: "https://www.cazmatrans.hr" },
-  { name: "Globtour", url: "https://www.globtour.com" },
-  { name: "Lasta", url: "https://www.lasta.rs" },
+/* ── Bus Prevoznici grouped by country ── */
+interface Carrier {
+  name: string;
+  url: string;
+  phone?: string;
+  whatsapp?: string;
+  badges?: ("Direktlinie" | "Umstieg" | "Beliebt bei Diaspora")[];
+}
+
+interface CountryCarriers {
+  country: string;
+  carriers: Carrier[];
+}
+
+const busCarriersByCountry: CountryCarriers[] = [
+  {
+    country: "Bosna i Hercegovina",
+    carriers: [
+      { name: "Centrotrans", url: "https://www.centrotrans.com", badges: ["Direktlinie", "Beliebt bei Diaspora"] },
+      { name: "Globtour", url: "https://www.globtour.com", badges: ["Direktlinie", "Beliebt bei Diaspora"] },
+      { name: "Eurolines / Touring", url: "https://www.eurolines.de", badges: ["Direktlinie"] },
+      { name: "Flixbus", url: "https://www.flixbus.de", badges: ["Umstieg"] },
+    ],
+  },
+  {
+    country: "Srbija",
+    carriers: [
+      { name: "Lasta", url: "https://www.lasta.rs", badges: ["Direktlinie", "Beliebt bei Diaspora"] },
+      { name: "Niš Ekspres", url: "https://www.nisekspres.rs", badges: ["Direktlinie"] },
+      { name: "Flixbus", url: "https://www.flixbus.de", badges: ["Umstieg"] },
+    ],
+  },
+  {
+    country: "Hrvatska",
+    carriers: [
+      { name: "Čazmatrans / Arriva", url: "https://www.arriva.com.hr", badges: ["Direktlinie", "Beliebt bei Diaspora"] },
+      { name: "Flixbus", url: "https://www.flixbus.de", badges: ["Direktlinie"] },
+      { name: "Croatia Bus", url: "https://www.croatiabus.hr", badges: ["Direktlinie"] },
+    ],
+  },
+  {
+    country: "Crna Gora",
+    carriers: [
+      { name: "Globtour", url: "https://www.globtour.com", badges: ["Direktlinie"] },
+      { name: "Eurolines / Touring", url: "https://www.eurolines.de", badges: ["Umstieg"] },
+    ],
+  },
+  {
+    country: "Sjeverna Makedonija",
+    carriers: [
+      { name: "Eurobus", url: "https://www.eurobus.com.mk", badges: ["Direktlinie"] },
+      { name: "Flixbus", url: "https://www.flixbus.de", badges: ["Umstieg"] },
+    ],
+  },
+  {
+    country: "Kosovo",
+    carriers: [
+      { name: "Kosova Linja", url: "https://www.kosovalinja.com", badges: ["Direktlinie", "Beliebt bei Diaspora"] },
+      { name: "Flixbus", url: "https://www.flixbus.de", badges: ["Umstieg"] },
+    ],
+  },
+  {
+    country: "Albanija",
+    carriers: [
+      { name: "Flixbus", url: "https://www.flixbus.de", badges: ["Umstieg"] },
+      { name: "Eurolines / Touring", url: "https://www.eurolines.de", badges: ["Umstieg"] },
+    ],
+  },
 ];
 
 /* ── Types ── */
@@ -422,25 +483,12 @@ export default function Putovanja() {
               <Bus className="h-5 w-5 text-[#E3B341]" />
               <h2 className="text-lg font-bold text-white">Bus Prevoznici</h2>
             </div>
-            <p className="text-sm text-white/40 mb-4">
-              Profesionalni prevoznici na linijama Njemačka ↔ Balkan.
+            <p className="text-sm text-white/40 mb-5">
+              Profesionalni prevoznici na linijama Njemačka ↔ Balkan, grupirani po zemlji.
             </p>
-            <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-              {busCompanies.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between rounded-lg px-4 py-3 text-sm font-medium text-white/80 transition-all hover:text-[#E3B341]"
-                  style={{
-                    background: "rgba(15,27,45,0.6)",
-                    border: "1px solid rgba(255,255,255,0.06)",
-                  }}
-                >
-                  {link.name}
-                  <ExternalLink className="h-3.5 w-3.5 text-white/30" />
-                </a>
+            <div className="space-y-2">
+              {busCarriersByCountry.map((group) => (
+                <BusCountryGroup key={group.country} group={group} />
               ))}
             </div>
           </motion.div>
@@ -754,5 +802,113 @@ function RideCard({ ride }: { ride: Ride }) {
         )}
       </div>
     </motion.div>
+  );
+}
+
+/* ── Bus Country Group (expandable) ── */
+function BusCountryGroup({ group }: { group: CountryCarriers }) {
+  const [open, setOpen] = useState(false);
+
+  const badgeStyle = (badge: string) => {
+    if (badge === "Direktlinie")
+      return "bg-green-500/15 text-green-400 border-green-500/20";
+    if (badge === "Beliebt bei Diaspora")
+      return "bg-[#E3B341]/15 text-[#E3B341] border-[#E3B341]/20";
+    return "bg-white/5 text-white/50 border-white/10";
+  };
+
+  return (
+    <div
+      className="rounded-lg overflow-hidden"
+      style={{ background: "rgba(15,27,45,0.5)", border: "1px solid rgba(255,255,255,0.06)" }}
+    >
+      <button
+        onClick={() => setOpen(!open)}
+        className="flex w-full items-center justify-between px-4 py-3 transition-colors hover:bg-white/[0.03]"
+      >
+        <div className="flex items-center gap-2.5">
+          <Globe className="h-4 w-4 text-[#E3B341]" />
+          <span className="text-sm font-semibold text-white">{group.country}</span>
+          <span className="text-[11px] text-white/30">{group.carriers.length} prevoznika</span>
+        </div>
+        <ChevronDown
+          className={cn(
+            "h-4 w-4 text-white/30 transition-transform duration-200",
+            open && "rotate-180"
+          )}
+        />
+      </button>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="overflow-hidden"
+          >
+            <div className="space-y-1.5 px-3 pb-3">
+              {group.carriers.map((c) => (
+                <div
+                  key={c.name}
+                  className="flex flex-col gap-1.5 rounded-lg px-3 py-2.5 sm:flex-row sm:items-center sm:justify-between"
+                  style={{ background: "rgba(22,38,63,0.6)", border: "1px solid rgba(255,255,255,0.04)" }}
+                >
+                  <div className="flex flex-col gap-1">
+                    <a
+                      href={c.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-sm font-medium text-white/80 transition hover:text-[#E3B341]"
+                    >
+                      {c.name}
+                      <ExternalLink className="h-3 w-3 text-white/25" />
+                    </a>
+                    {c.badges && c.badges.length > 0 && (
+                      <div className="flex flex-wrap gap-1">
+                        {c.badges.map((b) => (
+                          <span
+                            key={b}
+                            className={cn(
+                              "inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-medium",
+                              badgeStyle(b)
+                            )}
+                          >
+                            {b === "Beliebt bei Diaspora" && <Star className="h-2.5 w-2.5" />}
+                            {b}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                  <div className="flex gap-2">
+                    {c.phone && (
+                      <a
+                        href={`tel:${c.phone}`}
+                        className="inline-flex items-center gap-1 text-[11px] text-white/40 transition hover:text-white/70"
+                      >
+                        <Phone className="h-3 w-3" />
+                        {c.phone}
+                      </a>
+                    )}
+                    {c.whatsapp && (
+                      <a
+                        href={`https://wa.me/${c.whatsapp.replace(/[^0-9]/g, "")}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-[11px] text-white/40 transition hover:text-green-400"
+                      >
+                        <MessageCircle className="h-3 w-3" />
+                        WhatsApp
+                      </a>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 }
