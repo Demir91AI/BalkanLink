@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.1";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -12,12 +13,10 @@ const LANG_NAMES: Record<string, string> = {
 };
 
 // =====================================================================
-// INTENT CLASSIFIER — only gates PERSONAL assistance (form-filling, etc.)
-// General informational questions are ALWAYS free.
+// INTENT CLASSIFIER
 // =====================================================================
 
 const PREMIUM_KEYWORDS = [
-  // Form-filling & personal guidance (Bosnian/Croatian/Serbian)
   "popuni za mene", "pomozi mi popuniti", "popuni formular",
   "ispuni za mene", "ispuni formular",
   "polje po polje", "polje-po-polje",
@@ -25,13 +24,11 @@ const PREMIUM_KEYWORDS = [
   "analiziraj dokument", "analiziraj moj", "provjeri moj dokument",
   "moja situacija", "moj slučaj", "moj slucaj",
   "personalizirano", "personalizovano", "lična pomoć", "licna pomoc",
-  // German
   "formular ausfüllen für mich", "formular ausfullen fur mich",
   "feld für feld ausfüllen", "feld fur feld ausfullen",
   "brief erklären", "brief erklaren", "brief vom amt",
   "mein dokument", "dokument analysieren", "meine situation",
   "persönliche hilfe", "personliche hilfe", "individuell",
-  // English
   "fill form for me", "fill out my form",
   "field by field filling", "explain my letter",
   "analyze my document", "my situation", "my case",
@@ -58,25 +55,114 @@ type Intent = "FREE_ALLOWED" | "PREMIUM_REQUIRED";
 
 function classifyIntent(message: string): Intent {
   const lower = message.toLowerCase().trim();
-
   for (const pat of PREMIUM_PATTERNS) {
     if (pat.test(lower)) return "PREMIUM_REQUIRED";
   }
-
   for (const kw of PREMIUM_KEYWORDS) {
     if (lower.includes(kw)) return "PREMIUM_REQUIRED";
   }
-
   return "FREE_ALLOWED";
+}
+
+// =====================================================================
+// DATABASE LOOKUP — search community_listings for matching entries
+// =====================================================================
+
+async function searchDatabase(query: string): Promise<any[]> {
+  const supabaseUrl = Deno.env.get("SUPABASE_URL");
+  const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+  if (!supabaseUrl || !supabaseKey) return [];
+
+  const supabase = createClient(supabaseUrl, supabaseKey);
+
+  // Extract meaningful search terms (3+ chars), skip common stop words
+  const stopWords = new Set(["die", "der", "das", "und", "oder", "für", "fur", "von", "vom", "wie", "was", "ist", "ein", "eine", "den", "dem", "des", "als", "mit", "bei", "nach", "aus", "auf", "the", "and", "for", "gdje", "kako", "sta", "šta", "koji", "koje"]);
+  const terms = query
+    .toLowerCase()
+    .replace(/[?!.,;:"""„'']/g, " ")
+    .split(/\s+/)
+    .filter((w) => w.length >= 3 && !stopWords.has(w));
+
+  if (terms.length === 0) return [];
+
+  try {
+    const { data, error } = await supabase.rpc("search_community_listings", {
+      search_terms: terms,
+    });
+
+    if (error) {
+      console.error("DB search error:", error.message);
+      return [];
+    }
+
+    return (data || []).slice(0, 10);
+  } catch (e) {
+    console.error("DB search exception:", e);
+    return [];
+  }
+}
+
+function formatDbResults(results: any[]): string {
+  if (results.length === 0) return "";
+
+  const entries = results.map((r) => {
+    const parts = [`**${r.name}**`];
+    const addr = [r.address, r.postal_code, r.city].filter(Boolean).join(", ");
+    if (addr) parts.push(`Adresse: ${addr}`);
+    if (r.bundesland) parts.push(`Bundesland: ${r.bundesland}`);
+    const cats = [r.main_category, r.sub_category].filter(Boolean).join(" / ");
+    if (cats) parts.push(`Kategorie: ${cats}`);
+    if (r.website) parts.push(`Web: ${r.website}`);
+    if (r.google_maps_url) parts.push(`Maps: ${r.google_maps_url}`);
+    return parts.join("\n");
+  });
+
+  return entries.join("\n\n---\n\n");
 }
 
 // =====================================================================
 // SYSTEM PROMPTS
 // =====================================================================
 
-function buildSystemPrompt(isPremium: boolean, language: string): string {
+function buildSystemPrompt(isPremium: boolean, language: string, dbResults: any[]): string {
   const langName = LANG_NAMES[language] || "Deutsch";
   const langInstruction = `VAŽNO: ODGOVARAJ ISKLJUČIVO na jeziku: ${langName}. Cijeli odgovor mora biti na tom jeziku. Nikada ne miješaj jezike.`;
+
+  const dbSection = dbResults.length > 0
+    ? `
+────────────────────────────
+BALKANLINK BAZA PODATAKA — PRONAĐENI REZULTATI
+────────────────────────────
+
+KRITIČNO PRAVILO: Ako su pronađeni rezultati iz baze, MORAŠ koristiti SAMO te podatke.
+NE SMJEŠ dodavati opise, historiju, pretpostavke ili generirane tekstove.
+
+Prikaži SAMO u ovom formatu:
+
+**Naziv**
+
+Adresse:
+[adresa iz baze]
+
+Kategorie:
+[kategorija iz baze]
+
+Kontakt:
+[web/maps ako postoji]
+
+Informationen ohne Gewähr – bitte direkt beim Verein prüfen.
+
+EVO REZULTATA IZ BAZE:
+
+${formatDbResults(dbResults)}
+
+PONAVLJAM: Koristi ISKLJUČIVO gornje podatke. Ništa ne dodaj, ne objašnjavaj, ne opisuj.`
+    : `
+────────────────────────────
+BALKANLINK BAZA — NEMA REZULTATA
+────────────────────────────
+Za ovo pitanje NEMA rezultata u BalkanLink bazi.
+Možeš koristiti svoje opće znanje za informativan odgovor.`;
 
   if (!isPremium) {
     return `Ti si "BalkanLink Zentral-Assistent" – digitalni savjetnik platforme "BalkanLink – Život u Njemačkoj".
@@ -92,17 +178,17 @@ PRAVILA ZA FREE KORISNIKE:
 - Možeš dati opće upute i savjete.
 
 ŠTO JE DOZVOLJENO (FREE):
-- Opća objašnjenja tema (npr. "Šta je Kindergeld?", "Kako funkcionira zdravstveno osiguranje?")
+- Opća objašnjenja tema
 - Informacije o institucijama i nadležnostima
 - Opći koraci procesa
-- Prijevodi pojmova (npr. Vorname = ime)
+- Prijevodi pojmova
 - Objašnjenja zakona i propisa na općem nivou
 
 ŠTO NIJE DOZVOLJENO (samo PREMIUM):
 - Popunjavanje formulara polje-po-polje
 - Analiza konkretnih dokumenata korisnika
-- Objašnjavanje pisama od institucija (Amt-Briefe)
-- Personalizirana migracijska pomoć za konkretnu situaciju korisnika
+- Objašnjavanje pisama od institucija
+- Personalizirana migracijska pomoć
 - Upload i analiza dokumenata
 
 Ako korisnik traži nešto što zahtijeva Premium, kratko objasni da je ta funkcija dio BalkanLink Premium i predloži da postavi opće pitanje.
@@ -112,6 +198,7 @@ IDENTITET:
 - Daješ isključivo opće, neobavezujuće informacije.
 
 STIL: Profesionalan, informativan, bez emotikona, bez praznih fraza.
+${dbSection}
 
 NE DODAJ DISCLAIMER NA KRAJ SVAKOG ODGOVORA. Disclaimer se prikazuje posebno u interfejsu.`;
   }
@@ -148,15 +235,7 @@ C) Formular-Coach (polje-po-polje)
 D) Potrebni dokumenti (čeklista)
 E) Predaja i praćenje
 F) Sigurnost i pravni okvir
-
-────────────────────────────
-PRAVILA ZA LOKACIJE
-────────────────────────────
-
-Kada korisnik pita za lokaciju:
-1. Ako grad NIJE naveden, prvo pitaj za grad.
-2. Prikaži rezultate u formatu: Naziv, Grad, Adresa.
-3. NE izmišljaj podatke.
+${dbSection}
 
 ────────────────────────────
 ZAŠTITA PODATAKA
@@ -188,7 +267,7 @@ STIL KOMUNIKACIJE
 NE DODAJ DISCLAIMER NA KRAJ SVAKOG ODGOVORA. Disclaimer se prikazuje posebno u interfejsu.`;
 }
 
-// Premium gate response messages per language
+// Premium gate messages
 const PREMIUM_GATE_MESSAGES: Record<string, { teaser: string; cta: string }> = {
   bs: {
     teaser: "Ova funkcija zahtijeva BalkanLink Premium: popunjavanje formulara, analiza dokumenata i personalizirana pomoć.",
@@ -238,7 +317,6 @@ serve(async (req) => {
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY is not configured");
 
-    // ── SERVER-SIDE INTENT GATE ──
     const lastUserMsg = [...messages].reverse().find((m: any) => m.role === "user");
     const userText = lastUserMsg?.content || "";
 
@@ -247,22 +325,17 @@ serve(async (req) => {
     if (intent === "PREMIUM_REQUIRED" && !isPremium) {
       const lang = language || "bs";
       const gate = PREMIUM_GATE_MESSAGES[lang] || PREMIUM_GATE_MESSAGES["bs"];
-
       return new Response(
-        JSON.stringify({
-          premium_required: true,
-          teaser: gate.teaser,
-          cta: gate.cta,
-        }),
-        {
-          status: 200,
-          headers: { ...corsHeaders, "Content-Type": "application/json" },
-        }
+        JSON.stringify({ premium_required: true, teaser: gate.teaser, cta: gate.cta }),
+        { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
 
-    // ── PROCEED WITH AI CALL ──
-    const systemPrompt = buildSystemPrompt(isPremium, language || "de");
+    // ── DATABASE LOOKUP ──
+    const dbResults = await searchDatabase(userText);
+    console.log(`DB search for "${userText.slice(0, 60)}": ${dbResults.length} results`);
+
+    const systemPrompt = buildSystemPrompt(isPremium, language || "de", dbResults);
 
     const response = await fetch(
       "https://ai.gateway.lovable.dev/v1/chat/completions",
