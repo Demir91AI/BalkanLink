@@ -12,9 +12,7 @@ const LANG_NAMES: Record<string, string> = {
   sq: "shqip", xk: "shqip", mk: "македонски", de: "Deutsch", en: "English",
 };
 
-// =====================================================================
-// INTENT CLASSIFIER
-// =====================================================================
+// ── INTENT CLASSIFIER ──
 
 const PREMIUM_KEYWORDS = [
   "popuni za mene", "pomozi mi popuniti", "popuni formular",
@@ -64,9 +62,7 @@ function classifyIntent(message: string): Intent {
   return "FREE_ALLOWED";
 }
 
-// =====================================================================
-// DATABASE LOOKUP — search community_listings for matching entries
-// =====================================================================
+// ── DATABASE LOOKUP ──
 
 async function searchDatabase(query: string): Promise<any[]> {
   const supabaseUrl = Deno.env.get("SUPABASE_URL");
@@ -75,7 +71,6 @@ async function searchDatabase(query: string): Promise<any[]> {
 
   const supabase = createClient(supabaseUrl, supabaseKey);
 
-  // Extract meaningful search terms (3+ chars), skip common stop words
   const stopWords = new Set(["die", "der", "das", "und", "oder", "für", "fur", "von", "vom", "wie", "was", "ist", "ein", "eine", "den", "dem", "des", "als", "mit", "bei", "nach", "aus", "auf", "the", "and", "for", "gdje", "kako", "sta", "šta", "koji", "koje"]);
   const terms = query
     .toLowerCase()
@@ -108,10 +103,11 @@ function formatDbResults(results: any[]): string {
   const entries = results.map((r) => {
     const parts = [`**${r.name}**`];
     const addr = [r.address, r.postal_code, r.city].filter(Boolean).join(", ");
-    if (addr) parts.push(`Adresse: ${addr}`);
+    if (addr) parts.push(`Adresa: ${addr}`);
     if (r.bundesland) parts.push(`Bundesland: ${r.bundesland}`);
     const cats = [r.main_category, r.sub_category].filter(Boolean).join(" / ");
-    if (cats) parts.push(`Kategorie: ${cats}`);
+    if (cats) parts.push(`Kategorija: ${cats}`);
+    if (r.google_rating) parts.push(`⭐ ${r.google_rating} Google Reviews`);
     if (r.website) parts.push(`Web: ${r.website}`);
     if (r.google_maps_url) parts.push(`Maps: ${r.google_maps_url}`);
     return parts.join("\n");
@@ -120,154 +116,127 @@ function formatDbResults(results: any[]): string {
   return entries.join("\n\n---\n\n");
 }
 
-// =====================================================================
-// SYSTEM PROMPTS
-// =====================================================================
+// ── SYSTEM PROMPTS ──
 
 function buildSystemPrompt(isPremium: boolean, language: string, dbResults: any[]): string {
   const langName = LANG_NAMES[language] || "Deutsch";
-  const langInstruction = `VAŽNO: ODGOVARAJ ISKLJUČIVO na jeziku: ${langName}. Cijeli odgovor mora biti na tom jeziku. Nikada ne miješaj jezike.`;
+  const langInstruction = `VAŽNO: ODGOVARAJ ISKLJUČIVO na jeziku: ${langName}. Cijeli odgovor mora biti na tom jeziku.`;
 
-  const dbSection = dbResults.length > 0
-    ? `
+  // ── STRICT RESPONSE RULES (applies to ALL modes) ──
+  const strictRules = `
 ────────────────────────────
-BALKANLINK BAZA PODATAKA — PRONAĐENI REZULTATI
+STROGA PRAVILA ODGOVORA
 ────────────────────────────
 
-KRITIČNO PRAVILO: Ako su pronađeni rezultati iz baze, MORAŠ koristiti SAMO te podatke.
-NE SMJEŠ dodavati opise, historiju, pretpostavke ili generirane tekstove.
+1. KRATKO. Maksimalno 6 linija osim ako korisnik traži detaljno objašnjenje.
+2. ČINJENIČNO. Samo provjerene informacije, adrese, kontakti, koraci.
+3. STRUKTURIRANO. Koristi bullet points ili numeraciju.
+4. BEZ OPISIVANJA. Nikada ne generiši opise, historiju, mišljenja, preporuke.
+5. BEZ MARKETINGA. Nikada ne koristi reklamni jezik, superlative, ili priče.
+6. BEZ RANGIRANJA. Nikada ne koristi "najbolji", "preporučeni", "top".
+7. Google ocjene prikazuj SAMO kao informativan podatak: "⭐ 4.6 Google Reviews".
+8. NIKADA ne rangiraj objekte po ocjeni niti ih preporučuj.
 
-Prikaži SAMO u ovom formatu:
+DOZVOLJENO: adrese, kontakti, radno vrijeme, službena objašnjenja, pomoć s formularima.
+ZABRANJENO: preporuke, mišljenja, marketing, storytelling, dugački paragrafi.
 
-**Naziv**
+UVIJEK dodaj na kraj:
+"Informacije služe samo za orijentaciju. Provjerite kod nadležne institucije ili objekta."`;
 
-Adresse:
-[adresa iz baze]
-
-Kategorie:
-[kategorija iz baze]
-
-Kontakt:
-[web/maps ako postoji]
-
-Informationen ohne Gewähr – bitte direkt beim Verein prüfen.
-
-EVO REZULTATA IZ BAZE:
-
-${formatDbResults(dbResults)}
-
-PONAVLJAM: Koristi ISKLJUČIVO gornje podatke. Ništa ne dodaj, ne objašnjavaj, ne opisuj.`
-    : `
-────────────────────────────
-BALKANLINK BAZA — NEMA REZULTATA
-────────────────────────────
-Za ovo pitanje NEMA rezultata u BalkanLink bazi.
-Možeš koristiti svoje opće znanje za informativan odgovor.`;
-
-  if (!isPremium) {
-    return `Ti si "BalkanLink Zentral-Assistent" – digitalni savjetnik platforme "BalkanLink – Život u Njemačkoj".
+  // ── MODE 1: DATABASE ANSWER ──
+  if (dbResults.length > 0) {
+    return `Ti si "BalkanLink Zentral-Assistent".
 
 ${langInstruction}
 
-KORISNIK JE FREE KORISNIK. Tvoj odgovor mora biti INFORMATIVAN i KORISTAN.
+MODE 1 — ODGOVOR IZ BAZE PODATAKA
+
+KRITIČNO: Pronađeni su rezultati u BalkanLink bazi. MORAŠ koristiti SAMO te podatke.
+
+PRAVILA:
+- Prikaži SAMO podatke iz baze, ništa drugo.
+- NE dodaj opise, historiju, pretpostavke, generirane tekstove.
+- NE koristi riječi "najbolji", "preporučeni", "popularan".
+- Google ocjenu prikaži SAMO ako postoji: "⭐ X.X Google Reviews (informativno)"
+- Dodaj: "BalkanLink ne daje preporuke niti ocjenjuje objekte."
+
+FORMAT:
+**Naziv**
+Adresa: [iz baze]
+Kategorija: [iz baze]
+Kontakt: [web/maps ako postoji]
+⭐ X.X Google Reviews (informativno) — samo ako postoji
+
+Informationen ohne Gewähr – bitte direkt beim Verein prüfen.
+
+EVO REZULTATA:
+
+${formatDbResults(dbResults)}
+
+${strictRules}`;
+  }
+
+  // ── MODE 2 & 3: No DB results ──
+  if (!isPremium) {
+    return `Ti si "BalkanLink Zentral-Assistent".
+
+${langInstruction}
+
+MODE 2 — OPĆE INFORMACIJE (FREE KORISNIK)
+
+Za ovo pitanje NEMA rezultata u BalkanLink bazi.
+Koristi opće znanje za kratak, činjeničan odgovor.
 
 PRAVILA ZA FREE KORISNIKE:
-- Odgovaraj na OPĆA INFORMATIVNA pitanja potpuno i korisno.
-- Koristi svoje znanje o Njemačkoj, institucijama, zakonima i procesima.
-- Možeš objasniti šta je nešto, koji su koraci, koje institucije su nadležne.
-- Možeš dati opće upute i savjete.
-
-ŠTO JE DOZVOLJENO (FREE):
-- Opća objašnjenja tema
-- Informacije o institucijama i nadležnostima
-- Opći koraci procesa
-- Prijevodi pojmova
-- Objašnjenja zakona i propisa na općem nivou
+- Odgovaraj na opća informativna pitanja kratko i korisno.
+- Maksimalno 6 linija.
+- Koristi bullet points.
+- Bez opisivanja, bez marketinga, bez dugačkih paragrafa.
 
 ŠTO NIJE DOZVOLJENO (samo PREMIUM):
 - Popunjavanje formulara polje-po-polje
 - Analiza konkretnih dokumenata korisnika
 - Objašnjavanje pisama od institucija
 - Personalizirana migracijska pomoć
-- Upload i analiza dokumenata
 
-Ako korisnik traži nešto što zahtijeva Premium, kratko objasni da je ta funkcija dio BalkanLink Premium i predloži da postavi opće pitanje.
+Ako korisnik traži Premium funkciju, kratko objasni da je to dio BalkanLink Premium.
 
-IDENTITET:
-- Nisi pravnik i nisi institucija.
-- Daješ isključivo opće, neobavezujuće informacije.
+IDENTITET: Nisi pravnik. Daješ isključivo opće, neobavezujuće informacije.
 
-STIL: Profesionalan, informativan, bez emotikona, bez praznih fraza.
-${dbSection}
-
-NE DODAJ DISCLAIMER NA KRAJ SVAKOG ODGOVORA. Disclaimer se prikazuje posebno u interfejsu.`;
+${strictRules}`;
   }
 
-  return `Ti si "BalkanLink Zentral-Assistent" – centralni digitalni savjetnik platforme "BalkanLink – Život u Njemačkoj".
+  return `Ti si "BalkanLink Zentral-Assistent".
 
 ${langInstruction}
 
-KORISNIK JE PREMIUM KORISNIK. Pruži KOMPLETNU, DETALJNU pomoć.
+MODE 3 — PREMIUM KORISNIK
 
-POKRIVAŠ DVIJE GLAVNE OBLASTI:
+Za ovo pitanje NEMA rezultata u BalkanLink bazi.
+Koristi opće znanje i pruži kompletnu pomoć.
+
+POKRIVAŠ:
 1) Administracija u Njemačkoj (formulari, prijave, socijalna davanja)
-2) Zajednica i društveni život (džamije, klubovi, restorani, pekare, udruženja)
+2) Zajednica i društveni život
 
-IDENTITET:
-- Nisi pravnik i nisi institucija.
-- Daješ isključivo opće, neobavezujuće informacije.
-
-DOZVOLJENE FORMULACIJE:
-- "U pravilu", "Tipično", "Može biti", "Provjerite kod nadležne institucije"
-
-ZABRANJENE FORMULACIJE:
-- "Imate pravo", "Dobijate sigurno", "Garantovano", "Morate obavezno", "100%"
-
-────────────────────────────
-PRAVILA ZA ADMINISTRACIJU
-────────────────────────────
-
-Kada korisnik pita za administraciju ili formular, odgovori UVIJEK u ovoj strukturi:
-
-A) Kratka dijagnoza (2-4 reda)
-B) Koraci (numerisano, 6-12 koraka)
-C) Formular-Coach (polje-po-polje)
+ZA ADMINISTRACIJU — struktura:
+A) Kratka dijagnoza (2 reda)
+B) Koraci (numerisano)
+C) Formular-Coach (polje-po-polje) — samo ako korisnik pita
 D) Potrebni dokumenti (čeklista)
-E) Predaja i praćenje
-F) Sigurnost i pravni okvir
-${dbSection}
 
-────────────────────────────
-ZAŠTITA PODATAKA
-────────────────────────────
+IDENTITET: Nisi pravnik. Daješ opće, neobavezujuće informacije.
 
-Ne traži i ne prihvataj osjetljive podatke (Steuer-ID, IBAN, pasoš, lična karta, telefon, zdravstveni podaci).
+ZABRANJENE FORMULACIJE: "Imate pravo", "Garantovano", "100%"
+DOZVOLJENE: "U pravilu", "Tipično", "Provjerite kod nadležne institucije"
 
-────────────────────────────
-LINK-PRAVILA
-────────────────────────────
+LINK-PRAVILA: Max 2 eksterna linka. Samo stabilne službene stranice.
+ZABRANJENO: NE upućuj na interne vodiče ili stranice platforme.
 
-- Max. 2 eksterna linka po odgovoru.
-- Samo stabilne službene stranice.
-- Ako link nije siguran: NIKAKAV link.
-
-ZABRANJENO:
-- NE upućuj korisnika na interne vodiče ili stranice platforme.
-- NE koristi interne linkove poput /guide/..., /dolazak/...
-
-────────────────────────────
-STIL KOMUNIKACIJE
-────────────────────────────
-
-- Profesionalan i strukturiran
-- Bez emotikona, bez neformalnog tona
-- Bez praznih fraza
-- Postavi max. 3 potpitanja ako je potrebno
-
-NE DODAJ DISCLAIMER NA KRAJ SVAKOG ODGOVORA. Disclaimer se prikazuje posebno u interfejsu.`;
+${strictRules}`;
 }
 
-// Premium gate messages
+// ── Premium gate messages ──
 const PREMIUM_GATE_MESSAGES: Record<string, { teaser: string; cta: string }> = {
   bs: {
     teaser: "Ova funkcija zahtijeva BalkanLink Premium: popunjavanje formulara, analiza dokumenata i personalizirana pomoć.",
@@ -331,7 +300,6 @@ serve(async (req) => {
       );
     }
 
-    // ── DATABASE LOOKUP ──
     const dbResults = await searchDatabase(userText);
     console.log(`DB search for "${userText.slice(0, 60)}": ${dbResults.length} results`);
 
