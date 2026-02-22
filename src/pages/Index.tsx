@@ -153,18 +153,16 @@ export default function Index() {
               <h2 className="font-heading text-lg font-extrabold uppercase tracking-wide sm:text-xl">Zajednica</h2>
               <p className="text-xs text-muted-foreground">Vjerske zajednice • Kultura • Sport</p>
             </div>
-            <div className="mt-4 grid grid-cols-2 gap-2.5 sm:grid-cols-3 lg:grid-cols-4">
+            <div className="mt-4 grid gap-0.5">
               {zajednicaCards.map((c) => (
                 <Link
                   key={c.code}
                   to={`/community/${c.code}`}
-                  className="group relative block aspect-[4/3] overflow-hidden rounded-xl shadow-md shadow-black/20 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-gold/10"
+                  className="group flex items-center gap-3 rounded-lg px-3 py-3 transition-colors hover:bg-muted/60"
                 >
-                  <img src={c.flag} alt={c.name} className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
-                  <div className="absolute inset-0 flex items-end p-3 sm:p-4">
-                    <h3 className="text-xs font-black leading-tight text-white drop-shadow-lg sm:text-sm">{c.name}</h3>
-                  </div>
+                  <img src={c.flag} alt={c.name} className="h-6 w-auto rounded-sm shadow-sm" />
+                  <span className="text-sm font-medium text-foreground">{c.name}</span>
+                  <ArrowRight className="ml-auto h-3.5 w-3.5 text-muted-foreground/40 transition-transform group-hover:translate-x-0.5 group-hover:text-foreground/60" />
                 </Link>
               ))}
             </div>
