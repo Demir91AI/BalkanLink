@@ -11,6 +11,78 @@ const LANG_NAMES: Record<string, string> = {
   sq: "shqip", xk: "shqip", mk: "македонски", de: "Deutsch", en: "English",
 };
 
+// =====================================================================
+// INTENT CLASSIFIER — server-side enforcement (not bypassable by prompt)
+// =====================================================================
+
+const PREMIUM_KEYWORDS = [
+  // Bosnian/Croatian/Serbian
+  "gdje", "kako", "upiši", "upisi", "popuniti", "popuni", "polje", "tačno", "tacno",
+  "korak", "korak po korak", "potpis", "dokument", "priložiti", "priloziti",
+  "prilog", "čeklista", "ceklista", "objasni korak", "korak za korak",
+  "detaljno", "detaljne upute", "polje po polje", "polje-po-polje",
+  "koji dokument", "koje dokumente", "što priložiti", "sta priloziti",
+  "kako popuniti", "kako ispuniti", "kako upisati", "šta upisati", "sta upisati",
+  "šta napisati", "sta napisati", "koje polje", "u koje polje", "u kom polju",
+  "koji obrazac", "tačan format", "tacan format", "format datuma",
+  "potpisati", "potpisan", "priložen", "prilozen",
+  // German
+  "ausfüllen", "ausfullen", "schritt für schritt", "schritt fur schritt",
+  "feld für feld", "feld fur feld", "anlage", "nachweis", "eintragen",
+  "wo trage ich", "wo schreibe ich", "was trage ich ein", "was schreibe ich",
+  "welches feld", "in welches feld", "genau eintragen", "formular ausfüllen",
+  "welche unterlagen", "welche dokumente", "checkliste",
+  // English
+  "step by step", "step-by-step", "field by field", "field-by-field",
+  "where do i write", "how to fill", "what exactly", "which field",
+  "which document", "what to attach", "checklist",
+];
+
+// Patterns that indicate detailed guidance requests
+const PREMIUM_PATTERNS = [
+  /gdje\s+(se\s+)?upis/i,
+  /kako\s+(se\s+)?(popun|ispun|upis)/i,
+  /objasni.*korak/i,
+  /korak\s+(po|za)\s+korak/i,
+  /polje\s+(po|za)\s+polje/i,
+  /šta\s+(da\s+)?(upis|napišem|unesem)/i,
+  /sta\s+(da\s+)?(upis|napisem|unesem)/i,
+  /koji\s+dokument/i,
+  /koje\s+dokumente/i,
+  /što\s+priloži/i,
+  /sta\s+prilozi/i,
+  /wo\s+(trage|schreibe)\s+ich/i,
+  /was\s+(trage|schreibe)\s+ich/i,
+  /schritt\s+f[uü]r\s+schritt/i,
+  /feld\s+f[uü]r\s+feld/i,
+  /how\s+to\s+fill/i,
+  /step\s+by\s+step/i,
+  /field\s+by\s+field/i,
+  /where\s+do\s+i\s+(write|enter|put)/i,
+];
+
+type Intent = "FREE_ALLOWED" | "PREMIUM_REQUIRED";
+
+function classifyIntent(message: string): Intent {
+  const lower = message.toLowerCase().trim();
+
+  // Check patterns first (strongest signals)
+  for (const pat of PREMIUM_PATTERNS) {
+    if (pat.test(lower)) return "PREMIUM_REQUIRED";
+  }
+
+  // Check keywords — require at least one keyword match
+  for (const kw of PREMIUM_KEYWORDS) {
+    if (lower.includes(kw)) return "PREMIUM_REQUIRED";
+  }
+
+  return "FREE_ALLOWED";
+}
+
+// =====================================================================
+// SYSTEM PROMPTS
+// =====================================================================
+
 function buildSystemPrompt(isPremium: boolean, language: string): string {
   const langName = LANG_NAMES[language] || "Deutsch";
   const langInstruction = `VAŽNO: ODGOVARAJ ISKLJUČIVO na jeziku: ${langName}. Cijeli odgovor mora biti na tom jeziku. Nikada ne miješaj jezike.`;
@@ -35,6 +107,7 @@ DOZVOLJENO:
 - Ime nadležne institucije
 - Ime formulara
 - Opći savjet (1-2 rečenice)
+- Prijevod pojedinačnog polja (npr. Vorname = ime). Ali NE objašnjavaj GDJE se to polje nalazi ili KAKO ga popuniti.
 
 IDENTITET:
 - Nisi pravnik i nisi institucija.
@@ -123,6 +196,46 @@ Na kraju SVAKOG odgovora (na jeziku ${langName}):
 Informacije služe samo za orijentaciju – obavezujuće je samo nadležna institucija.`;
 }
 
+// Premium gate response messages per language
+const PREMIUM_GATE_MESSAGES: Record<string, { teaser: string; cta: string }> = {
+  bs: {
+    teaser: "Ovo pitanje zahtijeva detaljne upute polje-po-polje.",
+    cta: "Detaljne upute, čekliste dokumenata i Formular-Coach su dostupni u BalkanLink Premium.",
+  },
+  hr: {
+    teaser: "Ovo pitanje zahtijeva detaljne upute polje-po-polje.",
+    cta: "Detaljne upute, popisi dokumenata i Formular-Coach dostupni su u BalkanLink Premium.",
+  },
+  sr: {
+    teaser: "Ovo pitanje zahteva detaljne upute polje-po-polje.",
+    cta: "Detaljne upute, čekliste dokumenata i Formular-Coach su dostupni u BalkanLink Premium.",
+  },
+  me: {
+    teaser: "Ovo pitanje zahtijeva detaljne upute polje-po-polje.",
+    cta: "Detaljne upute, čekliste dokumenata i Formular-Coach su dostupni u BalkanLink Premium.",
+  },
+  de: {
+    teaser: "Diese Frage erfordert eine detaillierte Schritt-für-Schritt-Anleitung.",
+    cta: "Detaillierte Anleitungen, Dokument-Checklisten und der Formular-Coach sind mit BalkanLink Premium verfügbar.",
+  },
+  en: {
+    teaser: "This question requires detailed step-by-step guidance.",
+    cta: "Detailed instructions, document checklists, and the Form Coach are available with BalkanLink Premium.",
+  },
+  sq: {
+    teaser: "Kjo pyetje kërkon udhëzime të hollësishme hap pas hapi.",
+    cta: "Udhëzimet e hollësishme, listat e dokumenteve dhe Form Coach janë të disponueshme me BalkanLink Premium.",
+  },
+  xk: {
+    teaser: "Kjo pyetje kërkon udhëzime të hollësishme hap pas hapi.",
+    cta: "Udhëzimet e hollësishme, listat e dokumenteve dhe Form Coach janë të disponueshme me BalkanLink Premium.",
+  },
+  mk: {
+    teaser: "Ова прашање бара детални упатства чекор по чекор.",
+    cta: "Детални упатства, листи на документи и Формулар-Коуч се достапни со BalkanLink Premium.",
+  },
+};
+
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -133,6 +246,34 @@ serve(async (req) => {
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY is not configured");
 
+    // ── SERVER-SIDE INTENT GATE ──
+    // Get the latest user message
+    const lastUserMsg = [...messages].reverse().find((m: any) => m.role === "user");
+    const userText = lastUserMsg?.content || "";
+
+    // Classify intent
+    const intent = classifyIntent(userText);
+
+    // If PREMIUM_REQUIRED and user is NOT premium → block with gate response
+    if (intent === "PREMIUM_REQUIRED" && !isPremium) {
+      const lang = language || "bs";
+      const gate = PREMIUM_GATE_MESSAGES[lang] || PREMIUM_GATE_MESSAGES["bs"];
+
+      // Return a non-streaming JSON response with premium_required flag
+      return new Response(
+        JSON.stringify({
+          premium_required: true,
+          teaser: gate.teaser,
+          cta: gate.cta,
+        }),
+        {
+          status: 200,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        }
+      );
+    }
+
+    // ── PROCEED WITH AI CALL ──
     const systemPrompt = buildSystemPrompt(isPremium, language || "de");
 
     const response = await fetch(
