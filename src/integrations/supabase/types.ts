@@ -64,6 +64,8 @@ export type Database = {
           description: string | null
           google_maps_url: string | null
           google_place_id: string
+          google_rating: number | null
+          google_rating_count: number | null
           id: string
           imported_at: string | null
           instagram: string | null
@@ -99,6 +101,8 @@ export type Database = {
           description?: string | null
           google_maps_url?: string | null
           google_place_id: string
+          google_rating?: number | null
+          google_rating_count?: number | null
           id?: string
           imported_at?: string | null
           instagram?: string | null
@@ -134,6 +138,8 @@ export type Database = {
           description?: string | null
           google_maps_url?: string | null
           google_place_id?: string
+          google_rating?: number | null
+          google_rating_count?: number | null
           id?: string
           imported_at?: string | null
           instagram?: string | null
@@ -455,6 +461,8 @@ export type Database = {
           description: string | null
           google_maps_url: string | null
           google_place_id: string
+          google_rating: number | null
+          google_rating_count: number | null
           id: string
           imported_at: string | null
           instagram: string | null

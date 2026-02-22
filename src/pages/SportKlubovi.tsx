@@ -8,6 +8,7 @@ import { MapPin, ChevronDown, Search, Building2, Trophy } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { BUNDESLAENDER } from "@/lib/germany-data";
 import ListingMapPreview from "@/components/ListingMapPreview";
+import RatingBadge from "@/components/RatingBadge";
 
 interface Listing {
   id: string;
@@ -19,6 +20,8 @@ interface Listing {
   sub_category: string;
   address: string | null;
   google_maps_url: string | null;
+  google_rating: number | null;
+  google_rating_count: number | null;
 }
 
 const SPORT_SUBCATEGORIES = [
@@ -45,7 +48,7 @@ export default function SportKlubovi() {
     queryFn: async () => {
       const { data, error } = await supabase
         .from("community_listings")
-        .select("id, name, city, bundesland, origin_country, main_category, sub_category, address, google_maps_url")
+        .select("id, name, city, bundesland, origin_country, main_category, sub_category, address, google_maps_url, google_rating, google_rating_count")
         .eq("main_category", "kultura")
         .eq("sub_category", "udruzenja")
         .order("name");
@@ -190,7 +193,10 @@ export default function SportKlubovi() {
                                       <div className="grid gap-2 px-4 pb-4 sm:grid-cols-2">
                                         {items.map((item) => (
                                           <div key={item.id} className="rounded-lg p-3.5" style={{ background: "rgba(22,38,63,0.8)", border: "1px solid rgba(255,255,255,0.05)" }}>
-                                            <h4 className="text-sm font-bold text-white">{item.name}</h4>
+                                            <div className="flex items-start justify-between gap-2">
+                                              <h4 className="text-sm font-bold text-white">{item.name}</h4>
+                                              <RatingBadge rating={item.google_rating} count={item.google_rating_count} />
+                                            </div>
                                             {item.address && <p className="mt-1.5 flex items-start gap-1.5 text-xs text-white/40"><MapPin className="mt-0.5 h-3 w-3 shrink-0" />{item.address}</p>}
                                             <ListingMapPreview address={item.address} name={item.name} googleMapsUrl={item.google_maps_url} />
                                           </div>
