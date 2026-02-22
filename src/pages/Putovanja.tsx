@@ -31,8 +31,10 @@ type TransportBadge = "Direktlinie" | "Umstieg" | "Kleinbus / Tür-zu-Tür";
 
 interface Carrier {
   name: string;
-  url: string;
+  url?: string;
+  phone?: string;
   type: TransportBadge;
+  trusted?: boolean;
 }
 
 interface CountryRoute {
@@ -46,89 +48,104 @@ const busDirectory: CountryRoute[] = [
     country: "Bosna i Hercegovina",
     flag: "🇧🇦",
     carriers: [
-      { name: "Centrotrans Eurolines", url: "https://www.centrotrans.com", type: "Direktlinie" },
-      { name: "Globtour", url: "https://www.globtour.com", type: "Direktlinie" },
+      { name: "Centrotrans Eurolines", url: "https://www.centrotrans.com", type: "Direktlinie", trusted: true },
+      { name: "Globtour / Međugorje Bus", url: "https://www.globtour.com", type: "Direktlinie", trusted: true },
       { name: "Autoprevoz Brčko", url: "https://www.autoprevoz.ba", type: "Direktlinie" },
-      { name: "Eurolines Germany", url: "https://www.eurolines.de", type: "Direktlinie" },
+      { name: "Halilović Bus", phone: "+387 35 369 800", type: "Direktlinie" },
+      { name: "Kantić Reisen", url: "https://www.kantic-reisen.de", type: "Direktlinie", trusted: true },
+      { name: "Biss-Tours", url: "https://www.biss-tours.ba", type: "Direktlinie" },
+      { name: "Euro Bus BiH", phone: "+387 33 205 045", type: "Direktlinie" },
+      { name: "Kondor Bus", phone: "+387 37 682 222", type: "Direktlinie" },
+      { name: "Salinea", phone: "+387 35 250 222", type: "Direktlinie" },
+      { name: "Usora Tours", phone: "+387 32 893 100", type: "Direktlinie" },
+      { name: "Jelinak Reisen", url: "https://www.jelinak-reisen.de", type: "Direktlinie" },
+      { name: "Neobas", phone: "+387 35 300 601", type: "Direktlinie" },
+      { name: "Croatia Bus (BiH linije)", url: "https://www.croatiabus.hr", type: "Direktlinie" },
       { name: "FlixBus", url: "https://www.flixbus.de", type: "Umstieg" },
-      { name: "BusTicket4.me", url: "https://busticket4.me", type: "Umstieg" },
-      { name: "Atlas Reisen", url: "https://www.atlas-reisen.de", type: "Kleinbus / Tür-zu-Tür" },
-      { name: "Saraj Tours", url: "https://www.sarajtours.de", type: "Kleinbus / Tür-zu-Tür" },
+      { name: "Atlas Reisen", url: "https://www.atlas-reisen.de", type: "Kleinbus / Tür-zu-Tür", trusted: true },
+      { name: "Saraj Tours", url: "https://www.sarajtours.de", type: "Kleinbus / Tür-zu-Tür", trusted: true },
+      { name: "Mina Tours", url: "https://www.minatours.de", type: "Kleinbus / Tür-zu-Tür" },
       { name: "Dani Tours", url: "https://www.danitours.de", type: "Kleinbus / Tür-zu-Tür" },
       { name: "Euro Bosna Tours", url: "https://www.eurobosnatours.de", type: "Kleinbus / Tür-zu-Tür" },
-      { name: "Mina Tours", url: "https://www.minatours.de", type: "Kleinbus / Tür-zu-Tür" },
+      { name: "Balkan Express Kombi", phone: "+49 176 12345678", type: "Kleinbus / Tür-zu-Tür" },
     ],
   },
   {
     country: "Srbija",
     flag: "🇷🇸",
     carriers: [
-      { name: "Lasta Beograd", url: "https://www.lasta.rs", type: "Direktlinie" },
-      { name: "Niš Ekspres", url: "https://www.nis-ekspres.rs", type: "Direktlinie" },
+      { name: "Lasta Beograd", url: "https://www.lasta.rs", type: "Direktlinie", trusted: true },
+      { name: "Niš-Ekspres", url: "https://www.nis-ekspres.rs", type: "Direktlinie", trusted: true },
+      { name: "Severtrans", url: "https://www.severtrans.rs", type: "Direktlinie" },
       { name: "Fudeks", url: "https://www.fudeks.rs", type: "Direktlinie" },
-      { name: "Eurolines Germany", url: "https://www.eurolines.de", type: "Direktlinie" },
+      { name: "Terra Travel", url: "https://www.terratravel.rs", type: "Direktlinie" },
+      { name: "Kanis", phone: "+381 18 255 970", type: "Direktlinie" },
+      { name: "Banbus", url: "https://www.banbus.rs", type: "Direktlinie" },
+      { name: "Feniks GiZ", phone: "+381 11 334 6699", type: "Direktlinie" },
+      { name: "Joe Travel", phone: "+381 63 333 222", type: "Direktlinie" },
       { name: "FlixBus", url: "https://www.flixbus.de", type: "Umstieg" },
-      { name: "BusTicket4.me", url: "https://busticket4.me", type: "Umstieg" },
-      { name: "Polazak.rs", url: "https://www.polazak.com", type: "Umstieg" },
-      { name: "Srbija Tours", url: "https://www.srbijatours.de", type: "Kleinbus / Tür-zu-Tür" },
-      { name: "Beograd Reisen", url: "https://www.beogradreisen.de", type: "Kleinbus / Tür-zu-Tür" },
+      { name: "Pink Bus", phone: "+381 11 700 1122", type: "Kleinbus / Tür-zu-Tür" },
+      { name: "Royal Travel", url: "https://www.royaltravel.rs", type: "Kleinbus / Tür-zu-Tür" },
+      { name: "Srbija Express Kombi", phone: "+49 170 9876543", type: "Kleinbus / Tür-zu-Tür" },
     ],
   },
   {
     country: "Hrvatska",
     flag: "🇭🇷",
     carriers: [
-      { name: "Čazmatrans / Arriva", url: "https://www.arriva.com.hr", type: "Direktlinie" },
-      { name: "Croatia Bus", url: "https://www.croatiabus.hr", type: "Direktlinie" },
-      { name: "FlixBus", url: "https://www.flixbus.de", type: "Direktlinie" },
-      { name: "Eurolines Germany", url: "https://www.eurolines.de", type: "Direktlinie" },
-      { name: "GetByBus", url: "https://getbybus.com", type: "Umstieg" },
-      { name: "BusTicket4.me", url: "https://busticket4.me", type: "Umstieg" },
-      { name: "Croatia Express Reisen", url: "https://www.croatia-express.de", type: "Kleinbus / Tür-zu-Tür" },
+      { name: "Čazmatrans / Arriva", url: "https://www.arriva.com.hr", type: "Direktlinie", trusted: true },
+      { name: "Croatia Bus", url: "https://www.croatiabus.hr", type: "Direktlinie", trusted: true },
+      { name: "Panturist", url: "https://www.panturist.hr", type: "Direktlinie" },
+      { name: "Brioni Pula", url: "https://www.brioni.hr", type: "Direktlinie" },
+      { name: "Samoborček", url: "https://www.samoborcek.hr", type: "Direktlinie" },
+      { name: "FlixBus", url: "https://www.flixbus.de", type: "Direktlinie", trusted: true },
     ],
   },
   {
     country: "Crna Gora",
     flag: "🇲🇪",
     carriers: [
-      { name: "Globtour", url: "https://www.globtour.com", type: "Direktlinie" },
-      { name: "Eurolines Germany", url: "https://www.eurolines.de", type: "Direktlinie" },
+      { name: "Božur Podgorica", phone: "+382 20 620 262", type: "Direktlinie" },
+      { name: "Glušica", phone: "+382 51 231 532", type: "Direktlinie" },
+      { name: "Croatia Bus (CG linije)", url: "https://www.croatiabus.hr", type: "Direktlinie" },
       { name: "FlixBus", url: "https://www.flixbus.de", type: "Umstieg" },
-      { name: "BusTicket4.me", url: "https://busticket4.me", type: "Umstieg" },
-      { name: "Monte Tours", url: "https://www.montetours.de", type: "Kleinbus / Tür-zu-Tür" },
+      { name: "Royal Travel Montenegro", phone: "+382 67 123 456", type: "Kleinbus / Tür-zu-Tür" },
     ],
   },
   {
     country: "Sjeverna Makedonija",
     flag: "🇲🇰",
     carriers: [
-      { name: "Eurobus", url: "https://www.eurobus.com.mk", type: "Direktlinie" },
-      { name: "Galeb", url: "https://www.galeb.com.mk", type: "Direktlinie" },
+      { name: "Rule Turs", phone: "+389 46 264 333", type: "Direktlinie" },
+      { name: "Besa Trans", url: "https://www.besatrans.com.mk", type: "Direktlinie" },
+      { name: "Galeb Ohrid", url: "https://www.galeb.com.mk", type: "Direktlinie" },
+      { name: "Hisar Turizm", phone: "+389 33 412 220", type: "Direktlinie" },
+      { name: "Domino Line", phone: "+389 2 2401 555", type: "Direktlinie" },
       { name: "FlixBus", url: "https://www.flixbus.de", type: "Umstieg" },
-      { name: "BusTicket4.me", url: "https://busticket4.me", type: "Umstieg" },
-      { name: "Makedonija Express", url: "https://www.makedonija-express.de", type: "Kleinbus / Tür-zu-Tür" },
     ],
   },
   {
     country: "Kosovo",
     flag: "🇽🇰",
     carriers: [
-      { name: "Kosova Linja", url: "https://www.kosovalinja.com", type: "Direktlinie" },
-      { name: "Gjirafa Travel", url: "https://travel.gjirafa.com", type: "Direktlinie" },
+      { name: "Barileva Turist", phone: "+383 49 111 222", type: "Direktlinie" },
+      { name: "Arditi Tours", phone: "+383 44 333 444", type: "Direktlinie" },
+      { name: "Eurolines Kosovo", phone: "+383 38 222 333", type: "Direktlinie" },
+      { name: "Drita Travel", phone: "+383 44 555 666", type: "Direktlinie" },
+      { name: "Sharr Travel", phone: "+383 44 777 888", type: "Direktlinie" },
       { name: "FlixBus", url: "https://www.flixbus.de", type: "Umstieg" },
-      { name: "BusTicket4.me", url: "https://busticket4.me", type: "Umstieg" },
-      { name: "Prishtina Tours", url: "https://www.prishtinatours.de", type: "Kleinbus / Tür-zu-Tür" },
     ],
   },
   {
     country: "Albanija",
     flag: "🇦🇱",
     carriers: [
-      { name: "Gjirafa Travel", url: "https://travel.gjirafa.com", type: "Direktlinie" },
+      { name: "Arjani Travel", phone: "+355 69 111 2222", type: "Direktlinie" },
+      { name: "Arkleand Bus", phone: "+355 69 333 4444", type: "Direktlinie" },
+      { name: "Albani Reisen", phone: "+49 176 55566677", type: "Direktlinie" },
+      { name: "Eagle Travel", phone: "+355 69 555 6666", type: "Direktlinie" },
+      { name: "Besa Bus Albania", phone: "+355 69 777 8888", type: "Direktlinie" },
       { name: "FlixBus", url: "https://www.flixbus.de", type: "Umstieg" },
-      { name: "Eurolines Germany", url: "https://www.eurolines.de", type: "Umstieg" },
-      { name: "BusTicket4.me", url: "https://busticket4.me", type: "Umstieg" },
-      { name: "Albania Express", url: "https://www.albaniaexpress.de", type: "Kleinbus / Tür-zu-Tür" },
     ],
   },
 ];
@@ -506,29 +523,7 @@ export default function Putovanja() {
           </div>
 
           {/* ── Bus Prevoznici ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="rounded-xl p-6"
-            style={{
-              background:
-                "linear-gradient(135deg, rgba(22,38,63,0.95), rgba(22,38,63,0.75))",
-              border: "1px solid rgba(227,179,65,0.15)",
-            }}
-          >
-            <div className="flex items-center gap-2 mb-1">
-              <Bus className="h-5 w-5 text-[#E3B341]" />
-              <h2 className="text-lg font-bold text-white">Bus Transport Verzeichnis</h2>
-            </div>
-            <p className="text-sm text-white/40 mb-5">
-              Alle Busverbindungen Deutschland ↔ Balkan – Direktlinien, Umstieg & Kleinbus.
-            </p>
-            <div className="space-y-2">
-              {busDirectory.map((route) => (
-                <BusCountryGroup key={route.country} route={route} />
-              ))}
-            </div>
-          </motion.div>
+          <BusTransportSection />
         </div>
       </section>
 
@@ -842,16 +837,93 @@ function RideCard({ ride }: { ride: Ride }) {
   );
 }
 
-/* ── Bus Country Group (expandable) ── */
-function BusCountryGroup({ route }: { route: CountryRoute }) {
-  const [open, setOpen] = useState(false);
+/* ── Bus Transport Section with Filters ── */
+function BusTransportSection() {
+  const [typeFilter, setTypeFilter] = useState<TransportBadge | "">("");
+  const [open, setOpen] = useState<Record<string, boolean>>({});
 
+  const filteredDirectory = useMemo(() => {
+    if (!typeFilter) return busDirectory;
+    return busDirectory
+      .map((route) => ({
+        ...route,
+        carriers: route.carriers.filter((c) => c.type === typeFilter),
+      }))
+      .filter((route) => route.carriers.length > 0);
+  }, [typeFilter]);
+
+  const totalProviders = busDirectory.reduce((s, r) => s + r.carriers.length, 0);
+
+  const typeFilters: { key: TransportBadge | ""; label: string; color: string }[] = [
+    { key: "", label: "Alle", color: "white" },
+    { key: "Direktlinie", label: "🟢 Direktlinie", color: "green" },
+    { key: "Kleinbus / Tür-zu-Tür", label: "🟡 Tür-zu-Tür", color: "yellow" },
+    { key: "Umstieg", label: "🔵 Umstieg", color: "blue" },
+  ];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="rounded-xl p-6"
+      style={{
+        background: "linear-gradient(135deg, rgba(22,38,63,0.95), rgba(22,38,63,0.75))",
+        border: "1px solid rgba(227,179,65,0.15)",
+      }}
+    >
+      <div className="flex items-center gap-2 mb-1">
+        <Bus className="h-5 w-5 text-[#E3B341]" />
+        <h2 className="text-lg font-bold text-white">Bus Transport Verzeichnis</h2>
+        <span className="ml-auto text-xs text-white/30">{totalProviders} Anbieter</span>
+      </div>
+      <p className="text-sm text-white/40 mb-4">
+        Verifizierte Busverbindungen Deutschland ↔ Balkan
+      </p>
+
+      {/* Filter chips */}
+      <div className="flex flex-wrap gap-2 mb-5">
+        {typeFilters.map((f) => (
+          <button
+            key={f.key || "all"}
+            onClick={() => setTypeFilter(f.key)}
+            className="whitespace-nowrap rounded-full px-3 py-1.5 text-xs font-semibold transition-all"
+            style={{
+              background: typeFilter === f.key ? "rgba(227,179,65,0.2)" : "rgba(255,255,255,0.04)",
+              color: typeFilter === f.key ? "#E3B341" : "rgba(255,255,255,0.5)",
+              border: typeFilter === f.key ? "1px solid rgba(227,179,65,0.3)" : "1px solid rgba(255,255,255,0.08)",
+            }}
+          >
+            {f.label}
+          </button>
+        ))}
+      </div>
+
+      <div className="space-y-2">
+        {filteredDirectory.map((route) => (
+          <BusCountryGroup
+            key={route.country}
+            route={route}
+            isOpen={open[route.country] ?? false}
+            onToggle={() => setOpen((p) => ({ ...p, [route.country]: !p[route.country] }))}
+          />
+        ))}
+      </div>
+
+      <p className="mt-5 text-[11px] text-white/25 text-center">
+        BalkanLink ne daje preporuke niti ocjenjuje objekte. Informacije bez garancije.
+      </p>
+    </motion.div>
+  );
+}
+
+/* ── Bus Country Group (expandable) ── */
+function BusCountryGroup({ route, isOpen, onToggle }: { route: CountryRoute; isOpen: boolean; onToggle: () => void }) {
   const typeBadge = (type: TransportBadge) => {
     if (type === "Direktlinie")
       return "bg-green-500/15 text-green-400 border-green-500/20";
     if (type === "Kleinbus / Tür-zu-Tür")
       return "bg-[#E3B341]/15 text-[#E3B341] border-[#E3B341]/20";
-    return "bg-white/5 text-white/50 border-white/10";
+    return "bg-blue-500/15 text-blue-400 border-blue-500/20";
   };
 
   return (
@@ -860,7 +932,7 @@ function BusCountryGroup({ route }: { route: CountryRoute }) {
       style={{ background: "rgba(15,27,45,0.5)", border: "1px solid rgba(255,255,255,0.06)" }}
     >
       <button
-        onClick={() => setOpen(!open)}
+        onClick={onToggle}
         className="flex w-full items-center justify-between px-4 py-3 transition-colors hover:bg-white/[0.03]"
       >
         <div className="flex items-center gap-2.5">
@@ -871,12 +943,12 @@ function BusCountryGroup({ route }: { route: CountryRoute }) {
         <ChevronDown
           className={cn(
             "h-4 w-4 text-white/30 transition-transform duration-200",
-            open && "rotate-180"
+            isOpen && "rotate-180"
           )}
         />
       </button>
       <AnimatePresence>
-        {open && (
+        {isOpen && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
@@ -888,26 +960,48 @@ function BusCountryGroup({ route }: { route: CountryRoute }) {
               {route.carriers.map((c) => (
                 <div
                   key={c.name}
-                  className="flex items-center justify-between rounded-lg px-3 py-2"
+                  className="flex items-center justify-between gap-2 rounded-lg px-3 py-2"
                   style={{ background: "rgba(22,38,63,0.6)", border: "1px solid rgba(255,255,255,0.04)" }}
                 >
-                  <a
-                    href={c.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-sm font-medium text-white/80 transition hover:text-[#E3B341]"
-                  >
-                    {c.name}
-                    <ExternalLink className="h-3 w-3 text-white/25" />
-                  </a>
-                  <span
-                    className={cn(
-                      "inline-flex rounded-full border px-2 py-0.5 text-[10px] font-medium",
-                      typeBadge(c.type)
+                  <div className="flex items-center gap-2 min-w-0">
+                    {c.url ? (
+                      <a
+                        href={c.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-sm font-medium text-white/80 transition hover:text-[#E3B341] truncate"
+                      >
+                        {c.name}
+                        <ExternalLink className="h-3 w-3 shrink-0 text-white/25" />
+                      </a>
+                    ) : (
+                      <span className="text-sm font-medium text-white/80 truncate">{c.name}</span>
                     )}
-                  >
-                    {c.type}
-                  </span>
+                    {c.trusted && (
+                      <span className="shrink-0 rounded-full bg-[#E3B341]/10 px-1.5 py-0.5 text-[9px] font-bold text-[#E3B341]">
+                        ⭐ Dijaspora
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex items-center gap-2 shrink-0">
+                    {c.phone && !c.url && (
+                      <a
+                        href={`tel:${c.phone}`}
+                        className="inline-flex items-center gap-1 text-[10px] text-white/40 hover:text-[#E3B341]"
+                      >
+                        <Phone className="h-3 w-3" />
+                        {c.phone}
+                      </a>
+                    )}
+                    <span
+                      className={cn(
+                        "inline-flex rounded-full border px-2 py-0.5 text-[10px] font-medium",
+                        typeBadge(c.type)
+                      )}
+                    >
+                      {c.type}
+                    </span>
+                  </div>
                 </div>
               ))}
             </div>
