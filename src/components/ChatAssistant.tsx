@@ -1,12 +1,12 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import { MessageSquare, X, Send, Loader2 } from "lucide-react";
+import { MessageSquare, X, Send, Loader2, Lock } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { Link } from "react-router-dom";
 
-type Msg = { role: "user" | "assistant"; content: string };
+type Msg = { role: "user" | "assistant"; content: string; premiumGated?: boolean };
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat-assistant`;
 
@@ -132,6 +132,26 @@ export default function ChatAssistant() {
         throw new Error("Stream failed");
       }
 
+      // Check if this is a premium gate JSON response (not a stream)
+      const contentType = resp.headers.get("content-type") || "";
+      if (contentType.includes("application/json")) {
+        const data = await resp.json();
+        if (data.premium_required) {
+          const gateMsg = `${data.teaser}\n\n${data.cta}`;
+          setMessages((prev) => [
+            ...prev,
+            { role: "assistant", content: gateMsg, premiumGated: true },
+          ]);
+          setLoading(false);
+          return;
+        }
+        if (data.error) {
+          upsertAssistant(data.error);
+          setLoading(false);
+          return;
+        }
+      }
+
       const reader = resp.body.getReader();
       const decoder = new TextDecoder();
       let textBuffer = "";
@@ -227,10 +247,46 @@ export default function ChatAssistant() {
                 <div key={i} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
                   <div
                     className={`max-w-[85%] rounded-lg px-3 py-2 text-[13px] leading-snug ${
-                      msg.role === "user" ? "bg-primary text-primary-foreground" : "bg-muted text-foreground"
+                      msg.role === "user"
+                        ? "bg-primary text-primary-foreground"
+                        : msg.premiumGated
+                        ? "bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 text-foreground"
+                        : "bg-muted text-foreground"
                     }`}
                   >
-                    {msg.role === "assistant" ? <ChatMarkdown content={msg.content} /> : msg.content}
+                    {msg.role === "assistant" ? (
+                      <>
+                        {msg.premiumGated && (
+                          <div className="flex items-center gap-1.5 mb-1.5">
+                            <Lock className="h-3.5 w-3.5 text-amber-600 dark:text-amber-400" />
+                            <span className="text-[11px] font-semibold text-amber-700 dark:text-amber-400">Premium</span>
+                          </div>
+                        )}
+                        <ChatMarkdown content={msg.content} />
+                        {msg.premiumGated && (
+                          <div className="mt-2 flex flex-col gap-1.5">
+                            <Link
+                              to="/premium"
+                              className="inline-flex items-center justify-center gap-1.5 rounded-md bg-amber-500 px-3 py-1.5 text-[12px] font-semibold text-white transition hover:bg-amber-600"
+                            >
+                              <Lock className="h-3 w-3" />
+                              Otključaj Premium
+                            </Link>
+                            <button
+                              onClick={() => {
+                                setInput("");
+                                inputRef.current?.focus();
+                              }}
+                              className="text-[11px] text-muted-foreground hover:text-foreground transition"
+                            >
+                              Postavi opće pitanje →
+                            </button>
+                          </div>
+                        )}
+                      </>
+                    ) : (
+                      msg.content
+                    )}
                   </div>
                 </div>
               ))}
