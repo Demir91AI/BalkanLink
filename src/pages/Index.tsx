@@ -36,7 +36,7 @@ const zajednicaItems = [
   { label: "Hrvatska", icon: Landmark, to: "/community/hr" },
   { label: "Srbija", icon: Landmark, to: "/community/srb" },
   { label: "Crna Gora", icon: Landmark, to: "/community/me" },
-  { label: "Sve zemlje", icon: Users, to: "/community" },
+  { label: "Sve zemlje →", icon: Users, to: "/community" },
 ];
 
 const lifestyleItems = [
