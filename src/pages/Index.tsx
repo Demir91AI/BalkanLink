@@ -9,6 +9,14 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
+import flagBIH from "@/assets/flags/ba.png";
+import flagHR from "@/assets/flags/hr.png";
+import flagSRB from "@/assets/flags/rs.png";
+import flagME from "@/assets/flags/me.png";
+import flagMK from "@/assets/flags/mk.png";
+import flagXK from "@/assets/flags/xk.png";
+import flagAL from "@/assets/flags/al.png";
+
 import heroBerlin from "@/assets/hero-berlin.jpg";
 import heroMuenchen from "@/assets/hero-muenchen.jpg";
 import heroFrankfurt from "@/assets/hero-frankfurt.jpg";
@@ -31,14 +39,14 @@ const pomocItems = [
   { label: "Dokumenten-Check", icon: ScanSearch, to: "/dokumenten-check" },
 ];
 
-const zajednicaItems = [
-  { label: "Bosna i Hercegovina", icon: Landmark, to: "/community/bih" },
-  { label: "Srbija", icon: Landmark, to: "/community/srb" },
-  { label: "Hrvatska", icon: Landmark, to: "/community/hr" },
-  { label: "Crna Gora", icon: Landmark, to: "/community/me" },
-  { label: "Sjeverna Makedonija", icon: Landmark, to: "/community/mk" },
-  { label: "Kosovo", icon: Landmark, to: "/community/xk" },
-  { label: "Albanija", icon: Landmark, to: "/community/al" },
+const zajednicaCards = [
+  { code: "bih", name: "Bosna i Hercegovina", flag: flagBIH },
+  { code: "srb", name: "Srbija",              flag: flagSRB },
+  { code: "hr",  name: "Hrvatska",            flag: flagHR },
+  { code: "me",  name: "Crna Gora",           flag: flagME },
+  { code: "mk",  name: "Sjeverna Makedonija", flag: flagMK },
+  { code: "xk",  name: "Kosovo",              flag: flagXK },
+  { code: "al",  name: "Albanija",            flag: flagAL },
 ];
 
 const lifestyleItems = [
@@ -143,10 +151,22 @@ export default function Index() {
           <div className="rounded-2xl border border-border/60 bg-card p-5 sm:p-7 shadow-sm">
             <div className="mb-1">
               <h2 className="font-heading text-lg font-extrabold uppercase tracking-wide sm:text-xl">Zajednica</h2>
-              <p className="text-xs text-muted-foreground">Vjerske zajednice • Kultura • Sport • Folklor</p>
+              <p className="text-xs text-muted-foreground">Vjerske zajednice • Kultura • Sport</p>
             </div>
-            <div className="mt-4 grid gap-0.5">
-              {zajednicaItems.map((item) => <SectionItem key={item.label} item={item} />)}
+            <div className="mt-4 grid grid-cols-2 gap-2.5 sm:grid-cols-3 lg:grid-cols-4">
+              {zajednicaCards.map((c) => (
+                <Link
+                  key={c.code}
+                  to={`/community/${c.code}`}
+                  className="group relative block aspect-[4/3] overflow-hidden rounded-xl shadow-md shadow-black/20 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-gold/10"
+                >
+                  <img src={c.flag} alt={c.name} className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
+                  <div className="absolute inset-0 flex items-end p-3 sm:p-4">
+                    <h3 className="text-xs font-black leading-tight text-white drop-shadow-lg sm:text-sm">{c.name}</h3>
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
         </motion.section>
