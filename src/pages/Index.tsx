@@ -33,8 +33,8 @@ const pomocItems = [
 
 const zajednicaItems = [
   { label: "Bosna i Hercegovina", icon: Landmark, to: "/community/bih" },
-  { label: "Hrvatska", icon: Landmark, to: "/community/hr" },
   { label: "Srbija", icon: Landmark, to: "/community/srb" },
+  { label: "Hrvatska", icon: Landmark, to: "/community/hr" },
   { label: "Crna Gora", icon: Landmark, to: "/community/me" },
   { label: "Sjeverna Makedonija", icon: Landmark, to: "/community/mk" },
   { label: "Kosovo", icon: Landmark, to: "/community/xk" },
