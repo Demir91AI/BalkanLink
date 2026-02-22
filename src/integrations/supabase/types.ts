@@ -344,6 +344,75 @@ export type Database = {
         }
         Relationships: []
       }
+      rides: {
+        Row: {
+          contact_phone: string | null
+          contact_whatsapp: string | null
+          created_at: string
+          depart_at: string
+          from_city: string | null
+          from_lat: number | null
+          from_lng: number | null
+          from_text: string
+          id: string
+          notes: string | null
+          price_eur: number | null
+          price_type: string
+          seats_available: number
+          seats_total: number
+          status: string
+          to_city: string | null
+          to_lat: number | null
+          to_lng: number | null
+          to_text: string
+          user_id: string | null
+        }
+        Insert: {
+          contact_phone?: string | null
+          contact_whatsapp?: string | null
+          created_at?: string
+          depart_at: string
+          from_city?: string | null
+          from_lat?: number | null
+          from_lng?: number | null
+          from_text: string
+          id?: string
+          notes?: string | null
+          price_eur?: number | null
+          price_type?: string
+          seats_available: number
+          seats_total: number
+          status?: string
+          to_city?: string | null
+          to_lat?: number | null
+          to_lng?: number | null
+          to_text: string
+          user_id?: string | null
+        }
+        Update: {
+          contact_phone?: string | null
+          contact_whatsapp?: string | null
+          created_at?: string
+          depart_at?: string
+          from_city?: string | null
+          from_lat?: number | null
+          from_lng?: number | null
+          from_text?: string
+          id?: string
+          notes?: string | null
+          price_eur?: number | null
+          price_type?: string
+          seats_available?: number
+          seats_total?: number
+          status?: string
+          to_city?: string | null
+          to_lat?: number | null
+          to_lng?: number | null
+          to_text?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           id: string
