@@ -13,32 +13,38 @@ import ListingMapPreview from "@/components/ListingMapPreview";
 /* ─── Subcategory filters mapped to REAL DB sub_category values ─── */
 const COUNTRY_SUBCATEGORIES: Record<string, { key: string; label: string; subCategories: string[] }[]> = {
   BIH: [
-    { key: "dzamije", label: "🕌 Džemati & Džamije", subCategories: ["dzamije"] },
-    { key: "udruzenja", label: "🎭 Kulturna udruženja", subCategories: ["udruzenja"] },
+    { key: "dzamije", label: "🕌 Džemati", subCategories: ["dzamije", "dzemat", "islamic_center"] },
+    { key: "moscheen", label: "🕌 Moscheen (Bosnisch)", subCategories: ["mosque"] },
+    { key: "udruzenja", label: "🎭 Kulturna udruženja", subCategories: ["udruzenja", "association", "cultural_center"] },
   ],
   HR: [
-    { key: "crkve", label: "⛪ Katoličke misije & Crkve", subCategories: ["crkve"] },
-    { key: "udruzenja", label: "🎭 Hrvatska udruženja", subCategories: ["udruzenja"] },
+    { key: "misije", label: "⛪ Katholische Missionen", subCategories: ["crkve", "mission", "catholic_mission"] },
+    { key: "crkve", label: "⛪ Kroatische Kirchen", subCategories: ["church", "parish"] },
+    { key: "udruzenja", label: "🎭 Hrvatska udruženja", subCategories: ["udruzenja", "association", "cultural_center"] },
   ],
   SRB: [
-    { key: "crkve", label: "☦️ Pravoslavne crkve", subCategories: ["crkve"] },
-    { key: "udruzenja", label: "🎭 Srpska udruženja & Kulturni centri", subCategories: ["udruzenja"] },
+    { key: "crkve", label: "☦️ Orthodoxe Kirchen", subCategories: ["crkve", "church", "orthodox"] },
+    { key: "gemeinden", label: "☦️ Serbische Gemeinden", subCategories: ["parish", "gemeinde"] },
+    { key: "udruzenja", label: "🎭 Srpska udruženja", subCategories: ["udruzenja", "association", "cultural_center"] },
   ],
   ME: [
-    { key: "religija", label: "🛕 Vjerske zajednice", subCategories: ["dzamije", "crkve"] },
-    { key: "udruzenja", label: "🎭 Kulturna udruženja", subCategories: ["udruzenja"] },
+    { key: "religija", label: "🛕 Vjerske zajednice", subCategories: ["dzamije", "crkve", "mosque", "church", "islamic_center"] },
+    { key: "udruzenja", label: "🎭 Kulturna udruženja", subCategories: ["udruzenja", "association", "cultural_center"] },
   ],
   MK: [
-    { key: "religija", label: "🛕 Верски заедници", subCategories: ["dzamije", "crkve"] },
-    { key: "udruzenja", label: "🎭 Културни здруженија", subCategories: ["udruzenja"] },
+    { key: "orthodox", label: "☦️ Orthodoxe Gemeinden", subCategories: ["crkve", "church", "orthodox", "parish"] },
+    { key: "islamic", label: "🕌 Islamische Gemeinden", subCategories: ["dzamije", "mosque", "islamic_center"] },
+    { key: "udruzenja", label: "🎭 Културни здруженија", subCategories: ["udruzenja", "association", "cultural_center"] },
   ],
   XK: [
-    { key: "religija", label: "🛕 Bashkësi fetare", subCategories: ["dzamije", "crkve"] },
-    { key: "udruzenja", label: "🎭 Shoqata kulturore", subCategories: ["udruzenja"] },
+    { key: "moscheen", label: "🕌 Moscheen", subCategories: ["dzamije", "mosque", "islamic_center"] },
+    { key: "zentren", label: "🕌 Kulturreligiöse Zentren", subCategories: ["crkve", "church", "cultural_center"] },
+    { key: "udruzenja", label: "🎭 Shoqata kulturore", subCategories: ["udruzenja", "association"] },
   ],
   AL: [
-    { key: "religija", label: "🛕 Bashkësi fetare", subCategories: ["dzamije", "crkve"] },
-    { key: "udruzenja", label: "🎭 Shoqata kulturore", subCategories: ["udruzenja"] },
+    { key: "moscheen", label: "🕌 Moscheen", subCategories: ["dzamije", "mosque", "islamic_center"] },
+    { key: "zentren", label: "🕌 Kulturreligiöse Zentren", subCategories: ["crkve", "church", "cultural_center"] },
+    { key: "udruzenja", label: "🎭 Shoqata kulturore", subCategories: ["udruzenja", "association"] },
   ],
 };
 
