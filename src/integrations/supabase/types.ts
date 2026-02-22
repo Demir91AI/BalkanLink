@@ -443,6 +443,51 @@ export type Database = {
         }
         Returns: boolean
       }
+      search_community_listings: {
+        Args: { search_terms: string[] }
+        Returns: {
+          address: string | null
+          bundesland: string
+          business_status: string | null
+          category_confidence: number | null
+          city: string
+          created_at: string
+          description: string | null
+          google_maps_url: string | null
+          google_place_id: string
+          id: string
+          imported_at: string | null
+          instagram: string | null
+          lat: number | null
+          lng: number | null
+          locked_fields: Json | null
+          main_category: string
+          name: string
+          needs_review: boolean
+          origin_confidence: number | null
+          origin_country: string
+          override_address: string | null
+          override_city: string | null
+          override_lat: number | null
+          override_lng: number | null
+          override_name: string | null
+          override_postal: string | null
+          override_updated_at: string | null
+          postal_code: string | null
+          review_reason: string | null
+          source: string
+          sub_category: string
+          verified_by_admin: boolean
+          website: string | null
+        }[]
+        SetofOptions: {
+          from: "*"
+          to: "community_listings"
+          isOneToOne: false
+          isSetofReturn: true
+        }
+      }
+      unaccent: { Args: { "": string }; Returns: string }
     }
     Enums: {
       app_role: "admin" | "user"
