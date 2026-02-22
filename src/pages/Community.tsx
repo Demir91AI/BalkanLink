@@ -1,52 +1,56 @@
 import { useState, useMemo, useRef, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { useCountry, type CountryCode } from "@/contexts/CountryContext";
 import { Input } from "@/components/ui/input";
-import { MapPin, ChevronDown, Search, Building2, Tag } from "lucide-react";
+import { MapPin, ChevronDown, Search, Building2, Trophy, Users, Dumbbell } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { BUNDESLAENDER } from "@/lib/germany-data";
 import ListingMapPreview from "@/components/ListingMapPreview";
 
-/* ─── Country-specific subcategory definitions ─── */
-/* ─── Subcategory filters mapped to REAL DB sub_category values ─── */
-const COUNTRY_SUBCATEGORIES: Record<string, { key: string; label: string; subCategories: string[] }[]> = {
+/* ─── Two main tabs ─── */
+type MainTab = "gemeinschaft" | "sport";
+
+/* ─── Gemeinschaft subcategories per country ─── */
+const GEMEINSCHAFT_SUBCATS: Record<string, { key: string; label: string; subCategories: string[] }[]> = {
   BIH: [
-    { key: "dzamije", label: "🕌 Džemati", subCategories: ["dzamije", "dzemat", "islamic_center"] },
-    { key: "moscheen", label: "🕌 Moscheen (Bosnisch)", subCategories: ["mosque"] },
-    { key: "udruzenja", label: "🎭 Kulturna udruženja", subCategories: ["udruzenja", "association", "cultural_center"] },
+    { key: "religion", label: "🕌 Moscheen & Džemati", subCategories: ["dzamije", "dzemat", "mosque", "islamic_center"] },
+    { key: "kultur", label: "🎭 Kulturvereine", subCategories: ["udruzenja", "association", "cultural_center"] },
   ],
   HR: [
-    { key: "misije", label: "⛪ Katholische Missionen", subCategories: ["crkve", "mission", "catholic_mission"] },
-    { key: "crkve", label: "⛪ Kroatische Kirchen", subCategories: ["church", "parish"] },
-    { key: "udruzenja", label: "🎭 Hrvatska udruženja", subCategories: ["udruzenja", "association", "cultural_center"] },
+    { key: "religion", label: "⛪ Katholische Missionen", subCategories: ["crkve", "church", "mission", "catholic_mission", "parish"] },
+    { key: "kultur", label: "🎭 Kulturvereine", subCategories: ["udruzenja", "association", "cultural_center"] },
   ],
   SRB: [
-    { key: "crkve", label: "☦️ Orthodoxe Kirchen", subCategories: ["crkve", "church", "orthodox"] },
-    { key: "gemeinden", label: "☦️ Serbische Gemeinden", subCategories: ["parish", "gemeinde"] },
-    { key: "udruzenja", label: "🎭 Srpska udruženja", subCategories: ["udruzenja", "association", "cultural_center"] },
+    { key: "religion", label: "☦️ Orthodoxe Kirchen", subCategories: ["crkve", "church", "orthodox", "parish", "gemeinde"] },
+    { key: "kultur", label: "🎭 Kulturvereine", subCategories: ["udruzenja", "association", "cultural_center"] },
   ],
   ME: [
-    { key: "religija", label: "🛕 Vjerske zajednice", subCategories: ["dzamije", "crkve", "mosque", "church", "islamic_center"] },
-    { key: "udruzenja", label: "🎭 Kulturna udruženja", subCategories: ["udruzenja", "association", "cultural_center"] },
+    { key: "religion", label: "🛕 Religiöse Gemeinden", subCategories: ["dzamije", "crkve", "mosque", "church", "islamic_center"] },
+    { key: "kultur", label: "🎭 Kulturvereine", subCategories: ["udruzenja", "association", "cultural_center"] },
   ],
   MK: [
-    { key: "orthodox", label: "☦️ Orthodoxe Gemeinden", subCategories: ["crkve", "church", "orthodox", "parish"] },
-    { key: "islamic", label: "🕌 Islamische Gemeinden", subCategories: ["dzamije", "mosque", "islamic_center"] },
-    { key: "udruzenja", label: "🎭 Културни здруженија", subCategories: ["udruzenja", "association", "cultural_center"] },
+    { key: "religion", label: "🛕 Religiöse Gemeinden", subCategories: ["dzamije", "crkve", "mosque", "church", "orthodox", "islamic_center", "parish"] },
+    { key: "kultur", label: "🎭 Kulturvereine", subCategories: ["udruzenja", "association", "cultural_center"] },
   ],
   XK: [
-    { key: "moscheen", label: "🕌 Moscheen", subCategories: ["dzamije", "mosque", "islamic_center"] },
-    { key: "zentren", label: "🕌 Kulturreligiöse Zentren", subCategories: ["crkve", "church", "cultural_center"] },
-    { key: "udruzenja", label: "🎭 Shoqata kulturore", subCategories: ["udruzenja", "association"] },
+    { key: "religion", label: "🕌 Moscheen", subCategories: ["dzamije", "mosque", "islamic_center", "crkve", "church", "cultural_center"] },
+    { key: "kultur", label: "🎭 Kulturvereine", subCategories: ["udruzenja", "association"] },
   ],
   AL: [
-    { key: "moscheen", label: "🕌 Moscheen", subCategories: ["dzamije", "mosque", "islamic_center"] },
-    { key: "zentren", label: "🕌 Kulturreligiöse Zentren", subCategories: ["crkve", "church", "cultural_center"] },
-    { key: "udruzenja", label: "🎭 Shoqata kulturore", subCategories: ["udruzenja", "association"] },
+    { key: "religion", label: "🕌 Moscheen", subCategories: ["dzamije", "mosque", "islamic_center", "crkve", "church", "cultural_center"] },
+    { key: "kultur", label: "🎭 Kulturvereine", subCategories: ["udruzenja", "association"] },
   ],
 };
+
+/* ─── Sport subcategories ─── */
+const SPORT_SUBCATS = [
+  { key: "fudbal", label: "⚽ Fudbal", subCategories: ["fudbal", "football", "soccer"] },
+  { key: "kosarka", label: "🏀 Košarka", subCategories: ["kosarka", "basketball"] },
+  { key: "borilacki", label: "🥊 Borilački sportovi", subCategories: ["borilacki", "boxing", "martial_arts", "mma"] },
+  { key: "folklor", label: "💃 Folklor & KUD", subCategories: ["folklor", "kud", "dance"] },
+  { key: "ostalo", label: "🏅 Ostali sportovi", subCategories: ["sport", "handball", "volleyball", "tennis"] },
+];
 
 interface Listing {
   id: string;
@@ -57,37 +61,38 @@ interface Listing {
   main_category: string;
   sub_category: string;
   address: string | null;
-  description: string | null;
-  website: string | null;
-  instagram: string | null;
   google_maps_url: string | null;
 }
 
 export default function Community() {
-  const { t } = useLanguage();
   const { activeCountry } = useCountry();
 
-  const subcats = COUNTRY_SUBCATEGORIES[activeCountry] || COUNTRY_SUBCATEGORIES.BIH;
+  const [mainTab, setMainTab] = useState<MainTab>("gemeinschaft");
+  const [activeSubgroup, setActiveSubgroup] = useState("");
   const [cityInput, setCityInput] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [openBundeslaender, setOpenBundeslaender] = useState<Record<string, boolean>>({});
   const [openCities, setOpenCities] = useState<Record<string, boolean>>({});
-  const [activeSubgroup, setActiveSubgroup] = useState("");
-
   const cityRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
+  const dbCategory = mainTab === "gemeinschaft" ? "kultura" : "sport";
+
   const { data: listings = [], isLoading } = useQuery<Listing[]>({
-    queryKey: ["community-listings"],
+    queryKey: ["community-listings", dbCategory],
     queryFn: async () => {
       const { data, error } = await supabase
         .from("community_listings")
-        .select("*")
-        .eq("main_category", "kultura")
+        .select("id, name, city, bundesland, origin_country, main_category, sub_category, address, google_maps_url")
+        .eq("main_category", dbCategory)
         .order("name");
       if (error) throw error;
       return data;
     },
   });
+
+  const subcats = mainTab === "gemeinschaft"
+    ? (GEMEINSCHAFT_SUBCATS[activeCountry] || GEMEINSCHAFT_SUBCATS.BIH)
+    : SPORT_SUBCATS;
 
   const allCitiesWithData = useMemo(
     () => [...new Set(listings.map((l) => l.city))].sort(),
@@ -100,7 +105,6 @@ export default function Community() {
     return allCitiesWithData.filter((c) => c.toLowerCase().includes(q)).slice(0, 10);
   }, [cityInput, allCitiesWithData]);
 
-  /* Filter listings by country, subgroup, and city */
   const filtered = useMemo(() => {
     let result = listings.filter((l) => l.origin_country === activeCountry || l.origin_country === "BALKAN");
 
@@ -115,17 +119,13 @@ export default function Community() {
     return result;
   }, [listings, cityInput, activeCountry, activeSubgroup, subcats]);
 
-  /* Build hierarchy — all 16 Bundesländer */
   const hierarchy = useMemo(() => {
     const blMap: Record<string, Record<string, Listing[]>> = {};
     for (const item of filtered) {
-      const bl = item.bundesland;
-      const city = item.city;
-      if (!blMap[bl]) blMap[bl] = {};
-      if (!blMap[bl][city]) blMap[bl][city] = [];
-      blMap[bl][city].push(item);
+      if (!blMap[item.bundesland]) blMap[item.bundesland] = {};
+      if (!blMap[item.bundesland][item.city]) blMap[item.bundesland][item.city] = [];
+      blMap[item.bundesland][item.city].push(item);
     }
-
     return BUNDESLAENDER.map((bl) => {
       const cities = blMap[bl] || {};
       const totalEntries = Object.values(cities).reduce((sum, arr) => sum + arr.length, 0);
@@ -155,13 +155,13 @@ export default function Community() {
     }
   }, [cityInput, filtered]);
 
-  // Reset subgroup when country changes
-  useEffect(() => {
-    setActiveSubgroup("");
-  }, [activeCountry]);
+  // Reset subgroup when country or tab changes
+  useEffect(() => { setActiveSubgroup(""); }, [activeCountry, mainTab]);
 
   const toggleKey = (setter: React.Dispatch<React.SetStateAction<Record<string, boolean>>>, key: string) =>
     setter((p) => ({ ...p, [key]: !p[key] }));
+
+  const tabIcon = mainTab === "gemeinschaft" ? <Users className="h-5 w-5" /> : <Dumbbell className="h-5 w-5" />;
 
   return (
     <>
@@ -170,11 +170,32 @@ export default function Community() {
         <div className="absolute inset-0 bg-gradient-to-br from-[#E3B341]/5 via-transparent to-[#E3B341]/3" />
         <div className="container relative max-w-5xl py-14 text-center">
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="text-2xl font-bold text-white md:text-4xl">
-            Kultura & Zajednice
+            {mainTab === "gemeinschaft" ? "Gemeinschaft" : "Sport"}
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }} className="mx-auto mt-3 max-w-xl text-sm text-white/50 md:text-base">
-            Religija, kultura i udruženja balkanske dijaspore u Njemačkoj.
+            {mainTab === "gemeinschaft"
+              ? "Religija i kultura balkanske dijaspore u Njemačkoj."
+              : "Balkanski sportski klubovi u Njemačkoj."}
           </motion.p>
+
+          {/* Tab switcher */}
+          <div className="mx-auto mt-6 flex max-w-xs gap-2 rounded-xl p-1" style={{ background: "rgba(255,255,255,0.06)" }}>
+            {(["gemeinschaft", "sport"] as MainTab[]).map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setMainTab(tab)}
+                className="flex flex-1 items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-bold transition-all"
+                style={{
+                  background: mainTab === tab ? "rgba(227,179,65,0.2)" : "transparent",
+                  color: mainTab === tab ? "#E3B341" : "rgba(255,255,255,0.5)",
+                  border: mainTab === tab ? "1px solid rgba(227,179,65,0.3)" : "1px solid transparent",
+                }}
+              >
+                {tab === "gemeinschaft" ? <Users className="h-4 w-4" /> : <Trophy className="h-4 w-4" />}
+                {tab === "gemeinschaft" ? "Gemeinschaft" : "Sport"}
+              </button>
+            ))}
+          </div>
 
           {!isLoading && (
             <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }} className="mx-auto mt-6 flex justify-center gap-6">
@@ -222,7 +243,7 @@ export default function Community() {
             )}
           </div>
 
-          {/* Country-specific subcategory filter chips */}
+          {/* Subcategory filter chips */}
           <div className="mt-2 flex gap-2 overflow-x-auto pb-1">
             <button
               onClick={() => setActiveSubgroup("")}
@@ -262,8 +283,17 @@ export default function Community() {
             </div>
           )}
 
+          {!isLoading && filtered.length === 0 && (
+            <p className="py-20 text-center text-lg text-white/40">
+              {mainTab === "sport"
+                ? "Sport-Einträge werden bald hinzugefügt."
+                : "Keine Einträge gefunden."}
+            </p>
+          )}
+
           <div className="space-y-4">
             {hierarchy.map((bl, bIdx) => {
+              if (bl.totalEntries === 0) return null;
               const blOpen = openBundeslaender[bl.bundesland] ?? false;
               return (
                 <motion.div key={bl.bundesland} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, delay: bIdx * 0.02 }}
@@ -282,46 +312,42 @@ export default function Community() {
                     {blOpen && (
                       <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
                         <div className="space-y-1.5 px-5 pb-5">
-                          {bl.cities.length === 0 ? (
-                            <p className="py-4 text-center text-sm text-white/30">0 Einträge</p>
-                          ) : (
-                            bl.cities.map(({ city, items }) => {
-                              const cityOpen = openCities[city] ?? false;
-                              return (
-                                <div key={city} ref={(el) => { cityRefs.current[city] = el; }} className="overflow-hidden rounded-lg"
-                                  style={{ background: "rgba(15,27,45,0.6)", border: "1px solid rgba(255,255,255,0.06)" }}>
-                                  <button onClick={() => toggleKey(setOpenCities, city)} className="flex w-full items-center gap-2 px-4 py-3 text-left transition-all hover:bg-white/5">
-                                    <MapPin className="h-3.5 w-3.5 text-[#E3B341]/50" />
-                                    <span className="text-sm font-semibold text-white/90">{city}</span>
-                                    <span className="text-xs text-white/40">({items.length})</span>
-                                    <ChevronDown className={`ml-auto h-3.5 w-3.5 text-white/30 transition-transform duration-300 ${cityOpen ? "rotate-180" : ""}`} />
-                                  </button>
+                          {bl.cities.map(({ city, items }) => {
+                            const cityOpen = openCities[city] ?? false;
+                            return (
+                              <div key={city} ref={(el) => { cityRefs.current[city] = el; }} className="overflow-hidden rounded-lg"
+                                style={{ background: "rgba(15,27,45,0.6)", border: "1px solid rgba(255,255,255,0.06)" }}>
+                                <button onClick={() => toggleKey(setOpenCities, city)} className="flex w-full items-center gap-2 px-4 py-3 text-left transition-all hover:bg-white/5">
+                                  <MapPin className="h-3.5 w-3.5 text-[#E3B341]/50" />
+                                  <span className="text-sm font-semibold text-white/90">{city}</span>
+                                  <span className="text-xs text-white/40">({items.length})</span>
+                                  <ChevronDown className={`ml-auto h-3.5 w-3.5 text-white/30 transition-transform duration-300 ${cityOpen ? "rotate-180" : ""}`} />
+                                </button>
 
-                                  <AnimatePresence>
-                                    {cityOpen && (
-                                      <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.25 }} className="overflow-hidden">
-                                        <div className="grid gap-2 px-4 pb-4 sm:grid-cols-2">
-                                          {items.map((item) => (
-                                            <div key={item.id} className="rounded-lg p-3.5 transition-all duration-300 hover:-translate-y-0.5"
-                                              style={{ background: "rgba(22,38,63,0.8)", border: "1px solid rgba(255,255,255,0.05)" }}>
-                                              <h4 className="text-sm font-bold text-white">{item.name}</h4>
-                                              {item.address && (
-                                                <p className="mt-2 flex items-start gap-1.5 text-xs text-white/40">
-                                                  <MapPin className="mt-0.5 h-3 w-3 shrink-0" />
-                                                  {item.address}
-                                                </p>
-                                              )}
-                                              <ListingMapPreview address={item.address} name={item.name} googleMapsUrl={item.google_maps_url} />
-                                            </div>
-                                          ))}
-                                        </div>
-                                      </motion.div>
-                                    )}
-                                  </AnimatePresence>
-                                </div>
-                              );
-                            })
-                          )}
+                                <AnimatePresence>
+                                  {cityOpen && (
+                                    <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.25 }} className="overflow-hidden">
+                                      <div className="grid gap-2 px-4 pb-4 sm:grid-cols-2">
+                                        {items.map((item) => (
+                                          <div key={item.id} className="rounded-lg p-3.5 transition-all duration-300 hover:-translate-y-0.5"
+                                            style={{ background: "rgba(22,38,63,0.8)", border: "1px solid rgba(255,255,255,0.05)" }}>
+                                            <h4 className="text-sm font-bold text-white">{item.name}</h4>
+                                            {item.address && (
+                                              <p className="mt-2 flex items-start gap-1.5 text-xs text-white/40">
+                                                <MapPin className="mt-0.5 h-3 w-3 shrink-0" />
+                                                {item.address}
+                                              </p>
+                                            )}
+                                            <ListingMapPreview address={item.address} name={item.name} googleMapsUrl={item.google_maps_url} />
+                                          </div>
+                                        ))}
+                                      </div>
+                                    </motion.div>
+                                  )}
+                                </AnimatePresence>
+                              </div>
+                            );
+                          })}
                         </div>
                       </motion.div>
                     )}
