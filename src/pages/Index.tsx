@@ -5,7 +5,7 @@ import {
   FileText, Briefcase, Building2, HeartPulse, ScanSearch,
   ClipboardList, Landmark, Users, Trophy, Bus, Wallet,
   UtensilsCrossed, ShoppingBag, CakeSlice, Beef, Coffee, Store,
-  ArrowRight, Car, Banknote,
+  ArrowRight, Car, Banknote, Calculator,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -31,6 +31,7 @@ const pomocItems = [
   { label: "Posao", icon: Briefcase, to: "/stellenangebote" },
   { label: "Stan", icon: Building2, to: "/wohnungen" },
   { label: "Formulari & Zahtjevi", icon: FileText, to: "/formulare" },
+  { label: "Rechner & Kalkulatori", icon: Calculator, to: "/tools" },
   { label: "Prijava boravka", icon: ClipboardList, to: "/dolazak/prijava-prebivalista" },
   { label: "Zdravstvo & Osiguranje", icon: HeartPulse, to: "/dolazak/zdravstveno-osiguranje" },
   { label: "Banka & Konto", icon: Wallet, to: "/dolazak/bankovni-racun" },
