@@ -1,68 +1,30 @@
 
 
-# Balkan DE – Život u Njemačkoj
+## Pomoć u Njemačkoj -- Grid Layout
 
-A central digital platform for Balkans diaspora in Germany, featuring trusted Q&A guides, a business directory, and premium content access.
+Currently the 10 items in "Pomoć u Njemačkoj" are displayed as a single-column vertical list, making the section very long. The plan is to switch them to a compact tile/grid layout (similar to the existing Lifestyle section) so items sit side by side in rows.
 
----
+### Changes
 
-## Phase 1: Foundation & Design System
+**File: `src/pages/Index.tsx`**
 
-- Set up the visual identity: clean white background, blue accent color, subtle Balkan-inspired design elements
-- Create the responsive layout shell with mobile-first navigation (header, footer, mobile menu)
-- Build the **Home Page** with the three main action buttons: "Došao sam u Njemačku", "Već sam ovdje", "Imam problem"
-- Create legal pages: Impressum, Datenschutzerklärung, Disclaimer
-- Category icons and consistent typography throughout
+1. **Replace `SectionItem` rendering for `pomocItems`** -- instead of the current single-column list (`grid gap-0.5`), use a responsive grid: `grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4`
 
-## Phase 2: Backend Setup (Lovable Cloud + Supabase)
+2. **Change tile style** -- each item becomes a compact card (like the Lifestyle tiles) with icon on top and label below, centered:
+   - Rounded border container with hover effect
+   - Icon in a circle/rounded-square at top center
+   - Label text below, `text-xs font-medium`, centered, max 2 lines
 
-- Enable Lovable Cloud for database, auth, and edge functions
-- Set up database tables:
-  - **profiles** (id, email, is_premium, created_at, last_login_at)
-  - **user_roles** (separate table for admin/user roles — security best practice)
-  - **qa_items** (question, short_answer, step_by_step, category, tags, sources, is_premium, last_updated)
-  - **directory_listings** (name, category, city, address, phone, website, description, origin_country, verified)
-  - **payments** (user_id, provider, transaction_id, amount, currency, status, paid_at)
-- Configure Row-Level Security policies for all tables
-- Set up authentication with email/password (no extra personal data collected)
-- Implement forgot password flow with reset page
+3. This matches the existing Lifestyle section pattern already in the codebase, keeping the design consistent.
 
-## Phase 3: Knowledge Base (Q&A Module)
+### Result
+- 10 items will display as 2 columns on mobile, 3 on small tablets, reducing vertical height from ~10 rows to ~3-4 rows
+- Consistent with the Lifestyle grid already on the page
+- No new components or dependencies needed
 
-- Build the Q&A browsing page with search bar and category/tag filters
-- Display 9 categories: Dolazak, Stan, Posao, Auto, Porezi, Zdravstvo, Porodica, Prava i pomoći, Problemi
-- Individual Q&A detail page showing question, short answer, step-by-step guide, and source links
-- **Access control**: Free users see short_answer only; premium users see full content with step-by-step guides
-- Connect the three home page buttons to filtered Q&A views
+### Technical Details
 
-## Phase 4: Business Directory
-
-- Public directory listing page with filters for city, category, and origin country (BIH, SRB, HR, MK, CG, AL, KS)
-- Individual business detail cards with all listing fields
-- Public submission form "Dodaj svoj biznis" — submissions default to verified = false
-- Search functionality across business names, categories, and cities
-
-## Phase 5: Stripe Payment Integration
-
-- Enable Stripe integration for one-time €30 premium payment
-- Payment success page that sets user's is_premium to true
-- Payment failure/cancel page with retry option
-- Store payment records in the payments table (provider, transaction_id, amount, status, paid_at)
-
-## Phase 6: Admin Dashboard
-
-- Admin-only dashboard (role-protected)
-- **Q&A Management**: Create, edit, delete Q&A entries with rich text for step-by-step guides
-- **Directory Management**: View, edit, verify/reject business submissions
-- **User Management**: View users, toggle premium status, manage roles
-- **Payment Overview**: View payment history and statuses
-- **Statistics**: Basic counts and overview metrics (users, premium users, Q&A items, listings)
-
-## Phase 7: Polish & Production Readiness
-
-- Responsive testing across mobile, tablet, and desktop
-- Loading states, error handling, and toast notifications throughout
-- GDPR-friendly: minimal data collection, account deletion option in user settings
-- Performance optimization for fast search and page loads
-- Final UI polish with smooth transitions and consistent spacing
+- Modify lines 142-144 in `Index.tsx`: change the grid wrapper from `grid gap-0.5` to `grid grid-cols-2 gap-2 sm:grid-cols-3`
+- Render `pomocItems` using the same tile markup pattern as `lifestyleItems` (lines 189-199) instead of using `SectionItem`
+- The `SectionItem` component can remain for any other usage or be removed if unused
 
