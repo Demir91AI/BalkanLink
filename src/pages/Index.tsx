@@ -139,8 +139,16 @@ export default function Index() {
               <h2 className="font-heading text-lg font-extrabold uppercase tracking-wide sm:text-xl">Pomoć u Njemačkoj</h2>
               <p className="text-xs text-muted-foreground">Posao • Stan • Formulari • Zdravstvo • Förderungen</p>
             </div>
-            <div className="mt-4 grid gap-0.5">
-              {pomocItems.map((item) => <SectionItem key={item.label} item={item} />)}
+            <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3">
+              {pomocItems.map((item) => (
+                <Link key={item.label} to={item.to}
+                  className="group flex flex-col items-center gap-2 rounded-xl border border-border/40 bg-background p-4 text-center transition-all hover:border-border hover:shadow-sm">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/8 text-primary transition-colors group-hover:bg-primary/14">
+                    <item.icon className="h-[18px] w-[18px]" strokeWidth={1.6} />
+                  </div>
+                  <span className="text-xs font-medium leading-tight">{item.label}</span>
+                </Link>
+              ))}
             </div>
           </div>
         </motion.section>
