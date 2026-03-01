@@ -30,7 +30,7 @@ import heroNuernberg from "@/assets/hero-nuernberg.jpg";
 const pomocItems = [
   { label: "Posao", icon: Briefcase, to: "/stellenangebote" },
   { label: "Stan", icon: Building2, to: "/wohnungen" },
-  { label: "Formulari & Zahtjevi", icon: FileText, to: "/formulare" },
+  { label: "Formulari & Zahtjevi", icon: FileText, to: "/formulari" },
   { label: "Rechner & Kalkulatori", icon: Calculator, to: "/tools" },
   { label: "Prijava boravka", icon: ClipboardList, to: "/dolazak/prijava-prebivalista" },
   { label: "Zdravstvo & Osiguranje", icon: HeartPulse, to: "/dolazak/zdravstveno-osiguranje" },

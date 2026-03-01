@@ -37,6 +37,8 @@ import AutoAnmelden from "./pages/dolazak/AutoAnmelden";
 import ZivotSavjeti from "./pages/ZivotSavjeti";
 import TrebamPomoc from "./pages/TrebamPomoc";
 import Formulare from "./pages/Formulare";
+import FormCenter from "./pages/FormCenter";
+import SmartGuide from "./pages/SmartGuide";
 import Familie from "./pages/Familie";
 import Foerderungen from "./pages/Foerderungen";
 import Generatoren from "./pages/Generatoren";
@@ -87,6 +89,8 @@ const App = () => (
                 <Route path="/probleme" element={<TrebamPomoc />} />
                 <Route path="/trebam-pomoc" element={<TrebamPomoc />} />
                 <Route path="/formulare" element={<Formulare />} />
+                <Route path="/formulari" element={<FormCenter />} />
+                <Route path="/formulari/:slug" element={<SmartGuide />} />
                 <Route path="/familie" element={<Familie />} />
                 <Route path="/foerderungen" element={<Foerderungen />} />
                 <Route path="/tools" element={<Generatoren />} />
