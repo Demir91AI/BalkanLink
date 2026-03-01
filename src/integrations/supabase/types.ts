@@ -209,6 +209,139 @@ export type Database = {
         }
         Relationships: []
       }
+      field_mapping: {
+        Row: {
+          field_key: string
+          form_slug: string
+          height: number
+          id: string
+          page_number: number
+          width: number
+          x: number
+          y: number
+        }
+        Insert: {
+          field_key: string
+          form_slug: string
+          height: number
+          id?: string
+          page_number: number
+          width: number
+          x: number
+          y: number
+        }
+        Update: {
+          field_key?: string
+          form_slug?: string
+          height?: number
+          id?: string
+          page_number?: number
+          width?: number
+          x?: number
+          y?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "field_mapping_form_slug_fkey"
+            columns: ["form_slug"]
+            isOneToOne: false
+            referencedRelation: "forms"
+            referencedColumns: ["slug"]
+          },
+        ]
+      }
+      form_fields: {
+        Row: {
+          common_mistakes_bs: string | null
+          example: string | null
+          field_key: string
+          form_slug: string
+          format_hint_bs: string | null
+          help_text_bs: string | null
+          id: string
+          label_bs: string
+          label_de: string
+          section: string | null
+          sort_order: number | null
+          validation_type: string | null
+          where_to_find_bs: string | null
+        }
+        Insert: {
+          common_mistakes_bs?: string | null
+          example?: string | null
+          field_key: string
+          form_slug: string
+          format_hint_bs?: string | null
+          help_text_bs?: string | null
+          id?: string
+          label_bs: string
+          label_de: string
+          section?: string | null
+          sort_order?: number | null
+          validation_type?: string | null
+          where_to_find_bs?: string | null
+        }
+        Update: {
+          common_mistakes_bs?: string | null
+          example?: string | null
+          field_key?: string
+          form_slug?: string
+          format_hint_bs?: string | null
+          help_text_bs?: string | null
+          id?: string
+          label_bs?: string
+          label_de?: string
+          section?: string | null
+          sort_order?: number | null
+          validation_type?: string | null
+          where_to_find_bs?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "form_fields_form_slug_fkey"
+            columns: ["form_slug"]
+            isOneToOne: false
+            referencedRelation: "forms"
+            referencedColumns: ["slug"]
+          },
+        ]
+      }
+      forms: {
+        Row: {
+          authority_name: string
+          created_at: string
+          id: string
+          last_checked_at: string | null
+          name: string
+          official_pdf_url: string
+          slug: string
+          status: string
+          version_hash: string | null
+        }
+        Insert: {
+          authority_name: string
+          created_at?: string
+          id?: string
+          last_checked_at?: string | null
+          name: string
+          official_pdf_url: string
+          slug: string
+          status?: string
+          version_hash?: string | null
+        }
+        Update: {
+          authority_name?: string
+          created_at?: string
+          id?: string
+          last_checked_at?: string | null
+          name?: string
+          official_pdf_url?: string
+          slug?: string
+          status?: string
+          version_hash?: string | null
+        }
+        Relationships: []
+      }
       missions: {
         Row: {
           address_line: string
@@ -418,6 +551,38 @@ export type Database = {
           user_id?: string | null
         }
         Relationships: []
+      }
+      user_form_access: {
+        Row: {
+          form_slug: string
+          id: string
+          purchased_at: string
+          status: string
+          user_id: string
+        }
+        Insert: {
+          form_slug: string
+          id?: string
+          purchased_at?: string
+          status?: string
+          user_id: string
+        }
+        Update: {
+          form_slug?: string
+          id?: string
+          purchased_at?: string
+          status?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_form_access_form_slug_fkey"
+            columns: ["form_slug"]
+            isOneToOne: false
+            referencedRelation: "forms"
+            referencedColumns: ["slug"]
+          },
+        ]
       }
       user_roles: {
         Row: {
