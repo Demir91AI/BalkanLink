@@ -55,6 +55,8 @@ import Putovanja from "./pages/Putovanja";
 import SportKlubovi from "./pages/SportKlubovi";
 import GuideDetail from "./pages/GuideDetail";
 import DokumentenCheck from "./pages/DokumentenCheck";
+import AdminForms from "./pages/AdminForms";
+import AdminFormMapper from "./pages/AdminFormMapper";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
