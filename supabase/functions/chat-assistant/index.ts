@@ -49,10 +49,42 @@ const PREMIUM_PATTERNS = [
   /analy[sz]e\s+my\s+(document|letter)/i,
 ];
 
-type Intent = "FREE_ALLOWED" | "PREMIUM_REQUIRED";
+type Intent = "FREE_ALLOWED" | "PREMIUM_REQUIRED" | "SMART_GUIDE_REDIRECT";
+
+// ── SMART GUIDE REDIRECT patterns ──
+const SMART_GUIDE_PATTERNS = [
+  /kako\s+(popuniti|ispuniti|riješiti|rjesiti)\s+kindergeld/i,
+  /kindergeld\s+(formular|antrag|zahtjev|obrazac)/i,
+  /antrag\s+kg\s*1/i,
+  /kg\s*1\s+(popuniti|ispuniti|formular)/i,
+  /kako\s+(popuniti|ispuniti)\s+(formular|antrag|obrazac)/i,
+  /popuniti\s+(formular|antrag|zahtjev)/i,
+  /wohngeld\s+(formular|antrag)/i,
+  /elterngeld\s+(formular|antrag)/i,
+  /bürgergeld\s+(formular|antrag)/i,
+  /wie\s+(füll|full)\s+(ich|man)\s+.*\s*(antrag|formular)/i,
+  /how\s+to\s+fill\s+(out\s+)?(the\s+)?(kindergeld|form|application)/i,
+  /korak\s+po\s+korak.*(kindergeld|formular)/i,
+  /step.by.step.*(kindergeld|form)/i,
+];
+
+const SMART_GUIDE_KEYWORDS = [
+  "kako popuniti kindergeld", "kindergeld korak po korak", "kindergeld formular popuniti",
+  "kg1 popuniti", "kindergeld antrag ausfüllen", "kindergeld step by step",
+  "kako ispuniti formular kindergeld", "kindergeld zahtjev popuniti",
+];
 
 function classifyIntent(message: string): Intent {
   const lower = message.toLowerCase().trim();
+  
+  // Check Smart Guide redirect first
+  for (const kw of SMART_GUIDE_KEYWORDS) {
+    if (lower.includes(kw)) return "SMART_GUIDE_REDIRECT";
+  }
+  for (const pat of SMART_GUIDE_PATTERNS) {
+    if (pat.test(lower)) return "SMART_GUIDE_REDIRECT";
+  }
+  
   for (const pat of PREMIUM_PATTERNS) {
     if (pat.test(lower)) return "PREMIUM_REQUIRED";
   }
@@ -276,6 +308,18 @@ const PREMIUM_GATE_MESSAGES: Record<string, { teaser: string; cta: string }> = {
   },
 };
 
+const SMART_GUIDE_MESSAGES: Record<string, { text: string; link: string; label: string }> = {
+  bs: { text: "Za detaljno popunjavanje formulara koristite naš Smart Guide — interaktivni vodič korak po korak.", link: "/formulari/kindergeld-kg1", label: "Otvori Smart Guide – Kindergeld (KG1)" },
+  hr: { text: "Za detaljno popunjavanje formulara koristite naš Smart Guide — interaktivni vodič korak po korak.", link: "/formulari/kindergeld-kg1", label: "Otvori Smart Guide – Kindergeld (KG1)" },
+  sr: { text: "Za detaljno popunjavanje formulara koristite naš Smart Guide — interaktivni vodič korak po korak.", link: "/formulari/kindergeld-kg1", label: "Otvori Smart Guide – Kindergeld (KG1)" },
+  me: { text: "Za detaljno popunjavanje formulara koristite naš Smart Guide — interaktivni vodič korak po korak.", link: "/formulari/kindergeld-kg1", label: "Otvori Smart Guide – Kindergeld (KG1)" },
+  de: { text: "Für das detaillierte Ausfüllen von Formularen nutzen Sie unseren Smart Guide — eine interaktive Schritt-für-Schritt-Anleitung.", link: "/formulari/kindergeld-kg1", label: "Smart Guide öffnen – Kindergeld (KG1)" },
+  en: { text: "For detailed form filling, use our Smart Guide — an interactive step-by-step wizard.", link: "/formulari/kindergeld-kg1", label: "Open Smart Guide – Kindergeld (KG1)" },
+  sq: { text: "Për plotësimin e detajuar të formularëve përdorni Smart Guide-in tonë — udhëzues interaktiv hap pas hapi.", link: "/formulari/kindergeld-kg1", label: "Hap Smart Guide – Kindergeld (KG1)" },
+  xk: { text: "Për plotësimin e detajuar të formularëve përdorni Smart Guide-in tonë — udhëzues interaktiv hap pas hapi.", link: "/formulari/kindergeld-kg1", label: "Hap Smart Guide – Kindergeld (KG1)" },
+  mk: { text: "За детално пополнување формулари користете го нашиот Smart Guide — интерактивен водич чекор по чекор.", link: "/formulari/kindergeld-kg1", label: "Отвори Smart Guide – Kindergeld (KG1)" },
+};
+
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -290,6 +334,17 @@ serve(async (req) => {
     const userText = lastUserMsg?.content || "";
 
     const intent = classifyIntent(userText);
+
+    // Smart Guide redirect — don't explain step-by-step, just link
+    if (intent === "SMART_GUIDE_REDIRECT") {
+      const lang = language || "bs";
+      const sg = SMART_GUIDE_MESSAGES[lang] || SMART_GUIDE_MESSAGES["bs"];
+      const markdown = `${sg.text}\n\n👉 [${sg.label}](${sg.link})`;
+      return new Response(
+        JSON.stringify({ smart_guide_redirect: true, content: markdown }),
+        { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
 
     if (intent === "PREMIUM_REQUIRED" && !isPremium) {
       const lang = language || "bs";

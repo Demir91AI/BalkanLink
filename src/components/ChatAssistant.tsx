@@ -165,6 +165,14 @@ export default function ChatAssistant() {
       const contentType = resp.headers.get("content-type") || "";
       if (contentType.includes("application/json")) {
         const data = await resp.json();
+        if (data.smart_guide_redirect) {
+          setMessages((prev) => [
+            ...prev,
+            { role: "assistant", content: data.content },
+          ]);
+          setLoading(false);
+          return;
+        }
         if (data.premium_required) {
           const gateMsg = `${data.teaser}\n\n${data.cta}`;
           setMessages((prev) => [

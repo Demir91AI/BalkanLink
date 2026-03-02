@@ -153,6 +153,13 @@ type TranslationKeys = {
   "sg.rejectionTitle": string; "sg.docsTitle": string; "sg.signTitle": string;
   "sg.pdfPreview": string; "sg.openNewTab": string; "sg.clickFieldHint": string; "sg.fieldsOnForm": string;
   "sg.clickToExplain": string;
+  // Homepage section
+  "home.section.title": string; "home.section.subtitle": string;
+  "home.item.posao": string; "home.item.stan": string; "home.item.formulari": string;
+  "home.item.rechner": string; "home.item.prijava": string; "home.item.zdravstvo": string;
+  "home.item.banka": string; "home.item.auto": string; "home.item.foerderungen": string;
+  "home.item.dokumentenCheck": string;
+  "footer.navFormulari": string;
   // Admin mapper
   "admin.mapper.title": string; "admin.mapper.coverage": string; "admin.mapper.unmapped": string;
   "admin.mapper.search": string; "admin.mapper.selectField": string; "admin.mapper.saved": string;
@@ -911,6 +918,13 @@ const homeDe: Partial<TranslationKeys> = {
   "footer.trustSection": "Vertrauen",
   "footer.navHome": "Startseite", "footer.navHow": "Wie es funktioniert", "footer.navPremium": "Premium",
   "footer.trustRating": "Nutzerzufriedenheit", "footer.trustUsers": "Nutzer verwenden BalkanLink",
+  "footer.navFormulari": "Formulare",
+  "home.section.title": "Hilfe in Deutschland", "home.section.subtitle": "Arbeit • Wohnung • Formulare • Gesundheit • Förderungen",
+  "home.item.posao": "Arbeit", "home.item.stan": "Wohnung", "home.item.formulari": "Formulare & Anträge",
+  "home.item.rechner": "Rechner & Kalkulatoren", "home.item.prijava": "Anmeldung",
+  "home.item.zdravstvo": "Gesundheit & Versicherung", "home.item.banka": "Bank & Konto",
+  "home.item.auto": "Auto & Zulassung", "home.item.foerderungen": "Förderungen & Staatshilfe",
+  "home.item.dokumentenCheck": "Dokumenten-Check",
 };
 
 const homeBs: Partial<TranslationKeys> = {
@@ -942,6 +956,13 @@ const homeBs: Partial<TranslationKeys> = {
   "footer.trustSection": "Povjerenje",
   "footer.navHome": "Početna", "footer.navHow": "Kako radi", "footer.navPremium": "Premium",
   "footer.trustRating": "zadovoljstvo korisnika", "footer.trustUsers": "ljudi koristi BalkanLink",
+  "footer.navFormulari": "Formulari",
+  "home.section.title": "Pomoć u Njemačkoj", "home.section.subtitle": "Posao • Stan • Formulari • Zdravstvo • Förderungen",
+  "home.item.posao": "Posao", "home.item.stan": "Stan", "home.item.formulari": "Formulari & Zahtjevi",
+  "home.item.rechner": "Rechner & Kalkulatori", "home.item.prijava": "Prijava boravka",
+  "home.item.zdravstvo": "Zdravstvo & Osiguranje", "home.item.banka": "Banka & Konto",
+  "home.item.auto": "Auto & Registracija", "home.item.foerderungen": "Förderungen & Pomoć države",
+  "home.item.dokumentenCheck": "Dokumenten-Check",
 };
 
 const homeEn: Partial<TranslationKeys> = {
@@ -973,6 +994,13 @@ const homeEn: Partial<TranslationKeys> = {
   "footer.trustSection": "Trust",
   "footer.navHome": "Home", "footer.navHow": "How it works", "footer.navPremium": "Premium",
   "footer.trustRating": "user satisfaction", "footer.trustUsers": "people use BalkanLink",
+  "footer.navFormulari": "Forms",
+  "home.section.title": "Help in Germany", "home.section.subtitle": "Jobs • Housing • Forms • Health • Subsidies",
+  "home.item.posao": "Jobs", "home.item.stan": "Housing", "home.item.formulari": "Forms & Applications",
+  "home.item.rechner": "Calculators", "home.item.prijava": "Registration",
+  "home.item.zdravstvo": "Health & Insurance", "home.item.banka": "Bank & Account",
+  "home.item.auto": "Car & Registration", "home.item.foerderungen": "Subsidies & State Aid",
+  "home.item.dokumentenCheck": "Document Check",
 };
 
 const premiumDe: Partial<TranslationKeys> = {
@@ -1073,6 +1101,13 @@ const homeSq: Partial<TranslationKeys> = {
   "footer.trustSection": "Besimi",
   "footer.navHome": "Ballina", "footer.navHow": "Si funksionon", "footer.navPremium": "Premium",
   "footer.trustRating": "kënaqësia e përdoruesve", "footer.trustUsers": "njerëz përdorin BalkanLink",
+  "footer.navFormulari": "Formularë",
+  "home.section.title": "Ndihmë në Gjermani", "home.section.subtitle": "Punë • Banesë • Formularë • Shëndetësi • Subvencione",
+  "home.item.posao": "Punë", "home.item.stan": "Banesë", "home.item.formulari": "Formularë & Aplikime",
+  "home.item.rechner": "Kalkulatorë", "home.item.prijava": "Regjistrimi",
+  "home.item.zdravstvo": "Shëndetësi & Sigurim", "home.item.banka": "Bankë & Llogari",
+  "home.item.auto": "Makinë & Regjistrim", "home.item.foerderungen": "Subvencione & Ndihmë shtetërore",
+  "home.item.dokumentenCheck": "Kontroll dokumentesh",
 };
 
 const premiumSq: Partial<TranslationKeys> = {
@@ -1127,6 +1162,13 @@ const homeMk: Partial<TranslationKeys> = {
   "footer.trustSection": "Доверба",
   "footer.navHome": "Почетна", "footer.navHow": "Како работи", "footer.navPremium": "Premium",
   "footer.trustRating": "задоволство на корисници", "footer.trustUsers": "луѓе го користат BalkanLink",
+  "footer.navFormulari": "Формулари",
+  "home.section.title": "Помош во Германија", "home.section.subtitle": "Работа • Стан • Формулари • Здравство • Субвенции",
+  "home.item.posao": "Работа", "home.item.stan": "Стан", "home.item.formulari": "Формулари & Барања",
+  "home.item.rechner": "Калкулатори", "home.item.prijava": "Пријава на адреса",
+  "home.item.zdravstvo": "Здравство & Осигурување", "home.item.banka": "Банка & Сметка",
+  "home.item.auto": "Автомобил & Регистрација", "home.item.foerderungen": "Субвенции & Државна помош",
+  "home.item.dokumentenCheck": "Проверка на документи",
 };
 
 const premiumMk: Partial<TranslationKeys> = {
@@ -1165,6 +1207,13 @@ const homeSr: Partial<TranslationKeys> = {
   "home.review4.text": "Sve informacije na jednom mestu — od stana do posla. Balkanska zajednica u Nemačkoj konačno ima svoju platformu.",
   "home.premium.subtitle": "Sve što ti treba — bez zaobilaznih puteva.",
   "footer.tagline": "Sve što ti treba za život u Nemačkoj — na jednom mestu.",
+  "home.section.title": "Pomoć u Nemačkoj", "home.section.subtitle": "Posao • Stan • Formulari • Zdravstvo • Förderungen",
+  "home.item.posao": "Posao", "home.item.stan": "Stan", "home.item.formulari": "Formulari & Zahtevi",
+  "home.item.rechner": "Rechner & Kalkulatori", "home.item.prijava": "Prijava boravka",
+  "home.item.zdravstvo": "Zdravstvo & Osiguranje", "home.item.banka": "Banka & Konto",
+  "home.item.auto": "Auto & Registracija", "home.item.foerderungen": "Förderungen & Pomoć države",
+  "home.item.dokumentenCheck": "Dokumenten-Check",
+  "footer.navFormulari": "Formulari",
 };
 
 // --- Language definitions ---
