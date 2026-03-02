@@ -109,6 +109,8 @@ const App = () => (
                 <Route path="/sport" element={<Community />} />
                 <Route path="/guide/:slug" element={<GuideDetail />} />
                 <Route path="/dokumenten-check" element={<DokumentenCheck />} />
+                <Route path="/admin/forms" element={<AdminForms />} />
+                <Route path="/admin/forms/:slug/mapper" element={<AdminFormMapper />} />
                 <Route path="/qa" element={<QA />} />
                 <Route path="/qa/:id" element={<QADetail />} />
                 <Route path="/directory" element={<Directory />} />
