@@ -71,6 +71,9 @@ export default function Index() {
           </motion.div>
         </AnimatePresence>
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A]/70 via-[#0B1F3A]/40 to-[#0B1F3A]/95" />
+        {/* Static neon bottom accent line */}
+        <div className="absolute bottom-10 left-[12.5%] right-[12.5%] z-[1] pointer-events-none h-[2px]" aria-hidden="true"
+          style={{ background: 'linear-gradient(90deg, rgba(34,211,238,0.5), rgba(56,189,248,0.4), rgba(34,211,238,0.5))', filter: 'drop-shadow(0 0 4px rgba(34,211,238,0.3))' }} />
         <div className="container relative z-10 flex h-full flex-col items-center justify-center text-center">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="max-w-lg">
             <h1 className="font-heading text-2xl font-black leading-tight text-white sm:text-3xl md:text-4xl">
