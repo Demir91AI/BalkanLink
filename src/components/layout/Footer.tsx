@@ -13,17 +13,16 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link to="/" className="flex items-center gap-2">
-              <svg width="24" height="24" viewBox="0 0 36 36" fill="none" className="shrink-0" style={{ filter: 'drop-shadow(0 0 4px rgba(34,211,238,0.2))' }}>
+              <svg width="24" height="24" viewBox="0 0 40 40" fill="none" className="shrink-0" style={{ filter: 'drop-shadow(0 0 4px rgba(34,211,238,0.15))' }}>
                 <defs>
-                  <linearGradient id="bl-f" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+                  <linearGradient id="bl-f" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
                     <stop offset="0%" stopColor="#22d3ee"/>
                     <stop offset="50%" stopColor="#38bdf8"/>
                     <stop offset="100%" stopColor="#34d399"/>
                   </linearGradient>
                 </defs>
-                <path d="M4,4 h8 q6,0 6,5.5 q0,4-4,5 q5,1 5,5.5 q0,6-7,6 H4 Z M9,6 v7 h3 q3.5,0 3.5-3.5 Q15.5,6 12,6 Z M9,15 v8 h3.5 q4,0 4-4 t-4-4 Z" fill="url(#bl-f)"/>
-                <path d="M21,4 h5 v20 h7 v4 H21 Z" fill="url(#bl-f)"/>
-                <polyline points="17.5,17 18.5,17 19.2,14 20,20 20.8,17 21.5,17" fill="none" stroke="url(#bl-f)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" opacity="0.85"/>
+                <text x="1" y="31" fontFamily="'Arial Black',Arial,sans-serif" fontWeight="900" fontSize="30" fill="url(#bl-f)" letterSpacing="-1">BL</text>
+                <polyline points="18,22 19.2,22 20,19 21,25 21.8,22 23,22" fill="none" stroke="url(#bl-f)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="0.7"/>
               </svg>
               <span className="font-heading text-base font-extrabold tracking-tight text-white">
                 Balkan<span className="text-gold">Link</span>
