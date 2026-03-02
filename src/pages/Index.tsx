@@ -71,6 +71,26 @@ export default function Index() {
           </motion.div>
         </AnimatePresence>
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A]/70 via-[#0B1F3A]/40 to-[#0B1F3A]/95" />
+        {/* HUD tech frame overlay */}
+        <div className="absolute inset-0 z-[1] pointer-events-none" aria-hidden="true">
+          {/* Bottom-left corner bracket */}
+          <div className="absolute bottom-8 left-4 sm:left-8">
+            <div className="w-12 sm:w-20 h-px bg-gradient-to-r from-cyan-400/40 to-emerald-400/20" />
+            <div className="w-px h-12 sm:h-20 bg-gradient-to-t from-cyan-400/40 to-emerald-400/20" />
+            <div className="absolute bottom-0 left-0 h-1.5 w-1.5 rounded-full bg-cyan-400/50 blur-[2px]" />
+          </div>
+          {/* Bottom-right corner bracket */}
+          <div className="absolute bottom-8 right-4 sm:right-8">
+            <div className="w-12 sm:w-20 h-px ml-auto bg-gradient-to-l from-cyan-400/40 to-emerald-400/20" />
+            <div className="w-px h-12 sm:h-20 ml-auto bg-gradient-to-t from-cyan-400/40 to-emerald-400/20" />
+            <div className="absolute bottom-0 right-0 h-1.5 w-1.5 rounded-full bg-cyan-400/50 blur-[2px]" />
+          </div>
+          {/* Bottom horizontal line */}
+          <div className="absolute bottom-7 left-16 right-16 sm:left-28 sm:right-28 h-px bg-gradient-to-r from-transparent via-cyan-400/15 to-transparent" />
+          {/* Top-left accent line */}
+          <div className="absolute top-6 left-4 sm:left-8 w-8 sm:w-14 h-px bg-gradient-to-r from-emerald-400/30 to-transparent" />
+          <div className="absolute top-6 left-4 sm:left-8 h-1 w-1 rounded-full bg-emerald-400/40 blur-[1px]" />
+        </div>
         <div className="container relative z-10 flex h-full flex-col items-center justify-center text-center">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="max-w-lg">
             <h1 className="font-heading text-2xl font-black leading-tight text-white sm:text-3xl md:text-4xl">
