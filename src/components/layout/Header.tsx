@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
+import logoImg from "@/assets/logo-balkanlink-new.png";
 
 const NAV_ITEMS = [
   { label: "Pomoć", to: "/dolazak" },
@@ -22,9 +23,7 @@ export default function Header() {
       <div className="container flex h-14 items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center">
-          <span className="font-heading text-lg font-extrabold tracking-tight text-white">
-            Balkan<span className="text-gold">Link</span>
-          </span>
+          <img src={logoImg} alt="BalkanLink" className="h-9 w-auto object-contain" />
         </Link>
 
         {/* Desktop nav */}
