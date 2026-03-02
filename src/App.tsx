@@ -55,6 +55,8 @@ import Putovanja from "./pages/Putovanja";
 import SportKlubovi from "./pages/SportKlubovi";
 import GuideDetail from "./pages/GuideDetail";
 import DokumentenCheck from "./pages/DokumentenCheck";
+import AdminForms from "./pages/AdminForms";
+import AdminFormMapper from "./pages/AdminFormMapper";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -107,6 +109,8 @@ const App = () => (
                 <Route path="/sport" element={<Community />} />
                 <Route path="/guide/:slug" element={<GuideDetail />} />
                 <Route path="/dokumenten-check" element={<DokumentenCheck />} />
+                <Route path="/admin/forms" element={<AdminForms />} />
+                <Route path="/admin/forms/:slug/mapper" element={<AdminFormMapper />} />
                 <Route path="/qa" element={<QA />} />
                 <Route path="/qa/:id" element={<QADetail />} />
                 <Route path="/directory" element={<Directory />} />

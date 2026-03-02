@@ -1,4 +1,5 @@
 import { FileText, ExternalLink } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import type { Tables } from "@/integrations/supabase/types";
 
 type FormField = Tables<"form_fields">;
@@ -11,6 +12,7 @@ interface Props {
 }
 
 export default function SmartGuidePdfView({ fields, pdfUrl, activeField, onFieldSelect }: Props) {
+  const { t } = useLanguage();
   const selectedField = fields.find((f) => f.field_key === activeField);
 
   return (
@@ -18,9 +20,9 @@ export default function SmartGuidePdfView({ fields, pdfUrl, activeField, onField
       {/* Left: PDF embed */}
       <div className="rounded-2xl border bg-card p-4">
         <div className="mb-3 flex items-center justify-between">
-          <p className="text-xs font-medium flex items-center gap-1"><FileText className="h-3 w-3" /> PDF Pregled</p>
+          <p className="text-xs font-medium flex items-center gap-1"><FileText className="h-3 w-3" /> {t("sg.pdfPreview")}</p>
           <a href={pdfUrl} target="_blank" rel="noopener noreferrer" className="text-[10px] text-muted-foreground hover:underline flex items-center gap-1">
-            Otvori u novom tabu <ExternalLink className="h-3 w-3" />
+            {t("sg.openNewTab")} <ExternalLink className="h-3 w-3" />
           </a>
         </div>
         <iframe
@@ -29,13 +31,13 @@ export default function SmartGuidePdfView({ fields, pdfUrl, activeField, onField
           title="PDF pregled"
         />
         <p className="mt-2 text-[10px] text-muted-foreground text-center">
-          Klikni na polje u listi desno → objašnjenje se pojavi ovdje.
+          {t("sg.clickFieldHint")}
         </p>
       </div>
 
       {/* Right: Field list + help panel */}
       <div className="space-y-3">
-        <p className="text-xs font-bold">Polja na formularu</p>
+        <p className="text-xs font-bold">{t("sg.fieldsOnForm")}</p>
         <div className="max-h-[300px] space-y-1 overflow-y-auto rounded-xl border p-2">
           {fields.map((f) => (
             <button
@@ -61,35 +63,30 @@ export default function SmartGuidePdfView({ fields, pdfUrl, activeField, onField
               <p className="text-xs font-bold text-primary">{selectedField.label_de}</p>
               <p className="text-xs font-medium">{selectedField.label_bs}</p>
             </div>
-
             {selectedField.help_text_bs && (
               <div>
                 <p className="text-[10px] font-semibold text-muted-foreground">Šta upisati ovdje:</p>
                 <p className="text-xs">{selectedField.help_text_bs}</p>
               </div>
             )}
-
             {selectedField.example && (
               <div>
                 <p className="text-[10px] font-semibold text-muted-foreground">Primjer:</p>
                 <p className="text-xs font-mono bg-muted/50 rounded px-2 py-1 inline-block">{selectedField.example}</p>
               </div>
             )}
-
             {selectedField.where_to_find_bs && (
               <div>
                 <p className="text-[10px] font-semibold text-muted-foreground">Gdje to nađeš:</p>
                 <p className="text-xs">{selectedField.where_to_find_bs}</p>
               </div>
             )}
-
             {selectedField.common_mistakes_bs && (
               <div>
                 <p className="text-[10px] font-semibold text-muted-foreground">Najčešće greške:</p>
                 <p className="text-xs text-red-600 dark:text-red-400">{selectedField.common_mistakes_bs}</p>
               </div>
             )}
-
             {selectedField.format_hint_bs && (
               <div>
                 <p className="text-[10px] font-semibold text-muted-foreground">Kako upisati:</p>
@@ -99,7 +96,7 @@ export default function SmartGuidePdfView({ fields, pdfUrl, activeField, onField
           </div>
         ) : (
           <div className="rounded-2xl border border-dashed p-6 text-center">
-            <p className="text-xs text-muted-foreground">Klikni na polje iznad da vidiš objašnjenje.</p>
+            <p className="text-xs text-muted-foreground">{t("sg.clickToExplain")}</p>
           </div>
         )}
       </div>

@@ -3,6 +3,7 @@ import { FileText, Crown, CheckCircle2, AlertTriangle, XCircle } from "lucide-re
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useForms } from "@/hooks/useFormData";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const placeholders = [
   { slug: "buergergeld", name: "Bürgergeld Antrag", desc: "Zahtjev za socijalnu pomoć" },
@@ -20,20 +21,17 @@ function StatusBadge({ status }: { status: string }) {
 
 export default function FormCenter() {
   const { data: forms, isLoading } = useForms();
-
+  const { t } = useLanguage();
   const dbForms = forms ?? [];
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-8">
       <div className="mb-8">
-        <h1 className="font-heading text-2xl font-extrabold sm:text-3xl">Formulari — Smart Guide</h1>
-        <p className="mt-1 text-sm text-muted-foreground">
-          Interaktivna pomoć za popunjavanje njemačkih formulara. Svako polje objašnjeno na bosanskom.
-        </p>
+        <h1 className="font-heading text-2xl font-extrabold sm:text-3xl">{t("formCenter.title")}</h1>
+        <p className="mt-1 text-sm text-muted-foreground">{t("formCenter.subtitle")}</p>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {/* DB forms */}
         {dbForms.map((form) => (
           <div key={form.id} className="flex flex-col justify-between rounded-2xl border bg-card p-5 shadow-sm">
             <div>
@@ -45,39 +43,29 @@ export default function FormCenter() {
               </div>
               <h3 className="font-bold text-sm">{form.name}</h3>
               <p className="mt-1 text-xs text-muted-foreground">{form.authority_name}</p>
-              <div className="mt-2">
-                <StatusBadge status={form.status} />
-              </div>
+              <div className="mt-2"><StatusBadge status={form.status} /></div>
             </div>
-            <Button
-              className="mt-4 w-full rounded-xl text-xs"
-              size="sm"
-              disabled={form.status === "Blocked"}
-              asChild={form.status !== "Blocked"}
-            >
+            <Button className="mt-4 w-full rounded-xl text-xs" size="sm" disabled={form.status === "Blocked"} asChild={form.status !== "Blocked"}>
               {form.status === "Blocked" ? (
-                <span>PDF trenutno nije dostupan</span>
+                <span>{t("formCenter.pdfUnavailable")}</span>
               ) : (
-                <Link to={`/formulari/${form.slug}`}>Otvori Smart Guide</Link>
+                <Link to={`/formulari/${form.slug}`}>{t("formCenter.openGuide")}</Link>
               )}
             </Button>
           </div>
         ))}
 
-        {/* Placeholder forms */}
         {placeholders.map((p) => (
           <div key={p.slug} className="flex flex-col justify-between rounded-2xl border bg-card/50 p-5 opacity-60">
             <div>
               <div className="mb-2 flex items-center gap-2">
                 <FileText className="h-5 w-5 text-muted-foreground" />
-                <Badge variant="outline" className="text-[10px]">Uskoro</Badge>
+                <Badge variant="outline" className="text-[10px]">{t("premium.soon")}</Badge>
               </div>
               <h3 className="font-bold text-sm">{p.name}</h3>
               <p className="mt-1 text-xs text-muted-foreground">{p.desc}</p>
             </div>
-            <Button className="mt-4 w-full rounded-xl text-xs" size="sm" disabled>
-              Uskoro dostupno
-            </Button>
+            <Button className="mt-4 w-full rounded-xl text-xs" size="sm" disabled>{t("formCenter.comingSoon")}</Button>
           </div>
         ))}
       </div>

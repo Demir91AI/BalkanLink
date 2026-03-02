@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -7,6 +7,15 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Check, X } from "lucide-react";
+
+const PW_RULES = [
+  { key: "auth.pwRule.length" as const, test: (pw: string) => pw.length >= 8 },
+  { key: "auth.pwRule.upper" as const, test: (pw: string) => /[A-Z]/.test(pw) },
+  { key: "auth.pwRule.lower" as const, test: (pw: string) => /[a-z]/.test(pw) },
+  { key: "auth.pwRule.number" as const, test: (pw: string) => /[0-9]/.test(pw) },
+  { key: "auth.pwRule.special" as const, test: (pw: string) => /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?`~]/.test(pw) },
+];
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -17,13 +26,14 @@ export default function Register() {
   const { toast } = useToast();
   const { t } = useLanguage();
 
+  const ruleResults = useMemo(() => PW_RULES.map(r => ({ ...r, pass: r.test(password) })), [password]);
+  const allRulesPass = ruleResults.every(r => r.pass);
+  const passwordsMatch = password === confirmPassword;
+  const canSubmit = allRulesPass && passwordsMatch && confirmPassword.length > 0;
+
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (password !== confirmPassword) {
-      toast({ title: t("auth.passwordMismatch"), variant: "destructive" });
-      return;
-    }
-    if (password.length < 6) {
+    if (!canSubmit) {
       toast({ title: t("auth.passwordTooShort"), variant: "destructive" });
       return;
     }
@@ -59,14 +69,42 @@ export default function Register() {
             <div className="space-y-2">
               <Label htmlFor="password">{t("auth.password")}</Label>
               <Input id="password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} placeholder={t("auth.minChars")} />
+              {/* Live password rules */}
+              {password.length > 0 && (
+                <div className="mt-2 space-y-1 rounded-lg border bg-muted/30 p-3">
+                  <p className="text-[11px] font-semibold text-muted-foreground mb-1">{t("auth.pwRule.title")}</p>
+                  {ruleResults.map(r => (
+                    <div key={r.key} className="flex items-center gap-2 text-xs">
+                      {r.pass ? (
+                        <Check className="h-3.5 w-3.5 text-green-500 shrink-0" />
+                      ) : (
+                        <X className="h-3.5 w-3.5 text-red-400 shrink-0" />
+                      )}
+                      <span className={r.pass ? "text-green-700 dark:text-green-400" : "text-red-600 dark:text-red-400"}>
+                        {t(r.key)}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
             <div className="space-y-2">
               <Label htmlFor="confirmPassword">{t("auth.confirmPassword")}</Label>
               <Input id="confirmPassword" type="password" required value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="••••••••" />
+              {confirmPassword.length > 0 && !passwordsMatch && (
+                <p className="text-xs text-red-500 mt-1 flex items-center gap-1">
+                  <X className="h-3 w-3" /> {t("auth.passwordMismatch")}
+                </p>
+              )}
+              {confirmPassword.length > 0 && passwordsMatch && (
+                <p className="text-xs text-green-500 mt-1 flex items-center gap-1">
+                  <Check className="h-3 w-3" /> ✓
+                </p>
+              )}
             </div>
           </CardContent>
           <CardFooter className="flex flex-col gap-3">
-            <Button type="submit" className="w-full" disabled={loading}>
+            <Button type="submit" className="w-full" disabled={loading || !canSubmit}>
               {loading ? t("auth.registerLoading") : t("auth.registerButton")}
             </Button>
             <p className="text-center text-sm text-muted-foreground">
