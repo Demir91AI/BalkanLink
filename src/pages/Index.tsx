@@ -71,33 +71,47 @@ export default function Index() {
           </motion.div>
         </AnimatePresence>
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A]/70 via-[#0B1F3A]/40 to-[#0B1F3A]/95" />
-        {/* HUD tech frame overlay */}
+        {/* HUD neon frame overlay */}
         <div className="absolute inset-3 sm:inset-5 z-[1] pointer-events-none" aria-hidden="true">
-          {/* Top-left bracket */}
+          {/* ── Top-left bracket ── */}
           <div className="absolute top-0 left-0">
+            <div className="hud-glow w-10 sm:w-16 h-[2px] absolute" />
             <div className="hud-line w-10 sm:w-16 h-[2px]" />
+            <div className="hud-glow w-[2px] h-10 sm:h-16 absolute top-0" />
             <div className="hud-line w-[2px] h-10 sm:h-16" />
+            <div className="hud-node absolute -top-[2px] -left-[2px]" />
           </div>
-          {/* Top-right bracket */}
+          {/* ── Top-right bracket ── */}
           <div className="absolute top-0 right-0">
+            <div className="hud-glow w-10 sm:w-16 h-[2px] absolute right-0" />
             <div className="hud-line w-10 sm:w-16 h-[2px] ml-auto" />
+            <div className="hud-glow w-[2px] h-10 sm:h-16 absolute top-0 right-0" />
             <div className="hud-line w-[2px] h-10 sm:h-16 ml-auto" />
+            <div className="hud-node absolute -top-[2px] -right-[2px]" />
           </div>
-          {/* Bottom-left bracket */}
+          {/* ── Bottom-left bracket ── */}
           <div className="absolute bottom-0 left-0">
-            <div className="hud-line w-[2px] h-10 sm:h-16" style={{ marginTop: 'auto', position: 'absolute', bottom: 0 }} />
+            <div className="hud-glow w-[2px] h-10 sm:h-16 absolute bottom-0" />
+            <div className="hud-line w-[2px] h-10 sm:h-16 absolute bottom-0" />
+            <div className="hud-glow w-10 sm:w-16 h-[2px] absolute bottom-0" />
             <div className="hud-line w-10 sm:w-16 h-[2px] absolute bottom-0" />
+            <div className="hud-node absolute -bottom-[2px] -left-[2px]" />
           </div>
-          {/* Bottom-right bracket */}
+          {/* ── Bottom-right bracket ── */}
           <div className="absolute bottom-0 right-0">
-            <div className="hud-line w-[2px] h-10 sm:h-16 ml-auto absolute bottom-0 right-0" />
+            <div className="hud-glow w-[2px] h-10 sm:h-16 absolute bottom-0 right-0" />
+            <div className="hud-line w-[2px] h-10 sm:h-16 absolute bottom-0 right-0" />
+            <div className="hud-glow w-10 sm:w-16 h-[2px] absolute bottom-0 right-0" />
             <div className="hud-line w-10 sm:w-16 h-[2px] absolute bottom-0 right-0" />
+            <div className="hud-node absolute -bottom-[2px] -right-[2px]" />
           </div>
-          {/* Bottom center line */}
-          <div className="absolute bottom-0 left-[10%] right-[10%] h-[2px] hud-line" />
-          {/* Glow dots at bottom line ends */}
-          <div className="absolute bottom-[-2px] left-[10%] h-2 w-2 rounded-full bg-cyan-400/50 blur-[4px]" />
-          <div className="absolute bottom-[-2px] right-[10%] h-2 w-2 rounded-full bg-emerald-400/50 blur-[4px]" />
+          {/* ── Bottom center line ── */}
+          <div className="absolute bottom-0 left-[10%] right-[10%]">
+            <div className="hud-glow w-full h-[2px] absolute" />
+            <div className="hud-line w-full h-[2px]" />
+            <div className="hud-node absolute -bottom-[2px] left-0" />
+            <div className="hud-node absolute -bottom-[2px] right-0" />
+          </div>
         </div>
         <div className="container relative z-10 flex h-full flex-col items-center justify-center text-center">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="max-w-lg">
