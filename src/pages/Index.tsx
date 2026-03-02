@@ -80,18 +80,6 @@ export default function Index() {
               {t("home.hero.title")}<br />
               <span className="text-gold">{t("home.hero.highlight")}</span>
             </h1>
-            {/* ECG pulse line */}
-            <svg viewBox="0 0 400 40" className="mx-auto mt-3 h-6 w-64 sm:w-80" preserveAspectRatio="none">
-              <polyline
-                points="0,20 80,20 100,20 110,8 120,32 130,4 140,36 150,20 170,20 400,20"
-                fill="none"
-                stroke="hsl(var(--gold))"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="animate-ecg-draw"
-              />
-            </svg>
             <p className="mx-auto mt-2 max-w-sm text-sm text-white/40">{t("home.hero.subtitle")}</p>
           </motion.div>
           <div className="absolute bottom-5 flex gap-1.5">
