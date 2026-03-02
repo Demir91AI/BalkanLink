@@ -72,24 +72,32 @@ export default function Index() {
         </AnimatePresence>
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A]/70 via-[#0B1F3A]/40 to-[#0B1F3A]/95" />
         {/* HUD tech frame overlay */}
-        <div className="absolute inset-0 z-[1] pointer-events-none" aria-hidden="true">
-          {/* Bottom-left corner bracket */}
-          <div className="absolute bottom-8 left-4 sm:left-8">
-            <div className="w-12 sm:w-20 h-px bg-gradient-to-r from-cyan-400/40 to-emerald-400/20" />
-            <div className="w-px h-12 sm:h-20 bg-gradient-to-t from-cyan-400/40 to-emerald-400/20" />
-            <div className="absolute bottom-0 left-0 h-1.5 w-1.5 rounded-full bg-cyan-400/50 blur-[2px]" />
+        <div className="absolute inset-3 sm:inset-5 z-[1] pointer-events-none" aria-hidden="true">
+          {/* Top-left bracket */}
+          <div className="absolute top-0 left-0">
+            <div className="hud-line w-10 sm:w-16 h-[2px]" />
+            <div className="hud-line w-[2px] h-10 sm:h-16" />
           </div>
-          {/* Bottom-right corner bracket */}
-          <div className="absolute bottom-8 right-4 sm:right-8">
-            <div className="w-12 sm:w-20 h-px ml-auto bg-gradient-to-l from-cyan-400/40 to-emerald-400/20" />
-            <div className="w-px h-12 sm:h-20 ml-auto bg-gradient-to-t from-cyan-400/40 to-emerald-400/20" />
-            <div className="absolute bottom-0 right-0 h-1.5 w-1.5 rounded-full bg-cyan-400/50 blur-[2px]" />
+          {/* Top-right bracket */}
+          <div className="absolute top-0 right-0">
+            <div className="hud-line w-10 sm:w-16 h-[2px] ml-auto" />
+            <div className="hud-line w-[2px] h-10 sm:h-16 ml-auto" />
           </div>
-          {/* Bottom horizontal line */}
-          <div className="absolute bottom-7 left-16 right-16 sm:left-28 sm:right-28 h-px bg-gradient-to-r from-transparent via-cyan-400/15 to-transparent" />
-          {/* Top-left accent line */}
-          <div className="absolute top-6 left-4 sm:left-8 w-8 sm:w-14 h-px bg-gradient-to-r from-emerald-400/30 to-transparent" />
-          <div className="absolute top-6 left-4 sm:left-8 h-1 w-1 rounded-full bg-emerald-400/40 blur-[1px]" />
+          {/* Bottom-left bracket */}
+          <div className="absolute bottom-0 left-0">
+            <div className="hud-line w-[2px] h-10 sm:h-16" style={{ marginTop: 'auto', position: 'absolute', bottom: 0 }} />
+            <div className="hud-line w-10 sm:w-16 h-[2px] absolute bottom-0" />
+          </div>
+          {/* Bottom-right bracket */}
+          <div className="absolute bottom-0 right-0">
+            <div className="hud-line w-[2px] h-10 sm:h-16 ml-auto absolute bottom-0 right-0" />
+            <div className="hud-line w-10 sm:w-16 h-[2px] absolute bottom-0 right-0" />
+          </div>
+          {/* Bottom center line */}
+          <div className="absolute bottom-0 left-[10%] right-[10%] h-[2px] hud-line" />
+          {/* Glow dots at bottom line ends */}
+          <div className="absolute bottom-[-2px] left-[10%] h-2 w-2 rounded-full bg-cyan-400/50 blur-[4px]" />
+          <div className="absolute bottom-[-2px] right-[10%] h-2 w-2 rounded-full bg-emerald-400/50 blur-[4px]" />
         </div>
         <div className="container relative z-10 flex h-full flex-col items-center justify-center text-center">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="max-w-lg">

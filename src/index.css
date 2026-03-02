@@ -160,6 +160,12 @@
     background: linear-gradient(135deg, hsl(215 68% 8%) 0%, hsl(215 68% 14%) 100%);
   }
 
+  /* HUD frame lines */
+  .hud-line {
+    background: linear-gradient(135deg, rgba(34, 211, 238, 0.45), rgba(52, 211, 153, 0.45));
+    box-shadow: 0 0 8px rgba(34, 211, 238, 0.25), 0 0 4px rgba(52, 211, 153, 0.2);
+  }
+
   /* ECG pulse line animation */
   @keyframes ecg-draw {
     0% {
