@@ -71,13 +71,6 @@ export default function Index() {
           </motion.div>
         </AnimatePresence>
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A]/70 via-[#0B1F3A]/40 to-[#0B1F3A]/95" />
-        {/* Neon bottom accent line */}
-        <div className="absolute bottom-10 left-[10%] right-[10%] z-[1] pointer-events-none" aria-hidden="true">
-          <div className="hud-glow w-full h-[2px] absolute" />
-          <div className="hud-line w-full h-[2px]" />
-          <div className="hud-node absolute -top-[2px] left-0" />
-          <div className="hud-node absolute -top-[2px] right-0" />
-        </div>
         <div className="container relative z-10 flex h-full flex-col items-center justify-center text-center">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="max-w-lg">
             <h1 className="font-heading text-2xl font-black leading-tight text-white sm:text-3xl md:text-4xl">
