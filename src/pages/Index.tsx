@@ -70,13 +70,25 @@ export default function Index() {
             <img src={slides[currentSlide].image} alt={slides[currentSlide].city} className="h-full w-full object-cover" loading="eager" />
           </motion.div>
         </AnimatePresence>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A]/60 via-[#0B1F3A]/40 to-[#0B1F3A]/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A]/70 via-[#0B1F3A]/40 to-[#0B1F3A]/95" />
         <div className="container relative z-10 flex h-full flex-col items-center justify-center text-center">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="max-w-lg">
             <h1 className="font-heading text-2xl font-black leading-tight text-white sm:text-3xl md:text-4xl">
               {t("home.hero.title")}<br />
               <span className="text-gold">{t("home.hero.highlight")}</span>
             </h1>
+            {/* ECG pulse line */}
+            <svg viewBox="0 0 400 40" className="mx-auto mt-3 h-6 w-64 sm:w-80" preserveAspectRatio="none">
+              <polyline
+                points="0,20 80,20 100,20 110,8 120,32 130,4 140,36 150,20 170,20 400,20"
+                fill="none"
+                stroke="hsl(var(--gold))"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="animate-ecg-draw"
+              />
+            </svg>
             <p className="mx-auto mt-2 max-w-sm text-sm text-white/40">{t("home.hero.subtitle")}</p>
           </motion.div>
           <div className="absolute bottom-5 flex gap-1.5">
