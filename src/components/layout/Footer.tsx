@@ -27,7 +27,7 @@ export default function Footer() {
             <nav className="flex flex-col gap-2.5">
               <Link to="/" className="text-[13px] text-white/50 transition-colors hover:text-gold">{t("footer.navHome")}</Link>
               <Link to="/dolazak" className="text-[13px] text-white/50 transition-colors hover:text-gold">{t("footer.navHow")}</Link>
-              <Link to="/community" className="text-[13px] text-white/50 transition-colors hover:text-gold">{t("portal.community")}</Link>
+              <Link to="/formulari" className="text-[13px] text-white/50 transition-colors hover:text-gold">{t("footer.navFormulari") || "Formulari"}</Link>
             </nav>
           </div>
 
