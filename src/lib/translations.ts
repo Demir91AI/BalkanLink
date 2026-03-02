@@ -164,6 +164,19 @@ type TranslationKeys = {
   "admin.mapper.title": string; "admin.mapper.coverage": string; "admin.mapper.unmapped": string;
   "admin.mapper.search": string; "admin.mapper.selectField": string; "admin.mapper.saved": string;
   "admin.mapper.export": string; "admin.mapper.import": string;
+  // Tools / Rechner
+  "tools.pageTitle": string; "tools.pageSubtitle": string;
+  "tools.bruttoNetto": string; "tools.bruttoNetto.desc": string;
+  "tools.bruttoSalary": string; "tools.steuerklasse": string;
+  "tools.kirchensteuer": string; "tools.kinder": string;
+  "tools.calculate": string; "tools.estimatedNetto": string; "tools.incomeTax": string;
+  "tools.officialTitle": string; "tools.officialDesc": string; "tools.openOfficial": string;
+  "tools.disclaimer": string;
+  "tools.kindergeld": string; "tools.kindergeld.desc": string;
+  "tools.wohngeld": string; "tools.wohngeld.desc": string;
+  "tools.buergergeld": string; "tools.buergergeld.desc": string;
+  "tools.elterngeld": string; "tools.elterngeld.desc": string;
+  "tools.rente": string; "tools.rente.desc": string;
 };
 
 // --- Shared partial blocks ---
@@ -504,6 +517,31 @@ const newKeysBs: Partial<TranslationKeys> = {
   "admin.mapper.saved": "Mapiranje sačuvano!",
   "admin.mapper.export": "Izvezi JSON",
   "admin.mapper.import": "Uvezi JSON",
+  "tools.pageTitle": "Rechner & Alati",
+  "tools.pageSubtitle": "Kalkulatori i korisni alati na jednom mjestu.",
+  "tools.bruttoNetto": "Brutto–Netto Rechner",
+  "tools.bruttoNetto.desc": "Izračunaj približnu neto platu na osnovu bruto iznosa.",
+  "tools.bruttoSalary": "Bruto plata (€/mjesec)",
+  "tools.steuerklasse": "Steuerklasse",
+  "tools.kirchensteuer": "Kirchensteuer",
+  "tools.kinder": "Djeca (da/ne)",
+  "tools.calculate": "Izračunaj",
+  "tools.estimatedNetto": "Procijenjeni neto",
+  "tools.incomeTax": "Porez na dohodak",
+  "tools.officialTitle": "Offizielle Rechner",
+  "tools.officialDesc": "Linkovi vode na zvanične stranice njemačkih institucija.",
+  "tools.openOfficial": "Otvori službeni link",
+  "tools.disclaimer": "Sve kalkulacije su neobavezujuće. BalkanLink ne preuzima odgovornost za tačnost podataka.",
+  "tools.kindergeld": "Kindergeld-Rechner",
+  "tools.kindergeld.desc": "Izračunaj visinu dječijeg dodatka.",
+  "tools.wohngeld": "Wohngeld-Rechner",
+  "tools.wohngeld.desc": "Provjeri pravo na stambeni dodatak.",
+  "tools.buergergeld": "Bürgergeld-Rechner",
+  "tools.buergergeld.desc": "Izračunaj visinu Bürgergeld-a.",
+  "tools.elterngeld": "Elterngeld-Rechner",
+  "tools.elterngeld.desc": "Izračunaj koliki roditeljski dodatak ti pripada.",
+  "tools.rente": "Rentenrechner",
+  "tools.rente.desc": "Procijeni svoju buduću penziju.",
 };
 
 const newKeysHr: Partial<TranslationKeys> = {
@@ -562,6 +600,31 @@ const newKeysHr: Partial<TranslationKeys> = {
   "admin.mapper.saved": "Mapiranje spremljeno!",
   "admin.mapper.export": "Izvezi JSON",
   "admin.mapper.import": "Uvezi JSON",
+  "tools.pageTitle": "Rechner & Alati",
+  "tools.pageSubtitle": "Kalkulatori i korisni alati na jednom mjestu.",
+  "tools.bruttoNetto": "Brutto–Netto Rechner",
+  "tools.bruttoNetto.desc": "Izračunaj približnu neto plaću na osnovu bruto iznosa.",
+  "tools.bruttoSalary": "Bruto plaća (€/mjesec)",
+  "tools.steuerklasse": "Steuerklasse",
+  "tools.kirchensteuer": "Kirchensteuer",
+  "tools.kinder": "Djeca (da/ne)",
+  "tools.calculate": "Izračunaj",
+  "tools.estimatedNetto": "Procijenjeni neto",
+  "tools.incomeTax": "Porez na dohodak",
+  "tools.officialTitle": "Offizielle Rechner",
+  "tools.officialDesc": "Linkovi vode na službene stranice njemačkih institucija.",
+  "tools.openOfficial": "Otvori službeni link",
+  "tools.disclaimer": "Sve kalkulacije su neobvezujuće. BalkanLink ne preuzima odgovornost za točnost podataka.",
+  "tools.kindergeld": "Kindergeld-Rechner",
+  "tools.kindergeld.desc": "Izračunaj visinu dječjeg dodatka.",
+  "tools.wohngeld": "Wohngeld-Rechner",
+  "tools.wohngeld.desc": "Provjeri pravo na stambeni dodatak.",
+  "tools.buergergeld": "Bürgergeld-Rechner",
+  "tools.buergergeld.desc": "Izračunaj visinu Bürgergeld-a.",
+  "tools.elterngeld": "Elterngeld-Rechner",
+  "tools.elterngeld.desc": "Izračunaj koliki roditeljski dodatak ti pripada.",
+  "tools.rente": "Rentenrechner",
+  "tools.rente.desc": "Procijeni svoju buduću mirovinu.",
 };
 
 const newKeysSr: Partial<TranslationKeys> = {
@@ -628,6 +691,31 @@ const newKeysDe: Partial<TranslationKeys> = {
   "admin.mapper.saved": "Mapping gespeichert!",
   "admin.mapper.export": "JSON exportieren",
   "admin.mapper.import": "JSON importieren",
+  "tools.pageTitle": "Rechner & Werkzeuge",
+  "tools.pageSubtitle": "Kalkulatoren und nützliche Werkzeuge an einem Ort.",
+  "tools.bruttoNetto": "Brutto–Netto Rechner",
+  "tools.bruttoNetto.desc": "Berechne dein ungefähres Nettogehalt aus dem Bruttobetrag.",
+  "tools.bruttoSalary": "Bruttogehalt (€/Monat)",
+  "tools.steuerklasse": "Steuerklasse",
+  "tools.kirchensteuer": "Kirchensteuer",
+  "tools.kinder": "Kinder (ja/nein)",
+  "tools.calculate": "Berechnen",
+  "tools.estimatedNetto": "Geschätztes Netto",
+  "tools.incomeTax": "Einkommensteuer",
+  "tools.officialTitle": "Offizielle Rechner",
+  "tools.officialDesc": "Links führen zu offiziellen Seiten deutscher Institutionen.",
+  "tools.openOfficial": "Offiziellen Rechner öffnen",
+  "tools.disclaimer": "Alle Berechnungen sind unverbindlich. BalkanLink übernimmt keine Haftung für die Richtigkeit.",
+  "tools.kindergeld": "Kindergeld-Rechner",
+  "tools.kindergeld.desc": "Berechne die Höhe des Kindergeldes.",
+  "tools.wohngeld": "Wohngeld-Rechner",
+  "tools.wohngeld.desc": "Prüfe deinen Anspruch auf Wohngeld.",
+  "tools.buergergeld": "Bürgergeld-Rechner",
+  "tools.buergergeld.desc": "Berechne die Höhe des Bürgergeldes.",
+  "tools.elterngeld": "Elterngeld-Rechner",
+  "tools.elterngeld.desc": "Berechne die Höhe des Elterngeldes.",
+  "tools.rente": "Rentenrechner",
+  "tools.rente.desc": "Schätze deine künftige Rente.",
 };
 
 const newKeysEn: Partial<TranslationKeys> = {
@@ -686,6 +774,31 @@ const newKeysEn: Partial<TranslationKeys> = {
   "admin.mapper.saved": "Mapping saved!",
   "admin.mapper.export": "Export JSON",
   "admin.mapper.import": "Import JSON",
+  "tools.pageTitle": "Calculators & Tools",
+  "tools.pageSubtitle": "Calculators and useful tools in one place.",
+  "tools.bruttoNetto": "Gross–Net Calculator",
+  "tools.bruttoNetto.desc": "Calculate your approximate net salary from gross income.",
+  "tools.bruttoSalary": "Gross salary (€/month)",
+  "tools.steuerklasse": "Tax class",
+  "tools.kirchensteuer": "Church tax",
+  "tools.kinder": "Children (yes/no)",
+  "tools.calculate": "Calculate",
+  "tools.estimatedNetto": "Estimated net",
+  "tools.incomeTax": "Income tax",
+  "tools.officialTitle": "Official Calculators",
+  "tools.officialDesc": "Links lead to official German government websites.",
+  "tools.openOfficial": "Open official calculator",
+  "tools.disclaimer": "All calculations are non-binding. BalkanLink assumes no liability for accuracy.",
+  "tools.kindergeld": "Child Benefit Calculator",
+  "tools.kindergeld.desc": "Calculate child benefit amounts.",
+  "tools.wohngeld": "Housing Benefit Calculator",
+  "tools.wohngeld.desc": "Check your housing benefit eligibility.",
+  "tools.buergergeld": "Bürgergeld Calculator",
+  "tools.buergergeld.desc": "Calculate Bürgergeld amounts.",
+  "tools.elterngeld": "Parental Allowance Calculator",
+  "tools.elterngeld.desc": "Calculate your parental allowance.",
+  "tools.rente": "Pension Calculator",
+  "tools.rente.desc": "Estimate your future pension.",
 };
 
 // --- Auth/misc blocks ---
