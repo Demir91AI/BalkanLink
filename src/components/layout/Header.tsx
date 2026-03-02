@@ -33,7 +33,7 @@ export default function Header() {
             <text x="1" y="31" fontFamily="'Arial Black',Arial,sans-serif" fontWeight="900" fontSize="30" fill="url(#bl-h)" letterSpacing="-1">BL</text>
             <polyline points="18,22 19.2,22 20,19 21,25 21.8,22 23,22" fill="none" stroke="url(#bl-h)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="0.7"/>
           </svg>
-          <span className="font-heading text-lg font-extrabold leading-none tracking-tight text-white">
+          <span className="font-heading text-xl font-extrabold leading-none tracking-tight text-white">
             Balkan<span className="text-gold">Link</span>
           </span>
         </Link>
