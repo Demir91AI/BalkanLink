@@ -3,19 +3,10 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FileText, Briefcase, Building2, HeartPulse, ScanSearch,
-  ClipboardList, Landmark, Users, Trophy, Bus, Wallet,
-  UtensilsCrossed, ShoppingBag, CakeSlice, Beef, Coffee, Store,
+  ClipboardList, Wallet,
   ArrowRight, Car, Banknote, Calculator,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-
-import flagBIH from "@/assets/flags/ba.png";
-import flagHR from "@/assets/flags/hr.png";
-import flagSRB from "@/assets/flags/rs.png";
-import flagME from "@/assets/flags/me.png";
-import flagMK from "@/assets/flags/mk.png";
-import flagXK from "@/assets/flags/xk.png";
-import flagAL from "@/assets/flags/al.png";
 
 import heroBerlin from "@/assets/hero-berlin.jpg";
 import heroMuenchen from "@/assets/hero-muenchen.jpg";
@@ -40,37 +31,6 @@ const pomocItems = [
   { label: "Dokumenten-Check", icon: ScanSearch, to: "/dokumenten-check" },
 ];
 
-const zajednicaCards = [
-  { code: "bih", name: "Bosna i Hercegovina", flag: flagBIH },
-  { code: "srb", name: "Srbija",              flag: flagSRB },
-  { code: "hr",  name: "Hrvatska",            flag: flagHR },
-  { code: "me",  name: "Crna Gora",           flag: flagME },
-  { code: "mk",  name: "Sjeverna Makedonija", flag: flagMK },
-  { code: "xk",  name: "Kosovo",              flag: flagXK },
-  { code: "al",  name: "Albanija",            flag: flagAL },
-];
-
-const lifestyleItems = [
-  { label: "Restorani", icon: UtensilsCrossed, to: "/restorani" },
-  { label: "Pekare", icon: CakeSlice, to: "/prodavnice" },
-  { label: "Mesnice", icon: Beef, to: "/prodavnice" },
-  { label: "Balkan prodavnice", icon: Store, to: "/prodavnice" },
-  { label: "Kafići & Slastičarne", icon: Coffee, to: "/restorani" },
-  { label: "Marketi", icon: ShoppingBag, to: "/prodavnice" },
-];
-
-const SectionItem = ({ item }: { item: { label: string; icon: any; to: string } }) => (
-  <Link
-    to={item.to}
-    className="group flex items-center gap-3 rounded-lg px-3 py-3 transition-colors hover:bg-muted/60"
-  >
-    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/8 text-primary transition-colors group-hover:bg-primary/14">
-      <item.icon className="h-[18px] w-[18px]" strokeWidth={1.6} />
-    </div>
-    <span className="text-sm font-medium text-foreground">{item.label}</span>
-    <ArrowRight className="ml-auto h-3.5 w-3.5 text-muted-foreground/40 transition-transform group-hover:translate-x-0.5 group-hover:text-foreground/60" />
-  </Link>
-);
 
 export default function Index() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -153,78 +113,6 @@ export default function Index() {
           </div>
         </motion.section>
 
-        <div className="section-separator" />
-
-        {/* ─── 2. ZAJEDNICA ─── */}
-        <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }}>
-          <div className="rounded-2xl border border-border/60 bg-card p-5 sm:p-7 shadow-sm">
-            <div className="mb-1">
-              <h2 className="font-heading text-lg font-extrabold uppercase tracking-wide sm:text-xl">Zajednica</h2>
-              <p className="text-xs text-muted-foreground">Vjerske zajednice • Kultura • Sport</p>
-            </div>
-            <div className="mt-4 grid gap-0.5">
-              {zajednicaCards.map((c) => (
-                <Link
-                  key={c.code}
-                  to={`/community/${c.code}`}
-                  className="group flex items-center gap-3 rounded-lg px-3 py-3 transition-colors hover:bg-muted/60"
-                >
-                  <img src={c.flag} alt={c.name} className="h-6 w-auto rounded-sm shadow-sm" />
-                  <span className="text-sm font-medium text-foreground">{c.name}</span>
-                  <ArrowRight className="ml-auto h-3.5 w-3.5 text-muted-foreground/40 transition-transform group-hover:translate-x-0.5 group-hover:text-foreground/60" />
-                </Link>
-              ))}
-            </div>
-          </div>
-        </motion.section>
-
-        <div className="section-separator" />
-
-        {/* ─── 3. LIFESTYLE ─── */}
-        <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }}>
-          <div className="rounded-2xl border border-border/60 bg-card p-5 sm:p-7 shadow-sm">
-            <div className="mb-1">
-              <h2 className="font-heading text-lg font-extrabold uppercase tracking-wide sm:text-xl">Lifestyle</h2>
-              <p className="text-xs text-muted-foreground">Balkanska gastronomija & kupovina u Njemačkoj</p>
-            </div>
-            <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3">
-              {lifestyleItems.map((item) => (
-                <Link key={item.label} to={item.to}
-                  className="group flex flex-col items-center gap-2 rounded-xl border border-border/40 bg-background p-4 text-center transition-all hover:border-border hover:shadow-sm">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/8 text-primary transition-colors group-hover:bg-primary/14">
-                    <item.icon className="h-[18px] w-[18px]" strokeWidth={1.6} />
-                  </div>
-                  <span className="text-xs font-medium leading-tight">{item.label}</span>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </motion.section>
-
-        <div className="section-separator" />
-
-        {/* ─── 4. BALKAN RIDE ─── */}
-        <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }}>
-          <div className="rounded-2xl border border-border/60 bg-card p-5 sm:p-7 shadow-sm">
-            <div className="mb-1">
-              <h2 className="font-heading text-lg font-extrabold uppercase tracking-wide sm:text-xl">Balkan Ride</h2>
-              <p className="text-xs text-muted-foreground">Nudim prijevoz • Tražim prijevoz • Putujem na Balkan</p>
-            </div>
-            <div className="mt-4">
-              <Link to="/putovanja"
-                className="group flex items-center gap-3 rounded-lg px-3 py-3 transition-colors hover:bg-muted/60">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/8 text-primary transition-colors group-hover:bg-primary/14">
-                  <Bus className="h-[18px] w-[18px]" strokeWidth={1.6} />
-                </div>
-                <div>
-                  <span className="text-sm font-medium text-foreground">Objavi ili pronađi vožnju</span>
-                  <p className="text-xs text-muted-foreground">Datum • Broj mjesta • Kontakt</p>
-                </div>
-                <ArrowRight className="ml-auto h-3.5 w-3.5 text-muted-foreground/40 transition-transform group-hover:translate-x-0.5 group-hover:text-foreground/60" />
-              </Link>
-            </div>
-          </div>
-        </motion.section>
       </div>
     </>
   );

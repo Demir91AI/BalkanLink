@@ -45,14 +45,6 @@ import Generatoren from "./pages/Generatoren";
 import Wohnungen from "./pages/Wohnungen";
 import Stellenangebote from "./pages/Stellenangebote";
 import Premium from "./pages/Premium";
-import Community from "./pages/Community";
-import CountryPage from "./pages/CountryPage";
-import Dzamije from "./pages/Dzamije";
-import Restorani from "./pages/Restorani";
-import Prodavnice from "./pages/Prodavnice";
-import TrebamMajstora from "./pages/TrebamMajstora";
-import Putovanja from "./pages/Putovanja";
-import SportKlubovi from "./pages/SportKlubovi";
 import GuideDetail from "./pages/GuideDetail";
 import DokumentenCheck from "./pages/DokumentenCheck";
 import AdminForms from "./pages/AdminForms";
@@ -99,14 +91,6 @@ const App = () => (
                 <Route path="/wohnungen" element={<Wohnungen />} />
                 <Route path="/stellenangebote" element={<Stellenangebote />} />
                 <Route path="/premium" element={<Premium />} />
-                <Route path="/community" element={<Community />} />
-                <Route path="/community/:code" element={<CountryPage />} />
-                <Route path="/dzamije" element={<Dzamije />} />
-                <Route path="/restorani" element={<Restorani />} />
-                <Route path="/prodavnice" element={<Prodavnice />} />
-                <Route path="/trebam-majstora" element={<TrebamMajstora />} />
-                <Route path="/putovanja" element={<Putovanja />} />
-                <Route path="/sport" element={<Community />} />
                 <Route path="/guide/:slug" element={<GuideDetail />} />
                 <Route path="/dokumenten-check" element={<DokumentenCheck />} />
                 <Route path="/admin/forms" element={<AdminForms />} />

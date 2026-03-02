@@ -8,9 +8,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const NAV_ITEMS = [
   { label: "Pomoć", to: "/dolazak" },
-  { label: "Zajednica", to: "/community" },
-  { label: "Lifestyle", to: "/restorani" },
-  { label: "Balkan Ride", to: "/putovanja" },
+  { label: "Formulari", to: "/formulari" },
+  { label: "Rechner", to: "/tools" },
 ];
 
 export default function Header() {
