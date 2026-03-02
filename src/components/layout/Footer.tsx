@@ -13,18 +13,13 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link to="/" className="flex items-center gap-2">
-              <svg width="24" height="24" viewBox="0 0 40 40" fill="none" className="shrink-0" style={{ filter: 'drop-shadow(0 0 4px rgba(34,211,238,0.15))' }}>
-                <defs>
-                  <linearGradient id="bl-f" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stopColor="#22d3ee"/>
-                    <stop offset="50%" stopColor="#38bdf8"/>
-                    <stop offset="100%" stopColor="#34d399"/>
-                  </linearGradient>
-                </defs>
-                <text x="1" y="31" fontFamily="'Arial Black',Arial,sans-serif" fontWeight="900" fontSize="30" fill="url(#bl-f)" letterSpacing="-1">BL</text>
-                <polyline points="18,22 19.2,22 20,19 21,25 21.8,22 23,22" fill="none" stroke="url(#bl-f)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="0.7"/>
+              <svg width="24" height="24" viewBox="0 0 40 40" fill="none" className="block shrink-0" style={{ filter: 'drop-shadow(0 0 4px rgba(34,211,238,0.15))' }}>
+                <text x="1" y="31" fontFamily="'Arial Black',Arial,sans-serif" fontWeight="900" fontSize="30" letterSpacing="-1">
+                  <tspan fill="white">B</tspan><tspan fill="hsl(45,93%,49%)">L</tspan>
+                </text>
+                <polyline points="18,22 19.2,22 20,19 21,25 21.8,22 23,22" fill="none" stroke="hsl(45,93%,49%)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="0.7"/>
               </svg>
-              <span className="font-heading text-base font-extrabold tracking-tight text-white">
+              <span className="font-heading text-xl font-extrabold leading-none tracking-tight text-white">
                 Balkan<span className="text-gold">Link</span>
               </span>
             </Link>
