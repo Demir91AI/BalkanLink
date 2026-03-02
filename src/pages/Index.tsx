@@ -17,20 +17,18 @@ import heroStuttgart from "@/assets/hero-stuttgart.jpg";
 import heroDuesseldorf from "@/assets/hero-duesseldorf.jpg";
 import heroNuernberg from "@/assets/hero-nuernberg.jpg";
 
-/* ── Section configs ── */
 const pomocItems = [
-  { label: "Posao", icon: Briefcase, to: "/stellenangebote" },
-  { label: "Stan", icon: Building2, to: "/wohnungen" },
-  { label: "Formulari & Zahtjevi", icon: FileText, to: "/formulari" },
-  { label: "Rechner & Kalkulatori", icon: Calculator, to: "/tools" },
-  { label: "Prijava boravka", icon: ClipboardList, to: "/dolazak/prijava-prebivalista" },
-  { label: "Zdravstvo & Osiguranje", icon: HeartPulse, to: "/dolazak/zdravstveno-osiguranje" },
-  { label: "Banka & Konto", icon: Wallet, to: "/dolazak/bankovni-racun" },
-  { label: "Auto & Registracija", icon: Car, to: "/dolazak/auto-anmelden" },
-  { label: "Förderungen & Pomoć države", icon: Banknote, to: "/foerderungen" },
-  { label: "Dokumenten-Check", icon: ScanSearch, to: "/dokumenten-check" },
+  { labelKey: "home.item.posao", icon: Briefcase, to: "/stellenangebote" },
+  { labelKey: "home.item.stan", icon: Building2, to: "/wohnungen" },
+  { labelKey: "home.item.formulari", icon: FileText, to: "/formulari" },
+  { labelKey: "home.item.rechner", icon: Calculator, to: "/tools" },
+  { labelKey: "home.item.prijava", icon: ClipboardList, to: "/dolazak/prijava-prebivalista" },
+  { labelKey: "home.item.zdravstvo", icon: HeartPulse, to: "/dolazak/zdravstveno-osiguranje" },
+  { labelKey: "home.item.banka", icon: Wallet, to: "/dolazak/bankovni-racun" },
+  { labelKey: "home.item.auto", icon: Car, to: "/dolazak/auto-anmelden" },
+  { labelKey: "home.item.foerderungen", icon: Banknote, to: "/foerderungen" },
+  { labelKey: "home.item.dokumentenCheck", icon: ScanSearch, to: "/dokumenten-check" },
 ];
-
 
 export default function Index() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -92,27 +90,26 @@ export default function Index() {
       </section>
 
       <div className="container max-w-4xl space-y-6 py-10 sm:py-14">
-        {/* ─── 1. POMOĆ U NJEMAČKOJ ─── */}
+        {/* ─── POMOĆ U NJEMAČKOJ ─── */}
         <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }}>
           <div className="rounded-2xl border border-border/60 bg-card p-5 sm:p-7 shadow-sm">
             <div className="mb-1">
-              <h2 className="font-heading text-lg font-extrabold uppercase tracking-wide sm:text-xl">Pomoć u Njemačkoj</h2>
-              <p className="text-xs text-muted-foreground">Posao • Stan • Formulari • Zdravstvo • Förderungen</p>
+              <h2 className="font-heading text-lg font-extrabold uppercase tracking-wide sm:text-xl">{t("home.section.title")}</h2>
+              <p className="text-xs text-muted-foreground">{t("home.section.subtitle")}</p>
             </div>
             <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3">
               {pomocItems.map((item) => (
-                <Link key={item.label} to={item.to}
+                <Link key={item.labelKey} to={item.to}
                   className="group flex flex-col items-center gap-2 rounded-xl border border-border/40 bg-background p-4 text-center transition-all hover:border-border hover:shadow-sm">
                   <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/8 text-primary transition-colors group-hover:bg-primary/14">
                     <item.icon className="h-[18px] w-[18px]" strokeWidth={1.6} />
                   </div>
-                  <span className="text-xs font-medium leading-tight">{item.label}</span>
+                  <span className="text-xs font-medium leading-tight">{t(item.labelKey)}</span>
                 </Link>
               ))}
             </div>
           </div>
         </motion.section>
-
       </div>
     </>
   );
