@@ -21,17 +21,15 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-white/8 bg-[#0B1F3A]/95 backdrop-blur-xl shadow-lg shadow-black/20">
       <div className="container flex h-14 items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2.5">
-          <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0">
+        <Link to="/" className="flex items-center gap-2">
+          <svg width="26" height="26" viewBox="0 0 40 40" fill="none" className="shrink-0">
             <defs>
-              <linearGradient id="bl-grad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stopColor="#22d3ee" />
-                <stop offset="100%" stopColor="#34d399" />
+              <linearGradient id="bl-h" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stopColor="#22d3ee"/>
+                <stop offset="100%" stopColor="#34d399"/>
               </linearGradient>
             </defs>
-            <text x="2" y="30" fontFamily="Arial, sans-serif" fontWeight="900" fontSize="28" fill="url(#bl-grad)">BL</text>
-            <line x1="2" y1="34" x2="38" y2="34" stroke="#ef4444" strokeWidth="2" strokeLinecap="round" opacity="0.7" />
-            <polyline points="14,34 17,34 19,30 21,38 23,34 26,34" fill="none" stroke="#ef4444" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.9" />
+            <text x="2" y="30" fontFamily="Arial,sans-serif" fontWeight="900" fontSize="28" fill="url(#bl-h)">BL</text>
           </svg>
           <span className="font-heading text-lg font-extrabold tracking-tight text-white">
             Balkan<span className="text-gold">Link</span>

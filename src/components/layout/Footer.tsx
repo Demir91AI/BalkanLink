@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Star } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import logoImg from "@/assets/logo-balkanlink-new.png";
+
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -12,8 +12,19 @@ export default function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
-            <Link to="/" className="flex items-center">
-              <img src={logoImg} alt="BalkanLink" className="h-8 w-auto object-contain" />
+            <Link to="/" className="flex items-center gap-2">
+              <svg width="24" height="24" viewBox="0 0 40 40" fill="none" className="shrink-0">
+                <defs>
+                  <linearGradient id="bl-f" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stopColor="#22d3ee"/>
+                    <stop offset="100%" stopColor="#34d399"/>
+                  </linearGradient>
+                </defs>
+                <text x="2" y="30" fontFamily="Arial,sans-serif" fontWeight="900" fontSize="28" fill="url(#bl-f)">BL</text>
+              </svg>
+              <span className="font-heading text-base font-extrabold tracking-tight text-white">
+                Balkan<span className="text-gold">Link</span>
+              </span>
             </Link>
             <p className="mt-3 text-[13px] leading-relaxed text-white/35">
               {t("footer.tagline")}
