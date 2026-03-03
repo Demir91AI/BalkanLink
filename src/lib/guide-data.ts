@@ -55,39 +55,103 @@ export const guides: Guide[] = [
     },
     steps: {
       de: [
-        { field: "Antragsteller", instruction: "Tragen Sie Ihren vollständigen Vor- und Nachnamen, Geburtsdatum und Ihre 11-stellige Steuer-ID ein. Diese finden Sie auf Ihrem Steuerbescheid oder der Lohnsteuerbescheinigung." },
-        { field: "Anschrift", instruction: "Geben Sie Ihre aktuelle Meldeadresse vollständig an (Straße, Hausnummer, PLZ, Ort). Diese muss mit der Meldebescheinigung übereinstimmen." },
-        { field: "Bankverbindung", instruction: "Tragen Sie IBAN und BIC Ihres Kontos ein. Das Kindergeld wird nur auf ein Konto des Antragstellers überwiesen – kein Fremdkonto möglich." },
-        { field: "Angaben zum Kind", instruction: "Name, Geburtsdatum und 11-stellige Steuer-ID des Kindes eintragen. Falls das Kind im Ausland geboren wurde: Geburtsurkunde mit beglaubigter Übersetzung beifügen." },
-        { field: "Anlage Kind", instruction: "Für jedes Kind eine separate Anlage Kind (KG1-AnlKi) ausfüllen. Dort wird u.a. abgefragt, ob das Kind in Ausbildung ist, eine Behinderung hat oder bei welchem Elternteil es lebt." },
+        { field: "Steuerliche Identifikationsnummer", instruction: "11-stellige Steuer-ID der antragstellenden Person eintragen." },
+        { field: "Personalien der antragstellenden Person", instruction: "Familienname, Vorname, Geburtsdatum, Geburtsort, Geschlecht, Staatsangehörigkeit." },
+        { field: "Anschrift", instruction: "Vollständige Meldeadresse (Straße, Hausnummer, PLZ, Wohnort, Staat)." },
+        { field: "Familienstand", instruction: "Aktuellen Familienstand ankreuzen." },
+        { field: "Angaben zum Ehepartner / Lebenspartner", instruction: "Steuer-ID, Name, Geburtsdatum, Staatsangehörigkeit, Geschlecht, ggf. abweichende Anschrift." },
+        { field: "Angaben zum Zahlungsweg", instruction: "IBAN, BIC und Kontoinhaber eintragen." },
+        { field: "Angaben zu Kindern", instruction: "Alle Kinder auflisten, für die bereits Kindergeld bezogen wird, sowie weitere eigene Kinder." },
+        { field: "Unterschrift & Erklärung", instruction: "Antrag unterschreiben. Bei Ehepaaren: auch Ehepartner unterschreiben lassen." },
       ],
       bs: [
-        { field: "Podnosilac zahtjeva", instruction: "Unesite puno ime i prezime, datum rođenja i vaš 11-cifreni porezni ID (Steuer-ID). Nalazi se na poreznom rješenju ili platnoj listi." },
-        { field: "Adresa", instruction: "Navedite trenutnu prijavljenu adresu u cijelosti (ulica, broj, poštanski broj, grad)." },
-        { field: "Bankovni podaci", instruction: "Unesite IBAN i BIC vašeg računa. Isplata ide isključivo na račun podnosioca." },
-        { field: "Podaci o djetetu", instruction: "Ime, datum rođenja i porezni ID djeteta. Za djecu rođenu u inostranstvu: priložiti rodni list sa ovjerenim prijevodom." },
-        { field: "Prilog Dijete", instruction: "Za svako dijete popuniti poseban prilog (KG1-AnlKi)." },
+        {
+          field: "Porezni identifikacioni broj (Steuer-ID)",
+          instruction: "Unesite 11-cifreni porezni identifikacioni broj podnosioca zahtjeva.",
+          cards: [
+            { whatToWrite: "Vaš lični 11-cifreni porezni ID (Steuerliche Identifikationsnummer). To NIJE porezni broj (Steuernummer) — to su dva različita broja.", whereToFind: "Pismo od Bundeszentralamt für Steuern koje ste dobili po prijavi prebivališta u Njemačkoj. Također na platnoj listi (Lohnsteuerbescheinigung) ili poreznom rješenju (Einkommensteuerbescheid).", format: "Tačno 11 cifara, bez razmaka i crtica. Primjer: 12345678901", commonMistakes: "Upisivanje Steuernummer umjesto Steuer-ID. Steuernummer ima drugačiji format (npr. 12/345/67890). Familienkasse traži isključivo Steuer-ID.", whenToLeaveEmpty: "Samo ako vam Steuer-ID još nije dodijeljen (npr. tek ste se prijavili). Napišite napomenu 'noch nicht vergeben'. Familienkasse može obraditi zahtjev i bez toga, ali će tražiti naknadno.", example: "Steuerliche Identifikationsnummer: 65 929 310 054" },
+          ],
+        },
+        {
+          field: "Lični podaci podnosioca zahtjeva",
+          instruction: "Prezime, ime, datum rođenja, mjesto rođenja, spol, državljanstvo.",
+          cards: [
+            { whatToWrite: "Prezime (Familienname), ime (Vorname), eventualno akademski naslov (Titel), datum rođenja, mjesto rođenja, spol, državljanstvo.", whereToFind: "Pasoš ili lična karta. Državljanstvo mora odgovarati onome u pasošu.", format: "Prezime i ime — kao u pasošu/ličnoj karti. Datum rođenja: DD.MM.YYYY (npr. 15.03.1990). Spol: zaokružiti M/W/D.", commonMistakes: "Ime napisano drugačije nego u pasošu (dijakritički znakovi: č, ž, š — koristite kako piše u dokumentu). Pogrešan format datuma. Zaboravljen djevojačko prezime ako je relevantno.", whenToLeaveEmpty: "Sva polja su obavezna. Nijednu stavku ne ostavljajte praznom.", example: "Familienname: Hadžić | Vorname: Amina | Geburtsdatum: 15.03.1990 | Geburtsort: Sarajevo | Geschlecht: W | Staatsangehörigkeit: Bosnien und Herzegowina" },
+          ],
+        },
+        {
+          field: "Adresa (Anschrift)",
+          instruction: "Unesite potpunu prijavljenu adresu u Njemačkoj.",
+          cards: [
+            { whatToWrite: "Ulica, kućni broj, poštanski broj, grad/mjesto, država (Deutschland). Mora se poklapati sa prijavom prebivališta (Meldebescheinigung).", whereToFind: "Potvrda o prijavi prebivališta (Anmeldebestätigung) koju ste dobili na Bürgeramt-u.", format: "Ulica i broj u jednom redu. PLZ (5 cifara) + grad. Primjer: Musterstraße 12, 10115 Berlin, Deutschland", commonMistakes: "Adresa ne odgovara prijavi — ako ste se preselili, prvo ažurirajte prijavu na Bürgeramt, pa tek onda podnosite zahtjev. Zaboravljen kućni broj ili poštanski broj.", whenToLeaveEmpty: "Nikada. Adresa je obavezna.", example: "Anschrift: Berliner Str. 42, 60311 Frankfurt am Main, Deutschland" },
+          ],
+        },
+        {
+          field: "Bračni status (Familienstand)",
+          instruction: "Označite trenutni bračni status zaokruživanjem odgovarajuće opcije.",
+          cards: [
+            { whatToWrite: "Zaokružite jednu opciju: ledig (neoženjen/neudata), verheiratet (u braku), geschieden (razveden/a), verwitwet (udovac/udovica), dauernd getrennt lebend (trajno razdvojeni), eingetragene Lebenspartnerschaft (registrovano partnerstvo).", whereToFind: "Vaš lični status. Ako ste u braku — vjenčani list. Ako ste razvedeni — presuda o razvodu.", format: "Zaokružiti ili označiti X pored tačne opcije. Samo jedna opcija.", commonMistakes: "Označavanje 'dauernd getrennt lebend' ako ste samo privremeno na različitim adresama (npr. zbog posla). To se odnosi samo na trajnu namjeru razdvajanja. Neoznačavanje statusa uopšte.", whenToLeaveEmpty: "Nikada. Obavezno polje.", example: "☒ verheiratet" },
+          ],
+        },
+        {
+          field: "Podaci o bračnom partneru / životnom partneru",
+          instruction: "Steuer-ID, ime, datum rođenja, državljanstvo, spol i eventualno druga adresa partnera.",
+          cards: [
+            { whatToWrite: "Steuer-ID partnera (11 cifara), prezime, ime, datum rođenja, državljanstvo, spol, djevojačko prezime. Ako partner živi na drugoj adresi — navesti i tu adresu.", whereToFind: "Partnerov/partneričin pasoš + Steuer-ID pismo. Ako ima drugu adresu — iz prijave prebivališta.", format: "Isti format kao za podnosioca: prezime i ime kao u pasošu, datum DD.MM.YYYY, Steuer-ID 11 cifara.", commonMistakes: "Neupisivanje podataka o partneru kada živite zajedno — čak i ako niste u braku, ako je partner biološki roditelj djeteta, podatke treba unijeti. Zaboravljen Steuer-ID partnera.", whenToLeaveEmpty: "Ostavite prazno SAMO ako: nemate partnera (ledig), ste razvedeni i ne živite sa drugim roditeljem djeteta, ili nema drugog poznatog roditelja.", example: "Steuer-ID: 82 716 054 321 | Familienname: Hadžić | Vorname: Emir | Geburtsdatum: 22.07.1988 | Staatsangehörigkeit: Bosnien und Herzegowina | Geschlecht: M" },
+          ],
+        },
+        {
+          field: "Način isplate (Zahlungsweg)",
+          instruction: "Unesite IBAN, BIC i ko je vlasnik računa.",
+          cards: [
+            { whatToWrite: "IBAN (DE + 20 cifara), BIC banke, i označiti da li je vlasnik računa podnosilac zahtjeva ili druga osoba. Ako druga osoba — upisati njeno ime.", whereToFind: "Izvod iz banke, banking aplikacija, ili kartica računa. IBAN počinje sa DE za njemačke račune.", format: "IBAN: DE89 3704 0044 0532 0130 00 (s razmacima ili bez). BIC: 8 ili 11 znakova (npr. COBADEFFXXX).", commonMistakes: "Upisivanje računa treće osobe koja NIJE podnosilac i nije partner — Kindergeld se može isplatiti samo na račun podnosioca ili na račun za koji postoji ovlaštenje. Pogrešan IBAN (jedna cifra pogrešno = isplata neuspješna).", whenToLeaveEmpty: "Nikada. Bez bankovnih podataka nema isplate.", example: "IBAN: DE89 3704 0044 0532 0130 00 | BIC: COBADEFFXXX | Kontoinhaber: ☒ antragstellende Person" },
+          ],
+        },
+        {
+          field: "Podaci o djeci",
+          instruction: "Navedite svu djecu za koju već primate Kindergeld i drugu djecu koja žive u drugom domaćinstvu.",
+          cards: [
+            { whatToWrite: "Za svako dijete: ime, prezime (ako je različito od vašeg), datum rođenja, spol, kod koje Familienkasse i koji Kindergeldnummer. Za djecu za koju druga osoba prima Kindergeld: ime te osobe i njena Familienkasse.", whereToFind: "Postojeće rješenje o Kindergeld-u (Kindergeldbescheid) za djecu za koju već primate. Kindergeldnummer je na tom rješenju (format: xxxFKxxxxxx).", format: "Ime i prezime djeteta, datum DD.MM.YYYY, spol M/W/D, Kindergeldnummer.", commonMistakes: "Neupisivanje djece za koju DRUGA osoba prima Kindergeld — ovo je bitno jer redoslijed djece utiče na visinu. Zaboravljanje unijeti svu djecu.", whenToLeaveEmpty: "Ostavite prazno samo ako nemate drugu djecu osim one za koju sada podnosite zahtjev i za koju prilažete Anlage Kind.", example: "Vorname: Lejla | Geburtsdatum: 10.05.2020 | Geschlecht: W | Familienkasse: Familienkasse Bayern Süd | KG-Nr: 123FK456789" },
+          ],
+        },
+        {
+          field: "Potpis i izjava (Unterschrift)",
+          instruction: "Potpišite zahtjev. Ako ste u braku/partnerstvu, neka i partner potpiše saglasnost.",
+          cards: [
+            { whatToWrite: "Datum i vlastoručni potpis podnosioca. Na drugom mjestu: datum i potpis bračnog partnera/životnog partnera koji se slaže da VI primate Kindergeld.", whereToFind: "Nije potreban nikakav dokument — samo vaš potpis.", format: "Datum u formatu DD.MM.YYYY + čitljiv potpis. Oba potpisa ako ste u braku.", commonMistakes: "Zaboravljen potpis — najčešći razlog za vraćanje zahtjeva! Potpis partnera nedostaje, a živite zajedno. Potpis ne odgovara imenu (npr. potpisan nadimak).", whenToLeaveEmpty: "Potpis podnosioca je UVIJEK obavezan. Potpis partnera ostaviti prazno samo ako: niste u braku/partnerstvu, ili partner ne živi u istom domaćinstvu, ili se ne možete dogovoriti (u tom slučaju obavijestite Familienkasse).", example: "Datum: 15.01.2025 | Unterschrift: [Amina Hadžić] | Datum Ehepartner: 15.01.2025 | Unterschrift: [Emir Hadžić]" },
+          ],
+        },
       ],
       en: [
-        { field: "Applicant", instruction: "Enter your full name, date of birth, and 11-digit tax ID (Steuer-ID). Found on your tax notice or payslip." },
-        { field: "Address", instruction: "Full current registered address (street, number, postal code, city)." },
-        { field: "Bank details", instruction: "Enter IBAN and BIC. Payment is only made to the applicant's own account." },
-        { field: "Child information", instruction: "Name, date of birth, tax ID of the child. For children born abroad: attach birth certificate with certified translation." },
-        { field: "Child Attachment", instruction: "Fill out a separate attachment (KG1-AnlKi) for each child." },
+        { field: "Tax ID (Steuer-ID)", instruction: "Enter your 11-digit tax identification number." },
+        { field: "Personal details", instruction: "Last name, first name, date of birth, place of birth, gender, nationality." },
+        { field: "Address", instruction: "Full registered address in Germany." },
+        { field: "Marital status", instruction: "Check your current marital status." },
+        { field: "Spouse / partner details", instruction: "Tax ID, name, date of birth, nationality of spouse/partner." },
+        { field: "Payment details", instruction: "IBAN, BIC, and account holder." },
+        { field: "Children information", instruction: "List all children for whom you already receive Kindergeld and other own children." },
+        { field: "Signature", instruction: "Sign the application. If married, spouse should also sign." },
       ],
     },
     documents: {
-      de: ["Geburtsurkunde des Kindes", "Meldebescheinigung", "Steuer-ID (Antragsteller + Kind)", "Aufenthaltstitel (bei Nicht-EU-Bürgern)", "Ggf. Schulbescheinigung (ab 18 Jahre)"],
-      bs: ["Rodni list djeteta", "Potvrda o prijavi", "Porezni ID (podnosilac + dijete)", "Boravišna dozvola (za ne-EU državljane)", "Potvrda škole (od 18 godina)"],
-      en: ["Child's birth certificate", "Registration certificate", "Tax ID (applicant + child)", "Residence permit (non-EU citizens)", "School certificate (from age 18)"],
+      de: ["Geburtsurkunde des Kindes", "Meldebescheinigung", "Steuer-ID (Antragsteller + Kind)", "Aufenthaltstitel (bei Nicht-EU-Bürgern)", "Ggf. Schulbescheinigung (ab 18 Jahre)", "Anlage Kind (KG1-AnlKi) für jedes Kind"],
+      bs: ["Rodni list djeteta (Geburtsurkunde)", "Potvrda o prijavi prebivališta (Meldebescheinigung)", "Porezni ID podnosioca i djeteta (Steuer-ID)", "Boravišna dozvola (za ne-EU državljane)", "Potvrda škole/fakulteta (ako dijete ima 18+ godina)", "Prilog Dijete (Anlage Kind KG1-AnlKi) — za svako dijete posebno"],
+      en: ["Child's birth certificate", "Registration certificate", "Tax ID (applicant + child)", "Residence permit (non-EU citizens)", "School/university certificate (if child 18+)", "Child Attachment (Anlage Kind) for each child"],
     },
     processingTime: { de: "4–6 Wochen", bs: "4–6 sedmica", en: "4–6 weeks" },
     commonMistakes: {
-      de: ["Steuer-ID des Kindes vergessen", "Anlage Kind nicht beigefügt", "Unterschrift fehlt", "Bankverbindung eines Dritten angegeben"],
-      bs: ["Zaboravljen porezni ID djeteta", "Prilog Dijete nije priložen", "Nedostaje potpis", "Navedeni tuđi bankovni podaci"],
-      en: ["Missing child's tax ID", "Child attachment not included", "Missing signature", "Third-party bank details provided"],
+      de: ["Steuer-ID des Kindes vergessen", "Anlage Kind nicht beigefügt", "Unterschrift fehlt", "Bankverbindung eines Dritten angegeben", "Steuernummer statt Steuer-ID eingetragen"],
+      bs: [
+        "Zaboravljen porezni ID djeteta (Steuer-ID) — bez toga zahtjev ne može biti obrađen",
+        "Prilog Dijete (Anlage Kind) nije priložen — za SVAKO dijete mora biti poseban prilog",
+        "Nedostaje potpis podnosioca ili bračnog partnera",
+        "Navedeni bankovni podaci treće osobe umjesto vlastiti račun",
+        "Upisan Steuernummer umjesto Steuer-ID (različiti brojevi!)",
+        "Adresa ne odgovara prijavi prebivališta",
+      ],
+      en: ["Missing child's tax ID", "Child attachment not included", "Missing signature", "Third-party bank details provided", "Tax number instead of tax ID entered"],
     },
-    officialPdf: "",
+    officialPdf: "https://www.arbeitsagentur.de/datei/kg1-antrag-kindergeld_ba036550.pdf",
     onlineLink: "https://www.arbeitsagentur.de/familie-und-kinder/kindergeld-beantragen",
   },
   {
