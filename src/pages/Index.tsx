@@ -35,7 +35,9 @@ const pomocItems = [
 export default function Index() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const { t } = useLanguage();
+  const { data: newestAds = [] } = useNewestAds(4);
 
+  const DOMAIN_LABELS: Record<string, string> = { JOB: "Posao", SERVICE: "Usluga", HOUSING: "Stan", CAR: "Auto" };
   const slides = [
     { image: heroFrankfurt, city: "FRANKFURT" },
     { image: heroBerlin, city: "BERLIN" },
