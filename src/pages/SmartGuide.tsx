@@ -61,7 +61,7 @@ export default function SmartGuide() {
       <div className="mb-6 grid gap-4 sm:grid-cols-2">
         <div className="rounded-xl border bg-card p-4">
           <h3 className="mb-2 flex items-center gap-2 text-sm font-bold">
-            <CheckCircle2 className="h-4 w-4 text-green-600" /> Ko može dobiti?
+            <CheckCircle2 className="h-4 w-4 text-primary" /> Ko može dobiti?
           </h3>
           <ul className="space-y-1 text-xs text-muted-foreground list-disc pl-4">
             {form.eligibility.map((e, i) => <li key={i}>{e}</li>)}
