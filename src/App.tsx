@@ -49,6 +49,11 @@ import GuideDetail from "./pages/GuideDetail";
 import DokumentenCheck from "./pages/DokumentenCheck";
 import AdminForms from "./pages/AdminForms";
 import AdminFormMapper from "./pages/AdminFormMapper";
+import Mreza from "./pages/Mreza";
+import MrezaOglasi from "./pages/MrezaOglasi";
+import MrezaOglasiNovo from "./pages/MrezaOglasiNovo";
+import MrezaProUsluge from "./pages/MrezaProUsluge";
+import MrezaProUslugaNovo from "./pages/MrezaProUslugaNovo";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
