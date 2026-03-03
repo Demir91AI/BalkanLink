@@ -49,6 +49,11 @@ import GuideDetail from "./pages/GuideDetail";
 import DokumentenCheck from "./pages/DokumentenCheck";
 import AdminForms from "./pages/AdminForms";
 import AdminFormMapper from "./pages/AdminFormMapper";
+import Mreza from "./pages/Mreza";
+import MrezaOglasi from "./pages/MrezaOglasi";
+import MrezaOglasiNovo from "./pages/MrezaOglasiNovo";
+import MrezaProUsluge from "./pages/MrezaProUsluge";
+import MrezaProUslugaNovo from "./pages/MrezaProUslugaNovo";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -95,6 +100,11 @@ const App = () => (
                 <Route path="/dokumenten-check" element={<DokumentenCheck />} />
                 <Route path="/admin/forms" element={<AdminForms />} />
                 <Route path="/admin/forms/:slug/mapper" element={<AdminFormMapper />} />
+                <Route path="/mreza" element={<Mreza />} />
+                <Route path="/mreza/oglasi" element={<MrezaOglasi />} />
+                <Route path="/mreza/oglasi/novo" element={<MrezaOglasiNovo />} />
+                <Route path="/mreza/pro-usluge" element={<MrezaProUsluge />} />
+                <Route path="/mreza/pro-usluge/novo" element={<MrezaProUslugaNovo />} />
                 <Route path="/qa" element={<QA />} />
                 <Route path="/qa/:id" element={<QADetail />} />
                 <Route path="/directory" element={<Directory />} />
