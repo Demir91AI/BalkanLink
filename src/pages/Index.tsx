@@ -117,6 +117,39 @@ export default function Index() {
             </div>
           </div>
         </motion.section>
+
+        {/* ─── MREŽA: NOVI OGLASI ─── */}
+        {newestAds.length > 0 && (
+          <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.1 }}>
+            <div className="rounded-2xl border border-border/60 bg-card p-5 sm:p-7 shadow-sm">
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <h2 className="font-heading text-lg font-extrabold uppercase tracking-wide sm:text-xl flex items-center gap-2">
+                    <Megaphone className="h-5 w-5 text-primary" />
+                    Mreža: Novi oglasi
+                  </h2>
+                  <p className="text-xs text-muted-foreground">Najnoviji oglasi iz zajednice</p>
+                </div>
+                <Link to="/mreza/oglasi" className="flex items-center gap-1 text-xs font-medium text-primary hover:underline">
+                  Svi oglasi <ArrowRight className="h-3 w-3" />
+                </Link>
+              </div>
+              <div className="grid gap-2 sm:grid-cols-2">
+                {newestAds.map(ad => (
+                  <Link key={ad.id} to="/mreza/oglasi"
+                    className="group rounded-xl border border-border/40 bg-background p-3 transition-all hover:border-border hover:shadow-sm">
+                    <div className="flex items-center gap-1.5 mb-1">
+                      <Badge variant="outline" className="text-[10px]">{ad.type === "SEEKING" ? "Tražim" : "Nudim"}</Badge>
+                      <Badge variant="secondary" className="text-[10px]">{DOMAIN_LABELS[ad.domain] || ad.domain}</Badge>
+                    </div>
+                    <p className="text-sm font-medium leading-tight line-clamp-1">{ad.title}</p>
+                    <p className="text-[11px] text-muted-foreground mt-0.5">{ad.city}, {ad.bundesland}</p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </motion.section>
+        )}
       </div>
     </>
   );
