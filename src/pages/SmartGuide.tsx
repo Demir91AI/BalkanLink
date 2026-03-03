@@ -1,143 +1,177 @@
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, CheckCircle2, AlertTriangle, XCircle, RotateCcw, ExternalLink } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { ArrowLeft, ChevronLeft, ChevronRight, AlertTriangle, FileText, ExternalLink, BookOpen, ClipboardList, PenLine } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useFormBySlug, useFormFields } from "@/hooks/useFormData";
-import { useFormAccess } from "@/hooks/useFormAccess";
-import { useAuth } from "@/contexts/AuthContext";
-import { useLanguage } from "@/contexts/LanguageContext";
-import FormPaywallModal from "@/components/FormPaywallModal";
-import SmartGuideWizard from "@/components/SmartGuideWizard";
-import SmartGuidePdfView from "@/components/SmartGuidePdfView";
+import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
+import { getGuideBySlug } from "@/lib/guide-data";
+
+type LangKey = "de" | "bs" | "en";
 
 export default function SmartGuide() {
   const { slug } = useParams<{ slug: string }>();
-  const formSlug = slug ?? "kindergeld-kg1";
-  const { data: form, isLoading: formLoading } = useFormBySlug(formSlug);
-  const { data: fields } = useFormFields(formSlug);
-  const { hasAccess, loading: accessLoading, simulatePurchase, resetAccess } = useFormAccess(formSlug);
-  const { user } = useAuth();
-  const { t } = useLanguage();
-  const [paying, setPaying] = useState(false);
-  const [activeField, setActiveField] = useState<string | null>(null);
-  const isDev = import.meta.env.DEV;
+  const guide = getGuideBySlug(slug ?? "");
+  const [step, setStep] = useState(0);
+  const lang: LangKey = "bs";
 
-  const handlePay = async () => {
-    setPaying(true);
-    await simulatePurchase();
-    setPaying(false);
-  };
-
-  if (formLoading || accessLoading) {
-    return <div className="flex items-center justify-center py-24 text-sm text-muted-foreground">{t("sg.loading")}</div>;
-  }
-
-  if (!form) {
+  if (!guide) {
     return (
       <div className="mx-auto max-w-2xl px-4 py-12 text-center">
-        <p className="text-muted-foreground">{t("sg.notFound")}</p>
-        <Button variant="outline" className="mt-4" asChild><Link to="/formulari">{t("sg.backToForms")}</Link></Button>
+        <p className="text-muted-foreground">Vodič nije pronađen.</p>
+        <Button variant="outline" className="mt-4" asChild>
+          <Link to="/formulari">Nazad na formulare</Link>
+        </Button>
       </div>
     );
   }
 
-  const showPaywall = !hasAccess;
+  const steps = guide.steps[lang];
+  const current = steps[step];
+  const progress = ((step + 1) / steps.length) * 100;
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-6">
+    <div className="mx-auto max-w-4xl px-4 py-6">
       {/* Header */}
       <div className="mb-6">
         <Link to="/formulari" className="mb-3 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground">
-          <ArrowLeft className="h-3 w-3" /> {t("sg.backToForms")}
+          <ArrowLeft className="h-3 w-3" /> Nazad na formulare
         </Link>
-        <h1 className="font-heading text-xl font-extrabold sm:text-2xl">{form.name} — Smart Guide</h1>
-        <p className="mt-1 text-xs text-muted-foreground">{t("sg.source")}: {form.authority_name}</p>
-        <div className="mt-2 flex flex-wrap items-center gap-2">
-          {form.status === "OK" && <Badge variant="outline" className="border-green-500/30 text-green-600 text-[10px]"><CheckCircle2 className="mr-1 h-3 w-3" />PDF OK</Badge>}
-          {form.status === "Suspect" && <Badge variant="outline" className="border-yellow-500/30 text-yellow-600 text-[10px]"><AlertTriangle className="mr-1 h-3 w-3" />PDF Suspect</Badge>}
-          {form.status === "Blocked" && <Badge variant="outline" className="border-red-500/30 text-red-600 text-[10px]"><XCircle className="mr-1 h-3 w-3" />Blocked</Badge>}
-          {form.last_checked_at && (
-            <span className="text-[10px] text-muted-foreground">
-              {t("sg.checked")}: {new Date(form.last_checked_at).toLocaleDateString("de-DE")}
-            </span>
-          )}
-        </div>
-
-        {form.status === "Blocked" && (
-          <div className="mt-4 rounded-xl border border-red-200 bg-red-50 p-4 text-sm dark:border-red-900 dark:bg-red-950">
-            <p className="font-medium text-red-700 dark:text-red-400">{t("sg.pdfBlocked")}</p>
-            <a href={form.official_pdf_url} target="_blank" rel="noopener noreferrer" className="mt-1 inline-flex items-center gap-1 text-xs text-red-600 underline">
-              {t("sg.openOfficial")} <ExternalLink className="h-3 w-3" />
-            </a>
-          </div>
+        <h1 className="font-heading text-xl font-extrabold sm:text-2xl">{guide.title[lang]}</h1>
+        <p className="mt-1 text-xs text-muted-foreground">
+          Izvor: {guide.authority[lang]}
+        </p>
+        {guide.formName && (
+          <p className="mt-1 text-xs text-muted-foreground">
+            Formular: {guide.formName[lang]}
+          </p>
         )}
       </div>
 
-      {/* Dev reset */}
-      {isDev && hasAccess && (
-        <Button variant="outline" size="sm" className="mb-4 text-[10px]" onClick={resetAccess}>
-          <RotateCcw className="mr-1 h-3 w-3" /> {t("sg.devReset")}
-        </Button>
-      )}
-
-      {/* Common tips (always visible) */}
+      {/* Top info sections */}
       <div className="mb-6 space-y-4">
-        <div className="rounded-xl border bg-card p-4">
-          <h3 className="mb-2 text-sm font-bold">📋 {t("sg.rejectionTitle")}</h3>
-          <ul className="space-y-1 text-xs text-muted-foreground list-disc pl-4">
-            <li>Pogrešna ili nedostajući Steuer-ID (porezni identifikacijski broj)</li>
-            <li>Nepotpisan formular ili nedostaje datum</li>
-            <li>IBAN pogrešno upisan (provjeriti razmake)</li>
-            <li>Nedostaje prilog za dijete (KG1-AnlKi)</li>
-            <li>Adresa se ne poklapa s prijavom prebivališta</li>
+        {/* Rejection reasons */}
+        {guide.commonMistakes[lang].length > 0 && (
+          <div className="rounded-2xl border border-red-200 bg-red-50 p-4 dark:border-red-900/40 dark:bg-red-950/20">
+            <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold text-red-700 dark:text-red-400">
+              <AlertTriangle className="h-3.5 w-3.5" /> Najčešće greške koje dovode do odbijanja
+            </h3>
+            <ul className="space-y-1 pl-4 list-disc">
+              {guide.commonMistakes[lang].map((m, i) => (
+                <li key={i} className="text-xs text-red-600 dark:text-red-300">{m}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Documents to prepare */}
+        <div className="rounded-2xl border bg-card p-4">
+          <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold">
+            <ClipboardList className="h-3.5 w-3.5 text-primary" /> Dokumenti koje treba pripremiti
+          </h3>
+          <ul className="space-y-1 pl-4 list-disc">
+            {guide.documents[lang].map((d, i) => (
+              <li key={i} className="text-xs text-muted-foreground">{d}</li>
+            ))}
           </ul>
         </div>
 
-        <div className="rounded-xl border bg-card p-4">
-          <h3 className="mb-2 text-sm font-bold">📎 {t("sg.docsTitle")}</h3>
-          <ul className="space-y-1 text-xs text-muted-foreground list-disc pl-4">
-            <li>Rodni list djeteta (sa prevodom ako je iz inostranstva)</li>
-            <li>Steuer-ID roditelja i djeteta</li>
-            <li>Potvrda o prijavi prebivališta (Meldebescheinigung)</li>
-            <li>IBAN bankovnog računa</li>
-            <li>Boravišna dozvola (za ne-EU državljane)</li>
-          </ul>
-        </div>
-
-        <div className="rounded-xl border bg-card p-4">
-          <h3 className="mb-2 text-sm font-bold">✍️ {t("sg.signTitle")}</h3>
-          <p className="text-xs text-muted-foreground">
-            Potpisuje podnosilac zahtjeva (Antragsteller/in). Ako oba roditelja žive u domaćinstvu, dovoljno je potpis jednog roditelja.
+        {/* Processing time & who */}
+        <div className="rounded-2xl border bg-card p-4">
+          <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold">
+            <PenLine className="h-3.5 w-3.5 text-primary" /> Ko podnosi zahtjev
+          </h3>
+          <p className="text-xs text-muted-foreground">{guide.who[lang]}</p>
+          <p className="mt-2 text-xs">
+            <span className="font-semibold">Vrijeme obrade:</span>{" "}
+            <span className="text-muted-foreground">{guide.processingTime[lang]}</span>
           </p>
         </div>
       </div>
 
-      {/* Paywall or content */}
-      <FormPaywallModal open={showPaywall} onSimulatePay={handlePay} paying={paying} />
+      {/* Step-by-step wizard */}
+      <div className="space-y-4">
+        {/* Progress */}
+        <div className="flex items-center gap-3">
+          <Progress value={progress} className="h-2 flex-1" />
+          <span className="text-xs font-medium text-muted-foreground whitespace-nowrap">
+            Korak {step + 1} / {steps.length}
+          </span>
+        </div>
 
-      {hasAccess && form.status !== "Blocked" && (
-        <Tabs defaultValue="wizard" className="mt-2">
-          <TabsList className="w-full">
-            <TabsTrigger value="wizard" className="flex-1 text-xs">{t("sg.wizard")}</TabsTrigger>
-            <TabsTrigger value="pdf" className="flex-1 text-xs">{t("sg.pdfClick")}</TabsTrigger>
-          </TabsList>
+        {/* Step pills */}
+        <div className="flex items-center gap-1 overflow-x-auto pb-2">
+          {steps.map((s, i) => (
+            <button
+              key={i}
+              onClick={() => setStep(i)}
+              className={`shrink-0 rounded-full px-3 py-1 text-[10px] font-medium transition ${
+                i === step
+                  ? "bg-primary text-primary-foreground"
+                  : i < step
+                  ? "bg-primary/20 text-primary"
+                  : "bg-muted text-muted-foreground hover:bg-muted/80"
+              }`}
+            >
+              {i + 1}
+            </button>
+          ))}
+        </div>
 
-          <TabsContent value="wizard">
-            <SmartGuideWizard fields={fields ?? []} pdfUrl={form.official_pdf_url} />
-          </TabsContent>
+        {/* Current step content */}
+        <div className="rounded-2xl border bg-card p-5">
+          <div className="mb-1 flex items-center gap-2">
+            <Badge variant="outline" className="text-[10px]">
+              <BookOpen className="mr-1 h-3 w-3" /> Korak {step + 1}
+            </Badge>
+          </div>
+          <h3 className="font-bold text-sm mt-2">{current.field}</h3>
+          <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{current.instruction}</p>
+        </div>
 
-          <TabsContent value="pdf">
-            <SmartGuidePdfView
-              fields={fields ?? []}
-              pdfUrl={form.official_pdf_url}
-              activeField={activeField}
-              onFieldSelect={setActiveField}
-            />
-          </TabsContent>
-        </Tabs>
-      )}
+        {/* Navigation */}
+        <div className="flex items-center justify-between">
+          <Button
+            variant="outline"
+            size="sm"
+            disabled={step === 0}
+            onClick={() => setStep(step - 1)}
+          >
+            <ChevronLeft className="mr-1 h-4 w-4" /> Nazad
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            disabled={step === steps.length - 1}
+            onClick={() => setStep(step + 1)}
+          >
+            Dalje <ChevronRight className="ml-1 h-4 w-4" />
+          </Button>
+        </div>
+      </div>
+
+      {/* Official links */}
+      <div className="mt-6 flex flex-wrap gap-3 justify-center">
+        {guide.onlineLink && (
+          <a
+            href={guide.onlineLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground underline"
+          >
+            <ExternalLink className="h-3 w-3" /> Online portal
+          </a>
+        )}
+        {guide.officialInfoUrl && (
+          <a
+            href={guide.officialInfoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground underline"
+          >
+            <FileText className="h-3 w-3" /> Službene informacije
+          </a>
+        )}
+      </div>
     </div>
   );
 }
