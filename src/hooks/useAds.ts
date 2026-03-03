@@ -40,8 +40,8 @@ export function useAds(filters: AdFilters = {}) {
         .eq("status", "ACTIVE")
         .order("created_at", { ascending: false });
 
-      if (filters.type) q = q.eq("type", filters.type);
-      if (filters.domain) q = q.eq("domain", filters.domain);
+      if (filters.type) q = q.eq("type", filters.type as any);
+      if (filters.domain) q = q.eq("domain", filters.domain as any);
       if (filters.bundesland) q = q.eq("bundesland", filters.bundesland);
       if (filters.city) q = q.ilike("city", `%${filters.city}%`);
       if (filters.keyword) {

@@ -76,9 +76,18 @@ export default function MrezaOglasiNovo() {
     }
 
     const geo = findCity(form.city);
+    const validated = result.data;
     await createAd.mutateAsync({
-      ...result.data,
-      category: result.data.category || undefined,
+      type: validated.type,
+      domain: validated.domain,
+      category: validated.category || undefined,
+      title: validated.title,
+      description: validated.description,
+      bundesland: validated.bundesland,
+      city: validated.city,
+      contact_type: validated.contact_type,
+      contact_value: validated.contact_value,
+      owner_email: validated.owner_email,
       city_lat: geo?.lat,
       city_lng: geo?.lng,
     });
