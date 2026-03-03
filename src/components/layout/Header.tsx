@@ -9,6 +9,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const NAV_ITEMS = [
   { label: "Pomoć", to: "/dolazak" },
   { label: "Formulari", to: "/formulari" },
+  { label: "Mreža", to: "/mreza" },
   { label: "Rechner", to: "/tools" },
 ];
 
