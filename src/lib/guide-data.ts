@@ -1,6 +1,16 @@
+export interface GuideStepCard {
+  whatToWrite: string;
+  whereToFind: string;
+  format: string;
+  commonMistakes: string;
+  whenToLeaveEmpty: string;
+  example: string;
+}
+
 export interface GuideStep {
   field: string;
   instruction: string;
+  cards?: GuideStepCard[];
 }
 
 export interface Guide {
