@@ -4,9 +4,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   FileText, Briefcase, Building2, HeartPulse, ScanSearch,
   ClipboardList, Wallet,
-  ArrowRight, Car, Banknote, Calculator,
+  ArrowRight, Car, Banknote, Calculator, Megaphone,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useNewestAds } from "@/hooks/useAds";
+import { Badge } from "@/components/ui/badge";
 
 import heroBerlin from "@/assets/hero-berlin.jpg";
 import heroMuenchen from "@/assets/hero-muenchen.jpg";
