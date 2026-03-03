@@ -1,50 +1,30 @@
 
 
-# Plan: Populate Elterngeld SmartGuide with Detailed Official Content
+## Pomoć u Njemačkoj -- Grid Layout
 
-## Source Data
+Currently the 10 items in "Pomoć u Njemačkoj" are displayed as a single-column vertical list, making the section very long. The plan is to switch them to a compact tile/grid layout (similar to the existing Lifestyle section) so items sit side by side in rows.
 
-From the official pages (familienportal.de and zbfs.bayern.de), I've extracted comprehensive information about the Elterngeld application process including: eligibility, three variants (Basiselterngeld, ElterngeldPlus, Partnerschaftsbonus), income calculation, required documents, Lebensmonate system, and application procedure.
+### Changes
 
-## Changes
+**File: `src/pages/Index.tsx`**
 
-### File: `src/lib/guide-data.ts`
+1. **Replace `SectionItem` rendering for `pomocItems`** -- instead of the current single-column list (`grid gap-0.5`), use a responsive grid: `grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4`
 
-Replace the current `elterngeld` guide entry (lines ~357-402) with a fully expanded version:
+2. **Change tile style** -- each item becomes a compact card (like the Lifestyle tiles) with icon on top and label below, centered:
+   - Rounded border container with hover effect
+   - Icon in a circle/rounded-square at top center
+   - Label text below, `text-xs font-medium`, centered, max 2 lines
 
-**Updated metadata:**
-- `who`: Expanded to explain eligibility (residence in Germany, self-caring for child, max 32h/week, income cap of 175,000€ for births from 01.04.2024)
-- `authority`: Elterngeldstelle des jeweiligen Bundeslandes
-- `formName`: Antrag auf Elterngeld (landesspezifisch)
-- `officialPdf`: leave empty (form varies by Bundesland)
-- `onlineLink`: `https://www.elterngeld-digital.de`
-- `officialInfoUrl`: `https://familienportal.de/familienportal/familienleistungen/elterngeld`
-- `processingTime`: 6-12 Wochen
-- `documents`: Expanded with all required Nachweise from official source (Geburtsurkunde, Lohnabrechnungen 12 Monate, Mutterschaftsgeldbescheinigung, Arbeitgeberbescheinigung Elternzeit, Krankenversicherungsnachweis, ggf. Steuerbescheid bei Selbständigen, Arbeitszeitbestätigung)
-- `commonMistakes`: Expanded (Antrag zu spät, falsche Lebensmonate, fehlende Partnermonate-Begründung, Mutterschaftsgeld nicht berücksichtigt, Einkommen während Bezug nicht angegeben, Einkommensgrenze übersehen)
+3. This matches the existing Lifestyle section pattern already in the codebase, keeping the design consistent.
 
-**8 steps (bs language) with full cards:**
+### Result
+- 10 items will display as 2 columns on mobile, 3 on small tablets, reducing vertical height from ~10 rows to ~3-4 rows
+- Consistent with the Lifestyle grid already on the page
+- No new components or dependencies needed
 
-| Step | Field | Content |
-|------|-------|---------|
-| 1 | Lični podaci podnosioca (Antragsteller) | Name, Geburtsdatum, Steuer-ID, Anschrift, Staatsangehörigkeit, Familienstand, Steuerklasse |
-| 2 | Podaci o djetetu | Name, Geburtsdatum, Geburtsort, Geschlecht, Kindergeld-Nummer |
-| 3 | Izbor vrste Elterngeld-a | Basiselterngeld vs ElterngeldPlus vs Partnerschaftsbonus, Lebensmonate planning |
-| 4 | Raspodjela mjeseci (Lebensmonate) | Which parent takes which months, Partnermonate, simultaneous months rules |
-| 5 | Primanja prije porođaja (Einkommen vor Geburt) | Last 12 months income, self-employment income, Bemessungszeitraum, Steuerklassenwechsel |
-| 6 | Zaposlenje tokom primanja (Erwerbstätigkeit) | Planned working hours (max 32h), expected income, Teilzeit details |
-| 7 | Bankovni podaci i ostale davanja | IBAN, BIC, Mutterschaftsgeld, other benefits (Bürgergeld, ALG I, Wohngeld) |
-| 8 | Izjava, potpis i prilozi | Both parents signature requirement, Anlagen, checklist of attachments |
+### Technical Details
 
-Each step includes all 6 card types with specific content derived from official sources:
-- `whatToWrite`: Exact fields to fill
-- `whereToFind`: Where to get the information (e.g., "Na platnim listama", "Iz poreznog rješenja")
-- `format`: Required format (dates, IBAN, hours/week)
-- `commonMistakes`: Step-specific rejection causes
-- `whenToLeaveEmpty`: When fields can/should be left blank
-- `example`: Realistic pseudo-examples
-
-**DE and EN steps** updated to 8 matching step titles (field names only, no cards).
-
-No other files need changes.
+- Modify lines 142-144 in `Index.tsx`: change the grid wrapper from `grid gap-0.5` to `grid grid-cols-2 gap-2 sm:grid-cols-3`
+- Render `pomocItems` using the same tile markup pattern as `lifestyleItems` (lines 189-199) instead of using `SectionItem`
+- The `SectionItem` component can remain for any other usage or be removed if unused
 
