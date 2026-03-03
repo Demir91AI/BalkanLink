@@ -14,6 +14,72 @@ export type Database = {
   }
   public: {
     Tables: {
+      ads: {
+        Row: {
+          activated_at: string | null
+          bundesland: string
+          category: string | null
+          city: string
+          city_lat: number | null
+          city_lng: number | null
+          contact_type: Database["public"]["Enums"]["ad_contact_type"]
+          contact_value: string
+          created_at: string
+          description: string
+          domain: Database["public"]["Enums"]["ad_domain"]
+          expires_at: string | null
+          id: string
+          last_reported_at: string | null
+          owner_email: string
+          reported_count: number
+          status: Database["public"]["Enums"]["ad_status"]
+          title: string
+          type: Database["public"]["Enums"]["ad_type"]
+        }
+        Insert: {
+          activated_at?: string | null
+          bundesland: string
+          category?: string | null
+          city: string
+          city_lat?: number | null
+          city_lng?: number | null
+          contact_type: Database["public"]["Enums"]["ad_contact_type"]
+          contact_value: string
+          created_at?: string
+          description: string
+          domain: Database["public"]["Enums"]["ad_domain"]
+          expires_at?: string | null
+          id?: string
+          last_reported_at?: string | null
+          owner_email: string
+          reported_count?: number
+          status?: Database["public"]["Enums"]["ad_status"]
+          title: string
+          type: Database["public"]["Enums"]["ad_type"]
+        }
+        Update: {
+          activated_at?: string | null
+          bundesland?: string
+          category?: string | null
+          city?: string
+          city_lat?: number | null
+          city_lng?: number | null
+          contact_type?: Database["public"]["Enums"]["ad_contact_type"]
+          contact_value?: string
+          created_at?: string
+          description?: string
+          domain?: Database["public"]["Enums"]["ad_domain"]
+          expires_at?: string | null
+          id?: string
+          last_reported_at?: string | null
+          owner_email?: string
+          reported_count?: number
+          status?: Database["public"]["Enums"]["ad_status"]
+          title?: string
+          type?: Database["public"]["Enums"]["ad_type"]
+        }
+        Relationships: []
+      }
       balkan_rides: {
         Row: {
           available_seats: number
@@ -50,6 +116,30 @@ export type Database = {
           is_active?: boolean
           ride_date?: string
           user_id?: string
+        }
+        Relationships: []
+      }
+      city_geo: {
+        Row: {
+          bundesland: string
+          city_name: string
+          id: string
+          lat: number
+          lng: number
+        }
+        Insert: {
+          bundesland: string
+          city_name: string
+          id?: string
+          lat: number
+          lng: number
+        }
+        Update: {
+          bundesland?: string
+          city_name?: string
+          id?: string
+          lat?: number
+          lng?: number
         }
         Relationships: []
       }
@@ -206,6 +296,36 @@ export type Database = {
           phone?: string | null
           verified?: boolean
           website?: string | null
+        }
+        Relationships: []
+      }
+      email_jobs: {
+        Row: {
+          id: string
+          payload: Json | null
+          scheduled_at: string
+          sent_at: string | null
+          status: Database["public"]["Enums"]["email_job_status"]
+          template: Database["public"]["Enums"]["email_template"]
+          to_email: string
+        }
+        Insert: {
+          id?: string
+          payload?: Json | null
+          scheduled_at?: string
+          sent_at?: string | null
+          status?: Database["public"]["Enums"]["email_job_status"]
+          template: Database["public"]["Enums"]["email_template"]
+          to_email: string
+        }
+        Update: {
+          id?: string
+          payload?: Json | null
+          scheduled_at?: string
+          sent_at?: string | null
+          status?: Database["public"]["Enums"]["email_job_status"]
+          template?: Database["public"]["Enums"]["email_template"]
+          to_email?: string
         }
         Relationships: []
       }
@@ -384,6 +504,45 @@ export type Database = {
         }
         Relationships: []
       }
+      mreza_payments: {
+        Row: {
+          amount: number
+          created_at: string
+          currency: string
+          id: string
+          paid_at: string | null
+          product_id: string
+          product_type: Database["public"]["Enums"]["payment_product_type"]
+          provider: Database["public"]["Enums"]["payment_provider"]
+          provider_payment_id: string | null
+          status: Database["public"]["Enums"]["payment_status"]
+        }
+        Insert: {
+          amount?: number
+          created_at?: string
+          currency?: string
+          id?: string
+          paid_at?: string | null
+          product_id: string
+          product_type: Database["public"]["Enums"]["payment_product_type"]
+          provider?: Database["public"]["Enums"]["payment_provider"]
+          provider_payment_id?: string | null
+          status?: Database["public"]["Enums"]["payment_status"]
+        }
+        Update: {
+          amount?: number
+          created_at?: string
+          currency?: string
+          id?: string
+          paid_at?: string | null
+          product_id?: string
+          product_type?: Database["public"]["Enums"]["payment_product_type"]
+          provider?: Database["public"]["Enums"]["payment_provider"]
+          provider_payment_id?: string | null
+          status?: Database["public"]["Enums"]["payment_status"]
+        }
+        Relationships: []
+      }
       payments: {
         Row: {
           amount: number
@@ -417,6 +576,69 @@ export type Database = {
           status?: string
           transaction_id?: string | null
           user_id?: string
+        }
+        Relationships: []
+      }
+      pro_services: {
+        Row: {
+          billing_email: string
+          bundesland: string
+          city: string
+          city_lat: number | null
+          city_lng: number | null
+          created_at: string
+          description: string
+          email: string | null
+          expires_at: string | null
+          id: string
+          name_or_business: string
+          phone: string | null
+          service_category: string
+          started_at: string | null
+          status: Database["public"]["Enums"]["pro_status"]
+          updated_at: string
+          website: string | null
+          whatsapp: string | null
+        }
+        Insert: {
+          billing_email: string
+          bundesland: string
+          city: string
+          city_lat?: number | null
+          city_lng?: number | null
+          created_at?: string
+          description: string
+          email?: string | null
+          expires_at?: string | null
+          id?: string
+          name_or_business: string
+          phone?: string | null
+          service_category: string
+          started_at?: string | null
+          status?: Database["public"]["Enums"]["pro_status"]
+          updated_at?: string
+          website?: string | null
+          whatsapp?: string | null
+        }
+        Update: {
+          billing_email?: string
+          bundesland?: string
+          city?: string
+          city_lat?: number | null
+          city_lng?: number | null
+          created_at?: string
+          description?: string
+          email?: string | null
+          expires_at?: string | null
+          id?: string
+          name_or_business?: string
+          phone?: string | null
+          service_category?: string
+          started_at?: string | null
+          status?: Database["public"]["Enums"]["pro_status"]
+          updated_at?: string
+          website?: string | null
+          whatsapp?: string | null
         }
         Relationships: []
       }
@@ -614,6 +836,10 @@ export type Database = {
         }
         Returns: boolean
       }
+      haversine_distance: {
+        Args: { lat1: number; lat2: number; lng1: number; lng2: number }
+        Returns: number
+      }
       search_community_listings: {
         Args: { search_terms: string[] }
         Returns: {
@@ -663,7 +889,22 @@ export type Database = {
       unaccent: { Args: { "": string }; Returns: string }
     }
     Enums: {
+      ad_contact_type: "PHONE" | "EMAIL"
+      ad_domain: "JOB" | "SERVICE" | "HOUSING" | "CAR"
+      ad_status: "PENDING" | "ACTIVE" | "EXPIRED" | "REMOVED"
+      ad_type: "SEEKING" | "OFFERING"
       app_role: "admin" | "user"
+      email_job_status: "PENDING" | "SENT" | "FAILED"
+      email_template:
+        | "AD_VERIFY"
+        | "AD_EXPIRE_SOON"
+        | "PRO_EXPIRE_30"
+        | "PRO_EXPIRE_7"
+        | "PRO_EXPIRED"
+      payment_product_type: "PRO_SERVICE" | "PREMIUM_FORMULARE"
+      payment_provider: "STUB" | "STRIPE"
+      payment_status: "PENDING" | "PAID" | "FAILED" | "CANCELED"
+      pro_status: "PENDING_PAYMENT" | "ACTIVE" | "EXPIRED" | "REMOVED"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -791,7 +1032,23 @@ export type CompositeTypes<
 export const Constants = {
   public: {
     Enums: {
+      ad_contact_type: ["PHONE", "EMAIL"],
+      ad_domain: ["JOB", "SERVICE", "HOUSING", "CAR"],
+      ad_status: ["PENDING", "ACTIVE", "EXPIRED", "REMOVED"],
+      ad_type: ["SEEKING", "OFFERING"],
       app_role: ["admin", "user"],
+      email_job_status: ["PENDING", "SENT", "FAILED"],
+      email_template: [
+        "AD_VERIFY",
+        "AD_EXPIRE_SOON",
+        "PRO_EXPIRE_30",
+        "PRO_EXPIRE_7",
+        "PRO_EXPIRED",
+      ],
+      payment_product_type: ["PRO_SERVICE", "PREMIUM_FORMULARE"],
+      payment_provider: ["STUB", "STRIPE"],
+      payment_status: ["PENDING", "PAID", "FAILED", "CANCELED"],
+      pro_status: ["PENDING_PAYMENT", "ACTIVE", "EXPIRED", "REMOVED"],
     },
   },
 } as const
