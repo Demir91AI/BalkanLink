@@ -658,8 +658,16 @@ export const guides: Guide[] = [
       bs: "Samohrani roditelji čije dijete ne prima ili neredovno prima alimentaciju.",
       en: "Single parents whose child receives no or irregular maintenance from the other parent.",
     },
-    authority: { de: "Jugendamt der Stadt/Gemeinde", bs: "Jugendamt grada/općine", en: "Youth Welfare Office (Jugendamt)" },
-    formName: { de: "Antrag auf Unterhaltsvorschuss", bs: "Zahtjev za alimentacijski predujam", en: "Application for Maintenance Advance" },
+    authority: {
+      de: "Unterhaltsvorschussstelle (Unterhaltsvorschusskasse) – in der Regel beim Jugendamt Ihres Wohnorts angesiedelt. Zuständig ist das Jugendamt der Stadt- oder Gemeindeverwaltung, in deren Bezirk das Kind wohnt.",
+      bs: "Unterhaltsvorschussstelle (Unterhaltsvorschusskasse) – po pravilu pri Jugendamtu vašeg mjesta stanovanja. Nadležan je Jugendamt grada ili općine u čijem području dijete živi.",
+      en: "Unterhaltsvorschussstelle (Maintenance Advance Office) – usually located at the Youth Welfare Office (Jugendamt) of your place of residence. The Jugendamt of the city or municipality where the child lives is responsible.",
+    },
+    formName: {
+      de: 'Antrag auf Unterhaltsvorschuss \u2013 Der Antrag muss schriftlich oder in elektronischer Form gestellt werden. Das offizielle Antragsformular erhalten Sie bei Ihrer Stadt-, Gemeinde- oder Kreisverwaltung. Immer h\u00e4ufiger kann der Unterhaltsvorschuss auch online beantragt werden \u2013 \u00fcber die \u201eBeratung vor Ort\u201c-Suche auf bmfsfj.de finden Sie den Link zum Online-Antrag Ihrer Unterhaltsvorschussstelle, sofern dieser Service bereits verf\u00fcgbar ist.',
+      bs: 'Zahtjev za alimentacijski predujam (Unterhaltsvorschuss) \u2013 Zahtjev se podnosi pismeno ili elektronski. Slu\u017ebeni obrazac mo\u017eete dobiti u gradskoj, op\u0107inskoj ili okru\u017enoj upravi. Sve \u010de\u0161\u0107e je mogu\u0107e podnijeti zahtjev i online \u2013 putem pretrage \u201eBeratung vor Ort\u201c na bmfsfj.de mo\u017eete prona\u0107i link za online zahtjev kod va\u0161e lokalne Unterhaltsvorschussstelle, ako je ta usluga ve\u0107 dostupna.',
+      en: "Application for Maintenance Advance (Unterhaltsvorschuss) – The application must be submitted in writing or electronically. The official application form is available at your city, municipal, or district administration. Increasingly, online applications are also possible – use the 'Beratung vor Ort' search on bmfsfj.de to find the online application link at your local Unterhaltsvorschussstelle, if this service is already available.",
+    },
     steps: {
       de: [
         { field: "Antragsteller", instruction: "Daten des alleinerziehenden Elternteils: Name, Anschrift, Geburtsdatum, Familienstand (ledig/geschieden/getrennt lebend)." },
