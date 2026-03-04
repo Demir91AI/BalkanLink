@@ -1113,7 +1113,7 @@ export const guides: Guide[] = [
         { field: "Applicant", instruction: "Personal data. Applicant must be the main tenant." },
         { field: "Household members", instruction: "All persons in household with income." },
         { field: "Apartment", instruction: "Address, size in m², cold rent, utilities (excl. electricity), heating separately." },
-        { field: "Income", instruction: "Gross income of all members (12 months). Amount depends on: number of household members, total income, and rent. Calculate in advance with the Wohngeldrechner at bmwsb.bund.de." },
+        { field: "Income", instruction: "Gross income of all members (12 months). Amount depends on: number of household members, total income, and rent. Calculate in advance with the Wohngeldrechner: https://www.bmwsb.bund.de/DE/wohnen/wohngeld/wohngeldrechner/wohngeldrechner-2025_node.html" },
       ],
     },
     documents: {
