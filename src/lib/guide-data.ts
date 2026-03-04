@@ -2584,3 +2584,8 @@ export function getGuidesByCategory(category: Guide["category"]) {
 export function getGuideBySlug(slug: string) {
   return guides.find((g) => g.slug === slug);
 }
+
+/** Returns the single best official URL for a guide (priority: officialInfoUrl > onlineLink > officialPdf). */
+export function getOfficialUrl(guide: Guide): string {
+  return guide.officialInfoUrl || guide.onlineLink || guide.officialPdf || "";
+}
