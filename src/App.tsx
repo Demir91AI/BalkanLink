@@ -49,6 +49,7 @@ import GuideDetail from "./pages/GuideDetail";
 import DokumentenCheck from "./pages/DokumentenCheck";
 import AdminForms from "./pages/AdminForms";
 import AdminFormMapper from "./pages/AdminFormMapper";
+import BruttoNettoRechner from "./pages/BruttoNettoRechner";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -88,6 +89,7 @@ const App = () => (
                 <Route path="/familie" element={<Familie />} />
                 <Route path="/foerderungen" element={<Foerderungen />} />
                 <Route path="/tools" element={<Generatoren />} />
+                <Route path="/brutto-netto-rechner" element={<BruttoNettoRechner />} />
                 <Route path="/wohnungen" element={<Wohnungen />} />
                 <Route path="/stellenangebote" element={<Stellenangebote />} />
                 <Route path="/premium" element={<Premium />} />
