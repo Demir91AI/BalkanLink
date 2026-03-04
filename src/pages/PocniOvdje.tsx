@@ -28,7 +28,7 @@ const T: Record<string, Record<string, string>> = {
     sozial: "Sozialversicherung", sozialDesc: "5 Säulen der Sozialversicherung für alle Beschäftigten.",
     gez: "Rundfunkbeitrag (GEZ)", gezDesc: "TV-/Radioabgabe — 18,36 € monatlich pro Haushalt.",
     fuehrerschein: "Führerschein", fuehrerscheinDesc: "Umschreibung oder Anerkennung — Frist 6 Monate.",
-    auto: "Auto anmelden", autoDesc: "Fahrzeugzulassung in Deutschland.",
+    auto: "Fahrzeugzulassung (Kfz, Lkw...)", autoDesc: "Registrierung von Kraftfahrzeugen in Deutschland.",
     schritte: "Erste Schritte", schritteDesc: "Die vollständige Checkliste für die ersten Wochen.",
   },
   en: {
