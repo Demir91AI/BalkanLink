@@ -1127,7 +1127,7 @@ export const guides: Guide[] = [
       bs: ["Članovi domaćinstva nepotpuno navedeni", "Primanja nisu aktuelna (trebaju zadnjih 12 mjeseci)", "Nedostaje ili je nepotpun ugovor o najmu", "Grijanje i režije nisu odvojeni", "Zahtjev podnesen prekasno — Wohngeld se ne isplaćuje retroaktivno"],
       en: ["Household members incomplete", "Income not current (last 12 months needed)", "Missing/incomplete rental contract", "Heating and utilities not separated", "Application filed too late — Wohngeld is not granted retroactively"],
     },
-    officialPdf: "",
+    officialPdf: "https://www.bmwsb.bund.de/DE/wohnen/wohngeld/wohngeldrechner/wohngeldrechner-2025_node.html",
     onlineLink: "https://verwaltung.bund.de/leistungsverzeichnis/DE/leistung/99107023037900/herausgeber/BE-L100108_120665/region/110000000000",
     officialInfoUrl: "https://www.bmwsb.bund.de/Webs/BMWSB/DE/themen/stadt-wohnen/wohnraumfoerderung/wohngeld/wohngeld-node.html",
   },
