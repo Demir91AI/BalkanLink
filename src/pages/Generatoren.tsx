@@ -55,7 +55,11 @@ export default function Generatoren() {
               <Calculator className="h-4 w-4 text-primary" />
               {t("tools.officialTitle")}
             </h2>
-            <p className="mt-1 text-xs text-muted-foreground">{t("tools.officialDesc")}</p>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Oficijelni kalkulatori njemačkih institucija.
+              <br />
+              Ovi alati vode direktno na službene stranice gdje možeš provjeriti svoja prava ili izračunati iznose (Kindergeld, Bürgergeld, Elterngeld i dr.).
+            </p>
           </div>
 
           <div className="space-y-3">
