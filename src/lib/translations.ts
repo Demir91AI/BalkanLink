@@ -173,7 +173,7 @@ type TranslationKeys = {
   "tools.officialTitle": string; "tools.officialDesc": string; "tools.openOfficial": string;
   "tools.disclaimer": string;
   "tools.kindergeld": string; "tools.kindergeld.desc": string;
-  "tools.wohngeld": string; "tools.wohngeld.desc": string;
+  "tools.kinderzuschlag": string; "tools.kinderzuschlag.desc": string;
   "tools.buergergeld": string; "tools.buergergeld.desc": string;
   "tools.elterngeld": string; "tools.elterngeld.desc": string;
   "tools.rente": string; "tools.rente.desc": string;
