@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Baby, BookOpen, GraduationCap, HandCoins, Heart, Users } from "lucide-react";
+import { ArrowRight, Baby, BookOpen, GraduationCap, HandCoins, Heart, Users, Shield, Banknote, Scale } from "lucide-react";
 import { motion } from "framer-motion";
 import { getGuidesByCategory } from "@/lib/guide-data";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -16,7 +16,11 @@ const iconMap: Record<string, any> = {
   kindergeld: Baby,
   kinderzuschlag: HandCoins,
   elterngeld: Users,
+  elternzeit: Users,
+  mutterschutz: Shield,
+  mutterschaftsleistungen: Banknote,
   "bildung-teilhabe": BookOpen,
+  unterhalt: Scale,
   unterhaltsvorschuss: HandCoins,
 };
 

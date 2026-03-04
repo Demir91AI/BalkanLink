@@ -687,6 +687,327 @@ export const guides: Guide[] = [
     onlineLink: "",
     officialInfoUrl: "https://www.bmfsfj.de/bmfsfj/themen/familie/familienleistungen/unterhaltsvorschuss",
   },
+  // ----------- ELTERNZEIT -----------
+  {
+    slug: "elternzeit",
+    category: "familie",
+    title: { de: "Elternzeit", bs: "Roditeljsko odsustvo (Elternzeit)", en: "Parental Leave (Elternzeit)" },
+    who: {
+      de: "Arbeitnehmer/innen, die mit ihrem Kind in einem gemeinsamen Haushalt leben und es selbst betreuen. Gilt für alle Arbeitsverhältnisse (Vollzeit, Teilzeit, Minijob, Ausbildung, befristete Verträge). Auch Adoptiveltern. Max. 32 Stunden/Woche Teilzeitarbeit während Elternzeit erlaubt. Selbständige, Studierende und Arbeitslose haben KEINEN Anspruch auf Elternzeit (aber ggf. auf Elterngeld). Jeder Elternteil hat einen eigenständigen Anspruch – unabhängig vom anderen.",
+      bs: "Zaposlenici koji žive sa djetetom u zajedničkom domaćinstvu i sami ga odgajaju. Važi za sve oblike zaposlenja (puno radno vrijeme, nepuno, minijob, obuka, ugovori na određeno). Također za usvojitelje. Max. 32 sata/sedmično rada tokom Elternzeit-a. Samozaposleni, studenti i nezaposleni NEMAJU pravo na Elternzeit (ali eventualno na Elterngeld). Svaki roditelj ima samostalno pravo – nezavisno od drugog.",
+      en: "Employees living with their child in a shared household and caring for the child themselves. Applies to all employment types (full-time, part-time, minijob, training, fixed-term). Also for adoptive parents. Max. 32h/week part-time work allowed during parental leave. Self-employed, students, and unemployed do NOT have Elternzeit entitlement (but may qualify for Elterngeld). Each parent has an independent entitlement.",
+    },
+    authority: { de: "Arbeitgeber (schriftlicher Antrag)", bs: "Poslodavac (pismeni zahtjev)", en: "Employer (written application)" },
+    formName: {
+      de: "Kein offizielles Formular — formloses Schreiben an den Arbeitgeber mit verbindlicher Festlegung der Elternzeit-Zeiträume. Muss Name, Geburtsdatum des Kindes, gewünschte Zeiträume, geplante Teilzeit (falls gewünscht) enthalten. Fristen: 7 Wochen vor Beginn (für Elternzeit bis zum 3. Geburtstag), 13 Wochen vor Beginn (für Elternzeit zwischen 3. und 8. Geburtstag). Formlose Mitteilung reicht, aber Schriftform (handschriftliche Unterschrift) ist gesetzlich vorgeschrieben – E-Mail oder Fax genügen NICHT.",
+      bs: "Nema službenog formulara — neformalno pismo poslodavcu sa obavezujućim navođenjem perioda Elternzeit-a. Mora sadržavati ime, datum rođenja djeteta, željene periode, planiranu Teilzeit (ako je željena). Rokovi: 7 sedmica prije početka (za Elternzeit do 3. rođendana), 13 sedmica prije početka (za Elternzeit između 3. i 8. rođendana). Dovoljno je neformalno pismo, ali pisana forma (vlastoručni potpis) je zakonski obavezna – email ili fax NIJE dovoljno.",
+      en: "No official form — informal written letter to employer with binding specification of parental leave periods. Must include name, child's date of birth, desired periods, planned part-time (if any). Deadlines: 7 weeks before start (for leave until 3rd birthday), 13 weeks before start (for leave between 3rd and 8th birthday). Informal letter suffices, but written form (handwritten signature) is legally required – email or fax is NOT enough.",
+    },
+    steps: {
+      de: [
+        { field: "Voraussetzungen prüfen", instruction: "Arbeitsverhältnis muss bestehen. Kind muss im gemeinsamen Haushalt leben. Max. 32h Teilzeit während Elternzeit." },
+        { field: "Zeitraum planen", instruction: "Bis zu 3 Jahre Elternzeit pro Kind. Davon max. 24 Monate zwischen dem 3. und 8. Geburtstag übertragbar (mit Zustimmung des AG). Max. 3 Zeitabschnitte ohne AG-Zustimmung." },
+        { field: "Antrag beim Arbeitgeber", instruction: "Schriftlich (handschriftliche Unterschrift!). Frist: 7 Wochen vor Beginn (bis 3. Geburtstag) oder 13 Wochen (3.–8. Geburtstag). Bei Frühgeburten: verkürzte Frist möglich." },
+        { field: "Teilzeitarbeit klären", instruction: "Falls gewünscht: Antrag auf Teilzeit (15–32h/Woche) beim AG stellen. AG kann nur aus dringenden betrieblichen Gründen ablehnen (Betriebe >15 Mitarbeiter)." },
+        { field: "Kündigungsschutz", instruction: "Besonderer Kündigungsschutz ab Anmeldung der Elternzeit (frühestens 8 Wochen vor Beginn bis zum Ende). Kündigung nur mit Zustimmung der Landesbehörde möglich." },
+        { field: "Versicherung und Rückkehr", instruction: "Krankenversicherung: beitragsfrei in GKV während Elternzeit ohne Einkommen. Rückkehrrecht auf gleichwertigen Arbeitsplatz nach Elternzeit." },
+      ],
+      bs: [
+        {
+          field: "Provjera uslova",
+          instruction: "Mora postojati radni odnos. Dijete mora živjeti u zajedničkom domaćinstvu. Max. 32 sata Teilzeit tokom Elternzeit-a.",
+          cards: [
+            { whatToWrite: "Nema formulara – pismeno potvrđujete da ispunjavate uslove.", whereToFind: "Ugovor o radu, prijava prebivališta djeteta.", format: "Slobodna forma.", commonMistakes: "Zahtjev poslan emailom – zakonski se traži vlastoručni potpis.", whenToLeaveEmpty: "", example: "" },
+          ],
+        },
+        {
+          field: "Planiranje perioda",
+          instruction: "Do 3 godine Elternzeit-a po djetetu. Max. 24 mjeseca prenosivo između 3. i 8. rođendana (uz saglasnost poslodavca). Max. 3 vremenska odsječka bez saglasnosti poslodavca.",
+          cards: [
+            { whatToWrite: "Tačne datume početka i kraja Elternzeit-a. Ako prenosite mjesece: navesti koliko i u kojem periodu.", whereToFind: "Rodni list djeteta za izračun perioda.", format: "DD.MM.GGGG – DD.MM.GGGG za svaki odsječak.", commonMistakes: "Navesti više od 3 odsječka bez saglasnosti poslodavca. Prekoračiti 24 mjeseca za period 3.–8. godina.", whenToLeaveEmpty: "", example: "Elternzeit 1: 01.08.2025 – 31.07.2026. Elternzeit 2: 01.09.2028 – 28.02.2029." },
+          ],
+        },
+        {
+          field: "Podnošenje zahtjeva poslodavcu",
+          instruction: "Pismeno sa vlastoručnim potpisom. Rok: 7 sedmica prije početka (do 3. rođendana) ili 13 sedmica (3.–8. rođendan). Kod prijevremenih porođaja: skraćeni rok.",
+          cards: [
+            { whatToWrite: "Ime, datum rođenja djeteta, željeni periodi Elternzeit-a, eventualni Teilzeit (sati/sedmično).", whereToFind: "Rodni list djeteta.", format: "Pismo sa datumom i vlastoručnim potpisom – email/fax NIJE validan.", commonMistakes: "Propušten rok od 7/13 sedmica. Poslano emailom. Nije navedena obavezujuća raspodjela.", whenToLeaveEmpty: "", example: "Poštovani, prijavljujem Elternzeit za dijete [ime], rođeno [datum], za period od [datum] do [datum]. S poštovanjem, [potpis]." },
+          ],
+        },
+        {
+          field: "Teilzeitarbeit tokom Elternzeit-a",
+          instruction: "Opciono: zahtjev za rad 15–32 sata/sedmično. Poslodavac može odbiti samo iz hitnih poslovnih razloga (firme >15 zaposlenih).",
+          cards: [
+            { whatToWrite: "Željeni obim sati i raspodjela po danima.", whereToFind: "Dogovor sa poslodavcem.", format: "Pismeni zahtjev najmanje 7 sedmica prije željenog početka.", commonMistakes: "Zahtjev za više od 32 sata. Ne podnijeti zahtjev na vrijeme.", whenToLeaveEmpty: "Ako ne planirate raditi tokom Elternzeit-a.", example: "Želim raditi 20 sati sedmično (ponedjeljak–četvrtak, po 5 sati) od 01.01.2026." },
+          ],
+        },
+        {
+          field: "Zaštita od otkaza",
+          instruction: "Posebna zaštita od otkaza od prijave Elternzeit-a (najranije 8 sedmica prije početka) do kraja. Otkaz moguć samo uz odobrenje nadležnog državnog organa.",
+        },
+        {
+          field: "Osiguranje i povratak",
+          instruction: "Zdravstveno osiguranje: besplatno u GKV tokom Elternzeit-a bez prihoda. Pravo povratka na ekvivalentno radno mjesto nakon Elternzeit-a.",
+        },
+      ],
+      en: [
+        { field: "Check eligibility", instruction: "Employment must exist. Child must live in shared household. Max. 32h part-time during parental leave." },
+        { field: "Plan period", instruction: "Up to 3 years per child. Max. 24 months transferable between 3rd and 8th birthday (with employer consent). Max. 3 time segments without consent." },
+        { field: "Apply to employer", instruction: "Written with handwritten signature. Deadline: 7 weeks before start (until 3rd birthday) or 13 weeks (3rd–8th birthday)." },
+        { field: "Part-time work", instruction: "Optional: apply for 15–32h/week. Employer can only refuse for urgent operational reasons (companies >15 employees)." },
+        { field: "Dismissal protection", instruction: "Special protection from notification of parental leave (earliest 8 weeks before start) until end. Dismissal only with state authority approval." },
+        { field: "Insurance and return", instruction: "Health insurance: contribution-free in GKV during parental leave without income. Right to return to equivalent position." },
+      ],
+    },
+    documents: {
+      de: ["Geburtsurkunde des Kindes", "Schriftlicher Antrag mit Unterschrift", "Arbeitgeberbescheinigung (falls Teilzeit gewünscht)"],
+      bs: ["Rodni list djeteta", "Pismeni zahtjev sa potpisom", "Potvrda poslodavca (ako se želi Teilzeit)"],
+      en: ["Child's birth certificate", "Written application with signature", "Employer certificate (if part-time desired)"],
+    },
+    processingTime: { de: "Keine Genehmigung nötig — Rechtsanspruch", bs: "Odobrenje nije potrebno — zakonsko pravo", en: "No approval needed — legal entitlement" },
+    commonMistakes: {
+      de: ["Antrag per E-Mail statt schriftlich (Schriftform = handschriftliche Unterschrift!)", "Frist verpasst (7 bzw. 13 Wochen)", "Mehr als 3 Zeitabschnitte ohne AG-Zustimmung", "Teilzeit über 32h geplant", "Elternzeit nicht verbindlich festgelegt (nur 'voraussichtlich')"],
+      bs: ["Zahtjev poslan emailom umjesto pismeno (vlastoručni potpis!)", "Propušten rok (7 ili 13 sedmica)", "Više od 3 odsječka bez saglasnosti poslodavca", "Teilzeit preko 32 sata", "Elternzeit nije obavezujuće naveden (samo 'okvirno')"],
+      en: ["Application by email instead of written (handwritten signature required!)", "Missed deadline (7 or 13 weeks)", "More than 3 segments without employer consent", "Part-time over 32h planned", "Parental leave not bindingly specified"],
+    },
+    officialPdf: "",
+    onlineLink: "",
+    officialInfoUrl: "https://familienportal.de/familienportal/familienleistungen/elternzeit",
+  },
+  // ----------- MUTTERSCHUTZ -----------
+  {
+    slug: "mutterschutz",
+    category: "familie",
+    title: { de: "Mutterschutz", bs: "Zaštita majki (Mutterschutz)", en: "Maternity Protection (Mutterschutz)" },
+    who: {
+      de: "Alle schwangeren und stillenden Beschäftigten — unabhängig von Staatsangehörigkeit, Familienstand oder Art des Arbeitsverhältnisses (Vollzeit, Teilzeit, Minijob, Ausbildung, Praktikum, BFD/FSJ). Auch bei befristeten Verträgen. NICHT für Selbständige, Hausfrauen, Beamtinnen (eigene Regelung: Mutterschutzverordnung). Gilt ab dem ersten Tag der Schwangerschaft bis mind. 8 Wochen nach der Entbindung (12 Wochen bei Frühgeburten, Mehrlingsgeburten, Behinderung des Kindes).",
+      bs: "Sve trudne i dojilje u radnom odnosu — bez obzira na državljanstvo, bračni status ili vrstu zaposlenja (puno, nepuno, minijob, obuka, praktikum, BFD/FSJ). I kod ugovora na određeno. NE važi za samozaposlene, domaćice, državne službenice (posebna pravila: Mutterschutzverordnung). Važi od prvog dana trudnoće do min. 8 sedmica nakon porođaja (12 sedmica kod prijevremenog, višestrukog porođaja ili invaliditeta djeteta).",
+      en: "All pregnant and breastfeeding employees — regardless of nationality, marital status, or employment type (full-time, part-time, minijob, training, internship, voluntary service). Also for fixed-term contracts. NOT for self-employed, homemakers, civil servants (separate rules). Applies from first day of pregnancy until at least 8 weeks after birth (12 weeks for premature, multiple births, or child disability).",
+    },
+    authority: { de: "Arbeitgeber + zuständige Aufsichtsbehörde des Bundeslandes", bs: "Poslodavac + nadležni nadzorni organ savezne države", en: "Employer + responsible supervisory authority of the federal state" },
+    formName: {
+      de: "Kein Antragsformular — Mutterschutz gilt automatisch kraft Gesetz (MuSchG). Arbeitgeber muss nach Mitteilung der Schwangerschaft informiert werden. Arbeitgeber meldet die Schwangerschaft an die zuständige Aufsichtsbehörde. Ärztliches Zeugnis über den mutmaßlichen Entbindungstermin ist dem Arbeitgeber vorzulegen.",
+      bs: "Nema formulara za zahtjev — Mutterschutz važi automatski po zakonu (MuSchG). Poslodavac mora biti obaviješten o trudnoći. Poslodavac prijavljuje trudnoću nadležnom nadzornom organu. Ljekarska potvrda o predviđenom terminu porođaja se predaje poslodavcu.",
+      en: "No application form — maternity protection applies automatically by law (MuSchG). Employer must be informed of pregnancy. Employer reports pregnancy to supervisory authority. Medical certificate of expected due date must be submitted to employer.",
+    },
+    steps: {
+      de: [
+        { field: "Arbeitgeber informieren", instruction: "Schwangerschaft und voraussichtlichen Entbindungstermin mitteilen. Keine Frist, aber je früher desto besser (Schutzmaßnahmen greifen erst nach Mitteilung). Ärztliches Zeugnis mit ET vorlegen." },
+        { field: "Schutzfristen kennen", instruction: "Mutterschutzfrist: 6 Wochen VOR dem errechneten ET (freiwillig, kann auf eigenen Wunsch weiterarbeiten) + 8 Wochen NACH der Geburt (verpflichtend, Beschäftigungsverbot). Bei Frühgeburten: Tage vor ET addieren sich zu den 8 Wochen. Bei Mehrlingsgeburten/Behinderung: 12 Wochen nach Geburt." },
+        { field: "Beschäftigungsverbote prüfen", instruction: "Generelles Verbot: schwere körperliche Arbeit, Gefahrstoffe, Nachtarbeit (20–6 Uhr), Sonn-/Feiertagsarbeit, Akkordarbeit. Individuelles Verbot: ärztliches Attest bei gesundheitlicher Gefährdung." },
+        { field: "Arbeitsplatzgestaltung", instruction: "AG muss Gefährdungsbeurteilung durchführen und ggf. Arbeitsbedingungen anpassen. Recht auf Freistellung für Vorsorgeuntersuchungen ohne Entgeltausfall." },
+        { field: "Kündigungsschutz", instruction: "Absoluter Kündigungsschutz während der Schwangerschaft und bis 4 Monate nach der Entbindung. Auch bei befristeten Verträgen: Kündigung unwirksam." },
+        { field: "Nach Mutterschutz planen", instruction: "Elternzeit und/oder Elterngeld beantragen. Elternzeit kann direkt an Mutterschutz anschließen." },
+      ],
+      bs: [
+        {
+          field: "Obavijestiti poslodavca",
+          instruction: "Priopćiti trudnoću i predviđeni termin porođaja. Nema roka, ali što prije to bolje (zaštitne mjere važe tek od obavijesti). Predati ljekarsku potvrdu sa terminom.",
+          cards: [
+            { whatToWrite: "Obavijest o trudnoći sa predviđenim terminom porođaja.", whereToFind: "Ljekarska potvrda (Zeugnis über den mutmaßlichen Entbindungstag) od ginekologa.", format: "Slobodna forma, pismeno ili usmeno. Preporuka: pismeno radi dokumentacije.", commonMistakes: "Kasno obavještavanje – zaštita važi tek od obavijesti!", whenToLeaveEmpty: "", example: "Poštovani, obavještavam Vas da sam trudna. Predviđeni termin porođaja je 15.03.2026. Ljekarsku potvrdu prilažem. S poštovanjem, [ime]." },
+          ],
+        },
+        {
+          field: "Zaštitni rokovi (Schutzfristen)",
+          instruction: "6 sedmica PRIJE predviđenog termina (dobrovoljno – možete nastaviti raditi ako želite) + 8 sedmica NAKON porođaja (obavezna zabrana rada). Kod prijevremenog porođaja: dani prije termina se dodaju na 8 sedmica. Kod blizanaca/invaliditeta: 12 sedmica nakon porođaja.",
+        },
+        {
+          field: "Zabrane zapošljavanja",
+          instruction: "Opća zabrana: težak fizički rad, opasne materije, noćni rad (20–6h), rad nedjeljom/praznicima, rad u akordnom tempu. Individualna zabrana: ljekarski atest pri zdravstvenom riziku.",
+        },
+        {
+          field: "Prilagodba radnog mjesta",
+          instruction: "Poslodavac mora provesti procjenu rizika i prilagoditi radne uslove. Pravo na oslobađanje za preventivne preglede bez gubitka plate.",
+        },
+        {
+          field: "Zaštita od otkaza",
+          instruction: "Apsolutna zaštita od otkaza tokom trudnoće i do 4 mjeseca nakon porođaja. I kod ugovora na određeno: otkaz je nevažeći.",
+        },
+        {
+          field: "Planiranje nakon Mutterschutz-a",
+          instruction: "Podnijeti zahtjev za Elternzeit i/ili Elterngeld. Elternzeit može direktno slijediti nakon Mutterschutz-a.",
+        },
+      ],
+      en: [
+        { field: "Inform employer", instruction: "Communicate pregnancy and expected due date. No deadline, but the sooner the better. Submit medical certificate." },
+        { field: "Protection periods", instruction: "6 weeks BEFORE due date (voluntary) + 8 weeks AFTER birth (mandatory). Premature: days before due date added. Multiples/disability: 12 weeks after." },
+        { field: "Employment bans", instruction: "General: heavy physical work, hazardous substances, night work (8pm–6am), Sundays/holidays. Individual: medical certificate for health risk." },
+        { field: "Workplace adaptation", instruction: "Employer must conduct risk assessment and adapt conditions. Right to time off for checkups without pay loss." },
+        { field: "Dismissal protection", instruction: "Absolute protection during pregnancy and up to 4 months after birth. Even for fixed-term contracts." },
+        { field: "Plan after maternity protection", instruction: "Apply for Elternzeit and/or Elterngeld. Parental leave can directly follow maternity protection." },
+      ],
+    },
+    documents: {
+      de: ["Ärztliches Zeugnis über den mutmaßlichen Entbindungstag", "Geburtsurkunde des Kindes (nach Geburt)", "Ggf. Bescheinigung über Frühgeburt"],
+      bs: ["Ljekarska potvrda o predviđenom terminu porođaja", "Rodni list djeteta (nakon porođaja)", "Eventualno potvrda o prijevremenom porođaju"],
+      en: ["Medical certificate of expected due date", "Child's birth certificate (after birth)", "Certificate of premature birth if applicable"],
+    },
+    processingTime: { de: "Automatisch — kein Antrag nötig", bs: "Automatski — zahtjev nije potreban", en: "Automatic — no application needed" },
+    commonMistakes: {
+      de: ["Arbeitgeber nicht rechtzeitig informiert", "Während der Schutzfrist nach Geburt gearbeitet (verboten!)", "Individuelles Beschäftigungsverbot nicht ärztlich attestiert", "Kündigungsschutz nicht geltend gemacht"],
+      bs: ["Poslodavac nije pravovremeno obaviješten", "Rad tokom zaštitnog perioda nakon porođaja (zabranjeno!)", "Individualna zabrana rada nije potkrijepljena ljekarskim atestom", "Zaštita od otkaza nije zatražena"],
+      en: ["Employer not informed in time", "Worked during post-birth protection period (forbidden!)", "Individual employment ban not medically certified", "Dismissal protection not claimed"],
+    },
+    officialPdf: "",
+    onlineLink: "",
+    officialInfoUrl: "https://familienportal.de/familienportal/familienleistungen/mutterschutz",
+  },
+  // ----------- MUTTERSCHAFTSLEISTUNGEN -----------
+  {
+    slug: "mutterschaftsleistungen",
+    category: "familie",
+    title: { de: "Mutterschaftsleistungen", bs: "Naknade za majčinstvo (Mutterschaftsleistungen)", en: "Maternity Benefits (Mutterschaftsleistungen)" },
+    who: {
+      de: "Berufstätige Frauen während der Mutterschutzfristen. (1) GKV-Mitglieder mit Anspruch auf Krankengeld: Mutterschaftsgeld der Krankenkasse (max. 13 €/Tag) + Arbeitgeberzuschuss (Differenz zum Nettolohn). (2) Privat oder familienversicherte Frauen / geringfügig Beschäftigte: max. 210 € gesamt vom Bundesamt für Soziale Sicherung. (3) Selbständige: kein Mutterschaftsgeld, aber ggf. Krankentagegeld je nach Versicherungstarif.",
+      bs: "Zaposlene žene tokom Mutterschutz perioda. (1) GKV-članice sa pravom na bolovanje: Mutterschaftsgeld od zdravstvene kase (max. 13 €/dan) + dodatak poslodavca (razlika do neto plate). (2) Privatno ili porodično osigurane / minijob: max. 210 € ukupno od Bundesamt für Soziale Sicherung. (3) Samozaposlene: nema Mutterschaftsgeld-a, ali eventualno Krankentagegeld zavisno od tarife osiguranja.",
+      en: "Employed women during maternity protection periods. (1) Public health insurance members with sick pay entitlement: maternity pay from health insurer (max. €13/day) + employer supplement (difference to net salary). (2) Privately or family-insured / mini-jobbers: max. €210 total from Federal Office of Social Security. (3) Self-employed: no maternity pay, but possibly daily sickness allowance depending on insurance tariff.",
+    },
+    authority: { de: "Krankenkasse + Arbeitgeber (+ ggf. Bundesamt für Soziale Sicherung)", bs: "Zdravstvena kasa + poslodavac (+ eventualno Bundesamt für Soziale Sicherung)", en: "Health insurer + employer (+ possibly Federal Office of Social Security)" },
+    formName: {
+      de: "Antrag auf Mutterschaftsgeld bei der Krankenkasse (GKV-Versicherte) bzw. beim Bundesamt für Soziale Sicherung (privat/familienversichert). Ärztliches Zeugnis über den mutmaßlichen Entbindungstag ist beizufügen. Arbeitgeberzuschuss: formloser Antrag oder automatische Berechnung durch den Arbeitgeber.",
+      bs: "Zahtjev za Mutterschaftsgeld kod zdravstvene kase (GKV-osiguranice) ili kod Bundesamt für Soziale Sicherung (privatno/porodično osigurane). Priložiti ljekarsku potvrdu o predviđenom terminu porođaja. Dodatak poslodavca: neformalni zahtjev ili automatski obračun od strane poslodavca.",
+      en: "Application for maternity pay at health insurer (GKV-insured) or Federal Office of Social Security (privately/family insured). Medical certificate of expected due date must be attached. Employer supplement: informal request or automatic calculation by employer.",
+    },
+    steps: {
+      de: [
+        { field: "Mutterschaftsgeld bei Krankenkasse beantragen", instruction: "GKV-Versicherte: Antrag bei der Krankenkasse stellen. Ärztliches Zeugnis über den mutmaßlichen Entbindungstag beifügen. Krankenkasse zahlt max. 13 €/Tag während der Schutzfristen." },
+        { field: "Arbeitgeberzuschuss", instruction: "Differenz zwischen Nettolohn und 13 €/Tag zahlt der Arbeitgeber als Zuschuss. Berechnung basiert auf den letzten 3 Nettogehältern vor Beginn der Schutzfrist. Kein gesonderter Antrag nötig — AG berechnet automatisch." },
+        { field: "Bundesamt für Soziale Sicherung (falls zutreffend)", instruction: "Privat oder familienversicherte Frauen: max. 210 € gesamt. Antrag online unter mutterschaftsgeld.de oder per Post. Ärztliches Zeugnis und Arbeitgeberbescheinigung beifügen." },
+        { field: "Nach Geburt: Geburtsurkunde einreichen", instruction: "Geburtsurkunde an Krankenkasse und Arbeitgeber senden. Erst dann wird Mutterschaftsgeld für die Nachschutzfrist berechnet." },
+        { field: "Mutterschutzlohn bei Beschäftigungsverbot", instruction: "Bei ärztlichem Beschäftigungsverbot VOR der Schutzfrist: Anspruch auf Mutterschutzlohn (voller Durchschnittslohn) vom Arbeitgeber. AG erhält Erstattung über das U2-Umlageverfahren." },
+        { field: "Steuerliche Pflichten", instruction: "Mutterschaftsgeld + AG-Zuschuss sind steuerfrei, unterliegen aber dem Progressionsvorbehalt. Bei Gesamtbetrag >410 € im Jahr: Steuererklärung ist Pflicht." },
+      ],
+      bs: [
+        {
+          field: "Zahtjev za Mutterschaftsgeld kod zdravstvene kase",
+          instruction: "GKV-osiguranice: podnijeti zahtjev kod zdravstvene kase. Priložiti ljekarsku potvrdu o predviđenom terminu porođaja. Kasa isplaćuje max. 13 €/dan tokom zaštitnih rokova.",
+          cards: [
+            { whatToWrite: "Zahtjev za Mutterschaftsgeld sa ljekarskom potvrdom.", whereToFind: "Obrazac na web stranici vaše zdravstvene kase ili zatražiti u poslovnici.", format: "Formular kase + ljekarska potvrda u originalu.", commonMistakes: "Prekasno podnošenje – zahtjev podnijeti čim dobijete ljekarsku potvrdu (najranije 7 sedmica prije ET).", whenToLeaveEmpty: "", example: "" },
+          ],
+        },
+        {
+          field: "Dodatak poslodavca (Arbeitgeberzuschuss)",
+          instruction: "Razliku između neto plate i 13 €/dan plaća poslodavac. Izračun na osnovu posljednje 3 neto plate prije zaštitnog roka. Poseban zahtjev nije potreban — poslodavac obračunava automatski.",
+        },
+        {
+          field: "Bundesamt für Soziale Sicherung (ako se odnosi)",
+          instruction: "Privatno ili porodično osigurane žene: max. 210 € ukupno. Zahtjev online na mutterschaftsgeld.de ili poštom. Priložiti ljekarsku potvrdu i potvrdu poslodavca.",
+        },
+        {
+          field: "Nakon porođaja: predati rodni list",
+          instruction: "Poslati rodni list zdravstvenoj kasi i poslodavcu. Tek tada se obračunava Mutterschaftsgeld za period nakon porođaja.",
+        },
+        {
+          field: "Mutterschutzlohn kod zabrane zapošljavanja",
+          instruction: "Kod ljekarske zabrane rada PRIJE zaštitnog roka: pravo na punu prosječnu platu od poslodavca. Poslodavac dobija refundaciju preko U2-postupka.",
+        },
+        {
+          field: "Porezne obaveze",
+          instruction: "Mutterschaftsgeld + dodatak poslodavca su oslobođeni poreza, ali podliježu Progressionsvorbehalt. Ako ukupni iznos >410 € godišnje: Steuererklärung je obavezna.",
+        },
+      ],
+      en: [
+        { field: "Apply for maternity pay at health insurer", instruction: "Public insured: apply at health insurer with medical certificate. Max. €13/day during protection periods." },
+        { field: "Employer supplement", instruction: "Employer pays difference between net salary and €13/day. Based on last 3 net salaries. No separate application needed." },
+        { field: "Federal Office (if applicable)", instruction: "Privately or family-insured: max. €210 total. Apply online at mutterschaftsgeld.de or by post." },
+        { field: "After birth: submit birth certificate", instruction: "Send birth certificate to insurer and employer for post-birth benefit calculation." },
+        { field: "Maternity protection pay for employment ban", instruction: "Medical employment ban BEFORE protection period: full average salary from employer (reimbursed via U2)." },
+        { field: "Tax obligations", instruction: "Maternity pay + supplement are tax-free but subject to Progressionsvorbehalt. If total >€410/year: tax return mandatory." },
+      ],
+    },
+    documents: {
+      de: ["Ärztliches Zeugnis über den mutmaßlichen Entbindungstag", "Geburtsurkunde (nach Geburt)", "Arbeitgeberbescheinigung über Nettolohn", "Ggf. Bescheid des Bundesamtes für Soziale Sicherung"],
+      bs: ["Ljekarska potvrda o predviđenom terminu porođaja", "Rodni list (nakon porođaja)", "Potvrda poslodavca o neto plati", "Eventualno rješenje Bundesamt für Soziale Sicherung"],
+      en: ["Medical certificate of expected due date", "Birth certificate (after birth)", "Employer certificate of net salary", "Federal Office decision if applicable"],
+    },
+    processingTime: { de: "2–4 Wochen (Krankenkasse), sofort (AG-Zuschuss)", bs: "2–4 sedmice (zdravstvena kasa), odmah (dodatak poslodavca)", en: "2–4 weeks (health insurer), immediate (employer supplement)" },
+    commonMistakes: {
+      de: ["Ärztliches Zeugnis nicht rechtzeitig eingereicht", "Antrag beim falschen Träger gestellt (KK vs. Bundesamt)", "Geburtsurkunde nicht nachgereicht — Nachschutzfrist-Zahlung verzögert", "Steuerliche Pflicht bei Progressionsvorbehalt übersehen"],
+      bs: ["Ljekarska potvrda nije predana na vrijeme", "Zahtjev podnesen pogrešnom nosiocu (kasa vs. Bundesamt)", "Rodni list nije naknadno dostavljen — kašnjenje isplate za period nakon porođaja", "Propuštena porezna obaveza (Progressionsvorbehalt)"],
+      en: ["Medical certificate not submitted in time", "Application filed with wrong institution (insurer vs. Federal Office)", "Birth certificate not submitted — post-birth payment delayed", "Tax obligation for Progressionsvorbehalt overlooked"],
+    },
+    officialPdf: "",
+    onlineLink: "https://www.mutterschaftsgeld.de",
+    officialInfoUrl: "https://familienportal.de/familienportal/familienleistungen/mutterschaftsleistungen",
+  },
+  // ----------- UNTERHALT -----------
+  {
+    slug: "unterhalt",
+    category: "familie",
+    title: { de: "Unterhalt", bs: "Alimentacija (Unterhalt)", en: "Maintenance / Child Support (Unterhalt)" },
+    who: {
+      de: "Kinder haben Anspruch auf Barunterhalt vom getrennt lebenden Elternteil. Geschiedene oder getrennt lebende Ehepartner können Anspruch auf Trennungsunterhalt oder nachehelichen Unterhalt haben. Nichteheliche betreuende Elternteile haben Betreuungsunterhalt für mind. 3 Jahre nach Geburt. Höhe richtet sich nach der Düsseldorfer Tabelle (aktualisiert jährlich) und dem bereinigten Nettoeinkommen des Unterhaltspflichtigen.",
+      bs: "Djeca imaju pravo na alimentaciju od roditelja koji živi odvojeno. Razvedeni ili razdvojeni supružnici mogu imati pravo na alimentaciju (Trennungsunterhalt ili nachehelicher Unterhalt). Nevjenčani roditelji koji brinu o djetetu imaju pravo na Betreuungsunterhalt min. 3 godine nakon porođaja. Iznos se određuje prema Düsseldorfer Tabelle (ažurira se godišnje) i neto prihodima obveznika.",
+      en: "Children are entitled to maintenance from the non-resident parent. Divorced or separated spouses may claim separation or post-marital maintenance. Unmarried caregiving parents have maintenance entitlement for at least 3 years after birth. Amount based on Düsseldorf Table (updated annually) and obligor's adjusted net income.",
+    },
+    authority: { de: "Jugendamt (Beratung + Beistandschaft) + Familiengericht", bs: "Jugendamt (savjetovanje + zastupanje) + Porodični sud", en: "Youth Welfare Office (Jugendamt) + Family Court" },
+    formName: {
+      de: "Kein einheitliches Antragsformular. Unterhalt wird privatrechtlich geregelt: (1) Einvernehmliche Vereinbarung zwischen den Eltern (am besten schriftlich, ggf. notariell). (2) Jugendamt-Beistandschaft: kostenlos, Jugendamt vertritt das Kind bei der Geltendmachung (Antrag beim Jugendamt). (3) Gerichtliches Verfahren: Antrag beim Familiengericht auf Unterhaltsfestsetzung (vereinfachtes Verfahren für Kindesunterhalt bis 120% des Mindestunterhalts). Düsseldorfer Tabelle als Orientierung: familienportal.de.",
+      bs: "Nema jedinstvenog formulara. Alimentacija se reguliše privatnopravno: (1) Sporazum između roditelja (poželjno pismeno, eventualno notarski). (2) Zastupanje Jugendamt-a (Beistandschaft): besplatno, Jugendamt zastupa dijete u ostvarivanju alimentacije (zahtjev kod Jugendamt-a). (3) Sudski postupak: zahtjev kod Porodičnog suda za utvrđivanje alimentacije (pojednostavljeni postupak za dječju alimentaciju do 120% minimalnog iznosa). Düsseldorfer Tabelle kao orijentir: familienportal.de.",
+      en: "No unified application form. Maintenance is regulated under private law: (1) Mutual agreement between parents (preferably written, possibly notarized). (2) Jugendamt representation (Beistandschaft): free, Jugendamt represents child in claiming maintenance (apply at Jugendamt). (3) Court proceedings: application at Family Court for maintenance determination (simplified procedure for child maintenance up to 120% of minimum). Düsseldorf Table as guide: familienportal.de.",
+    },
+    steps: {
+      de: [
+        { field: "Art des Unterhalts klären", instruction: "Kindesunterhalt (Barunterhalt des nicht betreuenden Elternteils), Trennungsunterhalt (ab Trennung bis Scheidung), nachehelicher Unterhalt (nach Scheidung, nur unter bestimmten Voraussetzungen), Betreuungsunterhalt (für nichteheliche Betreuende, mind. 3 Jahre)." },
+        { field: "Höhe berechnen", instruction: "Düsseldorfer Tabelle: Einteilung nach bereinigtem Nettoeinkommen und Altersstufe des Kindes. Mindestunterhalt 2024: 0–5 Jahre: 480 €, 6–11: 551 €, 12–17: 645 €. Kindergeld wird zur Hälfte angerechnet (bei Minderjährigen). Selbstbehalt des Pflichtigen beachten: 1.450 € (erwerbstätig) / 1.200 € (nicht erwerbstätig)." },
+        { field: "Jugendamt-Beratung nutzen", instruction: "Kostenlose Beratung beim Jugendamt. Beistandschaft beantragen: Jugendamt wird gesetzlicher Vertreter des Kindes für Unterhaltsangelegenheiten. Kostenlos und kann jederzeit beendet werden." },
+        { field: "Unterhalt einfordern", instruction: "Schriftliche Aufforderung an den Unterhaltspflichtigen mit Fristsetzung. Bei Nichtzahlung: Jugendamt-Beistandschaft oder Anwalt einschalten. Unterhalt kann ab dem Monat der Aufforderung rückwirkend geltend gemacht werden." },
+        { field: "Gerichtliches Verfahren", instruction: "Antrag beim Familiengericht. Vereinfachtes Verfahren für Kindesunterhalt bis 120% des Mindestunterhalts. Titel (Urteil/Beschluss) ermöglicht Zwangsvollstreckung bei Nichtzahlung." },
+        { field: "Steuerliche Absetzbarkeit prüfen", instruction: "Unterhaltszahlungen: als außergewöhnliche Belastung (§ 33a EStG) bis zu 11.784 € absetzbar. Ehegattenunterhalt: alternativ als Sonderausgabe (Realsplitting, § 10 Abs. 1a EStG) bis 13.805 € — Empfänger muss versteuern (Anlage U)." },
+      ],
+      bs: [
+        {
+          field: "Vrsta alimentacije",
+          instruction: "Dječja alimentacija (Barunterhalt roditelja koji ne živi sa djetetom), alimentacija tokom razdvojenosti (Trennungsunterhalt – od razdvajanja do razvoda), alimentacija nakon razvoda (nachehelicher Unterhalt – samo pod određenim uslovima), alimentacija za brigu o djetetu (Betreuungsunterhalt – za nevjenčane roditelje, min. 3 godine).",
+        },
+        {
+          field: "Izračun iznosa",
+          instruction: "Düsseldorfer Tabelle: podjela prema neto prihodima obveznika i starosnoj grupi djeteta. Minimalna alimentacija 2024: 0–5 godina: 480 €, 6–11: 551 €, 12–17: 645 €. Kindergeld se uračunava na pola (kod maloljetnika). Minimalni iznos koji ostaje obvezniku (Selbstbehalt): 1.450 € (zaposlen) / 1.200 € (nezaposlen).",
+          cards: [
+            { whatToWrite: "Neto prihod obveznika alimentacije za izračun po Düsseldorfer Tabelle.", whereToFind: "Düsseldorfer Tabelle: familienportal.de ili olg-duesseldorf.nrw.de. Mindestunterhaltsverordnung za minimalne iznose.", format: "Iznos u eurima mjesečno. Starosna grupa djeteta: 0–5, 6–11, 12–17, 18+.", commonMistakes: "Ne oduzeti polovinu Kindergeld-a. Koristiti zastarjelu tabelu (ažurira se 01.01. svake godine). Zaboraviti Selbstbehalt obveznika.", whenToLeaveEmpty: "", example: "Obveznik: neto 2.500 €. Dijete 4 godine → Stufe 2: 530 € minus 1/2 Kindergeld (125 €) = 405 € mjesečno." },
+          ],
+        },
+        {
+          field: "Savjetovanje kod Jugendamt-a",
+          instruction: "Besplatno savjetovanje. Beistandschaft: Jugendamt postaje zakonski zastupnik djeteta za alimentacijske poslove. Besplatno i može se prekinuti u bilo kojem trenutku.",
+        },
+        {
+          field: "Potraživanje alimentacije",
+          instruction: "Pismena opomena obvezniku sa rokom. Kod neplaćanja: Jugendamt-Beistandschaft ili advokat. Alimentacija se može tražiti retroaktivno od mjeseca opomene.",
+        },
+        {
+          field: "Sudski postupak",
+          instruction: "Zahtjev kod Porodičnog suda. Pojednostavljeni postupak za dječju alimentaciju do 120% minimalnog iznosa. Presuda/rješenje omogućava prisilno izvršenje kod neplaćanja.",
+        },
+        {
+          field: "Porezna umanjenja",
+          instruction: "Plaćanja alimentacije: kao izvanredni teret (§ 33a EStG) do 11.784 € odbitno. Bračna alimentacija: alternativno kao posebni rashod (Realsplitting, § 10 Abs. 1a EStG) do 13.805 € — primatelj mora oporezovati (Anlage U).",
+        },
+      ],
+      en: [
+        { field: "Type of maintenance", instruction: "Child maintenance, separation maintenance, post-marital maintenance, or caregiving maintenance (for unmarried parents, min. 3 years)." },
+        { field: "Calculate amount", instruction: "Düsseldorf Table: categorized by net income and child's age group. Minimum 2024: 0–5: €480, 6–11: €551, 12–17: €645. Half of Kindergeld deducted. Self-retention: €1,450 (employed) / €1,200 (unemployed)." },
+        { field: "Jugendamt consultation", instruction: "Free advice. Beistandschaft: Jugendamt becomes child's legal representative for maintenance matters. Free, can be terminated anytime." },
+        { field: "Claim maintenance", instruction: "Written demand with deadline. If unpaid: Jugendamt or lawyer. Maintenance claimable retroactively from month of demand." },
+        { field: "Court proceedings", instruction: "Apply at Family Court. Simplified procedure for child maintenance up to 120% of minimum. Court order enables enforcement." },
+        { field: "Tax deductibility", instruction: "Maintenance payments: deductible as extraordinary burden (§ 33a) up to €11,784. Spousal: alternatively as Sonderausgabe (Realsplitting) up to €13,805 — recipient must pay tax." },
+      ],
+    },
+    documents: {
+      de: ["Einkommensnachweise des Unterhaltspflichtigen (Gehaltsabrechnungen, Steuerbescheid)", "Geburtsurkunde des Kindes", "Scheidungsurteil oder Trennungsnachweis (falls zutreffend)", "Düsseldorfer Tabelle (aktuelles Jahr)", "Ggf. Sorgerechtsvereinbarung oder -beschluss"],
+      bs: ["Dokazi o prihodima obveznika (platne liste, porezno rješenje)", "Rodni list djeteta", "Presuda o razvodu ili dokaz o razdvajanju (ako je primjenjivo)", "Düsseldorfer Tabelle (tekuća godina)", "Eventualno sporazum ili odluka o starateljstvu"],
+      en: ["Income proof of obligor (payslips, tax assessment)", "Child's birth certificate", "Divorce decree or separation proof (if applicable)", "Düsseldorf Table (current year)", "Custody agreement or court order if applicable"],
+    },
+    processingTime: { de: "Einvernehmlich: sofort. Jugendamt: 2–6 Wochen. Gericht: 2–6 Monate.", bs: "Sporazumno: odmah. Jugendamt: 2–6 sedmica. Sud: 2–6 mjeseci.", en: "Consensual: immediate. Jugendamt: 2–6 weeks. Court: 2–6 months." },
+    commonMistakes: {
+      de: ["Unterhalt nur mündlich vereinbart (keine Durchsetzbarkeit)", "Düsseldorfer Tabelle nicht aktuell", "Kindergeld-Anrechnung vergessen", "Selbstbehalt des Pflichtigen nicht berücksichtigt", "Unterhalt erst ab Gerichtsurteil statt ab Aufforderung verlangt"],
+      bs: ["Alimentacija dogovorena samo usmeno (nema mogućnosti izvršenja)", "Düsseldorfer Tabelle nije aktuelna", "Zaboravljeno uračunavanje Kindergeld-a", "Selbstbehalt obveznika nije uzet u obzir", "Alimentacija tražena tek od presude umjesto od opomene"],
+      en: ["Maintenance only agreed verbally (not enforceable)", "Düsseldorf Table not current", "Kindergeld credit forgotten", "Obligor's self-retention not considered", "Maintenance claimed from court ruling instead of from demand letter"],
+    },
+    officialPdf: "",
+    onlineLink: "",
+    officialInfoUrl: "https://familienportal.de/familienportal/familienleistungen/unterhalt",
+  },
   // ===================== WOHNEN =====================
   {
     slug: "wohngeld",
