@@ -1049,7 +1049,7 @@ export const guides: Guide[] = [
         { field: "Antragsteller", instruction: "Persönliche Daten eintragen: Name, Geburtsdatum, Steuer-ID, Familienstand. Antragsteller muss der Hauptmieter sein." },
         { field: "Haushaltsmitglieder", instruction: "Alle im Haushalt lebenden Personen mit Name, Geburtsdatum und monatlichem Bruttoeinkommen auflisten. Auch Kinder und nicht verwandte Mitbewohner angeben." },
         { field: "Wohnung", instruction: "Vollständige Adresse, Wohnfläche in m², Kaltmiete, Nebenkosten (ohne Strom) und Heizkosten getrennt eintragen. Beträge aus dem Mietvertrag übernehmen." },
-        { field: "Einkommen", instruction: "Bruttoeinkommen aller Haushaltsmitglieder der letzten 12 Monate. Dazu zählen: Lohn, Rente, Kindergeld, Unterhalt, BAföG, Einkünfte aus Vermietung. Die Höhe des Wohngelds hängt ab von: Anzahl der Haushaltsmitglieder, Gesamteinkommen und Höhe der Miete. Berechnung vorab möglich mit dem Wohngeldrechner des BMWSB (bmwsb.bund.de)." },
+        { field: "Einkommen", instruction: "Bruttoeinkommen aller Haushaltsmitglieder der letzten 12 Monate. Dazu zählen: Lohn, Rente, Kindergeld, Unterhalt, BAföG, Einkünfte aus Vermietung. Die Höhe des Wohngelds hängt ab von: Anzahl der Haushaltsmitglieder, Gesamteinkommen und Höhe der Miete. Berechnung vorab möglich mit dem Wohngeldrechner des BMWSB: https://www.bmwsb.bund.de/DE/wohnen/wohngeld/wohngeldrechner/wohngeldrechner-2025_node.html" },
       ],
       bs: [
         {
