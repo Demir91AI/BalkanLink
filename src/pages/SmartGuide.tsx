@@ -4,7 +4,7 @@ import { ArrowLeft, ChevronLeft, ChevronRight, AlertTriangle, BookOpen, Clipboar
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { getGuideBySlug, type GuideStepCard } from "@/lib/guide-data";
+import { getGuideBySlug, getOfficialUrl, type GuideStepCard } from "@/lib/guide-data";
 
 type LangKey = "de" | "bs" | "en";
 
