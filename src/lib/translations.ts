@@ -714,7 +714,7 @@ const newKeysDe: Partial<TranslationKeys> = {
   "tools.buergergeld.desc": "Berechne die Höhe des Bürgergeldes.",
   "tools.elterngeld": "Elterngeld-Rechner",
   "tools.elterngeld.desc": "Berechne die Höhe des Elterngeldes.",
-  "tools.rente": "Rentenrechner",
+  "tools.rente": "Renten-Rechner",
   "tools.rente.desc": "Schätze deine künftige Rente.",
 };
 
