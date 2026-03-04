@@ -14,7 +14,7 @@ const T: Record<string, Record<string, string>> = {
     sozial: "Sozialversicherung", sozialDesc: "5 stubova socijalnog osiguranja za sve zaposlene.",
     gez: "Rundfunkbeitrag (GEZ)", gezDesc: "TV/radio taksa — 18,36 € mjesečno po domaćinstvu.",
     fuehrerschein: "Vozačka dozvola", fuehrerscheinDesc: "Zamjena ili priznavanje — rok 6 mjeseci.",
-    auto: "Auto anmelden", autoDesc: "Registracija vozila u Njemačkoj.",
+    auto: "Prijava vozila (Kfz, Lkw...)", autoDesc: "Registracija motornih vozila u Njemačkoj.",
     schritte: "Prvi koraci", schritteDesc: "Kompletna lista za prve sedmice.",
   },
   de: {
