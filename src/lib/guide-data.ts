@@ -2400,6 +2400,181 @@ export const guides: Guide[] = [
     onlineLink: "https://www.zbfs.bayern.de/familienleistungen/krippengeld/",
     officialInfoUrl: "https://www.zbfs.bayern.de/familienleistungen/krippengeld/",
   },
+  // ===================== SOZIALHILFE =====================
+  {
+    slug: "sozialhilfe",
+    category: "wohnen",
+    title: {
+      de: "Sozialhilfe (Grundsicherung)",
+      bs: "Socijalna pomoć (Sozialhilfe / Grundsicherung)",
+      en: "Social Assistance (Sozialhilfe / Grundsicherung)",
+    },
+    who: {
+      de: "Personen, die ihren Lebensunterhalt nicht aus eigenen Mitteln bestreiten können und keinen Anspruch auf Bürgergeld haben. Es gibt drei Hauptleistungen: 1) Hilfe zum Lebensunterhalt (SGB XII, Kap. 3) – für vorübergehend nicht erwerbsfähige Personen, 2) Grundsicherung im Alter und bei Erwerbsminderung (SGB XII, Kap. 4) – für Personen ab Rentenalter oder bei dauerhafter voller Erwerbsminderung, 3) Bürgergeld (SGB II) – für erwerbsfähige Personen (siehe separater Guide). Sozialhilfe ist das letzte \u201eAuffangnetz\u201c für ein menschenwürdiges Leben und gesellschaftliche Teilhabe.",
+      bs: "Osobe koje ne mogu pokriti životne troškove iz vlastitih sredstava i nemaju pravo na Bürgergeld. Tri glavne naknade: 1) Hilfe zum Lebensunterhalt (SGB XII, pogl. 3) \u2013 za privremeno radno nesposobne osobe, 2) Grundsicherung im Alter und bei Erwerbsminderung (SGB XII, pogl. 4) \u2013 za osobe u penzijskom dobu ili trajno potpuno radno nesposobne, 3) Bürgergeld (SGB II) \u2013 za radno sposobne (vidi poseban vodič). Sozialhilfe je posljednja \u201esigurnosna mreža\u201c za dostojanstven život i učešće u društvu.",
+      en: "Persons who cannot cover their living expenses from own means and have no claim to Bürgergeld. Three main benefits: 1) Hilfe zum Lebensunterhalt (SGB XII, Ch. 3) – for temporarily non-employable persons, 2) Grundsicherung im Alter und bei Erwerbsminderung (SGB XII, Ch. 4) – for persons at retirement age or with permanent full disability, 3) Bürgergeld (SGB II) – for employable persons (see separate guide). Sozialhilfe is the last 'safety net' for a dignified life and social participation.",
+    },
+    authority: {
+      de: "Sozialamt der Gemeinde oder des Kreises am Wohnort. Bei Hilfe zum Lebensunterhalt und Grundsicherung im Alter: örtliches Sozialamt. Die zuständige Stelle finden Sie über die Sozialplattform des Bundes: sozialplattform.de. Antrag formlos oder mit Antragsformular des Sozialamts möglich.",
+      bs: "Sozialamt (služba za socijalnu pomoć) općine ili okruga prema mjestu stanovanja. Za Hilfe zum Lebensunterhalt i Grundsicherung im Alter: lokalni Sozialamt. Nadležnu službu možete pronaći putem savezne Sozialplattform: sozialplattform.de. Zahtjev se može podnijeti neformalno ili na formularu Sozialamt-a.",
+      en: "Social welfare office (Sozialamt) of the municipality or district at your place of residence. For Hilfe zum Lebensunterhalt and Grundsicherung im Alter: local Sozialamt. Find the responsible office via the federal Sozialplattform: sozialplattform.de. Application can be informal or using the Sozialamt's form.",
+    },
+    formName: {
+      de: "Antrag auf Sozialhilfe / Grundsicherung (SGB XII). Je nach Leistungsart unterschiedliche Formulare: Antrag auf Hilfe zum Lebensunterhalt oder Antrag auf Grundsicherung im Alter und bei Erwerbsminderung. Formulare beim örtlichen Sozialamt erhältlich. Teilweise auch online über sozialplattform.de beantragbar.",
+      bs: "Zahtjev za socijalnu pomoć / Grundsicherung (SGB XII). Ovisno o vrsti naknade različiti formulari: zahtjev za Hilfe zum Lebensunterhalt ili zahtjev za Grundsicherung im Alter und bei Erwerbsminderung. Formulare dobijete kod lokalnog Sozialamt-a. Djelimično dostupno i online putem sozialplattform.de.",
+      en: "Application for social assistance / Grundsicherung (SGB XII). Different forms depending on benefit type: Hilfe zum Lebensunterhalt or Grundsicherung im Alter und bei Erwerbsminderung. Forms available at local Sozialamt. Partially available online via sozialplattform.de.",
+    },
+    steps: {
+      de: [
+        { field: "Persönliche Daten", instruction: "Name, Geburtsdatum, Familienstand, Staatsangehörigkeit, Aufenthaltsstatus, Steuer-ID, Sozialversicherungsnummer eintragen." },
+        { field: "Haushaltssituation", instruction: "Alle im Haushalt lebenden Personen angeben: Name, Geburtsdatum, Verwandtschaftsverhältnis. Ehegatten/Partner und minderjährige Kinder bilden eine Einsatzgemeinschaft." },
+        { field: "Wohnsituation", instruction: "Adresse, Wohnform (Miete/Eigentum), Kaltmiete, Nebenkosten, Heizkosten. Mietvertrag beifügen." },
+        { field: "Einkommen", instruction: "Alle Einkommensarten: Rente, Pension, Unterhalt, Kindergeld, Wohngeld, Krankengeld, Zinsen. Auch Einkommen des Partners/Ehegatten und der Kinder angeben." },
+        { field: "Vermögen", instruction: "Bargeld, Konten, Sparbücher, Lebensversicherungen, Immobilien, Kfz. Schonvermögen beachten (variiert je nach Leistungsart). Kontoauszüge der letzten 3 Monate beifügen." },
+        { field: "Erwerbsfähigkeit / Gesundheit", instruction: "Ärztliche Bescheinigung über Erwerbsminderung beifügen (bei Grundsicherung bei Erwerbsminderung). Rentenbescheid (bei Grundsicherung im Alter). Angabe, ob und wie viele Stunden täglich arbeitsfähig." },
+        { field: "Besondere Bedarfe", instruction: "Mehrbedarf ankreuzen falls zutreffend: Schwangerschaft, Alleinerziehend, Behinderung (Merkzeichen G), kostenaufwändige Ernährung. Einmalige Bedarfe: Erstausstattung Wohnung, Schwangerschaftsbekleidung, Klassenfahrten." },
+        { field: "Unterschrift und Anlagen", instruction: "Antrag unterschreiben (bei Einsatzgemeinschaft: alle volljährigen Mitglieder). Alle Nachweise beifügen: Mietvertrag, Kontoauszüge, Einkommensnachweise, Rentenbescheid, ärztliche Atteste." },
+      ],
+      bs: [
+        {
+          field: "Lični podaci",
+          instruction: "Ime, datum rođenja, bračni status, državljanstvo, boravišni status, Steuer-ID, broj socijalnog osiguranja.",
+          cards: [
+            {
+              whatToWrite: "Ime i prezime, datum rođenja (DD.MM.GGGG), mjesto rođenja, državljanstvo, bračni status (ledig/verheiratet/geschieden/verwitwet), Steuer-ID (11 cifara), Sozialversicherungsnummer, boravišni status i vrsta dozvole.",
+              whereToFind: "Pasoš/lična karta, Aufenthaltstitel, pismo od Finanzamt-a (Steuer-ID), Sozialversicherungsausweis, Meldebescheinigung.",
+              format: "Datum: DD.MM.GGGG. Steuer-ID: 11 cifara. Sozialversicherungsnummer: format XX DDMMYY X XXX X.",
+              commonMistakes: "Zaboravljen boravišni status (obavezan za strance!). Steuer-ID zamijenjen sa Steuernummer. Nepotpuni podaci o državljanstvu.",
+              whenToLeaveEmpty: "Sva polja obavezna. Ako nemaš Steuer-ID ili SV-broj, navedi to u napomeni.",
+              example: "Familienname: Hodžić | Vorname: Marko | Geb.: 15.03.1958 | Staatsangehörigkeit: Bosnien und Herzegowina | Familienstand: verheiratet | Steuer-ID: 12 345 678 901",
+            },
+          ],
+        },
+        {
+          field: "Situacija u domaćinstvu",
+          instruction: "Sve osobe u domaćinstvu: ime, datum rođenja, srodstvo. Supružnici/partneri i maloljetna djeca čine Einsatzgemeinschaft (zajednicu za obračun).",
+          cards: [
+            {
+              whatToWrite: "Za svaku osobu: ime, prezime, datum rođenja, srodstvo (Ehegatte/Partner, Kind, Elternteil, sonstige). Navesti da li osoba ostvaruje vlastita primanja.",
+              whereToFind: "Lični dokumenti članova domaćinstva. Vjenčani list (za bračni status). Rodni listovi djece. Meldebescheinigung (ko je prijavljen na adresi).",
+              format: "Svaka osoba u zasebnom redu. Srodstvo na njemačkom: Ehegatte (suprug/a), Kind (dijete), Elternteil (roditelj).",
+              commonMistakes: "Nepotpun popis članova — zaboravljena djeca ili partner. Osoba koja živi na adresi ali nije navedena. Ne navođenje primanja članova domaćinstva.",
+              whenToLeaveEmpty: "Ako živiš sam/a, navedi samo sebe. Ne ostavljaj prazno — napiši \u201eEinpersonenhaushalt\u201c.",
+              example: "1) Hodžić Marko, 15.03.1958, Antragsteller | 2) Hodžić Ana, 22.07.1960, Ehegattin | 3) Hodžić Emina, 10.05.2005, Kind",
+            },
+          ],
+        },
+        {
+          field: "Stambena situacija",
+          instruction: "Adresa, vrsta stanovanja (kirija/vlasništvo), hladna kirija, režije, grijanje. Priložiti ugovor o najmu.",
+          cards: [
+            {
+              whatToWrite: "Puna adresa, vrsta stanovanja (Miete = kirija, Eigentum = vlasništvo), Kaltmiete (hladna kirija), Nebenkosten (režije bez struje), Heizkosten (grijanje) — sve odvojeno.",
+              whereToFind: "Ugovor o najmu (Mietvertrag), posljednji obračun režija (Nebenkostenabrechnung), račun za grijanje.",
+              format: "Iznosi u eurima mjesečno. Površina u m². Adresa: ulica + broj, PLZ + grad.",
+              commonMistakes: "Grijanje i režije nisu odvojeni. Navedena Warmmiete umjesto Kaltmiete. Nedostaje ugovor o najmu kao prilog.",
+              whenToLeaveEmpty: "Ako si beskućnik/ca, navedi trenutnu adresu (npr. Obdachlosenunterkunft) ili adresu kontakt-osobe.",
+              example: "Adresse: Schillerstr. 12, 80336 München | Miete | Kaltmiete: 650 \u20AC | Nebenkosten: 100 \u20AC | Heizkosten: 70 \u20AC | Wohnfläche: 55 m²",
+            },
+          ],
+        },
+        {
+          field: "Primanja",
+          instruction: "Sva primanja: penzija, alimentacija, Kindergeld, Wohngeld, Krankengeld, kamate. I primanja partnera/djece.",
+          cards: [
+            {
+              whatToWrite: "Vrsta i iznos svih primanja svih članova domaćinstva: penzija (Rente), alimentacija (Unterhalt), Kindergeld, Wohngeld, Krankengeld, kamate na štednju, prihodi od najma.",
+              whereToFind: "Rentenbescheid (rješenje o penziji), platne liste, rješenja o Kindergeld/Wohngeld, potvrde o alimentaciji, bankovni izvodi.",
+              format: "Iznosi u eurima mjesečno (bruto). Za svaki prihod navesti vrstu i osobu koja ga prima.",
+              commonMistakes: "Zaboravljen Kindergeld ili alimentacija. Navedena neto umjesto bruto primanja. Primanja partnera nisu navedena (obavezna su!).",
+              whenToLeaveEmpty: "Ako član nema primanja, upisati 0 \u20AC. Ne ostavljati prazno.",
+              example: "Marko: Rente 580 \u20AC | Ana: kein Einkommen 0 \u20AC | Kindergeld: 250 \u20AC (za Eminu)",
+            },
+          ],
+        },
+        {
+          field: "Imovina",
+          instruction: "Gotovina, računi, štednja, osiguranja, nekretnine, automobil. Zaštićena imovina (Schonvermögen) zavisi od vrste naknade. Izvodi iz računa za zadnja 3 mjeseca.",
+          cards: [
+            {
+              whatToWrite: "Svi bankovni računi (IBAN + stanje), štedne knjižice, životna osiguranja (Lebensversicherung), nekretnine, automobil (marka, godište, vrijednost), gotovina.",
+              whereToFind: "Bankovni izvodi (zadnja 3 mjeseca, kompletni!), ugovori o osiguranju, procjena vrijednosti automobila, katastarski izvod za nekretnine.",
+              format: "Iznosi u eurima. IBAN: 22 znaka. Za automobil: marka + model + godište + procijenjena vrijednost. Izvodi: kompletni, bez praznina!",
+              commonMistakes: "Izvodi iz računa nisu kompletni (sve stranice potrebne!). Prešućena imovina \u2014 to je prevara! Zaboravljeni računi u inostranstvu. Životno osiguranje nije navedeno.",
+              whenToLeaveEmpty: "Ako nemaš imovinu, upiši 0 \u20AC za svaku kategoriju. Nikad ne ostavljaj prazno.",
+              example: "Girokonto: DE89 3704 0044... \u2014 850 \u20AC | Sparbuch: 1.200 \u20AC | Kfz: VW Golf 2015, ca. 4.000 \u20AC | Lebensversicherung: keine",
+            },
+          ],
+        },
+        {
+          field: "Radna sposobnost / zdravlje",
+          instruction: "Ljekarski nalaz o radnoj nesposobnosti (za Grundsicherung bei Erwerbsminderung). Rješenje o penziji (za Grundsicherung im Alter). Navesti koliko sati dnevno možeš raditi.",
+          cards: [
+            {
+              whatToWrite: "Da li si radno sposoban/a i koliko sati dnevno. Vrsta zdravstvenog ograničenja. Da li primaš penziju i od kada.",
+              whereToFind: "Ljekarski nalaz (ärztliches Attest), rješenje o penziji (Rentenbescheid), nalaz Deutsche Rentenversicherung o erwerbsminderung.",
+              format: "Sati: broj dnevno (npr. \u201eunter 3 Stunden\u201c za punu erwerbsminderung). Datum nalaza: DD.MM.GGGG.",
+              commonMistakes: "Nedostaje ljekarski nalaz (obavezan za Grundsicherung bei Erwerbsminderung!). Zastarjeli nalaz (ne stariji od 6 mjeseci). Nije navedeno da li je erwerbsminderung trajna ili privremena.",
+              whenToLeaveEmpty: "Ako podnosiš zahtjev za Grundsicherung im Alter (penzijski staž), ovo polje se odnosi samo na Rentenbescheid \u2014 ljekarski nalaz nije potreban.",
+              example: "Erwerbsminderung: voll, dauerhaft | Ärztliches Attest vom 15.01.2026 | Rentenbescheid seit 01.04.2025 | Arbeitsfähigkeit: unter 3 Stunden/Tag",
+            },
+          ],
+        },
+        {
+          field: "Posebne potrebe (Mehrbedarf)",
+          instruction: "Označiti dodatne potrebe: trudnoća, samohrani roditelj, invaliditet (Merkzeichen G), posebna prehrana. Jednokratne potrebe: oprema za stan, odjeća za trudnice, školski izleti.",
+          cards: [
+            {
+              whatToWrite: "Označiti koje posebne potrebe imaš: Schwangerschaft (trudnoća), Alleinerziehend (samohrani roditelj), Behinderung sa Merkzeichen G, kostenaufwändige Ernährung (posebna prehrana po ljekarskom nalazu). Jednokratne: Erstausstattung Wohnung (oprema za stan), Schwangerschaftsbekleidung, Klassenfahrten.",
+              whereToFind: "Trudnoća: Mutterpass. Invaliditet: Schwerbehindertenausweis sa Merkzeichen G. Posebna prehrana: ljekarski nalaz. Školski izleti: potvrda škole.",
+              format: "Označiti kvačicom (ankreuzen) na formularu. Za jednokratne potrebe: navesti vrstu i procijenjeni iznos.",
+              commonMistakes: "Mehrbedarf nije zatražen iako postoji pravo! Nedostaje dokaz (npr. Mutterpass ili Schwerbehindertenausweis). Jednokratne potrebe zaboravljene \u2014 mogu se tražiti zasebno.",
+              whenToLeaveEmpty: "Ako nemaš posebne potrebe, ostavi prazno. Ali provjeri sve opcije \u2014 mnogi ne znaju da imaju pravo na Mehrbedarf!",
+              example: "Mehrbedarf: Alleinerziehend \u2713 (1 Kind) | Einmalige Bedarfe: Erstausstattung Wohnung (Umzug aus Heimatland)",
+            },
+          ],
+        },
+        {
+          field: "Potpis i prilozi",
+          instruction: "Potpisati zahtjev (kod Einsatzgemeinschaft: svi punoljetni članovi). Priložiti sve dokaze: ugovor o najmu, izvode, dokaze o primanjima, rješenje o penziji, ljekarske nalaze.",
+          cards: [
+            {
+              whatToWrite: "Datum podnošenja i potpis. Kod zajedničkog domaćinstva: potpisi svih punoljetnih članova. Lista priloga (Anlagen) sa brojem stranica.",
+              whereToFind: "Datum: danas. Potpis: lično, rukom. Provjeri da li su SVI prilozi kompletni prije predaje.",
+              format: "Datum: DD.MM.GGGG. Potpis: čitko, rukom. Lista priloga: numerisana.",
+              commonMistakes: "Zaboravljen potpis (najčešći razlog za odbijanje!). Nedostaje potpis partnera/supružnika. Prilozi nisu kompletni (posebno izvodi iz računa!). Zastarjeli dokumenti.",
+              whenToLeaveEmpty: "NIKAD \u2014 potpis i datum su uvijek obavezni. Bez potpisa zahtjev je nevažeći.",
+              example: "Datum: 04.03.2026 | Unterschrift: [Marko Hodžić] | Unterschrift Ehegattin: [Ana Hodžić] | Anlagen: Mietvertrag, 3 Mon. Kontoauszüge, Rentenbescheid, Meldebescheinigung",
+            },
+          ],
+        },
+      ],
+      en: [
+        { field: "Personal data", instruction: "Name, date of birth, marital status, nationality, residence status, tax ID, social insurance number." },
+        { field: "Household situation", instruction: "All persons in household with relationship and income." },
+        { field: "Housing situation", instruction: "Address, type (rent/own), cold rent, utilities, heating. Attach rental contract." },
+        { field: "Income", instruction: "All income sources of all household members: pension, maintenance, Kindergeld, housing benefit, sick pay, interest." },
+        { field: "Assets", instruction: "Cash, accounts, savings, life insurance, property, car. Protected assets vary by benefit type. Bank statements (3 months)." },
+        { field: "Employability / health", instruction: "Medical certificate for disability. Pension notice for old age. State daily work capacity." },
+        { field: "Special needs (Mehrbedarf)", instruction: "Mark: pregnancy, single parent, disability (Merkzeichen G), special diet. One-time needs: furniture, maternity clothing, school trips." },
+        { field: "Signature and attachments", instruction: "Sign (all adult members). Attach: rental contract, bank statements, income proof, pension notice, medical certificates." },
+      ],
+    },
+    documents: {
+      de: ["Personalausweis/Reisepass", "Aufenthaltstitel (bei Nicht-EU)", "Mietvertrag (vollständig)", "Kontoauszüge aller Konten (lückenlos, 3 Monate)", "Einkommensnachweise (Rentenbescheid, Unterhaltsbeschluss etc.)", "Meldebescheinigung", "Ärztliches Attest / Bescheid über Erwerbsminderung (falls zutreffend)", "Schwerbehindertenausweis (falls vorhanden)", "Nachweise über Vermögen (Sparbücher, Versicherungen, Kfz-Brief)"],
+      bs: ["Lična karta/pasoš", "Boravišna dozvola (za državljane izvan EU)", "Ugovor o najmu (kompletno)", "Izvodi iz svih računa (kompletni, 3 mjeseca)", "Dokazi o primanjima (rješenje o penziji, alimentacija itd.)", "Potvrda o prijavi prebivališta (Meldebescheinigung)", "Ljekarski nalaz / rješenje o radnoj nesposobnosti (ako je primjenjivo)", "Schwerbehindertenausweis (ako postoji)", "Dokazi o imovini (štedne knjižice, osiguranja, saobraćajna dozvola)"],
+      en: ["ID/passport", "Residence permit (non-EU)", "Rental contract (complete)", "Bank statements all accounts (complete, 3 months)", "Income proof (pension notice, maintenance decree etc.)", "Registration certificate", "Medical certificate / disability notice (if applicable)", "Disability ID (if available)", "Asset proof (savings books, insurance, vehicle registration)"],
+    },
+    processingTime: { de: "2–6 Wochen", bs: "2–6 sedmica", en: "2–6 weeks" },
+    commonMistakes: {
+      de: ["Kontoauszüge nicht lückenlos (alle Seiten aller Konten!)", "Vermögen verschwiegen oder unterschätzt", "Einkommen des Partners nicht angegeben", "Mehrbedarf nicht beantragt obwohl Anspruch besteht", "Ärztliches Attest fehlt oder ist veraltet", "Verwechslung: Bürgergeld (erwerbsfähig, SGB II) vs. Sozialhilfe (nicht erwerbsfähig, SGB XII)"],
+      bs: ["Izvodi iz računa nisu kompletni (sve stranice svih računa!)", "Prešućena ili podcijenjena imovina", "Primanja partnera nisu navedena", "Mehrbedarf nije zatražen iako postoji pravo", "Ljekarski nalaz nedostaje ili je zastario", "Zabuna: Bürgergeld (radno sposobni, SGB II) vs. Sozialhilfe (radno nesposobni, SGB XII)"],
+      en: ["Bank statements not complete (all pages of all accounts!)", "Assets concealed or underestimated", "Partner's income not declared", "Mehrbedarf not claimed despite entitlement", "Medical certificate missing or outdated", "Confusion: Bürgergeld (employable, SGB II) vs. Sozialhilfe (non-employable, SGB XII)"],
+    },
+    officialPdf: "",
+    onlineLink: "https://sozialplattform.de/inhalt/sozialhilfe-grundsicherung",
+    officialInfoUrl: "https://www.bmas.de/DE/Soziales/Sozialhilfe/sozialhilfe.html",
+  },
 ];
 
 export function getGuidesByCategory(category: Guide["category"]) {
