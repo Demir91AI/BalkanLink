@@ -1049,7 +1049,7 @@ export const guides: Guide[] = [
         { field: "Antragsteller", instruction: "Persönliche Daten eintragen: Name, Geburtsdatum, Steuer-ID, Familienstand. Antragsteller muss der Hauptmieter sein." },
         { field: "Haushaltsmitglieder", instruction: "Alle im Haushalt lebenden Personen mit Name, Geburtsdatum und monatlichem Bruttoeinkommen auflisten. Auch Kinder und nicht verwandte Mitbewohner angeben." },
         { field: "Wohnung", instruction: "Vollständige Adresse, Wohnfläche in m², Kaltmiete, Nebenkosten (ohne Strom) und Heizkosten getrennt eintragen. Beträge aus dem Mietvertrag übernehmen." },
-        { field: "Einkommen", instruction: "Bruttoeinkommen aller Haushaltsmitglieder der letzten 12 Monate. Dazu zählen: Lohn, Rente, Kindergeld, Unterhalt, BAföG, Einkünfte aus Vermietung. Die Höhe des Wohngelds hängt ab von: Anzahl der Haushaltsmitglieder, Gesamteinkommen und Höhe der Miete. Berechnung vorab möglich mit dem Wohngeldrechner des BMWSB (bmwsb.bund.de)." },
+        { field: "Einkommen", instruction: "Bruttoeinkommen aller Haushaltsmitglieder der letzten 12 Monate. Dazu zählen: Lohn, Rente, Kindergeld, Unterhalt, BAföG, Einkünfte aus Vermietung. Die Höhe des Wohngelds hängt ab von: Anzahl der Haushaltsmitglieder, Gesamteinkommen und Höhe der Miete. Berechnung vorab möglich mit dem Wohngeldrechner des BMWSB: https://www.bmwsb.bund.de/DE/wohnen/wohngeld/wohngeldrechner/wohngeldrechner-2025_node.html" },
       ],
       bs: [
         {
@@ -1096,7 +1096,7 @@ export const guides: Guide[] = [
         },
         {
           field: "Primanja svih članova",
-          instruction: "Bruto primanja svih članova domaćinstva za zadnjih 12 mjeseci. Visina Wohngeld-a zavisi od: broja članova, ukupnih primanja i visine kirije. Možete unaprijed izračunati sa Wohngeldrechner-om na bmwsb.bund.de.",
+          instruction: "Bruto primanja svih članova domaćinstva za zadnjih 12 mjeseci. Visina Wohngeld-a zavisi od: broja članova, ukupnih primanja i visine kirije. Možete unaprijed izračunati sa Wohngeldrechner-om: https://www.bmwsb.bund.de/DE/wohnen/wohngeld/wohngeldrechner/wohngeldrechner-2025_node.html",
           cards: [
             {
               whatToWrite: "Bruto primanja (Bruttoeinkommen) svih članova: plata, penzija, Kindergeld, alimentacija (Unterhalt), BAföG, prihodi od izdavanja nekretnina. Za svakog člana navesti vrstu i iznos primanja.",
@@ -1113,7 +1113,7 @@ export const guides: Guide[] = [
         { field: "Applicant", instruction: "Personal data. Applicant must be the main tenant." },
         { field: "Household members", instruction: "All persons in household with income." },
         { field: "Apartment", instruction: "Address, size in m², cold rent, utilities (excl. electricity), heating separately." },
-        { field: "Income", instruction: "Gross income of all members (12 months). Amount depends on: number of household members, total income, and rent. Calculate in advance with the Wohngeldrechner at bmwsb.bund.de." },
+        { field: "Income", instruction: "Gross income of all members (12 months). Amount depends on: number of household members, total income, and rent. Calculate in advance with the Wohngeldrechner: https://www.bmwsb.bund.de/DE/wohnen/wohngeld/wohngeldrechner/wohngeldrechner-2025_node.html" },
       ],
     },
     documents: {
@@ -1127,7 +1127,7 @@ export const guides: Guide[] = [
       bs: ["Članovi domaćinstva nepotpuno navedeni", "Primanja nisu aktuelna (trebaju zadnjih 12 mjeseci)", "Nedostaje ili je nepotpun ugovor o najmu", "Grijanje i režije nisu odvojeni", "Zahtjev podnesen prekasno — Wohngeld se ne isplaćuje retroaktivno"],
       en: ["Household members incomplete", "Income not current (last 12 months needed)", "Missing/incomplete rental contract", "Heating and utilities not separated", "Application filed too late — Wohngeld is not granted retroactively"],
     },
-    officialPdf: "",
+    officialPdf: "https://www.bmwsb.bund.de/DE/wohnen/wohngeld/wohngeldrechner/wohngeldrechner-2025_node.html",
     onlineLink: "https://verwaltung.bund.de/leistungsverzeichnis/DE/leistung/99107023037900/herausgeber/BE-L100108_120665/region/110000000000",
     officialInfoUrl: "https://www.bmwsb.bund.de/Webs/BMWSB/DE/themen/stadt-wohnen/wohnraumfoerderung/wohngeld/wohngeld-node.html",
   },

@@ -1,25 +1,30 @@
 
 
-# Plan: Add Wohngeldrechner Link to Wohngeld Guide
+## Pomoć u Njemačkoj -- Grid Layout
 
-## Change
+Currently the 10 items in "Pomoć u Njemačkoj" are displayed as a single-column vertical list, making the section very long. The plan is to switch them to a compact tile/grid layout (similar to the existing Lifestyle section) so items sit side by side in rows.
 
-### `src/lib/guide-data.ts` — line 1131
+### Changes
 
-Replace the empty `officialPdf` or add the Wohngeldrechner URL. The most logical place is to add it alongside the existing links. Currently:
-- `officialPdf: ""` (empty)
-- `onlineLink` → verwaltung.bund.de
-- `officialInfoUrl` → bmwsb.bund.de general page
+**File: `src/pages/Index.tsx`**
 
-**Update `officialPdf`** to point to the Wohngeldrechner:
-```
-officialPdf: "https://www.bmwsb.bund.de/DE/wohnen/wohngeld/wohngeldrechner/wohngeldrechner-2025_node.html"
-```
+1. **Replace `SectionItem` rendering for `pomocItems`** -- instead of the current single-column list (`grid gap-0.5`), use a responsive grid: `grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4`
 
-Also update the references to the Wohngeldrechner in the step text (lines 1052 and 1099) to include the full URL instead of just "bmwsb.bund.de", so users can directly access it:
-- DE step 4 (line 1052): mention the full link
-- BS step 4 (line 1099): mention the full link
-- EN step 4 (line 1116): mention the full link
+2. **Change tile style** -- each item becomes a compact card (like the Lifestyle tiles) with icon on top and label below, centered:
+   - Rounded border container with hover effect
+   - Icon in a circle/rounded-square at top center
+   - Label text below, `text-xs font-medium`, centered, max 2 lines
 
-This is a small metadata update — no structural changes needed.
+3. This matches the existing Lifestyle section pattern already in the codebase, keeping the design consistent.
+
+### Result
+- 10 items will display as 2 columns on mobile, 3 on small tablets, reducing vertical height from ~10 rows to ~3-4 rows
+- Consistent with the Lifestyle grid already on the page
+- No new components or dependencies needed
+
+### Technical Details
+
+- Modify lines 142-144 in `Index.tsx`: change the grid wrapper from `grid gap-0.5` to `grid grid-cols-2 gap-2 sm:grid-cols-3`
+- Render `pomocItems` using the same tile markup pattern as `lifestyleItems` (lines 189-199) instead of using `SectionItem`
+- The `SectionItem` component can remain for any other usage or be removed if unused
 
