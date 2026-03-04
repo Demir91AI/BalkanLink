@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, ChevronLeft, ChevronRight, AlertTriangle, FileText, ExternalLink, BookOpen, ClipboardList, PenLine, Pencil, MapPin, Hash, XCircle, MinusCircle, FileCheck } from "lucide-react";
+import { ArrowLeft, ChevronLeft, ChevronRight, AlertTriangle, BookOpen, ClipboardList, PenLine, Pencil, MapPin, Hash, XCircle, MinusCircle, FileCheck, Info, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { getGuideBySlug, type GuideStepCard } from "@/lib/guide-data";
+import { getGuideBySlug, getOfficialUrl, type GuideStepCard } from "@/lib/guide-data";
 
 type LangKey = "de" | "bs" | "en";
 
@@ -163,24 +163,25 @@ export default function SmartGuide() {
         </div>
       </div>
 
-      {/* Official links */}
-      <div className="mt-6 flex flex-wrap gap-3 justify-center">
-        {guide.officialPdf && (
-          <a href={guide.officialPdf} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground underline">
-            <FileText className="h-3 w-3" /> Originalni PDF formular
+      {/* Službene informacije */}
+      {getOfficialUrl(guide) && (
+        <div className="mt-6 rounded-2xl border bg-card p-5 text-center">
+          <h3 className="mb-2 flex items-center justify-center gap-1.5 text-xs font-bold">
+            <Info className="h-3.5 w-3.5 text-primary" /> Službene informacije
+          </h3>
+          <p className="mx-auto max-w-md text-xs leading-relaxed text-muted-foreground">
+            Ovaj vodič temelji se na informacijama službenih njemačkih institucija. Za službeni formular i dodatne informacije posjeti službenu stranicu.
+          </p>
+          <a
+            href={getOfficialUrl(guide)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-flex items-center gap-1.5 rounded-lg bg-primary/10 px-4 py-2 text-xs font-semibold text-primary transition-colors hover:bg-primary/20"
+          >
+            <ExternalLink className="h-3.5 w-3.5" /> Otvori službenu stranicu
           </a>
-        )}
-        {guide.onlineLink && (
-          <a href={guide.onlineLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground underline">
-            <ExternalLink className="h-3 w-3" /> Online portal
-          </a>
-        )}
-        {guide.officialInfoUrl && (
-          <a href={guide.officialInfoUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground underline">
-            <FileText className="h-3 w-3" /> Službene informacije
-          </a>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 }
