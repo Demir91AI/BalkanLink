@@ -623,7 +623,7 @@ const newKeysHr: Partial<TranslationKeys> = {
   "tools.buergergeld.desc": "Izračunaj visinu Bürgergeld-a.",
   "tools.elterngeld": "Elterngeld-Rechner",
   "tools.elterngeld.desc": "Izračunaj koliki roditeljski dodatak ti pripada.",
-  "tools.rente": "Rentenrechner",
+  "tools.rente": "Renten-Rechner",
   "tools.rente.desc": "Procijeni svoju buduću mirovinu.",
 };
 
