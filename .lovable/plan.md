@@ -1,28 +1,30 @@
 
 
-# Plan: Update BuT Guide with BMAS Anlaufstellen Details
+## Pomoć u Njemačkoj -- Grid Layout
 
-## What Changes
+Currently the 10 items in "Pomoć u Njemačkoj" are displayed as a single-column vertical list, making the section very long. The plan is to switch them to a compact tile/grid layout (similar to the existing Lifestyle section) so items sit side by side in rows.
 
-### File: `src/lib/guide-data.ts` (bildung-teilhabe entry, lines 602-642)
+### Changes
 
-**1. Update `authority` field (line 607)**
-Expand to explain the decentralized structure from BMAS:
-- BuT is administered **dezentral** — the responsible office depends on which base benefit the family receives
-- **Bürgergeld recipients** → Jobcenter
-- **Wohngeld/Kinderzuschlag recipients** → Kommune/Kreisverwaltung/Sozialamt (varies by Bundesland)
-- **Asylbewerberleistungen** → Sozialamt
-- Add reference to BMAS Anlaufstellen-Finder for finding the correct office by Bundesland
+**File: `src/pages/Index.tsx`**
 
-**2. Update `formName` field (line 608)**
-Expand to explain:
-- Form varies by municipality/Bundesland (no single federal form)
-- Find the correct office via BMAS Anlaufstellen page (bmas.de → Bildungspaket → Anlaufstellen → select Bundesland)
-- Many municipalities offer online applications or downloadable forms on their website
-- Some Jobcenter process BuT automatically with Bürgergeld approval (no separate application needed for school supplies)
+1. **Replace `SectionItem` rendering for `pomocItems`** -- instead of the current single-column list (`grid gap-0.5`), use a responsive grid: `grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4`
 
-**3. Update `officialInfoUrl` (line 642)**
-Keep existing BMAS link, but also reference the Anlaufstellen page in the formName text.
+2. **Change tile style** -- each item becomes a compact card (like the Lifestyle tiles) with icon on top and label below, centered:
+   - Rounded border container with hover effect
+   - Icon in a circle/rounded-square at top center
+   - Label text below, `text-xs font-medium`, centered, max 2 lines
 
-All 3 languages (DE, BS, EN) updated accordingly.
+3. This matches the existing Lifestyle section pattern already in the codebase, keeping the design consistent.
+
+### Result
+- 10 items will display as 2 columns on mobile, 3 on small tablets, reducing vertical height from ~10 rows to ~3-4 rows
+- Consistent with the Lifestyle grid already on the page
+- No new components or dependencies needed
+
+### Technical Details
+
+- Modify lines 142-144 in `Index.tsx`: change the grid wrapper from `grid gap-0.5` to `grid grid-cols-2 gap-2 sm:grid-cols-3`
+- Render `pomocItems` using the same tile markup pattern as `lifestyleItems` (lines 189-199) instead of using `SectionItem`
+- The `SectionItem` component can remain for any other usage or be removed if unused
 
