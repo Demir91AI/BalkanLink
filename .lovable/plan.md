@@ -1,30 +1,55 @@
 
 
-## Pomoć u Njemačkoj -- Grid Layout
+# Plan: Add "Bayerisches Krippengeld" Guide to Socijalna pomoć
 
-Currently the 10 items in "Pomoć u Njemačkoj" are displayed as a single-column vertical list, making the section very long. The plan is to switch them to a compact tile/grid layout (similar to the existing Lifestyle section) so items sit side by side in rows.
+## Summary
+Add a new comprehensive guide for Bayerisches Krippengeld (Bavaria's childcare subsidy) under the "Socijalna pomoć" category, based on official ZBFS data and the uploaded application form.
 
-### Changes
+## Key Facts (from ZBFS sources)
+- Up to **100€/month** per child, ages 1-3 (until Aug 31 of year child turns 3)
+- Income limit: **60,000€** + 5,000€ per additional child receiving Kindergeld
+- Child must be in **BayKiBiG-funded** childcare
+- Parents must **pay fees themselves** (not covered by Jugendamt etc.)
+- Child must be **born before 01.01.2025**
+- Application: written (paper or online) to ZBFS
+- Same form for all 3 regions, different postal addresses
+- Both parents must sign (unless single parent)
+- Required docs: ID copy, childcare contract (Betreuungsvertrag)
+- Can be combined with Elterngeld and Familiengeld
+- NOT for recipients of Bürgergeld, Wohngeld, Kinderzuschlag, Asylbewerberleistungen (those should apply for Jugendhilfe instead)
 
-**File: `src/pages/Index.tsx`**
+## Changes
 
-1. **Replace `SectionItem` rendering for `pomocItems`** -- instead of the current single-column list (`grid gap-0.5`), use a responsive grid: `grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4`
+### 1. `src/lib/guide-data.ts` — Add new guide entry
 
-2. **Change tile style** -- each item becomes a compact card (like the Lifestyle tiles) with icon on top and label below, centered:
-   - Rounded border container with hover effect
-   - Icon in a circle/rounded-square at top center
-   - Label text below, `text-xs font-medium`, centered, max 2 lines
+New guide object with slug `"krippengeld-bayern"`, category `"familie"` (since it's a family benefit related to childcare).
 
-3. This matches the existing Lifestyle section pattern already in the codebase, keeping the design consistent.
+**Steps based on the application form (8 steps):**
+1. Angaben zum Kind (child's data: name, DOB, gender, Steuer-ID)
+2. Angaben zur Betreuung (childcare facility: name, BayKiBiG status, start date, monthly fee)
+3. Angaben zur antragstellenden Person (applicant: name, DOB, address, nationality, Steuer-ID)
+4. Angaben zum anderen Elternteil / Partner (other parent/partner data)
+5. Einkommensgrenze (income declaration: confirm under 60,000€ + 5,000€ per child)
+6. Bankverbindung (IBAN, account holder)
+7. Weitere Kinder im Kindergeldbezug (additional children for income threshold calculation)
+8. Unterschrift (signature — both parents required)
 
-### Result
-- 10 items will display as 2 columns on mobile, 3 on small tablets, reducing vertical height from ~10 rows to ~3-4 rows
-- Consistent with the Lifestyle grid already on the page
-- No new components or dependencies needed
+Each BS step gets full 6-card layout (whatToWrite, whereToFind, format, commonMistakes, whenToLeaveEmpty, example). DE and EN steps get basic field+instruction.
 
-### Technical Details
+**Regional postal addresses** included in `authority` field:
+- Schwaben & Oberbayern → ZBFS Region Schwaben, 86135 Augsburg
+- Niederbayern & Mittelfranken → ZBFS Region Niederbayern, 84026 Landshut
+- Oberfranken, Unterfranken & Oberpfalz → ZBFS Region Unterfranken, 97025 Würzburg
 
-- Modify lines 142-144 in `Index.tsx`: change the grid wrapper from `grid gap-0.5` to `grid grid-cols-2 gap-2 sm:grid-cols-3`
-- Render `pomocItems` using the same tile markup pattern as `lifestyleItems` (lines 189-199) instead of using `SectionItem`
-- The `SectionItem` component can remain for any other usage or be removed if unused
+### 2. `src/pages/FormCenter.tsx` — Add slug to socijalna category
+
+Add `"krippengeld-bayern"` to the `socijalna` slugs array:
+```
+slugs: ["buergergeld", "wohngeld", "bafoeg", "krippengeld-bayern"]
+```
+
+### 3. No icon changes needed (per user's previous instruction)
+
+## No other files affected
+Routing handles `/formulari/krippengeld-bayern` automatically via existing dynamic route.
 
