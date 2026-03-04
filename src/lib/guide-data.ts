@@ -1096,7 +1096,7 @@ export const guides: Guide[] = [
         },
         {
           field: "Primanja svih članova",
-          instruction: "Bruto primanja svih članova domaćinstva za zadnjih 12 mjeseci. Visina Wohngeld-a zavisi od: broja članova, ukupnih primanja i visine kirije. Možete unaprijed izračunati sa Wohngeldrechner-om na bmwsb.bund.de.",
+          instruction: "Bruto primanja svih članova domaćinstva za zadnjih 12 mjeseci. Visina Wohngeld-a zavisi od: broja članova, ukupnih primanja i visine kirije. Možete unaprijed izračunati sa Wohngeldrechner-om: https://www.bmwsb.bund.de/DE/wohnen/wohngeld/wohngeldrechner/wohngeldrechner-2025_node.html",
           cards: [
             {
               whatToWrite: "Bruto primanja (Bruttoeinkommen) svih članova: plata, penzija, Kindergeld, alimentacija (Unterhalt), BAföG, prihodi od izdavanja nekretnina. Za svakog člana navesti vrstu i iznos primanja.",
