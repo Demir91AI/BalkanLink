@@ -2062,6 +2062,224 @@ export const guides: Guide[] = [
     onlineLink: "",
     officialInfoUrl: "https://www.bmwsb.bund.de/Webs/BMWSB/DE/themen/stadt-wohnen/wohnraumfoerderung/wohnraumfoerderung-node.html",
   },
+  // ===================== KRIPPENGELD BAYERN =====================
+  {
+    slug: "krippengeld-bayern",
+    category: "familie",
+    title: {
+      de: "Bayerisches Krippengeld",
+      bs: "Bavarsko Krippengeld (naknada za jaslice)",
+      en: "Bavarian Childcare Subsidy (Krippengeld)",
+    },
+    who: {
+      de: "Eltern mit Wohnsitz in Bayern, deren Kind eine nach BayKiBiG geförderte Kindertageseinrichtung oder Kindertagespflege besucht. Das Kind muss zwischen dem 1. und 3. Lebensjahr sein. Die Einkommensgrenze beträgt 60.000 € (plus 5.000 € für jedes weitere kindergeldberechtigte Kind). Nicht anspruchsberechtigt bei Bezug von Bürgergeld, Wohngeld, Kinderzuschlag oder Leistungen nach dem Asylbewerberleistungsgesetz.",
+      bs: "Roditelji sa prebivalištem u Bavarskoj čije dijete pohađa ustanovu za dnevnu njegu (Kita/Kindertagespflege) koja je financirana po BayKiBiG-u. Dijete mora imati između 1 i 3 godine. Granica prihoda: 60.000 € (+ 5.000 € za svako dodatno dijete koje prima Kindergeld). Pravo NEMAJU primaoci Bürgergeld-a, Wohngeld-a, Kinderzuschlag-a ili pomoći za azilante — oni mogu zatražiti preuzimanje troškova preko Jugendhilfe.",
+      en: "Parents residing in Bavaria whose child attends a BayKiBiG-funded childcare facility. The child must be between 1 and 3 years old. Income limit: €60,000 (+ €5,000 per additional child receiving Kindergeld). Not eligible if receiving Bürgergeld, Wohngeld, Kinderzuschlag, or asylum seeker benefits.",
+    },
+    authority: {
+      de: "Zentrum Bayern Familie und Soziales (ZBFS). Zuständig je nach Regierungsbezirk: Schwaben & Oberbayern → ZBFS Region Schwaben, 86135 Augsburg; Niederbayern & Mittelfranken → ZBFS Region Niederbayern, 84026 Landshut; Oberfranken, Unterfranken & Oberpfalz → ZBFS Region Unterfranken, 97025 Würzburg.",
+      bs: "Zentrum Bayern Familie und Soziales (ZBFS). Nadležna regionalna služba zavisi od okruga: Schwaben i Oberbayern → ZBFS Region Schwaben, 86135 Augsburg; Niederbayern i Mittelfranken → ZBFS Region Niederbayern, 84026 Landshut; Oberfranken, Unterfranken i Oberpfalz → ZBFS Region Unterfranken, 97025 Würzburg.",
+      en: "Zentrum Bayern Familie und Soziales (ZBFS). Regional office depends on district: Schwaben & Oberbayern → Augsburg; Niederbayern & Mittelfranken → Landshut; Oberfranken, Unterfranken & Oberpfalz → Würzburg.",
+    },
+    formName: {
+      de: "Antrag auf Bayerisches Krippengeld — schriftlich per Post oder online über den BayernPortal-Antrag. Das Antragsformular ist bei allen drei ZBFS-Regionaldienststellen identisch.",
+      bs: "Zahtjev za Bavarsko Krippengeld — pismeno poštom ili online putem BayernPortal-a. Formular je identičan za sve tri ZBFS regionalne službe.",
+      en: "Application for Bavarian Krippengeld — in writing by mail or online via BayernPortal. The form is identical for all three ZBFS regional offices.",
+    },
+    steps: {
+      de: [
+        { field: "Angaben zum Kind", instruction: "Name, Geburtsdatum, Geschlecht und Steuer-ID des Kindes eintragen." },
+        { field: "Angaben zur Betreuung", instruction: "Name und Anschrift der Kindertageseinrichtung/Tagespflege, BayKiBiG-Förderung bestätigen, Betreuungsbeginn und monatlicher Elternbeitrag." },
+        { field: "Angaben zur antragstellenden Person", instruction: "Persönliche Daten, Anschrift, Staatsangehörigkeit, Steuer-ID." },
+        { field: "Angaben zum anderen Elternteil / Partner", instruction: "Daten des anderen Elternteils oder Partners, Steuer-ID." },
+        { field: "Einkommensgrenze", instruction: "Erklärung, dass das Einkommen unter 60.000 € liegt (+ 5.000 € je weiteres kindergeldberechtigtes Kind)." },
+        { field: "Bankverbindung", instruction: "IBAN und Kontoinhaber für die Auszahlung." },
+        { field: "Weitere Kinder im Kindergeldbezug", instruction: "Alle Kinder auflisten, für die Kindergeld bezogen wird (relevant für die Einkommensgrenze)." },
+        { field: "Unterschrift", instruction: "Antrag unterschreiben. Bei gemeinsamer Sorge müssen beide Elternteile unterschreiben." },
+      ],
+      bs: [
+        {
+          field: "Podaci o djetetu (Angaben zum Kind)",
+          instruction: "Unesite ime, prezime, datum rođenja, spol i porezni ID (Steuer-ID) djeteta za koje se podnosi zahtjev.",
+          cards: [
+            {
+              whatToWrite: "Prezime (Familienname), ime (Vorname), datum rođenja, spol (männlich/weiblich/divers) i 11-cifreni Steuer-ID djeteta.",
+              whereToFind: "Rodni list djeteta (Geburtsurkunde) i pismo sa Steuer-ID koje dolazi automatski nakon prijave prebivališta djeteta.",
+              format: "Ime i prezime kao na rodnom listu. Datum: DD.MM.YYYY. Steuer-ID: 11 cifara bez razmaka.",
+              commonMistakes: "Upisivanje Steuer-ID roditelja umjesto djeteta. Pogrešan datum rođenja. Ime drugačije od onoga na rodnom listu.",
+              whenToLeaveEmpty: "Steuer-ID ostavite prazno samo ako dijete još nije dobilo Steuer-ID (napišite 'noch nicht vergeben').",
+              example: "Familienname: Hodžić | Vorname: Hana | Geb.: 05.06.2023 | Geschlecht: weiblich | Steuer-ID: 98 765 432 109",
+            },
+          ],
+        },
+        {
+          field: "Podaci o čuvanju djeteta (Angaben zur Betreuung)",
+          instruction: "Unesite podatke o ustanovi za dnevnu njegu ili dnevnom roditelju (Tagespflege) kod kojeg je dijete.",
+          cards: [
+            {
+              whatToWrite: "Naziv ustanove (Kindertageseinrichtung) ili ime dnevnog roditelja (Tagespflegeperson), adresa, datum početka čuvanja, mjesečni iznos koji plaćate (Elternbeitrag).",
+              whereToFind: "Ugovor o čuvanju (Betreuungsvertrag) koji ste potpisali sa ustanovom/dnevnim roditeljem. Iznos naknade stoji na fakturi ili ugovoru.",
+              format: "Puni naziv ustanove, kompletna adresa. Datum: DD.MM.YYYY. Iznos u EUR bez centi (npr. 250).",
+              commonMistakes: "Nenavođenje da je ustanova financirana po BayKiBiG-u (obavezno zaokružiti 'Ja'). Pogrešan iznos (upisati ono što VI plaćate, ne ukupni trošak). Zaboravljen datum početka.",
+              whenToLeaveEmpty: "Polje za Tagespflege ostavite prazno ako dijete ide u Kita, i obrnuto — popunite samo relevantni dio.",
+              example: "Einrichtung: Kita Sonnenschein | Adresse: Musterstr. 12, 80331 München | Beginn: 01.09.2024 | Elternbeitrag: 250 €/Monat | BayKiBiG gefördert: Ja",
+            },
+          ],
+        },
+        {
+          field: "Podaci o podnosiocu zahtjeva (Antragstellende Person)",
+          instruction: "Unesite svoje lične podatke — ime, adresu, državljanstvo i Steuer-ID.",
+          cards: [
+            {
+              whatToWrite: "Prezime, ime, datum rođenja, adresa u Bavarskoj, državljanstvo, Steuer-ID, telefon/email za kontakt.",
+              whereToFind: "Pasoš ili lična karta za lične podatke. Steuer-ID: pismo od Bundeszentralamt für Steuern ili platna lista.",
+              format: "Ime kao u pasošu. Datum: DD.MM.YYYY. Steuer-ID: 11 cifara. Adresa: ulica, kućni broj, PLZ, grad.",
+              commonMistakes: "Adresa se ne poklapa sa prijavom prebivališta (Meldebestätigung). Zaboravljen Steuer-ID. Državljanstvo napisano pogrešno.",
+              whenToLeaveEmpty: "Sva polja su obavezna. Ako nemate Steuer-ID, napišite 'noch nicht vergeben'.",
+              example: "Familienname: Hodžić | Vorname: Emir | Geb.: 12.04.1989 | Adresse: Maximilianstr. 5, 80539 München | Staatsangehörigkeit: Bosnien und Herzegowina | Steuer-ID: 12 345 678 901",
+            },
+          ],
+        },
+        {
+          field: "Podaci o drugom roditelju / partneru",
+          instruction: "Unesite podatke o drugom roditelju djeteta ili vašem bračnom/životnom partneru.",
+          cards: [
+            {
+              whatToWrite: "Prezime, ime, datum rođenja, adresa (ako se razlikuje), državljanstvo, Steuer-ID partnera/drugog roditelja.",
+              whereToFind: "Pasoš ili lična karta drugog roditelja/partnera.",
+              format: "Isti format kao za podnosioca zahtjeva. Steuer-ID: 11 cifara.",
+              commonMistakes: "Pogrešan Steuer-ID partnera. Nedostaje adresa ako partner živi na drugoj adresi. Polje ostavljeno prazno iako postoji drugi roditelj.",
+              whenToLeaveEmpty: "Samo ako ste samohrani roditelj bez partnera (alleinerziehend). U tom slučaju zaokružite odgovarajuću opciju.",
+              example: "Familienname: Hodžić | Vorname: Amra | Geb.: 22.08.1991 | Steuer-ID: 98 765 432 101",
+            },
+          ],
+        },
+        {
+          field: "Granica prihoda (Einkommensgrenze)",
+          instruction: "Potvrdite da vaš ukupni godišnji prihod ne prelazi 60.000 € (+ 5.000 € za svako dodatno dijete koje prima Kindergeld).",
+          cards: [
+            {
+              whatToWrite: "Zaokružite izjavu da vaš prihod (Einkünfte) u smislu §2 EStG ne prelazi granicu. Ako imate npr. 2 djece sa Kindergeldom, granica je 65.000 €.",
+              whereToFind: "Porezno rješenje (Einkommensteuerbescheid) za relevantnu godinu. Ako ga nemate, provjerite platne liste — zbrojite bruto godišnje prihode oba roditelja.",
+              format: "Samo zaokružiti — nije potrebno upisivati tačan iznos prihoda.",
+              commonMistakes: "Zaboravljeno da se granica odnosi na ZAJEDNIČKE prihode oba roditelja/partnera. Primaoci Bürgergeld-a, Wohngeld-a ili Kinderzuschlag-a nemaju pravo na Krippengeld (trebaju tražiti Jugendhilfe).",
+              whenToLeaveEmpty: "Ne ostavljajte prazno — morate potvrditi ili negirati.",
+              example: "Izjava: ✓ 'Hiermit erkläre ich, dass die Einkommensgrenze nicht überschritten wird.' (2 djece → granica 65.000 €)",
+            },
+          ],
+        },
+        {
+          field: "Bankovni podaci (Bankverbindung)",
+          instruction: "Unesite IBAN i ime vlasnika računa na koji želite primati isplatu (100 €/mjesečno).",
+          cards: [
+            {
+              whatToWrite: "IBAN (DE + 20 cifara), naziv banke i ime vlasnika računa (Kontoinhaber).",
+              whereToFind: "Bankovska kartica, online banking aplikacija ili izvod.",
+              format: "IBAN: DE + 20 cifara, bez razmaka u formularu. Vlasnik računa: ime i prezime kao kod banke.",
+              commonMistakes: "Pogrešan IBAN (provjerite svaku cifru). Račun nije na ime podnosioca zahtjeva (može biti zajednički račun). Upisivanje BIC-a — ovdje nije potreban.",
+              whenToLeaveEmpty: "Nikada ne ostavljajte prazno — bez IBAN-a nema isplate.",
+              example: "IBAN: DE89 3704 0044 0532 0130 00 | Kontoinhaber: Emir Hodžić",
+            },
+          ],
+        },
+        {
+          field: "Dodatna djeca sa Kindergeldom (Weitere Kinder)",
+          instruction: "Navedite svu djecu za koja primate Kindergeld — ovo utiče na izračun granice prihoda.",
+          cards: [
+            {
+              whatToWrite: "Za svako dijete: ime, prezime, datum rođenja. Ovo uključuje i dijete za koje se traži Krippengeld.",
+              whereToFind: "Rješenje o Kindergeldu (Kindergeldbescheid) ili podaci iz Familienkasse.",
+              format: "Lista djece sa imenom i datumom rođenja. Upisujte po redu, počevši od najstarijeg.",
+              commonMistakes: "Zaboravljeno dijete za koje se traži Krippengeld. Djeca koja ne primaju Kindergeld se ne upisuju ovdje.",
+              whenToLeaveEmpty: "Nikada — uvijek unesite barem dijete za koje podnosite zahtjev.",
+              example: "1. Hana Hodžić, geb. 05.06.2023 | 2. Amir Hodžić, geb. 10.01.2020",
+            },
+          ],
+        },
+        {
+          field: "Potpis (Unterschrift)",
+          instruction: "Potpišite zahtjev. Ako dijete ima dva roditelja sa zajedničkim starateljstvom, OBOJE moraju potpisati.",
+          cards: [
+            {
+              whatToWrite: "Datum i vlastoručni potpis. Ako postoji drugi roditelj/partner — i njegov potpis na predviđenom mjestu.",
+              whereToFind: "N/A — potpis dajete lično.",
+              format: "Datum: DD.MM.YYYY. Potpis: vlastoručno, čitko. Oba roditelja na predviđenim mjestima.",
+              commonMistakes: "Nedostaje potpis drugog roditelja (zahtjev se odbija!). Zaboravljen datum uz potpis. Potpis ne odgovara imenu na zahtjevu.",
+              whenToLeaveEmpty: "Potpis drugog roditelja samo ako ste samohrani roditelj (alleinerziehend) — u tom slučaju potpišite samo vi.",
+              example: "Datum: 15.03.2025 | Unterschrift Antragsteller: [potpis] | Unterschrift anderer Elternteil: [potpis]",
+            },
+          ],
+        },
+      ],
+      en: [
+        { field: "Child Information", instruction: "Enter the child's name, date of birth, gender, and tax ID (Steuer-ID)." },
+        { field: "Childcare Details", instruction: "Enter details of the childcare facility: name, address, BayKiBiG funding status, start date, and monthly parental fee." },
+        { field: "Applicant Information", instruction: "Your personal details: name, address in Bavaria, nationality, and Steuer-ID." },
+        { field: "Other Parent / Partner", instruction: "Details of the other parent or your partner, including their Steuer-ID." },
+        { field: "Income Limit Declaration", instruction: "Confirm that your combined annual income does not exceed €60,000 (+ €5,000 per additional child receiving Kindergeld)." },
+        { field: "Bank Details", instruction: "Enter your IBAN and account holder name for the monthly €100 payment." },
+        { field: "Additional Children Receiving Kindergeld", instruction: "List all children for whom you receive Kindergeld (affects the income threshold calculation)." },
+        { field: "Signature", instruction: "Sign the application. Both parents must sign if they share custody." },
+      ],
+    },
+    documents: {
+      de: [
+        "Personalausweis oder Reisepass (Kopie)",
+        "Geburtsurkunde des Kindes",
+        "Betreuungsvertrag mit der Kindertageseinrichtung/Tagespflege",
+        "Nachweis über BayKiBiG-Förderung der Einrichtung",
+        "Einkommensteuerbescheid (bei Bedarf zur Prüfung der Einkommensgrenze)",
+        "Kindergeldbescheid",
+      ],
+      bs: [
+        "Pasoš ili lična karta (kopija)",
+        "Rodni list djeteta (Geburtsurkunde)",
+        "Ugovor o čuvanju djeteta (Betreuungsvertrag) sa Kita/Tagespflege",
+        "Dokaz da je ustanova financirana po BayKiBiG-u",
+        "Porezno rješenje (Einkommensteuerbescheid) — po potrebi za provjeru prihoda",
+        "Rješenje o Kindergeldu (Kindergeldbescheid)",
+      ],
+      en: [
+        "ID or passport (copy)",
+        "Child's birth certificate",
+        "Childcare contract (Betreuungsvertrag)",
+        "Proof of BayKiBiG funding for the facility",
+        "Income tax assessment (Einkommensteuerbescheid) if needed",
+        "Kindergeld notification (Kindergeldbescheid)",
+      ],
+    },
+    processingTime: {
+      de: "ca. 4–8 Wochen",
+      bs: "oko 4–8 sedmica",
+      en: "approx. 4–8 weeks",
+    },
+    commonMistakes: {
+      de: [
+        "Antrag wird gestellt, obwohl Bürgergeld/Wohngeld/Kinderzuschlag bezogen wird (kein Anspruch!)",
+        "Fehlende Unterschrift des zweiten Elternteils bei gemeinsamer Sorge",
+        "Betreuungseinrichtung ist nicht nach BayKiBiG gefördert",
+        "Einkommensgrenze nicht korrekt berechnet (beide Elternteile zusammen!)",
+        "Kind hat das 3. Lebensjahr bereits vollendet (Leistung endet am 31.08. des Jahres)",
+      ],
+      bs: [
+        "Zahtjev podnesen iako primate Bürgergeld/Wohngeld/Kinderzuschlag (nemate pravo!)",
+        "Nedostaje potpis drugog roditelja kod zajedničkog starateljstva",
+        "Ustanova za čuvanje nije financirana po BayKiBiG-u",
+        "Granica prihoda pogrešno izračunata (moraju se zbrojiti prihodi OBA roditelja!)",
+        "Dijete je već napunilo 3 godine (isplata prestaje 31.08. te godine)",
+      ],
+      en: [
+        "Application filed while receiving Bürgergeld/Wohngeld/Kinderzuschlag (not eligible!)",
+        "Missing signature of second parent in shared custody cases",
+        "Childcare facility is not BayKiBiG-funded",
+        "Income limit incorrectly calculated (both parents' income combined!)",
+        "Child has already turned 3 (benefit ends Aug 31 of that year)",
+      ],
+    },
+    officialPdf: "https://www.zbfs.bayern.de/dam/jcr:cfe8cb4c-d7c1-4b97-a269-a97e3b42098f/Antrag_Krippengeld.pdf",
+    onlineLink: "https://www.zbfs.bayern.de/familienleistungen/krippengeld/",
+    officialInfoUrl: "https://www.zbfs.bayern.de/familienleistungen/krippengeld/",
+  },
 ];
 
 export function getGuidesByCategory(category: Guide["category"]) {

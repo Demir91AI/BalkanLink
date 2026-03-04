@@ -21,7 +21,7 @@ const categories: CategoryDef[] = [
     id: "socijalna",
     title: "Socijalna pomoć",
     icon: Landmark,
-    slugs: ["buergergeld", "wohngeld", "bafoeg"],
+    slugs: ["buergergeld", "wohngeld", "bafoeg", "krippengeld-bayern"],
   },
   {
     id: "zdravlje",
