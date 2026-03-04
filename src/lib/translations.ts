@@ -540,7 +540,7 @@ const newKeysBs: Partial<TranslationKeys> = {
   "tools.buergergeld.desc": "Izračunaj visinu Bürgergeld-a.",
   "tools.elterngeld": "Elterngeld-Rechner",
   "tools.elterngeld.desc": "Izračunaj koliki roditeljski dodatak ti pripada.",
-  "tools.rente": "Rentenrechner",
+  "tools.rente": "Renten-Rechner",
   "tools.rente.desc": "Procijeni svoju buduću penziju.",
 };
 
@@ -623,7 +623,7 @@ const newKeysHr: Partial<TranslationKeys> = {
   "tools.buergergeld.desc": "Izračunaj visinu Bürgergeld-a.",
   "tools.elterngeld": "Elterngeld-Rechner",
   "tools.elterngeld.desc": "Izračunaj koliki roditeljski dodatak ti pripada.",
-  "tools.rente": "Rentenrechner",
+  "tools.rente": "Renten-Rechner",
   "tools.rente.desc": "Procijeni svoju buduću mirovinu.",
 };
 
@@ -714,7 +714,7 @@ const newKeysDe: Partial<TranslationKeys> = {
   "tools.buergergeld.desc": "Berechne die Höhe des Bürgergeldes.",
   "tools.elterngeld": "Elterngeld-Rechner",
   "tools.elterngeld.desc": "Berechne die Höhe des Elterngeldes.",
-  "tools.rente": "Rentenrechner",
+  "tools.rente": "Renten-Rechner",
   "tools.rente.desc": "Schätze deine künftige Rente.",
 };
 
