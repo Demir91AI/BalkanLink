@@ -573,6 +573,16 @@ export default function BruttoNettoRechner() {
                 </div>
               </div>
 
+              {/* Info note */}
+              <div className="flex items-start gap-2 px-1 py-2">
+                <Info className="h-3.5 w-3.5 text-muted-foreground/60 mt-0.5 shrink-0" />
+                <p className="text-xs text-muted-foreground/60 leading-relaxed">
+                  Procjena neto plate u Njemačkoj.
+                  <br />
+                  Rezultat može varirati ovisno o zdravstvenom osiguranju, bonusima i dodatnim odbicima.
+                </p>
+              </div>
+
               {/* AG Kosten */}
               <div className="rounded-xl border bg-card p-5 shadow-sm space-y-2">
                 <h3 className="flex items-center gap-2 text-xs font-bold text-muted-foreground">
