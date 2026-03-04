@@ -13,7 +13,7 @@ const officialTools = [
   { titleKey: "tools.wohngeld", descKey: "tools.wohngeld.desc", url: "https://www.bmwsb.bund.de/SharedDocs/downloads/Webs/BMWSB/DE/veroeffentlichungen/wohnen/wohngeld/WoGRechner.html" },
   { titleKey: "tools.buergergeld", descKey: "tools.buergergeld.desc", url: "https://www.jobcenter.digital/jc/de/grundsicherung/rechner/index.html" },
   { titleKey: "tools.elterngeld", descKey: "tools.elterngeld.desc", url: "https://familienportal.de/familienportal/meta/egr" },
-  { titleKey: "tools.rente", descKey: "tools.rente.desc", url: "https://www.deutsche-rentenversicherung.de/DRV/DE/Online-Dienste/online-dienste_node.html" },
+  { titleKey: "tools.rente", descKey: "tools.rente.desc", url: "https://www.deutsche-rentenversicherung.de/DRV/DE/Online-Services/Online-Rechner/online_rechner.html" },
 ];
 
 /* ───────── BRUTTO-NETTO APPROXIMATION ───────── */
