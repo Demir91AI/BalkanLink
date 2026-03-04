@@ -42,7 +42,7 @@ const T: Record<string, Record<string, string>> = {
     sozial: "Social Insurance", sozialDesc: "5 pillars of social insurance for all employees.",
     gez: "Broadcasting Fee (GEZ)", gezDesc: "TV/radio fee — €18.36/month per household.",
     fuehrerschein: "Driver's License", fuehrerscheinDesc: "Conversion or recognition — 6 month deadline.",
-    auto: "Register a Car", autoDesc: "Vehicle registration in Germany.",
+    auto: "Vehicle Registration (Kfz, Lkw...)", autoDesc: "Register motor vehicles in Germany.",
     schritte: "First Steps", schritteDesc: "The complete checklist for the first weeks.",
   },
   sq: {
