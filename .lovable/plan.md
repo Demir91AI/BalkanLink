@@ -1,30 +1,24 @@
 
 
-## Pomoć u Njemačkoj -- Grid Layout
+# Plan: Add Online Application Info to Elterngeld Guide
 
-Currently the 10 items in "Pomoć u Njemačkoj" are displayed as a single-column vertical list, making the section very long. The plan is to switch them to a compact tile/grid layout (similar to the existing Lifestyle section) so items sit side by side in rows.
+## Change
 
-### Changes
+Update the `formName` field for the `elterngeld` entry in `src/lib/guide-data.ts` (line 367) to append information about the two online application options (with and without registration) and the postal submission alternative.
 
-**File: `src/pages/Index.tsx`**
+### Content to add (bs language):
 
-1. **Replace `SectionItem` rendering for `pomocItems`** -- instead of the current single-column list (`grid gap-0.5`), use a responsive grid: `grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4`
+After the existing Dienststelle finder text, add:
 
-2. **Change tile style** -- each item becomes a compact card (like the Lifestyle tiles) with icon on top and label below, centered:
-   - Rounded border container with hover effect
-   - Icon in a circle/rounded-square at top center
-   - Label text below, `text-xs font-medium`, centered, max 2 lines
+**Način podnošenja:** Zahtjev se može poslati poštom na adresu nadležne službe ILI popuniti online na elterngeld-digital.de / ifsg.bayern.de.
 
-3. This matches the existing Lifestyle section pattern already in the codebase, keeping the design consistent.
+**Online sa registracijom** — brža obrada, manje dodatnih pitanja, pametno vođenje kroz formular, individualna checklista dokumenata, upload dokumenata, mogućnost popunjavanja 6 mjeseci prije porođaja, funkcija čuvanja i nastavka kasnije, print-servis (nije potreban vlastiti printer), uvid u status obrade i informacije o isplatama, online prijava promjena (adresa, ime, bankovni podaci, Steuer-ID), elektronski potpis.
 
-### Result
-- 10 items will display as 2 columns on mobile, 3 on small tablets, reducing vertical height from ~10 rows to ~3-4 rows
-- Consistent with the Lifestyle grid already on the page
-- No new components or dependencies needed
+**Online bez registracije** — brža obrada, pametno vođenje, individualna checklista, print-servis, pomoćne funkcije.
 
-### Technical Details
+Similarly for DE and EN languages with equivalent content.
 
-- Modify lines 142-144 in `Index.tsx`: change the grid wrapper from `grid gap-0.5` to `grid grid-cols-2 gap-2 sm:grid-cols-3`
-- Render `pomocItems` using the same tile markup pattern as `lifestyleItems` (lines 189-199) instead of using `SectionItem`
-- The `SectionItem` component can remain for any other usage or be removed if unused
+### File: `src/lib/guide-data.ts` — line 367
+
+Only the `formName` property changes. No other files affected.
 
