@@ -15,7 +15,7 @@ const categories: CategoryDef[] = [
     id: "porodica",
     title: "Porodica i djeca",
     icon: Baby,
-    slugs: ["kindergeld", "kinderzuschlag", "elterngeld"],
+    slugs: ["kindergeld", "kinderzuschlag", "elterngeld", "elternzeit", "mutterschutz", "mutterschaftsleistungen", "bildung-teilhabe", "unterhalt", "unterhaltsvorschuss"],
   },
   {
     id: "socijalna",
