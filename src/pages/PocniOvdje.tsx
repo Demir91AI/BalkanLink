@@ -56,7 +56,7 @@ const T: Record<string, Record<string, string>> = {
     sozial: "Sigurimet shoqërore", sozialDesc: "5 shtyllat e sigurimeve shoqërore.",
     gez: "Taksa e transmetimit (GEZ)", gezDesc: "18,36 € në muaj për çdo familje.",
     fuehrerschein: "Patenta e shoferit", fuehrerscheinDesc: "Konvertimi ose njohja — afati 6 muaj.",
-    auto: "Regjistrimi i makinës", autoDesc: "Regjistrimi i automjetit në Gjermani.",
+    auto: "Regjistrimi i mjetit (Kfz, Lkw...)", autoDesc: "Regjistrimi i mjeteve motorike në Gjermani.",
     schritte: "Hapat e parë", schritteDesc: "Lista e plotë për javët e para.",
   },
   mk: {
