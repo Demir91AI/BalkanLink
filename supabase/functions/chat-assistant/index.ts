@@ -51,7 +51,6 @@ const PREMIUM_PATTERNS = [
 
 type Intent = "FREE_ALLOWED" | "PREMIUM_REQUIRED" | "SMART_GUIDE_REDIRECT";
 
-// ── SMART GUIDE REDIRECT patterns ──
 const SMART_GUIDE_PATTERNS = [
   /kako\s+(popuniti|ispuniti|riješiti|rjesiti)\s+kindergeld/i,
   /kindergeld\s+(formular|antrag|zahtjev|obrazac)/i,
@@ -76,15 +75,12 @@ const SMART_GUIDE_KEYWORDS = [
 
 function classifyIntent(message: string): Intent {
   const lower = message.toLowerCase().trim();
-  
-  // Check Smart Guide redirect first
   for (const kw of SMART_GUIDE_KEYWORDS) {
     if (lower.includes(kw)) return "SMART_GUIDE_REDIRECT";
   }
   for (const pat of SMART_GUIDE_PATTERNS) {
     if (pat.test(lower)) return "SMART_GUIDE_REDIRECT";
   }
-  
   for (const pat of PREMIUM_PATTERNS) {
     if (pat.test(lower)) return "PREMIUM_REQUIRED";
   }
@@ -100,7 +96,6 @@ async function searchDatabase(query: string): Promise<any[]> {
   const supabaseUrl = Deno.env.get("SUPABASE_URL");
   const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
   if (!supabaseUrl || !supabaseKey) return [];
-
   const supabase = createClient(supabaseUrl, supabaseKey);
 
   const stopWords = new Set(["die", "der", "das", "und", "oder", "für", "fur", "von", "vom", "wie", "was", "ist", "ein", "eine", "den", "dem", "des", "als", "mit", "bei", "nach", "aus", "auf", "the", "and", "for", "gdje", "kako", "sta", "šta", "koji", "koje"]);
@@ -113,25 +108,14 @@ async function searchDatabase(query: string): Promise<any[]> {
   if (terms.length === 0) return [];
 
   try {
-    const { data, error } = await supabase.rpc("search_community_listings", {
-      search_terms: terms,
-    });
-
-    if (error) {
-      console.error("DB search error:", error.message);
-      return [];
-    }
-
+    const { data, error } = await supabase.rpc("search_community_listings", { search_terms: terms });
+    if (error) { console.error("DB search error:", error.message); return []; }
     return (data || []).slice(0, 10);
-  } catch (e) {
-    console.error("DB search exception:", e);
-    return [];
-  }
+  } catch (e) { console.error("DB search exception:", e); return []; }
 }
 
 function formatDbResults(results: any[]): string {
   if (results.length === 0) return "";
-
   const entries = results.map((r) => {
     const parts = [`**${r.name}**`];
     const addr = [r.address, r.postal_code, r.city].filter(Boolean).join(", ");
@@ -144,8 +128,41 @@ function formatDbResults(results: any[]): string {
     if (r.google_maps_url) parts.push(`Maps: ${r.google_maps_url}`);
     return parts.join("\n");
   });
-
   return entries.join("\n\n---\n\n");
+}
+
+// ── SMART GUIDE SLUG MAPPING ──
+
+const TOPIC_GUIDE_MAP: Record<string, string> = {
+  kindergeld: "kindergeld-kg1",
+  kinderzuschlag: "kinderzuschlag",
+  elterngeld: "elterngeld",
+  elternzeit: "elternzeit",
+  mutterschutz: "mutterschutz",
+  mutterschaftsleistungen: "mutterschaftsleistungen",
+  unterhalt: "unterhalt",
+  unterhaltsvorschuss: "unterhaltsvorschuss",
+  "bildung und teilhabe": "bildung-teilhabe",
+  bürgergeld: "buergergeld",
+  wohngeld: "wohngeld",
+  bafög: "bafoeg",
+  bafoeg: "bafoeg",
+  sozialhilfe: "sozialhilfe",
+  krippengeld: "bayerisches-krippengeld",
+  krankengeld: "krankengeld",
+  pflegegrad: "pflegegrad",
+  führungszeugnis: "fuehrungszeugnis",
+  aufenthaltstitel: "aufenthaltstitel-verlaengerung",
+  anmeldung: "anmeldung",
+  wbs: "wbs",
+};
+
+function detectGuideSlug(text: string): string | null {
+  const lower = text.toLowerCase();
+  for (const [keyword, slug] of Object.entries(TOPIC_GUIDE_MAP)) {
+    if (lower.includes(keyword)) return slug;
+  }
+  return null;
 }
 
 // ── SYSTEM PROMPTS ──
@@ -154,158 +171,119 @@ function buildSystemPrompt(isPremium: boolean, language: string, dbResults: any[
   const langName = LANG_NAMES[language] || "Deutsch";
   const langInstruction = `VAŽNO: ODGOVARAJ ISKLJUČIVO na jeziku: ${langName}. Cijeli odgovor mora biti na tom jeziku.`;
 
-  // ── STRICT RESPONSE RULES (applies to ALL modes) ──
+  const structuredFormat = `
+────────────────────────────
+FORMAT ODGOVORA (OBAVEZNO)
+────────────────────────────
+
+Svaki odgovor MORA sadržavati ove sekcije u ovom redoslijedu:
+
+**1. KRATKO OBJAŠNJENJE**
+2-3 rečenice koje objašnjavaju šta je tema i gdje se podnosi zahtjev.
+
+**2. KLJUČNI USLOVI**
+Bullet points sa glavnim zahtjevima:
+• Zahtjev: šta treba podnijeti
+• Dokumenti: koji dokumenti trebaju
+• Prihodi: ako je relevantno
+• Status: npr. Anmeldung, boravišna dozvola
+
+**3. PREPORUČENI REDOSLIJED**
+Numerisani koraci (max 4):
+1. Pripremite dokumente
+2. Provjerite uslove
+3. Podnesite zahtjev
+
+**4. BRZA PROVJERA (ORIJENTACIJA)**
+Čeklista sa ✔ za brzu samoprocjenu:
+✔ Uslov 1
+✔ Uslov 2
+✔ Uslov 3
+Završi sa: "Ako većina odgovora glasi DA, moguće je da imate pravo na ovu pomoć."
+
+**5. NAPOMENA**
+NIKADA ne generiši popunjene formulare, pravne savjete ili dokumente.
+Završi UVIJEK sa: "Informacije služe samo za orijentaciju. BalkanLink ne pruža pravne usluge. Za službene informacije obratite se nadležnoj instituciji."
+`;
+
   const strictRules = `
 ────────────────────────────
-STROGA PRAVILA ODGOVORA
+STROGA PRAVILA
 ────────────────────────────
+1. STRUKTURIRANO prema formatu iznad.
+2. ČINJENIČNO. Samo provjerene informacije.
+3. BEZ opisivanja, marketinga, rangiranja, superlativa.
+4. BEZ generisanja formulara ili pravnih savjeta.
+5. Google ocjene SAMO informativno: "⭐ 4.6 Google Reviews".
+6. Ako korisnik spominje grad, dodaj: "Nadležna institucija: [institucija] grada [grad]"
+7. UVIJEK završi sa disclaimerom.`;
 
-1. KRATKO. Maksimalno 6 linija osim ako korisnik traži detaljno objašnjenje.
-2. ČINJENIČNO. Samo provjerene informacije, adrese, kontakti, koraci.
-3. STRUKTURIRANO. Koristi bullet points ili numeraciju.
-4. BEZ OPISIVANJA. Nikada ne generiši opise, historiju, mišljenja, preporuke.
-5. BEZ MARKETINGA. Nikada ne koristi reklamni jezik, superlative, ili priče.
-6. BEZ RANGIRANJA. Nikada ne koristi "najbolji", "preporučeni", "top".
-7. Google ocjene prikazuj SAMO kao informativan podatak: "⭐ 4.6 Google Reviews".
-8. NIKADA ne rangiraj objekte po ocjeni niti ih preporučuj.
-
-DOZVOLJENO: adrese, kontakti, radno vrijeme, službena objašnjenja, pomoć s formularima.
-ZABRANJENO: preporuke, mišljenja, marketing, storytelling, dugački paragrafi.
-
-UVIJEK dodaj na kraj:
-"Informacije služe samo za orijentaciju. Provjerite kod nadležne institucije ili objekta."`;
-
-  // ── MODE 1: DATABASE ANSWER ──
   if (dbResults.length > 0) {
-    return `Ti si "BalkanLink Zentral-Assistent".
-
+    return `Ti si "BalkanLink Assistant".
 ${langInstruction}
 
-MODE 1 — ODGOVOR IZ BAZE PODATAKA
-
-KRITIČNO: Pronađeni su rezultati u BalkanLink bazi. MORAŠ koristiti SAMO te podatke.
-
-PRAVILA:
-- Prikaži SAMO podatke iz baze, ništa drugo.
-- NE dodaj opise, historiju, pretpostavke, generirane tekstove.
-- NE koristi riječi "najbolji", "preporučeni", "popularan".
-- Google ocjenu prikaži SAMO ako postoji: "⭐ X.X Google Reviews (informativno)"
-- Dodaj: "BalkanLink ne daje preporuke niti ocjenjuje objekte."
+MODE: ODGOVOR IZ BAZE PODATAKA
+Pronađeni su rezultati u BalkanLink bazi. Koristi SAMO te podatke.
+NE dodaj opise, historiju, pretpostavke.
 
 FORMAT:
 **Naziv**
 Adresa: [iz baze]
 Kategorija: [iz baze]
 Kontakt: [web/maps ako postoji]
-⭐ X.X Google Reviews (informativno) — samo ako postoji
-
-Informationen ohne Gewähr – bitte direkt beim Verein prüfen.
+⭐ X.X Google Reviews (informativno)
 
 EVO REZULTATA:
-
 ${formatDbResults(dbResults)}
 
 ${strictRules}`;
   }
 
-  // ── MODE 2 & 3: No DB results ──
   if (!isPremium) {
-    return `Ti si "BalkanLink Zentral-Assistent".
-
+    return `Ti si "BalkanLink Assistant" — digitalni asistent za život i birokratiju u Njemačkoj.
 ${langInstruction}
 
-MODE 2 — OPĆE INFORMACIJE (FREE KORISNIK)
+MODE: OPĆE INFORMACIJE (FREE KORISNIK)
 
-Za ovo pitanje NEMA rezultata u BalkanLink bazi.
-Koristi opće znanje za kratak, činjeničan odgovor.
+${structuredFormat}
 
-PRAVILA ZA FREE KORISNIKE:
-- Odgovaraj na opća informativna pitanja kratko i korisno.
-- Maksimalno 6 linija.
-- Koristi bullet points.
-- Bez opisivanja, bez marketinga, bez dugačkih paragrafa.
-
-ŠTO NIJE DOZVOLJENO (samo PREMIUM):
-- Popunjavanje formulara polje-po-polje
-- Analiza konkretnih dokumenata korisnika
-- Objašnjavanje pisama od institucija
-- Personalizirana migracijska pomoć
-
-Ako korisnik traži Premium funkciju, kratko objasni da je to dio BalkanLink Premium.
-
-IDENTITET: Nisi pravnik. Daješ isključivo opće, neobavezujuće informacije.
+DODATNA PRAVILA ZA FREE KORISNIKE:
+- Detaljno polje-po-polje popunjavanje formulara je dio BalkanLink Premium Smart Guide.
+- Ako korisnik traži popunjavanje formulara, objasni da je to Premium funkcija.
+- Završi sa: "Detaljno polje-po-polje popunjavanje formulara dostupno je u BalkanLink Premium Smart Guide vodiču."
 
 ${strictRules}`;
   }
 
-  return `Ti si "BalkanLink Zentral-Assistent".
-
+  return `Ti si "BalkanLink Assistant" — digitalni asistent za život i birokratiju u Njemačkoj.
 ${langInstruction}
 
-MODE 3 — PREMIUM KORISNIK
+MODE: PREMIUM KORISNIK
 
-Za ovo pitanje NEMA rezultata u BalkanLink bazi.
-Koristi opće znanje i pruži kompletnu pomoć.
+${structuredFormat}
 
-POKRIVAŠ:
-1) Administracija u Njemačkoj (formulari, prijave, socijalna davanja)
-2) Zajednica i društveni život
-
-ZA ADMINISTRACIJU — struktura:
-A) Kratka dijagnoza (2 reda)
-B) Koraci (numerisano)
-C) Formular-Coach (polje-po-polje) — samo ako korisnik pita
-D) Potrebni dokumenti (čeklista)
-
-IDENTITET: Nisi pravnik. Daješ opće, neobavezujuće informacije.
+PREMIUM MOGUĆNOSTI:
+- Formular-Coach (polje-po-polje) — samo ako korisnik pita
+- Analiza dokumenata
+- Personalizirana pomoć
 
 ZABRANJENE FORMULACIJE: "Imate pravo", "Garantovano", "100%"
 DOZVOLJENE: "U pravilu", "Tipično", "Provjerite kod nadležne institucije"
-
-LINK-PRAVILA: Max 2 eksterna linka. Samo stabilne službene stranice.
-ZABRANJENO: NE upućuj na interne vodiče ili stranice platforme.
 
 ${strictRules}`;
 }
 
 // ── Premium gate messages ──
 const PREMIUM_GATE_MESSAGES: Record<string, { teaser: string; cta: string }> = {
-  bs: {
-    teaser: "Ova funkcija zahtijeva BalkanLink Premium: popunjavanje formulara, analiza dokumenata i personalizirana pomoć.",
-    cta: "Ako imate opće pitanje, slobodno ga postavite – odgovorićemo besplatno!",
-  },
-  hr: {
-    teaser: "Ova funkcija zahtijeva BalkanLink Premium: popunjavanje formulara, analiza dokumenata i personalizirana pomoć.",
-    cta: "Ako imate opće pitanje, slobodno ga postavite – odgovorit ćemo besplatno!",
-  },
-  sr: {
-    teaser: "Ova funkcija zahteva BalkanLink Premium: popunjavanje formulara, analiza dokumenata i personalizovana pomoć.",
-    cta: "Ako imate opšte pitanje, slobodno ga postavite – odgovorićemo besplatno!",
-  },
-  me: {
-    teaser: "Ova funkcija zahtijeva BalkanLink Premium: popunjavanje formulara, analiza dokumenata i personalizirana pomoć.",
-    cta: "Ako imate opće pitanje, slobodno ga postavite – odgovorićemo besplatno!",
-  },
-  de: {
-    teaser: "Diese Funktion erfordert BalkanLink Premium: Formularhilfe, Dokumentenanalyse und persönliche Beratung.",
-    cta: "Stellen Sie gerne eine allgemeine Frage – wir antworten kostenlos!",
-  },
-  en: {
-    teaser: "This feature requires BalkanLink Premium: form filling, document analysis and personalized assistance.",
-    cta: "Feel free to ask a general question – we'll answer for free!",
-  },
-  sq: {
-    teaser: "Kjo veçori kërkon BalkanLink Premium: plotësimin e formularëve, analizën e dokumenteve dhe ndihmë të personalizuar.",
-    cta: "Bëni lirisht një pyetje të përgjithshme – do t'ju përgjigjemi falas!",
-  },
-  xk: {
-    teaser: "Kjo veçori kërkon BalkanLink Premium: plotësimin e formularëve, analizën e dokumenteve dhe ndihmë të personalizuar.",
-    cta: "Bëni lirisht një pyetje të përgjithshme – do t'ju përgjigjemi falas!",
-  },
-  mk: {
-    teaser: "Оваа функција бара BalkanLink Premium: пополнување формулари, анализа на документи и персонализирана помош.",
-    cta: "Слободно поставете општо прашање – ќе одговориме бесплатно!",
-  },
+  bs: { teaser: "Ova funkcija zahtijeva BalkanLink Premium: popunjavanje formulara, analiza dokumenata i personalizirana pomoć.", cta: "Ako imate opće pitanje, slobodno ga postavite – odgovorićemo besplatno!" },
+  hr: { teaser: "Ova funkcija zahtijeva BalkanLink Premium: popunjavanje formulara, analiza dokumenata i personalizirana pomoć.", cta: "Ako imate opće pitanje, slobodno ga postavite – odgovorit ćemo besplatno!" },
+  sr: { teaser: "Ova funkcija zahteva BalkanLink Premium: popunjavanje formulara, analiza dokumenata i personalizovana pomoć.", cta: "Ako imate opšte pitanje, slobodno ga postavite – odgovorićemo besplatno!" },
+  me: { teaser: "Ova funkcija zahtijeva BalkanLink Premium: popunjavanje formulara, analiza dokumenata i personalizirana pomoć.", cta: "Ako imate opće pitanje, slobodno ga postavite – odgovorićemo besplatno!" },
+  de: { teaser: "Diese Funktion erfordert BalkanLink Premium: Formularhilfe, Dokumentenanalyse und persönliche Beratung.", cta: "Stellen Sie gerne eine allgemeine Frage – wir antworten kostenlos!" },
+  en: { teaser: "This feature requires BalkanLink Premium: form filling, document analysis and personalized assistance.", cta: "Feel free to ask a general question – we'll answer for free!" },
+  sq: { teaser: "Kjo veçori kërkon BalkanLink Premium: plotësimin e formularëve, analizën e dokumenteve dhe ndihmë të personalizuar.", cta: "Bëni lirisht një pyetje të përgjithshme – do t'ju përgjigjemi falas!" },
+  xk: { teaser: "Kjo veçori kërkon BalkanLink Premium: plotësimin e formularëve, analizën e dokumenteve dhe ndihmë të personalizuar.", cta: "Bëni lirisht një pyetje të përgjithshme – do t'ju përgjigjemi falas!" },
+  mk: { teaser: "Оваа функција бара BalkanLink Premium: пополнување формулари, анализа на документи и персонализирана помош.", cta: "Слободно поставете општо прашање – ќе одговориме бесплатно!" },
 };
 
 const SMART_GUIDE_MESSAGES: Record<string, { text: string; link: string; label: string }> = {
@@ -334,14 +312,16 @@ serve(async (req) => {
     const userText = lastUserMsg?.content || "";
 
     const intent = classifyIntent(userText);
+    const guideSlug = detectGuideSlug(userText);
 
-    // Smart Guide redirect — don't explain step-by-step, just link
+    // Smart Guide redirect
     if (intent === "SMART_GUIDE_REDIRECT") {
       const lang = language || "bs";
       const sg = SMART_GUIDE_MESSAGES[lang] || SMART_GUIDE_MESSAGES["bs"];
-      const markdown = `${sg.text}\n\n👉 [${sg.label}](${sg.link})`;
+      const link = guideSlug ? `/formulari/${guideSlug}` : sg.link;
+      const markdown = `${sg.text}\n\n👉 [${sg.label}](${link})`;
       return new Response(
-        JSON.stringify({ smart_guide_redirect: true, content: markdown }),
+        JSON.stringify({ smart_guide_redirect: true, content: markdown, guideSlug: guideSlug || "kindergeld-kg1" }),
         { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
@@ -400,9 +380,16 @@ serve(async (req) => {
       );
     }
 
-    return new Response(response.body, {
-      headers: { ...corsHeaders, "Content-Type": "text/event-stream" },
-    });
+    // Return the guide slug alongside the stream for CTA rendering
+    const extraHeaders: Record<string, string> = {
+      ...corsHeaders,
+      "Content-Type": "text/event-stream",
+    };
+    if (guideSlug) {
+      extraHeaders["X-Guide-Slug"] = guideSlug;
+    }
+
+    return new Response(response.body, { headers: extraHeaders });
   } catch (e) {
     console.error("chat error:", e);
     return new Response(
