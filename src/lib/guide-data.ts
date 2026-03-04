@@ -604,8 +604,16 @@ export const guides: Guide[] = [
       bs: "Porodice koje primaju Bürgergeld, Wohngeld, Kinderzuschlag ili pomoć za azilante.",
       en: "Families receiving Bürgergeld, housing benefit, child supplement, or asylum benefits.",
     },
-    authority: { de: "Jobcenter oder Kommune (je nach Grundleistung)", bs: "Jobcenter ili općina (zavisno od osnovne naknade)", en: "Jobcenter or municipality (depending on base benefit)" },
-    formName: { de: "Antrag auf Leistungen für Bildung und Teilhabe", bs: "Zahtjev za obrazovne i participativne usluge", en: "Application for Education and Participation Benefits" },
+    authority: {
+      de: "Dezentral organisiert – zuständig ist je nach Grundleistung: Jobcenter (bei Bürgergeld), Kommune/Kreisverwaltung/Sozialamt (bei Wohngeld oder Kinderzuschlag) oder Sozialamt (bei Asylbewerberleistungen). Die zuständige Anlaufstelle für Ihr Bundesland finden Sie über den BMAS-Anlaufstellen-Finder: bmas.de → Bildungspaket → Anlaufstellen.",
+      bs: "Decentralno organizovano – nadležna služba zavisi od osnovne naknade: Jobcenter (za Bürgergeld), općina/okrug/Sozialamt (za Wohngeld ili Kinderzuschlag) ili Sozialamt (za primaoce pomoći za azilante). Nadležnu službu za vašu saveznu zemlju možete pronaći na BMAS stranici: bmas.de → Bildungspaket → Anlaufstellen.",
+      en: "Decentrally organized – the responsible office depends on the base benefit: Jobcenter (for Bürgergeld), municipality/county/social welfare office (for Wohngeld or Kinderzuschlag), or social welfare office (for asylum seeker benefits). Find your local office via the BMAS Anlaufstellen-Finder: bmas.de → Bildungspaket → Anlaufstellen.",
+    },
+    formName: {
+      de: "Antrag auf Leistungen für Bildung und Teilhabe – kein einheitliches Bundesformular, variiert je nach Kommune/Bundesland. Formulare und Online-Anträge finden Sie über die BMAS-Anlaufstellen-Seite (bmas.de/bildungspaket → Anlaufstellen → Bundesland wählen). Beim Jobcenter wird der Schulbedarf teilweise automatisch mit dem Bürgergeld-Bescheid bewilligt.",
+      bs: "Zahtjev za obrazovanje i učešće (BuT) – ne postoji jedinstven federalni formular, razlikuje se po općini/saveznoj zemlji. Formulare i online zahtjeve možete pronaći na BMAS stranici (bmas.de/bildungspaket → Anlaufstellen → izaberite saveznu zemlju). Kod Jobcentera se školski materijal ponekad automatski odobrava uz Bürgergeld rješenje.",
+      en: "Application for Education and Participation Benefits – no single federal form, varies by municipality/state. Find forms and online applications via the BMAS Anlaufstellen page (bmas.de/bildungspaket → Anlaufstellen → select state). At the Jobcenter, school supplies may be approved automatically with the Bürgergeld decision.",
+    },
     steps: {
       de: [
         { field: "Leistungsart ankreuzen", instruction: "Gewünschte Leistung ankreuzen: Schulbedarf (195 € pro Jahr), Lernförderung/Nachhilfe, Mittagessen in Schule/Kita, Schülerbeförderung, Klassenfahrten/Ausflüge, Sport-/Kultur-/Freizeitaktivitäten (15 €/Monat)." },
