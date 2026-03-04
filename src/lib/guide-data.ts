@@ -364,7 +364,7 @@ export const guides: Guide[] = [
       en: "Parents caring for their child after birth, working max. 32h/week, residing in Germany. Income cap: €175,000 (couples) / €150,000 (single parents) for births from 01.04.2024.",
     },
     authority: { de: "Elterngeldstelle des jeweiligen Bundeslandes", bs: "Služba za roditeljski dodatak savezne države (Elterngeldstelle)", en: "Parental Allowance Office of the respective federal state" },
-    formName: { de: "Antrag auf Elterngeld (landesspezifisch)", bs: "Zahtjev za roditeljski dodatak (zavisi od savezne države)", en: "Application for Parental Allowance (state-specific)" },
+    formName: { de: "Antrag auf Elterngeld (landesspezifisch) – Zuständige Dienststelle über Behördenfinder ermitteln (Thema: Familienleistungen → Elterngeld → PLZ + Geburtsdatum des Kindes eingeben)", bs: "Zahtjev za roditeljski dodatak (zavisi od savezne države) – Prije podnošenja zahtjeva potrebno je pronaći nadležnu službu (zuständige Dienststelle) putem online-pretraživača na ifsg.bayern.de: izaberi temu 'Familienleistungen', zatim 'Elterngeld', unesi poštanski broj (PLZ) i datum rođenja djeteta → sistem ti pokazuje tačnu službu kojoj se obraćaš", en: "Application for Parental Allowance (state-specific) – Find your responsible office via the authority finder (Topic: Family Benefits → Elterngeld → enter postal code + child's date of birth)" },
     steps: {
       de: [
         { field: "Angaben zum Antragsteller", instruction: "Persönliche Daten: Name, Geburtsdatum, Steuer-ID, Anschrift, Staatsangehörigkeit, Familienstand, Steuerklasse eintragen." },
