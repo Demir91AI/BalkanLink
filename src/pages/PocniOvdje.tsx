@@ -14,7 +14,7 @@ const T: Record<string, Record<string, string>> = {
     sozial: "Sozialversicherung", sozialDesc: "5 stubova socijalnog osiguranja za sve zaposlene.",
     gez: "Rundfunkbeitrag (GEZ)", gezDesc: "TV/radio taksa — 18,36 € mjesečno po domaćinstvu.",
     fuehrerschein: "Vozačka dozvola", fuehrerscheinDesc: "Zamjena ili priznavanje — rok 6 mjeseci.",
-    auto: "Auto anmelden", autoDesc: "Registracija vozila u Njemačkoj.",
+    auto: "Prijava vozila (Kfz, Lkw...)", autoDesc: "Registracija motornih vozila u Njemačkoj.",
     schritte: "Prvi koraci", schritteDesc: "Kompletna lista za prve sedmice.",
   },
   de: {
@@ -28,7 +28,7 @@ const T: Record<string, Record<string, string>> = {
     sozial: "Sozialversicherung", sozialDesc: "5 Säulen der Sozialversicherung für alle Beschäftigten.",
     gez: "Rundfunkbeitrag (GEZ)", gezDesc: "TV-/Radioabgabe — 18,36 € monatlich pro Haushalt.",
     fuehrerschein: "Führerschein", fuehrerscheinDesc: "Umschreibung oder Anerkennung — Frist 6 Monate.",
-    auto: "Auto anmelden", autoDesc: "Fahrzeugzulassung in Deutschland.",
+    auto: "Fahrzeugzulassung (Kfz, Lkw...)", autoDesc: "Registrierung von Kraftfahrzeugen in Deutschland.",
     schritte: "Erste Schritte", schritteDesc: "Die vollständige Checkliste für die ersten Wochen.",
   },
   en: {
@@ -42,7 +42,7 @@ const T: Record<string, Record<string, string>> = {
     sozial: "Social Insurance", sozialDesc: "5 pillars of social insurance for all employees.",
     gez: "Broadcasting Fee (GEZ)", gezDesc: "TV/radio fee — €18.36/month per household.",
     fuehrerschein: "Driver's License", fuehrerscheinDesc: "Conversion or recognition — 6 month deadline.",
-    auto: "Register a Car", autoDesc: "Vehicle registration in Germany.",
+    auto: "Vehicle Registration (Kfz, Lkw...)", autoDesc: "Register motor vehicles in Germany.",
     schritte: "First Steps", schritteDesc: "The complete checklist for the first weeks.",
   },
   sq: {
@@ -56,7 +56,7 @@ const T: Record<string, Record<string, string>> = {
     sozial: "Sigurimet shoqërore", sozialDesc: "5 shtyllat e sigurimeve shoqërore.",
     gez: "Taksa e transmetimit (GEZ)", gezDesc: "18,36 € në muaj për çdo familje.",
     fuehrerschein: "Patenta e shoferit", fuehrerscheinDesc: "Konvertimi ose njohja — afati 6 muaj.",
-    auto: "Regjistrimi i makinës", autoDesc: "Regjistrimi i automjetit në Gjermani.",
+    auto: "Regjistrimi i mjetit (Kfz, Lkw...)", autoDesc: "Regjistrimi i mjeteve motorike në Gjermani.",
     schritte: "Hapat e parë", schritteDesc: "Lista e plotë për javët e para.",
   },
   mk: {
@@ -70,7 +70,7 @@ const T: Record<string, Record<string, string>> = {
     sozial: "Социјално осигурување", sozialDesc: "5 столба на социјалното осигурување.",
     gez: "Радиодифузна такса (GEZ)", gezDesc: "18,36 € месечно по домаќинство.",
     fuehrerschein: "Возачка дозвола", fuehrerscheinDesc: "Замена или признавање — рок 6 месеци.",
-    auto: "Регистрација на возило", autoDesc: "Регистрација на автомобил во Германија.",
+    auto: "Регистрација на возило (Kfz, Lkw...)", autoDesc: "Регистрација на моторни возила во Германија.",
     schritte: "Први чекори", schritteDesc: "Комплетна листа за првите недели.",
   },
 };
