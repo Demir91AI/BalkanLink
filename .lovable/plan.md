@@ -1,26 +1,30 @@
 
 
-# Plan: Update Elterngeld formName to Federal Level (Bundesebene)
+## Pomoć u Njemačkoj -- Grid Layout
 
-## Problem
-The current `formName` text references Bavaria-specific resources (`ifsg.bayern.de`) for finding the responsible office and online submission. This should be updated to use federal-level resources from `familienportal.de`.
+Currently the 10 items in "Pomoć u Njemačkoj" are displayed as a single-column vertical list, making the section very long. The plan is to switch them to a compact tile/grid layout (similar to the existing Lifestyle section) so items sit side by side in rows.
 
-## Changes
+### Changes
 
-### File: `src/lib/guide-data.ts` (lines 367-371)
+**File: `src/pages/Index.tsx`**
 
-Replace the `formName` object for `elterngeld` in all 3 languages. Key corrections based on the official familienportal.de FAQ:
+1. **Replace `SectionItem` rendering for `pomocItems`** -- instead of the current single-column list (`grid gap-0.5`), use a responsive grid: `grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4`
 
-**What changes:**
-- **Behördenfinder**: Replace `ifsg.bayern.de` with the federal "Beratung vor Ort" search at `familienportal.de/dynamic/action/familienportal/125008/suche`
-- **Formulare finden**: Link to federal forms page at `familienportal.de/familienportal/rechner-antraege/antragsformulare-126232`
-- **Online-Antrag**: Replace `ifsg.bayern.de` with `ElterngeldDigital` service available in all states, linked at `familienportal.de/familienportal/rechner-antraege/elterngelddigital-127692`
-- **Keep**: All other info (postal submission, registration benefits, 3-month retroactive rule, one application per parent, co-signing requirement) remains
+2. **Change tile style** -- each item becomes a compact card (like the Lifestyle tiles) with icon on top and label below, centered:
+   - Rounded border container with hover effect
+   - Icon in a circle/rounded-square at top center
+   - Label text below, `text-xs font-medium`, centered, max 2 lines
 
-**Updated text structure (bs example):**
-> Zahtjev za roditeljski dodatak (zavisi od savezne države) – Nadležnu Elterngeldstelle pronaći putem pretrage „Beratung vor Ort" na familienportal.de. Formulare savezne države preuzeti na familienportal.de (Antragsformulare). Formulari dostupni i na: Elterngeldstelle, općinskim upravama, zdravstvenim kasama, bolnicama sa porodilištem. VAŽNO: Zahtjev moguć tek NAKON porođaja, retroaktivno max. 3 mjeseca. Jedan zahtjev po roditelju po djetetu (i kod blizanaca). Drugi roditelj mora supotpisati. Podnošenje: poštom na adresu nadležne službe ILI digitalno putem servisa ElterngeldDigital (dostupan u svim saveznim državama). Online sa registracijom: brža obrada, manje pitanja, pametno vođenje, checklista, upload dokumenata, popunjavanje 6 mj. prije porođaja, čuvanje/nastavak, print-servis, uvid u status i isplate, online prijava promjena, elektronski potpis. Online bez registracije: brža obrada, pametno vođenje, checklista, print-servis, pomoćne funkcije.
+3. This matches the existing Lifestyle section pattern already in the codebase, keeping the design consistent.
 
-Equivalent updates for DE and EN languages.
+### Result
+- 10 items will display as 2 columns on mobile, 3 on small tablets, reducing vertical height from ~10 rows to ~3-4 rows
+- Consistent with the Lifestyle grid already on the page
+- No new components or dependencies needed
 
-No other files affected.
+### Technical Details
+
+- Modify lines 142-144 in `Index.tsx`: change the grid wrapper from `grid gap-0.5` to `grid grid-cols-2 gap-2 sm:grid-cols-3`
+- Render `pomocItems` using the same tile markup pattern as `lifestyleItems` (lines 189-199) instead of using `SectionItem`
+- The `SectionItem` component can remain for any other usage or be removed if unused
 
