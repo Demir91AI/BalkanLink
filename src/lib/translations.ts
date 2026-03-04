@@ -173,7 +173,7 @@ type TranslationKeys = {
   "tools.officialTitle": string; "tools.officialDesc": string; "tools.openOfficial": string;
   "tools.disclaimer": string;
   "tools.kindergeld": string; "tools.kindergeld.desc": string;
-  "tools.wohngeld": string; "tools.wohngeld.desc": string;
+  "tools.kinderzuschlag": string; "tools.kinderzuschlag.desc": string;
   "tools.buergergeld": string; "tools.buergergeld.desc": string;
   "tools.elterngeld": string; "tools.elterngeld.desc": string;
   "tools.rente": string; "tools.rente.desc": string;
@@ -534,8 +534,8 @@ const newKeysBs: Partial<TranslationKeys> = {
   "tools.disclaimer": "Sve kalkulacije su neobavezujuće. BalkanLink ne preuzima odgovornost za tačnost podataka.",
   "tools.kindergeld": "Kindergeld-Rechner",
   "tools.kindergeld.desc": "Izračunaj visinu dječijeg dodatka.",
-  "tools.wohngeld": "Wohngeld-Rechner",
-  "tools.wohngeld.desc": "Provjeri pravo na stambeni dodatak.",
+  "tools.kinderzuschlag": "KiZ-Lotse",
+  "tools.kinderzuschlag.desc": "Provjeri pravo na Kinderzuschlag.",
   "tools.buergergeld": "Bürgergeld-Rechner",
   "tools.buergergeld.desc": "Izračunaj visinu Bürgergeld-a.",
   "tools.elterngeld": "Elterngeld-Rechner",
@@ -617,8 +617,8 @@ const newKeysHr: Partial<TranslationKeys> = {
   "tools.disclaimer": "Sve kalkulacije su neobvezujuće. BalkanLink ne preuzima odgovornost za točnost podataka.",
   "tools.kindergeld": "Kindergeld-Rechner",
   "tools.kindergeld.desc": "Izračunaj visinu dječjeg dodatka.",
-  "tools.wohngeld": "Wohngeld-Rechner",
-  "tools.wohngeld.desc": "Provjeri pravo na stambeni dodatak.",
+  "tools.kinderzuschlag": "KiZ-Lotse",
+  "tools.kinderzuschlag.desc": "Provjeri pravo na Kinderzuschlag.",
   "tools.buergergeld": "Bürgergeld-Rechner",
   "tools.buergergeld.desc": "Izračunaj visinu Bürgergeld-a.",
   "tools.elterngeld": "Elterngeld-Rechner",
@@ -708,8 +708,8 @@ const newKeysDe: Partial<TranslationKeys> = {
   "tools.disclaimer": "Alle Berechnungen sind unverbindlich. BalkanLink übernimmt keine Haftung für die Richtigkeit.",
   "tools.kindergeld": "Kindergeld-Rechner",
   "tools.kindergeld.desc": "Berechne die Höhe des Kindergeldes.",
-  "tools.wohngeld": "Wohngeld-Rechner",
-  "tools.wohngeld.desc": "Prüfe deinen Anspruch auf Wohngeld.",
+  "tools.kinderzuschlag": "KiZ-Lotse",
+  "tools.kinderzuschlag.desc": "Prüfe deinen Anspruch auf Kinderzuschlag.",
   "tools.buergergeld": "Bürgergeld-Rechner",
   "tools.buergergeld.desc": "Berechne die Höhe des Bürgergeldes.",
   "tools.elterngeld": "Elterngeld-Rechner",
@@ -791,8 +791,8 @@ const newKeysEn: Partial<TranslationKeys> = {
   "tools.disclaimer": "All calculations are non-binding. BalkanLink assumes no liability for accuracy.",
   "tools.kindergeld": "Child Benefit Calculator",
   "tools.kindergeld.desc": "Calculate child benefit amounts.",
-  "tools.wohngeld": "Housing Benefit Calculator",
-  "tools.wohngeld.desc": "Check your housing benefit eligibility.",
+  "tools.kinderzuschlag": "KiZ-Lotse",
+  "tools.kinderzuschlag.desc": "Check your eligibility for Kinderzuschlag.",
   "tools.buergergeld": "Bürgergeld Calculator",
   "tools.buergergeld.desc": "Calculate Bürgergeld amounts.",
   "tools.elterngeld": "Parental Allowance Calculator",
