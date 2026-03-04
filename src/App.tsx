@@ -89,6 +89,7 @@ const App = () => (
                 <Route path="/familie" element={<Familie />} />
                 <Route path="/foerderungen" element={<Foerderungen />} />
                 <Route path="/tools" element={<Generatoren />} />
+                <Route path="/brutto-netto-rechner" element={<BruttoNettoRechner />} />
                 <Route path="/wohnungen" element={<Wohnungen />} />
                 <Route path="/stellenangebote" element={<Stellenangebote />} />
                 <Route path="/premium" element={<Premium />} />
