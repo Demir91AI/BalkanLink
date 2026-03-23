@@ -1132,6 +1132,12 @@ const homeEn: Partial<TranslationKeys> = {
   "home.item.zdravstvo": "Health & Insurance", "home.item.banka": "Bank & Account",
   "home.item.auto": "Car & Registration", "home.item.foerderungen": "Subsidies & State Aid",
   "home.item.dokumentenCheck": "Document Check",
+  "home.hero.ctaButton": "Find forms",
+  "home.formulare.title": "Forms — Filling Guide", "home.formulare.subtitle": "Step-by-step instructions for the most important German forms.",
+  "home.tools.title": "Tools & Calculators", "home.tools.subtitle": "Useful tools for everyday life.",
+  "home.cat.familie": "Family & Children", "home.cat.finanzen": "Finance & Taxes", "home.cat.wohnen": "Housing",
+  "home.cat.arbeit": "Work", "home.cat.dokumente": "Documents", "home.cat.fahrzeuge": "Vehicles",
+  "home.cat.gesundheit": "Health",
 };
 
 const premiumDe: Partial<TranslationKeys> = {
