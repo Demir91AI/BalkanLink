@@ -1088,6 +1088,12 @@ const homeBs: Partial<TranslationKeys> = {
   "home.item.zdravstvo": "Zdravstvo & Osiguranje", "home.item.banka": "Banka & Konto",
   "home.item.auto": "Auto & Registracija", "home.item.foerderungen": "Förderungen & Pomoć države",
   "home.item.dokumentenCheck": "Dokumenten-Check",
+  "home.hero.ctaButton": "Pronađi formulare",
+  "home.formulare.title": "Formulari — Pomoć pri popunjavanju", "home.formulare.subtitle": "Korak-po-korak vodič za najvažnije njemačke formulare.",
+  "home.tools.title": "Alati & Kalkulatori", "home.tools.subtitle": "Korisni alati za svakodnevicu.",
+  "home.cat.familie": "Porodica i djeca", "home.cat.finanzen": "Finansije i porezi", "home.cat.wohnen": "Stanovanje",
+  "home.cat.arbeit": "Posao", "home.cat.dokumente": "Dokumenti", "home.cat.fahrzeuge": "Vozila",
+  "home.cat.gesundheit": "Zdravstvo",
 };
 
 const homeEn: Partial<TranslationKeys> = {
