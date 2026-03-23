@@ -4,9 +4,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   FileText, Briefcase, Building2, HeartPulse, ScanSearch,
   ClipboardList, Wallet,
-  ArrowRight, Car, Banknote, Calculator,
+  ArrowRight, Car, Banknote, Calculator, Users, Receipt,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Button } from "@/components/ui/button";
 
 import heroBerlin from "@/assets/hero-berlin.jpg";
 import heroMuenchen from "@/assets/hero-muenchen.jpg";
@@ -17,17 +18,24 @@ import heroStuttgart from "@/assets/hero-stuttgart.jpg";
 import heroDuesseldorf from "@/assets/hero-duesseldorf.jpg";
 import heroNuernberg from "@/assets/hero-nuernberg.jpg";
 
-const pomocItems = [
-  { labelKey: "home.item.posao", icon: Briefcase, to: "/stellenangebote" },
-  { labelKey: "home.item.stan", icon: Building2, to: "/wohnungen" },
-  { labelKey: "home.item.formulari", icon: FileText, to: "/formulari" },
+/* ── Formulare categories (dominant section) ── */
+const formulareCategories = [
+  { labelKey: "home.cat.familie", icon: Users, to: "/familie" },
+  { labelKey: "home.cat.finanzen", icon: Receipt, to: "/foerderungen" },
+  { labelKey: "home.cat.wohnen", icon: Building2, to: "/formulari" },
+  { labelKey: "home.cat.arbeit", icon: Briefcase, to: "/stellenangebote" },
+  { labelKey: "home.cat.dokumente", icon: FileText, to: "/formulari" },
+  { labelKey: "home.cat.fahrzeuge", icon: Car, to: "/dolazak/auto-anmelden" },
+  { labelKey: "home.cat.gesundheit", icon: HeartPulse, to: "/dolazak/zdravstveno-osiguranje" },
+];
+
+/* ── Smaller tools section ── */
+const toolItems = [
   { labelKey: "home.item.rechner", icon: Calculator, to: "/tools" },
-  { labelKey: "home.item.prijava", icon: ClipboardList, to: "/dolazak/prijava-prebivalista" },
-  { labelKey: "home.item.zdravstvo", icon: HeartPulse, to: "/dolazak/zdravstveno-osiguranje" },
-  { labelKey: "home.item.banka", icon: Wallet, to: "/dolazak/bankovni-racun" },
-  { labelKey: "home.item.auto", icon: Car, to: "/dolazak/auto-anmelden" },
-  { labelKey: "home.item.foerderungen", icon: Banknote, to: "/foerderungen" },
   { labelKey: "home.item.dokumentenCheck", icon: ScanSearch, to: "/dokumenten-check" },
+  { labelKey: "home.item.prijava", icon: ClipboardList, to: "/dolazak/prijava-prebivalista" },
+  { labelKey: "home.item.banka", icon: Wallet, to: "/dolazak/bankovni-racun" },
+  { labelKey: "home.item.foerderungen", icon: Banknote, to: "/foerderungen" },
 ];
 
 export default function Index() {
@@ -81,6 +89,12 @@ export default function Index() {
               <span className="text-gold">{t("home.hero.highlight")}</span>
             </h1>
             <p className="mx-auto mt-2 max-w-sm text-sm text-white/40">{t("home.hero.subtitle")}</p>
+            <Button asChild size="lg" className="mt-5 rounded-xl bg-gold text-primary-foreground hover:bg-gold/90 font-bold shadow-lg">
+              <Link to="/formulari">
+                <FileText className="mr-2 h-4 w-4" />
+                {t("home.hero.ctaButton")}
+              </Link>
+            </Button>
           </motion.div>
           <div className="absolute bottom-5 flex gap-1.5">
             {slides.map((_, idx) => (
@@ -92,16 +106,46 @@ export default function Index() {
         </div>
       </section>
 
-      <div className="container max-w-4xl space-y-6 py-10 sm:py-14">
-        {/* ─── POMOĆ U NJEMAČKOJ ─── */}
+      <div className="container max-w-4xl space-y-8 py-10 sm:py-14">
+        {/* ─── FORMULARE — DOMINANT SECTION ─── */}
         <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }}>
+          <div className="rounded-2xl border-2 border-gold/30 bg-card p-6 sm:p-8 shadow-md">
+            <div className="mb-2">
+              <h2 className="font-heading text-xl font-extrabold uppercase tracking-wide sm:text-2xl">
+                {t("home.formulare.title")}
+              </h2>
+              <p className="text-sm text-muted-foreground">{t("home.formulare.subtitle")}</p>
+            </div>
+            <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+              {formulareCategories.map((item) => (
+                <Link key={item.labelKey} to={item.to}
+                  className="group flex flex-col items-center gap-3 rounded-xl border border-border/40 bg-background p-5 text-center transition-all hover:border-gold/40 hover:shadow-md hover:-translate-y-0.5">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10 text-gold transition-colors group-hover:bg-gold/20">
+                    <item.icon className="h-5 w-5" strokeWidth={1.6} />
+                  </div>
+                  <span className="text-sm font-semibold leading-tight">{t(item.labelKey)}</span>
+                </Link>
+              ))}
+            </div>
+            <div className="mt-6 flex justify-center">
+              <Button asChild variant="outline" className="rounded-xl">
+                <Link to="/formulari" className="inline-flex items-center gap-2">
+                  {t("home.item.formulari")} <ArrowRight className="h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* ─── TOOLS & RECHNER — SMALLER SECTION ─── */}
+        <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.1 }}>
           <div className="rounded-2xl border border-border/60 bg-card p-5 sm:p-7 shadow-sm">
             <div className="mb-1">
-              <h2 className="font-heading text-lg font-extrabold uppercase tracking-wide sm:text-xl">{t("home.section.title")}</h2>
-              <p className="text-xs text-muted-foreground">{t("home.section.subtitle")}</p>
+              <h2 className="font-heading text-base font-bold uppercase tracking-wide sm:text-lg">{t("home.tools.title")}</h2>
+              <p className="text-xs text-muted-foreground">{t("home.tools.subtitle")}</p>
             </div>
-            <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3">
-              {pomocItems.map((item) => (
+            <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
+              {toolItems.map((item) => (
                 <Link key={item.labelKey} to={item.to}
                   className="group flex flex-col items-center gap-2 rounded-xl border border-border/40 bg-background p-4 text-center transition-all hover:border-border hover:shadow-sm">
                   <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/8 text-primary transition-colors group-hover:bg-primary/14">
