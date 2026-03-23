@@ -50,6 +50,7 @@ import DokumentenCheck from "./pages/DokumentenCheck";
 import AdminForms from "./pages/AdminForms";
 import AdminFormMapper from "./pages/AdminFormMapper";
 import BruttoNettoRechner from "./pages/BruttoNettoRechner";
+import NudimTrazim from "./pages/NudimTrazim";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -113,6 +114,7 @@ const App = () => (
                 <Route path="/haftungsausschluss" element={<Disclaimer />} />
                 <Route path="/ki-hinweis" element={<KiHinweis />} />
                 <Route path="/mitgliedschaft" element={<Mitgliedschaft />} />
+                <Route path="/nudim-trazim" element={<NudimTrazim />} />
               </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>
