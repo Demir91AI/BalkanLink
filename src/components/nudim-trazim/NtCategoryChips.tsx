@@ -1,12 +1,12 @@
 import {
-  Briefcase, Home, Wrench, Car, HandHelping,
-  ShoppingBag, Baby, FileText, MoreHorizontal,
+  Briefcase, Home, Wrench, Car,
+  ShoppingBag, Baby, MoreHorizontal,
 } from "lucide-react";
 import { NT_CATEGORIES } from "@/lib/nudim-trazim-constants";
 
 const ICONS: Record<string, React.ElementType> = {
-  Briefcase, Home, Wrench, Car, HandHelping,
-  ShoppingBag, Baby, FileText, MoreHorizontal,
+  Briefcase, Home, Wrench, Car,
+  ShoppingBag, Baby, MoreHorizontal,
 };
 
 interface Props {
