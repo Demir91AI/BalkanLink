@@ -1110,6 +1110,14 @@ const homeBs: Partial<TranslationKeys> = {
   "home.cat.familie": "Porodica i djeca", "home.cat.finanzen": "Finansije i porezi", "home.cat.wohnen": "Stanovanje",
   "home.cat.arbeit": "Posao", "home.cat.dokumente": "Dokumenti", "home.cat.fahrzeuge": "Vozila",
   "home.cat.gesundheit": "Zdravstvo",
+  "home.search.placeholder": "Pretraži (npr. Kindergeld, Wohngeld, Anmeldung...)",
+  "home.schnellzugriff.title": "Brzi pristup", "home.schnellzugriff.subtitle": "Direktni linkovi na najvažnije oblasti.",
+  "home.schnellzugriff.wohnung": "Pronađi stan", "home.schnellzugriff.job": "Pretraga posla",
+  "home.schnellzugriff.biete": "Ponuda / Potražnja",
+  "home.dokcheck.title": "Dokumenten-Check", "home.dokcheck.subtitle": "Provjeri da li imaš sva potrebna dokumenta.", "home.dokcheck.cta": "Provjeri sada",
+  "home.aufenthalt.title": "Boravak & Boravišna dozvola", "home.aufenthalt.subtitle": "Informacije o boravišnoj dozvoli i vizi.",
+  "home.aufenthalt.boravak": "Boravišna dozvola", "home.aufenthalt.koraci": "Prvi koraci", "home.aufenthalt.dozvola": "Vozačka dozvola",
+  "home.ad.placeholder": "Reklamni prostor",
 };
 
 const homeEn: Partial<TranslationKeys> = {
