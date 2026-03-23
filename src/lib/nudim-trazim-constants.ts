@@ -3,10 +3,8 @@ export const NT_CATEGORIES = [
   { value: "stanovanje", label: "Stanovanje", icon: "Home" },
   { value: "usluge", label: "Usluge", icon: "Wrench" },
   { value: "prevoz", label: "Prevoz", icon: "Car" },
-  { value: "pomoc", label: "Pomoć", icon: "HandHelping" },
   { value: "kupoprodaja", label: "Kupujem / Prodajem", icon: "ShoppingBag" },
   { value: "porodica", label: "Djeca i porodica", icon: "Baby" },
-  { value: "administracija", label: "Administracija / Papiri", icon: "FileText" },
   { value: "ostalo", label: "Ostalo", icon: "MoreHorizontal" },
 ] as const;
 
