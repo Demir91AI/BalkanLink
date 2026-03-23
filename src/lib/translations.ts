@@ -159,6 +159,12 @@ type TranslationKeys = {
   "home.item.rechner": string; "home.item.prijava": string; "home.item.zdravstvo": string;
   "home.item.banka": string; "home.item.auto": string; "home.item.foerderungen": string;
   "home.item.dokumentenCheck": string;
+  "home.hero.ctaButton": string;
+  "home.formulare.title": string; "home.formulare.subtitle": string;
+  "home.tools.title": string; "home.tools.subtitle": string;
+  "home.cat.familie": string; "home.cat.finanzen": string; "home.cat.wohnen": string;
+  "home.cat.arbeit": string; "home.cat.dokumente": string; "home.cat.fahrzeuge": string;
+  "home.cat.gesundheit": string;
   "footer.navFormulari": string;
   // Admin mapper
   "admin.mapper.title": string; "admin.mapper.coverage": string; "admin.mapper.unmapped": string;
@@ -1038,6 +1044,12 @@ const homeDe: Partial<TranslationKeys> = {
   "home.item.zdravstvo": "Gesundheit & Versicherung", "home.item.banka": "Bank & Konto",
   "home.item.auto": "Auto & Zulassung", "home.item.foerderungen": "Förderungen & Staatshilfe",
   "home.item.dokumentenCheck": "Dokumenten-Check",
+  "home.hero.ctaButton": "Formulare finden",
+  "home.formulare.title": "Formulare — Hilfe beim Ausfüllen", "home.formulare.subtitle": "Schritt-für-Schritt Anleitungen für die wichtigsten deutschen Formulare.",
+  "home.tools.title": "Tools & Rechner", "home.tools.subtitle": "Nützliche Werkzeuge für den Alltag.",
+  "home.cat.familie": "Familie & Kinder", "home.cat.finanzen": "Finanzen & Steuern", "home.cat.wohnen": "Wohnen",
+  "home.cat.arbeit": "Arbeit", "home.cat.dokumente": "Dokumente", "home.cat.fahrzeuge": "Fahrzeuge",
+  "home.cat.gesundheit": "Gesundheit",
 };
 
 const homeBs: Partial<TranslationKeys> = {
@@ -1076,6 +1088,12 @@ const homeBs: Partial<TranslationKeys> = {
   "home.item.zdravstvo": "Zdravstvo & Osiguranje", "home.item.banka": "Banka & Konto",
   "home.item.auto": "Auto & Registracija", "home.item.foerderungen": "Förderungen & Pomoć države",
   "home.item.dokumentenCheck": "Dokumenten-Check",
+  "home.hero.ctaButton": "Pronađi formulare",
+  "home.formulare.title": "Formulari — Pomoć pri popunjavanju", "home.formulare.subtitle": "Korak-po-korak vodič za najvažnije njemačke formulare.",
+  "home.tools.title": "Alati & Kalkulatori", "home.tools.subtitle": "Korisni alati za svakodnevicu.",
+  "home.cat.familie": "Porodica i djeca", "home.cat.finanzen": "Finansije i porezi", "home.cat.wohnen": "Stanovanje",
+  "home.cat.arbeit": "Posao", "home.cat.dokumente": "Dokumenti", "home.cat.fahrzeuge": "Vozila",
+  "home.cat.gesundheit": "Zdravstvo",
 };
 
 const homeEn: Partial<TranslationKeys> = {
@@ -1114,6 +1132,12 @@ const homeEn: Partial<TranslationKeys> = {
   "home.item.zdravstvo": "Health & Insurance", "home.item.banka": "Bank & Account",
   "home.item.auto": "Car & Registration", "home.item.foerderungen": "Subsidies & State Aid",
   "home.item.dokumentenCheck": "Document Check",
+  "home.hero.ctaButton": "Find forms",
+  "home.formulare.title": "Forms — Filling Guide", "home.formulare.subtitle": "Step-by-step instructions for the most important German forms.",
+  "home.tools.title": "Tools & Calculators", "home.tools.subtitle": "Useful tools for everyday life.",
+  "home.cat.familie": "Family & Children", "home.cat.finanzen": "Finance & Taxes", "home.cat.wohnen": "Housing",
+  "home.cat.arbeit": "Work", "home.cat.dokumente": "Documents", "home.cat.fahrzeuge": "Vehicles",
+  "home.cat.gesundheit": "Health",
 };
 
 const premiumDe: Partial<TranslationKeys> = {
@@ -1221,6 +1245,12 @@ const homeSq: Partial<TranslationKeys> = {
   "home.item.zdravstvo": "Shëndetësi & Sigurim", "home.item.banka": "Bankë & Llogari",
   "home.item.auto": "Makinë & Regjistrim", "home.item.foerderungen": "Subvencione & Ndihmë shtetërore",
   "home.item.dokumentenCheck": "Kontroll dokumentesh",
+  "home.hero.ctaButton": "Gjej formularë",
+  "home.formulare.title": "Formularë — Ndihmë për plotësim", "home.formulare.subtitle": "Udhëzime hap pas hapi për formularët më të rëndësishëm gjermanë.",
+  "home.tools.title": "Mjete & Kalkulatorë", "home.tools.subtitle": "Mjete të dobishme për jetën e përditshme.",
+  "home.cat.familie": "Familja & Fëmijët", "home.cat.finanzen": "Financa & Taksa", "home.cat.wohnen": "Banimi",
+  "home.cat.arbeit": "Punë", "home.cat.dokumente": "Dokumente", "home.cat.fahrzeuge": "Automjete",
+  "home.cat.gesundheit": "Shëndetësi",
 };
 
 const premiumSq: Partial<TranslationKeys> = {
@@ -1282,6 +1312,12 @@ const homeMk: Partial<TranslationKeys> = {
   "home.item.zdravstvo": "Здравство & Осигурување", "home.item.banka": "Банка & Сметка",
   "home.item.auto": "Автомобил & Регистрација", "home.item.foerderungen": "Субвенции & Државна помош",
   "home.item.dokumentenCheck": "Проверка на документи",
+  "home.hero.ctaButton": "Најди формулари",
+  "home.formulare.title": "Формулари — Помош при пополнување", "home.formulare.subtitle": "Чекор-по-чекор упатства за најважните германски формулари.",
+  "home.tools.title": "Алатки & Калкулатори", "home.tools.subtitle": "Корисни алатки за секојдневието.",
+  "home.cat.familie": "Семејство & Деца", "home.cat.finanzen": "Финансии & Даноци", "home.cat.wohnen": "Домување",
+  "home.cat.arbeit": "Работа", "home.cat.dokumente": "Документи", "home.cat.fahrzeuge": "Возила",
+  "home.cat.gesundheit": "Здравство",
 };
 
 const premiumMk: Partial<TranslationKeys> = {
@@ -1326,6 +1362,12 @@ const homeSr: Partial<TranslationKeys> = {
   "home.item.zdravstvo": "Zdravstvo & Osiguranje", "home.item.banka": "Banka & Konto",
   "home.item.auto": "Auto & Registracija", "home.item.foerderungen": "Förderungen & Pomoć države",
   "home.item.dokumentenCheck": "Dokumenten-Check",
+  "home.hero.ctaButton": "Pronađi formulare",
+  "home.formulare.title": "Formulari — Pomoć pri popunjavanju", "home.formulare.subtitle": "Korak-po-korak vodič za najvažnije nemačke formulare.",
+  "home.tools.title": "Alati & Kalkulatori", "home.tools.subtitle": "Korisni alati za svakodnevicu.",
+  "home.cat.familie": "Porodica i deca", "home.cat.finanzen": "Finansije i porezi", "home.cat.wohnen": "Stanovanje",
+  "home.cat.arbeit": "Posao", "home.cat.dokumente": "Dokumenti", "home.cat.fahrzeuge": "Vozila",
+  "home.cat.gesundheit": "Zdravstvo",
   "footer.navFormulari": "Formulari",
 };
 
