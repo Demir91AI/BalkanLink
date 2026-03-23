@@ -35,7 +35,7 @@ const formulareCategories = [
 const schnellzugriffItems = [
   { labelKey: "home.schnellzugriff.wohnung", icon: Home, to: "/wohnungen" },
   { labelKey: "home.schnellzugriff.job", icon: Briefcase, to: "/stellenangebote" },
-  { labelKey: "home.schnellzugriff.biete", icon: ClipboardList, to: "/trebam-pomoc" },
+  { labelKey: "home.schnellzugriff.biete", icon: ClipboardList, to: "/nudim-trazim" },
 ];
 
 /* ── Tools ── */
