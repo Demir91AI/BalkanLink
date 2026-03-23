@@ -1058,6 +1058,14 @@ const homeDe: Partial<TranslationKeys> = {
   "home.cat.familie": "Familie & Kinder", "home.cat.finanzen": "Finanzen & Steuern", "home.cat.wohnen": "Wohnen",
   "home.cat.arbeit": "Arbeit", "home.cat.dokumente": "Dokumente", "home.cat.fahrzeuge": "Fahrzeuge",
   "home.cat.gesundheit": "Gesundheit",
+  "home.search.placeholder": "Suche (z.B. Kindergeld, Wohngeld, Anmeldung...)",
+  "home.schnellzugriff.title": "Schnellzugriff", "home.schnellzugriff.subtitle": "Direktlinks zu den wichtigsten Bereichen.",
+  "home.schnellzugriff.wohnung": "Wohnung finden", "home.schnellzugriff.job": "Jobsuche",
+  "home.schnellzugriff.biete": "Biete / Suche",
+  "home.dokcheck.title": "Dokumenten-Check", "home.dokcheck.subtitle": "Prüfe ob du alle Unterlagen hast.", "home.dokcheck.cta": "Jetzt prüfen",
+  "home.aufenthalt.title": "Aufenthalt & Aufenthaltstitel", "home.aufenthalt.subtitle": "Informationen zu Aufenthaltsgenehmigung und Visum.",
+  "home.aufenthalt.boravak": "Aufenthaltserlaubnis", "home.aufenthalt.koraci": "Erste Schritte", "home.aufenthalt.dozvola": "Führerschein",
+  "home.ad.placeholder": "Werbeplatz",
 };
 
 const homeBs: Partial<TranslationKeys> = {
