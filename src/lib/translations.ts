@@ -1312,6 +1312,12 @@ const homeMk: Partial<TranslationKeys> = {
   "home.item.zdravstvo": "Здравство & Осигурување", "home.item.banka": "Банка & Сметка",
   "home.item.auto": "Автомобил & Регистрација", "home.item.foerderungen": "Субвенции & Државна помош",
   "home.item.dokumentenCheck": "Проверка на документи",
+  "home.hero.ctaButton": "Најди формулари",
+  "home.formulare.title": "Формулари — Помош при пополнување", "home.formulare.subtitle": "Чекор-по-чекор упатства за најважните германски формулари.",
+  "home.tools.title": "Алатки & Калкулатори", "home.tools.subtitle": "Корисни алатки за секојдневието.",
+  "home.cat.familie": "Семејство & Деца", "home.cat.finanzen": "Финансии & Даноци", "home.cat.wohnen": "Домување",
+  "home.cat.arbeit": "Работа", "home.cat.dokumente": "Документи", "home.cat.fahrzeuge": "Возила",
+  "home.cat.gesundheit": "Здравство",
 };
 
 const premiumMk: Partial<TranslationKeys> = {
