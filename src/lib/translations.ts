@@ -165,6 +165,14 @@ type TranslationKeys = {
   "home.cat.familie": string; "home.cat.finanzen": string; "home.cat.wohnen": string;
   "home.cat.arbeit": string; "home.cat.dokumente": string; "home.cat.fahrzeuge": string;
   "home.cat.gesundheit": string;
+  "home.search.placeholder": string;
+  "home.schnellzugriff.title": string; "home.schnellzugriff.subtitle": string;
+  "home.schnellzugriff.wohnung": string; "home.schnellzugriff.job": string;
+  "home.schnellzugriff.biete": string;
+  "home.dokcheck.title": string; "home.dokcheck.subtitle": string; "home.dokcheck.cta": string;
+  "home.aufenthalt.title": string; "home.aufenthalt.subtitle": string;
+  "home.aufenthalt.boravak": string; "home.aufenthalt.koraci": string; "home.aufenthalt.dozvola": string;
+  "home.ad.placeholder": string;
   "footer.navFormulari": string;
   // Admin mapper
   "admin.mapper.title": string; "admin.mapper.coverage": string; "admin.mapper.unmapped": string;
@@ -1050,6 +1058,14 @@ const homeDe: Partial<TranslationKeys> = {
   "home.cat.familie": "Familie & Kinder", "home.cat.finanzen": "Finanzen & Steuern", "home.cat.wohnen": "Wohnen",
   "home.cat.arbeit": "Arbeit", "home.cat.dokumente": "Dokumente", "home.cat.fahrzeuge": "Fahrzeuge",
   "home.cat.gesundheit": "Gesundheit",
+  "home.search.placeholder": "Suche (z.B. Kindergeld, Wohngeld, Anmeldung...)",
+  "home.schnellzugriff.title": "Schnellzugriff", "home.schnellzugriff.subtitle": "Direktlinks zu den wichtigsten Bereichen.",
+  "home.schnellzugriff.wohnung": "Wohnung finden", "home.schnellzugriff.job": "Jobsuche",
+  "home.schnellzugriff.biete": "Biete / Suche",
+  "home.dokcheck.title": "Dokumenten-Check", "home.dokcheck.subtitle": "Prüfe ob du alle Unterlagen hast.", "home.dokcheck.cta": "Jetzt prüfen",
+  "home.aufenthalt.title": "Aufenthalt & Aufenthaltstitel", "home.aufenthalt.subtitle": "Informationen zu Aufenthaltsgenehmigung und Visum.",
+  "home.aufenthalt.boravak": "Aufenthaltserlaubnis", "home.aufenthalt.koraci": "Erste Schritte", "home.aufenthalt.dozvola": "Führerschein",
+  "home.ad.placeholder": "Werbeplatz",
 };
 
 const homeBs: Partial<TranslationKeys> = {
@@ -1094,6 +1110,14 @@ const homeBs: Partial<TranslationKeys> = {
   "home.cat.familie": "Porodica i djeca", "home.cat.finanzen": "Finansije i porezi", "home.cat.wohnen": "Stanovanje",
   "home.cat.arbeit": "Posao", "home.cat.dokumente": "Dokumenti", "home.cat.fahrzeuge": "Vozila",
   "home.cat.gesundheit": "Zdravstvo",
+  "home.search.placeholder": "Pretraži (npr. Kindergeld, Wohngeld, Anmeldung...)",
+  "home.schnellzugriff.title": "Brzi pristup", "home.schnellzugriff.subtitle": "Direktni linkovi na najvažnije oblasti.",
+  "home.schnellzugriff.wohnung": "Pronađi stan", "home.schnellzugriff.job": "Pretraga posla",
+  "home.schnellzugriff.biete": "Ponuda / Potražnja",
+  "home.dokcheck.title": "Dokumenten-Check", "home.dokcheck.subtitle": "Provjeri da li imaš sva potrebna dokumenta.", "home.dokcheck.cta": "Provjeri sada",
+  "home.aufenthalt.title": "Boravak & Boravišna dozvola", "home.aufenthalt.subtitle": "Informacije o boravišnoj dozvoli i vizi.",
+  "home.aufenthalt.boravak": "Boravišna dozvola", "home.aufenthalt.koraci": "Prvi koraci", "home.aufenthalt.dozvola": "Vozačka dozvola",
+  "home.ad.placeholder": "Reklamni prostor",
 };
 
 const homeEn: Partial<TranslationKeys> = {
@@ -1138,6 +1162,14 @@ const homeEn: Partial<TranslationKeys> = {
   "home.cat.familie": "Family & Children", "home.cat.finanzen": "Finance & Taxes", "home.cat.wohnen": "Housing",
   "home.cat.arbeit": "Work", "home.cat.dokumente": "Documents", "home.cat.fahrzeuge": "Vehicles",
   "home.cat.gesundheit": "Health",
+  "home.search.placeholder": "Search (e.g. Kindergeld, Wohngeld, Registration...)",
+  "home.schnellzugriff.title": "Quick Access", "home.schnellzugriff.subtitle": "Direct links to the most important areas.",
+  "home.schnellzugriff.wohnung": "Find housing", "home.schnellzugriff.job": "Job search",
+  "home.schnellzugriff.biete": "Offer / Seek",
+  "home.dokcheck.title": "Document Check", "home.dokcheck.subtitle": "Check if you have all required documents.", "home.dokcheck.cta": "Check now",
+  "home.aufenthalt.title": "Residence & Permits", "home.aufenthalt.subtitle": "Information about residence permits and visas.",
+  "home.aufenthalt.boravak": "Residence permit", "home.aufenthalt.koraci": "First steps", "home.aufenthalt.dozvola": "Driving licence",
+  "home.ad.placeholder": "Ad space",
 };
 
 const premiumDe: Partial<TranslationKeys> = {
