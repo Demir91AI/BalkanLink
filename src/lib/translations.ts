@@ -1044,6 +1044,12 @@ const homeDe: Partial<TranslationKeys> = {
   "home.item.zdravstvo": "Gesundheit & Versicherung", "home.item.banka": "Bank & Konto",
   "home.item.auto": "Auto & Zulassung", "home.item.foerderungen": "Förderungen & Staatshilfe",
   "home.item.dokumentenCheck": "Dokumenten-Check",
+  "home.hero.ctaButton": "Formulare finden",
+  "home.formulare.title": "Formulare — Hilfe beim Ausfüllen", "home.formulare.subtitle": "Schritt-für-Schritt Anleitungen für die wichtigsten deutschen Formulare.",
+  "home.tools.title": "Tools & Rechner", "home.tools.subtitle": "Nützliche Werkzeuge für den Alltag.",
+  "home.cat.familie": "Familie & Kinder", "home.cat.finanzen": "Finanzen & Steuern", "home.cat.wohnen": "Wohnen",
+  "home.cat.arbeit": "Arbeit", "home.cat.dokumente": "Dokumente", "home.cat.fahrzeuge": "Fahrzeuge",
+  "home.cat.gesundheit": "Gesundheit",
 };
 
 const homeBs: Partial<TranslationKeys> = {
