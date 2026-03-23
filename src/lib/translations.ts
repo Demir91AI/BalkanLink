@@ -1245,6 +1245,12 @@ const homeSq: Partial<TranslationKeys> = {
   "home.item.zdravstvo": "Shëndetësi & Sigurim", "home.item.banka": "Bankë & Llogari",
   "home.item.auto": "Makinë & Regjistrim", "home.item.foerderungen": "Subvencione & Ndihmë shtetërore",
   "home.item.dokumentenCheck": "Kontroll dokumentesh",
+  "home.hero.ctaButton": "Gjej formularë",
+  "home.formulare.title": "Formularë — Ndihmë për plotësim", "home.formulare.subtitle": "Udhëzime hap pas hapi për formularët më të rëndësishëm gjermanë.",
+  "home.tools.title": "Mjete & Kalkulatorë", "home.tools.subtitle": "Mjete të dobishme për jetën e përditshme.",
+  "home.cat.familie": "Familja & Fëmijët", "home.cat.finanzen": "Financa & Taksa", "home.cat.wohnen": "Banimi",
+  "home.cat.arbeit": "Punë", "home.cat.dokumente": "Dokumente", "home.cat.fahrzeuge": "Automjete",
+  "home.cat.gesundheit": "Shëndetësi",
 };
 
 const premiumSq: Partial<TranslationKeys> = {
