@@ -165,6 +165,14 @@ type TranslationKeys = {
   "home.cat.familie": string; "home.cat.finanzen": string; "home.cat.wohnen": string;
   "home.cat.arbeit": string; "home.cat.dokumente": string; "home.cat.fahrzeuge": string;
   "home.cat.gesundheit": string;
+  "home.search.placeholder": string;
+  "home.schnellzugriff.title": string; "home.schnellzugriff.subtitle": string;
+  "home.schnellzugriff.wohnung": string; "home.schnellzugriff.job": string;
+  "home.schnellzugriff.biete": string;
+  "home.dokcheck.title": string; "home.dokcheck.subtitle": string; "home.dokcheck.cta": string;
+  "home.aufenthalt.title": string; "home.aufenthalt.subtitle": string;
+  "home.aufenthalt.boravak": string; "home.aufenthalt.koraci": string; "home.aufenthalt.dozvola": string;
+  "home.ad.placeholder": string;
   "footer.navFormulari": string;
   // Admin mapper
   "admin.mapper.title": string; "admin.mapper.coverage": string; "admin.mapper.unmapped": string;
