@@ -1162,6 +1162,14 @@ const homeEn: Partial<TranslationKeys> = {
   "home.cat.familie": "Family & Children", "home.cat.finanzen": "Finance & Taxes", "home.cat.wohnen": "Housing",
   "home.cat.arbeit": "Work", "home.cat.dokumente": "Documents", "home.cat.fahrzeuge": "Vehicles",
   "home.cat.gesundheit": "Health",
+  "home.search.placeholder": "Search (e.g. Kindergeld, Wohngeld, Registration...)",
+  "home.schnellzugriff.title": "Quick Access", "home.schnellzugriff.subtitle": "Direct links to the most important areas.",
+  "home.schnellzugriff.wohnung": "Find housing", "home.schnellzugriff.job": "Job search",
+  "home.schnellzugriff.biete": "Offer / Seek",
+  "home.dokcheck.title": "Document Check", "home.dokcheck.subtitle": "Check if you have all required documents.", "home.dokcheck.cta": "Check now",
+  "home.aufenthalt.title": "Residence & Permits", "home.aufenthalt.subtitle": "Information about residence permits and visas.",
+  "home.aufenthalt.boravak": "Residence permit", "home.aufenthalt.koraci": "First steps", "home.aufenthalt.dozvola": "Driving licence",
+  "home.ad.placeholder": "Ad space",
 };
 
 const premiumDe: Partial<TranslationKeys> = {
