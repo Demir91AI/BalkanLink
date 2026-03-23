@@ -159,6 +159,12 @@ type TranslationKeys = {
   "home.item.rechner": string; "home.item.prijava": string; "home.item.zdravstvo": string;
   "home.item.banka": string; "home.item.auto": string; "home.item.foerderungen": string;
   "home.item.dokumentenCheck": string;
+  "home.hero.ctaButton": string;
+  "home.formulare.title": string; "home.formulare.subtitle": string;
+  "home.tools.title": string; "home.tools.subtitle": string;
+  "home.cat.familie": string; "home.cat.finanzen": string; "home.cat.wohnen": string;
+  "home.cat.arbeit": string; "home.cat.dokumente": string; "home.cat.fahrzeuge": string;
+  "home.cat.gesundheit": string;
   "footer.navFormulari": string;
   // Admin mapper
   "admin.mapper.title": string; "admin.mapper.coverage": string; "admin.mapper.unmapped": string;
