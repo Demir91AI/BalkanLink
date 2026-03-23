@@ -20,7 +20,7 @@ import heroNuernberg from "@/assets/hero-nuernberg.jpg";
 
 /* ── Formulare categories (dominant section) ── */
 const formulareCategories = [
-  { labelKey: "home.cat.familie", icon: Users, to: "/familie" },
+  
   { labelKey: "home.cat.finanzen", icon: Receipt, to: "/foerderungen" },
   { labelKey: "home.cat.wohnen", icon: Building2, to: "/formulari" },
   { labelKey: "home.cat.arbeit", icon: Briefcase, to: "/stellenangebote" },
