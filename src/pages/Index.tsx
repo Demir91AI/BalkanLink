@@ -115,7 +115,8 @@ export default function Index() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
-            className="mx-auto w-full" style={{ maxWidth: "900px" }}
+            className="mx-auto flex w-full flex-col items-center justify-center text-center"
+            style={{ maxWidth: "900px" }}
           >
             {/* H1 */}
             <h1
