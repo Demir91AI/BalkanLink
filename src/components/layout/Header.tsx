@@ -85,23 +85,23 @@ export default function Header() {
 
       {/* Side panel (Sheet) from right */}
       <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
-        <SheetContent side="right" className="w-[280px] bg-[hsl(215,55%,10%)] border-white/10 text-white p-0">
-          <SheetHeader className="px-5 pt-5 pb-3 border-b border-white/10">
-            <SheetTitle className="text-white text-base">Menü</SheetTitle>
+        <SheetContent side="right" className="w-[280px] border-r border-white/8 bg-[hsl(215,55%,7%)] text-white p-0">
+          <SheetHeader className="px-4 pt-5 pb-3">
+            <SheetTitle className="text-[11px] font-bold uppercase tracking-[0.12em] text-white/30">Menü</SheetTitle>
           </SheetHeader>
-          <nav className="flex flex-col py-2">
+          <nav className="flex flex-col gap-1 px-2 pt-1">
             <button
               onClick={() => { setSheetOpen(false); setContactOpen(true); }}
-              className="flex items-center gap-3 px-5 py-3 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors"
+              className="group flex items-center gap-3 px-3 h-11 rounded-lg text-sm font-medium text-white/55 hover:text-white hover:bg-white/5 transition-all duration-200"
             >
-              <Mail className="h-4 w-4" />
+              <Mail className="h-[18px] w-[18px] shrink-0 text-white/40 group-hover:text-white/70 transition-colors" />
               Kontakt
             </button>
             <button
               onClick={() => {}}
-              className="flex items-center gap-3 px-5 py-3 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors"
+              className="group flex items-center gap-3 px-3 h-11 rounded-lg text-sm font-medium text-white/55 hover:text-white hover:bg-white/5 transition-all duration-200"
             >
-              <List className="h-4 w-4" />
+              <List className="h-[18px] w-[18px] shrink-0 text-white/40 group-hover:text-white/70 transition-colors" />
               Preisliste / Monitoring
             </button>
           </nav>
