@@ -403,56 +403,29 @@ export default function ChatAssistant() {
 
   return (
     <>
-      {/* ── Floating Button + Tooltip ── */}
+      {/* ── Floating Button ── */}
       <AnimatePresence>
         {open === "closed" && (
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
-            className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-2.5"
+            onClick={openChat}
+            className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-2 cursor-pointer group"
           >
-            {/* Tooltip bubble */}
-            <AnimatePresence>
-              {showTooltip && (
-                <motion.div
-                  initial={{ opacity: 0, y: 6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 6 }}
-                  transition={{ duration: 0.3, ease: "easeOut" }}
-                  onClick={openChat}
-                  className="cursor-pointer rounded-xl border border-white/10 bg-white/80 dark:bg-card/80 backdrop-blur-xl px-4 py-2.5 shadow-[0_4px_24px_rgba(0,0,0,0.08)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.3)] mr-1"
-                >
-                  <p className="text-[13px] font-bold text-foreground leading-tight">Pitaj BalkanLink</p>
-                  <p className="text-[11px] text-muted-foreground leading-tight mt-0.5">Asistent za Njemačku</p>
-                </motion.div>
-              )}
-            </AnimatePresence>
-
-            {/* "Pomoć" badge */}
-            <motion.span
-              initial={{ opacity: 0, y: 4 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="rounded-full bg-white dark:bg-card px-3 py-1 text-[11px] font-semibold text-foreground shadow-md border border-border/40 cursor-pointer hover:shadow-lg transition-shadow mr-1"
-              onClick={openChat}
-            >
-              {lk === "de" ? "Hilfe" : lk === "en" ? "Help" : "Pomoć"}
-            </motion.span>
-
-            {/* Main button */}
-            <motion.button
-              animate={{ scale: [1, 1.03, 1] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              onClick={openChat}
-              className="group relative"
-              aria-label="BalkanLink Assistant"
-            >
-              <div className="absolute inset-[-8px] rounded-2xl bg-gradient-to-br from-[hsl(217,91%,60%)]/25 to-[hsl(271,81%,56%)]/25 blur-xl group-hover:from-[hsl(217,91%,60%)]/40 group-hover:to-[hsl(271,81%,56%)]/40 transition-all duration-300" />
-              <div className="relative flex items-center justify-center w-[58px] h-[58px] sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-[hsl(217,91%,60%)] to-[hsl(271,81%,56%)] shadow-[0_4px_20px_rgba(99,102,241,0.35)] transition-all duration-200 group-hover:scale-110 group-hover:shadow-[0_6px_28px_rgba(99,102,241,0.5)] group-active:scale-95">
+            {/* BL circle */}
+            <div className="relative">
+              <div className="absolute inset-[-8px] rounded-full bg-gradient-to-br from-[hsl(217,91%,60%)]/20 to-[hsl(271,81%,56%)]/20 blur-xl group-hover:from-[hsl(217,91%,60%)]/35 group-hover:to-[hsl(271,81%,56%)]/35 transition-all duration-300" />
+              <div className="relative flex items-center justify-center w-[58px] h-[58px] sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-[hsl(217,91%,60%)] to-[hsl(271,81%,56%)] shadow-[0_4px_20px_rgba(99,102,241,0.35)] transition-all duration-200 group-hover:scale-105 group-hover:shadow-[0_6px_28px_rgba(99,102,241,0.5)] group-active:scale-95">
                 <span className="text-white font-black text-[20px] sm:text-[22px] tracking-tight select-none">BL</span>
               </div>
-            </motion.button>
+            </div>
+
+            {/* Text below */}
+            <div className="text-center rounded-xl bg-white/90 dark:bg-card/90 backdrop-blur-sm px-3.5 py-2 shadow-[0_2px_12px_rgba(0,0,0,0.08)] dark:shadow-[0_2px_12px_rgba(0,0,0,0.25)] border border-border/30">
+              <p className="text-[12px] font-bold text-foreground leading-tight">Pitaj BalkanLink</p>
+              <p className="text-[10px] text-muted-foreground leading-tight mt-0.5">Asistent za Njemačku</p>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
