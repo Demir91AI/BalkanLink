@@ -179,7 +179,7 @@ export function AppSidebar() {
               }`}
             >
               <FileCheck className={`h-3.5 w-3.5 ${isVorlagenActive ? "text-gold" : "text-white/25"}`} />
-              <span className="flex-1 text-left">Šabloni / Vorlagen</span>
+              <span className="flex-1 text-left">{t("vorlagen.sidebarTitle")}</span>
               <ChevronDown className={`h-3 w-3 transition-transform ${vorlagenOpen ? "" : "-rotate-90"}`} />
             </button>
           )}
@@ -188,17 +188,17 @@ export function AppSidebar() {
               {/* A) Bewerbung & Karriere */}
               {!collapsed && (
                 <p className="px-5 pt-3 pb-1 text-[10px] font-semibold uppercase tracking-[0.1em] text-white/25">
-                  Bewerbung & Karriere
+                  {t("vorlagen.sectionWork")}
                 </p>
               )}
               <SidebarMenu className="gap-0.5 px-2">
                 {[
-                  { label: "Bewerbung", to: "/vorlagen/bewerbung" },
-                  { label: "Lebenslauf", to: "/vorlagen/lebenslauf" },
-                  { label: "Anschreiben", to: "/vorlagen/anschreiben" },
-                  { label: "Kündigungsschreiben", to: "/vorlagen/kuendigung" },
-                  { label: "Fristlose Kündigung", to: "/vorlagen/fristlose-kuendigung" },
-                  { label: "Kündigung in der Probezeit", to: "/vorlagen/kuendigung-probezeit" },
+                  { label: t("vorlagen.bewerbung"), to: "/vorlagen/bewerbung" },
+                  { label: t("vorlagen.lebenslauf"), to: "/vorlagen/lebenslauf" },
+                  { label: t("vorlagen.anschreiben"), to: "/vorlagen/anschreiben" },
+                  { label: t("vorlagen.kuendigung"), to: "/vorlagen/kuendigung" },
+                  { label: t("vorlagen.fristlose"), to: "/vorlagen/fristlose-kuendigung" },
+                  { label: t("vorlagen.probezeit"), to: "/vorlagen/kuendigung-probezeit" },
                 ].map((item) => {
                   const isActive = location.pathname === item.to;
                   return (
@@ -236,14 +236,14 @@ export function AppSidebar() {
               {/* B) Kundenservice / Vertragsangelegenheiten */}
               {!collapsed && (
                 <p className="px-5 pt-4 pb-1 text-[10px] font-semibold uppercase tracking-[0.1em] text-white/25">
-                  Kundenservice / Verträge
+                  {t("vorlagen.sectionService")}
                 </p>
               )}
               <SidebarMenu className="gap-0.5 px-2">
                 {[
-                  { label: "Widerruf", to: "/vorlagen/widerruf" },
-                  { label: "Kündigung von Verträgen", to: "/vorlagen/vertragskundigung" },
-                  { label: "Reklamation", to: "/vorlagen/reklamation" },
+                  { label: t("vorlagen.widerruf"), to: "/vorlagen/widerruf" },
+                  { label: t("vorlagen.vertragKuendigung"), to: "/vorlagen/vertragskundigung" },
+                  { label: t("vorlagen.reklamation"), to: "/vorlagen/reklamation" },
                 ].map((item) => {
                   const isActive = location.pathname === item.to;
                   return (
