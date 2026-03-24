@@ -47,4 +47,15 @@ export const premiumShowcaseFirms: PremiumShowcaseFirm[] = [
     highlights: ["Renoviranje", "Trockenbau", "Prozori i vrata"],
     images: [showcaseVrebo1, showcaseVrebo2, showcaseVrebo3],
   },
+  {
+    name: "Ecronix",
+    description: "Digitalna rješenja od mobilnih aplikacija do web platformi – AI integracije, UI/UX dizajn i razvoj softvera.",
+    website: "https://www.ecronix.com/",
+    contactUrl: "https://www.ecronix.com/#contact",
+    logoUrl: logoEcronix,
+    logoAlt: "Ecronix logo",
+    logoWrapperClassName: "w-[12rem] sm:w-[14rem] h-[4.5rem]",
+    highlights: ["Web aplikacije", "Mobilne aplikacije", "AI integracija", "UI/UX dizajn"],
+    images: [showcaseEcronix1, showcaseEcronix2, showcaseEcronix3, showcaseEcronix4],
+  },
 ];
