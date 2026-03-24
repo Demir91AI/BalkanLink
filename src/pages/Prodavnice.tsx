@@ -31,6 +31,7 @@ const SUBCATEGORIES = [
 ];
 
 export default function Prodavnice() {
+  const navigate = useNavigate();
   const { activeCountry } = useCountry();
   const { t } = useLanguage();
   const [cityInput, setCityInput] = useState("");
