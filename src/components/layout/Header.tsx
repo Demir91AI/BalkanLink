@@ -112,31 +112,31 @@ export default function Header() {
       <Dialog open={contactOpen} onOpenChange={setContactOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle>{t("header.contactTitle") || "Kontakt"}</DialogTitle>
-            <DialogDescription>{t("header.contactDesc") || "Senden Sie uns eine Nachricht."}</DialogDescription>
+            <DialogTitle>Kontakt</DialogTitle>
+            <DialogDescription>Pošaljite nam poruku.</DialogDescription>
           </DialogHeader>
           <form onSubmit={handleContactSubmit} className="space-y-4">
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="text-sm font-medium">{t("header.firstName") || "Vorname"}</label>
+                <label className="text-sm font-medium">Vorname</label>
                 <Input value={contactForm.firstName} onChange={(e) => setContactForm(p => ({ ...p, firstName: e.target.value }))} required />
               </div>
               <div>
-                <label className="text-sm font-medium">{t("header.lastName") || "Nachname"}</label>
+                <label className="text-sm font-medium">Nachname</label>
                 <Input value={contactForm.lastName} onChange={(e) => setContactForm(p => ({ ...p, lastName: e.target.value }))} required />
               </div>
             </div>
             <div>
-              <label className="text-sm font-medium">{t("auth.email") || "E-Mail"}</label>
+              <label className="text-sm font-medium">E-Mail</label>
               <Input type="email" value={contactForm.email} onChange={(e) => setContactForm(p => ({ ...p, email: e.target.value }))} required />
             </div>
             <div>
-              <label className="text-sm font-medium">{t("header.message") || "Ihre Nachricht"}</label>
+              <label className="text-sm font-medium">Vaša poruka</label>
               <Textarea value={contactForm.message} onChange={(e) => setContactForm(p => ({ ...p, message: e.target.value }))} required className="min-h-[120px]" />
             </div>
             <Button type="submit" className="w-full gap-2">
               <Send className="h-4 w-4" />
-              {t("header.sendMessage") || "Nachricht senden"}
+              Nachricht senden
             </Button>
           </form>
         </DialogContent>
