@@ -1,6 +1,7 @@
 import { Megaphone, ArrowRight, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
+import flowPlaceholder from "@/assets/flow-ad-placeholder.png";
 
 const MAILTO_AD = `mailto:kontakt@balkanlink.de?subject=${encodeURIComponent("Oglašavanje na BalkanLink")}&body=${encodeURIComponent(
   "Pozdrav,\n\nZanima me oglašavanje na BalkanLink platformi.\n\nNaziv firme:\nVrsta usluge:\nGrad:\nBudžet:\n"
@@ -37,30 +38,29 @@ export function AdFlowBanner() {
             <a
               key={i}
               href={MAILTO_AD}
-              className="group flex w-44 shrink-0 flex-col overflow-hidden rounded-xl border border-white/8 bg-white/[0.03] transition-all duration-300 hover:border-[hsl(var(--gold)/0.3)] hover:bg-white/[0.06]"
+              className="group flex w-48 shrink-0 flex-col overflow-hidden rounded-xl border border-white/8 bg-white/[0.03] transition-all duration-300 hover:border-[hsl(var(--gold)/0.3)] hover:bg-white/[0.06]"
             >
-              <div className="flex h-24 items-center justify-center" style={{ background: "linear-gradient(135deg, hsl(215,55%,10%) 0%, hsl(215,55%,14%) 100%)" }}>
-                <Megaphone className="h-8 w-8 text-[hsl(var(--gold)/0.25)] transition-colors duration-300 group-hover:text-[hsl(var(--gold)/0.5)]" />
+              <div className="flex h-28 items-center justify-center overflow-hidden bg-[hsl(215,55%,8%)]">
+                <img
+                  src={flowPlaceholder}
+                  alt="BalkanLink"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                  width={192}
+                  height={112}
+                />
               </div>
-              <div className="p-2.5">
-                <p className="text-xs font-bold text-white/80 group-hover:text-[hsl(var(--gold))] transition-colors truncate">
+              <div className="px-2.5 py-2 text-center">
+                <p className="text-[10px] font-bold text-white/80 group-hover:text-[hsl(var(--gold))] transition-colors leading-tight">
                   Mjesto za vašu reklamu
                 </p>
-                <p className="mt-1 flex items-center gap-1 text-[10px] text-white/30">
-                  <Mail className="h-2.5 w-2.5" /> Kontaktirajte nas
+                <p className="mt-0.5 flex items-center justify-center gap-1 text-[9px] text-white/30">
+                  <Mail className="h-2 w-2" /> Kontaktirajte nas
                 </p>
               </div>
             </a>
           ))}
         </div>
-      </div>
-
-      <div className="container relative z-10 pb-7 text-center">
-        <Button asChild size="sm" className="gap-2 rounded-lg bg-[hsl(var(--gold))] text-xs font-semibold text-[hsl(var(--gold-foreground))] hover:bg-[hsl(var(--gold-light))] shadow-sm hover:shadow-md transition-all">
-          <a href={MAILTO_AD}>
-            Kontaktirajte nas <ArrowRight className="h-3 w-3" />
-          </a>
-        </Button>
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[hsl(var(--gold)/0.15)] to-transparent" />
