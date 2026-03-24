@@ -498,8 +498,8 @@ export default function ChatAssistant() {
               {/* Start Screen — clean and minimal */}
               {showStartScreen && (
                 <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }} className="flex flex-col items-center justify-center pt-16 pb-6 text-center">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[hsl(217,91%,60%)]/10 to-[hsl(271,81%,56%)]/10 mb-5">
-                    <span className="text-primary font-black text-[18px]">BL</span>
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[hsl(217,91%,60%)]/10 to-[hsl(271,81%,56%)]/10 mb-5 overflow-hidden">
+                    <BLIcon size={36} />
                   </div>
                   <h2 className="text-[18px] font-bold text-foreground mb-2">
                     {lk === "de" ? "Wie kann ich dir helfen?" : lk === "en" ? "How can I help you?" : "Kako ti mogu pomoći?"}

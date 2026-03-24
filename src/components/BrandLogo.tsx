@@ -70,17 +70,17 @@ function LogoContent({ variant = "full", darkText = false }: { variant: Variant;
   );
 }
 
-export default function BrandLogo({ variant = "full", className = "", linkHome = true }: BrandLogoProps) {
+export default function BrandLogo({ variant = "full", className = "", linkHome = true, darkText = false }: BrandLogoProps) {
   if (linkHome) {
     return (
       <Link to="/" className={`inline-flex items-center ${className}`} aria-label="BalkanLink home">
-        <LogoContent variant={variant} />
+        <LogoContent variant={variant} darkText={darkText} />
       </Link>
     );
   }
   return (
     <span className={`inline-flex items-center ${className}`}>
-      <LogoContent variant={variant} />
+      <LogoContent variant={variant} darkText={darkText} />
     </span>
   );
 }
