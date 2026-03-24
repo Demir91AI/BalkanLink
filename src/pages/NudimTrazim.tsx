@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { PlusCircle, Megaphone, Search as SearchIcon, Star, Check } from "lucide-react";
+import { PlusCircle, Megaphone, Search as SearchIcon, Star, Check, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import NtFilters from "@/components/nudim-trazim/NtFilters";
 import NtCategoryChips from "@/components/nudim-trazim/NtCategoryChips";
@@ -9,8 +9,12 @@ import NtSubmitForm from "@/components/nudim-trazim/NtSubmitForm";
 import NtProModal from "@/components/nudim-trazim/NtProModal";
 import type { NtAd } from "@/lib/nudim-trazim-constants";
 import { DEMO_ADS } from "@/lib/nudim-trazim-constants";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useNavigate } from "react-router-dom";
 
 export default function NudimTrazim() {
+  const { t } = useLanguage();
+  const navigate = useNavigate();
   const [filters, setFilters] = useState({
     search: "",
     type: "sve",
@@ -45,7 +49,6 @@ export default function NudimTrazim() {
           a.city.toLowerCase().includes(q)
       );
     }
-    // PRO ads always on top, then by date
     ads.sort((a, b) => {
       if (a.is_pro && !b.is_pro) return -1;
       if (!a.is_pro && b.is_pro) return 1;
@@ -54,7 +57,6 @@ export default function NudimTrazim() {
     return ads;
   }, [filters]);
 
-  // Detail view
   if (selectedAd) {
     return (
       <div className="min-h-screen bg-background">
@@ -72,7 +74,6 @@ export default function NudimTrazim() {
     );
   }
 
-  // Submit form view
   if (showForm) {
     return (
       <div className="min-h-screen bg-background">
@@ -86,16 +87,17 @@ export default function NudimTrazim() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* ─── Hero ─── */}
       <section className="bg-primary text-primary-foreground">
         <div className="mx-auto max-w-6xl px-4 py-16 text-center space-y-5">
+          <button onClick={() => navigate(-1)} className="mb-2 inline-flex items-center gap-1 text-xs text-primary-foreground/70 hover:text-primary-foreground">
+            <ArrowLeft className="h-3 w-3" /> {t("common.back") || "Nazad"}
+          </button>
           <div className="flex justify-center">
             <Megaphone className="h-10 w-10 text-[hsl(var(--gold))]" />
           </div>
-          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">Nudim / Tražim</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">{t("index.nav.offerSeek")}</h1>
           <p className="text-primary-foreground/80 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
-            Ponudi, pronađi ili zatraži pomoć, uslugu, posao, smještaj i još mnogo toga –
-            sve na jednom mjestu.
+            {t("nt.heroDesc") || "Ponudi, pronađi ili zatraži pomoć, uslugu, posao, smještaj i još mnogo toga – sve na jednom mjestu."}
           </p>
           <div className="flex justify-center gap-3 flex-wrap">
             <Button
@@ -103,7 +105,7 @@ export default function NudimTrazim() {
               className="bg-[hsl(var(--success))] hover:bg-[hsl(var(--success))]/90 text-[hsl(var(--success-foreground))] gap-2 font-semibold"
               onClick={() => setShowForm(true)}
             >
-              Nudim
+              {t("nt.offer") || "Nudim"}
             </Button>
             <Button
               size="lg"
@@ -111,48 +113,39 @@ export default function NudimTrazim() {
               className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 gap-2 font-semibold"
               onClick={() => setShowForm(true)}
             >
-              <SearchIcon className="h-4 w-4" /> Tražim
+              <SearchIcon className="h-4 w-4" /> {t("nt.seek") || "Tražim"}
             </Button>
           </div>
           <p className="text-primary-foreground/60 text-sm">
-            Objava oglasa je besplatna. PRO opcija za dodatnu vidljivost.
+            {t("nt.freeNote") || "Objava oglasa je besplatna. PRO opcija za dodatnu vidljivost."}
           </p>
         </div>
       </section>
 
-      {/* ─── Main content ─── */}
       <div className="mx-auto max-w-6xl px-4 py-10 space-y-8">
-        {/* Filters */}
         <NtFilters filters={filters} onChange={updateFilters} />
-
-        {/* Category chips */}
         <NtCategoryChips active={filters.category} onSelect={handleCategoryChip} />
 
-        {/* PRO info block */}
         <div className="rounded-2xl border border-[hsl(var(--gold))]/30 bg-[hsl(var(--gold))]/5 p-5">
           <div className="flex items-start gap-3">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[hsl(var(--gold))]/10">
               <Star className="h-5 w-5 text-[hsl(var(--gold))]" />
             </div>
             <div className="flex-1">
-              <h3 className="font-bold text-sm">PRO oglasi</h3>
-              <p className="mt-1 text-xs text-muted-foreground">
-                Istakni svoj oglas i dođi do više ljudi.
-              </p>
+              <h3 className="font-bold text-sm">{t("nt.proTitle") || "PRO oglasi"}</h3>
+              <p className="mt-1 text-xs text-muted-foreground">{t("nt.proDesc") || "Istakni svoj oglas i dođi do više ljudi."}</p>
               <ul className="mt-2 space-y-1">
                 {[
-                  "Tvoj oglas ide na vrh liste",
-                  "Dobija oznaku PRO",
-                  "Više pregleda i više upita",
-                ].map((t) => (
-                  <li key={t} className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                    <Check className="h-3 w-3 text-[hsl(var(--gold))] shrink-0" /> {t}
+                  t("nt.proBenefit1") || "Tvoj oglas ide na vrh liste",
+                  t("nt.proBenefit2") || "Dobija oznaku PRO",
+                  t("nt.proBenefit3") || "Više pregleda i više upita",
+                ].map((txt) => (
+                  <li key={txt} className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                    <Check className="h-3 w-3 text-[hsl(var(--gold))] shrink-0" /> {txt}
                   </li>
                 ))}
               </ul>
-              <p className="mt-2 text-[11px] text-muted-foreground">
-                Objava oglasa je besplatna. PRO je opcija za dodatnu vidljivost.
-              </p>
+              <p className="mt-2 text-[11px] text-muted-foreground">{t("nt.freeNote") || "Objava oglasa je besplatna. PRO je opcija za dodatnu vidljivost."}</p>
             </div>
             <Button
               size="sm"
@@ -160,12 +153,11 @@ export default function NudimTrazim() {
               className="shrink-0 border-[hsl(var(--gold))]/40 text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/10 text-xs"
               onClick={() => setShowProModal(true)}
             >
-              <Star className="mr-1 h-3 w-3" /> Saznaj više
+              <Star className="mr-1 h-3 w-3" /> {t("nt.learnMore") || "Saznaj više"}
             </Button>
           </div>
         </div>
 
-        {/* Listings */}
         {filtered.length > 0 ? (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {filtered.map((ad) => (
@@ -174,24 +166,19 @@ export default function NudimTrazim() {
           </div>
         ) : (
           <div className="text-center py-16 space-y-4">
-            <p className="text-muted-foreground text-lg">
-              Trenutno nema oglasa u ovoj kategoriji.
-            </p>
+            <p className="text-muted-foreground text-lg">{t("nt.empty") || "Trenutno nema oglasa u ovoj kategoriji."}</p>
             <Button onClick={() => setShowForm(true)} className="gap-2">
-              <PlusCircle className="h-4 w-4" /> Objavi prvi oglas
+              <PlusCircle className="h-4 w-4" /> {t("nt.postFirst") || "Objavi prvi oglas"}
             </Button>
           </div>
         )}
 
-        {/* CTA section */}
         <section className="rounded-xl bg-muted/50 border border-border p-8 text-center space-y-4">
-          <h2 className="text-xl font-bold text-foreground">Želiš objaviti oglas?</h2>
-          <p className="text-muted-foreground max-w-lg mx-auto">
-            Objavi brzo i jednostavno šta nudiš ili šta tražiš.
-          </p>
+          <h2 className="text-xl font-bold text-foreground">{t("nt.ctaTitle") || "Želiš objaviti oglas?"}</h2>
+          <p className="text-muted-foreground max-w-lg mx-auto">{t("nt.ctaDesc") || "Objavi brzo i jednostavno šta nudiš ili šta tražiš."}</p>
           <div className="flex flex-col sm:flex-row justify-center gap-3">
             <Button size="lg" onClick={() => setShowForm(true)} className="gap-2">
-              <PlusCircle className="h-4 w-4" /> Objavi oglas besplatno
+              <PlusCircle className="h-4 w-4" /> {t("nt.postFree") || "Objavi oglas besplatno"}
             </Button>
             <Button
               size="lg"
@@ -199,19 +186,14 @@ export default function NudimTrazim() {
               className="gap-2 border-[hsl(var(--gold))]/40 text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/10"
               onClick={() => setShowProModal(true)}
             >
-              <Star className="h-4 w-4" /> Istakni kao PRO
+              <Star className="h-4 w-4" /> {t("nt.highlightPro") || "Istakni kao PRO"}
             </Button>
           </div>
-          <p className="text-xs text-muted-foreground">
-            Objava je besplatna. PRO je opcija za veću vidljivost.
-          </p>
+          <p className="text-xs text-muted-foreground">{t("nt.freeNote") || "Objava je besplatna. PRO je opcija za veću vidljivost."}</p>
         </section>
 
-        {/* Disclaimer */}
         <p className="text-xs text-muted-foreground text-center max-w-3xl mx-auto leading-relaxed pt-4 border-t border-border">
-          BalkanLink dient in diesem Bereich ausschließlich als Vermittlungs- und
-          Anzeigenplattform. Für Inhalte, Vereinbarungen oder Leistungen der Nutzer wird keine
-          Haftung übernommen.
+          {t("nt.disclaimer") || "BalkanLink dient in diesem Bereich ausschließlich als Vermittlungs- und Anzeigenplattform. Für Inhalte, Vereinbarungen oder Leistungen der Nutzer wird keine Haftung übernommen."}
         </p>
       </div>
 

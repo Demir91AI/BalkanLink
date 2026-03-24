@@ -5,6 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -22,6 +23,7 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -30,7 +32,7 @@ export default function Register() {
   const ruleResults = useMemo(() => PW_RULES.map(r => ({ ...r, pass: r.test(password) })), [password]);
   const allRulesPass = ruleResults.every(r => r.pass);
   const passwordsMatch = password === confirmPassword;
-  const canSubmit = allRulesPass && passwordsMatch && confirmPassword.length > 0;
+  const canSubmit = allRulesPass && passwordsMatch && confirmPassword.length > 0 && acceptedTerms;
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -103,6 +105,27 @@ export default function Register() {
                   <Check className="h-3 w-3" /> ✓
                 </p>
               )}
+            </div>
+
+            {/* AGB / Datenschutz Checkbox */}
+            <div className="flex items-start gap-3 rounded-xl border bg-muted/20 p-4">
+              <Checkbox
+                id="terms"
+                checked={acceptedTerms}
+                onCheckedChange={(v) => setAcceptedTerms(v === true)}
+                className="mt-0.5"
+              />
+              <label htmlFor="terms" className="cursor-pointer text-sm leading-relaxed text-muted-foreground">
+                {t("auth.termsLabel") || "Ich habe die"}{" "}
+                <Link to="/agb" target="_blank" className="font-semibold text-primary underline hover:no-underline">
+                  {t("auth.termsAGB") || "AGB"}
+                </Link>{" "}
+                {t("auth.termsAnd") || "und die"}{" "}
+                <Link to="/datenschutz" target="_blank" className="font-semibold text-primary underline hover:no-underline">
+                  {t("auth.termsPrivacy") || "Datenschutzbestimmungen"}
+                </Link>{" "}
+                {t("auth.termsAccept") || "gelesen und akzeptiere sie."}
+              </label>
             </div>
           </CardContent>
           <CardFooter className="flex flex-col gap-3">
