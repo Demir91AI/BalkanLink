@@ -1035,7 +1035,7 @@ const miscMk: Partial<TranslationKeys> = {
   "notfound.back": "Назад на почетна",
   "common.error": "Грешка", "common.legalBasis": "Законска основа",
   "common.officialSource": "Официјален извор", "common.moreSource": "Дополнителен извор",
-  "common.all": "Сите",
+  "common.all": "Сите", "common.back": "Назад",
 };
 
 // --- Home / Footer / Premium page keys ---
