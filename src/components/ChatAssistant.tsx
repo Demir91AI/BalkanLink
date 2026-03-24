@@ -371,16 +371,15 @@ export default function ChatAssistant() {
     <>
       {/* ── Floating Orb + "Pomoć" badge ── */}
       <AnimatePresence>
-        {!open && (
+        {open === "closed" && (
           <motion.button
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
-            onClick={() => setOpen(true)}
+            onClick={() => setOpen("open")}
             className="fixed bottom-6 right-6 z-50 group flex flex-col items-center gap-1.5"
             aria-label="BalkanLink Assistant"
           >
-            {/* Pomoć badge */}
             <motion.span
               initial={{ opacity: 0, y: 4 }}
               animate={{ opacity: 1, y: 0 }}
@@ -389,19 +388,41 @@ export default function ChatAssistant() {
             >
               {lk === "de" ? "Hilfe" : lk === "en" ? "Help" : "Pomoć"}
             </motion.span>
-            {/* Custom BL icon */}
             <motion.div
               animate={{ scale: [1, 1.03, 1] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               className="relative"
             >
               <div className="absolute inset-[-8px] rounded-2xl bg-gradient-to-br from-blue-500/25 to-purple-600/25 blur-xl group-hover:from-blue-500/40 group-hover:to-purple-600/40 transition-all duration-300" />
-              <div
-                className="relative flex items-center justify-center bg-gradient-to-br from-[#3B82F6] to-[#9333EA] shadow-lg shadow-purple-500/25 transition-all duration-200 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-purple-500/35 group-active:scale-95 w-[58px] h-[58px] sm:w-[64px] sm:h-[64px] rounded-2xl"
-              >
+              <div className="relative flex items-center justify-center bg-gradient-to-br from-[#3B82F6] to-[#9333EA] shadow-lg shadow-purple-500/25 transition-all duration-200 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-purple-500/35 group-active:scale-95 w-[58px] h-[58px] sm:w-[64px] sm:h-[64px] rounded-2xl">
                 <span className="text-white font-black text-[20px] sm:text-[22px] tracking-tight select-none">BL</span>
               </div>
             </motion.div>
+          </motion.button>
+        )}
+      </AnimatePresence>
+
+      {/* ── Minimized pill ── */}
+      <AnimatePresence>
+        {open === "minimized" && (
+          <motion.button
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.8, opacity: 0 }}
+            onClick={() => setOpen("open")}
+            className="fixed bottom-6 right-6 z-50 group flex items-center gap-2.5 rounded-2xl bg-gradient-to-r from-[#3B82F6] to-[#9333EA] px-4 py-3 shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/35 transition-all duration-200 hover:scale-105 active:scale-95"
+            aria-label="Open chat"
+          >
+            <span className="text-white font-black text-[14px] tracking-tight select-none">BL</span>
+            <span className="text-white/90 text-[12px] font-medium">
+              {messages.length > 0
+                ? `${messages.length} ${lk === "de" ? "Nachr." : lk === "en" ? "msg" : "por."}`
+                : lk === "de" ? "Chat" : lk === "en" ? "Chat" : "Chat"}
+            </span>
+            <X
+              className="h-3.5 w-3.5 text-white/50 hover:text-white transition-colors ml-1"
+              onClick={(e) => { e.stopPropagation(); handleClose(); }}
+            />
           </motion.button>
         )}
       </AnimatePresence>
