@@ -356,6 +356,19 @@ export default function ChatAssistant() {
   };
 
   const showStartScreen = messages.length === 0;
+  const [showTooltip, setShowTooltip] = useState(false);
+
+  useEffect(() => {
+    if (open !== "closed") { setShowTooltip(false); return; }
+    const showTimer = setTimeout(() => setShowTooltip(true), 3000);
+    return () => clearTimeout(showTimer);
+  }, [open]);
+
+  useEffect(() => {
+    if (!showTooltip) return;
+    const hideTimer = setTimeout(() => setShowTooltip(false), 5000);
+    return () => clearTimeout(hideTimer);
+  }, [showTooltip]);
 
   const handleClose = () => {
     setOpen("closed");
