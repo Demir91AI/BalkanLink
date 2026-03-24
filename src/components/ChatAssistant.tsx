@@ -1,10 +1,11 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import { X, Send, Loader2, Lock, Info, BookOpen, FileText, ClipboardList, Home, Briefcase, Users, FileCheck, PenLine, FileSignature, Mail, CheckSquare, Copy, ShieldCheck } from "lucide-react";
+import { X, Send, Loader2, Lock, Info, BookOpen, FileText, ClipboardList, Home, Briefcase, Users, FileCheck, PenLine, FileSignature, Mail, CheckSquare, Copy, ShieldCheck, ExternalLink, AlertTriangle, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { Link, useLocation } from "react-router-dom";
+import { formCatalog, type FormEntry } from "@/lib/form-catalog";
 
 type Msg = {
   role: "user" | "assistant";
@@ -12,9 +13,43 @@ type Msg = {
   premiumGated?: boolean;
   softUpsell?: boolean;
   guideSlug?: string | null;
+  formSlugs?: string[];
 };
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat-assistant`;
+
+// ── Form catalog lookup ──
+
+const ALL_FORMS: FormEntry[] = (() => {
+  const seen = new Set<string>();
+  const result: FormEntry[] = [];
+  for (const group of formCatalog) {
+    for (const item of group.items) {
+      if (!seen.has(item.slug)) {
+        seen.add(item.slug);
+        result.push(item);
+      }
+    }
+  }
+  return result;
+})();
+
+function getFormBySlug(slug: string): FormEntry | undefined {
+  return ALL_FORMS.find(f => f.slug === slug);
+}
+
+// ── Extract [FORM:slug] markers from text ──
+
+function extractFormMarkers(text: string): { cleanText: string; formSlugs: string[] } {
+  const regex = /\[FORM:([a-z0-9-]+)\]/gi;
+  const slugs: string[] = [];
+  let match;
+  while ((match = regex.exec(text)) !== null) {
+    if (!slugs.includes(match[1])) slugs.push(match[1]);
+  }
+  const cleanText = text.replace(regex, "").replace(/\n{3,}/g, "\n\n").trim();
+  return { cleanText, formSlugs: slugs };
+}
 
 // ── i18n constants ──
 
@@ -31,23 +66,23 @@ const PLACEHOLDER: Record<string, string> = {
 };
 
 const HEADER_TITLE: Record<string, string> = {
-  bs: "Kako ti mogu pomoći danas?", hr: "Kako ti mogu pomoći danas?",
-  sr: "Kako ti mogu pomoći danas?", me: "Kako ti mogu pomoći danas?",
-  sq: "Si mund t'ju ndihmoj sot?", xk: "Si mund t'ju ndihmoj sot?",
-  mk: "Како можам да ви помогнам денес?",
-  de: "Wie kann ich dir heute helfen?", en: "How can I help you today?",
+  bs: "BalkanLink Assistant", hr: "BalkanLink Assistant",
+  sr: "BalkanLink Assistant", me: "BalkanLink Assistant",
+  sq: "BalkanLink Assistant", xk: "BalkanLink Assistant",
+  mk: "BalkanLink Assistant",
+  de: "BalkanLink Assistant", en: "BalkanLink Assistant",
 };
 
 const HEADER_SUBTITLE: Record<string, string> = {
-  bs: "Riješi papire, posao i život u Njemačkoj — brzo i jednostavno",
-  hr: "Riješi papire, posao i život u Njemačkoj — brzo i jednostavno",
-  sr: "Reši papire, posao i život u Nemačkoj — brzo i jednostavno",
-  me: "Riješi papire, posao i život u Njemačkoj — brzo i jednostavno",
-  sq: "Zgjidh dokumentet, punën dhe jetën në Gjermani — shpejt dhe lehtë",
-  xk: "Zgjidh dokumentet, punën dhe jetën në Gjermani — shpejt dhe lehtë",
-  mk: "Реши документи, работа и живот во Германија — брзо и едноставно",
-  de: "Erledige Papierkram, Job und Leben in Deutschland — schnell und einfach",
-  en: "Sort out paperwork, job and life in Germany — fast and easy",
+  bs: "Digitalni asistent — postavite pitanje o životu i birokratiji u Njemačkoj",
+  hr: "Digitalni asistent — postavite pitanje o životu i birokratiji u Njemačkoj",
+  sr: "Digitalni asistent — postavite pitanje o životu i birokratiji u Nemačkoj",
+  me: "Digitalni asistent — postavite pitanje o životu i birokratiji u Njemačkoj",
+  sq: "Asistenti dixhital — bëni pyetje rreth jetës dhe burokracisë në Gjermani",
+  xk: "Asistenti dixhital — bëni pyetje rreth jetës dhe burokracisë në Gjermani",
+  mk: "Дигитален асистент — поставете прашање за животот и бирократијата во Германија",
+  de: "Digitaler Assistent — Fragen zum Leben und Bürokratie in Deutschland",
+  en: "Digital assistant — ask about life and bureaucracy in Germany",
 };
 
 const ERROR_MSG: Record<string, string> = {
@@ -146,7 +181,7 @@ const ACTION_BUTTONS: ActionButton[] = [
   {
     icon: FileText,
     label: { bs: "Formulari i papiri", de: "Formulare & Dokumente", en: "Forms & Documents" },
-    message: { bs: "Treba mi pomoć sa formularima i papirima u Njemačkoj.", de: "Ich brauche Hilfe mit Formularen und Dokumenten.", en: "I need help with forms and documents in Germany." },
+    message: { bs: "Koji formulari postoje na BalkanLinku? Pokaži mi najvažnije.", de: "Welche Formulare gibt es auf BalkanLink? Zeig mir die wichtigsten.", en: "What forms are available on BalkanLink? Show me the most important ones." },
   },
   {
     icon: Home,
@@ -211,8 +246,33 @@ const QUICK_ACTIONS: QuickAction[] = [
 const AUTO_TRIGGER: Record<string, Record<string, string>> = {
   "/wohnungen": { bs: "Treba pomoć oko pronalaska stana?", de: "Brauchst du Hilfe bei der Wohnungssuche?", en: "Need help finding an apartment?" },
   "/stellenangebote": { bs: "Treba pomoć oko pronalaska posla?", de: "Brauchst du Hilfe bei der Jobsuche?", en: "Need help finding a job?" },
-  "/formulari": { bs: "Treba pomoć sa formularima?", de: "Brauchst du Hilfe mit Formularen?", en: "Need help with forms?" },
+  "/formulari": { bs: "Treba pomoć sa formularima? Reci mi koji ti treba i vodim te dalje.", de: "Brauchst du Hilfe mit Formularen? Sag mir welches du brauchst.", en: "Need help with forms? Tell me which one you need." },
 };
+
+// ── Guide slug detection (client-side) ──
+
+const TOPIC_GUIDE_MAP: Record<string, string> = {
+  kindergeld: "kindergeld", kinderzuschlag: "kinderzuschlag", elterngeld: "elterngeld",
+  mutterschutz: "mutterschaftsgeld", bürgergeld: "buergergeld", burgergeld: "buergergeld",
+  wohngeld: "wohngeld", bafög: "bafoeg", bafoeg: "bafoeg",
+  anmeldung: "anmeldung", aufenthaltstitel: "aufenthaltstitel-verlaengerung",
+  boravišn: "aufenthaltstitel-verlaengerung", boravisn: "aufenthaltstitel-verlaengerung",
+  führungszeugnis: "fuehrungszeugnis", krankengeld: "krankengeld",
+  sozialhilfe: "sozialhilfe", unterhalt: "unterhaltsvorschuss", wbs: "wbs",
+  arbeitslosengeld: "arbeitslosengeld", kurzarbeitergeld: "kurzarbeitergeld",
+  bildungsgutschein: "bildungsgutschein", integrationskurs: "integrationskurs",
+  kirchenaustritt: "kirchenaustritt", heizkostenzuschuss: "heizkostenzuschuss",
+  rundfunkbeitrag: "gez-anmeldung", gez: "gez-anmeldung",
+  steuerklasse: "steuerklassenwechsel", krankenkasse: "familienversicherung",
+};
+
+function detectGuideSlugFromText(text: string): string | null {
+  const lower = text.toLowerCase();
+  for (const [keyword, slug] of Object.entries(TOPIC_GUIDE_MAP)) {
+    if (lower.includes(keyword)) return slug;
+  }
+  return null;
+}
 
 // ── Markdown renderer ──
 
@@ -242,24 +302,52 @@ function ChatMarkdown({ content }: { content: string }) {
   );
 }
 
-// ── Guide slug detection ──
+// ── Form Card Component ──
 
-const TOPIC_GUIDE_MAP: Record<string, string> = {
-  kindergeld: "kindergeld-kg1", kinderzuschlag: "kinderzuschlag", elterngeld: "elterngeld",
-  elternzeit: "elternzeit", mutterschutz: "mutterschutz", bürgergeld: "buergergeld",
-  burgergeld: "buergergeld", wohngeld: "wohngeld", bafög: "bafoeg", bafoeg: "bafoeg",
-  anmeldung: "anmeldung", aufenthaltstitel: "aufenthaltstitel-verlaengerung",
-  boravišn: "aufenthaltstitel-verlaengerung", boravisn: "aufenthaltstitel-verlaengerung",
-  führungszeugnis: "fuehrungszeugnis", krankengeld: "krankengeld", pflegegrad: "pflegegrad",
-  sozialhilfe: "sozialhilfe", unterhalt: "unterhalt", wbs: "wbs",
-};
+function FormCard({ slug, lk }: { slug: string; lk: string }) {
+  const form = getFormBySlug(slug);
+  if (!form) return null;
 
-function detectGuideSlugFromText(text: string): string | null {
-  const lower = text.toLowerCase();
-  for (const [keyword, slug] of Object.entries(TOPIC_GUIDE_MAP)) {
-    if (lower.includes(keyword)) return slug;
-  }
-  return null;
+  const labels = {
+    openForm: lk === "de" ? "Formular öffnen" : lk === "en" ? "Open form" : "Otvori formular",
+    startGuide: lk === "de" ? "Smart Guide starten" : lk === "en" ? "Start Smart Guide" : "Pokreni Smart Guide",
+    docs: lk === "de" ? "Dokumente" : lk === "en" ? "Documents" : "Dokumenti",
+    mistakes: lk === "de" ? "Häufige Fehler" : lk === "en" ? "Common mistakes" : "Česte greške",
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 6 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="rounded-xl border border-blue-200 dark:border-blue-800/40 bg-gradient-to-br from-blue-50/80 to-indigo-50/80 dark:from-blue-950/20 dark:to-indigo-950/20 p-3 shadow-sm"
+    >
+      <div className="flex items-center gap-2 mb-2">
+        <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-blue-500/10">
+          <FileText className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" />
+        </div>
+        <div className="flex-1 min-w-0">
+          <p className="text-[12px] font-bold text-foreground truncate">{form.label}</p>
+          <p className="text-[10px] text-muted-foreground leading-snug">{form.desc}</p>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-2 gap-1.5">
+        <Link
+          to={`/formulari?form=${slug}`}
+          className="flex items-center justify-center gap-1 rounded-lg border border-border bg-background px-2 py-1.5 text-[10px] font-medium text-foreground transition hover:bg-accent"
+        >
+          <ExternalLink className="h-3 w-3" /> {labels.openForm}
+        </Link>
+        <Link
+          to={`/formulari?form=${slug}`}
+          className="flex items-center justify-center gap-1 rounded-lg px-2 py-1.5 text-[10px] font-bold text-white transition hover:opacity-90"
+          style={{ background: "linear-gradient(135deg, #3B82F6, #9333EA)" }}
+        >
+          <BookOpen className="h-3 w-3" /> {labels.startGuide}
+        </Link>
+      </div>
+    </motion.div>
+  );
 }
 
 // ── Premium Upsell Card (soft, non-aggressive) ──
@@ -386,12 +474,14 @@ export default function ChatAssistant() {
 
     const upsertAssistant = (chunk: string) => {
       assistantSoFar += chunk;
+      // Extract form markers in real-time
+      const { cleanText, formSlugs } = extractFormMarkers(assistantSoFar);
       setMessages((prev) => {
         const last = prev[prev.length - 1];
         if (last?.role === "assistant" && !last.premiumGated && !last.softUpsell) {
-          return prev.map((m, i) => (i === prev.length - 1 ? { ...m, content: assistantSoFar, guideSlug: detectedSlug } : m));
+          return prev.map((m, i) => (i === prev.length - 1 ? { ...m, content: cleanText, guideSlug: detectedSlug, formSlugs } : m));
         }
-        return [...prev, { role: "assistant", content: assistantSoFar, guideSlug: detectedSlug }];
+        return [...prev, { role: "assistant", content: cleanText, guideSlug: detectedSlug, formSlugs }];
       });
     };
 
@@ -411,17 +501,18 @@ export default function ChatAssistant() {
       if (contentType.includes("application/json")) {
         const data = await resp.json();
         if (data.smart_guide_redirect) {
-          setMessages(prev => [...prev, { role: "assistant", content: data.content, guideSlug: data.guideSlug || detectedSlug }]);
+          const formSlugs = data.detectedForm ? [data.detectedForm.slug] : (data.guideSlug ? [data.guideSlug] : []);
+          setMessages(prev => [...prev, { role: "assistant", content: data.content, guideSlug: data.guideSlug || detectedSlug, formSlugs }]);
           setLoading(false);
           return;
         }
         if (data.premium_required) {
-          setMessages(prev => [...prev, { role: "assistant", content: `${data.teaser}\n\n${data.cta}`, premiumGated: true }]);
+          const formSlugs = data.detectedForm ? [data.detectedForm.slug] : (data.guideSlug ? [data.guideSlug] : []);
+          setMessages(prev => [...prev, { role: "assistant", content: `${data.teaser}\n\n${data.cta}`, premiumGated: true, formSlugs }]);
           setLoading(false);
           return;
         }
         if (data.soft_upsell) {
-          // Free value first, then soft upsell
           setMessages(prev => [
             ...prev,
             { role: "assistant", content: data.free_content },
@@ -438,6 +529,7 @@ export default function ChatAssistant() {
       }
 
       const headerSlug = resp.headers.get("X-Guide-Slug");
+      const headerFormSlug = resp.headers.get("X-Form-Slug");
       const reader = resp.body.getReader();
       const decoder = new TextDecoder();
       let textBuffer = "";
@@ -466,10 +558,17 @@ export default function ChatAssistant() {
         }
       }
 
-      if (headerSlug) {
+      // Apply header slugs after stream completes
+      if (headerSlug || headerFormSlug) {
         setMessages(prev => {
           const last = prev[prev.length - 1];
-          if (last?.role === "assistant") return prev.map((m, i) => (i === prev.length - 1 ? { ...m, guideSlug: headerSlug } : m));
+          if (last?.role === "assistant") {
+            const updatedFormSlugs = [...(last.formSlugs || [])];
+            if (headerFormSlug && !updatedFormSlugs.includes(headerFormSlug)) {
+              updatedFormSlugs.push(headerFormSlug);
+            }
+            return prev.map((m, i) => (i === prev.length - 1 ? { ...m, guideSlug: headerSlug || m.guideSlug, formSlugs: updatedFormSlugs } : m));
+          }
           return prev;
         });
       }
@@ -531,7 +630,7 @@ export default function ChatAssistant() {
               <div className="flex items-start justify-between relative z-10">
                 <div className="flex-1">
                   <p className="text-[15px] font-bold leading-tight text-white">{HEADER_TITLE[lk] || HEADER_TITLE["bs"]}</p>
-                  <p className="text-[11px] leading-snug text-white/70 mt-1">{HEADER_SUBTITLE[lk] || HEADER_SUBTITLE["bs"]}</p>
+                  <p className="text-[10px] leading-snug text-white/70 mt-1">{HEADER_SUBTITLE[lk] || HEADER_SUBTITLE["bs"]}</p>
                 </div>
                 <button onClick={() => setOpen(false)} className="ml-2 rounded-lg p-1.5 text-white/70 transition-colors hover:bg-white/10 hover:text-white">
                   <X className="h-4 w-4" />
@@ -624,83 +723,76 @@ export default function ChatAssistant() {
                   className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
                 >
                   {msg.softUpsell ? (
-                    /* Soft premium upsell card */
                     <div className="max-w-[92%]">
                       <PremiumUpsellCard lk={lk} onSkip={() => inputRef.current?.focus()} />
                     </div>
                   ) : (
-                    <div
-                      className={`max-w-[88%] rounded-2xl px-3.5 py-2.5 text-[13px] leading-snug ${
-                        msg.role === "user"
-                          ? "text-white shadow-md"
-                          : msg.premiumGated
-                          ? "bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 text-foreground shadow-sm"
-                          : "bg-muted text-foreground shadow-sm"
-                      }`}
-                      style={msg.role === "user" ? { background: "linear-gradient(135deg, #3B82F6, #9333EA)" } : undefined}
-                    >
-                      {msg.role === "assistant" ? (
-                        <>
-                          {msg.premiumGated && (
-                            <div className="flex items-center gap-1.5 mb-2">
-                              <Lock className="h-3.5 w-3.5 text-amber-600 dark:text-amber-400" />
-                              <span className="text-[11px] font-bold text-amber-700 dark:text-amber-400">Premium</span>
-                            </div>
-                          )}
+                    <div className="max-w-[92%] space-y-2">
+                      <div
+                        className={`rounded-2xl px-3.5 py-2.5 text-[13px] leading-snug ${
+                          msg.role === "user"
+                            ? "text-white shadow-md"
+                            : msg.premiumGated
+                            ? "bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 text-foreground shadow-sm"
+                            : "bg-muted text-foreground shadow-sm"
+                        }`}
+                        style={msg.role === "user" ? { background: "linear-gradient(135deg, #3B82F6, #9333EA)" } : undefined}
+                      >
+                        {msg.role === "assistant" ? (
+                          <>
+                            {msg.premiumGated && (
+                              <div className="flex items-center gap-1.5 mb-2">
+                                <Lock className="h-3.5 w-3.5 text-amber-600 dark:text-amber-400" />
+                                <span className="text-[11px] font-bold text-amber-700 dark:text-amber-400">Premium</span>
+                              </div>
+                            )}
 
-                          <ChatMarkdown content={msg.content} />
+                            <ChatMarkdown content={msg.content} />
 
-                          {/* Copy button for longer assistant messages */}
-                          {!msg.premiumGated && msg.content.length > 200 && (
-                            <button
-                              onClick={() => copyToClipboard(msg.content, i)}
-                              className="mt-2 flex items-center gap-1 text-[10px] text-muted-foreground hover:text-foreground transition"
-                            >
-                              <Copy className="h-3 w-3" />
-                              {copied === i ? "✓ Kopirano" : "Kopiraj"}
-                            </button>
-                          )}
+                            {/* Copy button for longer assistant messages */}
+                            {!msg.premiumGated && msg.content.length > 200 && (
+                              <button
+                                onClick={() => copyToClipboard(msg.content, i)}
+                                className="mt-2 flex items-center gap-1 text-[10px] text-muted-foreground hover:text-foreground transition"
+                              >
+                                <Copy className="h-3 w-3" />
+                                {copied === i ? "✓ Kopirano" : "Kopiraj"}
+                              </button>
+                            )}
 
-                          {msg.premiumGated && (
-                            <div className="mt-3">
-                              <PremiumUpsellCard lk={lk} onSkip={() => { setInput(""); inputRef.current?.focus(); }} />
-                            </div>
-                          )}
+                            {msg.premiumGated && (
+                              <div className="mt-3">
+                                <PremiumUpsellCard lk={lk} onSkip={() => { setInput(""); inputRef.current?.focus(); }} />
+                              </div>
+                            )}
 
-                          {!msg.premiumGated && (
-                            <div className="mt-3 space-y-2">
-                              {/* Smart Guide CTA */}
-                              {msg.guideSlug && (
-                                <div className="flex flex-col gap-1.5">
-                                  <Link
-                                    to={`/formulari/${msg.guideSlug}`}
-                                    className="inline-flex items-center justify-center gap-1.5 rounded-xl px-3 py-2 text-[12px] font-bold text-white transition hover:opacity-90"
-                                    style={{ background: "linear-gradient(135deg, #3B82F6, #9333EA)" }}
-                                  >
-                                    <BookOpen className="h-3.5 w-3.5" />
-                                    {lk === "de" ? "Smart Guide starten" : lk === "en" ? "Start Smart Guide" : "Pokreni Smart Guide"}
-                                  </Link>
-                                  <Link
-                                    to="/formulari"
-                                    className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-border bg-background px-3 py-2 text-[12px] font-medium text-foreground transition hover:bg-accent"
-                                  >
-                                    <ClipboardList className="h-3.5 w-3.5" />
-                                    {lk === "de" ? "Alle Formulare" : lk === "en" ? "All forms" : "Svi formulari"}
-                                  </Link>
-                                </div>
-                              )}
-
-                              <div className="flex items-start gap-1.5 pt-1">
+                            {!msg.premiumGated && !msg.formSlugs?.length && (
+                              <div className="mt-2 flex items-start gap-1.5">
                                 <Info className="mt-0.5 h-3 w-3 shrink-0 text-muted-foreground/50" />
                                 <p className="text-[10px] text-muted-foreground/60 leading-snug">
                                   {DISCLAIMER[lk] || DISCLAIMER["bs"]}
                                 </p>
                               </div>
-                            </div>
-                          )}
-                        </>
-                      ) : (
-                        msg.content
+                            )}
+                          </>
+                        ) : (
+                          msg.content
+                        )}
+                      </div>
+
+                      {/* Form Cards rendered BELOW the message bubble */}
+                      {msg.role === "assistant" && msg.formSlugs && msg.formSlugs.length > 0 && (
+                        <div className="space-y-2">
+                          {msg.formSlugs.map(slug => (
+                            <FormCard key={slug} slug={slug} lk={lk} />
+                          ))}
+                          <div className="flex items-start gap-1.5 px-1">
+                            <Info className="mt-0.5 h-3 w-3 shrink-0 text-muted-foreground/50" />
+                            <p className="text-[10px] text-muted-foreground/60 leading-snug">
+                              {DISCLAIMER[lk] || DISCLAIMER["bs"]}
+                            </p>
+                          </div>
+                        </div>
                       )}
                     </div>
                   )}

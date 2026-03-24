@@ -12,6 +12,43 @@ const LANG_NAMES: Record<string, string> = {
   sq: "shqip", xk: "shqip", mk: "македонски", de: "Deutsch", en: "English",
 };
 
+// ── FORM CATALOG (mirrors src/lib/form-catalog.ts) ──
+
+const FORM_CATALOG: { slug: string; label: string; desc: string }[] = [
+  { slug: "anmeldung", label: "Anmeldung", desc: "Prijava adrese stanovanja u Njemačkoj." },
+  { slug: "steuerklassenwechsel", label: "Steuer-ID", desc: "Poreski identifikacijski broj." },
+  { slug: "familienversicherung", label: "Krankenkasse", desc: "Prijava u zdravstveno osiguranje." },
+  { slug: "kindergeld", label: "Kindergeld", desc: "Mjesečna novčana pomoć za djecu." },
+  { slug: "elterngeld", label: "Elterngeld", desc: "Naknada za roditelje nakon rođenja djeteta." },
+  { slug: "mutterschaftsgeld", label: "Mutterschaftsgeld", desc: "Naknada za vrijeme poroda." },
+  { slug: "kinderzuschlag", label: "Kinderzuschlag", desc: "Dodatna pomoć za porodice sa manjim prihodima." },
+  { slug: "kita-zuschuss", label: "Kita-Zuschuss", desc: "Pomoć za troškove vrtića." },
+  { slug: "krippengeld-bayern", label: "Krippengeld", desc: "Dodatak za jaslice u Bavarskoj." },
+  { slug: "unterhaltsvorschuss", label: "Unterhaltsvorschuss", desc: "Alimentacijski predujam." },
+  { slug: "buergergeld", label: "Bürgergeld", desc: "Osnovna pomoć za život." },
+  { slug: "wohngeld", label: "Wohngeld", desc: "Pomoć za troškove stanovanja." },
+  { slug: "sozialhilfe", label: "Sozialhilfe", desc: "Osnovna socijalna pomoć." },
+  { slug: "bildung-teilhabe", label: "Bildung und Teilhabe", desc: "Pomoć za školske troškove djece." },
+  { slug: "arbeitslosengeld", label: "Arbeitslosengeld I", desc: "Naknada za nezaposlene." },
+  { slug: "kurzarbeitergeld", label: "Kurzarbeitergeld", desc: "Naknada kod skraćenog rada." },
+  { slug: "krankengeld", label: "Krankengeld", desc: "Naknada plate pri bolesti." },
+  { slug: "bildungsgutschein", label: "Bildungsgutschein", desc: "Vaučer za prekvalifikaciju." },
+  { slug: "bafoeg", label: "BAföG", desc: "Finansijska pomoć za studij." },
+  { slug: "schueler-bafoeg", label: "Schüler-BAföG", desc: "Pomoć za učenike." },
+  { slug: "integrationskurs", label: "Integrationskurs", desc: "Kurs njemačkog jezika." },
+  { slug: "lernfoerderung", label: "Lernförderung", desc: "Dopunska nastava za djecu." },
+  { slug: "wbs", label: "WBS", desc: "Pristup socijalnim stanovima." },
+  { slug: "gez-anmeldung", label: "Rundfunkbeitrag", desc: "Prijava/oslobađanje RTV takse." },
+  { slug: "heizkostenzuschuss", label: "Heizkostenzuschuss", desc: "Dodatak za grijanje." },
+  { slug: "fuehrungszeugnis", label: "Führungszeugnis", desc: "Potvrda o nekažnjavanju." },
+  { slug: "aufenthaltstitel-verlaengerung", label: "Aufenthaltstitel Verlängerung", desc: "Produženje boravišne dozvole." },
+  { slug: "kirchenaustritt", label: "Kirchenaustritt", desc: "Odjava iz crkve." },
+];
+
+function buildFormCatalogContext(): string {
+  return FORM_CATALOG.map(f => `- ${f.label} (slug: ${f.slug}): ${f.desc}`).join("\n");
+}
+
 // ── INTENT CLASSIFIER ──
 
 const PREMIUM_KEYWORDS = [
@@ -128,14 +165,25 @@ function formatDbResults(results: any[]): string {
 // ── SMART GUIDE SLUG MAPPING ──
 
 const TOPIC_GUIDE_MAP: Record<string, string> = {
-  kindergeld: "kindergeld-kg1", kinderzuschlag: "kinderzuschlag", elterngeld: "elterngeld",
-  elternzeit: "elternzeit", mutterschutz: "mutterschutz", mutterschaftsleistungen: "mutterschaftsleistungen",
-  unterhalt: "unterhalt", unterhaltsvorschuss: "unterhaltsvorschuss",
-  "bildung und teilhabe": "bildung-teilhabe", bürgergeld: "buergergeld",
+  kindergeld: "kindergeld", kinderzuschlag: "kinderzuschlag", elterngeld: "elterngeld",
+  elternzeit: "elterngeld", mutterschutz: "mutterschaftsgeld", mutterschaftsgeld: "mutterschaftsgeld",
+  unterhalt: "unterhaltsvorschuss", unterhaltsvorschuss: "unterhaltsvorschuss",
+  "bildung und teilhabe": "bildung-teilhabe", bürgergeld: "buergergeld", burgergeld: "buergergeld",
   wohngeld: "wohngeld", bafög: "bafoeg", bafoeg: "bafoeg", sozialhilfe: "sozialhilfe",
-  krippengeld: "bayerisches-krippengeld", krankengeld: "krankengeld", pflegegrad: "pflegegrad",
-  führungszeugnis: "fuehrungszeugnis", aufenthaltstitel: "aufenthaltstitel-verlaengerung",
+  krippengeld: "krippengeld-bayern", krankengeld: "krankengeld",
+  führungszeugnis: "fuehrungszeugnis", fuehrungszeugnis: "fuehrungszeugnis",
+  aufenthaltstitel: "aufenthaltstitel-verlaengerung", "boravišna dozvola": "aufenthaltstitel-verlaengerung",
+  boravisna: "aufenthaltstitel-verlaengerung",
   anmeldung: "anmeldung", wbs: "wbs",
+  arbeitslosengeld: "arbeitslosengeld", kurzarbeitergeld: "kurzarbeitergeld",
+  bildungsgutschein: "bildungsgutschein", integrationskurs: "integrationskurs",
+  kirchenaustritt: "kirchenaustritt", heizkostenzuschuss: "heizkostenzuschuss",
+  "kita-zuschuss": "kita-zuschuss", "kita zuschuss": "kita-zuschuss",
+  rundfunkbeitrag: "gez-anmeldung", gez: "gez-anmeldung",
+  steuerklasse: "steuerklassenwechsel", "steuer-id": "steuerklassenwechsel", "steuer id": "steuerklassenwechsel",
+  krankenkasse: "familienversicherung", familienversicherung: "familienversicherung",
+  "schüler-bafög": "schueler-bafoeg", "schueler-bafoeg": "schueler-bafoeg",
+  lernförderung: "lernfoerderung", lernfoerderung: "lernfoerderung",
 };
 
 function detectGuideSlug(text: string): string | null {
@@ -146,44 +194,96 @@ function detectGuideSlug(text: string): string | null {
   return null;
 }
 
+// ── DETECT FORM FROM CATALOG ──
+
+function detectFormFromCatalog(text: string): typeof FORM_CATALOG[0] | null {
+  const lower = text.toLowerCase();
+  for (const form of FORM_CATALOG) {
+    if (lower.includes(form.slug) || lower.includes(form.label.toLowerCase())) {
+      return form;
+    }
+  }
+  // Also check common Bosnian/German terms
+  const aliases: Record<string, string> = {
+    "dječji dodatak": "kindergeld", "djecji dodatak": "kindergeld",
+    "prijava adrese": "anmeldung", "prijava prebivališta": "anmeldung", "prijava prebivalista": "anmeldung",
+    "roditeljski novac": "elterngeld", "roditeljska naknada": "elterngeld",
+    "socijalna pomoć": "sozialhilfe", "socijalna pomoc": "sozialhilfe",
+    "pomoć za stan": "wohngeld", "pomoc za stan": "wohngeld",
+    "produženje boravišne": "aufenthaltstitel-verlaengerung", "produzenje boravisne": "aufenthaltstitel-verlaengerung",
+    "boravišna dozvola": "aufenthaltstitel-verlaengerung", "boravisna dozvola": "aufenthaltstitel-verlaengerung",
+    "potvrda o nekažnjavanju": "fuehrungszeugnis", "nekažnjavanje": "fuehrungszeugnis",
+    "alimentacija": "unterhaltsvorschuss", "alimentacij": "unterhaltsvorschuss",
+  };
+  for (const [alias, slug] of Object.entries(aliases)) {
+    if (lower.includes(alias)) {
+      return FORM_CATALOG.find(f => f.slug === slug) || null;
+    }
+  }
+  return null;
+}
+
 // ── SYSTEM PROMPTS ──
 
 function buildSystemPrompt(isPremium: boolean, language: string, dbResults: any[]): string {
   const langName = LANG_NAMES[language] || "Deutsch";
   const langInstruction = `VAŽNO: ODGOVARAJ ISKLJUČIVO na jeziku: ${langName}. Cijeli odgovor mora biti na tom jeziku.`;
 
+  const formCatalogContext = `
+────────────────────────────
+DOSTUPNI FORMULARI NA BALKANLINK PLATFORMI
+────────────────────────────
+
+Ovo su formulari koji postoje na BalkanLink platformi. Kad korisnik spomene bilo koji od ovih formulara ili srodnu temu, OBAVEZNO:
+1. Prepoznaj koji formular mu treba
+2. U odgovoru uključi marker: [FORM:slug] (npr. [FORM:kindergeld]) — ovo će automatski prikazati karticu formulara sa akcijama.
+3. NE duplciraj sadržaj Smart Guide-a — samo uputi korisnika na njega.
+4. SVAKI odgovor vezan za formular mora završiti sa [FORM:slug] markerom.
+
+Katalog formulara:
+${buildFormCatalogContext()}
+
+PRAVILO: Kad korisnik kaže "Formulari i papiri" ili "Koji formulari postoje", prikaži TOP 5 najvažnijih formulara sa markerima:
+[FORM:anmeldung]
+[FORM:kindergeld]
+[FORM:wohngeld]
+[FORM:buergergeld]
+[FORM:aufenthaltstitel-verlaengerung]
+`;
+
   const taskOrientedCore = `
 ────────────────────────────
 PONAŠANJE (OBAVEZNO)
 ────────────────────────────
 
-Ti si TASK-ORIENTED digitalni vodič, NE običan chatbot.
-Tvoj cilj je VODITI korisnika kroz rješavanje problema, korak po korak.
+Ti si TASK-ORIENTED digitalni vodič i NAVIGATOR za BalkanLink platformu.
+Tvoj GLAVNI cilj je POVEZATI korisnika sa postojećim formularima i Smart Guide sistemom.
+Ti NISI odvojeni alat — ti si inteligentni ulaz u BalkanLink ekosistem.
 
-PRAVILA PONAŠANJA:
-1. UVIJEK postavi 1-3 dodatna pitanja PRIJE nego daš konačni odgovor.
-2. Pitanja prilagodi kontekstu — npr. za Kindergeld pitaj ima li djece, koliko, radi li u Njemačkoj.
-3. Odgovori MORAJU sadržavati KONKRETNE AKCIJE — ne samo informacije.
-4. Na KRAJU svakog odgovora UVIJEK ponudi "šta dalje" opcije.
-5. Govori REALNO — uključi upozorenja o čestim greškama i odbijanjima.
+PRAVILA:
+1. Kad korisnik spomene formular ili administrativni problem — PREPOZNAJ koji formular mu treba iz kataloga i uključi [FORM:slug] marker.
+2. NE generiši detaljne upute za popunjavanje — to radi Smart Guide. Ti samo uputi korisnika.
+3. Daj KRATKO objašnjenje (2-3 rečenice) + uslove + česte greške + ponudi akcije.
+4. UVIJEK na kraju ponudi: "Želiš da pokrenem Smart Guide?" ili "Šta ti još treba?"
+5. Govori REALNO — uključi upozorenja o čestim greškama.
 6. NIKAD ne daj dugačke generičke tekstove. Budi kratak, konkretan, akcijski.
+7. Postavi 1-2 pitanja za kontekst SAMO kad je potrebno (grad, broj djece, radni status).
+
+STRUKTURA ODGOVORA ZA FORMULARE:
+1. Kratko objašnjenje (2-3 rečenice šta je i ko ima pravo)
+2. Ključni uslovi (bullet points, max 4)
+3. ⚠️ Najčešće greške (1-2)
+4. [FORM:slug] marker (OBAVEZNO)
 
 ────────────────────────────
 MONETIZACIJSKI FLOW (SOFT UPSELL)
 ────────────────────────────
 
-OBAVEZNO koristi ovaj redoslijed za SVAKI use case:
+KORAK 1 — FREE: Osnovno objašnjenje + uslovi + česte greške + link na formular
+KORAK 2 — PROBLEM TRIGGER: "Najveći problem je što ljudi pogriješe u formularu."
+KORAK 3 — SOFT PONUDA: "Želiš Smart Guide koji te vodi polje po polje?"
 
-KORAK 1 — FREE VRIJEDNOST:
-Daj korisno objašnjenje: ko ima pravo, šta okvirno treba, osnovni koraci.
-
-KORAK 2 — PROBLEM TRIGGER:
-Spomeni česte greške: "Najveći problem je što ljudi pogriješe u formularu ili zaborave dokument."
-
-KORAK 3 — SOFT PONUDA:
-Ponudi: "Želiš da te vodim tačno korak po korak i pokažem šta da upišeš?"
-
-NE prodavaj agresivno. Neka Premium izgleda kao logičan sljedeći korak.
+NE prodavaj agresivno. Premium izgleda kao logičan sljedeći korak.
 
 ────────────────────────────
 TASK ENGINE (GENERISANJE DOKUMENATA)
@@ -192,46 +292,31 @@ TASK ENGINE (GENERISANJE DOKUMENATA)
 Kad korisnik traži generisanje teksta (Kündigung, Bewerbung, poruka za stan, email):
 1. Postavi 3-5 kratkih pitanja za personalizaciju
 2. Generiši KRATKI PREVIEW (prvih 3-4 reda teksta)
-3. Na kraju dodaj: "Ovo je skraćena verzija. Za kompletnu verziju spremnu za slanje, aktiviraj Premium."
+3. Na kraju dodaj: "Ovo je skraćena verzija. Za kompletnu verziju, aktiviraj Premium."
 
-Za Premium korisnike: generiši PUNI tekst i ponudi opcije (kopiranje, izmjene, formalnija verzija).
+Za Premium korisnike: generiši PUNI tekst i ponudi opcije.
 
 ────────────────────────────
 GDPR PRAVILA
 ────────────────────────────
 
-- NIKAD ne traži od korisnika lične podatke (broj dokumenta, IBAN, lozinke).
-- Ako korisnik sam unese lične podatke, koristi ih SAMO za generisanje odgovora.
-- Podaci se NE spremaju, NE profilišu, NE koriste ponovo.
-- Koristi placeholder mode kad je moguće: [Ime], [Adresa], [Datum].
-
-────────────────────────────
-FLOW LOGIKA
-────────────────────────────
-
-Za svaki upit:
-1. Prepoznaj šta korisnik treba
-2. Postavi 1-3 precizna pitanja
-3. Daj strukturiran odgovor sa koracima
-4. Spomeni česte greške (reality check)
-5. Ponudi "šta dalje" na kraju
+- NIKAD ne traži lične podatke (broj dokumenta, IBAN).
+- Koristi placeholder: [Ime], [Adresa], [Datum].
 
 ────────────────────────────
 FORMAT ODGOVORA
 ────────────────────────────
 
-**KRATKO** (2-3 rečenice max)
+**KRATKO** (2-3 rečenice)
 
 **USLOVI**
 • Uslov 1
 • Uslov 2
 
-**KORACI** (max 4)
-1. Korak
-2. Korak
-
 **⚠️ ČESTE GREŠKE**
-- Upozorenje
+- Greška 1
+
+[FORM:slug]
 
 **ŠTA DALJE?**
 Ponudi 2-3 opcije.
@@ -241,8 +326,6 @@ REALITY CHECK
 ────────────────────────────
 - "Ovo možda neće proći ako..."
 - "Ovdje često odbijaju jer..."
-- "Bolje uradi ovako umjesto..."
-- ZABRANJENO: "Imate pravo", "Garantovano", "100%"
 - DOZVOLJENO: "U pravilu", "Tipično", "Provjerite"
 `;
 
@@ -254,10 +337,11 @@ STROGA PRAVILA:
 4. BEZ generisanja formulara ili pravnih savjeta.
 5. Google ocjene SAMO informativno.
 6. Ako korisnik spominje grad: "Nadležna institucija: [institucija] grada [grad]"
-7. UVIJEK završi sa "šta dalje" opcijama.`;
+7. UVIJEK završi sa "šta dalje" opcijama.
+8. OBAVEZNO koristi [FORM:slug] marker kad je tema vezana za formular.`;
 
   if (dbResults.length > 0) {
-    return `Ti si "BalkanLink Assistant" — digitalni vodič za život u Njemačkoj.
+    return `Ti si "BalkanLink Assistant" — digitalni vodič i navigator za BalkanLink platformu.
 ${langInstruction}
 
 MODE: ODGOVOR IZ BAZE PODATAKA
@@ -278,31 +362,33 @@ ${strictRules}`;
   }
 
   if (!isPremium) {
-    return `Ti si "BalkanLink Assistant" — digitalni vodič za život u Njemačkoj.
+    return `Ti si "BalkanLink Assistant" — digitalni vodič i navigator za BalkanLink platformu.
 ${langInstruction}
+
+${formCatalogContext}
 
 ${taskOrientedCore}
 
 DODATNA PRAVILA ZA FREE KORISNIKE:
-- Detaljno polje-po-polje popunjavanje je Premium funkcija.
+- Detaljno polje-po-polje popunjavanje je Premium funkcija — uputi na Smart Guide.
 - Generisanje punih dokumenata je Premium funkcija.
 - Za template poruke: daj KRATKI preview (3-4 reda) pa reci da je puna verzija u Premiumu.
-- Na kraju dodaj: "Detaljno polje-po-polje popunjavanje i template poruke dostupne su u BalkanLink Premium."
 - EMOTIONAL TRIGGER: "Većina korisnika uz vodič završi prijavu bez greške iz prvog pokušaja."
 
 ${strictRules}`;
   }
 
-  return `Ti si "BalkanLink Assistant" — digitalni vodič za život u Njemačkoj.
+  return `Ti si "BalkanLink Assistant" — digitalni vodič i navigator za BalkanLink platformu.
 ${langInstruction}
+
+${formCatalogContext}
 
 ${taskOrientedCore}
 
 PREMIUM MOGUĆNOSTI:
-- Formular-Coach (polje-po-polje)
+- Puni Smart Guide pristup (polje-po-polje)
 - Generisanje punih dokumenata (Kündigung, Bewerbung, poruke)
 - Personalizirana pomoć i checkliste
-- Nakon generisanja ponudi: "Želiš PDF?", "Želiš izmjene?", "Formalnija verzija?"
 
 ${strictRules}`;
 }
@@ -348,15 +434,17 @@ serve(async (req) => {
 
     const intent = classifyIntent(userText);
     const guideSlug = detectGuideSlug(userText);
+    const detectedForm = detectFormFromCatalog(userText);
 
     // Smart Guide redirect
     if (intent === "SMART_GUIDE_REDIRECT") {
       const lang = language || "bs";
       const sg = SMART_GUIDE_MESSAGES[lang] || SMART_GUIDE_MESSAGES["bs"];
-      const link = guideSlug ? `/formulari/${guideSlug}` : sg.link;
+      const slug = guideSlug || (detectedForm?.slug) || "kindergeld";
+      const link = `/formulari/${slug}`;
       const markdown = `${sg.text}\n\n👉 [${sg.label}](${link})`;
       return new Response(
-        JSON.stringify({ smart_guide_redirect: true, content: markdown, guideSlug: guideSlug || "kindergeld-kg1" }),
+        JSON.stringify({ smart_guide_redirect: true, content: markdown, guideSlug: slug, detectedForm: detectedForm }),
         { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
@@ -365,7 +453,7 @@ serve(async (req) => {
       const lang = language || "bs";
       const gate = PREMIUM_GATE_MESSAGES[lang] || PREMIUM_GATE_MESSAGES["bs"];
       return new Response(
-        JSON.stringify({ premium_required: true, teaser: gate.teaser, cta: gate.cta }),
+        JSON.stringify({ premium_required: true, teaser: gate.teaser, cta: gate.cta, detectedForm: detectedForm, guideSlug: guideSlug }),
         { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
@@ -408,6 +496,7 @@ serve(async (req) => {
 
     const extraHeaders: Record<string, string> = { ...corsHeaders, "Content-Type": "text/event-stream" };
     if (guideSlug) extraHeaders["X-Guide-Slug"] = guideSlug;
+    if (detectedForm) extraHeaders["X-Form-Slug"] = detectedForm.slug;
 
     return new Response(response.body, { headers: extraHeaders });
   } catch (e) {
