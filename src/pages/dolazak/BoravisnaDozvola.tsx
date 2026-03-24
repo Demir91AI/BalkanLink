@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { navigateBackOrHome } from "@/lib/navigation";
 import {
   ArrowLeft, Search, ChevronRight, AlertTriangle, ClipboardList,
   PenLine, ExternalLink, Info, Lock, Crown, Check, FileText,
@@ -204,6 +205,7 @@ function VisaDetail({ visa }: { visa: VisaType }) {
 
 /* ─── Main Page ─── */
 export default function BoravisnaDozvola() {
+  const navigate = useNavigate();
   const [selected, setSelected] = useState<string | null>(null);
   const [search, setSearch] = useState("");
   const isMobile = useIsMobile();
@@ -238,12 +240,12 @@ export default function BoravisnaDozvola() {
       {/* Hero */}
       <section className="border-b bg-primary py-10">
         <div className="container max-w-5xl">
-          <Link
-            to="/dolazak"
+          <button
+            onClick={() => navigateBackOrHome(navigate)}
             className="mb-4 inline-flex items-center gap-1 text-xs text-primary-foreground/70 hover:text-primary-foreground"
           >
             <ArrowLeft className="h-3 w-3" /> Nazad
-          </Link>
+          </button>
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">
             Viza Navigator
           </h1>
