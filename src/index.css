@@ -32,6 +32,9 @@
     --gold-light: 45 88% 58%;
     --gold-dark: 45 80% 40%;
 
+    --brand-orange: 38 91% 55%;
+    --brand-orange-foreground: 38 10% 8%;
+
     --destructive: 0 70% 40%;
     --destructive-foreground: 0 0% 100%;
 
@@ -82,6 +85,9 @@
     --gold-foreground: 45 10% 95%;
     --gold-light: 45 80% 56%;
     --gold-dark: 45 70% 36%;
+
+    --brand-orange: 38 85% 52%;
+    --brand-orange-foreground: 38 10% 95%;
 
     --destructive: 0 55% 35%;
     --destructive-foreground: 210 30% 95%;

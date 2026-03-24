@@ -1,11 +1,11 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { ChevronDown, Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { ChevronDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { Link } from "react-router-dom";
+import BrandLogo from "@/components/BrandLogo";
 
 export default function Header() {
   const { user, loading, signOut } = useAuth();
@@ -16,25 +16,21 @@ export default function Header() {
       <div className="flex h-14 items-center justify-between px-4">
         {/* Left: sidebar trigger + logo */}
         <div className="flex items-center gap-3">
-          <SidebarTrigger className="text-white/70 hover:text-gold hover:bg-white/5" />
-          <Link to="/" className="flex items-center gap-2">
-            <svg width="28" height="28" viewBox="0 0 40 40" fill="none" className="block shrink-0" style={{ filter: 'drop-shadow(0 0 5px rgba(34,211,238,0.2))' }}>
-              <text x="1" y="31" fontFamily="'Arial Black',Arial,sans-serif" fontWeight="900" fontSize="30" letterSpacing="-1">
-                <tspan fill="white">B</tspan><tspan fill="hsl(45,93%,49%)">L</tspan>
-              </text>
-              <polyline points="18,22 19.2,22 20,19 21,25 21.8,22 23,22" fill="none" stroke="hsl(45,93%,49%)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="0.7"/>
-            </svg>
-            <span className="font-heading text-xl font-extrabold leading-none tracking-tight text-white">
-              Balkan<span className="text-gold">Link</span>
-            </span>
-          </Link>
+          <SidebarTrigger className="text-white/70 hover:text-brand-orange hover:bg-white/5" />
+          {/* Desktop: full logo, Mobile: icon only */}
+          <span className="hidden sm:inline-flex">
+            <BrandLogo variant="full" />
+          </span>
+          <span className="inline-flex sm:hidden">
+            <BrandLogo variant="icon" />
+          </span>
         </div>
 
         {/* Right: language + auth */}
         <div className="flex items-center gap-1.5">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="sm" className="gap-1.5 text-sm h-9 px-3 text-white/80 hover:text-gold hover:bg-white/5">
+              <Button variant="ghost" size="sm" className="gap-1.5 text-sm h-9 px-3 text-white/80 hover:text-brand-orange hover:bg-white/5">
                 <span className="text-base leading-none">{currentFlag}</span>
                 <ChevronDown className="h-3 w-3 text-white/50" />
               </Button>
@@ -42,7 +38,7 @@ export default function Header() {
             <DropdownMenuContent align="end" className="min-w-[160px] bg-[hsl(215,55%,10%)] border-white/10 shadow-xl">
               {languages.map((lang) => (
                 <DropdownMenuItem key={lang.code} onClick={() => setLanguage(lang.code)}
-                  className={`text-white/80 hover:text-white focus:text-white focus:bg-white/10 ${language === lang.code ? "bg-white/10 text-gold font-medium" : ""}`}>
+                  className={`text-white/80 hover:text-white focus:text-white focus:bg-white/10 ${language === lang.code ? "bg-white/10 text-brand-orange font-medium" : ""}`}>
                   <span className="mr-2 text-base leading-none">{lang.flag}</span>
                   {lang.name}
                 </DropdownMenuItem>
@@ -51,12 +47,12 @@ export default function Header() {
           </DropdownMenu>
 
           {!loading && !user && (
-            <Button variant="ghost" size="sm" asChild className="h-9 text-sm text-white/80 hover:text-gold hover:bg-white/5">
+            <Button variant="ghost" size="sm" asChild className="h-9 text-sm text-white/80 hover:text-brand-orange hover:bg-white/5">
               <Link to="/login">{t("nav.login")}</Link>
             </Button>
           )}
           {!loading && user && (
-            <Button variant="ghost" size="sm" onClick={signOut} className="h-9 text-sm text-white/80 hover:text-gold hover:bg-white/5">
+            <Button variant="ghost" size="sm" onClick={signOut} className="h-9 text-sm text-white/80 hover:text-brand-orange hover:bg-white/5">
               {t("nav.logout")}
             </Button>
           )}

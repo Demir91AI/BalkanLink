@@ -1,5 +1,4 @@
 import { useState } from "react";
-import logo from "@/assets/logo-balkanlink-new.png";
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -8,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
+import BrandLogo from "@/components/BrandLogo";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -35,7 +35,7 @@ export default function Login() {
     <div className="container flex min-h-[70vh] items-center justify-center py-12">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
-          <img src={logo} alt="BalkanLink" className="mx-auto mb-4 h-10 w-auto object-contain" />
+          <div className="flex justify-center mb-4"><BrandLogo variant="full" linkHome={false} /></div>
           <CardTitle className="text-2xl">{t("auth.loginTitle")}</CardTitle>
           <CardDescription>{t("auth.loginDesc")}</CardDescription>
         </CardHeader>

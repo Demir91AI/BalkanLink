@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import logoImg from "@/assets/logo-balkanlink-new.png";
+import BrandLogo from "@/components/BrandLogo";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -58,7 +58,7 @@ export default function Register() {
     <div className="container flex min-h-[70vh] items-center justify-center py-12">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
-          <img src={logoImg} alt="BalkanLink" className="mx-auto mb-4 h-10 w-auto object-contain" />
+          <div className="flex justify-center mb-4"><BrandLogo variant="full" linkHome={false} /></div>
           <CardTitle className="text-2xl">{t("auth.registerTitle")}</CardTitle>
           <CardDescription>{t("auth.registerDesc")}</CardDescription>
         </CardHeader>
