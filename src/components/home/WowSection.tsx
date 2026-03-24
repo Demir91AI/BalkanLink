@@ -41,18 +41,55 @@ export function WowSection() {
         background: "linear-gradient(180deg, #F8FAFC 0%, #EEF2F7 50%, #FFF7ED 100%)",
       }}
     >
-      {/* Subtle warm glow blob */}
+      {/* ── Decorative blurs ── */}
+      {/* Top-left blue blur */}
       <div
-        className="pointer-events-none absolute left-1/2 top-[60%] -translate-x-1/2 -translate-y-1/2"
+        className="pointer-events-none absolute -left-24 -top-24"
         style={{
-          width: "600px",
-          height: "400px",
-          background: "radial-gradient(ellipse, rgba(245,166,35,0.1) 0%, transparent 70%)",
+          width: "500px",
+          height: "500px",
+          background: "radial-gradient(circle, rgba(96,165,250,0.10) 0%, transparent 70%)",
           filter: "blur(80px)",
         }}
       />
+      {/* Bottom-right orange glow */}
+      <div
+        className="pointer-events-none absolute -bottom-20 -right-20"
+        style={{
+          width: "450px",
+          height: "450px",
+          background: "radial-gradient(circle, rgba(245,158,11,0.13) 0%, transparent 70%)",
+          filter: "blur(80px)",
+        }}
+      />
+      {/* Floating circle — slow drift */}
+      <motion.div
+        className="pointer-events-none absolute hidden sm:block"
+        style={{
+          width: "180px",
+          height: "180px",
+          top: "35%",
+          right: "8%",
+          background: "radial-gradient(circle, rgba(96,165,250,0.07) 0%, transparent 70%)",
+          filter: "blur(40px)",
+          borderRadius: "50%",
+        }}
+        animate={{ y: [0, -18, 0], x: [0, 8, 0] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      />
 
-      {/* Content */}
+      {/* Micro dot pattern */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, rgba(0,0,0,0.08) 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
+          opacity: 0.04,
+        }}
+      />
+
+      {/* ── Content ── */}
       <div className="container relative z-10 py-20 sm:py-24 lg:py-28">
         {/* Headline */}
         <motion.div
@@ -71,6 +108,14 @@ export function WowSection() {
             <span style={{ color: "hsl(45, 80%, 42%)" }}>na jednom mjestu.</span>
           </h2>
 
+          {/* Gradient accent line */}
+          <div
+            className="mx-auto mt-4 h-[3px] w-20 rounded-full"
+            style={{
+              background: "linear-gradient(90deg, #3B82F6, #F59E0B)",
+            }}
+          />
+
           <p
             className="mx-auto mt-5 max-w-md text-base font-medium sm:text-lg"
             style={{ color: "#475569" }}
@@ -80,7 +125,10 @@ export function WowSection() {
         </motion.div>
 
         {/* Feature cards */}
-        <div className="mx-auto mt-16 grid max-w-3xl grid-cols-1 gap-5 sm:grid-cols-3 sm:gap-6" style={{ alignItems: "stretch" }}>
+        <div
+          className="mx-auto mt-16 grid max-w-3xl grid-cols-1 gap-5 sm:grid-cols-3 sm:gap-6"
+          style={{ alignItems: "stretch" }}
+        >
           {features.map((f, i) => (
             <motion.div
               key={f.title}
@@ -93,10 +141,19 @@ export function WowSection() {
             >
               <Link
                 to={f.to}
-                className="group flex w-full flex-col items-center justify-center rounded-2xl border border-black/[0.04] bg-white px-6 py-8 text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_14px_36px_rgba(0,0,0,0.08)]"
+                className="group flex w-full flex-col items-center justify-center rounded-2xl bg-white px-6 py-8 text-center transition-all duration-300 hover:-translate-y-1.5"
                 style={{
                   minHeight: "190px",
-                  boxShadow: "0 10px 30px rgba(0,0,0,0.05)",
+                  boxShadow: "0 15px 40px rgba(0,0,0,0.08)",
+                  border: "1px solid rgba(255,255,255,0.6)",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.boxShadow =
+                    "0 20px 50px rgba(0,0,0,0.12)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.boxShadow =
+                    "0 15px 40px rgba(0,0,0,0.08)";
                 }}
               >
                 <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-[#FFF7ED] transition-colors duration-300 group-hover:bg-[#FEF3C7]">
