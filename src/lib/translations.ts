@@ -961,7 +961,7 @@ const miscEn: Partial<TranslationKeys> = {
   "notfound.back": "Back to home",
   "common.error": "Error", "common.legalBasis": "Legal basis",
   "common.officialSource": "Official source", "common.moreSource": "Additional source",
-  "common.all": "All",
+  "common.all": "All", "common.back": "Back",
 };
 
 const miscSq: Partial<TranslationKeys> = {
