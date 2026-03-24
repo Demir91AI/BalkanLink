@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FileText, BriefcaseBusiness, Repeat2, ArrowRight } from "lucide-react";
+import { ScrollText, Building, ArrowLeftRight, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -17,9 +17,9 @@ export function WowSection() {
   const { t } = useLanguage();
 
   const features = [
-    { icon: FileText, title: t("wow.feat1.title"), desc: t("wow.feat1.desc"), to: "/formulari" },
-    { icon: BriefcaseBusiness, title: t("wow.feat2.title"), desc: t("wow.feat2.desc"), to: "/stellenangebote" },
-    { icon: Repeat2, title: t("wow.feat3.title"), desc: t("wow.feat3.desc"), to: "/nudim-trazim" },
+    { icon: ScrollText, title: t("wow.feat1.title"), desc: t("wow.feat1.desc"), to: "/formulari" },
+    { icon: Building, title: t("wow.feat2.title"), desc: t("wow.feat2.desc"), to: "/stellenangebote" },
+    { icon: ArrowLeftRight, title: t("wow.feat3.title"), desc: t("wow.feat3.desc"), to: "/nudim-trazim" },
   ];
 
   return (
