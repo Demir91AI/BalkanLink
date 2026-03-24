@@ -1,6 +1,7 @@
-import { ExternalLink, Calculator, AlertTriangle, Euro } from "lucide-react";
-import { Link } from "react-router-dom";
+import { ExternalLink, Calculator, AlertTriangle, Euro, ArrowLeft } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { navigateBackOrHome } from "@/lib/navigation";
 
 /* ───────── OFFICIAL CALCULATORS ───────── */
 const officialTools = [
@@ -13,14 +14,20 @@ const officialTools = [
 
 export default function Generatoren() {
   const { t } = useLanguage();
+  const navigate = useNavigate();
 
   return (
     <>
       {/* Hero */}
       <section className="border-b bg-primary py-12">
-        <div className="container text-center">
+        <div className="container">
+          <button onClick={() => navigateBackOrHome(navigate)} className="mb-4 inline-flex items-center gap-1 text-xs text-primary-foreground/70 hover:text-primary-foreground">
+            <ArrowLeft className="h-3 w-3" /> Nazad
+          </button>
+          <div className="text-center">
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">{t("tools.pageTitle")}</h1>
           <p className="mt-2 text-sm text-primary-foreground/80 md:text-base">{t("tools.pageSubtitle")}</p>
+          </div>
         </div>
       </section>
 

@@ -11,6 +11,7 @@ import type { NtAd } from "@/lib/nudim-trazim-constants";
 import { DEMO_ADS } from "@/lib/nudim-trazim-constants";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useNavigate } from "react-router-dom";
+import { navigateBackOrHome } from "@/lib/navigation";
 
 export default function NudimTrazim() {
   const { t } = useLanguage();
@@ -26,6 +27,7 @@ export default function NudimTrazim() {
   const [selectedAd, setSelectedAd] = useState<NtAd | null>(null);
   const [showForm, setShowForm] = useState(false);
   const [showProModal, setShowProModal] = useState(false);
+  const handleBack = () => navigateBackOrHome(navigate);
 
   const updateFilters = (partial: Partial<typeof filters>) =>
     setFilters((prev) => ({ ...prev, ...partial }));
@@ -89,7 +91,7 @@ export default function NudimTrazim() {
     <div className="min-h-screen bg-background">
       <section className="bg-primary text-primary-foreground">
         <div className="mx-auto max-w-6xl px-4 py-16 text-center space-y-5">
-          <button onClick={() => navigate(-1)} className="mb-2 inline-flex items-center gap-1 text-xs text-primary-foreground/70 hover:text-primary-foreground">
+          <button onClick={handleBack} className="mb-2 inline-flex items-center gap-1 text-xs text-primary-foreground/70 hover:text-primary-foreground">
             <ArrowLeft className="h-3 w-3" /> {t("common.back") || "Nazad"}
           </button>
           <div className="flex justify-center">

@@ -15,7 +15,7 @@ import { NavLink } from "@/components/NavLink";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { COUNTRIES } from "@/lib/migration-data";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Sidebar,
   SidebarContent,
@@ -57,6 +57,10 @@ export function AppSidebar() {
   const handleNavClick = () => {
     setOpenMobile(false);
   };
+
+  useEffect(() => {
+    setOpenMobile(false);
+  }, [location.pathname, setOpenMobile]);
 
   return (
     <Sidebar

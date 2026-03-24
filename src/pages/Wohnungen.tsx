@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { BUNDESLAENDER, GERMAN_CITIES_FULL, UMKREIS_OPTIONS } from "@/lib/germany-data";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { navigateBackOrHome } from "@/lib/navigation";
 
 /* ── portal data ── */
 interface Portal {
@@ -107,7 +108,7 @@ export default function Wohnungen() {
     <div className="min-h-screen bg-muted/30">
       <section className="bg-primary py-12 text-primary-foreground md:py-16">
         <div className="container max-w-4xl">
-          <button onClick={() => window.history.length > 2 ? navigate(-1) : navigate("/")} className="mb-4 inline-flex items-center gap-1 text-xs text-primary-foreground/70 hover:text-primary-foreground">
+          <button onClick={() => navigateBackOrHome(navigate)} className="mb-4 inline-flex items-center gap-1 text-xs text-primary-foreground/70 hover:text-primary-foreground">
             <ArrowLeft className="h-3 w-3" /> Nazad
           </button>
           <div className="text-center">

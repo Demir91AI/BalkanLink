@@ -1,15 +1,17 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Search, MapPin, Phone, Globe, Plus, Building2, Filter } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { Search, MapPin, Phone, Globe, Plus, Building2, Filter, ArrowLeft } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useDirectoryListings } from "@/hooks/useDirectoryListings";
 import { ORIGIN_COUNTRIES, DIRECTORY_CATEGORIES, GERMAN_CITIES } from "@/lib/directory-constants";
+import { navigateBackOrHome } from "@/lib/navigation";
 
 export default function Directory() {
   const { t } = useLanguage();
+  const navigate = useNavigate();
   const [search, setSearch] = useState("");
   const [city, setCity] = useState("");
   const [category, setCategory] = useState("");
@@ -31,6 +33,9 @@ export default function Directory() {
       {/* Header */}
       <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
+          <button onClick={() => navigateBackOrHome(navigate)} className="mb-4 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground">
+            <ArrowLeft className="h-3 w-3" /> Nazad
+          </button>
           <h1 className="text-2xl font-bold md:text-3xl">{t("dir.title")}</h1>
           <p className="mt-1 text-muted-foreground">{t("dir.subtitle")}</p>
         </div>
