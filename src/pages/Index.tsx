@@ -254,11 +254,11 @@ export default function Index() {
         </div>
       </div>
 
-      {/* ─── AD CAROUSEL ─── */}
+      {/* ─── PREMIUM AD CAROUSEL ─── */}
       <AdCarousel />
 
-      {/* ─── VIDEO AD SECTION ─── */}
-      <VideoAdSection />
+      {/* ─── FLOW AD BANNERS ─── */}
+      <AdFlowBanner />
     </>
   );
 }

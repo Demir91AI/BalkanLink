@@ -198,4 +198,20 @@
     stroke-dashoffset: 600;
     animation: ecg-draw 2.5s ease-in-out infinite;
   }
+
+  /* Infinite horizontal scroll for flow banners */
+  @keyframes scroll-x {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  .animate-scroll-x {
+    animation: scroll-x 30s linear infinite;
+  }
+  .animate-scroll-x:hover {
+    animation-play-state: paused;
+  }
 }
