@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { SidebarTrigger } from "@/components/ui/sidebar";
-import { ChevronDown, Mail, List, Send, Menu } from "lucide-react";
+import { ChevronDown, Mail, List, Send, PanelRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -77,7 +77,7 @@ export default function Header() {
               onClick={() => setSheetOpen(true)}
               className="h-9 px-2.5 text-white/80 hover:text-brand-orange hover:bg-white/5"
             >
-              <Menu className="h-5 w-5" />
+              <PanelRight className="h-5 w-5" />
             </Button>
           </div>
         </div>
