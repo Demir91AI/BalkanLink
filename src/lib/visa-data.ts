@@ -81,6 +81,7 @@ export const visaTypes: VisaType[] = [
       "Diploma nije priznata — provjeriti na anabin.kmk.org",
       "Ne tražiti Blue Card nego običnu radnu vizu (Blue Card daje brži put do stalnog boravka)",
     ],
+    guideSlug: "eu-blue-card",
     officialUrl: "https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/blaue-karte-eu",
   },
   {
