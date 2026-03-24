@@ -10,7 +10,7 @@ import showcaseVrebo3 from "@/assets/showcase-vrebo-3.jpg";
 import showcaseEcronix1 from "@/assets/showcase-ecronix-1.jpg";
 import showcaseEcronix2 from "@/assets/showcase-ecronix-2.jpg";
 import showcaseEcronix3 from "@/assets/showcase-ecronix-3.jpg";
-import showcaseEcronix4 from "@/assets/showcase-ecronix-4.jpg";
+
 
 export interface PremiumShowcaseFirm {
   name: string;
@@ -56,6 +56,6 @@ export const premiumShowcaseFirms: PremiumShowcaseFirm[] = [
     logoAlt: "Ecronix logo",
     logoWrapperClassName: "w-[12rem] sm:w-[14rem] h-[4.5rem]",
     highlights: ["Web aplikacije", "Mobilne aplikacije", "AI integracija", "UI/UX dizajn"],
-    images: [showcaseEcronix1, showcaseEcronix2, showcaseEcronix3, showcaseEcronix4],
+    images: [showcaseEcronix1, showcaseEcronix2, showcaseEcronix3],
   },
 ];
