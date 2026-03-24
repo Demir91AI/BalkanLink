@@ -214,6 +214,12 @@ type TranslationKeys = {
   "chat.openGuide": string; "chat.openForm": string; "chat.openPage": string;
   // Footer extras
   "footer.agb": string; "footer.reportContent": string;
+  // Vorlagen
+  "vorlagen.sidebarTitle": string; "vorlagen.subtitle": string; "vorlagen.comingSoon": string;
+  "vorlagen.sectionWork": string; "vorlagen.sectionService": string;
+  "vorlagen.bewerbung": string; "vorlagen.lebenslauf": string; "vorlagen.anschreiben": string;
+  "vorlagen.kuendigung": string; "vorlagen.fristlose": string; "vorlagen.probezeit": string;
+  "vorlagen.widerruf": string; "vorlagen.vertragKuendigung": string; "vorlagen.reklamation": string;
 };
 
 // --- Shared partial blocks ---
