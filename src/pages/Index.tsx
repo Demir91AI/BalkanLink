@@ -120,7 +120,7 @@ export default function Index() {
           >
             {/* H1 */}
             <h1
-              className="font-heading whitespace-nowrap text-xl font-black leading-[1.15] tracking-tight text-white sm:text-2xl md:text-3xl lg:text-[3.2rem]"
+              className="font-heading text-[1.15rem] font-black leading-[1.2] tracking-tight text-white sm:whitespace-nowrap sm:text-2xl md:text-3xl lg:text-[3.2rem]"
               style={{ textShadow: "0 4px 30px rgba(0,0,0,0.5)" }}
             >
               BalkanLink – Tvoj put do uspjeha u{" "}
@@ -171,19 +171,20 @@ export default function Index() {
 
             {/* Quick-link tags */}
             <div className="flex w-full justify-center" style={{ marginTop: "16px" }}>
-              <div className="flex items-center justify-center gap-3">
+              <div className="flex items-center justify-center gap-2 sm:gap-3">
                 {[
-                  { label: "Prvi koraci", to: "/dolazak/prvi-koraci" },
-                  { label: "Dokumenti", to: "/formulari" },
-                  { label: "Boravak", to: "/dolazak/boravisna-dozvola" },
-                  { label: "Kalkulatori", to: "/tools" },
+                  { label: "Prvi koraci", mobileLabel: "Start", to: "/dolazak/prvi-koraci" },
+                  { label: "Dokumenti", mobileLabel: "Dokumenti", to: "/formulari" },
+                  { label: "Boravak", mobileLabel: "Boravak", to: "/dolazak/boravisna-dozvola" },
+                  { label: "Kalkulatori", mobileLabel: "Kalkulator", to: "/tools" },
                 ].map((tag) => (
                   <Link
                     key={tag.to}
                     to={tag.to}
-                    className="rounded-full border border-white/40 px-4 py-1.5 text-xs font-medium text-white/80 backdrop-blur-sm transition-all duration-200 hover:border-white hover:bg-white/10 hover:text-white sm:text-sm"
+                    className="whitespace-nowrap rounded-full border border-white/40 px-3 py-1.5 text-[11px] font-medium text-white/80 backdrop-blur-sm transition-all duration-200 hover:border-white hover:bg-white/10 hover:text-white sm:px-4 sm:text-sm"
                   >
-                    {tag.label}
+                    <span className="hidden sm:inline">{tag.label}</span>
+                    <span className="sm:hidden">{tag.mobileLabel}</span>
                   </Link>
                 ))}
               </div>
