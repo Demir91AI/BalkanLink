@@ -218,7 +218,7 @@ export default function ChatAssistant() {
   }, [messages, loading]);
 
   useEffect(() => {
-    if (open) setTimeout(() => inputRef.current?.focus({ preventScroll: true }), 100);
+    if (open === "open") setTimeout(() => inputRef.current?.focus({ preventScroll: true }), 100);
   }, [open]);
 
   const copyToClipboard = (text: string, index: number) => {
