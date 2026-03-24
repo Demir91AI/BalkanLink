@@ -9,10 +9,8 @@ import adAluHome3 from "@/assets/ad-alu-home-3.jpg";
 import adVreboBau from "@/assets/ad-vrebo-bau.jpg";
 import adVreboBau2 from "@/assets/ad-vrebo-bau-2.jpg";
 import adVreboBau3 from "@/assets/ad-vrebo-bau-3.jpg";
-
-const MAILTO_AD = `mailto:info@balkanlink.de?subject=${encodeURIComponent("Oglašavanje na BalkanLink")}&body=${encodeURIComponent(
-  "Pozdrav,\n\nZanima me oglašavanje na BalkanLink platformi.\n\nNaziv firme:\nVrsta usluge:\nGrad:\nBudžet:\n"
-)}`;
+import logoAluhome from "@/assets/logo-aluhome.jpg";
+import logoVrebo from "@/assets/logo-vrebo.jpg";
 
 interface PremiumFirm {
   name: string;
@@ -26,48 +24,62 @@ interface PremiumFirm {
 const firms: PremiumFirm[] = [
   {
     name: "Alu Home",
-    description: "Moderne aluminijske konstrukcije, pergole i stakleni sistemi.",
+    description: "Moderne aluminijske konstrukcije, pergole i stakleni sistemi za dom i terasu.",
     images: [adAluHome, adAluHome2, adAluHome3],
     website: "https://www.alu-home.de/",
     contactEmail: "mailto:info@alu-home.de",
-    logoUrl: "https://www.alu-home.de/favicon.ico",
+    logoUrl: logoAluhome,
   },
   {
     name: "Vrebo Bau",
-    description: "Građevinski radovi, renoviranje i pouzdana rješenja širom Njemačke.",
+    description: "Pouzdani građevinski radovi, renoviranje i kvalitetna rješenja sa dugogodišnjim iskustvom.",
     images: [adVreboBau, adVreboBau2, adVreboBau3],
     website: "https://vrebo-bau.de/",
     contactEmail: "mailto:info@vrebo-bau.de",
-    logoUrl: "https://vrebo-bau.de/favicon.ico",
+    logoUrl: logoVrebo,
   },
 ];
 
-/* Inner image slideshow for each firm */
+/* Slow crossfade slideshow — each image stays 6s, 1.5s fade */
 function ImageSlideshow({ images }: { images: string[] }) {
   const [idx, setIdx] = useState(0);
 
   useEffect(() => {
-    const t = setInterval(() => setIdx((p) => (p + 1) % images.length), 3500);
+    const t = setInterval(() => setIdx((p) => (p + 1) % images.length), 6000);
     return () => clearInterval(t);
   }, [images.length]);
 
   return (
-    <AnimatePresence mode="wait">
-      <motion.img
-        key={idx}
+    <div className="absolute inset-0">
+      {/* Always render current image as base layer */}
+      <img
+        key={`base-${idx}`}
         src={images[idx]}
         alt=""
-        initial={{ opacity: 0, scale: 1.06 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
         className="absolute inset-0 h-full w-full object-cover"
-        style={{ filter: "brightness(0.3) saturate(1.15)" }}
+        style={{ filter: "brightness(0.25) saturate(1.1)" }}
         loading="lazy"
         width={1280}
         height={720}
       />
-    </AnimatePresence>
+      {/* Fade layer on top for smooth transition */}
+      <AnimatePresence mode="wait">
+        <motion.img
+          key={idx}
+          src={images[idx]}
+          alt=""
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.5, ease: "easeInOut" }}
+          className="absolute inset-0 h-full w-full object-cover"
+          style={{ filter: "brightness(0.25) saturate(1.1)" }}
+          loading="lazy"
+          width={1280}
+          height={720}
+        />
+      </AnimatePresence>
+    </div>
   );
 }
 
@@ -77,24 +89,28 @@ export function AdCarousel() {
   const next = useCallback(() => setCurrent((p) => (p + 1) % firms.length), []);
   const prev = useCallback(() => setCurrent((p) => (p - 1 + firms.length) % firms.length), []);
 
+  /* Firm rotates every 18s (6s per image × 3 images) */
   useEffect(() => {
-    const t = setInterval(next, 6000);
+    const t = setInterval(next, 18000);
     return () => clearInterval(t);
   }, [next]);
 
   const firm = firms[current];
 
   return (
-    <section className="relative h-[340px] sm:h-[380px] w-full overflow-hidden">
+    <section className="relative h-[380px] sm:h-[400px] w-full overflow-hidden">
       {/* Background slideshow */}
       <ImageSlideshow images={firm.images} />
 
       {/* Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[hsl(215,68%,4%/0.92)] via-[hsl(215,55%,6%/0.7)] to-[hsl(215,68%,4%/0.92)]" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[hsl(215,68%,4%/0.8)] to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[hsl(215,68%,4%/0.94)] via-[hsl(215,55%,6%/0.75)] to-[hsl(215,68%,4%/0.94)]" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[hsl(215,68%,4%/0.85)] to-transparent" />
 
       {/* Gold glow */}
-      <div className="absolute left-1/2 top-1/2 h-40 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[hsl(var(--gold)/0.05)]" style={{ filter: "blur(80px)" }} />
+      <div
+        className="absolute left-1/2 top-1/2 h-40 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[hsl(var(--gold)/0.04)]"
+        style={{ filter: "blur(80px)" }}
+      />
 
       {/* Content */}
       <div className="container relative z-10 flex h-full items-center">
@@ -103,11 +119,11 @@ export function AdCarousel() {
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 20 }}
-              transition={{ duration: 0.5 }}
-              className="flex-1"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.7, ease: "easeInOut" }}
+              className="flex-1 min-w-0"
             >
               {/* Sponsored label */}
               <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[hsl(var(--gold)/0.2)] bg-[hsl(var(--gold)/0.08)] px-3 py-1">
@@ -118,15 +134,12 @@ export function AdCarousel() {
               </div>
 
               {/* Logo + Name */}
-              <div className="mb-2 flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 backdrop-blur-sm overflow-hidden">
+              <div className="mb-3 flex items-center gap-4">
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-white/10 backdrop-blur-sm overflow-hidden border border-white/10">
                   <img
                     src={firm.logoUrl}
-                    alt={firm.name}
-                    className="h-6 w-6 object-contain"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).style.display = "none";
-                    }}
+                    alt={`${firm.name} logo`}
+                    className="h-full w-full object-cover"
                   />
                 </div>
                 <h2 className="font-heading text-2xl font-extrabold text-white sm:text-3xl">
@@ -134,7 +147,7 @@ export function AdCarousel() {
                 </h2>
               </div>
 
-              <p className="mb-6 max-w-md text-sm leading-relaxed text-white/50 sm:text-base">
+              <p className="mb-6 max-w-md text-sm leading-relaxed text-white/60 sm:text-base">
                 {firm.description}
               </p>
 
@@ -214,7 +227,7 @@ export function AdCarousel() {
                 ? "h-2 w-7 bg-[hsl(var(--gold))] shadow-[0_0_8px_hsl(var(--gold)/0.5)]"
                 : "h-2 w-2 bg-white/20 hover:bg-white/40"
             }`}
-            aria-label={`Firm ${idx + 1}`}
+            aria-label={`Firma ${idx + 1}`}
           />
         ))}
       </div>
