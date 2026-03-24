@@ -16,6 +16,8 @@ interface BrandLogoProps {
   className?: string;
   /** wrap in <Link to="/"> – default true */
   linkHome?: boolean;
+  /** Use dark text colors for light backgrounds */
+  darkText?: boolean;
 }
 
 const SIZES: Record<Variant, { icon: number; fontSize: string; gap: string }> = {
