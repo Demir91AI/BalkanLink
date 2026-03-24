@@ -205,7 +205,7 @@ export default function ChatAssistant() {
   const { isPremium } = useAuth();
   const lk = ["bs", "hr", "sr", "me"].includes(language) ? "bs" : language === "de" ? "de" : "en";
 
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState<"closed" | "open" | "minimized">("closed");
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
