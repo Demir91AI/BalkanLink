@@ -133,7 +133,7 @@ function VisaDetail({ visa, st }: { visa: VisaType; st: (k: string) => string })
       {/* FREE: Common mistakes */}
       <motion.div {...fade(3)} className="rounded-2xl border border-red-200 bg-red-50 p-4 dark:border-red-900/40 dark:bg-red-950/20">
         <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold text-red-700 dark:text-red-400">
-          <AlertTriangle className="h-3.5 w-3.5" /> {st("viza.commonMistakes")}
+          <AlertTriangle className="h-3.5 w-3.5" /> {st("viza.mistakes")}
         </h3>
         <ul className="space-y-1 pl-4 list-disc">
           {visa.commonMistakes.map((m, i) => (
