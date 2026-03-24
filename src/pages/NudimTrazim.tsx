@@ -1,12 +1,12 @@
 import { useState, useMemo } from "react";
-import { PlusCircle, Megaphone, Search as SearchIcon, Star } from "lucide-react";
+import { PlusCircle, Megaphone, Search as SearchIcon, Star, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import NtFilters from "@/components/nudim-trazim/NtFilters";
 import NtCategoryChips from "@/components/nudim-trazim/NtCategoryChips";
 import NtAdCard from "@/components/nudim-trazim/NtAdCard";
 import NtAdDetail from "@/components/nudim-trazim/NtAdDetail";
 import NtSubmitForm from "@/components/nudim-trazim/NtSubmitForm";
+import NtProModal from "@/components/nudim-trazim/NtProModal";
 import type { NtAd } from "@/lib/nudim-trazim-constants";
 import { DEMO_ADS } from "@/lib/nudim-trazim-constants";
 
@@ -21,6 +21,7 @@ export default function NudimTrazim() {
   });
   const [selectedAd, setSelectedAd] = useState<NtAd | null>(null);
   const [showForm, setShowForm] = useState(false);
+  const [showProModal, setShowProModal] = useState(false);
 
   const updateFilters = (partial: Partial<typeof filters>) =>
     setFilters((prev) => ({ ...prev, ...partial }));
@@ -44,6 +45,12 @@ export default function NudimTrazim() {
           a.city.toLowerCase().includes(q)
       );
     }
+    // PRO ads always on top, then by date
+    ads.sort((a, b) => {
+      if (a.is_pro && !b.is_pro) return -1;
+      if (!a.is_pro && b.is_pro) return 1;
+      return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+    });
     return ads;
   }, [filters]);
 
@@ -70,7 +77,8 @@ export default function NudimTrazim() {
     return (
       <div className="min-h-screen bg-background">
         <div className="mx-auto max-w-3xl px-4 py-10">
-          <NtSubmitForm onClose={() => setShowForm(false)} />
+          <NtSubmitForm onClose={() => setShowForm(false)} onProClick={() => setShowProModal(true)} />
+          <NtProModal open={showProModal} onClose={() => setShowProModal(false)} />
         </div>
       </div>
     );
@@ -93,9 +101,7 @@ export default function NudimTrazim() {
             <Button
               size="lg"
               className="bg-[hsl(var(--success))] hover:bg-[hsl(var(--success))]/90 text-[hsl(var(--success-foreground))] gap-2 font-semibold"
-              onClick={() => {
-                setShowForm(true);
-              }}
+              onClick={() => setShowForm(true)}
             >
               Nudim
             </Button>
@@ -103,15 +109,13 @@ export default function NudimTrazim() {
               size="lg"
               variant="outline"
               className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 gap-2 font-semibold"
-              onClick={() => {
-                setShowForm(true);
-              }}
+              onClick={() => setShowForm(true)}
             >
               <SearchIcon className="h-4 w-4" /> Tražim
             </Button>
           </div>
           <p className="text-primary-foreground/60 text-sm">
-            Jednostavni oglasi za našu zajednicu u Njemačkoj.
+            Objava oglasa je besplatna. PRO opcija za dodatnu vidljivost.
           </p>
         </div>
       </section>
@@ -124,16 +128,41 @@ export default function NudimTrazim() {
         {/* Category chips */}
         <NtCategoryChips active={filters.category} onSelect={handleCategoryChip} />
 
-        {/* PRO hint */}
-        <div className="flex items-center gap-3 rounded-lg border border-[hsl(var(--gold))]/30 bg-[hsl(var(--gold))]/5 p-4 text-sm">
-          <Star className="h-5 w-5 text-[hsl(var(--gold))] shrink-0" />
-          <p className="text-muted-foreground">
-            <strong className="text-foreground">PRO oglasi</strong> – istaknite svoj oglas i
-            dosegnite više ljudi.{" "}
-            <Badge variant="outline" className="ml-1 text-[10px] align-middle">
-              PRO uskoro
-            </Badge>
-          </p>
+        {/* PRO info block */}
+        <div className="rounded-2xl border border-[hsl(var(--gold))]/30 bg-[hsl(var(--gold))]/5 p-5">
+          <div className="flex items-start gap-3">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[hsl(var(--gold))]/10">
+              <Star className="h-5 w-5 text-[hsl(var(--gold))]" />
+            </div>
+            <div className="flex-1">
+              <h3 className="font-bold text-sm">PRO oglasi</h3>
+              <p className="mt-1 text-xs text-muted-foreground">
+                Istakni svoj oglas i dođi do više ljudi.
+              </p>
+              <ul className="mt-2 space-y-1">
+                {[
+                  "Tvoj oglas ide na vrh liste",
+                  "Dobija oznaku PRO",
+                  "Više pregleda i više upita",
+                ].map((t) => (
+                  <li key={t} className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                    <Check className="h-3 w-3 text-[hsl(var(--gold))] shrink-0" /> {t}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-2 text-[11px] text-muted-foreground">
+                Objava oglasa je besplatna. PRO je opcija za dodatnu vidljivost.
+              </p>
+            </div>
+            <Button
+              size="sm"
+              variant="outline"
+              className="shrink-0 border-[hsl(var(--gold))]/40 text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/10 text-xs"
+              onClick={() => setShowProModal(true)}
+            >
+              <Star className="mr-1 h-3 w-3" /> Saznaj više
+            </Button>
+          </div>
         </div>
 
         {/* Listings */}
@@ -160,9 +189,22 @@ export default function NudimTrazim() {
           <p className="text-muted-foreground max-w-lg mx-auto">
             Objavi brzo i jednostavno šta nudiš ili šta tražiš.
           </p>
-          <Button size="lg" onClick={() => setShowForm(true)} className="gap-2">
-            <PlusCircle className="h-4 w-4" /> Objavi oglas
-          </Button>
+          <div className="flex flex-col sm:flex-row justify-center gap-3">
+            <Button size="lg" onClick={() => setShowForm(true)} className="gap-2">
+              <PlusCircle className="h-4 w-4" /> Objavi oglas besplatno
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="gap-2 border-[hsl(var(--gold))]/40 text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/10"
+              onClick={() => setShowProModal(true)}
+            >
+              <Star className="h-4 w-4" /> Istakni kao PRO
+            </Button>
+          </div>
+          <p className="text-xs text-muted-foreground">
+            Objava je besplatna. PRO je opcija za veću vidljivost.
+          </p>
         </section>
 
         {/* Disclaimer */}
@@ -172,6 +214,8 @@ export default function NudimTrazim() {
           Haftung übernommen.
         </p>
       </div>
+
+      <NtProModal open={showProModal} onClose={() => setShowProModal(false)} />
     </div>
   );
 }
