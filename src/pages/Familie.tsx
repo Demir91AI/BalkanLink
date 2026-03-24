@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { ArrowRight, Baby, BookOpen, GraduationCap, HandCoins, Heart, Users, Shield, Banknote, Scale } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { ArrowRight, ArrowLeft, Baby, BookOpen, GraduationCap, HandCoins, Heart, Users, Shield, Banknote, Scale } from "lucide-react";
 import { motion } from "framer-motion";
 import { getGuidesByCategory } from "@/lib/guide-data";
 import { useLanguage } from "@/contexts/LanguageContext";

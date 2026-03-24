@@ -1,10 +1,11 @@
 import { useState, useMemo, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useCountry } from "@/contexts/CountryContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Input } from "@/components/ui/input";
-import { MapPin, ChevronDown, Search, Building2 } from "lucide-react";
+import { MapPin, ChevronDown, Search, Building2, ArrowLeft } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ListingMapPreview from "@/components/ListingMapPreview";
 import RatingBadge from "@/components/RatingBadge";

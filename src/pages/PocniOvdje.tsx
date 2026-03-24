@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { ArrowRight, Home, FileText, CreditCard, Heart, Landmark, ClipboardList, Shield, Radio, Car, KeyRound } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { ArrowRight, ArrowLeft, Home, FileText, CreditCard, Heart, Landmark, ClipboardList, Shield, Radio, Car, KeyRound } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const T: Record<string, Record<string, string>> = {

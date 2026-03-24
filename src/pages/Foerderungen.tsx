@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { ArrowRight, Home, Briefcase, HeartPulse, GraduationCap } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { ArrowRight, ArrowLeft, Home, Briefcase, HeartPulse, GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
 import { getGuidesByCategory, type Guide } from "@/lib/guide-data";
 import { useLanguage } from "@/contexts/LanguageContext";
