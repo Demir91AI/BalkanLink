@@ -43,55 +43,36 @@ export function HeroAdBanner() {
 
   return (
     <section className="relative overflow-hidden">
-      {/* Blurred city background with parallax-like zoom */}
-      <motion.div
-        initial={{ scale: 1.08 }}
-        whileInView={{ scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 8, ease: "easeOut" }}
-        className="absolute inset-0"
-      >
-        <img
-          src={heroFrankfurt}
-          alt=""
-          className="h-full w-full object-cover"
-          style={{ filter: "blur(8px) brightness(0.2) saturate(0.6)" }}
-          loading="lazy"
-        />
-      </motion.div>
-
-      {/* Dark gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[hsl(215,68%,6%/0.94)] via-[hsl(215,60%,10%/0.9)] to-[hsl(215,68%,4%/0.96)]" />
+      {/* Subtle dark background — no blurred image, just structured gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[hsl(215,68%,5%)] via-[hsl(215,55%,8%)] to-[hsl(215,68%,4%)]" />
 
       {/* Dot pattern overlay */}
-      <DotPattern className="text-white/[0.03] pointer-events-none" />
+      <DotPattern className="text-white/[0.025] pointer-events-none" />
 
-      {/* Glow accents */}
-      <div className="absolute left-1/4 top-1/3 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[hsl(var(--gold)/0.07)]" style={{ filter: "blur(100px)" }} />
-      <div className="absolute right-1/5 bottom-0 h-56 w-56 rounded-full bg-[hsl(215,70%,50%/0.05)]" style={{ filter: "blur(80px)" }} />
-      <div className="absolute right-1/3 top-0 h-40 w-40 rounded-full bg-[hsl(var(--gold)/0.04)]" style={{ filter: "blur(60px)" }} />
+      {/* Single subtle glow */}
+      <div className="absolute left-1/3 top-1/2 h-48 w-48 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[hsl(var(--gold)/0.05)]" style={{ filter: "blur(80px)" }} />
 
-      <div className="container relative z-10 py-20 sm:py-28">
+      <div className="container relative z-10 py-10 sm:py-14">
         <div className="mx-auto max-w-3xl text-center">
           {/* Label */}
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-[hsl(var(--gold)/0.25)] bg-[hsl(var(--gold)/0.08)] px-4 py-1.5"
+            transition={{ duration: 0.35 }}
+            className="mb-4 inline-flex items-center gap-2 rounded-full border border-[hsl(var(--gold)/0.2)] bg-[hsl(var(--gold)/0.06)] px-3.5 py-1"
           >
-            <Megaphone className="h-3.5 w-3.5 text-[hsl(var(--gold))]" />
-            <span className="text-xs font-semibold tracking-wide text-[hsl(var(--gold))]">OGLAŠAVANJE</span>
+            <Megaphone className="h-3 w-3 text-[hsl(var(--gold))]" />
+            <span className="text-[10px] font-semibold tracking-wide text-[hsl(var(--gold))]">OGLAŠAVANJE</span>
           </motion.div>
 
-          {/* Headline */}
+          {/* Headline — smaller than main hero */}
           <motion.h2
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-heading text-3xl font-black leading-tight text-white sm:text-4xl md:text-5xl lg:text-[3.25rem]"
+            transition={{ duration: 0.5, delay: 0.08 }}
+            className="font-heading text-xl font-extrabold leading-tight text-white sm:text-2xl md:text-3xl"
           >
             Oglasite svoj biznis tamo gdje vas{" "}
             <span className="text-gold">ljudi stvarno traže</span>
@@ -99,55 +80,53 @@ export function HeroAdBanner() {
 
           {/* Subtitle */}
           <motion.p
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="mx-auto mt-5 max-w-lg text-base leading-relaxed text-white/45 sm:text-lg"
+            transition={{ duration: 0.4, delay: 0.15 }}
+            className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-white/40"
           >
             BalkanLink povezuje hiljade ljudi u Njemačkoj.
             <br className="hidden sm:block" />
             Budite prvi izbor kada nekome zatreba vaša usluga.
           </motion.p>
 
-          {/* Benefits */}
+          {/* Benefits — compact */}
           <motion.ul
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="mx-auto mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-7"
+            transition={{ duration: 0.4, delay: 0.2 }}
+            className="mx-auto mt-5 flex flex-col items-center gap-2 sm:flex-row sm:justify-center sm:gap-6"
           >
             {benefits.map((b) => (
-              <li key={b} className="flex items-center gap-2.5 text-sm font-medium text-white/65">
-                <Check className="h-4 w-4 shrink-0 text-[hsl(var(--gold))]" />
+              <li key={b} className="flex items-center gap-2 text-xs font-medium text-white/50">
+                <Check className="h-3.5 w-3.5 shrink-0 text-[hsl(var(--gold))]" />
                 {b}
               </li>
             ))}
           </motion.ul>
 
-          {/* CTAs */}
+          {/* CTAs — compact row */}
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-4"
+            transition={{ duration: 0.4, delay: 0.28 }}
+            className="mt-7 flex flex-col items-center gap-2.5 sm:flex-row sm:justify-center sm:gap-3"
           >
             <Button
               asChild
-              size="lg"
-              className="btn-gold-gradient rounded-xl px-8 text-sm font-bold shadow-xl"
+              className="btn-gold-gradient rounded-xl px-6 text-sm font-bold shadow-lg"
             >
               <a href={MAILTO_AD}>
-                Oglašavaj se <ArrowRight className="ml-1 h-4 w-4" />
+                Oglašavaj se <ArrowRight className="ml-1 h-3.5 w-3.5" />
               </a>
             </Button>
             <Button
               asChild
-              size="lg"
               variant="outline"
-              className="rounded-xl border-white/15 bg-white/5 px-8 text-sm font-semibold text-white hover:bg-white/10 hover:border-white/25 transition-all"
+              className="rounded-xl border-white/12 bg-white/5 px-6 text-sm font-semibold text-white hover:bg-white/10 hover:border-white/20 transition-all"
             >
               <a href={MAILTO_QUOTE}>
                 Zatraži ponudu
@@ -160,12 +139,12 @@ export function HeroAdBanner() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.55 }}
-            className="mt-5"
+            transition={{ duration: 0.3, delay: 0.4 }}
+            className="mt-4"
           >
             <a
               href={MAILTO_AD}
-              className="text-xs font-medium text-white/30 underline-offset-4 hover:text-white/50 hover:underline transition-colors"
+              className="text-[11px] font-medium text-white/25 underline-offset-4 hover:text-white/45 hover:underline transition-colors"
             >
               Saznaj više o oglašavanju →
             </a>
@@ -173,8 +152,8 @@ export function HeroAdBanner() {
         </div>
       </div>
 
-      {/* Bottom glow separator */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[hsl(var(--gold)/0.3)] to-transparent" />
+      {/* Bottom separator */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[hsl(var(--gold)/0.25)] to-transparent" />
     </section>
   );
 }
