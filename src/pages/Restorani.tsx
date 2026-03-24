@@ -24,6 +24,7 @@ interface Listing {
 }
 
 export default function Restorani() {
+  const navigate = useNavigate();
   const { activeCountry } = useCountry();
   const { t } = useLanguage();
   const [cityInput, setCityInput] = useState("");
