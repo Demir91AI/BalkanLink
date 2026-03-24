@@ -1,6 +1,5 @@
 import { PremiumShowcaseCard } from "./PremiumShowcaseCard";
 import { premiumShowcaseFirms } from "./premium-showcase-data";
-import { EcronixShowcaseBanner } from "./EcronixShowcaseBanner";
 
 export function AdCarousel() {
   return (
@@ -21,7 +20,6 @@ export function AdCarousel() {
             {premiumShowcaseFirms.map((firm, index) => (
               <PremiumShowcaseCard key={firm.name} firm={firm} priority={index === 0} />
             ))}
-            <EcronixShowcaseBanner />
           </div>
         </div>
       </div>

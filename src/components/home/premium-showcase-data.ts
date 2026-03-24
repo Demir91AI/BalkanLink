@@ -1,11 +1,15 @@
 import logoAluhome from "@/assets/logo-aluhome.jpg";
 import logoVrebo from "@/assets/logo-vrebo.jpg";
+import logoEcronix from "@/assets/logo-ecronix.jpg";
 import showcaseAluhome1 from "@/assets/showcase-aluhome-1.jpg";
 import showcaseAluhome2 from "@/assets/showcase-aluhome-2.jpg";
 import showcaseAluhome3 from "@/assets/showcase-aluhome-3.jpg";
 import showcaseVrebo1 from "@/assets/showcase-vrebo-1.jpg";
 import showcaseVrebo2 from "@/assets/showcase-vrebo-2.jpg";
 import showcaseVrebo3 from "@/assets/showcase-vrebo-3.jpg";
+import ecronixSlide1 from "@/assets/ecronix-slide-1.jpg";
+import ecronixSlide2 from "@/assets/ecronix-slide-2.jpg";
+import ecronixSlide3 from "@/assets/ecronix-slide-3.jpg";
 
 export interface PremiumShowcaseFirm {
   name: string;
@@ -41,5 +45,16 @@ export const premiumShowcaseFirms: PremiumShowcaseFirm[] = [
     logoWrapperClassName: "w-[12.5rem] sm:w-[15rem] h-[4.75rem]",
     highlights: ["Renoviranje", "Trockenbau", "Prozori i vrata"],
     images: [showcaseVrebo1, showcaseVrebo2, showcaseVrebo3],
+  },
+  {
+    name: "Ecronix",
+    description: "Digitalna rješenja koja pokreću rast — web platforme, mobilne aplikacije i AI integracija.",
+    website: "https://www.ecronix.com/",
+    contactUrl: "https://www.ecronix.com/#contact",
+    logoUrl: logoEcronix,
+    logoAlt: "Ecronix logo",
+    logoWrapperClassName: "w-[10rem] sm:w-[12rem] h-[4rem]",
+    highlights: ["Web aplikacije", "Mobilne aplikacije", "AI integracija", "UI/UX dizajn"],
+    images: [ecronixSlide1, ecronixSlide2, ecronixSlide3],
   },
 ];
