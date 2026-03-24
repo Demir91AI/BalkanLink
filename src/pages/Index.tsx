@@ -10,8 +10,9 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-import { HeroAdBanner, VideoAdSection } from "@/components/home/AdSections";
+import { HeroAdBanner } from "@/components/home/AdSections";
 import { AdCarousel } from "@/components/home/AdCarousel";
+import { AdFlowBanner } from "@/components/home/AdFlowBanner";
 import heroBerlin from "@/assets/hero-berlin.jpg";
 import heroMuenchen from "@/assets/hero-muenchen.jpg";
 import heroFrankfurt from "@/assets/hero-frankfurt.jpg";
@@ -253,11 +254,11 @@ export default function Index() {
         </div>
       </div>
 
-      {/* ─── AD CAROUSEL ─── */}
+      {/* ─── PREMIUM AD CAROUSEL ─── */}
       <AdCarousel />
 
-      {/* ─── VIDEO AD SECTION ─── */}
-      <VideoAdSection />
+      {/* ─── FLOW AD BANNERS ─── */}
+      <AdFlowBanner />
     </>
   );
 }
