@@ -2,11 +2,12 @@ import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { SidebarTrigger } from "@/components/ui/sidebar";
-import { ChevronDown, Mail, List, Send, X } from "lucide-react";
+import { ChevronDown, Mail, List, Send, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Link } from "react-router-dom";
 import BrandLogo from "@/components/BrandLogo";
@@ -15,6 +16,7 @@ export default function Header() {
   const { user, loading, signOut } = useAuth();
   const { t, language, setLanguage, languages, currentFlag } = useLanguage();
   const [contactOpen, setContactOpen] = useState(false);
+  const [sheetOpen, setSheetOpen] = useState(false);
   const [contactForm, setContactForm] = useState({ firstName: "", lastName: "", email: "", message: "" });
 
   const handleContactSubmit = (e: React.FormEvent) => {
@@ -36,35 +38,8 @@ export default function Header() {
             <BrandLogo variant="full" />
           </div>
 
-          {/* Right: extra menu + language + auth */}
+          {/* Right: language + auth + extra menu trigger */}
           <div className="flex items-center gap-1.5">
-            {/* Extra dropdown: Kontakt + Preisliste */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="gap-1.5 text-sm h-9 px-2.5 text-white/80 hover:text-brand-orange hover:bg-white/5">
-                  <List className="h-4 w-4" />
-                  <ChevronDown className="h-3 w-3 text-white/50" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="min-w-[180px] bg-[hsl(215,55%,10%)] border-white/10 shadow-xl">
-                <DropdownMenuItem
-                  onClick={() => setContactOpen(true)}
-                  className="text-white/80 hover:text-white focus:text-white focus:bg-white/10 cursor-pointer"
-                >
-                  <Mail className="mr-2 h-4 w-4" />
-                  {t("header.contact") || "Kontakt"}
-                </DropdownMenuItem>
-                <DropdownMenuSeparator className="bg-white/10" />
-                <DropdownMenuItem
-                  className="text-white/80 hover:text-white focus:text-white focus:bg-white/10 cursor-pointer"
-                  onClick={() => {}}
-                >
-                  <List className="mr-2 h-4 w-4" />
-                  {t("header.priceList") || "Preisliste / Monitoring"}
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-
             {/* Language switcher */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -94,9 +69,44 @@ export default function Header() {
                 {t("nav.logout")}
               </Button>
             )}
+
+            {/* Extra menu trigger – far right, opens sheet from right */}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setSheetOpen(true)}
+              className="h-9 px-2.5 text-white/80 hover:text-brand-orange hover:bg-white/5"
+            >
+              <Menu className="h-5 w-5" />
+            </Button>
           </div>
         </div>
       </header>
+
+      {/* Side panel (Sheet) from right */}
+      <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
+        <SheetContent side="right" className="w-[280px] bg-[hsl(215,55%,10%)] border-white/10 text-white p-0">
+          <SheetHeader className="px-5 pt-5 pb-3 border-b border-white/10">
+            <SheetTitle className="text-white text-base">Menü</SheetTitle>
+          </SheetHeader>
+          <nav className="flex flex-col py-2">
+            <button
+              onClick={() => { setSheetOpen(false); setContactOpen(true); }}
+              className="flex items-center gap-3 px-5 py-3 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors"
+            >
+              <Mail className="h-4 w-4" />
+              Kontakt
+            </button>
+            <button
+              onClick={() => {}}
+              className="flex items-center gap-3 px-5 py-3 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors"
+            >
+              <List className="h-4 w-4" />
+              Preisliste / Monitoring
+            </button>
+          </nav>
+        </SheetContent>
+      </Sheet>
 
       {/* Contact Dialog */}
       <Dialog open={contactOpen} onOpenChange={setContactOpen}>
