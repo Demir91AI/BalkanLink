@@ -193,6 +193,27 @@ type TranslationKeys = {
   "tools.buergergeld": string; "tools.buergergeld.desc": string;
   "tools.elterngeld": string; "tools.elterngeld.desc": string;
   "tools.rente": string; "tools.rente.desc": string;
+  // Index page
+  "index.navLabel": string; "index.nav.firstSteps": string; "index.nav.forms": string;
+  "index.nav.jobSearch": string; "index.nav.housingSearch": string; "index.nav.offerSeek": string;
+  "index.nav.tools": string; "index.nav.docCheck": string; "index.nav.visaNav": string;
+  "index.heroTitle": string; "index.heroHighlight": string;
+  "index.heroSubtitle": string; "index.heroSubtitle2": string;
+  "index.searchPlaceholder": string;
+  "index.slogan1": string; "index.slogan2": string;
+  "index.quickStart": string; "index.quickDocs": string;
+  "index.quickResidence": string; "index.quickCalc": string;
+  // Chat
+  "chat.floatingTitle": string; "chat.floatingSubtitle": string;
+  "chat.headerTitle": string; "chat.headerSubtitle": string;
+  "chat.greeting": string; "chat.greetingDesc": string;
+  "chat.placeholder": string; "chat.error": string;
+  "chat.disclaimer": string; "chat.noSensitiveData": string;
+  "chat.copy": string; "chat.minimize": string; "chat.close": string;
+  "chat.msgLabel": string;
+  "chat.openGuide": string; "chat.openForm": string; "chat.openPage": string;
+  // Footer extras
+  "footer.agb": string; "footer.reportContent": string;
 };
 
 // --- Shared partial blocks ---
