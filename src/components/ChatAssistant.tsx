@@ -369,7 +369,7 @@ export default function ChatAssistant() {
 
   return (
     <>
-      {/* ── Floating Orb + "Pomoć" badge ── */}
+      {/* ── Floating Button ── */}
       <AnimatePresence>
         {open === "closed" && (
           <motion.button
@@ -377,27 +377,13 @@ export default function ChatAssistant() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
             onClick={() => setOpen("open")}
-            className="fixed bottom-6 right-6 z-50 group flex flex-col items-center gap-1.5"
+            className="fixed bottom-5 right-5 z-50 group"
             aria-label="BalkanLink Assistant"
           >
-            <motion.span
-              initial={{ opacity: 0, y: 4 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="rounded-full bg-white dark:bg-card px-3 py-1 text-[11px] font-semibold text-foreground shadow-md border border-border/40 group-hover:shadow-lg transition-shadow"
-            >
-              {lk === "de" ? "Hilfe" : lk === "en" ? "Help" : "Pomoć"}
-            </motion.span>
-            <motion.div
-              animate={{ scale: [1, 1.03, 1] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              className="relative"
-            >
-              <div className="absolute inset-[-8px] rounded-2xl bg-gradient-to-br from-blue-500/25 to-purple-600/25 blur-xl group-hover:from-blue-500/40 group-hover:to-purple-600/40 transition-all duration-300" />
-              <div className="relative flex items-center justify-center bg-gradient-to-br from-[#3B82F6] to-[#9333EA] shadow-lg shadow-purple-500/25 transition-all duration-200 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-purple-500/35 group-active:scale-95 w-[58px] h-[58px] sm:w-[64px] sm:h-[64px] rounded-2xl">
-                <span className="text-white font-black text-[20px] sm:text-[22px] tracking-tight select-none">BL</span>
-              </div>
-            </motion.div>
+            <div className="absolute inset-[-6px] rounded-full bg-gradient-to-br from-blue-500/20 to-purple-600/20 blur-lg group-hover:from-blue-500/35 group-hover:to-purple-600/35 transition-all duration-300" />
+            <div className="relative flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-[hsl(217,91%,60%)] to-[hsl(271,81%,56%)] shadow-[0_4px_20px_rgba(99,102,241,0.35)] transition-all duration-200 group-hover:scale-110 group-hover:shadow-[0_6px_28px_rgba(99,102,241,0.5)] group-active:scale-95">
+              <span className="text-white font-black text-lg tracking-tight select-none">BL</span>
+            </div>
           </motion.button>
         )}
       </AnimatePresence>
@@ -438,22 +424,25 @@ export default function ChatAssistant() {
             className="fixed bottom-0 right-0 sm:bottom-6 sm:right-6 z-50 flex h-[88vh] sm:h-[78vh] max-h-[680px] w-full sm:w-[400px] sm:max-w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-t-2xl sm:rounded-2xl border border-border/50 bg-card shadow-2xl"
           >
             {/* Header */}
-            <div className="relative overflow-hidden px-5 py-4" style={{ background: "linear-gradient(135deg, #3B82F6 0%, #7C3AED 50%, #9333EA 100%)" }}>
+            <div className="relative overflow-hidden px-5 py-4" style={{ background: "linear-gradient(135deg, hsl(217,91%,60%) 0%, hsl(259,69%,52%) 50%, hsl(271,81%,56%) 100%)" }}>
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.08),transparent_60%)]" />
               <div className="flex items-center justify-between relative z-10">
-                <div className="flex items-center gap-2.5">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-white/15">
-                    <span className="text-white font-black text-[13px] tracking-tight">BL</span>
+                <div className="flex items-center gap-3">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/15 backdrop-blur-sm">
+                    <span className="text-white font-black text-[14px] tracking-tight">BL</span>
                   </div>
                   <div>
-                    <span className="text-[14px] font-bold text-white block leading-tight">BalkanLink</span>
-                    <span className="text-[10px] text-white/60">Asistent</span>
+                    <span className="text-[15px] font-bold text-white block leading-tight">BalkanLink Asistent</span>
+                    <span className="text-[11px] text-white/55 leading-tight">
+                      {lk === "de" ? "Stelle eine Frage (z.B. Kindergeld, Wohnung...)" : lk === "en" ? "Ask a question (e.g. Kindergeld, apartment...)" : "Postavi pitanje (npr. Kindergeld, stan, posao...)"}
+                    </span>
                   </div>
                 </div>
-                <div className="flex items-center gap-1">
-                  <button onClick={handleMinimize} className="rounded-lg p-1.5 text-white/60 transition-colors hover:bg-white/10 hover:text-white" title={lk === "de" ? "Minimieren" : lk === "en" ? "Minimize" : "Minimiziraj"}>
+                <div className="flex items-center gap-0.5">
+                  <button onClick={handleMinimize} className="rounded-lg p-1.5 text-white/50 transition-colors hover:bg-white/10 hover:text-white" title={lk === "de" ? "Minimieren" : lk === "en" ? "Minimize" : "Minimiziraj"}>
                     <Minus className="h-4 w-4" />
                   </button>
-                  <button onClick={handleClose} className="rounded-lg p-1.5 text-white/60 transition-colors hover:bg-white/10 hover:text-white" title={lk === "de" ? "Schließen" : lk === "en" ? "Close" : "Zatvori"}>
+                  <button onClick={handleClose} className="rounded-lg p-1.5 text-white/50 transition-colors hover:bg-white/10 hover:text-white" title={lk === "de" ? "Schließen" : lk === "en" ? "Close" : "Zatvori"}>
                     <X className="h-4 w-4" />
                   </button>
                 </div>
