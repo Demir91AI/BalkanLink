@@ -21,8 +21,17 @@ export default function NachDeutschland() {
   const selectedCountry = countries.find((c) => c.code === countryCode);
   const selectedCategory = selectedCountry?.categories.find((c) => c.key === categoryKey);
 
+  // Country list → back to homepage
+  // Country selected → back to country list
+  // Category selected → back to country
   const handleBack = () => {
-    navigateBackOrHome(navigate);
+    if (selectedCategory && selectedCountry) {
+      navigate(`/nach-deutschland/${selectedCountry.code}`);
+    } else if (selectedCountry) {
+      navigate("/nach-deutschland");
+    } else {
+      navigate("/");
+    }
   };
 
   // Country selection view

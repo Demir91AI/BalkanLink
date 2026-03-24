@@ -28,11 +28,7 @@ export default function DolazakPageTemplate({ title, subtitle, sections, links }
   const { t } = useLanguage();
 
   const handleBack = () => {
-    if (window.history.length > 2) {
-      navigate(-1);
-    } else {
-      navigate("/");
-    }
+    navigateBackOrHome(navigate);
   };
 
   return (
