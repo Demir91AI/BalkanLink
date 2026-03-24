@@ -105,7 +105,7 @@ type TranslationKeys = {
   "hero.cta.register": string; "hero.cta.firstSteps": string;
   "notfound.title": string; "notfound.desc": string; "notfound.back": string;
   "common.error": string; "common.legalBasis": string; "common.officialSource": string; "common.moreSource": string;
-  "common.all": string;
+  "common.all": string; "common.back": string;
   // Home page
   "home.hero.title": string; "home.hero.highlight": string; "home.hero.subtitle": string;
   "home.hero.cta": string; "home.hero.howItWorks": string;
