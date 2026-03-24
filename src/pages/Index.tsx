@@ -173,6 +173,9 @@ export default function Index() {
         </div>
       </section>
 
+      {/* ─── HERO AD BANNER ─── */}
+      <HeroAdBanner />
+
       {/* ─── DASHBOARD AREA: SIDEBAR + CONTENT ─── */}
       <div className="flex min-h-[60vh]">
         {/* Left sidebar */}
