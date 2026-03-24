@@ -140,35 +140,37 @@ export default function Index() {
             </p>
 
             {/* Search bar */}
-            <div className="flex justify-center" style={{ marginTop: "32px" }}>
+            <div className="flex w-full justify-center" style={{ marginTop: "32px" }}>
               <motion.form
                 onSubmit={handleSearch}
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="flex w-full max-w-lg items-center gap-2"
+                className="flex items-center justify-center"
               >
-                <div className="relative flex-1">
-                  <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#FFCC00]" />
-                  <Input
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Pretraži: Kindergeld, Anmeldung, posao, stan..."
-                    className="h-14 rounded-full border-none bg-white pl-12 pr-4 text-base text-foreground placeholder:text-muted-foreground shadow-[0_8px_32px_rgba(0,0,0,0.25)] focus-visible:ring-2 focus-visible:ring-[#FFCC00]/50 transition-all"
-                  />
+                <div className="flex items-center justify-center gap-2">
+                  <div className="relative w-full max-w-lg min-w-0 flex-1">
+                    <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#FFCC00]" />
+                    <Input
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      placeholder="Pretraži: Kindergeld, Anmeldung, posao, stan..."
+                      className="h-14 w-full rounded-full border-none bg-white pl-12 pr-4 text-base text-foreground placeholder:text-muted-foreground shadow-[0_8px_32px_rgba(0,0,0,0.25)] focus-visible:ring-2 focus-visible:ring-[#FFCC00]/50 transition-all"
+                    />
+                  </div>
+                  <Button
+                    type="submit"
+                    className="h-14 shrink-0 rounded-full bg-[#FFCC00] px-7 text-base font-bold text-[hsl(var(--gold-foreground))] shadow-[0_4px_20px_rgba(255,204,0,0.35)] hover:bg-[#FFD633] hover:shadow-[0_8px_32px_rgba(255,204,0,0.5)] transition-all duration-300"
+                  >
+                    <Search className="h-5 w-5" />
+                  </Button>
                 </div>
-                <Button
-                  type="submit"
-                  className="h-14 rounded-full bg-[#FFCC00] px-7 text-base font-bold text-[hsl(var(--gold-foreground))] shadow-[0_4px_20px_rgba(255,204,0,0.35)] hover:bg-[#FFD633] hover:shadow-[0_8px_32px_rgba(255,204,0,0.5)] transition-all duration-300"
-                >
-                  <Search className="h-5 w-5" />
-                </Button>
               </motion.form>
             </div>
 
             {/* Quick-link tags */}
-            <div className="flex justify-center" style={{ marginTop: "16px" }}>
-              <div className="flex flex-wrap justify-center gap-3">
+            <div className="flex w-full justify-center" style={{ marginTop: "16px" }}>
+              <div className="flex items-center justify-center gap-3">
                 {[
                   { label: "Prvi koraci", to: "/dolazak/prvi-koraci" },
                   { label: "Dokumenti", to: "/formulari" },
