@@ -424,22 +424,25 @@ export default function ChatAssistant() {
             className="fixed bottom-0 right-0 sm:bottom-6 sm:right-6 z-50 flex h-[88vh] sm:h-[78vh] max-h-[680px] w-full sm:w-[400px] sm:max-w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-t-2xl sm:rounded-2xl border border-border/50 bg-card shadow-2xl"
           >
             {/* Header */}
-            <div className="relative overflow-hidden px-5 py-4" style={{ background: "linear-gradient(135deg, #3B82F6 0%, #7C3AED 50%, #9333EA 100%)" }}>
+            <div className="relative overflow-hidden px-5 py-4" style={{ background: "linear-gradient(135deg, hsl(217,91%,60%) 0%, hsl(259,69%,52%) 50%, hsl(271,81%,56%) 100%)" }}>
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.08),transparent_60%)]" />
               <div className="flex items-center justify-between relative z-10">
-                <div className="flex items-center gap-2.5">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-white/15">
-                    <span className="text-white font-black text-[13px] tracking-tight">BL</span>
+                <div className="flex items-center gap-3">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/15 backdrop-blur-sm">
+                    <span className="text-white font-black text-[14px] tracking-tight">BL</span>
                   </div>
                   <div>
-                    <span className="text-[14px] font-bold text-white block leading-tight">BalkanLink</span>
-                    <span className="text-[10px] text-white/60">Asistent</span>
+                    <span className="text-[15px] font-bold text-white block leading-tight">BalkanLink Asistent</span>
+                    <span className="text-[11px] text-white/55 leading-tight">
+                      {lk === "de" ? "Stelle eine Frage (z.B. Kindergeld, Wohnung...)" : lk === "en" ? "Ask a question (e.g. Kindergeld, apartment...)" : "Postavi pitanje (npr. Kindergeld, stan, posao...)"}
+                    </span>
                   </div>
                 </div>
-                <div className="flex items-center gap-1">
-                  <button onClick={handleMinimize} className="rounded-lg p-1.5 text-white/60 transition-colors hover:bg-white/10 hover:text-white" title={lk === "de" ? "Minimieren" : lk === "en" ? "Minimize" : "Minimiziraj"}>
+                <div className="flex items-center gap-0.5">
+                  <button onClick={handleMinimize} className="rounded-lg p-1.5 text-white/50 transition-colors hover:bg-white/10 hover:text-white" title={lk === "de" ? "Minimieren" : lk === "en" ? "Minimize" : "Minimiziraj"}>
                     <Minus className="h-4 w-4" />
                   </button>
-                  <button onClick={handleClose} className="rounded-lg p-1.5 text-white/60 transition-colors hover:bg-white/10 hover:text-white" title={lk === "de" ? "Schließen" : lk === "en" ? "Close" : "Zatvori"}>
+                  <button onClick={handleClose} className="rounded-lg p-1.5 text-white/50 transition-colors hover:bg-white/10 hover:text-white" title={lk === "de" ? "Schließen" : lk === "en" ? "Close" : "Zatvori"}>
                     <X className="h-4 w-4" />
                   </button>
                 </div>
