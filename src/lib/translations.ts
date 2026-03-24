@@ -924,7 +924,7 @@ const miscDe: Partial<TranslationKeys> = {
   "notfound.back": "Zurück zur Startseite",
   "common.error": "Fehler", "common.legalBasis": "Gesetzliche Grundlage",
   "common.officialSource": "Offizielle Quelle", "common.moreSource": "Weitere Quelle",
-  "common.all": "Alle",
+  "common.all": "Alle", "common.back": "Zurück",
 };
 
 const miscEn: Partial<TranslationKeys> = {
