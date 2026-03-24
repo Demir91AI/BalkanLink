@@ -1,12 +1,13 @@
 import {
   FileText,
-  Home as HomeIcon,
   Briefcase,
   Megaphone,
   Wrench,
   ShieldCheck,
   Compass,
   Search,
+  Building2,
+  Footprints,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation } from "react-router-dom";
