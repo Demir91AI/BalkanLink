@@ -81,10 +81,9 @@ export default function Footer() {
                 </div>
                 <div className="flex h-8 items-center rounded-md border border-white/10 bg-white/5 px-2.5" title="Überweisung">
                   <Landmark className="h-4 w-4 text-white/40" />
-                  <span className="ml-1.5 text-[10px] font-semibold text-white/40">{t("footer.bankTransfer") || "Überweisung"}</span>
+                  <span className="ml-1.5 text-[10px] font-semibold text-white/40">Überweisung</span>
                 </div>
               </div>
-              <p className="mt-2 text-[10px] text-white/20 italic">{t("footer.paymentSoon") || "Bald verfügbar"}</p>
             </div>
           </div>
         </div>
