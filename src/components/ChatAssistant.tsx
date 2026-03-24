@@ -289,6 +289,11 @@ export default function ChatAssistant() {
 
       const headerSlug = resp.headers.get("X-Guide-Slug");
       const headerFormSlug = resp.headers.get("X-Form-Slug");
+      const headerSiteTopicsRaw = resp.headers.get("X-Site-Topics");
+      let headerSiteTopics: SiteTopicAction[] = [];
+      if (headerSiteTopicsRaw) {
+        try { headerSiteTopics = JSON.parse(headerSiteTopicsRaw); } catch {}
+      }
       const reader = resp.body.getReader();
       const decoder = new TextDecoder();
       let textBuffer = "";
