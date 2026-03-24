@@ -1633,7 +1633,7 @@ const translations: Record<Language, TranslationKeys> = {
     "dir.submitSuccess": "Geschäft hinzugefügt! Wird nach Prüfung sichtbar.",
     "dir.submitError": "Fehler. Versuche es erneut.",
     "dir.loginRequired": "Du musst angemeldet sein, um ein Geschäft hinzuzufügen.",
-    ...missionsDe as any, ...portalDe as any, ...miscDe as any, ...homeDe as any, ...premiumDe as any, ...newKeysDe as any,
+    ...missionsDe as any, ...portalDe as any, ...miscDe as any, ...homeDe as any, ...premiumDe as any, ...newKeysDe as any, ...indexChatDe as any,
   },
   en: {
     "nav.home": "Home", "nav.qa": "Q&A", "nav.directory": "Directory",
