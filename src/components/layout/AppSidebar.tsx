@@ -179,7 +179,7 @@ export function AppSidebar() {
               }`}
             >
               <FileCheck className={`h-3.5 w-3.5 ${isVorlagenActive ? "text-gold" : "text-white/25"}`} />
-              <span className="flex-1 text-left">Šabloni / Vorlagen</span>
+              <span className="flex-1 text-left">{t("vorlagen.sidebarTitle")}</span>
               <ChevronDown className={`h-3 w-3 transition-transform ${vorlagenOpen ? "" : "-rotate-90"}`} />
             </button>
           )}
