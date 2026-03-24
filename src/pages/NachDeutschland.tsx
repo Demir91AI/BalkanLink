@@ -2,7 +2,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { getMigrationCountries, type CategoryKey } from "@/lib/migration-data";
 import { Briefcase, GraduationCap, BookOpen, Heart, Award, ExternalLink, ShieldAlert, CheckCircle2, ChevronRight, Globe, ArrowLeft } from "lucide-react";
 import { useParams, useNavigate } from "react-router-dom";
-import { navigateBackOrHome } from "@/lib/navigation";
+
 
 const ICON_FOR_KEY: Record<CategoryKey, React.ElementType> = {
   work: Briefcase,
@@ -21,8 +21,17 @@ export default function NachDeutschland() {
   const selectedCountry = countries.find((c) => c.code === countryCode);
   const selectedCategory = selectedCountry?.categories.find((c) => c.key === categoryKey);
 
+  // Country list → back to homepage
+  // Country selected → back to country list
+  // Category selected → back to country
   const handleBack = () => {
-    navigateBackOrHome(navigate);
+    if (selectedCategory && selectedCountry) {
+      navigate(`/nach-deutschland/${selectedCountry.code}`);
+    } else if (selectedCountry) {
+      navigate("/nach-deutschland");
+    } else {
+      navigate("/");
+    }
   };
 
   // Country selection view

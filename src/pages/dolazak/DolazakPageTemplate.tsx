@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, ExternalLink, FileText, Info } from "lucide-react";
+import { navigateBackOrHome } from "@/lib/navigation";
 import { motion } from "framer-motion";
 import { type ReactNode } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -28,11 +29,7 @@ export default function DolazakPageTemplate({ title, subtitle, sections, links }
   const { t } = useLanguage();
 
   const handleBack = () => {
-    if (window.history.length > 2) {
-      navigate(-1);
-    } else {
-      navigate("/");
-    }
+    navigateBackOrHome(navigate);
   };
 
   return (
