@@ -443,7 +443,7 @@ export default function ChatAssistant() {
             className="fixed bottom-5 right-5 z-50 group flex items-center gap-2.5 rounded-2xl bg-[hsl(var(--primary))] px-4 py-3 shadow-lg shadow-brand-orange/20 hover:shadow-xl transition-all duration-200 hover:scale-105 active:scale-95 border border-brand-orange/20"
             aria-label="Open chat"
           >
-            <span className="text-white font-black text-[14px] tracking-tight select-none">B<span className="text-brand-orange">L</span></span>
+            <BLIcon size={22} />
             <span className="text-white/90 text-[12px] font-medium">
               {messages.length > 0
                 ? `${messages.length} ${lk === "de" ? "Nachr." : lk === "en" ? "msg" : "por."}`
