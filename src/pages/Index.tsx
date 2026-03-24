@@ -110,12 +110,12 @@ export default function Index() {
         <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/30 via-transparent to-black/70" />
 
         {/* Content — always on top, stable */}
-        <div className="container relative z-10 flex h-full flex-col items-center justify-center text-center px-5">
+        <div className="relative z-10 flex h-full w-full flex-col items-center justify-center text-center px-5">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
-            className="w-full max-w-3xl"
+            className="mx-auto w-full" style={{ maxWidth: "900px" }}
           >
             {/* H1 */}
             <h1
@@ -130,8 +130,8 @@ export default function Index() {
 
             {/* H2 */}
             <p
-              className="mx-auto mt-6 max-w-xl text-sm font-semibold leading-relaxed sm:text-base md:text-lg"
-              style={{ color: "#F0F0F0", textShadow: "0 2px 12px rgba(0,0,0,0.4)" }}
+              className="mx-auto text-sm font-semibold leading-relaxed sm:text-base md:text-lg"
+              style={{ color: "#F0F0F0", textShadow: "0 2px 12px rgba(0,0,0,0.4)", marginTop: "24px", maxWidth: "660px" }}
             >
               Sve što ti treba za uspješan start na jednom, provjerenom mjestu.
               <br className="hidden sm:block" />{" "}
@@ -139,52 +139,56 @@ export default function Index() {
             </p>
 
             {/* Search bar */}
-            <motion.form
-              onSubmit={handleSearch}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="mx-auto mt-10 flex max-w-lg items-center gap-2"
-            >
-              <div className="relative flex-1">
-                <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#FFCC00]" />
-                <Input
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Pretraži: Kindergeld, Anmeldung, posao, stan..."
-                  className="h-14 rounded-full border-none bg-white pl-12 pr-4 text-base text-foreground placeholder:text-muted-foreground shadow-[0_8px_32px_rgba(0,0,0,0.25)] focus-visible:ring-2 focus-visible:ring-[#FFCC00]/50 transition-all"
-                />
-              </div>
-              <Button
-                type="submit"
-                className="h-14 rounded-full bg-[#FFCC00] px-7 text-base font-bold text-[hsl(var(--gold-foreground))] shadow-[0_4px_20px_rgba(255,204,0,0.35)] hover:bg-[#FFD633] hover:shadow-[0_8px_32px_rgba(255,204,0,0.5)] transition-all duration-300"
+            <div className="flex justify-center" style={{ marginTop: "32px" }}>
+              <motion.form
+                onSubmit={handleSearch}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="flex w-full max-w-lg items-center gap-2"
               >
-                <Search className="h-5 w-5" />
-              </Button>
-            </motion.form>
+                <div className="relative flex-1">
+                  <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#FFCC00]" />
+                  <Input
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="Pretraži: Kindergeld, Anmeldung, posao, stan..."
+                    className="h-14 rounded-full border-none bg-white pl-12 pr-4 text-base text-foreground placeholder:text-muted-foreground shadow-[0_8px_32px_rgba(0,0,0,0.25)] focus-visible:ring-2 focus-visible:ring-[#FFCC00]/50 transition-all"
+                  />
+                </div>
+                <Button
+                  type="submit"
+                  className="h-14 rounded-full bg-[#FFCC00] px-7 text-base font-bold text-[hsl(var(--gold-foreground))] shadow-[0_4px_20px_rgba(255,204,0,0.35)] hover:bg-[#FFD633] hover:shadow-[0_8px_32px_rgba(255,204,0,0.5)] transition-all duration-300"
+                >
+                  <Search className="h-5 w-5" />
+                </Button>
+              </motion.form>
+            </div>
 
             {/* Quick-link tags */}
-            <div className="mx-auto mt-4 flex flex-wrap justify-center gap-3 max-w-lg">
-              {[
-                { label: "Prvi koraci", to: "/dolazak/prvi-koraci" },
-                { label: "Dokumenti", to: "/formulari" },
-                { label: "Boravak", to: "/dolazak/boravisna-dozvola" },
-                { label: "Kalkulatori", to: "/tools" },
-              ].map((tag) => (
-                <Link
-                  key={tag.to}
-                  to={tag.to}
-                  className="rounded-full border border-white/40 px-4 py-1.5 text-xs font-medium text-white/80 backdrop-blur-sm transition-all duration-200 hover:border-white hover:bg-white/10 hover:text-white sm:text-sm"
-                >
-                  {tag.label}
-                </Link>
-              ))}
+            <div className="flex justify-center" style={{ marginTop: "16px" }}>
+              <div className="flex flex-wrap justify-center gap-3">
+                {[
+                  { label: "Prvi koraci", to: "/dolazak/prvi-koraci" },
+                  { label: "Dokumenti", to: "/formulari" },
+                  { label: "Boravak", to: "/dolazak/boravisna-dozvola" },
+                  { label: "Kalkulatori", to: "/tools" },
+                ].map((tag) => (
+                  <Link
+                    key={tag.to}
+                    to={tag.to}
+                    className="rounded-full border border-white/40 px-4 py-1.5 text-xs font-medium text-white/80 backdrop-blur-sm transition-all duration-200 hover:border-white hover:bg-white/10 hover:text-white sm:text-sm"
+                  >
+                    {tag.label}
+                  </Link>
+                ))}
+              </div>
             </div>
 
             {/* Bottom slogan */}
             <p
-              className="mx-auto mt-6 max-w-lg text-xs font-light italic leading-relaxed sm:text-sm"
-              style={{ color: "#E0E0E0", textShadow: "0 2px 10px rgba(0,0,0,0.4)" }}
+              className="mx-auto text-xs font-light italic leading-relaxed sm:text-sm"
+              style={{ color: "#E0E0E0", textShadow: "0 2px 10px rgba(0,0,0,0.4)", marginTop: "24px", maxWidth: "520px" }}
             >
               Jedna platforma za sve tvoje potrebe. Kompletan vodič kroz život, rad i administraciju.
               <br className="hidden sm:block" />{" "}
