@@ -112,9 +112,8 @@ export default function CookieConsent() {
               </Button>
               <Button
                 size="sm"
-                variant="outline"
                 onClick={() => accept(false)}
-                className="border-white/15 text-white/80 hover:bg-white/10 hover:text-white text-xs h-9"
+                className="bg-[hsl(var(--primary))] hover:bg-[hsl(var(--primary))]/80 text-white font-medium text-xs h-9 border border-white/20"
               >
                 {t("cookie.necessaryOnly")}
               </Button>
