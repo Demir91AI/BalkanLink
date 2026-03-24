@@ -58,11 +58,8 @@ export default function Header() {
 
       {/* Side panel (Sheet) from right */}
       <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
-        <SheetContent side="right" className="w-[280px] border-r border-white/8 bg-[hsl(215,55%,7%)] text-white p-0">
-          <SheetHeader className="px-4 pt-5 pb-3">
-            <SheetTitle className="text-[11px] font-bold uppercase tracking-[0.12em] text-white/30">Menü</SheetTitle>
-          </SheetHeader>
-          <nav className="flex flex-col gap-1 px-2 pt-1">
+        <SheetContent side="right" className="w-[280px] border-r border-white/8 bg-[hsl(215,55%,7%)] text-white p-0 [&>button]:hidden">
+          <nav className="flex flex-col gap-1 px-2 pt-4">
             {/* Jezik / Language */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
