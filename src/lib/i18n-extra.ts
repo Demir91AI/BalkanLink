@@ -623,6 +623,7 @@ export const indexChatXk: Record<string, string> = {
   "chat.floatingSubtitle": "Asistenti për Gjermani",
   "chat.greetingDesc": "Bëj një pyetje dhe merr përgjigje të qartë dhe hapin e ardhshëm.",
   "cookie.footerLink": "Cilësimet e cookie",
+  "migration.country.xk": "Kosova",
 };
 
 export const indexChatMk: Record<string, string> = {
