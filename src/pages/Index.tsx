@@ -145,21 +145,21 @@ export default function Index() {
                 className="w-full flex justify-center"
                 style={{ maxWidth: "90%" }}
               >
-                <div className="flex w-full items-center gap-2" style={{ maxWidth: "800px" }}>
+                <div className="flex w-full items-center gap-1.5 sm:gap-2" style={{ maxWidth: "800px" }}>
                   <div className="relative min-w-0 flex-1">
-                    <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-[#FFCC00] sm:left-5 sm:h-5 sm:w-5" />
+                    <Search className="absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-[#FFCC00] sm:left-5 sm:h-5 sm:w-5" />
                     <Input
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       placeholder={t("index.searchPlaceholder")}
-                      className="h-[46px] w-full rounded-full border-none bg-white/95 pl-11 pr-4 text-sm text-foreground placeholder:text-muted-foreground shadow-[0_8px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm focus-visible:ring-2 focus-visible:ring-[#FFCC00]/60 hover:bg-white hover:shadow-[0_12px_48px_rgba(0,0,0,0.35)] transition-all duration-300 sm:h-[60px] sm:pl-14 sm:pr-5 sm:text-base"
+                      className="h-[38px] w-full rounded-full border-none bg-white/95 pl-9 pr-3 text-[13px] text-foreground placeholder:text-muted-foreground shadow-[0_8px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm focus-visible:ring-2 focus-visible:ring-[#FFCC00]/60 hover:bg-white hover:shadow-[0_12px_48px_rgba(0,0,0,0.35)] transition-all duration-300 sm:h-[60px] sm:pl-14 sm:pr-5 sm:text-base"
                     />
                   </div>
                   <Button
                     type="submit"
-                    className="h-[46px] w-[46px] shrink-0 rounded-full bg-[#FFCC00] text-base font-bold text-[hsl(var(--gold-foreground))] shadow-[0_4px_24px_rgba(255,204,0,0.4)] hover:bg-[#FFD633] hover:shadow-[0_8px_36px_rgba(255,204,0,0.55)] hover:scale-105 transition-all duration-300 sm:h-[60px] sm:w-[60px]"
+                    className="h-[38px] w-[38px] shrink-0 rounded-full bg-[#FFCC00] text-base font-bold text-[hsl(var(--gold-foreground))] shadow-[0_4px_24px_rgba(255,204,0,0.4)] hover:bg-[#FFD633] hover:shadow-[0_8px_36px_rgba(255,204,0,0.55)] hover:scale-105 transition-all duration-300 sm:h-[60px] sm:w-[60px]"
                   >
-                    <Search className="h-4 w-4 sm:h-5 sm:w-5" />
+                    <Search className="h-3.5 w-3.5 sm:h-5 sm:w-5" />
                   </Button>
                 </div>
               </motion.form>
