@@ -10,11 +10,13 @@ import NtProModal from "@/components/nudim-trazim/NtProModal";
 import type { NtAd } from "@/lib/nudim-trazim-constants";
 import { DEMO_ADS } from "@/lib/nudim-trazim-constants";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useSectionT } from "@/hooks/useSectionT";
 import { useNavigate } from "react-router-dom";
 import { navigateBackOrHome } from "@/lib/navigation";
 
 export default function NudimTrazim() {
   const { t } = useLanguage();
+  const st = useSectionT();
   const navigate = useNavigate();
   const [filters, setFilters] = useState({
     search: "",
@@ -99,7 +101,7 @@ export default function NudimTrazim() {
           </div>
           <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">{t("index.nav.offerSeek")}</h1>
           <p className="text-primary-foreground/80 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
-            {t("nt.heroDesc") || "Ponudi, pronađi ili zatraži pomoć, uslugu, posao, smještaj i još mnogo toga – sve na jednom mjestu."}
+            {st("nt.heroDesc")}
           </p>
           <div className="flex justify-center gap-3 flex-wrap">
             <Button
@@ -107,7 +109,7 @@ export default function NudimTrazim() {
               className="bg-[hsl(var(--success))] hover:bg-[hsl(var(--success))]/90 text-[hsl(var(--success-foreground))] gap-2 font-semibold"
               onClick={() => setShowForm(true)}
             >
-              {t("nt.offer") || "Nudim"}
+              {st("nt.offer")}
             </Button>
             <Button
               size="lg"
@@ -115,11 +117,11 @@ export default function NudimTrazim() {
               className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 gap-2 font-semibold"
               onClick={() => setShowForm(true)}
             >
-              <SearchIcon className="h-4 w-4" /> {t("nt.seek") || "Tražim"}
+              <SearchIcon className="h-4 w-4" /> {st("nt.seek")}
             </Button>
           </div>
           <p className="text-primary-foreground/60 text-sm">
-            {t("nt.freeNote") || "Objava oglasa je besplatna. PRO opcija za dodatnu vidljivost."}
+            {st("nt.freeNote")}
           </p>
         </div>
       </section>
@@ -134,20 +136,16 @@ export default function NudimTrazim() {
               <Star className="h-5 w-5 text-[hsl(var(--gold))]" />
             </div>
             <div className="flex-1">
-              <h3 className="font-bold text-sm">{t("nt.proTitle") || "PRO oglasi"}</h3>
-              <p className="mt-1 text-xs text-muted-foreground">{t("nt.proDesc") || "Istakni svoj oglas i dođi do više ljudi."}</p>
+              <h3 className="font-bold text-sm">{st("nt.proTitle")}</h3>
+              <p className="mt-1 text-xs text-muted-foreground">{st("nt.proDesc")}</p>
               <ul className="mt-2 space-y-1">
-                {[
-                  t("nt.proBenefit1") || "Tvoj oglas ide na vrh liste",
-                  t("nt.proBenefit2") || "Dobija oznaku PRO",
-                  t("nt.proBenefit3") || "Više pregleda i više upita",
-                ].map((txt) => (
+                {[st("nt.proBenefit1"), st("nt.proBenefit2"), st("nt.proBenefit3")].map((txt) => (
                   <li key={txt} className="flex items-center gap-1.5 text-xs text-muted-foreground">
                     <Check className="h-3 w-3 text-[hsl(var(--gold))] shrink-0" /> {txt}
                   </li>
                 ))}
               </ul>
-              <p className="mt-2 text-[11px] text-muted-foreground">{t("nt.freeNote") || "Objava oglasa je besplatna. PRO je opcija za dodatnu vidljivost."}</p>
+              <p className="mt-2 text-[11px] text-muted-foreground">{st("nt.freeNote")}</p>
             </div>
             <Button
               size="sm"
@@ -155,7 +153,7 @@ export default function NudimTrazim() {
               className="shrink-0 border-[hsl(var(--gold))]/40 text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/10 text-xs"
               onClick={() => setShowProModal(true)}
             >
-              <Star className="mr-1 h-3 w-3" /> {t("nt.learnMore") || "Saznaj više"}
+              <Star className="mr-1 h-3 w-3" /> {st("nt.learnMore")}
             </Button>
           </div>
         </div>
@@ -168,19 +166,19 @@ export default function NudimTrazim() {
           </div>
         ) : (
           <div className="text-center py-16 space-y-4">
-            <p className="text-muted-foreground text-lg">{t("nt.empty") || "Trenutno nema oglasa u ovoj kategoriji."}</p>
+            <p className="text-muted-foreground text-lg">{st("nt.empty")}</p>
             <Button onClick={() => setShowForm(true)} className="gap-2">
-              <PlusCircle className="h-4 w-4" /> {t("nt.postFirst") || "Objavi prvi oglas"}
+              <PlusCircle className="h-4 w-4" /> {st("nt.postFirst")}
             </Button>
           </div>
         )}
 
         <section className="rounded-xl bg-muted/50 border border-border p-8 text-center space-y-4">
-          <h2 className="text-xl font-bold text-foreground">{t("nt.ctaTitle") || "Želiš objaviti oglas?"}</h2>
-          <p className="text-muted-foreground max-w-lg mx-auto">{t("nt.ctaDesc") || "Objavi brzo i jednostavno šta nudiš ili šta tražiš."}</p>
+          <h2 className="text-xl font-bold text-foreground">{st("nt.ctaTitle")}</h2>
+          <p className="text-muted-foreground max-w-lg mx-auto">{st("nt.ctaDesc")}</p>
           <div className="flex flex-col sm:flex-row justify-center gap-3">
             <Button size="lg" onClick={() => setShowForm(true)} className="gap-2">
-              <PlusCircle className="h-4 w-4" /> {t("nt.postFree") || "Objavi oglas besplatno"}
+              <PlusCircle className="h-4 w-4" /> {st("nt.postFree")}
             </Button>
             <Button
               size="lg"
@@ -188,14 +186,14 @@ export default function NudimTrazim() {
               className="gap-2 border-[hsl(var(--gold))]/40 text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/10"
               onClick={() => setShowProModal(true)}
             >
-              <Star className="h-4 w-4" /> {t("nt.highlightPro") || "Istakni kao PRO"}
+              <Star className="h-4 w-4" /> {st("nt.highlightPro")}
             </Button>
           </div>
-          <p className="text-xs text-muted-foreground">{t("nt.freeNote") || "Objava je besplatna. PRO je opcija za veću vidljivost."}</p>
+          <p className="text-xs text-muted-foreground">{st("nt.freeNote")}</p>
         </section>
 
         <p className="text-xs text-muted-foreground text-center max-w-3xl mx-auto leading-relaxed pt-4 border-t border-border">
-          {t("nt.disclaimer") || "BalkanLink dient in diesem Bereich ausschließlich als Vermittlungs- und Anzeigenplattform. Für Inhalte, Vereinbarungen oder Leistungen der Nutzer wird keine Haftung übernommen."}
+          {st("nt.disclaimer")}
         </p>
       </div>
 

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { useSectionT } from "@/hooks/useSectionT";
 import { toast } from "sonner";
 
 interface Props {
@@ -11,12 +12,13 @@ interface Props {
 }
 
 export default function NtProModal({ open, onClose }: Props) {
+  const st = useSectionT();
   const [selected, setSelected] = useState<"7" | "30">("30");
 
   if (!open) return null;
 
   const handleActivate = () => {
-    toast.success("PRO aktivacija je u pripremi. Hvala na interesovanju!");
+    toast.success(st("nt.proActivated"));
     onClose();
   };
 
@@ -34,16 +36,14 @@ export default function NtProModal({ open, onClose }: Props) {
           <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-[hsl(var(--gold))]/10 ring-1 ring-[hsl(var(--gold))]/20">
             <Star className="h-5 w-5 text-[hsl(var(--gold))]" />
           </div>
-          <h3 className="text-lg font-bold">Istakni svoj oglas</h3>
-          <p className="mt-1 text-sm text-muted-foreground">
-            Povećaj vidljivost i brže pronađi kupce ili klijente.
-          </p>
+          <h3 className="text-lg font-bold">{st("nt.proModalTitle")}</h3>
+          <p className="mt-1 text-sm text-muted-foreground">{st("nt.proModalDesc")}</p>
         </div>
 
         <ul className="mb-6 space-y-2">
-          {["Na vrhu liste oglasa", "Više pregleda", "Brži kontakt sa zainteresovanima"].map((t) => (
-            <li key={t} className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Check className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t}
+          {[st("nt.proModalBenefit1"), st("nt.proModalBenefit2"), st("nt.proModalBenefit3")].map((txt) => (
+            <li key={txt} className="flex items-center gap-2 text-sm text-muted-foreground">
+              <Check className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {txt}
             </li>
           ))}
         </ul>
@@ -59,7 +59,7 @@ export default function NtProModal({ open, onClose }: Props) {
             )}
           >
             <p className="text-xl font-extrabold">4.99€</p>
-            <p className="mt-1 text-xs text-muted-foreground">Istakni na 7 dana</p>
+            <p className="mt-1 text-xs text-muted-foreground">{st("nt.pro7days")}</p>
           </button>
           <button
             onClick={() => setSelected("30")}
@@ -71,10 +71,10 @@ export default function NtProModal({ open, onClose }: Props) {
             )}
           >
             <Badge className="absolute -top-2.5 right-3 bg-[hsl(var(--gold))] text-[hsl(var(--gold-foreground))] text-[10px] font-bold">
-              NAJBOLJA OPCIJA
+              {st("nt.bestOption")}
             </Badge>
             <p className="text-xl font-extrabold">9.99€</p>
-            <p className="mt-1 text-xs text-muted-foreground">Istakni na 30 dana</p>
+            <p className="mt-1 text-xs text-muted-foreground">{st("nt.pro30days")}</p>
           </button>
         </div>
 
@@ -82,12 +82,10 @@ export default function NtProModal({ open, onClose }: Props) {
           className="w-full gap-2 bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/90 text-[hsl(var(--gold-foreground))] font-semibold"
           onClick={handleActivate}
         >
-          <Star className="h-4 w-4" /> Aktiviraj PRO
+          <Star className="h-4 w-4" /> {st("nt.activatePro")}
         </Button>
 
-        <p className="mt-3 text-center text-[11px] text-muted-foreground">
-          Objava oglasa je besplatna. PRO je opcija za dodatnu vidljivost.
-        </p>
+        <p className="mt-3 text-center text-[11px] text-muted-foreground">{st("nt.freeNote")}</p>
       </div>
     </div>
   );

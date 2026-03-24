@@ -8,6 +8,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { NT_CATEGORIES } from "@/lib/nudim-trazim-constants";
+import { useSectionT } from "@/hooks/useSectionT";
 import { toast } from "sonner";
 
 interface Props {
@@ -16,6 +17,7 @@ interface Props {
 }
 
 export default function NtSubmitForm({ onClose, onProClick }: Props) {
+  const st = useSectionT();
   const [form, setForm] = useState({
     type: "",
     title: "",
@@ -33,42 +35,40 @@ export default function NtSubmitForm({ onClose, onProClick }: Props) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.type || !form.title || !form.category || !form.city || !form.description || !form.contact_type || !form.contact_value) {
-      toast.error("Molimo popunite sva polja.");
+      toast.error(st("nt.fillAll"));
       return;
     }
     if (!form.agreed) {
-      toast.error("Morate prihvatiti pravila korištenja.");
+      toast.error(st("nt.acceptTerms"));
       return;
     }
-    toast.success("Oglas je uspješno poslan! Bit će vidljiv nakon provjere.");
+    toast.success(st("nt.submitSuccess"));
     onClose();
   };
 
   return (
     <Card className="border-border/60">
       <CardHeader>
-        <CardTitle className="text-xl">Objavi oglas besplatno</CardTitle>
-        <p className="text-sm text-muted-foreground">
-          Objava je besplatna. Nakon objave možeš istaknuti oglas kao PRO za veću vidljivost.
-        </p>
+        <CardTitle className="text-xl">{st("nt.formTitle")}</CardTitle>
+        <p className="text-sm text-muted-foreground">{st("nt.formDesc")}</p>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-5">
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label>Tip oglasa *</Label>
+              <Label>{st("nt.adType")} *</Label>
               <Select value={form.type} onValueChange={(v) => set("type", v)}>
-                <SelectTrigger><SelectValue placeholder="Odaberi..." /></SelectTrigger>
+                <SelectTrigger><SelectValue placeholder={st("nt.select")} /></SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="nudim">Nudim (Ich biete)</SelectItem>
-                  <SelectItem value="trazim">Tražim (Ich suche)</SelectItem>
+                  <SelectItem value="nudim">{st("nt.offerDe")}</SelectItem>
+                  <SelectItem value="trazim">{st("nt.seekDe")}</SelectItem>
                 </SelectContent>
               </Select>
             </div>
             <div className="space-y-2">
-              <Label>Kategorija *</Label>
+              <Label>{st("nt.category")} *</Label>
               <Select value={form.category} onValueChange={(v) => set("category", v)}>
-                <SelectTrigger><SelectValue placeholder="Odaberi..." /></SelectTrigger>
+                <SelectTrigger><SelectValue placeholder={st("nt.select")} /></SelectTrigger>
                 <SelectContent>
                   {NT_CATEGORIES.map((c) => (
                     <SelectItem key={c.value} value={c.value}>{c.label}</SelectItem>
@@ -79,43 +79,43 @@ export default function NtSubmitForm({ onClose, onProClick }: Props) {
           </div>
 
           <div className="space-y-2">
-            <Label>Naslov oglasa *</Label>
-            <Input value={form.title} onChange={(e) => set("title", e.target.value)} placeholder="Npr. Nudim pomoć pri selidbi" />
+            <Label>{st("nt.adTitle")} *</Label>
+            <Input value={form.title} onChange={(e) => set("title", e.target.value)} placeholder={st("nt.adTitlePlaceholder")} />
           </div>
 
           <div className="space-y-2">
-            <Label>Grad / Ort *</Label>
-            <Input value={form.city} onChange={(e) => set("city", e.target.value)} placeholder="Npr. München" />
+            <Label>{st("nt.city")} *</Label>
+            <Input value={form.city} onChange={(e) => set("city", e.target.value)} placeholder={st("nt.cityExample")} />
           </div>
 
           <div className="space-y-2">
-            <Label>Opis *</Label>
+            <Label>{st("nt.description")} *</Label>
             <Textarea
               value={form.description}
               onChange={(e) => set("description", e.target.value)}
-              placeholder="Opišite detaljno šta nudite ili tražite..."
+              placeholder={st("nt.descPlaceholder")}
               rows={4}
             />
           </div>
 
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label>Kontakt putem *</Label>
+              <Label>{st("nt.contactVia")} *</Label>
               <Select value={form.contact_type} onValueChange={(v) => set("contact_type", v)}>
-                <SelectTrigger><SelectValue placeholder="Odaberi..." /></SelectTrigger>
+                <SelectTrigger><SelectValue placeholder={st("nt.select")} /></SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="phone">Telefon</SelectItem>
-                  <SelectItem value="email">E-Mail</SelectItem>
-                  <SelectItem value="message">Poruka preko platforme</SelectItem>
+                  <SelectItem value="phone">{st("nt.phone")}</SelectItem>
+                  <SelectItem value="email">{st("nt.email")}</SelectItem>
+                  <SelectItem value="message">{st("nt.message")}</SelectItem>
                 </SelectContent>
               </Select>
             </div>
             <div className="space-y-2">
-              <Label>Kontakt podatak *</Label>
+              <Label>{st("nt.contactData")} *</Label>
               <Input
                 value={form.contact_value}
                 onChange={(e) => set("contact_value", e.target.value)}
-                placeholder="Telefon, E-Mail..."
+                placeholder={st("nt.contactPlaceholder")}
               />
             </div>
           </div>
@@ -128,14 +128,13 @@ export default function NtSubmitForm({ onClose, onProClick }: Props) {
               className="mt-0.5"
             />
             <label htmlFor="nt-agree" className="text-sm text-muted-foreground leading-relaxed">
-              Prihvatam pravila korištenja i potvrđujem da je sadržaj oglasa istinit.
-              Oglas je aktivan 30 dana.
+              {st("nt.agreeTerms")}
             </label>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 pt-2">
             <Button type="submit" className="gap-2">
-              <Send className="h-4 w-4" /> Objavi oglas besplatno
+              <Send className="h-4 w-4" /> {st("nt.submitFree")}
             </Button>
             {onProClick && (
               <Button
@@ -144,11 +143,11 @@ export default function NtSubmitForm({ onClose, onProClick }: Props) {
                 className="gap-2 border-[hsl(var(--gold))]/40 text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/10"
                 onClick={onProClick}
               >
-                <Star className="h-4 w-4" /> Istakni kao PRO
+                <Star className="h-4 w-4" /> {st("nt.highlightPro")}
               </Button>
             )}
             <Button type="button" variant="ghost" onClick={onClose}>
-              Otkaži
+              {st("nt.cancel")}
             </Button>
           </div>
         </form>

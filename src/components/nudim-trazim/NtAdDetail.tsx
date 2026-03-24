@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import type { NtAd } from "@/lib/nudim-trazim-constants";
 import { NT_CATEGORIES, DEMO_ADS } from "@/lib/nudim-trazim-constants";
+import { useSectionT } from "@/hooks/useSectionT";
 import NtAdCard from "./NtAdCard";
 
 interface Props {
@@ -14,6 +15,7 @@ interface Props {
 }
 
 export default function NtAdDetail({ ad, onBack, onOpen }: Props) {
+  const st = useSectionT();
   const [showContact, setShowContact] = useState(false);
   const catLabel = NT_CATEGORIES.find((c) => c.value === ad.category)?.label ?? ad.category;
   const dateStr = new Date(ad.created_at).toLocaleDateString("de-DE", {
@@ -27,7 +29,7 @@ export default function NtAdDetail({ ad, onBack, onOpen }: Props) {
   return (
     <div className="space-y-8">
       <Button variant="ghost" onClick={onBack} className="gap-2 text-muted-foreground">
-        <ArrowLeft className="h-4 w-4" /> Nazad na oglase
+        <ArrowLeft className="h-4 w-4" /> {st("nt.backToAds")}
       </Button>
 
       <Card className="border-border/60">
@@ -40,7 +42,7 @@ export default function NtAdDetail({ ad, onBack, onOpen }: Props) {
                   : "bg-primary/10 text-primary"
               }
             >
-              {ad.type === "nudim" ? "Nudim" : "Tražim"}
+              {ad.type === "nudim" ? st("nt.offer") : st("nt.seek")}
             </Badge>
             <Badge variant="outline">{catLabel}</Badge>
             {ad.is_pro && (
@@ -63,24 +65,21 @@ export default function NtAdDetail({ ad, onBack, onOpen }: Props) {
           <div className="pt-4 border-t border-border">
             <Button onClick={() => setShowContact((v) => !v)} className="gap-2">
               <Eye className="h-4 w-4" />
-              {showContact ? ad.contact_value : "Prikaži kontakt"}
+              {showContact ? ad.contact_value : st("nt.showContact")}
             </Button>
           </div>
 
           {/* Safety hint */}
           <div className="flex items-start gap-3 rounded-lg bg-muted/50 p-4 text-sm text-muted-foreground">
             <Shield className="h-5 w-5 mt-0.5 shrink-0" />
-            <p>
-              Budite oprezni pri kontaktiranju. BalkanLink ne provjerava identitet oglašivača niti
-              odgovara za dogovorene usluge ili transakcije.
-            </p>
+            <p>{st("nt.safetyHint")}</p>
           </div>
         </CardContent>
       </Card>
 
       {similar.length > 0 && (
         <div className="space-y-4">
-          <h2 className="text-lg font-semibold text-foreground">Slični oglasi</h2>
+          <h2 className="text-lg font-semibold text-foreground">{st("nt.similarAds")}</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {similar.map((a) => (
               <NtAdCard key={a.id} ad={a} onOpen={onOpen} />
