@@ -120,7 +120,7 @@ export default function Index() {
           >
             {/* H1 */}
             <h1
-              className="font-heading whitespace-nowrap text-xl font-black leading-[1.15] tracking-tight text-white sm:text-2xl md:text-3xl lg:text-[3.2rem]"
+              className="font-heading text-[1.15rem] font-black leading-[1.2] tracking-tight text-white sm:whitespace-nowrap sm:text-2xl md:text-3xl lg:text-[3.2rem]"
               style={{ textShadow: "0 4px 30px rgba(0,0,0,0.5)" }}
             >
               BalkanLink – Tvoj put do uspjeha u{" "}
