@@ -1,95 +1,332 @@
-import { CheckCircle2, AlertTriangle, Clock, Building2, Users, FileText, ListChecks, CreditCard } from "lucide-react";
-import DolazakPageTemplate from "./DolazakPageTemplate";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import {
+  ArrowLeft, Search, ChevronRight, AlertTriangle, ClipboardList,
+  PenLine, ExternalLink, Info, Lock, Crown, Check, FileText,
+} from "lucide-react";
+import { motion } from "framer-motion";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { visaTypes, type VisaType } from "@/lib/visa-data";
+import { getGuideBySlug } from "@/lib/guide-data";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { useAuth } from "@/contexts/AuthContext";
+import { cn } from "@/lib/utils";
+import FormSmartGuide from "@/components/FormSmartGuide";
+import LegalDisclaimer from "@/components/LegalDisclaimer";
 
-export default function BoravisnaDozvola() {
+const fade = (i: number) => ({
+  initial: { opacity: 0, y: 14 },
+  animate: { opacity: 1, y: 0 },
+  transition: { delay: i * 0.05 },
+});
+
+/* ─── Visual Paywall (non-blocking) ─── */
+function VisaPaywall({ visaLabel }: { visaLabel: string }) {
+  const { user } = useAuth();
+  const included = ["Radna viza", "Spajanje porodice", "Produženje boravka", "EU Blue Card"];
+
   return (
-    <DolazakPageTemplate
-      title="Boravišna dozvola i viza"
-      subtitle="Sve o vizama, dozvolama boravka i EU plavoj karti za rad u Njemačkoj."
-      sections={[
-        {
-          icon: <Users className="h-4 w-4 text-gold" />,
-          title: "Ko treba boravišnu dozvolu?",
-          content: (
-            <ul className="list-disc space-y-1 pl-5">
-              <li><strong>Građani EU/EEA/Švicarske</strong> — ne trebaju vizu ni dozvolu boravka. Slobodan pristup.</li>
-              <li><strong>Državljani trećih zemalja</strong> — trebaju vizu za ulazak i potom boravišnu dozvolu.</li>
-              <li><strong>Državljani BiH, Srbije, Crne Gore, S. Makedonije, Kosova, Albanije</strong> — trebaju vizu prije dolaska (osim za boravak do 90 dana).</li>
-            </ul>
-          ),
-        },
-        {
-          icon: <FileText className="h-4 w-4 text-gold" />,
-          title: "Vrste dozvola",
-          content: (
-            <ul className="list-disc space-y-1 pl-5">
-              <li><strong>Aufenthaltserlaubnis</strong> — privremena dozvola (za posao, studij, porodicu).</li>
-              <li><strong>Blaue Karte EU</strong> — za visokokvalificirane radnike (min. diploma + ugovor o radu sa minimalnom platom).</li>
-              <li><strong>Niederlassungserlaubnis</strong> — trajna dozvola (nakon 5 godina legalnog boravka).</li>
-              <li><strong>§16b</strong> — studentska viza.</li>
-              <li><strong>§19c Abs. 1</strong> — za deficitarna zanimanja (Fachkräfte).</li>
-            </ul>
-          ),
-        },
-        {
-          icon: <ListChecks className="h-4 w-4 text-gold" />,
-          title: "Korak-po-korak",
-          content: (
-            <ol className="list-decimal space-y-2 pl-5">
-              <li><strong>Provjeri da li ti treba viza</strong> — Na web stranici njemačke ambasade u tvojoj zemlji provjeri uslove.</li>
-              <li><strong>Prikupi dokumente</strong> — Pasoš (valjan min. 6 mjeseci), ugovor o radu ili potvrda o upisu, zdravstveno osiguranje, dokaz o smještaju, finansijska sredstva.</li>
-              <li><strong>Zakaži termin na ambasadi</strong> — Online putem sistema zakazivanja tvoje ambasade.</li>
-              <li><strong>Predaj zahtjev na ambasadi</strong> — Lično, sa svim dokumentima u originalu + kopijama.</li>
-              <li><strong>Biometrijski podaci</strong> — Otisci prstiju i fotografija se uzimaju na ambasadi.</li>
-              <li><strong>Čekaj odluku</strong> — Obrada traje 4-12 sedmica (može i duže).</li>
-              <li><strong>Preuzmi vizu</strong> — Viza se lijepi u pasoš. Obično važi 3-6 mjeseci.</li>
-              <li><strong>Po dolasku: Ausländerbehörde</strong> — U roku od 90 dana moraš zatražiti Aufenthaltstitel kod lokalne Ausländerbehörde.</li>
-              <li><strong>Zakaži termin kod Ausländerbehörde</strong> — Online ili telefonski. Ponesi sve dokumente + Meldebescheinigung.</li>
-              <li><strong>Primi eAT karticu</strong> — Elektronska dozvola boravka (kartica) stiže poštom u roku od 4-6 sedmica.</li>
-            </ol>
-          ),
-        },
-        {
-          icon: <Building2 className="h-4 w-4 text-gold" />,
-          title: "Gdje se radi?",
-          content: (
-            <div>
-              <p><strong>Prije dolaska:</strong> Njemačka ambasada ili konzulat u tvojoj zemlji.</p>
-              <p className="mt-1"><strong>Nakon dolaska:</strong> Ausländerbehörde (Ured za strance) u tvom gradu.</p>
+    <div className="mt-6 rounded-2xl border border-gold/20 bg-gradient-to-b from-muted/70 to-muted/30 px-6 py-8 text-center">
+      <div className="mb-4 mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-gold/10 ring-1 ring-gold/20">
+        <Lock className="h-5 w-5 text-gold" />
+      </div>
+      <h3 className="mb-1 text-sm font-bold">Smart Guide – korak po korak</h3>
+      <p className="mb-5 max-w-md mx-auto text-xs text-muted-foreground">
+        Riješi zahtjev bez grešaka uz vođeni vodič sa detaljnim objašnjenjima svakog polja.
+      </p>
+      <div className="grid w-full max-w-md mx-auto gap-3 sm:grid-cols-2">
+        <div className="rounded-xl border border-border/60 bg-card p-4 text-left">
+          <p className="text-lg font-extrabold text-foreground">3.99€</p>
+          <p className="mt-1 text-xs text-muted-foreground">Pristup samo ovoj vizi</p>
+        </div>
+        <div className="rounded-xl border-2 border-gold/40 bg-gold/5 p-4 text-left relative">
+          <span className="absolute -top-2.5 right-3 rounded-full bg-gold px-2.5 py-0.5 text-[10px] font-bold text-gold-foreground">
+            POPULARAN
+          </span>
+          <p className="text-lg font-extrabold text-foreground">9.99€</p>
+          <p className="mt-1 text-xs text-muted-foreground">Pristup svim formularima i vizama (30 dana)</p>
+          <ul className="mt-3 space-y-1">
+            {included.map((f) => (
+              <li key={f} className="flex items-center gap-1.5 text-[11px] text-muted-foreground">
+                <Check className="h-3 w-3 text-gold shrink-0" /> {f}
+              </li>
+            ))}
+            <li className="text-[11px] text-muted-foreground pl-[18px]">i još 30+ vodiča</li>
+          </ul>
+        </div>
+      </div>
+      <Button className="btn-gold-gradient mt-5 rounded-xl px-8" asChild>
+        <Link to={user ? "/premium" : "/login"}>
+          <Crown className="mr-2 h-4 w-4" /> Otključaj odmah
+        </Link>
+      </Button>
+    </div>
+  );
+}
+
+/* ─── Visa Detail (right side) ─── */
+function VisaDetail({ visa }: { visa: VisaType }) {
+  const { isPremium } = useAuth();
+  const guide = visa.guideSlug ? getGuideBySlug(visa.guideSlug) : null;
+
+  return (
+    <div className="space-y-5">
+      {/* Header */}
+      <div>
+        <div className="flex items-center gap-2 mb-1">
+          <span className="text-2xl">{visa.icon}</span>
+          <h2 className="font-heading text-xl font-extrabold">{visa.title}</h2>
+        </div>
+        <p className="text-xs text-muted-foreground">{visa.titleDe}</p>
+        <p className="mt-2 text-sm text-foreground/80">{visa.desc}</p>
+      </div>
+
+      {/* Disclaimer */}
+      <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 dark:border-amber-900/40 dark:bg-amber-950/20">
+        <p className="text-xs text-amber-800 dark:text-amber-300 flex items-start gap-2">
+          <Info className="h-3.5 w-3.5 shrink-0 mt-0.5" />
+          Napomena: Postupak i zahtjevi mogu se neznatno razlikovati u zavisnosti od savezne pokrajine (Bundeslanda) i nadležnog ureda.
+        </p>
+      </div>
+
+      {/* FREE: Who can apply */}
+      <motion.div {...fade(0)} className="rounded-2xl border border-border/60 bg-card p-4">
+        <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold">
+          <PenLine className="h-3.5 w-3.5 text-primary" /> Ko može aplicirati
+        </h3>
+        <ul className="space-y-1 pl-4 list-disc">
+          {visa.whoCanApply.map((w, i) => (
+            <li key={i} className="text-xs text-muted-foreground">{w}</li>
+          ))}
+        </ul>
+      </motion.div>
+
+      {/* FREE: Basic requirements */}
+      <motion.div {...fade(1)} className="rounded-2xl border border-border/60 bg-card p-4">
+        <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold">
+          <ClipboardList className="h-3.5 w-3.5 text-primary" /> Osnovni uslovi
+        </h3>
+        <ul className="space-y-1 pl-4 list-disc">
+          {visa.basicRequirements.map((r, i) => (
+            <li key={i} className="text-xs text-muted-foreground">{r}</li>
+          ))}
+        </ul>
+      </motion.div>
+
+      {/* FREE: Documents */}
+      <motion.div {...fade(2)} className="rounded-2xl border border-border/60 bg-card p-4">
+        <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold">
+          <FileText className="h-3.5 w-3.5 text-primary" /> Potrebni dokumenti
+        </h3>
+        <ul className="space-y-1 pl-4 list-disc">
+          {visa.documents.map((d, i) => (
+            <li key={i} className="text-xs text-muted-foreground">{d}</li>
+          ))}
+        </ul>
+      </motion.div>
+
+      {/* FREE: Common mistakes */}
+      <motion.div {...fade(3)} className="rounded-2xl border border-red-200 bg-red-50 p-4 dark:border-red-900/40 dark:bg-red-950/20">
+        <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold text-red-700 dark:text-red-400">
+          <AlertTriangle className="h-3.5 w-3.5" /> Najčešće greške
+        </h3>
+        <ul className="space-y-1 pl-4 list-disc">
+          {visa.commonMistakes.map((m, i) => (
+            <li key={i} className="text-xs text-red-600 dark:text-red-300">{m}</li>
+          ))}
+        </ul>
+      </motion.div>
+
+      {/* Official link */}
+      <motion.div {...fade(4)} className="rounded-2xl border border-border/60 bg-card p-4 text-center">
+        <h3 className="mb-2 flex items-center justify-center gap-1.5 text-xs font-bold">
+          <Info className="h-3.5 w-3.5 text-primary" /> Službene informacije
+        </h3>
+        <a
+          href={visa.officialUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-2 inline-flex items-center gap-1.5 rounded-lg bg-primary/10 px-4 py-2 text-xs font-semibold text-primary transition-colors hover:bg-primary/20"
+        >
+          <ExternalLink className="h-3.5 w-3.5" /> Otvori službenu stranicu
+        </a>
+      </motion.div>
+
+      {/* PREMIUM: Smart Guide (non-blocking) */}
+      {guide && (
+        <>
+          <div className="relative py-2">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-border/60" />
             </div>
-          ),
-        },
-        {
-          icon: <CreditCard className="h-4 w-4 text-gold" />,
-          title: "Rokovi i troškovi",
-          content: (
-            <ul className="list-disc space-y-1 pl-5">
-              <li>Viza: <strong>75 € – 100 €</strong> (zavisno od vrste).</li>
-              <li>Aufenthaltstitel: <strong>100 € – 147 €</strong>.</li>
-              <li>Blaue Karte EU: <strong>100 €</strong>.</li>
-              <li>Obrada: <strong>4-12 sedmica</strong> (ambasada), <strong>4-8 sedmica</strong> (Ausländerbehörde).</li>
-            </ul>
-          ),
-        },
-        {
-          icon: <AlertTriangle className="h-4 w-4 text-warning" />,
-          title: "Česte greške",
-          content: (
-            <ul className="list-disc space-y-1 pl-5">
-              <li>Kasno zakazivanje termina na ambasadi — termini su često zauzeti mjesecima unaprijed.</li>
-              <li>Nepotpuna dokumentacija — svaki nedostajući dokument može značiti odbijanje.</li>
-              <li>Pasoš sa isteklim rokom — mora biti valjan minimalno 6 mjeseci.</li>
-              <li>Pogrešan tip vize — radna viza ≠ turistička viza.</li>
-              <li>Prekoračenje 90 dana bez podnošenja zahtjeva za Aufenthaltstitel.</li>
-              <li>Neobaviješten poslodavac o statusu vize.</li>
-            </ul>
-          ),
-        },
-      ]}
-      links={[
-        { type: "portal", label: "Online termin – ambasada", url: "https://www.auswaertiges-amt.de/de/service/visa-und-aufenthalt" },
-        { type: "info", label: "Službene informacije (BAMF)", url: "https://www.bamf.de/DE/Themen/MigrationAufenthalt/migrationaufenthalt-node.html" },
-      ]}
-    />
+            <div className="relative flex justify-center">
+              <span className="bg-background px-4 text-xs font-semibold text-muted-foreground">
+                Smart Guide – korak po korak
+              </span>
+            </div>
+          </div>
+          <FormSmartGuide guide={guide} lang="bs" />
+          {!isPremium && <VisaPaywall visaLabel={visa.title} />}
+        </>
+      )}
+
+      {/* If no guide yet, show paywall as teaser */}
+      {!guide && (
+        <>
+          <div className="relative py-2">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-border/60" />
+            </div>
+            <div className="relative flex justify-center">
+              <span className="bg-background px-4 text-xs font-semibold text-muted-foreground">
+                Smart Guide – korak po korak
+              </span>
+            </div>
+          </div>
+          <div className="rounded-2xl border border-dashed border-border/60 bg-card p-8 text-center">
+            <Badge variant="outline" className="mb-3 text-xs">
+              <Lock className="mr-1 h-3 w-3" /> Uskoro dostupno
+            </Badge>
+            <p className="text-xs text-muted-foreground">
+              Smart Guide za „{visa.title}" je u pripremi. U međuvremenu, koristi gornje informacije za pripremu.
+            </p>
+          </div>
+          {!isPremium && <VisaPaywall visaLabel={visa.title} />}
+        </>
+      )}
+
+      <LegalDisclaimer />
+    </div>
+  );
+}
+
+/* ─── Main Page ─── */
+export default function BoravisnaDozvola() {
+  const [selected, setSelected] = useState<string | null>(null);
+  const [search, setSearch] = useState("");
+  const isMobile = useIsMobile();
+
+  const q = search.toLowerCase();
+  const filtered = visaTypes.filter(
+    (v) =>
+      v.title.toLowerCase().includes(q) ||
+      v.desc.toLowerCase().includes(q) ||
+      v.titleDe.toLowerCase().includes(q)
+  );
+
+  const activeVisa = visaTypes.find((v) => v.id === selected);
+
+  // Mobile: show detail
+  if (isMobile && activeVisa) {
+    return (
+      <div className="px-4 py-6">
+        <button
+          onClick={() => setSelected(null)}
+          className="mb-4 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
+        >
+          <ArrowLeft className="h-3 w-3" /> Nazad na vize
+        </button>
+        <VisaDetail visa={activeVisa} />
+      </div>
+    );
+  }
+
+  return (
+    <>
+      {/* Hero */}
+      <section className="border-b bg-primary py-10">
+        <div className="container max-w-5xl">
+          <Link
+            to="/dolazak"
+            className="mb-4 inline-flex items-center gap-1 text-xs text-primary-foreground/70 hover:text-primary-foreground"
+          >
+            <ArrowLeft className="h-3 w-3" /> Nazad
+          </Link>
+          <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">
+            Viza Navigator
+          </h1>
+          <p className="mt-2 text-sm text-primary-foreground/80 md:text-base">
+            Pronađi pravu vizu ili dozvolu boravka za Njemačku. Jasne informacije bez komplikacija.
+          </p>
+        </div>
+      </section>
+
+      <section className="py-8">
+        <div className="container max-w-5xl">
+          {/* Disclaimer */}
+          <div className="mb-6 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 dark:border-amber-900/40 dark:bg-amber-950/20">
+            <p className="text-xs text-amber-800 dark:text-amber-300 flex items-start gap-2">
+              <Info className="h-3.5 w-3.5 shrink-0 mt-0.5" />
+              Napomena: Postupak i zahtjevi mogu se neznatno razlikovati u zavisnosti od savezne pokrajine (Bundeslanda) i nadležnog ureda.
+            </p>
+          </div>
+
+          <div className="flex gap-6">
+            {/* Sidebar / list */}
+            <aside className={cn("shrink-0", isMobile ? "w-full" : "sticky top-20 self-start w-72")}>
+              <div className="relative mb-4">
+                <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                <Input
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  placeholder="Pretraži vize…"
+                  className="pl-9 h-10 text-sm rounded-xl border-border/60 bg-card"
+                />
+              </div>
+
+              <nav className="space-y-1.5">
+                {filtered.map((visa) => (
+                  <button
+                    key={visa.id}
+                    onClick={() => setSelected(visa.id)}
+                    className={cn(
+                      "w-full flex items-center gap-3 rounded-xl border px-4 py-3 text-left text-sm transition-all",
+                      visa.id === selected
+                        ? "border-primary/40 bg-primary/5 shadow-sm"
+                        : "border-border/40 bg-card hover:border-gold/40 hover:shadow-sm"
+                    )}
+                  >
+                    <span className="text-xl shrink-0">{visa.icon}</span>
+                    <div className="min-w-0 flex-1">
+                      <p className={cn("font-semibold truncate", visa.id === selected && "text-primary")}>
+                        {visa.title}
+                      </p>
+                      <p className="text-[11px] text-muted-foreground truncate">{visa.desc}</p>
+                    </div>
+                    <ChevronRight className="ml-auto h-4 w-4 shrink-0 text-muted-foreground" />
+                  </button>
+                ))}
+                {filtered.length === 0 && (
+                  <p className="px-3 py-6 text-xs text-muted-foreground text-center">Nema rezultata.</p>
+                )}
+              </nav>
+            </aside>
+
+            {/* Detail */}
+            {!isMobile && (
+              <main className="min-w-0 flex-1">
+                {activeVisa ? (
+                  <VisaDetail visa={activeVisa} />
+                ) : (
+                  <div className="flex flex-col items-center justify-center py-20 text-center">
+                    <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-primary/5 mb-6">
+                      <FileText className="h-10 w-10 text-primary/40" />
+                    </div>
+                    <h2 className="text-lg font-bold text-foreground/70">Odaberi vrstu vize</h2>
+                    <p className="mt-2 max-w-sm text-sm text-muted-foreground">
+                      Klikni na bilo koju vizu s lijeve strane da vidiš detaljne informacije i upute.
+                    </p>
+                  </div>
+                )}
+              </main>
+            )}
+          </div>
+
+          <LegalDisclaimer />
+        </div>
+      </section>
+    </>
   );
 }
