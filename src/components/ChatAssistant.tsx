@@ -415,14 +415,14 @@ export default function ChatAssistant() {
           >
             {/* BL circle */}
             <div className="relative">
-              <div className="absolute inset-[-8px] rounded-full bg-gradient-to-br from-[hsl(217,91%,60%)]/20 to-[hsl(271,81%,56%)]/20 blur-xl group-hover:from-[hsl(217,91%,60%)]/35 group-hover:to-[hsl(271,81%,56%)]/35 transition-all duration-300" />
-              <div className="relative flex items-center justify-center w-[58px] h-[58px] sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-[hsl(217,91%,60%)] to-[hsl(271,81%,56%)] shadow-[0_4px_20px_rgba(99,102,241,0.35)] transition-all duration-200 group-hover:scale-105 group-hover:shadow-[0_6px_28px_rgba(99,102,241,0.5)] group-active:scale-95">
+              <div className="absolute inset-[-10px] rounded-full bg-gradient-to-br from-[hsl(217,91%,60%)]/25 to-[hsl(271,81%,56%)]/25 blur-2xl group-hover:from-[hsl(217,91%,60%)]/40 group-hover:to-[hsl(271,81%,56%)]/40 transition-all duration-300" />
+              <div className="relative flex items-center justify-center w-[58px] h-[58px] sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-[hsl(217,91%,60%)] to-[hsl(271,81%,56%)] shadow-[0_0_24px_rgba(99,102,241,0.4),0_4px_16px_rgba(147,51,234,0.3)] transition-all duration-200 group-hover:scale-105 group-hover:shadow-[0_0_32px_rgba(99,102,241,0.55),0_6px_24px_rgba(147,51,234,0.4)] group-active:scale-95">
                 <span className="text-white font-black text-[20px] sm:text-[22px] tracking-tight select-none">BL</span>
               </div>
             </div>
 
             {/* Text below */}
-            <div className="text-center rounded-xl bg-white/90 dark:bg-card/90 backdrop-blur-sm px-3.5 py-2 shadow-[0_2px_12px_rgba(0,0,0,0.08)] dark:shadow-[0_2px_12px_rgba(0,0,0,0.25)] border border-border/30">
+            <div className="text-center rounded-xl bg-white/90 dark:bg-card/90 backdrop-blur-sm px-3.5 py-2 shadow-[0_0_16px_rgba(99,102,241,0.15),0_2px_10px_rgba(0,0,0,0.06)] dark:shadow-[0_0_16px_rgba(99,102,241,0.2),0_2px_10px_rgba(0,0,0,0.2)] border border-[hsl(217,91%,60%)]/10">
               <p className="text-[12px] font-bold text-foreground leading-tight">Pitaj BalkanLink</p>
               <p className="text-[10px] text-muted-foreground leading-tight mt-0.5">Asistent za Njemačku</p>
             </div>
