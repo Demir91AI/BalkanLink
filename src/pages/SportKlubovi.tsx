@@ -35,6 +35,7 @@ const SPORT_SUBCATEGORIES = [
 ];
 
 export default function SportKlubovi() {
+  const navigate = useNavigate();
   const { activeCountry } = useCountry();
   const { t } = useLanguage();
   const [cityInput, setCityInput] = useState("");
