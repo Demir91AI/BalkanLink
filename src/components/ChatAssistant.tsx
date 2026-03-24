@@ -1,14 +1,22 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import { X, Send, Loader2, Lock, Info, BookOpen, FileText, ClipboardList, Home, Briefcase, Users, FileCheck, MapPin } from "lucide-react";
+import { X, Send, Loader2, Lock, Info, BookOpen, FileText, ClipboardList, Home, Briefcase, Users, FileCheck, PenLine, FileSignature, Mail, CheckSquare, Copy, ShieldCheck } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { Link, useLocation } from "react-router-dom";
 
-type Msg = { role: "user" | "assistant"; content: string; premiumGated?: boolean; guideSlug?: string | null };
+type Msg = {
+  role: "user" | "assistant";
+  content: string;
+  premiumGated?: boolean;
+  softUpsell?: boolean;
+  guideSlug?: string | null;
+};
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat-assistant`;
+
+// ── i18n constants ──
 
 const PLACEHOLDER: Record<string, string> = {
   bs: "Napiši šta ti treba (npr. Kindergeld, stan, posao...)",
@@ -23,15 +31,11 @@ const PLACEHOLDER: Record<string, string> = {
 };
 
 const HEADER_TITLE: Record<string, string> = {
-  bs: "Kako ti mogu pomoći danas?",
-  hr: "Kako ti mogu pomoći danas?",
-  sr: "Kako ti mogu pomoći danas?",
-  me: "Kako ti mogu pomoći danas?",
-  sq: "Si mund t'ju ndihmoj sot?",
-  xk: "Si mund t'ju ndihmoj sot?",
+  bs: "Kako ti mogu pomoći danas?", hr: "Kako ti mogu pomoći danas?",
+  sr: "Kako ti mogu pomoći danas?", me: "Kako ti mogu pomoći danas?",
+  sq: "Si mund t'ju ndihmoj sot?", xk: "Si mund t'ju ndihmoj sot?",
   mk: "Како можам да ви помогнам денес?",
-  de: "Wie kann ich dir heute helfen?",
-  en: "How can I help you today?",
+  de: "Wie kann ich dir heute helfen?", en: "How can I help you today?",
 };
 
 const HEADER_SUBTITLE: Record<string, string> = {
@@ -67,19 +71,71 @@ const DISCLAIMER: Record<string, string> = {
   en: "This assistant provides informative guidance. For final decisions, consult the relevant authority.",
 };
 
-const SMART_GUIDE_PROMO: Record<string, string> = {
-  bs: "Detaljno polje-po-polje popunjavanje formulara dostupno je u BalkanLink Premium Smart Guide vodiču.",
-  hr: "Detaljno polje-po-polje popunjavanje formulara dostupno je u BalkanLink Premium Smart Guide vodiču.",
-  sr: "Detaljno polje-po-polje popunjavanje formulara dostupno je u BalkanLink Premium Smart Guide vodiču.",
-  me: "Detaljno polje-po-polje popunjavanje formulara dostupno je u BalkanLink Premium Smart Guide vodiču.",
-  sq: "Plotësimi i detajuar fushë-për-fushë i formularëve disponohet në BalkanLink Premium Smart Guide.",
-  xk: "Plotësimi i detajuar fushë-për-fushë i formularëve disponohet në BalkanLink Premium Smart Guide.",
-  mk: "Детално поле-по-поле пополнување на формулари е достапно во BalkanLink Premium Smart Guide водичот.",
-  de: "Detailliertes Feld-für-Feld-Ausfüllen von Formularen ist im BalkanLink Premium Smart Guide verfügbar.",
-  en: "Detailed field-by-field form filling is available in the BalkanLink Premium Smart Guide.",
+const DATA_NOTICE: Record<string, string> = {
+  bs: "Uneseni podaci se koriste samo za generisanje odgovora i ne pohranjuju se.",
+  hr: "Uneseni podaci se koriste samo za generisanje odgovora i ne pohranjuju se.",
+  sr: "Uneseni podaci se koriste samo za generisanje odgovora i ne pohranjuju se.",
+  me: "Uneseni podaci se koriste samo za generisanje odgovora i ne pohranjuju se.",
+  sq: "Të dhënat e futura përdoren vetëm për gjenerimin e përgjigjes dhe nuk ruhen.",
+  xk: "Të dhënat e futura përdoren vetëm për gjenerimin e përgjigjes dhe nuk ruhen.",
+  mk: "Внесените податоци се користат само за генерирање одговор и не се зачувуваат.",
+  de: "Eingegebene Daten werden nur zur Antwortgenerierung verwendet und nicht gespeichert.",
+  en: "Entered data is used only for response generation and is not stored.",
 };
 
-// ── Action buttons for start screen ──
+const INPUT_WARNING: Record<string, string> = {
+  bs: "Ne unosite osjetljive podatke (broj dokumenta, bankovne podatke).",
+  hr: "Ne unosite osjetljive podatke (broj dokumenta, bankovne podatke).",
+  sr: "Ne unosite osetljive podatke (broj dokumenta, bankovne podatke).",
+  me: "Ne unosite osjetljive podatke (broj dokumenta, bankovne podatke).",
+  sq: "Mos futni të dhëna të ndjeshme (numër dokumenti, të dhëna bankare).",
+  xk: "Mos futni të dhëna të ndjeshme (numër dokumenti, të dhëna bankare).",
+  mk: "Не внесувајте чувствителни податоци (број на документ, банкарски податоци).",
+  de: "Geben Sie keine sensiblen Daten ein (Dokumentennummer, Bankdaten).",
+  en: "Do not enter sensitive data (document numbers, bank details).",
+};
+
+const PREMIUM_CTA_LABELS: Record<string, { activate: string; features: string[]; price: string; social: string; skip: string }> = {
+  bs: {
+    activate: "Aktiviraj Premium",
+    features: [
+      "Svi formulari korak-po-korak",
+      "Personalizovani odgovori",
+      "Template poruke (stan, posao)",
+      "Checklist generator",
+    ],
+    price: "7.99€ / mjesec",
+    social: "Većina korisnika uz vodič završi prijavu bez greške iz prvog pokušaja.",
+    skip: "Nastavi bez vodiča",
+  },
+  de: {
+    activate: "Premium aktivieren",
+    features: [
+      "Alle Formulare Schritt-für-Schritt",
+      "Personalisierte Antworten",
+      "Vorlagen (Wohnung, Job)",
+      "Checklisten-Generator",
+    ],
+    price: "7,99€ / Monat",
+    social: "Die meisten Nutzer erledigen ihren Antrag beim ersten Mal fehlerfrei.",
+    skip: "Ohne Guide fortfahren",
+  },
+  en: {
+    activate: "Activate Premium",
+    features: [
+      "All forms step-by-step",
+      "Personalized answers",
+      "Template messages (apartment, job)",
+      "Checklist generator",
+    ],
+    price: "€7.99 / month",
+    social: "Most users complete their application error-free on the first try.",
+    skip: "Continue without guide",
+  },
+};
+
+// ── Action buttons ──
+
 interface ActionButton {
   icon: typeof FileText;
   label: Record<string, string>;
@@ -89,49 +145,76 @@ interface ActionButton {
 const ACTION_BUTTONS: ActionButton[] = [
   {
     icon: FileText,
-    label: { bs: "Formulari i papiri", hr: "Formulari i papiri", sr: "Formulari i papiri", me: "Formulari i papiri", de: "Formulare & Dokumente", en: "Forms & Documents", sq: "Formularë & Dokumente", xk: "Formularë & Dokumente", mk: "Формулари и документи" },
-    message: { bs: "Treba mi pomoć sa formularima i papirima u Njemačkoj.", hr: "Treba mi pomoć sa formularima i papirima u Njemačkoj.", sr: "Treba mi pomoć sa formularima i papirima u Nemačkoj.", me: "Treba mi pomoć sa formularima i papirima u Njemačkoj.", de: "Ich brauche Hilfe mit Formularen und Dokumenten.", en: "I need help with forms and documents in Germany.", sq: "Kam nevojë për ndihmë me formularë dhe dokumente.", xk: "Kam nevojë për ndihmë me formularë dhe dokumente.", mk: "Ми треба помош со формулари и документи." },
+    label: { bs: "Formulari i papiri", de: "Formulare & Dokumente", en: "Forms & Documents" },
+    message: { bs: "Treba mi pomoć sa formularima i papirima u Njemačkoj.", de: "Ich brauche Hilfe mit Formularen und Dokumenten.", en: "I need help with forms and documents in Germany." },
   },
   {
     icon: Home,
-    label: { bs: "Nađi stan", hr: "Nađi stan", sr: "Nađi stan", me: "Nađi stan", de: "Wohnung finden", en: "Find apartment", sq: "Gjej banesë", xk: "Gjej banesë", mk: "Најди стан" },
-    message: { bs: "Tražim stan u Njemačkoj. Možeš li mi pomoći?", hr: "Tražim stan u Njemačkoj. Možeš li mi pomoći?", sr: "Tražim stan u Nemačkoj. Možeš li mi pomoći?", me: "Tražim stan u Njemačkoj. Možeš li mi pomoći?", de: "Ich suche eine Wohnung in Deutschland. Kannst du mir helfen?", en: "I'm looking for an apartment in Germany. Can you help?", sq: "Po kërkoj një banesë në Gjermani. A mund të më ndihmosh?", xk: "Po kërkoj një banesë në Gjermani. A mund të më ndihmosh?", mk: "Барам стан во Германија. Можеш ли да ми помогнеш?" },
+    label: { bs: "Nađi stan", de: "Wohnung finden", en: "Find apartment" },
+    message: { bs: "Tražim stan u Njemačkoj. Možeš li mi pomoći?", de: "Ich suche eine Wohnung in Deutschland. Kannst du mir helfen?", en: "I'm looking for an apartment in Germany. Can you help?" },
   },
   {
     icon: Briefcase,
-    label: { bs: "Nađi posao", hr: "Nađi posao", sr: "Nađi posao", me: "Nađi posao", de: "Job finden", en: "Find a job", sq: "Gjej punë", xk: "Gjej punë", mk: "Најди работа" },
-    message: { bs: "Tražim posao u Njemačkoj. Kako da počnem?", hr: "Tražim posao u Njemačkoj. Kako da počnem?", sr: "Tražim posao u Nemačkoj. Kako da počnem?", me: "Tražim posao u Njemačkoj. Kako da počnem?", de: "Ich suche einen Job in Deutschland. Wie fange ich an?", en: "I'm looking for a job in Germany. How do I start?", sq: "Po kërkoj punë në Gjermani. Si ta filloj?", xk: "Po kërkoj punë në Gjermani. Si ta filloj?", mk: "Барам работа во Германија. Како да почнам?" },
+    label: { bs: "Nađi posao", de: "Job finden", en: "Find a job" },
+    message: { bs: "Tražim posao u Njemačkoj. Kako da počnem?", de: "Ich suche einen Job in Deutschland. Wie fange ich an?", en: "I'm looking for a job in Germany. How do I start?" },
   },
   {
     icon: Users,
-    label: { bs: "Porodica i socijala", hr: "Obitelj i socijala", sr: "Porodica i socijala", me: "Porodica i socijala", de: "Familie & Soziales", en: "Family & Social", sq: "Familja & Sociale", xk: "Familja & Sociale", mk: "Семејство и социјала" },
-    message: { bs: "Trebam informacije o porodičnim davanjima (Kindergeld, Elterngeld, Bürgergeld).", hr: "Trebam informacije o obiteljskim davanjima (Kindergeld, Elterngeld, Bürgergeld).", sr: "Trebam informacije o porodičnim davanjima (Kindergeld, Elterngeld, Bürgergeld).", me: "Trebam informacije o porodičnim davanjima (Kindergeld, Elterngeld, Bürgergeld).", de: "Ich brauche Infos zu Familienleistungen (Kindergeld, Elterngeld, Bürgergeld).", en: "I need info about family benefits (Kindergeld, Elterngeld, Bürgergeld).", sq: "Kam nevojë për informacione mbi përfitimet familjare.", xk: "Kam nevojë për informacione mbi përfitimet familjare.", mk: "Ми требаат информации за семејни давачки." },
+    label: { bs: "Porodica i socijala", de: "Familie & Soziales", en: "Family & Social" },
+    message: { bs: "Trebam informacije o porodičnim davanjima (Kindergeld, Elterngeld, Bürgergeld).", de: "Ich brauche Infos zu Familienleistungen (Kindergeld, Elterngeld, Bürgergeld).", en: "I need info about family benefits (Kindergeld, Elterngeld, Bürgergeld)." },
   },
   {
     icon: FileCheck,
-    label: { bs: "Boravišna dozvola", hr: "Boravišna dozvola", sr: "Boravišna dozvola", me: "Boravišna dozvola", de: "Aufenthaltstitel", en: "Residence permit", sq: "Leja e qëndrimit", xk: "Leja e qëndrimit", mk: "Дозвола за престој" },
-    message: { bs: "Trebam pomoć oko boravišne dozvole u Njemačkoj.", hr: "Trebam pomoć oko boravišne dozvole u Njemačkoj.", sr: "Trebam pomoć oko boravišne dozvole u Nemačkoj.", me: "Trebam pomoć oko boravišne dozvole u Njemačkoj.", de: "Ich brauche Hilfe mit meinem Aufenthaltstitel.", en: "I need help with my residence permit.", sq: "Kam nevojë për ndihmë me lejen e qëndrimit.", xk: "Kam nevojë për ndihmë me lejen e qëndrimit.", mk: "Ми треба помош околу дозволата за престој." },
+    label: { bs: "Boravišna dozvola", de: "Aufenthaltstitel", en: "Residence permit" },
+    message: { bs: "Trebam pomoć oko boravišne dozvole u Njemačkoj.", de: "Ich brauche Hilfe mit meinem Aufenthaltstitel.", en: "I need help with my residence permit." },
   },
 ];
 
-// ── Auto-trigger messages per route ──
+// ── Task Engine: Quick Actions ──
+
+interface QuickAction {
+  icon: typeof PenLine;
+  label: Record<string, string>;
+  message: Record<string, string>;
+}
+
+const QUICK_ACTIONS: QuickAction[] = [
+  {
+    icon: FileSignature,
+    label: { bs: "Kündigung napisati", de: "Kündigung schreiben", en: "Write cancellation" },
+    message: { bs: "Trebam pomoć da napišem Kündigung (otkaz/raskid ugovora).", de: "Ich brauche Hilfe beim Schreiben einer Kündigung.", en: "I need help writing a cancellation letter." },
+  },
+  {
+    icon: Briefcase,
+    label: { bs: "Bewerbung napraviti", de: "Bewerbung erstellen", en: "Create application" },
+    message: { bs: "Trebam pomoć da napravim Bewerbung (prijavu za posao).", de: "Ich brauche Hilfe bei der Erstellung einer Bewerbung.", en: "I need help creating a job application." },
+  },
+  {
+    icon: Mail,
+    label: { bs: "Poruka za stan", de: "Wohnungsnachricht", en: "Apartment message" },
+    message: { bs: "Trebam gotovu poruku koju mogu poslati stanodavcu za stan.", de: "Ich brauche eine fertige Nachricht für den Vermieter.", en: "I need a ready-made message for a landlord." },
+  },
+  {
+    icon: PenLine,
+    label: { bs: "Email napisati", de: "E-Mail schreiben", en: "Write email" },
+    message: { bs: "Trebam pomoć da napišem službeni email na njemačkom.", de: "Ich brauche Hilfe beim Schreiben einer offiziellen E-Mail.", en: "I need help writing an official email in German." },
+  },
+  {
+    icon: CheckSquare,
+    label: { bs: "Checklist napraviti", de: "Checkliste erstellen", en: "Create checklist" },
+    message: { bs: "Trebam personalizovanu checklistu za moju situaciju.", de: "Ich brauche eine personalisierte Checkliste.", en: "I need a personalized checklist for my situation." },
+  },
+];
+
+// ── Auto-trigger ──
+
 const AUTO_TRIGGER: Record<string, Record<string, string>> = {
-  "/wohnungen": {
-    bs: "Treba pomoć oko pronalaska stana?",
-    de: "Brauchst du Hilfe bei der Wohnungssuche?",
-    en: "Need help finding an apartment?",
-  },
-  "/stellenangebote": {
-    bs: "Treba pomoć oko pronalaska posla?",
-    de: "Brauchst du Hilfe bei der Jobsuche?",
-    en: "Need help finding a job?",
-  },
-  "/formulari": {
-    bs: "Treba pomoć sa formularima?",
-    de: "Brauchst du Hilfe mit Formularen?",
-    en: "Need help with forms?",
-  },
+  "/wohnungen": { bs: "Treba pomoć oko pronalaska stana?", de: "Brauchst du Hilfe bei der Wohnungssuche?", en: "Need help finding an apartment?" },
+  "/stellenangebote": { bs: "Treba pomoć oko pronalaska posla?", de: "Brauchst du Hilfe bei der Jobsuche?", en: "Need help finding a job?" },
+  "/formulari": { bs: "Treba pomoć sa formularima?", de: "Brauchst du Hilfe mit Formularen?", en: "Need help with forms?" },
 };
+
+// ── Markdown renderer ──
 
 function ChatMarkdown({ content }: { content: string }) {
   return (
@@ -139,17 +222,9 @@ function ChatMarkdown({ content }: { content: string }) {
       components={{
         a: ({ href, children }) => {
           if (href && href.startsWith("/")) {
-            return (
-              <Link to={href} className="font-medium text-blue-600 dark:text-blue-400 underline hover:text-blue-500">
-                {children}
-              </Link>
-            );
+            return <Link to={href} className="font-medium text-blue-600 dark:text-blue-400 underline hover:text-blue-500">{children}</Link>;
           }
-          return (
-            <a href={href} target="_blank" rel="noopener noreferrer" className="font-medium text-blue-600 dark:text-blue-400 underline hover:text-blue-500">
-              {children}
-            </a>
-          );
+          return <a href={href} target="_blank" rel="noopener noreferrer" className="font-medium text-blue-600 dark:text-blue-400 underline hover:text-blue-500">{children}</a>;
         },
         p: ({ children }) => <p className="mb-1.5 last:mb-0">{children}</p>,
         ol: ({ children }) => <ol className="mb-1.5 list-decimal space-y-0.5 pl-5">{children}</ol>,
@@ -167,28 +242,16 @@ function ChatMarkdown({ content }: { content: string }) {
   );
 }
 
-// Detect guide slug from message text for CTA buttons
+// ── Guide slug detection ──
+
 const TOPIC_GUIDE_MAP: Record<string, string> = {
-  kindergeld: "kindergeld-kg1",
-  kinderzuschlag: "kinderzuschlag",
-  elterngeld: "elterngeld",
-  elternzeit: "elternzeit",
-  mutterschutz: "mutterschutz",
-  bürgergeld: "buergergeld",
-  burgergeld: "buergergeld",
-  wohngeld: "wohngeld",
-  bafög: "bafoeg",
-  bafoeg: "bafoeg",
-  anmeldung: "anmeldung",
-  aufenthaltstitel: "aufenthaltstitel-verlaengerung",
-  boravišn: "aufenthaltstitel-verlaengerung",
-  boravisn: "aufenthaltstitel-verlaengerung",
-  führungszeugnis: "fuehrungszeugnis",
-  krankengeld: "krankengeld",
-  pflegegrad: "pflegegrad",
-  sozialhilfe: "sozialhilfe",
-  unterhalt: "unterhalt",
-  wbs: "wbs",
+  kindergeld: "kindergeld-kg1", kinderzuschlag: "kinderzuschlag", elterngeld: "elterngeld",
+  elternzeit: "elternzeit", mutterschutz: "mutterschutz", bürgergeld: "buergergeld",
+  burgergeld: "buergergeld", wohngeld: "wohngeld", bafög: "bafoeg", bafoeg: "bafoeg",
+  anmeldung: "anmeldung", aufenthaltstitel: "aufenthaltstitel-verlaengerung",
+  boravišn: "aufenthaltstitel-verlaengerung", boravisn: "aufenthaltstitel-verlaengerung",
+  führungszeugnis: "fuehrungszeugnis", krankengeld: "krankengeld", pflegegrad: "pflegegrad",
+  sozialhilfe: "sozialhilfe", unterhalt: "unterhalt", wbs: "wbs",
 };
 
 function detectGuideSlugFromText(text: string): string | null {
@@ -199,6 +262,63 @@ function detectGuideSlugFromText(text: string): string | null {
   return null;
 }
 
+// ── Premium Upsell Card (soft, non-aggressive) ──
+
+function PremiumUpsellCard({ lk, onSkip }: { lk: string; onSkip: () => void }) {
+  const labels = PREMIUM_CTA_LABELS[lk] || PREMIUM_CTA_LABELS["bs"];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="rounded-2xl border border-purple-200 dark:border-purple-800/40 bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-950/20 dark:to-blue-950/20 p-4 shadow-sm"
+    >
+      <div className="flex items-center gap-2 mb-3">
+        <Lock className="h-4 w-4 text-purple-600 dark:text-purple-400" />
+        <span className="text-[13px] font-bold text-purple-700 dark:text-purple-300">
+          {lk === "de" ? "Alle Guides und Tools freischalten" : lk === "en" ? "Unlock all guides and tools" : "Otključaj sve vodiče i alate"}
+        </span>
+      </div>
+
+      <div className="space-y-1.5 mb-3">
+        {labels.features.map((f, i) => (
+          <div key={i} className="flex items-center gap-2">
+            <div className="h-1 w-1 rounded-full bg-purple-500 shrink-0" />
+            <span className="text-[11px] text-purple-700 dark:text-purple-300">{f}</span>
+          </div>
+        ))}
+      </div>
+
+      <p className="text-[10px] text-purple-600/70 dark:text-purple-400/70 mb-3 italic">
+        {labels.social}
+      </p>
+
+      <div className="flex flex-col gap-2">
+        <Link
+          to="/premium"
+          className="inline-flex items-center justify-center gap-1.5 rounded-xl px-3 py-2.5 text-[12px] font-bold text-white transition hover:opacity-90"
+          style={{ background: "linear-gradient(135deg, #3B82F6, #9333EA)" }}
+        >
+          <Lock className="h-3 w-3" />
+          {labels.activate} — {labels.price}
+        </Link>
+        <button
+          onClick={onSkip}
+          className="text-[11px] text-muted-foreground hover:text-foreground transition py-1"
+        >
+          {labels.skip} →
+        </button>
+      </div>
+    </motion.div>
+  );
+}
+
+// ── Tab type ──
+
+type Tab = "help" | "actions";
+
+// ── Main Component ──
+
 export default function ChatAssistant() {
   const { language } = useLanguage();
   const { isPremium } = useAuth();
@@ -206,17 +326,17 @@ export default function ChatAssistant() {
   const lk = language;
 
   const [open, setOpen] = useState(false);
+  const [tab, setTab] = useState<Tab>("help");
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [autoTriggered, setAutoTriggered] = useState<Set<string>>(new Set());
+  const [copied, setCopied] = useState<number | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-    }
+    if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
   }, [messages, loading]);
 
   useEffect(() => {
@@ -240,10 +360,16 @@ export default function ChatAssistant() {
   }, [location.pathname, lk, autoTriggered, messages.length]);
 
   const handleAction = (actionMsg: string) => {
+    setTab("help");
     setInput(actionMsg);
-    setTimeout(() => {
-      sendMessageWithText(actionMsg);
-    }, 50);
+    setTimeout(() => sendMessageWithText(actionMsg), 50);
+  };
+
+  const copyToClipboard = (text: string, index: number) => {
+    navigator.clipboard.writeText(text).then(() => {
+      setCopied(index);
+      setTimeout(() => setCopied(null), 2000);
+    });
   };
 
   const sendMessageWithText = useCallback(async (text: string) => {
@@ -262,7 +388,7 @@ export default function ChatAssistant() {
       assistantSoFar += chunk;
       setMessages((prev) => {
         const last = prev[prev.length - 1];
-        if (last?.role === "assistant" && !last.premiumGated) {
+        if (last?.role === "assistant" && !last.premiumGated && !last.softUpsell) {
           return prev.map((m, i) => (i === prev.length - 1 ? { ...m, content: assistantSoFar, guideSlug: detectedSlug } : m));
         }
         return [...prev, { role: "assistant", content: assistantSoFar, guideSlug: detectedSlug }];
@@ -276,11 +402,7 @@ export default function ChatAssistant() {
           "Content-Type": "application/json",
           Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
         },
-        body: JSON.stringify({
-          messages: newMessages,
-          isPremium,
-          language,
-        }),
+        body: JSON.stringify({ messages: newMessages, isPremium, language }),
       });
 
       if (!resp.ok || !resp.body) throw new Error("Stream failed");
@@ -289,18 +411,21 @@ export default function ChatAssistant() {
       if (contentType.includes("application/json")) {
         const data = await resp.json();
         if (data.smart_guide_redirect) {
-          setMessages((prev) => [
-            ...prev,
-            { role: "assistant", content: data.content, guideSlug: data.guideSlug || detectedSlug },
-          ]);
+          setMessages(prev => [...prev, { role: "assistant", content: data.content, guideSlug: data.guideSlug || detectedSlug }]);
           setLoading(false);
           return;
         }
         if (data.premium_required) {
-          const gateMsg = `${data.teaser}\n\n${data.cta}`;
-          setMessages((prev) => [
+          setMessages(prev => [...prev, { role: "assistant", content: `${data.teaser}\n\n${data.cta}`, premiumGated: true }]);
+          setLoading(false);
+          return;
+        }
+        if (data.soft_upsell) {
+          // Free value first, then soft upsell
+          setMessages(prev => [
             ...prev,
-            { role: "assistant", content: gateMsg, premiumGated: true },
+            { role: "assistant", content: data.free_content },
+            { role: "assistant", content: data.upsell_text, softUpsell: true, guideSlug: data.guideSlug || detectedSlug },
           ]);
           setLoading(false);
           return;
@@ -313,7 +438,6 @@ export default function ChatAssistant() {
       }
 
       const headerSlug = resp.headers.get("X-Guide-Slug");
-
       const reader = resp.body.getReader();
       const decoder = new TextDecoder();
       let textBuffer = "";
@@ -322,7 +446,6 @@ export default function ChatAssistant() {
         const { done, value } = await reader.read();
         if (done) break;
         textBuffer += decoder.decode(value, { stream: true });
-
         let newlineIndex: number;
         while ((newlineIndex = textBuffer.indexOf("\n")) !== -1) {
           let line = textBuffer.slice(0, newlineIndex);
@@ -344,11 +467,9 @@ export default function ChatAssistant() {
       }
 
       if (headerSlug) {
-        setMessages((prev) => {
+        setMessages(prev => {
           const last = prev[prev.length - 1];
-          if (last?.role === "assistant") {
-            return prev.map((m, i) => (i === prev.length - 1 ? { ...m, guideSlug: headerSlug } : m));
-          }
+          if (last?.role === "assistant") return prev.map((m, i) => (i === prev.length - 1 ? { ...m, guideSlug: headerSlug } : m));
           return prev;
         });
       }
@@ -359,20 +480,15 @@ export default function ChatAssistant() {
     }
   }, [loading, messages, lk, isPremium, language]);
 
-  const sendMessage = useCallback(() => {
-    sendMessageWithText(input);
-  }, [input, sendMessageWithText]);
+  const sendMessage = useCallback(() => sendMessageWithText(input), [input, sendMessageWithText]);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault();
-      sendMessage();
-    }
+    if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(); }
   };
 
   return (
     <>
-      {/* ── Floating Orb Button ── */}
+      {/* ── Floating Orb ── */}
       <AnimatePresence>
         {!open && (
           <motion.button
@@ -388,11 +504,9 @@ export default function ChatAssistant() {
               transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
               className="relative flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center"
             >
-              {/* Glow */}
               <div className="absolute inset-0 rounded-[28px] sm:rounded-[32px] bg-gradient-to-br from-blue-500 to-purple-600 opacity-40 blur-lg group-hover:opacity-60 transition-opacity" />
-              {/* Blob shape */}
               <div
-                className="relative flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-[28px] sm:rounded-[32px] bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg transition-all duration-200 group-hover:scale-110 group-hover:shadow-xl group-active:scale-95"
+                className="relative flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg transition-all duration-200 group-hover:scale-110 group-hover:shadow-xl group-active:scale-95"
                 style={{ borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%" }}
               >
                 <span className="text-white font-extrabold text-lg sm:text-xl select-none tracking-tight">BL</span>
@@ -412,61 +526,90 @@ export default function ChatAssistant() {
             transition={{ duration: 0.25, ease: "easeOut" }}
             className="fixed bottom-0 right-0 sm:bottom-6 sm:right-6 z-50 flex h-[85vh] sm:h-[75vh] max-h-[650px] w-full sm:w-[420px] sm:max-w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-t-2xl sm:rounded-2xl border border-white/10 bg-card shadow-2xl"
           >
-            {/* ── Header ── */}
+            {/* Header */}
             <div className="relative overflow-hidden px-5 py-4" style={{ background: "linear-gradient(135deg, #3B82F6, #9333EA)" }}>
               <div className="flex items-start justify-between relative z-10">
                 <div className="flex-1">
-                  <p className="text-[15px] font-bold leading-tight text-white">
-                    {HEADER_TITLE[lk] || HEADER_TITLE["bs"]}
-                  </p>
-                  <p className="text-[11px] leading-snug text-white/70 mt-1">
-                    {HEADER_SUBTITLE[lk] || HEADER_SUBTITLE["bs"]}
-                  </p>
+                  <p className="text-[15px] font-bold leading-tight text-white">{HEADER_TITLE[lk] || HEADER_TITLE["bs"]}</p>
+                  <p className="text-[11px] leading-snug text-white/70 mt-1">{HEADER_SUBTITLE[lk] || HEADER_SUBTITLE["bs"]}</p>
                 </div>
-                <button
-                  onClick={() => setOpen(false)}
-                  className="ml-2 rounded-lg p-1.5 text-white/70 transition-colors hover:bg-white/10 hover:text-white"
-                >
+                <button onClick={() => setOpen(false)} className="ml-2 rounded-lg p-1.5 text-white/70 transition-colors hover:bg-white/10 hover:text-white">
                   <X className="h-4 w-4" />
                 </button>
               </div>
-              {/* Decorative blur circles */}
               <div className="absolute -top-6 -right-6 h-20 w-20 rounded-full bg-white/10 blur-xl" />
               <div className="absolute -bottom-4 -left-4 h-16 w-16 rounded-full bg-white/10 blur-xl" />
             </div>
 
-            {/* ── Messages ── */}
+            {/* Tab bar */}
+            {messages.length === 0 && (
+              <div className="flex border-b border-border">
+                <button
+                  onClick={() => setTab("help")}
+                  className={`flex-1 py-2 text-[12px] font-medium transition-colors ${tab === "help" ? "text-foreground border-b-2 border-blue-500" : "text-muted-foreground hover:text-foreground"}`}
+                >
+                  {lk === "de" ? "Hilfe" : lk === "en" ? "Help" : "Pomoć"}
+                </button>
+                <button
+                  onClick={() => setTab("actions")}
+                  className={`flex-1 py-2 text-[12px] font-medium transition-colors ${tab === "actions" ? "text-foreground border-b-2 border-purple-500" : "text-muted-foreground hover:text-foreground"}`}
+                >
+                  {lk === "de" ? "Schnelle Aktionen" : lk === "en" ? "Quick Actions" : "Brze radnje"}
+                </button>
+              </div>
+            )}
+
+            {/* Messages area */}
             <div ref={scrollRef} className="flex-1 space-y-3 overflow-y-auto px-3 py-3">
               {/* Start Screen */}
               {messages.length === 0 && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="space-y-3"
-                >
-                  {/* Action Buttons */}
-                  <div className="space-y-2">
-                    {ACTION_BUTTONS.map((action, i) => {
+                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }} className="space-y-2">
+                  {tab === "help" ? (
+                    ACTION_BUTTONS.map((action, i) => {
                       const Icon = action.icon;
                       return (
                         <motion.button
                           key={i}
                           initial={{ opacity: 0, y: 8 }}
                           animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: i * 0.06, duration: 0.25 }}
+                          transition={{ delay: i * 0.05, duration: 0.2 }}
                           onClick={() => handleAction(action.message[lk] || action.message["bs"])}
                           className="flex w-full items-center gap-3 rounded-xl border border-border bg-background px-4 py-3 text-left transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 hover:border-blue-200 dark:hover:border-blue-800 group"
                         >
                           <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500/10 to-purple-500/10 text-blue-600 dark:text-blue-400 group-hover:from-blue-500/20 group-hover:to-purple-500/20 transition-colors">
-                            <Icon className="h-4.5 w-4.5" />
+                            <Icon className="h-4 w-4" />
                           </div>
-                          <span className="text-[13px] font-medium text-foreground">
-                            {action.label[lk] || action.label["bs"]}
-                          </span>
+                          <span className="text-[13px] font-medium text-foreground">{action.label[lk] || action.label["bs"]}</span>
                         </motion.button>
                       );
-                    })}
+                    })
+                  ) : (
+                    QUICK_ACTIONS.map((action, i) => {
+                      const Icon = action.icon;
+                      return (
+                        <motion.button
+                          key={i}
+                          initial={{ opacity: 0, y: 8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: i * 0.05, duration: 0.2 }}
+                          onClick={() => handleAction(action.message[lk] || action.message["bs"])}
+                          className="flex w-full items-center gap-3 rounded-xl border border-border bg-background px-4 py-3 text-left transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 hover:border-purple-200 dark:hover:border-purple-800 group"
+                        >
+                          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-purple-500/10 to-pink-500/10 text-purple-600 dark:text-purple-400 group-hover:from-purple-500/20 group-hover:to-pink-500/20 transition-colors">
+                            <Icon className="h-4 w-4" />
+                          </div>
+                          <span className="text-[13px] font-medium text-foreground">{action.label[lk] || action.label["bs"]}</span>
+                        </motion.button>
+                      );
+                    })
+                  )}
+
+                  {/* GDPR notice on start screen */}
+                  <div className="flex items-start gap-1.5 pt-2 px-1">
+                    <ShieldCheck className="mt-0.5 h-3 w-3 shrink-0 text-green-600 dark:text-green-400" />
+                    <p className="text-[10px] text-muted-foreground/70 leading-snug">
+                      {DATA_NOTICE[lk] || DATA_NOTICE["bs"]}
+                    </p>
                   </div>
                 </motion.div>
               )}
@@ -480,99 +623,93 @@ export default function ChatAssistant() {
                   transition={{ duration: 0.2 }}
                   className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
                 >
-                  <div
-                    className={`max-w-[88%] rounded-2xl px-3.5 py-2.5 text-[13px] leading-snug ${
-                      msg.role === "user"
-                        ? "text-white shadow-md"
-                        : msg.premiumGated
-                        ? "bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 text-foreground shadow-sm"
-                        : "bg-muted text-foreground shadow-sm"
-                    }`}
-                    style={msg.role === "user" ? { background: "linear-gradient(135deg, #3B82F6, #9333EA)" } : undefined}
-                  >
-                    {msg.role === "assistant" ? (
-                      <>
-                        {msg.premiumGated && (
-                          <div className="flex items-center gap-1.5 mb-2">
-                            <Lock className="h-3.5 w-3.5 text-amber-600 dark:text-amber-400" />
-                            <span className="text-[11px] font-bold text-amber-700 dark:text-amber-400">Premium</span>
-                          </div>
-                        )}
+                  {msg.softUpsell ? (
+                    /* Soft premium upsell card */
+                    <div className="max-w-[92%]">
+                      <PremiumUpsellCard lk={lk} onSkip={() => inputRef.current?.focus()} />
+                    </div>
+                  ) : (
+                    <div
+                      className={`max-w-[88%] rounded-2xl px-3.5 py-2.5 text-[13px] leading-snug ${
+                        msg.role === "user"
+                          ? "text-white shadow-md"
+                          : msg.premiumGated
+                          ? "bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 text-foreground shadow-sm"
+                          : "bg-muted text-foreground shadow-sm"
+                      }`}
+                      style={msg.role === "user" ? { background: "linear-gradient(135deg, #3B82F6, #9333EA)" } : undefined}
+                    >
+                      {msg.role === "assistant" ? (
+                        <>
+                          {msg.premiumGated && (
+                            <div className="flex items-center gap-1.5 mb-2">
+                              <Lock className="h-3.5 w-3.5 text-amber-600 dark:text-amber-400" />
+                              <span className="text-[11px] font-bold text-amber-700 dark:text-amber-400">Premium</span>
+                            </div>
+                          )}
 
-                        <ChatMarkdown content={msg.content} />
+                          <ChatMarkdown content={msg.content} />
 
-                        {msg.premiumGated && (
-                          <div className="mt-3 flex flex-col gap-2">
-                            <Link
-                              to="/premium"
-                              className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-amber-500 px-3 py-2 text-[12px] font-bold text-white transition hover:bg-amber-600"
-                            >
-                              <Lock className="h-3 w-3" />
-                              Otključaj Premium
-                            </Link>
+                          {/* Copy button for longer assistant messages */}
+                          {!msg.premiumGated && msg.content.length > 200 && (
                             <button
-                              onClick={() => { setInput(""); inputRef.current?.focus(); }}
-                              className="text-[11px] text-muted-foreground hover:text-foreground transition"
+                              onClick={() => copyToClipboard(msg.content, i)}
+                              className="mt-2 flex items-center gap-1 text-[10px] text-muted-foreground hover:text-foreground transition"
                             >
-                              Postavi opće pitanje →
+                              <Copy className="h-3 w-3" />
+                              {copied === i ? "✓ Kopirano" : "Kopiraj"}
                             </button>
-                          </div>
-                        )}
+                          )}
 
-                        {!msg.premiumGated && (
-                          <div className="mt-3 space-y-2">
-                            <div className="rounded-lg bg-blue-50 dark:bg-blue-950/20 border border-blue-100 dark:border-blue-900/30 px-3 py-2">
-                              <div className="flex items-start gap-2">
-                                <FileText className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400 mt-0.5 shrink-0" />
-                                <p className="text-[11px] text-blue-700 dark:text-blue-300 leading-snug">
-                                  {SMART_GUIDE_PROMO[lk] || SMART_GUIDE_PROMO["bs"]}
+                          {msg.premiumGated && (
+                            <div className="mt-3">
+                              <PremiumUpsellCard lk={lk} onSkip={() => { setInput(""); inputRef.current?.focus(); }} />
+                            </div>
+                          )}
+
+                          {!msg.premiumGated && (
+                            <div className="mt-3 space-y-2">
+                              {/* Smart Guide CTA */}
+                              {msg.guideSlug && (
+                                <div className="flex flex-col gap-1.5">
+                                  <Link
+                                    to={`/formulari/${msg.guideSlug}`}
+                                    className="inline-flex items-center justify-center gap-1.5 rounded-xl px-3 py-2 text-[12px] font-bold text-white transition hover:opacity-90"
+                                    style={{ background: "linear-gradient(135deg, #3B82F6, #9333EA)" }}
+                                  >
+                                    <BookOpen className="h-3.5 w-3.5" />
+                                    {lk === "de" ? "Smart Guide starten" : lk === "en" ? "Start Smart Guide" : "Pokreni Smart Guide"}
+                                  </Link>
+                                  <Link
+                                    to="/formulari"
+                                    className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-border bg-background px-3 py-2 text-[12px] font-medium text-foreground transition hover:bg-accent"
+                                  >
+                                    <ClipboardList className="h-3.5 w-3.5" />
+                                    {lk === "de" ? "Alle Formulare" : lk === "en" ? "All forms" : "Svi formulari"}
+                                  </Link>
+                                </div>
+                              )}
+
+                              <div className="flex items-start gap-1.5 pt-1">
+                                <Info className="mt-0.5 h-3 w-3 shrink-0 text-muted-foreground/50" />
+                                <p className="text-[10px] text-muted-foreground/60 leading-snug">
+                                  {DISCLAIMER[lk] || DISCLAIMER["bs"]}
                                 </p>
                               </div>
                             </div>
-
-                            <div className="flex flex-col gap-1.5">
-                              {msg.guideSlug && (
-                                <Link
-                                  to={`/formulari/${msg.guideSlug}`}
-                                  className="inline-flex items-center justify-center gap-1.5 rounded-xl px-3 py-2 text-[12px] font-bold text-white transition hover:opacity-90"
-                                  style={{ background: "linear-gradient(135deg, #3B82F6, #9333EA)" }}
-                                >
-                                  <BookOpen className="h-3.5 w-3.5" />
-                                  {lk === "de" ? "Smart Guide starten" : lk === "en" ? "Start Smart Guide" : "Pokreni Smart Guide"}
-                                </Link>
-                              )}
-                              <Link
-                                to="/formulari"
-                                className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-border bg-background px-3 py-2 text-[12px] font-medium text-foreground transition hover:bg-accent"
-                              >
-                                <ClipboardList className="h-3.5 w-3.5" />
-                                {lk === "de" ? "Alle Formulare ansehen" : lk === "en" ? "Browse all forms" : "Pogledaj sve formulare"}
-                              </Link>
-                            </div>
-
-                            <div className="flex items-start gap-1.5 pt-1">
-                              <Info className="mt-0.5 h-3 w-3 shrink-0 text-muted-foreground/50" />
-                              <p className="text-[10px] text-muted-foreground/60 leading-snug">
-                                {DISCLAIMER[lk] || DISCLAIMER["bs"]}
-                              </p>
-                            </div>
-                          </div>
-                        )}
-                      </>
-                    ) : (
-                      msg.content
-                    )}
-                  </div>
+                          )}
+                        </>
+                      ) : (
+                        msg.content
+                      )}
+                    </div>
+                  )}
                 </motion.div>
               ))}
 
               {/* Typing indicator */}
               {loading && messages[messages.length - 1]?.role === "user" && (
-                <motion.div
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="flex justify-start"
-                >
+                <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="flex justify-start">
                   <div className="rounded-2xl bg-muted px-4 py-3 shadow-sm">
                     <div className="flex items-center gap-1">
                       <motion.span animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 1.2, repeat: Infinity, delay: 0 }} className="h-2 w-2 rounded-full bg-muted-foreground/50" />
@@ -584,15 +721,20 @@ export default function ChatAssistant() {
               )}
             </div>
 
-            {/* ── Disclaimer bar ── */}
+            {/* GDPR + Disclaimer footer */}
             <div className="px-3 py-1 border-t border-border/50">
               <p className="text-[9px] text-center text-muted-foreground/50">
                 {DISCLAIMER[lk] || DISCLAIMER["bs"]}
               </p>
             </div>
 
-            {/* ── Input ── */}
-            <div className="border-t px-3 py-2.5">
+            {/* Input area */}
+            <div className="border-t px-3 py-2">
+              {/* Input warning */}
+              <div className="flex items-center gap-1 mb-1.5 px-1">
+                <ShieldCheck className="h-2.5 w-2.5 text-green-600 dark:text-green-400 shrink-0" />
+                <p className="text-[9px] text-muted-foreground/60">{INPUT_WARNING[lk] || INPUT_WARNING["bs"]}</p>
+              </div>
               <div className="flex items-end gap-2">
                 <textarea
                   ref={inputRef}
