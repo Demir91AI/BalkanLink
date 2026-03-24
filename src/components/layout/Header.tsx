@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { SidebarTrigger } from "@/components/ui/sidebar";
-import { ChevronDown, Mail, List, Send, PanelRight } from "lucide-react";
+import { ChevronDown, Mail, List, Send, PanelRight, Globe, LogIn, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
