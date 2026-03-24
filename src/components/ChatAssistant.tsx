@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import { X, Send, Copy, ShieldCheck, ExternalLink, BookOpen } from "lucide-react";
+import { X, Send, Copy, ShieldCheck, ExternalLink, BookOpen, Minus } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import { useLanguage } from "@/contexts/LanguageContext";
