@@ -193,12 +193,12 @@ export function AppSidebar() {
               )}
               <SidebarMenu className="gap-0.5 px-2">
                 {[
-                  { label: "Bewerbung", to: "/vorlagen/bewerbung" },
-                  { label: "Lebenslauf", to: "/vorlagen/lebenslauf" },
-                  { label: "Anschreiben", to: "/vorlagen/anschreiben" },
-                  { label: "Kündigungsschreiben", to: "/vorlagen/kuendigung" },
-                  { label: "Fristlose Kündigung", to: "/vorlagen/fristlose-kuendigung" },
-                  { label: "Kündigung in der Probezeit", to: "/vorlagen/kuendigung-probezeit" },
+                  { label: t("vorlagen.bewerbung"), to: "/vorlagen/bewerbung" },
+                  { label: t("vorlagen.lebenslauf"), to: "/vorlagen/lebenslauf" },
+                  { label: t("vorlagen.anschreiben"), to: "/vorlagen/anschreiben" },
+                  { label: t("vorlagen.kuendigung"), to: "/vorlagen/kuendigung" },
+                  { label: t("vorlagen.fristlose"), to: "/vorlagen/fristlose-kuendigung" },
+                  { label: t("vorlagen.probezeit"), to: "/vorlagen/kuendigung-probezeit" },
                 ].map((item) => {
                   const isActive = location.pathname === item.to;
                   return (
