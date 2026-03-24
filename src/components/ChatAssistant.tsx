@@ -424,10 +424,10 @@ export default function ChatAssistant() {
                   </h2>
                   <p className="text-[13px] text-muted-foreground leading-relaxed max-w-[280px]">
                     {lk === "de"
-                      ? "Stelle eine Frage und du bekommst eine klare Antwort und den nächsten Schritt."
+                      ? "Frag mich zu Formularen, Anzeigen, Premium, Regeln oder anderen Bereichen von BalkanLink."
                       : lk === "en"
-                      ? "Ask a question and you'll get a clear answer and the next step."
-                      : "Postavi pitanje i dobit ćeš jasno objašnjenje i sljedeći korak."}
+                      ? "Ask about forms, ads, premium, rules, or any part of BalkanLink."
+                      : "Postavi pitanje o formularima, oglasima, premiumu, pravilima ili drugim dijelovima BalkanLinka."}
                   </p>
                 </motion.div>
               )}
