@@ -322,7 +322,7 @@ export default function ChatAssistant() {
         }
       }
 
-      if (headerSlug || headerFormSlug) {
+      if (headerSlug || headerFormSlug || headerSiteTopics.length > 0) {
         setMessages(prev => {
           const last = prev[prev.length - 1];
           if (last?.role === "assistant") {
@@ -330,7 +330,12 @@ export default function ChatAssistant() {
             if (headerFormSlug && !updatedFormSlugs.includes(headerFormSlug)) {
               updatedFormSlugs.push(headerFormSlug);
             }
-            return prev.map((m, i) => (i === prev.length - 1 ? { ...m, guideSlug: headerSlug || m.guideSlug, formSlugs: updatedFormSlugs } : m));
+            return prev.map((m, i) => (i === prev.length - 1 ? {
+              ...m,
+              guideSlug: headerSlug || m.guideSlug,
+              formSlugs: updatedFormSlugs,
+              siteTopics: headerSiteTopics.length > 0 ? headerSiteTopics : m.siteTopics,
+            } : m));
           }
           return prev;
         });
