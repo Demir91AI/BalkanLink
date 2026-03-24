@@ -873,7 +873,7 @@ const miscBs: Partial<TranslationKeys> = {
   "notfound.back": "Nazad na početnu",
   "common.error": "Greška", "common.legalBasis": "Zakonska osnova",
   "common.officialSource": "Zvanični izvor", "common.moreSource": "Dodatni izvor",
-  "common.all": "Sve",
+  "common.all": "Sve", "common.back": "Nazad",
 };
 
 const miscHr: Partial<TranslationKeys> = {
