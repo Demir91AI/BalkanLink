@@ -144,7 +144,7 @@ export default function Index() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="mx-auto mt-8 flex max-w-lg items-center gap-2"
+              className="mx-auto mt-10 flex max-w-lg items-center gap-2"
             >
               <div className="relative flex-1">
                 <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#FFCC00]" />
