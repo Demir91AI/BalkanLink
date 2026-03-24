@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Check, Play, ArrowRight, Megaphone, Video } from "lucide-react";
+import { Check, ArrowRight, Megaphone, MapPin, Star, Eye, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroFrankfurt from "@/assets/hero-frankfurt.jpg";
 
