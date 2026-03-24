@@ -1,37 +1,49 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import { MessageSquare, X, Send, Loader2, Lock, Info, BookOpen, FileText, CheckCircle2, ListOrdered, ClipboardList } from "lucide-react";
+import { X, Send, Loader2, Lock, Info, BookOpen, FileText, ClipboardList, Home, Briefcase, Users, FileCheck, MapPin } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 type Msg = { role: "user" | "assistant"; content: string; premiumGated?: boolean; guideSlug?: string | null };
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat-assistant`;
 
 const PLACEHOLDER: Record<string, string> = {
-  bs: "Postavite pitanje (npr. Kako dobiti Kindergeld?)",
-  hr: "Postavite pitanje (npr. Kako dobiti Kindergeld?)",
-  sr: "Postavite pitanje (npr. Kako dobiti Kindergeld?)",
-  me: "Postavite pitanje (npr. Kako dobiti Kindergeld?)",
-  sq: "Bëni një pyetje (p.sh. Si të marr Kindergeld?)",
-  xk: "Bëni një pyetje (p.sh. Si të marr Kindergeld?)",
-  mk: "Поставете прашање (пр. Како да добијам Kindergeld?)",
-  de: "Frage stellen (z.B. Wie bekomme ich Kindergeld?)",
-  en: "Ask a question (e.g. How to get Kindergeld?)",
+  bs: "Napiši šta ti treba (npr. Kindergeld, stan, posao...)",
+  hr: "Napiši šta ti treba (npr. Kindergeld, stan, posao...)",
+  sr: "Napiši šta ti treba (npr. Kindergeld, stan, posao...)",
+  me: "Napiši šta ti treba (npr. Kindergeld, stan, posao...)",
+  sq: "Shkruani çfarë ju nevojitet (p.sh. Kindergeld, banesë, punë...)",
+  xk: "Shkruani çfarë ju nevojitet (p.sh. Kindergeld, banesë, punë...)",
+  mk: "Напишете што ви треба (пр. Kindergeld, стан, работа...)",
+  de: "Schreib, was du brauchst (z.B. Kindergeld, Wohnung, Job...)",
+  en: "Write what you need (e.g. Kindergeld, apartment, job...)",
 };
 
-const SUBTITLE: Record<string, string> = {
-  bs: "Digitalni asistent BalkanLink — postavite pitanje o životu i birokratiji u Njemačkoj.",
-  hr: "Digitalni asistent BalkanLink — postavite pitanje o životu i birokratiji u Njemačkoj.",
-  sr: "Digitalni asistent BalkanLink — postavite pitanje o životu i birokratiji u Nemačkoj.",
-  me: "Digitalni asistent BalkanLink — postavite pitanje o životu i birokratiji u Njemačkoj.",
-  sq: "Asistenti dixhital BalkanLink — bëni pyetje rreth jetës dhe burokracisë në Gjermani.",
-  xk: "Asistenti dixhital BalkanLink — bëni pyetje rreth jetës dhe burokracisë në Gjermani.",
-  mk: "Дигитален асистент BalkanLink — поставете прашање за животот и бирократијата во Германија.",
-  de: "Digitaler Assistent BalkanLink — Fragen zu Leben und Bürokratie in Deutschland.",
-  en: "BalkanLink Digital Assistant — ask about life and bureaucracy in Germany.",
+const HEADER_TITLE: Record<string, string> = {
+  bs: "Kako ti mogu pomoći danas?",
+  hr: "Kako ti mogu pomoći danas?",
+  sr: "Kako ti mogu pomoći danas?",
+  me: "Kako ti mogu pomoći danas?",
+  sq: "Si mund t'ju ndihmoj sot?",
+  xk: "Si mund t'ju ndihmoj sot?",
+  mk: "Како можам да ви помогнам денес?",
+  de: "Wie kann ich dir heute helfen?",
+  en: "How can I help you today?",
+};
+
+const HEADER_SUBTITLE: Record<string, string> = {
+  bs: "Riješi papire, posao i život u Njemačkoj — brzo i jednostavno",
+  hr: "Riješi papire, posao i život u Njemačkoj — brzo i jednostavno",
+  sr: "Reši papire, posao i život u Nemačkoj — brzo i jednostavno",
+  me: "Riješi papire, posao i život u Njemačkoj — brzo i jednostavno",
+  sq: "Zgjidh dokumentet, punën dhe jetën në Gjermani — shpejt dhe lehtë",
+  xk: "Zgjidh dokumentet, punën dhe jetën në Gjermani — shpejt dhe lehtë",
+  mk: "Реши документи, работа и живот во Германија — брзо и едноставно",
+  de: "Erledige Papierkram, Job und Leben in Deutschland — schnell und einfach",
+  en: "Sort out paperwork, job and life in Germany — fast and easy",
 };
 
 const ERROR_MSG: Record<string, string> = {
@@ -44,27 +56,15 @@ const ERROR_MSG: Record<string, string> = {
 };
 
 const DISCLAIMER: Record<string, string> = {
-  bs: "Informacije služe samo za orijentaciju. BalkanLink ne pruža pravne usluge. Za službene informacije obratite se nadležnoj instituciji.",
-  hr: "Informacije služe samo za orijentaciju. BalkanLink ne pruža pravne usluge. Za službene informacije obratite se nadležnoj instituciji.",
-  sr: "Informacije služe samo za orijentaciju. BalkanLink ne pruža pravne usluge. Za službene informacije obratite se nadležnoj instituciji.",
-  me: "Informacije služe samo za orijentaciju. BalkanLink ne pruža pravne usluge. Za službene informacije obratite se nadležnoj instituciji.",
-  sq: "Informacionet janë vetëm orientuese. BalkanLink nuk ofron shërbime juridike. Për informacione zyrtare kontaktoni institucionin përkatës.",
-  xk: "Informacionet janë vetëm orientuese. BalkanLink nuk ofron shërbime juridike. Për informacione zyrtare kontaktoni institucionin përkatës.",
-  mk: "Информациите се само ориентација. BalkanLink не нуди правни услуги. За официјални информации обратете се до надлежната институција.",
-  de: "Die Informationen dienen nur zur Orientierung. BalkanLink bietet keine Rechtsdienstleistungen an. Für offizielle Informationen wenden Sie sich an die zuständige Behörde.",
-  en: "Information is for orientation only. BalkanLink does not provide legal services. For official information, contact the relevant authority.",
-};
-
-const SUGGESTED_QUESTIONS: Record<string, string[]> = {
-  bs: ["Kako dobiti Kindergeld?", "Kako dobiti Bürgergeld?", "Kako prijaviti stan (Anmeldung)?", "Kako dobiti Wohngeld?", "Kako produžiti boravišnu dozvolu?"],
-  hr: ["Kako dobiti Kindergeld?", "Kako dobiti Bürgergeld?", "Kako prijaviti stan (Anmeldung)?", "Kako dobiti Wohngeld?", "Kako produžiti boravišnu dozvolu?"],
-  sr: ["Kako dobiti Kindergeld?", "Kako dobiti Bürgergeld?", "Kako prijaviti stan (Anmeldung)?", "Kako dobiti Wohngeld?", "Kako produžiti boravišnu dozvolu?"],
-  me: ["Kako dobiti Kindergeld?", "Kako dobiti Bürgergeld?", "Kako prijaviti stan (Anmeldung)?", "Kako dobiti Wohngeld?", "Kako produžiti boravišnu dozvolu?"],
-  sq: ["Si të marr Kindergeld?", "Si të marr Bürgergeld?", "Si të regjistroj banesën (Anmeldung)?", "Si të marr Wohngeld?", "Si të zgjat lejen e qëndrimit?"],
-  xk: ["Si të marr Kindergeld?", "Si të marr Bürgergeld?", "Si të regjistroj banesën (Anmeldung)?", "Si të marr Wohngeld?", "Si të zgjat lejen e qëndrimit?"],
-  mk: ["Како да добијам Kindergeld?", "Како да добијам Bürgergeld?", "Како да пријавам стан (Anmeldung)?", "Како да добијам Wohngeld?", "Како да ја продолжам дозволата за престој?"],
-  de: ["Wie bekomme ich Kindergeld?", "Wie bekomme ich Bürgergeld?", "Wie melde ich meine Wohnung an?", "Wie bekomme ich Wohngeld?", "Wie verlängere ich den Aufenthaltstitel?"],
-  en: ["How to get Kindergeld?", "How to get Bürgergeld?", "How to register address (Anmeldung)?", "How to get Wohngeld?", "How to extend residence permit?"],
+  bs: "Ovaj asistent daje informativne smjernice. Za konačne odluke konsultujte nadležnu instituciju.",
+  hr: "Ovaj asistent daje informativne smjernice. Za konačne odluke konsultujte nadležnu instituciju.",
+  sr: "Ovaj asistent daje informativne smernice. Za konačne odluke konsultujte nadležnu instituciju.",
+  me: "Ovaj asistent daje informativne smjernice. Za konačne odluke konsultujte nadležnu instituciju.",
+  sq: "Ky asistent ofron udhëzime informative. Për vendime përfundimtare konsultohuni me institucionin përkatës.",
+  xk: "Ky asistent ofron udhëzime informative. Për vendime përfundimtare konsultohuni me institucionin përkatës.",
+  mk: "Овој асистент дава информативни насоки. За конечни одлуки консултирајте ја надлежната институција.",
+  de: "Dieser Assistent gibt informative Hinweise. Für endgültige Entscheidungen wenden Sie sich an die zuständige Behörde.",
+  en: "This assistant provides informative guidance. For final decisions, consult the relevant authority.",
 };
 
 const SMART_GUIDE_PROMO: Record<string, string> = {
@@ -79,6 +79,60 @@ const SMART_GUIDE_PROMO: Record<string, string> = {
   en: "Detailed field-by-field form filling is available in the BalkanLink Premium Smart Guide.",
 };
 
+// ── Action buttons for start screen ──
+interface ActionButton {
+  icon: typeof FileText;
+  label: Record<string, string>;
+  message: Record<string, string>;
+}
+
+const ACTION_BUTTONS: ActionButton[] = [
+  {
+    icon: FileText,
+    label: { bs: "Formulari i papiri", hr: "Formulari i papiri", sr: "Formulari i papiri", me: "Formulari i papiri", de: "Formulare & Dokumente", en: "Forms & Documents", sq: "Formularë & Dokumente", xk: "Formularë & Dokumente", mk: "Формулари и документи" },
+    message: { bs: "Treba mi pomoć sa formularima i papirima u Njemačkoj.", hr: "Treba mi pomoć sa formularima i papirima u Njemačkoj.", sr: "Treba mi pomoć sa formularima i papirima u Nemačkoj.", me: "Treba mi pomoć sa formularima i papirima u Njemačkoj.", de: "Ich brauche Hilfe mit Formularen und Dokumenten.", en: "I need help with forms and documents in Germany.", sq: "Kam nevojë për ndihmë me formularë dhe dokumente.", xk: "Kam nevojë për ndihmë me formularë dhe dokumente.", mk: "Ми треба помош со формулари и документи." },
+  },
+  {
+    icon: Home,
+    label: { bs: "Nađi stan", hr: "Nađi stan", sr: "Nađi stan", me: "Nađi stan", de: "Wohnung finden", en: "Find apartment", sq: "Gjej banesë", xk: "Gjej banesë", mk: "Најди стан" },
+    message: { bs: "Tražim stan u Njemačkoj. Možeš li mi pomoći?", hr: "Tražim stan u Njemačkoj. Možeš li mi pomoći?", sr: "Tražim stan u Nemačkoj. Možeš li mi pomoći?", me: "Tražim stan u Njemačkoj. Možeš li mi pomoći?", de: "Ich suche eine Wohnung in Deutschland. Kannst du mir helfen?", en: "I'm looking for an apartment in Germany. Can you help?", sq: "Po kërkoj një banesë në Gjermani. A mund të më ndihmosh?", xk: "Po kërkoj një banesë në Gjermani. A mund të më ndihmosh?", mk: "Барам стан во Германија. Можеш ли да ми помогнеш?" },
+  },
+  {
+    icon: Briefcase,
+    label: { bs: "Nađi posao", hr: "Nađi posao", sr: "Nađi posao", me: "Nađi posao", de: "Job finden", en: "Find a job", sq: "Gjej punë", xk: "Gjej punë", mk: "Најди работа" },
+    message: { bs: "Tražim posao u Njemačkoj. Kako da počnem?", hr: "Tražim posao u Njemačkoj. Kako da počnem?", sr: "Tražim posao u Nemačkoj. Kako da počnem?", me: "Tražim posao u Njemačkoj. Kako da počnem?", de: "Ich suche einen Job in Deutschland. Wie fange ich an?", en: "I'm looking for a job in Germany. How do I start?", sq: "Po kërkoj punë në Gjermani. Si ta filloj?", xk: "Po kërkoj punë në Gjermani. Si ta filloj?", mk: "Барам работа во Германија. Како да почнам?" },
+  },
+  {
+    icon: Users,
+    label: { bs: "Porodica i socijala", hr: "Obitelj i socijala", sr: "Porodica i socijala", me: "Porodica i socijala", de: "Familie & Soziales", en: "Family & Social", sq: "Familja & Sociale", xk: "Familja & Sociale", mk: "Семејство и социјала" },
+    message: { bs: "Trebam informacije o porodičnim davanjima (Kindergeld, Elterngeld, Bürgergeld).", hr: "Trebam informacije o obiteljskim davanjima (Kindergeld, Elterngeld, Bürgergeld).", sr: "Trebam informacije o porodičnim davanjima (Kindergeld, Elterngeld, Bürgergeld).", me: "Trebam informacije o porodičnim davanjima (Kindergeld, Elterngeld, Bürgergeld).", de: "Ich brauche Infos zu Familienleistungen (Kindergeld, Elterngeld, Bürgergeld).", en: "I need info about family benefits (Kindergeld, Elterngeld, Bürgergeld).", sq: "Kam nevojë për informacione mbi përfitimet familjare.", xk: "Kam nevojë për informacione mbi përfitimet familjare.", mk: "Ми требаат информации за семејни давачки." },
+  },
+  {
+    icon: FileCheck,
+    label: { bs: "Boravišna dozvola", hr: "Boravišna dozvola", sr: "Boravišna dozvola", me: "Boravišna dozvola", de: "Aufenthaltstitel", en: "Residence permit", sq: "Leja e qëndrimit", xk: "Leja e qëndrimit", mk: "Дозвола за престој" },
+    message: { bs: "Trebam pomoć oko boravišne dozvole u Njemačkoj.", hr: "Trebam pomoć oko boravišne dozvole u Njemačkoj.", sr: "Trebam pomoć oko boravišne dozvole u Nemačkoj.", me: "Trebam pomoć oko boravišne dozvole u Njemačkoj.", de: "Ich brauche Hilfe mit meinem Aufenthaltstitel.", en: "I need help with my residence permit.", sq: "Kam nevojë për ndihmë me lejen e qëndrimit.", xk: "Kam nevojë për ndihmë me lejen e qëndrimit.", mk: "Ми треба помош околу дозволата за престој." },
+  },
+];
+
+// ── Auto-trigger messages per route ──
+const AUTO_TRIGGER: Record<string, Record<string, string>> = {
+  "/wohnungen": {
+    bs: "Treba pomoć oko pronalaska stana?",
+    de: "Brauchst du Hilfe bei der Wohnungssuche?",
+    en: "Need help finding an apartment?",
+  },
+  "/stellenangebote": {
+    bs: "Treba pomoć oko pronalaska posla?",
+    de: "Brauchst du Hilfe bei der Jobsuche?",
+    en: "Need help finding a job?",
+  },
+  "/formulari": {
+    bs: "Treba pomoć sa formularima?",
+    de: "Brauchst du Hilfe mit Formularen?",
+    en: "Need help with forms?",
+  },
+};
+
 function ChatMarkdown({ content }: { content: string }) {
   return (
     <ReactMarkdown
@@ -86,13 +140,13 @@ function ChatMarkdown({ content }: { content: string }) {
         a: ({ href, children }) => {
           if (href && href.startsWith("/")) {
             return (
-              <Link to={href} className="font-medium text-primary underline hover:text-primary/80">
+              <Link to={href} className="font-medium text-blue-600 dark:text-blue-400 underline hover:text-blue-500">
                 {children}
               </Link>
             );
           }
           return (
-            <a href={href} target="_blank" rel="noopener noreferrer" className="font-medium text-primary underline hover:text-primary/80">
+            <a href={href} target="_blank" rel="noopener noreferrer" className="font-medium text-blue-600 dark:text-blue-400 underline hover:text-blue-500">
               {children}
             </a>
           );
@@ -102,10 +156,10 @@ function ChatMarkdown({ content }: { content: string }) {
         ul: ({ children }) => <ul className="mb-1.5 list-disc space-y-0.5 pl-5">{children}</ul>,
         li: ({ children }) => <li className="text-[13px] leading-snug">{children}</li>,
         strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
-        h1: ({ children }) => <h4 className="text-[13px] font-bold mt-2 mb-1 flex items-center gap-1.5">{children}</h4>,
-        h2: ({ children }) => <h4 className="text-[13px] font-bold mt-2 mb-1 flex items-center gap-1.5">{children}</h4>,
-        h3: ({ children }) => <h4 className="text-[13px] font-bold mt-2 mb-1 flex items-center gap-1.5">{children}</h4>,
-        h4: ({ children }) => <h4 className="text-[13px] font-bold mt-2 mb-1 flex items-center gap-1.5">{children}</h4>,
+        h1: ({ children }) => <h4 className="text-[13px] font-bold mt-2 mb-1">{children}</h4>,
+        h2: ({ children }) => <h4 className="text-[13px] font-bold mt-2 mb-1">{children}</h4>,
+        h3: ({ children }) => <h4 className="text-[13px] font-bold mt-2 mb-1">{children}</h4>,
+        h4: ({ children }) => <h4 className="text-[13px] font-bold mt-2 mb-1">{children}</h4>,
       }}
     >
       {content}
@@ -148,12 +202,14 @@ function detectGuideSlugFromText(text: string): string | null {
 export default function ChatAssistant() {
   const { language } = useLanguage();
   const { isPremium } = useAuth();
+  const location = useLocation();
   const lk = language;
 
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [autoTriggered, setAutoTriggered] = useState<Set<string>>(new Set());
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
@@ -167,10 +223,26 @@ export default function ChatAssistant() {
     if (open) setTimeout(() => inputRef.current?.focus({ preventScroll: true }), 100);
   }, [open]);
 
-  const handleQuickQuestion = (q: string) => {
-    setInput(q);
+  // Auto-trigger based on route
+  useEffect(() => {
+    const path = location.pathname;
+    const trigger = AUTO_TRIGGER[path];
+    if (trigger && !autoTriggered.has(path) && messages.length === 0) {
+      setAutoTriggered(prev => new Set(prev).add(path));
+      const msg = trigger[lk] || trigger["bs"] || trigger["en"];
+      if (msg) {
+        setTimeout(() => {
+          setMessages([{ role: "assistant", content: msg }]);
+          setOpen(true);
+        }, 2000);
+      }
+    }
+  }, [location.pathname, lk, autoTriggered, messages.length]);
+
+  const handleAction = (actionMsg: string) => {
+    setInput(actionMsg);
     setTimeout(() => {
-      sendMessageWithText(q);
+      sendMessageWithText(actionMsg);
     }, 50);
   };
 
@@ -240,7 +312,6 @@ export default function ChatAssistant() {
         }
       }
 
-      // Check for guide slug from response header
       const headerSlug = resp.headers.get("X-Guide-Slug");
 
       const reader = resp.body.getReader();
@@ -272,7 +343,6 @@ export default function ChatAssistant() {
         }
       }
 
-      // Update slug from header if available
       if (headerSlug) {
         setMessages((prev) => {
           const last = prev[prev.length - 1];
@@ -300,10 +370,9 @@ export default function ChatAssistant() {
     }
   };
 
-  const questions = SUGGESTED_QUESTIONS[lk] || SUGGESTED_QUESTIONS["bs"];
-
   return (
     <>
+      {/* ── Floating Orb Button ── */}
       <AnimatePresence>
         {!open && (
           <motion.button
@@ -311,89 +380,118 @@ export default function ChatAssistant() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
             onClick={() => setOpen(true)}
-            className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg transition-shadow hover:shadow-xl"
+            className="fixed bottom-6 right-6 z-50 group"
             aria-label="BalkanLink Assistant"
           >
-            <MessageSquare className="h-6 w-6" />
+            <motion.div
+              animate={{ scale: [1, 1.05, 1] }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+              className="relative flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center"
+            >
+              {/* Glow */}
+              <div className="absolute inset-0 rounded-[28px] sm:rounded-[32px] bg-gradient-to-br from-blue-500 to-purple-600 opacity-40 blur-lg group-hover:opacity-60 transition-opacity" />
+              {/* Blob shape */}
+              <div
+                className="relative flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-[28px] sm:rounded-[32px] bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg transition-all duration-200 group-hover:scale-110 group-hover:shadow-xl group-active:scale-95"
+                style={{ borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%" }}
+              >
+                <span className="text-white font-extrabold text-lg sm:text-xl select-none tracking-tight">BL</span>
+              </div>
+            </motion.div>
           </motion.button>
         )}
       </AnimatePresence>
 
+      {/* ── Chat Window ── */}
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            initial={{ opacity: 0, y: 30, scale: 0.92 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-            className="fixed bottom-0 right-0 sm:bottom-6 sm:right-6 z-50 flex h-[85vh] sm:h-[75vh] max-h-[600px] w-full sm:w-[400px] sm:max-w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-t-2xl sm:rounded-2xl border bg-card shadow-2xl"
+            exit={{ opacity: 0, y: 30, scale: 0.92 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="fixed bottom-0 right-0 sm:bottom-6 sm:right-6 z-50 flex h-[85vh] sm:h-[75vh] max-h-[650px] w-full sm:w-[420px] sm:max-w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-t-2xl sm:rounded-2xl border border-white/10 bg-card shadow-2xl"
           >
             {/* ── Header ── */}
-            <div className="border-b bg-primary px-4 py-3">
-              <div className="flex items-center justify-between">
+            <div className="relative overflow-hidden px-5 py-4" style={{ background: "linear-gradient(135deg, #3B82F6, #9333EA)" }}>
+              <div className="flex items-start justify-between relative z-10">
                 <div className="flex-1">
-                  <p className="text-sm font-bold leading-tight text-primary-foreground">BalkanLink Assistant</p>
-                  <p className="text-[10px] leading-snug text-primary-foreground/60 mt-0.5">{SUBTITLE[lk] || SUBTITLE["bs"]}</p>
+                  <p className="text-[15px] font-bold leading-tight text-white">
+                    {HEADER_TITLE[lk] || HEADER_TITLE["bs"]}
+                  </p>
+                  <p className="text-[11px] leading-snug text-white/70 mt-1">
+                    {HEADER_SUBTITLE[lk] || HEADER_SUBTITLE["bs"]}
+                  </p>
                 </div>
                 <button
                   onClick={() => setOpen(false)}
-                  className="ml-2 rounded-lg p-1.5 text-primary-foreground/70 transition-colors hover:bg-primary-foreground/10 hover:text-primary-foreground"
+                  className="ml-2 rounded-lg p-1.5 text-white/70 transition-colors hover:bg-white/10 hover:text-white"
                 >
                   <X className="h-4 w-4" />
                 </button>
               </div>
+              {/* Decorative blur circles */}
+              <div className="absolute -top-6 -right-6 h-20 w-20 rounded-full bg-white/10 blur-xl" />
+              <div className="absolute -bottom-4 -left-4 h-16 w-16 rounded-full bg-white/10 blur-xl" />
             </div>
 
             {/* ── Messages ── */}
-            <div ref={scrollRef} className="flex-1 space-y-2.5 overflow-y-auto px-3 py-3">
-              {/* Welcome + Suggested Questions */}
+            <div ref={scrollRef} className="flex-1 space-y-3 overflow-y-auto px-3 py-3">
+              {/* Start Screen */}
               {messages.length === 0 && (
-                <div className="space-y-3">
-                  <div className="rounded-xl bg-muted px-3.5 py-3">
-                    <div className="flex items-center gap-2 mb-1.5">
-                      <BookOpen className="h-4 w-4 text-primary" />
-                      <p className="text-[13px] font-bold text-foreground">BalkanLink Assistant</p>
-                    </div>
-                    <p className="text-[12px] leading-relaxed text-muted-foreground">
-                      {SUBTITLE[lk] || SUBTITLE["bs"]}
-                    </p>
-                  </div>
-
-                  {/* Quick Questions */}
-                  <div className="space-y-1.5">
-                    <p className="text-[11px] font-semibold text-muted-foreground px-1">
-                      {lk === "de" ? "Häufige Fragen" : lk === "en" ? "Popular questions" : "Česta pitanja"}
-                    </p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {questions.map((q, i) => (
-                        <button
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="space-y-3"
+                >
+                  {/* Action Buttons */}
+                  <div className="space-y-2">
+                    {ACTION_BUTTONS.map((action, i) => {
+                      const Icon = action.icon;
+                      return (
+                        <motion.button
                           key={i}
-                          onClick={() => handleQuickQuestion(q)}
-                          className="rounded-full border border-border bg-background px-3 py-1.5 text-[11px] text-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                          initial={{ opacity: 0, y: 8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: i * 0.06, duration: 0.25 }}
+                          onClick={() => handleAction(action.message[lk] || action.message["bs"])}
+                          className="flex w-full items-center gap-3 rounded-xl border border-border bg-background px-4 py-3 text-left transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 hover:border-blue-200 dark:hover:border-blue-800 group"
                         >
-                          {q}
-                        </button>
-                      ))}
-                    </div>
+                          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500/10 to-purple-500/10 text-blue-600 dark:text-blue-400 group-hover:from-blue-500/20 group-hover:to-purple-500/20 transition-colors">
+                            <Icon className="h-4.5 w-4.5" />
+                          </div>
+                          <span className="text-[13px] font-medium text-foreground">
+                            {action.label[lk] || action.label["bs"]}
+                          </span>
+                        </motion.button>
+                      );
+                    })}
                   </div>
-                </div>
+                </motion.div>
               )}
 
               {/* Chat messages */}
               {messages.map((msg, i) => (
-                <div key={i} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+                >
                   <div
-                    className={`max-w-[88%] rounded-xl px-3.5 py-2.5 text-[13px] leading-snug ${
+                    className={`max-w-[88%] rounded-2xl px-3.5 py-2.5 text-[13px] leading-snug ${
                       msg.role === "user"
-                        ? "bg-primary text-primary-foreground"
+                        ? "text-white shadow-md"
                         : msg.premiumGated
-                        ? "bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 text-foreground"
-                        : "bg-muted text-foreground"
+                        ? "bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 text-foreground shadow-sm"
+                        : "bg-muted text-foreground shadow-sm"
                     }`}
+                    style={msg.role === "user" ? { background: "linear-gradient(135deg, #3B82F6, #9333EA)" } : undefined}
                   >
                     {msg.role === "assistant" ? (
                       <>
-                        {/* Premium gate */}
                         {msg.premiumGated && (
                           <div className="flex items-center gap-1.5 mb-2">
                             <Lock className="h-3.5 w-3.5 text-amber-600 dark:text-amber-400" />
@@ -403,12 +501,11 @@ export default function ChatAssistant() {
 
                         <ChatMarkdown content={msg.content} />
 
-                        {/* Premium gated CTAs */}
                         {msg.premiumGated && (
                           <div className="mt-3 flex flex-col gap-2">
                             <Link
                               to="/premium"
-                              className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-amber-500 px-3 py-2 text-[12px] font-bold text-white transition hover:bg-amber-600"
+                              className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-amber-500 px-3 py-2 text-[12px] font-bold text-white transition hover:bg-amber-600"
                             >
                               <Lock className="h-3 w-3" />
                               Otključaj Premium
@@ -422,25 +519,23 @@ export default function ChatAssistant() {
                           </div>
                         )}
 
-                        {/* CTA Buttons for non-gated responses */}
                         {!msg.premiumGated && (
                           <div className="mt-3 space-y-2">
-                            {/* Smart Guide Promo */}
-                            <div className="rounded-lg bg-primary/5 border border-primary/20 px-3 py-2">
+                            <div className="rounded-lg bg-blue-50 dark:bg-blue-950/20 border border-blue-100 dark:border-blue-900/30 px-3 py-2">
                               <div className="flex items-start gap-2">
-                                <FileText className="h-3.5 w-3.5 text-primary mt-0.5 shrink-0" />
-                                <p className="text-[11px] text-muted-foreground leading-snug">
+                                <FileText className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400 mt-0.5 shrink-0" />
+                                <p className="text-[11px] text-blue-700 dark:text-blue-300 leading-snug">
                                   {SMART_GUIDE_PROMO[lk] || SMART_GUIDE_PROMO["bs"]}
                                 </p>
                               </div>
                             </div>
 
-                            {/* CTA Buttons */}
                             <div className="flex flex-col gap-1.5">
                               {msg.guideSlug && (
                                 <Link
                                   to={`/formulari/${msg.guideSlug}`}
-                                  className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-primary px-3 py-2 text-[12px] font-bold text-primary-foreground transition hover:bg-primary/90"
+                                  className="inline-flex items-center justify-center gap-1.5 rounded-xl px-3 py-2 text-[12px] font-bold text-white transition hover:opacity-90"
+                                  style={{ background: "linear-gradient(135deg, #3B82F6, #9333EA)" }}
                                 >
                                   <BookOpen className="h-3.5 w-3.5" />
                                   {lk === "de" ? "Smart Guide starten" : lk === "en" ? "Start Smart Guide" : "Pokreni Smart Guide"}
@@ -448,14 +543,13 @@ export default function ChatAssistant() {
                               )}
                               <Link
                                 to="/formulari"
-                                className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-border bg-background px-3 py-2 text-[12px] font-medium text-foreground transition hover:bg-accent"
+                                className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-border bg-background px-3 py-2 text-[12px] font-medium text-foreground transition hover:bg-accent"
                               >
                                 <ClipboardList className="h-3.5 w-3.5" />
                                 {lk === "de" ? "Alle Formulare ansehen" : lk === "en" ? "Browse all forms" : "Pogledaj sve formulare"}
                               </Link>
                             </div>
 
-                            {/* Disclaimer */}
                             <div className="flex items-start gap-1.5 pt-1">
                               <Info className="mt-0.5 h-3 w-3 shrink-0 text-muted-foreground/50" />
                               <p className="text-[10px] text-muted-foreground/60 leading-snug">
@@ -469,16 +563,32 @@ export default function ChatAssistant() {
                       msg.content
                     )}
                   </div>
-                </div>
+                </motion.div>
               ))}
 
+              {/* Typing indicator */}
               {loading && messages[messages.length - 1]?.role === "user" && (
-                <div className="flex justify-start">
-                  <div className="rounded-xl bg-muted px-3.5 py-2.5">
-                    <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />
+                <motion.div
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex justify-start"
+                >
+                  <div className="rounded-2xl bg-muted px-4 py-3 shadow-sm">
+                    <div className="flex items-center gap-1">
+                      <motion.span animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 1.2, repeat: Infinity, delay: 0 }} className="h-2 w-2 rounded-full bg-muted-foreground/50" />
+                      <motion.span animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 1.2, repeat: Infinity, delay: 0.2 }} className="h-2 w-2 rounded-full bg-muted-foreground/50" />
+                      <motion.span animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 1.2, repeat: Infinity, delay: 0.4 }} className="h-2 w-2 rounded-full bg-muted-foreground/50" />
+                    </div>
                   </div>
-                </div>
+                </motion.div>
               )}
+            </div>
+
+            {/* ── Disclaimer bar ── */}
+            <div className="px-3 py-1 border-t border-border/50">
+              <p className="text-[9px] text-center text-muted-foreground/50">
+                {DISCLAIMER[lk] || DISCLAIMER["bs"]}
+              </p>
             </div>
 
             {/* ── Input ── */}
@@ -491,12 +601,13 @@ export default function ChatAssistant() {
                   onKeyDown={handleKeyDown}
                   placeholder={PLACEHOLDER[lk] || PLACEHOLDER["bs"]}
                   rows={1}
-                  className="flex-1 resize-none rounded-lg border bg-background px-3 py-2 text-[13px] outline-none transition-colors placeholder:text-muted-foreground focus:border-primary"
+                  className="flex-1 resize-none rounded-xl border bg-background px-3.5 py-2.5 text-[13px] outline-none transition-all placeholder:text-muted-foreground/60 focus:border-blue-400 focus:ring-2 focus:ring-blue-100 dark:focus:ring-blue-900/30"
                 />
                 <button
                   onClick={sendMessage}
                   disabled={!input.trim() || loading}
-                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground transition-opacity disabled:opacity-40"
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-white transition-all duration-200 disabled:opacity-40 hover:opacity-90 hover:shadow-md active:scale-95"
+                  style={{ background: "linear-gradient(135deg, #3B82F6, #9333EA)" }}
                 >
                   <Send className="h-4 w-4" />
                 </button>
