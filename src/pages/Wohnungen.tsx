@@ -68,6 +68,7 @@ const ZIMMER_OPTIONS = ["1", "2", "3", "4", "5+"];
 const MIETE_OPTIONS = ["300", "400", "500", "600", "700", "800", "1000", "1200", "1500", "2000"];
 
 export default function Wohnungen() {
+  const navigate = useNavigate();
   const { t } = useLanguage();
   const [filters, setFilters] = useState<FilterState>({
     city: "", bundesland: "", umkreis: "25", maxMiete: "", zimmer: "",

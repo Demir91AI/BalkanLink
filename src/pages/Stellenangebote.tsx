@@ -48,6 +48,7 @@ const BRANCHE_KEYS = ["pflege", "bau", "logistik", "produktion", "reinigung", "g
 const VERTRAG_KEYS = ["vollzeit", "teilzeit", "minijob", "ausbildung", "praktikum"] as const;
 
 export default function Stellenangebote() {
+  const navigate = useNavigate();
   const { t } = useLanguage();
   const [filters, setFilters] = useState<Filters>({
     city: "", bundesland: "", umkreis: "25", branche: "", vertragsart: "",

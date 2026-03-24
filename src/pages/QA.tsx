@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils";
 
 export default function QA() {
   const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
   const activeFilter = searchParams.get("filter") || "";
   const [searchText, setSearchText] = useState("");
   const { t } = useLanguage();
