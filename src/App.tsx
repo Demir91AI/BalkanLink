@@ -133,7 +133,8 @@ const App = () => (
                 <Route path="/nach-deutschland" element={<NachDeutschland />} />
                 <Route path="/nach-deutschland/:countryCode" element={<NachDeutschland />} />
                 <Route path="/nach-deutschland/:countryCode/:categoryKey" element={<NachDeutschland />} />
-              </Route>
+                <Route path="/vorlagen" element={<Vorlagen />} />
+                <Route path="/vorlagen/:slug" element={<Vorlagen />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </AuthProvider>
