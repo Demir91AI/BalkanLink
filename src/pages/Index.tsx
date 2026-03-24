@@ -21,6 +21,8 @@ import heroKoeln from "@/assets/hero-koeln.jpg";
 import heroStuttgart from "@/assets/hero-stuttgart.jpg";
 import heroDuesseldorf from "@/assets/hero-duesseldorf.jpg";
 import heroNuernberg from "@/assets/hero-nuernberg.jpg";
+import heroLeipzig from "@/assets/hero-leipzig.jpg";
+import heroFreilassing from "@/assets/hero-freilassing.jpg";
 
 const sidebarNav = [
   { label: "Početak u Njemačkoj", icon: Footprints, to: "/dolazak/prvi-koraci" },
@@ -48,6 +50,8 @@ export default function Index() {
     { image: heroStuttgart, city: "STUTTGART" },
     { image: heroDuesseldorf, city: "DÜSSELDORF" },
     { image: heroNuernberg, city: "NÜRNBERG" },
+    { image: heroLeipzig, city: "LEIPZIG" },
+    { image: heroFreilassing, city: "FREILASSING" },
   ];
 
   const nextSlide = useCallback(() => {
@@ -55,7 +59,7 @@ export default function Index() {
   }, [slides.length]);
 
   useEffect(() => {
-    const timer = setInterval(nextSlide, 5000);
+    const timer = setInterval(nextSlide, 4000);
     return () => clearInterval(timer);
   }, [nextSlide]);
 
@@ -68,31 +72,39 @@ export default function Index() {
 
   return (
     <>
-      {/* ─── HERO — FULL WIDTH ─── */}
-      <section className="relative h-[62vh] min-h-[440px] max-h-[680px] overflow-hidden bg-[hsl(var(--primary))]">
+      {/* ─── HERO — FULL WIDTH, 85-90vh ─── */}
+      <section className="relative h-[88vh] min-h-[560px] max-h-[960px] overflow-hidden bg-[hsl(var(--primary))]">
+        {/* Preload next slide to avoid flash */}
+        <div className="hidden">
+          <img src={slides[(currentSlide + 1) % slides.length].image} alt="" />
+        </div>
+
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
-            initial={{ opacity: 0, scale: 1.06 }}
+            initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.8, ease: "easeOut" }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
             className="absolute inset-0"
           >
             <img
               src={slides[currentSlide].image}
               alt={slides[currentSlide].city}
               className="h-full w-full object-cover"
-              style={{ filter: "brightness(0.85) saturate(1.15) contrast(1.08)" }}
+              style={{ filter: "brightness(0.82) saturate(1.2) contrast(1.08)" }}
               loading="eager"
             />
           </motion.div>
         </AnimatePresence>
 
-        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(215,68%,6%/0.75)] via-[hsl(215,60%,8%/0.45)] to-[hsl(215,68%,4%/0.97)]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(215,68%,4%/0.4)] via-transparent to-[hsl(215,68%,4%/0.4)]" />
-        <div className="absolute left-1/2 top-1/3 h-64 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[hsl(var(--gold)/0.06)]" style={{ filter: "blur(100px)" }} />
+        {/* Overlays — dark gradient + blue tint + subtle blur zone */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(215,68%,6%/0.7)] via-[hsl(215,60%,10%/0.4)] to-[hsl(215,68%,4%/0.95)]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(215,68%,4%/0.35)] via-transparent to-[hsl(215,68%,4%/0.35)]" />
+        <div className="absolute inset-0 bg-[hsl(215,70%,20%/0.08)]" />
+        <div className="absolute left-1/2 top-[40%] h-80 w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[hsl(var(--gold)/0.05)]" style={{ filter: "blur(120px)" }} />
 
+        {/* Content */}
         <div className="container relative z-10 flex h-full flex-col items-center justify-center text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -100,36 +112,45 @@ export default function Index() {
             transition={{ duration: 0.7, delay: 0.15 }}
             className="w-full max-w-2xl"
           >
-            <h1 className="font-heading text-3xl font-black leading-[1.15] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-[3.5rem]">
-              {t("home.hero.title")}
-              <br />
-              <span className="text-gold drop-shadow-[0_0_24px_hsl(var(--gold)/0.35)]">{t("home.hero.highlight")}</span>
+            <h1 className="font-heading text-3xl font-black leading-[1.12] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-[3.6rem]">
+              Sve za život u Njemačkoj.
             </h1>
 
-            <p className="mx-auto mt-4 max-w-md text-base font-medium text-white/45 sm:text-lg">
-              {t("home.hero.subtitle")}
+            <p className="mx-auto mt-5 max-w-lg text-base font-medium text-white/60 sm:text-lg">
+              Jedna platforma za dokumente, posao, stan – All-in-One za lakši početak.
             </p>
 
-            <form onSubmit={handleSearch} className="mx-auto mt-8 flex max-w-lg items-center gap-2">
+            <p className="mx-auto mt-2 text-sm font-semibold uppercase tracking-widest text-gold drop-shadow-[0_0_16px_hsl(var(--gold)/0.4)]">
+              Bez lutanja. Bez komplikacija.
+            </p>
+
+            <motion.form
+              onSubmit={handleSearch}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="mx-auto mt-9 flex max-w-lg items-center gap-2"
+            >
               <div className="relative flex-1">
                 <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-white/35" />
                 <Input
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder={t("home.search.placeholder")}
-                  className="h-14 rounded-2xl border-white/15 bg-white/[0.07] pl-12 pr-4 text-base text-white placeholder:text-white/30 shadow-[inset_0_1px_0_hsl(0,0%,100%/0.06),0_4px_24px_hsl(215,68%,4%/0.5)] backdrop-blur-xl focus-visible:ring-[hsl(var(--gold)/0.4)] focus-visible:border-[hsl(var(--gold)/0.3)] transition-all"
+                  placeholder="Pretraži: Kindergeld, Anmeldung, posao, stan..."
+                  className="h-14 rounded-full border-white/15 bg-white/[0.07] pl-12 pr-4 text-base text-white placeholder:text-white/30 shadow-[inset_0_1px_0_hsl(0,0%,100%/0.06),0_4px_24px_hsl(215,68%,4%/0.5)] backdrop-blur-xl focus-visible:ring-[hsl(var(--gold)/0.4)] focus-visible:border-[hsl(var(--gold)/0.3)] transition-all"
                 />
               </div>
               <Button
                 type="submit"
-                className="h-14 rounded-2xl bg-[hsl(var(--gold))] px-7 text-base font-bold text-[hsl(var(--gold-foreground))] shadow-[0_4px_20px_hsl(var(--gold)/0.3)] hover:bg-[hsl(var(--gold-light))] hover:shadow-[0_6px_28px_hsl(var(--gold)/0.4)] transition-all duration-300"
+                className="h-14 rounded-full bg-[hsl(var(--gold))] px-7 text-base font-bold text-[hsl(var(--gold-foreground))] shadow-[0_4px_20px_hsl(var(--gold)/0.35)] hover:bg-[hsl(var(--gold-light))] hover:shadow-[0_8px_32px_hsl(var(--gold)/0.5)] transition-all duration-300"
               >
                 <Search className="h-5 w-5" />
               </Button>
-            </form>
+            </motion.form>
           </motion.div>
 
-          <div className="absolute bottom-6 flex gap-1.5">
+          {/* Slide dots */}
+          <div className="absolute bottom-7 flex gap-1.5">
             {slides.map((_, idx) => (
               <button
                 key={idx}
