@@ -145,6 +145,7 @@ export default function Dzamije() {
               </div>
             </motion.div>
           )}
+          </div>
         </div>
       </section>
 
