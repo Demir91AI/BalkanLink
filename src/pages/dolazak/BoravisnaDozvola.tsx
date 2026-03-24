@@ -239,12 +239,12 @@ export default function BoravisnaDozvola() {
       {/* Hero */}
       <section className="border-b bg-primary py-10">
         <div className="container max-w-5xl">
-          <Link
-            to="/dolazak"
+          <button
+            onClick={() => navigateBackOrHome(navigate)}
             className="mb-4 inline-flex items-center gap-1 text-xs text-primary-foreground/70 hover:text-primary-foreground"
           >
             <ArrowLeft className="h-3 w-3" /> Nazad
-          </Link>
+          </button>
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">
             Viza Navigator
           </h1>
