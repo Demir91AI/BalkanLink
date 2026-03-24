@@ -172,19 +172,6 @@ export default function Index() {
               </motion.form>
             </div>
 
-            <div className="flex w-full justify-center" style={{ marginTop: "16px" }}>
-              <div className="flex items-center justify-center gap-2 sm:gap-3">
-                {quickLinks.map((tag) => (
-                  <Link
-                    key={tag.to}
-                    to={tag.to}
-                    className="whitespace-nowrap rounded-full border border-white/40 px-3 py-1.5 text-[11px] font-medium text-white/80 backdrop-blur-sm transition-all duration-200 hover:border-white hover:bg-white/10 hover:text-white sm:px-4 sm:text-sm"
-                  >
-                    {tag.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
 
             <p
               className="mx-auto text-xs font-light italic leading-relaxed sm:text-sm"
