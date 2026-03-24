@@ -31,19 +31,23 @@ export default function Header() {
   return (
     <>
       <header className="sticky top-0 z-50 border-b border-white/8 bg-[hsl(var(--primary))]/95 backdrop-blur-xl shadow-lg shadow-black/20">
-        <div className="flex h-14 items-center justify-between px-4">
-          {/* Left: sidebar trigger + logo */}
-          <div className="flex items-center gap-3">
+        <div className="relative flex h-14 items-center px-4">
+          {/* Left: sidebar trigger */}
+          <div className="flex items-center">
             <SidebarTrigger className="text-white/70 hover:text-brand-orange hover:bg-white/5" />
+          </div>
+
+          {/* Center: brand logo (absolute centered) */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             <BrandLogo variant="full" />
           </div>
 
-          {/* Right: language + auth + extra menu trigger */}
-          <div className="flex items-center gap-1.5">
+          {/* Right: language + auth + extra menu */}
+          <div className="ml-auto flex items-center gap-1">
             {/* Language switcher */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="gap-1.5 text-sm h-9 px-3 text-white/80 hover:text-brand-orange hover:bg-white/5">
+                <Button variant="ghost" size="sm" className="gap-1 text-sm h-9 px-2 text-white/80 hover:text-brand-orange hover:bg-white/5">
                   <span className="text-base leading-none">{currentFlag}</span>
                   <ChevronDown className="h-3 w-3 text-white/50" />
                 </Button>
@@ -60,22 +64,22 @@ export default function Header() {
             </DropdownMenu>
 
             {!loading && !user && (
-              <Button variant="ghost" size="sm" asChild className="h-9 text-sm text-white/80 hover:text-brand-orange hover:bg-white/5">
+              <Button variant="ghost" size="sm" asChild className="h-9 text-sm px-2 text-white/80 hover:text-brand-orange hover:bg-white/5">
                 <Link to="/login">{t("nav.login")}</Link>
               </Button>
             )}
             {!loading && user && (
-              <Button variant="ghost" size="sm" onClick={signOut} className="h-9 text-sm text-white/80 hover:text-brand-orange hover:bg-white/5">
+              <Button variant="ghost" size="sm" onClick={signOut} className="h-9 text-sm px-2 text-white/80 hover:text-brand-orange hover:bg-white/5">
                 {t("nav.logout")}
               </Button>
             )}
 
-            {/* Extra menu trigger – far right, opens sheet from right */}
+            {/* Extra menu trigger */}
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setSheetOpen(true)}
-              className="h-9 px-2.5 text-white/80 hover:text-brand-orange hover:bg-white/5"
+              className="h-9 px-2 text-white/80 hover:text-brand-orange hover:bg-white/5"
             >
               <PanelRight className="h-5 w-5" />
             </Button>
