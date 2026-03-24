@@ -105,7 +105,7 @@ type TranslationKeys = {
   "hero.cta.register": string; "hero.cta.firstSteps": string;
   "notfound.title": string; "notfound.desc": string; "notfound.back": string;
   "common.error": string; "common.legalBasis": string; "common.officialSource": string; "common.moreSource": string;
-  "common.all": string;
+  "common.all": string; "common.back": string;
   // Home page
   "home.hero.title": string; "home.hero.highlight": string; "home.hero.subtitle": string;
   "home.hero.cta": string; "home.hero.howItWorks": string;
@@ -873,7 +873,7 @@ const miscBs: Partial<TranslationKeys> = {
   "notfound.back": "Nazad na početnu",
   "common.error": "Greška", "common.legalBasis": "Zakonska osnova",
   "common.officialSource": "Zvanični izvor", "common.moreSource": "Dodatni izvor",
-  "common.all": "Sve",
+  "common.all": "Sve", "common.back": "Nazad",
 };
 
 const miscHr: Partial<TranslationKeys> = {
@@ -924,7 +924,7 @@ const miscDe: Partial<TranslationKeys> = {
   "notfound.back": "Zurück zur Startseite",
   "common.error": "Fehler", "common.legalBasis": "Gesetzliche Grundlage",
   "common.officialSource": "Offizielle Quelle", "common.moreSource": "Weitere Quelle",
-  "common.all": "Alle",
+  "common.all": "Alle", "common.back": "Zurück",
 };
 
 const miscEn: Partial<TranslationKeys> = {
@@ -961,7 +961,7 @@ const miscEn: Partial<TranslationKeys> = {
   "notfound.back": "Back to home",
   "common.error": "Error", "common.legalBasis": "Legal basis",
   "common.officialSource": "Official source", "common.moreSource": "Additional source",
-  "common.all": "All",
+  "common.all": "All", "common.back": "Back",
 };
 
 const miscSq: Partial<TranslationKeys> = {
@@ -998,7 +998,7 @@ const miscSq: Partial<TranslationKeys> = {
   "notfound.back": "Kthehu në fillim",
   "common.error": "Gabim", "common.legalBasis": "Baza ligjore",
   "common.officialSource": "Burimi zyrtar", "common.moreSource": "Burim shtesë",
-  "common.all": "Të gjitha",
+  "common.all": "Të gjitha", "common.back": "Kthehu",
 };
 
 const miscMk: Partial<TranslationKeys> = {
@@ -1035,7 +1035,7 @@ const miscMk: Partial<TranslationKeys> = {
   "notfound.back": "Назад на почетна",
   "common.error": "Грешка", "common.legalBasis": "Законска основа",
   "common.officialSource": "Официјален извор", "common.moreSource": "Дополнителен извор",
-  "common.all": "Сите",
+  "common.all": "Сите", "common.back": "Назад",
 };
 
 // --- Home / Footer / Premium page keys ---
