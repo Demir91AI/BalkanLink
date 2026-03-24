@@ -124,13 +124,13 @@ export default function Index() {
             >
               BalkanLink – Tvoj put do uspjeha u{" "}
               <span className="text-[#FFCC00] drop-shadow-[0_0_24px_rgba(255,204,0,0.45)]">
-                Njemačkoj.
+                Njemačkoj
               </span>
             </h1>
 
             {/* H2 */}
             <p
-              className="mx-auto mt-5 max-w-xl text-sm font-semibold leading-relaxed sm:text-base md:text-lg"
+              className="mx-auto mt-6 max-w-xl text-sm font-semibold leading-relaxed sm:text-base md:text-lg"
               style={{ color: "#F0F0F0", textShadow: "0 2px 12px rgba(0,0,0,0.4)" }}
             >
               Sve što ti treba za uspješan start na jednom, provjerenom mjestu.
@@ -144,7 +144,7 @@ export default function Index() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="mx-auto mt-8 flex max-w-lg items-center gap-2"
+              className="mx-auto mt-10 flex max-w-lg items-center gap-2"
             >
               <div className="relative flex-1">
                 <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#FFCC00]" />
@@ -164,12 +164,12 @@ export default function Index() {
             </motion.form>
 
             {/* Quick-link tags */}
-            <div className="mx-auto mt-5 flex flex-wrap justify-center gap-2 max-w-lg">
+            <div className="mx-auto mt-4 flex flex-wrap justify-center gap-3 max-w-lg">
               {[
                 { label: "Prvi koraci", to: "/dolazak/prvi-koraci" },
-                { label: "Formulari", to: "/formulari" },
-                { label: "Poslovi", to: "/stellenangebote" },
-                { label: "Vize", to: "/dolazak/boravisna-dozvola" },
+                { label: "Dokumenti", to: "/formulari" },
+                { label: "Boravak", to: "/dolazak/boravisna-dozvola" },
+                { label: "Kalkulatori", to: "/tools" },
               ].map((tag) => (
                 <Link
                   key={tag.to}
