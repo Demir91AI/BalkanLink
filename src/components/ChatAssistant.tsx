@@ -19,6 +19,18 @@ type Msg = {
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat-assistant`;
 
+// ── Valid guide slugs (from guide-data.ts) ──
+const VALID_GUIDE_SLUGS = new Set([
+  "kindergeld", "kinderzuschlag", "elterngeld", "bildung-teilhabe", "unterhaltsvorschuss",
+  "elternzeit", "mutterschutz", "mutterschaftsleistungen", "unterhalt", "wohngeld",
+  "buergergeld", "heizkostenzuschuss", "arbeitslosengeld", "kurzarbeitergeld", "krankengeld",
+  "pflegegrad", "reha", "bafoeg", "schueler-bafoeg", "lernfoerderung", "kita-zuschuss",
+  "mutterschaftsgeld", "familienversicherung", "steuerklassenwechsel", "kirchenaustritt",
+  "gez-anmeldung", "bildungsgutschein", "integrationskurs", "fuehrungszeugnis",
+  "aufenthaltstitel-verlaengerung", "anmeldung", "wbs", "krippengeld-bayern", "sozialhilfe",
+  "eu-blue-card", "radna-viza", "spajanje-porodice", "studentska-viza", "stalni-boravak",
+]);
+
 // ── Valid app routes (for 404 prevention) ──
 const VALID_ROUTES = new Set([
   "/", "/dolazak", "/pocni-ovdje", "/dolazak/prijava-prebivalista",
@@ -33,13 +45,17 @@ const VALID_ROUTES = new Set([
   "/qa", "/directory", "/directory/submit", "/ambasade-konzulati",
   "/ambasade", "/login", "/register", "/impressum", "/datenschutz",
   "/disclaimer", "/haftungsausschluss", "/ki-hinweis", "/mitgliedschaft",
-  "/nudim-trazim",
+  "/nudim-trazim", "/putovanja", "/generatoren",
+  "/forgot-password", "/reset-password",
 ]);
 
 function isValidRoute(path: string): boolean {
   if (VALID_ROUTES.has(path)) return true;
-  // Dynamic routes: /guide/:slug, /formulari/:slug, /qa/:id
-  if (path.startsWith("/guide/") || path.startsWith("/formulari/") || path.startsWith("/qa/")) return true;
+  if (path.startsWith("/guide/")) {
+    const slug = path.slice(7);
+    return VALID_GUIDE_SLUGS.has(slug);
+  }
+  if (path.startsWith("/formulari/") || path.startsWith("/qa/")) return true;
   return false;
 }
 
@@ -117,9 +133,9 @@ function ChatMarkdown({ content }: { content: string }) {
         a: ({ href, children }) => {
           if (href && href.startsWith("/")) {
             if (!isValidRoute(href)) return <span className="font-medium text-muted-foreground">{children}</span>;
-            return <Link to={href} className="font-medium text-blue-600 dark:text-blue-400 underline hover:text-blue-500">{children}</Link>;
+            return <Link to={href} className="font-medium text-primary underline underline-offset-2 hover:text-primary/80">{children}</Link>;
           }
-          return <a href={href} target="_blank" rel="noopener noreferrer" className="font-medium text-blue-600 dark:text-blue-400 underline hover:text-blue-500">{children}</a>;
+          return <a href={href} target="_blank" rel="noopener noreferrer" className="font-medium text-primary underline underline-offset-2 hover:text-primary/80">{children}</a>;
         },
         p: ({ children }) => <p className="mb-2 last:mb-0">{children}</p>,
         ol: ({ children }) => <ol className="mb-2 list-decimal space-y-0.5 pl-5">{children}</ol>,
@@ -137,11 +153,11 @@ function ChatMarkdown({ content }: { content: string }) {
   );
 }
 
-// ── Action buttons (max 2) ──
+// ── Action buttons (max 2, with strict route validation) ──
 function ResponseActions({ msg, lk }: { msg: Msg; lk: string }) {
   const actions: { label: string; to: string; icon: typeof BookOpen; primary?: boolean }[] = [];
 
-  if (msg.guideSlug) {
+  if (msg.guideSlug && VALID_GUIDE_SLUGS.has(msg.guideSlug)) {
     const guidePath = `/guide/${msg.guideSlug}`;
     actions.push({
       label: lk === "de" ? "Smart Guide öffnen" : lk === "en" ? "Open Smart Guide" : "Pokreni Smart Guide",
@@ -154,7 +170,6 @@ function ResponseActions({ msg, lk }: { msg: Msg; lk: string }) {
   if (msg.formSlugs && msg.formSlugs.length > 0) {
     const slug = msg.formSlugs[0];
     const formPath = `/formulari/${slug}`;
-    // Only add if different from guide action
     if (!actions.some(a => a.to === formPath)) {
       actions.push({
         label: lk === "de" ? "Formular öffnen" : lk === "en" ? "Open form" : "Otvori formular",
@@ -210,6 +225,7 @@ export default function ChatAssistant() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState<number | null>(null);
+  const [showTooltip, setShowTooltip] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
@@ -220,6 +236,19 @@ export default function ChatAssistant() {
   useEffect(() => {
     if (open === "open") setTimeout(() => inputRef.current?.focus({ preventScroll: true }), 100);
   }, [open]);
+
+  // Tooltip: show after 3s, hide after 5s
+  useEffect(() => {
+    if (open !== "closed") { setShowTooltip(false); return; }
+    const showTimer = setTimeout(() => setShowTooltip(true), 3000);
+    return () => clearTimeout(showTimer);
+  }, [open]);
+
+  useEffect(() => {
+    if (!showTooltip) return;
+    const hideTimer = setTimeout(() => setShowTooltip(false), 5000);
+    return () => clearTimeout(hideTimer);
+  }, [showTooltip]);
 
   const copyToClipboard = (text: string, index: number) => {
     navigator.clipboard.writeText(text).then(() => {
@@ -356,19 +385,6 @@ export default function ChatAssistant() {
   };
 
   const showStartScreen = messages.length === 0;
-  const [showTooltip, setShowTooltip] = useState(false);
-
-  useEffect(() => {
-    if (open !== "closed") { setShowTooltip(false); return; }
-    const showTimer = setTimeout(() => setShowTooltip(true), 3000);
-    return () => clearTimeout(showTimer);
-  }, [open]);
-
-  useEffect(() => {
-    if (!showTooltip) return;
-    const hideTimer = setTimeout(() => setShowTooltip(false), 5000);
-    return () => clearTimeout(hideTimer);
-  }, [showTooltip]);
 
   const handleClose = () => {
     setOpen("closed");
@@ -380,9 +396,14 @@ export default function ChatAssistant() {
     setOpen("minimized");
   };
 
+  const openChat = () => {
+    setShowTooltip(false);
+    setOpen("open");
+  };
+
   return (
     <>
-      {/* ── Floating Button ── */}
+      {/* ── Floating Button + Tooltip ── */}
       <AnimatePresence>
         {open === "closed" && (
           <motion.div
@@ -391,7 +412,7 @@ export default function ChatAssistant() {
             exit={{ scale: 0, opacity: 0 }}
             className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-2.5"
           >
-            {/* Tooltip */}
+            {/* Tooltip bubble */}
             <AnimatePresence>
               {showTooltip && (
                 <motion.div
@@ -399,7 +420,7 @@ export default function ChatAssistant() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 6 }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
-                  onClick={() => { setShowTooltip(false); setOpen("open"); }}
+                  onClick={openChat}
                   className="cursor-pointer rounded-xl border border-white/10 bg-white/80 dark:bg-card/80 backdrop-blur-xl px-4 py-2.5 shadow-[0_4px_24px_rgba(0,0,0,0.08)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.3)] mr-1"
                 >
                   <p className="text-[13px] font-bold text-foreground leading-tight">Pitaj BalkanLink</p>
@@ -408,17 +429,30 @@ export default function ChatAssistant() {
               )}
             </AnimatePresence>
 
-            {/* Button */}
-            <button
-              onClick={() => { setShowTooltip(false); setOpen("open"); }}
-              className="group"
+            {/* "Pomoć" badge */}
+            <motion.span
+              initial={{ opacity: 0, y: 4 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="rounded-full bg-white dark:bg-card px-3 py-1 text-[11px] font-semibold text-foreground shadow-md border border-border/40 cursor-pointer hover:shadow-lg transition-shadow mr-1"
+              onClick={openChat}
+            >
+              {lk === "de" ? "Hilfe" : lk === "en" ? "Help" : "Pomoć"}
+            </motion.span>
+
+            {/* Main button */}
+            <motion.button
+              animate={{ scale: [1, 1.03, 1] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              onClick={openChat}
+              className="group relative"
               aria-label="BalkanLink Assistant"
             >
-              <div className="absolute inset-[-6px] rounded-full bg-gradient-to-br from-blue-500/20 to-purple-600/20 blur-lg group-hover:from-blue-500/35 group-hover:to-purple-600/35 transition-all duration-300" />
-              <div className="relative flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-[hsl(217,91%,60%)] to-[hsl(271,81%,56%)] shadow-[0_4px_20px_rgba(99,102,241,0.35)] transition-all duration-200 group-hover:scale-110 group-hover:shadow-[0_6px_28px_rgba(99,102,241,0.5)] group-active:scale-95">
-                <span className="text-white font-black text-lg tracking-tight select-none">BL</span>
+              <div className="absolute inset-[-8px] rounded-2xl bg-gradient-to-br from-[hsl(217,91%,60%)]/25 to-[hsl(271,81%,56%)]/25 blur-xl group-hover:from-[hsl(217,91%,60%)]/40 group-hover:to-[hsl(271,81%,56%)]/40 transition-all duration-300" />
+              <div className="relative flex items-center justify-center w-[58px] h-[58px] sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-[hsl(217,91%,60%)] to-[hsl(271,81%,56%)] shadow-[0_4px_20px_rgba(99,102,241,0.35)] transition-all duration-200 group-hover:scale-110 group-hover:shadow-[0_6px_28px_rgba(99,102,241,0.5)] group-active:scale-95">
+                <span className="text-white font-black text-[20px] sm:text-[22px] tracking-tight select-none">BL</span>
               </div>
-            </button>
+            </motion.button>
           </motion.div>
         )}
       </AnimatePresence>
@@ -431,14 +465,14 @@ export default function ChatAssistant() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
             onClick={() => setOpen("open")}
-            className="fixed bottom-6 right-6 z-50 group flex items-center gap-2.5 rounded-2xl bg-gradient-to-r from-[#3B82F6] to-[#9333EA] px-4 py-3 shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/35 transition-all duration-200 hover:scale-105 active:scale-95"
+            className="fixed bottom-5 right-5 z-50 group flex items-center gap-2.5 rounded-2xl bg-gradient-to-r from-[hsl(217,91%,60%)] to-[hsl(271,81%,56%)] px-4 py-3 shadow-lg shadow-[hsl(271,81%,56%)]/25 hover:shadow-xl transition-all duration-200 hover:scale-105 active:scale-95"
             aria-label="Open chat"
           >
             <span className="text-white font-black text-[14px] tracking-tight select-none">BL</span>
             <span className="text-white/90 text-[12px] font-medium">
               {messages.length > 0
                 ? `${messages.length} ${lk === "de" ? "Nachr." : lk === "en" ? "msg" : "por."}`
-                : lk === "de" ? "Chat" : lk === "en" ? "Chat" : "Chat"}
+                : "Chat"}
             </span>
             <X
               className="h-3.5 w-3.5 text-white/50 hover:text-white transition-colors ml-1"
@@ -456,7 +490,7 @@ export default function ChatAssistant() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="fixed bottom-0 right-0 sm:bottom-6 sm:right-6 z-50 flex h-[88vh] sm:h-[78vh] max-h-[680px] w-full sm:w-[400px] sm:max-w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-t-2xl sm:rounded-2xl border border-border/50 bg-card shadow-2xl"
+            className="fixed bottom-0 right-0 sm:bottom-5 sm:right-5 z-50 flex h-[88vh] sm:h-[78vh] max-h-[680px] w-full sm:w-[400px] sm:max-w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-t-2xl sm:rounded-2xl border border-border/50 bg-card shadow-2xl"
           >
             {/* Header */}
             <div className="relative overflow-hidden px-5 py-4" style={{ background: "linear-gradient(135deg, hsl(217,91%,60%) 0%, hsl(259,69%,52%) 50%, hsl(271,81%,56%) 100%)" }}>
@@ -486,10 +520,10 @@ export default function ChatAssistant() {
 
             {/* Messages area */}
             <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-4 space-y-3">
-              {/* Start Screen */}
+              {/* Start Screen — clean and minimal */}
               {showStartScreen && (
                 <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }} className="flex flex-col items-center justify-center pt-16 pb-6 text-center">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 mb-5">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[hsl(217,91%,60%)]/10 to-[hsl(271,81%,56%)]/10 mb-5">
                     <span className="text-primary font-black text-[18px]">BL</span>
                   </div>
                   <h2 className="text-[18px] font-bold text-foreground mb-2">
@@ -546,14 +580,14 @@ export default function ChatAssistant() {
                 </motion.div>
               ))}
 
-              {/* Typing indicator — minimal */}
+              {/* Typing indicator */}
               {loading && messages[messages.length - 1]?.role === "user" && (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex justify-start">
                   <div className="rounded-2xl bg-muted/60 px-4 py-3">
                     <div className="flex items-center gap-1">
-                      <motion.span animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 0.8, repeat: Infinity, delay: 0 }} className="h-1.5 w-1.5 rounded-full bg-muted-foreground/40" />
-                      <motion.span animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 0.8, repeat: Infinity, delay: 0.15 }} className="h-1.5 w-1.5 rounded-full bg-muted-foreground/40" />
-                      <motion.span animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 0.8, repeat: Infinity, delay: 0.3 }} className="h-1.5 w-1.5 rounded-full bg-muted-foreground/40" />
+                      <motion.span animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 0.6, repeat: Infinity, delay: 0 }} className="h-1.5 w-1.5 rounded-full bg-muted-foreground/40" />
+                      <motion.span animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 0.6, repeat: Infinity, delay: 0.12 }} className="h-1.5 w-1.5 rounded-full bg-muted-foreground/40" />
+                      <motion.span animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 0.6, repeat: Infinity, delay: 0.24 }} className="h-1.5 w-1.5 rounded-full bg-muted-foreground/40" />
                     </div>
                   </div>
                 </motion.div>
