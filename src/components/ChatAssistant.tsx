@@ -6,6 +6,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { Link } from "react-router-dom";
 import { formCatalog, type FormEntry } from "@/lib/form-catalog";
+import { BLIcon } from "@/components/BrandLogo";
 
 type SiteTopicAction = { url: string; label: string };
 
@@ -418,11 +419,7 @@ export default function ChatAssistant() {
               <div className="absolute inset-[-18px] rounded-full bg-gradient-to-br from-brand-orange/40 to-brand-orange/20 blur-3xl group-hover:from-brand-orange/60 group-hover:to-brand-orange/40 transition-all duration-300 animate-pulse" />
               <div className="absolute inset-[-8px] rounded-full bg-brand-orange/20 blur-xl" />
               <div className="relative flex items-center justify-center w-[58px] h-[58px] sm:w-16 sm:h-16 rounded-full bg-[hsl(var(--primary))] shadow-[0_0_40px_hsl(var(--brand-orange)/0.5),0_0_80px_hsl(var(--brand-orange)/0.25),0_4px_20px_rgba(0,0,0,0.3)] transition-all duration-200 group-hover:scale-105 group-hover:shadow-[0_0_50px_hsl(var(--brand-orange)/0.6),0_0_100px_hsl(var(--brand-orange)/0.35)] group-active:scale-95 border-2 border-brand-orange/30">
-                <svg width="28" height="28" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-                  <text x="4" y="30" fontFamily="'Arial Black',Arial,sans-serif" fontWeight="900" fontSize="28" letterSpacing="-1">
-                    <tspan fill="#FFFFFF">B</tspan><tspan fill="hsl(var(--brand-orange))">L</tspan>
-                  </text>
-                </svg>
+                <BLIcon size={32} />
               </div>
             </div>
 
@@ -446,7 +443,7 @@ export default function ChatAssistant() {
             className="fixed bottom-5 right-5 z-50 group flex items-center gap-2.5 rounded-2xl bg-[hsl(var(--primary))] px-4 py-3 shadow-lg shadow-brand-orange/20 hover:shadow-xl transition-all duration-200 hover:scale-105 active:scale-95 border border-brand-orange/20"
             aria-label="Open chat"
           >
-            <span className="text-white font-black text-[14px] tracking-tight select-none">B<span className="text-brand-orange">L</span></span>
+            <BLIcon size={22} />
             <span className="text-white/90 text-[12px] font-medium">
               {messages.length > 0
                 ? `${messages.length} ${lk === "de" ? "Nachr." : lk === "en" ? "msg" : "por."}`
@@ -475,8 +472,8 @@ export default function ChatAssistant() {
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.08),transparent_60%)]" />
               <div className="flex items-center justify-between relative z-10">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/15 backdrop-blur-sm">
-                    <span className="text-white font-black text-[14px] tracking-tight">BL</span>
+                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/15 backdrop-blur-sm overflow-hidden">
+                    <BLIcon size={28} />
                   </div>
                   <div>
                     <span className="text-[15px] font-bold text-white block leading-tight">BalkanLink Asistent</span>
@@ -501,8 +498,8 @@ export default function ChatAssistant() {
               {/* Start Screen — clean and minimal */}
               {showStartScreen && (
                 <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }} className="flex flex-col items-center justify-center pt-16 pb-6 text-center">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[hsl(217,91%,60%)]/10 to-[hsl(271,81%,56%)]/10 mb-5">
-                    <span className="text-primary font-black text-[18px]">BL</span>
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[hsl(217,91%,60%)]/10 to-[hsl(271,81%,56%)]/10 mb-5 overflow-hidden">
+                    <BLIcon size={36} />
                   </div>
                   <h2 className="text-[18px] font-bold text-foreground mb-2">
                     {lk === "de" ? "Wie kann ich dir helfen?" : lk === "en" ? "How can I help you?" : "Kako ti mogu pomoći?"}

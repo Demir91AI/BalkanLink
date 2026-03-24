@@ -17,13 +17,7 @@ export default function Header() {
         {/* Left: sidebar trigger + logo */}
         <div className="flex items-center gap-3">
           <SidebarTrigger className="text-white/70 hover:text-brand-orange hover:bg-white/5" />
-          {/* Desktop: full logo, Mobile: icon only */}
-          <span className="hidden sm:inline-flex">
-            <BrandLogo variant="full" />
-          </span>
-          <span className="inline-flex sm:hidden">
-            <BrandLogo variant="icon" />
-          </span>
+          <BrandLogo variant="full" />
         </div>
 
         {/* Right: language + auth */}

@@ -16,6 +16,8 @@ interface BrandLogoProps {
   className?: string;
   /** wrap in <Link to="/"> – default true */
   linkHome?: boolean;
+  /** Use dark text colors for light backgrounds */
+  darkText?: boolean;
 }
 
 const SIZES: Record<Variant, { icon: number; fontSize: string; gap: string }> = {
@@ -50,14 +52,17 @@ function BLIcon({ size }: { size: number }) {
   );
 }
 
-function LogoContent({ variant = "full" }: { variant: Variant }) {
+function LogoContent({ variant = "full", darkText = false }: { variant: Variant; darkText?: boolean }) {
   const { icon, fontSize, gap } = SIZES[variant];
+  const textColor = darkText
+    ? "text-[#1E293B] [text-shadow:0_1px_2px_rgba(0,0,0,0.12)]"
+    : "text-white";
 
   return (
     <span className={`flex items-center ${gap}`}>
       <BLIcon size={icon} />
       {variant !== "icon" && (
-        <span className={`font-heading ${fontSize} font-extrabold leading-none tracking-tight text-white`}>
+        <span className={`font-heading ${fontSize} font-extrabold leading-none tracking-tight ${textColor}`}>
           Balkan<span className="text-brand-orange">Link</span>
         </span>
       )}
@@ -65,17 +70,17 @@ function LogoContent({ variant = "full" }: { variant: Variant }) {
   );
 }
 
-export default function BrandLogo({ variant = "full", className = "", linkHome = true }: BrandLogoProps) {
+export default function BrandLogo({ variant = "full", className = "", linkHome = true, darkText = false }: BrandLogoProps) {
   if (linkHome) {
     return (
       <Link to="/" className={`inline-flex items-center ${className}`} aria-label="BalkanLink home">
-        <LogoContent variant={variant} />
+        <LogoContent variant={variant} darkText={darkText} />
       </Link>
     );
   }
   return (
     <span className={`inline-flex items-center ${className}`}>
-      <LogoContent variant={variant} />
+      <LogoContent variant={variant} darkText={darkText} />
     </span>
   );
 }
