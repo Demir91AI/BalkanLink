@@ -253,14 +253,11 @@ export default function Index() {
         </div>
       </div>
 
-      {/* ─── INLINE AD BANNER 1 ─── */}
-      <InlineAdBanner />
+      {/* ─── AD CAROUSEL ─── */}
+      <AdCarousel />
 
       {/* ─── VIDEO AD SECTION ─── */}
       <VideoAdSection />
-
-      {/* ─── INLINE AD BANNER 2 ─── */}
-      <InlineAdBanner variant="alt" />
     </>
   );
 }
