@@ -1705,10 +1705,13 @@ const countryNames: Record<string, Record<string, string>> = {
   en: { "country.BIH": "Bosnia and Herzegovina", "country.SRB": "Serbia", "country.HR": "Croatia", "country.ME": "Montenegro", "country.MK": "North Macedonia", "country.XK": "Kosovo", "country.AL": "Albania", "restorani.searchCity": "Search city…", "prodavnice.searchCity": "Search city…" },
 };
 
-// Merge country names into translations
+// Merge country names and vorlagen into translations
 for (const lang of Object.keys(translations) as Language[]) {
   if (countryNames[lang]) {
     Object.assign(translations[lang], countryNames[lang]);
+  }
+  if (vorlagenKeys[lang]) {
+    Object.assign(translations[lang], vorlagenKeys[lang]);
   }
 }
 
