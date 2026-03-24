@@ -615,6 +615,23 @@ export const indexChatDe: Record<string, string> = {
   "ad.flowTitle": "Ihre Werbung hier",
   "ad.flowSubtitle": "Positionieren Sie Ihr Unternehmen vor Tausenden von Nutzern.",
   "ad.flowCta": "Jetzt werben",
+  "cookie.title": "Cookies & Datenschutz",
+  "cookie.desc": "Wir verwenden Cookies, um Ihr Erlebnis zu verbessern. Sie können alle akzeptieren oder die Einstellungen anpassen.",
+  "cookie.acceptAll": "Alle akzeptieren",
+  "cookie.necessaryOnly": "Nur notwendige",
+  "cookie.settings": "Einstellungen",
+  "cookie.settingsTitle": "Cookie-Einstellungen",
+  "cookie.settingsDesc": "Wählen Sie aus, welche Cookie-Kategorien Sie zulassen möchten.",
+  "cookie.saveSettings": "Einstellungen speichern",
+  "cookie.cat.necessary": "Notwendige",
+  "cookie.cat.necessary.desc": "Erforderlich für grundlegende Funktionen der Website.",
+  "cookie.cat.functional": "Funktionale",
+  "cookie.cat.functional.desc": "Ermöglichen zusätzliche Funktionen wie Sprache und Region.",
+  "cookie.cat.statistics": "Statistik",
+  "cookie.cat.statistics.desc": "Helfen uns zu verstehen, wie Sie die Seite nutzen.",
+  "cookie.cat.marketing": "Marketing",
+  "cookie.cat.marketing.desc": "Werden verwendet, um relevante Werbung anzuzeigen.",
+  "cookie.footerLink": "Cookie-Einstellungen",
 };
 
 export const indexChatEn: Record<string, string> = {
