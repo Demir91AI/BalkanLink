@@ -1540,7 +1540,7 @@ const translations: Record<Language, TranslationKeys> = {
     "qa.title": "Pyetje dhe përgjigje", "qa.subtitle": "Gjej përgjigjen e pyetjes tënde — shpejt dhe në gjuhën tënde.",
     "qa.search": "Kërko...", "qa.all": "Të gjitha temat", "qa.results": "rezultate",
     "qa.empty": "Nuk ka rezultate. Provo me një term tjetër.",
-    ...dirSq as any, ...missionsSq as any, ...portalSq as any, ...miscSq as any, ...homeSq as any, ...premiumSq as any, ...newKeysBs as any,
+    ...dirSq as any, ...missionsSq as any, ...portalSq as any, ...miscSq as any, ...homeSq as any, ...premiumSq as any, ...newKeysSq as any, ...indexChatSq as any,
   },
   xk: {
     "nav.home": "Ballina", "nav.qa": "Pyetje dhe përgjigje", "nav.directory": "Drejtoria",
