@@ -97,147 +97,64 @@ export default function Index() {
     }
   };
 
-  const MAILTO_AD = `mailto:info@balkanlink.de?subject=${encodeURIComponent("Oglašavanje na BalkanLink")}&body=${encodeURIComponent(
-    "Pozdrav,\n\nZanima me oglašavanje na BalkanLink platformi.\n\nNaziv firme:\nVrsta usluge:\nGrad:\nBudžet:\n"
-  )}`;
-
-  const MAILTO_QUOTE = `mailto:info@balkanlink.de?subject=${encodeURIComponent("Upit za reklamu")}&body=${encodeURIComponent(
-    "Pozdrav,\n\nZanima me ponuda za oglašavanje.\n\nNaziv firme:\nŠta nudite:\nGrad:\n"
-  )}`;
-
-  const valuePoints = [
-    { icon: FileText, text: "Popuni formular bez greške" },
-    { icon: Briefcase, text: "Nađi posao ili stan brže" },
-    { icon: ShieldCheck, text: "Razumij sistem kao da si ovdje rođen" },
-  ];
-
   return (
     <>
       {/* ─── HERO — FULL WIDTH, DOMINANT ─── */}
-      <section className="relative min-h-[85vh] overflow-hidden bg-[hsl(var(--primary))]">
-        {/* Background slider with blur */}
+      <section className="relative h-[62vh] min-h-[440px] max-h-[680px] overflow-hidden bg-[hsl(var(--primary))]">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
-            initial={{ opacity: 0, scale: 1.08 }}
+            initial={{ opacity: 0, scale: 1.06 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 2, ease: "easeOut" }}
+            transition={{ duration: 1.8, ease: "easeOut" }}
             className="absolute inset-0"
           >
             <img
               src={slides[currentSlide].image}
               alt={slides[currentSlide].city}
               className="h-full w-full object-cover"
-              style={{ filter: "brightness(0.7) saturate(1.2) contrast(1.1) blur(2px)" }}
+              style={{ filter: "brightness(0.85) saturate(1.15) contrast(1.08)" }}
               loading="eager"
             />
           </motion.div>
         </AnimatePresence>
 
         {/* Multi-layer cinematic overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(215,68%,4%/0.85)] via-[hsl(215,60%,6%/0.6)] to-[hsl(215,68%,4%/0.97)]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(215,68%,4%/0.5)] via-transparent to-[hsl(215,68%,4%/0.5)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(215,68%,6%/0.75)] via-[hsl(215,60%,8%/0.45)] to-[hsl(215,68%,4%/0.97)]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(215,68%,4%/0.4)] via-transparent to-[hsl(215,68%,4%/0.4)]" />
 
-        {/* Decorative glows */}
-        <div className="absolute left-1/4 top-1/3 h-80 w-80 rounded-full bg-[hsl(var(--gold)/0.06)]" style={{ filter: "blur(120px)" }} />
-        <div className="absolute right-1/4 bottom-1/3 h-64 w-64 rounded-full bg-[hsl(215,68%,30%/0.08)]" style={{ filter: "blur(100px)" }} />
+        {/* Subtle cinematic glow */}
+        <div className="absolute left-1/2 top-1/3 h-64 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[hsl(var(--gold)/0.06)]" style={{ filter: "blur(100px)" }} />
 
-        <div className="container relative z-10 flex min-h-[85vh] items-center py-20">
-          <div className="grid w-full items-center gap-12 lg:grid-cols-[1fr_auto]">
-            {/* Left — Content */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="max-w-2xl"
-            >
-              {/* Headline */}
-              <h1 className="font-heading text-4xl font-black leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-[4rem]">
-                Snalaženje u Njemačkoj –
-                <br />
-                <span className="text-gold drop-shadow-[0_0_32px_hsl(var(--gold)/0.4)]">bez lutanja, bez grešaka.</span>
-              </h1>
+        <div className="container relative z-10 flex h-full flex-col items-center justify-center text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="w-full max-w-2xl"
+          >
+            {/* Headline — large, bold, dominant */}
+            <h1 className="font-heading text-3xl font-black leading-[1.15] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-[3.5rem]">
+              {t("home.hero.title")}
+              <br />
+              <span className="text-gold drop-shadow-[0_0_24px_hsl(var(--gold)/0.35)]">{t("home.hero.highlight")}</span>
+            </h1>
 
-              {/* Subheadline */}
-              <p className="mt-6 max-w-xl text-base leading-relaxed text-white/50 sm:text-lg">
-                BalkanLink je tvoj digitalni vodič kroz Njemačku – formulari, posao, stan, dokumenti i realan život na jednom mjestu. Bez komplikacija. Bez gubljenja vremena.
-              </p>
+            {/* Subtitle */}
+            <p className="mx-auto mt-4 max-w-md text-base font-medium text-white/45 sm:text-lg">
+              {t("home.hero.subtitle")}
+            </p>
 
-              {/* Value points */}
-              <ul className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-6">
-                {valuePoints.map((vp) => (
-                  <li key={vp.text} className="flex items-center gap-2.5 text-sm font-medium text-white/60">
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[hsl(var(--gold)/0.12)]">
-                      <vp.icon className="h-3.5 w-3.5 text-[hsl(var(--gold))]" />
-                    </span>
-                    {vp.text}
-                  </li>
-                ))}
-              </ul>
-
-              {/* Trust text */}
-              <p className="mt-6 text-sm font-medium italic text-white/30">
-                "Ovo nije još jedna informativna stranica. Ovo je platforma koja ti rješava problem."
-              </p>
-
-              {/* CTA Buttons */}
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-                <Button
-                  onClick={() => navigate("/qa")}
-                  className="h-14 rounded-2xl bg-[hsl(var(--gold))] px-8 text-base font-bold text-[hsl(var(--gold-foreground))] shadow-[0_4px_24px_hsl(var(--gold)/0.35)] hover:bg-[hsl(var(--gold-light))] hover:shadow-[0_6px_32px_hsl(var(--gold)/0.45)] transition-all duration-300"
-                >
-                  Pronađi rješenje
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-                <Button
-                  asChild
-                  className="h-14 rounded-2xl border-2 border-[hsl(var(--gold)/0.3)] bg-[hsl(var(--gold)/0.08)] px-8 text-base font-semibold text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold)/0.15)] hover:border-[hsl(var(--gold)/0.5)] transition-all duration-300"
-                >
-                  <a href={MAILTO_AD}>Oglasi se</a>
-                </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  className="h-14 rounded-2xl border-white/15 bg-transparent px-8 text-base font-semibold text-white/70 hover:bg-white/5 hover:text-white hover:border-white/25 transition-all duration-300"
-                >
-                  <a href={MAILTO_QUOTE}>Zatraži ponudu</a>
-                </Button>
-              </div>
-
-              {/* Extra text */}
-              <p className="mt-5 text-xs font-medium text-white/25">
-                Više od 100+ praktičnih vodiča i alata na jednom mjestu.
-              </p>
-            </motion.div>
-
-            {/* Right — Abstract glow visual */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.4 }}
-              className="hidden lg:block"
-            >
-              <div className="relative h-80 w-80">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[hsl(var(--gold)/0.15)] via-[hsl(215,68%,20%/0.1)] to-transparent" style={{ filter: "blur(60px)" }} />
-                <div className="absolute left-8 top-8 h-48 w-48 rounded-full bg-[hsl(var(--gold)/0.08)]" style={{ filter: "blur(40px)" }} />
-                <div className="absolute bottom-4 right-4 h-32 w-32 rounded-full bg-[hsl(215,68%,40%/0.1)]" style={{ filter: "blur(30px)" }} />
-              </div>
-            </motion.div>
-          </div>
-        </div>
-
-        {/* Search bar — floating at bottom */}
-        <div className="absolute bottom-16 left-0 right-0 z-20">
-          <form onSubmit={handleSearch} className="container">
-            <div className="mx-auto flex max-w-xl items-center gap-2">
+            {/* Premium Search Bar */}
+            <form onSubmit={handleSearch} className="mx-auto mt-8 flex max-w-lg items-center gap-2">
               <div className="relative flex-1">
                 <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-white/35" />
                 <Input
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder={t("home.search.placeholder")}
-                  className="h-14 rounded-2xl border-white/10 bg-white/[0.06] pl-12 pr-4 text-base text-white placeholder:text-white/25 shadow-[inset_0_1px_0_hsl(0,0%,100%/0.05),0_8px_32px_hsl(215,68%,4%/0.6)] backdrop-blur-2xl focus-visible:ring-[hsl(var(--gold)/0.4)] focus-visible:border-[hsl(var(--gold)/0.3)] transition-all"
+                  className="h-14 rounded-2xl border-white/15 bg-white/[0.07] pl-12 pr-4 text-base text-white placeholder:text-white/30 shadow-[inset_0_1px_0_hsl(0,0%,100%/0.06),0_4px_24px_hsl(215,68%,4%/0.5)] backdrop-blur-xl focus-visible:ring-[hsl(var(--gold)/0.4)] focus-visible:border-[hsl(var(--gold)/0.3)] transition-all"
                 />
               </div>
               <Button
@@ -246,27 +163,27 @@ export default function Index() {
               >
                 <Search className="h-5 w-5" />
               </Button>
-            </div>
-          </form>
+            </form>
+          </motion.div>
+
+          {/* Slide dots */}
+          <div className="absolute bottom-6 flex gap-1.5">
+            {slides.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentSlide(idx)}
+                className={`rounded-full transition-all duration-500 ${
+                  idx === currentSlide
+                    ? "h-1.5 w-7 bg-gold shadow-[0_0_8px_hsl(var(--gold)/0.5)]"
+                    : "h-1.5 w-1.5 bg-white/20 hover:bg-white/35"
+                }`}
+                aria-label={`Slide ${idx + 1}`}
+              />
+            ))}
+          </div>
         </div>
 
-        {/* Slide dots */}
-        <div className="absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 gap-1.5">
-          {slides.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setCurrentSlide(idx)}
-              className={`rounded-full transition-all duration-500 ${
-                idx === currentSlide
-                  ? "h-1.5 w-7 bg-gold shadow-[0_0_8px_hsl(var(--gold)/0.5)]"
-                  : "h-1.5 w-1.5 bg-white/20 hover:bg-white/35"
-              }`}
-              aria-label={`Slide ${idx + 1}`}
-            />
-          ))}
-        </div>
-
-        {/* Bottom accent line */}
+        {/* Bottom neon accent */}
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[hsl(var(--gold)/0.3)] to-transparent" />
       </section>
 
