@@ -1,7 +1,10 @@
 import { useState, useEffect, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search } from "lucide-react";
+import {
+  Search, Footprints, FileText, Briefcase, Building2,
+  ShieldCheck, Compass, Wrench, Megaphone,
+} from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -18,6 +21,17 @@ import heroKoeln from "@/assets/hero-koeln.jpg";
 import heroStuttgart from "@/assets/hero-stuttgart.jpg";
 import heroDuesseldorf from "@/assets/hero-duesseldorf.jpg";
 import heroNuernberg from "@/assets/hero-nuernberg.jpg";
+
+const sidebarNav = [
+  { label: "Početak u Njemačkoj", icon: Footprints, to: "/dolazak/prvi-koraci" },
+  { label: "Formulari", icon: FileText, to: "/formulari" },
+  { label: "Pretraga poslova", icon: Briefcase, to: "/stellenangebote" },
+  { label: "Pretraga stanova", icon: Building2, to: "/wohnungen" },
+  { label: "Nudim / Tražim", icon: Megaphone, to: "/nudim-trazim" },
+  { label: "Alati i kalkulatori", icon: Wrench, to: "/tools" },
+  { label: "Dokumenten-Check", icon: ShieldCheck, to: "/dokumenten-check" },
+  { label: "Viza Navigator", icon: Compass, to: "/dolazak/boravisna-dozvola" },
+];
 
 export default function Index() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -54,7 +68,7 @@ export default function Index() {
 
   return (
     <>
-      {/* ─── HERO — FULL WIDTH, DOMINANT ─── */}
+      {/* ─── HERO — FULL WIDTH ─── */}
       <section className="relative h-[62vh] min-h-[440px] max-h-[680px] overflow-hidden bg-[hsl(var(--primary))]">
         <AnimatePresence mode="wait">
           <motion.div
@@ -75,11 +89,8 @@ export default function Index() {
           </motion.div>
         </AnimatePresence>
 
-        {/* Multi-layer cinematic overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-[hsl(215,68%,6%/0.75)] via-[hsl(215,60%,8%/0.45)] to-[hsl(215,68%,4%/0.97)]" />
         <div className="absolute inset-0 bg-gradient-to-r from-[hsl(215,68%,4%/0.4)] via-transparent to-[hsl(215,68%,4%/0.4)]" />
-
-        {/* Subtle cinematic glow */}
         <div className="absolute left-1/2 top-1/3 h-64 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[hsl(var(--gold)/0.06)]" style={{ filter: "blur(100px)" }} />
 
         <div className="container relative z-10 flex h-full flex-col items-center justify-center text-center">
@@ -140,14 +151,59 @@ export default function Index() {
       {/* ─── HERO AD BANNER ─── */}
       <HeroAdBanner />
 
-      {/* ─── WOW SECTION ─── */}
-      <WowSection />
+      {/* ─── DASHBOARD: SIDEBAR + CONTENT ─── */}
+      <div className="flex">
+        {/* Left sidebar — desktop only, sticky */}
+        <nav className="hidden md:flex w-[260px] shrink-0 flex-col border-r border-border/40 bg-[hsl(215,55%,7%)] sticky top-0 self-start h-screen py-6 px-3">
+          <p className="mb-4 px-3 text-[11px] font-semibold uppercase tracking-widest text-white/30">
+            Navigacija
+          </p>
+          <ul className="space-y-1">
+            {sidebarNav.map((item) => (
+              <li key={item.to}>
+                <Link
+                  to={item.to}
+                  className="group flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium text-white/55 transition-all duration-200 hover:bg-white/5 hover:text-white"
+                >
+                  <item.icon className="h-[18px] w-[18px] shrink-0 text-white/35 transition-colors group-hover:text-gold" />
+                  <span>{item.label}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-      {/* ─── PREMIUM AD CAROUSEL ─── */}
-      <AdCarousel />
+        {/* Right content */}
+        <div className="flex-1 min-w-0">
+          {/* WOW Section */}
+          <WowSection />
 
-      {/* ─── FLOW AD BANNERS ─── */}
-      <AdFlowBanner />
+          {/* Mobile nav */}
+          <div className="md:hidden bg-background px-4 py-6">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+              Navigacija
+            </p>
+            <div className="grid grid-cols-2 gap-2">
+              {sidebarNav.map((item) => (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  className="flex items-center gap-2.5 rounded-lg border border-border/40 bg-card p-3 text-sm font-medium transition-all hover:border-border hover:shadow-sm"
+                >
+                  <item.icon className="h-4 w-4 shrink-0 text-gold" />
+                  <span className="truncate text-xs">{item.label}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Premium Ad Carousel */}
+          <AdCarousel />
+
+          {/* Flow Ad Banners */}
+          <AdFlowBanner />
+        </div>
+      </div>
     </>
   );
 }
