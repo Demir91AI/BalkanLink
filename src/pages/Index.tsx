@@ -173,7 +173,7 @@ export default function Index() {
             <div className="flex w-full justify-center" style={{ marginTop: "16px" }}>
               <div className="flex items-center justify-center gap-2 sm:gap-3">
                 {[
-                  { label: "Start", mobileLabel: "Start", to: "/dolazak/prvi-koraci" },
+                  { label: "Prvi koraci", mobileLabel: "Start", to: "/dolazak/prvi-koraci" },
                   { label: "Dokumenti", mobileLabel: "Dokumenti", to: "/formulari" },
                   { label: "Boravak", mobileLabel: "Boravak", to: "/dolazak/boravisna-dozvola" },
                   { label: "Kalkulatori", mobileLabel: "Kalkulator", to: "/tools" },
