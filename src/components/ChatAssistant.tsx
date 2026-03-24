@@ -78,9 +78,9 @@ function detectGuideSlugFromText(text: string): string | null {
 // ── i18n ──
 
 const PLACEHOLDER: Record<string, string> = {
-  bs: "Npr. Kindergeld, stan, posao, boravišna dozvola...",
-  de: "Z.B. Kindergeld, Wohnung, Job, Aufenthaltstitel...",
-  en: "E.g. Kindergeld, apartment, job, residence permit...",
+  bs: "Npr. Kindergeld, AGB, premium, stan, posao...",
+  de: "Z.B. Kindergeld, AGB, Premium, Wohnung, Job...",
+  en: "E.g. Kindergeld, AGB, premium, apartment, job...",
 };
 
 const ERROR_MSG: Record<string, string> = {
