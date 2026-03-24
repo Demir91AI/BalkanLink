@@ -77,7 +77,7 @@ export default function Header() {
               onClick={() => setSheetOpen(true)}
               className="h-9 px-2.5 text-white/80 hover:text-brand-orange hover:bg-white/5"
             >
-              <Menu className="h-5 w-5" />
+              <PanelRight className="h-5 w-5" />
             </Button>
           </div>
         </div>
