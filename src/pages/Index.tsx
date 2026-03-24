@@ -10,6 +10,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
+import { HeroAdBanner, VideoAdSection, InlineAdBanner } from "@/components/home/AdSections";
 import heroBerlin from "@/assets/hero-berlin.jpg";
 import heroMuenchen from "@/assets/hero-muenchen.jpg";
 import heroFrankfurt from "@/assets/hero-frankfurt.jpg";
@@ -172,6 +173,9 @@ export default function Index() {
         </div>
       </section>
 
+      {/* ─── HERO AD BANNER ─── */}
+      <HeroAdBanner />
+
       {/* ─── DASHBOARD AREA: SIDEBAR + CONTENT ─── */}
       <div className="flex min-h-[60vh]">
         {/* Left sidebar */}
@@ -233,6 +237,15 @@ export default function Index() {
           </div>
         </div>
       </div>
+
+      {/* ─── INLINE AD BANNER 1 ─── */}
+      <InlineAdBanner />
+
+      {/* ─── VIDEO AD SECTION ─── */}
+      <VideoAdSection />
+
+      {/* ─── INLINE AD BANNER 2 ─── */}
+      <InlineAdBanner variant="alt" />
     </>
   );
 }
