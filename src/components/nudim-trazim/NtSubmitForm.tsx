@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Send } from "lucide-react";
+import { Send, Star } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
@@ -12,9 +12,10 @@ import { toast } from "sonner";
 
 interface Props {
   onClose: () => void;
+  onProClick?: () => void;
 }
 
-export default function NtSubmitForm({ onClose }: Props) {
+export default function NtSubmitForm({ onClose, onProClick }: Props) {
   const [form, setForm] = useState({
     type: "",
     title: "",
@@ -46,7 +47,10 @@ export default function NtSubmitForm({ onClose }: Props) {
   return (
     <Card className="border-border/60">
       <CardHeader>
-        <CardTitle className="text-xl">Objavi oglas</CardTitle>
+        <CardTitle className="text-xl">Objavi oglas besplatno</CardTitle>
+        <p className="text-sm text-muted-foreground">
+          Objava je besplatna. Nakon objave možeš istaknuti oglas kao PRO za veću vidljivost.
+        </p>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-5">
@@ -129,11 +133,21 @@ export default function NtSubmitForm({ onClose }: Props) {
             </label>
           </div>
 
-          <div className="flex gap-3 pt-2">
+          <div className="flex flex-col sm:flex-row gap-3 pt-2">
             <Button type="submit" className="gap-2">
-              <Send className="h-4 w-4" /> Objavi oglas
+              <Send className="h-4 w-4" /> Objavi oglas besplatno
             </Button>
-            <Button type="button" variant="outline" onClick={onClose}>
+            {onProClick && (
+              <Button
+                type="button"
+                variant="outline"
+                className="gap-2 border-[hsl(var(--gold))]/40 text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/10"
+                onClick={onProClick}
+              >
+                <Star className="h-4 w-4" /> Istakni kao PRO
+              </Button>
+            )}
+            <Button type="button" variant="ghost" onClick={onClose}>
               Otkaži
             </Button>
           </div>
