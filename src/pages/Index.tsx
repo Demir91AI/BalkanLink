@@ -183,7 +183,8 @@ export default function Index() {
                     to={tag.to}
                     className="whitespace-nowrap rounded-full border border-white/40 px-3 py-1.5 text-[11px] font-medium text-white/80 backdrop-blur-sm transition-all duration-200 hover:border-white hover:bg-white/10 hover:text-white sm:px-4 sm:text-sm"
                   >
-                    {tag.label}
+                    <span className="hidden sm:inline">{tag.label}</span>
+                    <span className="sm:hidden">{tag.mobileLabel}</span>
                   </Link>
                 ))}
               </div>
