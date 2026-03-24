@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Star } from "lucide-react";
+import { Star, CreditCard, Landmark, Wallet } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import BrandLogo from "@/components/BrandLogo";
 
@@ -47,7 +47,7 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Trust */}
+          {/* Trust + Payment */}
           <div>
             <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/25">{t("footer.trustSection")}</h4>
             <div className="flex items-center gap-1 text-brand-orange">
@@ -60,6 +60,31 @@ export default function Footer() {
             <p className="mt-4 text-[13px] font-medium text-white/40">
               <span className="text-brand-orange font-semibold">10.000+</span> {t("footer.trustUsers")}
             </p>
+
+            {/* Payment methods - prepared */}
+            <div className="mt-6">
+              <h4 className="mb-3 text-[11px] font-bold uppercase tracking-[0.15em] text-white/25">
+                {t("footer.paymentMethods") || "Zahlungsmöglichkeiten"}
+              </h4>
+              <div className="flex flex-wrap items-center gap-3">
+                {/* Stripe */}
+                <div className="flex h-8 items-center rounded-md border border-white/10 bg-white/5 px-2.5" title="Stripe">
+                  <CreditCard className="h-4 w-4 text-white/40" />
+                  <span className="ml-1.5 text-[10px] font-semibold text-white/40">Stripe</span>
+                </div>
+                {/* PayPal */}
+                <div className="flex h-8 items-center rounded-md border border-white/10 bg-white/5 px-2.5" title="PayPal">
+                  <Wallet className="h-4 w-4 text-white/40" />
+                  <span className="ml-1.5 text-[10px] font-semibold text-white/40">PayPal</span>
+                </div>
+                {/* Bank Transfer */}
+                <div className="flex h-8 items-center rounded-md border border-white/10 bg-white/5 px-2.5" title="Überweisung">
+                  <Landmark className="h-4 w-4 text-white/40" />
+                  <span className="ml-1.5 text-[10px] font-semibold text-white/40">{t("footer.bankTransfer") || "Überweisung"}</span>
+                </div>
+              </div>
+              <p className="mt-2 text-[10px] text-white/20 italic">{t("footer.paymentSoon") || "Bald verfügbar"}</p>
+            </div>
           </div>
         </div>
 
