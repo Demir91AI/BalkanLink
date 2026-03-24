@@ -1,4 +1,4 @@
-import { Megaphone, ArrowRight, MapPin } from "lucide-react";
+import { Megaphone, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 
