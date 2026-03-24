@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ScrollText, Building, ArrowLeftRight, ArrowRight } from "lucide-react";
+import { FileCheck, Landmark, RefreshCcw, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -17,9 +17,9 @@ export function WowSection() {
   const { t } = useLanguage();
 
   const features = [
-    { icon: ScrollText, title: t("wow.feat1.title"), desc: t("wow.feat1.desc"), to: "/formulari" },
-    { icon: Building, title: t("wow.feat2.title"), desc: t("wow.feat2.desc"), to: "/stellenangebote" },
-    { icon: ArrowLeftRight, title: t("wow.feat3.title"), desc: t("wow.feat3.desc"), to: "/nudim-trazim" },
+    { icon: FileCheck, title: t("wow.feat1.title"), desc: t("wow.feat1.desc"), to: "/formulari" },
+    { icon: Landmark, title: t("wow.feat2.title"), desc: t("wow.feat2.desc"), to: "/stellenangebote" },
+    { icon: RefreshCcw, title: t("wow.feat3.title"), desc: t("wow.feat3.desc"), to: "/nudim-trazim" },
   ];
 
   return (
@@ -41,9 +41,9 @@ export function WowSection() {
         <div className="mx-auto mt-16 grid max-w-3xl grid-cols-1 gap-5 sm:grid-cols-3 sm:gap-6" style={{ alignItems: "stretch" }}>
           {features.map((f, i) => (
             <motion.div key={f.to} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} variants={cardVariants} className="flex">
-              <Link to={f.to} className="group flex w-full flex-col items-center justify-center rounded-2xl bg-white px-6 py-8 text-center transition-all duration-300 hover:-translate-y-1.5" style={{ minHeight: "190px", boxShadow: "0 15px 40px rgba(0,0,0,0.08)", border: "1px solid rgba(255,255,255,0.6)" }} onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "0 20px 50px rgba(0,0,0,0.12)"; }} onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "0 15px 40px rgba(0,0,0,0.08)"; }}>
-                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-[#FFF7ED] transition-colors duration-300 group-hover:bg-[#FEF3C7]">
-                  <f.icon className="h-6 w-6 text-[hsl(var(--gold-dark))] transition-transform duration-300 group-hover:scale-110" />
+              <Link to={f.to} className="group flex w-full flex-col items-center justify-center rounded-2xl bg-white px-6 py-8 text-center transition-all duration-300 hover:-translate-y-1.5" style={{ minHeight: "190px", boxShadow: "0 15px 40px rgba(0,0,0,0.08)", border: "1px solid rgba(11,31,58,0.08)" }} onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "0 20px 50px rgba(11,31,58,0.14)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(245,166,35,0.35)"; }} onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "0 15px 40px rgba(0,0,0,0.08)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(11,31,58,0.08)"; }}>
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl border transition-all duration-300 group-hover:scale-105" style={{ background: "linear-gradient(135deg, #0B1F3A 0%, #163057 100%)", borderColor: "rgba(245,166,35,0.35)", boxShadow: "0 4px 16px rgba(11,31,58,0.2)" }}>
+                  <f.icon className="h-6 w-6 transition-transform duration-300 group-hover:scale-110" style={{ color: "#F5A623" }} strokeWidth={1.8} />
                 </div>
                 <h3 className="text-base font-bold transition-colors duration-300 group-hover:text-[hsl(var(--gold-dark))]" style={{ color: "#0F172A" }}>{f.title}</h3>
                 <p className="mt-1.5 line-clamp-2 text-sm" style={{ color: "#64748B" }}>{f.desc}</p>
