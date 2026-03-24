@@ -34,8 +34,10 @@ export default function Footer() {
             <nav className="flex flex-col gap-2.5">
               <Link to="/impressum" className="text-[13px] text-white/50 transition-colors hover:text-brand-orange">{t("footer.imprint")}</Link>
               <Link to="/datenschutz" className="text-[13px] text-white/50 transition-colors hover:text-brand-orange">{t("footer.privacy")}</Link>
+              <Link to="/agb" className="text-[13px] text-white/50 transition-colors hover:text-brand-orange">AGB / Nutzungsbedingungen</Link>
               <Link to="/haftungsausschluss" className="text-[13px] text-white/50 transition-colors hover:text-brand-orange">{t("footer.haftung")}</Link>
               <Link to="/ki-hinweis" className="text-[13px] text-white/50 transition-colors hover:text-brand-orange">{t("footer.kiHinweis")}</Link>
+              <Link to="/inhalte-melden" className="text-[13px] text-white/50 transition-colors hover:text-brand-orange">Inhalte melden</Link>
             </nav>
           </div>
 
