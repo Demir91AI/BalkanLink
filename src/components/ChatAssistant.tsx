@@ -385,19 +385,41 @@ export default function ChatAssistant() {
       {/* ── Floating Button ── */}
       <AnimatePresence>
         {open === "closed" && (
-          <motion.button
+          <motion.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
-            onClick={() => setOpen("open")}
-            className="fixed bottom-5 right-5 z-50 group"
-            aria-label="BalkanLink Assistant"
+            className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-2.5"
           >
-            <div className="absolute inset-[-6px] rounded-full bg-gradient-to-br from-blue-500/20 to-purple-600/20 blur-lg group-hover:from-blue-500/35 group-hover:to-purple-600/35 transition-all duration-300" />
-            <div className="relative flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-[hsl(217,91%,60%)] to-[hsl(271,81%,56%)] shadow-[0_4px_20px_rgba(99,102,241,0.35)] transition-all duration-200 group-hover:scale-110 group-hover:shadow-[0_6px_28px_rgba(99,102,241,0.5)] group-active:scale-95">
-              <span className="text-white font-black text-lg tracking-tight select-none">BL</span>
-            </div>
-          </motion.button>
+            {/* Tooltip */}
+            <AnimatePresence>
+              {showTooltip && (
+                <motion.div
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 6 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  onClick={() => { setShowTooltip(false); setOpen("open"); }}
+                  className="cursor-pointer rounded-xl border border-white/10 bg-white/80 dark:bg-card/80 backdrop-blur-xl px-4 py-2.5 shadow-[0_4px_24px_rgba(0,0,0,0.08)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.3)] mr-1"
+                >
+                  <p className="text-[13px] font-bold text-foreground leading-tight">Pitaj BalkanLink</p>
+                  <p className="text-[11px] text-muted-foreground leading-tight mt-0.5">Asistent za Njemačku</p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {/* Button */}
+            <button
+              onClick={() => { setShowTooltip(false); setOpen("open"); }}
+              className="group"
+              aria-label="BalkanLink Assistant"
+            >
+              <div className="absolute inset-[-6px] rounded-full bg-gradient-to-br from-blue-500/20 to-purple-600/20 blur-lg group-hover:from-blue-500/35 group-hover:to-purple-600/35 transition-all duration-300" />
+              <div className="relative flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-[hsl(217,91%,60%)] to-[hsl(271,81%,56%)] shadow-[0_4px_20px_rgba(99,102,241,0.35)] transition-all duration-200 group-hover:scale-110 group-hover:shadow-[0_6px_28px_rgba(99,102,241,0.5)] group-active:scale-95">
+                <span className="text-white font-black text-lg tracking-tight select-none">BL</span>
+              </div>
+            </button>
+          </motion.div>
         )}
       </AnimatePresence>
 
