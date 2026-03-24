@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import { X, Send, Copy, ShieldCheck, ExternalLink, BookOpen } from "lucide-react";
+import { X, Send, Copy, ShieldCheck, ExternalLink, BookOpen, Minus } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -205,7 +205,7 @@ export default function ChatAssistant() {
   const { isPremium } = useAuth();
   const lk = ["bs", "hr", "sr", "me"].includes(language) ? "bs" : language === "de" ? "de" : "en";
 
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState<"closed" | "open" | "minimized">("closed");
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -218,7 +218,7 @@ export default function ChatAssistant() {
   }, [messages, loading]);
 
   useEffect(() => {
-    if (open) setTimeout(() => inputRef.current?.focus({ preventScroll: true }), 100);
+    if (open === "open") setTimeout(() => inputRef.current?.focus({ preventScroll: true }), 100);
   }, [open]);
 
   const copyToClipboard = (text: string, index: number) => {
@@ -357,20 +357,29 @@ export default function ChatAssistant() {
 
   const showStartScreen = messages.length === 0;
 
+  const handleClose = () => {
+    setOpen("closed");
+    setMessages([]);
+    setInput("");
+  };
+
+  const handleMinimize = () => {
+    setOpen("minimized");
+  };
+
   return (
     <>
       {/* ── Floating Orb + "Pomoć" badge ── */}
       <AnimatePresence>
-        {!open && (
+        {open === "closed" && (
           <motion.button
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
-            onClick={() => setOpen(true)}
+            onClick={() => setOpen("open")}
             className="fixed bottom-6 right-6 z-50 group flex flex-col items-center gap-1.5"
             aria-label="BalkanLink Assistant"
           >
-            {/* Pomoć badge */}
             <motion.span
               initial={{ opacity: 0, y: 4 }}
               animate={{ opacity: 1, y: 0 }}
@@ -379,16 +388,13 @@ export default function ChatAssistant() {
             >
               {lk === "de" ? "Hilfe" : lk === "en" ? "Help" : "Pomoć"}
             </motion.span>
-            {/* Custom BL icon */}
             <motion.div
               animate={{ scale: [1, 1.03, 1] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               className="relative"
             >
               <div className="absolute inset-[-8px] rounded-2xl bg-gradient-to-br from-blue-500/25 to-purple-600/25 blur-xl group-hover:from-blue-500/40 group-hover:to-purple-600/40 transition-all duration-300" />
-              <div
-                className="relative flex items-center justify-center bg-gradient-to-br from-[#3B82F6] to-[#9333EA] shadow-lg shadow-purple-500/25 transition-all duration-200 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-purple-500/35 group-active:scale-95 w-[58px] h-[58px] sm:w-[64px] sm:h-[64px] rounded-2xl"
-              >
+              <div className="relative flex items-center justify-center bg-gradient-to-br from-[#3B82F6] to-[#9333EA] shadow-lg shadow-purple-500/25 transition-all duration-200 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-purple-500/35 group-active:scale-95 w-[58px] h-[58px] sm:w-[64px] sm:h-[64px] rounded-2xl">
                 <span className="text-white font-black text-[20px] sm:text-[22px] tracking-tight select-none">BL</span>
               </div>
             </motion.div>
@@ -396,9 +402,34 @@ export default function ChatAssistant() {
         )}
       </AnimatePresence>
 
+      {/* ── Minimized pill ── */}
+      <AnimatePresence>
+        {open === "minimized" && (
+          <motion.button
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.8, opacity: 0 }}
+            onClick={() => setOpen("open")}
+            className="fixed bottom-6 right-6 z-50 group flex items-center gap-2.5 rounded-2xl bg-gradient-to-r from-[#3B82F6] to-[#9333EA] px-4 py-3 shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/35 transition-all duration-200 hover:scale-105 active:scale-95"
+            aria-label="Open chat"
+          >
+            <span className="text-white font-black text-[14px] tracking-tight select-none">BL</span>
+            <span className="text-white/90 text-[12px] font-medium">
+              {messages.length > 0
+                ? `${messages.length} ${lk === "de" ? "Nachr." : lk === "en" ? "msg" : "por."}`
+                : lk === "de" ? "Chat" : lk === "en" ? "Chat" : "Chat"}
+            </span>
+            <X
+              className="h-3.5 w-3.5 text-white/50 hover:text-white transition-colors ml-1"
+              onClick={(e) => { e.stopPropagation(); handleClose(); }}
+            />
+          </motion.button>
+        )}
+      </AnimatePresence>
+
       {/* ── Chat Window ── */}
       <AnimatePresence>
-        {open && (
+        {open === "open" && (
           <motion.div
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -418,9 +449,14 @@ export default function ChatAssistant() {
                     <span className="text-[10px] text-white/60">Asistent</span>
                   </div>
                 </div>
-                <button onClick={() => setOpen(false)} className="rounded-lg p-1.5 text-white/60 transition-colors hover:bg-white/10 hover:text-white">
-                  <X className="h-4 w-4" />
-                </button>
+                <div className="flex items-center gap-1">
+                  <button onClick={handleMinimize} className="rounded-lg p-1.5 text-white/60 transition-colors hover:bg-white/10 hover:text-white" title={lk === "de" ? "Minimieren" : lk === "en" ? "Minimize" : "Minimiziraj"}>
+                    <Minus className="h-4 w-4" />
+                  </button>
+                  <button onClick={handleClose} className="rounded-lg p-1.5 text-white/60 transition-colors hover:bg-white/10 hover:text-white" title={lk === "de" ? "Schließen" : lk === "en" ? "Close" : "Zatvori"}>
+                    <X className="h-4 w-4" />
+                  </button>
+                </div>
               </div>
             </div>
 
