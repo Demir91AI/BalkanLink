@@ -112,51 +112,86 @@ export default function Index() {
         <div className="absolute left-1/2 top-[40%] z-[2] h-80 w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[hsl(var(--gold)/0.05)]" style={{ filter: "blur(120px)" }} />
 
         {/* Content — always on top, stable */}
-        <div className="container relative z-10 flex h-full flex-col items-center justify-center text-center">
+        <div className="container relative z-10 flex h-full flex-col items-center justify-center text-center px-5">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
             className="w-full max-w-3xl"
           >
-            <h1 className="font-heading whitespace-nowrap text-3xl font-black leading-[1.1] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-[3.6rem]" style={{ textShadow: "0 4px 24px rgba(0,0,0,0.4)" }}>
-              Sve za život u{" "}
-              <span className="text-gold drop-shadow-[0_0_28px_hsl(var(--gold)/0.45)]">
+            {/* H1 */}
+            <h1
+              className="font-heading text-2xl font-black leading-[1.15] tracking-tight text-white sm:text-3xl md:text-4xl lg:text-[3.2rem]"
+              style={{ textShadow: "0 4px 30px rgba(0,0,0,0.5)" }}
+            >
+              BalkanLink – Tvoj put do uspjeha u{" "}
+              <span className="text-[#FFCC00] drop-shadow-[0_0_24px_rgba(255,204,0,0.45)]">
                 Njemačkoj.
               </span>
             </h1>
 
-            <p className="mx-auto mt-5 max-w-lg text-base font-medium text-white/60 sm:text-lg">
-              Jedna platforma za dokumente, posao, stan – All-in-One za lakši početak.
+            {/* H2 */}
+            <p
+              className="mx-auto mt-5 max-w-xl text-sm font-semibold leading-relaxed sm:text-base md:text-lg"
+              style={{ color: "#F0F0F0", textShadow: "0 2px 12px rgba(0,0,0,0.4)" }}
+            >
+              Sve što ti treba za uspješan start na jednom, provjerenom mjestu.
+              <br className="hidden sm:block" />{" "}
+              Dokumenti, stanovi i poslovi – na tvom jeziku i bez suvišne birokratije.
             </p>
 
-            <p className="mx-auto mt-2 text-sm font-semibold uppercase tracking-widest text-gold drop-shadow-[0_0_16px_hsl(var(--gold)/0.4)]">
-              Bez lutanja. Bez komplikacija.
-            </p>
-
+            {/* Search bar */}
             <motion.form
               onSubmit={handleSearch}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="mx-auto mt-9 flex max-w-lg items-center gap-2"
+              className="mx-auto mt-8 flex max-w-lg items-center gap-2"
             >
               <div className="relative flex-1">
-                <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-white/35" />
+                <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#FFCC00]" />
                 <Input
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Pretraži: Kindergeld, Anmeldung, posao, stan..."
-                  className="h-14 rounded-full border-white/15 bg-white/[0.07] pl-12 pr-4 text-base text-white placeholder:text-white/30 shadow-[inset_0_1px_0_hsl(0,0%,100%/0.06),0_4px_24px_hsl(215,68%,4%/0.5)] backdrop-blur-xl focus-visible:ring-[hsl(var(--gold)/0.4)] focus-visible:border-[hsl(var(--gold)/0.3)] transition-all"
+                  className="h-14 rounded-full border-none bg-white pl-12 pr-4 text-base text-foreground placeholder:text-muted-foreground shadow-[0_8px_32px_rgba(0,0,0,0.25)] focus-visible:ring-2 focus-visible:ring-[#FFCC00]/50 transition-all"
                 />
               </div>
               <Button
                 type="submit"
-                className="h-14 rounded-full bg-[hsl(var(--gold))] px-7 text-base font-bold text-[hsl(var(--gold-foreground))] shadow-[0_4px_20px_hsl(var(--gold)/0.35)] hover:bg-[hsl(var(--gold-light))] hover:shadow-[0_8px_32px_hsl(var(--gold)/0.5)] transition-all duration-300"
+                className="h-14 rounded-full bg-[#FFCC00] px-7 text-base font-bold text-[hsl(var(--gold-foreground))] shadow-[0_4px_20px_rgba(255,204,0,0.35)] hover:bg-[#FFD633] hover:shadow-[0_8px_32px_rgba(255,204,0,0.5)] transition-all duration-300"
               >
                 <Search className="h-5 w-5" />
               </Button>
             </motion.form>
+
+            {/* Quick-link tags */}
+            <div className="mx-auto mt-5 flex flex-wrap justify-center gap-2 max-w-lg">
+              {[
+                { label: "Stanovi", to: "/wohnungen" },
+                { label: "Prijava", to: "/dolazak/prijava-prebivalista" },
+                { label: "Vize", to: "/dolazak/boravisna-dozvola" },
+                { label: "Diplome", to: "/qa" },
+              ].map((tag) => (
+                <Link
+                  key={tag.to}
+                  to={tag.to}
+                  className="rounded-full border border-white/40 px-4 py-1.5 text-xs font-medium text-white/80 backdrop-blur-sm transition-all duration-200 hover:border-white hover:bg-white/10 hover:text-white sm:text-sm"
+                >
+                  {tag.label}
+                </Link>
+              ))}
+            </div>
+
+            {/* Bottom slogan */}
+            <p
+              className="mx-auto mt-6 max-w-lg text-xs font-light italic leading-relaxed sm:text-sm"
+              style={{ color: "#E0E0E0", textShadow: "0 2px 10px rgba(0,0,0,0.4)" }}
+            >
+              Jedna platforma za sve tvoje potrebe. Kompletan vodič kroz život, rad i administraciju.
+              <br className="hidden sm:block" />{" "}
+              Rješavaj stvari pametnije, a ne teže.
+            </p>
           </motion.div>
 
           {/* Slide dots */}
@@ -167,7 +202,7 @@ export default function Index() {
                 onClick={() => setCurrentSlide(idx)}
                 className={`rounded-full transition-all duration-500 ${
                   idx === currentSlide
-                    ? "h-1.5 w-7 bg-gold shadow-[0_0_8px_hsl(var(--gold)/0.5)]"
+                    ? "h-1.5 w-7 bg-[#FFCC00] shadow-[0_0_8px_rgba(255,204,0,0.5)]"
                     : "h-1.5 w-1.5 bg-white/20 hover:bg-white/35"
                 }`}
                 aria-label={`Slide ${idx + 1}`}
