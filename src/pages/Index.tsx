@@ -193,67 +193,8 @@ export default function Index() {
       {/* ─── HERO AD BANNER ─── */}
       <HeroAdBanner />
 
-      {/* ─── DASHBOARD AREA: SIDEBAR + CONTENT ─── */}
-      <div className="flex min-h-[60vh]">
-        {/* Left sidebar */}
-        <nav className="hidden md:flex w-[260px] shrink-0 flex-col border-r border-white/8 bg-[hsl(215,55%,7%)] py-6 px-3">
-          <p className="mb-4 px-3 text-[11px] font-semibold uppercase tracking-widest text-white/30">
-            Navigacija
-          </p>
-          <ul className="space-y-1">
-            {sidebarNav.map((item) => (
-              <li key={item.to}>
-                <Link
-                  to={item.to}
-                  className="group flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium text-white/55 transition-all duration-200 hover:bg-white/5 hover:text-white"
-                >
-                  <item.icon className="h-[18px] w-[18px] shrink-0 text-white/35 transition-colors group-hover:text-gold" />
-                  <span>{item.label}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        {/* Right content area */}
-        <div className="flex-1 bg-background">
-          <div className="mx-auto max-w-4xl px-6 py-10 sm:py-14">
-            {/* Welcome */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-            >
-              <h2 className="font-heading text-xl font-extrabold sm:text-2xl">
-                Dobrodošli na <span className="text-gold">BalkanLink</span>
-              </h2>
-              <p className="mt-1 text-sm text-muted-foreground">
-                Tvoja platforma za snalaženje u Njemačkoj — formulari, posao, stan, dokumenti i zajednica na jednom mjestu.
-              </p>
-            </motion.div>
-
-
-            {/* Mobile nav (shown below cards on small screens) */}
-            <div className="mt-8 md:hidden">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-                Navigacija
-              </p>
-              <div className="grid grid-cols-2 gap-2">
-                {sidebarNav.map((item) => (
-                  <Link
-                    key={item.to}
-                    to={item.to}
-                    className="flex items-center gap-2.5 rounded-lg border border-border/40 bg-card p-3 text-sm font-medium transition-all hover:border-border hover:shadow-sm"
-                  >
-                    <item.icon className="h-4 w-4 shrink-0 text-gold" />
-                    <span className="truncate text-xs">{item.label}</span>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* ─── WOW SECTION ─── */}
+      <WowSection />
 
       {/* ─── PREMIUM AD CAROUSEL ─── */}
       <AdCarousel />
