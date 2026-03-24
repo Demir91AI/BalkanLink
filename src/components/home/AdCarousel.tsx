@@ -16,7 +16,6 @@ export function AdCarousel() {
             </h2>
           </div>
 
-
           <div className="space-y-6 sm:space-y-8">
             {premiumShowcaseFirms.map((firm, index) => (
               <PremiumShowcaseCard key={firm.name} firm={firm} priority={index === 0} />

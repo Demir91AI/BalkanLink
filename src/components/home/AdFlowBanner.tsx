@@ -1,4 +1,4 @@
-import { Megaphone, ArrowRight } from "lucide-react";
+import { Megaphone, ArrowRight, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -63,9 +63,11 @@ export function AdFlowBanner() {
                 <p className="text-xs font-bold text-white/80 group-hover:text-[hsl(var(--gold))] transition-colors truncate">
                   {t("ad.placeholderText") || "Mjesto za vašu reklamu"}
                 </p>
-                <p className="mt-1 text-[10px] font-medium text-[hsl(var(--gold))]/70">
-                  {t("ad.contactUs") || "Kontaktirajte nas"}
-                </p>
+                {ad.location && (
+                  <p className="mt-0.5 flex items-center gap-1 text-[10px] text-white/30">
+                    <MapPin className="h-2.5 w-2.5" /> {ad.location}
+                  </p>
+                )}
               </div>
             </a>
           ))}

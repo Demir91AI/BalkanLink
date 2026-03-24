@@ -79,6 +79,12 @@ export default function Index() {
     }
   };
 
+  const quickLinks = [
+    { label: t("index.quickStart"), to: "/dolazak/prvi-koraci" },
+    { label: t("index.quickDocs"), to: "/formulari" },
+    { label: t("index.quickResidence"), to: "/dolazak/boravisna-dozvola" },
+    { label: t("index.quickCalc"), to: "/tools" },
+  ];
 
   return (
     <>
@@ -148,24 +154,37 @@ export default function Index() {
               >
                 <div className="flex w-full items-center gap-2" style={{ maxWidth: "800px" }}>
                   <div className="relative min-w-0 flex-1">
-                    <Search className="absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-[#FFCC00] sm:left-5 sm:h-5 sm:w-5" />
+                    <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-[#FFCC00] sm:left-5 sm:h-5 sm:w-5" />
                     <Input
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       placeholder={t("index.searchPlaceholder")}
-                      className="h-[40px] w-full rounded-full border-none bg-white/95 pl-10 pr-3 text-[13px] text-foreground placeholder:text-muted-foreground shadow-[0_8px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm focus-visible:ring-2 focus-visible:ring-[#FFCC00]/60 hover:bg-white hover:shadow-[0_12px_48px_rgba(0,0,0,0.35)] transition-all duration-300 sm:h-[60px] sm:pl-14 sm:pr-5 sm:text-sm md:text-base"
+                      className="h-[46px] w-full rounded-full border-none bg-white/95 pl-11 pr-4 text-sm text-foreground placeholder:text-muted-foreground shadow-[0_8px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm focus-visible:ring-2 focus-visible:ring-[#FFCC00]/60 hover:bg-white hover:shadow-[0_12px_48px_rgba(0,0,0,0.35)] transition-all duration-300 sm:h-[60px] sm:pl-14 sm:pr-5 sm:text-base"
                     />
                   </div>
                   <Button
                     type="submit"
-                    className="h-[40px] w-[40px] shrink-0 rounded-full bg-[#FFCC00] text-base font-bold text-[hsl(var(--gold-foreground))] shadow-[0_4px_24px_rgba(255,204,0,0.4)] hover:bg-[#FFD633] hover:shadow-[0_8px_36px_rgba(255,204,0,0.55)] hover:scale-105 transition-all duration-300 sm:h-[60px] sm:w-[60px]"
+                    className="h-[46px] w-[46px] shrink-0 rounded-full bg-[#FFCC00] text-base font-bold text-[hsl(var(--gold-foreground))] shadow-[0_4px_24px_rgba(255,204,0,0.4)] hover:bg-[#FFD633] hover:shadow-[0_8px_36px_rgba(255,204,0,0.55)] hover:scale-105 transition-all duration-300 sm:h-[60px] sm:w-[60px]"
                   >
-                    <Search className="h-3.5 w-3.5 sm:h-5 sm:w-5" />
+                    <Search className="h-4 w-4 sm:h-5 sm:w-5" />
                   </Button>
                 </div>
               </motion.form>
             </div>
 
+            <div className="flex w-full justify-center" style={{ marginTop: "16px" }}>
+              <div className="flex items-center justify-center gap-2 sm:gap-3">
+                {quickLinks.map((tag) => (
+                  <Link
+                    key={tag.to}
+                    to={tag.to}
+                    className="whitespace-nowrap rounded-full border border-white/40 px-3 py-1.5 text-[11px] font-medium text-white/80 backdrop-blur-sm transition-all duration-200 hover:border-white hover:bg-white/10 hover:text-white sm:px-4 sm:text-sm"
+                  >
+                    {tag.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
 
             <p
               className="mx-auto text-xs font-light italic leading-relaxed sm:text-sm"
