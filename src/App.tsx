@@ -56,6 +56,7 @@ import AdminFormMapper from "./pages/AdminFormMapper";
 import BruttoNettoRechner from "./pages/BruttoNettoRechner";
 import NudimTrazim from "./pages/NudimTrazim";
 import NachDeutschland from "./pages/NachDeutschland";
+import Vorlagen from "./pages/Vorlagen";
 import NotFound from "./pages/NotFound";
 
 
