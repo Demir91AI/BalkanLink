@@ -37,7 +37,7 @@ function VisaPaywall({ visaLabel, st }: { visaLabel: string; st: (k: string) => 
       </div>
       <h3 className="mb-1 text-sm font-bold">Smart Guide – korak po korak</h3>
       <p className="mb-5 max-w-md mx-auto text-xs text-muted-foreground">
-        {st("viza.paywallDesc") || "Riješi zahtjev bez grešaka uz vođeni vodič sa detaljnim objašnjenjima svakog polja."}
+        {st("viza.smartGuideDesc")}
       </p>
       <div className="grid w-full max-w-md mx-auto gap-3 sm:grid-cols-2">
         <div className="rounded-xl border border-border/60 bg-card p-4 text-left">
