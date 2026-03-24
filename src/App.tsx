@@ -53,6 +53,7 @@ import AdminFormMapper from "./pages/AdminFormMapper";
 import BruttoNettoRechner from "./pages/BruttoNettoRechner";
 import NudimTrazim from "./pages/NudimTrazim";
 import NotFound from "./pages/NotFound";
+import ComingSoonOverlay from "./components/ComingSoonOverlay";
 
 const queryClient = new QueryClient();
 
