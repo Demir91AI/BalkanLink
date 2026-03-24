@@ -52,14 +52,17 @@ function BLIcon({ size }: { size: number }) {
   );
 }
 
-function LogoContent({ variant = "full" }: { variant: Variant }) {
+function LogoContent({ variant = "full", darkText = false }: { variant: Variant; darkText?: boolean }) {
   const { icon, fontSize, gap } = SIZES[variant];
+  const textColor = darkText
+    ? "text-[#1E293B] [text-shadow:0_1px_2px_rgba(0,0,0,0.12)]"
+    : "text-white";
 
   return (
     <span className={`flex items-center ${gap}`}>
       <BLIcon size={icon} />
       {variant !== "icon" && (
-        <span className={`font-heading ${fontSize} font-extrabold leading-none tracking-tight text-white`}>
+        <span className={`font-heading ${fontSize} font-extrabold leading-none tracking-tight ${textColor}`}>
           Balkan<span className="text-brand-orange">Link</span>
         </span>
       )}
