@@ -19,50 +19,6 @@ import heroStuttgart from "@/assets/hero-stuttgart.jpg";
 import heroDuesseldorf from "@/assets/hero-duesseldorf.jpg";
 import heroNuernberg from "@/assets/hero-nuernberg.jpg";
 
-/* ── Sidebar navigation items ── */
-const sidebarNav = [
-  { label: "Prvi koraci u Njemačkoj", icon: Footprints, to: "/dolazak/prvi-koraci" },
-  { label: "Formulari", icon: FileText, to: "/formulari" },
-  { label: "Pretraga poslova", icon: Briefcase, to: "/stellenangebote" },
-  { label: "Pretraga stanova", icon: Building2, to: "/wohnungen" },
-  { label: "Dokumenten-Check", icon: ShieldCheck, to: "/dokumenten-check" },
-  { label: "Viza Navigator", icon: Compass, to: "/dolazak/boravisna-dozvola" },
-  { label: "Alati i kalkulatori", icon: Wrench, to: "/tools" },
-  { label: "Nudim / Tražim", icon: Megaphone, to: "/nudim-trazim" },
-];
-
-/* ── Quick-entry cards ── */
-const quickEntries = [
-  {
-    title: "Prvi koraci",
-    desc: "Sve što trebaš znati kad dođeš u Njemačku",
-    icon: Footprints,
-    to: "/dolazak/prvi-koraci",
-    accent: true,
-  },
-  {
-    title: "Formulari & Smart Guide",
-    desc: "Popuni njemačke formulare uz objašnjenja korak po korak",
-    icon: FileText,
-    to: "/formulari",
-    accent: false,
-  },
-  {
-    title: "Pretraga poslova",
-    desc: "Pronađi posao u svojoj regiji",
-    icon: Briefcase,
-    to: "/stellenangebote",
-    accent: false,
-  },
-  {
-    title: "Dokumenten-Check",
-    desc: "Provjeri da li ti nedostaje neki dokument",
-    icon: ShieldCheck,
-    to: "/dokumenten-check",
-    accent: false,
-  },
-];
-
 export default function Index() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
@@ -133,19 +89,16 @@ export default function Index() {
             transition={{ duration: 0.7, delay: 0.15 }}
             className="w-full max-w-2xl"
           >
-            {/* Headline — large, bold, dominant */}
             <h1 className="font-heading text-3xl font-black leading-[1.15] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-[3.5rem]">
               {t("home.hero.title")}
               <br />
               <span className="text-gold drop-shadow-[0_0_24px_hsl(var(--gold)/0.35)]">{t("home.hero.highlight")}</span>
             </h1>
 
-            {/* Subtitle */}
             <p className="mx-auto mt-4 max-w-md text-base font-medium text-white/45 sm:text-lg">
               {t("home.hero.subtitle")}
             </p>
 
-            {/* Premium Search Bar */}
             <form onSubmit={handleSearch} className="mx-auto mt-8 flex max-w-lg items-center gap-2">
               <div className="relative flex-1">
                 <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-white/35" />
@@ -165,7 +118,6 @@ export default function Index() {
             </form>
           </motion.div>
 
-          {/* Slide dots */}
           <div className="absolute bottom-6 flex gap-1.5">
             {slides.map((_, idx) => (
               <button
@@ -182,7 +134,6 @@ export default function Index() {
           </div>
         </div>
 
-        {/* Bottom neon accent */}
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[hsl(var(--gold)/0.3)] to-transparent" />
       </section>
 
