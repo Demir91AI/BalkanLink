@@ -188,7 +188,7 @@ export function AppSidebar() {
               {/* A) Bewerbung & Karriere */}
               {!collapsed && (
                 <p className="px-5 pt-3 pb-1 text-[10px] font-semibold uppercase tracking-[0.1em] text-white/25">
-                  Bewerbung & Karriere
+                  {t("vorlagen.sectionWork")}
                 </p>
               )}
               <SidebarMenu className="gap-0.5 px-2">
