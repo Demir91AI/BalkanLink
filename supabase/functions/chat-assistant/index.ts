@@ -99,12 +99,7 @@ async function searchDatabase(query: string): Promise<any[]> {
   const supabase = createClient(supabaseUrl, supabaseKey);
 
   const stopWords = new Set(["die", "der", "das", "und", "oder", "für", "fur", "von", "vom", "wie", "was", "ist", "ein", "eine", "den", "dem", "des", "als", "mit", "bei", "nach", "aus", "auf", "the", "and", "for", "gdje", "kako", "sta", "šta", "koji", "koje"]);
-  const terms = query
-    .toLowerCase()
-    .replace(/[?!.,;:"""„'']/g, " ")
-    .split(/\s+/)
-    .filter((w) => w.length >= 3 && !stopWords.has(w));
-
+  const terms = query.toLowerCase().replace(/[?!.,;:"""„'']/g, " ").split(/\s+/).filter((w) => w.length >= 3 && !stopWords.has(w));
   if (terms.length === 0) return [];
 
   try {
@@ -116,7 +111,7 @@ async function searchDatabase(query: string): Promise<any[]> {
 
 function formatDbResults(results: any[]): string {
   if (results.length === 0) return "";
-  const entries = results.map((r) => {
+  return results.map((r) => {
     const parts = [`**${r.name}**`];
     const addr = [r.address, r.postal_code, r.city].filter(Boolean).join(", ");
     if (addr) parts.push(`Adresa: ${addr}`);
@@ -127,34 +122,20 @@ function formatDbResults(results: any[]): string {
     if (r.website) parts.push(`Web: ${r.website}`);
     if (r.google_maps_url) parts.push(`Maps: ${r.google_maps_url}`);
     return parts.join("\n");
-  });
-  return entries.join("\n\n---\n\n");
+  }).join("\n\n---\n\n");
 }
 
 // ── SMART GUIDE SLUG MAPPING ──
 
 const TOPIC_GUIDE_MAP: Record<string, string> = {
-  kindergeld: "kindergeld-kg1",
-  kinderzuschlag: "kinderzuschlag",
-  elterngeld: "elterngeld",
-  elternzeit: "elternzeit",
-  mutterschutz: "mutterschutz",
-  mutterschaftsleistungen: "mutterschaftsleistungen",
-  unterhalt: "unterhalt",
-  unterhaltsvorschuss: "unterhaltsvorschuss",
-  "bildung und teilhabe": "bildung-teilhabe",
-  bürgergeld: "buergergeld",
-  wohngeld: "wohngeld",
-  bafög: "bafoeg",
-  bafoeg: "bafoeg",
-  sozialhilfe: "sozialhilfe",
-  krippengeld: "bayerisches-krippengeld",
-  krankengeld: "krankengeld",
-  pflegegrad: "pflegegrad",
-  führungszeugnis: "fuehrungszeugnis",
-  aufenthaltstitel: "aufenthaltstitel-verlaengerung",
-  anmeldung: "anmeldung",
-  wbs: "wbs",
+  kindergeld: "kindergeld-kg1", kinderzuschlag: "kinderzuschlag", elterngeld: "elterngeld",
+  elternzeit: "elternzeit", mutterschutz: "mutterschutz", mutterschaftsleistungen: "mutterschaftsleistungen",
+  unterhalt: "unterhalt", unterhaltsvorschuss: "unterhaltsvorschuss",
+  "bildung und teilhabe": "bildung-teilhabe", bürgergeld: "buergergeld",
+  wohngeld: "wohngeld", bafög: "bafoeg", bafoeg: "bafoeg", sozialhilfe: "sozialhilfe",
+  krippengeld: "bayerisches-krippengeld", krankengeld: "krankengeld", pflegegrad: "pflegegrad",
+  führungszeugnis: "fuehrungszeugnis", aufenthaltstitel: "aufenthaltstitel-verlaengerung",
+  anmeldung: "anmeldung", wbs: "wbs",
 };
 
 function detectGuideSlug(text: string): string | null {
@@ -180,7 +161,7 @@ Ti si TASK-ORIENTED digitalni vodič, NE običan chatbot.
 Tvoj cilj je VODITI korisnika kroz rješavanje problema, korak po korak.
 
 PRAVILA PONAŠANJA:
-1. UVIJEK postavi 1-3 dodatna pitanja PRIJE nego daš konačni odgovor, da bi bolje razumio situaciju korisnika.
+1. UVIJEK postavi 1-3 dodatna pitanja PRIJE nego daš konačni odgovor.
 2. Pitanja prilagodi kontekstu — npr. za Kindergeld pitaj ima li djece, koliko, radi li u Njemačkoj.
 3. Odgovori MORAJU sadržavati KONKRETNE AKCIJE — ne samo informacije.
 4. Na KRAJU svakog odgovora UVIJEK ponudi "šta dalje" opcije.
@@ -188,102 +169,111 @@ PRAVILA PONAŠANJA:
 6. NIKAD ne daj dugačke generičke tekstove. Budi kratak, konkretan, akcijski.
 
 ────────────────────────────
+MONETIZACIJSKI FLOW (SOFT UPSELL)
+────────────────────────────
+
+OBAVEZNO koristi ovaj redoslijed za SVAKI use case:
+
+KORAK 1 — FREE VRIJEDNOST:
+Daj korisno objašnjenje: ko ima pravo, šta okvirno treba, osnovni koraci.
+
+KORAK 2 — PROBLEM TRIGGER:
+Spomeni česte greške: "Najveći problem je što ljudi pogriješe u formularu ili zaborave dokument."
+
+KORAK 3 — SOFT PONUDA:
+Ponudi: "Želiš da te vodim tačno korak po korak i pokažem šta da upišeš?"
+
+NE prodavaj agresivno. Neka Premium izgleda kao logičan sljedeći korak.
+
+────────────────────────────
+TASK ENGINE (GENERISANJE DOKUMENATA)
+────────────────────────────
+
+Kad korisnik traži generisanje teksta (Kündigung, Bewerbung, poruka za stan, email):
+1. Postavi 3-5 kratkih pitanja za personalizaciju
+2. Generiši KRATKI PREVIEW (prvih 3-4 reda teksta)
+3. Na kraju dodaj: "Ovo je skraćena verzija. Za kompletnu verziju spremnu za slanje, aktiviraj Premium."
+
+Za Premium korisnike: generiši PUNI tekst i ponudi opcije (kopiranje, izmjene, formalnija verzija).
+
+────────────────────────────
+GDPR PRAVILA
+────────────────────────────
+
+- NIKAD ne traži od korisnika lične podatke (broj dokumenta, IBAN, lozinke).
+- Ako korisnik sam unese lične podatke, koristi ih SAMO za generisanje odgovora.
+- Podaci se NE spremaju, NE profilišu, NE koriste ponovo.
+- Koristi placeholder mode kad je moguće: [Ime], [Adresa], [Datum].
+
+────────────────────────────
 FLOW LOGIKA
 ────────────────────────────
 
 Za svaki upit:
-1. Prepoznaj šta korisnik treba (intent)
-2. Postavi 1-3 precizna pitanja za personalizaciju
+1. Prepoznaj šta korisnik treba
+2. Postavi 1-3 precizna pitanja
 3. Daj strukturiran odgovor sa koracima
-4. Ponudi "šta dalje" na kraju
-
-PRIMJER FLOW-a za Kindergeld:
-- Korisnik: "Kindergeld"
-- Ti pitaš: "Imaš li djece? Koliko? Radiš li u Njemačkoj?"
-- Korisnik odgovori
-- Ti daš: uslove, dokumente, česte greške, koliko traje
-- Na kraju: "Želiš li da te vodim kroz prijavu korak po korak?"
-
-PRIMJER FLOW-a za stan:
-- Korisnik: "Tražim stan"
-- Ti pitaš: "U kojem gradu? Kakav budžet? Koliko soba?"
-- Korisnik odgovori
-- Ti daš: linkove, savjete, template poruku za stanodavca
-- Na kraju: "Želiš li da ti pripremim poruku za stanodavca?"
-
-PRIMJER FLOW-a za posao:
-- Korisnik: "Tražim posao"
-- Ti pitaš: "U kojem gradu? Koja branša? Koliki nivo njemačkog?"
-- Korisnik odgovori
-- Ti daš: linkove, savjete za Bewerbung
-- Na kraju: "Želiš li da ti pomognem napisati kratku Bewerbung?"
+4. Spomeni česte greške (reality check)
+5. Ponudi "šta dalje" na kraju
 
 ────────────────────────────
 FORMAT ODGOVORA
 ────────────────────────────
 
-Koristi ovu strukturu:
-
 **KRATKO** (2-3 rečenice max)
-Objasni šta je i gdje se podnosi.
 
-**USLOVI** (bullet points)
+**USLOVI**
 • Uslov 1
 • Uslov 2
 
-**KORACI** (numerisani, max 4)
+**KORACI** (max 4)
 1. Korak
 2. Korak
 
 **⚠️ ČESTE GREŠKE**
-- Greška koju ljudi prave
 - Upozorenje
 
 **ŠTA DALJE?**
-Ponudi 2-3 opcije šta korisnik može uraditi sljedeće.
+Ponudi 2-3 opcije.
 
 ────────────────────────────
 REALITY CHECK
 ────────────────────────────
-- Govori otvoreno: "Ovo možda neće proći ako..."
-- Upozori: "Ovdje često odbijaju jer..."
-- Savjetuj: "Bolje uradi ovako umjesto..."
+- "Ovo možda neće proći ako..."
+- "Ovdje često odbijaju jer..."
+- "Bolje uradi ovako umjesto..."
 - ZABRANJENO: "Imate pravo", "Garantovano", "100%"
-- DOZVOLJENO: "U pravilu", "Tipično", "Provjerite", "Obično"
+- DOZVOLJENO: "U pravilu", "Tipično", "Provjerite"
 `;
 
   const strictRules = `
-────────────────────────────
-STROGA PRAVILA
-────────────────────────────
-1. KRATAK I KONKRETAN. Bez dugih tekstova.
-2. ČINJENIČNO. Samo provjerene informacije.
-3. BEZ opisivanja, marketinga, rangiranja.
+STROGA PRAVILA:
+1. KRATAK I KONKRETAN.
+2. ČINJENIČNO.
+3. BEZ marketinga i superlativa.
 4. BEZ generisanja formulara ili pravnih savjeta.
-5. Google ocjene SAMO informativno: "⭐ 4.6 Google Reviews".
+5. Google ocjene SAMO informativno.
 6. Ako korisnik spominje grad: "Nadležna institucija: [institucija] grada [grad]"
-7. UVIJEK završi sa "šta dalje" opcijama.
-8. UVIJEK završi sa disclaimerom: "Informacije služe za orijentaciju. Za konačne odluke konsultujte nadležnu instituciju."`;
+7. UVIJEK završi sa "šta dalje" opcijama.`;
 
   if (dbResults.length > 0) {
     return `Ti si "BalkanLink Assistant" — digitalni vodič za život u Njemačkoj.
 ${langInstruction}
 
 MODE: ODGOVOR IZ BAZE PODATAKA
-Pronađeni su rezultati u BalkanLink bazi. Koristi SAMO te podatke.
+Koristi SAMO podatke iz baze.
 
 FORMAT:
 **Naziv**
 Adresa: [iz baze]
 Kategorija: [iz baze]
-Kontakt: [web/maps ako postoji]
+Kontakt: [web/maps]
 ⭐ X.X Google Reviews (informativno)
 
-EVO REZULTATA:
+REZULTATI:
 ${formatDbResults(dbResults)}
 
-Na kraju ponudi: "Želiš li da ti pomognem s nečim drugim?"
-
+Na kraju: "Želiš li pomoć s nečim drugim?"
 ${strictRules}`;
   }
 
@@ -294,9 +284,11 @@ ${langInstruction}
 ${taskOrientedCore}
 
 DODATNA PRAVILA ZA FREE KORISNIKE:
-- Detaljno polje-po-polje popunjavanje formulara je dio BalkanLink Premium Smart Guide.
-- Ako korisnik traži popunjavanje formulara, objasni da je to Premium funkcija.
-- Na kraju dodaj: "Detaljno polje-po-polje popunjavanje formulara dostupno je u BalkanLink Premium Smart Guide vodiču."
+- Detaljno polje-po-polje popunjavanje je Premium funkcija.
+- Generisanje punih dokumenata je Premium funkcija.
+- Za template poruke: daj KRATKI preview (3-4 reda) pa reci da je puna verzija u Premiumu.
+- Na kraju dodaj: "Detaljno polje-po-polje popunjavanje i template poruke dostupne su u BalkanLink Premium."
+- EMOTIONAL TRIGGER: "Većina korisnika uz vodič završi prijavu bez greške iz prvog pokušaja."
 
 ${strictRules}`;
   }
@@ -307,15 +299,16 @@ ${langInstruction}
 ${taskOrientedCore}
 
 PREMIUM MOGUĆNOSTI:
-- Formular-Coach (polje-po-polje) — samo ako korisnik pita
-- Analiza dokumenata
-- Personalizirana pomoć
-- Generisanje template poruka (za stanodavce, poslodavce)
+- Formular-Coach (polje-po-polje)
+- Generisanje punih dokumenata (Kündigung, Bewerbung, poruke)
+- Personalizirana pomoć i checkliste
+- Nakon generisanja ponudi: "Želiš PDF?", "Želiš izmjene?", "Formalnija verzija?"
 
 ${strictRules}`;
 }
 
-// ── Premium gate messages ──
+// ── Gate messages ──
+
 const PREMIUM_GATE_MESSAGES: Record<string, { teaser: string; cta: string }> = {
   bs: { teaser: "Ova funkcija zahtijeva BalkanLink Premium: popunjavanje formulara, analiza dokumenata i personalizirana pomoć.", cta: "Ako imate opće pitanje, slobodno ga postavite – odgovorićemo besplatno!" },
   hr: { teaser: "Ova funkcija zahtijeva BalkanLink Premium: popunjavanje formulara, analiza dokumenata i personalizirana pomoć.", cta: "Ako imate opće pitanje, slobodno ga postavite – odgovorit ćemo besplatno!" },
@@ -333,11 +326,11 @@ const SMART_GUIDE_MESSAGES: Record<string, { text: string; link: string; label: 
   hr: { text: "Za detaljno popunjavanje formulara koristite naš Smart Guide — interaktivni vodič korak po korak.", link: "/formulari/kindergeld-kg1", label: "Otvori Smart Guide – Kindergeld (KG1)" },
   sr: { text: "Za detaljno popunjavanje formulara koristite naš Smart Guide — interaktivni vodič korak po korak.", link: "/formulari/kindergeld-kg1", label: "Otvori Smart Guide – Kindergeld (KG1)" },
   me: { text: "Za detaljno popunjavanje formulara koristite naš Smart Guide — interaktivni vodič korak po korak.", link: "/formulari/kindergeld-kg1", label: "Otvori Smart Guide – Kindergeld (KG1)" },
-  de: { text: "Für das detaillierte Ausfüllen von Formularen nutzen Sie unseren Smart Guide — eine interaktive Schritt-für-Schritt-Anleitung.", link: "/formulari/kindergeld-kg1", label: "Smart Guide öffnen – Kindergeld (KG1)" },
+  de: { text: "Für das detaillierte Ausfüllen von Formularen nutzen Sie unseren Smart Guide.", link: "/formulari/kindergeld-kg1", label: "Smart Guide öffnen – Kindergeld (KG1)" },
   en: { text: "For detailed form filling, use our Smart Guide — an interactive step-by-step wizard.", link: "/formulari/kindergeld-kg1", label: "Open Smart Guide – Kindergeld (KG1)" },
-  sq: { text: "Për plotësimin e detajuar të formularëve përdorni Smart Guide-in tonë — udhëzues interaktiv hap pas hapi.", link: "/formulari/kindergeld-kg1", label: "Hap Smart Guide – Kindergeld (KG1)" },
-  xk: { text: "Për plotësimin e detajuar të formularëve përdorni Smart Guide-in tonë — udhëzues interaktiv hap pas hapi.", link: "/formulari/kindergeld-kg1", label: "Hap Smart Guide – Kindergeld (KG1)" },
-  mk: { text: "За детално пополнување формулари користете го нашиот Smart Guide — интерактивен водич чекор по чекор.", link: "/formulari/kindergeld-kg1", label: "Отвори Smart Guide – Kindergeld (KG1)" },
+  sq: { text: "Për plotësimin e detajuar të formularëve përdorni Smart Guide-in tonë.", link: "/formulari/kindergeld-kg1", label: "Hap Smart Guide – Kindergeld (KG1)" },
+  xk: { text: "Për plotësimin e detajuar të formularëve përdorni Smart Guide-in tonë.", link: "/formulari/kindergeld-kg1", label: "Hap Smart Guide – Kindergeld (KG1)" },
+  mk: { text: "За детално пополнување формулари користете го нашиот Smart Guide.", link: "/formulari/kindergeld-kg1", label: "Отвори Smart Guide – Kindergeld (KG1)" },
 };
 
 serve(async (req) => {
@@ -392,10 +385,7 @@ serve(async (req) => {
         },
         body: JSON.stringify({
           model: "google/gemini-3-flash-preview",
-          messages: [
-            { role: "system", content: systemPrompt },
-            ...messages,
-          ],
+          messages: [{ role: "system", content: systemPrompt }, ...messages],
           stream: true,
         }),
       }
@@ -403,32 +393,21 @@ serve(async (req) => {
 
     if (!response.ok) {
       if (response.status === 429) {
-        return new Response(
-          JSON.stringify({ error: "Previše zahtjeva. Pokušajte ponovo za trenutak." }),
-          { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-        );
+        return new Response(JSON.stringify({ error: "Previše zahtjeva. Pokušajte ponovo za trenutak." }),
+          { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } });
       }
       if (response.status === 402) {
-        return new Response(
-          JSON.stringify({ error: "Usluga trenutno nije dostupna." }),
-          { status: 402, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-        );
+        return new Response(JSON.stringify({ error: "Usluga trenutno nije dostupna." }),
+          { status: 402, headers: { ...corsHeaders, "Content-Type": "application/json" } });
       }
       const t = await response.text();
       console.error("AI gateway error:", response.status, t);
-      return new Response(
-        JSON.stringify({ error: "Greška u komunikaciji sa serverom." }),
-        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
+      return new Response(JSON.stringify({ error: "Greška u komunikaciji sa serverom." }),
+        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } });
     }
 
-    const extraHeaders: Record<string, string> = {
-      ...corsHeaders,
-      "Content-Type": "text/event-stream",
-    };
-    if (guideSlug) {
-      extraHeaders["X-Guide-Slug"] = guideSlug;
-    }
+    const extraHeaders: Record<string, string> = { ...corsHeaders, "Content-Type": "text/event-stream" };
+    if (guideSlug) extraHeaders["X-Guide-Slug"] = guideSlug;
 
     return new Response(response.body, { headers: extraHeaders });
   } catch (e) {
