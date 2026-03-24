@@ -162,21 +162,21 @@ export default function CookieConsent() {
             ))}
           </div>
 
-          <DialogFooter className="gap-2 sm:gap-2">
-            <Button
-              size="sm"
-              onClick={() => accept(true)}
-              className="bg-[hsl(var(--brand-orange))] hover:bg-[hsl(var(--brand-orange))]/90 text-[hsl(var(--brand-orange-foreground))] font-semibold text-xs h-9"
-            >
-              {t("cookie.acceptAll")}
-            </Button>
+          <DialogFooter className="flex flex-col gap-2 sm:flex-col">
             <Button
               size="sm"
               variant="outline"
               onClick={saveSettings}
-              className="border-white/15 text-white/80 hover:bg-white/10 hover:text-white text-xs h-9"
+              className="border-white/15 text-white/80 hover:bg-white/10 hover:text-white text-xs h-10 w-full"
             >
               {t("cookie.saveSettings")}
+            </Button>
+            <Button
+              size="sm"
+              onClick={() => accept(true)}
+              className="bg-[hsl(var(--brand-orange))] hover:bg-[hsl(var(--brand-orange))]/90 text-[hsl(var(--brand-orange-foreground))] font-semibold text-xs h-10 w-full"
+            >
+              {t("cookie.acceptAll")}
             </Button>
           </DialogFooter>
         </DialogContent>
