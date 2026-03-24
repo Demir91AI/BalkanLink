@@ -1,240 +1,28 @@
-import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ExternalLink, Megaphone, ChevronLeft, ChevronRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-
-import adAluHome from "@/assets/ad-alu-home.jpg";
-import adAluHome2 from "@/assets/ad-alu-home-2.jpg";
-import adAluHome3 from "@/assets/ad-alu-home-3.jpg";
-import adVreboBau from "@/assets/ad-vrebo-bau.jpg";
-import adVreboBau2 from "@/assets/ad-vrebo-bau-2.jpg";
-import adVreboBau3 from "@/assets/ad-vrebo-bau-3.jpg";
-import logoAluhome from "@/assets/logo-aluhome.jpg";
-import logoVrebo from "@/assets/logo-vrebo.jpg";
-
-interface PremiumFirm {
-  name: string;
-  description: string;
-  images: string[];
-  website: string;
-  contactEmail: string;
-  logoUrl: string;
-}
-
-const firms: PremiumFirm[] = [
-  {
-    name: "Alu Home",
-    description: "Moderne aluminijske konstrukcije, pergole i stakleni sistemi za dom i terasu.",
-    images: [adAluHome, adAluHome2, adAluHome3],
-    website: "https://www.alu-home.de/",
-    contactEmail: "mailto:info@alu-home.de",
-    logoUrl: logoAluhome,
-  },
-  {
-    name: "Vrebo Bau",
-    description: "Pouzdani građevinski radovi, renoviranje i kvalitetna rješenja sa dugogodišnjim iskustvom.",
-    images: [adVreboBau, adVreboBau2, adVreboBau3],
-    website: "https://vrebo-bau.de/",
-    contactEmail: "mailto:info@vrebo-bau.de",
-    logoUrl: logoVrebo,
-  },
-];
-
-/* Slow crossfade slideshow — each image stays 6s, 1.5s fade */
-function ImageSlideshow({ images }: { images: string[] }) {
-  const [idx, setIdx] = useState(0);
-
-  useEffect(() => {
-    const t = setInterval(() => setIdx((p) => (p + 1) % images.length), 6000);
-    return () => clearInterval(t);
-  }, [images.length]);
-
-  return (
-    <div className="absolute inset-0">
-      {/* Always render current image as base layer */}
-      <img
-        key={`base-${idx}`}
-        src={images[idx]}
-        alt=""
-        className="absolute inset-0 h-full w-full object-cover"
-        style={{ filter: "brightness(0.25) saturate(1.1)" }}
-        loading="lazy"
-        width={1280}
-        height={720}
-      />
-      {/* Fade layer on top for smooth transition */}
-      <AnimatePresence mode="wait">
-        <motion.img
-          key={idx}
-          src={images[idx]}
-          alt=""
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1.5, ease: "easeInOut" }}
-          className="absolute inset-0 h-full w-full object-cover"
-          style={{ filter: "brightness(0.25) saturate(1.1)" }}
-          loading="lazy"
-          width={1280}
-          height={720}
-        />
-      </AnimatePresence>
-    </div>
-  );
-}
+import { PremiumShowcaseCard } from "./PremiumShowcaseCard";
+import { premiumShowcaseFirms } from "./premium-showcase-data";
 
 export function AdCarousel() {
-  const [current, setCurrent] = useState(0);
-
-  const next = useCallback(() => setCurrent((p) => (p + 1) % firms.length), []);
-  const prev = useCallback(() => setCurrent((p) => (p - 1 + firms.length) % firms.length), []);
-
-  /* Firm rotates every 18s (6s per image × 3 images) */
-  useEffect(() => {
-    const t = setInterval(next, 18000);
-    return () => clearInterval(t);
-  }, [next]);
-
-  const firm = firms[current];
-
   return (
-    <section className="relative h-[380px] sm:h-[400px] w-full overflow-hidden">
-      {/* Background slideshow */}
-      <ImageSlideshow images={firm.images} />
+    <section className="bg-navy py-10 sm:py-12">
+      <div className="container">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-6 sm:mb-8">
+            <p className="text-xs font-bold uppercase tracking-[0.26em] text-gold">Premium showcase</p>
+            <h2 className="mt-2 text-2xl font-black tracking-tight text-primary-foreground sm:text-3xl">
+              Izdvojene firme na BalkanLink
+            </h2>
+            <p className="mt-2 max-w-2xl text-sm leading-7 text-primary-foreground/60 sm:text-base">
+              Svaka firma je odvojena, pregledna i prikazana kao mini prezentacija sa logotipom, opisom i stabilnim vizualima.
+            </p>
+          </div>
 
-      {/* Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[hsl(215,68%,4%/0.94)] via-[hsl(215,55%,6%/0.75)] to-[hsl(215,68%,4%/0.94)]" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[hsl(215,68%,4%/0.85)] to-transparent" />
-
-      {/* Gold glow */}
-      <div
-        className="absolute left-1/2 top-1/2 h-40 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[hsl(var(--gold)/0.04)]"
-        style={{ filter: "blur(80px)" }}
-      />
-
-      {/* Content */}
-      <div className="container relative z-10 flex h-full items-center">
-        <div className="mx-auto flex w-full max-w-4xl items-center gap-8 md:gap-12">
-          {/* Left: firm info */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={current}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.7, ease: "easeInOut" }}
-              className="flex-1 min-w-0"
-            >
-              {/* Sponsored label */}
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[hsl(var(--gold)/0.2)] bg-[hsl(var(--gold)/0.08)] px-3 py-1">
-                <Megaphone className="h-3 w-3 text-[hsl(var(--gold))]" />
-                <span className="text-[10px] font-bold uppercase tracking-widest text-[hsl(var(--gold))]">
-                  Premium Partner
-                </span>
-              </div>
-
-              {/* Logo + Name */}
-              <div className="mb-3 flex items-center gap-4">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-white/10 backdrop-blur-sm overflow-hidden border border-white/10">
-                  <img
-                    src={firm.logoUrl}
-                    alt={`${firm.name} logo`}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                <h2 className="font-heading text-2xl font-extrabold text-white sm:text-3xl">
-                  {firm.name}
-                </h2>
-              </div>
-
-              <p className="mb-6 max-w-md text-sm leading-relaxed text-white/60 sm:text-base">
-                {firm.description}
-              </p>
-
-              {/* CTAs */}
-              <div className="flex flex-wrap gap-3">
-                <Button
-                  asChild
-                  className="gap-2 rounded-xl bg-[hsl(var(--gold))] px-6 font-bold text-[hsl(var(--gold-foreground))] shadow-[0_4px_20px_hsl(var(--gold)/0.3)] hover:bg-[hsl(var(--gold-light))] hover:shadow-[0_6px_28px_hsl(var(--gold)/0.4)] transition-all"
-                >
-                  <a href={firm.website} target="_blank" rel="noopener noreferrer">
-                    Posjeti stranicu <ExternalLink className="h-3.5 w-3.5" />
-                  </a>
-                </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  className="gap-2 rounded-xl border-white/15 bg-white/5 px-6 font-semibold text-white hover:bg-white/10 hover:border-white/25 transition-all"
-                >
-                  <a href={firm.contactEmail}>
-                    Kontakt <ArrowRight className="h-3.5 w-3.5" />
-                  </a>
-                </Button>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-
-          {/* Right: thumbnail strip (desktop) */}
-          <div className="hidden md:flex flex-col gap-2">
-            {firm.images.map((img, i) => (
-              <div
-                key={i}
-                className="h-20 w-32 overflow-hidden rounded-lg border border-white/10 shadow-lg"
-              >
-                <img
-                  src={img}
-                  alt=""
-                  className="h-full w-full object-cover"
-                  style={{ filter: "brightness(0.6)" }}
-                  loading="lazy"
-                  width={128}
-                  height={80}
-                />
-              </div>
+          <div className="space-y-6 sm:space-y-8">
+            {premiumShowcaseFirms.map((firm, index) => (
+              <PremiumShowcaseCard key={firm.name} firm={firm} priority={index === 0} />
             ))}
           </div>
         </div>
       </div>
-
-      {/* Nav arrows */}
-      {firms.length > 1 && (
-        <>
-          <button
-            onClick={prev}
-            className="absolute left-3 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/10 bg-white/5 p-2 text-white/50 backdrop-blur-sm hover:bg-white/10 hover:text-white transition-all"
-            aria-label="Previous"
-          >
-            <ChevronLeft className="h-5 w-5" />
-          </button>
-          <button
-            onClick={next}
-            className="absolute right-3 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/10 bg-white/5 p-2 text-white/50 backdrop-blur-sm hover:bg-white/10 hover:text-white transition-all"
-            aria-label="Next"
-          >
-            <ChevronRight className="h-5 w-5" />
-          </button>
-        </>
-      )}
-
-      {/* Dots */}
-      <div className="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 gap-2">
-        {firms.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => setCurrent(idx)}
-            className={`rounded-full transition-all duration-500 ${
-              idx === current
-                ? "h-2 w-7 bg-[hsl(var(--gold))] shadow-[0_0_8px_hsl(var(--gold)/0.5)]"
-                : "h-2 w-2 bg-white/20 hover:bg-white/40"
-            }`}
-            aria-label={`Firma ${idx + 1}`}
-          />
-        ))}
-      </div>
-
-      {/* Separators */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[hsl(var(--gold)/0.15)] to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[hsl(var(--gold)/0.25)] to-transparent" />
     </section>
   );
 }
