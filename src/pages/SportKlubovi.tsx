@@ -107,13 +107,18 @@ export default function SportKlubovi() {
     <>
       <section className="relative overflow-hidden" style={{ background: "#0F1B2D" }}>
         <div className="absolute inset-0 bg-gradient-to-br from-[#E3B341]/5 via-transparent to-[#E3B341]/3" />
-        <div className="container relative max-w-5xl py-14 text-center">
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-2xl font-bold text-white md:text-4xl">
-            🏆 Sport & Klubovi
-          </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="mx-auto mt-3 max-w-xl text-sm text-white/50 md:text-base">
-            Balkanski sportski klubovi aktivni u Njemačkoj.
-          </motion.p>
+        <div className="container relative max-w-5xl py-14">
+          <button onClick={() => window.history.length > 2 ? navigate(-1) : navigate("/")} className="mb-4 inline-flex items-center gap-1 text-xs text-white/60 hover:text-white">
+            <ArrowLeft className="h-3 w-3" /> Nazad
+          </button>
+          <div className="text-center">
+            <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-2xl font-bold text-white md:text-4xl">
+              🏆 Sport & Klubovi
+            </motion.h1>
+            <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="mx-auto mt-3 max-w-xl text-sm text-white/50 md:text-base">
+              Balkanski sportski klubovi aktivni u Njemačkoj.
+            </motion.p>
+          </div>
         </div>
       </section>
 
