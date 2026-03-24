@@ -2577,6 +2577,373 @@ export const guides: Guide[] = [
   },
 ];
 
+// ===================== ARBEIT – EU Blue Card =====================
+guides.push({
+  slug: "eu-blue-card",
+  category: "arbeit",
+  title: {
+    de: "EU Blue Card – Aufenthaltserlaubnis",
+    bs: "EU Blue Card – Boravišna dozvola",
+    en: "EU Blue Card – Residence Permit",
+  },
+  who: {
+    de: "Hochqualifizierte Fachkräfte mit Arbeitsvertrag und anerkanntem Hochschulabschluss.",
+    bs: "Visokokvalificirani radnici sa ugovorom o radu i priznatom fakultetskom diplomom.",
+    en: "Highly qualified workers with an employment contract and a recognised university degree.",
+  },
+  authority: {
+    de: "Ausländerbehörde",
+    bs: "Ured za strance (Ausländerbehörde)",
+    en: "Foreigners Authority (Ausländerbehörde)",
+  },
+  formName: {
+    de: "Antrag auf Erteilung / Verlängerung einer Aufenthaltserlaubnis",
+    bs: "Zahtjev za izdavanje / produženje boravišne dozvole",
+    en: "Application for Issuance / Extension of a Residence Permit",
+  },
+  steps: {
+    de: [],
+    en: [],
+    bs: [
+      // KORAK 1 – Zweck (Svrha zahtjeva)
+      {
+        field: "Svrha zahtjeva (Zweck)",
+        instruction: "Na vrhu formulara označavaš zašto podnosiš zahtjev. Za Blue Card odaberi 'Erteilung' (izdavanje) ako tražiš prvi put, ili 'Verlängerung' (produženje) ako već imaš Blue Card. Zatim označiš 'Aufenthaltserlaubnis'.",
+        cards: [
+          {
+            whatToWrite: "Označi 'Erteilung' ako tražiš Blue Card prvi put. Označi 'Verlängerung' ako produžavaš. U odjelu ispod označi 'Aufenthaltserlaubnis'.",
+            whereToFind: "Pogledaj da li ti je ovo prvi zahtjev ili produženje postojeće dozvole.",
+            format: "Kvačica (☑) na odgovarajućem polju",
+            commonMistakes: "Označavanje pogrešnog polja (npr. Niederlassungserlaubnis umjesto Aufenthaltserlaubnis). Blue Card spada pod Aufenthaltserlaubnis!",
+            whenToLeaveEmpty: "Nikada – ovo polje je obavezno.",
+            example: "☑ Erteilung + ☑ Aufenthaltserlaubnis",
+          },
+        ],
+      },
+      // KORAK 2 – Zweck des Aufenthalts
+      {
+        field: "Svrha boravka (Zweck des Aufenthalts)",
+        instruction: "Polje 1 formulara. Ovdje upisuješ razlog boravka. Za Blue Card upiši 'Blaue Karte EU – Beschäftigung' ili 'Erwerbstätigkeit (Blaue Karte EU)'.",
+        cards: [
+          {
+            whatToWrite: "Upiši tačan razlog: 'Blaue Karte EU' ili 'Beschäftigung als Fachkraft (Blaue Karte EU §18g AufenthG)'.",
+            whereToFind: "Ovo je tvoja namjera – piši na osnovu ugovora o radu.",
+            format: "Slobodan tekst, poželjno na njemačkom",
+            commonMistakes: "Pisanje samo 'Arbeit' ili 'Beschäftigung' bez pominjanja Blue Card. Ured može obraditi kao običnu radnu dozvolu!",
+            whenToLeaveEmpty: "Nikada – obavezno polje.",
+            example: "Blaue Karte EU – Beschäftigung als Softwareentwickler",
+          },
+        ],
+      },
+      // KORAK 3 – Lični podaci
+      {
+        field: "Lični podaci (Persönliche Angaben)",
+        instruction: "Polja 2–6: Prezime, djevojačko prezime, ime, datum rođenja, mjesto rođenja i državljanstvo. Upiši tačno kako piše u pasošu – svako odstupanje može izazvati probleme.",
+        cards: [
+          {
+            whatToWrite: "Prezime (Familienname): kako piše u pasošu. Djevojačko prezime (Geburtsname): samo ako se razlikuje. Ime (Vorname): sva imena iz pasoša. Datum rođenja: dan.mjesec.godina. Mjesto rođenja: grad i država. Državljanstvo: tvoje trenutno.",
+            whereToFind: "Sve podatke nađeš u svom pasošu na stranici sa fotografijom.",
+            format: "Prezime: tekst. Datum: DD.MM.GGGG. Državljanstvo: puni naziv države.",
+            commonMistakes: "Pogrešan format datuma (američki MM/DD umjesto DD.MM.GGGG). Pisanje samo jednog imena ako ih imaš više u pasošu. Skraćivanje imena.",
+            whenToLeaveEmpty: "Djevojačko prezime ostavi prazno ako se nikada nisi prezivao/la drugačije.",
+            example: "Familienname: Hadžić\nGeburtsname: (prazno)\nVorname: Amir\nGeburtsdatum: 12.05.1990\nGeburtsort: Sarajevo, Bosnien und Herzegowina\nStaatsangehörigkeit: bosnisch-herzegowinisch",
+          },
+        ],
+      },
+      // KORAK 4 – Adresa i bračni status
+      {
+        field: "Adresa i bračni status (Anschrift & Familienstand)",
+        instruction: "Polja 7–9: Trenutna adresa u Njemačkoj, bračni status i spol. Adresa mora odgovarati tvojoj Anmeldung prijavi!",
+        cards: [
+          {
+            whatToWrite: "Adresa: ulica, kućni broj, poštanski broj, grad. Bračni status: označi odgovarajuće polje. Spol: männlich ili weiblich.",
+            whereToFind: "Adresa: pogledaj svoju Meldebescheinigung (potvrda o prijavi prebivališta). Bračni status: vjenčani list.",
+            format: "Adresa: ulica + br., PLZ + grad. Status: kvačica.",
+            commonMistakes: "Adresa ne odgovara prijavi prebivališta. Ovo je čest razlog za odbijanje! Ne označiti bračni status.",
+            whenToLeaveEmpty: "Nikada – sva polja su obavezna.",
+            example: "Musterstraße 15, 10115 Berlin\n☑ ledig (samac)\n☑ männlich",
+          },
+        ],
+      },
+      // KORAK 5 – Supružnik/Partner
+      {
+        field: "Podaci o supružniku (Ehegatte)",
+        instruction: "Polje 10: Ako si u braku, upiši podatke o supružniku – ime, prezime, datum i mjesto rođenja, adresu i državljanstvo.",
+        cards: [
+          {
+            whatToWrite: "Ime i prezime supružnika, datum i mjesto rođenja, trenutna adresa, državljanstvo.",
+            whereToFind: "Pasoš supružnika i vjenčani list.",
+            format: "Tekst polja. Datum: DD.MM.GGGG.",
+            commonMistakes: "Zaboraviti upisati supružnika ako si u braku. Neodgovarajući podaci u odnosu na vjenčani list.",
+            whenToLeaveEmpty: "Ako nisi u braku / registrovanom partnerstvu, ostavi prazno.",
+            example: "Name: Hadžić\nVorname: Amina\nGeburtsdatum und Geburtsort: 23.08.1992, Tuzla\nAnschrift: Musterstraße 15, 10115 Berlin\nStaatsangehörigkeit: bosnisch-herzegowinisch",
+          },
+        ],
+      },
+      // KORAK 6 – Djeca
+      {
+        field: "Podaci o djeci (Kinder)",
+        instruction: "Polje 11: Upiši podatke o djeci – ime, prezime, datum i mjesto rođenja. Formular ima prostor za troje djece.",
+        cards: [
+          {
+            whatToWrite: "Za svako dijete: prezime, ime, datum i mjesto rođenja.",
+            whereToFind: "Rodni listovi djece i njihovi pasoši.",
+            format: "Tekst. Datum: DD.MM.GGGG.",
+            commonMistakes: "Ne upisati svu djecu. Pogrešan datum rođenja djeteta.",
+            whenToLeaveEmpty: "Ako nemaš djece, ostavi prazno.",
+            example: "1.: Name: Hadžić, Vorname: Kenan\nGeburtsdatum und Ort: 15.03.2018, Berlin",
+          },
+        ],
+      },
+      // KORAK 7 – Porodica koja dolazi
+      {
+        field: "Dolazak porodice (Familienangehörige mit einreisen)",
+        instruction: "Polje 12: Da li članovi porodice dolaze s tobom ili naknadno? Ako da, navedi ko.",
+        cards: [
+          {
+            whatToWrite: "Označi 'ja' ili 'nein'. Ako da – navedi imena i odnos (supružnik, dijete).",
+            whereToFind: "Tvoja porodična situacija i planovi.",
+            format: "Kvačica + slobodan tekst.",
+            commonMistakes: "Označiti 'nein' a zatim naknadno tražiti spajanje porodice – bolje odmah navesti plan.",
+            whenToLeaveEmpty: "Ako niko ne dolazi, označi 'nein'.",
+            example: "☑ ja – Ehefrau Amina Hadžić, Kind Kenan Hadžić",
+          },
+        ],
+      },
+      // KORAK 8 – Roditelji
+      {
+        field: "Podaci o roditeljima (Vater / Mutter)",
+        instruction: "Polja 13–14: Ime i prezime oca i majke. Ovo je standardno polje za identifikaciju.",
+        cards: [
+          {
+            whatToWrite: "Puno ime i prezime oca i majke.",
+            whereToFind: "Rodni list ili pasoš.",
+            format: "Tekst: Prezime, Ime.",
+            commonMistakes: "Pisanje nadimaka umjesto punih imena. Izostavljanje djevojačkog prezimena majke.",
+            whenToLeaveEmpty: "Nikada – obavezno polje.",
+            example: "Vater: Hadžić, Mujo\nMutter: Hadžić geb. Begović, Fatima",
+          },
+        ],
+      },
+      // KORAK 9 – Pasoš
+      {
+        field: "Putna isprava (Reiseausweis / Pass)",
+        instruction: "Polje 15: Podaci o tvom pasošu – broj, datum izdavanja, ko ga je izdao i do kad važi.",
+        cards: [
+          {
+            whatToWrite: "Vrsta dokumenta, broj pasoša, datum izdavanja, mjesto izdavanja, datum isteka.",
+            whereToFind: "Tvoj pasoš – stranica sa fotografijom.",
+            format: "Broj: alfanumerički. Datumi: DD.MM.GGGG.",
+            commonMistakes: "Pasoš ističe za manje od 6 mjeseci – mora biti važeći tokom cijelog boravka! Pogrešno prepisivanje broja pasoša.",
+            whenToLeaveEmpty: "Nikada – obavezno.",
+            example: "Reisepass\nNr.: B1234567\nausgestellt am: 01.03.2022\nausgestellt von: MUP BiH, Sarajevo\ngültig bis: 01.03.2032",
+          },
+        ],
+      },
+      // KORAK 10 – Prethodni boravak
+      {
+        field: "Prethodni boravak u Njemačkoj/EU (Frühere Aufenthalte)",
+        instruction: "Polja 18–20: Kada si ušao/la u Njemačku, da li si ranije boravio/la u Njemačkoj ili EU, i podaci o trenutnoj boravišnoj dozvoli (ako imaš).",
+        cards: [
+          {
+            whatToWrite: "Datum ulaska u Njemačku. Da li si ranije boravio/la – ako da, navedi periode i mjesta. Podaci o trenutnoj boravišnoj dozvoli.",
+            whereToFind: "Pečati u pasošu, prethodne boravišne dozvole, eAT kartica.",
+            format: "Datumi: DD.MM.GGGG. Slobodan tekst za periode.",
+            commonMistakes: "Zaboraviti navesti prethodne boravke – ured ima pristup podacima i lako provjeri! Pogrešan datum ulaska.",
+            whenToLeaveEmpty: "Ako nikada nisi bio/la u Njemačkoj/EU ranije, označi 'nein'.",
+            example: "Eingereist am: 15.01.2024\nFrühere Aufenthalte: ☑ ja\nvom 01.09.2019 bis 30.06.2023 in München (Studium)",
+          },
+        ],
+      },
+      // KORAK 11 – Trajanje boravka
+      {
+        field: "Planirano trajanje boravka (Dauer des Aufenthalts)",
+        instruction: "Polje 21: Koliko dugo planiraš ostati. Za Blue Card, upiši trajanje ugovora o radu ili 'unbefristet' ako je ugovor na neodređeno.",
+        cards: [
+          {
+            whatToWrite: "Planirano trajanje boravka u godinama ili 'unbefristet'.",
+            whereToFind: "Tvoj ugovor o radu – pogledaj trajanje.",
+            format: "Slobodan tekst ili broj godina/mjeseci.",
+            commonMistakes: "Pisanje prekratkog perioda može dovesti do kraće dozvole. Blue Card se obično daje na 4 godine ili trajanje ugovora + 3 mjeseca.",
+            whenToLeaveEmpty: "Nikada – obavezno.",
+            example: "Unbefristet (neograničeno) ili 3 Jahre",
+          },
+        ],
+      },
+      // KORAK 12 – Zaposlenje (KLJUČNO!)
+      {
+        field: "Zaposlenje – Poslodavac i plata (Arbeitgeber)",
+        instruction: "Polje 22: OVO JE NAJVAŽNIJI DIO ZA BLUE CARD! Upiši naziv firme, adresu, i tvoju poziciju. Bruto godišnja plata MORA biti iznad minimuma (43.800€ za deficitarna zanimanja, 45.300€ za ostala).",
+        cards: [
+          {
+            whatToWrite: "Naziv firme, adresa firme (ulica, grad), tvoja pozicija / radno mjesto.",
+            whereToFind: "Ugovor o radu – prva stranica. Ako nemaš adresu napamet, pogledaj ugovor ili web stranicu firme.",
+            format: "Tekst: Naziv firme, puna adresa.",
+            commonMistakes: "Ne navesti punu adresu firme. Pisanje skraćenog naziva firme. Plata u ugovoru ispod minimalnog praga – ured će ODBITI zahtjev!",
+            whenToLeaveEmpty: "Nikada – bez ovog polja nema Blue Card.",
+            example: "Arbeitgeber: Siemens AG\nin: Werner-von-Siemens-Straße 1, 80333 München\nPosition: Softwareentwickler",
+          },
+          {
+            whatToWrite: "PROVJERI PLATU: Bruto godišnja plata mora biti min. 43.800€ (IT, inženjeri, ljekari – deficitarna zanimanja) ili 45.300€ (ostala zanimanja). Ovo je za 2024. – iznosi se ažuriraju godišnje!",
+            whereToFind: "Ugovor o radu – sekcija o plati (Vergütung / Gehalt). Pogledaj bruto (Brutto), ne neto!",
+            format: "Broj u EUR, godišnji bruto iznos.",
+            commonMistakes: "Navesti neto umjesto bruto plate. Plata ispod praga. Ako radiš nepuno radno vrijeme, plata se računa za puno – ali ugovor mora biti puno radno vrijeme!",
+            whenToLeaveEmpty: "Nikada.",
+            example: "Bruttojahresgehalt: 55.000 € (bruto godišnja plata)",
+          },
+        ],
+      },
+      // KORAK 13 – Izvor prihoda
+      {
+        field: "Izvor prihoda (Einkünfte / Lebensunterhalt)",
+        instruction: "Polje 23: Iz kojih izvora pokrivati troškove života. Za Blue Card, tvoja plata je glavni izvor.",
+        cards: [
+          {
+            whatToWrite: "Navedi izvor prihoda: plata iz zaposlenja.",
+            whereToFind: "Ugovor o radu.",
+            format: "Slobodan tekst.",
+            commonMistakes: "Pisanje 'od roditelja' ili 'ušteđevina' kao primarni izvor – za Blue Card mora biti plata!",
+            whenToLeaveEmpty: "Nikada.",
+            example: "Erwerbstätigkeit (zaposlenje) – Gehalt lt. Arbeitsvertrag",
+          },
+        ],
+      },
+      // KORAK 14 – Socijalna davanja
+      {
+        field: "Socijalna davanja (Sozialleistungen)",
+        instruction: "Polje 24: Da li primaš ili je neko u tvojoj porodici primao socijalna davanja (ALG II, Sozialhilfe, Wohngeld).",
+        cards: [
+          {
+            whatToWrite: "Označi 'nein' ako ne primaš nikakva socijalna davanja.",
+            whereToFind: "Tvoja lična situacija.",
+            format: "Kvačica: ja/nein.",
+            commonMistakes: "Označiti 'ja' ako primaš Kindergeld – Kindergeld NIJE socijalna pomoć i ne utiče na Blue Card!",
+            whenToLeaveEmpty: "Nikada – označi jedno od dva.",
+            example: "☑ nein",
+          },
+        ],
+      },
+      // KORAK 15 – Zdravstveno osiguranje
+      {
+        field: "Zdravstveno osiguranje (Krankenversicherung)",
+        instruction: "Polje 25: Da li imaš zdravstveno osiguranje u Njemačkoj. Za Blue Card – OBAVEZNO.",
+        cards: [
+          {
+            whatToWrite: "Označi 'ja' i upiši naziv osiguravajućeg društva.",
+            whereToFind: "Kartica zdravstvenog osiguranja ili potvrda od osiguravajućeg društva.",
+            format: "Kvačica + naziv firme.",
+            commonMistakes: "Putno osiguranje NIJE dovoljno – mora biti njemačko zdravstveno osiguranje (gesetzlich ili privat). Nemati osiguranje prilikom podnošenja zahtjeva.",
+            whenToLeaveEmpty: "Nikada.",
+            example: "☑ ja\nVersicherung: Techniker Krankenkasse (TK)",
+          },
+        ],
+      },
+      // KORAK 16 – Kaznena evidencija
+      {
+        field: "Kaznena evidencija (Vorbestraft?)",
+        instruction: "Polje 26: Da li si ikada bio/la kažnjavan/a. Budi iskren/a – lažna izjava je krivično djelo!",
+        cards: [
+          {
+            whatToWrite: "Označi 'nein' ako nemaš kaznenu evidenciju. Ako imaš – navedi sud, razlog i kaznu.",
+            whereToFind: "Tvoja lična situacija. Ako nisi siguran/na, traži uvjerenje o nekažnjavanju iz zemlje porijekla.",
+            format: "Kvačica + tekst ako 'ja'.",
+            commonMistakes: "Laganje! Ured provjerava evidenciju. Lažna izjava može dovesti do trajnog odbijanja i zabrane ulaska.",
+            whenToLeaveEmpty: "Nikada – obavezno odgovoriti.",
+            example: "☑ nein",
+          },
+        ],
+      },
+      // KORAK 17 – Prethodno odbijanje/deportacija
+      {
+        field: "Prethodno odbijanje ili deportacija (Ausweisung / Abschiebung)",
+        instruction: "Polje 27: Da li ti je ikada odbijen zahtjev za boravak ili si bio/la deportovan/a iz Njemačke.",
+        cards: [
+          {
+            whatToWrite: "Označi 'nein' ako nikada nisi bio/la deportovan/a ili odbijen/a. Ako jesi – navedi razlog.",
+            whereToFind: "Tvoja lična istorija. Provjeri stare odluke ureda za strance.",
+            format: "Kvačica + tekst.",
+            commonMistakes: "Sakriti prethodno odbijanje – ured ima pristup centralnoj bazi podataka (AZR) i UVIJEK provjeri!",
+            whenToLeaveEmpty: "Nikada.",
+            example: "☑ nein",
+          },
+        ],
+      },
+      // KORAK 18 – Potpis i predaja
+      {
+        field: "Potpis i predaja zahtjeva (Unterschrift)",
+        instruction: "Posljednji dio: Potpiši formular i predaj ga lično kod Ausländerbehörde. Potpis mora biti istovjetan potpisu u pasošu.",
+        cards: [
+          {
+            whatToWrite: "Mjesto, datum i tvoj potpis (prezime, ime).",
+            whereToFind: "Ne treba nikakav dokument – potpiši se!",
+            format: "Mjesto + datum + potpis rukom.",
+            commonMistakes: "Zaboraviti se potpisati. Potpis ne odgovara pasošu. Slanje formulara poštom umjesto lične predaje (većina ureda zahtijeva lični dolazak!).",
+            whenToLeaveEmpty: "Nikada – nepotpisan formular je nevažeći!",
+            example: "Berlin, den 15.03.2024\n(potpis) Hadžić, Amir\n\n💡 Savjeti za predaju:\n• Zakaži termin online (termin.berlin.de ili slično za tvoj grad)\n• Donesi SVE originale + kopije\n• Dođi 15 min ranije\n• Blue Card se obično izdaje za 4 godine ili trajanje ugovora + 3 mjeseca",
+          },
+        ],
+      },
+    ],
+  },
+  documents: {
+    de: [
+      "Gültiger Reisepass",
+      "Biometrisches Passfoto",
+      "Anerkannter Hochschulabschluss",
+      "Arbeitsvertrag mit Gehaltsangabe",
+      "Krankenversicherungsnachweis",
+      "Meldebescheinigung",
+      "Lebenslauf",
+    ],
+    bs: [
+      "Važeći pasoš (min. 6 mjeseci)",
+      "Biometrijska fotografija (35x45mm)",
+      "Priznata visokoškolska diploma (provjeri na anabin.kmk.org)",
+      "Ugovor o radu sa navedenom bruto platom",
+      "Potvrda zdravstvenog osiguranja",
+      "Potvrda o prijavi prebivališta (Meldebescheinigung)",
+      "CV / životopis",
+    ],
+    en: [
+      "Valid passport (min. 6 months)",
+      "Biometric photo (35x45mm)",
+      "Recognised university degree",
+      "Employment contract with salary",
+      "Health insurance certificate",
+      "Registration certificate (Meldebescheinigung)",
+      "CV / résumé",
+    ],
+  },
+  processingTime: {
+    de: "2–8 Wochen (je nach Ausländerbehörde)",
+    bs: "2–8 sedmica (zavisi od ureda za strance)",
+    en: "2–8 weeks (varies by foreigners authority)",
+  },
+  commonMistakes: {
+    de: [
+      "Gehalt unter der Mindestgrenze",
+      "Hochschulabschluss nicht anerkannt",
+      "Keine Krankenversicherung",
+    ],
+    bs: [
+      "Plata ispod minimalnog praga (43.800€ / 45.300€ bruto godišnje)",
+      "Diploma nije priznata – obavezno provjeri na anabin.kmk.org PRIJE predaje zahtjeva",
+      "Označavanje pogrešne vrste dozvole na formularu (mora biti Aufenthaltserlaubnis, ne Niederlassungserlaubnis)",
+      "Ugovor o radu ne navodi jasno bruto platu",
+      "Zdravstveno osiguranje nije njemačko (putno osiguranje NE važi)",
+      "Kasno zakazivanje termina – čekanje može biti 4–8 sedmica",
+    ],
+    en: [
+      "Salary below minimum threshold",
+      "University degree not recognised",
+      "No German health insurance",
+    ],
+  },
+  officialPdf: "",
+  onlineLink: "",
+  officialInfoUrl: "https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/blaue-karte-eu",
+});
+
 export function getGuidesByCategory(category: Guide["category"]) {
   return guides.filter((g) => g.category === category);
 }
