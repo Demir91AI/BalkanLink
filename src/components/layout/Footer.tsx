@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Star } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-
+import BrandLogo from "@/components/BrandLogo";
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -12,17 +12,7 @@ export default function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
-            <Link to="/" className="flex items-center gap-2">
-              <svg width="24" height="24" viewBox="0 0 40 40" fill="none" className="block shrink-0" style={{ filter: 'drop-shadow(0 0 4px rgba(34,211,238,0.15))' }}>
-                <text x="1" y="31" fontFamily="'Arial Black',Arial,sans-serif" fontWeight="900" fontSize="30" letterSpacing="-1">
-                  <tspan fill="white">B</tspan><tspan fill="hsl(45,93%,49%)">L</tspan>
-                </text>
-                <polyline points="18,22 19.2,22 20,19 21,25 21.8,22 23,22" fill="none" stroke="hsl(45,93%,49%)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="0.7"/>
-              </svg>
-              <span className="font-heading text-xl font-extrabold leading-none tracking-tight text-white">
-                Balkan<span className="text-gold">Link</span>
-              </span>
-            </Link>
+            <BrandLogo variant="small" />
             <p className="mt-3 text-[13px] leading-relaxed text-white/35">
               {t("footer.tagline")}
             </p>
@@ -32,9 +22,9 @@ export default function Footer() {
           <div>
             <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/25">{t("footer.navSection")}</h4>
             <nav className="flex flex-col gap-2.5">
-              <Link to="/" className="text-[13px] text-white/50 transition-colors hover:text-gold">{t("footer.navHome")}</Link>
-              <Link to="/dolazak" className="text-[13px] text-white/50 transition-colors hover:text-gold">{t("footer.navHow")}</Link>
-              <Link to="/formulari" className="text-[13px] text-white/50 transition-colors hover:text-gold">{t("footer.navFormulari") || "Formulari"}</Link>
+              <Link to="/" className="text-[13px] text-white/50 transition-colors hover:text-brand-orange">{t("footer.navHome")}</Link>
+              <Link to="/dolazak" className="text-[13px] text-white/50 transition-colors hover:text-brand-orange">{t("footer.navHow")}</Link>
+              <Link to="/formulari" className="text-[13px] text-white/50 transition-colors hover:text-brand-orange">{t("footer.navFormulari") || "Formulari"}</Link>
             </nav>
           </div>
 
@@ -42,17 +32,17 @@ export default function Footer() {
           <div>
             <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/25">{t("footer.legalSection")}</h4>
             <nav className="flex flex-col gap-2.5">
-              <Link to="/impressum" className="text-[13px] text-white/50 transition-colors hover:text-gold">{t("footer.imprint")}</Link>
-              <Link to="/datenschutz" className="text-[13px] text-white/50 transition-colors hover:text-gold">{t("footer.privacy")}</Link>
-              <Link to="/haftungsausschluss" className="text-[13px] text-white/50 transition-colors hover:text-gold">{t("footer.haftung")}</Link>
-              <Link to="/ki-hinweis" className="text-[13px] text-white/50 transition-colors hover:text-gold">{t("footer.kiHinweis")}</Link>
+              <Link to="/impressum" className="text-[13px] text-white/50 transition-colors hover:text-brand-orange">{t("footer.imprint")}</Link>
+              <Link to="/datenschutz" className="text-[13px] text-white/50 transition-colors hover:text-brand-orange">{t("footer.privacy")}</Link>
+              <Link to="/haftungsausschluss" className="text-[13px] text-white/50 transition-colors hover:text-brand-orange">{t("footer.haftung")}</Link>
+              <Link to="/ki-hinweis" className="text-[13px] text-white/50 transition-colors hover:text-brand-orange">{t("footer.kiHinweis")}</Link>
             </nav>
           </div>
 
           {/* Trust */}
           <div>
             <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/25">{t("footer.trustSection")}</h4>
-            <div className="flex items-center gap-1 text-gold">
+            <div className="flex items-center gap-1 text-brand-orange">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="h-3.5 w-3.5 fill-current" />
               ))}
@@ -60,7 +50,7 @@ export default function Footer() {
             </div>
             <p className="mt-1.5 text-[12px] text-white/30">{t("footer.trustRating")}</p>
             <p className="mt-4 text-[13px] font-medium text-white/40">
-              <span className="text-gold font-semibold">10.000+</span> {t("footer.trustUsers")}
+              <span className="text-brand-orange font-semibold">10.000+</span> {t("footer.trustUsers")}
             </p>
           </div>
         </div>

@@ -53,6 +53,10 @@ export default {
           light: "hsl(var(--gold-light))",
           dark: "hsl(var(--gold-dark))",
         },
+        "brand-orange": {
+          DEFAULT: "hsl(var(--brand-orange))",
+          foreground: "hsl(var(--brand-orange-foreground))",
+        },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",

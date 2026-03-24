@@ -35,7 +35,7 @@ export default function Login() {
     <div className="container flex min-h-[70vh] items-center justify-center py-12">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
-          <img src={logo} alt="BalkanLink" className="mx-auto mb-4 h-10 w-auto object-contain" />
+          <div className="flex justify-center mb-4"><BrandLogo variant="full" linkHome={false} /></div>
           <CardTitle className="text-2xl">{t("auth.loginTitle")}</CardTitle>
           <CardDescription>{t("auth.loginDesc")}</CardDescription>
         </CardHeader>
