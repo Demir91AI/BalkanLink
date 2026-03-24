@@ -658,7 +658,7 @@ serve(async (req) => {
       const lang = language || "bs";
       const sg = SMART_GUIDE_MESSAGES[lang] || SMART_GUIDE_MESSAGES["bs"];
       const slug = guideSlug || (detectedForm?.slug) || "kindergeld";
-      const link = `/formulari/${slug}`;
+      const link = `/guide/${slug}`;
       const markdown = `${sg.text}\n\n👉 [${sg.label}](${link})`;
       return new Response(
         JSON.stringify({ smart_guide_redirect: true, content: markdown, guideSlug: slug, detectedForm: detectedForm }),
