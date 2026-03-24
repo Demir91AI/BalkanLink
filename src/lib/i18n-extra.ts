@@ -523,6 +523,23 @@ export const indexChatMk: Record<string, string> = {
   "ad.flowTitle": "Вашата реклама овде",
   "ad.flowSubtitle": "Позиционирајте го вашиот бизнис пред илјадници корисници.",
   "ad.flowCta": "Рекламирај",
+  "cookie.title": "Колачиња и приватност",
+  "cookie.desc": "Користиме колачиња за да го подобриме вашето искуство. Можете да ги прифатите сите или да ги прилагодите поставките.",
+  "cookie.acceptAll": "Прифати ги сите",
+  "cookie.necessaryOnly": "Само неопходни",
+  "cookie.settings": "Поставки",
+  "cookie.settingsTitle": "Поставки за колачиња",
+  "cookie.settingsDesc": "Одберете кои категории колачиња сакате да ги дозволите.",
+  "cookie.saveSettings": "Зачувај поставки",
+  "cookie.cat.necessary": "Неопходни",
+  "cookie.cat.necessary.desc": "Потребни за основните функции на страницата.",
+  "cookie.cat.functional": "Функционални",
+  "cookie.cat.functional.desc": "Овозможуваат дополнителни функции како јазик и регион.",
+  "cookie.cat.statistics": "Статистички",
+  "cookie.cat.statistics.desc": "Ни помагаат да разбереме како ја користите страницата.",
+  "cookie.cat.marketing": "Маркетинг",
+  "cookie.cat.marketing.desc": "Се користат за прикажување релевантни огласи.",
+  "cookie.footerLink": "Поставки за колачиња",
 };
 
 export const indexChatDe: Record<string, string> = {
