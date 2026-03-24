@@ -22,7 +22,7 @@ import heroStuttgart from "@/assets/hero-stuttgart.jpg";
 import heroDuesseldorf from "@/assets/hero-duesseldorf.jpg";
 import heroNuernberg from "@/assets/hero-nuernberg.jpg";
 import heroLeipzig from "@/assets/hero-leipzig.jpg";
-import heroFreilassing from "@/assets/hero-freilassing.jpg";
+import heroFreilassing from "@/assets/hero-freilassing-real.jpg";
 
 const sidebarNav = [
   { label: "Početak u Njemačkoj", icon: Footprints, to: "/dolazak/prvi-koraci" },
@@ -35,33 +35,41 @@ const sidebarNav = [
   { label: "Viza Navigator", icon: Compass, to: "/dolazak/boravisna-dozvola" },
 ];
 
+const slides = [
+  { image: heroFrankfurt, city: "FRANKFURT" },
+  { image: heroBerlin, city: "BERLIN" },
+  { image: heroMuenchen, city: "MÜNCHEN" },
+  { image: heroHamburg, city: "HAMBURG" },
+  { image: heroKoeln, city: "KÖLN" },
+  { image: heroFreilassing, city: "FREILASSING" },
+  { image: heroStuttgart, city: "STUTTGART" },
+  { image: heroDuesseldorf, city: "DÜSSELDORF" },
+  { image: heroNuernberg, city: "NÜRNBERG" },
+  { image: heroLeipzig, city: "LEIPZIG" },
+];
+
 export default function Index() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
   const { t } = useLanguage();
   const navigate = useNavigate();
 
-  const slides = [
-    { image: heroFrankfurt, city: "FRANKFURT" },
-    { image: heroBerlin, city: "BERLIN" },
-    { image: heroMuenchen, city: "MÜNCHEN" },
-    { image: heroHamburg, city: "HAMBURG" },
-    { image: heroKoeln, city: "KÖLN" },
-    { image: heroStuttgart, city: "STUTTGART" },
-    { image: heroDuesseldorf, city: "DÜSSELDORF" },
-    { image: heroNuernberg, city: "NÜRNBERG" },
-    { image: heroLeipzig, city: "LEIPZIG" },
-    { image: heroFreilassing, city: "FREILASSING" },
-  ];
-
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
-  }, [slides.length]);
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(nextSlide, 4000);
     return () => clearInterval(timer);
   }, [nextSlide]);
+
+  // Preload all images on mount
+  useEffect(() => {
+    slides.forEach((s) => {
+      const img = new Image();
+      img.src = s.image;
+    });
+  }, []);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -72,48 +80,50 @@ export default function Index() {
 
   return (
     <>
-      {/* ─── HERO — FULL WIDTH, 85-90vh ─── */}
-      <section className="relative h-[88vh] min-h-[560px] max-h-[960px] overflow-hidden bg-[hsl(var(--primary))]">
-        {/* Preload next slide to avoid flash */}
-        <div className="hidden">
-          <img src={slides[(currentSlide + 1) % slides.length].image} alt="" />
-        </div>
-
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentSlide}
-            initial={{ opacity: 0, scale: 1.05 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            className="absolute inset-0"
+      {/* ─── HERO — FULL WIDTH, 88vh ─── */}
+      <section className="relative h-[88vh] min-h-[560px] max-h-[960px] overflow-hidden bg-[hsl(215,68%,6%)]">
+        {/* Crossfade slider — all images stacked, only current one visible */}
+        {slides.map((slide, idx) => (
+          <div
+            key={idx}
+            className="absolute inset-0 transition-opacity duration-[800ms] ease-in-out"
+            style={{
+              opacity: idx === currentSlide ? 1 : 0,
+              zIndex: idx === currentSlide ? 1 : 0,
+            }}
           >
             <img
-              src={slides[currentSlide].image}
-              alt={slides[currentSlide].city}
-              className="h-full w-full object-cover"
-              style={{ filter: "brightness(0.82) saturate(1.2) contrast(1.08)" }}
+              src={slide.image}
+              alt={slide.city}
+              className="h-full w-full object-cover transition-transform duration-[4000ms] ease-out"
+              style={{
+                filter: "brightness(0.82) saturate(1.2) contrast(1.08)",
+                transform: idx === currentSlide ? "scale(1.05)" : "scale(1)",
+              }}
               loading="eager"
             />
-          </motion.div>
-        </AnimatePresence>
+          </div>
+        ))}
 
-        {/* Overlays — dark gradient + blue tint + subtle blur zone */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(215,68%,6%/0.7)] via-[hsl(215,60%,10%/0.4)] to-[hsl(215,68%,4%/0.95)]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(215,68%,4%/0.35)] via-transparent to-[hsl(215,68%,4%/0.35)]" />
-        <div className="absolute inset-0 bg-[hsl(215,70%,20%/0.08)]" />
-        <div className="absolute left-1/2 top-[40%] h-80 w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[hsl(var(--gold)/0.05)]" style={{ filter: "blur(120px)" }} />
+        {/* Overlays */}
+        <div className="absolute inset-0 z-[2] bg-gradient-to-b from-[hsl(215,68%,6%/0.7)] via-[hsl(215,60%,10%/0.4)] to-[hsl(215,68%,4%/0.95)]" />
+        <div className="absolute inset-0 z-[2] bg-gradient-to-r from-[hsl(215,68%,4%/0.35)] via-transparent to-[hsl(215,68%,4%/0.35)]" />
+        <div className="absolute inset-0 z-[2] bg-[hsl(215,70%,20%/0.08)]" />
+        <div className="absolute left-1/2 top-[40%] z-[2] h-80 w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[hsl(var(--gold)/0.05)]" style={{ filter: "blur(120px)" }} />
 
-        {/* Content */}
+        {/* Content — always on top, stable */}
         <div className="container relative z-10 flex h-full flex-col items-center justify-center text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
-            className="w-full max-w-2xl"
+            className="w-full max-w-3xl"
           >
-            <h1 className="font-heading text-3xl font-black leading-[1.12] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-[3.6rem]">
-              Sve za život u Njemačkoj.
+            <h1 className="font-heading whitespace-nowrap text-3xl font-black leading-[1.1] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-[3.6rem]" style={{ textShadow: "0 4px 24px rgba(0,0,0,0.4)" }}>
+              Sve za život u{" "}
+              <span className="text-gold drop-shadow-[0_0_28px_hsl(var(--gold)/0.45)]">
+                Njemačkoj.
+              </span>
             </h1>
 
             <p className="mx-auto mt-5 max-w-lg text-base font-medium text-white/60 sm:text-lg">
@@ -166,7 +176,7 @@ export default function Index() {
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[hsl(var(--gold)/0.3)] to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 z-10 h-px bg-gradient-to-r from-transparent via-[hsl(var(--gold)/0.3)] to-transparent" />
       </section>
 
       {/* ─── HERO AD BANNER ─── */}
