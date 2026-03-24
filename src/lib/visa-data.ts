@@ -49,6 +49,7 @@ export const visaTypes: VisaType[] = [
       "Kasno zakazivanje termina na ambasadi — termini su zauzeti mjesecima unaprijed",
       "Pogrešan tip vize — turistička viza NE dozvoljava rad",
     ],
+    guideSlug: "radna-viza",
     officialUrl: "https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/arbeiten",
   },
   {
