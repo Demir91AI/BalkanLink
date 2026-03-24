@@ -164,9 +164,8 @@ export default function CookieConsent() {
           <DialogFooter className="flex flex-col gap-2 sm:flex-col">
             <Button
               size="sm"
-              variant="outline"
               onClick={saveSettings}
-              className="border-white/15 text-white/80 hover:bg-white/10 hover:text-white text-xs h-10 w-full"
+              className="bg-[hsl(var(--primary))] hover:bg-[hsl(var(--primary))]/80 text-white font-medium text-xs h-10 w-full border border-white/20"
             >
               {t("cookie.saveSettings")}
             </Button>
