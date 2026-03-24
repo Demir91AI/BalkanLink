@@ -12,7 +12,7 @@ const LANG_NAMES: Record<string, string> = {
   sq: "shqip", xk: "shqip", mk: "македонски", de: "Deutsch", en: "English",
 };
 
-// ── FORM CATALOG (mirrors src/lib/form-catalog.ts) ──
+// ── FORM CATALOG ──
 
 const FORM_CATALOG: { slug: string; label: string; desc: string }[] = [
   { slug: "anmeldung", label: "Anmeldung", desc: "Prijava adrese stanovanja u Njemačkoj." },
@@ -47,6 +47,210 @@ const FORM_CATALOG: { slug: string; label: string; desc: string }[] = [
 
 function buildFormCatalogContext(): string {
   return FORM_CATALOG.map(f => `- ${f.label} (slug: ${f.slug}): ${f.desc}`).join("\n");
+}
+
+// ── SITE CONTENT INDEX ──
+// This is the comprehensive map of ALL BalkanLink pages the chatbot knows about.
+
+const SITE_CONTENT_INDEX = `
+────────────────────────────
+BALKANLINK PLATFORMA — KOMPLETNI SADRŽAJ
+────────────────────────────
+
+BalkanLink je nezavisna informaciona platforma za balkanske iseljenike u Njemačkoj.
+Chatbot MORA poznavati SVE sekcije i moći odgovoriti na pitanja o bilo kojem dijelu platforme.
+
+=== DOLAZAK U NJEMAČKU ===
+Sekcija za ljude koji tek dolaze ili su nedavno stigli u Njemačku.
+
+Stranice:
+- /dolazak — Početak: pregled svih koraka nakon dolaska
+- /dolazak/prijava-prebivalista — Anmeldung: kako, gdje, koji dokumenti, rokovi
+- /dolazak/boravisna-dozvola — Aufenthaltstitel: vrste dozvola, produženje, uslovi
+- /dolazak/steuer-id-i-porezna-klasa — Steuer-ID i porezne klase: objašnjenje sistema, kako dobiti
+- /dolazak/zdravstveno-osiguranje — Zdravstveno osiguranje: javno vs privatno, prijava, troškovi
+- /dolazak/bankovni-racun — Otvaranje bankovnog računa: opcije, dokumenti, online banke
+- /dolazak/prvi-koraci — Opći prvi koraci nakon dolaska u Njemačku
+- /dolazak/sozialversicherung — Socijalno osiguranje: penziono, zdravstveno, nezaposlenost
+- /dolazak/rundfunkbeitrag — Rundfunkbeitrag (GEZ): šta je, ko plaća, oslobađanje
+- /dolazak/fuehrerschein — Vozačka dozvola: konverzija, zamjena, ispiti
+- /dolazak/auto-anmelden — Registracija vozila: uvoz auta, Zulassung, TÜV
+
+=== FORMULARI I SMART GUIDE ===
+Interaktivni sistem za popunjavanje njemačkih formulara korak po korak.
+
+- /formulare — Lista svih dostupnih formulara
+- /formulari — FormCenter: pristup svim formularima
+- /formulari/:slug — Pojedinačni formular sa Smart Guide vodičem
+- /guide/:slug — Detaljni vodič za specifičnu temu
+
+=== ŽIVOT U NJEMAČKOJ ===
+Savjeti za svakodnevni život.
+
+- /zivot — Život i savjeti: svakodnevica, integracija, tips
+- /probleme — Trebam pomoć: rješavanje problema, hitne situacije
+- /familie — Porodica: djeca, škola, vrtić, roditeljstvo u Njemačkoj
+
+=== FINANSIJE I POMOĆI ===
+Finansijska davanja i kalkulatori.
+
+- /foerderungen — Pregled svih finansijskih pomoći i subvencija
+- /brutto-netto-rechner — Brutto-Netto kalkulator: izračun plate
+- /tools — Generatori i alati
+
+=== STANOVANJE I POSAO ===
+- /wohnungen — Stanovi: pretraga, savjeti za pronalazak stana
+- /stellenangebote — Poslovi: ponude, savjeti za zapošljavanje
+
+=== NUDIM / TRAŽIM (OGLASI) ===
+BalkanLink Mreža — oglasna tabla za zajednicu.
+
+- /nudim-trazim — Oglasi: postavljanje i pretraga oglasa (poslovi, usluge, stanovi, autos)
+  Kako funkcioniše: korisnik može besplatno postaviti oglas (Nudim ili Tražim).
+  Kategorije: Posao, Usluge, Stanovi, Autos.
+  PRO oglasi: istaknuti, više vidljivosti, plaćena opcija.
+
+=== ZAJEDNICA I INSTITUCIJE ===
+- /qa — Pitanja i odgovori: česta pitanja korisnika
+- /directory — Direktorij: popis balkanskih biznisa u Njemačkoj
+- /directory/submit — Prijava biznisa u direktorij
+- /ambasade-konzulati — Ambasade i konzulati: kontakt info, adrese
+
+=== PREMIUM / ČLANSTVO ===
+- /premium — BalkanLink Premium: šta uključuje, cijene, poređenje Free vs Premium
+  FREE: pristup kategorijama, zajednici, AI asistent, pretraga
+  PREMIUM: Smart Guide (polje-po-polje), generisanje dokumenata, šabloni, prioritetna podrška
+  Cijena: prikazana na stranici
+  Nema ugovora, može se otkazati bilo kad
+
+=== PRAVNE STRANICE ===
+- /impressum — Impressum: podaci o operateru platforme
+- /datenschutz — Datenschutz: privatnost podataka, GDPR, šta se prikuplja
+  Ključno: email + šifra pri registraciji, server logovi (anonimizirano), dokumenten-check lokalno u browseru
+- /disclaimer — Haftungsausschluss: platforma nije pravni savjet, bez garancije
+- /ki-hinweis — KI-Hinweis: informacije o korištenju AI tehnologije
+- /mitgliedschaft — Mitgliedschaftsbedingungen: uslovi članstva, automatsko produženje
+
+=== KORISNIČKE STRANICE ===
+- /login — Prijava
+- /register — Registracija
+- /forgot-password — Zaboravljena šifra
+- /reset-password — Reset šifre
+`;
+
+// ── SITE TOPIC DETECTION ──
+// Maps keywords to page URLs and topic names for site-wide routing
+
+type SiteTopic = { url: string; label: string; category: string };
+
+const SITE_TOPIC_MAP: Record<string, SiteTopic> = {
+  // Legal
+  "agb": { url: "/mitgliedschaft", label: "Mitgliedschaftsbedingungen", category: "legal" },
+  "uslovi": { url: "/mitgliedschaft", label: "Uslovi članstva", category: "legal" },
+  "mitgliedschaft": { url: "/mitgliedschaft", label: "Mitgliedschaftsbedingungen", category: "legal" },
+  "datenschutz": { url: "/datenschutz", label: "Datenschutzerklärung", category: "legal" },
+  "privatnost": { url: "/datenschutz", label: "Zaštita podataka", category: "legal" },
+  "gdpr": { url: "/datenschutz", label: "GDPR / Datenschutz", category: "legal" },
+  "impressum": { url: "/impressum", label: "Impressum", category: "legal" },
+  "disclaimer": { url: "/disclaimer", label: "Haftungsausschluss", category: "legal" },
+  "haftung": { url: "/disclaimer", label: "Haftungsausschluss", category: "legal" },
+  "ki-hinweis": { url: "/ki-hinweis", label: "KI-Hinweis", category: "legal" },
+  "ai hinweis": { url: "/ki-hinweis", label: "KI-Hinweis", category: "legal" },
+
+  // Premium
+  "premium": { url: "/premium", label: "BalkanLink Premium", category: "premium" },
+  "članstvo": { url: "/premium", label: "Premium članstvo", category: "premium" },
+  "clanstvo": { url: "/premium", label: "Premium članstvo", category: "premium" },
+  "paket": { url: "/premium", label: "Premium paketi", category: "premium" },
+  "cijena": { url: "/premium", label: "Premium cijena", category: "premium" },
+  "cena": { url: "/premium", label: "Premium cijena", category: "premium" },
+  "pretplata": { url: "/premium", label: "Premium pretplata", category: "premium" },
+
+  // Nudim/Trazim
+  "oglas": { url: "/nudim-trazim", label: "Nudim / Tražim", category: "ads" },
+  "oglasi": { url: "/nudim-trazim", label: "Nudim / Tražim", category: "ads" },
+  "nudim": { url: "/nudim-trazim", label: "Nudim / Tražim", category: "ads" },
+  "tražim": { url: "/nudim-trazim", label: "Nudim / Tražim", category: "ads" },
+  "trazim": { url: "/nudim-trazim", label: "Nudim / Tražim", category: "ads" },
+  "postaviti oglas": { url: "/nudim-trazim", label: "Nudim / Tražim", category: "ads" },
+  "pro oglas": { url: "/nudim-trazim", label: "PRO oglasi", category: "ads" },
+
+  // Dolazak
+  "dolazak": { url: "/dolazak", label: "Dolazak u Njemačku", category: "arrival" },
+  "prvi koraci": { url: "/dolazak/prvi-koraci", label: "Prvi koraci", category: "arrival" },
+  "prijava adrese": { url: "/dolazak/prijava-prebivalista", label: "Prijava prebivališta", category: "arrival" },
+  "prijava prebivalista": { url: "/dolazak/prijava-prebivalista", label: "Prijava prebivališta", category: "arrival" },
+  "prijava prebivališta": { url: "/dolazak/prijava-prebivalista", label: "Prijava prebivališta", category: "arrival" },
+  "zdravstveno": { url: "/dolazak/zdravstveno-osiguranje", label: "Zdravstveno osiguranje", category: "arrival" },
+  "krankenversicherung": { url: "/dolazak/zdravstveno-osiguranje", label: "Zdravstveno osiguranje", category: "arrival" },
+  "bankovni": { url: "/dolazak/bankovni-racun", label: "Bankovni račun", category: "arrival" },
+  "bankkonto": { url: "/dolazak/bankovni-racun", label: "Bankovni račun", category: "arrival" },
+  "vozačka": { url: "/dolazak/fuehrerschein", label: "Vozačka dozvola", category: "arrival" },
+  "vozacka": { url: "/dolazak/fuehrerschein", label: "Vozačka dozvola", category: "arrival" },
+  "führerschein": { url: "/dolazak/fuehrerschein", label: "Führerschein", category: "arrival" },
+  "fuehrerschein": { url: "/dolazak/fuehrerschein", label: "Führerschein", category: "arrival" },
+  "auto anmelden": { url: "/dolazak/auto-anmelden", label: "Auto anmelden", category: "arrival" },
+  "registracija auta": { url: "/dolazak/auto-anmelden", label: "Registracija vozila", category: "arrival" },
+  "uvoz auta": { url: "/dolazak/auto-anmelden", label: "Uvoz i registracija auta", category: "arrival" },
+  "sozialversicherung": { url: "/dolazak/sozialversicherung", label: "Sozialversicherung", category: "arrival" },
+  "socijalno osiguranje": { url: "/dolazak/sozialversicherung", label: "Socijalno osiguranje", category: "arrival" },
+
+  // Life
+  "posao": { url: "/stellenangebote", label: "Stellenangebote", category: "life" },
+  "poslovi": { url: "/stellenangebote", label: "Poslovi", category: "life" },
+  "job": { url: "/stellenangebote", label: "Stellenangebote", category: "life" },
+  "stan": { url: "/wohnungen", label: "Stanovi", category: "life" },
+  "stanovi": { url: "/wohnungen", label: "Stanovi", category: "life" },
+  "wohnung": { url: "/wohnungen", label: "Wohnungen", category: "life" },
+  "porodica": { url: "/familie", label: "Porodica", category: "life" },
+  "familie": { url: "/familie", label: "Familie", category: "life" },
+  "djeca": { url: "/familie", label: "Porodica i djeca", category: "life" },
+  "kinder": { url: "/familie", label: "Familie und Kinder", category: "life" },
+  "savjeti": { url: "/zivot", label: "Život i savjeti", category: "life" },
+
+  // Tools
+  "kalkulator": { url: "/brutto-netto-rechner", label: "Brutto-Netto Rechner", category: "tools" },
+  "brutto": { url: "/brutto-netto-rechner", label: "Brutto-Netto Rechner", category: "tools" },
+  "netto": { url: "/brutto-netto-rechner", label: "Brutto-Netto Rechner", category: "tools" },
+  "plata": { url: "/brutto-netto-rechner", label: "Kalkulator plate", category: "tools" },
+  "gehalt": { url: "/brutto-netto-rechner", label: "Gehaltsrechner", category: "tools" },
+  "dokumenten-check": { url: "/dokumenten-check", label: "Dokumenten-Check", category: "tools" },
+
+  // Community
+  "direktorij": { url: "/directory", label: "Direktorij", category: "community" },
+  "biznisi": { url: "/directory", label: "Balkanski biznisi", category: "community" },
+  "ambasad": { url: "/ambasade-konzulati", label: "Ambasade i konzulati", category: "community" },
+  "konzulat": { url: "/ambasade-konzulati", label: "Konzulati", category: "community" },
+  "botschaft": { url: "/ambasade-konzulati", label: "Botschaften", category: "community" },
+  "faq": { url: "/qa", label: "Pitanja i odgovori", category: "community" },
+  "pitanja": { url: "/qa", label: "Česta pitanja", category: "community" },
+
+  // Foerderungen
+  "subvencij": { url: "/foerderungen", label: "Subvencije i pomoći", category: "finance" },
+  "förderung": { url: "/foerderungen", label: "Förderungen", category: "finance" },
+  "foerderung": { url: "/foerderungen", label: "Förderungen", category: "finance" },
+  "pomoći": { url: "/foerderungen", label: "Finansijske pomoći", category: "finance" },
+  "pomoci": { url: "/foerderungen", label: "Finansijske pomoći", category: "finance" },
+
+  // Smart Guide
+  "smart guide": { url: "/formulare", label: "Smart Guide", category: "forms" },
+  "formular": { url: "/formulare", label: "Formulari", category: "forms" },
+  "formulari": { url: "/formulare", label: "Svi formulari", category: "forms" },
+};
+
+function detectSiteTopics(text: string): SiteTopic[] {
+  const lower = text.toLowerCase();
+  const found: SiteTopic[] = [];
+  const seenUrls = new Set<string>();
+  // Check longer phrases first
+  const sortedKeys = Object.keys(SITE_TOPIC_MAP).sort((a, b) => b.length - a.length);
+  for (const keyword of sortedKeys) {
+    if (lower.includes(keyword) && !seenUrls.has(SITE_TOPIC_MAP[keyword].url)) {
+      seenUrls.add(SITE_TOPIC_MAP[keyword].url);
+      found.push(SITE_TOPIC_MAP[keyword]);
+    }
+  }
+  return found.slice(0, 3);
 }
 
 // ── INTENT CLASSIFIER ──
@@ -203,7 +407,6 @@ function detectFormFromCatalog(text: string): typeof FORM_CATALOG[0] | null {
       return form;
     }
   }
-  // Also check common Bosnian/German terms
   const aliases: Record<string, string> = {
     "dječji dodatak": "kindergeld", "djecji dodatak": "kindergeld",
     "prijava adrese": "anmeldung", "prijava prebivališta": "anmeldung", "prijava prebivalista": "anmeldung",
@@ -251,35 +454,70 @@ PRAVILO: Kad korisnik kaže "Formulari i papiri" ili "Koji formulari postoje", p
 [FORM:aufenthaltstitel-verlaengerung]
 `;
 
-  const taskOrientedCore = `
+  const siteWideContext = `
+${SITE_CONTENT_INDEX}
+
+────────────────────────────
+LINKOVI U ODGOVORIMA (OBAVEZNO)
+────────────────────────────
+
+Kad odgovaraš na pitanje o bilo kojoj sekciji BalkanLinka, OBAVEZNO uključi relevantni link u odgovor koristeći Markdown format:
+- Za stranicu "Premium": [Pogledaj Premium](/premium)
+- Za stranicu "AGB/Uslovi": [Otvori uslove članstva](/mitgliedschaft)
+- Za stranicu "Datenschutz": [Otvori Datenschutz](/datenschutz)
+- Za stranicu "Oglasi": [Otvori oglase](/nudim-trazim)
+- Za stranicu "Stanovi": [Pogledaj stanove](/wohnungen)
+- Za stranicu "Poslovi": [Pogledaj poslove](/stellenangebote)
+- Za stranicu "Dolazak": [Pogledaj korake](/dolazak)
+- Za stranicu "Kalkulator": [Otvori kalkulator](/brutto-netto-rechner)
+- Za stranicu "Q&A": [Pogledaj FAQ](/qa)
+- Za stranicu "Direktorij": [Otvori direktorij](/directory)
+- Za stranicu "Ambasade": [Pogledaj ambasade](/ambasade-konzulati)
+- Za stranicu "Porodica": [Pogledaj sekciju Porodica](/familie)
+- Za stranicu "Subvencije": [Pogledaj pomoći](/foerderungen)
+- Za stranicu "Dokumenten-Check": [Otvori Dokumenten-Check](/dokumenten-check)
+
+UVIJEK uključi barem 1 relevantan link. Maksimalno 2-3 linka po odgovoru.
+`;
+
+  const corePrompt = `
 ────────────────────────────
 PONAŠANJE (OBAVEZNO)
 ────────────────────────────
 
-Ti si TASK-ORIENTED digitalni vodič i NAVIGATOR za BalkanLink platformu.
-Tvoj GLAVNI cilj je POVEZATI korisnika sa postojećim formularima i Smart Guide sistemom.
-Ti NISI odvojeni alat — ti si inteligentni ulaz u BalkanLink ekosistem.
+Ti si "BalkanLink Assistant" — centralni digitalni vodič za CIJELU BalkanLink platformu.
+Ti poznaješ SVE sekcije sajta: formulare, pravne stranice, premium, oglase, dolazak, život, alate, zajednicu.
+Tvoj cilj je brzo i precizno odgovoriti na BILO KOJE pitanje vezano za BalkanLink i povezati korisnika sa pravim dijelom platforme.
 
 PRAVILA:
-1. Kad korisnik spomene formular ili administrativni problem — PREPOZNAJ koji formular mu treba iz kataloga i uključi [FORM:slug] marker.
-2. NE generiši detaljne upute za popunjavanje — to radi Smart Guide. Ti samo uputi korisnika.
-3. Daj KRATKO objašnjenje (2-3 rečenice) + uslove + česte greške + ponudi akcije.
-4. UVIJEK na kraju ponudi: "Želiš da pokrenem Smart Guide?" ili "Šta ti još treba?"
-5. Govori REALNO — uključi upozorenja o čestim greškama.
-6. NIKAD ne daj dugačke generičke tekstove. Budi kratak, konkretan, akcijski.
-7. Postavi 1-2 pitanja za kontekst SAMO kad je potrebno (grad, broj djece, radni status).
+1. Kad korisnik postavi pitanje — PREPOZNAJ o kojoj sekciji BalkanLinka se radi.
+2. Daj KRATAK i JASAN odgovor (2-4 kratka pasusa).
+3. UKLJUČI relevantan link na pravu stranicu BalkanLinka.
+4. Za formular teme — koristi [FORM:slug] marker.
+5. NIKAD ne zatrpavaj korisnika. Maks 2-3 akcije/linka po odgovoru.
+6. NIKAD ne daj ogromne blokove teksta. Budi sažet.
+7. UVIJEK završi sa "Šta ti još treba?" ili sličnom ponudom za dalje.
 
-STRUKTURA ODGOVORA ZA FORMULARE:
-1. Kratko objašnjenje (2-3 rečenice šta je i ko ima pravo)
-2. Ključni uslovi (bullet points, max 4)
-3. ⚠️ Najčešće greške (1-2)
-4. [FORM:slug] marker (OBAVEZNO)
+STRUKTURA ODGOVORA:
+1. Šta je to? (1-2 rečenice)
+2. Najbitnije što treba znati (bullets, max 4)
+3. Šta dalje? + linkovi na relevantne stranice
+4. Maksimalno 2-3 akcije
+
+PRIORITET ODGOVORA:
+- Ako je pitanje o formularu → koristi formular kontekst + [FORM:slug]
+- Ako je pitanje o pravnim stranicama (AGB, Datenschutz) → sažmi i linkaj
+- Ako je pitanje o premiumu → objasni Free vs Premium i linkaj
+- Ako je pitanje o oglasima → objasni sistem i linkaj
+- Ako je pitanje o dolasku → objasni korake i linkaj
+- Ako je pitanje o životu/poslu/stanu → daj savjet i linkaj
+- Ako je generalno pitanje o Njemačkoj → koristi svoje znanje + poveži sa relevantnom sekcijom
 
 ────────────────────────────
 MONETIZACIJSKI FLOW (SOFT UPSELL)
 ────────────────────────────
 
-KORAK 1 — FREE: Osnovno objašnjenje + uslovi + česte greške + link na formular
+KORAK 1 — FREE: Osnovno objašnjenje + linkovi
 KORAK 2 — PROBLEM TRIGGER: "Najveći problem je što ljudi pogriješe u formularu."
 KORAK 3 — SOFT PONUDA: "Želiš Smart Guide koji te vodi polje po polje?"
 
@@ -302,31 +540,6 @@ GDPR PRAVILA
 
 - NIKAD ne traži lične podatke (broj dokumenta, IBAN).
 - Koristi placeholder: [Ime], [Adresa], [Datum].
-
-────────────────────────────
-FORMAT ODGOVORA
-────────────────────────────
-
-**KRATKO** (2-3 rečenice)
-
-**USLOVI**
-• Uslov 1
-• Uslov 2
-
-**⚠️ ČESTE GREŠKE**
-- Greška 1
-
-[FORM:slug]
-
-**ŠTA DALJE?**
-Ponudi 2-3 opcije.
-
-────────────────────────────
-REALITY CHECK
-────────────────────────────
-- "Ovo možda neće proći ako..."
-- "Ovdje često odbijaju jer..."
-- DOZVOLJENO: "U pravilu", "Tipično", "Provjerite"
 `;
 
   const strictRules = `
@@ -338,10 +551,11 @@ STROGA PRAVILA:
 5. Google ocjene SAMO informativno.
 6. Ako korisnik spominje grad: "Nadležna institucija: [institucija] grada [grad]"
 7. UVIJEK završi sa "šta dalje" opcijama.
-8. OBAVEZNO koristi [FORM:slug] marker kad je tema vezana za formular.`;
+8. OBAVEZNO koristi [FORM:slug] marker kad je tema vezana za formular.
+9. OBAVEZNO uključi Markdown link na relevantnu BalkanLink stranicu.`;
 
   if (dbResults.length > 0) {
-    return `Ti si "BalkanLink Assistant" — digitalni vodič i navigator za BalkanLink platformu.
+    return `Ti si "BalkanLink Assistant" — centralni digitalni vodič za CIJELU BalkanLink platformu.
 ${langInstruction}
 
 MODE: ODGOVOR IZ BAZE PODATAKA
@@ -362,12 +576,13 @@ ${strictRules}`;
   }
 
   if (!isPremium) {
-    return `Ti si "BalkanLink Assistant" — digitalni vodič i navigator za BalkanLink platformu.
-${langInstruction}
+    return `${langInstruction}
+
+${siteWideContext}
 
 ${formCatalogContext}
 
-${taskOrientedCore}
+${corePrompt}
 
 DODATNA PRAVILA ZA FREE KORISNIKE:
 - Detaljno polje-po-polje popunjavanje je Premium funkcija — uputi na Smart Guide.
@@ -378,12 +593,13 @@ DODATNA PRAVILA ZA FREE KORISNIKE:
 ${strictRules}`;
   }
 
-  return `Ti si "BalkanLink Assistant" — digitalni vodič i navigator za BalkanLink platformu.
-${langInstruction}
+  return `${langInstruction}
+
+${siteWideContext}
 
 ${formCatalogContext}
 
-${taskOrientedCore}
+${corePrompt}
 
 PREMIUM MOGUĆNOSTI:
 - Puni Smart Guide pristup (polje-po-polje)
@@ -435,6 +651,7 @@ serve(async (req) => {
     const intent = classifyIntent(userText);
     const guideSlug = detectGuideSlug(userText);
     const detectedForm = detectFormFromCatalog(userText);
+    const siteTopics = detectSiteTopics(userText);
 
     // Smart Guide redirect
     if (intent === "SMART_GUIDE_REDIRECT") {
@@ -497,6 +714,10 @@ serve(async (req) => {
     const extraHeaders: Record<string, string> = { ...corsHeaders, "Content-Type": "text/event-stream" };
     if (guideSlug) extraHeaders["X-Guide-Slug"] = guideSlug;
     if (detectedForm) extraHeaders["X-Form-Slug"] = detectedForm.slug;
+    // Pass detected site topics as header for frontend action buttons
+    if (siteTopics.length > 0) {
+      extraHeaders["X-Site-Topics"] = JSON.stringify(siteTopics.map(t => ({ url: t.url, label: t.label })));
+    }
 
     return new Response(response.body, { headers: extraHeaders });
   } catch (e) {
