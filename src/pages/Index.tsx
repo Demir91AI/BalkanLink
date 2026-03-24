@@ -241,24 +241,7 @@ export default function Index() {
         <div className="flex-1 min-w-0">
           <WowSection />
 
-          {/* Mobile nav grid — removed duplicate, kept single grid */}
-          <div className="md:hidden bg-background px-4 py-6">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-              {t("index.navLabel")}
-            </p>
-            <div className="grid grid-cols-2 gap-2">
-              {sidebarNav.map((item) => (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  className="flex items-center gap-2.5 rounded-lg border border-border/40 bg-card p-3 text-sm font-medium transition-all hover:border-border hover:shadow-sm"
-                >
-                  <item.icon className="h-4 w-4 shrink-0 text-gold" />
-                  <span className="truncate text-xs">{t(item.labelKey)}</span>
-                </Link>
-              ))}
-            </div>
-          </div>
+          {/* Mobile nav removed — already in sidebar/hamburger menu */}
 
           <AdCarousel />
           <AdFlowBanner />

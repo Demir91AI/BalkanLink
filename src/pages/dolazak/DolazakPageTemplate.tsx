@@ -47,7 +47,7 @@ export default function DolazakPageTemplate({ title, subtitle, sections, links }
         </div>
       </section>
 
-      <section className="pb-28 pt-10">
+      <section className="pt-10 pb-10">
         <div className="container max-w-3xl space-y-6">
           {sections.map((s, i) => (
             <motion.div key={i} {...fade(i)} className="rounded-xl border bg-card p-6 shadow-sm">
@@ -61,11 +61,11 @@ export default function DolazakPageTemplate({ title, subtitle, sections, links }
         </div>
       </section>
 
-      {/* Fixed bottom links bar */}
+      {/* Links section — normal flow at bottom of page */}
       {links.length > 0 && (
-        <div className="fixed bottom-0 left-0 right-0 z-40 border-t bg-card/95 backdrop-blur-md shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
-          <div className="container max-w-3xl py-3">
-            <h3 className="mb-2 text-[10px] font-bold uppercase tracking-wide text-muted-foreground">{t("common.directLinks") || "Direktni linkovi"}</h3>
+        <section className="border-t bg-card pb-10 pt-6">
+          <div className="container max-w-3xl">
+            <h3 className="mb-3 text-[10px] font-bold uppercase tracking-wide text-muted-foreground">{t("common.directLinks") || "Direktni linkovi"}</h3>
             <div className="flex flex-wrap gap-2">
               {links.map((l, i) => (
                 <a
@@ -87,7 +87,7 @@ export default function DolazakPageTemplate({ title, subtitle, sections, links }
               ))}
             </div>
           </div>
-        </div>
+        </section>
       )}
     </>
   );
