@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import type { NtAd } from "@/lib/nudim-trazim-constants";
 import { NT_CATEGORIES } from "@/lib/nudim-trazim-constants";
+import { useSectionT } from "@/hooks/useSectionT";
 
 interface Props {
   ad: NtAd;
@@ -12,6 +13,7 @@ interface Props {
 }
 
 export default function NtAdCard({ ad, onOpen }: Props) {
+  const st = useSectionT();
   const [showContact, setShowContact] = useState(false);
   const catLabel = NT_CATEGORIES.find((c) => c.value === ad.category)?.label ?? ad.category;
   const dateStr = new Date(ad.created_at).toLocaleDateString("de-DE", {
@@ -42,7 +44,7 @@ export default function NtAdCard({ ad, onOpen }: Props) {
                 : "bg-primary/10 text-primary shrink-0"
             }
           >
-            {ad.type === "nudim" ? "Nudim" : "Tražim"}
+            {ad.type === "nudim" ? st("nt.offer") : st("nt.seek")}
           </Badge>
           <Badge variant="outline" className="shrink-0 text-muted-foreground text-[11px]">
             {catLabel}
@@ -79,7 +81,7 @@ export default function NtAdCard({ ad, onOpen }: Props) {
             }}
           >
             <Eye className="h-3 w-3" />
-            {showContact ? ad.contact_value : "Prikaži kontakt"}
+            {showContact ? ad.contact_value : st("nt.showContact")}
           </Button>
         </div>
       </CardContent>

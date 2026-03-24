@@ -268,7 +268,7 @@ const vizaTranslations: Record<Lang, Record<string, string>> = {
     "viza.popular": "POPULARAN",
     "viza.unlock": "Otključaj odmah",
     "viza.comingSoon": "Uskoro dostupno",
-    "viza.comingSoonDesc": "Smart Guide za "VISA_NAME" je u pripremi. U međuvremenu, koristi gornje informacije za pripremu.",
+    "viza.comingSoonDesc": "Smart Guide za \"VISA_NAME\" je u pripremi. U međuvremenu, koristi gornje informacije za pripremu.",
     "viza.showContact": "Prikaži kontakt",
   },
   hr: {
@@ -294,7 +294,7 @@ const vizaTranslations: Record<Lang, Record<string, string>> = {
     "viza.popular": "POPULARNO",
     "viza.unlock": "Otključaj odmah",
     "viza.comingSoon": "Uskoro dostupno",
-    "viza.comingSoonDesc": "Smart Guide za "VISA_NAME" je u pripremi. U međuvremenu, koristi gornje informacije za pripremu.",
+    "viza.comingSoonDesc": "Smart Guide za \"VISA_NAME\" je u pripremi. U međuvremenu, koristi gornje informacije za pripremu.",
     "viza.showContact": "Prikaži kontakt",
   },
   sr: {
@@ -320,7 +320,7 @@ const vizaTranslations: Record<Lang, Record<string, string>> = {
     "viza.popular": "POPULARNO",
     "viza.unlock": "Otključaj odmah",
     "viza.comingSoon": "Uskoro dostupno",
-    "viza.comingSoonDesc": "Smart Guide za "VISA_NAME" je u pripremi. U međuvremenu, koristi gornje informacije za pripremu.",
+    "viza.comingSoonDesc": "Smart Guide za \"VISA_NAME\" je u pripremi. U međuvremenu, koristi gornje informacije za pripremu.",
     "viza.showContact": "Prikaži kontakt",
   },
   me: {
@@ -346,7 +346,7 @@ const vizaTranslations: Record<Lang, Record<string, string>> = {
     "viza.popular": "POPULARAN",
     "viza.unlock": "Otključaj odmah",
     "viza.comingSoon": "Uskoro dostupno",
-    "viza.comingSoonDesc": "Smart Guide za "VISA_NAME" je u pripremi. U međuvremenu, koristi gornje informacije za pripremu.",
+    "viza.comingSoonDesc": "Smart Guide za \"VISA_NAME\" je u pripremi. U međuvremenu, koristi gornje informacije za pripremu.",
     "viza.showContact": "Prikaži kontakt",
   },
   de: {
@@ -372,7 +372,7 @@ const vizaTranslations: Record<Lang, Record<string, string>> = {
     "viza.popular": "BELIEBT",
     "viza.unlock": "Jetzt freischalten",
     "viza.comingSoon": "Demnächst verfügbar",
-    "viza.comingSoonDesc": "Der Smart Guide für "VISA_NAME" wird vorbereitet. Nutze in der Zwischenzeit die obigen Informationen.",
+    "viza.comingSoonDesc": "Der Smart Guide für \"VISA_NAME\" wird vorbereitet. Nutze in der Zwischenzeit die obigen Informationen.",
     "viza.showContact": "Kontakt anzeigen",
   },
   en: {
@@ -424,7 +424,7 @@ const vizaTranslations: Record<Lang, Record<string, string>> = {
     "viza.popular": "POPULLOR",
     "viza.unlock": "Zhblloko tani",
     "viza.comingSoon": "Së shpejti",
-    "viza.comingSoonDesc": "Smart Guide për "VISA_NAME" po përgatitet.",
+    "viza.comingSoonDesc": "Smart Guide për \"VISA_NAME\" po përgatitet.",
     "viza.showContact": "Shfaq kontaktin",
   },
   xk: {
@@ -450,7 +450,7 @@ const vizaTranslations: Record<Lang, Record<string, string>> = {
     "viza.popular": "POPULLOR",
     "viza.unlock": "Zhblloko tani",
     "viza.comingSoon": "Së shpejti",
-    "viza.comingSoonDesc": "Smart Guide për "VISA_NAME" po përgatitet.",
+    "viza.comingSoonDesc": "Smart Guide për \"VISA_NAME\" po përgatitet.",
     "viza.showContact": "Shfaq kontaktin",
   },
   mk: {
@@ -476,7 +476,7 @@ const vizaTranslations: Record<Lang, Record<string, string>> = {
     "viza.popular": "ПОПУЛАРНО",
     "viza.unlock": "Отклучи сега",
     "viza.comingSoon": "Наскоро",
-    "viza.comingSoonDesc": "Smart Guide за "VISA_NAME" се подготвува.",
+    "viza.comingSoonDesc": "Smart Guide за \"VISA_NAME\" се подготвува.",
     "viza.showContact": "Прикажи контакт",
   },
 };

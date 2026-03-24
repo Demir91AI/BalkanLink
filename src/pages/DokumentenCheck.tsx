@@ -7,6 +7,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { supabase } from "@/integrations/supabase/client";
 import ReactMarkdown from "react-markdown";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useSectionT } from "@/hooks/useSectionT";
 import { useNavigate } from "react-router-dom";
 import { navigateBackOrHome } from "@/lib/navigation";
 
@@ -14,6 +15,7 @@ type InputMode = "upload" | "text";
 
 export default function DokumentenCheck() {
   const { t } = useLanguage();
+  const st = useSectionT();
   const navigate = useNavigate();
   const [mode, setMode] = useState<InputMode>("text");
   const [textInput, setTextInput] = useState("");
@@ -39,11 +41,11 @@ export default function DokumentenCheck() {
     if (!selected) return;
     const allowed = ["application/pdf", "image/jpeg", "image/png", "image/webp"];
     if (!allowed.includes(selected.type)) {
-      setError(t("docCheck.formatError") || "Nur PDF, JPG, PNG oder WebP erlaubt.");
+      setError(st("docCheck.formatError"));
       return;
     }
     if (selected.size > 10 * 1024 * 1024) {
-      setError(t("docCheck.sizeError") || "Maximale Dateigröße: 10 MB.");
+      setError(st("docCheck.sizeError"));
       return;
     }
     setError(null);
@@ -54,7 +56,7 @@ export default function DokumentenCheck() {
     } else {
       setFilePreviewUrl(null);
     }
-  }, [t]);
+  }, [st]);
 
   const handleAnalyze = useCallback(async () => {
     if (!confirmed) return;
@@ -65,7 +67,7 @@ export default function DokumentenCheck() {
     try {
       let payload: { text?: string; imageBase64?: string; mimeType?: string } = {};
       if (mode === "text") {
-        if (!textInput.trim()) { setError(t("docCheck.noText") || "Bitte Text eingeben."); setLoading(false); return; }
+        if (!textInput.trim()) { setError(st("docCheck.noText")); setLoading(false); return; }
         payload = { text: textInput.trim() };
       } else if (file) {
         if (file.type.startsWith("image/")) {
@@ -83,7 +85,7 @@ export default function DokumentenCheck() {
           }
         }
       } else {
-        setError(t("docCheck.noInput") || "Bitte Datei hochladen oder Text eingeben.");
+        setError(st("docCheck.noInput"));
         setLoading(false);
         return;
       }
@@ -93,11 +95,11 @@ export default function DokumentenCheck() {
       if (data?.error) throw new Error(data.error);
       setAnalysis(data.analysis);
     } catch (err: any) {
-      setError(err.message || (t("docCheck.analysisFailed") || "Analyse fehlgeschlagen."));
+      setError(err.message || st("docCheck.analysisFailed"));
     } finally {
       setLoading(false);
     }
-  }, [confirmed, mode, textInput, file, t]);
+  }, [confirmed, mode, textInput, file, st]);
 
   const handleClear = useCallback(() => {
     clearFile();
@@ -122,7 +124,7 @@ export default function DokumentenCheck() {
             {t("index.nav.docCheck")}
           </h1>
           <p className="mt-2 text-sm text-primary-foreground/80">
-            {t("docCheck.subtitle") || "Brief oder Dokument verstehen — ohne Speicherung, ohne Anmeldung."}
+            {st("docCheck.subtitle")}
           </p>
         </div>
       </section>
@@ -133,19 +135,17 @@ export default function DokumentenCheck() {
             className="flex items-start gap-3 rounded-xl border border-gold/20 bg-gold/5 p-4">
             <Shield className="mt-0.5 h-5 w-5 shrink-0 text-gold" />
             <div className="text-sm">
-              <p className="font-semibold text-foreground">{t("docCheck.privacyTitle") || "Datenschutz"}</p>
-              <p className="mt-1 text-muted-foreground">
-                {t("docCheck.privacyDesc") || "Bitte schwärzen Sie Namen, Adresse und Aktenzeichen vor dem Hochladen. Dateien werden nicht gespeichert — nur kurz zur Analyse verarbeitet und sofort verworfen."}
-              </p>
+              <p className="font-semibold text-foreground">{st("docCheck.privacyTitle")}</p>
+              <p className="mt-1 text-muted-foreground">{st("docCheck.privacyDesc")}</p>
             </div>
           </motion.div>
 
           <div className="flex gap-2">
             <Button variant={mode === "text" ? "default" : "outline"} size="sm" onClick={() => { setMode("text"); clearFile(); setAnalysis(null); }} className="gap-2">
-              <Type className="h-4 w-4" /> {t("docCheck.textMode") || "Texteingabe (empfohlen)"}
+              <Type className="h-4 w-4" /> {st("docCheck.textMode")}
             </Button>
             <Button variant={mode === "upload" ? "default" : "outline"} size="sm" onClick={() => { setMode("upload"); setTextInput(""); setAnalysis(null); }} className="gap-2">
-              <Upload className="h-4 w-4" /> {t("docCheck.uploadMode") || "Datei hochladen"}
+              <Upload className="h-4 w-4" /> {st("docCheck.uploadMode")}
             </Button>
           </div>
 
@@ -153,20 +153,20 @@ export default function DokumentenCheck() {
             className="rounded-xl border bg-card p-5 shadow-sm">
             {mode === "text" ? (
               <div>
-                <label className="mb-2 block text-sm font-semibold">{t("docCheck.textLabel") || "Text aus dem Dokument einfügen"}</label>
+                <label className="mb-2 block text-sm font-semibold">{st("docCheck.textLabel")}</label>
                 <Textarea value={textInput} onChange={(e) => setTextInput(e.target.value)}
-                  placeholder={t("docCheck.textPlaceholder") || "Kopieren Sie den Text aus Ihrem Brief/Dokument hierhin…"}
+                  placeholder={st("docCheck.textPlaceholder")}
                   className="min-h-[160px] resize-y" maxLength={8000} />
-                <p className="mt-1 text-xs text-muted-foreground">{textInput.length} / 8.000 {t("docCheck.chars") || "Zeichen"}</p>
+                <p className="mt-1 text-xs text-muted-foreground">{textInput.length} / 8.000 {st("docCheck.chars")}</p>
               </div>
             ) : (
               <div>
-                <label className="mb-2 block text-sm font-semibold">{t("docCheck.uploadLabel") || "Dokument hochladen (PDF, JPG, PNG)"}</label>
+                <label className="mb-2 block text-sm font-semibold">{st("docCheck.uploadLabel")}</label>
                 {!file ? (
                   <div onClick={() => fileInputRef.current?.click()}
                     className="flex cursor-pointer flex-col items-center justify-center gap-3 rounded-lg border-2 border-dashed border-border/60 p-10 transition-colors hover:border-primary/40 hover:bg-muted/30">
                     <Upload className="h-8 w-8 text-muted-foreground/50" />
-                    <p className="text-sm text-muted-foreground">{t("docCheck.dropHere") || "Klicken oder Datei hierher ziehen"}</p>
+                    <p className="text-sm text-muted-foreground">{st("docCheck.dropHere")}</p>
                     <p className="text-xs text-muted-foreground/60">Max. 10 MB · PDF, JPG, PNG, WebP</p>
                   </div>
                 ) : (
@@ -190,17 +190,17 @@ export default function DokumentenCheck() {
           <div className="flex items-start gap-3 rounded-xl border bg-card p-4">
             <Checkbox id="confirm" checked={confirmed} onCheckedChange={(v) => setConfirmed(v === true)} className="mt-0.5" />
             <label htmlFor="confirm" className="cursor-pointer text-sm leading-relaxed text-muted-foreground">
-              {t("docCheck.confirmLabel") || "Ich bestätige, dass ich keine sensiblen Daten (Ausweisnummer, Steuer-ID, IBAN, Gesundheitsdaten) hochlade/eingebe."}
+              {st("docCheck.confirmLabel")}
             </label>
           </div>
 
           <div className="flex gap-3">
             <Button onClick={handleAnalyze} disabled={loading || !confirmed || (mode === "text" ? !textInput.trim() : !file)} className="gap-2">
               {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <CheckCircle2 className="h-4 w-4" />}
-              {loading ? (t("docCheck.analyzing") || "Analysiere…") : (t("docCheck.analyzeBtn") || "Dokument analysieren")}
+              {loading ? st("docCheck.analyzing") : st("docCheck.analyzeBtn")}
             </Button>
             {(analysis || textInput || file) && (
-              <Button variant="outline" onClick={handleClear}>{t("docCheck.reset") || "Zurücksetzen"}</Button>
+              <Button variant="outline" onClick={handleClear}>{st("docCheck.reset")}</Button>
             )}
           </div>
 
@@ -213,11 +213,11 @@ export default function DokumentenCheck() {
           {analysis && (
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
               className="rounded-xl border bg-card p-6 shadow-sm">
-              <h2 className="mb-4 text-sm font-bold uppercase tracking-wide text-muted-foreground">{t("docCheck.resultTitle") || "Analyse"}</h2>
+              <h2 className="mb-4 text-sm font-bold uppercase tracking-wide text-muted-foreground">{st("docCheck.resultTitle")}</h2>
               <div className="prose prose-sm max-w-none"><ReactMarkdown>{analysis}</ReactMarkdown></div>
               <div className="mt-6 rounded-lg bg-muted/50 p-3">
                 <p className="text-xs text-muted-foreground">
-                  ⚖️ <strong>{t("docCheck.legalNote") || "Allgemeine Information – keine Rechtsberatung."}</strong> {t("docCheck.legalNoteDesc") || "Für verbindliche Auskünfte wenden Sie sich an die zuständige Behörde oder einen Rechtsanwalt."}
+                  ⚖️ <strong>{st("docCheck.legalNote")}</strong> {st("docCheck.legalNoteDesc")}
                 </p>
               </div>
             </motion.div>
@@ -225,7 +225,7 @@ export default function DokumentenCheck() {
 
           <div className="rounded-lg border border-border/40 bg-muted/20 p-4 text-xs text-muted-foreground">
             <p>
-              <strong>{t("docCheck.disclaimerTitle") || "Datenschutz-Hinweis:"}</strong> {t("docCheck.disclaimerText") || "Hochgeladene Dateien und eingegebene Texte werden ausschließlich zur einmaligen Analyse verwendet und sofort nach der Ausgabe verworfen. Es erfolgt keine dauerhafte Speicherung, kein Tracking und keine Weitergabe an Dritte. BalkanLink ist keine Behörde und bietet keine Rechtsberatung."}
+              <strong>{st("docCheck.disclaimerTitle")}</strong> {st("docCheck.disclaimerText")}
             </p>
           </div>
         </div>

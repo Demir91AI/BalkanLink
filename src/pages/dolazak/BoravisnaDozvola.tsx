@@ -13,6 +13,8 @@ import { visaTypes, type VisaType } from "@/lib/visa-data";
 import { getGuideBySlug } from "@/lib/guide-data";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useAuth } from "@/contexts/AuthContext";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useSectionT } from "@/hooks/useSectionT";
 import { cn } from "@/lib/utils";
 import FormSmartGuide from "@/components/FormSmartGuide";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
@@ -24,7 +26,7 @@ const fade = (i: number) => ({
 });
 
 /* ─── Visual Paywall (non-blocking) ─── */
-function VisaPaywall({ visaLabel }: { visaLabel: string }) {
+function VisaPaywall({ visaLabel, st }: { visaLabel: string; st: (k: string) => string }) {
   const { user } = useAuth();
   const included = ["Radna viza", "Spajanje porodice", "Produženje boravka", "EU Blue Card"];
 
@@ -35,32 +37,32 @@ function VisaPaywall({ visaLabel }: { visaLabel: string }) {
       </div>
       <h3 className="mb-1 text-sm font-bold">Smart Guide – korak po korak</h3>
       <p className="mb-5 max-w-md mx-auto text-xs text-muted-foreground">
-        Riješi zahtjev bez grešaka uz vođeni vodič sa detaljnim objašnjenjima svakog polja.
+        {st("viza.smartGuideDesc")}
       </p>
       <div className="grid w-full max-w-md mx-auto gap-3 sm:grid-cols-2">
         <div className="rounded-xl border border-border/60 bg-card p-4 text-left">
           <p className="text-lg font-extrabold text-foreground">3.99€</p>
-          <p className="mt-1 text-xs text-muted-foreground">Pristup samo ovoj vizi</p>
+          <p className="mt-1 text-xs text-muted-foreground">{st("viza.singleAccess")}</p>
         </div>
         <div className="rounded-xl border-2 border-gold/40 bg-gold/5 p-4 text-left relative">
           <span className="absolute -top-2.5 right-3 rounded-full bg-gold px-2.5 py-0.5 text-[10px] font-bold text-gold-foreground">
-            POPULARAN
+            {st("viza.popular")}
           </span>
           <p className="text-lg font-extrabold text-foreground">9.99€</p>
-          <p className="mt-1 text-xs text-muted-foreground">Pristup svim formularima i vizama (30 dana)</p>
+          <p className="mt-1 text-xs text-muted-foreground">{st("viza.allAccess")}</p>
           <ul className="mt-3 space-y-1">
             {included.map((f) => (
               <li key={f} className="flex items-center gap-1.5 text-[11px] text-muted-foreground">
                 <Check className="h-3 w-3 text-gold shrink-0" /> {f}
               </li>
             ))}
-            <li className="text-[11px] text-muted-foreground pl-[18px]">i još 30+ vodiča</li>
+            <li className="text-[11px] text-muted-foreground pl-[18px]">{st("viza.andMore")}</li>
           </ul>
         </div>
       </div>
       <Button className="btn-gold-gradient mt-5 rounded-xl px-8" asChild>
         <Link to={user ? "/premium" : "/login"}>
-          <Crown className="mr-2 h-4 w-4" /> Otključaj odmah
+          <Crown className="mr-2 h-4 w-4" /> {st("viza.unlock")}
         </Link>
       </Button>
     </div>
@@ -68,7 +70,7 @@ function VisaPaywall({ visaLabel }: { visaLabel: string }) {
 }
 
 /* ─── Visa Detail (right side) ─── */
-function VisaDetail({ visa }: { visa: VisaType }) {
+function VisaDetail({ visa, st }: { visa: VisaType; st: (k: string) => string }) {
   const { isPremium } = useAuth();
   const guide = visa.guideSlug ? getGuideBySlug(visa.guideSlug) : null;
 
@@ -88,14 +90,14 @@ function VisaDetail({ visa }: { visa: VisaType }) {
       <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 dark:border-amber-900/40 dark:bg-amber-950/20">
         <p className="text-xs text-amber-800 dark:text-amber-300 flex items-start gap-2">
           <Info className="h-3.5 w-3.5 shrink-0 mt-0.5" />
-          Napomena: Postupak i zahtjevi mogu se neznatno razlikovati u zavisnosti od savezne pokrajine (Bundeslanda) i nadležnog ureda.
+          {st("viza.disclaimer")}
         </p>
       </div>
 
       {/* FREE: Who can apply */}
       <motion.div {...fade(0)} className="rounded-2xl border border-border/60 bg-card p-4">
         <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold">
-          <PenLine className="h-3.5 w-3.5 text-primary" /> Ko može aplicirati
+          <PenLine className="h-3.5 w-3.5 text-primary" /> {st("viza.whoCanApply")}
         </h3>
         <ul className="space-y-1 pl-4 list-disc">
           {visa.whoCanApply.map((w, i) => (
@@ -107,7 +109,7 @@ function VisaDetail({ visa }: { visa: VisaType }) {
       {/* FREE: Basic requirements */}
       <motion.div {...fade(1)} className="rounded-2xl border border-border/60 bg-card p-4">
         <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold">
-          <ClipboardList className="h-3.5 w-3.5 text-primary" /> Osnovni uslovi
+          <ClipboardList className="h-3.5 w-3.5 text-primary" /> {st("viza.basicReqs")}
         </h3>
         <ul className="space-y-1 pl-4 list-disc">
           {visa.basicRequirements.map((r, i) => (
@@ -119,7 +121,7 @@ function VisaDetail({ visa }: { visa: VisaType }) {
       {/* FREE: Documents */}
       <motion.div {...fade(2)} className="rounded-2xl border border-border/60 bg-card p-4">
         <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold">
-          <FileText className="h-3.5 w-3.5 text-primary" /> Potrebni dokumenti
+          <FileText className="h-3.5 w-3.5 text-primary" /> {st("viza.documents")}
         </h3>
         <ul className="space-y-1 pl-4 list-disc">
           {visa.documents.map((d, i) => (
@@ -131,7 +133,7 @@ function VisaDetail({ visa }: { visa: VisaType }) {
       {/* FREE: Common mistakes */}
       <motion.div {...fade(3)} className="rounded-2xl border border-red-200 bg-red-50 p-4 dark:border-red-900/40 dark:bg-red-950/20">
         <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold text-red-700 dark:text-red-400">
-          <AlertTriangle className="h-3.5 w-3.5" /> Najčešće greške
+          <AlertTriangle className="h-3.5 w-3.5" /> {st("viza.mistakes")}
         </h3>
         <ul className="space-y-1 pl-4 list-disc">
           {visa.commonMistakes.map((m, i) => (
@@ -143,7 +145,7 @@ function VisaDetail({ visa }: { visa: VisaType }) {
       {/* Official link */}
       <motion.div {...fade(4)} className="rounded-2xl border border-border/60 bg-card p-4 text-center">
         <h3 className="mb-2 flex items-center justify-center gap-1.5 text-xs font-bold">
-          <Info className="h-3.5 w-3.5 text-primary" /> Službene informacije
+          <Info className="h-3.5 w-3.5 text-primary" /> {st("viza.officialInfo")}
         </h3>
         <a
           href={visa.officialUrl}
@@ -151,7 +153,7 @@ function VisaDetail({ visa }: { visa: VisaType }) {
           rel="noopener noreferrer"
           className="mt-2 inline-flex items-center gap-1.5 rounded-lg bg-primary/10 px-4 py-2 text-xs font-semibold text-primary transition-colors hover:bg-primary/20"
         >
-          <ExternalLink className="h-3.5 w-3.5" /> Otvori službenu stranicu
+          <ExternalLink className="h-3.5 w-3.5" /> {st("viza.openOfficial")}
         </a>
       </motion.div>
 
@@ -169,7 +171,7 @@ function VisaDetail({ visa }: { visa: VisaType }) {
             </div>
           </div>
           <FormSmartGuide guide={guide} lang="bs" />
-          {!isPremium && <VisaPaywall visaLabel={visa.title} />}
+          {!isPremium && <VisaPaywall visaLabel={visa.title} st={st} />}
         </>
       )}
 
@@ -188,13 +190,13 @@ function VisaDetail({ visa }: { visa: VisaType }) {
           </div>
           <div className="rounded-2xl border border-dashed border-border/60 bg-card p-8 text-center">
             <Badge variant="outline" className="mb-3 text-xs">
-              <Lock className="mr-1 h-3 w-3" /> Uskoro dostupno
+              <Lock className="mr-1 h-3 w-3" /> {st("viza.comingSoon")}
             </Badge>
             <p className="text-xs text-muted-foreground">
-              Smart Guide za „{visa.title}" je u pripremi. U međuvremenu, koristi gornje informacije za pripremu.
+              {st("viza.comingSoonDesc").replace("\"VISA_NAME\"", `„${visa.title}"`)}
             </p>
           </div>
-          {!isPremium && <VisaPaywall visaLabel={visa.title} />}
+          {!isPremium && <VisaPaywall visaLabel={visa.title} st={st} />}
         </>
       )}
 
@@ -206,6 +208,8 @@ function VisaDetail({ visa }: { visa: VisaType }) {
 /* ─── Main Page ─── */
 export default function BoravisnaDozvola() {
   const navigate = useNavigate();
+  const { t } = useLanguage();
+  const st = useSectionT();
   const [selected, setSelected] = useState<string | null>(null);
   const [search, setSearch] = useState("");
   const isMobile = useIsMobile();
@@ -228,9 +232,9 @@ export default function BoravisnaDozvola() {
           onClick={() => setSelected(null)}
           className="mb-4 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
         >
-          <ArrowLeft className="h-3 w-3" /> Nazad na vize
+          <ArrowLeft className="h-3 w-3" /> {st("viza.backToList")}
         </button>
-        <VisaDetail visa={activeVisa} />
+        <VisaDetail visa={activeVisa} st={st} />
       </div>
     );
   }
@@ -244,13 +248,13 @@ export default function BoravisnaDozvola() {
             onClick={() => navigateBackOrHome(navigate)}
             className="mb-4 inline-flex items-center gap-1 text-xs text-primary-foreground/70 hover:text-primary-foreground"
           >
-            <ArrowLeft className="h-3 w-3" /> Nazad
+            <ArrowLeft className="h-3 w-3" /> {t("common.back") || "Nazad"}
           </button>
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">
-            Viza Navigator
+            {st("viza.title")}
           </h1>
           <p className="mt-2 text-sm text-primary-foreground/80 md:text-base">
-            Pronađi pravu vizu ili dozvolu boravka za Njemačku. Jasne informacije bez komplikacija.
+            {st("viza.subtitle")}
           </p>
         </div>
       </section>
@@ -261,7 +265,7 @@ export default function BoravisnaDozvola() {
           <div className="mb-6 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 dark:border-amber-900/40 dark:bg-amber-950/20">
             <p className="text-xs text-amber-800 dark:text-amber-300 flex items-start gap-2">
               <Info className="h-3.5 w-3.5 shrink-0 mt-0.5" />
-              Napomena: Postupak i zahtjevi mogu se neznatno razlikovati u zavisnosti od savezne pokrajine (Bundeslanda) i nadležnog ureda.
+              {st("viza.disclaimer")}
             </p>
           </div>
 
@@ -273,7 +277,7 @@ export default function BoravisnaDozvola() {
                 <Input
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  placeholder="Pretraži vize…"
+                  placeholder={st("viza.search")}
                   className="pl-9 h-10 text-sm rounded-xl border-border/60 bg-card"
                 />
               </div>
@@ -301,7 +305,7 @@ export default function BoravisnaDozvola() {
                   </button>
                 ))}
                 {filtered.length === 0 && (
-                  <p className="px-3 py-6 text-xs text-muted-foreground text-center">Nema rezultata.</p>
+                  <p className="px-3 py-6 text-xs text-muted-foreground text-center">{st("viza.noResults")}</p>
                 )}
               </nav>
             </aside>
@@ -310,15 +314,15 @@ export default function BoravisnaDozvola() {
             {!isMobile && (
               <main className="min-w-0 flex-1">
                 {activeVisa ? (
-                  <VisaDetail visa={activeVisa} />
+                  <VisaDetail visa={activeVisa} st={st} />
                 ) : (
                   <div className="flex flex-col items-center justify-center py-20 text-center">
                     <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-primary/5 mb-6">
                       <FileText className="h-10 w-10 text-primary/40" />
                     </div>
-                    <h2 className="text-lg font-bold text-foreground/70">Odaberi vrstu vize</h2>
+                    <h2 className="text-lg font-bold text-foreground/70">{st("viza.selectType")}</h2>
                     <p className="mt-2 max-w-sm text-sm text-muted-foreground">
-                      Klikni na bilo koju vizu s lijeve strane da vidiš detaljne informacije i upute.
+                      {st("viza.selectHint")}
                     </p>
                   </div>
                 )}
