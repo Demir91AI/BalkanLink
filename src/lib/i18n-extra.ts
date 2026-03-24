@@ -148,6 +148,23 @@ export const indexChatHr: Record<string, string> = {
   "ad.flowTitle": "Vaša reklama ovdje",
   "ad.flowSubtitle": "Pozicionirajte svoj biznis pred tisućama korisnika.",
   "ad.flowCta": "Oglašavaj se",
+  "cookie.title": "Kolačići i privatnost",
+  "cookie.desc": "Koristimo kolačiće kako bismo poboljšali vaše iskustvo. Možete prihvatiti sve ili prilagoditi postavke.",
+  "cookie.acceptAll": "Prihvati sve",
+  "cookie.necessaryOnly": "Samo nužni",
+  "cookie.settings": "Postavke",
+  "cookie.settingsTitle": "Postavke kolačića",
+  "cookie.settingsDesc": "Odaberite koje kategorije kolačića želite dopustiti.",
+  "cookie.saveSettings": "Spremi postavke",
+  "cookie.cat.necessary": "Nužni",
+  "cookie.cat.necessary.desc": "Potrebni za osnovne funkcije stranice.",
+  "cookie.cat.functional": "Funkcionalni",
+  "cookie.cat.functional.desc": "Omogućuju dodatne funkcije poput jezika i regije.",
+  "cookie.cat.statistics": "Statistički",
+  "cookie.cat.statistics.desc": "Pomažu nam razumjeti kako koristite stranicu.",
+  "cookie.cat.marketing": "Marketinški",
+  "cookie.cat.marketing.desc": "Koriste se za prikazivanje relevantnih oglasa.",
+  "cookie.footerLink": "Postavke kolačića",
 };
 
 export const indexChatSr: Record<string, string> = {
