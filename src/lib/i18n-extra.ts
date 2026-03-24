@@ -424,6 +424,23 @@ export const indexChatSq: Record<string, string> = {
   "ad.flowTitle": "Reklama juaj këtu",
   "ad.flowSubtitle": "Poziciononi biznesin tuaj para mijëra përdoruesve.",
   "ad.flowCta": "Reklamo",
+  "cookie.title": "Cookie dhe privatësia",
+  "cookie.desc": "Përdorim cookie për të përmirësuar përvojën tuaj. Mund të pranoni të gjitha ose të rregulloni cilësimet.",
+  "cookie.acceptAll": "Prano të gjitha",
+  "cookie.necessaryOnly": "Vetëm të domosdoshme",
+  "cookie.settings": "Cilësimet",
+  "cookie.settingsTitle": "Cilësimet e cookie",
+  "cookie.settingsDesc": "Zgjidhni cilat kategori cookie dëshironi të lejoni.",
+  "cookie.saveSettings": "Ruaj cilësimet",
+  "cookie.cat.necessary": "Të domosdoshme",
+  "cookie.cat.necessary.desc": "Nevojiten për funksionet bazë të faqes.",
+  "cookie.cat.functional": "Funksionale",
+  "cookie.cat.functional.desc": "Mundësojnë funksione shtesë si gjuha dhe rajoni.",
+  "cookie.cat.statistics": "Statistikore",
+  "cookie.cat.statistics.desc": "Na ndihmojnë të kuptojmë si e përdorni faqen.",
+  "cookie.cat.marketing": "Marketingu",
+  "cookie.cat.marketing.desc": "Përdoren për të shfaqur reklama relevante.",
+  "cookie.footerLink": "Cilësimet e cookie",
 };
 
 export const indexChatXk: Record<string, string> = {
