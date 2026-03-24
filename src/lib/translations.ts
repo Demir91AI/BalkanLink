@@ -998,7 +998,7 @@ const miscSq: Partial<TranslationKeys> = {
   "notfound.back": "Kthehu në fillim",
   "common.error": "Gabim", "common.legalBasis": "Baza ligjore",
   "common.officialSource": "Burimi zyrtar", "common.moreSource": "Burim shtesë",
-  "common.all": "Të gjitha",
+  "common.all": "Të gjitha", "common.back": "Kthehu",
 };
 
 const miscMk: Partial<TranslationKeys> = {
