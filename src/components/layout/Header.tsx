@@ -42,39 +42,8 @@ export default function Header() {
             <BrandLogo variant="full" />
           </div>
 
-          {/* Right: language + auth + extra menu */}
-          <div className="ml-auto flex items-center gap-1">
-            {/* Language switcher */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="gap-1 text-sm h-9 px-2 text-white/80 hover:text-brand-orange hover:bg-white/5">
-                  <span className="text-base leading-none">{currentFlag}</span>
-                  <ChevronDown className="h-3 w-3 text-white/50" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="min-w-[160px] bg-[hsl(215,55%,10%)] border-white/10 shadow-xl">
-                {languages.map((lang) => (
-                  <DropdownMenuItem key={lang.code} onClick={() => setLanguage(lang.code)}
-                    className={`text-white/80 hover:text-white focus:text-white focus:bg-white/10 ${language === lang.code ? "bg-white/10 text-brand-orange font-medium" : ""}`}>
-                    <span className="mr-2 text-base leading-none">{lang.flag}</span>
-                    {lang.name}
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-
-            {!loading && !user && (
-              <Button variant="ghost" size="sm" asChild className="h-9 text-sm px-2 text-white/80 hover:text-brand-orange hover:bg-white/5">
-                <Link to="/login">{t("nav.login")}</Link>
-              </Button>
-            )}
-            {!loading && user && (
-              <Button variant="ghost" size="sm" onClick={signOut} className="h-9 text-sm px-2 text-white/80 hover:text-brand-orange hover:bg-white/5">
-                {t("nav.logout")}
-              </Button>
-            )}
-
-            {/* Extra menu trigger */}
+          {/* Right: extra menu trigger only */}
+          <div className="ml-auto">
             <Button
               variant="ghost"
               size="sm"
