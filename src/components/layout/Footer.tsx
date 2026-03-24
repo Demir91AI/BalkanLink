@@ -37,7 +37,7 @@ export default function Footer() {
               <Link to="/agb" className="text-[13px] text-white/50 transition-colors hover:text-brand-orange">{t("footer.agb")}</Link>
               <Link to="/haftungsausschluss" className="text-[13px] text-white/50 transition-colors hover:text-brand-orange">{t("footer.haftung")}</Link>
               <Link to="/ki-hinweis" className="text-[13px] text-white/50 transition-colors hover:text-brand-orange">{t("footer.kiHinweis")}</Link>
-              <Link to="/inhalte-melden" className="text-[13px] text-white/50 transition-colors hover:text-brand-orange">Inhalte melden</Link>
+              <Link to="/inhalte-melden" className="text-[13px] text-white/50 transition-colors hover:text-brand-orange">{t("footer.reportContent")}</Link>
             </nav>
           </div>
 

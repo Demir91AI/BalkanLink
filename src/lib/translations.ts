@@ -1669,7 +1669,7 @@ const translations: Record<Language, TranslationKeys> = {
     "dir.submitSuccess": "Business added! It will be visible after review.",
     "dir.submitError": "Error. Please try again.",
     "dir.loginRequired": "You must be signed in to add a business.",
-    ...missionsEn as any, ...portalEn as any, ...miscEn as any, ...homeEn as any, ...premiumEn as any, ...newKeysEn as any,
+    ...missionsEn as any, ...portalEn as any, ...miscEn as any, ...homeEn as any, ...premiumEn as any, ...newKeysEn as any, ...indexChatEn as any,
   },
 };
 

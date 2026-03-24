@@ -20,7 +20,6 @@ type Msg = {
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat-assistant`;
 
-// ── Valid guide slugs (from guide-data.ts) ──
 const VALID_GUIDE_SLUGS = new Set([
   "kindergeld", "kinderzuschlag", "elterngeld", "bildung-teilhabe", "unterhaltsvorschuss",
   "elternzeit", "mutterschutz", "mutterschaftsleistungen", "unterhalt", "wohngeld",
@@ -32,7 +31,6 @@ const VALID_GUIDE_SLUGS = new Set([
   "eu-blue-card", "radna-viza", "spajanje-porodice", "studentska-viza", "stalni-boravak",
 ]);
 
-// ── Valid app routes (for 404 prevention) ──
 const VALID_ROUTES = new Set([
   "/", "/dolazak", "/pocni-ovdje", "/dolazak/prijava-prebivalista",
   "/dolazak/boravisna-dozvola", "/dolazak/steuer-id-i-porezna-klasa",
@@ -60,7 +58,6 @@ function isValidRoute(path: string): boolean {
   return false;
 }
 
-// ── Form catalog lookup ──
 const ALL_FORMS: FormEntry[] = (() => {
   const seen = new Set<string>();
   const result: FormEntry[] = [];
@@ -83,7 +80,6 @@ function extractFormMarkers(text: string): { cleanText: string; formSlugs: strin
   return { cleanText, formSlugs: slugs };
 }
 
-// ── Guide slug detection ──
 const TOPIC_GUIDE_MAP: Record<string, string> = {
   kindergeld: "kindergeld", kinderzuschlag: "kinderzuschlag", elterngeld: "elterngeld",
   mutterschutz: "mutterschaftsgeld", bürgergeld: "buergergeld", burgergeld: "buergergeld",
@@ -106,25 +102,6 @@ function detectGuideSlugFromText(text: string): string | null {
   }
   return null;
 }
-
-// ── i18n ──
-const PLACEHOLDER: Record<string, string> = {
-  bs: "Npr. Kindergeld, stan, posao, AGB...",
-  de: "Z.B. Kindergeld, Wohnung, Job, AGB...",
-  en: "E.g. Kindergeld, apartment, job, AGB...",
-};
-
-const ERROR_MSG: Record<string, string> = {
-  bs: "Došlo je do greške. Pokušajte ponovo.",
-  de: "Ein Fehler ist aufgetreten. Versuchen Sie es erneut.",
-  en: "An error occurred. Please try again.",
-};
-
-const DISCLAIMER: Record<string, string> = {
-  bs: "Informativne smjernice — za konačne odluke konsultujte nadležnu instituciju.",
-  de: "Informative Hinweise — für Entscheidungen wenden Sie sich an die zuständige Behörde.",
-  en: "Informative guidance — for final decisions, consult the relevant authority.",
-};
 
 // ── Markdown renderer ──
 function ChatMarkdown({ content }: { content: string }) {
@@ -154,15 +131,14 @@ function ChatMarkdown({ content }: { content: string }) {
   );
 }
 
-// ── Action buttons (max 2, with strict route validation) ──
-function ResponseActions({ msg, lk }: { msg: Msg; lk: string }) {
+// ── Action buttons ──
+function ResponseActions({ msg, t }: { msg: Msg; t: (key: string) => string }) {
   const actions: { label: string; to: string; icon: typeof BookOpen; primary?: boolean }[] = [];
 
   if (msg.guideSlug && VALID_GUIDE_SLUGS.has(msg.guideSlug)) {
-    const guidePath = `/guide/${msg.guideSlug}`;
     actions.push({
-      label: lk === "de" ? "Smart Guide öffnen" : lk === "en" ? "Open Smart Guide" : "Pokreni Smart Guide",
-      to: guidePath,
+      label: t("chat.openGuide"),
+      to: `/guide/${msg.guideSlug}`,
       icon: BookOpen,
       primary: true,
     });
@@ -173,7 +149,7 @@ function ResponseActions({ msg, lk }: { msg: Msg; lk: string }) {
     const formPath = `/formulari/${slug}`;
     if (!actions.some(a => a.to === formPath)) {
       actions.push({
-        label: lk === "de" ? "Formular öffnen" : lk === "en" ? "Open form" : "Otvori formular",
+        label: t("chat.openForm"),
         to: formPath,
         icon: ExternalLink,
       });
@@ -186,7 +162,7 @@ function ResponseActions({ msg, lk }: { msg: Msg; lk: string }) {
       if (actions.some(a => a.to === topic.url)) continue;
       if (actions.length >= 2) break;
       actions.push({
-        label: lk === "de" ? `${topic.label} öffnen` : lk === "en" ? `Open ${topic.label}` : `Otvori: ${topic.label}`,
+        label: `${t("chat.openPage")}: ${topic.label}`,
         to: topic.url,
         icon: ExternalLink,
       });
@@ -217,9 +193,8 @@ function ResponseActions({ msg, lk }: { msg: Msg; lk: string }) {
 
 // ── Main Component ──
 export default function ChatAssistant() {
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   const { isPremium } = useAuth();
-  const lk = ["bs", "hr", "sr", "me"].includes(language) ? "bs" : language === "de" ? "de" : "en";
 
   const [open, setOpen] = useState<"closed" | "open" | "minimized">("closed");
   const [messages, setMessages] = useState<Msg[]>([]);
@@ -238,7 +213,6 @@ export default function ChatAssistant() {
     if (open === "open") setTimeout(() => inputRef.current?.focus({ preventScroll: true }), 100);
   }, [open]);
 
-  // Tooltip: show after 3s, hide after 5s
   useEffect(() => {
     if (open !== "closed") { setShowTooltip(false); return; }
     const showTimer = setTimeout(() => setShowTooltip(true), 3000);
@@ -269,6 +243,7 @@ export default function ChatAssistant() {
 
     let assistantSoFar = "";
     const detectedSlug = detectGuideSlugFromText(text);
+    const errorMsg = t("chat.error");
 
     const upsertAssistant = (chunk: string) => {
       assistantSoFar += chunk;
@@ -373,11 +348,11 @@ export default function ChatAssistant() {
         });
       }
     } catch {
-      upsertAssistant(ERROR_MSG[lk] || ERROR_MSG["bs"]);
+      upsertAssistant(errorMsg);
     } finally {
       setLoading(false);
     }
-  }, [loading, messages, lk, isPremium, language]);
+  }, [loading, messages, isPremium, language, t]);
 
   const sendMessage = useCallback(() => sendMessageWithText(input), [input, sendMessageWithText]);
 
@@ -414,7 +389,6 @@ export default function ChatAssistant() {
             onClick={openChat}
             className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-2 cursor-pointer group"
           >
-            {/* BL circle */}
             <div className="relative">
               <div className="absolute inset-[-18px] rounded-full bg-gradient-to-br from-brand-orange/40 to-brand-orange/20 blur-3xl group-hover:from-brand-orange/60 group-hover:to-brand-orange/40 transition-all duration-300 animate-pulse" />
               <div className="absolute inset-[-8px] rounded-full bg-brand-orange/20 blur-xl" />
@@ -423,10 +397,9 @@ export default function ChatAssistant() {
               </div>
             </div>
 
-            {/* Text below */}
             <div className="text-center rounded-xl bg-white/95 dark:bg-card/95 backdrop-blur-sm px-3.5 py-2 shadow-[0_0_30px_hsl(var(--brand-orange)/0.2),0_2px_12px_rgba(0,0,0,0.08)] border border-brand-orange/15">
-              <p className="text-[12px] font-bold text-foreground leading-tight">Pitaj BalkanLink</p>
-              <p className="text-[10px] text-muted-foreground leading-tight mt-0.5">Asistent za Njemačku</p>
+              <p className="text-[12px] font-bold text-foreground leading-tight">{t("chat.floatingTitle")}</p>
+              <p className="text-[10px] text-muted-foreground leading-tight mt-0.5">{t("chat.floatingSubtitle")}</p>
             </div>
           </motion.div>
         )}
@@ -446,7 +419,7 @@ export default function ChatAssistant() {
             <BLIcon size={22} />
             <span className="text-white/90 text-[12px] font-medium">
               {messages.length > 0
-                ? `${messages.length} ${lk === "de" ? "Nachr." : lk === "en" ? "msg" : "por."}`
+                ? `${messages.length} ${t("chat.msgLabel")}`
                 : "Chat"}
             </span>
             <X
@@ -476,17 +449,15 @@ export default function ChatAssistant() {
                     <BLIcon size={28} />
                   </div>
                   <div>
-                    <span className="text-[15px] font-bold text-white block leading-tight">BalkanLink Asistent</span>
-                    <span className="text-[11px] text-white/55 leading-tight">
-                      {lk === "de" ? "Stelle eine Frage (z.B. Kindergeld, Wohnung...)" : lk === "en" ? "Ask a question (e.g. Kindergeld, apartment...)" : "Postavi pitanje (npr. Kindergeld, stan, posao...)"}
-                    </span>
+                    <span className="text-[15px] font-bold text-white block leading-tight">{t("chat.headerTitle")}</span>
+                    <span className="text-[11px] text-white/55 leading-tight">{t("chat.headerSubtitle")}</span>
                   </div>
                 </div>
                 <div className="flex items-center gap-0.5">
-                  <button onClick={handleMinimize} className="rounded-lg p-1.5 text-white/50 transition-colors hover:bg-white/10 hover:text-white" title={lk === "de" ? "Minimieren" : lk === "en" ? "Minimize" : "Minimiziraj"}>
+                  <button onClick={handleMinimize} className="rounded-lg p-1.5 text-white/50 transition-colors hover:bg-white/10 hover:text-white" title={t("chat.minimize")}>
                     <Minus className="h-4 w-4" />
                   </button>
-                  <button onClick={handleClose} className="rounded-lg p-1.5 text-white/50 transition-colors hover:bg-white/10 hover:text-white" title={lk === "de" ? "Schließen" : lk === "en" ? "Close" : "Zatvori"}>
+                  <button onClick={handleClose} className="rounded-lg p-1.5 text-white/50 transition-colors hover:bg-white/10 hover:text-white" title={t("chat.close")}>
                     <X className="h-4 w-4" />
                   </button>
                 </div>
@@ -495,26 +466,20 @@ export default function ChatAssistant() {
 
             {/* Messages area */}
             <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-4 space-y-3">
-              {/* Start Screen — clean and minimal */}
               {showStartScreen && (
                 <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }} className="flex flex-col items-center justify-center pt-16 pb-6 text-center">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[hsl(217,91%,60%)]/10 to-[hsl(271,81%,56%)]/10 mb-5 overflow-hidden">
                     <BLIcon size={36} />
                   </div>
                   <h2 className="text-[18px] font-bold text-foreground mb-2">
-                    {lk === "de" ? "Wie kann ich dir helfen?" : lk === "en" ? "How can I help you?" : "Kako ti mogu pomoći?"}
+                    {t("chat.greeting")}
                   </h2>
                   <p className="text-[13px] text-muted-foreground leading-relaxed max-w-[280px]">
-                    {lk === "de"
-                      ? "Stell eine Frage und bekomme eine klare Antwort und den nächsten Schritt."
-                      : lk === "en"
-                      ? "Ask a question and get a clear answer and next step."
-                      : "Postavi pitanje i dobit ćeš jasan odgovor i sljedeći korak."}
+                    {t("chat.greetingDesc")}
                   </p>
                 </motion.div>
               )}
 
-              {/* Chat messages */}
               {messages.map((msg, i) => (
                 <motion.div
                   key={i}
@@ -540,7 +505,7 @@ export default function ChatAssistant() {
                               className="mt-2 flex items-center gap-1 text-[10px] text-muted-foreground hover:text-foreground transition"
                             >
                               <Copy className="h-3 w-3" />
-                              {copied === i ? "✓" : "Kopiraj"}
+                              {copied === i ? "✓" : t("chat.copy")}
                             </button>
                           )}
                         </>
@@ -549,13 +514,12 @@ export default function ChatAssistant() {
                       )}
                     </div>
                     {msg.role === "assistant" && !loading && (
-                      <ResponseActions msg={msg} lk={lk} />
+                      <ResponseActions msg={msg} t={t} />
                     )}
                   </div>
                 </motion.div>
               ))}
 
-              {/* Typing indicator */}
               {loading && messages[messages.length - 1]?.role === "user" && (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex justify-start">
                   <div className="rounded-2xl bg-muted/60 px-4 py-3">
@@ -571,7 +535,7 @@ export default function ChatAssistant() {
 
             {/* Disclaimer */}
             <div className="px-4 py-1 border-t border-border/20">
-              <p className="text-[8px] text-center text-muted-foreground/40">{DISCLAIMER[lk] || DISCLAIMER["bs"]}</p>
+              <p className="text-[8px] text-center text-muted-foreground/40">{t("chat.disclaimer")}</p>
             </div>
 
             {/* Input area */}
@@ -579,7 +543,7 @@ export default function ChatAssistant() {
               <div className="flex items-center gap-1 mb-1.5 px-0.5">
                 <ShieldCheck className="h-2.5 w-2.5 text-emerald-600/60 dark:text-emerald-400/60 shrink-0" />
                 <p className="text-[8px] text-muted-foreground/40">
-                  {lk === "de" ? "Keine sensiblen Daten eingeben." : lk === "en" ? "Do not enter sensitive data." : "Ne unosite osjetljive podatke."}
+                  {t("chat.noSensitiveData")}
                 </p>
               </div>
               <div className="flex items-end gap-2">
@@ -588,7 +552,7 @@ export default function ChatAssistant() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  placeholder={PLACEHOLDER[lk] || PLACEHOLDER["bs"]}
+                  placeholder={t("chat.placeholder")}
                   rows={1}
                   className="flex-1 resize-none rounded-xl border border-border/60 bg-background px-3 py-2.5 text-[13px] outline-none transition-all placeholder:text-muted-foreground/40 focus:border-primary/40 focus:ring-2 focus:ring-primary/10"
                 />
