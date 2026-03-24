@@ -105,11 +105,9 @@ export default function Index() {
           </div>
         ))}
 
-        {/* Overlays */}
-        <div className="absolute inset-0 z-[2] bg-gradient-to-b from-[hsl(215,68%,6%/0.7)] via-[hsl(215,60%,10%/0.4)] to-[hsl(215,68%,4%/0.95)]" />
-        <div className="absolute inset-0 z-[2] bg-gradient-to-r from-[hsl(215,68%,4%/0.35)] via-transparent to-[hsl(215,68%,4%/0.35)]" />
-        <div className="absolute inset-0 z-[2] bg-[hsl(215,70%,20%/0.08)]" />
-        <div className="absolute left-1/2 top-[40%] z-[2] h-80 w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[hsl(var(--gold)/0.05)]" style={{ filter: "blur(120px)" }} />
+        {/* Overlays — stronger for text readability */}
+        <div className="absolute inset-0 z-[2] bg-black/40" />
+        <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/30 via-transparent to-black/70" />
 
         {/* Content — always on top, stable */}
         <div className="container relative z-10 flex h-full flex-col items-center justify-center text-center px-5">
