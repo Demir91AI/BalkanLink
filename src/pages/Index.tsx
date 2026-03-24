@@ -10,7 +10,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-import { HeroAdBanner, VideoAdSection, InlineAdBanner } from "@/components/home/AdSections";
+import { HeroAdBanner, VideoAdSection } from "@/components/home/AdSections";
+import { AdCarousel } from "@/components/home/AdCarousel";
 import heroBerlin from "@/assets/hero-berlin.jpg";
 import heroMuenchen from "@/assets/hero-muenchen.jpg";
 import heroFrankfurt from "@/assets/hero-frankfurt.jpg";
