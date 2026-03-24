@@ -171,17 +171,17 @@ export default function Index() {
 
             {/* Quick-link tags */}
             <div className="flex w-full justify-center" style={{ marginTop: "16px" }}>
-              <div className="flex items-center justify-center gap-3">
+              <div className="flex items-center justify-center gap-2 sm:gap-3">
                 {[
-                  { label: "Prvi koraci", to: "/dolazak/prvi-koraci" },
-                  { label: "Dokumenti", to: "/formulari" },
-                  { label: "Boravak", to: "/dolazak/boravisna-dozvola" },
-                  { label: "Kalkulatori", to: "/tools" },
+                  { label: "Start", mobileLabel: "Start", to: "/dolazak/prvi-koraci" },
+                  { label: "Dokumenti", mobileLabel: "Dokumenti", to: "/formulari" },
+                  { label: "Boravak", mobileLabel: "Boravak", to: "/dolazak/boravisna-dozvola" },
+                  { label: "Kalkulatori", mobileLabel: "Kalkulator", to: "/tools" },
                 ].map((tag) => (
                   <Link
                     key={tag.to}
                     to={tag.to}
-                    className="rounded-full border border-white/40 px-4 py-1.5 text-xs font-medium text-white/80 backdrop-blur-sm transition-all duration-200 hover:border-white hover:bg-white/10 hover:text-white sm:text-sm"
+                    className="whitespace-nowrap rounded-full border border-white/40 px-3 py-1.5 text-[11px] font-medium text-white/80 backdrop-blur-sm transition-all duration-200 hover:border-white hover:bg-white/10 hover:text-white sm:px-4 sm:text-sm"
                   >
                     {tag.label}
                   </Link>
