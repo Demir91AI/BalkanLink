@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { SidebarTrigger } from "@/components/ui/sidebar";
-import { ChevronDown, Mail, List, Send, PanelRight } from "lucide-react";
+import { ChevronDown, Mail, List, Send, PanelRight, Globe, LogIn, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -42,39 +42,8 @@ export default function Header() {
             <BrandLogo variant="full" />
           </div>
 
-          {/* Right: language + auth + extra menu */}
-          <div className="ml-auto flex items-center gap-1">
-            {/* Language switcher */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="gap-1 text-sm h-9 px-2 text-white/80 hover:text-brand-orange hover:bg-white/5">
-                  <span className="text-base leading-none">{currentFlag}</span>
-                  <ChevronDown className="h-3 w-3 text-white/50" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="min-w-[160px] bg-[hsl(215,55%,10%)] border-white/10 shadow-xl">
-                {languages.map((lang) => (
-                  <DropdownMenuItem key={lang.code} onClick={() => setLanguage(lang.code)}
-                    className={`text-white/80 hover:text-white focus:text-white focus:bg-white/10 ${language === lang.code ? "bg-white/10 text-brand-orange font-medium" : ""}`}>
-                    <span className="mr-2 text-base leading-none">{lang.flag}</span>
-                    {lang.name}
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-
-            {!loading && !user && (
-              <Button variant="ghost" size="sm" asChild className="h-9 text-sm px-2 text-white/80 hover:text-brand-orange hover:bg-white/5">
-                <Link to="/login">{t("nav.login")}</Link>
-              </Button>
-            )}
-            {!loading && user && (
-              <Button variant="ghost" size="sm" onClick={signOut} className="h-9 text-sm px-2 text-white/80 hover:text-brand-orange hover:bg-white/5">
-                {t("nav.logout")}
-              </Button>
-            )}
-
-            {/* Extra menu trigger */}
+          {/* Right: extra menu trigger only */}
+          <div className="ml-auto">
             <Button
               variant="ghost"
               size="sm"
@@ -94,19 +63,63 @@ export default function Header() {
             <SheetTitle className="text-[11px] font-bold uppercase tracking-[0.12em] text-white/30">Menü</SheetTitle>
           </SheetHeader>
           <nav className="flex flex-col gap-1 px-2 pt-1">
-            <button
-              onClick={() => { setSheetOpen(false); setContactOpen(true); }}
-              className="group flex items-center gap-3 px-3 h-11 rounded-lg text-sm font-medium text-white/55 hover:text-white hover:bg-white/5 transition-all duration-200"
-            >
-              <Mail className="h-[18px] w-[18px] shrink-0 text-white/40 group-hover:text-white/70 transition-colors" />
-              Kontakt
-            </button>
+            {/* Jezik / Language */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button className="group flex items-center gap-3 px-3 h-11 rounded-lg text-sm font-medium text-white/55 hover:text-white hover:bg-white/5 transition-all duration-200 w-full">
+                  <Globe className="h-[18px] w-[18px] shrink-0 text-white/40 group-hover:text-white/70 transition-colors" />
+                  <span className="flex-1 text-left">{currentFlag} {languages.find(l => l.code === language)?.name}</span>
+                  <ChevronDown className="h-3 w-3 text-white/40" />
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="min-w-[180px] bg-[hsl(215,55%,10%)] border-white/10 shadow-xl">
+                {languages.map((lang) => (
+                  <DropdownMenuItem key={lang.code} onClick={() => setLanguage(lang.code)}
+                    className={`text-white/80 hover:text-white focus:text-white focus:bg-white/10 ${language === lang.code ? "bg-white/10 text-brand-orange font-medium" : ""}`}>
+                    <span className="mr-2 text-base leading-none">{lang.flag}</span>
+                    {lang.name}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            {/* Prijava / Login */}
+            {!loading && !user && (
+              <Link
+                to="/login"
+                onClick={() => setSheetOpen(false)}
+                className="group flex items-center gap-3 px-3 h-11 rounded-lg text-sm font-medium text-white/55 hover:text-white hover:bg-white/5 transition-all duration-200"
+              >
+                <LogIn className="h-[18px] w-[18px] shrink-0 text-white/40 group-hover:text-white/70 transition-colors" />
+                {t("nav.login")}
+              </Link>
+            )}
+            {!loading && user && (
+              <button
+                onClick={() => { setSheetOpen(false); signOut(); }}
+                className="group flex items-center gap-3 px-3 h-11 rounded-lg text-sm font-medium text-white/55 hover:text-white hover:bg-white/5 transition-all duration-200"
+              >
+                <LogOut className="h-[18px] w-[18px] shrink-0 text-white/40 group-hover:text-white/70 transition-colors" />
+                {t("nav.logout")}
+              </button>
+            )}
+
+            {/* Preisliste */}
             <button
               onClick={() => {}}
               className="group flex items-center gap-3 px-3 h-11 rounded-lg text-sm font-medium text-white/55 hover:text-white hover:bg-white/5 transition-all duration-200"
             >
               <List className="h-[18px] w-[18px] shrink-0 text-white/40 group-hover:text-white/70 transition-colors" />
               Preisliste / Monitoring
+            </button>
+
+            {/* Kontakt */}
+            <button
+              onClick={() => { setSheetOpen(false); setContactOpen(true); }}
+              className="group flex items-center gap-3 px-3 h-11 rounded-lg text-sm font-medium text-white/55 hover:text-white hover:bg-white/5 transition-all duration-200"
+            >
+              <Mail className="h-[18px] w-[18px] shrink-0 text-white/40 group-hover:text-white/70 transition-colors" />
+              Kontakt
             </button>
           </nav>
         </SheetContent>
