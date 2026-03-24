@@ -49,6 +49,7 @@ export const visaTypes: VisaType[] = [
       "Kasno zakazivanje termina na ambasadi — termini su zauzeti mjesecima unaprijed",
       "Pogrešan tip vize — turistička viza NE dozvoljava rad",
     ],
+    guideSlug: "radna-viza",
     officialUrl: "https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/arbeiten",
   },
   {
@@ -118,6 +119,7 @@ export const visaTypes: VisaType[] = [
       "Dokumenti nisu prevedeni od ovlaštenog prevodioca",
       "Predugo čekanje — obrada može trajati 2–6 mjeseci",
     ],
+    guideSlug: "spajanje-porodice",
     officialUrl: "https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/familiennachzug",
   },
   {
@@ -152,6 +154,7 @@ export const visaTypes: VisaType[] = [
       "Prijava za vizu umjesto za studentski boravak",
       "Zdravstveno osiguranje nije odgovarajućeg tipa (mora biti njemačko ili priznato)",
     ],
+    guideSlug: "studentska-viza",
     officialUrl: "https://www.make-it-in-germany.com/de/studium-ausbildung/studium/visum",
   },
   {
@@ -225,6 +228,7 @@ export const visaTypes: VisaType[] = [
       "Prekidi u boravku (duži od 6 mjeseci) mogu resetirati period",
       "Nejasnoća oko toga da li Integrationskurs ili Einbürgerungstest trebaju",
     ],
+    guideSlug: "stalni-boravak",
     officialUrl: "https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwijAndInDeutschl/Niederlassungserlaubnis/niederlassungserlaubnis-node.html",
   },
 ];
