@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
-import { Briefcase, Receipt, Home, Heart, Users, HandCoins, ArrowRight } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { Briefcase, Receipt, Home, Heart, Users, HandCoins, ArrowRight, ArrowLeft } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 import LegalDisclaimer from "@/components/LegalDisclaimer";
+import { navigateBackOrHome } from "@/lib/navigation";
 
 const categories = [
   {
@@ -135,17 +136,23 @@ function CategoryCard({ cat, idx }: { cat: typeof categories[number]; idx: numbe
 
 export default function ZivotSavjeti() {
   const { t } = useLanguage();
+  const navigate = useNavigate();
 
   return (
     <>
       <section className="border-b bg-primary py-12">
-        <div className="container text-center">
+        <div className="container">
+          <button onClick={() => navigateBackOrHome(navigate)} className="mb-4 inline-flex items-center gap-1 text-xs text-primary-foreground/70 hover:text-primary-foreground">
+            <ArrowLeft className="h-3 w-3" /> Nazad
+          </button>
+          <div className="text-center">
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">
             {t("cta.daily.title")}
           </h1>
           <p className="mt-2 text-sm text-primary-foreground/80 md:text-base">
             Sve o životu u Njemačkoj — posao, stan, porezi, zdravstvo.
           </p>
+          </div>
         </div>
       </section>
 

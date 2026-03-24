@@ -10,6 +10,7 @@ import {
 import { useLanguage } from "@/contexts/LanguageContext";
 // Premium system hidden — everything free
 import LegalDisclaimer from "@/components/LegalDisclaimer";
+import { navigateBackOrHome } from "@/lib/navigation";
 
 type LangKey = "de" | "bs" | "en" | "sq" | "mk";
 type L9 = Record<LangKey, string>;
@@ -956,7 +957,7 @@ export default function Formulare() {
 
   const toggle = (id: string) => setOpenId(openId === id ? null : id);
 
-  const handleBack = () => { window.history.length > 2 ? navigate(-1) : navigate("/"); };
+  const handleBack = () => navigateBackOrHome(navigate);
 
   return (
     <>

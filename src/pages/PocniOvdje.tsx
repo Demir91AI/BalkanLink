@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowRight, ArrowLeft, Home, FileText, CreditCard, Heart, Landmark, ClipboardList, Shield, Radio, Car, KeyRound } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { navigateBackOrHome } from "@/lib/navigation";
 
 const T: Record<string, Record<string, string>> = {
   bs: {
@@ -101,7 +102,7 @@ export default function PocniOvdje() {
     <>
       <section className="border-b bg-primary py-10">
         <div className="container max-w-3xl">
-          <button onClick={() => window.history.length > 2 ? navigate(-1) : navigate("/")} className="mb-4 inline-flex items-center gap-1 text-xs text-primary-foreground/70 hover:text-primary-foreground">
+          <button onClick={() => navigateBackOrHome(navigate)} className="mb-4 inline-flex items-center gap-1 text-xs text-primary-foreground/70 hover:text-primary-foreground">
             <ArrowLeft className="h-3 w-3" /> Nazad
           </button>
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl text-center">

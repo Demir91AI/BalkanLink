@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { ArrowLeft, ExternalLink, Calendar } from "lucide-react";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
 import { Badge } from "@/components/ui/badge";
@@ -7,6 +7,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { useQaItem } from "@/hooks/useQaItems";
 
 import { getCategoryBySlug } from "@/lib/categories";
+import { navigateBackOrHome } from "@/lib/navigation";
 
 function FormattedContent({ text }: { text: string }) {
   const lines = text.split(/\\n|\n/).filter((l) => l.trim() !== "");
@@ -52,6 +53,7 @@ function FormattedContent({ text }: { text: string }) {
 
 export default function QADetail() {
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
   const { data: item, isLoading, error } = useQaItem(id || "");
 
   if (isLoading) {
@@ -83,13 +85,13 @@ export default function QADetail() {
   return (
     <div className="container max-w-3xl py-10">
       {/* Back */}
-      <Link
-        to="/qa"
+      <button
+        onClick={() => navigateBackOrHome(navigate)}
         className="mb-6 inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
       >
         <ArrowLeft className="h-4 w-4" />
         Sva pitanja
-      </Link>
+      </button>
 
       {/* Meta */}
       <div className="mb-4 flex flex-wrap items-center gap-2">

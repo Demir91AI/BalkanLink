@@ -1,6 +1,7 @@
 import { ArrowLeft, FileCheck, Clock } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { navigateBackOrHome } from "@/lib/navigation";
 
 const SECTIONS = [
   {
@@ -32,7 +33,7 @@ export default function Vorlagen() {
 
   return (
     <div className="container max-w-3xl py-8 px-4">
-      <button onClick={() => navigate("/")} className="mb-4 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground">
+      <button onClick={() => navigateBackOrHome(navigate)} className="mb-4 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground">
         <ArrowLeft className="h-3 w-3" /> {t("common.back") || "Nazad"}
       </button>
       <h1 className="text-2xl font-bold mb-2">{t("vorlagen.sidebarTitle") || "Šabloni / Vorlagen"}</h1>

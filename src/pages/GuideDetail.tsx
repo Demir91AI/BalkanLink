@@ -1,10 +1,11 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { ArrowLeft, CheckCircle2, AlertTriangle, Clock, FileText, Building2, Info, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 import { getGuideBySlug, getOfficialUrl } from "@/lib/guide-data";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 import LegalDisclaimer from "@/components/LegalDisclaimer";
+import { navigateBackOrHome } from "@/lib/navigation";
 
 type LangKey = "de" | "bs" | "en";
 
@@ -16,6 +17,7 @@ function getLangKey(lang: string): LangKey {
 
 export default function GuideDetail() {
   const { slug } = useParams<{ slug: string }>();
+  const navigate = useNavigate();
   const { language } = useLanguage();
   const guide = getGuideBySlug(slug || "");
   const lk = getLangKey(language);
@@ -43,14 +45,6 @@ export default function GuideDetail() {
   };
   const labels = sectionLabels[lk];
 
-  const categoryPaths: Record<string, string> = {
-    familie: "/familie",
-    wohnen: "/foerderungen",
-    arbeit: "/foerderungen",
-    gesundheit: "/foerderungen",
-    bildung: "/foerderungen",
-  };
-
   const officialTexts = {
     de: "Dieser Leitfaden basiert auf Informationen offizieller deutscher Institutionen. Für das offizielle Formular und weitere Informationen besuchen Sie die offizielle Seite.",
     bs: "Ovaj vodič temelji se na informacijama službenih njemačkih institucija. Za službeni formular i dodatne informacije posjeti službenu stranicu.",
@@ -64,12 +58,12 @@ export default function GuideDetail() {
       {/* Header */}
       <section className="border-b bg-primary py-10">
         <div className="container max-w-3xl">
-          <Link
-            to={categoryPaths[guide.category] || "/formulare"}
+          <button
+            onClick={() => navigateBackOrHome(navigate)}
             className="mb-4 inline-flex items-center gap-1 text-xs text-primary-foreground/70 hover:text-primary-foreground"
           >
             <ArrowLeft className="h-3 w-3" /> {lk === "de" ? "Zurück" : lk === "bs" ? "Nazad" : "Back"}
-          </Link>
+          </button>
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">
             {guide.title[lk]}
           </h1>

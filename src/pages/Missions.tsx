@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { MapPin, Building, Landmark, Filter, Phone, Mail, Globe, Info, ArrowLeft } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useMissions } from "@/hooks/useMissions";
 import { ORIGIN_COUNTRIES } from "@/lib/directory-constants";
+import { navigateBackOrHome } from "@/lib/navigation";
 
 const MISSION_TYPES = ["Embassy", "Consulate General"] as const;
 
@@ -93,6 +94,7 @@ function MissionDetail({ id, onBack }: { id: string; onBack: () => void }) {
 
 export default function Missions() {
   const { t } = useLanguage();
+  const navigate = useNavigate();
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
   const [missionType, setMissionType] = useState("");
@@ -114,6 +116,9 @@ export default function Missions() {
   return (
     <div className="container py-8">
       <div className="mb-8">
+        <button onClick={() => navigateBackOrHome(navigate)} className="mb-4 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground">
+          <ArrowLeft className="h-3 w-3" /> Nazad
+        </button>
         <h1 className="text-2xl font-bold md:text-3xl">{t("missions.title")}</h1>
         <p className="mt-1 text-muted-foreground">{t("missions.subtitle")}</p>
       </div>

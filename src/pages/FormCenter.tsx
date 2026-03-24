@@ -12,6 +12,7 @@ import { cn } from "@/lib/utils";
 import FormFreeContent from "@/components/FormFreeContent";
 import FormSmartGuide from "@/components/FormSmartGuide";
 import FormPaywall from "@/components/FormPaywall";
+import { navigateBackOrHome } from "@/lib/navigation";
 
 type LangKey = "de" | "bs" | "en";
 const lang: LangKey = "bs";
@@ -61,6 +62,7 @@ export default function FormCenter() {
   );
 
   const activeSlug = slug || "";
+  const handleBack = () => navigateBackOrHome(navigate);
 
   // Search across all entries
   const allEntries = useMemo(() => getAllFormEntries(), []);
@@ -121,10 +123,10 @@ export default function FormCenter() {
     return (
       <div className="px-4 py-6">
         <button
-          onClick={() => navigate("/formulari")}
+          onClick={handleBack}
           className="mb-4 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
         >
-          <ArrowLeft className="h-3 w-3" /> Svi formulari
+          <ArrowLeft className="h-3 w-3" /> Nazad
         </button>
         <GuideContent key={activeSlug} slug={activeSlug} />
       </div>
@@ -135,6 +137,12 @@ export default function FormCenter() {
     <div className="mx-auto max-w-7xl px-4 py-6">
       {/* Page title */}
       <div className="mb-6">
+        <button
+          onClick={handleBack}
+          className="mb-4 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
+        >
+          <ArrowLeft className="h-3 w-3" /> Nazad
+        </button>
         <h1 className="font-heading text-2xl font-extrabold sm:text-3xl">
           Formulari – Smart Guide
         </h1>

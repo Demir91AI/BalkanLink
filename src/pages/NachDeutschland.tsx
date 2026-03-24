@@ -2,6 +2,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { getMigrationCountries, type CategoryKey } from "@/lib/migration-data";
 import { Briefcase, GraduationCap, BookOpen, Heart, Award, ExternalLink, ShieldAlert, CheckCircle2, ChevronRight, Globe, ArrowLeft } from "lucide-react";
 import { useParams, useNavigate } from "react-router-dom";
+import { navigateBackOrHome } from "@/lib/navigation";
 
 const ICON_FOR_KEY: Record<CategoryKey, React.ElementType> = {
   work: Briefcase,
@@ -21,22 +22,14 @@ export default function NachDeutschland() {
   const selectedCategory = selectedCountry?.categories.find((c) => c.key === categoryKey);
 
   const handleBack = () => {
-    if (selectedCategory) {
-      navigate(`/nach-deutschland/${selectedCountry!.code}`);
-    } else if (selectedCountry) {
-      navigate("/nach-deutschland");
-    } else if (window.history.length > 2) {
-      navigate(-1);
-    } else {
-      navigate("/");
-    }
+    navigateBackOrHome(navigate);
   };
 
   // Country selection view
   if (!selectedCountry) {
     return (
       <div className="container max-w-4xl py-8 px-4">
-        <button onClick={() => navigate("/")} className="text-xs text-muted-foreground hover:text-[hsl(var(--brand-orange))] mb-4 flex items-center gap-1">
+        <button onClick={handleBack} className="text-xs text-muted-foreground hover:text-[hsl(var(--brand-orange))] mb-4 flex items-center gap-1">
           <ArrowLeft className="h-3 w-3" /> {t("common.back") || "Nazad"}
         </button>
         <h1 className="text-2xl font-bold text-foreground mb-2">{t("migration.title")}</h1>
