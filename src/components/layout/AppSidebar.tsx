@@ -1,12 +1,13 @@
 import {
   FileText,
-  Home as HomeIcon,
   Briefcase,
   Megaphone,
   Wrench,
   ShieldCheck,
   Compass,
   Search,
+  Building2,
+  Footprints,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation } from "react-router-dom";
@@ -22,13 +23,14 @@ import {
 } from "@/components/ui/sidebar";
 
 const sidebarItems = [
+  { title: "Prvi koraci", url: "/dolazak/prvi-koraci", icon: Footprints },
   { title: "Formulari", url: "/formulari", icon: FileText },
-  { title: "Pretraga stanova", url: "/wohnungen", icon: Search },
   { title: "Pretraga poslova", url: "/stellenangebote", icon: Briefcase },
-  { title: "Nudim / Tražim", url: "/nudim-trazim", icon: Megaphone },
-  { title: "Alati i kalkulatori", url: "/tools", icon: Wrench },
+  { title: "Pretraga stanova", url: "/wohnungen", icon: Building2 },
   { title: "Dokumenten-Check", url: "/dokumenten-check", icon: ShieldCheck },
   { title: "Viza Navigator", url: "/dolazak/boravisna-dozvola", icon: Compass },
+  { title: "Alati i kalkulatori", url: "/tools", icon: Wrench },
+  { title: "Nudim / Tražim", url: "/nudim-trazim", icon: Megaphone },
 ];
 
 export function AppSidebar() {

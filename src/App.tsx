@@ -8,6 +8,7 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { CountryProvider } from "@/contexts/CountryContext";
 import Layout from "@/components/layout/Layout";
+import HomeLayout from "@/components/layout/HomeLayout";
 import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -66,8 +67,10 @@ const App = () => (
           <CountryProvider>
           <AuthProvider>
             <Routes>
-              <Route element={<Layout />}>
+              <Route element={<HomeLayout />}>
                 <Route path="/" element={<Index />} />
+              </Route>
+              <Route element={<Layout />}>
                 <Route path="/dolazak" element={<PocniOvdje />} />
                 <Route path="/pocni-ovdje" element={<PocniOvdje />} />
                 <Route path="/dolazak/prijava-prebivalista" element={<PrijavaPrebijalista />} />
