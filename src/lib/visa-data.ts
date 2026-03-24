@@ -154,6 +154,7 @@ export const visaTypes: VisaType[] = [
       "Prijava za vizu umjesto za studentski boravak",
       "Zdravstveno osiguranje nije odgovarajućeg tipa (mora biti njemačko ili priznato)",
     ],
+    guideSlug: "studentska-viza",
     officialUrl: "https://www.make-it-in-germany.com/de/studium-ausbildung/studium/visum",
   },
   {
