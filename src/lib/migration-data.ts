@@ -1,3 +1,6 @@
+import type { Language } from "./translations";
+import { localizeMigrationCountries } from "./migration-localization";
+
 // Data for "Nach Deutschland kommen" section — per country, per category
 
 export interface MigrationCategory {
@@ -307,3 +310,7 @@ export const COUNTRIES: CountryMigrationData[] = [
 
 export const CATEGORY_KEYS = ["work", "education", "study", "fsj", "recognition"] as const;
 export type CategoryKey = typeof CATEGORY_KEYS[number];
+
+export function getMigrationCountries(language: Language): CountryMigrationData[] {
+  return localizeMigrationCountries(language, COUNTRIES);
+}

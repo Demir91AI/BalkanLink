@@ -1,6 +1,5 @@
-import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { COUNTRIES, CATEGORY_KEYS, type CountryMigrationData, type MigrationCategory, type CategoryKey } from "@/lib/migration-data";
+import { getMigrationCountries, type CategoryKey } from "@/lib/migration-data";
 import { Briefcase, GraduationCap, BookOpen, Heart, Award, ExternalLink, ShieldAlert, CheckCircle2, ChevronRight, Globe } from "lucide-react";
 import { useParams, useNavigate } from "react-router-dom";
 
@@ -17,11 +16,12 @@ const ICON_FOR_KEY: Record<CategoryKey, React.ElementType> = {
 };
 
 export default function NachDeutschland() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { countryCode, categoryKey } = useParams<{ countryCode?: string; categoryKey?: string }>();
   const navigate = useNavigate();
+  const countries = getMigrationCountries(language);
 
-  const selectedCountry = COUNTRIES.find((c) => c.code === countryCode);
+  const selectedCountry = countries.find((c) => c.code === countryCode);
   const selectedCategory = selectedCountry?.categories.find((c) => c.key === categoryKey);
 
   // Country selection view
@@ -38,7 +38,7 @@ export default function NachDeutschland() {
 
         <h2 className="text-lg font-semibold mb-4">{t("migration.selectCountry")}</h2>
         <div className="grid gap-3 sm:grid-cols-2">
-          {COUNTRIES.map((country) => (
+          {countries.map((country) => (
             <button
               key={country.code}
               onClick={() => navigate(`/nach-deutschland/${country.code}`)}
