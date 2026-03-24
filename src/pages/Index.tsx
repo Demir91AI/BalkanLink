@@ -130,7 +130,7 @@ export default function Index() {
 
             {/* H2 */}
             <p
-              className="mx-auto mt-5 max-w-xl text-sm font-semibold leading-relaxed sm:text-base md:text-lg"
+              className="mx-auto mt-6 max-w-xl text-sm font-semibold leading-relaxed sm:text-base md:text-lg"
               style={{ color: "#F0F0F0", textShadow: "0 2px 12px rgba(0,0,0,0.4)" }}
             >
               Sve što ti treba za uspješan start na jednom, provjerenom mjestu.
