@@ -101,6 +101,8 @@ type TranslationKeys = {
   "auth.saveButton": string; "auth.saving": string;
   "auth.resetWaiting": string; "auth.resetWaitingDesc": string; "auth.passwordChanged": string;
   "auth.minChars": string;
+  "auth.termsLabel": string; "auth.termsAGB": string; "auth.termsAnd": string;
+  "auth.termsPrivacy": string; "auth.termsAccept": string; "auth.termsRequired": string;
   "footer.legal": string; "footer.haftung": string; "footer.mitgliedschaft": string; "footer.kiHinweis": string;
   "hero.cta.register": string; "hero.cta.firstSteps": string;
   "notfound.title": string; "notfound.desc": string; "notfound.back": string;
@@ -872,6 +874,9 @@ const miscBs: Partial<TranslationKeys> = {
   "auth.resetWaitingDesc": "Otvorite link iz emaila da biste resetovali lozinku.",
   "auth.passwordChanged": "Lozinka uspješno promijenjena!",
   "auth.minChars": "Najmanje 8 znakova",
+  "auth.termsLabel": "Pročitao/la sam", "auth.termsAGB": "Uslove korištenja (AGB)",
+  "auth.termsAnd": "i", "auth.termsPrivacy": "Pravila privatnosti",
+  "auth.termsAccept": "i prihvatam ih.", "auth.termsRequired": "Morate prihvatiti uslove korištenja i pravila privatnosti.",
   "footer.legal": "Pravne informacije", "footer.haftung": "Odricanje od odgovornosti",
   "footer.mitgliedschaft": "Članstvo", "footer.kiHinweis": "KI napomena",
   "hero.cta.register": "Registruj se besplatno", "hero.cta.firstSteps": "Pogledaj prve korake",
@@ -923,6 +928,9 @@ const miscDe: Partial<TranslationKeys> = {
   "auth.resetWaitingDesc": "Öffnen Sie den Link in der E-Mail.",
   "auth.passwordChanged": "Passwort erfolgreich geändert!",
   "auth.minChars": "Mindestens 8 Zeichen",
+  "auth.termsLabel": "Ich habe die", "auth.termsAGB": "AGB",
+  "auth.termsAnd": "und die", "auth.termsPrivacy": "Datenschutzbestimmungen",
+  "auth.termsAccept": "gelesen und akzeptiere sie.", "auth.termsRequired": "Bitte akzeptieren Sie die AGB und Datenschutzbestimmungen.",
   "footer.legal": "Rechtliches", "footer.haftung": "Haftungsausschluss",
   "footer.mitgliedschaft": "Mitgliedschaft", "footer.kiHinweis": "KI-Hinweis",
   "hero.cta.register": "Kostenlos registrieren", "hero.cta.firstSteps": "Erste Schritte ansehen",
@@ -960,6 +968,9 @@ const miscEn: Partial<TranslationKeys> = {
   "auth.resetWaitingDesc": "Open the link in the email to reset your password.",
   "auth.passwordChanged": "Password changed successfully!",
   "auth.minChars": "At least 8 characters",
+  "auth.termsLabel": "I have read the", "auth.termsAGB": "Terms of Service",
+  "auth.termsAnd": "and the", "auth.termsPrivacy": "Privacy Policy",
+  "auth.termsAccept": "and I accept them.", "auth.termsRequired": "You must accept the Terms of Service and Privacy Policy.",
   "footer.legal": "Legal", "footer.haftung": "Disclaimer",
   "footer.mitgliedschaft": "Membership", "footer.kiHinweis": "AI Notice",
   "hero.cta.register": "Register for free", "hero.cta.firstSteps": "See first steps",
@@ -997,6 +1008,9 @@ const miscSq: Partial<TranslationKeys> = {
   "auth.resetWaitingDesc": "Hap linkun në email.",
   "auth.passwordChanged": "Fjalëkalimi u ndryshua me sukses!",
   "auth.minChars": "Së paku 8 karaktere",
+  "auth.termsLabel": "I kam lexuar", "auth.termsAGB": "Kushtet e përdorimit",
+  "auth.termsAnd": "dhe", "auth.termsPrivacy": "Politikën e privatësisë",
+  "auth.termsAccept": "dhe i pranoj ato.", "auth.termsRequired": "Duhet të pranoni kushtet e përdorimit dhe politikën e privatësisë.",
   "footer.legal": "Ligjore", "footer.haftung": "Mohim përgjegjësie",
   "footer.mitgliedschaft": "Anëtarësia", "footer.kiHinweis": "Njoftim AI",
   "hero.cta.register": "Regjistrohu falas", "hero.cta.firstSteps": "Shiko hapat e parë",
@@ -1034,6 +1048,9 @@ const miscMk: Partial<TranslationKeys> = {
   "auth.resetWaitingDesc": "Отворете го линкот од emailот.",
   "auth.passwordChanged": "Лозинката е успешно променета!",
   "auth.minChars": "Најмалку 8 знаци",
+  "auth.termsLabel": "Ги прочитав", "auth.termsAGB": "Условите за користење",
+  "auth.termsAnd": "и", "auth.termsPrivacy": "Политиката на приватност",
+  "auth.termsAccept": "и ги прифаќам.", "auth.termsRequired": "Мора да ги прифатите условите за користење и политиката на приватност.",
   "footer.legal": "Правни информации", "footer.haftung": "Одрекување од одговорност",
   "footer.mitgliedschaft": "Членство", "footer.kiHinweis": "AI напомена",
   "hero.cta.register": "Регистрирај се бесплатно", "hero.cta.firstSteps": "Прегледај први чекори",
