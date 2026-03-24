@@ -950,18 +950,24 @@ export default function Formulare() {
   const lk = getLk(language);
   const t = pageTitles[lk];
   const l = labels[lk];
+  const navigate = useNavigate();
 
   const [openId, setOpenId] = useState<string | null>(null);
 
   const toggle = (id: string) => setOpenId(openId === id ? null : id);
 
+  const handleBack = () => { window.history.length > 2 ? navigate(-1) : navigate("/"); };
+
   return (
     <>
       {/* Hero */}
       <section className="border-b bg-primary py-12">
-        <div className="container text-center">
-          <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">{t.title}</h1>
-          <p className="mt-2 text-sm text-primary-foreground/80 md:text-base">{t.subtitle}</p>
+        <div className="container max-w-3xl">
+          <button onClick={handleBack} className="mb-4 inline-flex items-center gap-1 text-xs text-primary-foreground/70 hover:text-primary-foreground">
+            <ArrowLeft className="h-3 w-3" /> Nazad
+          </button>
+          <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl text-center">{t.title}</h1>
+          <p className="mt-2 text-sm text-primary-foreground/80 md:text-base text-center">{t.subtitle}</p>
         </div>
       </section>
 

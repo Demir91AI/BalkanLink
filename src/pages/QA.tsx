@@ -36,6 +36,9 @@ export default function QA() {
   return (
     <div className="container py-8 md:py-12">
       <div className="mb-8 max-w-2xl">
+        <button onClick={() => window.history.length > 2 ? navigate(-1) : navigate("/")} className="mb-4 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground">
+          <ArrowLeft className="h-3 w-3" /> Nazad
+        </button>
         <h1 className="text-3xl font-bold md:text-4xl">{t("qa.title")}</h1>
         <p className="mt-2 text-muted-foreground">{t("qa.subtitle")}</p>
       </div>
