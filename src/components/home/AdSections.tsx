@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Check, Play, ArrowRight, Megaphone, Video } from "lucide-react";
+import { Check, ArrowRight, Megaphone, MapPin, Star, Eye, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroFrankfurt from "@/assets/hero-frankfurt.jpg";
 
@@ -180,8 +180,17 @@ export function HeroAdBanner() {
 }
 
 /* ══════════════════════════════════════════════════
-   2. Video Production Section (real video)
+   2. Realistic Ad Preview Section
    ══════════════════════════════════════════════════ */
+const SAMPLE_AD = {
+  title: "Keramičarske usluge – kvalitet i pouzdanost",
+  category: "Usluge",
+  city: "München",
+  date: "21.03.2026",
+  description: "Profesionalne keramičarske usluge – kupatila, kuhinje, balkoni. 15 godina iskustva. Fer cijene i kvalitetan rad.",
+  contact: "+49 170 555 1234",
+};
+
 export function VideoAdSection() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-[hsl(215,55%,5%)] to-[hsl(215,55%,8%)]">
@@ -193,35 +202,62 @@ export function VideoAdSection() {
 
       <div className="container relative z-10 py-16 sm:py-24">
         <div className="mx-auto grid max-w-5xl items-center gap-10 md:grid-cols-2">
-          {/* Video */}
+          {/* Realistic Ad Card Preview */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.94 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="group relative mx-auto aspect-video w-full max-w-lg overflow-hidden rounded-2xl border border-white/8 shadow-2xl shadow-black/40"
+            transition={{ duration: 0.6 }}
+            className="mx-auto w-full max-w-sm"
           >
-            <video
-              src={VIDEO_URL}
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-            {/* Dark gradient overlay on video */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[hsl(215,55%,5%/0.7)] via-transparent to-[hsl(215,55%,5%/0.3)]" />
-            {/* Play icon overlay */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[hsl(var(--gold)/0.15)] ring-2 ring-[hsl(var(--gold)/0.25)] transition-all duration-300 group-hover:scale-110 group-hover:ring-[hsl(var(--gold)/0.4)]">
-                <Play className="h-7 w-7 ml-1 text-[hsl(var(--gold))]" fill="hsl(var(--gold))" fillOpacity={0.3} />
+            <div className="group relative rounded-2xl border border-white/10 bg-[hsl(215,50%,10%)] p-5 shadow-2xl shadow-black/40 transition-all duration-300 hover:border-[hsl(var(--gold)/0.25)] hover:shadow-[0_0_40px_hsl(var(--gold)/0.06)]">
+              {/* PRO Badge */}
+              <div className="absolute -top-3 right-4">
+                <span className="inline-flex items-center gap-1 rounded-full bg-[hsl(var(--gold))] px-3 py-1 text-[11px] font-bold text-[hsl(var(--gold-foreground))] shadow-lg shadow-[hsl(var(--gold)/0.3)]">
+                  <Star className="h-3 w-3" /> PRO
+                </span>
               </div>
-              <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/30">
-                Video prezentacija
-              </span>
+
+              {/* Type + Category */}
+              <div className="mb-3 flex items-center gap-2">
+                <span className="rounded-full bg-emerald-500/15 px-2.5 py-0.5 text-[11px] font-semibold text-emerald-400">
+                  Nudim
+                </span>
+                <span className="rounded-full border border-white/10 px-2.5 py-0.5 text-[11px] text-white/50">
+                  {SAMPLE_AD.category}
+                </span>
+              </div>
+
+              {/* Title */}
+              <h3 className="mb-2 text-base font-bold text-white group-hover:text-[hsl(var(--gold))] transition-colors">
+                {SAMPLE_AD.title}
+              </h3>
+
+              {/* Description */}
+              <p className="mb-4 text-sm leading-relaxed text-white/40 line-clamp-2">
+                {SAMPLE_AD.description}
+              </p>
+
+              {/* Meta + Contact */}
+              <div className="flex items-center justify-between text-[11px] text-white/30">
+                <div className="flex items-center gap-3">
+                  <span className="flex items-center gap-1">
+                    <MapPin className="h-3 w-3" /> {SAMPLE_AD.city}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <Calendar className="h-3 w-3" /> {SAMPLE_AD.date}
+                  </span>
+                </div>
+                <span className="inline-flex items-center gap-1 rounded-md border border-white/10 bg-white/5 px-2 py-1 text-white/50">
+                  <Eye className="h-3 w-3" /> Prikaži kontakt
+                </span>
+              </div>
             </div>
-            {/* Glow border effect */}
-            <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10" />
+
+            {/* "On platform" label below card */}
+            <p className="mt-3 text-center text-[10px] font-medium uppercase tracking-widest text-white/20">
+              Primjer prikaza na platformi
+            </p>
           </motion.div>
 
           {/* Copy */}
@@ -232,23 +268,23 @@ export function VideoAdSection() {
             transition={{ duration: 0.6, delay: 0.15 }}
           >
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[hsl(var(--gold)/0.2)] bg-[hsl(var(--gold)/0.06)] px-3 py-1">
-              <Video className="h-3 w-3 text-[hsl(var(--gold))]" />
-              <span className="text-[10px] font-bold uppercase tracking-widest text-[hsl(var(--gold))]">Video produkcija</span>
+              <Megaphone className="h-3 w-3 text-[hsl(var(--gold))]" />
+              <span className="text-[10px] font-bold uppercase tracking-widest text-[hsl(var(--gold))]">Vaš oglas</span>
             </div>
             <h2 className="font-heading text-2xl font-extrabold text-white sm:text-3xl">
-              Želite jaču promociju?
+              Kako izgleda vaša reklama na BalkanLink?
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-white/40 sm:text-base">
-              Izrađujemo reklamne video spotove, oglase i sadržaj za društvene mreže.
-              Privucite pažnju i izdvojite se iz mase.
+              Vaš oglas se prikazuje direktno ljudima koji traže vaše usluge u Njemačkoj.
+              Jednostavno, brzo i bez komplikacija.
             </p>
             <Button
               asChild
               size="lg"
               className="mt-7 gap-2 rounded-xl bg-[hsl(var(--gold))] font-semibold text-[hsl(var(--gold-foreground))] shadow-lg hover:bg-[hsl(var(--gold-light))] hover:shadow-xl transition-all"
             >
-              <a href={MAILTO_VIDEO}>
-                Zatraži video ponudu <ArrowRight className="h-4 w-4" />
+              <a href={MAILTO_AD}>
+                Oglašavaj se <ArrowRight className="h-4 w-4" />
               </a>
             </Button>
           </motion.div>
