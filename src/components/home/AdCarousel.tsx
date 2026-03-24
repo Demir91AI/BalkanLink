@@ -14,9 +14,6 @@ export function AdCarousel() {
             <h2 className="mt-2 text-2xl font-black tracking-tight text-primary-foreground sm:text-3xl">
               {t("showcase.title")}
             </h2>
-            <p className="mt-2 max-w-2xl text-sm leading-7 text-primary-foreground/60 sm:text-base">
-              {t("showcase.desc")}
-            </p>
           </div>
 
           <div className="space-y-6 sm:space-y-8">

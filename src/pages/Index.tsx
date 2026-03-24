@@ -2,8 +2,9 @@ import { useState, useEffect, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Search, Footprints, FileText, Briefcase, Building2,
-   ShieldCheck, Compass, Wrench, Megaphone, Plane,
+  Search, Footprints, Briefcase, Building2,
+  ShieldCheck, Compass, Wrench, Megaphone, Plane,
+  ClipboardList, Home, HandshakeIcon,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
@@ -26,10 +27,10 @@ import heroFreilassing from "@/assets/hero-freilassing-real.jpg";
 
 const sidebarNav = [
   { labelKey: "index.nav.firstSteps", icon: Footprints, to: "/dolazak/prvi-koraci" },
-  { labelKey: "index.nav.forms", icon: FileText, to: "/formulari" },
+  { labelKey: "index.nav.forms", icon: ClipboardList, to: "/formulari" },
   { labelKey: "index.nav.jobSearch", icon: Briefcase, to: "/stellenangebote" },
-  { labelKey: "index.nav.housingSearch", icon: Building2, to: "/wohnungen" },
-  { labelKey: "index.nav.offerSeek", icon: Megaphone, to: "/nudim-trazim" },
+  { labelKey: "index.nav.housingSearch", icon: Home, to: "/wohnungen" },
+  { labelKey: "index.nav.offerSeek", icon: HandshakeIcon, to: "/nudim-trazim" },
   { labelKey: "index.nav.tools", icon: Wrench, to: "/tools" },
   { labelKey: "index.nav.docCheck", icon: ShieldCheck, to: "/dokumenten-check" },
   { labelKey: "index.nav.visaNav", icon: Compass, to: "/dolazak/boravisna-dozvola" },
@@ -141,6 +142,7 @@ export default function Index() {
               {t("index.heroSubtitle2")}
             </p>
 
+            {/* Search bar — mobile-optimized */}
             <div className="flex w-full justify-center" style={{ marginTop: "32px" }}>
               <motion.form
                 onSubmit={handleSearch}
@@ -152,19 +154,19 @@ export default function Index() {
               >
                 <div className="flex w-full items-center gap-2" style={{ maxWidth: "800px" }}>
                   <div className="relative min-w-0 flex-1">
-                    <Search className="absolute left-5 top-1/2 h-5 w-5 -translate-y-1/2 text-[#FFCC00]" />
+                    <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-[#FFCC00] sm:left-5 sm:h-5 sm:w-5" />
                     <Input
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       placeholder={t("index.searchPlaceholder")}
-                      className="h-[60px] w-full rounded-full border-none bg-white/95 pl-14 pr-5 text-base text-foreground placeholder:text-muted-foreground shadow-[0_8px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm focus-visible:ring-2 focus-visible:ring-[#FFCC00]/60 hover:bg-white hover:shadow-[0_12px_48px_rgba(0,0,0,0.35)] transition-all duration-300"
+                      className="h-[46px] w-full rounded-full border-none bg-white/95 pl-11 pr-4 text-sm text-foreground placeholder:text-muted-foreground shadow-[0_8px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm focus-visible:ring-2 focus-visible:ring-[#FFCC00]/60 hover:bg-white hover:shadow-[0_12px_48px_rgba(0,0,0,0.35)] transition-all duration-300 sm:h-[60px] sm:pl-14 sm:pr-5 sm:text-base"
                     />
                   </div>
                   <Button
                     type="submit"
-                    className="h-[60px] w-[60px] shrink-0 rounded-full bg-[#FFCC00] text-base font-bold text-[hsl(var(--gold-foreground))] shadow-[0_4px_24px_rgba(255,204,0,0.4)] hover:bg-[#FFD633] hover:shadow-[0_8px_36px_rgba(255,204,0,0.55)] hover:scale-105 transition-all duration-300"
+                    className="h-[46px] w-[46px] shrink-0 rounded-full bg-[#FFCC00] text-base font-bold text-[hsl(var(--gold-foreground))] shadow-[0_4px_24px_rgba(255,204,0,0.4)] hover:bg-[#FFD633] hover:shadow-[0_8px_36px_rgba(255,204,0,0.55)] hover:scale-105 transition-all duration-300 sm:h-[60px] sm:w-[60px]"
                   >
-                    <Search className="h-5 w-5" />
+                    <Search className="h-4 w-4 sm:h-5 sm:w-5" />
                   </Button>
                 </div>
               </motion.form>
@@ -216,6 +218,7 @@ export default function Index() {
       <HeroAdBanner />
 
       <div className="flex">
+        {/* Desktop sidebar - kept for desktop only */}
         <nav className="hidden md:flex w-[260px] shrink-0 flex-col border-r border-border/40 bg-[hsl(215,55%,7%)] sticky top-0 self-start h-screen py-6 px-3">
           <p className="mb-4 px-3 text-[11px] font-semibold uppercase tracking-widest text-white/30">
             {t("index.navLabel")}
@@ -238,6 +241,7 @@ export default function Index() {
         <div className="flex-1 min-w-0">
           <WowSection />
 
+          {/* Mobile nav grid — removed duplicate, kept single grid */}
           <div className="md:hidden bg-background px-4 py-6">
             <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
               {t("index.navLabel")}

@@ -9,6 +9,7 @@ import {
   Footprints,
   Plane,
   ChevronDown,
+  FileCheck,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -20,7 +21,6 @@ import {
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
@@ -28,13 +28,16 @@ import {
 } from "@/components/ui/sidebar";
 
 export function AppSidebar() {
-  const { state } = useSidebar();
+  const { state, setOpenMobile } = useSidebar();
   const collapsed = state === "collapsed";
   const location = useLocation();
   const navigate = useNavigate();
   const { t } = useLanguage();
   const [migrationOpen, setMigrationOpen] = useState(
     location.pathname.startsWith("/nach-deutschland")
+  );
+  const [vorlagenOpen, setVorlagenOpen] = useState(
+    location.pathname.startsWith("/vorlagen")
   );
 
   const sidebarItems = [
@@ -49,6 +52,11 @@ export function AppSidebar() {
   ];
 
   const isMigrationActive = location.pathname.startsWith("/nach-deutschland");
+  const isVorlagenActive = location.pathname.startsWith("/vorlagen");
+
+  const handleNavClick = () => {
+    setOpenMobile(false);
+  };
 
   return (
     <Sidebar
@@ -82,6 +90,7 @@ export function AppSidebar() {
                         to={item.url}
                         className="flex items-center gap-3 px-3"
                         activeClassName=""
+                        onClick={handleNavClick}
                       >
                         <item.icon
                           className={`h-[18px] w-[18px] shrink-0 transition-colors ${
@@ -138,11 +147,73 @@ export function AppSidebar() {
                           to={`/nach-deutschland/${country.code}`}
                           className="flex items-center gap-3 px-3"
                           activeClassName=""
+                          onClick={handleNavClick}
                         >
                           <span className="text-base shrink-0">{country.flag}</span>
                           {!collapsed && (
                             <span className={`text-sm font-medium ${isActive ? "text-gold" : ""}`}>
                               {t(`migration.country.${country.code}`)}
+                            </span>
+                          )}
+                        </NavLink>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  );
+                })}
+              </SidebarMenu>
+            </SidebarGroupContent>
+          )}
+        </SidebarGroup>
+
+        {/* Vorlagen / Šabloni section */}
+        <SidebarGroup>
+          {!collapsed && (
+            <button
+              onClick={() => setVorlagenOpen(!vorlagenOpen)}
+              className={`flex items-center gap-2 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.12em] transition-colors ${
+                isVorlagenActive ? "text-gold" : "text-white/30 hover:text-white/50"
+              }`}
+            >
+              <FileCheck className={`h-3.5 w-3.5 ${isVorlagenActive ? "text-gold" : "text-white/25"}`} />
+              <span className="flex-1 text-left">{t("vorlagen.sidebarTitle") || "Šabloni / Vorlagen"}</span>
+              <ChevronDown className={`h-3 w-3 transition-transform ${vorlagenOpen ? "" : "-rotate-90"}`} />
+            </button>
+          )}
+          {(vorlagenOpen || collapsed) && (
+            <SidebarGroupContent>
+              <SidebarMenu className="gap-0.5 px-2">
+                {[
+                  { label: t("vorlagen.bewerbung") || "Bewerbung", to: "/vorlagen/bewerbung" },
+                  { label: t("vorlagen.lebenslauf") || "Lebenslauf", to: "/vorlagen/lebenslauf" },
+                  { label: t("vorlagen.anschreiben") || "Anschreiben", to: "/vorlagen/anschreiben" },
+                  { label: t("vorlagen.kuendigung") || "Kündigung", to: "/vorlagen/kuendigung" },
+                  { label: t("vorlagen.widerruf") || "Widerruf", to: "/vorlagen/widerruf" },
+                  { label: t("vorlagen.reklamation") || "Reklamation", to: "/vorlagen/reklamation" },
+                ].map((item) => {
+                  const isActive = location.pathname === item.to;
+                  return (
+                    <SidebarMenuItem key={item.to}>
+                      <SidebarMenuButton
+                        asChild
+                        tooltip={collapsed ? item.label : undefined}
+                        className={`
+                          group h-9 rounded-lg transition-all duration-200
+                          ${isActive
+                            ? "bg-white/10 text-gold shadow-[inset_3px_0_0_hsl(var(--gold))]"
+                            : "text-white/55 hover:text-white hover:bg-white/5"
+                          }
+                        `}
+                      >
+                        <NavLink
+                          to={item.to}
+                          className="flex items-center gap-3 px-3"
+                          activeClassName=""
+                          onClick={handleNavClick}
+                        >
+                          <FileCheck className={`h-[14px] w-[14px] shrink-0 transition-colors ${isActive ? "text-gold" : "text-white/40 group-hover:text-white/70"}`} />
+                          {!collapsed && (
+                            <span className={`text-sm font-medium ${isActive ? "text-gold" : ""}`}>
+                              {item.label}
                             </span>
                           )}
                         </NavLink>

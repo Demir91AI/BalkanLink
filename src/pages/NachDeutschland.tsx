@@ -1,11 +1,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { getMigrationCountries, type CategoryKey } from "@/lib/migration-data";
-import { Briefcase, GraduationCap, BookOpen, Heart, Award, ExternalLink, ShieldAlert, CheckCircle2, ChevronRight, Globe } from "lucide-react";
+import { Briefcase, GraduationCap, BookOpen, Heart, Award, ExternalLink, ShieldAlert, CheckCircle2, ChevronRight, Globe, ArrowLeft } from "lucide-react";
 import { useParams, useNavigate } from "react-router-dom";
-
-const CATEGORY_ICONS: Record<string, React.ElementType> = {
-  Briefcase, GraduationCap, BookOpen, Heart, Award,
-};
 
 const ICON_FOR_KEY: Record<CategoryKey, React.ElementType> = {
   work: Briefcase,
@@ -24,10 +20,25 @@ export default function NachDeutschland() {
   const selectedCountry = countries.find((c) => c.code === countryCode);
   const selectedCategory = selectedCountry?.categories.find((c) => c.key === categoryKey);
 
+  const handleBack = () => {
+    if (selectedCategory) {
+      navigate(`/nach-deutschland/${selectedCountry!.code}`);
+    } else if (selectedCountry) {
+      navigate("/nach-deutschland");
+    } else if (window.history.length > 2) {
+      navigate(-1);
+    } else {
+      navigate("/");
+    }
+  };
+
   // Country selection view
   if (!selectedCountry) {
     return (
       <div className="container max-w-4xl py-8 px-4">
+        <button onClick={() => navigate("/")} className="text-xs text-muted-foreground hover:text-[hsl(var(--brand-orange))] mb-4 flex items-center gap-1">
+          <ArrowLeft className="h-3 w-3" /> {t("common.back") || "Nazad"}
+        </button>
         <h1 className="text-2xl font-bold text-foreground mb-2">{t("migration.title")}</h1>
         <p className="text-sm text-muted-foreground mb-6">{t("migration.subtitle")}</p>
 
@@ -65,8 +76,8 @@ export default function NachDeutschland() {
   if (!selectedCategory) {
     return (
       <div className="container max-w-4xl py-8 px-4">
-        <button onClick={() => navigate("/nach-deutschland")} className="text-xs text-muted-foreground hover:text-[hsl(var(--brand-orange))] mb-4 flex items-center gap-1">
-          ← {t("migration.backToCountries")}
+        <button onClick={handleBack} className="text-xs text-muted-foreground hover:text-[hsl(var(--brand-orange))] mb-4 flex items-center gap-1">
+          <ArrowLeft className="h-3 w-3" /> {t("migration.backToCountries")}
         </button>
 
         <div className="flex items-center gap-3 mb-2">
@@ -123,8 +134,8 @@ export default function NachDeutschland() {
 
   return (
     <div className="container max-w-4xl py-8 px-4">
-      <button onClick={() => navigate(`/nach-deutschland/${selectedCountry.code}`)} className="text-xs text-muted-foreground hover:text-[hsl(var(--brand-orange))] mb-4 flex items-center gap-1">
-        ← {t("migration.backToCategories")}
+      <button onClick={handleBack} className="text-xs text-muted-foreground hover:text-[hsl(var(--brand-orange))] mb-4 flex items-center gap-1">
+        <ArrowLeft className="h-3 w-3" /> {t("migration.backToCategories")}
       </button>
 
       <div className="flex items-center gap-3 mb-1">
