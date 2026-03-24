@@ -158,7 +158,7 @@ export default function Index() {
                   </div>
                   <Button
                     type="submit"
-                    className="h-[46px] w-[46px] shrink-0 rounded-full bg-[#FFCC00] text-base font-bold text-[hsl(var(--gold-foreground))] shadow-[0_4px_24px_rgba(255,204,0,0.4)] hover:bg-[#FFD633] hover:shadow-[0_8px_36px_rgba(255,204,0,0.55)] hover:scale-105 transition-all duration-300 sm:h-[60px] sm:w-[60px]"
+                    className="h-[40px] w-[40px] shrink-0 rounded-full bg-[#FFCC00] text-base font-bold text-[hsl(var(--gold-foreground))] shadow-[0_4px_24px_rgba(255,204,0,0.4)] hover:bg-[#FFD633] hover:shadow-[0_8px_36px_rgba(255,204,0,0.55)] hover:scale-105 transition-all duration-300 sm:h-[60px] sm:w-[60px]"
                   >
                     <Search className="h-4 w-4 sm:h-5 sm:w-5" />
                   </Button>
