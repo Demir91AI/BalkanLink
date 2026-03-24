@@ -17,9 +17,9 @@ export function WowSection() {
   const { t } = useLanguage();
 
   const features = [
-    { icon: ScrollText, title: t("wow.feat1.title"), desc: t("wow.feat1.desc"), to: "/formulari" },
-    { icon: Building, title: t("wow.feat2.title"), desc: t("wow.feat2.desc"), to: "/stellenangebote" },
-    { icon: ArrowLeftRight, title: t("wow.feat3.title"), desc: t("wow.feat3.desc"), to: "/nudim-trazim" },
+    { icon: FileCheck, title: t("wow.feat1.title"), desc: t("wow.feat1.desc"), to: "/formulari" },
+    { icon: Landmark, title: t("wow.feat2.title"), desc: t("wow.feat2.desc"), to: "/stellenangebote" },
+    { icon: RefreshCcw, title: t("wow.feat3.title"), desc: t("wow.feat3.desc"), to: "/nudim-trazim" },
   ];
 
   return (
