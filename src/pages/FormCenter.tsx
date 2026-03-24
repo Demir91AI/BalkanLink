@@ -42,9 +42,8 @@ function GuideContent({ slug }: { slug: string }) {
       </div>
 
       {/* PREMIUM section */}
-      {isPremium ? (
-        <FormSmartGuide guide={guide} lang={lang} />
-      ) : (
+      <FormSmartGuide guide={guide} lang={lang} />
+      {!isPremium && (
         <FormPaywall formLabel={entry?.label || guide.title.de} />
       )}
     </div>
