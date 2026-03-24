@@ -369,7 +369,7 @@ export default function ChatAssistant() {
 
   return (
     <>
-      {/* ── Floating Orb + "Pomoć" badge ── */}
+      {/* ── Floating Button ── */}
       <AnimatePresence>
         {open === "closed" && (
           <motion.button
@@ -377,27 +377,13 @@ export default function ChatAssistant() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
             onClick={() => setOpen("open")}
-            className="fixed bottom-6 right-6 z-50 group flex flex-col items-center gap-1.5"
+            className="fixed bottom-5 right-5 z-50 group"
             aria-label="BalkanLink Assistant"
           >
-            <motion.span
-              initial={{ opacity: 0, y: 4 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="rounded-full bg-white dark:bg-card px-3 py-1 text-[11px] font-semibold text-foreground shadow-md border border-border/40 group-hover:shadow-lg transition-shadow"
-            >
-              {lk === "de" ? "Hilfe" : lk === "en" ? "Help" : "Pomoć"}
-            </motion.span>
-            <motion.div
-              animate={{ scale: [1, 1.03, 1] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              className="relative"
-            >
-              <div className="absolute inset-[-8px] rounded-2xl bg-gradient-to-br from-blue-500/25 to-purple-600/25 blur-xl group-hover:from-blue-500/40 group-hover:to-purple-600/40 transition-all duration-300" />
-              <div className="relative flex items-center justify-center bg-gradient-to-br from-[#3B82F6] to-[#9333EA] shadow-lg shadow-purple-500/25 transition-all duration-200 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-purple-500/35 group-active:scale-95 w-[58px] h-[58px] sm:w-[64px] sm:h-[64px] rounded-2xl">
-                <span className="text-white font-black text-[20px] sm:text-[22px] tracking-tight select-none">BL</span>
-              </div>
-            </motion.div>
+            <div className="absolute inset-[-6px] rounded-full bg-gradient-to-br from-blue-500/20 to-purple-600/20 blur-lg group-hover:from-blue-500/35 group-hover:to-purple-600/35 transition-all duration-300" />
+            <div className="relative flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-[hsl(217,91%,60%)] to-[hsl(271,81%,56%)] shadow-[0_4px_20px_rgba(99,102,241,0.35)] transition-all duration-200 group-hover:scale-110 group-hover:shadow-[0_6px_28px_rgba(99,102,241,0.5)] group-active:scale-95">
+              <span className="text-white font-black text-lg tracking-tight select-none">BL</span>
+            </div>
           </motion.button>
         )}
       </AnimatePresence>
