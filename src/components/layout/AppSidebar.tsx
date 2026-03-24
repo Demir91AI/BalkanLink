@@ -236,14 +236,14 @@ export function AppSidebar() {
               {/* B) Kundenservice / Vertragsangelegenheiten */}
               {!collapsed && (
                 <p className="px-5 pt-4 pb-1 text-[10px] font-semibold uppercase tracking-[0.1em] text-white/25">
-                  Kundenservice / Verträge
+                  {t("vorlagen.sectionService")}
                 </p>
               )}
               <SidebarMenu className="gap-0.5 px-2">
                 {[
-                  { label: "Widerruf", to: "/vorlagen/widerruf" },
-                  { label: "Kündigung von Verträgen", to: "/vorlagen/vertragskundigung" },
-                  { label: "Reklamation", to: "/vorlagen/reklamation" },
+                  { label: t("vorlagen.widerruf"), to: "/vorlagen/widerruf" },
+                  { label: t("vorlagen.vertragKuendigung"), to: "/vorlagen/vertragskundigung" },
+                  { label: t("vorlagen.reklamation"), to: "/vorlagen/reklamation" },
                 ].map((item) => {
                   const isActive = location.pathname === item.to;
                   return (
