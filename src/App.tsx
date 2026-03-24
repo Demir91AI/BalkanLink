@@ -122,6 +122,11 @@ const App = () => (
                 <Route path="/haftungsausschluss" element={<Disclaimer />} />
                 <Route path="/ki-hinweis" element={<KiHinweis />} />
                 <Route path="/mitgliedschaft" element={<Mitgliedschaft />} />
+                <Route path="/agb" element={<Nutzungsbedingungen />} />
+                <Route path="/nutzungsbedingungen" element={<Nutzungsbedingungen />} />
+                <Route path="/dsa" element={<DSA />} />
+                <Route path="/inhalte-melden" element={<DSA />} />
+                <Route path="/cookie-richtlinie" element={<CookieRichtlinie />} />
                 <Route path="/nudim-trazim" element={<NudimTrazim />} />
               </Route>
               <Route path="*" element={<NotFound />} />
