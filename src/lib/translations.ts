@@ -1597,7 +1597,7 @@ const translations: Record<Language, TranslationKeys> = {
     "dir.submitSuccess": "Бизнисот е додаден! Ќе биде видлив по проверка.",
     "dir.submitError": "Грешка. Обиди се повторно.",
     "dir.loginRequired": "Мора да бидеш најавен за да додадеш бизнис.",
-    ...missionsMk as any, ...portalMk as any, ...miscMk as any, ...homeMk as any, ...premiumMk as any, ...newKeysBs as any,
+    ...missionsMk as any, ...portalMk as any, ...miscMk as any, ...homeMk as any, ...premiumMk as any, ...newKeysMk as any, ...indexChatMk as any,
   },
   de: {
     "nav.home": "Startseite", "nav.qa": "Fragen & Antworten", "nav.directory": "Verzeichnis",
