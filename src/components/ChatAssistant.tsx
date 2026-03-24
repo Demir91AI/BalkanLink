@@ -6,6 +6,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { Link } from "react-router-dom";
 import { formCatalog, type FormEntry } from "@/lib/form-catalog";
+import { BLIcon } from "@/components/BrandLogo";
 
 type SiteTopicAction = { url: string; label: string };
 
