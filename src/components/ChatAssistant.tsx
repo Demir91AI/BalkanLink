@@ -7,11 +7,14 @@ import { useAuth } from "@/contexts/AuthContext";
 import { Link, useLocation } from "react-router-dom";
 import { formCatalog, type FormEntry } from "@/lib/form-catalog";
 
+type SiteTopicAction = { url: string; label: string };
+
 type Msg = {
   role: "user" | "assistant";
   content: string;
   guideSlug?: string | null;
   formSlugs?: string[];
+  siteTopics?: SiteTopicAction[];
 };
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat-assistant`;
@@ -75,9 +78,9 @@ function detectGuideSlugFromText(text: string): string | null {
 // ── i18n ──
 
 const PLACEHOLDER: Record<string, string> = {
-  bs: "Npr. Kindergeld, stan, posao, boravišna dozvola...",
-  de: "Z.B. Kindergeld, Wohnung, Job, Aufenthaltstitel...",
-  en: "E.g. Kindergeld, apartment, job, residence permit...",
+  bs: "Npr. Kindergeld, AGB, premium, stan, posao...",
+  de: "Z.B. Kindergeld, AGB, Premium, Wohnung, Job...",
+  en: "E.g. Kindergeld, AGB, premium, apartment, job...",
 };
 
 const ERROR_MSG: Record<string, string> = {
@@ -147,6 +150,19 @@ function ResponseActions({ msg, lk }: { msg: Msg; lk: string }) {
       actions.push({
         label: lk === "de" ? "Formular öffnen" : lk === "en" ? "Open form" : "Otvori formular",
         to: `/formulari?form=${slug}`,
+        icon: ExternalLink,
+      });
+    }
+  }
+
+  // Site-wide topic actions from backend
+  if (msg.siteTopics && msg.siteTopics.length > 0) {
+    for (const topic of msg.siteTopics) {
+      if (actions.some(a => a.to === topic.url)) continue;
+      if (actions.length >= 3) break;
+      actions.push({
+        label: lk === "de" ? `${topic.label} öffnen` : lk === "en" ? `Open ${topic.label}` : `Otvori: ${topic.label}`,
+        to: topic.url,
         icon: ExternalLink,
       });
     }
@@ -273,6 +289,11 @@ export default function ChatAssistant() {
 
       const headerSlug = resp.headers.get("X-Guide-Slug");
       const headerFormSlug = resp.headers.get("X-Form-Slug");
+      const headerSiteTopicsRaw = resp.headers.get("X-Site-Topics");
+      let headerSiteTopics: SiteTopicAction[] = [];
+      if (headerSiteTopicsRaw) {
+        try { headerSiteTopics = JSON.parse(headerSiteTopicsRaw); } catch {}
+      }
       const reader = resp.body.getReader();
       const decoder = new TextDecoder();
       let textBuffer = "";
@@ -301,7 +322,7 @@ export default function ChatAssistant() {
         }
       }
 
-      if (headerSlug || headerFormSlug) {
+      if (headerSlug || headerFormSlug || headerSiteTopics.length > 0) {
         setMessages(prev => {
           const last = prev[prev.length - 1];
           if (last?.role === "assistant") {
@@ -309,7 +330,12 @@ export default function ChatAssistant() {
             if (headerFormSlug && !updatedFormSlugs.includes(headerFormSlug)) {
               updatedFormSlugs.push(headerFormSlug);
             }
-            return prev.map((m, i) => (i === prev.length - 1 ? { ...m, guideSlug: headerSlug || m.guideSlug, formSlugs: updatedFormSlugs } : m));
+            return prev.map((m, i) => (i === prev.length - 1 ? {
+              ...m,
+              guideSlug: headerSlug || m.guideSlug,
+              formSlugs: updatedFormSlugs,
+              siteTopics: headerSiteTopics.length > 0 ? headerSiteTopics : m.siteTopics,
+            } : m));
           }
           return prev;
         });
@@ -398,10 +424,10 @@ export default function ChatAssistant() {
                   </h2>
                   <p className="text-[13px] text-muted-foreground leading-relaxed max-w-[280px]">
                     {lk === "de"
-                      ? "Stelle eine Frage und du bekommst eine klare Antwort und den nächsten Schritt."
+                      ? "Frag mich zu Formularen, Anzeigen, Premium, Regeln oder anderen Bereichen von BalkanLink."
                       : lk === "en"
-                      ? "Ask a question and you'll get a clear answer and the next step."
-                      : "Postavi pitanje i dobit ćeš jasno objašnjenje i sljedeći korak."}
+                      ? "Ask about forms, ads, premium, rules, or any part of BalkanLink."
+                      : "Postavi pitanje o formularima, oglasima, premiumu, pravilima ili drugim dijelovima BalkanLinka."}
                   </p>
                 </motion.div>
               )}
