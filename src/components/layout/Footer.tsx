@@ -38,6 +38,12 @@ export default function Footer() {
               <Link to="/haftungsausschluss" className="text-[13px] text-white/50 transition-colors hover:text-brand-orange">{t("footer.haftung")}</Link>
               <Link to="/ki-hinweis" className="text-[13px] text-white/50 transition-colors hover:text-brand-orange">{t("footer.kiHinweis")}</Link>
               <Link to="/inhalte-melden" className="text-[13px] text-white/50 transition-colors hover:text-brand-orange">{t("footer.reportContent")}</Link>
+              <button
+                onClick={() => (window as any).__blOpenCookieSettings?.()}
+                className="text-[13px] text-white/50 transition-colors hover:text-brand-orange text-left"
+              >
+                {t("cookie.footerLink")}
+              </button>
             </nav>
           </div>
 
