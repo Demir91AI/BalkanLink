@@ -55,6 +55,7 @@ import AdminForms from "./pages/AdminForms";
 import AdminFormMapper from "./pages/AdminFormMapper";
 import BruttoNettoRechner from "./pages/BruttoNettoRechner";
 import NudimTrazim from "./pages/NudimTrazim";
+import NachDeutschland from "./pages/NachDeutschland";
 import NotFound from "./pages/NotFound";
 
 
@@ -128,6 +129,9 @@ const App = () => (
                 <Route path="/inhalte-melden" element={<DSA />} />
                 <Route path="/cookie-richtlinie" element={<CookieRichtlinie />} />
                 <Route path="/nudim-trazim" element={<NudimTrazim />} />
+                <Route path="/nach-deutschland" element={<NachDeutschland />} />
+                <Route path="/nach-deutschland/:countryCode" element={<NachDeutschland />} />
+                <Route path="/nach-deutschland/:countryCode/:categoryKey" element={<NachDeutschland />} />
               </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>
