@@ -1,11 +1,16 @@
 import logoAluhome from "@/assets/logo-aluhome.jpg";
 import logoVrebo from "@/assets/logo-vrebo.jpg";
+import logoEcronix from "@/assets/logo-ecronix.jpg";
 import showcaseAluhome1 from "@/assets/showcase-aluhome-1.jpg";
 import showcaseAluhome2 from "@/assets/showcase-aluhome-2.jpg";
 import showcaseAluhome3 from "@/assets/showcase-aluhome-3.jpg";
 import showcaseVrebo1 from "@/assets/showcase-vrebo-1.jpg";
 import showcaseVrebo2 from "@/assets/showcase-vrebo-2.jpg";
 import showcaseVrebo3 from "@/assets/showcase-vrebo-3.jpg";
+import showcaseEcronix1 from "@/assets/showcase-ecronix-1.jpg";
+import showcaseEcronix2 from "@/assets/showcase-ecronix-2.jpg";
+import showcaseEcronix3 from "@/assets/showcase-ecronix-3.jpg";
+import showcaseEcronix4 from "@/assets/showcase-ecronix-4.jpg";
 
 export interface PremiumShowcaseFirm {
   name: string;
