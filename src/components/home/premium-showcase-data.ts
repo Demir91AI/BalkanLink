@@ -56,6 +56,6 @@ export const premiumShowcaseFirms: PremiumShowcaseFirm[] = [
     logoAlt: "Ecronix logo",
     logoWrapperClassName: "w-[12rem] sm:w-[14rem] h-[4.5rem]",
     highlights: ["Web aplikacije", "Mobilne aplikacije", "AI integracija", "UI/UX dizajn"],
-    images: [showcaseEcronix1, showcaseEcronix2, showcaseEcronix3, showcaseEcronix4],
+    images: [showcaseEcronix1, showcaseEcronix2, showcaseEcronix3],
   },
 ];
