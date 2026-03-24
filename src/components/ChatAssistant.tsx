@@ -1,10 +1,10 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import { X, Send, Copy, ShieldCheck, MessageCircle, BookOpen, ExternalLink, FileText } from "lucide-react";
+import { X, Send, Copy, ShieldCheck, ExternalLink, BookOpen } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { formCatalog, type FormEntry } from "@/lib/form-catalog";
 
 type SiteTopicAction = { url: string; label: string };
@@ -19,25 +19,41 @@ type Msg = {
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat-assistant`;
 
-// ── Form catalog lookup ──
+// ── Valid app routes (for 404 prevention) ──
+const VALID_ROUTES = new Set([
+  "/", "/dolazak", "/pocni-ovdje", "/dolazak/prijava-prebivalista",
+  "/dolazak/boravisna-dozvola", "/dolazak/steuer-id-i-porezna-klasa",
+  "/dolazak/zdravstveno-osiguranje", "/dolazak/bankovni-racun",
+  "/dolazak/prvi-koraci", "/dolazak/sozialversicherung",
+  "/dolazak/rundfunkbeitrag", "/dolazak/fuehrerschein",
+  "/dolazak/auto-anmelden", "/zivot", "/zivot-savjeti",
+  "/probleme", "/trebam-pomoc", "/formulare", "/formulari",
+  "/familie", "/foerderungen", "/tools", "/brutto-netto-rechner",
+  "/wohnungen", "/stellenangebote", "/premium", "/dokumenten-check",
+  "/qa", "/directory", "/directory/submit", "/ambasade-konzulati",
+  "/ambasade", "/login", "/register", "/impressum", "/datenschutz",
+  "/disclaimer", "/haftungsausschluss", "/ki-hinweis", "/mitgliedschaft",
+  "/nudim-trazim",
+]);
 
+function isValidRoute(path: string): boolean {
+  if (VALID_ROUTES.has(path)) return true;
+  // Dynamic routes: /guide/:slug, /formulari/:slug, /qa/:id
+  if (path.startsWith("/guide/") || path.startsWith("/formulari/") || path.startsWith("/qa/")) return true;
+  return false;
+}
+
+// ── Form catalog lookup ──
 const ALL_FORMS: FormEntry[] = (() => {
   const seen = new Set<string>();
   const result: FormEntry[] = [];
   for (const group of formCatalog) {
     for (const item of group.items) {
-      if (!seen.has(item.slug)) {
-        seen.add(item.slug);
-        result.push(item);
-      }
+      if (!seen.has(item.slug)) { seen.add(item.slug); result.push(item); }
     }
   }
   return result;
 })();
-
-function getFormBySlug(slug: string): FormEntry | undefined {
-  return ALL_FORMS.find(f => f.slug === slug);
-}
 
 function extractFormMarkers(text: string): { cleanText: string; formSlugs: string[] } {
   const regex = /\[FORM:([a-z0-9-]+)\]/gi;
@@ -51,7 +67,6 @@ function extractFormMarkers(text: string): { cleanText: string; formSlugs: strin
 }
 
 // ── Guide slug detection ──
-
 const TOPIC_GUIDE_MAP: Record<string, string> = {
   kindergeld: "kindergeld", kinderzuschlag: "kinderzuschlag", elterngeld: "elterngeld",
   mutterschutz: "mutterschaftsgeld", bürgergeld: "buergergeld", burgergeld: "buergergeld",
@@ -76,11 +91,10 @@ function detectGuideSlugFromText(text: string): string | null {
 }
 
 // ── i18n ──
-
 const PLACEHOLDER: Record<string, string> = {
-  bs: "Npr. Kindergeld, AGB, premium, stan, posao...",
-  de: "Z.B. Kindergeld, AGB, Premium, Wohnung, Job...",
-  en: "E.g. Kindergeld, AGB, premium, apartment, job...",
+  bs: "Npr. Kindergeld, stan, posao, AGB...",
+  de: "Z.B. Kindergeld, Wohnung, Job, AGB...",
+  en: "E.g. Kindergeld, apartment, job, AGB...",
 };
 
 const ERROR_MSG: Record<string, string> = {
@@ -90,25 +104,19 @@ const ERROR_MSG: Record<string, string> = {
 };
 
 const DISCLAIMER: Record<string, string> = {
-  bs: "Ovaj asistent daje informativne smjernice. Za konačne odluke konsultujte nadležnu instituciju.",
-  de: "Dieser Assistent gibt informative Hinweise. Für endgültige Entscheidungen wenden Sie sich an die zuständige Behörde.",
-  en: "This assistant provides informative guidance. For final decisions, consult the relevant authority.",
-};
-
-const INPUT_WARNING: Record<string, string> = {
-  bs: "Ne unosite osjetljive podatke (broj dokumenta, bankovne podatke).",
-  de: "Geben Sie keine sensiblen Daten ein (Dokumentennummer, Bankdaten).",
-  en: "Do not enter sensitive data (document numbers, bank details).",
+  bs: "Informativne smjernice — za konačne odluke konsultujte nadležnu instituciju.",
+  de: "Informative Hinweise — für Entscheidungen wenden Sie sich an die zuständige Behörde.",
+  en: "Informative guidance — for final decisions, consult the relevant authority.",
 };
 
 // ── Markdown renderer ──
-
 function ChatMarkdown({ content }: { content: string }) {
   return (
     <ReactMarkdown
       components={{
         a: ({ href, children }) => {
           if (href && href.startsWith("/")) {
+            if (!isValidRoute(href)) return <span className="font-medium text-muted-foreground">{children}</span>;
             return <Link to={href} className="font-medium text-blue-600 dark:text-blue-400 underline hover:text-blue-500">{children}</Link>;
           }
           return <a href={href} target="_blank" rel="noopener noreferrer" className="font-medium text-blue-600 dark:text-blue-400 underline hover:text-blue-500">{children}</a>;
@@ -129,15 +137,15 @@ function ChatMarkdown({ content }: { content: string }) {
   );
 }
 
-// ── Action buttons after assistant response (max 2-3) ──
-
+// ── Action buttons (max 2) ──
 function ResponseActions({ msg, lk }: { msg: Msg; lk: string }) {
-  const actions: { label: string; to: string; icon: typeof FileText; primary?: boolean }[] = [];
+  const actions: { label: string; to: string; icon: typeof BookOpen; primary?: boolean }[] = [];
 
   if (msg.guideSlug) {
+    const guidePath = `/guide/${msg.guideSlug}`;
     actions.push({
-      label: lk === "de" ? "Smart Guide starten" : lk === "en" ? "Start Smart Guide" : "Pokreni Smart Guide",
-      to: `/smart-guide/${msg.guideSlug}`,
+      label: lk === "de" ? "Smart Guide öffnen" : lk === "en" ? "Open Smart Guide" : "Pokreni Smart Guide",
+      to: guidePath,
       icon: BookOpen,
       primary: true,
     });
@@ -145,21 +153,22 @@ function ResponseActions({ msg, lk }: { msg: Msg; lk: string }) {
 
   if (msg.formSlugs && msg.formSlugs.length > 0) {
     const slug = msg.formSlugs[0];
-    const form = getFormBySlug(slug);
-    if (form) {
+    const formPath = `/formulari/${slug}`;
+    // Only add if different from guide action
+    if (!actions.some(a => a.to === formPath)) {
       actions.push({
         label: lk === "de" ? "Formular öffnen" : lk === "en" ? "Open form" : "Otvori formular",
-        to: `/formulari?form=${slug}`,
+        to: formPath,
         icon: ExternalLink,
       });
     }
   }
 
-  // Site-wide topic actions from backend
   if (msg.siteTopics && msg.siteTopics.length > 0) {
     for (const topic of msg.siteTopics) {
+      if (!isValidRoute(topic.url)) continue;
       if (actions.some(a => a.to === topic.url)) continue;
-      if (actions.length >= 3) break;
+      if (actions.length >= 2) break;
       actions.push({
         label: lk === "de" ? `${topic.label} öffnen` : lk === "en" ? `Open ${topic.label}` : `Otvori: ${topic.label}`,
         to: topic.url,
@@ -172,7 +181,7 @@ function ResponseActions({ msg, lk }: { msg: Msg; lk: string }) {
 
   return (
     <div className="flex flex-wrap gap-1.5 mt-2">
-      {actions.slice(0, 3).map((a, i) => (
+      {actions.slice(0, 2).map((a, i) => (
         <Link
           key={i}
           to={a.to}
@@ -191,11 +200,9 @@ function ResponseActions({ msg, lk }: { msg: Msg; lk: string }) {
 }
 
 // ── Main Component ──
-
 export default function ChatAssistant() {
   const { language } = useLanguage();
   const { isPremium } = useAuth();
-  const location = useLocation();
   const lk = ["bs", "hr", "sr", "me"].includes(language) ? "bs" : language === "de" ? "de" : "en";
 
   const [open, setOpen] = useState(false);
@@ -261,22 +268,17 @@ export default function ChatAssistant() {
       if (contentType.includes("application/json")) {
         const data = await resp.json();
         if (data.smart_guide_redirect) {
-          const formSlugs = data.detectedForm ? [data.detectedForm.slug] : (data.guideSlug ? [data.guideSlug] : []);
-          setMessages(prev => [...prev, { role: "assistant", content: data.content, guideSlug: data.guideSlug || detectedSlug, formSlugs }]);
+          setMessages(prev => [...prev, { role: "assistant", content: data.content, guideSlug: data.guideSlug || detectedSlug, formSlugs: data.detectedForm ? [data.detectedForm.slug] : [] }]);
           setLoading(false);
           return;
         }
         if (data.premium_required) {
-          const formSlugs = data.detectedForm ? [data.detectedForm.slug] : [];
-          setMessages(prev => [...prev, { role: "assistant", content: `${data.teaser}\n\n${data.cta}`, formSlugs }]);
+          setMessages(prev => [...prev, { role: "assistant", content: `${data.teaser}\n\n${data.cta}`, formSlugs: data.detectedForm ? [data.detectedForm.slug] : [] }]);
           setLoading(false);
           return;
         }
         if (data.soft_upsell) {
-          setMessages(prev => [
-            ...prev,
-            { role: "assistant", content: data.free_content, guideSlug: data.guideSlug || detectedSlug },
-          ]);
+          setMessages(prev => [...prev, { role: "assistant", content: data.free_content, guideSlug: data.guideSlug || detectedSlug }]);
           setLoading(false);
           return;
         }
@@ -357,7 +359,7 @@ export default function ChatAssistant() {
 
   return (
     <>
-      {/* ── Floating Orb ── */}
+      {/* ── Floating Orb + "Pomoć" badge ── */}
       <AnimatePresence>
         {!open && (
           <motion.button
@@ -365,20 +367,29 @@ export default function ChatAssistant() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
             onClick={() => setOpen(true)}
-            className="fixed bottom-6 right-6 z-50 group"
+            className="fixed bottom-6 right-6 z-50 group flex flex-col items-center gap-1.5"
             aria-label="BalkanLink Assistant"
           >
-            <motion.div
-              animate={{ scale: [1, 1.04, 1] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              className="relative flex h-[60px] w-[60px] sm:h-[68px] sm:w-[68px] items-center justify-center"
+            {/* Pomoć badge */}
+            <motion.span
+              initial={{ opacity: 0, y: 4 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="rounded-full bg-white dark:bg-card px-3 py-1 text-[11px] font-semibold text-foreground shadow-md border border-border/40 group-hover:shadow-lg transition-shadow"
             >
-              <div className="absolute inset-[-6px] rounded-[32px] bg-gradient-to-br from-blue-500/30 to-purple-600/30 blur-xl group-hover:from-blue-500/50 group-hover:to-purple-600/50 transition-all duration-300" />
+              {lk === "de" ? "Hilfe" : lk === "en" ? "Help" : "Pomoć"}
+            </motion.span>
+            {/* Custom BL icon */}
+            <motion.div
+              animate={{ scale: [1, 1.03, 1] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              className="relative"
+            >
+              <div className="absolute inset-[-8px] rounded-2xl bg-gradient-to-br from-blue-500/25 to-purple-600/25 blur-xl group-hover:from-blue-500/40 group-hover:to-purple-600/40 transition-all duration-300" />
               <div
-                className="relative flex h-[60px] w-[60px] sm:h-[68px] sm:w-[68px] items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg shadow-purple-500/20 transition-all duration-200 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-purple-500/30 group-active:scale-95"
-                style={{ borderRadius: "32% 68% 60% 40% / 40% 32% 68% 60%" }}
+                className="relative flex items-center justify-center bg-gradient-to-br from-[#3B82F6] to-[#9333EA] shadow-lg shadow-purple-500/25 transition-all duration-200 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-purple-500/35 group-active:scale-95 w-[58px] h-[58px] sm:w-[64px] sm:h-[64px] rounded-2xl"
               >
-                <MessageCircle className="h-6 w-6 sm:h-7 sm:w-7 text-white" />
+                <span className="text-white font-black text-[20px] sm:text-[22px] tracking-tight select-none">BL</span>
               </div>
             </motion.div>
           </motion.button>
@@ -389,45 +400,47 @@ export default function ChatAssistant() {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: 30, scale: 0.92 }}
+            initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 30, scale: 0.92 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
+            exit={{ opacity: 0, y: 20, scale: 0.95 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
             className="fixed bottom-0 right-0 sm:bottom-6 sm:right-6 z-50 flex h-[88vh] sm:h-[78vh] max-h-[680px] w-full sm:w-[400px] sm:max-w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-t-2xl sm:rounded-2xl border border-border/50 bg-card shadow-2xl"
           >
-            {/* Header — minimal */}
+            {/* Header */}
             <div className="relative overflow-hidden px-5 py-4" style={{ background: "linear-gradient(135deg, #3B82F6 0%, #7C3AED 50%, #9333EA 100%)" }}>
               <div className="flex items-center justify-between relative z-10">
                 <div className="flex items-center gap-2.5">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/15">
-                    <MessageCircle className="h-4 w-4 text-white" />
+                  <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-white/15">
+                    <span className="text-white font-black text-[13px] tracking-tight">BL</span>
                   </div>
-                  <span className="text-[14px] font-bold text-white">BalkanLink</span>
+                  <div>
+                    <span className="text-[14px] font-bold text-white block leading-tight">BalkanLink</span>
+                    <span className="text-[10px] text-white/60">Asistent</span>
+                  </div>
                 </div>
                 <button onClick={() => setOpen(false)} className="rounded-lg p-1.5 text-white/60 transition-colors hover:bg-white/10 hover:text-white">
                   <X className="h-4 w-4" />
                 </button>
               </div>
-              <div className="absolute -top-8 -right-8 h-24 w-24 rounded-full bg-white/[0.06] blur-2xl" />
             </div>
 
             {/* Messages area */}
             <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-4 space-y-3">
-              {/* Start Screen — clean and minimal */}
+              {/* Start Screen */}
               {showStartScreen && (
-                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} className="flex flex-col items-center justify-center pt-12 pb-6 text-center">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 mb-5">
-                    <MessageCircle className="h-7 w-7 text-primary" />
+                <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }} className="flex flex-col items-center justify-center pt-16 pb-6 text-center">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 mb-5">
+                    <span className="text-primary font-black text-[18px]">BL</span>
                   </div>
                   <h2 className="text-[18px] font-bold text-foreground mb-2">
                     {lk === "de" ? "Wie kann ich dir helfen?" : lk === "en" ? "How can I help you?" : "Kako ti mogu pomoći?"}
                   </h2>
                   <p className="text-[13px] text-muted-foreground leading-relaxed max-w-[280px]">
                     {lk === "de"
-                      ? "Frag mich zu Formularen, Anzeigen, Premium, Regeln oder anderen Bereichen von BalkanLink."
+                      ? "Stell eine Frage und bekomme eine klare Antwort und den nächsten Schritt."
                       : lk === "en"
-                      ? "Ask about forms, ads, premium, rules, or any part of BalkanLink."
-                      : "Postavi pitanje o formularima, oglasima, premiumu, pravilima ili drugim dijelovima BalkanLinka."}
+                      ? "Ask a question and get a clear answer and next step."
+                      : "Postavi pitanje i dobit ćeš jasan odgovor i sljedeći korak."}
                   </p>
                 </motion.div>
               )}
@@ -436,9 +449,9 @@ export default function ChatAssistant() {
               {messages.map((msg, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 6 }}
+                  initial={{ opacity: 0, y: 4 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.15 }}
+                  transition={{ duration: 0.12 }}
                   className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div className="max-w-[90%] space-y-1">
@@ -466,8 +479,6 @@ export default function ChatAssistant() {
                         msg.content
                       )}
                     </div>
-
-                    {/* Discrete action buttons — max 2-3, only after response */}
                     {msg.role === "assistant" && !loading && (
                       <ResponseActions msg={msg} lk={lk} />
                     )}
@@ -475,14 +486,14 @@ export default function ChatAssistant() {
                 </motion.div>
               ))}
 
-              {/* Typing indicator */}
+              {/* Typing indicator — minimal */}
               {loading && messages[messages.length - 1]?.role === "user" && (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex justify-start">
                   <div className="rounded-2xl bg-muted/60 px-4 py-3">
                     <div className="flex items-center gap-1">
-                      <motion.span animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 1.2, repeat: Infinity, delay: 0 }} className="h-1.5 w-1.5 rounded-full bg-muted-foreground/40" />
-                      <motion.span animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 1.2, repeat: Infinity, delay: 0.2 }} className="h-1.5 w-1.5 rounded-full bg-muted-foreground/40" />
-                      <motion.span animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 1.2, repeat: Infinity, delay: 0.4 }} className="h-1.5 w-1.5 rounded-full bg-muted-foreground/40" />
+                      <motion.span animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 0.8, repeat: Infinity, delay: 0 }} className="h-1.5 w-1.5 rounded-full bg-muted-foreground/40" />
+                      <motion.span animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 0.8, repeat: Infinity, delay: 0.15 }} className="h-1.5 w-1.5 rounded-full bg-muted-foreground/40" />
+                      <motion.span animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 0.8, repeat: Infinity, delay: 0.3 }} className="h-1.5 w-1.5 rounded-full bg-muted-foreground/40" />
                     </div>
                   </div>
                 </motion.div>
@@ -491,16 +502,16 @@ export default function ChatAssistant() {
 
             {/* Disclaimer */}
             <div className="px-4 py-1 border-t border-border/20">
-              <p className="text-[8px] text-center text-muted-foreground/40">
-                {DISCLAIMER[lk] || DISCLAIMER["bs"]}
-              </p>
+              <p className="text-[8px] text-center text-muted-foreground/40">{DISCLAIMER[lk] || DISCLAIMER["bs"]}</p>
             </div>
 
             {/* Input area */}
             <div className="border-t border-border/40 px-4 py-3">
               <div className="flex items-center gap-1 mb-1.5 px-0.5">
                 <ShieldCheck className="h-2.5 w-2.5 text-emerald-600/60 dark:text-emerald-400/60 shrink-0" />
-                <p className="text-[8px] text-muted-foreground/40">{INPUT_WARNING[lk] || INPUT_WARNING["bs"]}</p>
+                <p className="text-[8px] text-muted-foreground/40">
+                  {lk === "de" ? "Keine sensiblen Daten eingeben." : lk === "en" ? "Do not enter sensitive data." : "Ne unosite osjetljive podatke."}
+                </p>
               </div>
               <div className="flex items-end gap-2">
                 <textarea
