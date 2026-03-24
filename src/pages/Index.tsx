@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   FileText, Briefcase, Search, ArrowRight,
   Footprints, ShieldCheck, Compass, Wrench,
-  Megaphone, Building2, Home,
+  Megaphone, Building2,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
