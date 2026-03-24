@@ -1447,7 +1447,7 @@ const translations: Record<Language, TranslationKeys> = {
     "qa.title": "Pitanja i odgovori", "qa.subtitle": "Pronađi odgovor na svoje pitanje — brzo i na našem jeziku.",
     "qa.search": "Pretraži...", "qa.all": "Sve teme", "qa.results": "rezultata",
     "qa.empty": "Nema rezultata. Pokušaj sa drugim pojmom.",
-    ...dirBs as any, ...missionsBs as any, ...portalBs as any, ...miscBs as any, ...homeBs as any, ...premiumBs as any, ...newKeysBs as any, ...indexChatBs as any,
+    ...dirBs as any, ...missionsBs as any, ...portalBs as any, ...miscBs as any, ...homeBs as any, ...premiumBs as any, ...newKeysBs as any, ...indexChatBs as any, ...docCheckNtBs as any,
   },
   hr: {
     "nav.home": "Početna", "nav.qa": "Pitanja i odgovori", "nav.directory": "Imenik",
