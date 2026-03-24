@@ -119,6 +119,7 @@ export const visaTypes: VisaType[] = [
       "Dokumenti nisu prevedeni od ovlaštenog prevodioca",
       "Predugo čekanje — obrada može trajati 2–6 mjeseci",
     ],
+    guideSlug: "spajanje-porodice",
     officialUrl: "https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/familiennachzug",
   },
   {
