@@ -205,6 +205,7 @@ function VisaDetail({ visa }: { visa: VisaType }) {
 
 /* ─── Main Page ─── */
 export default function BoravisnaDozvola() {
+  const navigate = useNavigate();
   const [selected, setSelected] = useState<string | null>(null);
   const [search, setSearch] = useState("");
   const isMobile = useIsMobile();
