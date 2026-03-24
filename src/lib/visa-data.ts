@@ -228,6 +228,7 @@ export const visaTypes: VisaType[] = [
       "Prekidi u boravku (duži od 6 mjeseci) mogu resetirati period",
       "Nejasnoća oko toga da li Integrationskurs ili Einbürgerungstest trebaju",
     ],
+    guideSlug: "stalni-boravak",
     officialUrl: "https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwijAndInDeutschl/Niederlassungserlaubnis/niederlassungserlaubnis-node.html",
   },
 ];
