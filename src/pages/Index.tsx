@@ -124,7 +124,7 @@ export default function Index() {
             >
               BalkanLink – Tvoj put do uspjeha u{" "}
               <span className="text-[#FFCC00] drop-shadow-[0_0_24px_rgba(255,204,0,0.45)]">
-                Njemačkoj.
+                Njemačkoj
               </span>
             </h1>
 
