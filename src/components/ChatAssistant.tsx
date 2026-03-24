@@ -7,11 +7,14 @@ import { useAuth } from "@/contexts/AuthContext";
 import { Link, useLocation } from "react-router-dom";
 import { formCatalog, type FormEntry } from "@/lib/form-catalog";
 
+type SiteTopicAction = { url: string; label: string };
+
 type Msg = {
   role: "user" | "assistant";
   content: string;
   guideSlug?: string | null;
   formSlugs?: string[];
+  siteTopics?: SiteTopicAction[];
 };
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat-assistant`;
