@@ -211,43 +211,6 @@ export default function Index() {
               </p>
             </motion.div>
 
-            {/* Quick entry cards */}
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              {quickEntries.map((entry, i) => (
-                <motion.div
-                  key={entry.to}
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.35, delay: 0.15 + i * 0.07 }}
-                >
-                  <Link
-                    to={entry.to}
-                    className={`group flex items-start gap-4 rounded-xl border p-5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg ${
-                      entry.accent
-                        ? "border-gold/30 bg-gold/5 hover:border-gold/50 hover:shadow-gold/10"
-                        : "border-border/50 bg-card hover:border-border hover:shadow-md"
-                    }`}
-                  >
-                    <div
-                      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-colors ${
-                        entry.accent
-                          ? "bg-gold/15 text-gold group-hover:bg-gold/25"
-                          : "bg-primary/8 text-primary group-hover:bg-primary/14"
-                      }`}
-                    >
-                      <entry.icon className="h-5 w-5" strokeWidth={1.6} />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="text-sm font-bold leading-tight">{entry.title}</h3>
-                      <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
-                        {entry.desc}
-                      </p>
-                    </div>
-                    <ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground/40 transition-transform group-hover:translate-x-0.5 group-hover:text-foreground/60" />
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
 
             {/* Mobile nav (shown below cards on small screens) */}
             <div className="mt-8 md:hidden">
