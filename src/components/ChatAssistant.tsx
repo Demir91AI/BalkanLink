@@ -449,9 +449,14 @@ export default function ChatAssistant() {
                     <span className="text-[10px] text-white/60">Asistent</span>
                   </div>
                 </div>
-                <button onClick={() => setOpen(false)} className="rounded-lg p-1.5 text-white/60 transition-colors hover:bg-white/10 hover:text-white">
-                  <X className="h-4 w-4" />
-                </button>
+                <div className="flex items-center gap-1">
+                  <button onClick={handleMinimize} className="rounded-lg p-1.5 text-white/60 transition-colors hover:bg-white/10 hover:text-white" title={lk === "de" ? "Minimieren" : lk === "en" ? "Minimize" : "Minimiziraj"}>
+                    <Minus className="h-4 w-4" />
+                  </button>
+                  <button onClick={handleClose} className="rounded-lg p-1.5 text-white/60 transition-colors hover:bg-white/10 hover:text-white" title={lk === "de" ? "Schließen" : lk === "en" ? "Close" : "Zatvori"}>
+                    <X className="h-4 w-4" />
+                  </button>
+                </div>
               </div>
             </div>
 
