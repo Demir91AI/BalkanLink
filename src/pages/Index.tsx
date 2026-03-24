@@ -13,6 +13,7 @@ import { Input } from "@/components/ui/input";
 import { HeroAdBanner } from "@/components/home/AdSections";
 import { AdCarousel } from "@/components/home/AdCarousel";
 import { AdFlowBanner } from "@/components/home/AdFlowBanner";
+import { WowSection } from "@/components/home/WowSection";
 import heroBerlin from "@/assets/hero-berlin.jpg";
 import heroMuenchen from "@/assets/hero-muenchen.jpg";
 import heroFrankfurt from "@/assets/hero-frankfurt.jpg";
