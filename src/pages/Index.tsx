@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Search, Footprints, FileText, Briefcase, Building2,
-  ShieldCheck, Compass, Wrench, Megaphone,
+   ShieldCheck, Compass, Wrench, Megaphone, Plane,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
@@ -33,6 +33,7 @@ const sidebarNav = [
   { labelKey: "index.nav.tools", icon: Wrench, to: "/tools" },
   { labelKey: "index.nav.docCheck", icon: ShieldCheck, to: "/dokumenten-check" },
   { labelKey: "index.nav.visaNav", icon: Compass, to: "/dolazak/boravisna-dozvola" },
+  { labelKey: "migration.sidebarTitle", icon: Plane, to: "/nach-deutschland" },
 ];
 
 const slides = [
