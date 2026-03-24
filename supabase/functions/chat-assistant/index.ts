@@ -624,15 +624,15 @@ const PREMIUM_GATE_MESSAGES: Record<string, { teaser: string; cta: string }> = {
 };
 
 const SMART_GUIDE_MESSAGES: Record<string, { text: string; link: string; label: string }> = {
-  bs: { text: "Za detaljno popunjavanje formulara koristite naš Smart Guide — interaktivni vodič korak po korak.", link: "/formulari/kindergeld-kg1", label: "Otvori Smart Guide – Kindergeld (KG1)" },
-  hr: { text: "Za detaljno popunjavanje formulara koristite naš Smart Guide — interaktivni vodič korak po korak.", link: "/formulari/kindergeld-kg1", label: "Otvori Smart Guide – Kindergeld (KG1)" },
-  sr: { text: "Za detaljno popunjavanje formulara koristite naš Smart Guide — interaktivni vodič korak po korak.", link: "/formulari/kindergeld-kg1", label: "Otvori Smart Guide – Kindergeld (KG1)" },
-  me: { text: "Za detaljno popunjavanje formulara koristite naš Smart Guide — interaktivni vodič korak po korak.", link: "/formulari/kindergeld-kg1", label: "Otvori Smart Guide – Kindergeld (KG1)" },
-  de: { text: "Für das detaillierte Ausfüllen von Formularen nutzen Sie unseren Smart Guide.", link: "/formulari/kindergeld-kg1", label: "Smart Guide öffnen – Kindergeld (KG1)" },
-  en: { text: "For detailed form filling, use our Smart Guide — an interactive step-by-step wizard.", link: "/formulari/kindergeld-kg1", label: "Open Smart Guide – Kindergeld (KG1)" },
-  sq: { text: "Për plotësimin e detajuar të formularëve përdorni Smart Guide-in tonë.", link: "/formulari/kindergeld-kg1", label: "Hap Smart Guide – Kindergeld (KG1)" },
-  xk: { text: "Për plotësimin e detajuar të formularëve përdorni Smart Guide-in tonë.", link: "/formulari/kindergeld-kg1", label: "Hap Smart Guide – Kindergeld (KG1)" },
-  mk: { text: "За детално пополнување формулари користете го нашиот Smart Guide.", link: "/formulari/kindergeld-kg1", label: "Отвори Smart Guide – Kindergeld (KG1)" },
+  bs: { text: "Za detaljno popunjavanje formulara koristite naš Smart Guide — interaktivni vodič korak po korak.", link: "/guide/kindergeld", label: "Otvori Smart Guide" },
+  hr: { text: "Za detaljno popunjavanje formulara koristite naš Smart Guide — interaktivni vodič korak po korak.", link: "/guide/kindergeld", label: "Otvori Smart Guide" },
+  sr: { text: "Za detaljno popunjavanje formulara koristite naš Smart Guide — interaktivni vodič korak po korak.", link: "/guide/kindergeld", label: "Otvori Smart Guide" },
+  me: { text: "Za detaljno popunjavanje formulara koristite naš Smart Guide — interaktivni vodič korak po korak.", link: "/guide/kindergeld", label: "Otvori Smart Guide" },
+  de: { text: "Für das detaillierte Ausfüllen von Formularen nutzen Sie unseren Smart Guide.", link: "/guide/kindergeld", label: "Smart Guide öffnen" },
+  en: { text: "For detailed form filling, use our Smart Guide — an interactive step-by-step wizard.", link: "/guide/kindergeld", label: "Open Smart Guide" },
+  sq: { text: "Për plotësimin e detajuar të formularëve përdorni Smart Guide-in tonë.", link: "/guide/kindergeld", label: "Hap Smart Guide" },
+  xk: { text: "Për plotësimin e detajuar të formularëve përdorni Smart Guide-in tonë.", link: "/guide/kindergeld", label: "Hap Smart Guide" },
+  mk: { text: "За детално пополнување формулари користете го нашиот Smart Guide.", link: "/guide/kindergeld", label: "Отвори Smart Guide" },
 };
 
 serve(async (req) => {
