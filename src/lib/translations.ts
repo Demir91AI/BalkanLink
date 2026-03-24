@@ -214,6 +214,12 @@ type TranslationKeys = {
   "chat.openGuide": string; "chat.openForm": string; "chat.openPage": string;
   // Footer extras
   "footer.agb": string; "footer.reportContent": string;
+  // Vorlagen
+  "vorlagen.sidebarTitle": string; "vorlagen.subtitle": string; "vorlagen.comingSoon": string;
+  "vorlagen.sectionWork": string; "vorlagen.sectionService": string;
+  "vorlagen.bewerbung": string; "vorlagen.lebenslauf": string; "vorlagen.anschreiben": string;
+  "vorlagen.kuendigung": string; "vorlagen.fristlose": string; "vorlagen.probezeit": string;
+  "vorlagen.widerruf": string; "vorlagen.vertragKuendigung": string; "vorlagen.reklamation": string;
 };
 
 // --- Shared partial blocks ---
@@ -1673,6 +1679,19 @@ const translations: Record<Language, TranslationKeys> = {
   },
 };
 
+// Vorlagen translations
+const vorlagenKeys: Record<string, Record<string, string>> = {
+  bs: { "vorlagen.sidebarTitle": "Šabloni / Vorlagen", "vorlagen.subtitle": "Vorlagen za najvažnija pisma u svakodnevnici.", "vorlagen.comingSoon": "Uskoro dostupno", "vorlagen.sectionWork": "Radno pravo & Karijera", "vorlagen.sectionService": "Usluge / Ugovori", "vorlagen.bewerbung": "Bewerbung", "vorlagen.lebenslauf": "Lebenslauf", "vorlagen.anschreiben": "Anschreiben", "vorlagen.kuendigung": "Kündigung", "vorlagen.fristlose": "Fristlose Kündigung", "vorlagen.probezeit": "Kündigung in der Probezeit", "vorlagen.widerruf": "Widerruf", "vorlagen.vertragKuendigung": "Kündigung von Verträgen", "vorlagen.reklamation": "Reklamation" },
+  hr: { "vorlagen.sidebarTitle": "Predlošci / Vorlagen", "vorlagen.subtitle": "Predlošci za najvažnija pisma u svakodnevnici.", "vorlagen.comingSoon": "Uskoro dostupno", "vorlagen.sectionWork": "Radno pravo & Karijera", "vorlagen.sectionService": "Usluge / Ugovori", "vorlagen.bewerbung": "Bewerbung", "vorlagen.lebenslauf": "Lebenslauf", "vorlagen.anschreiben": "Anschreiben", "vorlagen.kuendigung": "Kündigung", "vorlagen.fristlose": "Fristlose Kündigung", "vorlagen.probezeit": "Kündigung in der Probezeit", "vorlagen.widerruf": "Widerruf", "vorlagen.vertragKuendigung": "Kündigung von Verträgen", "vorlagen.reklamation": "Reklamation" },
+  sr: { "vorlagen.sidebarTitle": "Šabloni / Vorlagen", "vorlagen.subtitle": "Šabloni za najvažnija pisma u svakodnevnici.", "vorlagen.comingSoon": "Uskoro dostupno", "vorlagen.sectionWork": "Radno pravo & Karijera", "vorlagen.sectionService": "Usluge / Ugovori", "vorlagen.bewerbung": "Bewerbung", "vorlagen.lebenslauf": "Lebenslauf", "vorlagen.anschreiben": "Anschreiben", "vorlagen.kuendigung": "Kündigung", "vorlagen.fristlose": "Fristlose Kündigung", "vorlagen.probezeit": "Kündigung in der Probezeit", "vorlagen.widerruf": "Widerruf", "vorlagen.vertragKuendigung": "Kündigung von Verträgen", "vorlagen.reklamation": "Reklamation" },
+  me: { "vorlagen.sidebarTitle": "Šabloni / Vorlagen", "vorlagen.subtitle": "Šabloni za najvažnija pisma u svakodnevnici.", "vorlagen.comingSoon": "Uskoro dostupno", "vorlagen.sectionWork": "Radno pravo & Karijera", "vorlagen.sectionService": "Usluge / Ugovori", "vorlagen.bewerbung": "Bewerbung", "vorlagen.lebenslauf": "Lebenslauf", "vorlagen.anschreiben": "Anschreiben", "vorlagen.kuendigung": "Kündigung", "vorlagen.fristlose": "Fristlose Kündigung", "vorlagen.probezeit": "Kündigung in der Probezeit", "vorlagen.widerruf": "Widerruf", "vorlagen.vertragKuendigung": "Kündigung von Verträgen", "vorlagen.reklamation": "Reklamation" },
+  sq: { "vorlagen.sidebarTitle": "Shabllone / Vorlagen", "vorlagen.subtitle": "Shabllone për shkresa më të rëndësishme.", "vorlagen.comingSoon": "Së shpejti", "vorlagen.sectionWork": "E drejta e punës & Karriera", "vorlagen.sectionService": "Shërbime / Kontrata", "vorlagen.bewerbung": "Bewerbung", "vorlagen.lebenslauf": "Lebenslauf", "vorlagen.anschreiben": "Anschreiben", "vorlagen.kuendigung": "Kündigung", "vorlagen.fristlose": "Fristlose Kündigung", "vorlagen.probezeit": "Kündigung in der Probezeit", "vorlagen.widerruf": "Widerruf", "vorlagen.vertragKuendigung": "Kündigung von Verträgen", "vorlagen.reklamation": "Reklamation" },
+  xk: { "vorlagen.sidebarTitle": "Shabllone / Vorlagen", "vorlagen.subtitle": "Shabllone për shkresa më të rëndësishme.", "vorlagen.comingSoon": "Së shpejti", "vorlagen.sectionWork": "E drejta e punës & Karriera", "vorlagen.sectionService": "Shërbime / Kontrata", "vorlagen.bewerbung": "Bewerbung", "vorlagen.lebenslauf": "Lebenslauf", "vorlagen.anschreiben": "Anschreiben", "vorlagen.kuendigung": "Kündigung", "vorlagen.fristlose": "Fristlose Kündigung", "vorlagen.probezeit": "Kündigung in der Probezeit", "vorlagen.widerruf": "Widerruf", "vorlagen.vertragKuendigung": "Kündigung von Verträgen", "vorlagen.reklamation": "Reklamation" },
+  mk: { "vorlagen.sidebarTitle": "Шаблони / Vorlagen", "vorlagen.subtitle": "Шаблони за најважни писма.", "vorlagen.comingSoon": "Наскоро", "vorlagen.sectionWork": "Работно право & Кариера", "vorlagen.sectionService": "Услуги / Договори", "vorlagen.bewerbung": "Bewerbung", "vorlagen.lebenslauf": "Lebenslauf", "vorlagen.anschreiben": "Anschreiben", "vorlagen.kuendigung": "Kündigung", "vorlagen.fristlose": "Fristlose Kündigung", "vorlagen.probezeit": "Kündigung in der Probezeit", "vorlagen.widerruf": "Widerruf", "vorlagen.vertragKuendigung": "Kündigung von Verträgen", "vorlagen.reklamation": "Reklamation" },
+  de: { "vorlagen.sidebarTitle": "Vorlagen", "vorlagen.subtitle": "Vorlagen für die wichtigsten Schreiben im Alltag.", "vorlagen.comingSoon": "Demnächst verfügbar", "vorlagen.sectionWork": "Arbeitsrecht & Karriere", "vorlagen.sectionService": "Kundenservice / Verträge", "vorlagen.bewerbung": "Bewerbung", "vorlagen.lebenslauf": "Lebenslauf", "vorlagen.anschreiben": "Anschreiben", "vorlagen.kuendigung": "Kündigungsschreiben", "vorlagen.fristlose": "Fristlose Kündigung", "vorlagen.probezeit": "Kündigung in der Probezeit", "vorlagen.widerruf": "Widerruf", "vorlagen.vertragKuendigung": "Kündigung von Verträgen", "vorlagen.reklamation": "Reklamation" },
+  en: { "vorlagen.sidebarTitle": "Templates / Vorlagen", "vorlagen.subtitle": "Templates for the most important letters in everyday life.", "vorlagen.comingSoon": "Coming soon", "vorlagen.sectionWork": "Employment Law & Career", "vorlagen.sectionService": "Customer Service / Contracts", "vorlagen.bewerbung": "Application", "vorlagen.lebenslauf": "CV / Resume", "vorlagen.anschreiben": "Cover Letter", "vorlagen.kuendigung": "Resignation Letter", "vorlagen.fristlose": "Immediate Termination", "vorlagen.probezeit": "Probation Termination", "vorlagen.widerruf": "Revocation", "vorlagen.vertragKuendigung": "Contract Cancellation", "vorlagen.reklamation": "Complaint" },
+};
+
 // Country name translations injected into each language
 const countryNames: Record<string, Record<string, string>> = {
   bs: { "country.BIH": "Bosna i Hercegovina", "country.SRB": "Srbija", "country.HR": "Hrvatska", "country.ME": "Crna Gora", "country.MK": "Sjeverna Makedonija", "country.XK": "Kosovo", "country.AL": "Albanija", "restorani.searchCity": "Traži grad…", "prodavnice.searchCity": "Traži grad…" },
@@ -1686,10 +1705,13 @@ const countryNames: Record<string, Record<string, string>> = {
   en: { "country.BIH": "Bosnia and Herzegovina", "country.SRB": "Serbia", "country.HR": "Croatia", "country.ME": "Montenegro", "country.MK": "North Macedonia", "country.XK": "Kosovo", "country.AL": "Albania", "restorani.searchCity": "Search city…", "prodavnice.searchCity": "Search city…" },
 };
 
-// Merge country names into translations
+// Merge country names and vorlagen into translations
 for (const lang of Object.keys(translations) as Language[]) {
   if (countryNames[lang]) {
     Object.assign(translations[lang], countryNames[lang]);
+  }
+  if (vorlagenKeys[lang]) {
+    Object.assign(translations[lang], vorlagenKeys[lang]);
   }
 }
 
