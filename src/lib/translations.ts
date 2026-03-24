@@ -101,6 +101,8 @@ type TranslationKeys = {
   "auth.saveButton": string; "auth.saving": string;
   "auth.resetWaiting": string; "auth.resetWaitingDesc": string; "auth.passwordChanged": string;
   "auth.minChars": string;
+  "auth.termsLabel": string; "auth.termsAGB": string; "auth.termsAnd": string;
+  "auth.termsPrivacy": string; "auth.termsAccept": string; "auth.termsRequired": string;
   "footer.legal": string; "footer.haftung": string; "footer.mitgliedschaft": string; "footer.kiHinweis": string;
   "hero.cta.register": string; "hero.cta.firstSteps": string;
   "notfound.title": string; "notfound.desc": string; "notfound.back": string;
