@@ -1,3 +1,5 @@
+import { indexChatBs, indexChatHr, indexChatSr, indexChatMe, indexChatSq, indexChatXk, indexChatMk, indexChatDe, indexChatEn, newKeysSq, newKeysXk, newKeysMk, newKeysMe } from "./i18n-extra";
+
 export type Language = "bs" | "hr" | "sr" | "me" | "sq" | "mk" | "xk" | "de" | "en";
 
 export interface LanguageInfo {
@@ -191,6 +193,27 @@ type TranslationKeys = {
   "tools.buergergeld": string; "tools.buergergeld.desc": string;
   "tools.elterngeld": string; "tools.elterngeld.desc": string;
   "tools.rente": string; "tools.rente.desc": string;
+  // Index page
+  "index.navLabel": string; "index.nav.firstSteps": string; "index.nav.forms": string;
+  "index.nav.jobSearch": string; "index.nav.housingSearch": string; "index.nav.offerSeek": string;
+  "index.nav.tools": string; "index.nav.docCheck": string; "index.nav.visaNav": string;
+  "index.heroTitle": string; "index.heroHighlight": string;
+  "index.heroSubtitle": string; "index.heroSubtitle2": string;
+  "index.searchPlaceholder": string;
+  "index.slogan1": string; "index.slogan2": string;
+  "index.quickStart": string; "index.quickDocs": string;
+  "index.quickResidence": string; "index.quickCalc": string;
+  // Chat
+  "chat.floatingTitle": string; "chat.floatingSubtitle": string;
+  "chat.headerTitle": string; "chat.headerSubtitle": string;
+  "chat.greeting": string; "chat.greetingDesc": string;
+  "chat.placeholder": string; "chat.error": string;
+  "chat.disclaimer": string; "chat.noSensitiveData": string;
+  "chat.copy": string; "chat.minimize": string; "chat.close": string;
+  "chat.msgLabel": string;
+  "chat.openGuide": string; "chat.openForm": string; "chat.openPage": string;
+  // Footer extras
+  "footer.agb": string; "footer.reportContent": string;
 };
 
 // --- Shared partial blocks ---
@@ -1424,7 +1447,7 @@ const translations: Record<Language, TranslationKeys> = {
     "qa.title": "Pitanja i odgovori", "qa.subtitle": "Pronađi odgovor na svoje pitanje — brzo i na našem jeziku.",
     "qa.search": "Pretraži...", "qa.all": "Sve teme", "qa.results": "rezultata",
     "qa.empty": "Nema rezultata. Pokušaj sa drugim pojmom.",
-    ...dirBs as any, ...missionsBs as any, ...portalBs as any, ...miscBs as any, ...homeBs as any, ...premiumBs as any, ...newKeysBs as any,
+    ...dirBs as any, ...missionsBs as any, ...portalBs as any, ...miscBs as any, ...homeBs as any, ...premiumBs as any, ...newKeysBs as any, ...indexChatBs as any,
   },
   hr: {
     "nav.home": "Početna", "nav.qa": "Pitanja i odgovori", "nav.directory": "Imenik",
@@ -1445,7 +1468,7 @@ const translations: Record<Language, TranslationKeys> = {
     "qa.title": "Pitanja i odgovori", "qa.subtitle": "Pronađi odgovor na svoje pitanje — brzo i na tvom jeziku.",
     "qa.search": "Pretraži...", "qa.all": "Sve teme", "qa.results": "rezultata",
     "qa.empty": "Nema rezultata. Pokušaj s drugim pojmom.",
-    ...dirBs as any, ...missionsBs as any, ...portalBs as any, ...miscHr as any, ...homeBs as any, ...premiumBs as any, ...newKeysHr as any,
+    ...dirBs as any, ...missionsBs as any, ...portalBs as any, ...miscHr as any, ...homeBs as any, ...premiumBs as any, ...newKeysHr as any, ...indexChatHr as any,
     "home.hero.title": "Tvoj vodič za život", "home.hero.highlight": "u Njemačkoj.",
     "dir.filterOrigin": "Zemlja podrijetla", "dir.fieldOrigin": "Zemlja podrijetla",
     "dir.backToDirectory": "Natrag na imenik",
@@ -1469,7 +1492,7 @@ const translations: Record<Language, TranslationKeys> = {
     "qa.title": "Pitanja i odgovori", "qa.subtitle": "Pronađi odgovor na svoje pitanje — brzo i na tvom jeziku.",
     "qa.search": "Pretraži...", "qa.all": "Sve teme", "qa.results": "rezultata",
     "qa.empty": "Nema rezultata. Pokušaj sa drugim pojmom.",
-    ...dirBs as any, ...missionsBs as any, ...portalBs as any, ...miscBs as any, ...homeSr as any, ...premiumBs as any, ...newKeysSr as any,
+    ...dirBs as any, ...missionsBs as any, ...portalBs as any, ...miscBs as any, ...homeSr as any, ...premiumBs as any, ...newKeysSr as any, ...indexChatSr as any,
     "dir.subtitle": "Pronađi balkanske biznise u Nemačkoj.",
     "dir.filterOrigin": "Zemlja porekla", "dir.fieldOrigin": "Zemlja porekla",
     "dir.submitSubtitle": "Popuni formu i tvoj biznis će biti vidljiv nakon provere.",
@@ -1496,7 +1519,7 @@ const translations: Record<Language, TranslationKeys> = {
     "qa.title": "Pitanja i odgovori", "qa.subtitle": "Pronađi odgovor na svoje pitanje — brzo i na tvom jeziku.",
     "qa.search": "Pretraži...", "qa.all": "Sve teme", "qa.results": "rezultata",
     "qa.empty": "Nema rezultata. Pokušaj sa drugim pojmom.",
-    ...dirBs as any, ...missionsBs as any, ...portalBs as any, ...miscBs as any, ...homeBs as any, ...premiumBs as any, ...newKeysBs as any,
+    ...dirBs as any, ...missionsBs as any, ...portalBs as any, ...miscBs as any, ...homeBs as any, ...premiumBs as any, ...newKeysMe as any, ...indexChatMe as any,
   },
   sq: {
     "nav.home": "Ballina", "nav.qa": "Pyetje dhe përgjigje", "nav.directory": "Drejtoria",
@@ -1517,7 +1540,7 @@ const translations: Record<Language, TranslationKeys> = {
     "qa.title": "Pyetje dhe përgjigje", "qa.subtitle": "Gjej përgjigjen e pyetjes tënde — shpejt dhe në gjuhën tënde.",
     "qa.search": "Kërko...", "qa.all": "Të gjitha temat", "qa.results": "rezultate",
     "qa.empty": "Nuk ka rezultate. Provo me një term tjetër.",
-    ...dirSq as any, ...missionsSq as any, ...portalSq as any, ...miscSq as any, ...homeSq as any, ...premiumSq as any, ...newKeysBs as any,
+    ...dirSq as any, ...missionsSq as any, ...portalSq as any, ...miscSq as any, ...homeSq as any, ...premiumSq as any, ...newKeysSq as any, ...indexChatSq as any,
   },
   xk: {
     "nav.home": "Ballina", "nav.qa": "Pyetje dhe përgjigje", "nav.directory": "Drejtoria",
@@ -1538,7 +1561,7 @@ const translations: Record<Language, TranslationKeys> = {
     "qa.title": "Pyetje dhe përgjigje", "qa.subtitle": "Gjej përgjigjen e pyetjes tënde — shpejt dhe në gjuhën tënde.",
     "qa.search": "Kërko...", "qa.all": "Të gjitha temat", "qa.results": "rezultate",
     "qa.empty": "Nuk ka rezultate. Provo me një term tjetër.",
-    ...dirSq as any, ...missionsSq as any, ...portalSq as any, ...miscSq as any, ...homeSq as any, ...premiumSq as any, ...newKeysBs as any,
+    ...dirSq as any, ...missionsSq as any, ...portalSq as any, ...miscSq as any, ...homeSq as any, ...premiumSq as any, ...newKeysXk as any, ...indexChatXk as any,
   },
   mk: {
     "nav.home": "Почетна", "nav.qa": "Прашања и одговори", "nav.directory": "Именик",
@@ -1574,7 +1597,7 @@ const translations: Record<Language, TranslationKeys> = {
     "dir.submitSuccess": "Бизнисот е додаден! Ќе биде видлив по проверка.",
     "dir.submitError": "Грешка. Обиди се повторно.",
     "dir.loginRequired": "Мора да бидеш најавен за да додадеш бизнис.",
-    ...missionsMk as any, ...portalMk as any, ...miscMk as any, ...homeMk as any, ...premiumMk as any, ...newKeysBs as any,
+    ...missionsMk as any, ...portalMk as any, ...miscMk as any, ...homeMk as any, ...premiumMk as any, ...newKeysMk as any, ...indexChatMk as any,
   },
   de: {
     "nav.home": "Startseite", "nav.qa": "Fragen & Antworten", "nav.directory": "Verzeichnis",
@@ -1610,7 +1633,7 @@ const translations: Record<Language, TranslationKeys> = {
     "dir.submitSuccess": "Geschäft hinzugefügt! Wird nach Prüfung sichtbar.",
     "dir.submitError": "Fehler. Versuche es erneut.",
     "dir.loginRequired": "Du musst angemeldet sein, um ein Geschäft hinzuzufügen.",
-    ...missionsDe as any, ...portalDe as any, ...miscDe as any, ...homeDe as any, ...premiumDe as any, ...newKeysDe as any,
+    ...missionsDe as any, ...portalDe as any, ...miscDe as any, ...homeDe as any, ...premiumDe as any, ...newKeysDe as any, ...indexChatDe as any,
   },
   en: {
     "nav.home": "Home", "nav.qa": "Q&A", "nav.directory": "Directory",
@@ -1646,7 +1669,7 @@ const translations: Record<Language, TranslationKeys> = {
     "dir.submitSuccess": "Business added! It will be visible after review.",
     "dir.submitError": "Error. Please try again.",
     "dir.loginRequired": "You must be signed in to add a business.",
-    ...missionsEn as any, ...portalEn as any, ...miscEn as any, ...homeEn as any, ...premiumEn as any, ...newKeysEn as any,
+    ...missionsEn as any, ...portalEn as any, ...miscEn as any, ...homeEn as any, ...premiumEn as any, ...newKeysEn as any, ...indexChatEn as any,
   },
 };
 
