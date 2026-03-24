@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FileText, BriefcaseBusiness, Repeat2, ArrowRight } from "lucide-react";
+import { ScrollText, Building, ArrowLeftRight, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
