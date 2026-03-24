@@ -15,6 +15,7 @@ interface Listing {
 }
 
 export default function Dzamije() {
+  const navigate = useNavigate();
   const [searchInput, setSearchInput] = useState("");
   const [openBundeslaender, setOpenBundeslaender] = useState<Record<string, boolean>>({});
   const [openCities, setOpenCities] = useState<Record<string, boolean>>({});
