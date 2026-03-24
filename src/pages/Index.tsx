@@ -166,10 +166,10 @@ export default function Index() {
             {/* Quick-link tags */}
             <div className="mx-auto mt-5 flex flex-wrap justify-center gap-2 max-w-lg">
               {[
-                { label: "Stanovi", to: "/wohnungen" },
-                { label: "Prijava", to: "/dolazak/prijava-prebivalista" },
+                { label: "Prvi koraci", to: "/dolazak/prvi-koraci" },
+                { label: "Formulari", to: "/formulari" },
+                { label: "Poslovi", to: "/stellenangebote" },
                 { label: "Vize", to: "/dolazak/boravisna-dozvola" },
-                { label: "Diplome", to: "/qa" },
               ].map((tag) => (
                 <Link
                   key={tag.to}
