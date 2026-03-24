@@ -10,7 +10,7 @@ import showcaseVrebo3 from "@/assets/showcase-vrebo-3.jpg";
 import showcaseEcronix1 from "@/assets/showcase-ecronix-1.jpg";
 import showcaseEcronix2 from "@/assets/showcase-ecronix-2.jpg";
 import showcaseEcronix3 from "@/assets/showcase-ecronix-3.jpg";
-import showcaseEcronix4 from "@/assets/showcase-ecronix-4.jpg";
+
 
 export interface PremiumShowcaseFirm {
   name: string;
