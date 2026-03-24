@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
-import { Briefcase, Search, ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Briefcase, Search, ExternalLink, ChevronDown, ChevronUp, ArrowLeft } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -47,6 +48,7 @@ const BRANCHE_KEYS = ["pflege", "bau", "logistik", "produktion", "reinigung", "g
 const VERTRAG_KEYS = ["vollzeit", "teilzeit", "minijob", "ausbildung", "praktikum"] as const;
 
 export default function Stellenangebote() {
+  const navigate = useNavigate();
   const { t } = useLanguage();
   const [filters, setFilters] = useState<Filters>({
     city: "", bundesland: "", umkreis: "25", branche: "", vertragsart: "",
@@ -83,12 +85,17 @@ export default function Stellenangebote() {
   return (
     <div className="min-h-screen bg-muted/30">
       <section className="bg-primary py-12 text-primary-foreground md:py-16">
-        <div className="container max-w-4xl text-center">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm">
-            <Briefcase className="h-4 w-4" /> {t("jobs.title")}
+        <div className="container max-w-4xl">
+          <button onClick={() => window.history.length > 2 ? navigate(-1) : navigate("/")} className="mb-4 inline-flex items-center gap-1 text-xs text-primary-foreground/70 hover:text-primary-foreground">
+            <ArrowLeft className="h-3 w-3" /> Nazad
+          </button>
+          <div className="text-center">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm">
+              <Briefcase className="h-4 w-4" /> {t("jobs.title")}
+            </div>
+            <h1 className="font-heading text-3xl font-bold md:text-4xl">{t("jobs.title")}</h1>
+            <p className="mx-auto mt-3 max-w-xl text-primary-foreground/80">{t("jobs.subtitle")}</p>
           </div>
-          <h1 className="font-heading text-3xl font-bold md:text-4xl">{t("jobs.title")}</h1>
-          <p className="mx-auto mt-3 max-w-xl text-primary-foreground/80">{t("jobs.subtitle")}</p>
         </div>
       </section>
 

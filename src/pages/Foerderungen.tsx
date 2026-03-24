@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { ArrowRight, Home, Briefcase, HeartPulse, GraduationCap } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { ArrowRight, ArrowLeft, Home, Briefcase, HeartPulse, GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
 import { getGuidesByCategory, type Guide } from "@/lib/guide-data";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -28,6 +28,7 @@ const titles = {
 
 export default function Foerderungen() {
   const { language } = useLanguage();
+  const navigate = useNavigate();
   const lk = getLangKey(language);
   const t = titles[lk];
 
@@ -36,9 +37,12 @@ export default function Foerderungen() {
   return (
     <>
       <section className="border-b bg-primary py-12">
-        <div className="container text-center">
-          <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">{t.title}</h1>
-          <p className="mt-2 text-sm text-primary-foreground/80 md:text-base">{t.subtitle}</p>
+        <div className="container max-w-3xl">
+          <button onClick={() => window.history.length > 2 ? navigate(-1) : navigate("/")} className="mb-4 inline-flex items-center gap-1 text-xs text-primary-foreground/70 hover:text-primary-foreground">
+            <ArrowLeft className="h-3 w-3" /> Nazad
+          </button>
+          <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl text-center">{t.title}</h1>
+          <p className="mt-2 text-sm text-primary-foreground/80 md:text-base text-center">{t.subtitle}</p>
         </div>
       </section>
 

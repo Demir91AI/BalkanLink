@@ -1,8 +1,9 @@
 import { useState, useMemo, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Input } from "@/components/ui/input";
-import { MapPin, ChevronDown, Search, Building2 } from "lucide-react";
+import { MapPin, ChevronDown, Search, Building2, ArrowLeft } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface Listing {
@@ -14,6 +15,7 @@ interface Listing {
 }
 
 export default function Dzamije() {
+  const navigate = useNavigate();
   const [searchInput, setSearchInput] = useState("");
   const [openBundeslaender, setOpenBundeslaender] = useState<Record<string, boolean>>({});
   const [openCities, setOpenCities] = useState<Record<string, boolean>>({});
@@ -100,7 +102,11 @@ export default function Dzamije() {
       {/* Hero */}
       <section className="relative overflow-hidden" style={{ background: "#0F1B2D" }}>
         <div className="absolute inset-0 bg-gradient-to-br from-[#E3B341]/5 via-transparent to-[#E3B341]/3" />
-        <div className="container relative max-w-5xl py-14 text-center">
+        <div className="container relative max-w-5xl py-14">
+          <button onClick={() => window.history.length > 2 ? navigate(-1) : navigate("/")} className="mb-4 inline-flex items-center gap-1 text-xs text-white/60 hover:text-white">
+            <ArrowLeft className="h-3 w-3" /> Nazad
+          </button>
+          <div className="text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -139,6 +145,7 @@ export default function Dzamije() {
               </div>
             </motion.div>
           )}
+          </div>
         </div>
       </section>
 
