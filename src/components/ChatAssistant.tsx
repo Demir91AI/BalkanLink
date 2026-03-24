@@ -419,11 +419,7 @@ export default function ChatAssistant() {
               <div className="absolute inset-[-18px] rounded-full bg-gradient-to-br from-brand-orange/40 to-brand-orange/20 blur-3xl group-hover:from-brand-orange/60 group-hover:to-brand-orange/40 transition-all duration-300 animate-pulse" />
               <div className="absolute inset-[-8px] rounded-full bg-brand-orange/20 blur-xl" />
               <div className="relative flex items-center justify-center w-[58px] h-[58px] sm:w-16 sm:h-16 rounded-full bg-[hsl(var(--primary))] shadow-[0_0_40px_hsl(var(--brand-orange)/0.5),0_0_80px_hsl(var(--brand-orange)/0.25),0_4px_20px_rgba(0,0,0,0.3)] transition-all duration-200 group-hover:scale-105 group-hover:shadow-[0_0_50px_hsl(var(--brand-orange)/0.6),0_0_100px_hsl(var(--brand-orange)/0.35)] group-active:scale-95 border-2 border-brand-orange/30">
-                <svg width="28" height="28" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-                  <text x="4" y="30" fontFamily="'Arial Black',Arial,sans-serif" fontWeight="900" fontSize="28" letterSpacing="-1">
-                    <tspan fill="#FFFFFF">B</tspan><tspan fill="hsl(var(--brand-orange))">L</tspan>
-                  </text>
-                </svg>
+                <BLIcon size={32} />
               </div>
             </div>
 
