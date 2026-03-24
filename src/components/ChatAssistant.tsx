@@ -155,6 +155,19 @@ function ResponseActions({ msg, lk }: { msg: Msg; lk: string }) {
     }
   }
 
+  // Site-wide topic actions from backend
+  if (msg.siteTopics && msg.siteTopics.length > 0) {
+    for (const topic of msg.siteTopics) {
+      if (actions.some(a => a.to === topic.url)) continue;
+      if (actions.length >= 3) break;
+      actions.push({
+        label: lk === "de" ? `${topic.label} öffnen` : lk === "en" ? `Open ${topic.label}` : `Otvori: ${topic.label}`,
+        to: topic.url,
+        icon: ExternalLink,
+      });
+    }
+  }
+
   if (actions.length === 0) return null;
 
   return (
