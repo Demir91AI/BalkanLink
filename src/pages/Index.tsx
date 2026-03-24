@@ -119,7 +119,7 @@ export default function Index() {
           >
             {/* H1 */}
             <h1
-              className="font-heading text-2xl font-black leading-[1.15] tracking-tight text-white sm:text-3xl md:text-4xl lg:text-[3.2rem]"
+              className="font-heading whitespace-nowrap text-xl font-black leading-[1.15] tracking-tight text-white sm:text-2xl md:text-3xl lg:text-[3.2rem]"
               style={{ textShadow: "0 4px 30px rgba(0,0,0,0.5)" }}
             >
               BalkanLink – Tvoj put do uspjeha u{" "}
@@ -166,10 +166,10 @@ export default function Index() {
             {/* Quick-link tags */}
             <div className="mx-auto mt-5 flex flex-wrap justify-center gap-2 max-w-lg">
               {[
-                { label: "Stanovi", to: "/wohnungen" },
-                { label: "Prijava", to: "/dolazak/prijava-prebivalista" },
+                { label: "Prvi koraci", to: "/dolazak/prvi-koraci" },
+                { label: "Formulari", to: "/formulari" },
+                { label: "Poslovi", to: "/stellenangebote" },
                 { label: "Vize", to: "/dolazak/boravisna-dozvola" },
-                { label: "Diplome", to: "/qa" },
               ].map((tag) => (
                 <Link
                   key={tag.to}
