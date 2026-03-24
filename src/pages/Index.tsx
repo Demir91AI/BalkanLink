@@ -79,12 +79,6 @@ export default function Index() {
     }
   };
 
-  const quickLinks = [
-    { label: t("index.quickStart"), to: "/dolazak/prvi-koraci" },
-    { label: t("index.quickDocs"), to: "/formulari" },
-    { label: t("index.quickResidence"), to: "/dolazak/boravisna-dozvola" },
-    { label: t("index.quickCalc"), to: "/tools" },
-  ];
 
   return (
     <>
