@@ -153,7 +153,7 @@ export default function Index() {
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       placeholder={t("index.searchPlaceholder")}
-                      className="h-[46px] w-full rounded-full border-none bg-white/95 pl-11 pr-4 text-sm text-foreground placeholder:text-muted-foreground shadow-[0_8px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm focus-visible:ring-2 focus-visible:ring-[#FFCC00]/60 hover:bg-white hover:shadow-[0_12px_48px_rgba(0,0,0,0.35)] transition-all duration-300 sm:h-[60px] sm:pl-14 sm:pr-5 sm:text-base"
+                      className="h-[40px] w-full rounded-full border-none bg-white/95 pl-10 pr-3 text-[13px] text-foreground placeholder:text-muted-foreground shadow-[0_8px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm focus-visible:ring-2 focus-visible:ring-[#FFCC00]/60 hover:bg-white hover:shadow-[0_12px_48px_rgba(0,0,0,0.35)] transition-all duration-300 sm:h-[60px] sm:pl-14 sm:pr-5 sm:text-sm md:text-base"
                     />
                   </div>
                   <Button
