@@ -472,8 +472,8 @@ export default function ChatAssistant() {
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.08),transparent_60%)]" />
               <div className="flex items-center justify-between relative z-10">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/15 backdrop-blur-sm">
-                    <span className="text-white font-black text-[14px] tracking-tight">BL</span>
+                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/15 backdrop-blur-sm overflow-hidden">
+                    <BLIcon size={28} />
                   </div>
                   <div>
                     <span className="text-[15px] font-bold text-white block leading-tight">BalkanLink Asistent</span>
