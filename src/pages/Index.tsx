@@ -146,21 +146,22 @@ export default function Index() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="flex items-center justify-center"
+                className="w-full flex justify-center"
+                style={{ maxWidth: "90%" }}
               >
-                <div className="flex items-center justify-center gap-2">
-                  <div className="relative w-full max-w-lg min-w-0 flex-1">
-                    <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#FFCC00]" />
+                <div className="flex w-full items-center gap-2" style={{ maxWidth: "800px" }}>
+                  <div className="relative min-w-0 flex-1">
+                    <Search className="absolute left-5 top-1/2 h-5 w-5 -translate-y-1/2 text-[#FFCC00]" />
                     <Input
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       placeholder="Pretraži: Kindergeld, Anmeldung, posao, stan..."
-                      className="h-14 w-full rounded-full border-none bg-white pl-12 pr-4 text-base text-foreground placeholder:text-muted-foreground shadow-[0_8px_32px_rgba(0,0,0,0.25)] focus-visible:ring-2 focus-visible:ring-[#FFCC00]/50 transition-all"
+                      className="h-[60px] w-full rounded-full border-none bg-white/95 pl-14 pr-5 text-base text-foreground placeholder:text-muted-foreground shadow-[0_8px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm focus-visible:ring-2 focus-visible:ring-[#FFCC00]/60 hover:bg-white hover:shadow-[0_12px_48px_rgba(0,0,0,0.35)] transition-all duration-300"
                     />
                   </div>
                   <Button
                     type="submit"
-                    className="h-14 shrink-0 rounded-full bg-[#FFCC00] px-7 text-base font-bold text-[hsl(var(--gold-foreground))] shadow-[0_4px_20px_rgba(255,204,0,0.35)] hover:bg-[#FFD633] hover:shadow-[0_8px_32px_rgba(255,204,0,0.5)] transition-all duration-300"
+                    className="h-[60px] w-[60px] shrink-0 rounded-full bg-[#FFCC00] text-base font-bold text-[hsl(var(--gold-foreground))] shadow-[0_4px_24px_rgba(255,204,0,0.4)] hover:bg-[#FFD633] hover:shadow-[0_8px_36px_rgba(255,204,0,0.55)] hover:scale-105 transition-all duration-300"
                   >
                     <Search className="h-5 w-5" />
                   </Button>
