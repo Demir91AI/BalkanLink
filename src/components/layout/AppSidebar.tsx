@@ -179,20 +179,71 @@ export function AppSidebar() {
               }`}
             >
               <FileCheck className={`h-3.5 w-3.5 ${isVorlagenActive ? "text-gold" : "text-white/25"}`} />
-              <span className="flex-1 text-left">{t("vorlagen.sidebarTitle") || "Šabloni / Vorlagen"}</span>
+              <span className="flex-1 text-left">Šabloni / Vorlagen</span>
               <ChevronDown className={`h-3 w-3 transition-transform ${vorlagenOpen ? "" : "-rotate-90"}`} />
             </button>
           )}
           {(vorlagenOpen || collapsed) && (
             <SidebarGroupContent>
+              {/* A) Bewerbung & Karriere */}
+              {!collapsed && (
+                <p className="px-5 pt-3 pb-1 text-[10px] font-semibold uppercase tracking-[0.1em] text-white/25">
+                  Bewerbung & Karriere
+                </p>
+              )}
               <SidebarMenu className="gap-0.5 px-2">
                 {[
-                  { label: t("vorlagen.bewerbung") || "Bewerbung", to: "/vorlagen/bewerbung" },
-                  { label: t("vorlagen.lebenslauf") || "Lebenslauf", to: "/vorlagen/lebenslauf" },
-                  { label: t("vorlagen.anschreiben") || "Anschreiben", to: "/vorlagen/anschreiben" },
-                  { label: t("vorlagen.kuendigung") || "Kündigung", to: "/vorlagen/kuendigung" },
-                  { label: t("vorlagen.widerruf") || "Widerruf", to: "/vorlagen/widerruf" },
-                  { label: t("vorlagen.reklamation") || "Reklamation", to: "/vorlagen/reklamation" },
+                  { label: "Bewerbung", to: "/vorlagen/bewerbung" },
+                  { label: "Lebenslauf", to: "/vorlagen/lebenslauf" },
+                  { label: "Anschreiben", to: "/vorlagen/anschreiben" },
+                  { label: "Kündigungsschreiben", to: "/vorlagen/kuendigung" },
+                  { label: "Fristlose Kündigung", to: "/vorlagen/fristlose-kuendigung" },
+                  { label: "Kündigung in der Probezeit", to: "/vorlagen/kuendigung-probezeit" },
+                ].map((item) => {
+                  const isActive = location.pathname === item.to;
+                  return (
+                    <SidebarMenuItem key={item.to}>
+                      <SidebarMenuButton
+                        asChild
+                        tooltip={collapsed ? item.label : undefined}
+                        className={`
+                          group h-9 rounded-lg transition-all duration-200
+                          ${isActive
+                            ? "bg-white/10 text-gold shadow-[inset_3px_0_0_hsl(var(--gold))]"
+                            : "text-white/55 hover:text-white hover:bg-white/5"
+                          }
+                        `}
+                      >
+                        <NavLink
+                          to={item.to}
+                          className="flex items-center gap-3 px-3"
+                          activeClassName=""
+                          onClick={handleNavClick}
+                        >
+                          <FileCheck className={`h-[14px] w-[14px] shrink-0 transition-colors ${isActive ? "text-gold" : "text-white/40 group-hover:text-white/70"}`} />
+                          {!collapsed && (
+                            <span className={`text-sm font-medium ${isActive ? "text-gold" : ""}`}>
+                              {item.label}
+                            </span>
+                          )}
+                        </NavLink>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  );
+                })}
+              </SidebarMenu>
+
+              {/* B) Kundenservice / Vertragsangelegenheiten */}
+              {!collapsed && (
+                <p className="px-5 pt-4 pb-1 text-[10px] font-semibold uppercase tracking-[0.1em] text-white/25">
+                  Kundenservice / Verträge
+                </p>
+              )}
+              <SidebarMenu className="gap-0.5 px-2">
+                {[
+                  { label: "Widerruf", to: "/vorlagen/widerruf" },
+                  { label: "Kündigung von Verträgen", to: "/vorlagen/vertragskundigung" },
+                  { label: "Reklamation", to: "/vorlagen/reklamation" },
                 ].map((item) => {
                   const isActive = location.pathname === item.to;
                   return (
