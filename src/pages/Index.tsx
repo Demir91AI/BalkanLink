@@ -164,12 +164,12 @@ export default function Index() {
             </motion.form>
 
             {/* Quick-link tags */}
-            <div className="mx-auto mt-5 flex flex-wrap justify-center gap-2 max-w-lg">
+            <div className="mx-auto mt-4 flex flex-wrap justify-center gap-3 max-w-lg">
               {[
                 { label: "Prvi koraci", to: "/dolazak/prvi-koraci" },
-                { label: "Formulari", to: "/formulari" },
-                { label: "Poslovi", to: "/stellenangebote" },
-                { label: "Vize", to: "/dolazak/boravisna-dozvola" },
+                { label: "Dokumenti", to: "/formulari" },
+                { label: "Boravak", to: "/dolazak/boravisna-dozvola" },
+                { label: "Kalkulatori", to: "/tools" },
               ].map((tag) => (
                 <Link
                   key={tag.to}
