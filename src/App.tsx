@@ -67,8 +67,10 @@ const App = () => (
           <CountryProvider>
           <AuthProvider>
             <Routes>
-              <Route element={<Layout />}>
+              <Route element={<HomeLayout />}>
                 <Route path="/" element={<Index />} />
+              </Route>
+              <Route element={<Layout />}>
                 <Route path="/dolazak" element={<PocniOvdje />} />
                 <Route path="/pocni-ovdje" element={<PocniOvdje />} />
                 <Route path="/dolazak/prijava-prebivalista" element={<PrijavaPrebijalista />} />
