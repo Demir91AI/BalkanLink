@@ -707,6 +707,23 @@ export const indexChatEn: Record<string, string> = {
   "ad.flowTitle": "Your ad here",
   "ad.flowSubtitle": "Position your business in front of thousands of users.",
   "ad.flowCta": "Advertise now",
+  "cookie.title": "Cookies & Privacy",
+  "cookie.desc": "We use cookies to improve your experience. You can accept all or adjust your settings.",
+  "cookie.acceptAll": "Accept all",
+  "cookie.necessaryOnly": "Necessary only",
+  "cookie.settings": "Settings",
+  "cookie.settingsTitle": "Cookie Settings",
+  "cookie.settingsDesc": "Choose which cookie categories you want to allow.",
+  "cookie.saveSettings": "Save settings",
+  "cookie.cat.necessary": "Necessary",
+  "cookie.cat.necessary.desc": "Required for basic site functionality.",
+  "cookie.cat.functional": "Functional",
+  "cookie.cat.functional.desc": "Enable additional features like language and region.",
+  "cookie.cat.statistics": "Statistics",
+  "cookie.cat.statistics.desc": "Help us understand how you use the site.",
+  "cookie.cat.marketing": "Marketing",
+  "cookie.cat.marketing.desc": "Used to display relevant advertisements.",
+  "cookie.footerLink": "Cookie settings",
 };
 
 // ── Proper newKeys for languages that were using Bosnian fallback ──
