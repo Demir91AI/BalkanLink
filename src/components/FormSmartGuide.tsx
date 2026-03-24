@@ -28,7 +28,8 @@ interface FormSmartGuideProps {
 /** The step-by-step Smart Guide wizard (premium content) */
 export default function FormSmartGuide({ guide, lang }: FormSmartGuideProps) {
   const [step, setStep] = useState(0);
-  const steps = guide.steps[lang];
+  const steps = guide.steps[lang]?.length ? guide.steps[lang] : guide.steps["bs"];
+  if (!steps || steps.length === 0) return <p className="text-xs text-muted-foreground">Vodič nije dostupan.</p>;
   const current = steps[step];
   const progress = ((step + 1) / steps.length) * 100;
 
