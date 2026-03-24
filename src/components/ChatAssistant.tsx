@@ -357,6 +357,16 @@ export default function ChatAssistant() {
 
   const showStartScreen = messages.length === 0;
 
+  const handleClose = () => {
+    setOpen("closed");
+    setMessages([]);
+    setInput("");
+  };
+
+  const handleMinimize = () => {
+    setOpen("minimized");
+  };
+
   return (
     <>
       {/* ── Floating Orb + "Pomoć" badge ── */}
