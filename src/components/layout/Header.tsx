@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useSidebar } from "@/components/ui/sidebar";
@@ -19,6 +20,7 @@ export default function Header() {
   const { user, loading, signOut } = useAuth();
   const { t, language, setLanguage, languages, currentFlag } = useLanguage();
   const { toggleSidebar } = useSidebar();
+  const navigate = useNavigate();
   const [contactOpen, setContactOpen] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
   const [contactForm, setContactForm] = useState({ firstName: "", lastName: "", email: "", message: "" });
@@ -123,9 +125,9 @@ export default function Header() {
               </button>
             )}
 
-            {/* Preisliste */}
+            {/* Paketi i opcije */}
             <button
-              onClick={() => {}}
+              onClick={() => { setSheetOpen(false); navigate("/premium"); }}
               className="group flex items-center gap-3 px-3 h-11 rounded-lg text-sm font-medium text-white/55 hover:text-white hover:bg-white/5 transition-all duration-200"
             >
               <List className="h-[18px] w-[18px] shrink-0 text-white/40 group-hover:text-white/70 transition-colors" />
