@@ -58,7 +58,7 @@ import NudimTrazim from "./pages/NudimTrazim";
 import NachDeutschland from "./pages/NachDeutschland";
 import Vorlagen from "./pages/Vorlagen";
 import NotFound from "./pages/NotFound";
-
+import FirmDetail from "./pages/FirmDetail";
 
 const queryClient = new QueryClient();
 
@@ -135,6 +135,7 @@ const App = () => (
                 <Route path="/nach-deutschland/:countryCode/:categoryKey" element={<NachDeutschland />} />
                 <Route path="/vorlagen" element={<Vorlagen />} />
                 <Route path="/vorlagen/:slug" element={<Vorlagen />} />
+                <Route path="/firma/:slug" element={<FirmDetail />} />
               </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>

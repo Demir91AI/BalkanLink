@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { Link } from "react-router-dom";
 import { ExternalLink, ArrowRight, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { PremiumShowcaseFirm } from "./premium-showcase-data";
@@ -115,14 +116,30 @@ export function PremiumShowcaseCard({ firm, priority = false }: PremiumShowcaseC
         {/* CTA */}
         <div className="flex flex-wrap gap-2.5 pt-1">
           <Button asChild size="sm" className="btn-gold-gradient rounded-xl px-5 text-xs font-bold">
-            <a href={firm.website} target="_blank" rel="noopener noreferrer">
-              Pogledaj više <ExternalLink className="ml-1 h-3.5 w-3.5" />
-            </a>
+            {firm.website ? (
+              <a href={firm.website} target="_blank" rel="noopener noreferrer">
+                Pogledaj više <ExternalLink className="ml-1 h-3.5 w-3.5" />
+              </a>
+            ) : (
+              <Link to={`/firma/${firm.slug}`}>
+                Pogledaj više <ArrowRight className="ml-1 h-3.5 w-3.5" />
+              </Link>
+            )}
           </Button>
           <Button asChild variant="outline" size="sm" className="rounded-xl border-border/40 px-5 text-xs font-semibold hover:bg-muted/60">
-            <a href={firm.contactUrl} target="_blank" rel="noopener noreferrer">
-              Kontakt <ArrowRight className="ml-1 h-3.5 w-3.5" />
-            </a>
+            {firm.contactUrl ? (
+              <a href={firm.contactUrl} target="_blank" rel="noopener noreferrer">
+                Kontakt <ArrowRight className="ml-1 h-3.5 w-3.5" />
+              </a>
+            ) : firm.phone ? (
+              <a href={`tel:${firm.phone}`}>
+                Kontakt <ArrowRight className="ml-1 h-3.5 w-3.5" />
+              </a>
+            ) : (
+              <Link to={`/firma/${firm.slug}`}>
+                Kontakt <ArrowRight className="ml-1 h-3.5 w-3.5" />
+              </Link>
+            )}
           </Button>
         </div>
       </div>
