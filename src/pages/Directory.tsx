@@ -33,8 +33,8 @@ export default function Directory() {
       {/* Header */}
       <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <button onClick={() => navigateBackOrHome(navigate)} className="back-button mb-4 text-xs text-muted-foreground">
-            <ArrowLeft className="h-3 w-3" /> {t("common.back")}
+          <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
+            <ArrowLeft /> {t("common.back")}
           </button>
           <h1 className="text-2xl font-bold md:text-3xl">{t("dir.title")}</h1>
           <p className="mt-1 text-muted-foreground">{t("dir.subtitle")}</p>

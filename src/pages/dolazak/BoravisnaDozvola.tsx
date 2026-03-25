@@ -232,9 +232,9 @@ export default function BoravisnaDozvola() {
       <div className="px-4 py-6">
         <button
           onClick={() => navigateBackOrHome(navigate)}
-          className="back-button mb-4 text-xs text-muted-foreground"
+          className="back-button"
         >
-          <ArrowLeft className="h-3 w-3" /> Nazad
+          <ArrowLeft /> Nazad
         </button>
         <VisaDetail visa={activeVisa} st={st} />
       </div>
@@ -248,9 +248,9 @@ export default function BoravisnaDozvola() {
         <div className="container max-w-5xl">
           <button
             onClick={() => navigateBackOrHome(navigate)}
-            className="back-button mb-4 text-xs text-primary-foreground"
+            className="back-button"
           >
-            <ArrowLeft className="h-3 w-3" /> Nazad
+            <ArrowLeft /> Nazad
           </button>
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">
             {st("viza.title")}

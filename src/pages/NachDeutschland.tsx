@@ -31,8 +31,8 @@ export default function NachDeutschland() {
   if (!selectedCountry) {
     return (
       <div className="container max-w-4xl py-8 px-4">
-        <button onClick={handleBack} className="back-button mb-4 text-xs text-muted-foreground">
-          <ArrowLeft className="h-3 w-3" /> Nazad
+        <button onClick={handleBack} className="back-button">
+          <ArrowLeft /> Nazad
         </button>
         <h1 className="text-2xl font-bold text-foreground mb-2">{t("migration.title")}</h1>
         <p className="text-sm text-muted-foreground mb-6">{t("migration.subtitle")}</p>
@@ -71,8 +71,8 @@ export default function NachDeutschland() {
   if (!selectedCategory) {
     return (
       <div className="container max-w-4xl py-8 px-4">
-        <button onClick={handleBack} className="back-button mb-4 text-xs text-muted-foreground">
-          <ArrowLeft className="h-3 w-3" /> Nazad
+        <button onClick={handleBack} className="back-button">
+          <ArrowLeft /> Nazad
         </button>
 
         <div className="flex items-center gap-3 mb-2">
@@ -129,8 +129,8 @@ export default function NachDeutschland() {
 
   return (
     <div className="container max-w-4xl py-8 px-4">
-      <button onClick={handleBack} className="back-button mb-4 text-xs text-muted-foreground">
-        <ArrowLeft className="h-3 w-3" /> Nazad
+      <button onClick={handleBack} className="back-button">
+        <ArrowLeft /> Nazad
       </button>
 
       <div className="flex items-center gap-3 mb-1">

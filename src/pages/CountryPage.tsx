@@ -187,8 +187,8 @@ export default function CountryPage() {
       <section className="relative overflow-hidden bg-primary py-16">
         <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-gold/3" />
         <div className="container relative max-w-5xl">
-          <button onClick={() => navigateBackOrHome(navigate)} className="back-button mb-6 text-sm text-primary-foreground">
-            <ArrowLeft className="h-4 w-4" /> Nazad
+          <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
+            <ArrowLeft /> Nazad
           </button>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <span className="text-5xl">{country.flag}</span>

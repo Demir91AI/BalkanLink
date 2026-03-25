@@ -87,8 +87,8 @@ export default function Stellenangebote() {
     <div className="min-h-screen bg-muted/30">
       <section className="bg-primary py-12 text-primary-foreground md:py-16">
         <div className="container max-w-4xl">
-          <button onClick={() => navigateBackOrHome(navigate)} className="back-button mb-4 text-xs text-primary-foreground">
-            <ArrowLeft className="h-3 w-3" /> Nazad
+          <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
+            <ArrowLeft /> Nazad
           </button>
           <div className="text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm">

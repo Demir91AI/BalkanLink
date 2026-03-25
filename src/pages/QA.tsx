@@ -38,8 +38,8 @@ export default function QA() {
   return (
     <div className="container py-8 md:py-12">
       <div className="mb-8 max-w-2xl">
-        <button onClick={() => navigateBackOrHome(navigate)} className="back-button mb-4 text-xs text-muted-foreground">
-          <ArrowLeft className="h-3 w-3" /> Nazad
+        <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
+          <ArrowLeft /> Nazad
         </button>
         <h1 className="text-3xl font-bold md:text-4xl">{t("qa.title")}</h1>
         <p className="mt-2 text-muted-foreground">{t("qa.subtitle")}</p>
