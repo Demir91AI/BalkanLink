@@ -142,26 +142,50 @@ export default function Premium() {
     <>
       {/* HERO */}
       <section className="relative overflow-hidden bg-[#0B1F3A] py-20 md:py-28">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0B1F3A]/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A] via-[#0B1F3A]/95 to-[#0B1F3A]" />
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }} />
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-[hsl(var(--gold))]/5 blur-[100px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 rounded-full bg-blue-500/5 blur-[80px]" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full bg-[hsl(var(--gold))]/8 blur-[120px]" />
 
         <div className="container relative z-10 text-center max-w-3xl">
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
-            className="font-heading text-3xl font-extrabold tracking-tight text-white md:text-5xl">
+          {/* Badge */}
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-[hsl(var(--gold))]/30 bg-[hsl(var(--gold))]/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[hsl(var(--gold))]">
+              🟡 {st("pricing.heroBadge")}
+            </span>
+          </motion.div>
+
+          {/* Title */}
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
+            className="mt-5 font-heading text-3xl font-extrabold tracking-tight text-white md:text-5xl leading-tight">
             {st("pricing.heroTitle")}
           </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15 }}
-            className="mx-auto mt-4 max-w-xl text-base text-white/50 md:text-lg">
+
+          {/* Subtitle */}
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
+            className="mx-auto mt-4 max-w-xl text-base text-white/55 md:text-lg leading-relaxed">
             {st("pricing.heroSubtitle")}
           </motion.p>
 
-          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: 0.3 }}
-            className="mx-auto mt-8 max-w-lg rounded-xl border border-[hsl(var(--gold))]/30 bg-[hsl(var(--gold))]/10 px-6 py-4 backdrop-blur-sm">
-            <p className="text-sm font-bold text-[hsl(var(--gold))]">{st("pricing.launchBadge")}</p>
-            <p className="mt-1 text-xs text-white/60">{st("pricing.launchDesc")}</p>
+          {/* CTAs */}
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.35 }}
+            className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+            <Button size="lg" className="btn-gold-gradient h-12 rounded-xl px-8 text-sm font-bold shadow-md" asChild>
+              <Link to="/pocni-ovdje">
+                👉 {st("pricing.heroCta1")}
+              </Link>
+            </Button>
+            <Button variant="ghost" size="lg" className="h-12 rounded-xl px-8 text-sm text-white/50 hover:text-white hover:bg-white/5" asChild>
+              <a href="#products">
+                {st("pricing.heroCta2")}
+              </a>
+            </Button>
           </motion.div>
+
+          {/* Trust line */}
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.5 }}
+            className="mt-6 text-xs text-white/30">
+            {st("pricing.heroTrust")}
+          </motion.p>
         </div>
       </section>
 
