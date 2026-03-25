@@ -45,12 +45,6 @@ export default function GuideDetail() {
   };
   const labels = sectionLabels[lk];
 
-  const officialTexts = {
-    de: "Dieser Leitfaden basiert auf Informationen offizieller deutscher Institutionen. Für das offizielle Formular und weitere Informationen besuchen Sie die offizielle Seite.",
-    bs: "Ovaj vodič temelji se na informacijama službenih njemačkih institucija. Za službeni formular i dodatne informacije posjeti službenu stranicu.",
-    en: "This guide is based on information from official German institutions. For the official form and further information, visit the official page.",
-  };
-
   const officialUrl = getOfficialUrl(guide);
 
   return (
@@ -150,20 +144,20 @@ export default function GuideDetail() {
           {/* Službene informacije */}
           {officialUrl && (
             <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} className="rounded-xl border bg-card p-6 shadow-sm text-center">
-              <h2 className="mb-2 flex items-center justify-center gap-2 text-sm font-bold">
+              <h2 className="mb-3 flex items-center justify-center gap-2 text-sm font-bold">
                 <Info className="h-4 w-4 text-primary" /> {labels.official}
               </h2>
-              <p className="mx-auto max-w-md text-sm leading-relaxed text-muted-foreground">
-                {officialTexts[lk]}
-              </p>
               <a
                 href={officialUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center gap-2 rounded-lg bg-primary/10 px-5 py-2.5 text-xs font-semibold text-primary transition-colors hover:bg-primary/20"
+                className="inline-flex items-center gap-2 rounded-lg bg-primary/10 px-5 py-2.5 text-xs font-semibold text-primary transition-colors hover:bg-primary/20"
               >
                 <ExternalLink className="h-4 w-4" /> {lk === "de" ? "Offizielle Seite öffnen" : lk === "bs" ? "Otvori službenu stranicu" : "Open official page"}
               </a>
+              <p className="mt-3 text-[11px] text-muted-foreground/70">
+                {lk === "de" ? "Alle Angaben stammen aus offiziellen staatlichen Quellen." : lk === "bs" ? "Svi podaci dolaze iz službenih državnih izvora." : "All data comes from official government sources."}
+              </p>
             </motion.div>
           )}
 

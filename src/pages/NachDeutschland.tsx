@@ -201,24 +201,28 @@ export default function NachDeutschland() {
         </ol>
       </div>
 
-      {/* Official links */}
-      <div className="rounded-xl border border-[hsl(var(--primary))]/20 bg-[hsl(var(--primary))]/5 p-4">
-        <h3 className="text-sm font-semibold text-foreground mb-1">{t("migration.officialInfo")}</h3>
-        <p className="text-xs text-muted-foreground mb-3">{t("migration.officialInfoDesc")}</p>
-        <div className="space-y-2">
+      {/* Službene informacije */}
+      <div className="rounded-xl border bg-card p-4 text-center">
+        <h3 className="mb-3 flex items-center justify-center gap-1.5 text-sm font-bold">
+          <Info className="h-4 w-4 text-primary" /> {t("migration.officialInfo")}
+        </h3>
+        <div className="flex flex-wrap justify-center gap-2">
           {selectedCategory.officialLinks.map((link, i) => (
             <a
               key={i}
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-sm font-medium text-[hsl(var(--brand-orange))] hover:underline"
+              className="inline-flex items-center gap-2 text-xs font-semibold text-primary bg-primary/10 rounded-lg px-4 py-2 transition-colors hover:bg-primary/20"
             >
               <ExternalLink className="h-3.5 w-3.5 shrink-0" />
               {link.label}
             </a>
           ))}
         </div>
+        <p className="mt-3 text-[11px] text-muted-foreground/70">
+          Svi podaci dolaze iz službenih državnih izvora.
+        </p>
       </div>
     </div>
   );

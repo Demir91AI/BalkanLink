@@ -1047,28 +1047,36 @@ export default function Formulare() {
                           </ol>
                         </div>
 
-                        {/* Official link + no-online-form fallback */}
-                        <div className="flex flex-wrap gap-2">
-                          <a
-                            href={cat.officialLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 rounded-lg bg-gold/10 px-4 py-2.5 text-xs font-semibold text-gold transition-colors hover:bg-gold/20"
-                          >
-                            <ExternalLink className="h-4 w-4" />
-                            {cat.officialLinkLabel}
-                          </a>
-                          {cat.templateLink && (
+                        {/* Službene informacije */}
+                        <div className="rounded-xl border bg-card p-4 text-center">
+                          <h3 className="mb-3 flex items-center justify-center gap-1.5 text-xs font-bold">
+                            <Info className="h-3.5 w-3.5 text-primary" /> {l.officialLink}
+                          </h3>
+                          <div className="flex flex-wrap justify-center gap-2">
                             <a
-                              href={cat.templateLink}
+                              href={cat.officialLink}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="inline-flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2.5 text-xs font-semibold text-primary transition-colors hover:bg-primary/20"
                             >
-                              <Download className="h-4 w-4" />
-                              {l.template}
+                              <ExternalLink className="h-4 w-4" />
+                              {cat.officialLinkLabel}
                             </a>
-                          )}
+                            {cat.templateLink && (
+                              <a
+                                href={cat.templateLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 rounded-lg bg-gold/10 px-4 py-2.5 text-xs font-semibold text-gold transition-colors hover:bg-gold/20"
+                              >
+                                <Download className="h-4 w-4" />
+                                {l.template}
+                              </a>
+                            )}
+                          </div>
+                          <p className="mt-3 text-[11px] text-muted-foreground/70">
+                            {lk === "de" ? "Alle Angaben stammen aus offiziellen staatlichen Quellen." : lk === "en" ? "All data comes from official government sources." : lk === "sq" ? "Të gjitha të dhënat vijnë nga burime zyrtare shtetërore." : lk === "mk" ? "Сите податоци доаѓаат од официјални државни извори." : "Svi podaci dolaze iz službenih državnih izvora."}
+                          </p>
                         </div>
                         {cat.noOnlineForm && (
                           <p className="text-xs text-muted-foreground italic">{l.noOnlineForm}</p>

@@ -191,20 +191,20 @@ export default function SmartGuide() {
       {/* Službene informacije */}
       {getOfficialUrl(guide) && (
         <div className="mt-6 rounded-2xl border bg-card p-5 text-center">
-          <h3 className="mb-2 flex items-center justify-center gap-1.5 text-xs font-bold">
+          <h3 className="mb-3 flex items-center justify-center gap-1.5 text-xs font-bold">
             <Info className="h-3.5 w-3.5 text-primary" /> Službene informacije
           </h3>
-          <p className="mx-auto max-w-md text-xs leading-relaxed text-muted-foreground">
-            Ovaj vodič temelji se na informacijama službenih njemačkih institucija. Za službeni formular i dodatne informacije posjeti službenu stranicu.
-          </p>
           <a
             href={getOfficialUrl(guide)}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-3 inline-flex items-center gap-1.5 rounded-lg bg-primary/10 px-4 py-2 text-xs font-semibold text-primary transition-colors hover:bg-primary/20"
+            className="inline-flex items-center gap-1.5 rounded-lg bg-primary/10 px-4 py-2 text-xs font-semibold text-primary transition-colors hover:bg-primary/20"
           >
             <ExternalLink className="h-3.5 w-3.5" /> Otvori službenu stranicu
           </a>
+          <p className="mt-3 text-[11px] text-muted-foreground/70">
+            Svi podaci dolaze iz službenih državnih izvora.
+          </p>
         </div>
       )}
     </div>
