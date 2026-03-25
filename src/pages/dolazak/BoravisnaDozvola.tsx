@@ -232,7 +232,7 @@ export default function BoravisnaDozvola() {
       <div className="px-4 py-6">
         <button
           onClick={() => navigateBackOrHome(navigate)}
-          className="mb-4 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
+          className="back-button mb-4 text-xs text-muted-foreground"
         >
           <ArrowLeft className="h-3 w-3" /> Nazad
         </button>
@@ -248,7 +248,7 @@ export default function BoravisnaDozvola() {
         <div className="container max-w-5xl">
           <button
             onClick={() => navigateBackOrHome(navigate)}
-            className="mb-4 inline-flex items-center gap-1 text-xs text-primary-foreground/70 hover:text-primary-foreground"
+            className="back-button mb-4 text-xs text-primary-foreground"
           >
             <ArrowLeft className="h-3 w-3" /> Nazad
           </button>

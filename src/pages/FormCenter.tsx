@@ -124,7 +124,7 @@ export default function FormCenter() {
       <div className="px-4 py-6">
         <button
           onClick={handleBack}
-          className="mb-4 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
+          className="back-button mb-4 text-xs text-muted-foreground"
         >
           <ArrowLeft className="h-3 w-3" /> Nazad
         </button>
@@ -139,7 +139,7 @@ export default function FormCenter() {
       <div className="mb-6">
         <button
           onClick={handleBack}
-          className="mb-4 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
+          className="back-button mb-4 text-xs text-muted-foreground"
         >
           <ArrowLeft className="h-3 w-3" /> Nazad
         </button>

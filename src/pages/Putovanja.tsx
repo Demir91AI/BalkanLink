@@ -413,14 +413,16 @@ export default function Putovanja() {
                     <div>
                       <Label className="text-xs text-white/50">Odakle</Label>
                       <div className="relative mt-1">
-                        <Search className="absolute left-2.5 top-2.5 h-3.5 w-3.5 text-white/30" />
+                        <span className="absolute left-2 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full bg-gold">
+                          <Search className="h-3.5 w-3.5 text-primary" />
+                        </span>
                         <Input
                           value={filters.from}
                           onChange={(e) =>
                             setFilters((f) => ({ ...f, from: e.target.value }))
                           }
                           placeholder="npr. München"
-                          className="border-white/10 pl-8 text-white text-sm"
+                          className="border-white/10 pl-10 text-white text-sm"
                           style={{ background: "#16263F" }}
                         />
                       </div>
@@ -428,14 +430,16 @@ export default function Putovanja() {
                     <div>
                       <Label className="text-xs text-white/50">Kuda</Label>
                       <div className="relative mt-1">
-                        <Search className="absolute left-2.5 top-2.5 h-3.5 w-3.5 text-white/30" />
+                        <span className="absolute left-2 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full bg-gold">
+                          <Search className="h-3.5 w-3.5 text-primary" />
+                        </span>
                         <Input
                           value={filters.to}
                           onChange={(e) =>
                             setFilters((f) => ({ ...f, to: e.target.value }))
                           }
                           placeholder="npr. Sarajevo"
-                          className="border-white/10 pl-8 text-white text-sm"
+                          className="border-white/10 pl-10 text-white text-sm"
                           style={{ background: "#16263F" }}
                         />
                       </div>

@@ -127,6 +127,10 @@
 }
 
 @layer utilities {
+  .back-button {
+    @apply inline-flex items-center gap-1.5 opacity-80 transition-opacity hover:opacity-100;
+  }
+
   .glass {
     @apply bg-white/8 backdrop-blur-2xl border border-white/15;
   }

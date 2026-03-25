@@ -29,7 +29,7 @@ export default function Community() {
       <section className="relative overflow-hidden bg-primary py-14 sm:py-20">
         <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-gold/3" />
         <div className="container relative max-w-5xl">
-          <button onClick={() => navigateBackOrHome(navigate)} className="mb-4 inline-flex items-center gap-1 text-xs text-primary-foreground/70 hover:text-primary-foreground">
+          <button onClick={() => navigateBackOrHome(navigate)} className="back-button mb-4 text-xs text-primary-foreground">
             <ArrowLeft className="h-3 w-3" /> Nazad
           </button>
           <div className="text-center">

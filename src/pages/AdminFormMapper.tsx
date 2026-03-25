@@ -98,7 +98,7 @@ export default function AdminFormMapper() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-6">
-      <button onClick={() => navigateBackOrHome(navigate)} className="mb-3 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground">
+      <button onClick={() => navigateBackOrHome(navigate)} className="back-button mb-3 text-xs text-muted-foreground">
         <ArrowLeft className="h-3 w-3" /> Nazad
       </button>
       <h1 className="font-heading text-xl font-extrabold mb-4">{t("admin.mapper.title")} — {formSlug}</h1>

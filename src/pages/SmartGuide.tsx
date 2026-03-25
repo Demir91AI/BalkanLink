@@ -29,7 +29,7 @@ export default function SmartGuide() {
     return (
       <div className="mx-auto max-w-2xl px-4 py-12 text-center">
         <p className="text-muted-foreground">Vodič nije pronađen.</p>
-        <button onClick={() => navigateBackOrHome(navigate)} className="mt-4 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground">
+        <button onClick={() => navigateBackOrHome(navigate)} className="back-button mt-4 text-xs text-muted-foreground">
           <ArrowLeft className="h-3 w-3" /> Nazad
         </button>
       </div>
@@ -67,7 +67,7 @@ export default function SmartGuide() {
     <div className="mx-auto max-w-4xl px-4 py-6">
       {/* Header */}
       <div className="mb-6">
-        <button onClick={() => navigateBackOrHome(navigate)} className="mb-3 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground">
+        <button onClick={() => navigateBackOrHome(navigate)} className="back-button mb-3 text-xs text-muted-foreground">
           <ArrowLeft className="h-3 w-3" /> Nazad
         </button>
         <h1 className="font-heading text-xl font-extrabold sm:text-2xl">{guide.title[lang]}</h1>

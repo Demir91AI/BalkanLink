@@ -964,7 +964,7 @@ export default function Formulare() {
       {/* Hero */}
       <section className="border-b bg-primary py-12">
         <div className="container max-w-3xl">
-          <button onClick={handleBack} className="mb-4 inline-flex items-center gap-1 text-xs text-primary-foreground/70 hover:text-primary-foreground">
+          <button onClick={handleBack} className="back-button mb-4 text-xs text-primary-foreground">
             <ArrowLeft className="h-3 w-3" /> Nazad
           </button>
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl text-center">{t.title}</h1>
