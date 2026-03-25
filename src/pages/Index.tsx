@@ -174,52 +174,6 @@ export default function Index() {
               </motion.div>
             </motion.div>
 
-            {/* ── RIGHT: Form preview card ── */}
-            <motion.div
-              initial={{ opacity: 0, y: 30, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.7, delay: 0.35 }}
-              className="w-full max-w-sm shrink-0 lg:max-w-[360px]"
-            >
-              <div className="rounded-2xl border border-white/10 bg-white/[0.07] p-5 shadow-[0_20px_60px_rgba(0,0,0,0.4)] backdrop-blur-xl sm:p-6">
-                {/* Card header */}
-                <div className="mb-4 flex items-center gap-2">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gold/20">
-                    <ClipboardList className="h-4 w-4 text-gold" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold text-white">Kindergeld Antrag</p>
-                    <p className="text-[11px] text-white/40">Familienkasse</p>
-                  </div>
-                </div>
-
-                {/* Form fields mockup */}
-                <div className="space-y-3">
-                  <div>
-                    <label className="mb-1 block text-[11px] font-medium text-white/50">Vorname</label>
-                    <div className="h-9 rounded-lg border border-white/10 bg-white/5 px-3 flex items-center">
-                      <span className="text-sm text-white/30">Emir</span>
-                    </div>
-                  </div>
-                  <div>
-                    <label className="mb-1 block text-[11px] font-medium text-white/50">Nachname</label>
-                    <div className="h-9 rounded-lg border border-white/10 bg-white/5 px-3 flex items-center">
-                      <span className="text-sm text-white/30">Hadžić</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Explanation tooltip */}
-                <div className="mt-4 flex items-start gap-2 rounded-lg bg-gold/10 p-3 border border-gold/20">
-                  <Lightbulb className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
-                  <p className="text-xs leading-relaxed text-white/70">
-                    <span className="font-semibold text-gold">Objašnjenje:</span>{" "}
-                    Upiši ime tačno kao u ličnoj karti.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
           </div>
         </div>
 
