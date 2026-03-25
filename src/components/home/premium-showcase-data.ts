@@ -4,12 +4,18 @@ import logoEcronix from "@/assets/logo-ecronix.jpg";
 import showcaseAluhome1 from "@/assets/showcase-aluhome-1.jpg";
 import showcaseAluhome2 from "@/assets/showcase-aluhome-2.jpg";
 import showcaseAluhome3 from "@/assets/showcase-aluhome-3.jpg";
+import showcaseAluhome4 from "@/assets/showcase-aluhome-4.jpg";
+import showcaseAluhome5 from "@/assets/showcase-aluhome-5.jpg";
 import showcaseVrebo1 from "@/assets/showcase-vrebo-1.jpg";
 import showcaseVrebo2 from "@/assets/showcase-vrebo-2.jpg";
 import showcaseVrebo3 from "@/assets/showcase-vrebo-3.jpg";
+import showcaseVrebo4 from "@/assets/showcase-vrebo-4.jpg";
+import showcaseVrebo5 from "@/assets/showcase-vrebo-5.jpg";
 import ecronixSlide1 from "@/assets/ecronix-slide-1.jpg";
 import ecronixSlide2 from "@/assets/ecronix-slide-2.jpg";
 import ecronixSlide3 from "@/assets/ecronix-slide-3.jpg";
+import ecronixSlide4 from "@/assets/ecronix-slide-4.jpg";
+import ecronixSlide5 from "@/assets/ecronix-slide-5.jpg";
 
 export interface PremiumShowcaseFirm {
   name: string;
@@ -33,7 +39,7 @@ export const premiumShowcaseFirms: PremiumShowcaseFirm[] = [
     logoAlt: "ALUHOME logo",
     logoWrapperClassName: "w-[11.5rem] sm:w-[13rem] h-[4.5rem]",
     highlights: ["Pergole", "Stakleni sistemi", "Ograde i kapije"],
-    images: [showcaseAluhome1, showcaseAluhome2, showcaseAluhome3],
+    images: [showcaseAluhome1, showcaseAluhome2, showcaseAluhome3, showcaseAluhome4, showcaseAluhome5],
   },
   {
     name: "Vrebo Bau",
@@ -44,7 +50,7 @@ export const premiumShowcaseFirms: PremiumShowcaseFirm[] = [
     logoAlt: "Vrebo Bau logo",
     logoWrapperClassName: "w-[12.5rem] sm:w-[15rem] h-[4.75rem]",
     highlights: ["Renoviranje", "Trockenbau", "Prozori i vrata"],
-    images: [showcaseVrebo1, showcaseVrebo2, showcaseVrebo3],
+    images: [showcaseVrebo1, showcaseVrebo2, showcaseVrebo3, showcaseVrebo4, showcaseVrebo5],
   },
   {
     name: "Ecronix",
@@ -55,6 +61,6 @@ export const premiumShowcaseFirms: PremiumShowcaseFirm[] = [
     logoAlt: "Ecronix logo",
     logoWrapperClassName: "w-[10rem] sm:w-[12rem] h-[4rem]",
     highlights: ["Web aplikacije", "Mobilne aplikacije", "AI integracija", "UI/UX dizajn"],
-    images: [ecronixSlide1, ecronixSlide2, ecronixSlide3],
+    images: [ecronixSlide1, ecronixSlide2, ecronixSlide3, ecronixSlide4, ecronixSlide5],
   },
 ];
