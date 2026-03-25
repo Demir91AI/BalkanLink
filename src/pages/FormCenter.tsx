@@ -8,6 +8,7 @@ import { getGuideBySlug } from "@/lib/guide-data";
 import { formCatalog, getAllFormEntries, type FormEntry } from "@/lib/form-catalog";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useAuth } from "@/contexts/AuthContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { cn } from "@/lib/utils";
 import FormFreeContent from "@/components/FormFreeContent";
 import FormSmartGuide from "@/components/FormSmartGuide";
@@ -15,12 +16,19 @@ import FormPaywall from "@/components/FormPaywall";
 import { navigateBackOrHome } from "@/lib/navigation";
 
 type LangKey = "de" | "bs" | "en";
-const lang: LangKey = "bs";
+
+function getLangKey(lang: string): LangKey {
+  if (lang === "de") return "de";
+  if (lang === "en") return "en";
+  return "bs";
+}
 
 /* ─── Guide Content (right side) ─── */
 function GuideContent({ slug }: { slug: string }) {
   const guide = getGuideBySlug(slug);
   const { isPremium } = useAuth();
+  const { t, language } = useLanguage();
+  const lang = getLangKey(language);
   const entry = getAllFormEntries().find((e) => e.slug === slug);
 
   if (!guide) return null;
@@ -37,7 +45,7 @@ function GuideContent({ slug }: { slug: string }) {
         </div>
         <div className="relative flex justify-center">
           <span className="bg-background px-4 text-xs font-semibold text-muted-foreground">
-            Smart Guide – korak po korak
+            {t("formCenter.smartGuideLabel")}
           </span>
         </div>
       </div>
@@ -56,6 +64,7 @@ export default function FormCenter() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const isMobile = useIsMobile();
+  const { t } = useLanguage();
   const [search, setSearch] = useState("");
   const [openGroups, setOpenGroups] = useState<Set<string>>(
     () => new Set(formCatalog.map((g) => g.id))
@@ -126,7 +135,7 @@ export default function FormCenter() {
           onClick={handleBack}
           className="back-button mb-4 text-xs text-muted-foreground"
         >
-          <ArrowLeft className="h-3 w-3" /> Nazad
+          <ArrowLeft className="h-3 w-3" /> {t("common.back")}
         </button>
         <GuideContent key={activeSlug} slug={activeSlug} />
       </div>
@@ -141,13 +150,13 @@ export default function FormCenter() {
           onClick={handleBack}
           className="back-button mb-4 text-xs text-muted-foreground"
         >
-          <ArrowLeft className="h-3 w-3" /> Nazad
+          <ArrowLeft className="h-3 w-3" /> {t("common.back")}
         </button>
         <h1 className="font-heading text-2xl font-extrabold sm:text-3xl">
-          Formulari – Smart Guide
+          {t("formCenter.title")}
         </h1>
         <p className="mt-1 text-sm text-muted-foreground">
-          Svi formulari na jednom mjestu. Odaberi formular i prati upute korak po korak.
+          {t("formCenter.subtitle")}
         </p>
       </div>
 
@@ -160,7 +169,7 @@ export default function FormCenter() {
             <Input
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="Pretraži formular…"
+              placeholder={t("formCenter.searchPlaceholder")}
               className="pl-9 h-10 text-sm rounded-xl border-border/60 bg-card"
             />
           </div>
@@ -172,7 +181,7 @@ export default function FormCenter() {
                   {searchResults.map(renderItem)}
                   {searchResults.length === 0 && (
                     <p className="px-3 py-6 text-xs text-muted-foreground text-center">
-                      Nema rezultata.
+                      {t("formCenter.noResults")}
                     </p>
                   )}
                 </>
@@ -216,7 +225,7 @@ export default function FormCenter() {
                     <Input
                       value={search}
                       onChange={(e) => setSearch(e.target.value)}
-                      placeholder="Pretraži formular…"
+                      placeholder={t("formCenter.searchPlaceholder")}
                       className="pl-9 h-10 text-sm rounded-xl border-border/60 bg-card"
                     />
                   </div>
@@ -240,9 +249,9 @@ export default function FormCenter() {
                   <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-primary/5 mb-6">
                     <FileText className="h-10 w-10 text-primary/40" />
                   </div>
-                  <h2 className="text-lg font-bold text-foreground/70">Odaberi formular</h2>
+                  <h2 className="text-lg font-bold text-foreground/70">{t("formCenter.selectForm")}</h2>
                   <p className="mt-2 max-w-sm text-sm text-muted-foreground">
-                    Klikni na bilo koji formular s lijeve strane da vidiš detaljne upute za popunjavanje.
+                    {t("formCenter.selectFormDesc")}
                   </p>
                 </>
               )}
