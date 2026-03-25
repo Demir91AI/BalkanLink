@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useSidebar } from "@/components/ui/sidebar";
@@ -9,10 +9,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from "@/components/ui/tooltip";
 import { Link } from "react-router-dom";
-import { cn } from "@/lib/utils";
 import BrandLogo from "@/components/BrandLogo";
+
+const menuBtnClass =
+  "h-10 w-10 rounded-lg text-white/70 hover:text-white hover:bg-white/8 active:scale-[0.93] transition-transform duration-150";
 
 export default function Header() {
   const { user, loading, signOut } = useAuth();
@@ -21,37 +22,6 @@ export default function Header() {
   const [contactOpen, setContactOpen] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
   const [contactForm, setContactForm] = useState({ firstName: "", lastName: "", email: "", message: "" });
-  const [visibleMenuHint, setVisibleMenuHint] = useState<"left" | "right" | null>(null);
-  const [activeMenuButton, setActiveMenuButton] = useState<"left" | "right" | null>(null);
-  const menuFeedbackTimeoutRef = useRef<number | null>(null);
-
-  const triggerMenuFeedback = (side: "left" | "right") => {
-    if (menuFeedbackTimeoutRef.current) {
-      window.clearTimeout(menuFeedbackTimeoutRef.current);
-    }
-
-    setVisibleMenuHint(side);
-    setActiveMenuButton(side);
-
-    menuFeedbackTimeoutRef.current = window.setTimeout(() => {
-      setVisibleMenuHint((current) => (current === side ? null : current));
-      setActiveMenuButton((current) => (current === side ? null : current));
-    }, 1800);
-  };
-
-  useEffect(() => {
-    return () => {
-      if (menuFeedbackTimeoutRef.current) {
-        window.clearTimeout(menuFeedbackTimeoutRef.current);
-      }
-    };
-  }, []);
-
-  const menuButtonClassName = (side: "left" | "right") =>
-    cn(
-      "h-10 w-10 rounded-lg text-white/70 hover:bg-white/10 hover:text-brand-orange active:scale-[0.92] transition-all duration-200",
-      activeMenuButton === side && "bg-white/10 text-brand-orange scale-[0.96]"
-    );
 
   const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -69,25 +39,16 @@ export default function Header() {
         <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[hsl(var(--brand-orange))] to-transparent opacity-60" />
 
         <div className="relative flex h-16 items-center px-4">
-          <TooltipProvider delayDuration={0}>
-            {/* Left: sidebar trigger */}
-            <Tooltip open={visibleMenuHint === "left"}>
-              <TooltipTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onMouseEnter={() => triggerMenuFeedback("left")}
-                  onFocus={() => triggerMenuFeedback("left")}
-                  onClick={() => {
-                    triggerMenuFeedback("left");
-                    toggleSidebar();
-                  }}
-                  className={menuButtonClassName("left")}
-                  aria-label="Meni"
-                >
-                  <Menu className="h-5 w-5" />
-                </Button>
-              </TooltipTrigger>
+          {/* Left: sidebar trigger */}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleSidebar}
+            className={menuBtnClass}
+            aria-label="Meni"
+          >
+            <Menu className="h-5 w-5" />
+          </Button>
               <TooltipContent side="bottom" className="text-xs">Meni</TooltipContent>
             </Tooltip>
 
