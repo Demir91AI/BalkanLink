@@ -214,7 +214,7 @@ export default function NudimTrazim() {
             <Button
               size="lg"
               variant="outline"
-              className="gap-2 border-[hsl(var(--gold))]/40 text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/10"
+              className="gap-2 border-[hsl(var(--gold))] text-[hsl(var(--gold))] font-semibold hover:bg-[hsl(var(--gold))]/15 hover:border-[hsl(var(--gold))]"
               onClick={openProModal}
             >
               <Star className="h-4 w-4" /> {st("nt.highlightPro")}
