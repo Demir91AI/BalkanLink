@@ -943,7 +943,7 @@ export const guides: Guide[] = [
       en: ["Medical certificate not submitted in time", "Application filed with wrong institution (insurer vs. Federal Office)", "Birth certificate not submitted — post-birth payment delayed", "Tax obligation for Progressionsvorbehalt overlooked"],
     },
     officialPdf: "",
-    onlineLink: "https://www.mutterschaftsgeld.de",
+    onlineLink: "",
     officialInfoUrl: "https://familienportal.de/familienportal/familienleistungen/mutterschaftsleistungen",
   },
   // ----------- UNTERHALT -----------
