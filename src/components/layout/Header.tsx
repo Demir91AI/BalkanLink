@@ -40,7 +40,7 @@ export default function Header() {
           <TooltipProvider delayDuration={400}>
             <Tooltip>
               <TooltipTrigger asChild>
-                <SidebarTrigger className="h-10 w-10 flex items-center justify-center rounded-lg text-white/70 hover:text-[hsl(var(--brand-orange))] hover:bg-white/8 active:scale-95 transition-all duration-200" />
+                <SidebarTrigger className="h-10 w-10 flex items-center justify-center rounded-lg text-white/70 hover:text-[hsl(var(--brand-orange))] hover:bg-white/10 active:bg-[hsl(var(--brand-orange))]/20 active:text-[hsl(var(--brand-orange))] active:scale-[0.92] transition-colors duration-500 transition-transform duration-200" />
               </TooltipTrigger>
               <TooltipContent side="bottom" className="text-xs">Meni</TooltipContent>
             </Tooltip>
@@ -49,14 +49,11 @@ export default function Header() {
           {/* Center: premium brand logo */}
           <div className="absolute left-1/2 top-[55%] -translate-x-1/2 -translate-y-1/2">
             <Link to="/" className="group relative inline-flex items-center gap-3" aria-label="BalkanLink home">
-              {/* Unified glow behind entire logo */}
               <span className="absolute -inset-3 rounded-2xl bg-[hsl(var(--brand-orange))]/10 blur-xl group-hover:bg-[hsl(var(--brand-orange))]/20 transition-all duration-500 pointer-events-none" />
-              {/* BL text only – no box, no border */}
               <span className="relative font-heading text-[28px] font-extrabold leading-none tracking-tight drop-shadow-[0_0_10px_hsl(var(--brand-orange)/0.35)]">
                 <span className="text-white">B</span>
                 <span className="bg-gradient-to-r from-[hsl(var(--brand-orange))] to-[hsl(var(--gold-light))] bg-clip-text text-transparent">L</span>
               </span>
-              {/* Text with glow */}
               <span className="relative font-heading text-[22px] font-extrabold leading-none tracking-tight drop-shadow-[0_0_16px_hsl(var(--brand-orange)/0.3)]">
                 <span className="text-white">Balkan</span>
                 <span className="bg-gradient-to-r from-[hsl(var(--brand-orange))] to-[hsl(var(--gold-light))] bg-clip-text text-transparent">Link</span>
@@ -72,7 +69,7 @@ export default function Header() {
                   variant="ghost"
                   size="icon"
                   onClick={() => setSheetOpen(true)}
-                  className="ml-auto h-10 w-10 rounded-lg text-white/70 hover:text-[hsl(var(--brand-orange))] hover:bg-white/8 active:scale-95 transition-all duration-200"
+                  className="ml-auto h-10 w-10 rounded-lg text-white/70 hover:text-[hsl(var(--brand-orange))] hover:bg-white/10 active:bg-[hsl(var(--brand-orange))]/20 active:text-[hsl(var(--brand-orange))] active:scale-[0.92] transition-colors duration-500 transition-transform duration-200"
                   aria-label="Meni"
                 >
                   <Menu className="h-5 w-5" />
