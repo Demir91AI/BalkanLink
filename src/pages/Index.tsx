@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   Footprints, Briefcase, ShieldCheck, Compass, Wrench, Plane,
-  ClipboardList, Home, HandshakeIcon, CheckCircle2, Lightbulb, ArrowRight,
+  ClipboardList, Home, HandshakeIcon, CheckCircle2, ArrowRight,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
@@ -108,14 +108,13 @@ export default function Index() {
 
         {/* Content */}
         <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-5 py-16 lg:py-20">
-          <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-10 lg:flex-row lg:items-center lg:gap-16">
+          <div className="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
 
-            {/* ── LEFT: Text + CTAs ── */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="flex flex-1 flex-col items-center text-center lg:items-start lg:text-left"
+              className="flex flex-col items-center text-center"
             >
               <h1
                 className="font-heading text-[1.65rem] font-black leading-[1.15] tracking-tight text-white sm:text-3xl md:text-4xl lg:text-[3.4rem]"
@@ -139,7 +138,7 @@ export default function Index() {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="mt-8 flex flex-col items-center gap-3 lg:items-start"
+                className="mt-8 flex flex-col items-center gap-3"
               >
                 <Button
                   onClick={() => navigate("/formulari")}
@@ -164,7 +163,7 @@ export default function Index() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.7 }}
-                className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 lg:justify-start lg:mt-10"
+                className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 lg:mt-10"
               >
                 {trustBadges.map((badge) => (
                   <span key={badge.text} className="flex items-center gap-1.5 text-xs font-medium text-white/60 sm:text-sm">
@@ -173,52 +172,6 @@ export default function Index() {
                   </span>
                 ))}
               </motion.div>
-            </motion.div>
-
-            {/* ── RIGHT: Form preview card ── */}
-            <motion.div
-              initial={{ opacity: 0, y: 30, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.7, delay: 0.35 }}
-              className="w-full max-w-sm shrink-0 lg:max-w-[360px]"
-            >
-              <div className="rounded-2xl border border-white/10 bg-white/[0.07] p-5 shadow-[0_20px_60px_rgba(0,0,0,0.4)] backdrop-blur-xl sm:p-6">
-                {/* Card header */}
-                <div className="mb-4 flex items-center gap-2">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gold/20">
-                    <ClipboardList className="h-4 w-4 text-gold" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold text-white">Kindergeld Antrag</p>
-                    <p className="text-[11px] text-white/40">Familienkasse</p>
-                  </div>
-                </div>
-
-                {/* Form fields mockup */}
-                <div className="space-y-3">
-                  <div>
-                    <label className="mb-1 block text-[11px] font-medium text-white/50">Vorname</label>
-                    <div className="h-9 rounded-lg border border-white/10 bg-white/5 px-3 flex items-center">
-                      <span className="text-sm text-white/30">Emir</span>
-                    </div>
-                  </div>
-                  <div>
-                    <label className="mb-1 block text-[11px] font-medium text-white/50">Nachname</label>
-                    <div className="h-9 rounded-lg border border-white/10 bg-white/5 px-3 flex items-center">
-                      <span className="text-sm text-white/30">Hadžić</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Explanation tooltip */}
-                <div className="mt-4 flex items-start gap-2 rounded-lg bg-gold/10 p-3 border border-gold/20">
-                  <Lightbulb className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
-                  <p className="text-xs leading-relaxed text-white/70">
-                    <span className="font-semibold text-gold">Objašnjenje:</span>{" "}
-                    Upiši ime tačno kao u ličnoj karti.
-                  </p>
-                </div>
-              </div>
             </motion.div>
 
           </div>
