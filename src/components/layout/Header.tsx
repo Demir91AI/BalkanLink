@@ -21,8 +21,8 @@ export default function Header() {
 
   const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Kontakt von ${contactForm.firstName} ${contactForm.lastName}`);
-    const body = encodeURIComponent(`Vorname: ${contactForm.firstName}\nNachname: ${contactForm.lastName}\nE-Mail: ${contactForm.email}\n\nNachricht:\n${contactForm.message}`);
+    const subject = encodeURIComponent(`${t("contact.title")} – ${contactForm.firstName} ${contactForm.lastName}`);
+    const body = encodeURIComponent(`${t("contact.firstName")}: ${contactForm.firstName}\n${t("contact.lastName")}: ${contactForm.lastName}\n${t("contact.email")}: ${contactForm.email}\n\n${t("contact.message")}:\n${contactForm.message}`);
     window.location.href = `mailto:kontakt@balkanlink.de?subject=${subject}&body=${body}`;
     setContactOpen(false);
     setContactForm({ firstName: "", lastName: "", email: "", message: "" });
@@ -123,7 +123,7 @@ export default function Header() {
               className="group flex items-center gap-3 px-3 h-11 rounded-lg text-sm font-medium text-white/55 hover:text-white hover:bg-white/5 transition-all duration-200"
             >
               <List className="h-[18px] w-[18px] shrink-0 text-white/40 group-hover:text-white/70 transition-colors" />
-              Preisliste / Monitoring
+              {t("header.pricelist")}
             </button>
 
             {/* Kontakt */}
@@ -132,7 +132,7 @@ export default function Header() {
               className="group flex items-center gap-3 px-3 h-11 rounded-lg text-sm font-medium text-white/55 hover:text-white hover:bg-white/5 transition-all duration-200"
             >
               <Mail className="h-[18px] w-[18px] shrink-0 text-white/40 group-hover:text-white/70 transition-colors" />
-              Kontakt
+              {t("contact.title")}
             </button>
           </nav>
         </SheetContent>
@@ -142,31 +142,31 @@ export default function Header() {
       <Dialog open={contactOpen} onOpenChange={setContactOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle>Kontakt</DialogTitle>
-            <DialogDescription>Pošaljite nam poruku.</DialogDescription>
+            <DialogTitle>{t("contact.title")}</DialogTitle>
+            <DialogDescription>{t("contact.subtitle")}</DialogDescription>
           </DialogHeader>
           <form onSubmit={handleContactSubmit} className="space-y-4">
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="text-sm font-medium">Vorname</label>
+                <label className="text-sm font-medium">{t("contact.firstName")}</label>
                 <Input value={contactForm.firstName} onChange={(e) => setContactForm(p => ({ ...p, firstName: e.target.value }))} required />
               </div>
               <div>
-                <label className="text-sm font-medium">Nachname</label>
+                <label className="text-sm font-medium">{t("contact.lastName")}</label>
                 <Input value={contactForm.lastName} onChange={(e) => setContactForm(p => ({ ...p, lastName: e.target.value }))} required />
               </div>
             </div>
             <div>
-              <label className="text-sm font-medium">E-Mail</label>
+              <label className="text-sm font-medium">{t("contact.email")}</label>
               <Input type="email" value={contactForm.email} onChange={(e) => setContactForm(p => ({ ...p, email: e.target.value }))} required />
             </div>
             <div>
-              <label className="text-sm font-medium">Vaša poruka</label>
+              <label className="text-sm font-medium">{t("contact.message")}</label>
               <Textarea value={contactForm.message} onChange={(e) => setContactForm(p => ({ ...p, message: e.target.value }))} required className="min-h-[120px]" />
             </div>
             <Button type="submit" className="w-full gap-2">
               <Send className="h-4 w-4" />
-              Nachricht senden
+              {t("contact.send")}
             </Button>
           </form>
         </DialogContent>
