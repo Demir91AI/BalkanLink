@@ -1898,17 +1898,15 @@ const uiExtraKeys: Record<string, Record<string, string>> = {
     "formCenter.smartGuideLabel": "Smart Guide – step by step", "formCenter.searchPlaceholder": "Search form…", "formCenter.noResults": "No results.", "formCenter.selectForm": "Select a form", "formCenter.selectFormDesc": "Click on any form on the left to see detailed filling instructions." },
 };
 
-// Merge country names, vorlagen, and UI extras into translations
+// Merge country names, vorlagen, UI extras, calc, and community into translations
 for (const lang of Object.keys(translations) as Language[]) {
-  if (countryNames[lang]) {
-    Object.assign(translations[lang], countryNames[lang]);
-  }
-  if (vorlagenKeys[lang]) {
-    Object.assign(translations[lang], vorlagenKeys[lang]);
-  }
-  if (uiExtraKeys[lang]) {
-    Object.assign(translations[lang], uiExtraKeys[lang]);
-  }
+  if (countryNames[lang]) Object.assign(translations[lang], countryNames[lang]);
+  if (vorlagenKeys[lang]) Object.assign(translations[lang], vorlagenKeys[lang]);
+  if (uiExtraKeys[lang]) Object.assign(translations[lang], uiExtraKeys[lang]);
+  if (communityKeys[lang]) Object.assign(translations[lang], communityKeys[lang]);
+  // Calc keys: bs-based languages fall back to calcBs, de to calcDe, en to calcEn
+  const calcMap: Record<string, Record<string, string>> = { de: calcDe, en: calcEn };
+  Object.assign(translations[lang], calcMap[lang] ?? calcBs);
 }
 
 export function getTranslation(lang: Language, key: keyof TranslationKeys): string {
