@@ -416,15 +416,15 @@ const JOB_SEARCH_MSG: Record<string, { text: string; label: string }> = {
 
 const HOUSING_SEARCH_MSG: Record<string, { text: string; label: string }> = {
   bs: {
-    text: "BalkanLink ima **pametnu pretragu stanova** koja ti generiše direktne linkove na najveće portale.\n\n**Kako funkcioniše:**\n1. Unesi grad i maksimalnu cijenu\n2. Odaberi tip (stan ili WG/soba)\n3. Označi filtere (bez provizije, namješteno...)\n4. Dobij gotove pretrage za ImmobilienScout24, Immowelt i druge\n\n👉 [Otvori pretragu stanova](/wohnungen)",
+    text: 'BalkanLink ima **pametnu pretragu stanova** koja ti generise direktne linkove na najvece portale.\n\n**Kako funkcionise:**\n1. Unesi grad i maksimalnu cijenu\n2. Odaberi tip (stan ili WG/soba)\n3. Oznaci filtere (bez provizije, namjesteno...)\n4. Dobij gotove pretrage za ImmobilienScout24, Immowelt i druge\n\n[Otvori pretragu stanova](/wohnungen)',
     label: "Otvori pretragu stanova",
   },
   de: {
-    text: "BalkanLink bietet eine **intelligente Wohnungssuche**, die direkte Suchlinks zu großen Portalen generiert.\n\n**So funktioniert's:**\n1. Stadt und Maximalmiete eingeben\n2. Typ wählen (Wohnung oder WG)\n3. Filter setzen (provisionsfrei, möbliert...)\n4. Fertige Suchen für ImmobilienScout24, Immowelt u.a. erhalten\n\n👉 [Wohnungssuche öffnen](/wohnungen)",
-    label: "Wohnungssuche öffnen",
+    text: 'BalkanLink bietet eine **intelligente Wohnungssuche**, die direkte Suchlinks zu grossen Portalen generiert.\n\n**So funktioniert es:**\n1. Stadt und Maximalmiete eingeben\n2. Typ waehlen (Wohnung oder WG)\n3. Filter setzen (provisionsfrei, moebliert...)\n4. Fertige Suchen fuer ImmobilienScout24, Immowelt u.a. erhalten\n\n[Wohnungssuche oeffnen](/wohnungen)',
+    label: "Wohnungssuche oeffnen",
   },
   en: {
-    text: "BalkanLink offers a **smart housing search** that generates direct search links to major portals.\n\n**How it works:**\n1. Enter city and max rent\n2. Select type (apartment or shared room)\n3. Set filters (no commission, furnished...)\n4. Get ready-made searches for ImmobilienScout24, Immowelt, and more\n\n👉 [Open housing search](/wohnungen)",
+    text: 'BalkanLink offers a **smart housing search** that generates direct search links to major portals.\n\n**How it works:**\n1. Enter city and max rent\n2. Select type (apartment or shared room)\n3. Set filters (no commission, furnished...)\n4. Get ready-made searches for ImmobilienScout24, Immowelt, and more\n\n[Open housing search](/wohnungen)',
     label: "Open housing search",
   },
 };
