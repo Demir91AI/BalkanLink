@@ -1,220 +1,162 @@
-import { Check, X, Star, Shield, Zap, ArrowRight } from "lucide-react";
+import { Check, X, Star, Shield, Zap, ArrowRight, Crown, Megaphone, Image, Monitor, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { useAuth } from "@/contexts/AuthContext";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { Link } from "react-router-dom";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
-
-const comparisonRowKeys = [
-  { key: "premium.row.categories" as const, free: true, premium: true },
-  { key: "premium.row.community" as const, free: true, premium: true },
-  { key: "premium.row.ai" as const, free: true, premium: true },
-  { key: "premium.row.search" as const, free: true, premium: true },
-  { key: "premium.row.forms" as const, free: false, premium: true },
-  { key: "premium.row.assistant" as const, free: false, premium: true },
-  { key: "premium.row.templates" as const, free: false, premium: true },
-  { key: "premium.row.priority" as const, free: false, premium: true },
-  { key: "premium.row.badge" as const, free: false, premium: true },
-];
-
-const trustItemKeys = [
-  { icon: Shield, key: "premium.noContract" as const },
-  { icon: Zap, key: "premium.cancelAnytime" as const },
-  { icon: Star, key: "premium.forCommunity" as const },
-];
+import PricingHero from "@/components/pricing/PricingHero";
+import PricingCard from "@/components/pricing/PricingCard";
+import PricingFreeVsPremium from "@/components/pricing/PricingFreeVsPremium";
 
 export default function Premium() {
   const { user, isPremium } = useAuth();
-  const { t } = useLanguage();
 
   return (
     <>
-      {/* HERO */}
-      <section className="relative overflow-hidden bg-[#0B1F3A] py-20 md:py-28">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0B1F3A]/80" />
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }} />
-        <div className="container relative z-10 text-center">
-          <h1 className="font-heading text-3xl font-extrabold tracking-tight text-white md:text-5xl">
-            BalkanLink{" "}
-            <span className="inline-flex items-center gap-2 rounded-lg bg-gold/15 px-3 py-1 text-gold ring-1 ring-gold/25">
-              <span className="text-lg md:text-2xl">✨</span> {t("premium.badge")}
-            </span>
-          </h1>
-          <p className="mx-auto mt-4 max-w-xl text-base text-white/50 md:text-lg">
-            {t("premium.subtitle")}
-          </p>
-          <p className="mx-auto mt-2 text-sm text-white/30">
-            {t("premium.price")}
-          </p>
-          <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-            <Button size="lg" className="btn-gold-gradient h-12 rounded-xl px-8 text-sm font-bold" asChild>
-              <a href="#pricing">
-                {t("premium.heroCta")}
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </a>
-            </Button>
-            <Button variant="ghost" size="lg" className="h-12 rounded-xl px-8 text-sm text-white/40 hover:text-white hover:bg-white/5" asChild>
-              <Link to="/">{t("premium.heroFree")}</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+      <PricingHero />
 
-      {/* COMPARISON TABLE */}
+      {/* PRODUCTS */}
       <section className="py-16 md:py-20">
-        <div className="container max-w-4xl">
-          <h2 className="mb-2 text-center font-heading text-2xl font-bold md:text-3xl">
-            {t("premium.compareTitle")}
-          </h2>
-          <p className="mb-10 text-center text-sm text-muted-foreground">
-            {t("premium.compareSubtitle")}
-          </p>
+        <div className="container max-w-5xl space-y-8">
 
-          {/* Desktop Table */}
-          <div className="hidden md:block overflow-hidden rounded-2xl border shadow-sm">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b bg-muted/50">
-                  <th className="px-6 py-4 text-left font-semibold">{t("premium.function")}</th>
-                  <th className="px-6 py-4 text-center font-semibold">{t("premium.free")}</th>
-                  <th className="relative px-6 py-4 text-center font-semibold">
-                    <div className="absolute -top-px left-0 right-0 h-1 rounded-t bg-gold" />
-                    <span className="inline-flex items-center gap-1.5">
-                      <span className="text-sm">✨</span> {t("premium.badge")}
-                    </span>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {comparisonRowKeys.map((row, i) => (
-                  <tr key={i} className="border-b last:border-b-0 transition-colors hover:bg-muted/30">
-                    <td className="px-6 py-3.5">{t(row.key)}</td>
-                    <td className="px-6 py-3.5 text-center">
-                      {row.free ? (
-                        <Check className="mx-auto h-4 w-4 text-emerald-500" />
-                      ) : (
-                        <X className="mx-auto h-4 w-4 text-muted-foreground/30" />
-                      )}
-                    </td>
-                    <td className="bg-gold/[0.03] px-6 py-3.5 text-center">
-                      <Check className="mx-auto h-4 w-4 text-gold" />
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          {/* 1. BalkanLink Premium */}
+          <PricingCard
+            icon={<Crown className="h-6 w-6 text-[hsl(var(--gold))]" />}
+            title="BalkanLink Premium"
+            price="4.99€"
+            period="/ Monat"
+            badge="Exklusives Startangebot"
+            features={[
+              "Smart Guide (Schritt-für-Schritt Hilfe bei Formularen)",
+              "Unterstützung beim Ausfüllen",
+              "KI-Hilfe bei Fragen",
+              "Zugriff auf alle Premium-Inhalte",
+            ]}
+            cta="Jetzt freischalten"
+            highlight
+            user={user}
+            isPremium={isPremium}
+          />
 
-          {/* Mobile Cards */}
-          <div className="flex flex-col gap-4 md:hidden">
-            <div className="rounded-xl border bg-card p-5">
-              <h3 className="mb-3 font-semibold">{t("premium.free")}</h3>
-              <ul className="space-y-2.5">
-                {comparisonRowKeys.map((row, i) => (
-                  <li key={i} className="flex items-start gap-2.5 text-[13px]">
-                    {row.free ? (
-                      <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-500" />
-                    ) : (
-                      <X className="mt-0.5 h-3.5 w-3.5 shrink-0 text-muted-foreground/30" />
-                    )}
-                    <span className={row.free ? "" : "text-muted-foreground/50"}>{t(row.key)}</span>
+          <PricingFreeVsPremium />
+
+          {/* 2. Premium-Präsenz (HAUPTPRODUKT) */}
+          <PricingCard
+            icon={<Image className="h-6 w-6 text-[hsl(var(--gold))]" />}
+            title="Premium-Präsenz"
+            price="19.99€"
+            period="/ Monat"
+            badge="Exklusives Startangebot"
+            features={[
+              "Große Darstellung",
+              "Automatisch wechselnde Bilder (Slideshow)",
+              "Top-Position auf der Seite",
+              "Mehr Sichtbarkeit und Klicks",
+            ]}
+            cta="Jetzt sichtbar werden"
+            highlight
+            user={user}
+            isPremium={isPremium}
+            rank={1}
+          />
+
+          {/* 3. Banner-Präsenz */}
+          <PricingCard
+            icon={<Monitor className="h-6 w-6 text-[hsl(var(--gold))]" />}
+            title="Banner-Präsenz"
+            price="9.99€"
+            period="/ Monat"
+            badge="Exklusives Startangebot"
+            features={[
+              "Rotierende Anzeige (Auto-Slider)",
+              "Manuelles Scrollen möglich (links/rechts)",
+              "Sichtbar zwischen mehreren Sektionen",
+            ]}
+            cta="Jetzt sichtbar werden"
+            user={user}
+            isPremium={isPremium}
+            rank={2}
+          />
+
+          {/* 4. PRO Anzeige */}
+          <PricingCard
+            icon={<Megaphone className="h-6 w-6 text-[hsl(var(--gold))]" />}
+            title="Anzeige hervorheben (PRO)"
+            price="2.99€"
+            period="/ 30 Tage"
+            features={[
+              "Anzeige erscheint über normalen Anzeigen",
+              "Mehr Sichtbarkeit und mehr Anfragen",
+            ]}
+            cta="Anzeige hervorheben – 2.99€"
+            small
+            user={user}
+            isPremium={isPremium}
+            rank={3}
+          >
+            <div className="mt-3 space-y-1 text-xs text-muted-foreground">
+              <p>• Max. 3–5 gleichzeitig hervorgehobene Anzeigen</p>
+              <p>• Automatisches Ablaufdatum nach 30 Tagen</p>
+              <p>• Bei mehr → Rotation oder Sortierung nach Datum</p>
+            </div>
+          </PricingCard>
+
+          {/* 5. Kostenlose Anzeigen Info */}
+          <div className="rounded-xl border border-border bg-card p-6">
+            <div className="flex items-start gap-3">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-muted">
+                <Info className="h-4 w-4 text-muted-foreground" />
+              </div>
+              <div>
+                <h3 className="text-sm font-semibold">Kostenlose Anzeigen</h3>
+                <p className="mt-1 text-xs text-muted-foreground">
+                  Laufzeit: 14 Tage — danach automatisch deaktiviert.
+                </p>
+                <ul className="mt-2 space-y-1 text-xs text-muted-foreground">
+                  <li className="flex items-center gap-1.5">
+                    <Check className="h-3 w-3 text-[hsl(var(--success))] shrink-0" /> Kostenlos erneuern
                   </li>
-                ))}
-              </ul>
-            </div>
-            <div className="rounded-xl border-2 border-gold/30 bg-card p-5 ring-1 ring-gold/10">
-              <div className="mb-3 flex items-center gap-2">
-                <span className="text-sm">✨</span>
-                <h3 className="font-semibold">{t("premium.badge")}</h3>
-              </div>
-              <ul className="space-y-2.5">
-                {comparisonRowKeys.map((row, i) => (
-                  <li key={i} className="flex items-start gap-2.5 text-[13px]">
-                    <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-gold" />
-                    <span>{t(row.key)}</span>
+                  <li className="flex items-center gap-1.5">
+                    <Check className="h-3 w-3 text-[hsl(var(--success))] shrink-0" /> Oder PRO Anzeige aktivieren
                   </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div className="section-separator" />
-
-      {/* PRICING */}
-      <section id="pricing" className="scroll-mt-20 py-16 md:py-20">
-        <div className="container max-w-3xl">
-          <h2 className="mb-2 text-center font-heading text-2xl font-bold md:text-3xl">
-            {t("premium.pricingTitle")}
-          </h2>
-          <p className="mb-10 text-center text-sm text-muted-foreground">
-            {t("premium.pricingSubtitle")}
-          </p>
-
-          <div className="grid gap-5 sm:grid-cols-2">
-            {/* Monthly */}
-            <div className="flex flex-col rounded-2xl border bg-card p-7 shadow-sm">
-              <h3 className="text-sm font-semibold text-muted-foreground">{t("premium.monthly")}</h3>
-              <p className="mt-2 mb-1">
-                <span className="font-heading text-4xl font-extrabold">9 €</span>
-                <span className="ml-1 text-sm text-muted-foreground">{t("premium.perMonth")}</span>
-              </p>
-              <p className="mb-6 text-xs text-muted-foreground">{t("premium.flexible")}</p>
-              <div className="mt-auto">
-                {isPremium ? (
-                  <p className="text-center text-sm font-medium text-gold">{t("premium.active")}</p>
-                ) : (
-                  <Button variant="outline" className="w-full rounded-xl" asChild>
-                    {user ? <span>{t("premium.soon")}</span> : <Link to="/login">{t("nav.login")}</Link>}
-                  </Button>
-                )}
-              </div>
-            </div>
-
-            {/* Yearly */}
-            <div className="relative flex flex-col rounded-2xl border-2 border-gold/40 bg-card p-7 shadow-md ring-2 ring-gold/10">
-              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-gold px-4 py-1 text-[11px] font-bold text-[#0B1F3A]">
-                {t("premium.bestOffer")}
-              </div>
-              <h3 className="text-sm font-semibold text-muted-foreground">{t("premium.yearly")}</h3>
-              <p className="mt-2 mb-1">
-                <span className="font-heading text-4xl font-extrabold">49 €</span>
-                <span className="ml-1 text-sm text-muted-foreground">{t("premium.perYear")}</span>
-              </p>
-              <p className="mb-6 text-xs text-gold font-medium">{t("premium.save")}</p>
-              <div className="mt-auto">
-                {isPremium ? (
-                  <p className="text-center text-sm font-medium text-gold">{t("premium.active")}</p>
-                ) : (
-                  <Button className="btn-gold-gradient w-full rounded-xl" asChild>
-                    {user ? <span>{t("premium.soon")}</span> : <Link to="/login">{t("nav.login")}</Link>}
-                  </Button>
-                )}
+                  <li className="flex items-center gap-1.5">
+                    <Check className="h-3 w-3 text-[hsl(var(--success))] shrink-0" /> Beim Erneuern erscheint die Anzeige wieder oben wie neu
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="section-separator" />
-
-      {/* TRUST */}
+      {/* TRUST + LEGAL */}
       <section className="py-14">
-        <div className="container max-w-3xl">
+        <div className="container max-w-5xl">
           <div className="grid gap-5 sm:grid-cols-3">
-            {trustItemKeys.map((item, i) => {
+            {[
+              { icon: Shield, text: "Keine Vertragsbindung" },
+              { icon: Zap, text: "Jederzeit kündbar" },
+              { icon: Star, text: "Für die Balkan-Community in Deutschland" },
+            ].map((item, i) => {
               const Icon = item.icon;
               return (
                 <div key={i} className="flex flex-col items-center rounded-xl border bg-card p-6 text-center shadow-sm">
-                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-gold/10">
-                    <Icon className="h-5 w-5 text-gold" />
+                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-[hsl(var(--gold))]/10">
+                    <Icon className="h-5 w-5 text-[hsl(var(--gold))]" />
                   </div>
-                  <p className="text-sm font-medium">{t(item.key)}</p>
+                  <p className="text-sm font-medium">{item.text}</p>
                 </div>
               );
             })}
           </div>
+
+          {/* §19 UStG */}
+          <div className="mt-8 rounded-lg border border-border bg-muted/50 p-4 text-center">
+            <p className="text-xs text-muted-foreground">
+              Gemäß §19 UStG wird keine Umsatzsteuer berechnet.
+            </p>
+          </div>
+
           <LegalDisclaimer />
         </div>
       </section>
