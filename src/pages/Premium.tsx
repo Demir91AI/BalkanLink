@@ -166,20 +166,6 @@ export default function Premium() {
             {st("pricing.heroSubtitle")}
           </motion.p>
 
-          {/* CTAs */}
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.35 }}
-            className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-            <Button size="lg" className="btn-gold-gradient h-12 rounded-xl px-8 text-sm font-bold shadow-md" asChild>
-              <Link to="/pocni-ovdje">
-                👉 {st("pricing.heroCta1")}
-              </Link>
-            </Button>
-            <Button variant="ghost" size="lg" className="h-12 rounded-xl px-8 text-sm text-white/50 hover:text-white hover:bg-white/5" asChild>
-              <a href="#products">
-                {st("pricing.heroCta2")}
-              </a>
-            </Button>
-          </motion.div>
 
           {/* Trust line */}
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.5 }}
