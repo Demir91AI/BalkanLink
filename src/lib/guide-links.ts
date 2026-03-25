@@ -56,7 +56,7 @@ export const guideLinkRegistry: Record<string, GuideLinks> = {
   wohngeld: {
     portalUrl: "",
     downloadsUrl: "",
-    infoUrl: "https://www.bmwsb.bund.de/Webs/BMWSB/DE/themen/stadt-wohnen/wohnraumfoerderung/wohngeld/wohngeld-node.html",
+    infoUrl: "https://www.bmwsb.bund.de",
   },
   buergergeld: {
     portalUrl: "https://www.jobcenter.digital",
@@ -66,7 +66,7 @@ export const guideLinkRegistry: Record<string, GuideLinks> = {
   heizkostenzuschuss: {
     portalUrl: "",
     downloadsUrl: "",
-    infoUrl: "https://www.bmwsb.bund.de/Webs/BMWSB/DE/themen/stadt-wohnen/wohnraumfoerderung/wohngeld/wohngeld-node.html",
+    infoUrl: "https://www.bmwsb.bund.de",
   },
 
   // ===================== ARBEIT =====================

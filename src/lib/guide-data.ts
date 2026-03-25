@@ -1129,7 +1129,7 @@ export const guides: Guide[] = [
     },
     officialPdf: "https://www.bmwsb.bund.de/DE/wohnen/wohngeld/wohngeldrechner/wohngeldrechner-2025_node.html",
     onlineLink: "https://verwaltung.bund.de/leistungsverzeichnis/DE/leistung/99107023037900/herausgeber/BE-L100108_120665/region/110000000000",
-    officialInfoUrl: "https://www.bmwsb.bund.de/Webs/BMWSB/DE/themen/stadt-wohnen/wohnraumfoerderung/wohngeld/wohngeld-node.html",
+    officialInfoUrl: "https://www.bmwsb.bund.de",
   },
   {
     slug: "buergergeld",
@@ -1215,7 +1215,7 @@ export const guides: Guide[] = [
     },
     officialPdf: "",
     onlineLink: "",
-    officialInfoUrl: "https://www.bmwsb.bund.de/Webs/BMWSB/DE/themen/stadt-wohnen/wohnraumfoerderung/wohngeld/wohngeld-node.html",
+    officialInfoUrl: "https://www.bmwsb.bund.de",
   },
   // ===================== ARBEIT =====================
   {
