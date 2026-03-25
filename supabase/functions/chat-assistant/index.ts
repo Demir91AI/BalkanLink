@@ -401,30 +401,30 @@ const SMART_GUIDE_MSG: Record<string, { text: string; label: string }> = {
 
 const JOB_SEARCH_MSG: Record<string, { text: string; label: string }> = {
   bs: {
-    text: "BalkanLink ima **pametnu pretragu poslova** koja ti generiše direktne linkove na najveće portale u Njemačkoj.\n\n**Kako funkcioniše:**\n1. Unesi grad i branšu\n2. Odaberi dodatne filtere (bez njemačkog, sa smještajem...)\n3. Klikni „Traži poslove"\n4. Dobij gotove pretrage za Indeed, StepStone, Bundesagentur i druge\n\n👉 [Otvori pretragu poslova](/stellenangebote)",
+    text: 'BalkanLink ima **pametnu pretragu poslova** koja ti generise direktne linkove na najvece portale u Njemackoj.\n\n**Kako funkcionise:**\n1. Unesi grad i bransu\n2. Odaberi dodatne filtere (bez njemackog, sa smjestajem...)\n3. Klikni "Trazi poslove"\n4. Dobij gotove pretrage za Indeed, StepStone, Bundesagentur i druge\n\n[Otvori pretragu poslova](/stellenangebote)',
     label: "Otvori pretragu poslova",
   },
   de: {
-    text: "BalkanLink bietet eine **intelligente Jobsuche**, die direkte Suchlinks zu den größten Portalen generiert.\n\n**So funktioniert's:**\n1. Stadt und Branche eingeben\n2. Zusätzliche Filter wählen\n3. „Jobs suchen" klicken\n4. Fertige Suchen für Indeed, StepStone u.a. erhalten\n\n👉 [Jobsuche öffnen](/stellenangebote)",
-    label: "Jobsuche öffnen",
+    text: 'BalkanLink bietet eine **intelligente Jobsuche**, die direkte Suchlinks zu den groessten Portalen generiert.\n\n**So funktioniert es:**\n1. Stadt und Branche eingeben\n2. Zusaetzliche Filter waehlen\n3. "Jobs suchen" klicken\n4. Fertige Suchen fuer Indeed, StepStone u.a. erhalten\n\n[Jobsuche oeffnen](/stellenangebote)',
+    label: "Jobsuche oeffnen",
   },
   en: {
-    text: "BalkanLink offers a **smart job search** that generates direct search links to major German job portals.\n\n**How it works:**\n1. Enter city and industry\n2. Select additional filters\n3. Click \"Search jobs\"\n4. Get ready-made searches for Indeed, StepStone, and more\n\n👉 [Open job search](/stellenangebote)",
+    text: 'BalkanLink offers a **smart job search** that generates direct search links to major German job portals.\n\n**How it works:**\n1. Enter city and industry\n2. Select additional filters\n3. Click "Search jobs"\n4. Get ready-made searches for Indeed, StepStone, and more\n\n[Open job search](/stellenangebote)',
     label: "Open job search",
   },
 };
 
 const HOUSING_SEARCH_MSG: Record<string, { text: string; label: string }> = {
   bs: {
-    text: "BalkanLink ima **pametnu pretragu stanova** koja ti generiše direktne linkove na najveće portale.\n\n**Kako funkcioniše:**\n1. Unesi grad i maksimalnu cijenu\n2. Odaberi tip (stan ili WG/soba)\n3. Označi filtere (bez provizije, namješteno...)\n4. Dobij gotove pretrage za ImmobilienScout24, Immowelt i druge\n\n👉 [Otvori pretragu stanova](/wohnungen)",
+    text: 'BalkanLink ima **pametnu pretragu stanova** koja ti generise direktne linkove na najvece portale.\n\n**Kako funkcionise:**\n1. Unesi grad i maksimalnu cijenu\n2. Odaberi tip (stan ili WG/soba)\n3. Oznaci filtere (bez provizije, namjesteno...)\n4. Dobij gotove pretrage za ImmobilienScout24, Immowelt i druge\n\n[Otvori pretragu stanova](/wohnungen)',
     label: "Otvori pretragu stanova",
   },
   de: {
-    text: "BalkanLink bietet eine **intelligente Wohnungssuche**, die direkte Suchlinks zu großen Portalen generiert.\n\n**So funktioniert's:**\n1. Stadt und Maximalmiete eingeben\n2. Typ wählen (Wohnung oder WG)\n3. Filter setzen (provisionsfrei, möbliert...)\n4. Fertige Suchen für ImmobilienScout24, Immowelt u.a. erhalten\n\n👉 [Wohnungssuche öffnen](/wohnungen)",
-    label: "Wohnungssuche öffnen",
+    text: 'BalkanLink bietet eine **intelligente Wohnungssuche**, die direkte Suchlinks zu grossen Portalen generiert.\n\n**So funktioniert es:**\n1. Stadt und Maximalmiete eingeben\n2. Typ waehlen (Wohnung oder WG)\n3. Filter setzen (provisionsfrei, moebliert...)\n4. Fertige Suchen fuer ImmobilienScout24, Immowelt u.a. erhalten\n\n[Wohnungssuche oeffnen](/wohnungen)',
+    label: "Wohnungssuche oeffnen",
   },
   en: {
-    text: "BalkanLink offers a **smart housing search** that generates direct search links to major portals.\n\n**How it works:**\n1. Enter city and max rent\n2. Select type (apartment or shared room)\n3. Set filters (no commission, furnished...)\n4. Get ready-made searches for ImmobilienScout24, Immowelt, and more\n\n👉 [Open housing search](/wohnungen)",
+    text: 'BalkanLink offers a **smart housing search** that generates direct search links to major portals.\n\n**How it works:**\n1. Enter city and max rent\n2. Select type (apartment or shared room)\n3. Set filters (no commission, furnished...)\n4. Get ready-made searches for ImmobilienScout24, Immowelt, and more\n\n[Open housing search](/wohnungen)',
     label: "Open housing search",
   },
 };
