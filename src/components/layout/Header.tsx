@@ -37,9 +37,14 @@ export default function Header() {
 
         <div className="relative flex h-16 items-center px-4">
           {/* Left: sidebar trigger */}
-          <div className="flex items-center">
-            <SidebarTrigger className="text-white/70 hover:text-brand-orange hover:bg-white/5" />
-          </div>
+          <TooltipProvider delayDuration={400}>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <SidebarTrigger className="h-10 w-10 flex items-center justify-center rounded-lg text-white/70 hover:text-[hsl(var(--brand-orange))] hover:bg-white/8 active:scale-95 transition-all duration-200" />
+              </TooltipTrigger>
+              <TooltipContent side="bottom" className="text-xs">Meni</TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
 
           {/* Center: premium brand logo */}
           <div className="absolute left-1/2 top-[55%] -translate-x-1/2 -translate-y-1/2">
@@ -59,17 +64,23 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Right: extra menu trigger only */}
-          <div className="ml-auto">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setSheetOpen(true)}
-              className="h-9 px-2 text-white/80 hover:text-brand-orange hover:bg-white/5"
-            >
-              <PanelRight className="h-5 w-5" />
-            </Button>
-          </div>
+          {/* Right: extra menu trigger */}
+          <TooltipProvider delayDuration={400}>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setSheetOpen(true)}
+                  className="ml-auto h-10 w-10 rounded-lg text-white/70 hover:text-[hsl(var(--brand-orange))] hover:bg-white/8 active:scale-95 transition-all duration-200"
+                  aria-label="Meni"
+                >
+                  <Menu className="h-5 w-5" />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent side="bottom" className="text-xs">Meni</TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         </div>
       </header>
 
