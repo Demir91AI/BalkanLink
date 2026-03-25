@@ -903,6 +903,10 @@ const pricingTranslations: Record<Lang, Record<string, string>> = {
     "pricing.trustCommunity": "Za Balkan zajednicu",
     "pricing.taxNote": "U skladu sa §19 UStG, porez na promet se ne naplaćuje.",
     "pricing.active": "Aktivno ✓", "pricing.heroBadge": "Start platforme", "pricing.heroCta1": "Počni odmah", "pricing.heroCta2": "Pogledaj opcije", "pricing.heroTrust": "Bez ugovora • Otkaži kad želiš • Start ponuda aktivna",
+    "pricing.compareSubtitle": "Izaberi način koji ti štedi vrijeme i greške",
+    "pricing.freeTagline": "Osnovno informisanje",
+    "pricing.premiumTagline": "Kompletno rješenje bez greške",
+    "pricing.recommended": "Preporučeno",
   },
   hr: {
     "pricing.heroLine1": "Nova platforma za Balkance u Njemačkoj",

@@ -266,58 +266,92 @@ export default function Premium() {
             activeLabel={st("pricing.active")}
           />
 
-          {/* Free vs Premium */}
-          <motion.div custom={2} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }} variants={fadeUp}
-            className="rounded-xl border bg-card p-6 md:p-8">
-            <h3 className="mb-4 text-center text-sm font-semibold text-muted-foreground uppercase tracking-wider">
+          {/* Free vs Premium – Side by Side */}
+          <motion.div custom={2} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }} variants={fadeUp}>
+            <h3 className="mb-1 text-center text-sm font-semibold text-muted-foreground uppercase tracking-wider">
               {st("pricing.compareTitle")}
             </h3>
-            <div className="hidden sm:block overflow-hidden rounded-lg border">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b bg-muted/50">
-                    <th className="px-5 py-3 text-left font-semibold">{st("pricing.compareFunc")}</th>
-                    <th className="px-5 py-3 text-center font-semibold">{st("pricing.compareFree")}</th>
-                    <th className="relative px-5 py-3 text-center font-semibold">
-                      <div className="absolute -top-px left-0 right-0 h-0.5 bg-[hsl(var(--gold))]" />
-                      ✨ Premium
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
+            <p className="mb-6 text-center text-xs text-muted-foreground">
+              {st("pricing.compareSubtitle")}
+            </p>
+
+            {/* Desktop: side-by-side */}
+            <div className="hidden sm:grid sm:grid-cols-2 gap-5 items-start">
+              {/* Free Card */}
+              <motion.div
+                whileHover={{ scale: 1.01 }}
+                className="rounded-xl border bg-muted/30 p-6 shadow-sm"
+              >
+                <h4 className="text-base font-bold text-muted-foreground">{st("pricing.compareFree")}</h4>
+                <p className="mt-1 text-[11px] text-muted-foreground/70">{st("pricing.freeTagline")}</p>
+                <ul className="mt-5 space-y-3">
                   {comparisonRows.map((row, i) => (
-                    <tr key={i} className="border-b last:border-b-0 hover:bg-muted/30 transition-colors">
-                      <td className="px-5 py-2.5">{row.label}</td>
-                      <td className="px-5 py-2.5 text-center">
-                        {row.free ? <Check className="mx-auto h-4 w-4 text-emerald-500" /> : <span className="text-muted-foreground/30">✕</span>}
-                      </td>
-                      <td className="bg-[hsl(var(--gold))]/[0.03] px-5 py-2.5 text-center">
-                        <Check className="mx-auto h-4 w-4 text-[hsl(var(--gold))]" />
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <div className="flex flex-col gap-3 sm:hidden">
-              <div className="rounded-lg border p-4">
-                <h4 className="mb-2 text-xs font-semibold text-muted-foreground">{st("pricing.compareFree")}</h4>
-                <ul className="space-y-2">
-                  {comparisonRows.map((row, i) => (
-                    <li key={i} className="flex items-start gap-2 text-xs">
-                      {row.free ? <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-500" /> : <span className="mt-0.5 text-muted-foreground/30">✕</span>}
-                      <span className={row.free ? "" : "text-muted-foreground/50"}>{row.label}</span>
+                    <li key={i} className="flex items-start gap-2.5 text-sm">
+                      {row.free
+                        ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-500" />
+                        : <span className="mt-0.5 h-4 w-4 shrink-0 flex items-center justify-center text-muted-foreground/25 text-xs">✕</span>}
+                      <span className={row.free ? "text-foreground" : "text-muted-foreground/40 line-through decoration-muted-foreground/20"}>{row.label}</span>
                     </li>
                   ))}
                 </ul>
-              </div>
-              <div className="rounded-lg border-2 border-[hsl(var(--gold))]/30 p-4 ring-1 ring-[hsl(var(--gold))]/10">
-                <h4 className="mb-2 text-xs font-semibold">✨ Premium</h4>
-                <ul className="space-y-2">
+              </motion.div>
+
+              {/* Premium Card */}
+              <motion.div
+                whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
+                className="relative -mt-2 rounded-xl border-2 border-[hsl(var(--gold))]/40 bg-card p-7 shadow-lg ring-1 ring-[hsl(var(--gold))]/10"
+                style={{ boxShadow: "0 0 30px -8px hsl(var(--gold) / 0.15)" }}
+              >
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[hsl(var(--gold))] px-3 py-0.5 text-[10px] font-bold text-[hsl(var(--gold-foreground))] shadow-sm whitespace-nowrap">
+                  🔥 {st("pricing.recommended")}
+                </div>
+                <h4 className="text-lg font-bold">✨ Premium</h4>
+                <p className="mt-1 text-[11px] text-muted-foreground">{st("pricing.premiumTagline")}</p>
+                <ul className="mt-5 space-y-3">
+                  {comparisonRows.map((row, i) => (
+                    <li key={i} className="flex items-start gap-2.5 text-sm">
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-[hsl(var(--gold))]" />
+                      <span className="text-foreground">{row.label}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            </div>
+
+            {/* Mobile: stacked, Premium first */}
+            <div className="flex flex-col gap-4 sm:hidden">
+              {/* Premium Card first on mobile */}
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                className="relative rounded-xl border-2 border-[hsl(var(--gold))]/40 bg-card p-5 shadow-lg ring-1 ring-[hsl(var(--gold))]/10"
+                style={{ boxShadow: "0 0 24px -8px hsl(var(--gold) / 0.15)" }}
+              >
+                <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 rounded-full bg-[hsl(var(--gold))] px-3 py-0.5 text-[10px] font-bold text-[hsl(var(--gold-foreground))] shadow-sm whitespace-nowrap">
+                  🔥 {st("pricing.recommended")}
+                </div>
+                <h4 className="text-base font-bold">✨ Premium</h4>
+                <p className="mt-0.5 text-[11px] text-muted-foreground">{st("pricing.premiumTagline")}</p>
+                <ul className="mt-4 space-y-2.5">
                   {comparisonRows.map((row, i) => (
                     <li key={i} className="flex items-start gap-2 text-xs">
                       <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[hsl(var(--gold))]" />
                       <span>{row.label}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+
+              {/* Free Card */}
+              <div className="rounded-xl border bg-muted/30 p-5 shadow-sm">
+                <h4 className="text-sm font-bold text-muted-foreground">{st("pricing.compareFree")}</h4>
+                <p className="mt-0.5 text-[11px] text-muted-foreground/70">{st("pricing.freeTagline")}</p>
+                <ul className="mt-4 space-y-2.5">
+                  {comparisonRows.map((row, i) => (
+                    <li key={i} className="flex items-start gap-2 text-xs">
+                      {row.free
+                        ? <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-500" />
+                        : <span className="mt-0.5 h-3.5 w-3.5 shrink-0 flex items-center justify-center text-muted-foreground/25 text-[10px]">✕</span>}
+                      <span className={row.free ? "" : "text-muted-foreground/40 line-through decoration-muted-foreground/20"}>{row.label}</span>
                     </li>
                   ))}
                 </ul>
