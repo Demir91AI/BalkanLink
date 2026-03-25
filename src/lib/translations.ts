@@ -1724,6 +1724,141 @@ const countryNames: Record<string, Record<string, string>> = {
 };
 
 // UI extra keys: contact form, firm detail, header menu
+// --- Calculator translations ---
+const calcBs: Record<string, string> = {
+  "calc.breadcrumbTools": "Alati", "calc.breadcrumbCalc": "Brutto-Netto Rechner",
+  "calc.pageTitle": "Brutto-Netto Rechner Njemačka", "calc.pageSubtitle": "Izračunaj svoju neto platu brzo — sve informacije bez garancije.",
+  "calc.pageNote": "Rezultat je orijentacioni. Moguća su odstupanja od stvarnog obračuna.",
+  "calc.inputsTitle": "Unos podataka", "calc.sectionSalary": "Plata", "calc.grossSalary": "Bruto plata (€)",
+  "calc.grossSalaryTip": "Tvoja mjesečna ili godišnja bruto plata prije svih odbitaka.",
+  "calc.period": "Period", "calc.monthly": "Mjesečno", "calc.yearly": "Godišnje",
+  "calc.sectionTax": "Porez", "calc.taxClass": "Steuerklasse",
+  "calc.taxClassTip": "Steuerklasse određuje tvoj porez. 1=samac, 2=samohrani roditelj, 3=u braku (jedini primanja), 4=u braku (oba rade), 5=partner kl.3, 6=drugi posao.",
+  "calc.federalState": "Bundesland", "calc.federalStateTip": "Tvoj Bundesland određuje stopu crkvenog poreza (8% u BW/BY, 9% ostali).",
+  "calc.taxYear": "Poreska godina", "calc.churchTax": "Kirchensteuer",
+  "calc.churchTaxTip": "Crkveni porez se računa od poreza na dohodak: 8% u BW/BY, 9% u ostalim saveznim državama.",
+  "calc.sectionPersonal": "Lični podaci", "calc.age": "Starost",
+  "calc.ageTip": "Od 23 godine bez djece: dodatak na osiguranje njege.",
+  "calc.childAllowance": "Kinderfreibetrag", "calc.childAllowanceTip": "0.5 po djetetu, 1.0 za jedini zahtjev.",
+  "calc.childrenUnder25": "Djeca <25", "calc.childrenUnder25Tip": "Broj djece mlađe od 25: smanjuje doprinos za njegu od 2. djeteta.",
+  "calc.childless": "Bez djece",
+  "calc.sectionHealth": "Zdravstveno osiguranje", "calc.statutory": "Zakonsko (GKV)", "calc.private": "Privatno (PKV)",
+  "calc.additionalContribution": "Dodatni doprinos (%)", "calc.additionalContributionTip": "Individualni dodatni doprinos kase. AN plaća polovinu. Prosjek 2025: ca. 2,5%.",
+  "calc.pkvAmount": "PKV doprinos (€/mjesec)", "calc.pkvAmountTip": "Tvoj mjesečni PKV doprinos kao direktni odbitak.",
+  "calc.socialDetails": "Socijalno osiguranje (detalji)",
+  "calc.pension": "Rentenversicherung", "calc.unemployment": "Arbeitslosenversicherung",
+  "calc.nursingCare": "Pflegeversicherung", "calc.healthInsurance": "Krankenversicherung",
+  "calc.advanced": "Napredno", "calc.allowance": "Freibetrag (€/god.)",
+  "calc.allowanceTip": "Godišnji porezni freibetrag, npr. troškovi iznad paušala.",
+  "calc.oneTimePayment": "Jednokratna isplata (€)", "calc.oneTimePaymentTip": "Jednokratni bonus u godini.",
+  "calc.churchTaxOverride": "Kirchensteuersatz (%) Override", "calc.churchTaxOverrideTip": "Ručno postavljanje stope crkvenog poreza.",
+  "calc.reset": "Resetuj", "calc.share": "Podijeli",
+  "calc.resetSuccess": "Podaci resetovani", "calc.shareSuccess": "Link kopiran!",
+  "calc.resultTitle": "Tvoj rezultat", "calc.netPerMonth": "Neto / mjesec", "calc.netPerYear": "Neto / godina", "calc.grossPerMonth": "Bruto / mjesec",
+  "calc.legendTax": "Porezi", "calc.legendSocial": "Socijalni doprinosi", "calc.legendNet": "Neto",
+  "calc.incomeTax": "Lohnsteuer", "calc.soliSurcharge": "Solidaritätszuschlag", "calc.totalTax": "Porezi ukupno",
+  "calc.socialAN": "Socijalni doprinosi (AN)", "calc.inclZB": "inkl. ZB", "calc.pkvLabel": "PKV doprinos",
+  "calc.inclSurcharge": "inkl. dodatak", "calc.totalSocial": "Socijalni doprinosi ukupno",
+  "calc.infoNote": "Procjena neto plate u Njemačkoj. Rezultat može varirati ovisno o zdravstvenom osiguranju, bonusima i dodatnim odbicima.",
+  "calc.employerTitle": "Troškovi poslodavca", "calc.totalEmployer": "Ukupni troškovi AG", "calc.employerNote": "Bruto + AG udjeli socijalnog osiguranja",
+  "calc.disclaimerShort": "Rezultat je približan i može se razlikovati od tvog obračuna plate.",
+  "calc.disclaimerFull": "Ovaj Brutto-Netto-Rechner služi samo za neobavezujuću orijentaciju. Sve informacije bez garancije. Moguća su odstupanja od stvarnog obračuna plate.",
+  "calc.disclaimerAdvice": "Za obavezujuće informacije obrati se poreznom savjetniku ili Finanzamtu.",
+};
+const calcDe: Record<string, string> = {
+  "calc.breadcrumbTools": "Tools", "calc.breadcrumbCalc": "Brutto-Netto Rechner",
+  "calc.pageTitle": "Brutto-Netto Rechner Deutschland", "calc.pageSubtitle": "Berechne dein Netto-Gehalt schnell – alle Angaben ohne Gewähr.",
+  "calc.pageNote": "Ergebnis ist eine Orientierung. Abweichungen zur echten Abrechnung möglich.",
+  "calc.inputsTitle": "Eingaben", "calc.sectionSalary": "Gehalt", "calc.grossSalary": "Bruttogehalt (€)",
+  "calc.grossSalaryTip": "Dein monatliches oder jährliches Bruttogehalt vor allen Abzügen.",
+  "calc.period": "Zeitraum", "calc.monthly": "Monatlich", "calc.yearly": "Jährlich",
+  "calc.sectionTax": "Steuer", "calc.taxClass": "Steuerklasse",
+  "calc.taxClassTip": "Steuerklasse bestimmt deine Lohnsteuer. 1=ledig, 2=alleinerziehend, 3=verheiratet (Alleinverdiener), 4=verheiratet (beide verdienen), 5=Partner von Kl.3, 6=Zweitjob.",
+  "calc.federalState": "Bundesland", "calc.federalStateTip": "Dein Bundesland bestimmt den Kirchensteuersatz (8% in BW/BY, 9% sonst).",
+  "calc.taxYear": "Steuerjahr", "calc.churchTax": "Kirchensteuer",
+  "calc.churchTaxTip": "Kirchensteuer wird von der Lohnsteuer berechnet: 8% in BW/BY, 9% in anderen Bundesländern.",
+  "calc.sectionPersonal": "Persönlich", "calc.age": "Alter",
+  "calc.ageTip": "Ab 23 Jahren ohne Kinder: Zuschlag zur Pflegeversicherung.",
+  "calc.childAllowance": "Kinderfreibetrag", "calc.childAllowanceTip": "0.5 pro Kind, 1.0 bei alleinigem Anspruch. Wird bei der Steuer berücksichtigt.",
+  "calc.childrenUnder25": "Kinder <25", "calc.childrenUnder25Tip": "Anzahl leiblicher Kinder unter 25: reduziert den PV-Beitrag ab dem 2. Kind.",
+  "calc.childless": "Kinderlos",
+  "calc.sectionHealth": "Krankenversicherung", "calc.statutory": "Gesetzlich (GKV)", "calc.private": "Privat (PKV)",
+  "calc.additionalContribution": "Zusatzbeitrag (%)", "calc.additionalContributionTip": "Kassenindividueller Zusatzbeitrag (Gesamtsatz). AN zahlt die Hälfte. Durchschnitt 2025: ca. 2,5%.",
+  "calc.pkvAmount": "PKV-Beitrag (€/Monat)", "calc.pkvAmountTip": "Dein monatlicher PKV-Beitrag wird als direkte Abzugsposition behandelt.",
+  "calc.socialDetails": "Sozialversicherung (Details)",
+  "calc.pension": "Rentenversicherung", "calc.unemployment": "Arbeitslosenversicherung",
+  "calc.nursingCare": "Pflegeversicherung", "calc.healthInsurance": "Krankenversicherung",
+  "calc.advanced": "Erweitert", "calc.allowance": "Freibetrag (€/Jahr)",
+  "calc.allowanceTip": "Jährlicher Steuerfreibetrag, z.B. Werbungskosten über Pauschbetrag, Sonderausgaben.",
+  "calc.oneTimePayment": "Einmalzahlung (€)", "calc.oneTimePaymentTip": "Einmalige Sonderzahlung/Bonus im Jahr.",
+  "calc.churchTaxOverride": "Kirchensteuersatz (%) Override", "calc.churchTaxOverrideTip": "Manuelle Überschreibung des Kirchensteuersatzes.",
+  "calc.reset": "Zurücksetzen", "calc.share": "Teilen",
+  "calc.resetSuccess": "Eingaben zurückgesetzt", "calc.shareSuccess": "Link kopiert!",
+  "calc.resultTitle": "Dein Ergebnis", "calc.netPerMonth": "Netto / Monat", "calc.netPerYear": "Netto / Jahr", "calc.grossPerMonth": "Brutto / Monat",
+  "calc.legendTax": "Steuern", "calc.legendSocial": "Sozialabgaben", "calc.legendNet": "Netto",
+  "calc.incomeTax": "Lohnsteuer", "calc.soliSurcharge": "Solidaritätszuschlag", "calc.totalTax": "Steuern gesamt",
+  "calc.socialAN": "Sozialabgaben (AN)", "calc.inclZB": "inkl. ZB", "calc.pkvLabel": "PKV-Beitrag",
+  "calc.inclSurcharge": "inkl. Zuschlag", "calc.totalSocial": "Sozialabgaben gesamt",
+  "calc.infoNote": "Schätzung des Nettogehalts in Deutschland. Ergebnis kann je nach Krankenversicherung, Boni und weiteren Abzügen variieren.",
+  "calc.employerTitle": "Arbeitgeberkosten", "calc.totalEmployer": "Gesamt AG-Kosten", "calc.employerNote": "Brutto + AG-Anteile Sozialversicherung",
+  "calc.disclaimerShort": "Das Ergebnis ist eine Näherung und kann von deiner Lohnabrechnung abweichen.",
+  "calc.disclaimerFull": "Dieser Brutto-Netto-Rechner dient nur zur unverbindlichen Orientierung. Alle Angaben ohne Gewähr. Es können Abweichungen zur tatsächlichen Gehaltsabrechnung auftreten.",
+  "calc.disclaimerAdvice": "Für verbindliche Auskünfte wende dich an Steuerberater/in oder Finanzamt.",
+};
+const calcEn: Record<string, string> = {
+  "calc.breadcrumbTools": "Tools", "calc.breadcrumbCalc": "Gross-Net Calculator",
+  "calc.pageTitle": "Gross-Net Calculator Germany", "calc.pageSubtitle": "Calculate your net salary quickly – all information without guarantee.",
+  "calc.pageNote": "Result is an estimate. Deviations from actual payroll possible.",
+  "calc.inputsTitle": "Inputs", "calc.sectionSalary": "Salary", "calc.grossSalary": "Gross salary (€)",
+  "calc.grossSalaryTip": "Your monthly or annual gross salary before all deductions.",
+  "calc.period": "Period", "calc.monthly": "Monthly", "calc.yearly": "Yearly",
+  "calc.sectionTax": "Tax", "calc.taxClass": "Tax class",
+  "calc.taxClassTip": "Tax class determines your income tax. 1=single, 2=single parent, 3=married (sole earner), 4=married (both earn), 5=partner of cl.3, 6=second job.",
+  "calc.federalState": "Federal state", "calc.federalStateTip": "Your state determines the church tax rate (8% in BW/BY, 9% elsewhere).",
+  "calc.taxYear": "Tax year", "calc.churchTax": "Church tax",
+  "calc.churchTaxTip": "Church tax is calculated from income tax: 8% in BW/BY, 9% in other states.",
+  "calc.sectionPersonal": "Personal", "calc.age": "Age",
+  "calc.ageTip": "From age 23 without children: surcharge for nursing care insurance.",
+  "calc.childAllowance": "Child allowance", "calc.childAllowanceTip": "0.5 per child, 1.0 for sole claim.",
+  "calc.childrenUnder25": "Children <25", "calc.childrenUnder25Tip": "Number of children under 25: reduces nursing care contribution from 2nd child.",
+  "calc.childless": "Childless",
+  "calc.sectionHealth": "Health insurance", "calc.statutory": "Statutory (GKV)", "calc.private": "Private (PKV)",
+  "calc.additionalContribution": "Additional contribution (%)", "calc.additionalContributionTip": "Individual additional contribution. Employee pays half. Average 2025: ~2.5%.",
+  "calc.pkvAmount": "PKV contribution (€/month)", "calc.pkvAmountTip": "Your monthly PKV contribution as a direct deduction.",
+  "calc.socialDetails": "Social insurance (details)",
+  "calc.pension": "Pension insurance", "calc.unemployment": "Unemployment insurance",
+  "calc.nursingCare": "Nursing care insurance", "calc.healthInsurance": "Health insurance",
+  "calc.advanced": "Advanced", "calc.allowance": "Tax allowance (€/year)",
+  "calc.allowanceTip": "Annual tax allowance, e.g. work-related expenses above flat rate.",
+  "calc.oneTimePayment": "One-time payment (€)", "calc.oneTimePaymentTip": "One-time bonus payment per year.",
+  "calc.churchTaxOverride": "Church tax rate (%) override", "calc.churchTaxOverrideTip": "Manual override of the church tax rate.",
+  "calc.reset": "Reset", "calc.share": "Share",
+  "calc.resetSuccess": "Inputs reset", "calc.shareSuccess": "Link copied!",
+  "calc.resultTitle": "Your result", "calc.netPerMonth": "Net / month", "calc.netPerYear": "Net / year", "calc.grossPerMonth": "Gross / month",
+  "calc.legendTax": "Taxes", "calc.legendSocial": "Social contributions", "calc.legendNet": "Net",
+  "calc.incomeTax": "Income tax", "calc.soliSurcharge": "Solidarity surcharge", "calc.totalTax": "Total taxes",
+  "calc.socialAN": "Social contributions (employee)", "calc.inclZB": "incl. add. contr.", "calc.pkvLabel": "PKV contribution",
+  "calc.inclSurcharge": "incl. surcharge", "calc.totalSocial": "Total social contributions",
+  "calc.infoNote": "Net salary estimate for Germany. Result may vary depending on health insurance, bonuses and additional deductions.",
+  "calc.employerTitle": "Employer costs", "calc.totalEmployer": "Total employer costs", "calc.employerNote": "Gross + employer social insurance shares",
+  "calc.disclaimerShort": "The result is an approximation and may differ from your payslip.",
+  "calc.disclaimerFull": "This gross-net calculator is for non-binding orientation only. All information without guarantee. Deviations from actual payroll may occur.",
+  "calc.disclaimerAdvice": "For binding information, consult a tax advisor or tax office.",
+};
+
+// --- Community translations ---
+const communityKeys: Record<string, Record<string, string>> = {
+  bs: { "community.title": "Zajednica", "community.subtitle": "Balkanska dijaspora u Njemačkoj — religiozne zajednice, kulturna udruženja i sportski klubovi." },
+  hr: { "community.title": "Zajednica", "community.subtitle": "Balkanska dijaspora u Njemačkoj — vjerske zajednice, kulturna udruženja i sportski klubovi." },
+  sr: { "community.title": "Zajednica", "community.subtitle": "Balkanska dijaspora u Nemačkoj — verske zajednice, kulturna udruženja i sportski klubovi." },
+  me: { "community.title": "Zajednica", "community.subtitle": "Balkanska dijaspora u Njemačkoj — vjerske zajednice, kulturna udruženja i sportski klubovi." },
+  sq: { "community.title": "Komuniteti", "community.subtitle": "Diaspora ballkanike në Gjermani — bashkësi fetare, shoqata kulturore dhe klube sportive." },
+  xk: { "community.title": "Komuniteti", "community.subtitle": "Diaspora ballkanike në Gjermani — bashkësi fetare, shoqata kulturore dhe klube sportive." },
+  mk: { "community.title": "Заедница", "community.subtitle": "Балканска дијаспора во Германија — верски заедници, културни здруженија и спортски клубови." },
+  de: { "community.title": "Community", "community.subtitle": "Balkan-Diaspora in Deutschland — Religiöse Gemeinden, Kulturvereine & Sportklubs." },
+  en: { "community.title": "Community", "community.subtitle": "Balkan diaspora in Germany — religious communities, cultural associations & sports clubs." },
+};
+
 const uiExtraKeys: Record<string, Record<string, string>> = {
   bs: { "contact.title": "Kontakt", "contact.subtitle": "Pošaljite nam poruku.", "contact.firstName": "Ime", "contact.lastName": "Prezime", "contact.email": "E-Mail", "contact.message": "Vaša poruka", "contact.send": "Pošalji poruku", "header.pricelist": "Cjenovnik / Monitoring", "firm.notFound": "Firma nije pronađena", "firm.back": "Nazad na početnu", "firm.recommended": "Preporučeno", "firm.visitWebsite": "Posjeti web stranicu", "firm.contact": "Kontakt",
     "hero.title": "Njemačka birokratija", "hero.titleHighlight": "bez stresa.", "hero.subtitle": "Popuni sve važne formulare uz jasna objašnjenja — korak po korak, na tvom jeziku.", "hero.ctaPrimary": "Započni vodič", "hero.ctaSecondary": "Ili pitaj BalkanLink asistenta", "hero.bullet.simple": "Bez komplikacija", "hero.bullet.language": "Na tvom jeziku", "hero.bullet.verified": "Provjerene informacije",
@@ -1763,17 +1898,15 @@ const uiExtraKeys: Record<string, Record<string, string>> = {
     "formCenter.smartGuideLabel": "Smart Guide – step by step", "formCenter.searchPlaceholder": "Search form…", "formCenter.noResults": "No results.", "formCenter.selectForm": "Select a form", "formCenter.selectFormDesc": "Click on any form on the left to see detailed filling instructions." },
 };
 
-// Merge country names, vorlagen, and UI extras into translations
+// Merge country names, vorlagen, UI extras, calc, and community into translations
 for (const lang of Object.keys(translations) as Language[]) {
-  if (countryNames[lang]) {
-    Object.assign(translations[lang], countryNames[lang]);
-  }
-  if (vorlagenKeys[lang]) {
-    Object.assign(translations[lang], vorlagenKeys[lang]);
-  }
-  if (uiExtraKeys[lang]) {
-    Object.assign(translations[lang], uiExtraKeys[lang]);
-  }
+  if (countryNames[lang]) Object.assign(translations[lang], countryNames[lang]);
+  if (vorlagenKeys[lang]) Object.assign(translations[lang], vorlagenKeys[lang]);
+  if (uiExtraKeys[lang]) Object.assign(translations[lang], uiExtraKeys[lang]);
+  if (communityKeys[lang]) Object.assign(translations[lang], communityKeys[lang]);
+  // Calc keys: bs-based languages fall back to calcBs, de to calcDe, en to calcEn
+  const calcMap: Record<string, Record<string, string>> = { de: calcDe, en: calcEn };
+  Object.assign(translations[lang], calcMap[lang] ?? calcBs);
 }
 
 export function getTranslation(lang: Language, key: keyof TranslationKeys): string {
