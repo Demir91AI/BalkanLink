@@ -35,7 +35,7 @@ export default function Vorlagen() {
         onClick={() => navigateBackOrHome(navigate)}
             className="mb-4 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
           >
-            <ArrowLeft className="h-3 w-3" /> Šabloni / Vorlagen
+            <ArrowLeft className="h-3 w-3" /> Nazad
           </button>
           <p className="text-muted-foreground">Vorlage nicht gefunden.</p>
         </div>

@@ -15,6 +15,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useSectionT } from "@/hooks/useSectionT";
+import { useHistorySearchState } from "@/hooks/useHistorySearchState";
 import { cn } from "@/lib/utils";
 import FormSmartGuide from "@/components/FormSmartGuide";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
@@ -210,8 +211,8 @@ export default function BoravisnaDozvola() {
   const navigate = useNavigate();
   const { t } = useLanguage();
   const st = useSectionT();
-  const [selected, setSelected] = useState<string | null>(null);
   const [search, setSearch] = useState("");
+  const { searchParams, setSearchState } = useHistorySearchState();
   const isMobile = useIsMobile();
 
   const q = search.toLowerCase();
@@ -222,14 +223,15 @@ export default function BoravisnaDozvola() {
       v.titleDe.toLowerCase().includes(q)
   );
 
-  const activeVisa = visaTypes.find((v) => v.id === selected);
+  const selectedVisaId = searchParams.get("visa");
+  const activeVisa = visaTypes.find((v) => v.id === selectedVisaId);
 
   // Mobile: show detail
   if (isMobile && activeVisa) {
     return (
       <div className="px-4 py-6">
         <button
-          onClick={() => setSelected(null)}
+          onClick={() => navigateBackOrHome(navigate)}
           className="mb-4 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
         >
           <ArrowLeft className="h-3 w-3" /> Nazad
@@ -286,17 +288,22 @@ export default function BoravisnaDozvola() {
                 {filtered.map((visa) => (
                   <button
                     key={visa.id}
-                    onClick={() => setSelected(visa.id)}
+                    onClick={() =>
+                      setSearchState(
+                        { visa: visa.id },
+                        { state: { blInternalBack: true } }
+                      )
+                    }
                     className={cn(
                       "w-full flex items-center gap-3 rounded-xl border px-4 py-3 text-left text-sm transition-all",
-                      visa.id === selected
+                      visa.id === selectedVisaId
                         ? "border-primary/40 bg-primary/5 shadow-sm"
                         : "border-border/40 bg-card hover:border-gold/40 hover:shadow-sm"
                     )}
                   >
                     <span className="text-xl shrink-0">{visa.icon}</span>
                     <div className="min-w-0 flex-1">
-                      <p className={cn("font-semibold truncate", visa.id === selected && "text-primary")}>
+                      <p className={cn("font-semibold truncate", visa.id === selectedVisaId && "text-primary")}>
                         {visa.title}
                       </p>
                       <p className="text-[11px] text-muted-foreground truncate">{visa.desc}</p>

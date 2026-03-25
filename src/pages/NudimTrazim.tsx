@@ -10,6 +10,7 @@ import NtProModal from "@/components/nudim-trazim/NtProModal";
 import type { NtAd } from "@/lib/nudim-trazim-constants";
 import { DEMO_ADS } from "@/lib/nudim-trazim-constants";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useHistorySearchState } from "@/hooks/useHistorySearchState";
 import { useSectionT } from "@/hooks/useSectionT";
 import { useNavigate } from "react-router-dom";
 import { navigateBackOrHome } from "@/lib/navigation";
@@ -18,6 +19,7 @@ export default function NudimTrazim() {
   const { t } = useLanguage();
   const st = useSectionT();
   const navigate = useNavigate();
+  const { searchParams, setSearchState } = useHistorySearchState();
   const [filters, setFilters] = useState({
     search: "",
     type: "sve",
@@ -26,10 +28,40 @@ export default function NudimTrazim() {
     radius: "0",
     sort: "newest",
   });
-  const [selectedAd, setSelectedAd] = useState<NtAd | null>(null);
-  const [showForm, setShowForm] = useState(false);
-  const [showProModal, setShowProModal] = useState(false);
   const handleBack = () => navigateBackOrHome(navigate);
+
+  const view = searchParams.get("view");
+  const selectedAdId = searchParams.get("ad");
+  const selectedAd = useMemo(
+    () => DEMO_ADS.find((ad) => ad.id === selectedAdId) ?? null,
+    [selectedAdId]
+  );
+  const showForm = view === "form";
+  const showProModal = searchParams.get("modal") === "pro";
+
+  const openAd = (ad: NtAd) => {
+    setSearchState(
+      { view: "detail", ad: ad.id },
+      { state: { blInternalBack: true } }
+    );
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const openForm = () => {
+    setSearchState(
+      { view: "form", ad: null },
+      { state: { blInternalBack: true } }
+    );
+  };
+
+  const openProModal = () => {
+    setSearchState(
+      { modal: "pro" },
+      { state: { blInternalBack: true } }
+    );
+  };
+
+  const closeCurrentView = () => navigateBackOrHome(navigate);
 
   const updateFilters = (partial: Partial<typeof filters>) =>
     setFilters((prev) => ({ ...prev, ...partial }));
@@ -67,11 +99,8 @@ export default function NudimTrazim() {
         <div className="mx-auto max-w-5xl px-4 py-10">
           <NtAdDetail
             ad={selectedAd}
-            onBack={() => setSelectedAd(null)}
-            onOpen={(a) => {
-              setSelectedAd(a);
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
+            onBack={closeCurrentView}
+            onOpen={openAd}
           />
         </div>
       </div>
@@ -82,8 +111,8 @@ export default function NudimTrazim() {
     return (
       <div className="min-h-screen bg-background">
         <div className="mx-auto max-w-3xl px-4 py-10">
-          <NtSubmitForm onClose={() => setShowForm(false)} onProClick={() => setShowProModal(true)} />
-          <NtProModal open={showProModal} onClose={() => setShowProModal(false)} />
+          <NtSubmitForm onClose={closeCurrentView} onProClick={openProModal} />
+          <NtProModal open={showProModal} onClose={closeCurrentView} />
         </div>
       </div>
     );
@@ -107,7 +136,7 @@ export default function NudimTrazim() {
             <Button
               size="lg"
               className="bg-[hsl(var(--success))] hover:bg-[hsl(var(--success))]/90 text-[hsl(var(--success-foreground))] gap-2 font-semibold"
-              onClick={() => setShowForm(true)}
+              onClick={openForm}
             >
               {st("nt.offer")}
             </Button>
@@ -115,7 +144,7 @@ export default function NudimTrazim() {
               size="lg"
               variant="outline"
               className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 gap-2 font-semibold"
-              onClick={() => setShowForm(true)}
+              onClick={openForm}
             >
               <SearchIcon className="h-4 w-4" /> {st("nt.seek")}
             </Button>
@@ -151,7 +180,7 @@ export default function NudimTrazim() {
               size="sm"
               variant="outline"
               className="shrink-0 border-[hsl(var(--gold))]/40 text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/10 text-xs"
-              onClick={() => setShowProModal(true)}
+              onClick={openProModal}
             >
               <Star className="mr-1 h-3 w-3" /> {st("nt.learnMore")}
             </Button>
@@ -161,13 +190,13 @@ export default function NudimTrazim() {
         {filtered.length > 0 ? (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {filtered.map((ad) => (
-              <NtAdCard key={ad.id} ad={ad} onOpen={setSelectedAd} />
+              <NtAdCard key={ad.id} ad={ad} onOpen={openAd} />
             ))}
           </div>
         ) : (
           <div className="text-center py-16 space-y-4">
             <p className="text-muted-foreground text-lg">{st("nt.empty")}</p>
-            <Button onClick={() => setShowForm(true)} className="gap-2">
+            <Button onClick={openForm} className="gap-2">
               <PlusCircle className="h-4 w-4" /> {st("nt.postFirst")}
             </Button>
           </div>
@@ -177,14 +206,14 @@ export default function NudimTrazim() {
           <h2 className="text-xl font-bold text-foreground">{st("nt.ctaTitle")}</h2>
           <p className="text-muted-foreground max-w-lg mx-auto">{st("nt.ctaDesc")}</p>
           <div className="flex flex-col sm:flex-row justify-center gap-3">
-            <Button size="lg" onClick={() => setShowForm(true)} className="gap-2">
+            <Button size="lg" onClick={openForm} className="gap-2">
               <PlusCircle className="h-4 w-4" /> {st("nt.postFree")}
             </Button>
             <Button
               size="lg"
               variant="outline"
               className="gap-2 border-[hsl(var(--gold))]/40 text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/10"
-              onClick={() => setShowProModal(true)}
+              onClick={openProModal}
             >
               <Star className="h-4 w-4" /> {st("nt.highlightPro")}
             </Button>
@@ -197,7 +226,7 @@ export default function NudimTrazim() {
         </p>
       </div>
 
-      <NtProModal open={showProModal} onClose={() => setShowProModal(false)} />
+      <NtProModal open={showProModal} onClose={closeCurrentView} />
     </div>
   );
 }
