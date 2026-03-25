@@ -152,7 +152,7 @@ export const guides: Guide[] = [
       en: ["Missing child's tax ID", "Child attachment not included", "Missing signature", "Third-party bank details provided", "Tax number instead of tax ID entered"],
     },
     officialPdf: "https://www.arbeitsagentur.de/datei/kg1-antrag-kindergeld_ba036550.pdf",
-    onlineLink: "https://www.arbeitsagentur.de/familie-und-kinder/kindergeld-beantragen",
+    onlineLink: "https://www.arbeitsagentur.de/familie-und-kinder/kindergeld",
   },
   {
     slug: "kinderzuschlag",
@@ -943,7 +943,7 @@ export const guides: Guide[] = [
       en: ["Medical certificate not submitted in time", "Application filed with wrong institution (insurer vs. Federal Office)", "Birth certificate not submitted — post-birth payment delayed", "Tax obligation for Progressionsvorbehalt overlooked"],
     },
     officialPdf: "",
-    onlineLink: "https://www.mutterschaftsgeld.de",
+    onlineLink: "",
     officialInfoUrl: "https://familienportal.de/familienportal/familienleistungen/mutterschaftsleistungen",
   },
   // ----------- UNTERHALT -----------
@@ -1129,7 +1129,7 @@ export const guides: Guide[] = [
     },
     officialPdf: "https://www.bmwsb.bund.de/DE/wohnen/wohngeld/wohngeldrechner/wohngeldrechner-2025_node.html",
     onlineLink: "https://verwaltung.bund.de/leistungsverzeichnis/DE/leistung/99107023037900/herausgeber/BE-L100108_120665/region/110000000000",
-    officialInfoUrl: "https://www.bmwsb.bund.de/Webs/BMWSB/DE/themen/stadt-wohnen/wohnraumfoerderung/wohngeld/wohngeld-node.html",
+    officialInfoUrl: "https://www.bmwsb.bund.de",
   },
   {
     slug: "buergergeld",
@@ -1215,7 +1215,7 @@ export const guides: Guide[] = [
     },
     officialPdf: "",
     onlineLink: "",
-    officialInfoUrl: "https://www.bmwsb.bund.de/Webs/BMWSB/DE/themen/stadt-wohnen/wohnraumfoerderung/wohngeld/wohngeld-node.html",
+    officialInfoUrl: "https://www.bmwsb.bund.de",
   },
   // ===================== ARBEIT =====================
   {
@@ -1996,7 +1996,7 @@ export const guides: Guide[] = [
     },
     officialPdf: "",
     onlineLink: "",
-    officialInfoUrl: "https://www.bamf.de/DE/Themen/Integration/ZuijAndInDeutschl/Integrationskurse/integrationskurse-node.html",
+    officialInfoUrl: "https://www.bamf.de/DE/Startseite/startseite_node.html",
   },
   // ===================== DOKUMENTE =====================
   {
@@ -2042,7 +2042,7 @@ export const guides: Guide[] = [
       en: ["Wrong certificate type (N vs. NE)", "Online application without eID", "Address doesn't match registration"],
     },
     officialPdf: "",
-    onlineLink: "https://www.bundesjustizamt.de/DE/Themen/Buergerdienste/BZR/FZ_node.html",
+    onlineLink: "https://www.bundesjustizamt.de",
   },
   {
     slug: "aufenthaltstitel-verlaengerung",
@@ -2088,7 +2088,7 @@ export const guides: Guide[] = [
     },
     officialPdf: "",
     onlineLink: "",
-    officialInfoUrl: "https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwijAndInDeutschl/Aufenthaltstitel/aufenthaltstitel-node.html",
+    officialInfoUrl: "https://www.bamf.de/DE/Themen/MigrationAufenthalt/migrationaufenthalt-node.html",
   },
   {
     slug: "anmeldung",
@@ -2134,7 +2134,7 @@ export const guides: Guide[] = [
     },
     officialPdf: "",
     onlineLink: "",
-    officialInfoUrl: "https://www.bmi.bund.de/DE/themen/moderne-verwaltung/verwaltungsrecht/meldewesen/meldewesen-node.html",
+    officialInfoUrl: "https://www.bmi.bund.de",
   },
   {
     slug: "wbs",
@@ -2180,7 +2180,7 @@ export const guides: Guide[] = [
     },
     officialPdf: "",
     onlineLink: "",
-    officialInfoUrl: "https://www.bmwsb.bund.de/Webs/BMWSB/DE/themen/stadt-wohnen/wohnraumfoerderung/wohnraumfoerderung-node.html",
+    officialInfoUrl: "https://www.bmwsb.bund.de",
   },
   // ===================== KRIPPENGELD BAYERN =====================
   {
@@ -3162,7 +3162,7 @@ guides.push({
   },
   officialPdf: "",
   onlineLink: "",
-  officialInfoUrl: "https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/arbeiten",
+  officialInfoUrl: "https://www.make-it-in-germany.com/de/arbeiten-in-deutschland",
 });
 
 // ===================== FAMILIE – Spajanje porodice =====================
@@ -3547,7 +3547,7 @@ guides.push({
   },
   officialPdf: "",
   onlineLink: "",
-  officialInfoUrl: "https://www.make-it-in-germany.com/de/studium-ausbildung/studium/visum",
+  officialInfoUrl: "https://www.make-it-in-germany.com/de/studium-ausbildung",
 });
 
 // ===================== ARBEIT – Stalni boravak (Niederlassungserlaubnis) =====================
@@ -3759,7 +3759,7 @@ guides.push({
   },
   officialPdf: "",
   onlineLink: "",
-  officialInfoUrl: "https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwijAndInDeutschl/Niederlassungserlaubnis/niederlassungserlaubnis-node.html",
+  officialInfoUrl: "https://www.bamf.de/DE/Themen/MigrationAufenthalt/migrationaufenthalt-node.html",
 });
 
 export function getGuidesByCategory(category: Guide["category"]) {
