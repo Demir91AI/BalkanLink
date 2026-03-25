@@ -731,8 +731,8 @@ const categories: GuideCategory[] = [
         "По влегување: поднесете барање за дозвола за престој кај Ausländerbehörde.",
       ],
     },
-    officialLink: "https://www.make-it-in-germany.com/de/visum-aufenthalt/familiennachzug",
-    officialLinkLabel: "Make it in Germany",
+    officialLink: "https://www.auswaertiges-amt.de/de/service/visa-und-aufenthalt",
+    officialLinkLabel: "Auswärtiges Amt",
   },
   {
     id: "aufenthaltstitel",

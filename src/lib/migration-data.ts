@@ -41,7 +41,7 @@ const WORK_EU: MigrationCategory = {
     "Krankenversicherung über den Arbeitgeber",
   ],
   officialLinks: [
-    { label: "Make it in Germany – EU-Bürger", url: "https://www.make-it-in-germany.com/de/arbeiten-in-deutschland/eu-buerger" },
+    { label: "Freizügigkeitsgesetz – EU-Bürger", url: "https://www.auswaertiges-amt.de/de/service/visa-und-aufenthalt" },
   ],
 };
 
@@ -68,7 +68,7 @@ const WORK_WESTBALKAN = (country: string): MigrationCategory => ({
   ],
   officialLinks: [
     { label: "Westbalkanregelung – Bundesagentur für Arbeit", url: "https://www.arbeitsagentur.de/unternehmen/fachkraefte-ausland/westbalkanregelung" },
-    { label: "Make it in Germany – Arbeiten", url: "https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/arbeiten" },
+    { label: "Auswärtiges Amt – Visa & Aufenthalt", url: "https://www.auswaertiges-amt.de/de/service/visa-und-aufenthalt" },
   ],
 });
 
@@ -259,7 +259,7 @@ const RECOGNITION_NONEU: MigrationCategory = {
   ],
   officialLinks: [
     { label: "Anerkennung in Deutschland", url: "https://www.anerkennung-in-deutschland.de" },
-    { label: "Make it in Germany – Anerkennung", url: "https://www.make-it-in-germany.com/de/arbeiten-in-deutschland/anerkennung" },
+    { label: "BMBF – Anerkennung", url: "https://www.anerkennung-in-deutschland.de" },
   ],
 };
 

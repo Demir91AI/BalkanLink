@@ -50,7 +50,7 @@ export const visaTypes: VisaType[] = [
       "Pogrešan tip vize — turistička viza NE dozvoljava rad",
     ],
     guideSlug: "radna-viza",
-    officialUrl: "https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/arbeiten",
+    officialUrl: "https://www.auswaertiges-amt.de/de/service/visa-und-aufenthalt",
   },
   {
     id: "blue-card",
@@ -83,7 +83,7 @@ export const visaTypes: VisaType[] = [
       "Ne tražiti Blue Card nego običnu radnu vizu (Blue Card daje brži put do stalnog boravka)",
     ],
     guideSlug: "eu-blue-card",
-    officialUrl: "https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/blaue-karte-eu",
+    officialUrl: "https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwsendererErsteSchritte/Aufenthaltstitel/aufenthaltstitel-node.html",
   },
   {
     id: "spajanje-porodice",
@@ -120,7 +120,7 @@ export const visaTypes: VisaType[] = [
       "Predugo čekanje — obrada može trajati 2–6 mjeseci",
     ],
     guideSlug: "spajanje-porodice",
-    officialUrl: "https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/familiennachzug",
+    officialUrl: "https://www.auswaertiges-amt.de/de/service/visa-und-aufenthalt",
   },
   {
     id: "studentska-viza",
@@ -155,7 +155,7 @@ export const visaTypes: VisaType[] = [
       "Zdravstveno osiguranje nije odgovarajućeg tipa (mora biti njemačko ili priznato)",
     ],
     guideSlug: "studentska-viza",
-    officialUrl: "https://www.make-it-in-germany.com/de/studium-ausbildung/studium/visum",
+    officialUrl: "https://www.auswaertiges-amt.de/de/service/visa-und-aufenthalt",
   },
   {
     id: "produzenje-boravka",

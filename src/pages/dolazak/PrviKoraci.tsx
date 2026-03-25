@@ -89,7 +89,7 @@ export default function PrviKoraci() {
         },
       ]}
       links={[
-        { type: "info", label: "Make it in Germany (vodič)", url: "https://www.make-it-in-germany.com/de/" },
+        { type: "info", label: "Auswärtiges Amt – Visa & Aufenthalt", url: "https://www.auswaertiges-amt.de/de/service/visa-und-aufenthalt" },
         { type: "portal", label: "GEZ prijava", url: "https://www.rundfunkbeitrag.de" },
       ]}
     />
