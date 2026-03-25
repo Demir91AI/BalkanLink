@@ -31,15 +31,39 @@ export default function Header() {
   return (
     <>
       <header className="sticky top-0 z-50 border-b border-white/8 bg-[hsl(var(--primary))]/95 backdrop-blur-xl shadow-lg shadow-black/20">
-        <div className="relative flex h-14 items-center px-4">
+        {/* Subtle gold accent line at top */}
+        <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[hsl(var(--brand-orange))] to-transparent opacity-60" />
+
+        <div className="relative flex h-16 items-center px-4">
           {/* Left: sidebar trigger */}
           <div className="flex items-center">
             <SidebarTrigger className="text-white/70 hover:text-brand-orange hover:bg-white/5" />
           </div>
 
-          {/* Center: brand logo (absolute centered) */}
+          {/* Center: premium brand logo */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <BrandLogo variant="full" />
+            <Link to="/" className="group inline-flex items-center gap-3" aria-label="BalkanLink home">
+              {/* BL icon with glow ring */}
+              <span className="relative">
+                <span className="absolute -inset-1 rounded-xl bg-[hsl(var(--brand-orange))]/15 blur-md group-hover:bg-[hsl(var(--brand-orange))]/25 transition-all duration-500" />
+                <svg
+                  width="40" height="40" viewBox="0 0 40 40" fill="none"
+                  className="relative block shrink-0 drop-shadow-[0_0_8px_hsl(var(--brand-orange)/0.3)]"
+                >
+                  <rect width="40" height="40" rx="10" fill="hsl(var(--primary))" />
+                  <rect x="1" y="1" width="38" height="38" rx="9" stroke="hsl(var(--brand-orange))" strokeWidth="0.5" strokeOpacity="0.4" fill="none" />
+                  <text x="4" y="30" fontFamily="'Arial Black', Arial, sans-serif" fontWeight="900" fontSize="28" letterSpacing="-1">
+                    <tspan fill="#FFFFFF">B</tspan>
+                    <tspan fill="hsl(var(--brand-orange))">L</tspan>
+                  </text>
+                </svg>
+              </span>
+              {/* Text with gradient on Link */}
+              <span className="font-heading text-[22px] font-extrabold leading-none tracking-tight">
+                <span className="text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]">Balkan</span>
+                <span className="bg-gradient-to-r from-[hsl(var(--brand-orange))] to-[hsl(var(--gold-light))] bg-clip-text text-transparent drop-shadow-[0_0_12px_hsl(var(--brand-orange)/0.4)]">Link</span>
+              </span>
+            </Link>
           </div>
 
           {/* Right: extra menu trigger only */}
