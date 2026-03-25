@@ -12,6 +12,7 @@ import { HeroAdBanner } from "@/components/home/AdSections";
 import { AdCarousel } from "@/components/home/AdCarousel";
 import { AdFlowBanner } from "@/components/home/AdFlowBanner";
 import { WowSection } from "@/components/home/WowSection";
+import PitajBalkanLink from "@/components/home/PitajBalkanLink";
 import heroBerlin from "@/assets/hero-berlin.jpg";
 import heroMuenchen from "@/assets/hero-muenchen.jpg";
 import heroFrankfurt from "@/assets/hero-frankfurt.jpg";
@@ -191,6 +192,7 @@ export default function Index() {
         <div className="absolute bottom-0 left-0 right-0 z-10 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
       </section>
 
+      <PitajBalkanLink />
       <HeroAdBanner />
 
       <div className="flex">
