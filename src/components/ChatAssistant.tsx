@@ -371,14 +371,19 @@ export default function ChatAssistant() {
             className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-1.5 cursor-pointer group"
           >
             {/* Badge label */}
-            <motion.span
+            <motion.div
               initial={{ opacity: 0, y: 4 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="rounded-full bg-white/95 dark:bg-card/95 backdrop-blur-sm px-3 py-1 text-[11px] font-semibold text-foreground shadow-md border border-border/30"
+              className="flex flex-col items-center gap-0.5 rounded-xl bg-white/95 dark:bg-card/95 backdrop-blur-sm px-4 py-1.5 shadow-md border border-border/30"
             >
-              Pomoć
-            </motion.span>
+              <span className="text-[12px] font-bold text-foreground leading-tight">
+                Riješi problem →
+              </span>
+              <span className="text-[10px] font-medium text-muted-foreground leading-tight">
+                Pitaj BalkanLink asistenta
+              </span>
+            </motion.div>
 
             {/* Icon */}
             <div className="relative">
