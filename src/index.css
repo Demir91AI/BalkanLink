@@ -128,9 +128,10 @@
 
 @layer utilities {
   .back-button {
-    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm text-white transition-all duration-200;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm transition-all duration-200;
+    color: hsl(var(--foreground));
+    background: hsl(var(--muted));
+    border: 1px solid hsl(var(--border));
   }
   .back-button svg {
     color: #FFC107;
@@ -138,6 +139,18 @@
     height: 16px;
   }
   .back-button:hover {
+    background: hsl(var(--accent));
+    border-color: hsl(var(--border));
+  }
+  /* On dark parent (e.g. primary hero sections) */
+  .bg-primary .back-button,
+  [class*="bg-primary"] .back-button {
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+  .bg-primary .back-button:hover,
+  [class*="bg-primary"] .back-button:hover {
     background: rgba(255, 255, 255, 0.12);
     border-color: rgba(255, 255, 255, 0.25);
   }
