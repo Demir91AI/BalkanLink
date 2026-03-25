@@ -90,7 +90,7 @@ const EDUCATION_EU: MigrationCategory = {
     "Berufsschule und Betrieb beginnen",
   ],
   officialLinks: [
-    { label: "Make it in Germany – Ausbildung", url: "https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/ausbildung" },
+    { label: "BMBF – Berufsausbildung", url: "https://www.bmbf.de/bmbf/de/bildung/berufliche-bildung/berufliche-bildung.html" },
   ],
 };
 
@@ -115,7 +115,7 @@ const EDUCATION_NONEU: MigrationCategory = {
     "Aufenthaltserlaubnis bei der Ausländerbehörde beantragen",
   ],
   officialLinks: [
-    { label: "Make it in Germany – Ausbildung", url: "https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/ausbildung" },
+    { label: "BMBF – Berufsausbildung", url: "https://www.bmbf.de/bmbf/de/bildung/berufliche-bildung/berufliche-bildung.html" },
   ],
 };
 
@@ -137,7 +137,7 @@ const STUDY_EU: MigrationCategory = {
     "Immatrikulation an der Hochschule",
   ],
   officialLinks: [
-    { label: "Make it in Germany – Studium", url: "https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/studium" },
+    { label: "DAAD – Studium in Deutschland", url: "https://www.daad.de/de/" },
   ],
 };
 
@@ -164,7 +164,7 @@ const STUDY_NONEU: MigrationCategory = {
     "Immatrikulation an der Hochschule",
   ],
   officialLinks: [
-    { label: "Make it in Germany – Studium", url: "https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/studium" },
+    { label: "DAAD – Studium in Deutschland", url: "https://www.daad.de/de/" },
   ],
 };
 
