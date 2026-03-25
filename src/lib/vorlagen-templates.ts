@@ -185,7 +185,7 @@ Mit freundlichen Grüßen
       {
         title: "Wichtig zu wissen",
         items: [
-          "Eine fristlose Kündigung erfordert einen „wichtigen Grund" (§ 626 BGB).",
+          "Eine fristlose Kündigung erfordert einen \u201Ewichtigen Grund\u201C (§ 626 BGB).",
           "Die Kündigung muss innerhalb von 2 Wochen nach Kenntnis des Grundes erfolgen.",
           "Lassen Sie sich im Zweifel rechtlich beraten.",
         ],
