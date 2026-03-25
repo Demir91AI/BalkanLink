@@ -92,10 +92,10 @@ export default function Index() {
             <img
               src={slide.image}
               alt={slide.city}
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover transition-transform duration-[5000ms] ease-out"
               style={{
-                filter: "brightness(0.55) saturate(1.1) blur(6px)",
-                transform: "scale(1.08)",
+                filter: "brightness(0.75) saturate(1.15) contrast(1.05)",
+                transform: idx === currentSlide ? "scale(1.04)" : "scale(1)",
               }}
               loading="eager"
             />
