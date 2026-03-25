@@ -11,6 +11,7 @@ import {
   formatDateValue,
   todayFormatted,
 } from "@/lib/vorlagen-templates";
+import LetterPreview from "./LetterPreview";
 
 interface Props {
   template: VorlagenTemplate;
@@ -20,7 +21,7 @@ export default function VorlagenGenerator({ template }: Props) {
   const [values, setValues] = useState<Record<string, string>>(() => {
     const init: Record<string, string> = {};
     template.fields.forEach((f) => {
-      init[f.key] = f.type === "date" ? "" : "";
+      init[f.key] = "";
     });
     return init;
   });
@@ -42,7 +43,6 @@ export default function VorlagenGenerator({ template }: Props) {
       dv[f.key] =
         f.type === "date" ? formatDateValue(values[f.key]) : values[f.key];
     }
-    // Auto-fill ORT if not a field but template uses it
     if (!dv.ORT && !template.fields.find((f) => f.key === "ORT")) {
       dv.ORT = todayFormatted();
     }
@@ -71,14 +71,114 @@ export default function VorlagenGenerator({ template }: Props) {
     if (!w) return;
     w.document.write(`<!DOCTYPE html><html><head><meta charset="utf-8"><title>${template.titleDe}</title>
 <style>
-@page{size:A4;margin:25mm 20mm}
-body{font-family:'Segoe UI',Arial,sans-serif;font-size:12pt;line-height:1.6;color:#1a1a1a;white-space:pre-wrap;max-width:700px;margin:0 auto;padding:40px 20px}
-</style></head><body>${renderedText.replace(/\n/g, "\n")}</body></html>`);
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
+@page{size:A4;margin:0}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Source Serif 4','Georgia','Times New Roman',serif;
+  font-size:11.5pt;
+  line-height:1.65;
+  color:#1a1a1a;
+  background:#fff;
+  -webkit-font-smoothing:antialiased;
+}
+.page{
+  width:210mm;
+  min-height:297mm;
+  padding:28mm 25mm 30mm 25mm;
+  margin:0 auto;
+  background:#fff;
+}
+.sender-block{
+  font-size:10.5pt;
+  line-height:1.5;
+  color:#2a2a2a;
+}
+.fold-mark{
+  height:24pt;
+}
+.recipient-block{
+  font-size:11pt;
+  line-height:1.5;
+  color:#1a1a1a;
+}
+.date-line{
+  margin-top:22pt;
+  font-size:10.5pt;
+  color:#3a3a3a;
+  text-align:right;
+}
+.reference-line{
+  margin-top:6pt;
+  font-size:10pt;
+  color:#555;
+}
+.subject-line{
+  margin-top:26pt;
+  margin-bottom:18pt;
+  font-weight:700;
+  font-size:12.5pt;
+  letter-spacing:-0.01em;
+  color:#111;
+}
+.salutation{
+  margin-bottom:12pt;
+}
+.body-paragraph{
+  margin-bottom:10pt;
+  text-align:left;
+}
+.closing{
+  margin-top:18pt;
+}
+.signature-space{
+  height:52pt;
+}
+.signer-name{
+  font-weight:500;
+}
+.cv-heading{
+  font-family:'Inter','Helvetica Neue',sans-serif;
+  font-weight:600;
+  font-size:13pt;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  color:#222;
+  border-bottom:1.5px solid #ccc;
+  padding-bottom:4pt;
+  margin-top:20pt;
+  margin-bottom:10pt;
+}
+.cv-title{
+  font-family:'Inter','Helvetica Neue',sans-serif;
+  font-weight:700;
+  font-size:16pt;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:#111;
+  margin-bottom:16pt;
+}
+.cv-field{
+  margin-bottom:4pt;
+}
+.cv-field-label{
+  font-weight:600;
+  color:#333;
+}
+@media print{
+  body{background:#fff}
+  .page{padding:28mm 25mm 30mm 25mm;width:auto;min-height:auto}
+}
+@media screen{
+  body{background:#e8e8e8;padding:20px 0}
+  .page{box-shadow:0 2px 20px rgba(0,0,0,0.12)}
+}
+</style></head><body>${generatePdfHtml(renderedText, template.slug)}</body></html>`);
     w.document.close();
     setTimeout(() => {
       w.print();
-    }, 300);
-  }, [renderedText, template.titleDe]);
+    }, 400);
+  }, [renderedText, template.titleDe, template.slug]);
 
   return (
     <div className="space-y-6">
@@ -144,14 +244,12 @@ body{font-family:'Segoe UI',Arial,sans-serif;font-size:12pt;line-height:1.6;colo
         ))}
       </div>
 
-      {/* ── Live Preview (DIN 5008 style) ── */}
+      {/* ── Live Preview (DIN 5008 Letter) ── */}
       <div>
         <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
           Vorschau / Pregled
         </p>
-        <div className="rounded-xl border border-border bg-card p-6 sm:p-8 font-[Segoe_UI,Arial,sans-serif] text-sm leading-relaxed whitespace-pre-wrap shadow-sm min-h-[320px]">
-          {renderedText}
-        </div>
+        <LetterPreview text={renderedText} slug={template.slug} />
       </div>
 
       {/* ── Action Buttons ── */}
@@ -245,4 +343,216 @@ body{font-family:'Segoe UI',Arial,sans-serif;font-size:12pt;line-height:1.6;colo
       )}
     </div>
   );
+}
+
+/* ── Parse rendered text into semantic letter blocks ── */
+interface LetterBlocks {
+  senderLines: string[];
+  recipientLines: string[];
+  dateLine: string;
+  referenceLine?: string;
+  subjectLine: string;
+  salutation: string;
+  bodyParagraphs: string[];
+  closing: string;
+  signerName: string;
+}
+
+function isCV(slug: string) {
+  return slug === "lebenslauf";
+}
+
+export function parseLetterBlocks(text: string, slug: string): LetterBlocks | null {
+  if (isCV(slug)) return null;
+
+  const lines = text.split("\n");
+  const blocks: LetterBlocks = {
+    senderLines: [],
+    recipientLines: [],
+    dateLine: "",
+    subjectLine: "",
+    salutation: "",
+    bodyParagraphs: [],
+    closing: "",
+    signerName: "",
+  };
+
+  let phase: "sender" | "recipient" | "meta" | "body" | "done" = "sender";
+  let emptyCount = 0;
+  const bodyLines: string[] = [];
+  let foundSalutation = false;
+  let foundClosing = false;
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const trimmed = line.trim();
+
+    if (phase === "sender") {
+      if (trimmed === "") {
+        if (blocks.senderLines.length > 0) {
+          phase = "recipient";
+          emptyCount = 0;
+        }
+      } else {
+        blocks.senderLines.push(trimmed);
+      }
+      continue;
+    }
+
+    if (phase === "recipient") {
+      if (trimmed === "") {
+        if (blocks.recipientLines.length > 0) {
+          phase = "meta";
+          emptyCount = 0;
+        }
+      } else {
+        blocks.recipientLines.push(trimmed);
+      }
+      continue;
+    }
+
+    if (phase === "meta") {
+      if (trimmed === "") continue;
+      // Date line detection
+      if (trimmed.match(/,\s*den\s/) || trimmed.match(/\d{2}\.\d{2}\.\d{4}/)) {
+        if (!blocks.dateLine) {
+          blocks.dateLine = trimmed;
+          continue;
+        }
+      }
+      // Reference line (e.g. Kundennummer)
+      if (trimmed.match(/^(Kundennummer|Vertragsnummer|Aktenzeichen)/i)) {
+        blocks.referenceLine = trimmed;
+        continue;
+      }
+      // Subject line
+      if (trimmed.startsWith("Betreff:")) {
+        blocks.subjectLine = trimmed.replace(/^Betreff:\s*/, "");
+        phase = "body";
+        continue;
+      }
+      // If we hit salutation without subject
+      if (trimmed.startsWith("Sehr geehrte")) {
+        blocks.salutation = trimmed;
+        foundSalutation = true;
+        phase = "body";
+        continue;
+      }
+      // Fallback: if line doesn't match known patterns, treat as date
+      if (!blocks.dateLine) {
+        blocks.dateLine = trimmed;
+      }
+      continue;
+    }
+
+    if (phase === "body") {
+      // Pick up salutation
+      if (!foundSalutation && trimmed.startsWith("Sehr geehrte")) {
+        blocks.salutation = trimmed;
+        foundSalutation = true;
+        continue;
+      }
+
+      // Detect closing
+      if (trimmed.startsWith("Mit freundlichen Grüßen") || trimmed.startsWith("Mit freundlichen Grüssen")) {
+        blocks.closing = trimmed;
+        foundClosing = true;
+        continue;
+      }
+
+      if (foundClosing) {
+        if (trimmed !== "") {
+          blocks.signerName = trimmed;
+          phase = "done";
+        }
+        continue;
+      }
+
+      bodyLines.push(line);
+    }
+  }
+
+  // Split body lines into paragraphs
+  let currentParagraph: string[] = [];
+  for (const line of bodyLines) {
+    if (line.trim() === "") {
+      if (currentParagraph.length > 0) {
+        blocks.bodyParagraphs.push(currentParagraph.join(" "));
+        currentParagraph = [];
+      }
+    } else {
+      currentParagraph.push(line.trim());
+    }
+  }
+  if (currentParagraph.length > 0) {
+    blocks.bodyParagraphs.push(currentParagraph.join(" "));
+  }
+
+  return blocks;
+}
+
+/* ── Generate PDF HTML with DIN 5008 structure ── */
+function generatePdfHtml(text: string, slug: string): string {
+  if (isCV(slug)) {
+    return generateCvHtml(text);
+  }
+
+  const blocks = parseLetterBlocks(text, slug);
+  if (!blocks) return `<div class="page" style="white-space:pre-wrap">${text}</div>`;
+
+  const sender = blocks.senderLines.map((l) => `<div>${esc(l)}</div>`).join("");
+  const recipient = blocks.recipientLines.map((l) => `<div>${esc(l)}</div>`).join("");
+  const bodyParas = blocks.bodyParagraphs
+    .map((p) => `<div class="body-paragraph">${esc(p)}</div>`)
+    .join("");
+
+  return `<div class="page">
+  <div class="sender-block">${sender}</div>
+  <div class="fold-mark"></div>
+  <div class="recipient-block">${recipient}</div>
+  ${blocks.dateLine ? `<div class="date-line">${esc(blocks.dateLine)}</div>` : ""}
+  ${blocks.referenceLine ? `<div class="reference-line">${esc(blocks.referenceLine)}</div>` : ""}
+  ${blocks.subjectLine ? `<div class="subject-line">${esc(blocks.subjectLine)}</div>` : ""}
+  ${blocks.salutation ? `<div class="salutation">${esc(blocks.salutation)}</div>` : ""}
+  ${bodyParas}
+  ${blocks.closing ? `<div class="closing">${esc(blocks.closing)}</div>` : ""}
+  <div class="signature-space"></div>
+  ${blocks.signerName ? `<div class="signer-name">${esc(blocks.signerName)}</div>` : ""}
+</div>`;
+}
+
+function generateCvHtml(text: string): string {
+  const lines = text.split("\n");
+  let html = '<div class="page">';
+  let inSection = false;
+
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (trimmed === "") {
+      if (inSection) html += "<br/>";
+      continue;
+    }
+    if (trimmed === "LEBENSLAUF") {
+      html += `<div class="cv-title">${esc(trimmed)}</div>`;
+      continue;
+    }
+    if (trimmed === trimmed.toUpperCase() && trimmed.length > 3 && !trimmed.includes(":")) {
+      html += `<div class="cv-heading">${esc(trimmed)}</div>`;
+      inSection = true;
+      continue;
+    }
+    if (trimmed.includes(":") && trimmed.indexOf(":") < 20) {
+      const [label, ...rest] = trimmed.split(":");
+      html += `<div class="cv-field"><span class="cv-field-label">${esc(label)}:</span> ${esc(rest.join(":").trim())}</div>`;
+    } else {
+      html += `<div class="cv-field">${esc(trimmed)}</div>`;
+    }
+  }
+
+  html += "</div>";
+  return html;
+}
+
+function esc(s: string): string {
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
