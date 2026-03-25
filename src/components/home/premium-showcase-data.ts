@@ -39,7 +39,7 @@ export const premiumShowcaseFirms: PremiumShowcaseFirm[] = [
     logoAlt: "ALUHOME logo",
     logoWrapperClassName: "w-[11.5rem] sm:w-[13rem] h-[4.5rem]",
     highlights: ["Pergole", "Stakleni sistemi", "Ograde i kapije"],
-    images: [showcaseAluhome1, showcaseAluhome2, showcaseAluhome3],
+    images: [showcaseAluhome1, showcaseAluhome2, showcaseAluhome3, showcaseAluhome4, showcaseAluhome5],
   },
   {
     name: "Vrebo Bau",
@@ -50,7 +50,7 @@ export const premiumShowcaseFirms: PremiumShowcaseFirm[] = [
     logoAlt: "Vrebo Bau logo",
     logoWrapperClassName: "w-[12.5rem] sm:w-[15rem] h-[4.75rem]",
     highlights: ["Renoviranje", "Trockenbau", "Prozori i vrata"],
-    images: [showcaseVrebo1, showcaseVrebo2, showcaseVrebo3],
+    images: [showcaseVrebo1, showcaseVrebo2, showcaseVrebo3, showcaseVrebo4, showcaseVrebo5],
   },
   {
     name: "Ecronix",
@@ -61,6 +61,6 @@ export const premiumShowcaseFirms: PremiumShowcaseFirm[] = [
     logoAlt: "Ecronix logo",
     logoWrapperClassName: "w-[10rem] sm:w-[12rem] h-[4rem]",
     highlights: ["Web aplikacije", "Mobilne aplikacije", "AI integracija", "UI/UX dizajn"],
-    images: [ecronixSlide1, ecronixSlide2, ecronixSlide3],
+    images: [ecronixSlide1, ecronixSlide2, ecronixSlide3, ecronixSlide4, ecronixSlide5],
   },
 ];
