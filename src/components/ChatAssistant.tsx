@@ -378,10 +378,10 @@ export default function ChatAssistant() {
               className="flex flex-col items-center gap-0.5 rounded-xl bg-white/95 dark:bg-card/95 backdrop-blur-sm px-4 py-1.5 shadow-md border border-border/30"
             >
               <span className="text-[12px] font-bold text-foreground leading-tight">
-                Riješi problem →
+                {t("chatbot.trigger")}
               </span>
               <span className="text-[10px] font-medium text-muted-foreground leading-tight">
-                Pitaj BalkanLink asistenta
+                {t("chatbot.triggerSub")}
               </span>
             </motion.div>
 
@@ -451,10 +451,10 @@ export default function ChatAssistant() {
                       <BLIcon size={40} />
                     </div>
                     <h2 className="text-lg font-bold text-foreground mb-2">
-                      Kako ti mogu pomoći?
+                      {t("chatbot.welcome")}
                     </h2>
                     <p className="text-sm text-muted-foreground leading-relaxed max-w-[300px]">
-                      Postavi pitanje i dobit ćeš jasan odgovor i sljedeći korak.
+                      {t("chatbot.welcomeSub")}
                     </p>
                   </motion.div>
                 )}
@@ -531,7 +531,7 @@ export default function ChatAssistant() {
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     onKeyDown={handleKeyDown}
-                    placeholder="Npr. Kindergeld, stan, posao, AGB..."
+                    placeholder={t("chatbot.placeholder")}
                     rows={1}
                     className="flex-1 resize-none rounded-xl border border-border/60 bg-background px-3 py-2.5 text-[13px] outline-none transition-all placeholder:text-muted-foreground/40 focus:border-primary/40 focus:ring-2 focus:ring-primary/10"
                   />

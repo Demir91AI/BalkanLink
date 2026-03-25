@@ -48,11 +48,7 @@ const slides = [
   { image: heroLeipzig, city: "LEIPZIG" },
 ];
 
-const trustBadges = [
-  { icon: CheckCircle2, text: "Bez komplikacija" },
-  { icon: CheckCircle2, text: "Na tvom jeziku" },
-  { icon: CheckCircle2, text: "Provjerene informacije" },
-];
+const trustBadgeKeys = ["hero.bullet.simple", "hero.bullet.language", "hero.bullet.verified"];
 
 export default function Index() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -115,13 +111,13 @@ export default function Index() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="flex flex-col items-center text-center"
             >
-              <h1
+               <h1
                 className="font-heading text-[1.65rem] font-black leading-[1.15] tracking-tight text-white sm:text-3xl md:text-4xl lg:text-[3.4rem]"
                 style={{ textShadow: "0 4px 30px rgba(0,0,0,0.5)" }}
               >
-                Njemačka birokratija{" "}
+                {t("hero.title")}{" "}
                 <span className="text-gold drop-shadow-[0_0_24px_rgba(255,204,0,0.45)]">
-                  bez stresa.
+                  {t("hero.titleHighlight")}
                 </span>
               </h1>
 
@@ -129,7 +125,7 @@ export default function Index() {
                 className="mt-5 max-w-xl text-sm font-medium leading-relaxed text-white/80 sm:text-base md:text-lg lg:mt-6"
                 style={{ textShadow: "0 2px 12px rgba(0,0,0,0.4)" }}
               >
-                Popuni sve važne formulare uz jasna objašnjenja — korak po korak, na tvom jeziku.
+                {t("hero.subtitle")}
               </p>
 
               {/* Primary CTA */}
@@ -143,7 +139,7 @@ export default function Index() {
                   onClick={() => navigate("/formulari")}
                   className="h-12 rounded-full bg-gold px-8 text-base font-bold text-gold-foreground shadow-[0_4px_24px_rgba(255,204,0,0.4)] hover:bg-gold-light hover:shadow-[0_8px_36px_rgba(255,204,0,0.55)] hover:scale-[1.03] transition-all duration-300 sm:h-14 sm:px-10 sm:text-lg"
                 >
-                  Započni vodič
+                  {t("hero.ctaPrimary")}
                   <ArrowRight className="ml-1 h-4 w-4 sm:h-5 sm:w-5" />
                 </Button>
 
@@ -152,7 +148,7 @@ export default function Index() {
                   to="/qa"
                   className="group flex items-center gap-1.5 text-sm font-medium text-white/50 transition-colors hover:text-gold"
                 >
-                  Ili pitaj BalkanLink asistenta
+                  {t("hero.ctaSecondary")}
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                 </Link>
               </motion.div>
@@ -164,10 +160,10 @@ export default function Index() {
                 transition={{ duration: 0.6, delay: 0.7 }}
                 className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 lg:mt-10"
               >
-                {trustBadges.map((badge) => (
-                  <span key={badge.text} className="flex items-center gap-1.5 text-xs font-medium text-white/60 sm:text-sm">
-                    <badge.icon className="h-3.5 w-3.5 text-gold sm:h-4 sm:w-4" />
-                    {badge.text}
+                {trustBadgeKeys.map((key) => (
+                  <span key={key} className="flex items-center gap-1.5 text-xs font-medium text-white/60 sm:text-sm">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-gold sm:h-4 sm:w-4" />
+                    {t(key)}
                   </span>
                 ))}
               </motion.div>
