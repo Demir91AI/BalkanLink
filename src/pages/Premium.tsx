@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Check, Star, Shield, Zap, Crown, Megaphone, Image, Monitor, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -8,6 +9,35 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useSectionT } from "@/hooks/useSectionT";
 import type { ReactNode } from "react";
+
+/* ─── Floating Particles ─── */
+function HeroParticles() {
+  const [particles] = useState(() =>
+    Array.from({ length: 18 }, (_, i) => ({
+      id: i,
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      size: 1.5 + Math.random() * 2,
+      delay: Math.random() * 6,
+      duration: 4 + Math.random() * 4,
+      opacity: 0.15 + Math.random() * 0.25,
+    }))
+  );
+
+  return (
+    <div className="absolute inset-0 z-[1] overflow-hidden pointer-events-none">
+      {particles.map((p) => (
+        <motion.div
+          key={p.id}
+          className="absolute rounded-full bg-[hsl(var(--gold))]"
+          style={{ left: p.left, top: p.top, width: p.size, height: p.size }}
+          animate={{ y: [0, -20, 0], opacity: [p.opacity * 0.5, p.opacity, p.opacity * 0.5] }}
+          transition={{ duration: p.duration, repeat: Infinity, ease: "easeInOut", delay: p.delay }}
+        />
+      ))}
+    </div>
+  );
+}
 
 /* ─── Animation ─── */
 const fadeUp = {
@@ -141,38 +171,97 @@ export default function Premium() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-[#0B1F3A] py-20 md:py-28">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A] via-[#0B1F3A]/95 to-[#0B1F3A]" />
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }} />
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full bg-[hsl(var(--gold))]/8 blur-[120px]" />
+      <section className="relative overflow-hidden py-24 md:py-32" style={{ background: "linear-gradient(135deg, #0B1F3A 0%, #12254a 40%, #1a2d5a 60%, #1f2a52 80%, #0B1F3A 100%)" }}>
+        {/* Animated gradient orbs */}
+        <div className="absolute inset-0 overflow-hidden">
+          <motion.div
+            animate={{ x: [0, 30, -20, 0], y: [0, -20, 10, 0], scale: [1, 1.1, 0.95, 1] }}
+            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-1/4 left-1/3 w-[400px] h-[400px] rounded-full blur-[140px]"
+            style={{ background: "radial-gradient(circle, hsl(var(--gold) / 0.12), transparent 70%)" }}
+          />
+          <motion.div
+            animate={{ x: [0, -25, 15, 0], y: [0, 15, -25, 0], scale: [1, 0.9, 1.1, 1] }}
+            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+            className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] rounded-full blur-[120px]"
+            style={{ background: "radial-gradient(circle, rgba(99,102,241,0.08), transparent 70%)" }}
+          />
+          <motion.div
+            animate={{ x: [0, 20, -10, 0], y: [0, -15, 20, 0] }}
+            transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 4 }}
+            className="absolute top-1/2 right-1/3 w-[250px] h-[250px] rounded-full blur-[100px]"
+            style={{ background: "radial-gradient(circle, hsl(var(--gold) / 0.06), transparent 70%)" }}
+          />
+        </div>
+
+        {/* Dot grid overlay */}
+        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 0.5px, transparent 0)", backgroundSize: "32px 32px" }} />
+
+        {/* Floating particles */}
+        <HeroParticles />
 
         <div className="container relative z-10 text-center max-w-3xl">
           {/* Badge */}
-          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-[hsl(var(--gold))]/30 bg-[hsl(var(--gold))]/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[hsl(var(--gold))]">
-              🟡 {st("pricing.heroBadge")}
+          <motion.div initial={{ opacity: 0, y: 15, scale: 0.9 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.5, ease: "easeOut" }}>
+            <span className="group relative inline-flex items-center gap-2 rounded-full border border-[hsl(var(--gold))]/40 px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider text-[hsl(var(--gold))]"
+              style={{ background: "linear-gradient(135deg, hsl(var(--gold) / 0.15), hsl(var(--gold) / 0.05))", boxShadow: "0 0 20px hsl(var(--gold) / 0.15), inset 0 1px 0 hsl(var(--gold) / 0.1)" }}>
+              <motion.span
+                animate={{ opacity: [0.4, 1, 0.4] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="h-1.5 w-1.5 rounded-full bg-[hsl(var(--gold))]"
+                style={{ boxShadow: "0 0 6px hsl(var(--gold) / 0.6)" }}
+              />
+              {st("pricing.heroBadge")}
             </span>
           </motion.div>
 
           {/* Title */}
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-5 font-heading text-3xl font-extrabold tracking-tight text-white md:text-5xl leading-tight">
+          <motion.h1 initial={{ opacity: 0, y: 25 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
+            className="mt-6 font-heading text-[1.75rem] font-extrabold tracking-tight leading-[1.15] sm:text-4xl md:text-5xl lg:text-[3.25rem]"
+            style={{
+              background: "linear-gradient(180deg, #ffffff 30%, hsl(var(--gold) / 0.85) 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              filter: "drop-shadow(0 2px 20px rgba(255,255,255,0.08))",
+            }}>
             {st("pricing.heroTitle")}
           </motion.h1>
 
           {/* Subtitle */}
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
-            className="mx-auto mt-4 max-w-xl text-base text-white/55 md:text-lg leading-relaxed">
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
+            className="mx-auto mt-5 max-w-xl text-[0.95rem] text-white/65 md:text-lg leading-[1.7]">
             {st("pricing.heroSubtitle")}
           </motion.p>
 
+          {/* CTA */}
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.45 }}
+            className="mt-9 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+            <Button size="lg" className="h-12 rounded-xl px-8 text-sm font-bold shadow-lg transition-all duration-300 hover:scale-[1.04]" asChild
+              style={{
+                background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-light, var(--gold))))",
+                color: "hsl(var(--gold-foreground))",
+                boxShadow: "0 4px 24px hsl(var(--gold) / 0.35), 0 0 0 1px hsl(var(--gold) / 0.1)",
+              }}>
+              <Link to="/pocni-ovdje">
+                👉 {st("pricing.heroCta1")}
+              </Link>
+            </Button>
+            <Button variant="ghost" size="lg" className="h-12 rounded-xl px-8 text-sm text-white/45 hover:text-white hover:bg-white/5 transition-all duration-200" asChild>
+              <a href="#products">
+                {st("pricing.heroCta2")}
+              </a>
+            </Button>
+          </motion.div>
 
           {/* Trust line */}
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.5 }}
-            className="mt-6 text-xs text-white/30">
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.6 }}
+            className="mt-8 text-xs text-white/30 tracking-wide">
             {st("pricing.heroTrust")}
           </motion.p>
         </div>
+
+        {/* Bottom gold line */}
+        <div className="absolute bottom-0 left-0 right-0 z-10 h-px bg-gradient-to-r from-transparent via-[hsl(var(--gold))]/20 to-transparent" />
       </section>
 
       {/* PRODUCTS */}
