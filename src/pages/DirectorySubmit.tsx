@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { navigateBackOrHome } from "@/lib/navigation";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -80,10 +81,9 @@ export default function DirectorySubmit() {
 
   return (
     <div className="container max-w-2xl py-8">
-      <Link to="/directory" className="mb-6 inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground">
-        <ArrowLeft className="h-4 w-4" />
-        {t("dir.backToDirectory")}
-      </Link>
+      <button onClick={() => navigateBackOrHome(navigate)} className="mb-6 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground">
+        <ArrowLeft className="h-3 w-3" /> Nazad
+      </button>
 
       <h1 className="mb-2 text-2xl font-bold">{t("dir.submitTitle")}</h1>
       <p className="mb-8 text-muted-foreground">{t("dir.submitSubtitle")}</p>

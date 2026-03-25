@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import { navigateBackOrHome } from "@/lib/navigation";
 import { ArrowLeft, Search, Check, Download, Upload } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,6 +13,7 @@ import { useQueryClient } from "@tanstack/react-query";
 
 export default function AdminFormMapper() {
   const { slug } = useParams<{ slug: string }>();
+  const navigate = useNavigate();
   const formSlug = slug ?? "kindergeld-kg1";
   const { data: fields } = useFormFields(formSlug);
   const { data: mappings } = useFieldMappings(formSlug);
@@ -96,9 +98,9 @@ export default function AdminFormMapper() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-6">
-      <Link to="/formulari" className="mb-3 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground">
-        <ArrowLeft className="h-3 w-3" /> {t("sg.backToForms")}
-      </Link>
+      <button onClick={() => navigateBackOrHome(navigate)} className="mb-3 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground">
+        <ArrowLeft className="h-3 w-3" /> Nazad
+      </button>
       <h1 className="font-heading text-xl font-extrabold mb-4">{t("admin.mapper.title")} — {formSlug}</h1>
 
       {/* Coverage */}

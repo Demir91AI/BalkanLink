@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { motion } from "framer-motion";
+import { navigateBackOrHome } from "@/lib/navigation";
 
 import flagBIH from "@/assets/flags/ba.png";
 import flagHR from "@/assets/flags/hr.png";
@@ -28,7 +29,7 @@ export default function Community() {
       <section className="relative overflow-hidden bg-primary py-14 sm:py-20">
         <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-gold/3" />
         <div className="container relative max-w-5xl">
-          <button onClick={() => window.history.length > 2 ? navigate(-1) : navigate("/")} className="mb-4 inline-flex items-center gap-1 text-xs text-primary-foreground/70 hover:text-primary-foreground">
+          <button onClick={() => navigateBackOrHome(navigate)} className="mb-4 inline-flex items-center gap-1 text-xs text-primary-foreground/70 hover:text-primary-foreground">
             <ArrowLeft className="h-3 w-3" /> Nazad
           </button>
           <div className="text-center">

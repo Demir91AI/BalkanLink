@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import { navigateBackOrHome } from "@/lib/navigation";
 import { ArrowLeft, ChevronLeft, ChevronRight, AlertTriangle, BookOpen, ClipboardList, PenLine, Pencil, MapPin, Hash, XCircle, MinusCircle, FileCheck, Info, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -19,6 +20,7 @@ const cardConfig: { key: keyof GuideStepCard; label: string; icon: React.ReactNo
 
 export default function SmartGuide() {
   const { slug } = useParams<{ slug: string }>();
+  const navigate = useNavigate();
   const guide = getGuideBySlug(slug ?? "");
   const [step, setStep] = useState(0);
   const lang: LangKey = "bs";
@@ -27,9 +29,9 @@ export default function SmartGuide() {
     return (
       <div className="mx-auto max-w-2xl px-4 py-12 text-center">
         <p className="text-muted-foreground">Vodič nije pronađen.</p>
-        <Button variant="outline" className="mt-4" asChild>
-          <Link to="/formulari">Nazad na formulare</Link>
-        </Button>
+        <button onClick={() => navigateBackOrHome(navigate)} className="mt-4 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground">
+          <ArrowLeft className="h-3 w-3" /> Nazad
+        </button>
       </div>
     );
   }
@@ -42,9 +44,9 @@ export default function SmartGuide() {
     <div className="mx-auto max-w-4xl px-4 py-6">
       {/* Header */}
       <div className="mb-6">
-        <Link to="/formulari" className="mb-3 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground">
-          <ArrowLeft className="h-3 w-3" /> Nazad na formulare
-        </Link>
+        <button onClick={() => navigateBackOrHome(navigate)} className="mb-3 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground">
+          <ArrowLeft className="h-3 w-3" /> Nazad
+        </button>
         <h1 className="font-heading text-xl font-extrabold sm:text-2xl">{guide.title[lang]}</h1>
         <p className="mt-1 text-xs text-muted-foreground">
           Izvor: {guide.authority[lang]}

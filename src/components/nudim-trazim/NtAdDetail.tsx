@@ -29,7 +29,7 @@ export default function NtAdDetail({ ad, onBack, onOpen }: Props) {
   return (
     <div className="space-y-8">
       <Button variant="ghost" onClick={onBack} className="gap-2 text-muted-foreground">
-        <ArrowLeft className="h-4 w-4" /> {st("nt.backToAds")}
+        <ArrowLeft className="h-4 w-4" /> Nazad
       </Button>
 
       <Card className="border-border/60">
