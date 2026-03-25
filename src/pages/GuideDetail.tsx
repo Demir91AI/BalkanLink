@@ -31,9 +31,9 @@ export default function GuideDetail() {
         <p className="text-muted-foreground">
           {lk === "de" ? "Der gewünschte Guide existiert nicht." : lk === "bs" ? "Traženi vodič ne postoji." : "The requested guide does not exist."}
         </p>
-        <Link to="/formulare" className="mt-4 inline-block text-primary underline">
-          ← {lk === "de" ? "Zurück" : lk === "bs" ? "Nazad" : "Back"}
-        </Link>
+        <button onClick={() => navigateBackOrHome(navigate)} className="mt-4 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground">
+          <ArrowLeft className="h-3 w-3" /> Nazad
+        </button>
       </section>
     );
   }
@@ -62,7 +62,7 @@ export default function GuideDetail() {
             onClick={() => navigateBackOrHome(navigate)}
             className="mb-4 inline-flex items-center gap-1 text-xs text-primary-foreground/70 hover:text-primary-foreground"
           >
-            <ArrowLeft className="h-3 w-3" /> {lk === "de" ? "Zurück" : lk === "bs" ? "Nazad" : "Back"}
+            <ArrowLeft className="h-3 w-3" /> Nazad
           </button>
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">
             {guide.title[lk]}

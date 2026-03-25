@@ -232,7 +232,7 @@ export default function BoravisnaDozvola() {
           onClick={() => setSelected(null)}
           className="mb-4 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
         >
-          <ArrowLeft className="h-3 w-3" /> {st("viza.backToList")}
+          <ArrowLeft className="h-3 w-3" /> Nazad
         </button>
         <VisaDetail visa={activeVisa} st={st} />
       </div>
