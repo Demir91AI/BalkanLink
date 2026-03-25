@@ -163,7 +163,7 @@ export default function Index() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.7 }}
-                className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 lg:justify-start lg:mt-10"
+                className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 lg:mt-10"
               >
                 {trustBadges.map((badge) => (
                   <span key={badge.text} className="flex items-center gap-1.5 text-xs font-medium text-white/60 sm:text-sm">
