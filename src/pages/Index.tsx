@@ -102,9 +102,8 @@ export default function Index() {
           </div>
         ))}
 
-        {/* Dark overlays */}
-        <div className="absolute inset-0 z-[2] bg-black/50" />
-        <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/40 via-black/20 to-black/70" />
+        {/* Gradient overlays — no blur, image stays vivid */}
+        <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/60 via-black/30 to-black/50" />
 
         {/* Content */}
         <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-5 py-16 lg:py-20">
