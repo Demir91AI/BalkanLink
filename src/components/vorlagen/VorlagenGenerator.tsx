@@ -158,7 +158,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;font-size:12pt;line-height:1.6;colo
       <div className="flex flex-wrap gap-3">
         <Button onClick={handleCopy} variant="outline" className="gap-2">
           {copied ? (
-            <Check className="h-4 w-4 text-green-600" />
+            <Check className="h-4 w-4 text-primary" />
           ) : (
             <Copy className="h-4 w-4" />
           )}
