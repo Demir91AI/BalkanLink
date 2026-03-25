@@ -45,17 +45,11 @@ export default function Header() {
             <Link to="/" className="group relative inline-flex items-center gap-3" aria-label="BalkanLink home">
               {/* Unified glow behind entire logo */}
               <span className="absolute -inset-3 rounded-2xl bg-[hsl(var(--brand-orange))]/10 blur-xl group-hover:bg-[hsl(var(--brand-orange))]/20 transition-all duration-500 pointer-events-none" />
-              {/* BL icon – clean, no border */}
-              <svg
-                width="40" height="40" viewBox="0 0 40 40" fill="none"
-                className="relative block shrink-0 drop-shadow-[0_0_10px_hsl(var(--brand-orange)/0.35)]"
-              >
-                <rect width="40" height="40" rx="10" fill="hsl(var(--primary))" />
-                <text x="4" y="30" fontFamily="'Arial Black', Arial, sans-serif" fontWeight="900" fontSize="28" letterSpacing="-1">
-                  <tspan fill="#FFFFFF">B</tspan>
-                  <tspan fill="hsl(var(--brand-orange))">L</tspan>
-                </text>
-              </svg>
+              {/* BL text only – no box, no border */}
+              <span className="relative font-heading text-[28px] font-extrabold leading-none tracking-tight drop-shadow-[0_0_10px_hsl(var(--brand-orange)/0.35)]">
+                <span className="text-white">B</span>
+                <span className="bg-gradient-to-r from-[hsl(var(--brand-orange))] to-[hsl(var(--gold-light))] bg-clip-text text-transparent">L</span>
+              </span>
               {/* Text with glow */}
               <span className="relative font-heading text-[22px] font-extrabold leading-none tracking-tight drop-shadow-[0_0_16px_hsl(var(--brand-orange)/0.3)]">
                 <span className="text-white">Balkan</span>
