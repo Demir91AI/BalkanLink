@@ -152,7 +152,7 @@ export const guides: Guide[] = [
       en: ["Missing child's tax ID", "Child attachment not included", "Missing signature", "Third-party bank details provided", "Tax number instead of tax ID entered"],
     },
     officialPdf: "https://www.arbeitsagentur.de/datei/kg1-antrag-kindergeld_ba036550.pdf",
-    onlineLink: "https://www.arbeitsagentur.de/familie-und-kinder/kindergeld-beantragen",
+    onlineLink: "https://www.arbeitsagentur.de/familie-und-kinder/kindergeld",
   },
   {
     slug: "kinderzuschlag",
