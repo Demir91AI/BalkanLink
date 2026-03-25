@@ -1,4 +1,4 @@
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, ExternalLink, Calendar } from "lucide-react";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
 import { Badge } from "@/components/ui/badge";
@@ -70,11 +70,9 @@ export default function QADetail() {
     return (
       <div className="container max-w-3xl py-16 text-center">
         <p className="text-muted-foreground">Pitanje nije pronađeno.</p>
-        <Button variant="outline" asChild className="mt-4">
-          <Link to="/qa">
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Nazad na listu
-          </Link>
+        <Button variant="outline" className="mt-4" onClick={() => navigateBackOrHome(navigate)}>
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Nazad
         </Button>
       </div>
     );
@@ -90,7 +88,7 @@ export default function QADetail() {
         className="mb-6 inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
       >
         <ArrowLeft className="h-4 w-4" />
-        Sva pitanja
+        Nazad
       </button>
 
       {/* Meta */}

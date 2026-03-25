@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { navigateBackOrHome } from "@/lib/navigation";
+import { hasManagedBackHistory, useHistorySearchState } from "@/hooks/useHistorySearchState";
 import { ArrowLeft, ChevronLeft, ChevronRight, AlertTriangle, BookOpen, ClipboardList, PenLine, Pencil, MapPin, Hash, XCircle, MinusCircle, FileCheck, Info, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -21,8 +22,8 @@ const cardConfig: { key: keyof GuideStepCard; label: string; icon: React.ReactNo
 export default function SmartGuide() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
+  const { searchParams, setSearchState } = useHistorySearchState();
   const guide = getGuideBySlug(slug ?? "");
-  const [step, setStep] = useState(0);
   const lang: LangKey = "bs";
 
   if (!guide) {
@@ -37,8 +38,31 @@ export default function SmartGuide() {
   }
 
   const steps = guide.steps[lang];
+  const rawStep = Number(searchParams.get("step") ?? "1");
+  const step = Number.isFinite(rawStep)
+    ? Math.min(Math.max(rawStep - 1, 0), steps.length - 1)
+    : 0;
   const current = steps[step];
   const progress = ((step + 1) / steps.length) * 100;
+
+  const goToStep = (nextStep: number, replace = false) => {
+    const normalizedStep = Math.min(Math.max(nextStep, 0), steps.length - 1);
+    setSearchState(
+      { step: normalizedStep === 0 ? null : String(normalizedStep + 1) },
+      { replace, state: { blGuideStep: true } }
+    );
+  };
+
+  const goToPreviousStep = () => {
+    if (step === 0) return;
+
+    if (hasManagedBackHistory("blGuideStep")) {
+      navigate(-1);
+      return;
+    }
+
+    goToStep(step - 1, true);
+  };
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-6">
@@ -109,7 +133,7 @@ export default function SmartGuide() {
           {steps.map((_, i) => (
             <button
               key={i}
-              onClick={() => setStep(i)}
+              onClick={() => goToStep(i)}
               className={`shrink-0 rounded-full px-3 py-1 text-[10px] font-medium transition ${
                 i === step
                   ? "bg-primary text-primary-foreground"
@@ -156,10 +180,10 @@ export default function SmartGuide() {
 
         {/* Navigation */}
         <div className="flex items-center justify-between">
-          <Button variant="outline" size="sm" disabled={step === 0} onClick={() => setStep(step - 1)}>
+          <Button variant="outline" size="sm" disabled={step === 0} onClick={goToPreviousStep}>
             <ChevronLeft className="mr-1 h-4 w-4" /> Nazad
           </Button>
-          <Button variant="outline" size="sm" disabled={step === steps.length - 1} onClick={() => setStep(step + 1)}>
+          <Button variant="outline" size="sm" disabled={step === steps.length - 1} onClick={() => goToStep(step + 1)}>
             Dalje <ChevronRight className="ml-1 h-4 w-4" />
           </Button>
         </div>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   BookOpen, ChevronLeft, ChevronRight, Pencil, MapPin, Hash,
   XCircle, MinusCircle, FileCheck,
@@ -6,6 +6,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
+import { hasManagedBackHistory, useHistorySearchState } from "@/hooks/useHistorySearchState";
 import { cn } from "@/lib/utils";
 import type { Guide, GuideStepCard } from "@/lib/guide-data";
 
@@ -27,11 +28,35 @@ interface FormSmartGuideProps {
 
 /** The step-by-step Smart Guide wizard (premium content) */
 export default function FormSmartGuide({ guide, lang }: FormSmartGuideProps) {
-  const [step, setStep] = useState(0);
+  const navigate = useNavigate();
+  const { searchParams, setSearchState } = useHistorySearchState();
   const steps = guide.steps[lang]?.length ? guide.steps[lang] : guide.steps["bs"];
   if (!steps || steps.length === 0) return <p className="text-xs text-muted-foreground">Vodič nije dostupan.</p>;
+  const rawStep = Number(searchParams.get("guideStep") ?? "1");
+  const step = Number.isFinite(rawStep)
+    ? Math.min(Math.max(rawStep - 1, 0), steps.length - 1)
+    : 0;
   const current = steps[step];
   const progress = ((step + 1) / steps.length) * 100;
+
+  const goToStep = (nextStep: number, replace = false) => {
+    const normalizedStep = Math.min(Math.max(nextStep, 0), steps.length - 1);
+    setSearchState(
+      { guideStep: normalizedStep === 0 ? null : String(normalizedStep + 1) },
+      { replace, state: { blGuideStep: true } }
+    );
+  };
+
+  const goToPreviousStep = () => {
+    if (step === 0) return;
+
+    if (hasManagedBackHistory("blGuideStep")) {
+      navigate(-1);
+      return;
+    }
+
+    goToStep(step - 1, true);
+  };
 
   return (
     <div className="space-y-4">
@@ -46,7 +71,7 @@ export default function FormSmartGuide({ guide, lang }: FormSmartGuideProps) {
         {steps.map((_, i) => (
           <button
             key={i}
-            onClick={() => setStep(i)}
+            onClick={() => goToStep(i)}
             className={cn(
               "shrink-0 rounded-full px-3 py-1 text-[10px] font-medium transition",
               i === step
@@ -89,10 +114,10 @@ export default function FormSmartGuide({ guide, lang }: FormSmartGuideProps) {
       )}
 
       <div className="flex items-center justify-between">
-        <Button variant="outline" size="sm" disabled={step === 0} onClick={() => setStep(step - 1)}>
+        <Button variant="outline" size="sm" disabled={step === 0} onClick={goToPreviousStep}>
           <ChevronLeft className="mr-1 h-4 w-4" /> Nazad
         </Button>
-        <Button variant="outline" size="sm" disabled={step === steps.length - 1} onClick={() => setStep(step + 1)}>
+        <Button variant="outline" size="sm" disabled={step === steps.length - 1} onClick={() => goToStep(step + 1)}>
           Dalje <ChevronRight className="ml-1 h-4 w-4" />
         </Button>
       </div>

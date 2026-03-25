@@ -5,6 +5,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useMissions } from "@/hooks/useMissions";
+import { useHistorySearchState } from "@/hooks/useHistorySearchState";
 import { ORIGIN_COUNTRIES } from "@/lib/directory-constants";
 import { navigateBackOrHome } from "@/lib/navigation";
 
@@ -32,7 +33,7 @@ function MissionDetail({ id, onBack }: { id: string; onBack: () => void }) {
     <div className="container py-8">
       <Button variant="ghost" size="sm" onClick={onBack} className="mb-6">
         <ArrowLeft className="mr-2 h-4 w-4" />
-        {t("missions.title")}
+        Nazad
       </Button>
 
       <div className="mx-auto max-w-lg rounded-xl border bg-card p-6 shadow-sm">
@@ -95,10 +96,11 @@ function MissionDetail({ id, onBack }: { id: string; onBack: () => void }) {
 export default function Missions() {
   const { t } = useLanguage();
   const navigate = useNavigate();
+  const { searchParams, setSearchState } = useHistorySearchState();
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
   const [missionType, setMissionType] = useState("");
-  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const selectedId = searchParams.get("mission");
 
   const { data: missions, isLoading } = useMissions({ country, city, missionType });
 
@@ -110,7 +112,7 @@ export default function Missions() {
   const getMissionTypeLabel = (type: string) => type === "Embassy" ? t("missions.embassy") : t("missions.consulate");
 
   if (selectedId) {
-    return <MissionDetail id={selectedId} onBack={() => setSelectedId(null)} />;
+    return <MissionDetail id={selectedId} onBack={() => navigateBackOrHome(navigate)} />;
   }
 
   return (
@@ -175,7 +177,12 @@ export default function Missions() {
             return (
               <button
                 key={m.id}
-                onClick={() => setSelectedId(m.id)}
+                onClick={() =>
+                  setSearchState(
+                    { mission: m.id },
+                    { state: { blInternalBack: true } }
+                  )
+                }
                 className="flex flex-col gap-3 rounded-xl border bg-card p-5 text-left shadow-sm transition-shadow hover:shadow-md"
               >
                 <div className="flex items-start justify-between gap-2">
