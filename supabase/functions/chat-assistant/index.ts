@@ -49,7 +49,7 @@ function buildFormCatalogContext(): string {
   return FORM_CATALOG.map(f => `- ${f.label} (slug: ${f.slug}): ${f.desc}`).join("\n");
 }
 
-// ── SITE CONTENT INDEX (compact) ──
+// ── SITE CONTENT INDEX ──
 
 const SITE_CONTENT_INDEX = `
 BALKANLINK STRANICE:
@@ -57,7 +57,8 @@ Dolazak: /dolazak/prvi-koraci, /dolazak/prijava-prebivalista (Anmeldung), /dolaz
 Formulari: /formulari (lista), /formulari/:slug (pojedinačni), /guide/:slug (Smart Guide vodič)
 Život: /zivot-savjeti, /trebam-pomoc, /familie, /foerderungen
 Alati: /brutto-netto-rechner, /dokumenten-check, /generatoren
-Stanovi/Posao: /wohnungen, /stellenangebote
+Stanovi: /wohnungen (pametna pretraga stanova sa filterima)
+Posao: /stellenangebote (pametna pretraga poslova sa filterima)
 Oglasi: /nudim-trazim (Nudim/Tražim oglasna tabla)
 Zajednica: /qa, /directory, /ambasade-konzulati
 Premium: /premium (Free vs Premium)
@@ -102,12 +103,12 @@ const SITE_TOPIC_MAP: Record<string, SiteTopic> = {
   "auto anmelden": { url: "/dolazak/auto-anmelden", label: "Auto registracija", category: "arrival" },
   "uvoz auta": { url: "/dolazak/auto-anmelden", label: "Uvoz auta", category: "arrival" },
   "sozialversicherung": { url: "/dolazak/sozialversicherung", label: "Sozialversicherung", category: "arrival" },
-  "posao": { url: "/stellenangebote", label: "Poslovi", category: "life" },
-  "poslovi": { url: "/stellenangebote", label: "Poslovi", category: "life" },
-  "job": { url: "/stellenangebote", label: "Poslovi", category: "life" },
-  "stan": { url: "/wohnungen", label: "Stanovi", category: "life" },
-  "stanovi": { url: "/wohnungen", label: "Stanovi", category: "life" },
-  "wohnung": { url: "/wohnungen", label: "Stanovi", category: "life" },
+  "posao": { url: "/stellenangebote", label: "Pretraga poslova", category: "search" },
+  "poslovi": { url: "/stellenangebote", label: "Pretraga poslova", category: "search" },
+  "job": { url: "/stellenangebote", label: "Pretraga poslova", category: "search" },
+  "stan": { url: "/wohnungen", label: "Pretraga stanova", category: "search" },
+  "stanovi": { url: "/wohnungen", label: "Pretraga stanova", category: "search" },
+  "wohnung": { url: "/wohnungen", label: "Pretraga stanova", category: "search" },
   "porodica": { url: "/familie", label: "Porodica", category: "life" },
   "familie": { url: "/familie", label: "Porodica", category: "life" },
   "djeca": { url: "/familie", label: "Porodica", category: "life" },
@@ -144,7 +145,7 @@ function detectSiteTopics(text: string): SiteTopic[] {
   return found.slice(0, 3);
 }
 
-// ── INTENT CLASSIFIER ──
+// ── INTENT CLASSIFIER (expanded) ──
 
 const PREMIUM_PATTERNS = [
   /popuni\s+(mi\s+)?(ovaj\s+)?formular/i,
@@ -175,19 +176,81 @@ const SMART_GUIDE_PATTERNS = [
   /how\s+to\s+fill/i,
 ];
 
-type Intent = "FREE_ALLOWED" | "PREMIUM_REQUIRED" | "SMART_GUIDE_REDIRECT";
+const JOB_PATTERNS = [
+  /traži[m]?\s+(posao|job|rad|zaposlenje|arbeit)/i,
+  /pronađi\s+(posao|job|rad)/i,
+  /pronadji\s+(posao|job|rad)/i,
+  /job\s*(suche|such|find)/i,
+  /arbeit\s*(such|find)/i,
+  /gdje\s+(naći|naci|pronaći|pronaci)\s+(posao|job|rad)/i,
+  /kako\s+(naći|naci|pronaći|pronaci)\s+(posao|job|rad)/i,
+  /looking\s+for\s+(a\s+)?(job|work)/i,
+  /zaposliti\s+se/i,
+  /raditi\s+u\s+njemačk/i,
+  /stellenangebot/i,
+];
+
+const HOUSING_PATTERNS = [
+  /traži[m]?\s+(stan|wohnung|sobu|wg|smještaj|smjestaj)/i,
+  /pronađi\s+(stan|wohnung|sobu)/i,
+  /pronadji\s+(stan|wohnung|sobu)/i,
+  /wohnung\s*(such|find)/i,
+  /gdje\s+(naći|naci|pronaći|pronaci)\s+(stan|wohnung|sobu)/i,
+  /kako\s+(naći|naci|pronaći|pronaci)\s+(stan|wohnung|sobu)/i,
+  /looking\s+for\s+(a\s+)?(flat|apartment|room)/i,
+  /stanovanje/i,
+  /wg.*(suche|zimmer)/i,
+  /miet(e|wohnung)/i,
+];
+
+const JOB_KEYWORDS = [
+  "tražim posao", "trazim posao", "pronađi posao", "pronadji posao",
+  "traži posao", "trazi posao", "pretraga poslova", "job suche",
+  "arbeit finden", "posao u njemačkoj", "posao u njemackoj",
+  "rad u njemačkoj", "zaposlenje", "stellenangebote",
+];
+
+const HOUSING_KEYWORDS = [
+  "tražim stan", "trazim stan", "pronađi stan", "pronadji stan",
+  "traži stan", "trazi stan", "pretraga stanova", "wohnung suchen",
+  "wohnung finden", "stan u njemačkoj", "stan u njemackoj",
+  "tražim sobu", "trazim sobu", "wg suche", "smještaj",
+];
+
+type Intent = "FREE_ALLOWED" | "PREMIUM_REQUIRED" | "SMART_GUIDE_REDIRECT" | "JOB_SEARCH" | "HOUSING_SEARCH";
 
 function classifyIntent(message: string): Intent {
   const lower = message.toLowerCase().trim();
+
+  // Job search
+  for (const pat of JOB_PATTERNS) {
+    if (pat.test(lower)) return "JOB_SEARCH";
+  }
+  for (const kw of JOB_KEYWORDS) {
+    if (lower.includes(kw)) return "JOB_SEARCH";
+  }
+
+  // Housing search
+  for (const pat of HOUSING_PATTERNS) {
+    if (pat.test(lower)) return "HOUSING_SEARCH";
+  }
+  for (const kw of HOUSING_KEYWORDS) {
+    if (lower.includes(kw)) return "HOUSING_SEARCH";
+  }
+
+  // Smart guide
   for (const pat of SMART_GUIDE_PATTERNS) {
     if (pat.test(lower)) return "SMART_GUIDE_REDIRECT";
   }
+
+  // Premium
   for (const pat of PREMIUM_PATTERNS) {
     if (pat.test(lower)) return "PREMIUM_REQUIRED";
   }
   for (const kw of PREMIUM_KEYWORDS) {
     if (lower.includes(kw)) return "PREMIUM_REQUIRED";
   }
+
   return "FREE_ALLOWED";
 }
 
@@ -265,7 +328,7 @@ function detectFormFromCatalog(text: string): typeof FORM_CATALOG[0] | null {
   return null;
 }
 
-// ── SYSTEM PROMPT (COMPACT for speed) ──
+// ── SYSTEM PROMPT ──
 
 function buildSystemPrompt(isPremium: boolean, language: string, dbResults: any[]): string {
   const langName = LANG_NAMES[language] || "Deutsch";
@@ -279,7 +342,7 @@ ${formatDbResults(dbResults)}
 Format: ime, adresa, kontakt. Završi sa "Treba li ti još nešto?"`;
   }
 
-  return `Ti si BalkanLink Asistent — digitalni vodič za Balkance u Njemačkoj.
+  return `Ti si BalkanLink Asistent — centralni digitalni vodič za Balkance u Njemačkoj.
 Odgovaraj ISKLJUČIVO na: ${langName}.
 
 ${SITE_CONTENT_INDEX}
@@ -287,16 +350,39 @@ ${SITE_CONTENT_INDEX}
 FORMULARI:
 ${buildFormCatalogContext()}
 
-PRAVILA:
-1. KRATAK odgovor: 2-4 pasusa max.
-2. Uključi [FORM:slug] kad je tema o formularu.
-3. Uključi Markdown link na relevantnu stranicu (npr. [Pogledaj](/premium)).
-4. Max 2 linka po odgovoru.
-5. Struktura: Šta je → Bitno → Šta dalje.
+PRAVILA ODGOVARANJA:
+1. STRUKTURA svakog odgovora:
+   - **Šta je**: Kratko objašnjenje (1-2 rečenice)
+   - **Koraci**: Konkretni koraci (numerisana lista)
+   - **⚠️ Česte greške** (opciono, samo ako je relevantno)
+   - **👉 Sljedeći korak**: CTA sa linkom na BalkanLink stranicu
+
+2. KRATAK odgovor: 2-4 pasusa max.
+3. Uključi [FORM:slug] kad je tema o formularu.
+4. Uključi Markdown link na relevantnu stranicu (npr. [Pogledaj](/premium)).
+5. Max 2 linka po odgovoru.
 6. Završi sa "Treba li ti još nešto?"
 7. NE izmišljaj sadržaj. Koristi samo BalkanLink stranice.
 8. Za "koji formulari postoje" prikaži top 5 sa [FORM:slug].
-${!isPremium ? "\nFREE korisnik: za polje-po-polje uputi na Smart Guide. Za dokumente daj preview (3 reda) + Premium." : "\nPREMIUM korisnik: puni pristup Smart Guide i generisanju dokumenata."}`;
+
+PRETRAGA POSLOVA I STANOVA:
+- Ako korisnik traži posao → uputi na /stellenangebote sa objašnjenjem da može koristiti pametne filtere.
+- Ako korisnik traži stan → uputi na /wohnungen sa objašnjenjem da može koristiti pametne filtere.
+- Objasni kratko kako filteri rade (grad, branša, udaljenost itd.)
+
+PREMIUM LOGIKA:
+${!isPremium ? `FREE korisnik:
+- OBJASNI temu, daj orijentaciju i korake
+- Za polje-po-polje popunjavanje formulara → uputi na Smart Guide: "Za tačno popunjavanje koristi [Smart Guide](/guide/slug)"
+- Za dokumente daj preview (3 reda) + uputi na Premium
+- NIKAD ne popunjaj formulare kompletno` : `PREMIUM korisnik:
+- Puni pristup Smart Guide i generisanju dokumenata
+- Detaljnija pomoć i personalizovani savjeti`}
+
+NAVIGACIJA:
+- Aktivno koristi linkove na BalkanLink stranice
+- Svaki odgovor treba imati barem jedan interni link
+- Koristi [Pogledaj stranicu](/putanja) format`;
 }
 
 // ── Gate messages ──
@@ -311,6 +397,36 @@ const SMART_GUIDE_MSG: Record<string, { text: string; label: string }> = {
   bs: { text: "Za detaljno popunjavanje formulara koristi Smart Guide — interaktivni vodič korak po korak.", label: "Otvori Smart Guide" },
   de: { text: "Für das detaillierte Ausfüllen nutzen Sie unseren Smart Guide.", label: "Smart Guide öffnen" },
   en: { text: "For detailed form filling, use our Smart Guide — step-by-step.", label: "Open Smart Guide" },
+};
+
+const JOB_SEARCH_MSG: Record<string, { text: string; label: string }> = {
+  bs: {
+    text: "BalkanLink ima **pametnu pretragu poslova** koja ti generiše direktne linkove na najveće portale u Njemačkoj.\n\n**Kako funkcioniše:**\n1. Unesi grad i branšu\n2. Odaberi dodatne filtere (bez njemačkog, sa smještajem...)\n3. Klikni „Traži poslove"\n4. Dobij gotove pretrage za Indeed, StepStone, Bundesagentur i druge\n\n👉 [Otvori pretragu poslova](/stellenangebote)",
+    label: "Otvori pretragu poslova",
+  },
+  de: {
+    text: "BalkanLink bietet eine **intelligente Jobsuche**, die direkte Suchlinks zu den größten Portalen generiert.\n\n**So funktioniert's:**\n1. Stadt und Branche eingeben\n2. Zusätzliche Filter wählen\n3. „Jobs suchen" klicken\n4. Fertige Suchen für Indeed, StepStone u.a. erhalten\n\n👉 [Jobsuche öffnen](/stellenangebote)",
+    label: "Jobsuche öffnen",
+  },
+  en: {
+    text: "BalkanLink offers a **smart job search** that generates direct search links to major German job portals.\n\n**How it works:**\n1. Enter city and industry\n2. Select additional filters\n3. Click \"Search jobs\"\n4. Get ready-made searches for Indeed, StepStone, and more\n\n👉 [Open job search](/stellenangebote)",
+    label: "Open job search",
+  },
+};
+
+const HOUSING_SEARCH_MSG: Record<string, { text: string; label: string }> = {
+  bs: {
+    text: "BalkanLink ima **pametnu pretragu stanova** koja ti generiše direktne linkove na najveće portale.\n\n**Kako funkcioniše:**\n1. Unesi grad i maksimalnu cijenu\n2. Odaberi tip (stan ili WG/soba)\n3. Označi filtere (bez provizije, namješteno...)\n4. Dobij gotove pretrage za ImmobilienScout24, Immowelt i druge\n\n👉 [Otvori pretragu stanova](/wohnungen)",
+    label: "Otvori pretragu stanova",
+  },
+  de: {
+    text: "BalkanLink bietet eine **intelligente Wohnungssuche**, die direkte Suchlinks zu großen Portalen generiert.\n\n**So funktioniert's:**\n1. Stadt und Maximalmiete eingeben\n2. Typ wählen (Wohnung oder WG)\n3. Filter setzen (provisionsfrei, möbliert...)\n4. Fertige Suchen für ImmobilienScout24, Immowelt u.a. erhalten\n\n👉 [Wohnungssuche öffnen](/wohnungen)",
+    label: "Wohnungssuche öffnen",
+  },
+  en: {
+    text: "BalkanLink offers a **smart housing search** that generates direct search links to major portals.\n\n**How it works:**\n1. Enter city and max rent\n2. Select type (apartment or shared room)\n3. Set filters (no commission, furnished...)\n4. Get ready-made searches for ImmobilienScout24, Immowelt, and more\n\n👉 [Open housing search](/wohnungen)",
+    label: "Open housing search",
+  },
 };
 
 serve(async (req) => {
@@ -330,10 +446,40 @@ serve(async (req) => {
     const guideSlug = detectGuideSlug(userText);
     const detectedForm = detectFormFromCatalog(userText);
     const siteTopics = detectSiteTopics(userText);
+    const lang = ["bs", "hr", "sr", "me"].includes(language) ? "bs" : language === "de" ? "de" : "en";
 
-    // Smart Guide redirect — instant response
+    // Job search redirect — instant
+    if (intent === "JOB_SEARCH") {
+      const msg = JOB_SEARCH_MSG[lang] || JOB_SEARCH_MSG["bs"];
+      return new Response(
+        JSON.stringify({
+          search_redirect: true,
+          search_type: "job",
+          content: msg.text,
+          redirect_url: "/stellenangebote",
+          redirect_label: msg.label,
+        }),
+        { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
+    // Housing search redirect — instant
+    if (intent === "HOUSING_SEARCH") {
+      const msg = HOUSING_SEARCH_MSG[lang] || HOUSING_SEARCH_MSG["bs"];
+      return new Response(
+        JSON.stringify({
+          search_redirect: true,
+          search_type: "housing",
+          content: msg.text,
+          redirect_url: "/wohnungen",
+          redirect_label: msg.label,
+        }),
+        { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
+    // Smart Guide redirect — instant
     if (intent === "SMART_GUIDE_REDIRECT") {
-      const lang = ["bs", "hr", "sr", "me"].includes(language) ? "bs" : language === "de" ? "de" : "en";
       const sg = SMART_GUIDE_MSG[lang] || SMART_GUIDE_MSG["bs"];
       const slug = guideSlug || detectedForm?.slug || "kindergeld";
       const link = `/guide/${slug}`;
@@ -343,9 +489,8 @@ serve(async (req) => {
       );
     }
 
-    // Premium gate — instant response
+    // Premium gate — instant
     if (intent === "PREMIUM_REQUIRED" && !isPremium) {
-      const lang = ["bs", "hr", "sr", "me"].includes(language) ? "bs" : language === "de" ? "de" : "en";
       const gate = PREMIUM_GATE[lang] || PREMIUM_GATE["bs"];
       return new Response(
         JSON.stringify({ premium_required: true, teaser: gate.teaser, cta: gate.cta, detectedForm, guideSlug }),
@@ -353,12 +498,10 @@ serve(async (req) => {
       );
     }
 
-    // DB search (run in parallel conceptually — fast)
+    // DB search
     const dbResults = await searchDatabase(userText);
-
     const systemPrompt = buildSystemPrompt(isPremium, language || "de", dbResults);
 
-    // Use fast model for speed
     const response = await fetch(
       "https://ai.gateway.lovable.dev/v1/chat/completions",
       {
@@ -380,6 +523,10 @@ serve(async (req) => {
       if (response.status === 429) {
         return new Response(JSON.stringify({ error: "Previše zahtjeva. Pokušaj ponovo." }),
           { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } });
+      }
+      if (response.status === 402) {
+        return new Response(JSON.stringify({ error: "Nedovoljno kredita. Pokušaj kasnije." }),
+          { status: 402, headers: { ...corsHeaders, "Content-Type": "application/json" } });
       }
       const t = await response.text();
       console.error("AI error:", response.status, t);
