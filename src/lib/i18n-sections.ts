@@ -840,8 +840,8 @@ const ntTranslations: Record<Lang, Record<string, string>> = {
 // ─── Pricing / Paketi ───
 const pricingTranslations: Record<Lang, Record<string, string>> = {
   bs: {
-    "pricing.heroTitle": "BalkanLink je tek pokrenut – budi među prvima",
-    "pricing.heroSubtitle": "Sada je idealan trenutak – koristi sve funkcije po početnim cijenama i bez komplikacija.",
+    "pricing.heroTitle": "Nova platforma za Balkan u Njemačkoj – kreni od početka",
+    "pricing.heroSubtitle": "Sada je idealan trenutak – koristi sve funkcije po početnim cijenama i bez komplikacija. Jednostavno, brzo i bez grešaka.",
     "pricing.launchBadge": "🎉 Ekskluzivna ponuda za lansiranje platforme",
     "pricing.launchDesc": "Sve cijene važe za prvih 6 mjeseci nakon zvaničnog pokretanja platforme.",
     "pricing.catBalkanLink": "BalkanLink",
@@ -903,8 +903,8 @@ const pricingTranslations: Record<Lang, Record<string, string>> = {
     "pricing.active": "Aktivno ✓", "pricing.heroBadge": "Start platforme", "pricing.heroCta1": "Počni odmah", "pricing.heroCta2": "Pogledaj opcije", "pricing.heroTrust": "Bez ugovora • Otkaži kad želiš • Start ponuda aktivna",
   },
   hr: {
-    "pricing.heroTitle": "BalkanLink je upravo pokrenut – budi među prvima",
-    "pricing.heroSubtitle": "Sada je idealan trenutak – koristi sve funkcije po početnim cijenama i bez komplikacija.",
+    "pricing.heroTitle": "Nova platforma za Balkan u Njemačkoj – kreni od početka",
+    "pricing.heroSubtitle": "Sada je idealan trenutak – koristi sve funkcije po početnim cijenama i bez komplikacija. Jednostavno, brzo i bez grešaka.",
     "pricing.launchBadge": "🎉 Ekskluzivna ponuda za pokretanje platforme",
     "pricing.launchDesc": "Sve cijene vrijede za prvih 6 mjeseci nakon službenog pokretanja platforme.",
     "pricing.catBalkanLink": "BalkanLink",
@@ -966,8 +966,8 @@ const pricingTranslations: Record<Lang, Record<string, string>> = {
     "pricing.active": "Aktivno ✓", "pricing.heroBadge": "Start platforme", "pricing.heroCta1": "Počni odmah", "pricing.heroCta2": "Pogledaj opcije", "pricing.heroTrust": "Bez ugovora • Otkaži kad želiš • Start ponuda aktivna",
   },
   sr: {
-    "pricing.heroTitle": "BalkanLink je tek pokrenut – budi među prvima",
-    "pricing.heroSubtitle": "Sada je idealan trenutak – koristi sve funkcije po početnim cenama i bez komplikacija.",
+    "pricing.heroTitle": "Nova platforma za Balkan u Nemačkoj – kreni od početka",
+    "pricing.heroSubtitle": "Sada je idealan trenutak – koristi sve funkcije po početnim cenama i bez komplikacija. Jednostavno, brzo i bez grešaka.",
     "pricing.launchBadge": "🎉 Ekskluzivna ponuda za lansiranje platforme",
     "pricing.launchDesc": "Sve cene važe za prvih 6 meseci nakon zvaničnog pokretanja platforme.",
     "pricing.catBalkanLink": "BalkanLink",
@@ -1029,8 +1029,8 @@ const pricingTranslations: Record<Lang, Record<string, string>> = {
     "pricing.active": "Aktivno ✓", "pricing.heroBadge": "Start platforme", "pricing.heroCta1": "Počni odmah", "pricing.heroCta2": "Pogledaj opcije", "pricing.heroTrust": "Bez ugovora • Otkaži kad hoćeš • Start ponuda aktivna",
   },
   me: {
-    "pricing.heroTitle": "BalkanLink je tek pokrenut – budi među prvima",
-    "pricing.heroSubtitle": "Sada je idealan trenutak – koristi sve funkcije po početnim cijenama i bez komplikacija.",
+    "pricing.heroTitle": "Nova platforma za Balkan u Njemačkoj – kreni od početka",
+    "pricing.heroSubtitle": "Sada je idealan trenutak – koristi sve funkcije po početnim cijenama i bez komplikacija. Jednostavno, brzo i bez grešaka.",
     "pricing.launchBadge": "🎉 Ekskluzivna ponuda za lansiranje platforme",
     "pricing.launchDesc": "Sve cijene važe za prvih 6 mjeseci nakon zvaničnog pokretanja platforme.",
     "pricing.catBalkanLink": "BalkanLink",
@@ -1092,8 +1092,8 @@ const pricingTranslations: Record<Lang, Record<string, string>> = {
     "pricing.active": "Aktivno ✓", "pricing.heroBadge": "Start platforme", "pricing.heroCta1": "Počni odmah", "pricing.heroCta2": "Pogledaj opcije", "pricing.heroTrust": "Bez ugovora • Otkaži kad želiš • Start ponuda aktivna",
   },
   sq: {
-    "pricing.heroTitle": "BalkanLink sapo u nis – bëhu ndër të parët",
-    "pricing.heroSubtitle": "Tani është momenti ideal – përdor të gjitha funksionet me çmime fillestare dhe pa komplikime.",
+    "pricing.heroTitle": "Platformë e re për Ballkanin në Gjermani – fillo nga fillimi",
+    "pricing.heroSubtitle": "Tani është momenti ideal – përdor të gjitha funksionet me çmime fillestare dhe pa komplikime. Thjesht, shpejt dhe pa gabime.",
     "pricing.launchBadge": "🎉 Ofertë ekskluzive për nisjen e platformës",
     "pricing.launchDesc": "Të gjitha çmimet vlejnë për 6 muajt e parë pas nisjes zyrtare të platformës.",
     "pricing.catBalkanLink": "BalkanLink",
@@ -1155,8 +1155,8 @@ const pricingTranslations: Record<Lang, Record<string, string>> = {
     "pricing.active": "Aktive ✓", "pricing.heroBadge": "Nisja e platformës", "pricing.heroCta1": "Fillo tani", "pricing.heroCta2": "Shiko opsionet", "pricing.heroTrust": "Pa kontratë • Anulo kur të duash • Oferta fillestare aktive",
   },
   xk: {
-    "pricing.heroTitle": "BalkanLink sapo u nis – bëhu ndër të parët",
-    "pricing.heroSubtitle": "Tani është momenti ideal – përdor të gjitha funksionet me çmime fillestare dhe pa komplikime.",
+    "pricing.heroTitle": "Platformë e re për Ballkanin në Gjermani – fillo nga fillimi",
+    "pricing.heroSubtitle": "Tani është momenti ideal – përdor të gjitha funksionet me çmime fillestare dhe pa komplikime. Thjesht, shpejt dhe pa gabime.",
     "pricing.launchBadge": "🎉 Ofertë ekskluzive për nisjen e platformës",
     "pricing.launchDesc": "Të gjitha çmimet vlejnë për 6 muajt e parë pas nisjes zyrtare të platformës.",
     "pricing.catBalkanLink": "BalkanLink",
@@ -1218,8 +1218,8 @@ const pricingTranslations: Record<Lang, Record<string, string>> = {
     "pricing.active": "Aktive ✓", "pricing.heroBadge": "Nisja e platformës", "pricing.heroCta1": "Fillo tani", "pricing.heroCta2": "Shiko opsionet", "pricing.heroTrust": "Pa kontratë • Anulo kur të duash • Oferta fillestare aktive",
   },
   mk: {
-    "pricing.heroTitle": "BalkanLink е штотуку стартуван – биди меѓу првите",
-    "pricing.heroSubtitle": "Сега е идеалниот момент – користи ги сите функции по почетни цени и без компликации.",
+    "pricing.heroTitle": "Нова платформа за Балканот во Германија – започни од почеток",
+    "pricing.heroSubtitle": "Сега е идеалниот момент – користи ги сите функции по почетни цени и без компликации. Едноставно, брзо и без грешки.",
     "pricing.launchBadge": "🎉 Ексклузивна понуда за лансирање на платформата",
     "pricing.launchDesc": "Сите цени важат за првите 6 месеци по официјалното стартување на платформата.",
     "pricing.catBalkanLink": "BalkanLink",
@@ -1281,8 +1281,8 @@ const pricingTranslations: Record<Lang, Record<string, string>> = {
     "pricing.active": "Активно ✓", "pricing.heroBadge": "Старт на платформата", "pricing.heroCta1": "Започни сега", "pricing.heroCta2": "Погледни опции", "pricing.heroTrust": "Без договор • Откажи кога сакаш • Стартна понуда активна",
   },
   de: {
-    "pricing.heroTitle": "BalkanLink ist gerade gestartet – sei unter den Ersten",
-    "pricing.heroSubtitle": "Jetzt ist der ideale Zeitpunkt – nutze alle Funktionen zu Startpreisen und ohne Komplikationen.",
+    "pricing.heroTitle": "Neue Plattform für den Balkan in Deutschland – starte von Anfang an",
+    "pricing.heroSubtitle": "Jetzt ist der ideale Zeitpunkt – nutze alle Funktionen zu Startpreisen und ohne Komplikationen. Einfach, schnell und fehlerfrei.",
     "pricing.launchBadge": "🎉 Exklusives Startangebot zur Plattform-Einführung",
     "pricing.launchDesc": "Alle Preise gelten für die ersten 6 Monate nach dem offiziellen Plattformstart.",
     "pricing.catBalkanLink": "BalkanLink",
@@ -1344,8 +1344,8 @@ const pricingTranslations: Record<Lang, Record<string, string>> = {
     "pricing.active": "Aktiv ✓", "pricing.heroBadge": "Plattform-Start", "pricing.heroCta1": "Jetzt starten", "pricing.heroCta2": "Optionen ansehen", "pricing.heroTrust": "Kein Vertrag • Jederzeit kündbar • Startangebot aktiv",
   },
   en: {
-    "pricing.heroTitle": "BalkanLink just launched – be among the first",
-    "pricing.heroSubtitle": "Now is the perfect time – use all features at launch prices without any hassle.",
+    "pricing.heroTitle": "New platform for the Balkans in Germany – start from the beginning",
+    "pricing.heroSubtitle": "Now is the perfect time – use all features at launch prices without any hassle. Simple, fast, and error-free.",
     "pricing.launchBadge": "🎉 Exclusive launch offer",
     "pricing.launchDesc": "All prices apply for the first 6 months after the official platform launch.",
     "pricing.catBalkanLink": "BalkanLink",
