@@ -6,33 +6,25 @@ import { Link } from "react-router-dom";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useSectionT } from "@/hooks/useSectionT";
 import type { ReactNode } from "react";
 
-/* ─── Animation variants ─── */
+/* ─── Animation ─── */
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: (i: number) => ({
     opacity: 1, y: 0,
-    transition: { delay: i * 0.12, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] as const },
+    transition: { delay: i * 0.12, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] },
   }),
 };
 
-/* ─── Comparison rows ─── */
-const comparisonRows = [
-  { label: "Grundinfos", free: true, premium: true },
-  { label: "Basis Inhalte", free: true, premium: true },
-  { label: "Konkrete Anleitung", free: false, premium: true },
-  { label: "Fehler vermeiden", free: false, premium: true },
-  { label: "Schneller fertig", free: false, premium: true },
-];
-
 /* ─── Product Card ─── */
 function ProductCard({
-  icon, title, price, period, badge, features, cta, dominant, small, index, user, isPremium, children,
+  icon, title, price, period, badge, features, cta, dominant, small, index, user, isPremium, activeLabel, children,
 }: {
   icon: ReactNode; title: string; price: string; period: string; badge?: string;
   features: string[]; cta: string; dominant?: boolean; small?: boolean; index: number;
-  user: any; isPremium: boolean; children?: ReactNode;
+  user: any; isPremium: boolean; activeLabel: string; children?: ReactNode;
 }) {
   return (
     <motion.div
@@ -44,16 +36,15 @@ function ProductCard({
       whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
       className={cn(
         "group relative rounded-2xl border bg-card shadow-sm transition-shadow duration-300",
-        dominant && "border-2 border-[hsl(var(--gold))]/50 shadow-[0_0_40px_-10px_hsl(var(--gold)/0.25)] ring-2 ring-[hsl(var(--gold))]/10",
-        dominant && "p-8 md:p-10",
+        dominant && "border-2 border-[hsl(var(--gold))]/50 shadow-[0_0_40px_-10px_hsl(var(--gold)/0.25)] ring-2 ring-[hsl(var(--gold))]/10 p-8 md:p-10",
         !dominant && !small && "p-6 md:p-8",
         small && "p-5 md:p-6 max-w-xl",
         "hover:shadow-lg hover:shadow-[hsl(var(--gold))]/5"
       )}
     >
       {dominant && (
-        <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-[hsl(var(--gold))] px-4 py-1 text-[11px] font-bold text-[hsl(var(--gold-foreground))] shadow-md">
-          Empfohlenes Paket
+        <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-[hsl(var(--gold))] px-4 py-1 text-[11px] font-bold text-[hsl(var(--gold-foreground))] shadow-md whitespace-nowrap">
+          {badge}
         </div>
       )}
 
@@ -68,7 +59,7 @@ function ProductCard({
           <div>
             <div className="flex items-center gap-2 flex-wrap">
               <h3 className={cn("font-bold", dominant ? "text-xl md:text-2xl" : small ? "text-base" : "text-lg")}>{title}</h3>
-              {badge && (
+              {badge && !dominant && (
                 <Badge className="bg-[hsl(var(--gold))] text-[hsl(var(--gold-foreground))] text-[10px] font-bold shadow-sm">
                   {badge}
                 </Badge>
@@ -83,7 +74,7 @@ function ProductCard({
 
         <div className="sm:text-right shrink-0">
           {isPremium ? (
-            <p className="text-sm font-medium text-[hsl(var(--gold))]">Aktiv ✓</p>
+            <p className="text-sm font-medium text-[hsl(var(--gold))]">{activeLabel}</p>
           ) : (
             <Button
               size={dominant ? "lg" : "default"}
@@ -116,9 +107,36 @@ function ProductCard({
   );
 }
 
+/* ─── Category Header ─── */
+function CategoryHeader({ label, index }: { label: string; index: number }) {
+  return (
+    <motion.div
+      custom={index}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={fadeUp}
+      className="flex items-center gap-3 pt-6 first:pt-0"
+    >
+      <div className="h-px flex-1 bg-border" />
+      <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">{label}</span>
+      <div className="h-px flex-1 bg-border" />
+    </motion.div>
+  );
+}
+
 /* ─── Main Page ─── */
 export default function Premium() {
   const { user, isPremium } = useAuth();
+  const st = useSectionT();
+
+  const comparisonRows = [
+    { label: st("pricing.cmpRow1"), free: true, premium: true },
+    { label: st("pricing.cmpRow2"), free: true, premium: true },
+    { label: st("pricing.cmpRow3"), free: false, premium: true },
+    { label: st("pricing.cmpRow4"), free: false, premium: true },
+    { label: st("pricing.cmpRow5"), free: false, premium: true },
+  ];
 
   return (
     <>
@@ -126,106 +144,60 @@ export default function Premium() {
       <section className="relative overflow-hidden bg-[#0B1F3A] py-20 md:py-28">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0B1F3A]/80" />
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }} />
-        {/* Glow orbs */}
         <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-[hsl(var(--gold))]/5 blur-[100px]" />
         <div className="absolute bottom-1/4 right-1/4 w-48 h-48 rounded-full bg-blue-500/5 blur-[80px]" />
 
         <div className="container relative z-10 text-center max-w-3xl">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="font-heading text-3xl font-extrabold tracking-tight text-white md:text-5xl"
-          >
-            Preise & Leistungen
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
+            className="font-heading text-3xl font-extrabold tracking-tight text-white md:text-5xl">
+            {st("pricing.heroTitle")}
           </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="mx-auto mt-4 max-w-xl text-base text-white/50 md:text-lg"
-          >
-            Alles transparent – finde das passende Angebot für dich oder dein Unternehmen.
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15 }}
+            className="mx-auto mt-4 max-w-xl text-base text-white/50 md:text-lg">
+            {st("pricing.heroSubtitle")}
           </motion.p>
 
-          {/* Launch offer */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="mx-auto mt-8 max-w-lg rounded-xl border border-[hsl(var(--gold))]/30 bg-[hsl(var(--gold))]/10 px-6 py-4 backdrop-blur-sm"
-          >
-            <p className="text-sm font-bold text-[hsl(var(--gold))]">
-              🎉 Exklusives Startangebot zur Plattform-Einführung
-            </p>
-            <p className="mt-1 text-xs text-white/60">
-              Alle Preise gelten für die ersten 6 Monate nach dem offiziellen Plattformstart.
-            </p>
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: 0.3 }}
+            className="mx-auto mt-8 max-w-lg rounded-xl border border-[hsl(var(--gold))]/30 bg-[hsl(var(--gold))]/10 px-6 py-4 backdrop-blur-sm">
+            <p className="text-sm font-bold text-[hsl(var(--gold))]">{st("pricing.launchBadge")}</p>
+            <p className="mt-1 text-xs text-white/60">{st("pricing.launchDesc")}</p>
           </motion.div>
         </div>
       </section>
 
-      {/* PRODUCTS – ordered by hierarchy */}
+      {/* PRODUCTS */}
       <section className="py-16 md:py-20">
         <div className="container max-w-5xl space-y-8">
 
-          {/* 1. Premium-Präsenz (DOMINANT) */}
-          <ProductCard
-            index={0}
-            icon={<Image className={cn("text-[hsl(var(--gold))]", "h-7 w-7")} />}
-            title="Premium-Präsenz"
-            price="19.99€"
-            period="/ Monat"
-            badge="⭐ Exklusives Startangebot"
-            features={[
-              "Große Darstellung",
-              "Automatisch wechselnde Bilder (Slideshow)",
-              "Top-Position auf der Seite",
-              "Mehr Klicks & Kunden",
-            ]}
-            cta="Jetzt sichtbar werden"
+          {/* ── Category: BalkanLink ── */}
+          <CategoryHeader label={st("pricing.catBalkanLink")} index={0} />
+
+          <ProductCard index={1}
+            icon={<Crown className="h-6 w-6 text-[hsl(var(--gold))]" />}
+            title={st("pricing.premiumTitle")}
+            price={st("pricing.premiumPrice")}
+            period={st("pricing.premiumPeriod")}
+            badge={st("pricing.premiumBadge")}
+            features={[st("pricing.premiumF1"), st("pricing.premiumF2"), st("pricing.premiumF3"), st("pricing.premiumF4")]}
+            cta={st("pricing.premiumCta")}
             dominant
             user={user}
             isPremium={isPremium}
+            activeLabel={st("pricing.active")}
           />
 
-          {/* 2. BalkanLink Premium */}
-          <ProductCard
-            index={1}
-            icon={<Crown className="h-6 w-6 text-[hsl(var(--gold))]" />}
-            title="BalkanLink Premium"
-            price="4.99€"
-            period="/ Monat"
-            badge="🔥 Exklusives Startangebot"
-            features={[
-              "Smart Guide (Schritt-für-Schritt Hilfe)",
-              "Formular Hilfe",
-              "KI Unterstützung",
-              "Zugriff auf alle Premium Inhalte",
-            ]}
-            cta="Jetzt freischalten"
-            user={user}
-            isPremium={isPremium}
-          />
-
-          {/* Free vs Premium comparison */}
-          <motion.div
-            custom={2}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-40px" }}
-            variants={fadeUp}
-            className="rounded-xl border bg-card p-6 md:p-8"
-          >
+          {/* Free vs Premium */}
+          <motion.div custom={2} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }} variants={fadeUp}
+            className="rounded-xl border bg-card p-6 md:p-8">
             <h3 className="mb-4 text-center text-sm font-semibold text-muted-foreground uppercase tracking-wider">
-              Kostenlos vs. Premium
+              {st("pricing.compareTitle")}
             </h3>
             <div className="hidden sm:block overflow-hidden rounded-lg border">
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b bg-muted/50">
-                    <th className="px-5 py-3 text-left font-semibold">Funktion</th>
-                    <th className="px-5 py-3 text-center font-semibold">Free</th>
+                    <th className="px-5 py-3 text-left font-semibold">{st("pricing.compareFunc")}</th>
+                    <th className="px-5 py-3 text-center font-semibold">{st("pricing.compareFree")}</th>
                     <th className="relative px-5 py-3 text-center font-semibold">
                       <div className="absolute -top-px left-0 right-0 h-0.5 bg-[hsl(var(--gold))]" />
                       ✨ Premium
@@ -247,10 +219,9 @@ export default function Premium() {
                 </tbody>
               </table>
             </div>
-            {/* Mobile comparison */}
             <div className="flex flex-col gap-3 sm:hidden">
               <div className="rounded-lg border p-4">
-                <h4 className="mb-2 text-xs font-semibold text-muted-foreground">Free</h4>
+                <h4 className="mb-2 text-xs font-semibold text-muted-foreground">{st("pricing.compareFree")}</h4>
                 <ul className="space-y-2">
                   {comparisonRows.map((row, i) => (
                     <li key={i} className="flex items-start gap-2 text-xs">
@@ -274,67 +245,70 @@ export default function Premium() {
             </div>
           </motion.div>
 
-          {/* 3. Banner-Präsenz */}
-          <ProductCard
-            index={3}
-            icon={<Monitor className="h-6 w-6 text-[hsl(var(--gold))]" />}
-            title="Banner-Präsenz"
-            price="9.99€"
-            period="/ Monat"
-            badge="⭐ Exklusives Startangebot"
-            features={[
-              "Rotierende Anzeige (Auto-Slider)",
-              "Sichtbar auf mehreren Seiten",
-              "Dauerhafte Präsenz",
-            ]}
-            cta="Jetzt sichtbar werden"
+          {/* ── Category: Reklame (Advertising) ── */}
+          <CategoryHeader label={st("pricing.catAds")} index={3} />
+
+          <ProductCard index={4}
+            icon={<Image className="h-7 w-7 text-[hsl(var(--gold))]" />}
+            title={st("pricing.showcaseTitle")}
+            price={st("pricing.showcasePrice")}
+            period={st("pricing.showcasePeriod")}
+            badge={st("pricing.showcaseBadge")}
+            features={[st("pricing.showcaseF1"), st("pricing.showcaseF2"), st("pricing.showcaseF3"), st("pricing.showcaseF4")]}
+            cta={st("pricing.showcaseCta")}
             user={user}
             isPremium={isPremium}
+            activeLabel={st("pricing.active")}
           />
 
-          {/* 4. PRO Anzeige (small) */}
-          <ProductCard
-            index={4}
+          <ProductCard index={5}
+            icon={<Monitor className="h-6 w-6 text-[hsl(var(--gold))]" />}
+            title={st("pricing.bannerTitle")}
+            price={st("pricing.bannerPrice")}
+            period={st("pricing.bannerPeriod")}
+            badge={st("pricing.bannerBadge")}
+            features={[st("pricing.bannerF1"), st("pricing.bannerF2"), st("pricing.bannerF3")]}
+            cta={st("pricing.bannerCta")}
+            user={user}
+            isPremium={isPremium}
+            activeLabel={st("pricing.active")}
+          />
+
+          {/* ── Category: Oglasi (Listings) ── */}
+          <CategoryHeader label={st("pricing.catListings")} index={6} />
+
+          <ProductCard index={7}
             icon={<Megaphone className="h-5 w-5 text-[hsl(var(--gold))]" />}
-            title="Anzeige hervorheben (PRO)"
-            price="2.99€"
-            period="/ 30 Tage"
-            features={[
-              "Anzeige weiter oben",
-              "Mehr Sichtbarkeit",
-              "Mehr Anfragen",
-            ]}
-            cta="Anzeige hervorheben – 2.99€"
+            title={st("pricing.proTitle")}
+            price={st("pricing.proPrice")}
+            period={st("pricing.proPeriod")}
+            features={[st("pricing.proF1"), st("pricing.proF2"), st("pricing.proF3")]}
+            cta={st("pricing.proCta")}
             small
             user={user}
             isPremium={isPremium}
+            activeLabel={st("pricing.active")}
           >
             <div className="mt-3 space-y-1 text-xs text-muted-foreground">
-              <p>• Max. 3–5 gleichzeitig hervorgehobene Anzeigen</p>
-              <p>• Automatisches Ablaufdatum nach 30 Tagen</p>
+              <p>• {st("pricing.proNote1")}</p>
+              <p>• {st("pricing.proNote2")}</p>
             </div>
           </ProductCard>
 
           {/* Free ads info */}
-          <motion.div
-            custom={5}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-40px" }}
-            variants={fadeUp}
-            className="rounded-xl border border-border bg-card p-6"
-          >
+          <motion.div custom={8} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }} variants={fadeUp}
+            className="rounded-xl border border-border bg-card p-6">
             <div className="flex items-start gap-3">
               <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-muted">
                 <Info className="h-4 w-4 text-muted-foreground" />
               </div>
               <div>
-                <h3 className="text-sm font-semibold">Kostenlose Anzeigen</h3>
-                <p className="mt-1 text-xs text-muted-foreground">Laufzeit: 14 Tage — danach automatisch deaktiviert.</p>
+                <h3 className="text-sm font-semibold">{st("pricing.freeAdsTitle")}</h3>
+                <p className="mt-1 text-xs text-muted-foreground">{st("pricing.freeAdsDesc")}</p>
                 <ul className="mt-2 space-y-1 text-xs text-muted-foreground">
-                  <li className="flex items-center gap-1.5"><Check className="h-3 w-3 text-[hsl(var(--success))] shrink-0" /> Kostenlos erneuern</li>
-                  <li className="flex items-center gap-1.5"><Check className="h-3 w-3 text-[hsl(var(--success))] shrink-0" /> Oder PRO Anzeige aktivieren</li>
-                  <li className="flex items-center gap-1.5"><Check className="h-3 w-3 text-[hsl(var(--success))] shrink-0" /> Beim Erneuern erscheint die Anzeige wieder oben</li>
+                  <li className="flex items-center gap-1.5"><Check className="h-3 w-3 text-[hsl(var(--success))] shrink-0" /> {st("pricing.freeAdsRenew")}</li>
+                  <li className="flex items-center gap-1.5"><Check className="h-3 w-3 text-[hsl(var(--success))] shrink-0" /> {st("pricing.freeAdsPro")}</li>
+                  <li className="flex items-center gap-1.5"><Check className="h-3 w-3 text-[hsl(var(--success))] shrink-0" /> {st("pricing.freeAdsTop")}</li>
                 </ul>
               </div>
             </div>
@@ -347,21 +321,14 @@ export default function Premium() {
         <div className="container max-w-5xl">
           <div className="grid gap-5 sm:grid-cols-3">
             {[
-              { icon: Shield, text: "Keine Vertragsbindung" },
-              { icon: Zap, text: "Jederzeit kündbar" },
-              { icon: Star, text: "Für die Balkan-Community" },
+              { icon: Shield, text: st("pricing.trustNoContract") },
+              { icon: Zap, text: st("pricing.trustCancel") },
+              { icon: Star, text: st("pricing.trustCommunity") },
             ].map((item, i) => {
               const Icon = item.icon;
               return (
-                <motion.div
-                  key={i}
-                  custom={i}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={fadeUp}
-                  className="flex flex-col items-center rounded-xl border bg-card p-6 text-center shadow-sm"
-                >
+                <motion.div key={i} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
+                  className="flex flex-col items-center rounded-xl border bg-card p-6 text-center shadow-sm">
                   <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-[hsl(var(--gold))]/10">
                     <Icon className="h-5 w-5 text-[hsl(var(--gold))]" />
                   </div>
@@ -372,9 +339,7 @@ export default function Premium() {
           </div>
 
           <div className="mt-8 rounded-lg border border-border bg-muted/50 p-4 text-center">
-            <p className="text-xs text-muted-foreground">
-              Gemäß §19 UStG wird keine Umsatzsteuer berechnet.
-            </p>
+            <p className="text-xs text-muted-foreground">{st("pricing.taxNote")}</p>
           </div>
 
           <LegalDisclaimer />
