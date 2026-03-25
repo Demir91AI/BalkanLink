@@ -123,9 +123,9 @@ export default function Header() {
               </button>
             )}
 
-            {/* Preisliste */}
+            {/* Paketi i opcije */}
             <button
-              onClick={() => {}}
+              onClick={() => { setSheetOpen(false); navigate("/premium"); }}
               className="group flex items-center gap-3 px-3 h-11 rounded-lg text-sm font-medium text-white/55 hover:text-white hover:bg-white/5 transition-all duration-200"
             >
               <List className="h-[18px] w-[18px] shrink-0 text-white/40 group-hover:text-white/70 transition-colors" />
