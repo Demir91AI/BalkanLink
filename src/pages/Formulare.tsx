@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  FileText, ChevronDown, ExternalLink, Download, CheckCircle2,
+  FileText, ChevronDown, ExternalLink, Download, CheckCircle2, Info,
   Building2, Baby, Heart, Stethoscope, XCircle, Landmark, Crown, Lock,
   Receipt, Banknote, Briefcase, Home, Car, CreditCard, Users, Shield,
 } from "lucide-react";
