@@ -20,6 +20,7 @@ const cardConfig: { key: keyof GuideStepCard; label: string; icon: React.ReactNo
 
 export default function SmartGuide() {
   const { slug } = useParams<{ slug: string }>();
+  const navigate = useNavigate();
   const guide = getGuideBySlug(slug ?? "");
   const [step, setStep] = useState(0);
   const lang: LangKey = "bs";
