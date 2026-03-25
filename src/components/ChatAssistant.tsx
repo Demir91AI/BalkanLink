@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import { X, Send, Copy, ShieldCheck, ExternalLink, BookOpen } from "lucide-react";
+import { X, Send, Copy, ShieldCheck, ExternalLink, BookOpen, Briefcase, Home, FileText, Calculator, HelpCircle, MapPin } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -16,6 +16,8 @@ type Msg = {
   guideSlug?: string | null;
   formSlugs?: string[];
   siteTopics?: SiteTopicAction[];
+  redirectUrl?: string;
+  redirectLabel?: string;
 };
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat-assistant`;
@@ -103,6 +105,16 @@ function detectGuideSlugFromText(text: string): string | null {
   return null;
 }
 
+// ── Quick action chips ──
+const QUICK_ACTIONS = [
+  { key: "jobs", icon: Briefcase, label: "Pretraga poslova", message: "Tražim posao u Njemačkoj" },
+  { key: "housing", icon: Home, label: "Pretraga stanova", message: "Tražim stan u Njemačkoj" },
+  { key: "forms", icon: FileText, label: "Formulari", message: "Koji formulari postoje?" },
+  { key: "calculator", icon: Calculator, label: "Kalkulator plate", message: "Kolika je neto plata od 3000€ bruto?" },
+  { key: "arrival", icon: MapPin, label: "Dolazak u DE", message: "Koji su prvi koraci kad dođem u Njemačku?" },
+  { key: "help", icon: HelpCircle, label: "Pomoći i davanja", message: "Koje pomoći mogu dobiti u Njemačkoj?" },
+];
+
 // ── Markdown renderer ──
 function ChatMarkdown({ content }: { content: string }) {
   return (
@@ -135,6 +147,16 @@ function ChatMarkdown({ content }: { content: string }) {
 function ResponseActions({ msg, t }: { msg: Msg; t: (key: string) => string }) {
   const actions: { label: string; to: string; icon: typeof BookOpen; primary?: boolean }[] = [];
 
+  // Redirect action (job/housing search)
+  if (msg.redirectUrl && msg.redirectLabel) {
+    actions.push({
+      label: msg.redirectLabel,
+      to: msg.redirectUrl,
+      icon: ExternalLink,
+      primary: true,
+    });
+  }
+
   if (msg.guideSlug && VALID_GUIDE_SLUGS.has(msg.guideSlug)) {
     actions.push({
       label: t("chat.openGuide"),
@@ -156,8 +178,8 @@ function ResponseActions({ msg, t }: { msg: Msg; t: (key: string) => string }) {
     for (const topic of msg.siteTopics) {
       if (!isValidRoute(topic.url)) continue;
       if (actions.some(a => a.to === topic.url)) continue;
-      if (actions.length >= 2) break;
-      actions.push({ label: `${t("chat.openPage")}: ${topic.label}`, to: topic.url, icon: ExternalLink });
+      if (actions.length >= 3) break;
+      actions.push({ label: topic.label, to: topic.url, icon: ExternalLink });
     }
   }
 
@@ -165,7 +187,7 @@ function ResponseActions({ msg, t }: { msg: Msg; t: (key: string) => string }) {
 
   return (
     <div className="flex flex-wrap gap-1.5 mt-2">
-      {actions.slice(0, 2).map((a, i) => (
+      {actions.slice(0, 3).map((a, i) => (
         <Link
           key={i}
           to={a.to}
@@ -204,7 +226,6 @@ export default function ChatAssistant() {
     if (open) setTimeout(() => inputRef.current?.focus({ preventScroll: true }), 150);
   }, [open]);
 
-  // Lock body scroll when modal open
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
@@ -261,13 +282,32 @@ export default function ChatAssistant() {
       const contentType = resp.headers.get("content-type") || "";
       if (contentType.includes("application/json")) {
         const data = await resp.json();
+
+        // Job/Housing search redirect
+        if (data.search_redirect) {
+          setMessages(prev => [...prev, {
+            role: "assistant",
+            content: data.content,
+            redirectUrl: data.redirect_url,
+            redirectLabel: data.redirect_label,
+          }]);
+          setLoading(false);
+          return;
+        }
+
         if (data.smart_guide_redirect) {
           setMessages(prev => [...prev, { role: "assistant", content: data.content, guideSlug: data.guideSlug || detectedSlug, formSlugs: data.detectedForm ? [data.detectedForm.slug] : [] }]);
           setLoading(false);
           return;
         }
         if (data.premium_required) {
-          setMessages(prev => [...prev, { role: "assistant", content: `${data.teaser}\n\n${data.cta}`, formSlugs: data.detectedForm ? [data.detectedForm.slug] : [] }]);
+          setMessages(prev => [...prev, {
+            role: "assistant",
+            content: `${data.teaser}\n\n${data.cta}`,
+            formSlugs: data.detectedForm ? [data.detectedForm.slug] : [],
+            redirectUrl: "/premium",
+            redirectLabel: "Premium pogledaj",
+          }]);
           setLoading(false);
           return;
         }
@@ -370,7 +410,6 @@ export default function ChatAssistant() {
             onClick={() => setOpen(true)}
             className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-1.5 cursor-pointer group"
           >
-            {/* Badge label */}
             <motion.div
               initial={{ opacity: 0, y: 4 }}
               animate={{ opacity: 1, y: 0 }}
@@ -385,10 +424,8 @@ export default function ChatAssistant() {
               </span>
             </motion.div>
 
-            {/* Icon */}
             <div className="relative">
-              {/* Glow layers */}
-              <div className="absolute inset-[-14px] rounded-[22px] bg-gradient-to-br from-[#3B82F6]/30 to-[#9333EA]/30 blur-2xl group-hover:from-[#3B82F6]/50 group-hover:to-[#9333EA]/50 transition-all duration-300" />
+              <div className="absolute inset-[-14px] rounded-[22px] bg-gradient-to-br from-[hsl(var(--primary))]/30 to-[#9333EA]/30 blur-2xl group-hover:from-[hsl(var(--primary))]/50 group-hover:to-[#9333EA]/50 transition-all duration-300" />
               <motion.div
                 animate={{ scale: [1, 1.08, 1] }}
                 transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
@@ -406,7 +443,6 @@ export default function ChatAssistant() {
       <AnimatePresence>
         {open && (
           <>
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -416,7 +452,6 @@ export default function ChatAssistant() {
               className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm"
             />
 
-            {/* Chat modal */}
             <motion.div
               initial={{ opacity: 0, scale: 0.92, y: 30 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -446,16 +481,33 @@ export default function ChatAssistant() {
               {/* Messages area */}
               <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-4 space-y-3">
                 {showStartScreen && (
-                  <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }} className="flex flex-col items-center justify-center pt-12 pb-6 text-center">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl mb-5 overflow-hidden" style={{ background: "linear-gradient(135deg, rgba(59,130,246,0.1) 0%, rgba(147,51,234,0.1) 100%)" }}>
+                  <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }} className="flex flex-col items-center justify-center pt-6 pb-4 text-center">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl mb-4 overflow-hidden" style={{ background: "linear-gradient(135deg, rgba(59,130,246,0.1) 0%, rgba(147,51,234,0.1) 100%)" }}>
                       <BLIcon size={40} />
                     </div>
-                    <h2 className="text-lg font-bold text-foreground mb-2">
+                    <h2 className="text-base font-bold text-foreground mb-1">
                       {t("chatbot.welcome")}
                     </h2>
-                    <p className="text-sm text-muted-foreground leading-relaxed max-w-[300px]">
+                    <p className="text-[13px] text-muted-foreground leading-relaxed max-w-[280px] mb-5">
                       {t("chatbot.welcomeSub")}
                     </p>
+
+                    {/* Quick action chips */}
+                    <div className="grid grid-cols-2 gap-2 w-full max-w-[340px]">
+                      {QUICK_ACTIONS.map((action, i) => (
+                        <motion.button
+                          key={action.key}
+                          initial={{ opacity: 0, y: 8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.2, delay: 0.1 + i * 0.05 }}
+                          onClick={() => sendMessageWithText(action.message)}
+                          className="flex items-center gap-2 rounded-xl border border-border/60 bg-background px-3 py-2.5 text-left text-[12px] font-medium text-foreground transition-all hover:bg-accent hover:border-primary/30 active:scale-[0.97]"
+                        >
+                          <action.icon className="h-3.5 w-3.5 text-primary shrink-0" />
+                          <span className="truncate">{action.label}</span>
+                        </motion.button>
+                      ))}
+                    </div>
                   </motion.div>
                 )}
 
