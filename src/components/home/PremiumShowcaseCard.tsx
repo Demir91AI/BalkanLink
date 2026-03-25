@@ -29,8 +29,8 @@ export function PremiumShowcaseCard({ firm, priority = false }: PremiumShowcaseC
             <div className="mb-4 inline-flex items-center rounded-full border border-primary-foreground/10 bg-primary-foreground/5 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.24em] text-gold">
               {t("showcase.badge")}
             </div>
-            <div className={`mb-6 flex items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-4 backdrop-blur-sm ${firm.logoWrapperClassName}`}>
-              <img src={firm.logoUrl} alt={firm.logoAlt} className="max-h-full max-w-full object-contain object-center" loading="lazy" width={320} height={120} />
+            <div className="mb-6 h-[5rem] w-full overflow-hidden rounded-[2rem] bg-[hsl(220,20%,12%)]">
+              <img src={firm.logoUrl} alt={firm.logoAlt} className="h-full w-full object-cover object-center" loading="lazy" width={320} height={120} />
             </div>
             <h3 className="text-2xl font-black tracking-tight text-primary-foreground sm:text-[2rem]">{firm.name}</h3>
             <p className="mt-3 max-w-xl text-sm leading-7 text-primary-foreground/70 sm:text-base">{firm.description}</p>
