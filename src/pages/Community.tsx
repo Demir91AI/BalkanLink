@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { motion } from "framer-motion";
+import { navigateBackOrHome } from "@/lib/navigation";
 
 import flagBIH from "@/assets/flags/ba.png";
 import flagHR from "@/assets/flags/hr.png";
