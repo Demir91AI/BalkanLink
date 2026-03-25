@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   Footprints, Briefcase, ShieldCheck, Compass, Wrench, Plane,
-  ClipboardList, Home, HandshakeIcon, CheckCircle2, Lightbulb, ArrowRight,
+  ClipboardList, Home, HandshakeIcon, CheckCircle2, ArrowRight,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
