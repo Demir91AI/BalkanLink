@@ -190,7 +190,7 @@ export default function NudimTrazim() {
         {filtered.length > 0 ? (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {filtered.map((ad) => (
-              <NtAdCard key={ad.id} ad={ad} onOpen={setSelectedAd} />
+              <NtAdCard key={ad.id} ad={ad} onOpen={openAd} />
             ))}
           </div>
         ) : (

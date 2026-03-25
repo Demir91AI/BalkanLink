@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { navigateBackOrHome } from "@/lib/navigation";
 import { hasManagedBackHistory, useHistorySearchState } from "@/hooks/useHistorySearchState";
 import { ArrowLeft, ChevronLeft, ChevronRight, AlertTriangle, BookOpen, ClipboardList, PenLine, Pencil, MapPin, Hash, XCircle, MinusCircle, FileCheck, Info, ExternalLink } from "lucide-react";

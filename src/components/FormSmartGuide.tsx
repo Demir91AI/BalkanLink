@@ -31,7 +31,9 @@ export default function FormSmartGuide({ guide, lang }: FormSmartGuideProps) {
   const navigate = useNavigate();
   const { searchParams, setSearchState } = useHistorySearchState();
   const steps = guide.steps[lang]?.length ? guide.steps[lang] : guide.steps["bs"];
+
   if (!steps || steps.length === 0) return <p className="text-xs text-muted-foreground">Vodič nije dostupan.</p>;
+
   const rawStep = Number(searchParams.get("guideStep") ?? "1");
   const step = Number.isFinite(rawStep)
     ? Math.min(Math.max(rawStep - 1, 0), steps.length - 1)
