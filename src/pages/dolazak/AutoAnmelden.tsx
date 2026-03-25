@@ -156,7 +156,7 @@ export default function AutoAnmelden() {
       ]}
       links={[
         { type: "info", label: "Kraftfahrt-Bundesamt (KBA) – službena stranica", url: "https://www.kba.de/DE/Home/home_node.html" },
-        { type: "info", label: "KBA – Fahrzeugzulassung informacije", url: "https://www.kba.de/DE/Themen/Zulassung/zulassung_node.html" },
+        { type: "info", label: "BMDV – Fahrzeugzulassung informacije", url: "https://bmdv.bund.de/DE/Home/home.html" },
       ]}
     />
   );

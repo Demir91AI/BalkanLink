@@ -129,9 +129,8 @@ export default function PrijavaPrebijalista() {
         },
       ]}
       links={[
-        { type: "info", label: "Službene informacije – Meldewesen (BMI)", url: "https://www.bmi.bund.de/DE/themen/moderne-verwaltung/verwaltungsrecht/meldewesen/meldewesen-node.html" },
-        { type: "info", label: "Bundesmeldegesetz (BMG) – puni tekst zakona", url: "https://www.gesetze-im-internet.de/bmg/BJNR108410013.html" },
-        { type: "info", label: "Česta pitanja o Meldewesen (BMI FAQ)", url: "https://www.bmi.bund.de/SharedDocs/faqs/DE/themen/moderne-verwaltung/meldewesen/meldewesen.html" },
+        { type: "info", label: "Službene informacije – Meldewesen (BMI)", url: "https://www.bmi.bund.de" },
+        { type: "info", label: "Bundesmeldegesetz (BMG) – puni tekst zakona", url: "https://www.gesetze-im-internet.de" },
       ]}
     />
   );

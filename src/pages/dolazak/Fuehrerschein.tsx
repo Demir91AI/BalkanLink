@@ -82,7 +82,7 @@ export default function Fuehrerschein() {
         },
       ]}
       links={[
-        { type: "info", label: "BMVI – Führerschein Info", url: "https://www.bmvi.de/SharedDocs/DE/Artikel/StV/Strassenverkehr/gueltigkeit-auslaendischer-fahrerlaubnisse-in-deutschland.html" },
+        { type: "info", label: "BMDV – Führerschein Info", url: "https://bmdv.bund.de/SharedDocs/DE/Artikel/StV/Strassenverkehr/gueltigkeit-auslaendischer-fahrerlaubnisse-in-deutschland.html" },
         { type: "info", label: "Fahrerlaubnis-Infos (KBA)", url: "https://www.kba.de/DE/Themen/ZentraleRegister/FAER/faer_node.html" },
       ]}
     />
