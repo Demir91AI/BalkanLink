@@ -10,6 +10,35 @@ import { cn } from "@/lib/utils";
 import { useSectionT } from "@/hooks/useSectionT";
 import type { ReactNode } from "react";
 
+/* ─── Floating Particles ─── */
+function HeroParticles() {
+  const [particles] = useState(() =>
+    Array.from({ length: 18 }, (_, i) => ({
+      id: i,
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      size: 1.5 + Math.random() * 2,
+      delay: Math.random() * 6,
+      duration: 4 + Math.random() * 4,
+      opacity: 0.15 + Math.random() * 0.25,
+    }))
+  );
+
+  return (
+    <div className="absolute inset-0 z-[1] overflow-hidden pointer-events-none">
+      {particles.map((p) => (
+        <motion.div
+          key={p.id}
+          className="absolute rounded-full bg-[hsl(var(--gold))]"
+          style={{ left: p.left, top: p.top, width: p.size, height: p.size }}
+          animate={{ y: [0, -20, 0], opacity: [p.opacity * 0.5, p.opacity, p.opacity * 0.5] }}
+          transition={{ duration: p.duration, repeat: Infinity, ease: "easeInOut", delay: p.delay }}
+        />
+      ))}
+    </div>
+  );
+}
+
 /* ─── Animation ─── */
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
