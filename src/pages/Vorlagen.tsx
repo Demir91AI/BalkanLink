@@ -32,7 +32,7 @@ export default function Vorlagen() {
       return (
         <div className="container max-w-3xl py-8 px-4">
           <button
-            onClick={() => navigate("/vorlagen")}
+        onClick={() => navigateBackOrHome(navigate)}
             className="mb-4 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
           >
             <ArrowLeft className="h-3 w-3" /> Šabloni / Vorlagen
@@ -47,10 +47,10 @@ export default function Vorlagen() {
     return (
       <div className="container max-w-3xl py-8 px-4">
         <button
-          onClick={() => navigate("/vorlagen")}
+          onClick={() => navigateBackOrHome(navigate)}
           className="mb-4 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
         >
-          <ArrowLeft className="h-3 w-3" /> Šabloni / Vorlagen
+          <ArrowLeft className="h-3 w-3" /> {t("common.back") || "Nazad"}
         </button>
 
         <div className="flex items-center gap-3 mb-6">
