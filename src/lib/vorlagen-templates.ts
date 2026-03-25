@@ -696,7 +696,7 @@ export function getTemplate(slug: string): VorlagenTemplate | undefined {
 export function renderTemplate(body: string, values: Record<string, string>): string {
   let result = body;
   for (const [key, val] of Object.entries(values)) {
-    result = result.replaceAll(`{{${key}}}`, val || `[${key}]`);
+    result = result.split(`{{${key}}}`).join(val || `[${key}]`);
   }
   // Replace any remaining placeholders
   result = result.replace(/\{\{(\w+)\}\}/g, "[___]");
