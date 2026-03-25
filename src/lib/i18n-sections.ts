@@ -840,8 +840,10 @@ const ntTranslations: Record<Lang, Record<string, string>> = {
 // ─── Pricing / Paketi ───
 const pricingTranslations: Record<Lang, Record<string, string>> = {
   bs: {
-    "pricing.heroTitle": "Nova platforma za Balkan u Njemačkoj – kreni od početka",
-    "pricing.heroSubtitle": "Sada je idealan trenutak – koristi sve funkcije po početnim cijenama i bez komplikacija. Jednostavno, brzo i bez grešaka.",
+    "pricing.heroLine1": "Nova platforma za Balkance u Njemačkoj",
+    "pricing.heroLine2": "Sve na jednom mjestu",
+    "pricing.heroTitle": "Nova platforma za Balkance u Njemačkoj\nSve na jednom mjestu",
+    "pricing.heroSubtitle": "Sada je idealan trenutak da koristiš sve funkcije po početnim cijenama.\nJednostavno, brzo i bez grešaka.",
     "pricing.launchBadge": "🎉 Ekskluzivna ponuda za lansiranje platforme",
     "pricing.launchDesc": "Sve cijene važe za prvih 6 mjeseci nakon zvaničnog pokretanja platforme.",
     "pricing.catBalkanLink": "BalkanLink",

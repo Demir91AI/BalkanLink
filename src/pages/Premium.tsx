@@ -200,11 +200,11 @@ export default function Premium() {
         {/* Floating particles */}
         <HeroParticles />
 
-        <div className="container relative z-10 text-center max-w-3xl">
+        <div className="container relative z-10 text-center" style={{ maxWidth: "680px" }}>
           {/* Badge */}
           <motion.div initial={{ opacity: 0, y: 15, scale: 0.9 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.5, ease: "easeOut" }}>
-            <span className="group relative inline-flex items-center gap-2 rounded-full border border-[hsl(var(--gold))]/40 px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider text-[hsl(var(--gold))]"
-              style={{ background: "linear-gradient(135deg, hsl(var(--gold) / 0.15), hsl(var(--gold) / 0.05))", boxShadow: "0 0 20px hsl(var(--gold) / 0.15), inset 0 1px 0 hsl(var(--gold) / 0.1)" }}>
+            <span className="inline-flex items-center gap-2 rounded-full border border-[hsl(var(--gold))]/40 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.15em] text-[hsl(var(--gold))]"
+              style={{ boxShadow: "0 0 20px hsl(var(--gold) / 0.12)" }}>
               <motion.span
                 animate={{ opacity: [0.4, 1, 0.4] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
@@ -215,47 +215,28 @@ export default function Premium() {
             </span>
           </motion.div>
 
-          {/* Title */}
+          {/* Title – 2 lines */}
           <motion.h1 initial={{ opacity: 0, y: 25 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
-            className="mt-6 font-heading text-[1.75rem] font-extrabold tracking-tight leading-[1.15] sm:text-4xl md:text-5xl lg:text-[3.25rem]"
-            style={{
-              background: "linear-gradient(180deg, #ffffff 30%, hsl(var(--gold) / 0.85) 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              filter: "drop-shadow(0 2px 20px rgba(255,255,255,0.08))",
-            }}>
-            {st("pricing.heroTitle")}
+            className="mt-5 font-heading font-extrabold tracking-tight"
+            style={{ fontSize: "clamp(2rem, 5vw, 2.5rem)", lineHeight: 1.2 }}>
+            <span className="block text-white" style={{ filter: "drop-shadow(0 2px 12px rgba(255,255,255,0.06))" }}>
+              {st("pricing.heroLine1")}
+            </span>
+            <span className="block mt-1.5 text-[hsl(var(--gold))]" style={{ filter: "drop-shadow(0 2px 16px hsl(var(--gold) / 0.25))" }}>
+              {st("pricing.heroLine2")}
+            </span>
           </motion.h1>
 
-          {/* Subtitle */}
+          {/* Subtitle – 2 lines */}
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
-            className="mx-auto mt-5 max-w-xl text-[0.95rem] text-white/65 md:text-lg leading-[1.7]">
+            className="mx-auto mt-5 max-w-lg text-white/80 leading-relaxed"
+            style={{ fontSize: "clamp(0.95rem, 2.5vw, 1.125rem)" }}>
             {st("pricing.heroSubtitle")}
           </motion.p>
 
-          {/* CTA */}
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.45 }}
-            className="mt-9 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-            <Button size="lg" className="h-12 rounded-xl px-8 text-sm font-bold shadow-lg transition-all duration-300 hover:scale-[1.04]" asChild
-              style={{
-                background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-light, var(--gold))))",
-                color: "hsl(var(--gold-foreground))",
-                boxShadow: "0 4px 24px hsl(var(--gold) / 0.35), 0 0 0 1px hsl(var(--gold) / 0.1)",
-              }}>
-              <Link to="/pocni-ovdje">
-                👉 {st("pricing.heroCta1")}
-              </Link>
-            </Button>
-            <Button variant="ghost" size="lg" className="h-12 rounded-xl px-8 text-sm text-white/45 hover:text-white hover:bg-white/5 transition-all duration-200" asChild>
-              <a href="#products">
-                {st("pricing.heroCta2")}
-              </a>
-            </Button>
-          </motion.div>
-
-          {/* Trust line */}
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.6 }}
-            className="mt-8 text-xs text-white/30 tracking-wide">
+          {/* Trust / Footer line */}
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.45 }}
+            className="mt-6 text-[13px] text-white/[0.45] tracking-wide">
             {st("pricing.heroTrust")}
           </motion.p>
         </div>
