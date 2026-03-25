@@ -49,45 +49,32 @@ export default function Header() {
           >
             <Menu className="h-5 w-5" />
           </Button>
-              <TooltipContent side="bottom" className="text-xs">Meni</TooltipContent>
-            </Tooltip>
 
-            {/* Center: premium brand logo */}
-            <div className="absolute left-1/2 top-[55%] -translate-x-1/2 -translate-y-1/2">
-              <Link to="/" className="group relative inline-flex items-center gap-3" aria-label="BalkanLink home">
-                <span className="absolute -inset-3 rounded-2xl bg-[hsl(var(--brand-orange))]/10 blur-xl group-hover:bg-[hsl(var(--brand-orange))]/20 transition-all duration-500 pointer-events-none" />
-                <span className="relative font-heading text-[28px] font-extrabold leading-none tracking-tight drop-shadow-[0_0_10px_hsl(var(--brand-orange)/0.35)]">
-                  <span className="text-white">B</span>
-                  <span className="bg-gradient-to-r from-[hsl(var(--brand-orange))] to-[hsl(var(--gold-light))] bg-clip-text text-transparent">L</span>
-                </span>
-                <span className="relative font-heading text-[22px] font-extrabold leading-none tracking-tight drop-shadow-[0_0_16px_hsl(var(--brand-orange)/0.3)]">
-                  <span className="text-white">Balkan</span>
-                  <span className="bg-gradient-to-r from-[hsl(var(--brand-orange))] to-[hsl(var(--gold-light))] bg-clip-text text-transparent">Link</span>
-                </span>
-              </Link>
-            </div>
+          {/* Center: premium brand logo */}
+          <div className="absolute left-1/2 top-[55%] -translate-x-1/2 -translate-y-1/2">
+            <Link to="/" className="group relative inline-flex items-center gap-3" aria-label="BalkanLink home">
+              <span className="absolute -inset-3 rounded-2xl bg-[hsl(var(--brand-orange))]/10 blur-xl group-hover:bg-[hsl(var(--brand-orange))]/20 transition-all duration-500 pointer-events-none" />
+              <span className="relative font-heading text-[28px] font-extrabold leading-none tracking-tight drop-shadow-[0_0_10px_hsl(var(--brand-orange)/0.35)]">
+                <span className="text-white">B</span>
+                <span className="bg-gradient-to-r from-[hsl(var(--brand-orange))] to-[hsl(var(--gold-light))] bg-clip-text text-transparent">L</span>
+              </span>
+              <span className="relative font-heading text-[22px] font-extrabold leading-none tracking-tight drop-shadow-[0_0_16px_hsl(var(--brand-orange)/0.3)]">
+                <span className="text-white">Balkan</span>
+                <span className="bg-gradient-to-r from-[hsl(var(--brand-orange))] to-[hsl(var(--gold-light))] bg-clip-text text-transparent">Link</span>
+              </span>
+            </Link>
+          </div>
 
-            {/* Right: extra menu trigger */}
-            <Tooltip open={visibleMenuHint === "right"}>
-              <TooltipTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onMouseEnter={() => triggerMenuFeedback("right")}
-                  onFocus={() => triggerMenuFeedback("right")}
-                  onClick={() => {
-                    triggerMenuFeedback("right");
-                    setSheetOpen(true);
-                  }}
-                  className={cn("ml-auto", menuButtonClassName("right"))}
-                  aria-label="Meni"
-                >
-                  <Menu className="h-5 w-5" />
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent side="bottom" className="text-xs">Meni</TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
+          {/* Right: extra menu trigger */}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setSheetOpen(true)}
+            className={`ml-auto ${menuBtnClass}`}
+            aria-label="Meni"
+          >
+            <Menu className="h-5 w-5" />
+          </Button>
         </div>
       </header>
 
