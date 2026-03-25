@@ -92,19 +92,18 @@ export default function Index() {
             <img
               src={slide.image}
               alt={slide.city}
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover transition-transform duration-[5000ms] ease-out"
               style={{
-                filter: "brightness(0.55) saturate(1.1) blur(6px)",
-                transform: "scale(1.08)",
+                filter: "brightness(0.75) saturate(1.15) contrast(1.05)",
+                transform: idx === currentSlide ? "scale(1.04)" : "scale(1)",
               }}
               loading="eager"
             />
           </div>
         ))}
 
-        {/* Dark overlays */}
-        <div className="absolute inset-0 z-[2] bg-black/50" />
-        <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/40 via-black/20 to-black/70" />
+        {/* Gradient overlays — no blur, image stays vivid */}
+        <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/60 via-black/30 to-black/50" />
 
         {/* Content */}
         <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-5 py-16 lg:py-20">
