@@ -2941,7 +2941,7 @@ guides.push({
   },
   officialPdf: "",
   onlineLink: "",
-  officialInfoUrl: "https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/blaue-karte-eu",
+  officialInfoUrl: "https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwsendererErsteSchritte/Aufenthaltstitel/aufenthaltstitel-node.html",
 });
 
 // ===================== ARBEIT – Radna viza =====================
@@ -3162,7 +3162,7 @@ guides.push({
   },
   officialPdf: "",
   onlineLink: "",
-  officialInfoUrl: "https://www.make-it-in-germany.com/de/arbeiten-in-deutschland",
+  officialInfoUrl: "https://www.auswaertiges-amt.de/de/service/visa-und-aufenthalt",
 });
 
 // ===================== FAMILIE – Spajanje porodice =====================
@@ -3355,7 +3355,7 @@ guides.push({
   },
   officialPdf: "",
   onlineLink: "",
-  officialInfoUrl: "https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/familiennachzug",
+  officialInfoUrl: "https://www.auswaertiges-amt.de/de/service/visa-und-aufenthalt",
 });
 
 // ===================== BILDUNG – Studentska viza =====================
@@ -3547,7 +3547,7 @@ guides.push({
   },
   officialPdf: "",
   onlineLink: "",
-  officialInfoUrl: "https://www.make-it-in-germany.com/de/studium-ausbildung",
+  officialInfoUrl: "https://www.daad.de/de/",
 });
 
 // ===================== ARBEIT – Stalni boravak (Niederlassungserlaubnis) =====================

@@ -58,31 +58,30 @@ export default function DolazakPageTemplate({ title, subtitle, sections, links }
         </div>
       </section>
 
-      {/* Links section — normal flow at bottom of page */}
+      {/* Službene informacije */}
       {links.length > 0 && (
         <section className="border-t bg-card pb-10 pt-6">
-          <div className="container max-w-3xl">
-            <h3 className="mb-3 text-[10px] font-bold uppercase tracking-wide text-muted-foreground">{t("common.directLinks") || "Direktni linkovi"}</h3>
-            <div className="flex flex-wrap gap-2">
+          <div className="container max-w-3xl text-center">
+            <h3 className="mb-3 flex items-center justify-center gap-1.5 text-sm font-bold">
+              <Info className="h-4 w-4 text-primary" /> {t("common.directLinks") || "Službene informacije"}
+            </h3>
+            <div className="flex flex-wrap justify-center gap-2">
               {links.map((l, i) => (
                 <a
                   key={i}
                   href={l.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-semibold transition-colors ${
-                    l.type === "pdf"
-                      ? "bg-primary/10 text-primary hover:bg-primary/20"
-                      : l.type === "portal"
-                      ? "bg-gold/10 text-gold hover:bg-gold/20"
-                      : "bg-muted text-muted-foreground hover:bg-muted/80"
-                  }`}
+                  className="inline-flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2 text-xs font-semibold text-primary transition-colors hover:bg-primary/20"
                 >
-                  {l.type === "pdf" ? <FileText className="h-4 w-4" /> : l.type === "portal" ? <ExternalLink className="h-4 w-4" /> : <Info className="h-4 w-4" />}
+                  {l.type === "pdf" ? <FileText className="h-4 w-4" /> : <ExternalLink className="h-4 w-4" />}
                   {l.label}
                 </a>
               ))}
             </div>
+            <p className="mt-3 text-[11px] text-muted-foreground/70">
+              Svi podaci dolaze iz službenih državnih izvora.
+            </p>
           </div>
         </section>
       )}
