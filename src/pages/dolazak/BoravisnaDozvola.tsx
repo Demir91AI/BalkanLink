@@ -248,7 +248,7 @@ export default function BoravisnaDozvola() {
             onClick={() => navigateBackOrHome(navigate)}
             className="mb-4 inline-flex items-center gap-1 text-xs text-primary-foreground/70 hover:text-primary-foreground"
           >
-            <ArrowLeft className="h-3 w-3" /> {t("common.back") || "Nazad"}
+            <ArrowLeft className="h-3 w-3" /> Nazad
           </button>
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">
             {st("viza.title")}
