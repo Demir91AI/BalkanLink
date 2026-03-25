@@ -216,6 +216,7 @@ type TranslationKeys = {
   "chat.openGuide": string; "chat.openForm": string; "chat.openPage": string;
   // Footer extras
   "footer.agb": string; "footer.reportContent": string;
+  "footer.paymentMethods": string; "footer.creditCard": string; "footer.bankTransfer": string;
   // Vorlagen
   "vorlagen.sidebarTitle": string; "vorlagen.subtitle": string; "vorlagen.comingSoon": string;
   "vorlagen.sectionWork": string; "vorlagen.sectionService": string;
