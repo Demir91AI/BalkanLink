@@ -103,14 +103,14 @@ export default function FirmDetail() {
       <div className="mt-6 space-y-4">
         <h1 className="text-2xl font-bold text-foreground sm:text-3xl">{firm.name}</h1>
 
-        {firm.address && (
+        {firm.city && (
           <div className="flex items-start gap-2 text-muted-foreground">
             <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
-            <span className="text-sm">{firm.address}</span>
+            <span className="text-sm">{firm.city}</span>
           </div>
         )}
 
-        <p className="text-base leading-relaxed text-muted-foreground">{firm.description}</p>
+        <p className="text-base leading-relaxed text-muted-foreground">{firm.fullDescription || firm.description}</p>
 
         {/* Phone CTA */}
         {firm.phone && (
