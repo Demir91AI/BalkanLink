@@ -1,66 +1,33 @@
 import { useState, useRef } from "react";
-import {
-  Search, ArrowRight, Loader2, BookOpen, Briefcase, Home,
-  FileText, GraduationCap, CheckCircle2, AlertTriangle,
-  ClipboardList, FolderOpen, Footprints, Info, Scale, ListChecks, FileQuestion,
-  Clock, Euro, Gauge, Sparkles,
-} from "lucide-react";
+import { Search, ArrowRight, Loader2, BookOpen, Briefcase, Home, FileText, GraduationCap } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import ReactMarkdown from "react-markdown";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat-assistant`;
 
-/* ── Quick topic chips ── */
 const QUICK_TOPICS = [
   { label: "Kindergeld", icon: FileText },
   { label: "Stan", icon: Home },
   { label: "Posao", icon: Briefcase },
-  { label: "Boravisna dozvola", icon: BookOpen },
+  { label: "Boravišna dozvola", icon: BookOpen },
   { label: "Ausbildung", icon: GraduationCap },
 ];
 
-/* ── Intent filter chips ── */
-const INTENT_FILTERS = [
-  { key: "informacija", label: "Informacija", icon: Info },
-  { key: "pravo", label: "Imam li pravo?", icon: Scale },
-  { key: "koraci", label: "Koraci", icon: ListChecks },
-  { key: "formular", label: "Formular", icon: FileQuestion },
-];
-
-/* ── Badge icon mapping ── */
-const BADGE_ICONS: Record<string, typeof Clock> = {
-  duration: Clock,
-  cost: Euro,
-  difficulty: Gauge,
-  amount: Euro,
-};
-
-/* ── Response type ── */
-interface StructuredResponse {
-  type: string;
-  title: string;
-  summary: string;
-  badges?: { label: string; type: string }[];
-  eligibility?: string[];
-  documents?: string[];
-  steps?: string[];
-  warnings?: string[];
+interface AssistantResponse {
+  content: string;
+  redirectUrl?: string;
+  redirectLabel?: string;
   guideSlug?: string;
-  formSlug?: string;
-  redirect_url?: string;
-  redirect_label?: string;
-  relatedTopics?: { label: string; url: string }[];
-  cta?: string;
-  error?: string;
+  formSlugs?: string[];
 }
 
 export default function PitajBalkanLink() {
   const [query, setQuery] = useState("");
-  const [intentFilter, setIntentFilter] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
-  const [response, setResponse] = useState<StructuredResponse | null>(null);
+  const [response, setResponse] = useState<AssistantResponse | null>(null);
   const { language } = useLanguage();
   const inputRef = useRef<HTMLInputElement>(null);
   const resultRef = useRef<HTMLDivElement>(null);
@@ -70,10 +37,6 @@ export default function PitajBalkanLink() {
     setLoading(true);
     setResponse(null);
 
-    const enrichedText = intentFilter
-      ? `${text} (${intentFilter === "pravo" ? "da li imam pravo" : intentFilter === "koraci" ? "koji su koraci" : intentFilter === "formular" ? "koji formular trebam" : "opce informacije"})`
-      : text;
-
     try {
       const resp = await fetch(CHAT_URL, {
         method: "POST",
@@ -82,30 +45,88 @@ export default function PitajBalkanLink() {
           Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
         },
         body: JSON.stringify({
-          messages: [{ role: "user", content: enrichedText }],
+          messages: [{ role: "user", content: text }],
           language,
         }),
       });
 
       if (!resp.ok) throw new Error("Request failed");
-      const data = await resp.json();
 
-      if (data.error) {
-        setResponse({ type: "error", title: "Greska", summary: data.error, steps: [], warnings: [] });
+      const contentType = resp.headers.get("content-type") || "";
+
+      // JSON response (intent redirect)
+      if (contentType.includes("application/json")) {
+        const data = await resp.json();
+        setResponse({
+          content: data.content || data.text || "",
+          redirectUrl: data.redirect_url,
+          redirectLabel: data.redirect_label,
+        });
       } else {
-        setResponse(data as StructuredResponse);
+        // SSE streaming
+        const reader = resp.body?.getReader();
+        if (!reader) throw new Error("No reader");
+        const decoder = new TextDecoder();
+        let full = "";
+        let buf = "";
+        let metaGuideSlug: string | null = null;
+        let metaFormSlugs: string[] = [];
+        let metaRedirectUrl: string | null = null;
+        let metaRedirectLabel: string | null = null;
+
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          buf += decoder.decode(value, { stream: true });
+
+          let nl: number;
+          while ((nl = buf.indexOf("\n")) !== -1) {
+            let line = buf.slice(0, nl);
+            buf = buf.slice(nl + 1);
+            if (line.endsWith("\r")) line = line.slice(0, -1);
+            if (!line.startsWith("data: ")) continue;
+            const payload = line.slice(6).trim();
+            if (payload === "[DONE]") break;
+            try {
+              const parsed = JSON.parse(payload);
+              const delta = parsed.choices?.[0]?.delta?.content;
+              if (delta) {
+                full += delta;
+                setResponse((prev) => ({
+                  ...(prev || {}),
+                  content: full,
+                }));
+              }
+            } catch {
+              /* partial */
+            }
+          }
+        }
+
+        // Extract metadata from response headers
+        metaGuideSlug = resp.headers.get("x-guide-slug");
+        const formHeader = resp.headers.get("x-form-slugs");
+        if (formHeader) metaFormSlugs = formHeader.split(",").map((s) => s.trim());
+        metaRedirectUrl = resp.headers.get("x-redirect-url");
+        metaRedirectLabel = resp.headers.get("x-redirect-label");
+
+        setResponse({
+          content: full,
+          guideSlug: metaGuideSlug || undefined,
+          formSlugs: metaFormSlugs.length ? metaFormSlugs : undefined,
+          redirectUrl: metaRedirectUrl || undefined,
+          redirectLabel: metaRedirectLabel || undefined,
+        });
       }
 
+      // Scroll to result
       setTimeout(() => {
         resultRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
       }, 200);
-    } catch {
+    } catch (e) {
+      console.error("PitajBL error:", e);
       setResponse({
-        type: "error",
-        title: "Greska",
-        summary: "Greska pri obradi zahtjeva. Pokusajte ponovo.",
-        steps: [],
-        warnings: [],
+        content: "Greska pri obradi zahtjeva. Pokusajte ponovo.",
       });
     } finally {
       setLoading(false);
@@ -119,6 +140,7 @@ export default function PitajBalkanLink() {
 
   return (
     <section className="relative w-full bg-gradient-to-b from-[hsl(215,55%,7%)] to-[hsl(215,50%,11%)] py-14 px-4 sm:px-6 lg:py-20">
+      {/* Subtle pattern overlay */}
       <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:32px_32px]" />
 
       <div className="relative z-10 mx-auto max-w-3xl">
@@ -135,27 +157,6 @@ export default function PitajBalkanLink() {
           </p>
         </div>
 
-        {/* Intent filter chips */}
-        <div className="mb-4 flex flex-wrap items-center justify-center gap-2">
-          <span className="text-[11px] font-semibold uppercase tracking-wider text-white/30 mr-1">
-            Sta zelis tacno?
-          </span>
-          {INTENT_FILTERS.map((f) => (
-            <button
-              key={f.key}
-              onClick={() => setIntentFilter(intentFilter === f.key ? null : f.key)}
-              className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium transition-all ${
-                intentFilter === f.key
-                  ? "bg-gold text-gold-foreground shadow-[0_0_12px_rgba(255,204,0,0.3)]"
-                  : "border border-white/10 bg-white/[0.04] text-white/50 hover:border-gold/30 hover:text-gold"
-              }`}
-            >
-              <f.icon className="h-3 w-3" />
-              {f.label}
-            </button>
-          ))}
-        </div>
-
         {/* Search bar */}
         <form onSubmit={handleSubmit} className="relative">
           <div className="flex items-center rounded-2xl border border-white/10 bg-white/[0.06] backdrop-blur-sm shadow-[0_4px_32px_rgba(0,0,0,0.3)] transition-all focus-within:border-gold/40 focus-within:shadow-[0_4px_32px_rgba(255,204,0,0.12)]">
@@ -164,7 +165,7 @@ export default function PitajBalkanLink() {
               ref={inputRef}
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Postavi pitanje... (npr. Kindergeld, stan, posao, Anmeldung)"
+              placeholder="Postavi pitanje… (npr. Kindergeld, stan, posao, Anmeldung)"
               className="flex-1 bg-transparent px-4 py-4 text-sm text-white placeholder:text-white/30 focus:outline-none sm:py-5 sm:text-base"
               disabled={loading}
             />
@@ -192,7 +193,7 @@ export default function PitajBalkanLink() {
                 askAssistant(topic.label);
               }}
               disabled={loading}
-              className="flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.04] px-3.5 py-1.5 text-xs font-medium text-white/50 transition-all hover:border-gold/30 hover:bg-gold/10 hover:text-gold disabled:opacity-40 sm:text-sm"
+              className="flex items-center gap-1.5 rounded-full border border-white/8 bg-white/[0.04] px-3.5 py-1.5 text-xs font-medium text-white/50 transition-all hover:border-gold/30 hover:bg-gold/10 hover:text-gold disabled:opacity-40 sm:text-sm"
             >
               <topic.icon className="h-3.5 w-3.5" />
               {topic.label}
@@ -200,185 +201,67 @@ export default function PitajBalkanLink() {
           ))}
         </div>
 
-        {/* ─── RESULT AREA ─── */}
+        {/* Result area */}
         <AnimatePresence mode="wait">
           {(response || loading) && (
             <motion.div
               ref={resultRef}
               key="result"
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.4 }}
-              className="mt-10 space-y-4"
+              transition={{ duration: 0.35 }}
+              className="mt-8 rounded-2xl border border-white/8 bg-white/[0.04] backdrop-blur-sm p-5 sm:p-7"
             >
-              {loading && !response ? (
-                <div className="flex items-center gap-3 rounded-2xl border border-white/[0.08] bg-white/[0.04] p-6 text-white/40">
+              {loading && !response?.content ? (
+                <div className="flex items-center gap-3 text-white/40">
                   <Loader2 className="h-5 w-5 animate-spin text-gold" />
-                  <span className="text-sm">Obradujem tvoje pitanje...</span>
+                  <span className="text-sm">Obradujem tvoje pitanje…</span>
                 </div>
-              ) : response ? (
+              ) : response?.content ? (
                 <div className="space-y-4">
-                  {/* ── HEADER CARD ── */}
-                  <div className="rounded-2xl border border-white/[0.08] bg-white/[0.06] p-5 sm:p-6">
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="min-w-0">
-                        <div className="flex items-center gap-2 mb-1">
-                          <Sparkles className="h-4 w-4 text-gold shrink-0" />
-                          <h3 className="text-lg font-bold text-white sm:text-xl truncate">
-                            {response.title}
-                          </h3>
-                        </div>
-                        <p className="text-sm text-white/60 leading-relaxed">
-                          {response.summary}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Badges */}
-                    {response.badges && response.badges.length > 0 && (
-                      <div className="mt-4 flex flex-wrap gap-2">
-                        {response.badges.map((badge, i) => {
-                          const Icon = BADGE_ICONS[badge.type] || Clock;
-                          return (
-                            <span
-                              key={i}
-                              className="inline-flex items-center gap-1.5 rounded-full bg-white/[0.08] px-3 py-1 text-[11px] font-semibold text-white/70"
-                            >
-                              <Icon className="h-3 w-3 text-gold" />
-                              {badge.label}
-                            </span>
-                          );
-                        })}
-                      </div>
-                    )}
+                  {/* Markdown response */}
+                  <div className="prose prose-sm prose-invert max-w-none text-white/80 prose-headings:text-white prose-headings:font-bold prose-strong:text-white prose-a:text-gold prose-a:no-underline hover:prose-a:underline prose-li:marker:text-gold/60 prose-ol:text-white/80 prose-ul:text-white/80">
+                    <ReactMarkdown>{response.content}</ReactMarkdown>
                   </div>
 
-                  {/* ── ELIGIBILITY CARD ── */}
-                  {response.eligibility && response.eligibility.length > 0 && (
-                    <ResultCard
-                      icon={<CheckCircle2 className="h-4 w-4" />}
-                      title="Da li imas pravo?"
-                      accentClass="text-emerald-400"
-                      borderClass="border-emerald-500/20"
-                    >
-                      <ul className="space-y-2">
-                        {response.eligibility.map((item, i) => (
-                          <li key={i} className="flex items-start gap-2 text-sm text-white/70">
-                            <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-400/70" />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </ResultCard>
-                  )}
-
-                  {/* ── DOCUMENTS CARD ── */}
-                  {response.documents && response.documents.length > 0 && (
-                    <ResultCard
-                      icon={<FolderOpen className="h-4 w-4" />}
-                      title="Sta ti treba?"
-                      accentClass="text-blue-400"
-                      borderClass="border-blue-500/20"
-                    >
-                      <ul className="space-y-2">
-                        {response.documents.map((doc, i) => (
-                          <li key={i} className="flex items-start gap-2 text-sm text-white/70">
-                            <ClipboardList className="mt-0.5 h-3.5 w-3.5 shrink-0 text-blue-400/70" />
-                            <span>{doc}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </ResultCard>
-                  )}
-
-                  {/* ── STEPS CARD ── */}
-                  {response.steps && response.steps.length > 0 && (
-                    <ResultCard
-                      icon={<Footprints className="h-4 w-4" />}
-                      title="Kako ide postupak?"
-                      accentClass="text-gold"
-                      borderClass="border-gold/20"
-                    >
-                      <ol className="space-y-3">
-                        {response.steps.map((step, i) => (
-                          <li key={i} className="flex items-start gap-3 text-sm text-white/70">
-                            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gold/20 text-[11px] font-bold text-gold">
-                              {i + 1}
-                            </span>
-                            <span className="pt-0.5">{step}</span>
-                          </li>
-                        ))}
-                      </ol>
-                    </ResultCard>
-                  )}
-
-                  {/* ── WARNINGS CARD ── */}
-                  {response.warnings && response.warnings.length > 0 && (
-                    <ResultCard
-                      icon={<AlertTriangle className="h-4 w-4" />}
-                      title="Najcesce greske"
-                      accentClass="text-amber-400"
-                      borderClass="border-amber-500/20"
-                    >
-                      <ul className="space-y-2">
-                        {response.warnings.map((w, i) => (
-                          <li key={i} className="flex items-start gap-2 text-sm text-white/70">
-                            <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-amber-400/70" />
-                            <span>{w}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </ResultCard>
-                  )}
-
-                  {/* ── CTA CARD ── */}
-                  {(response.guideSlug || response.redirect_url) && (
-                    <div className="rounded-2xl border border-gold/20 bg-gold/[0.06] p-5 sm:p-6 text-center">
-                      {response.guideSlug && (
-                        <>
-                          <Link to={`/guide/${response.guideSlug}`}>
-                            <Button className="h-12 w-full rounded-xl bg-gold text-gold-foreground font-bold text-sm hover:bg-gold-light shadow-[0_4px_20px_rgba(255,204,0,0.3)] sm:w-auto sm:px-8">
-                              <FileText className="mr-2 h-4 w-4" />
-                              Popuni bez greske (Smart Guide)
-                            </Button>
-                          </Link>
-                          <p className="mt-2 text-xs text-white/40">
-                            Korak-po-korak vodjenje kroz formular
-                          </p>
-                        </>
-                      )}
-                      {!response.guideSlug && response.redirect_url && (
-                        <Link to={response.redirect_url}>
-                          <Button className="h-12 w-full rounded-xl bg-gold text-gold-foreground font-bold text-sm hover:bg-gold-light shadow-[0_4px_20px_rgba(255,204,0,0.3)] sm:w-auto sm:px-8">
-                            {response.redirect_label || "Otvori"}
-                            <ArrowRight className="ml-2 h-4 w-4" />
-                          </Button>
-                        </Link>
-                      )}
-                    </div>
-                  )}
-
-                  {/* ── CROSS NAVIGATION ── */}
-                  {response.relatedTopics && response.relatedTopics.length > 0 && (
-                    <div className="rounded-2xl border border-white/[0.06] bg-white/[0.03] p-5">
-                      <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-white/30">
-                        Mozda ti treba i:
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        {response.relatedTopics.map((topic, i) => (
-                          <Link
-                            key={i}
-                            to={topic.url}
-                            className="flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-2 text-xs font-medium text-white/60 transition-all hover:border-gold/30 hover:text-gold hover:bg-gold/10"
-                          >
-                            {topic.label}
-                            <ArrowRight className="h-3 w-3" />
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  )}
+                  {/* Action buttons */}
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {response.redirectUrl && (
+                      <Link to={response.redirectUrl}>
+                        <Button
+                          size="sm"
+                          className="rounded-full bg-gold text-gold-foreground hover:bg-gold-light"
+                        >
+                          {response.redirectLabel || "Otvori"}
+                          <ArrowRight className="ml-1 h-3.5 w-3.5" />
+                        </Button>
+                      </Link>
+                    )}
+                    {response.guideSlug && (
+                      <Link to={`/guide/${response.guideSlug}`}>
+                        <Button
+                          size="sm"
+                          className="rounded-full bg-gold text-gold-foreground hover:bg-gold-light"
+                        >
+                          Otvori Smart Guide
+                          <ArrowRight className="ml-1 h-3.5 w-3.5" />
+                        </Button>
+                      </Link>
+                    )}
+                    {response.formSlugs?.map((slug) => (
+                      <Link key={slug} to={`/formulari/${slug}`}>
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          className="rounded-full border-white/15 text-white/70 hover:border-gold/40 hover:text-gold"
+                        >
+                          <FileText className="mr-1 h-3.5 w-3.5" />
+                          {slug}
+                        </Button>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               ) : null}
             </motion.div>
@@ -386,30 +269,5 @@ export default function PitajBalkanLink() {
         </AnimatePresence>
       </div>
     </section>
-  );
-}
-
-/* ── Reusable Result Card ── */
-function ResultCard({
-  icon,
-  title,
-  accentClass,
-  borderClass,
-  children,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  accentClass: string;
-  borderClass: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <div className={`rounded-2xl border ${borderClass} bg-white/[0.04] p-5 sm:p-6`}>
-      <div className={`mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-wider ${accentClass}`}>
-        {icon}
-        {title}
-      </div>
-      {children}
-    </div>
   );
 }
