@@ -1,14 +1,12 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
-  Search, Footprints, Briefcase, Building2,
-  ShieldCheck, Compass, Wrench, Megaphone, Plane,
-  ClipboardList, Home, HandshakeIcon,
+  Footprints, Briefcase, ShieldCheck, Compass, Wrench, Plane,
+  ClipboardList, Home, HandshakeIcon, CheckCircle2, Lightbulb, ArrowRight,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 
 import { HeroAdBanner } from "@/components/home/AdSections";
 import { AdCarousel } from "@/components/home/AdCarousel";
@@ -50,9 +48,14 @@ const slides = [
   { image: heroLeipzig, city: "LEIPZIG" },
 ];
 
+const trustBadges = [
+  { icon: CheckCircle2, text: "Bez komplikacija" },
+  { icon: CheckCircle2, text: "Na tvom jeziku" },
+  { icon: CheckCircle2, text: "Provjerene informacije" },
+];
+
 export default function Index() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [searchQuery, setSearchQuery] = useState("");
   const { t } = useLanguage();
   const navigate = useNavigate();
 
@@ -61,7 +64,7 @@ export default function Index() {
   }, []);
 
   useEffect(() => {
-    const timer = setInterval(nextSlide, 4000);
+    const timer = setInterval(nextSlide, 5000);
     return () => clearInterval(timer);
   }, [nextSlide]);
 
@@ -72,21 +75,15 @@ export default function Index() {
     });
   }, []);
 
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (searchQuery.trim()) {
-      navigate(`/qa?q=${encodeURIComponent(searchQuery.trim())}`);
-    }
-  };
-
   return (
     <>
-      {/* ─── HERO — FULL WIDTH, 88vh ─── */}
-      <section className="relative h-[88vh] min-h-[560px] max-h-[960px] overflow-hidden bg-[hsl(215,68%,6%)]">
+      {/* ─── HERO — HIGH CONVERSION ─── */}
+      <section className="relative min-h-[92vh] overflow-hidden bg-[hsl(215,68%,6%)]">
+        {/* Background slideshow with heavy blur */}
         {slides.map((slide, idx) => (
           <div
             key={idx}
-            className="absolute inset-0 transition-opacity duration-[800ms] ease-in-out"
+            className="absolute inset-0 transition-opacity duration-[1200ms] ease-in-out"
             style={{
               opacity: idx === currentSlide ? 1 : 0,
               zIndex: idx === currentSlide ? 1 : 0,
@@ -95,109 +92,161 @@ export default function Index() {
             <img
               src={slide.image}
               alt={slide.city}
-              className="h-full w-full object-cover transition-transform duration-[4000ms] ease-out"
+              className="h-full w-full object-cover"
               style={{
-                filter: "brightness(0.82) saturate(1.2) contrast(1.08)",
-                transform: idx === currentSlide ? "scale(1.05)" : "scale(1)",
+                filter: "brightness(0.55) saturate(1.1) blur(6px)",
+                transform: "scale(1.08)",
               }}
               loading="eager"
             />
           </div>
         ))}
 
-        <div className="absolute inset-0 z-[2] bg-black/40" />
-        <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/30 via-transparent to-black/70" />
+        {/* Dark overlays */}
+        <div className="absolute inset-0 z-[2] bg-black/50" />
+        <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/40 via-black/20 to-black/70" />
 
-        <div className="relative z-10 flex h-full w-full flex-col items-center justify-center text-center px-5">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.15 }}
-            className="mx-auto flex w-full flex-col items-center justify-center text-center"
-            style={{ maxWidth: "900px" }}
-          >
-            <h1
-              className="font-heading text-[1.15rem] font-black leading-[1.2] tracking-tight text-white sm:whitespace-nowrap sm:text-2xl md:text-3xl lg:text-[3.2rem]"
-              style={{ textShadow: "0 4px 30px rgba(0,0,0,0.5)" }}
+        {/* Content */}
+        <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-5 py-16 lg:py-20">
+          <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-10 lg:flex-row lg:items-center lg:gap-16">
+
+            {/* ── LEFT: Text + CTAs ── */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="flex flex-1 flex-col items-center text-center lg:items-start lg:text-left"
             >
-              {t("index.heroTitle")}{" "}
-              <span className="text-[#FFCC00] drop-shadow-[0_0_24px_rgba(255,204,0,0.45)]">
-                {t("index.heroHighlight")}
-              </span>
-            </h1>
-
-            <p
-              className="mx-auto text-sm font-semibold leading-relaxed sm:text-base md:text-lg"
-              style={{ color: "#F0F0F0", textShadow: "0 2px 12px rgba(0,0,0,0.4)", marginTop: "24px", maxWidth: "660px" }}
-            >
-              {t("index.heroSubtitle")}
-              <br className="hidden sm:block" />{" "}
-              {t("index.heroSubtitle2")}
-            </p>
-
-            {/* Search bar — mobile-optimized */}
-            <div className="flex w-full justify-center" style={{ marginTop: "32px" }}>
-              <motion.form
-                onSubmit={handleSearch}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="w-full flex justify-center"
-                style={{ maxWidth: "90%" }}
+              <h1
+                className="font-heading text-[1.65rem] font-black leading-[1.15] tracking-tight text-white sm:text-3xl md:text-4xl lg:text-[3.4rem]"
+                style={{ textShadow: "0 4px 30px rgba(0,0,0,0.5)" }}
               >
-                <div className="flex w-full items-center gap-1.5 sm:gap-2" style={{ maxWidth: "800px" }}>
-                  <div className="relative min-w-0 flex-1">
-                    <Search className="absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-[#FFCC00] sm:left-5 sm:h-5 sm:w-5" />
-                    <Input
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      placeholder={t("index.searchPlaceholder")}
-                      className="h-[38px] w-full rounded-full border-none bg-white/95 pl-9 pr-3 text-[13px] text-foreground placeholder:text-muted-foreground shadow-[0_8px_40px_rgba(0,0,0,0.3)] backdrop-blur-sm focus-visible:ring-2 focus-visible:ring-[#FFCC00]/60 hover:bg-white hover:shadow-[0_12px_48px_rgba(0,0,0,0.35)] transition-all duration-300 sm:h-[60px] sm:pl-14 sm:pr-5 sm:text-base"
-                    />
-                  </div>
-                  <Button
-                    type="submit"
-                    className="h-[38px] w-[38px] shrink-0 rounded-full bg-[#FFCC00] text-base font-bold text-[hsl(var(--gold-foreground))] shadow-[0_4px_24px_rgba(255,204,0,0.4)] hover:bg-[#FFD633] hover:shadow-[0_8px_36px_rgba(255,204,0,0.55)] hover:scale-105 transition-all duration-300 sm:h-[60px] sm:w-[60px]"
-                  >
-                    <Search className="h-3.5 w-3.5 sm:h-5 sm:w-5" />
-                  </Button>
-                </div>
-              </motion.form>
-            </div>
+                Njemačka birokratija{" "}
+                <span className="text-gold drop-shadow-[0_0_24px_rgba(255,204,0,0.45)]">
+                  bez stresa.
+                </span>
+              </h1>
 
-            <p
-              className="mx-auto text-xs font-light italic leading-relaxed sm:text-sm"
-              style={{ color: "#E0E0E0", textShadow: "0 2px 10px rgba(0,0,0,0.4)", marginTop: "24px", maxWidth: "520px" }}
+              <p
+                className="mt-5 max-w-xl text-sm font-medium leading-relaxed text-white/80 sm:text-base md:text-lg lg:mt-6"
+                style={{ textShadow: "0 2px 12px rgba(0,0,0,0.4)" }}
+              >
+                Popuni sve važne formulare uz jasna objašnjenja — korak po korak, na tvom jeziku.
+              </p>
+
+              {/* Primary CTA */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="mt-8 flex flex-col items-center gap-3 lg:items-start"
+              >
+                <Button
+                  onClick={() => navigate("/formulari")}
+                  className="h-12 rounded-full bg-gold px-8 text-base font-bold text-gold-foreground shadow-[0_4px_24px_rgba(255,204,0,0.4)] hover:bg-gold-light hover:shadow-[0_8px_36px_rgba(255,204,0,0.55)] hover:scale-[1.03] transition-all duration-300 sm:h-14 sm:px-10 sm:text-lg"
+                >
+                  Započni vodič
+                  <ArrowRight className="ml-1 h-4 w-4 sm:h-5 sm:w-5" />
+                </Button>
+
+                {/* Secondary CTA */}
+                <Link
+                  to="/qa"
+                  className="group flex items-center gap-1.5 text-sm font-medium text-white/50 transition-colors hover:text-gold"
+                >
+                  Ili pitaj BalkanLink asistenta
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </motion.div>
+
+              {/* Trust badges */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.7 }}
+                className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 lg:justify-start lg:mt-10"
+              >
+                {trustBadges.map((badge) => (
+                  <span key={badge.text} className="flex items-center gap-1.5 text-xs font-medium text-white/60 sm:text-sm">
+                    <badge.icon className="h-3.5 w-3.5 text-gold sm:h-4 sm:w-4" />
+                    {badge.text}
+                  </span>
+                ))}
+              </motion.div>
+            </motion.div>
+
+            {/* ── RIGHT: Form preview card ── */}
+            <motion.div
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.35 }}
+              className="w-full max-w-sm shrink-0 lg:max-w-[360px]"
             >
-              {t("index.slogan1")}
-              <br className="hidden sm:block" />{" "}
-              {t("index.slogan2")}
-            </p>
-          </motion.div>
+              <div className="rounded-2xl border border-white/10 bg-white/[0.07] p-5 shadow-[0_20px_60px_rgba(0,0,0,0.4)] backdrop-blur-xl sm:p-6">
+                {/* Card header */}
+                <div className="mb-4 flex items-center gap-2">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gold/20">
+                    <ClipboardList className="h-4 w-4 text-gold" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold text-white">Kindergeld Antrag</p>
+                    <p className="text-[11px] text-white/40">Familienkasse</p>
+                  </div>
+                </div>
 
-          <div className="absolute bottom-7 flex gap-1.5">
-            {slides.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setCurrentSlide(idx)}
-                className={`rounded-full transition-all duration-500 ${
-                  idx === currentSlide
-                    ? "h-1.5 w-7 bg-[#FFCC00] shadow-[0_0_8px_rgba(255,204,0,0.5)]"
-                    : "h-1.5 w-1.5 bg-white/20 hover:bg-white/35"
-                }`}
-                aria-label={`Slide ${idx + 1}`}
-              />
-            ))}
+                {/* Form fields mockup */}
+                <div className="space-y-3">
+                  <div>
+                    <label className="mb-1 block text-[11px] font-medium text-white/50">Vorname</label>
+                    <div className="h-9 rounded-lg border border-white/10 bg-white/5 px-3 flex items-center">
+                      <span className="text-sm text-white/30">Emir</span>
+                    </div>
+                  </div>
+                  <div>
+                    <label className="mb-1 block text-[11px] font-medium text-white/50">Nachname</label>
+                    <div className="h-9 rounded-lg border border-white/10 bg-white/5 px-3 flex items-center">
+                      <span className="text-sm text-white/30">Hadžić</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Explanation tooltip */}
+                <div className="mt-4 flex items-start gap-2 rounded-lg bg-gold/10 p-3 border border-gold/20">
+                  <Lightbulb className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+                  <p className="text-xs leading-relaxed text-white/70">
+                    <span className="font-semibold text-gold">Objašnjenje:</span>{" "}
+                    Upiši ime tačno kao u ličnoj karti.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 z-10 h-px bg-gradient-to-r from-transparent via-[hsl(var(--gold)/0.3)] to-transparent" />
+        {/* Slide indicators */}
+        <div className="absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 gap-1.5">
+          {slides.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrentSlide(idx)}
+              className={`rounded-full transition-all duration-500 ${
+                idx === currentSlide
+                  ? "h-1.5 w-6 bg-gold shadow-[0_0_8px_rgba(255,204,0,0.5)]"
+                  : "h-1.5 w-1.5 bg-white/15 hover:bg-white/30"
+              }`}
+              aria-label={`Slide ${idx + 1}`}
+            />
+          ))}
+        </div>
+
+        <div className="absolute bottom-0 left-0 right-0 z-10 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
       </section>
 
       <HeroAdBanner />
 
       <div className="flex">
-        {/* Desktop sidebar - kept for desktop only */}
+        {/* Desktop sidebar */}
         <nav className="hidden md:flex w-[260px] shrink-0 flex-col border-r border-border/40 bg-[hsl(215,55%,7%)] sticky top-0 self-start h-screen py-6 px-3">
           <p className="mb-4 px-3 text-[11px] font-semibold uppercase tracking-widest text-white/30">
             {t("index.navLabel")}
@@ -219,9 +268,6 @@ export default function Index() {
 
         <div className="flex-1 min-w-0">
           <WowSection />
-
-          {/* Mobile nav removed — already in sidebar/hamburger menu */}
-
           <AdCarousel />
           <AdFlowBanner />
         </div>
