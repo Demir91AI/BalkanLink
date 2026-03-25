@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useMemo, useState, useRef, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { BUNDESLAENDER } from "@/lib/germany-data";
 import ListingMapPreview from "@/components/ListingMapPreview";
 import { COUNTRIES, type CountryCode } from "@/contexts/CountryContext";
+import { navigateBackOrHome } from "@/lib/navigation";
 
 /* ─── Gemeinschaft subcategories (religion + culture combined) per country ─── */
 const GEMEINSCHAFT_SUBCATS: Record<string, { key: string; label: string; subs: string[] }[]> = {
@@ -68,6 +69,7 @@ type SectionKey = "gemeinschaft" | "sport";
 
 export default function CountryPage() {
   const { code } = useParams<{ code: string }>();
+  const navigate = useNavigate();
   const countryCode = (code?.toUpperCase() || "BIH") as CountryCode;
   const country = COUNTRIES.find((c) => c.code === countryCode);
 
@@ -185,9 +187,9 @@ export default function CountryPage() {
       <section className="relative overflow-hidden bg-primary py-16">
         <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-gold/3" />
         <div className="container relative max-w-5xl">
-          <Link to="/community" className="mb-6 inline-flex items-center gap-2 text-sm text-primary-foreground/50 transition-colors hover:text-gold">
-            <ArrowLeft className="h-4 w-4" /> Alle Länder
-          </Link>
+          <button onClick={() => navigateBackOrHome(navigate)} className="back-button mb-6 text-sm text-primary-foreground">
+            <ArrowLeft className="h-4 w-4" /> Nazad
+          </button>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <span className="text-5xl">{country.flag}</span>
             <h1 className="mt-3 text-3xl font-black text-primary-foreground md:text-4xl">
@@ -245,14 +247,16 @@ export default function CountryPage() {
       <div className="sticky top-[7.5rem] z-20 border-b border-border/20 bg-primary/95 backdrop-blur-xl">
         <div className="container max-w-5xl py-3">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-primary-foreground/30" />
+            <span className="absolute left-3 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full bg-gold">
+              <Search className="h-3.5 w-3.5 text-primary" />
+            </span>
             <Input
               placeholder="Stadt suchen…"
               value={cityInput}
               onChange={(e) => { setCityInput(e.target.value); setShowSuggestions(true); }}
               onFocus={() => setShowSuggestions(true)}
               onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
-              className="border-primary-foreground/10 bg-primary pl-9 text-primary-foreground placeholder:text-primary-foreground/30"
+              className="border-primary-foreground/10 bg-primary pl-12 text-primary-foreground placeholder:text-primary-foreground/30"
             />
             {showSuggestions && citySuggestions.length > 0 && (
               <ul className="absolute z-50 mt-1 w-full rounded-lg border border-primary-foreground/10 bg-primary shadow-2xl">

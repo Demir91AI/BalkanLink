@@ -32,8 +32,8 @@ export default function Vorlagen() {
       return (
         <div className="container max-w-3xl py-8 px-4">
           <button
-        onClick={() => navigateBackOrHome(navigate)}
-            className="mb-4 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
+            onClick={() => navigateBackOrHome(navigate)}
+            className="back-button mb-4 text-xs text-muted-foreground"
           >
             <ArrowLeft className="h-3 w-3" /> Nazad
           </button>
@@ -48,7 +48,7 @@ export default function Vorlagen() {
       <div className="container max-w-3xl py-8 px-4">
         <button
           onClick={() => navigateBackOrHome(navigate)}
-          className="mb-4 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
+          className="back-button mb-4 text-xs text-muted-foreground"
         >
           <ArrowLeft className="h-3 w-3" /> Nazad
         </button>
@@ -73,7 +73,7 @@ export default function Vorlagen() {
     <div className="container max-w-3xl py-8 px-4">
       <button
         onClick={() => navigateBackOrHome(navigate)}
-        className="mb-4 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
+        className="back-button mb-4 text-xs text-muted-foreground"
       >
         <ArrowLeft className="h-3 w-3" /> Nazad
       </button>

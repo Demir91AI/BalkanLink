@@ -94,7 +94,7 @@ export default function Restorani() {
       <section className="relative overflow-hidden" style={{ background: "#0F1B2D" }}>
         <div className="absolute inset-0 bg-gradient-to-br from-[#E3B341]/5 via-transparent to-[#E3B341]/3" />
         <div className="container relative max-w-5xl py-14">
-          <button onClick={() => navigateBackOrHome(navigate)} className="mb-4 inline-flex items-center gap-1 text-xs text-white/60 hover:text-white">
+          <button onClick={() => navigateBackOrHome(navigate)} className="back-button mb-4 text-xs text-white">
             <ArrowLeft className="h-3 w-3" /> Nazad
           </button>
           <div className="text-center">
@@ -111,14 +111,16 @@ export default function Restorani() {
       <div className="sticky top-[6.5rem] z-30" style={{ background: "rgba(15,27,45,0.97)", borderBottom: "1px solid rgba(227,179,65,0.15)" }}>
         <div className="container max-w-5xl py-3">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/30" />
+            <span className="absolute left-3 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full bg-gold">
+              <Search className="h-3.5 w-3.5 text-primary" />
+            </span>
             <Input
               placeholder="Stadt suchen…"
               value={cityInput}
               onChange={(e) => { setCityInput(e.target.value); setShowSuggestions(true); }}
               onFocus={() => setShowSuggestions(true)}
               onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
-              className="border-white/10 pl-9 text-white placeholder:text-white/40"
+              className="border-white/10 pl-12 text-white placeholder:text-white/40"
               style={{ background: "#16263F" }}
             />
             {showSuggestions && citySuggestions.length > 0 && (

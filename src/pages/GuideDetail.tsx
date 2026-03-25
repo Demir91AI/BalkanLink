@@ -31,7 +31,7 @@ export default function GuideDetail() {
         <p className="text-muted-foreground">
           {lk === "de" ? "Der gewünschte Guide existiert nicht." : lk === "bs" ? "Traženi vodič ne postoji." : "The requested guide does not exist."}
         </p>
-        <button onClick={() => navigateBackOrHome(navigate)} className="mt-4 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground">
+        <button onClick={() => navigateBackOrHome(navigate)} className="back-button mt-4 text-xs text-muted-foreground">
           <ArrowLeft className="h-3 w-3" /> Nazad
         </button>
       </section>
@@ -60,7 +60,7 @@ export default function GuideDetail() {
         <div className="container max-w-3xl">
           <button
             onClick={() => navigateBackOrHome(navigate)}
-            className="mb-4 inline-flex items-center gap-1 text-xs text-primary-foreground/70 hover:text-primary-foreground"
+            className="back-button mb-4 text-xs text-primary-foreground"
           >
             <ArrowLeft className="h-3 w-3" /> Nazad
           </button>

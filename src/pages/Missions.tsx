@@ -20,7 +20,7 @@ function MissionDetail({ id, onBack }: { id: string; onBack: () => void }) {
   if (!mission) return (
     <div className="container py-8 text-center">
       <p className="text-muted-foreground">{t("missions.empty")}</p>
-      <Button variant="ghost" className="mt-4" onClick={onBack}><ArrowLeft className="mr-2 h-4 w-4" />Nazad</Button>
+      <button onClick={onBack} className="back-button mt-4 text-sm text-muted-foreground"><ArrowLeft className="h-4 w-4" />Nazad</button>
     </div>
   );
 
@@ -31,10 +31,10 @@ function MissionDetail({ id, onBack }: { id: string; onBack: () => void }) {
 
   return (
     <div className="container py-8">
-      <Button variant="ghost" size="sm" onClick={onBack} className="mb-6">
-        <ArrowLeft className="mr-2 h-4 w-4" />
+      <button onClick={onBack} className="back-button mb-6 text-sm text-muted-foreground">
+        <ArrowLeft className="h-4 w-4" />
         Nazad
-      </Button>
+      </button>
 
       <div className="mx-auto max-w-lg rounded-xl border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
@@ -118,7 +118,7 @@ export default function Missions() {
   return (
     <div className="container py-8">
       <div className="mb-8">
-        <button onClick={() => navigateBackOrHome(navigate)} className="mb-4 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground">
+        <button onClick={() => navigateBackOrHome(navigate)} className="back-button mb-4 text-xs text-muted-foreground">
           <ArrowLeft className="h-3 w-3" /> Nazad
         </button>
         <h1 className="text-2xl font-bold md:text-3xl">{t("missions.title")}</h1>
