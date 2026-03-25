@@ -122,7 +122,7 @@ export function PremiumShowcaseCard({ firm, priority = false }: PremiumShowcaseC
               </a>
             ) : (
               <Link to={`/firma/${firm.slug}`}>
-                Pogledaj više <ArrowRight className="ml-1 h-3.5 w-3.5" />
+                Pogledaj više <ExternalLink className="ml-1 h-3.5 w-3.5" />
               </Link>
             )}
           </Button>
