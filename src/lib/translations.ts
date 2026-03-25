@@ -1723,13 +1723,29 @@ const countryNames: Record<string, Record<string, string>> = {
   en: { "country.BIH": "Bosnia and Herzegovina", "country.SRB": "Serbia", "country.HR": "Croatia", "country.ME": "Montenegro", "country.MK": "North Macedonia", "country.XK": "Kosovo", "country.AL": "Albania", "restorani.searchCity": "Search city…", "prodavnice.searchCity": "Search city…" },
 };
 
-// Merge country names and vorlagen into translations
+// UI extra keys: contact form, firm detail, header menu
+const uiExtraKeys: Record<string, Record<string, string>> = {
+  bs: { "contact.title": "Kontakt", "contact.subtitle": "Pošaljite nam poruku.", "contact.firstName": "Ime", "contact.lastName": "Prezime", "contact.email": "E-Mail", "contact.message": "Vaša poruka", "contact.send": "Pošalji poruku", "header.pricelist": "Cjenovnik / Monitoring", "firm.notFound": "Firma nije pronađena", "firm.back": "Nazad na početnu", "firm.recommended": "Preporučeno", "firm.visitWebsite": "Posjeti web stranicu", "firm.contact": "Kontakt" },
+  hr: { "contact.title": "Kontakt", "contact.subtitle": "Pošaljite nam poruku.", "contact.firstName": "Ime", "contact.lastName": "Prezime", "contact.email": "E-Mail", "contact.message": "Vaša poruka", "contact.send": "Pošalji poruku", "header.pricelist": "Cjenik / Monitoring", "firm.notFound": "Tvrtka nije pronađena", "firm.back": "Natrag na početnu", "firm.recommended": "Preporučeno", "firm.visitWebsite": "Posjeti web stranicu", "firm.contact": "Kontakt" },
+  sr: { "contact.title": "Kontakt", "contact.subtitle": "Pošaljite nam poruku.", "contact.firstName": "Ime", "contact.lastName": "Prezime", "contact.email": "E-Mail", "contact.message": "Vaša poruka", "contact.send": "Pošalji poruku", "header.pricelist": "Cenovnik / Monitoring", "firm.notFound": "Firma nije pronađena", "firm.back": "Nazad na početnu", "firm.recommended": "Preporučeno", "firm.visitWebsite": "Poseti web stranicu", "firm.contact": "Kontakt" },
+  me: { "contact.title": "Kontakt", "contact.subtitle": "Pošaljite nam poruku.", "contact.firstName": "Ime", "contact.lastName": "Prezime", "contact.email": "E-Mail", "contact.message": "Vaša poruka", "contact.send": "Pošalji poruku", "header.pricelist": "Cjenovnik / Monitoring", "firm.notFound": "Firma nije pronađena", "firm.back": "Nazad na početnu", "firm.recommended": "Preporučeno", "firm.visitWebsite": "Posjeti web stranicu", "firm.contact": "Kontakt" },
+  sq: { "contact.title": "Kontakti", "contact.subtitle": "Na dërgoni një mesazh.", "contact.firstName": "Emri", "contact.lastName": "Mbiemri", "contact.email": "E-Mail", "contact.message": "Mesazhi juaj", "contact.send": "Dërgo mesazhin", "header.pricelist": "Lista e çmimeve / Monitorimi", "firm.notFound": "Biznesi nuk u gjet", "firm.back": "Kthehu në fillim", "firm.recommended": "E rekomanduar", "firm.visitWebsite": "Vizito faqen web", "firm.contact": "Kontakti" },
+  xk: { "contact.title": "Kontakti", "contact.subtitle": "Na dërgoni një mesazh.", "contact.firstName": "Emri", "contact.lastName": "Mbiemri", "contact.email": "E-Mail", "contact.message": "Mesazhi juaj", "contact.send": "Dërgo mesazhin", "header.pricelist": "Lista e çmimeve / Monitorimi", "firm.notFound": "Biznesi nuk u gjet", "firm.back": "Kthehu në fillim", "firm.recommended": "E rekomanduar", "firm.visitWebsite": "Vizito faqen web", "firm.contact": "Kontakti" },
+  mk: { "contact.title": "Контакт", "contact.subtitle": "Испратете ни порака.", "contact.firstName": "Име", "contact.lastName": "Презиме", "contact.email": "E-Mail", "contact.message": "Вашата порака", "contact.send": "Испрати порака", "header.pricelist": "Ценовник / Мониторинг", "firm.notFound": "Фирмата не е пронајдена", "firm.back": "Назад на почетна", "firm.recommended": "Препорачано", "firm.visitWebsite": "Посети веб страница", "firm.contact": "Контакт" },
+  de: { "contact.title": "Kontakt", "contact.subtitle": "Senden Sie uns eine Nachricht.", "contact.firstName": "Vorname", "contact.lastName": "Nachname", "contact.email": "E-Mail", "contact.message": "Ihre Nachricht", "contact.send": "Nachricht senden", "header.pricelist": "Preisliste / Monitoring", "firm.notFound": "Firma nicht gefunden", "firm.back": "Zurück zur Startseite", "firm.recommended": "Empfohlen", "firm.visitWebsite": "Webseite besuchen", "firm.contact": "Kontakt" },
+  en: { "contact.title": "Contact", "contact.subtitle": "Send us a message.", "contact.firstName": "First name", "contact.lastName": "Last name", "contact.email": "Email", "contact.message": "Your message", "contact.send": "Send message", "header.pricelist": "Price list / Monitoring", "firm.notFound": "Firm not found", "firm.back": "Back to home", "firm.recommended": "Recommended", "firm.visitWebsite": "Visit website", "firm.contact": "Contact" },
+};
+
+// Merge country names, vorlagen, and UI extras into translations
 for (const lang of Object.keys(translations) as Language[]) {
   if (countryNames[lang]) {
     Object.assign(translations[lang], countryNames[lang]);
   }
   if (vorlagenKeys[lang]) {
     Object.assign(translations[lang], vorlagenKeys[lang]);
+  }
+  if (uiExtraKeys[lang]) {
+    Object.assign(translations[lang], uiExtraKeys[lang]);
   }
 }
 
