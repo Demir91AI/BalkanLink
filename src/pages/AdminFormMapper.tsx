@@ -13,6 +13,7 @@ import { useQueryClient } from "@tanstack/react-query";
 
 export default function AdminFormMapper() {
   const { slug } = useParams<{ slug: string }>();
+  const navigate = useNavigate();
   const formSlug = slug ?? "kindergeld-kg1";
   const { data: fields } = useFormFields(formSlug);
   const { data: mappings } = useFieldMappings(formSlug);
