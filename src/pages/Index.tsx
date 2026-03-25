@@ -108,14 +108,13 @@ export default function Index() {
 
         {/* Content */}
         <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-5 py-16 lg:py-20">
-          <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-10 lg:flex-row lg:items-center lg:gap-16">
+          <div className="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
 
-            {/* ── LEFT: Text + CTAs ── */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="flex flex-1 flex-col items-center text-center lg:items-start lg:text-left"
+              className="flex flex-col items-center text-center"
             >
               <h1
                 className="font-heading text-[1.65rem] font-black leading-[1.15] tracking-tight text-white sm:text-3xl md:text-4xl lg:text-[3.4rem]"
