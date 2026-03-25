@@ -122,7 +122,6 @@ export default function NudimTrazim() {
     <div className="min-h-screen bg-background">
       <section className="bg-primary text-primary-foreground">
         <div className="mx-auto max-w-6xl px-4 py-16 text-center space-y-5">
-          <button onClick={handleBack} className="mb-2 inline-flex items-center gap-1 text-xs text-primary-foreground/70 hover:text-primary-foreground">
           <button onClick={handleBack} className="back-button mb-2 text-xs text-primary-foreground">
             <ArrowLeft className="h-3 w-3" /> Nazad
           </button>
