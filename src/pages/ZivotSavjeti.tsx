@@ -142,8 +142,8 @@ export default function ZivotSavjeti() {
     <>
       <section className="border-b bg-primary py-12">
         <div className="container">
-          <button onClick={() => navigateBackOrHome(navigate)} className="back-button mb-4 text-xs text-primary-foreground">
-            <ArrowLeft className="h-3 w-3" /> Nazad
+          <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
+            <ArrowLeft /> Nazad
           </button>
           <div className="text-center">
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">

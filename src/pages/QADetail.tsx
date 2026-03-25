@@ -70,8 +70,8 @@ export default function QADetail() {
     return (
       <div className="container max-w-3xl py-16 text-center">
         <p className="text-muted-foreground">Pitanje nije pronađeno.</p>
-        <button className="back-button mt-4 text-sm text-muted-foreground" onClick={() => navigateBackOrHome(navigate)}>
-          <ArrowLeft className="h-4 w-4" />
+        <button className="back-button" onClick={() => navigateBackOrHome(navigate)}>
+          <ArrowLeft />
           Nazad
         </button>
       </div>
@@ -85,9 +85,9 @@ export default function QADetail() {
       {/* Back */}
       <button
         onClick={() => navigateBackOrHome(navigate)}
-        className="back-button mb-6 text-sm text-muted-foreground"
+        className="back-button"
       >
-        <ArrowLeft className="h-4 w-4" />
+        <ArrowLeft />
         Nazad
       </button>
 

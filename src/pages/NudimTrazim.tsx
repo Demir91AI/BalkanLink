@@ -121,10 +121,11 @@ export default function NudimTrazim() {
   return (
     <div className="min-h-screen bg-background">
       <section className="bg-primary text-primary-foreground">
-        <div className="mx-auto max-w-6xl px-4 py-16 text-center space-y-5">
-          <button onClick={handleBack} className="back-button mb-2 text-xs text-primary-foreground">
-            <ArrowLeft className="h-3 w-3" /> Nazad
+        <div className="mx-auto max-w-6xl px-4 py-16 space-y-5">
+          <button onClick={handleBack} className="back-button mb-2">
+            <ArrowLeft /> Nazad
           </button>
+          <div className="text-center space-y-5">
           <div className="flex justify-center">
             <Megaphone className="h-10 w-10 text-[hsl(var(--gold))]" />
           </div>
@@ -143,7 +144,7 @@ export default function NudimTrazim() {
             <Button
               size="lg"
               variant="outline"
-              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 gap-2 font-semibold"
+              className="bg-transparent border-white/35 text-white hover:border-[#FFC107] hover:text-[#FFC107] hover:bg-[#FFC107]/10 gap-2 font-semibold"
               onClick={openForm}
             >
               <SearchIcon className="h-4 w-4" /> {st("nt.seek")}
@@ -152,6 +153,7 @@ export default function NudimTrazim() {
           <p className="text-primary-foreground/60 text-sm">
             {st("nt.freeNote")}
           </p>
+          </div>
         </div>
       </section>
 

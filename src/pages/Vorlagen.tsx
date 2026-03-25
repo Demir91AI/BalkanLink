@@ -33,9 +33,9 @@ export default function Vorlagen() {
         <div className="container max-w-3xl py-8 px-4">
           <button
             onClick={() => navigateBackOrHome(navigate)}
-            className="back-button mb-4 text-xs text-muted-foreground"
+            className="back-button"
           >
-            <ArrowLeft className="h-3 w-3" /> Nazad
+            <ArrowLeft /> Nazad
           </button>
           <p className="text-muted-foreground">Vorlage nicht gefunden.</p>
         </div>
@@ -48,9 +48,9 @@ export default function Vorlagen() {
       <div className="container max-w-3xl py-8 px-4">
         <button
           onClick={() => navigateBackOrHome(navigate)}
-          className="back-button mb-4 text-xs text-muted-foreground"
+          className="back-button"
         >
-          <ArrowLeft className="h-3 w-3" /> Nazad
+          <ArrowLeft /> Nazad
         </button>
 
         <div className="flex items-center gap-3 mb-6">
@@ -73,9 +73,9 @@ export default function Vorlagen() {
     <div className="container max-w-3xl py-8 px-4">
       <button
         onClick={() => navigateBackOrHome(navigate)}
-        className="back-button mb-4 text-xs text-muted-foreground"
+        className="back-button"
       >
-        <ArrowLeft className="h-3 w-3" /> Nazad
+        <ArrowLeft /> Nazad
       </button>
       <h1 className="text-2xl font-bold mb-1">Šabloni / Vorlagen</h1>
       <p className="text-sm text-muted-foreground mb-8">
