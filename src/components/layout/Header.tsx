@@ -20,6 +20,7 @@ export default function Header() {
   const { user, loading, signOut } = useAuth();
   const { t, language, setLanguage, languages, currentFlag } = useLanguage();
   const { toggleSidebar } = useSidebar();
+  const navigate = useNavigate();
   const [contactOpen, setContactOpen] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
   const [contactForm, setContactForm] = useState({ firstName: "", lastName: "", email: "", message: "" });
