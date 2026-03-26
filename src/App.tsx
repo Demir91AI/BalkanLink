@@ -63,6 +63,7 @@ import TrainerFaq from "./pages/TrainerFaq";
 import TrainerBonusbedingungen from "./pages/TrainerBonusbedingungen";
 import NotFound from "./pages/NotFound";
 import FirmDetail from "./pages/FirmDetail";
+import BussgeldAssistent from "./pages/BussgeldAssistent";
 
 const queryClient = new QueryClient();
 
@@ -145,6 +146,7 @@ const App = () => (
                 <Route path="/deutsch-trainer/faq" element={<TrainerFaq />} />
                 <Route path="/deutsch-trainer/bonusbedingungen" element={<TrainerBonusbedingungen />} />
                 <Route path="/firma/:slug" element={<FirmDetail />} />
+                <Route path="/bussgeld" element={<BussgeldAssistent />} />
               </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>

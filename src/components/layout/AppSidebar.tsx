@@ -10,6 +10,7 @@ import {
   Plane,
   ChevronDown,
   FileCheck,
+  Car,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -49,6 +50,7 @@ export function AppSidebar() {
     { title: t("index.nav.visaNav"), url: "/dolazak/boravisna-dozvola", icon: Compass },
     { title: t("index.nav.tools"), url: "/tools", icon: Wrench },
     { title: t("index.nav.offerSeek"), url: "/nudim-trazim", icon: Megaphone },
+    { title: "🚗 Bußgeld-Assistent", url: "/bussgeld", icon: Car },
   ];
 
   const isMigrationActive = location.pathname.startsWith("/nach-deutschland");
