@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
+import { useChatLimit } from "@/hooks/usePremiumAccess";
 import { Link } from "react-router-dom";
 import { formCatalog, type FormEntry } from "@/lib/form-catalog";
 import { BLIcon } from "@/components/BrandLogo";
@@ -209,6 +210,7 @@ function ResponseActions({ msg, t }: { msg: Msg; t: (key: string) => string }) {
 export default function ChatAssistant() {
   const { language, t } = useLanguage();
   const { isPremium } = useAuth();
+  const { canChat, remaining, recordQuery } = useChatLimit();
 
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([]);
