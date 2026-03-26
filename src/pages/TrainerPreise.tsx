@@ -28,18 +28,19 @@ const tiers = [
 ];
 
 const standardFeatures = [
-  "Alle Lektionen des Niveaus",
+  "Zugriff auf Lektionen",
   "4 Aufgabentypen",
-  "Fortschritt & XP",
-  "Streak-System",
+  "Grundlagen üben",
+  "Feste Aufgaben",
 ];
 
-const ultimateExtras = [
-  "Alles aus Standard",
-  "Mehr Aufgabenvarianten",
-  "Erweiterte Szenarien",
-  "Schnellerer Fortschritt",
-  "Prioritäts-Support",
+const ultimateFeatures = [
+  "Alle Szenarien aus dem echten Leben",
+  "Dynamische Aufgaben (immer neu)",
+  "Schneller Fortschritt (mehr XP)",
+  "Zugriff auf alle Niveaus",
+  "Realistische Trainingssituationen",
+  "Neue Inhalte zuerst",
 ];
 
 export default function TrainerPreise() {
@@ -47,7 +48,6 @@ export default function TrainerPreise() {
 
   return (
     <>
-      {/* Header */}
       <section className="border-b bg-primary py-6">
         <div className="container max-w-4xl">
           <button
@@ -96,16 +96,16 @@ export default function TrainerPreise() {
               <span className="text-xs font-medium text-muted-foreground">{tier.subtitle}</span>
             </div>
 
-            <div className="grid gap-3 md:grid-cols-2">
-              {/* Standard */}
-              <div className="rounded-xl border bg-card p-5">
+            <div className="grid gap-3 md:grid-cols-2 md:items-start">
+              {/* Standard – neutral, understated */}
+              <div className="rounded-xl border border-border/60 bg-muted/30 p-5">
                 <div className="mb-2 flex items-center gap-2">
                   <Zap className="h-4 w-4 text-muted-foreground" />
-                  <h3 className="text-sm font-black">Standard</h3>
+                  <h3 className="text-sm font-bold text-muted-foreground">Grundlagen</h3>
                 </div>
                 <p className="text-2xl font-black">
-                  {tier.standard}{" "}
-                  <span className="text-xs font-normal text-muted-foreground">/ einmalig</span>
+                  {tier.standard}
+                  <span className="ml-1.5 text-xs font-normal text-muted-foreground">/ einmalig</span>
                 </p>
                 <Button
                   variant="outline"
@@ -114,43 +114,50 @@ export default function TrainerPreise() {
                 >
                   Standard wählen
                 </Button>
+                <p className="mt-1.5 text-center text-[10px] text-muted-foreground">Basisfunktionen</p>
                 <ul className="mt-4 space-y-2">
                   {standardFeatures.map((f) => (
-                    <li key={f} className="flex items-center gap-2 text-xs">
-                      <Check className="h-3.5 w-3.5 shrink-0 text-[hsl(var(--success))]" />
+                    <li key={f} className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <Check className="h-3.5 w-3.5 shrink-0 text-muted-foreground/60" />
                       {f}
                     </li>
                   ))}
                 </ul>
               </div>
 
-              {/* Ultimate */}
-              <div className="relative rounded-xl border-2 border-gold bg-card p-5 shadow-md">
-                <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 rounded-full bg-gold px-3 py-0.5 text-[10px] font-bold text-gold-foreground">
+              {/* Ultimate – dominant, highlighted */}
+              <div className="relative rounded-xl border-2 border-gold bg-card p-5 shadow-[0_8px_30px_rgba(255,204,0,0.12)] md:scale-[1.03] md:origin-top">
+                <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 rounded-full bg-gold px-3 py-0.5 text-[10px] font-bold text-gold-foreground shadow-sm">
                   🔥 Empfohlen
                 </div>
                 <div className="mb-2 flex items-center gap-2">
                   <Crown className="h-4 w-4 text-gold" />
-                  <h3 className="text-sm font-black">Ultimate</h3>
+                  <h3 className="text-sm font-black">Deutsch im echten Leben</h3>
                 </div>
                 <p className="text-2xl font-black">
-                  {tier.ultimate}{" "}
-                  <span className="text-xs font-normal text-muted-foreground">/ einmalig</span>
+                  {tier.ultimate}
+                  <span className="ml-1.5 text-xs font-normal text-muted-foreground">/ einmalig</span>
                 </p>
                 <Button
                   onClick={() => navigate("/premium")}
-                  className="mt-4 h-9 w-full rounded-xl bg-gold text-xs font-bold text-gold-foreground shadow-[0_4px_20px_rgba(255,204,0,0.3)] hover:bg-gold-light"
+                  className="mt-4 h-10 w-full rounded-xl bg-gold text-xs font-bold text-gold-foreground shadow-[0_4px_20px_rgba(255,204,0,0.3)] hover:bg-gold-light"
                 >
-                  <Star className="mr-1.5 h-3.5 w-3.5" /> Ultimate wählen
+                  <Star className="mr-1.5 h-3.5 w-3.5" /> Jetzt starten
                 </Button>
+                <p className="mt-1.5 text-center text-[10px] text-muted-foreground">
+                  Starte sofort – keine Verpflichtung
+                </p>
                 <ul className="mt-4 space-y-2">
-                  {ultimateExtras.map((f) => (
+                  {ultimateFeatures.map((f) => (
                     <li key={f} className="flex items-center gap-2 text-xs font-medium">
                       <Check className="h-3.5 w-3.5 shrink-0 text-gold" />
                       {f}
                     </li>
                   ))}
                 </ul>
+                <p className="mt-4 text-center text-[11px] font-semibold text-gold-dark">
+                  ⭐ Die meisten Nutzer wählen Ultimate
+                </p>
               </div>
             </div>
 
@@ -177,18 +184,20 @@ export default function TrainerPreise() {
             { name: "Aufgabentypen", std: "4", ult: "4+" },
             { name: "Fortschritt & XP", std: true, ult: true },
             { name: "Streak-System", std: true, ult: true },
-            { name: "Praxis-Szenarien", std: "Basis", ult: "Alle" },
-            { name: "Aufgabenvarianten", std: "Fest", ult: "Erweitert" },
+            { name: "Praxis-Szenarien", std: "Begrenzt", ult: "Alle" },
+            { name: "Dynamische Aufgaben", std: false, ult: true },
+            { name: "Alle Niveaus", std: false, ult: true },
+            { name: "Smart Progress", std: false, ult: true },
             { name: "Schnellerer Fortschritt", std: false, ult: true },
-            { name: "Prioritäts-Support", std: false, ult: true },
+            { name: "Neue Inhalte zuerst", std: false, ult: true },
           ].map((row) => (
             <div key={row.name} className="grid grid-cols-3 items-center border-b last:border-0 px-4 py-2.5 text-xs">
               <span>{row.name}</span>
               <span className="flex justify-center">
                 {row.std === true ? (
-                  <Check className="h-3.5 w-3.5 text-[hsl(var(--success))]" />
+                  <Check className="h-3.5 w-3.5 text-muted-foreground/60" />
                 ) : row.std === false ? (
-                  <X className="h-3.5 w-3.5 text-muted-foreground/40" />
+                  <X className="h-3.5 w-3.5 text-muted-foreground/30" />
                 ) : (
                   <span className="text-[11px] text-muted-foreground">{row.std}</span>
                 )}
