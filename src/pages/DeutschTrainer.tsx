@@ -11,9 +11,9 @@ import TrainerLesson from "@/components/trainer/TrainerLesson";
 import { navigateBackOrHome } from "@/lib/navigation";
 
 const ULTIMATE_PRICES: Record<string, string> = {
-  "A1": "6,99 €", "A2": "6,99 €",
-  "B1": "11,99 €", "B2": "11,99 €",
-  "C1": "16,99 €", "C2": "16,99 €",
+  "A1": "19,99 €", "A2": "19,99 €",
+  "B1": "29,99 €", "B2": "29,99 €",
+  "C1": "39,99 €", "C2": "39,99 €",
 };
 
 export default function DeutschTrainer() {
