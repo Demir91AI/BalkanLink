@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Check, Crown, Star, GraduationCap } from "lucide-react";
+import { ArrowLeft, Check, Crown, Star, GraduationCap, Volume2, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { navigateBackOrHome } from "@/lib/navigation";
 
@@ -27,12 +27,21 @@ const tiers = [
   },
 ];
 
+const freeFeatures = [
+  { text: "5 Lektionen pro Niveau", included: true },
+  { text: "Grundübungen", included: true },
+  { text: "1 Beispiel im Sprachassistent", included: true },
+  { text: "Alle Lektionen", included: false },
+  { text: "Sprachassistent (voller Zugriff)", included: false },
+  { text: "Alle Szenarien & Situationen", included: false },
+];
+
 const ultimateFeatures = [
+  "Alle Lektionen freischalten",
+  "Alle Niveaus (A1 – C2)",
+  "Sprachassistent (voller Zugriff)",
   "Alle Szenarien aus dem echten Leben",
   "Dynamische Aufgaben (immer neu)",
-  "Schneller Fortschritt (mehr XP)",
-  "Zugriff auf alle Niveaus",
-  "Realistische Trainingssituationen",
   "Smart Progress System",
   "Neue Inhalte zuerst",
 ];
@@ -65,6 +74,64 @@ export default function TrainerPreise() {
       </section>
 
       <div className="container max-w-3xl py-6 space-y-8">
+
+        {/* ── FREE vs ULTIMATE comparison ── */}
+        <div className="rounded-2xl border bg-card p-5">
+          <h2 className="mb-4 text-sm font-black text-center">Free vs. Ultimate</h2>
+          <div className="grid grid-cols-2 gap-3">
+            {/* Free column */}
+            <div className="rounded-xl border border-border bg-muted/30 p-4">
+              <p className="mb-3 text-xs font-black text-muted-foreground">FREE</p>
+              <ul className="space-y-2">
+                {freeFeatures.map((f) => (
+                  <li key={f.text} className="flex items-start gap-1.5 text-[11px]">
+                    {f.included ? (
+                      <Check className="mt-0.5 h-3 w-3 shrink-0 text-[hsl(var(--success))]" />
+                    ) : (
+                      <X className="mt-0.5 h-3 w-3 shrink-0 text-muted-foreground/40" />
+                    )}
+                    <span className={f.included ? "font-medium" : "text-muted-foreground/60 line-through"}>
+                      {f.text}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Ultimate column */}
+            <div className="rounded-xl border-2 border-gold/30 bg-gradient-to-b from-gold/5 to-gold/10 p-4">
+              <div className="mb-3 flex items-center gap-1.5">
+                <Crown className="h-3.5 w-3.5 text-gold" />
+                <p className="text-xs font-black text-gold-dark">ULTIMATE</p>
+              </div>
+              <ul className="space-y-2">
+                {ultimateFeatures.map((f) => (
+                  <li key={f} className="flex items-start gap-1.5 text-[11px] font-medium">
+                    <Check className="mt-0.5 h-3 w-3 shrink-0 text-gold" />
+                    {/* Highlight Sprachassistent */}
+                    {f.includes("Sprachassistent") ? (
+                      <span className="flex items-center gap-1">
+                        <Volume2 className="h-3 w-3 text-gold" />
+                        <strong className="text-gold-dark">{f}</strong>
+                      </span>
+                    ) : (
+                      <span>{f}</span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* ── Sprachassistent highlight ── */}
+        <div className="rounded-2xl border-2 border-primary/20 bg-gradient-to-br from-primary/5 via-transparent to-gold/5 p-5 text-center">
+          <Volume2 className="mx-auto mb-2 h-8 w-8 text-primary" />
+          <h3 className="text-sm font-black">Sprachassistent</h3>
+          <p className="mt-1 text-xs text-muted-foreground leading-relaxed max-w-sm mx-auto">
+            Höre echte Sätze, trainiere Aussprache und lerne Deutsch für reale Situationen – mit vollem Zugriff in der Ultimate-Version.
+          </p>
+        </div>
 
         {/* Per-level Ultimate cards */}
         {tiers.map((tier) => (
@@ -101,7 +168,14 @@ export default function TrainerPreise() {
                 {ultimateFeatures.map((f) => (
                   <li key={f} className="flex items-center gap-2 text-xs font-medium">
                     <Check className={`h-3.5 w-3.5 shrink-0 ${tier.popular ? "text-gold" : "text-primary"}`} />
-                    {f}
+                    {f.includes("Sprachassistent") ? (
+                      <span className="flex items-center gap-1">
+                        <Volume2 className={`h-3 w-3 ${tier.popular ? "text-gold" : "text-primary"}`} />
+                        <strong>{f}</strong>
+                      </span>
+                    ) : (
+                      f
+                    )}
                   </li>
                 ))}
               </ul>
