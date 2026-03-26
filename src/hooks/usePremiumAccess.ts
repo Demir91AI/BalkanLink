@@ -11,7 +11,7 @@ export function usePremiumAccess() {
     isPremium,
     isLoggedIn: !!user,
     /** Free users see first N steps; rest locked */
-    canAccessStep: (stepIndex: number) => isPremium || stepIndex < 2,
+    canAccessStep: (stepIndex: number) => isPremium || stepIndex < 1,
     /** Free users can't use doc generator */
     canUseDocGenerator: isPremium,
   };
