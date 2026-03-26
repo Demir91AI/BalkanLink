@@ -89,6 +89,7 @@ export default function CountryPage() {
     MK: "Sjeverna Makedonija",
     XK: "Kosovo",
     AL: "Albanija",
+    SI: "Slovenija",
   };
 
   // Fetch ALL community listings for this country

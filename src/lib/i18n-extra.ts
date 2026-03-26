@@ -111,6 +111,7 @@ export const indexChatBs: Record<string, string> = {
   "migration.country.al": "Albanija",
   "migration.country.xk": "Kosovo",
   "migration.country.mk": "Sjeverna Makedonija",
+  "migration.country.si": "Slovenija",
 };
 
 export const indexChatHr: Record<string, string> = {
@@ -241,6 +242,7 @@ export const indexChatHr: Record<string, string> = {
   "migration.country.al": "Albanija",
   "migration.country.xk": "Kosovo",
   "migration.country.mk": "Sjeverna Makedonija",
+  "migration.country.si": "Slovenija",
 };
 
 export const indexChatSr: Record<string, string> = {
@@ -371,6 +373,7 @@ export const indexChatSr: Record<string, string> = {
   "migration.country.al": "Albanija",
   "migration.country.xk": "Kosovo",
   "migration.country.mk": "Severna Makedonija",
+  "migration.country.si": "Slovenija",
 };
 
 export const indexChatMe: Record<string, string> = {
@@ -501,6 +504,7 @@ export const indexChatMe: Record<string, string> = {
   "migration.country.al": "Albanija",
   "migration.country.xk": "Kosovo",
   "migration.country.mk": "Sjeverna Makedonija",
+  "migration.country.si": "Slovenija",
 };
 
 export const indexChatSq: Record<string, string> = {
@@ -631,6 +635,7 @@ export const indexChatSq: Record<string, string> = {
   "migration.country.al": "Shqipëria",
   "migration.country.xk": "Kosova",
   "migration.country.mk": "Maqedonia e Veriut",
+  "migration.country.si": "Sllovenia",
 };
 
 export const indexChatXk: Record<string, string> = {
@@ -769,6 +774,7 @@ export const indexChatMk: Record<string, string> = {
   "migration.country.al": "Албанија",
   "migration.country.xk": "Косово",
   "migration.country.mk": "Северна Македонија",
+  "migration.country.si": "Словенија",
 };
 
 export const indexChatDe: Record<string, string> = {
@@ -899,6 +905,7 @@ export const indexChatDe: Record<string, string> = {
   "migration.country.al": "Albanien",
   "migration.country.xk": "Kosovo",
   "migration.country.mk": "Nordmazedonien",
+  "migration.country.si": "Slowenien",
 };
 
 export const indexChatEn: Record<string, string> = {
@@ -1029,6 +1036,7 @@ export const indexChatEn: Record<string, string> = {
   "migration.country.al": "Albania",
   "migration.country.xk": "Kosovo",
   "migration.country.mk": "North Macedonia",
+  "migration.country.si": "Slovenia",
 };
 
 // ── Proper newKeys for languages that were using Bosnian fallback ──

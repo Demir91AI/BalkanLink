@@ -32,7 +32,7 @@ export default function NachDeutschland() {
     return (
       <div className="container max-w-4xl py-8 px-4">
         <button onClick={handleBack} className="back-button">
-          <ArrowLeft /> Nazad
+          <ArrowLeft /> {t("common.back")}
         </button>
         <h1 className="text-2xl font-bold text-foreground mb-2">{t("migration.title")}</h1>
         <p className="text-sm text-muted-foreground mb-6">{t("migration.subtitle")}</p>
@@ -72,7 +72,7 @@ export default function NachDeutschland() {
     return (
       <div className="container max-w-4xl py-8 px-4">
         <button onClick={handleBack} className="back-button">
-          <ArrowLeft /> Nazad
+          <ArrowLeft /> {t("common.back")}
         </button>
 
         <div className="flex items-center gap-3 mb-2">
@@ -130,7 +130,7 @@ export default function NachDeutschland() {
   return (
     <div className="container max-w-4xl py-8 px-4">
       <button onClick={handleBack} className="back-button">
-        <ArrowLeft /> Nazad
+        <ArrowLeft /> {t("common.back")}
       </button>
 
       <div className="flex items-center gap-3 mb-1">
@@ -213,10 +213,10 @@ export default function NachDeutschland() {
           className="inline-flex items-center gap-2 text-xs font-semibold text-primary bg-primary/10 rounded-lg px-5 py-2.5 transition-colors hover:bg-primary/20"
         >
           <ExternalLink className="h-4 w-4" />
-          Otvori službenu stranicu
+          {t("migration.officialInfo")}
         </a>
         <p className="mt-3 text-[11px] text-muted-foreground/70">
-          Svi podaci dolaze iz službenih državnih izvora.
+          {t("migration.officialInfoDesc")}
         </p>
       </div>
     </div>
