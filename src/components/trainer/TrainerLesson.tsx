@@ -117,52 +117,60 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
         </div>
 
         {/* Important Phrases – Sprachassistent */}
-        {lesson.importantPhrases.length > 0 && (
-          <div className="mb-4 rounded-xl border bg-card p-4">
-            <div className="mb-2 flex items-center gap-2">
-              <Volume2 className="h-4 w-4 text-primary" />
-              <h3 className="text-xs font-bold">Sprachassistent</h3>
-              {!isPremium && (
-                <span className="ml-auto rounded-full bg-gold/10 px-2 py-0.5 text-[9px] font-bold text-gold-dark">Vorschau</span>
+        {lesson.importantPhrases.length > 0 && (() => {
+          const FREE_PHRASE_LIMIT = 15;
+          const visiblePhrases = isPremium
+            ? lesson.importantPhrases
+            : lesson.importantPhrases.slice(0, FREE_PHRASE_LIMIT);
+          const totalPhrases = lesson.importantPhrases.length;
+          const hasLockedPhrases = !isPremium && totalPhrases > FREE_PHRASE_LIMIT;
+
+          return (
+            <div className="mb-4 rounded-xl border bg-card p-4">
+              <div className="mb-2 flex items-center gap-2">
+                <Volume2 className="h-4 w-4 text-primary" />
+                <h3 className="text-xs font-bold">Sprachassistent</h3>
+                <span className="ml-auto rounded-full bg-muted px-2 py-0.5 text-[9px] font-bold text-muted-foreground">
+                  {visiblePhrases.length}/{totalPhrases}
+                </span>
+                {!isPremium && (
+                  <span className="rounded-full bg-gold/10 px-2 py-0.5 text-[9px] font-bold text-gold-dark">Vorschau</span>
+                )}
+              </div>
+              <div className="flex flex-col gap-2">
+                {visiblePhrases.map((phrase, i) => {
+                  const audioId = `phrase-${lesson.id}-${i}`;
+                  return (
+                    <div key={i} className="flex items-center gap-3 rounded-lg bg-muted/50 px-3 py-2.5">
+                      <div className="min-w-0 flex-1">
+                        <p className="text-xs font-semibold">{phrase.de}</p>
+                        <p className="text-[10px] text-muted-foreground">{phrase.context}</p>
+                      </div>
+                      <AudioButton id={audioId} text={phrase.de} toggle={toggle} activeId={activeId} playState={playState} />
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Free user lock CTA */}
+              {hasLockedPhrases && (
+                <div className="mt-3 rounded-xl border border-gold/20 bg-gradient-to-b from-gold/5 to-gold/10 p-4 text-center">
+                  <Lock className="mx-auto mb-1.5 h-5 w-5 text-gold" />
+                  <p className="text-xs font-bold">Du siehst {FREE_PHRASE_LIMIT} von {totalPhrases} Sätzen.</p>
+                  <p className="mt-0.5 text-[11px] text-muted-foreground">
+                    Schalte alle {totalPhrases} Sätze frei und trainiere den vollen Wortschatz.
+                  </p>
+                  <Button
+                    onClick={() => navigate("/deutsch-trainer/preise")}
+                    className="mt-3 h-9 w-full rounded-xl bg-gold text-xs font-bold text-gold-foreground shadow-[0_4px_20px_rgba(255,204,0,0.3)] hover:bg-gold-light"
+                  >
+                    <Crown className="mr-1.5 h-3.5 w-3.5" /> Sprachassistent freischalten
+                  </Button>
+                </div>
               )}
             </div>
-            <div className="flex flex-col gap-2">
-              {lesson.importantPhrases.map((phrase, i) => {
-                const audioId = `phrase-${lesson.id}-${i}`;
-                const isLocked = !isPremium && i >= 1;
-
-                if (isLocked) return null;
-
-                return (
-                  <div key={i} className="flex items-center gap-3 rounded-lg bg-muted/50 px-3 py-2.5">
-                    <div className="min-w-0 flex-1">
-                      <p className="text-xs font-semibold">{phrase.de}</p>
-                      <p className="text-[10px] text-muted-foreground">{phrase.context}</p>
-                    </div>
-                    <AudioButton id={audioId} text={phrase.de} toggle={toggle} activeId={activeId} playState={playState} />
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Free user lock CTA */}
-            {!isPremium && lesson.importantPhrases.length > 1 && (
-              <div className="mt-3 rounded-xl border border-gold/20 bg-gradient-to-b from-gold/5 to-gold/10 p-4 text-center">
-                <Lock className="mx-auto mb-1.5 h-5 w-5 text-gold" />
-                <p className="text-xs font-bold">Dies ist nur ein Beispiel.</p>
-                <p className="mt-0.5 text-[11px] text-muted-foreground">
-                  Schalte den vollen Zugriff frei und trainiere alle {lesson.importantPhrases.length} Sätze.
-                </p>
-                <Button
-                  onClick={() => navigate("/deutsch-trainer/preise")}
-                  className="mt-3 h-9 w-full rounded-xl bg-gold text-xs font-bold text-gold-foreground shadow-[0_4px_20px_rgba(255,204,0,0.3)] hover:bg-gold-light"
-                >
-                  <Crown className="mr-1.5 h-3.5 w-3.5" /> Sprachassistent freischalten
-                </Button>
-              </div>
-            )}
-          </div>
-        )}
+          );
+        })()}
 
         {/* Common Mistakes */}
         {lesson.commonMistakes.length > 0 && (
