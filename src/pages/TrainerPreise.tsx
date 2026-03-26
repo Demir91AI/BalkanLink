@@ -152,14 +152,7 @@ export default function TrainerPreise() {
                 {ultimateFeatures.map((f) => (
                   <li key={f} className="flex items-center gap-2 text-xs font-medium">
                     <Check className={`h-3.5 w-3.5 shrink-0 ${tier.popular ? "text-gold" : "text-primary"}`} />
-                    {f.includes("Sprachassistent") ? (
-                      <span className="flex items-center gap-1">
-                        <Volume2 className={`h-3 w-3 ${tier.popular ? "text-gold" : "text-primary"}`} />
-                        <strong>{f}</strong>
-                      </span>
-                    ) : (
-                      f
-                    )}
+                    {f}
                   </li>
                 ))}
               </ul>
