@@ -1,4 +1,4 @@
-import { useCallback, useRef, useEffect } from "react";
+import { useCallback, useRef, useEffect, useState } from "react";
 
 /** Pick the best German voice available in the browser */
 function getBestGermanVoice(): SpeechSynthesisVoice | null {
@@ -6,7 +6,6 @@ function getBestGermanVoice(): SpeechSynthesisVoice | null {
   const german = voices.filter((v) => v.lang.startsWith("de"));
   if (german.length === 0) return null;
 
-  // Prefer high-quality / natural voices (often contain these keywords)
   const preferred = german.find(
     (v) =>
       v.name.toLowerCase().includes("enhanced") ||
@@ -17,7 +16,6 @@ function getBestGermanVoice(): SpeechSynthesisVoice | null {
   );
   if (preferred) return preferred;
 
-  // Prefer local (offline) voices – they tend to sound better
   const local = german.find((v) => v.localService);
   if (local) return local;
 
@@ -25,10 +23,9 @@ function getBestGermanVoice(): SpeechSynthesisVoice | null {
 }
 
 export function useTTS() {
-  const speaking = useRef(false);
+  const [isSpeaking, setIsSpeaking] = useState(false);
   const cachedVoice = useRef<SpeechSynthesisVoice | null>(null);
 
-  // Pre-load voices (some browsers load them async)
   useEffect(() => {
     const load = () => {
       cachedVoice.current = getBestGermanVoice();
@@ -39,32 +36,32 @@ export function useTTS() {
     }
   }, []);
 
-  const speak = useCallback((text: string) => {
+  const speak = useCallback((text: string, slow = false) => {
     if (!("speechSynthesis" in window)) return;
     speechSynthesis.cancel();
 
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = "de-DE";
-    utterance.rate = 0.88;
+    utterance.rate = slow ? 0.6 : 0.88;
     utterance.pitch = 1.05;
     utterance.volume = 1;
 
-    // Use best available German voice
     const voice = cachedVoice.current ?? getBestGermanVoice();
     if (voice) {
       utterance.voice = voice;
-      utterance.lang = voice.lang; // match voice lang exactly
+      utterance.lang = voice.lang;
     }
 
-    utterance.onstart = () => { speaking.current = true; };
-    utterance.onend = () => { speaking.current = false; };
+    utterance.onstart = () => setIsSpeaking(true);
+    utterance.onend = () => setIsSpeaking(false);
+    utterance.onerror = () => setIsSpeaking(false);
     speechSynthesis.speak(utterance);
   }, []);
 
   const stop = useCallback(() => {
     speechSynthesis.cancel();
-    speaking.current = false;
+    setIsSpeaking(false);
   }, []);
 
-  return { speak, stop };
+  return { speak, stop, isSpeaking };
 }
