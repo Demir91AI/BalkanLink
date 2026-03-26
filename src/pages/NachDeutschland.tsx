@@ -206,20 +206,15 @@ export default function NachDeutschland() {
         <h3 className="mb-3 flex items-center justify-center gap-1.5 text-sm font-bold">
           <Info className="h-4 w-4 text-primary" /> {t("migration.officialInfo")}
         </h3>
-        <div className="flex flex-wrap justify-center gap-2">
-          {selectedCategory.officialLinks.map((link, i) => (
-            <a
-              key={i}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-xs font-semibold text-primary bg-primary/10 rounded-lg px-4 py-2 transition-colors hover:bg-primary/20"
-            >
-              <ExternalLink className="h-3.5 w-3.5 shrink-0" />
-              {link.label}
-            </a>
-          ))}
-        </div>
+        <a
+          href={selectedCategory.officialLinks[0]?.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-xs font-semibold text-primary bg-primary/10 rounded-lg px-5 py-2.5 transition-colors hover:bg-primary/20"
+        >
+          <ExternalLink className="h-4 w-4" />
+          Otvori službenu stranicu
+        </a>
         <p className="mt-3 text-[11px] text-muted-foreground/70">
           Svi podaci dolaze iz službenih državnih izvora.
         </p>
