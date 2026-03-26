@@ -15,29 +15,68 @@ const EXERCISE_TYPES = [
 
 const MAX_PER_REQUEST = 15;
 
-function extractJsonArray(raw: string): unknown {
+function extractJsonArray(raw: string): unknown[] {
   let cleaned = raw
     .replace(/```json\s*/gi, "")
     .replace(/```\s*/g, "")
     .trim();
 
   const start = cleaned.indexOf("[");
-  const end = cleaned.lastIndexOf("]");
-
-  if (start === -1 || end === -1 || end <= start) {
+  if (start === -1) {
     throw new Error("No JSON array found in response");
   }
 
-  cleaned = cleaned.substring(start, end + 1);
+  cleaned = cleaned.substring(start);
+
+  // Fix common issues before parsing
+  cleaned = cleaned
+    .replace(/,\s*}/g, "}")
+    .replace(/,\s*]/g, "]")
+    .replace(/[\x00-\x1F\x7F]/g, (ch) => ch === "\n" || ch === "\t" ? ch : "");
+
+  // Try direct parse first
+  try {
+    const parsed = JSON.parse(cleaned);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    // Response likely truncated - try to repair
+  }
+
+  // Attempt to repair truncated JSON by closing open structures
+  // Find the last complete object (ends with })
+  const lastCompleteObj = cleaned.lastIndexOf("}");
+  if (lastCompleteObj === -1) {
+    throw new Error("No complete JSON object found");
+  }
+
+  // Take everything up to and including the last complete }
+  let repaired = cleaned.substring(0, lastCompleteObj + 1);
+
+  // Remove any trailing comma after last object
+  repaired = repaired.replace(/,\s*$/, "");
+
+  // Close the array
+  if (!repaired.endsWith("]")) {
+    repaired += "]";
+  }
 
   try {
-    return JSON.parse(cleaned);
+    const parsed = JSON.parse(repaired);
+    return Array.isArray(parsed) ? parsed : [];
   } catch {
-    cleaned = cleaned
-      .replace(/,\s*}/g, "}")
-      .replace(/,\s*]/g, "]")
-      .replace(/[\x00-\x1F\x7F]/g, "");
-    return JSON.parse(cleaned);
+    // Last resort: extract individual objects with regex
+    const objects: unknown[] = [];
+    const objRegex = /\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}/g;
+    let match;
+    while ((match = objRegex.exec(cleaned)) !== null) {
+      try {
+        objects.push(JSON.parse(match[0]));
+      } catch {
+        // skip malformed object
+      }
+    }
+    if (objects.length > 0) return objects;
+    throw new Error("Could not extract any valid exercises from response");
   }
 }
 
