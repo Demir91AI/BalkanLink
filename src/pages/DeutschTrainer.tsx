@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, Trophy, Flame, Star, Lock, GraduationCap } from "lucide-react";
+import { ArrowLeft, Trophy, Flame, Star, Lock, GraduationCap, CheckCircle2 } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
-import { LEVELS, LEVEL_COLORS, getLessonsForLevel, getLessonById, type Level, type Lesson } from "@/lib/deutsch-trainer-data";
+import { LEVELS, LEVEL_COLORS, getLessonsForLevel, FREE_LESSONS_PER_LEVEL, type Level, type Lesson } from "@/lib/deutsch-trainer-data";
 import { useTrainerProgress } from "@/hooks/useTrainerProgress";
 import { usePremiumAccess } from "@/hooks/usePremiumAccess";
 import TrainerLesson from "@/components/trainer/TrainerLesson";
@@ -30,6 +30,11 @@ export default function DeutschTrainer() {
   const levelLessons = getLessonsForLevel(selectedLevel);
   const xpForNextLevel = progress.level * 100;
   const xpInLevel = progress.xp % 100;
+
+  // Count completed per level
+  const completedInLevel = levelLessons.filter((l) =>
+    progress.completedLessons.includes(l.id)
+  ).length;
 
   if (activeLesson) {
     return <TrainerLesson lesson={activeLesson} onBack={() => setActiveLesson(null)} />;
@@ -83,7 +88,7 @@ export default function DeutschTrainer() {
         </div>
 
         {/* Level tabs */}
-        <div className="mb-6 flex gap-2 overflow-x-auto pb-1">
+        <div className="mb-4 flex gap-2 overflow-x-auto pb-1">
           {LEVELS.map((lvl) => (
             <button
               key={lvl}
@@ -100,27 +105,39 @@ export default function DeutschTrainer() {
           ))}
         </div>
 
+        {/* Level progress */}
+        <div className="mb-6 rounded-xl border bg-card p-4">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-sm font-bold">{selectedLevel} Fortschritt</span>
+            <span className="text-xs text-muted-foreground">
+              {completedInLevel}/{levelLessons.length} Lektionen
+            </span>
+          </div>
+          <Progress
+            value={levelLessons.length > 0 ? (completedInLevel / levelLessons.length) * 100 : 0}
+            className="h-2.5 rounded-full"
+          />
+        </div>
+
         {/* Lessons */}
         <div className="flex flex-col gap-3">
-          {levelLessons.length === 0 && (
-            <p className="py-10 text-center text-sm text-muted-foreground">
-              Lektionen für {selectedLevel} kommen bald! 🚧
-            </p>
-          )}
-          {levelLessons.map((lesson) => {
+          {levelLessons.map((lesson, idx) => {
             const completed = progress.completedLessons.includes(lesson.id);
-            const locked = lesson.premium && !isPremium;
+            const locked = idx >= FREE_LESSONS_PER_LEVEL && !isPremium;
 
             return (
               <motion.button
                 key={lesson.id}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: Math.min(idx * 0.03, 0.3) }}
                 onClick={() => !locked && setActiveLesson(lesson)}
                 disabled={locked}
                 className={`group flex items-center gap-4 rounded-2xl border p-5 text-left transition-all ${
                   locked
                     ? "cursor-not-allowed border-border bg-muted/50 opacity-60"
+                    : completed
+                    ? "border-[hsl(var(--success)/0.3)] bg-[hsl(var(--success)/0.03)] hover:shadow-md"
                     : "border-border bg-card hover:border-primary/30 hover:shadow-md"
                 }`}
               >
@@ -129,11 +146,13 @@ export default function DeutschTrainer() {
                   <div className="flex items-center gap-2">
                     <h3 className="text-sm font-bold">{lesson.titleDe}</h3>
                     {completed && (
-                      <span className="rounded-full bg-[hsl(var(--success)/0.1)] px-2 py-0.5 text-[10px] font-bold text-[hsl(var(--success))]">✓</span>
+                      <CheckCircle2 className="h-4 w-4 text-[hsl(var(--success))]" />
                     )}
                     {locked && <Lock className="h-3.5 w-3.5 text-muted-foreground" />}
                   </div>
-                  <p className="mt-0.5 text-xs text-muted-foreground">{lesson.title} · 5 Aufgaben</p>
+                  <p className="mt-0.5 text-xs text-muted-foreground">
+                    {lesson.title} · {lesson.exercises.length} Aufgaben
+                  </p>
                 </div>
                 {locked && (
                   <span className="rounded-full bg-gold/10 px-3 py-1 text-[10px] font-bold text-gold-dark">Premium</span>
@@ -143,12 +162,30 @@ export default function DeutschTrainer() {
           })}
         </div>
 
+        {/* Premium CTA if there are locked lessons */}
+        {levelLessons.some((_, i) => i >= FREE_LESSONS_PER_LEVEL) && !isPremium && (
+          <div className="mt-6 rounded-2xl border-2 border-gold/30 bg-gold/5 p-6 text-center">
+            <p className="text-sm font-bold mb-1">🔓 Alle {levelLessons.length} Lektionen freischalten</p>
+            <p className="text-xs text-muted-foreground mb-4">
+              Unbegrenzter Zugriff auf alle Niveaus und Aufgaben
+            </p>
+            <Button
+              onClick={() => navigate("/deutsch-trainer/preise")}
+              className="h-11 rounded-full bg-gold px-8 text-sm font-bold text-gold-foreground shadow-[0_4px_20px_rgba(255,204,0,0.3)] hover:bg-gold-light"
+            >
+              Lernpaket wählen
+            </Button>
+          </div>
+        )}
+
         {/* Daily exercise CTA */}
-        <div className="mt-8">
+        <div className="mt-6">
           <Button
             onClick={() => {
-              const free = levelLessons.find((l) => !l.premium || isPremium);
-              if (free) setActiveLesson(free);
+              const available = levelLessons.filter((_, i) => i < FREE_LESSONS_PER_LEVEL || isPremium);
+              const incomplete = available.find((l) => !progress.completedLessons.includes(l.id));
+              if (incomplete) setActiveLesson(incomplete);
+              else if (available[0]) setActiveLesson(available[0]);
             }}
             className="h-12 w-full rounded-xl bg-gold text-sm font-bold text-gold-foreground shadow-[0_4px_20px_rgba(255,204,0,0.3)] hover:bg-gold-light"
           >
