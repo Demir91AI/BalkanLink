@@ -223,206 +223,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Der Text ist lang.",
@@ -679,206 +679,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -1135,206 +1135,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -1591,206 +1591,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -2047,206 +2047,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -2503,206 +2503,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -2959,206 +2959,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -3415,206 +3415,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -3871,206 +3871,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -4327,206 +4327,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -4783,206 +4783,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -5239,206 +5239,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -5695,206 +5695,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -6151,206 +6151,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -6607,206 +6607,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -7063,206 +7063,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -7519,206 +7519,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -7975,206 +7975,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -8431,206 +8431,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -8887,206 +8887,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -9343,206 +9343,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -9799,206 +9799,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -10255,206 +10255,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -10711,206 +10711,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -11167,206 +11167,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -11623,206 +11623,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -12079,206 +12079,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -12535,206 +12535,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -12991,206 +12991,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -13447,206 +13447,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -13903,206 +13903,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -14359,206 +14359,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -14815,206 +14815,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -15271,206 +15271,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -15727,206 +15727,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -16183,206 +16183,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -16639,206 +16639,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -17095,206 +17095,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -17551,206 +17551,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
@@ -18007,206 +18007,206 @@ export const lessonsC2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Die diskursive Rahmung des Sachverhalts offenbart tiefgreifende epistemologische Spannungen.",
+            "context": "Wissenschaftliche Analyse"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Es wäre reduktionistisch, die vielschichtigen Zusammenhänge auf monokausale Erklärungsmuster zu verengen.",
+            "context": "Methodenkritik"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Die hermeneutische Tiefenstruktur des Textes erschließt sich erst bei wiederholter Lektüre.",
+            "context": "Textinterpretation"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Jenseits der augenscheinlichen Simplizität verbirgt sich eine bemerkenswerte konzeptuelle Dichte.",
+            "context": "Verborgene Komplexität"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Die Prämissen dieser Argumentation bedürfen einer grundlegenden Revision.",
+            "context": "Prämissenkritik"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Man gewinnt den Eindruck, dass die semantischen Nuancen bewusst nivelliert werden.",
+            "context": "Sprachanalyse"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Die Tragfähigkeit dieser These lässt sich nur im Kontext des übergeordneten Diskurses beurteilen.",
+            "context": "Diskurseinordnung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Es erscheint mir unabdingbar, die impliziten Vorannahmen transparent zu machen.",
+            "context": "Transparenz fordern"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die apodiktische Formulierung verschleiert die tatsächliche Ambivalenz der Sachlage.",
+            "context": "Formulierungskritik"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die paradigmatischen Implikationen dieser Entwicklung in den Vordergrund rücken.",
+            "context": "Paradigmenanalyse"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die Konvergenz divergierender Forschungsansätze deutet auf einen bevorstehenden Erkenntnisdurchbruch hin.",
+            "context": "Forschungstrend"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Eine dekonstruktivistische Lesart offenbart die inhärenten Widersprüche der Argumentation.",
+            "context": "Dekonstruktion"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die epistemische Bescheidenheit gebietet es, vorläufige Urteile als solche zu kennzeichnen.",
+            "context": "Wissenschaftliche Demut"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Der pejorative Unterton der Darstellung untergräbt die angestrebte Objektivität.",
+            "context": "Tendenz erkennen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Es gilt, die Dichotomie zwischen Theorie und Praxis produktiv aufzulösen.",
+            "context": "Theorie-Praxis-Verhältnis"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Rezeptionsgeschichte dieses Konzepts spiegelt die jeweiligen Zeitgeist-Strömungen wider.",
+            "context": "Rezeptionsanalyse"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Eine interdiskursive Verknüpfung der Perspektiven könnte neue Erkenntnishorizonte eröffnen.",
+            "context": "Interdiskursivität"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die Validität der zugrunde liegenden Methodik ist in der Fachgemeinschaft umstritten.",
+            "context": "Methodendebatte"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Man sollte die performative Dimension dieser Äußerung nicht unterschätzen.",
+            "context": "Performativität"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Die teleologische Ausrichtung der Argumentation verdeckt alternative Deutungsmöglichkeiten.",
+            "context": "Deutungsvielfalt"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich plädiere für eine multiperspektivische Herangehensweise, die der Komplexität gerecht wird.",
+            "context": "Multiperspektivität"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Die Kontingenz historischer Entwicklungen mahnt zur Vorsicht bei deterministischen Prognosen.",
+            "context": "Historizität"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Es bedarf einer metareflexiven Auseinandersetzung mit den eigenen Forschungsprämissen.",
+            "context": "Selbstreflexion"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Ambiguitätstoleranz ist eine Schlüsselkompetenz im Umgang mit komplexen Fragestellungen.",
+            "context": "Kompetenzreflexion"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Die normative Aufladung scheinbar neutraler Kategorien erfordert eine kritische Hinterfragung.",
+            "context": "Normativitätskritik"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Der innovative Gehalt dieses Ansatzes liegt in der systematischen Verknüpfung bisher isolierter Diskurse.",
+            "context": "Innovation würdigen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Eine sorgfältige Kontextualisierung bewahrt vor anachronistischen Fehlschlüssen.",
+            "context": "Anachronismus vermeiden"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Generalisierbarkeit der Befunde ist durch die spezifischen Erhebungsbedingungen limitiert.",
+            "context": "Generalisierbarkeit"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die dialektische Spannung zwischen den Positionen produktiv zu nutzen.",
+            "context": "Dialektik"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die implizite Hierarchisierung der Wissensformen reproduziert problematische Machtstrukturen.",
+            "context": "Machtkritik"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die inhaltliche Substanz von der rhetorischen Einkleidung trennen.",
+            "context": "Substanz vs. Rhetorik"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die synoptische Zusammenschau der Forschungsergebnisse ergibt ein heterogenes Bild.",
+            "context": "Forschungssynthese"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Der heuristische Wert dieses Modells liegt weniger in seiner Präzision als in seiner Orientierungsfunktion.",
+            "context": "Modellbewertung"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Frage nach der Kommensurabilität unterschiedlicher Erkenntnissysteme bleibt offen.",
+            "context": "Erkenntnistheorie"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Es zeichnet sich eine Verschiebung des Diskurses in Richtung transdisziplinärer Ansätze ab.",
+            "context": "Diskursverschiebung"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die subtile Ironie des Autors entfaltet sich erst vor dem Hintergrund des Gesamtwerks.",
+            "context": "Werkinterpretation"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Eine praxeologische Perspektive würde die handlungspraktischen Dimensionen stärker hervorheben.",
+            "context": "Praxeologie"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die Konsistenz der Argumentation wird durch die eklektische Auswahl der Belege beeinträchtigt.",
+            "context": "Argumentationskritik"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich erlaube mir, die axiomatischen Grundlagen dieser Theorie infrage zu stellen.",
+            "context": "Fundamentalkritik"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Polysemie dieses Begriffs erzeugt eine produktive Mehrdeutigkeit im Text.",
+            "context": "Begriffsanalyse"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die asymmetrische Verteilung der Deutungsmacht prägt den öffentlichen Diskurs nachhaltig.",
+            "context": "Diskursanalyse"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Es wäre verfrüht, aus diesen vorläufigen Ergebnissen definitive Schlüsse zu ziehen.",
+            "context": "Vorläufigkeit betonen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die reflexive Modernisierung erzeugt neue Formen der Unsicherheit und Kontingenz.",
+            "context": "Modernisierungstheorie"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Ich sehe in diesem Ansatz das Potenzial, festgefahrene Denkstrukturen aufzubrechen.",
+            "context": "Innovationspotenzial"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die Intertextualität des Werkes verweist auf ein dichtes Netz kultureller Bezüge.",
+            "context": "Intertextualität"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Eine genealogische Analyse offenbart die historischen Sedimentierungen im gegenwärtigen Diskurs.",
+            "context": "Genealogie"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der Grad der sprachlichen Elaboriertheit korreliert nicht zwingend mit inhaltlicher Tiefe.",
+            "context": "Form-Inhalt-Relation"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Die Frage nach der gesellschaftlichen Relevanz wissenschaftlicher Erkenntnis bleibt virulent.",
+            "context": "Wissenschaft und Gesellschaft"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Abschließend sei darauf hingewiesen, dass jede Interpretation unvermeidlich perspektivisch gebunden bleibt.",
+            "context": "Perspektivität anerkennen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Die Virtuosität der sprachlichen Gestaltung darf nicht über die argumentativen Defizite hinwegtäuschen.",
+            "context": "Kritische Würdigung"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Eine einfache Beschreibung.",
