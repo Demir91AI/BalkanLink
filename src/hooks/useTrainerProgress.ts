@@ -13,13 +13,21 @@ const STORAGE_KEY = "balkanlink_trainer";
 function load(): TrainerProgress {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) return JSON.parse(raw);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      // One-time reset flag: clear old progress
+      if (!parsed._v2) {
+        localStorage.removeItem(STORAGE_KEY);
+        return { xp: 0, streak: 0, lastDate: "", completedLessons: [], level: 1 };
+      }
+      return parsed;
+    }
   } catch {}
   return { xp: 0, streak: 0, lastDate: "", completedLessons: [], level: 1 };
 }
 
 function save(p: TrainerProgress) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(p));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify({ ...p, _v2: true }));
 }
 
 export function useTrainerProgress() {
