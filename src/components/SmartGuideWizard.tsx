@@ -430,6 +430,7 @@ interface Props {
 export default function SmartGuideWizard({ fields, pdfUrl }: Props) {
   const [step, setStep] = useState(0);
   const current = steps[step];
+  const { canAccessStep } = usePremiumAccess();
 
   const sectionFields = fields.filter((f) => f.section === current.key);
   const hasMappedFields = sectionFields.length > 0;
