@@ -1,18 +1,14 @@
-import { Volume2, RotateCcw, Snail } from "lucide-react";
+import { Volume2, RotateCcw } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 interface AudioButtonProps {
   text: string;
-  speak: (text: string, slow?: boolean) => void;
+  speak: (text: string) => void;
   isSpeaking: boolean;
   size?: "sm" | "md";
 }
 
-/**
- * Compact inline audio controls: Play · Replay · Slow
- * Expands on first tap to reveal replay + slow buttons.
- */
 export default function AudioButton({ text, speak, isSpeaking, size = "sm" }: AudioButtonProps) {
   const [expanded, setExpanded] = useState(false);
 
@@ -41,7 +37,6 @@ export default function AudioButton({ text, speak, isSpeaking, size = "sm" }: Au
 
   return (
     <div className="inline-flex items-center gap-1 rounded-full border border-border/50 bg-muted/40 p-0.5">
-      {/* Play / Replay */}
       <button
         onClick={() => speak(text)}
         className={cn(btnBase, "bg-primary/10 text-primary hover:bg-primary/20")}
@@ -49,16 +44,6 @@ export default function AudioButton({ text, speak, isSpeaking, size = "sm" }: Au
         title="Nochmal anhören"
       >
         <RotateCcw className={cn(iconSize, isSpeaking && "animate-spin")} />
-      </button>
-
-      {/* Slow mode */}
-      <button
-        onClick={() => speak(text, true)}
-        className={cn(btnBase, "bg-accent/60 text-accent-foreground hover:bg-accent")}
-        aria-label="Langsam abspielen"
-        title="Langsam abspielen"
-      >
-        <Snail className={iconSize} />
       </button>
     </div>
   );
