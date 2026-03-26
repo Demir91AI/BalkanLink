@@ -25,7 +25,7 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
   const [results, setResults] = useState<boolean[]>([]);
   const [answered, setAnswered] = useState(false);
   const { progress, addXp, completeLesson } = useTrainerProgress();
-  const { toggle, state: ttsState } = useTTS();
+  const { toggle, activeId, playState } = useTTS();
 
   const stage = selectedStage !== null ? lesson.stages[selectedStage] : null;
   const exercises = useMemo(
@@ -120,15 +120,18 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
               <h3 className="text-xs font-bold">Wichtige Sätze</h3>
             </div>
             <div className="flex flex-col gap-2">
-              {lesson.importantPhrases.map((phrase, i) => (
-                <div key={i} className="flex items-center gap-2 rounded-lg bg-muted/50 px-3 py-2">
-                  <AudioButton text={phrase.de} toggle={toggle} state={ttsState} size="sm" />
-                  <div className="min-w-0">
-                    <p className="text-xs font-semibold">{phrase.de}</p>
-                    <p className="text-[10px] text-muted-foreground">{phrase.context}</p>
+              {lesson.importantPhrases.map((phrase, i) => {
+                const audioId = `phrase-${lesson.id}-${i}`;
+                return (
+                  <div key={i} className="flex items-center gap-3 rounded-lg bg-muted/50 px-3 py-2.5">
+                    <div className="min-w-0 flex-1">
+                      <p className="text-xs font-semibold">{phrase.de}</p>
+                      <p className="text-[10px] text-muted-foreground">{phrase.context}</p>
+                    </div>
+                    <AudioButton id={audioId} text={phrase.de} toggle={toggle} activeId={activeId} playState={playState} />
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         )}
