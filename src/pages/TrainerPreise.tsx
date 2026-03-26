@@ -152,9 +152,11 @@ export default function TrainerPreise() {
                     {pkg.levels}
                   </span>
                   <span className="text-xs font-medium text-muted-foreground">{pkg.subtitle}</span>
-                  <span className="ml-auto rounded-full bg-[hsl(var(--success)/0.1)] px-2.5 py-0.5 text-[9px] font-bold text-[hsl(var(--success))]">
-                    BEST VALUE
-                  </span>
+                  {pkg.popular && (
+                    <span className="ml-auto rounded-full bg-[hsl(var(--success)/0.1)] px-2.5 py-0.5 text-[9px] font-bold text-[hsl(var(--success))]">
+                      BEST VALUE
+                    </span>
+                  )}
                 </div>
 
                 <div className={`relative rounded-2xl border-2 bg-card px-5 py-6 sm:px-6 ${pkg.popular ? "border-gold shadow-[0_8px_30px_rgba(255,204,0,0.18)]" : "border-border shadow-sm"}`}>
@@ -175,6 +177,9 @@ export default function TrainerPreise() {
                   </p>
                   <p className="mt-1 text-[11px] text-muted-foreground line-through">
                     Einzeln: {pkg.singleTotal}
+                  </p>
+                  <p className="mt-0.5 text-[11px] font-bold text-[hsl(var(--success))]">
+                    {pkg.saving}
                   </p>
 
                   <p className="mt-1.5 text-[11px] leading-relaxed text-muted-foreground">
