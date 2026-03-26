@@ -122,12 +122,7 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
             <div className="flex flex-col gap-2">
               {lesson.importantPhrases.map((phrase, i) => (
                 <div key={i} className="flex items-center gap-2 rounded-lg bg-muted/50 px-3 py-2">
-                  <button
-                    onClick={() => speak(phrase.de)}
-                    className="shrink-0 rounded-full bg-primary/10 p-1.5 text-primary hover:bg-primary/20"
-                  >
-                    <Volume2 className="h-3.5 w-3.5" />
-                  </button>
+                  <AudioButton text={phrase.de} speak={speak} isSpeaking={isSpeaking} size="sm" />
                   <div className="min-w-0">
                     <p className="text-xs font-semibold">{phrase.de}</p>
                     <p className="text-[10px] text-muted-foreground">{phrase.context}</p>
