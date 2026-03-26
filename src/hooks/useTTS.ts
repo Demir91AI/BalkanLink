@@ -42,7 +42,7 @@ export function useTTS() {
 
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = "de-DE";
-    utterance.rate = slow ? 0.8 : 0.9;
+    utterance.rate = slow ? 0.8 : 1.4;
     utterance.pitch = 1.0;
     utterance.volume = 1;
 
