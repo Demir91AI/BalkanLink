@@ -1,6 +1,6 @@
 import { useState, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ArrowLeft, Volume2, BookOpen, AlertTriangle } from "lucide-react";
+import { ArrowRight, ArrowLeft, BookOpen, AlertTriangle } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import type { Lesson } from "@/lib/deutsch-trainer-data";
 import { XP_PER_CORRECT, STAGE_LABELS, shuffleExercise } from "@/lib/deutsch-trainer-data";
