@@ -1,6 +1,6 @@
 import type { Lesson, Level } from "./trainer/types";
 export type { Exercise, ExerciseType, Lesson, Level, LessonStage, ImportantPhrase, CommonMistake } from "./trainer/types";
-export { LEVELS, LEVEL_COLORS, STAGE_LABELS, XP_PER_LESSON, XP_PER_CORRECT, FREE_LESSONS_PER_LEVEL } from "./trainer/types";
+export { LEVELS, LEVEL_COLORS, STAGE_LABELS, XP_PER_LESSON, XP_PER_CORRECT, FREE_LESSONS_PER_LEVEL, MAX_LEVEL } from "./trainer/types";
 
 import { lessonsA1 } from "./trainer/lessons-a1";
 import { lessonsA2 } from "./trainer/lessons-a2";

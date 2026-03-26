@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, Trophy, Flame, Star, Lock, GraduationCap, CheckCircle2, X, Crown, ChevronLeft, ChevronRight } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
-import { LEVELS, LEVEL_COLORS, getLessonsForLevel, FREE_LESSONS_PER_LEVEL, type Level, type Lesson } from "@/lib/deutsch-trainer-data";
+import { LEVELS, LEVEL_COLORS, getLessonsForLevel, FREE_LESSONS_PER_LEVEL, MAX_LEVEL, type Level, type Lesson } from "@/lib/deutsch-trainer-data";
 import { useTrainerProgress } from "@/hooks/useTrainerProgress";
 import { usePremiumAccess } from "@/hooks/usePremiumAccess";
 import TrainerLesson from "@/components/trainer/TrainerLesson";
@@ -12,10 +12,10 @@ import { navigateBackOrHome } from "@/lib/navigation";
 
 const LESSONS_PER_PAGE = 5;
 
-const ULTIMATE_PRICES: Record<string, string> = {
-  "A1": "19,99 €", "A2": "19,99 €",
-  "B1": "29,99 €", "B2": "29,99 €",
-  "C1": "39,99 €", "C2": "39,99 €",
+const INDIVIDUAL_PRICES: Record<string, string> = {
+  "A1": "4,99 €", "A2": "9,99 €",
+  "B1": "14,99 €", "B2": "19,99 €",
+  "C1": "24,99 €", "C2": "29,99 €",
 };
 
 export default function DeutschTrainer() {
@@ -38,8 +38,9 @@ export default function DeutschTrainer() {
   const { isPremium } = usePremiumAccess();
 
   const levelLessons = getLessonsForLevel(selectedLevel);
-  const xpForNextLevel = progress.level * 100;
-  const xpInLevel = progress.xp % 100;
+  const maxXpForLevel = MAX_LEVEL * 100;
+  const xpForNextLevel = Math.min(progress.level * 100, maxXpForLevel);
+  const xpInLevel = progress.level >= MAX_LEVEL ? 100 : progress.xp % 100;
 
   const completedInLevel = levelLessons.filter((l) =>
     progress.completedLessons.includes(l.id)
@@ -68,8 +69,10 @@ export default function DeutschTrainer() {
     return <TrainerLesson lesson={activeLesson} onBack={() => setActiveLesson(null)} />;
   }
 
+  // Current content: 3 stages × 100 = 300 exercises per lesson
+  // Target: 3 × 500 = 1500 (scalable). Show actual current numbers.
   const totalExercises = 300;
-  const freeExercises = 30;
+  const freeExercises = 150;
 
   return (
     <>
@@ -95,7 +98,7 @@ export default function DeutschTrainer() {
           {[
             { icon: <Trophy className="h-5 w-5 text-gold" />, value: progress.xp, label: "XP" },
             { icon: <Flame className="h-5 w-5 text-destructive" />, value: progress.streak, label: "Streak" },
-            { icon: <Star className="h-5 w-5 text-primary" />, value: `Lvl ${progress.level}`, label: "Level" },
+            { icon: <Star className="h-5 w-5 text-primary" />, value: `Lvl ${progress.level}`, label: `Level (max ${MAX_LEVEL})` },
           ].map((s) => (
             <div key={s.label} className="flex flex-col items-center gap-0.5 rounded-xl border bg-card px-3 py-3">
               {s.icon}
@@ -108,10 +111,10 @@ export default function DeutschTrainer() {
         {/* XP bar */}
         <div className="mb-5">
           <div className="mb-1 flex justify-between text-[11px] text-muted-foreground">
-            <span>Level {progress.level}</span>
-            <span>{xpInLevel}/{xpForNextLevel} XP</span>
+            <span>Level {progress.level}{progress.level >= MAX_LEVEL ? " (Max)" : ""}</span>
+            <span>{progress.level >= MAX_LEVEL ? "Max erreicht" : `${xpInLevel}/${xpForNextLevel} XP`}</span>
           </div>
-          <Progress value={(xpInLevel / xpForNextLevel) * 100} className="h-2.5 rounded-full" />
+          <Progress value={progress.level >= MAX_LEVEL ? 100 : (xpInLevel / xpForNextLevel) * 100} className="h-2.5 rounded-full" />
         </div>
 
         {/* Level tabs */}
@@ -182,7 +185,7 @@ export default function DeutschTrainer() {
                       {isLocked && <Lock className="h-3 w-3 text-muted-foreground/60" />}
                     </div>
                     <p className={`mt-0.5 text-[11px] ${isLocked ? "text-muted-foreground/60" : "text-muted-foreground"}`}>
-                      {lesson.title} · {totalExercises} Aufgaben {!isPremium && `· ${freeExercises} frei verfügbar`}
+                      {lesson.title} · {totalExercises} Aufgaben{!isPremium && ` · ${freeExercises} frei verfügbar`}
                     </p>
                   </div>
                   {isFree && !completed && (
@@ -246,7 +249,7 @@ export default function DeutschTrainer() {
             <div className="mt-3 flex items-center justify-center gap-3 text-[10px] text-muted-foreground">
               <span>✓ Kein Abo</span>
               <span>✓ Einmal zahlen</span>
-              <span>✓ Sprachassistent</span>
+              <span>✓ Wertgutschein</span>
             </div>
           </div>
         )}
@@ -279,10 +282,10 @@ export default function DeutschTrainer() {
                 <Crown className="mx-auto mb-3 h-10 w-10 text-gold" />
                 <h2 className="text-base font-black">Weitere Lektionen freischalten</h2>
                 <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">
-                  Du hast die kostenlosen Lektionen abgeschlossen. Schalte jetzt alle Inhalte frei und trainiere Deutsch für echte Situationen.
+                  Schalte jetzt alle Inhalte frei und trainiere Deutsch für echte Situationen.
                 </p>
                 <p className="mt-3 text-2xl font-black text-gold-dark">
-                  {ULTIMATE_PRICES[selectedLevel]}
+                  ab {INDIVIDUAL_PRICES[selectedLevel]}
                   <span className="ml-1 text-xs font-normal text-muted-foreground">/ einmalig</span>
                 </p>
                 <Button

@@ -1,48 +1,68 @@
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Check, Crown, Star, GraduationCap, Volume2, X } from "lucide-react";
+import { ArrowLeft, Check, Crown, Star, GraduationCap, X, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { navigateBackOrHome } from "@/lib/navigation";
 
-const tiers = [
+const individualLevels = [
+  { level: "A1", price: "4,99 €", desc: "Grundlagen – erste Schritte" },
+  { level: "A2", price: "9,99 €", desc: "Alltag – einfache Gespräche" },
+  { level: "B1", price: "14,99 €", desc: "Selbstständig kommunizieren" },
+  { level: "B2", price: "19,99 €", desc: "Komplexere Situationen" },
+  { level: "C1", price: "24,99 €", desc: "Anspruchsvoll & beruflich" },
+  { level: "C2", price: "29,99 €", desc: "Professionelles Niveau" },
+];
+
+const packages = [
   {
-    label: "A1 – A2",
+    label: "Paket A",
+    levels: "A1 + A2",
     subtitle: "Grundlagen für den Alltag",
-    price: "19,99 €",
+    price: "14,99 €",
+    singleTotal: "14,98 €",
     popular: false,
     topics: ["Arzt", "Supermarkt", "Vorstellung", "Wohnung", "Post", "Alltag"],
+    voucher: "5 € Wertgutschein",
   },
   {
-    label: "B1 – B2",
-    subtitle: "Selbstständig kommunizieren in Deutschland",
+    label: "Paket B",
+    levels: "B1 + B2",
+    subtitle: "Selbstständig kommunizieren",
     price: "29,99 €",
+    singleTotal: "34,98 €",
     popular: true,
     topics: ["Bewerbung", "Telefon", "Büro", "Vertrag", "Bank", "Versicherung"],
+    voucher: "10 € Wertgutschein",
   },
   {
-    label: "C1 – C2",
+    label: "Paket C",
+    levels: "C1 + C2",
     subtitle: "Professionelles Niveau",
     price: "39,99 €",
+    singleTotal: "54,98 €",
     popular: false,
     topics: ["Verhandlung", "Präsentation", "Konflikt", "Fachwissen", "Debatte", "Rhetorik"],
+    voucher: "15 € Wertgutschein",
   },
 ];
 
 const freeFeatures = [
   { text: "5 Lektionen pro Niveau", included: true },
-  { text: "30 Aufgaben pro Lektion", included: true },
+  { text: "150 Aufgaben pro Lektion", included: true },
   { text: "5 Sprachassistent-Sätze", included: true },
   { text: "Alle Lektionen", included: false },
-  { text: "300 Aufgaben pro Lektion", included: false },
-  { text: "Sprachassistent (100 Sätze)", included: false },
+  { text: "Bis zu 1500 Aufgaben pro Lektion", included: false },
+  { text: "Sprachassistent (500 Sätze)", included: false },
+  { text: "Wertgutschein-Programm", included: false },
 ];
 
 const ultimateFeatures = [
   "Alle Lektionen freischalten",
-  "300 Aufgaben pro Lektion",
-  "Sprachassistent mit 100 Sätzen",
+  "Bis zu 1500 Aufgaben pro Lektion",
+  "Sprachassistent mit 500 Sätzen",
   "Alle Szenarien aus dem echten Leben",
   "Dynamische Aufgaben (immer neu)",
   "Smart Progress System",
+  "Wertgutschein bei 100% Abschluss",
   "Kein Abo – einmal zahlen",
 ];
 
@@ -79,7 +99,6 @@ export default function TrainerPreise() {
         <div className="rounded-2xl border bg-card p-5">
           <h2 className="mb-4 text-sm font-black text-center">Free vs. Ultimate</h2>
           <div className="grid grid-cols-2 gap-3">
-            {/* Free column */}
             <div className="rounded-xl border border-border bg-muted/30 p-4">
               <p className="mb-3 text-xs font-black text-muted-foreground">FREE</p>
               <ul className="space-y-2">
@@ -98,7 +117,6 @@ export default function TrainerPreise() {
               </ul>
             </div>
 
-            {/* Ultimate column */}
             <div className="rounded-xl border-2 border-gold/30 bg-gradient-to-b from-gold/5 to-gold/10 p-4">
               <div className="mb-3 flex items-center gap-1.5">
                 <Crown className="h-3.5 w-3.5 text-gold" />
@@ -116,70 +134,140 @@ export default function TrainerPreise() {
           </div>
         </div>
 
+        {/* ── PAKETE (BEST VALUE) ── */}
+        <div>
+          <h2 className="mb-3 text-sm font-black text-center flex items-center justify-center gap-2">
+            <Sparkles className="h-4 w-4 text-gold" />
+            Pakete – Beste Wahl
+          </h2>
 
-        {/* Per-level Ultimate cards */}
-        {tiers.map((tier) => (
-          <div key={tier.label} className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="rounded-full bg-primary px-3.5 py-1 text-[11px] font-black text-primary-foreground">
-                {tier.label}
-              </span>
-              <span className="text-xs font-medium text-muted-foreground">{tier.subtitle}</span>
-            </div>
-
-            <div className={`relative rounded-2xl border-2 bg-card px-5 py-6 sm:px-6 ${tier.popular ? "border-gold shadow-[0_8px_30px_rgba(255,204,0,0.18)]" : "border-border shadow-sm"}`}>
-              {tier.popular && (
-                <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 rounded-full bg-gold px-3.5 py-0.5 text-[10px] font-bold text-gold-foreground shadow-sm">
-                  🔥 Beliebteste Wahl
+          <div className="flex flex-col gap-4">
+            {packages.map((pkg) => (
+              <div key={pkg.label} className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <span className="rounded-full bg-primary px-3.5 py-1 text-[11px] font-black text-primary-foreground">
+                    {pkg.levels}
+                  </span>
+                  <span className="text-xs font-medium text-muted-foreground">{pkg.subtitle}</span>
+                  <span className="ml-auto rounded-full bg-[hsl(var(--success)/0.1)] px-2.5 py-0.5 text-[9px] font-bold text-[hsl(var(--success))]">
+                    BEST VALUE
+                  </span>
                 </div>
-              )}
 
-              <div className="flex items-center gap-2.5">
-                <Crown className={`h-4.5 w-4.5 ${tier.popular ? "text-gold" : "text-muted-foreground"}`} />
-                <h3 className="text-[15px] font-black leading-snug">{tier.subtitle}</h3>
+                <div className={`relative rounded-2xl border-2 bg-card px-5 py-6 sm:px-6 ${pkg.popular ? "border-gold shadow-[0_8px_30px_rgba(255,204,0,0.18)]" : "border-border shadow-sm"}`}>
+                  {pkg.popular && (
+                    <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 rounded-full bg-gold px-3.5 py-0.5 text-[10px] font-bold text-gold-foreground shadow-sm">
+                      🔥 Beliebteste Wahl
+                    </div>
+                  )}
+
+                  <div className="flex items-center gap-2.5">
+                    <Crown className={`h-4.5 w-4.5 ${pkg.popular ? "text-gold" : "text-muted-foreground"}`} />
+                    <h3 className="text-[15px] font-black leading-snug">{pkg.label}: {pkg.subtitle}</h3>
+                  </div>
+
+                  <p className="mt-3 text-[28px] font-black leading-tight tracking-tight">
+                    {pkg.price}
+                    <span className="ml-1.5 text-xs font-normal text-muted-foreground">/ einmalig</span>
+                  </p>
+                  <p className="mt-1 text-[11px] text-muted-foreground line-through">
+                    Einzeln: {pkg.singleTotal}
+                  </p>
+
+                  <p className="mt-1.5 text-[11px] leading-relaxed text-muted-foreground">
+                    5 Lektionen kostenlos testen · {pkg.voucher} bei 100% Abschluss
+                  </p>
+
+                  <Button
+                    onClick={() => navigate("/premium")}
+                    className={`mt-5 h-11 w-full rounded-xl text-[13px] font-bold ${pkg.popular ? "bg-gold text-gold-foreground shadow-[0_4px_20px_rgba(255,204,0,0.3)] hover:bg-gold-light" : "bg-primary text-primary-foreground hover:bg-primary/90"}`}
+                  >
+                    <Star className="mr-1.5 h-3.5 w-3.5" /> Paket freischalten
+                  </Button>
+
+                  <ul className="mt-5 space-y-3">
+                    {ultimateFeatures.map((f) => (
+                      <li key={f} className="flex items-center gap-2.5 text-[13px] font-medium leading-relaxed">
+                        <Check className={`h-4 w-4 shrink-0 ${pkg.popular ? "text-gold" : "text-primary"}`} />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {pkg.popular && (
+                    <p className="mt-5 text-center text-[11px] font-semibold text-gold-dark">
+                      ⭐ Die meisten Nutzer wählen dieses Paket
+                    </p>
+                  )}
+                </div>
+
+                <div className="flex justify-between px-5 sm:px-6">
+                  {pkg.topics.map((t) => (
+                    <span key={t} className="text-[9px] font-medium text-muted-foreground">
+                      {t}
+                    </span>
+                  ))}
+                </div>
               </div>
-
-              <p className="mt-3 text-[28px] font-black leading-tight tracking-tight">
-                {tier.price}
-                <span className="ml-1.5 text-xs font-normal text-muted-foreground">/ einmalig</span>
-              </p>
-
-              <p className="mt-1.5 text-[11px] leading-relaxed text-muted-foreground">
-                5 Lektionen kostenlos testen
-              </p>
-
-              <Button
-                onClick={() => navigate("/premium")}
-                className={`mt-5 h-11 w-full rounded-xl text-[13px] font-bold ${tier.popular ? "bg-gold text-gold-foreground shadow-[0_4px_20px_rgba(255,204,0,0.3)] hover:bg-gold-light" : "bg-primary text-primary-foreground hover:bg-primary/90"}`}
-              >
-                <Star className="mr-1.5 h-3.5 w-3.5" /> Jetzt freischalten
-              </Button>
-
-              <ul className="mt-5 space-y-3">
-                {ultimateFeatures.map((f) => (
-                  <li key={f} className="flex items-center gap-2.5 text-[13px] font-medium leading-relaxed">
-                    <Check className={`h-4 w-4 shrink-0 ${tier.popular ? "text-gold" : "text-primary"}`} />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-
-              {tier.popular && (
-                <p className="mt-5 text-center text-[11px] font-semibold text-gold-dark">
-                  ⭐ Die meisten Nutzer wählen dieses Paket
-                </p>
-              )}
-            </div>
-
-            <div className="flex justify-between px-5 sm:px-6">
-              {tier.topics.map((t) => (
-                <span key={t} className="text-[9px] font-medium text-muted-foreground">
-                  {t}
-                </span>
-              ))}
-            </div>
+            ))}
           </div>
-        ))}
+        </div>
+
+        {/* ── EINZELNE NIVEAUS ── */}
+        <div>
+          <h2 className="mb-3 text-sm font-black text-center">Einzelne Niveaus</h2>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+            {individualLevels.map((lvl) => (
+              <div key={lvl.level} className="rounded-xl border bg-card p-4 text-center">
+                <span className="mb-1 inline-block rounded-full bg-primary px-3 py-0.5 text-[10px] font-black text-primary-foreground">
+                  {lvl.level}
+                </span>
+                <p className="mt-2 text-lg font-black">{lvl.price}</p>
+                <p className="mt-0.5 text-[10px] text-muted-foreground">{lvl.desc}</p>
+                <Button
+                  onClick={() => navigate("/premium")}
+                  variant="outline"
+                  className="mt-3 h-8 w-full rounded-lg text-[11px] font-bold"
+                >
+                  Freischalten
+                </Button>
+              </div>
+            ))}
+          </div>
+          <p className="mt-2 text-center text-[10px] text-muted-foreground">
+            Hinweis: Wertgutscheine gibt es nur bei Paket-Kauf, nicht bei Einzelniveaus.
+          </p>
+        </div>
+
+        {/* ── WERTGUTSCHEIN INFO ── */}
+        <div className="rounded-2xl border-2 border-gold/20 bg-gradient-to-b from-gold/5 to-gold/10 p-5">
+          <h2 className="mb-3 text-sm font-black flex items-center gap-2">
+            🎁 Wertgutschein-Programm
+          </h2>
+          <p className="text-xs text-muted-foreground leading-relaxed mb-3">
+            Schließe den Kurs ab und sichere dir einen Wertgutschein als Bonus.
+          </p>
+          <div className="space-y-2">
+            {[
+              { label: "Paket A (A1+A2)", value: "5 €" },
+              { label: "Paket B (B1+B2)", value: "10 €" },
+              { label: "Paket C (C1+C2)", value: "15 €" },
+              { label: "Alle Pakete (A1–C2)", value: "30 €" },
+            ].map((v) => (
+              <div key={v.label} className="flex items-center justify-between rounded-lg bg-card px-3 py-2 text-xs">
+                <span className="font-medium">{v.label}</span>
+                <span className="font-black text-gold-dark">{v.value}</span>
+              </div>
+            ))}
+          </div>
+          <p className="mt-3 text-[10px] text-muted-foreground leading-relaxed">
+            Voraussetzung: 100% Abschluss aller Aufgaben im Paket. Gutscheine nur für Pakete, nicht für Einzelniveaus. 
+            Manuelle Prüfung durch BalkanLink. Es gelten die{" "}
+            <button onClick={() => navigate("/deutsch-trainer/bonusbedingungen")} className="text-primary underline">
+              Bonusbedingungen
+            </button>.
+          </p>
+        </div>
 
       </div>
     </>
