@@ -7,11 +7,11 @@ import { navigateBackOrHome } from "@/lib/navigation";
 const faqs = [
   {
     q: "Was ist in der Free-Version enthalten?",
-    a: "Du bekommst 5 Lektionen pro Niveau mit 30 Aufgaben und 5 Sprachassistent-Sätzen pro Lektion – komplett kostenlos.",
+    a: "Du bekommst 5 Lektionen pro Niveau mit 150 Aufgaben und 5 Sprachassistent-Sätzen pro Lektion – komplett kostenlos.",
   },
   {
     q: "Was ist im Ultimate-Paket enthalten?",
-    a: "Mit Ultimate erhältst du alle Lektionen, 300 Aufgaben pro Lektion, vollen Zugriff auf den Sprachassistent mit 100 Sätzen und dynamisch generierte Aufgaben für maximale Abwechslung.",
+    a: "Mit Ultimate erhältst du alle Lektionen, bis zu 1500 Aufgaben pro Lektion, vollen Zugriff auf den Sprachassistent mit 500 Sätzen und dynamisch generierte Aufgaben für maximale Abwechslung.",
   },
   {
     q: "Kann ich kostenlos testen?",
@@ -22,12 +22,20 @@ const faqs = [
     a: "Für alle, die Deutsch in realen Alltagssituationen trainieren möchten – ob Anfänger (A1) oder Fortgeschrittene (C2).",
   },
   {
-    q: "Wie lange dauert eine Lektion?",
-    a: "Eine Lektion dauert ca. 3–10 Minuten. Jede Lektion hat 30 (Free) oder 300 (Ultimate) Aufgaben.",
+    q: "Wie funktioniert die Preisstruktur?",
+    a: "Du kannst einzelne Niveaus kaufen (ab 4,99 €) oder Pakete wählen (z.B. A1+A2 für 14,99 €). Pakete sind günstiger und bieten einen Wertgutschein bei 100% Abschluss.",
+  },
+  {
+    q: "Was ist der Wertgutschein?",
+    a: "Bei 100% Abschluss eines Pakets erhältst du einen Wertgutschein (5–30 €). Dies ist eine freiwillige Bonusleistung, kein Rechtsanspruch. Details findest du in den Bonusbedingungen.",
   },
   {
     q: "Ist Ultimate ein Abo?",
-    a: "Nein. Ultimate ist eine einmalige Zahlung. Du zahlst einmal und hast dauerhaften Zugriff auf alle Inhalte.",
+    a: "Nein. Alle Käufe sind einmalige Zahlungen. Du zahlst einmal und hast dauerhaften Zugriff.",
+  },
+  {
+    q: "Wie funktioniert das XP-System?",
+    a: "Jede richtige Antwort gibt +1 XP. Dein Fortschritt wird gespeichert und geht nicht verloren. Maximal erreichbar: Level 15.",
   },
   {
     q: "Muss ich Grammatik lernen?",

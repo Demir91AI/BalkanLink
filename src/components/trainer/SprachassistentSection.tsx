@@ -31,9 +31,7 @@ export default function SprachassistentSection({
     : lesson.importantPhrases.slice(0, freePhraseLimit);
 
   const lockedCount = isPremium ? 0 : totalPhrases - freePhraseLimit;
-  const displayTotal = isPremium ? totalPhrases : totalPhrases;
 
-  // Show a few "blurred" preview phrases for free users
   const blurredPreviewPhrases = !isPremium
     ? lesson.importantPhrases.slice(freePhraseLimit, freePhraseLimit + 3)
     : [];
@@ -44,7 +42,7 @@ export default function SprachassistentSection({
         <Volume2 className="h-4 w-4 text-primary" />
         <h3 className="text-xs font-bold">Sprachassistent</h3>
         <span className="ml-auto rounded-full bg-muted px-2 py-0.5 text-[9px] font-bold text-muted-foreground">
-          {visiblePhrases.length}/{displayTotal}
+          {visiblePhrases.length}/{totalPhrases}
         </span>
         {!isPremium && (
           <span className="rounded-full bg-gold/10 px-2 py-0.5 text-[9px] font-bold text-gold-dark">
@@ -53,7 +51,6 @@ export default function SprachassistentSection({
         )}
       </div>
 
-      {/* Visible phrases */}
       <div className="flex flex-col gap-2">
         {visiblePhrases.map((phrase, i) => {
           const audioId = `phrase-${lesson.id}-${i}`;
@@ -69,7 +66,6 @@ export default function SprachassistentSection({
         })}
       </div>
 
-      {/* Blurred locked phrases preview */}
       {!isPremium && blurredPreviewPhrases.length > 0 && (
         <div className="relative mt-2">
           <div className="flex flex-col gap-2 select-none pointer-events-none">
@@ -87,12 +83,10 @@ export default function SprachassistentSection({
               </div>
             ))}
           </div>
-          {/* Gradient fade overlay */}
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-card to-transparent" />
         </div>
       )}
 
-      {/* Lock CTA */}
       {!isPremium && (
         <div className="mt-3 rounded-xl border border-gold/20 bg-gradient-to-b from-gold/5 to-gold/10 p-4 text-center">
           <Lock className="mx-auto mb-1.5 h-5 w-5 text-gold" />

@@ -21,11 +21,11 @@ import StageCard from "./StageCard";
 import SprachassistentSection from "./SprachassistentSection";
 
 const FREE_PHRASE_LIMIT = 5;
-const TOTAL_PHRASES = 100;
+const TOTAL_PHRASES = 500;
 
 const EXERCISES_PER_STAGE = 100;
-/** Free users: 30 per stage, Ultimate: 100 per stage */
-const FREE_STAGE_COUNTS = [30, 30, 30] as const;
+/** Free users: 50 per stage, Ultimate: 100 per stage */
+const FREE_STAGE_COUNTS = [50, 50, 50] as const;
 const LOCKED_STAGE_COUNTS = FREE_STAGE_COUNTS.map(
   (free) => EXERCISES_PER_STAGE - free
 ) as unknown as readonly [number, number, number];

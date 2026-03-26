@@ -1,4 +1,5 @@
 import { useState, useCallback } from "react";
+import { MAX_LEVEL } from "@/lib/trainer/types";
 
 interface TrainerProgress {
   xp: number;
@@ -15,8 +16,7 @@ function load(): TrainerProgress {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) {
       const parsed = JSON.parse(raw);
-      // One-time reset flag: clear old progress
-      if (!parsed._v2) {
+      if (!parsed._v3) {
         localStorage.removeItem(STORAGE_KEY);
         return { xp: 0, streak: 0, lastDate: "", completedLessons: [], level: 1 };
       }
@@ -27,7 +27,13 @@ function load(): TrainerProgress {
 }
 
 function save(p: TrainerProgress) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify({ ...p, _v2: true }));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify({ ...p, _v3: true }));
+}
+
+/** XP thresholds: level N requires N*100 total XP, capped at MAX_LEVEL */
+function computeLevel(xp: number): number {
+  const lvl = Math.floor(xp / 100) + 1;
+  return Math.min(lvl, MAX_LEVEL);
 }
 
 export function useTrainerProgress() {
@@ -42,7 +48,7 @@ export function useTrainerProgress() {
       else if (prev.lastDate !== today) streak = 1;
 
       const newXp = prev.xp + amount;
-      const newLevel = Math.floor(newXp / 100) + 1;
+      const newLevel = computeLevel(newXp);
       const next = { ...prev, xp: newXp, streak, lastDate: today, level: newLevel };
       save(next);
       return next;
