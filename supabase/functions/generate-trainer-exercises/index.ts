@@ -13,6 +13,34 @@ const EXERCISE_TYPES = [
   "quick_reaction",
 ];
 
+const MAX_PER_REQUEST = 15;
+
+function extractJsonArray(raw: string): unknown {
+  let cleaned = raw
+    .replace(/```json\s*/gi, "")
+    .replace(/```\s*/g, "")
+    .trim();
+
+  const start = cleaned.indexOf("[");
+  const end = cleaned.lastIndexOf("]");
+
+  if (start === -1 || end === -1 || end <= start) {
+    throw new Error("No JSON array found in response");
+  }
+
+  cleaned = cleaned.substring(start, end + 1);
+
+  try {
+    return JSON.parse(cleaned);
+  } catch {
+    cleaned = cleaned
+      .replace(/,\s*}/g, "}")
+      .replace(/,\s*]/g, "]")
+      .replace(/[\x00-\x1F\x7F]/g, "");
+    return JSON.parse(cleaned);
+  }
+}
+
 function buildSystemPrompt(level: string, stageType: string): string {
   const levelGuide: Record<string, string> = {
     A1: "Sehr einfache Saetze, Grundwortschatz, kurze Strukturen. Themen: Begruessungen, Zahlen, Familie, Essen, Uhrzeit.",
@@ -53,7 +81,7 @@ Regeln:
 - Situationen muessen realistisch und relevant fuer das Leben in Deutschland sein
 - Keine Wiederholungen
 
-Antworte NUR mit einem JSON-Array von Uebungen, kein anderer Text.`;
+WICHTIG: Antworte NUR mit einem JSON-Array. Kein erklarender Text, keine Kommentare, nur das Array.`;
 }
 
 serve(async (req) => {
@@ -79,9 +107,11 @@ serve(async (req) => {
       );
     }
 
-    const userPrompt = `Generiere genau ${count} Uebungen zum Thema "${topic}" fuer Niveau ${level}, Stufe "${stageType}".
+    const actualCount = Math.min(count, MAX_PER_REQUEST);
+
+    const userPrompt = `Generiere genau ${actualCount} Uebungen zum Thema "${topic}" fuer Niveau ${level}, Stufe "${stageType}".
 Mische die Typen: multiple_choice, sort_sentence, fill_blank, quick_reaction.
-Antworte NUR mit einem JSON-Array.`;
+Antworte NUR mit einem JSON-Array, KEIN anderer Text.`;
 
     const response = await fetch(
       "https://ai.gateway.lovable.dev/v1/chat/completions",
@@ -92,7 +122,7 @@ Antworte NUR mit einem JSON-Array.`;
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          model: "google/gemini-3-flash-preview",
+          model: "google/gemini-2.5-flash",
           messages: [
             { role: "system", content: buildSystemPrompt(level, stageType) },
             { role: "user", content: userPrompt },
@@ -126,24 +156,17 @@ Antworte NUR mit einem JSON-Array.`;
     const data = await response.json();
     const content = data.choices?.[0]?.message?.content || "[]";
 
-    // Extract JSON from response (handle markdown code blocks)
-    let jsonStr = content.trim();
-    if (jsonStr.startsWith("```")) {
-      jsonStr = jsonStr.replace(/^```(?:json)?\s*/, "").replace(/```\s*$/, "");
-    }
-
     let exercises;
     try {
-      exercises = JSON.parse(jsonStr);
-    } catch {
-      console.error("Failed to parse exercises JSON:", jsonStr.substring(0, 200));
+      exercises = extractJsonArray(content);
+    } catch (e) {
+      console.error("Failed to parse exercises JSON:", content.substring(0, 300));
       return new Response(
         JSON.stringify({ error: "Failed to parse generated exercises" }),
         { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
 
-    // Validate and sanitize exercises
     const validated = (Array.isArray(exercises) ? exercises : []).filter(
       (ex: any) =>
         EXERCISE_TYPES.includes(ex.type) &&
