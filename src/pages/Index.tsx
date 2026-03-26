@@ -12,6 +12,7 @@ import { HeroAdBanner } from "@/components/home/AdSections";
 import { AdCarousel } from "@/components/home/AdCarousel";
 import { AdFlowBanner } from "@/components/home/AdFlowBanner";
 import { WowSection } from "@/components/home/WowSection";
+import TrainerHeroSection from "@/components/trainer/TrainerHeroSection";
 import heroBerlin from "@/assets/hero-berlin.jpg";
 import heroMuenchen from "@/assets/hero-muenchen.jpg";
 import heroFrankfurt from "@/assets/hero-frankfurt.jpg";
@@ -215,6 +216,7 @@ export default function Index() {
         </nav>
 
         <div className="flex-1 min-w-0">
+          <TrainerHeroSection />
           <WowSection />
           <AdCarousel />
           <AdFlowBanner />

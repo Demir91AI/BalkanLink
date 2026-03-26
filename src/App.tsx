@@ -57,6 +57,7 @@ import BruttoNettoRechner from "./pages/BruttoNettoRechner";
 import NudimTrazim from "./pages/NudimTrazim";
 import NachDeutschland from "./pages/NachDeutschland";
 import Vorlagen from "./pages/Vorlagen";
+import DeutschTrainer from "./pages/DeutschTrainer";
 import NotFound from "./pages/NotFound";
 import FirmDetail from "./pages/FirmDetail";
 
@@ -136,6 +137,7 @@ const App = () => (
                 <Route path="/nach-deutschland/:countryCode/:categoryKey" element={<NachDeutschland />} />
                 <Route path="/vorlagen" element={<Vorlagen />} />
                 <Route path="/vorlagen/:slug" element={<Vorlagen />} />
+                <Route path="/deutsch-trainer" element={<DeutschTrainer />} />
                 <Route path="/firma/:slug" element={<FirmDetail />} />
               </Route>
               <Route path="*" element={<NotFound />} />
