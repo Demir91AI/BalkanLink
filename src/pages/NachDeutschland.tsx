@@ -213,7 +213,7 @@ export default function NachDeutschland() {
           className="inline-flex items-center gap-2 text-xs font-semibold text-primary bg-primary/10 rounded-lg px-5 py-2.5 transition-colors hover:bg-primary/20"
         >
           <ExternalLink className="h-4 w-4" />
-          {lk === "de" ? "Offizielle Seite öffnen" : lk === "en" ? "Open official page" : "Otvori službenu stranicu"}
+          Otvori službenu stranicu
         </a>
         <p className="mt-3 text-[11px] text-muted-foreground/70">
           Svi podaci dolaze iz službenih državnih izvora.
