@@ -58,6 +58,7 @@ import NudimTrazim from "./pages/NudimTrazim";
 import NachDeutschland from "./pages/NachDeutschland";
 import Vorlagen from "./pages/Vorlagen";
 import DeutschTrainer from "./pages/DeutschTrainer";
+import TrainerPreise from "./pages/TrainerPreise";
 import NotFound from "./pages/NotFound";
 import FirmDetail from "./pages/FirmDetail";
 
@@ -138,6 +139,7 @@ const App = () => (
                 <Route path="/vorlagen" element={<Vorlagen />} />
                 <Route path="/vorlagen/:slug" element={<Vorlagen />} />
                 <Route path="/deutsch-trainer" element={<DeutschTrainer />} />
+                <Route path="/deutsch-trainer/preise" element={<TrainerPreise />} />
                 <Route path="/firma/:slug" element={<FirmDetail />} />
               </Route>
               <Route path="*" element={<NotFound />} />
