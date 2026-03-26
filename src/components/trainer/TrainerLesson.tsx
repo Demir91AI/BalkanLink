@@ -52,7 +52,7 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
   const [aiExercises, setAiExercises] = useState<Exercise[]>([]);
   const [useAi, setUseAi] = useState(false);
 
-  const exerciseCount = isPremium ? ULTIMATE_EXERCISE_COUNT : FREE_EXERCISE_COUNT;
+  const exerciseCount = EXERCISES_PER_STAGE;
 
   useEffect(() => {
     if (selectedStage === null) {
@@ -148,8 +148,8 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
               key={idx}
               label={label}
               index={idx}
-              freeCount={FREE_EXERCISE_COUNT}
-              lockedCount={LOCKED_EXERCISE_COUNT}
+              freeCount={FREE_STAGE_COUNTS[idx]}
+              lockedCount={LOCKED_STAGE_COUNTS[idx]}
               isPremium={isPremium}
               onSelect={() => setSelectedStage(idx)}
               onUpgrade={() => navigate("/deutsch-trainer/preise")}
