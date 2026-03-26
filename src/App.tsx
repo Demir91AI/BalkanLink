@@ -60,6 +60,7 @@ import Vorlagen from "./pages/Vorlagen";
 import DeutschTrainer from "./pages/DeutschTrainer";
 import TrainerPreise from "./pages/TrainerPreise";
 import TrainerFaq from "./pages/TrainerFaq";
+import TrainerBonusbedingungen from "./pages/TrainerBonusbedingungen";
 import NotFound from "./pages/NotFound";
 import FirmDetail from "./pages/FirmDetail";
 
