@@ -247,6 +247,19 @@ export default function ChatAssistant() {
   const sendMessageWithText = useCallback(async (text: string) => {
     if (!text.trim() || loading) return;
 
+    // Enforce daily limit for free users
+    if (!canChat) {
+      setMessages((prev) => [...prev,
+        { role: "user", content: text.trim() },
+        { role: "assistant", content: "⚡ Dostigao/la si dnevni limit od 3 pitanja.\n\nSa **BalkanLink Premium** dobijaš neograničenu AI pomoć i personalizirane odgovore.\n\n[👉 Premium aktivieren](/premium)" },
+      ]);
+      setInput("");
+      return;
+    }
+
+    // Record usage
+    await recordQuery();
+
     const userMsg: Msg = { role: "user", content: text.trim() };
     const newMessages = [...messages, userMsg];
     setMessages(newMessages);
