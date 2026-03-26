@@ -300,7 +300,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Dein Vermieter erhöht die Miete.",
+      "question": "Wie reagierst du?",
+      "options": [
+            "Ich prüfe, ob die Erhöhung rechtlich zulässig ist.",
+            "Ich ziehe sofort aus.",
+            "Ich bezahle einfach mehr."
+      ],
+      "answer": 0,
+      "explanation": "Mieterhöhungen müssen gesetzlich begründet sein."
+}
     ]
   },
   {
@@ -366,7 +378,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du bewirbst dich auf eine Stelle.",
+      "question": "Was ist wichtig?",
+      "options": [
+            "Ein professionelles Anschreiben und Lebenslauf.",
+            "Nur meinen Namen schicken.",
+            "Anrufen und fragen."
+      ],
+      "answer": 0,
+      "explanation": "Bewerbungsunterlagen müssen vollständig und professionell sein."
+}
     ]
   },
   {
@@ -432,7 +456,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du hast eine Frist verpasst.",
+      "question": "Was machst du?",
+      "options": [
+            "Ich kontaktiere die Stelle und bitte um Verlängerung.",
+            "Ich ignoriere es.",
+            "Ich warte ab."
+      ],
+      "answer": 0,
+      "explanation": "Proaktive Kommunikation hilft bei verpassten Fristen."
+}
     ]
   },
   {
@@ -498,7 +534,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Ein Freund bittet um einen Gefallen.",
+      "question": "Wie lehnst du höflich ab?",
+      "options": [
+            "Das würde ich gerne, aber leider kann ich nicht.",
+            "Nein.",
+            "Frag jemand anderen."
+      ],
+      "answer": 0,
+      "explanation": "Höfliches Ablehnen bewahrt die Freundschaft."
+}
     ]
   },
   {
@@ -564,7 +612,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du bekommst konstruktive Kritik.",
+      "question": "Wie reagierst du?",
+      "options": [
+            "Danke für das Feedback, ich werde daran arbeiten.",
+            "Das stimmt nicht.",
+            "Mir egal."
+      ],
+      "answer": 0,
+      "explanation": "Feedback anzunehmen zeigt Professionalität."
+}
     ]
   },
   {
@@ -630,7 +690,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Dein Vermieter erhöht die Miete.",
+      "question": "Wie reagierst du?",
+      "options": [
+            "Ich prüfe, ob die Erhöhung rechtlich zulässig ist.",
+            "Ich ziehe sofort aus.",
+            "Ich bezahle einfach mehr."
+      ],
+      "answer": 0,
+      "explanation": "Mieterhöhungen müssen gesetzlich begründet sein."
+}
     ]
   },
   {
@@ -696,7 +768,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du bewirbst dich auf eine Stelle.",
+      "question": "Was ist wichtig?",
+      "options": [
+            "Ein professionelles Anschreiben und Lebenslauf.",
+            "Nur meinen Namen schicken.",
+            "Anrufen und fragen."
+      ],
+      "answer": 0,
+      "explanation": "Bewerbungsunterlagen müssen vollständig und professionell sein."
+}
     ]
   },
   {
@@ -762,7 +846,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du hast eine Frist verpasst.",
+      "question": "Was machst du?",
+      "options": [
+            "Ich kontaktiere die Stelle und bitte um Verlängerung.",
+            "Ich ignoriere es.",
+            "Ich warte ab."
+      ],
+      "answer": 0,
+      "explanation": "Proaktive Kommunikation hilft bei verpassten Fristen."
+}
     ]
   },
   {
@@ -828,7 +924,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Ein Freund bittet um einen Gefallen.",
+      "question": "Wie lehnst du höflich ab?",
+      "options": [
+            "Das würde ich gerne, aber leider kann ich nicht.",
+            "Nein.",
+            "Frag jemand anderen."
+      ],
+      "answer": 0,
+      "explanation": "Höfliches Ablehnen bewahrt die Freundschaft."
+}
     ]
   },
   {
@@ -894,7 +1002,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du bekommst konstruktive Kritik.",
+      "question": "Wie reagierst du?",
+      "options": [
+            "Danke für das Feedback, ich werde daran arbeiten.",
+            "Das stimmt nicht.",
+            "Mir egal."
+      ],
+      "answer": 0,
+      "explanation": "Feedback anzunehmen zeigt Professionalität."
+}
     ]
   },
   {
@@ -960,7 +1080,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Dein Vermieter erhöht die Miete.",
+      "question": "Wie reagierst du?",
+      "options": [
+            "Ich prüfe, ob die Erhöhung rechtlich zulässig ist.",
+            "Ich ziehe sofort aus.",
+            "Ich bezahle einfach mehr."
+      ],
+      "answer": 0,
+      "explanation": "Mieterhöhungen müssen gesetzlich begründet sein."
+}
     ]
   },
   {
@@ -1026,7 +1158,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du bewirbst dich auf eine Stelle.",
+      "question": "Was ist wichtig?",
+      "options": [
+            "Ein professionelles Anschreiben und Lebenslauf.",
+            "Nur meinen Namen schicken.",
+            "Anrufen und fragen."
+      ],
+      "answer": 0,
+      "explanation": "Bewerbungsunterlagen müssen vollständig und professionell sein."
+}
     ]
   },
   {
@@ -1092,7 +1236,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du hast eine Frist verpasst.",
+      "question": "Was machst du?",
+      "options": [
+            "Ich kontaktiere die Stelle und bitte um Verlängerung.",
+            "Ich ignoriere es.",
+            "Ich warte ab."
+      ],
+      "answer": 0,
+      "explanation": "Proaktive Kommunikation hilft bei verpassten Fristen."
+}
     ]
   },
   {
@@ -1158,7 +1314,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Ein Freund bittet um einen Gefallen.",
+      "question": "Wie lehnst du höflich ab?",
+      "options": [
+            "Das würde ich gerne, aber leider kann ich nicht.",
+            "Nein.",
+            "Frag jemand anderen."
+      ],
+      "answer": 0,
+      "explanation": "Höfliches Ablehnen bewahrt die Freundschaft."
+}
     ]
   },
   {
@@ -1224,7 +1392,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du bekommst konstruktive Kritik.",
+      "question": "Wie reagierst du?",
+      "options": [
+            "Danke für das Feedback, ich werde daran arbeiten.",
+            "Das stimmt nicht.",
+            "Mir egal."
+      ],
+      "answer": 0,
+      "explanation": "Feedback anzunehmen zeigt Professionalität."
+}
     ]
   },
   {
@@ -1290,7 +1470,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Dein Vermieter erhöht die Miete.",
+      "question": "Wie reagierst du?",
+      "options": [
+            "Ich prüfe, ob die Erhöhung rechtlich zulässig ist.",
+            "Ich ziehe sofort aus.",
+            "Ich bezahle einfach mehr."
+      ],
+      "answer": 0,
+      "explanation": "Mieterhöhungen müssen gesetzlich begründet sein."
+}
     ]
   },
   {
@@ -1356,7 +1548,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du bewirbst dich auf eine Stelle.",
+      "question": "Was ist wichtig?",
+      "options": [
+            "Ein professionelles Anschreiben und Lebenslauf.",
+            "Nur meinen Namen schicken.",
+            "Anrufen und fragen."
+      ],
+      "answer": 0,
+      "explanation": "Bewerbungsunterlagen müssen vollständig und professionell sein."
+}
     ]
   },
   {
@@ -1422,7 +1626,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du hast eine Frist verpasst.",
+      "question": "Was machst du?",
+      "options": [
+            "Ich kontaktiere die Stelle und bitte um Verlängerung.",
+            "Ich ignoriere es.",
+            "Ich warte ab."
+      ],
+      "answer": 0,
+      "explanation": "Proaktive Kommunikation hilft bei verpassten Fristen."
+}
     ]
   },
   {
@@ -1488,7 +1704,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Ein Freund bittet um einen Gefallen.",
+      "question": "Wie lehnst du höflich ab?",
+      "options": [
+            "Das würde ich gerne, aber leider kann ich nicht.",
+            "Nein.",
+            "Frag jemand anderen."
+      ],
+      "answer": 0,
+      "explanation": "Höfliches Ablehnen bewahrt die Freundschaft."
+}
     ]
   },
   {
@@ -1554,7 +1782,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du bekommst konstruktive Kritik.",
+      "question": "Wie reagierst du?",
+      "options": [
+            "Danke für das Feedback, ich werde daran arbeiten.",
+            "Das stimmt nicht.",
+            "Mir egal."
+      ],
+      "answer": 0,
+      "explanation": "Feedback anzunehmen zeigt Professionalität."
+}
     ]
   },
   {
@@ -1620,7 +1860,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Dein Vermieter erhöht die Miete.",
+      "question": "Wie reagierst du?",
+      "options": [
+            "Ich prüfe, ob die Erhöhung rechtlich zulässig ist.",
+            "Ich ziehe sofort aus.",
+            "Ich bezahle einfach mehr."
+      ],
+      "answer": 0,
+      "explanation": "Mieterhöhungen müssen gesetzlich begründet sein."
+}
     ]
   },
   {
@@ -1686,7 +1938,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du bewirbst dich auf eine Stelle.",
+      "question": "Was ist wichtig?",
+      "options": [
+            "Ein professionelles Anschreiben und Lebenslauf.",
+            "Nur meinen Namen schicken.",
+            "Anrufen und fragen."
+      ],
+      "answer": 0,
+      "explanation": "Bewerbungsunterlagen müssen vollständig und professionell sein."
+}
     ]
   },
   {
@@ -1752,7 +2016,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du hast eine Frist verpasst.",
+      "question": "Was machst du?",
+      "options": [
+            "Ich kontaktiere die Stelle und bitte um Verlängerung.",
+            "Ich ignoriere es.",
+            "Ich warte ab."
+      ],
+      "answer": 0,
+      "explanation": "Proaktive Kommunikation hilft bei verpassten Fristen."
+}
     ]
   },
   {
@@ -1818,7 +2094,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Ein Freund bittet um einen Gefallen.",
+      "question": "Wie lehnst du höflich ab?",
+      "options": [
+            "Das würde ich gerne, aber leider kann ich nicht.",
+            "Nein.",
+            "Frag jemand anderen."
+      ],
+      "answer": 0,
+      "explanation": "Höfliches Ablehnen bewahrt die Freundschaft."
+}
     ]
   },
   {
@@ -1884,7 +2172,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du bekommst konstruktive Kritik.",
+      "question": "Wie reagierst du?",
+      "options": [
+            "Danke für das Feedback, ich werde daran arbeiten.",
+            "Das stimmt nicht.",
+            "Mir egal."
+      ],
+      "answer": 0,
+      "explanation": "Feedback anzunehmen zeigt Professionalität."
+}
     ]
   },
   {
@@ -1950,7 +2250,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Dein Vermieter erhöht die Miete.",
+      "question": "Wie reagierst du?",
+      "options": [
+            "Ich prüfe, ob die Erhöhung rechtlich zulässig ist.",
+            "Ich ziehe sofort aus.",
+            "Ich bezahle einfach mehr."
+      ],
+      "answer": 0,
+      "explanation": "Mieterhöhungen müssen gesetzlich begründet sein."
+}
     ]
   },
   {
@@ -2016,7 +2328,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du bewirbst dich auf eine Stelle.",
+      "question": "Was ist wichtig?",
+      "options": [
+            "Ein professionelles Anschreiben und Lebenslauf.",
+            "Nur meinen Namen schicken.",
+            "Anrufen und fragen."
+      ],
+      "answer": 0,
+      "explanation": "Bewerbungsunterlagen müssen vollständig und professionell sein."
+}
     ]
   },
   {
@@ -2082,7 +2406,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du hast eine Frist verpasst.",
+      "question": "Was machst du?",
+      "options": [
+            "Ich kontaktiere die Stelle und bitte um Verlängerung.",
+            "Ich ignoriere es.",
+            "Ich warte ab."
+      ],
+      "answer": 0,
+      "explanation": "Proaktive Kommunikation hilft bei verpassten Fristen."
+}
     ]
   },
   {
@@ -2148,7 +2484,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Ein Freund bittet um einen Gefallen.",
+      "question": "Wie lehnst du höflich ab?",
+      "options": [
+            "Das würde ich gerne, aber leider kann ich nicht.",
+            "Nein.",
+            "Frag jemand anderen."
+      ],
+      "answer": 0,
+      "explanation": "Höfliches Ablehnen bewahrt die Freundschaft."
+}
     ]
   },
   {
@@ -2214,7 +2562,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du bekommst konstruktive Kritik.",
+      "question": "Wie reagierst du?",
+      "options": [
+            "Danke für das Feedback, ich werde daran arbeiten.",
+            "Das stimmt nicht.",
+            "Mir egal."
+      ],
+      "answer": 0,
+      "explanation": "Feedback anzunehmen zeigt Professionalität."
+}
     ]
   },
   {
@@ -2280,7 +2640,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Dein Vermieter erhöht die Miete.",
+      "question": "Wie reagierst du?",
+      "options": [
+            "Ich prüfe, ob die Erhöhung rechtlich zulässig ist.",
+            "Ich ziehe sofort aus.",
+            "Ich bezahle einfach mehr."
+      ],
+      "answer": 0,
+      "explanation": "Mieterhöhungen müssen gesetzlich begründet sein."
+}
     ]
   },
   {
@@ -2346,7 +2718,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du bewirbst dich auf eine Stelle.",
+      "question": "Was ist wichtig?",
+      "options": [
+            "Ein professionelles Anschreiben und Lebenslauf.",
+            "Nur meinen Namen schicken.",
+            "Anrufen und fragen."
+      ],
+      "answer": 0,
+      "explanation": "Bewerbungsunterlagen müssen vollständig und professionell sein."
+}
     ]
   },
   {
@@ -2412,7 +2796,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du hast eine Frist verpasst.",
+      "question": "Was machst du?",
+      "options": [
+            "Ich kontaktiere die Stelle und bitte um Verlängerung.",
+            "Ich ignoriere es.",
+            "Ich warte ab."
+      ],
+      "answer": 0,
+      "explanation": "Proaktive Kommunikation hilft bei verpassten Fristen."
+}
     ]
   },
   {
@@ -2478,7 +2874,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Ein Freund bittet um einen Gefallen.",
+      "question": "Wie lehnst du höflich ab?",
+      "options": [
+            "Das würde ich gerne, aber leider kann ich nicht.",
+            "Nein.",
+            "Frag jemand anderen."
+      ],
+      "answer": 0,
+      "explanation": "Höfliches Ablehnen bewahrt die Freundschaft."
+}
     ]
   },
   {
@@ -2544,7 +2952,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du bekommst konstruktive Kritik.",
+      "question": "Wie reagierst du?",
+      "options": [
+            "Danke für das Feedback, ich werde daran arbeiten.",
+            "Das stimmt nicht.",
+            "Mir egal."
+      ],
+      "answer": 0,
+      "explanation": "Feedback anzunehmen zeigt Professionalität."
+}
     ]
   },
   {
@@ -2610,7 +3030,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Dein Vermieter erhöht die Miete.",
+      "question": "Wie reagierst du?",
+      "options": [
+            "Ich prüfe, ob die Erhöhung rechtlich zulässig ist.",
+            "Ich ziehe sofort aus.",
+            "Ich bezahle einfach mehr."
+      ],
+      "answer": 0,
+      "explanation": "Mieterhöhungen müssen gesetzlich begründet sein."
+}
     ]
   },
   {
@@ -2676,7 +3108,19 @@ export const lessonsB1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Professionelle Antworten zeigen Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du bewirbst dich auf eine Stelle.",
+      "question": "Was ist wichtig?",
+      "options": [
+            "Ein professionelles Anschreiben und Lebenslauf.",
+            "Nur meinen Namen schicken.",
+            "Anrufen und fragen."
+      ],
+      "answer": 0,
+      "explanation": "Bewerbungsunterlagen müssen vollständig und professionell sein."
+}
     ]
   }
 ];

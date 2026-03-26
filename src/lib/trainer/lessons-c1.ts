@@ -66,7 +66,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Nach Alternativen fragen hält die Verhandlung offen."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du verhandelst über dein Gehalt.",
+      "question": "Wie argumentierst du?",
+      "options": [
+            "Ich begründe meine Forderung mit Leistung und Marktwert.",
+            "Ich sage, ich brauche mehr Geld.",
+            "Ich drohe mit Kündigung."
+      ],
+      "answer": 0,
+      "explanation": "Sachliche Argumentation ist bei Gehaltsverhandlungen entscheidend."
+}
     ]
   },
   {
@@ -132,7 +144,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du leitest ein Projektmeeting.",
+      "question": "Wie eröffnest du?",
+      "options": [
+            "Ich begrüße alle und gebe einen Überblick über die Agenda.",
+            "Fangen wir an.",
+            "Hat jemand Fragen?"
+      ],
+      "answer": 0,
+      "explanation": "Eine strukturierte Eröffnung gibt dem Meeting Richtung."
+}
     ]
   },
   {
@@ -198,7 +222,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Ein Konflikt im Team eskaliert.",
+      "question": "Was tust du?",
+      "options": [
+            "Ich führe Einzelgespräche und vermittle neutral.",
+            "Ich ignoriere es.",
+            "Ich beschwere mich beim Chef."
+      ],
+      "answer": 0,
+      "explanation": "Konfliktlösung erfordert Einfühlungsvermögen und Neutralität."
+}
     ]
   },
   {
@@ -264,7 +300,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du musst eine kritische E-Mail schreiben.",
+      "question": "Worauf achtest du?",
+      "options": [
+            "Sachlich bleiben und konstruktive Lösungen vorschlagen.",
+            "Meine Frustration ausdrücken.",
+            "Kurz und direkt schreiben."
+      ],
+      "answer": 0,
+      "explanation": "Professionelle E-Mails sind sachlich und lösungsorientiert."
+}
     ]
   },
   {
@@ -330,7 +378,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du wirst um eine Einschätzung gebeten.",
+      "question": "Wie formulierst du diplomatisch?",
+      "options": [
+            "Meiner Einschätzung nach wäre es ratsam, alternative Ansätze zu prüfen.",
+            "Das ist falsch.",
+            "Mir fehlt die Zeit dafür."
+      ],
+      "answer": 0,
+      "explanation": "Diplomatische Formulierungen sind auf C1-Niveau essentiell."
+}
     ]
   },
   {
@@ -396,7 +456,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du verhandelst über dein Gehalt.",
+      "question": "Wie argumentierst du?",
+      "options": [
+            "Ich begründe meine Forderung mit Leistung und Marktwert.",
+            "Ich sage, ich brauche mehr Geld.",
+            "Ich drohe mit Kündigung."
+      ],
+      "answer": 0,
+      "explanation": "Sachliche Argumentation ist bei Gehaltsverhandlungen entscheidend."
+}
     ]
   },
   {
@@ -462,7 +534,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du leitest ein Projektmeeting.",
+      "question": "Wie eröffnest du?",
+      "options": [
+            "Ich begrüße alle und gebe einen Überblick über die Agenda.",
+            "Fangen wir an.",
+            "Hat jemand Fragen?"
+      ],
+      "answer": 0,
+      "explanation": "Eine strukturierte Eröffnung gibt dem Meeting Richtung."
+}
     ]
   },
   {
@@ -528,7 +612,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Ein Konflikt im Team eskaliert.",
+      "question": "Was tust du?",
+      "options": [
+            "Ich führe Einzelgespräche und vermittle neutral.",
+            "Ich ignoriere es.",
+            "Ich beschwere mich beim Chef."
+      ],
+      "answer": 0,
+      "explanation": "Konfliktlösung erfordert Einfühlungsvermögen und Neutralität."
+}
     ]
   },
   {
@@ -594,7 +690,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du musst eine kritische E-Mail schreiben.",
+      "question": "Worauf achtest du?",
+      "options": [
+            "Sachlich bleiben und konstruktive Lösungen vorschlagen.",
+            "Meine Frustration ausdrücken.",
+            "Kurz und direkt schreiben."
+      ],
+      "answer": 0,
+      "explanation": "Professionelle E-Mails sind sachlich und lösungsorientiert."
+}
     ]
   },
   {
@@ -660,7 +768,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du wirst um eine Einschätzung gebeten.",
+      "question": "Wie formulierst du diplomatisch?",
+      "options": [
+            "Meiner Einschätzung nach wäre es ratsam, alternative Ansätze zu prüfen.",
+            "Das ist falsch.",
+            "Mir fehlt die Zeit dafür."
+      ],
+      "answer": 0,
+      "explanation": "Diplomatische Formulierungen sind auf C1-Niveau essentiell."
+}
     ]
   },
   {
@@ -726,7 +846,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du verhandelst über dein Gehalt.",
+      "question": "Wie argumentierst du?",
+      "options": [
+            "Ich begründe meine Forderung mit Leistung und Marktwert.",
+            "Ich sage, ich brauche mehr Geld.",
+            "Ich drohe mit Kündigung."
+      ],
+      "answer": 0,
+      "explanation": "Sachliche Argumentation ist bei Gehaltsverhandlungen entscheidend."
+}
     ]
   },
   {
@@ -792,7 +924,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du leitest ein Projektmeeting.",
+      "question": "Wie eröffnest du?",
+      "options": [
+            "Ich begrüße alle und gebe einen Überblick über die Agenda.",
+            "Fangen wir an.",
+            "Hat jemand Fragen?"
+      ],
+      "answer": 0,
+      "explanation": "Eine strukturierte Eröffnung gibt dem Meeting Richtung."
+}
     ]
   },
   {
@@ -858,7 +1002,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Ein Konflikt im Team eskaliert.",
+      "question": "Was tust du?",
+      "options": [
+            "Ich führe Einzelgespräche und vermittle neutral.",
+            "Ich ignoriere es.",
+            "Ich beschwere mich beim Chef."
+      ],
+      "answer": 0,
+      "explanation": "Konfliktlösung erfordert Einfühlungsvermögen und Neutralität."
+}
     ]
   },
   {
@@ -924,7 +1080,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du musst eine kritische E-Mail schreiben.",
+      "question": "Worauf achtest du?",
+      "options": [
+            "Sachlich bleiben und konstruktive Lösungen vorschlagen.",
+            "Meine Frustration ausdrücken.",
+            "Kurz und direkt schreiben."
+      ],
+      "answer": 0,
+      "explanation": "Professionelle E-Mails sind sachlich und lösungsorientiert."
+}
     ]
   },
   {
@@ -990,7 +1158,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du wirst um eine Einschätzung gebeten.",
+      "question": "Wie formulierst du diplomatisch?",
+      "options": [
+            "Meiner Einschätzung nach wäre es ratsam, alternative Ansätze zu prüfen.",
+            "Das ist falsch.",
+            "Mir fehlt die Zeit dafür."
+      ],
+      "answer": 0,
+      "explanation": "Diplomatische Formulierungen sind auf C1-Niveau essentiell."
+}
     ]
   },
   {
@@ -1056,7 +1236,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du verhandelst über dein Gehalt.",
+      "question": "Wie argumentierst du?",
+      "options": [
+            "Ich begründe meine Forderung mit Leistung und Marktwert.",
+            "Ich sage, ich brauche mehr Geld.",
+            "Ich drohe mit Kündigung."
+      ],
+      "answer": 0,
+      "explanation": "Sachliche Argumentation ist bei Gehaltsverhandlungen entscheidend."
+}
     ]
   },
   {
@@ -1122,7 +1314,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du leitest ein Projektmeeting.",
+      "question": "Wie eröffnest du?",
+      "options": [
+            "Ich begrüße alle und gebe einen Überblick über die Agenda.",
+            "Fangen wir an.",
+            "Hat jemand Fragen?"
+      ],
+      "answer": 0,
+      "explanation": "Eine strukturierte Eröffnung gibt dem Meeting Richtung."
+}
     ]
   },
   {
@@ -1188,7 +1392,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Ein Konflikt im Team eskaliert.",
+      "question": "Was tust du?",
+      "options": [
+            "Ich führe Einzelgespräche und vermittle neutral.",
+            "Ich ignoriere es.",
+            "Ich beschwere mich beim Chef."
+      ],
+      "answer": 0,
+      "explanation": "Konfliktlösung erfordert Einfühlungsvermögen und Neutralität."
+}
     ]
   },
   {
@@ -1254,7 +1470,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du musst eine kritische E-Mail schreiben.",
+      "question": "Worauf achtest du?",
+      "options": [
+            "Sachlich bleiben und konstruktive Lösungen vorschlagen.",
+            "Meine Frustration ausdrücken.",
+            "Kurz und direkt schreiben."
+      ],
+      "answer": 0,
+      "explanation": "Professionelle E-Mails sind sachlich und lösungsorientiert."
+}
     ]
   },
   {
@@ -1320,7 +1548,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du wirst um eine Einschätzung gebeten.",
+      "question": "Wie formulierst du diplomatisch?",
+      "options": [
+            "Meiner Einschätzung nach wäre es ratsam, alternative Ansätze zu prüfen.",
+            "Das ist falsch.",
+            "Mir fehlt die Zeit dafür."
+      ],
+      "answer": 0,
+      "explanation": "Diplomatische Formulierungen sind auf C1-Niveau essentiell."
+}
     ]
   },
   {
@@ -1386,7 +1626,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du verhandelst über dein Gehalt.",
+      "question": "Wie argumentierst du?",
+      "options": [
+            "Ich begründe meine Forderung mit Leistung und Marktwert.",
+            "Ich sage, ich brauche mehr Geld.",
+            "Ich drohe mit Kündigung."
+      ],
+      "answer": 0,
+      "explanation": "Sachliche Argumentation ist bei Gehaltsverhandlungen entscheidend."
+}
     ]
   },
   {
@@ -1452,7 +1704,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du leitest ein Projektmeeting.",
+      "question": "Wie eröffnest du?",
+      "options": [
+            "Ich begrüße alle und gebe einen Überblick über die Agenda.",
+            "Fangen wir an.",
+            "Hat jemand Fragen?"
+      ],
+      "answer": 0,
+      "explanation": "Eine strukturierte Eröffnung gibt dem Meeting Richtung."
+}
     ]
   },
   {
@@ -1518,7 +1782,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Ein Konflikt im Team eskaliert.",
+      "question": "Was tust du?",
+      "options": [
+            "Ich führe Einzelgespräche und vermittle neutral.",
+            "Ich ignoriere es.",
+            "Ich beschwere mich beim Chef."
+      ],
+      "answer": 0,
+      "explanation": "Konfliktlösung erfordert Einfühlungsvermögen und Neutralität."
+}
     ]
   },
   {
@@ -1584,7 +1860,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du musst eine kritische E-Mail schreiben.",
+      "question": "Worauf achtest du?",
+      "options": [
+            "Sachlich bleiben und konstruktive Lösungen vorschlagen.",
+            "Meine Frustration ausdrücken.",
+            "Kurz und direkt schreiben."
+      ],
+      "answer": 0,
+      "explanation": "Professionelle E-Mails sind sachlich und lösungsorientiert."
+}
     ]
   },
   {
@@ -1650,7 +1938,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du wirst um eine Einschätzung gebeten.",
+      "question": "Wie formulierst du diplomatisch?",
+      "options": [
+            "Meiner Einschätzung nach wäre es ratsam, alternative Ansätze zu prüfen.",
+            "Das ist falsch.",
+            "Mir fehlt die Zeit dafür."
+      ],
+      "answer": 0,
+      "explanation": "Diplomatische Formulierungen sind auf C1-Niveau essentiell."
+}
     ]
   },
   {
@@ -1716,7 +2016,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du verhandelst über dein Gehalt.",
+      "question": "Wie argumentierst du?",
+      "options": [
+            "Ich begründe meine Forderung mit Leistung und Marktwert.",
+            "Ich sage, ich brauche mehr Geld.",
+            "Ich drohe mit Kündigung."
+      ],
+      "answer": 0,
+      "explanation": "Sachliche Argumentation ist bei Gehaltsverhandlungen entscheidend."
+}
     ]
   },
   {
@@ -1782,7 +2094,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du leitest ein Projektmeeting.",
+      "question": "Wie eröffnest du?",
+      "options": [
+            "Ich begrüße alle und gebe einen Überblick über die Agenda.",
+            "Fangen wir an.",
+            "Hat jemand Fragen?"
+      ],
+      "answer": 0,
+      "explanation": "Eine strukturierte Eröffnung gibt dem Meeting Richtung."
+}
     ]
   },
   {
@@ -1848,7 +2172,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Ein Konflikt im Team eskaliert.",
+      "question": "Was tust du?",
+      "options": [
+            "Ich führe Einzelgespräche und vermittle neutral.",
+            "Ich ignoriere es.",
+            "Ich beschwere mich beim Chef."
+      ],
+      "answer": 0,
+      "explanation": "Konfliktlösung erfordert Einfühlungsvermögen und Neutralität."
+}
     ]
   },
   {
@@ -1914,7 +2250,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du musst eine kritische E-Mail schreiben.",
+      "question": "Worauf achtest du?",
+      "options": [
+            "Sachlich bleiben und konstruktive Lösungen vorschlagen.",
+            "Meine Frustration ausdrücken.",
+            "Kurz und direkt schreiben."
+      ],
+      "answer": 0,
+      "explanation": "Professionelle E-Mails sind sachlich und lösungsorientiert."
+}
     ]
   },
   {
@@ -1980,7 +2328,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du wirst um eine Einschätzung gebeten.",
+      "question": "Wie formulierst du diplomatisch?",
+      "options": [
+            "Meiner Einschätzung nach wäre es ratsam, alternative Ansätze zu prüfen.",
+            "Das ist falsch.",
+            "Mir fehlt die Zeit dafür."
+      ],
+      "answer": 0,
+      "explanation": "Diplomatische Formulierungen sind auf C1-Niveau essentiell."
+}
     ]
   },
   {
@@ -2046,7 +2406,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du verhandelst über dein Gehalt.",
+      "question": "Wie argumentierst du?",
+      "options": [
+            "Ich begründe meine Forderung mit Leistung und Marktwert.",
+            "Ich sage, ich brauche mehr Geld.",
+            "Ich drohe mit Kündigung."
+      ],
+      "answer": 0,
+      "explanation": "Sachliche Argumentation ist bei Gehaltsverhandlungen entscheidend."
+}
     ]
   },
   {
@@ -2112,7 +2484,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du leitest ein Projektmeeting.",
+      "question": "Wie eröffnest du?",
+      "options": [
+            "Ich begrüße alle und gebe einen Überblick über die Agenda.",
+            "Fangen wir an.",
+            "Hat jemand Fragen?"
+      ],
+      "answer": 0,
+      "explanation": "Eine strukturierte Eröffnung gibt dem Meeting Richtung."
+}
     ]
   },
   {
@@ -2178,7 +2562,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Ein Konflikt im Team eskaliert.",
+      "question": "Was tust du?",
+      "options": [
+            "Ich führe Einzelgespräche und vermittle neutral.",
+            "Ich ignoriere es.",
+            "Ich beschwere mich beim Chef."
+      ],
+      "answer": 0,
+      "explanation": "Konfliktlösung erfordert Einfühlungsvermögen und Neutralität."
+}
     ]
   },
   {
@@ -2244,7 +2640,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du musst eine kritische E-Mail schreiben.",
+      "question": "Worauf achtest du?",
+      "options": [
+            "Sachlich bleiben und konstruktive Lösungen vorschlagen.",
+            "Meine Frustration ausdrücken.",
+            "Kurz und direkt schreiben."
+      ],
+      "answer": 0,
+      "explanation": "Professionelle E-Mails sind sachlich und lösungsorientiert."
+}
     ]
   },
   {
@@ -2310,7 +2718,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du wirst um eine Einschätzung gebeten.",
+      "question": "Wie formulierst du diplomatisch?",
+      "options": [
+            "Meiner Einschätzung nach wäre es ratsam, alternative Ansätze zu prüfen.",
+            "Das ist falsch.",
+            "Mir fehlt die Zeit dafür."
+      ],
+      "answer": 0,
+      "explanation": "Diplomatische Formulierungen sind auf C1-Niveau essentiell."
+}
     ]
   },
   {
@@ -2376,7 +2796,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du verhandelst über dein Gehalt.",
+      "question": "Wie argumentierst du?",
+      "options": [
+            "Ich begründe meine Forderung mit Leistung und Marktwert.",
+            "Ich sage, ich brauche mehr Geld.",
+            "Ich drohe mit Kündigung."
+      ],
+      "answer": 0,
+      "explanation": "Sachliche Argumentation ist bei Gehaltsverhandlungen entscheidend."
+}
     ]
   },
   {
@@ -2442,7 +2874,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du leitest ein Projektmeeting.",
+      "question": "Wie eröffnest du?",
+      "options": [
+            "Ich begrüße alle und gebe einen Überblick über die Agenda.",
+            "Fangen wir an.",
+            "Hat jemand Fragen?"
+      ],
+      "answer": 0,
+      "explanation": "Eine strukturierte Eröffnung gibt dem Meeting Richtung."
+}
     ]
   },
   {
@@ -2508,7 +2952,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Ein Konflikt im Team eskaliert.",
+      "question": "Was tust du?",
+      "options": [
+            "Ich führe Einzelgespräche und vermittle neutral.",
+            "Ich ignoriere es.",
+            "Ich beschwere mich beim Chef."
+      ],
+      "answer": 0,
+      "explanation": "Konfliktlösung erfordert Einfühlungsvermögen und Neutralität."
+}
     ]
   },
   {
@@ -2574,7 +3030,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du musst eine kritische E-Mail schreiben.",
+      "question": "Worauf achtest du?",
+      "options": [
+            "Sachlich bleiben und konstruktive Lösungen vorschlagen.",
+            "Meine Frustration ausdrücken.",
+            "Kurz und direkt schreiben."
+      ],
+      "answer": 0,
+      "explanation": "Professionelle E-Mails sind sachlich und lösungsorientiert."
+}
     ]
   },
   {
@@ -2640,7 +3108,19 @@ export const lessonsC1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachlich auf Einwände eingehen zeigt Kompetenz."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du wirst um eine Einschätzung gebeten.",
+      "question": "Wie formulierst du diplomatisch?",
+      "options": [
+            "Meiner Einschätzung nach wäre es ratsam, alternative Ansätze zu prüfen.",
+            "Das ist falsch.",
+            "Mir fehlt die Zeit dafür."
+      ],
+      "answer": 0,
+      "explanation": "Diplomatische Formulierungen sind auf C1-Niveau essentiell."
+}
     ]
   }
 ];

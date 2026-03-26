@@ -228,7 +228,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "In einem Meeting gibt es Meinungsverschiedenheiten.",
+      "question": "Wie vermittelst du?",
+      "options": [
+            "Ich verstehe beide Seiten. Lassen Sie uns einen Kompromiss finden.",
+            "Ich sage nichts.",
+            "Einer hat recht, der andere nicht."
+      ],
+      "answer": 0,
+      "explanation": "Vermittlung ist eine wichtige Soft Skill im Beruf."
+}
     ]
   },
   {
@@ -298,7 +310,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du sollst eine Präsentation halten.",
+      "question": "Wie bereitest du dich vor?",
+      "options": [
+            "Ich strukturiere die Inhalte klar und übe den Vortrag.",
+            "Ich improvisiere.",
+            "Ich lese alles ab."
+      ],
+      "answer": 0,
+      "explanation": "Gute Vorbereitung ist der Schlüssel zu einer gelungenen Präsentation."
+}
     ]
   },
   {
@@ -368,7 +392,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Ein Kunde beschwert sich.",
+      "question": "Wie reagierst du professionell?",
+      "options": [
+            "Ich entschuldige mich und biete eine Lösung an.",
+            "Das ist nicht mein Problem.",
+            "Ich leite die Beschwerde weiter."
+      ],
+      "answer": 0,
+      "explanation": "Professioneller Umgang mit Beschwerden stärkt die Kundenbindung."
+}
     ]
   },
   {
@@ -438,7 +474,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du wirst zu einem Vorstellungsgespräch eingeladen.",
+      "question": "Was bereitest du vor?",
+      "options": [
+            "Ich recherchiere das Unternehmen und bereite Antworten vor.",
+            "Ich gehe einfach hin.",
+            "Ich frage nach dem Gehalt."
+      ],
+      "answer": 0,
+      "explanation": "Vorbereitung zeigt Interesse und Professionalität."
+}
     ]
   },
   {
@@ -508,7 +556,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du musst Überstunden machen.",
+      "question": "Wie klärst du das?",
+      "options": [
+            "Ich frage, ob die Überstunden vergütet oder ausgeglichen werden.",
+            "Ich mache sie einfach.",
+            "Ich lehne ab."
+      ],
+      "answer": 0,
+      "explanation": "Klare Kommunikation über Arbeitsbedingungen ist wichtig."
+}
     ]
   },
   {
@@ -578,7 +638,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "In einem Meeting gibt es Meinungsverschiedenheiten.",
+      "question": "Wie vermittelst du?",
+      "options": [
+            "Ich verstehe beide Seiten. Lassen Sie uns einen Kompromiss finden.",
+            "Ich sage nichts.",
+            "Einer hat recht, der andere nicht."
+      ],
+      "answer": 0,
+      "explanation": "Vermittlung ist eine wichtige Soft Skill im Beruf."
+}
     ]
   },
   {
@@ -648,7 +720,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du sollst eine Präsentation halten.",
+      "question": "Wie bereitest du dich vor?",
+      "options": [
+            "Ich strukturiere die Inhalte klar und übe den Vortrag.",
+            "Ich improvisiere.",
+            "Ich lese alles ab."
+      ],
+      "answer": 0,
+      "explanation": "Gute Vorbereitung ist der Schlüssel zu einer gelungenen Präsentation."
+}
     ]
   },
   {
@@ -718,7 +802,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Ein Kunde beschwert sich.",
+      "question": "Wie reagierst du professionell?",
+      "options": [
+            "Ich entschuldige mich und biete eine Lösung an.",
+            "Das ist nicht mein Problem.",
+            "Ich leite die Beschwerde weiter."
+      ],
+      "answer": 0,
+      "explanation": "Professioneller Umgang mit Beschwerden stärkt die Kundenbindung."
+}
     ]
   },
   {
@@ -788,7 +884,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du wirst zu einem Vorstellungsgespräch eingeladen.",
+      "question": "Was bereitest du vor?",
+      "options": [
+            "Ich recherchiere das Unternehmen und bereite Antworten vor.",
+            "Ich gehe einfach hin.",
+            "Ich frage nach dem Gehalt."
+      ],
+      "answer": 0,
+      "explanation": "Vorbereitung zeigt Interesse und Professionalität."
+}
     ]
   },
   {
@@ -858,7 +966,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du musst Überstunden machen.",
+      "question": "Wie klärst du das?",
+      "options": [
+            "Ich frage, ob die Überstunden vergütet oder ausgeglichen werden.",
+            "Ich mache sie einfach.",
+            "Ich lehne ab."
+      ],
+      "answer": 0,
+      "explanation": "Klare Kommunikation über Arbeitsbedingungen ist wichtig."
+}
     ]
   },
   {
@@ -928,7 +1048,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "In einem Meeting gibt es Meinungsverschiedenheiten.",
+      "question": "Wie vermittelst du?",
+      "options": [
+            "Ich verstehe beide Seiten. Lassen Sie uns einen Kompromiss finden.",
+            "Ich sage nichts.",
+            "Einer hat recht, der andere nicht."
+      ],
+      "answer": 0,
+      "explanation": "Vermittlung ist eine wichtige Soft Skill im Beruf."
+}
     ]
   },
   {
@@ -998,7 +1130,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du sollst eine Präsentation halten.",
+      "question": "Wie bereitest du dich vor?",
+      "options": [
+            "Ich strukturiere die Inhalte klar und übe den Vortrag.",
+            "Ich improvisiere.",
+            "Ich lese alles ab."
+      ],
+      "answer": 0,
+      "explanation": "Gute Vorbereitung ist der Schlüssel zu einer gelungenen Präsentation."
+}
     ]
   },
   {
@@ -1068,7 +1212,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Ein Kunde beschwert sich.",
+      "question": "Wie reagierst du professionell?",
+      "options": [
+            "Ich entschuldige mich und biete eine Lösung an.",
+            "Das ist nicht mein Problem.",
+            "Ich leite die Beschwerde weiter."
+      ],
+      "answer": 0,
+      "explanation": "Professioneller Umgang mit Beschwerden stärkt die Kundenbindung."
+}
     ]
   },
   {
@@ -1138,7 +1294,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du wirst zu einem Vorstellungsgespräch eingeladen.",
+      "question": "Was bereitest du vor?",
+      "options": [
+            "Ich recherchiere das Unternehmen und bereite Antworten vor.",
+            "Ich gehe einfach hin.",
+            "Ich frage nach dem Gehalt."
+      ],
+      "answer": 0,
+      "explanation": "Vorbereitung zeigt Interesse und Professionalität."
+}
     ]
   },
   {
@@ -1208,7 +1376,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du musst Überstunden machen.",
+      "question": "Wie klärst du das?",
+      "options": [
+            "Ich frage, ob die Überstunden vergütet oder ausgeglichen werden.",
+            "Ich mache sie einfach.",
+            "Ich lehne ab."
+      ],
+      "answer": 0,
+      "explanation": "Klare Kommunikation über Arbeitsbedingungen ist wichtig."
+}
     ]
   },
   {
@@ -1278,7 +1458,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "In einem Meeting gibt es Meinungsverschiedenheiten.",
+      "question": "Wie vermittelst du?",
+      "options": [
+            "Ich verstehe beide Seiten. Lassen Sie uns einen Kompromiss finden.",
+            "Ich sage nichts.",
+            "Einer hat recht, der andere nicht."
+      ],
+      "answer": 0,
+      "explanation": "Vermittlung ist eine wichtige Soft Skill im Beruf."
+}
     ]
   },
   {
@@ -1348,7 +1540,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du sollst eine Präsentation halten.",
+      "question": "Wie bereitest du dich vor?",
+      "options": [
+            "Ich strukturiere die Inhalte klar und übe den Vortrag.",
+            "Ich improvisiere.",
+            "Ich lese alles ab."
+      ],
+      "answer": 0,
+      "explanation": "Gute Vorbereitung ist der Schlüssel zu einer gelungenen Präsentation."
+}
     ]
   },
   {
@@ -1418,7 +1622,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Ein Kunde beschwert sich.",
+      "question": "Wie reagierst du professionell?",
+      "options": [
+            "Ich entschuldige mich und biete eine Lösung an.",
+            "Das ist nicht mein Problem.",
+            "Ich leite die Beschwerde weiter."
+      ],
+      "answer": 0,
+      "explanation": "Professioneller Umgang mit Beschwerden stärkt die Kundenbindung."
+}
     ]
   },
   {
@@ -1488,7 +1704,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du wirst zu einem Vorstellungsgespräch eingeladen.",
+      "question": "Was bereitest du vor?",
+      "options": [
+            "Ich recherchiere das Unternehmen und bereite Antworten vor.",
+            "Ich gehe einfach hin.",
+            "Ich frage nach dem Gehalt."
+      ],
+      "answer": 0,
+      "explanation": "Vorbereitung zeigt Interesse und Professionalität."
+}
     ]
   },
   {
@@ -1558,7 +1786,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du musst Überstunden machen.",
+      "question": "Wie klärst du das?",
+      "options": [
+            "Ich frage, ob die Überstunden vergütet oder ausgeglichen werden.",
+            "Ich mache sie einfach.",
+            "Ich lehne ab."
+      ],
+      "answer": 0,
+      "explanation": "Klare Kommunikation über Arbeitsbedingungen ist wichtig."
+}
     ]
   },
   {
@@ -1628,7 +1868,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "In einem Meeting gibt es Meinungsverschiedenheiten.",
+      "question": "Wie vermittelst du?",
+      "options": [
+            "Ich verstehe beide Seiten. Lassen Sie uns einen Kompromiss finden.",
+            "Ich sage nichts.",
+            "Einer hat recht, der andere nicht."
+      ],
+      "answer": 0,
+      "explanation": "Vermittlung ist eine wichtige Soft Skill im Beruf."
+}
     ]
   },
   {
@@ -1698,7 +1950,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du sollst eine Präsentation halten.",
+      "question": "Wie bereitest du dich vor?",
+      "options": [
+            "Ich strukturiere die Inhalte klar und übe den Vortrag.",
+            "Ich improvisiere.",
+            "Ich lese alles ab."
+      ],
+      "answer": 0,
+      "explanation": "Gute Vorbereitung ist der Schlüssel zu einer gelungenen Präsentation."
+}
     ]
   },
   {
@@ -1768,7 +2032,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Ein Kunde beschwert sich.",
+      "question": "Wie reagierst du professionell?",
+      "options": [
+            "Ich entschuldige mich und biete eine Lösung an.",
+            "Das ist nicht mein Problem.",
+            "Ich leite die Beschwerde weiter."
+      ],
+      "answer": 0,
+      "explanation": "Professioneller Umgang mit Beschwerden stärkt die Kundenbindung."
+}
     ]
   },
   {
@@ -1838,7 +2114,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du wirst zu einem Vorstellungsgespräch eingeladen.",
+      "question": "Was bereitest du vor?",
+      "options": [
+            "Ich recherchiere das Unternehmen und bereite Antworten vor.",
+            "Ich gehe einfach hin.",
+            "Ich frage nach dem Gehalt."
+      ],
+      "answer": 0,
+      "explanation": "Vorbereitung zeigt Interesse und Professionalität."
+}
     ]
   },
   {
@@ -1908,7 +2196,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du musst Überstunden machen.",
+      "question": "Wie klärst du das?",
+      "options": [
+            "Ich frage, ob die Überstunden vergütet oder ausgeglichen werden.",
+            "Ich mache sie einfach.",
+            "Ich lehne ab."
+      ],
+      "answer": 0,
+      "explanation": "Klare Kommunikation über Arbeitsbedingungen ist wichtig."
+}
     ]
   },
   {
@@ -1978,7 +2278,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "In einem Meeting gibt es Meinungsverschiedenheiten.",
+      "question": "Wie vermittelst du?",
+      "options": [
+            "Ich verstehe beide Seiten. Lassen Sie uns einen Kompromiss finden.",
+            "Ich sage nichts.",
+            "Einer hat recht, der andere nicht."
+      ],
+      "answer": 0,
+      "explanation": "Vermittlung ist eine wichtige Soft Skill im Beruf."
+}
     ]
   },
   {
@@ -2048,7 +2360,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du sollst eine Präsentation halten.",
+      "question": "Wie bereitest du dich vor?",
+      "options": [
+            "Ich strukturiere die Inhalte klar und übe den Vortrag.",
+            "Ich improvisiere.",
+            "Ich lese alles ab."
+      ],
+      "answer": 0,
+      "explanation": "Gute Vorbereitung ist der Schlüssel zu einer gelungenen Präsentation."
+}
     ]
   },
   {
@@ -2118,7 +2442,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Ein Kunde beschwert sich.",
+      "question": "Wie reagierst du professionell?",
+      "options": [
+            "Ich entschuldige mich und biete eine Lösung an.",
+            "Das ist nicht mein Problem.",
+            "Ich leite die Beschwerde weiter."
+      ],
+      "answer": 0,
+      "explanation": "Professioneller Umgang mit Beschwerden stärkt die Kundenbindung."
+}
     ]
   },
   {
@@ -2188,7 +2524,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du wirst zu einem Vorstellungsgespräch eingeladen.",
+      "question": "Was bereitest du vor?",
+      "options": [
+            "Ich recherchiere das Unternehmen und bereite Antworten vor.",
+            "Ich gehe einfach hin.",
+            "Ich frage nach dem Gehalt."
+      ],
+      "answer": 0,
+      "explanation": "Vorbereitung zeigt Interesse und Professionalität."
+}
     ]
   },
   {
@@ -2258,7 +2606,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du musst Überstunden machen.",
+      "question": "Wie klärst du das?",
+      "options": [
+            "Ich frage, ob die Überstunden vergütet oder ausgeglichen werden.",
+            "Ich mache sie einfach.",
+            "Ich lehne ab."
+      ],
+      "answer": 0,
+      "explanation": "Klare Kommunikation über Arbeitsbedingungen ist wichtig."
+}
     ]
   },
   {
@@ -2328,7 +2688,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "In einem Meeting gibt es Meinungsverschiedenheiten.",
+      "question": "Wie vermittelst du?",
+      "options": [
+            "Ich verstehe beide Seiten. Lassen Sie uns einen Kompromiss finden.",
+            "Ich sage nichts.",
+            "Einer hat recht, der andere nicht."
+      ],
+      "answer": 0,
+      "explanation": "Vermittlung ist eine wichtige Soft Skill im Beruf."
+}
     ]
   },
   {
@@ -2398,7 +2770,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du sollst eine Präsentation halten.",
+      "question": "Wie bereitest du dich vor?",
+      "options": [
+            "Ich strukturiere die Inhalte klar und übe den Vortrag.",
+            "Ich improvisiere.",
+            "Ich lese alles ab."
+      ],
+      "answer": 0,
+      "explanation": "Gute Vorbereitung ist der Schlüssel zu einer gelungenen Präsentation."
+}
     ]
   },
   {
@@ -2468,7 +2852,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Ein Kunde beschwert sich.",
+      "question": "Wie reagierst du professionell?",
+      "options": [
+            "Ich entschuldige mich und biete eine Lösung an.",
+            "Das ist nicht mein Problem.",
+            "Ich leite die Beschwerde weiter."
+      ],
+      "answer": 0,
+      "explanation": "Professioneller Umgang mit Beschwerden stärkt die Kundenbindung."
+}
     ]
   },
   {
@@ -2538,7 +2934,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du wirst zu einem Vorstellungsgespräch eingeladen.",
+      "question": "Was bereitest du vor?",
+      "options": [
+            "Ich recherchiere das Unternehmen und bereite Antworten vor.",
+            "Ich gehe einfach hin.",
+            "Ich frage nach dem Gehalt."
+      ],
+      "answer": 0,
+      "explanation": "Vorbereitung zeigt Interesse und Professionalität."
+}
     ]
   },
   {
@@ -2608,7 +3016,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du musst Überstunden machen.",
+      "question": "Wie klärst du das?",
+      "options": [
+            "Ich frage, ob die Überstunden vergütet oder ausgeglichen werden.",
+            "Ich mache sie einfach.",
+            "Ich lehne ab."
+      ],
+      "answer": 0,
+      "explanation": "Klare Kommunikation über Arbeitsbedingungen ist wichtig."
+}
     ]
   },
   {
@@ -2678,7 +3098,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "In einem Meeting gibt es Meinungsverschiedenheiten.",
+      "question": "Wie vermittelst du?",
+      "options": [
+            "Ich verstehe beide Seiten. Lassen Sie uns einen Kompromiss finden.",
+            "Ich sage nichts.",
+            "Einer hat recht, der andere nicht."
+      ],
+      "answer": 0,
+      "explanation": "Vermittlung ist eine wichtige Soft Skill im Beruf."
+}
     ]
   },
   {
@@ -2748,7 +3180,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du sollst eine Präsentation halten.",
+      "question": "Wie bereitest du dich vor?",
+      "options": [
+            "Ich strukturiere die Inhalte klar und übe den Vortrag.",
+            "Ich improvisiere.",
+            "Ich lese alles ab."
+      ],
+      "answer": 0,
+      "explanation": "Gute Vorbereitung ist der Schlüssel zu einer gelungenen Präsentation."
+}
     ]
   },
   {
@@ -2818,7 +3262,19 @@ export const lessonsB2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sachliche Argumentation mit Beispielen überzeugt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Ein Kunde beschwert sich.",
+      "question": "Wie reagierst du professionell?",
+      "options": [
+            "Ich entschuldige mich und biete eine Lösung an.",
+            "Das ist nicht mein Problem.",
+            "Ich leite die Beschwerde weiter."
+      ],
+      "answer": 0,
+      "explanation": "Professioneller Umgang mit Beschwerden stärkt die Kundenbindung."
+}
     ]
   }
 ];

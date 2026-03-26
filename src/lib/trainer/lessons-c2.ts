@@ -72,7 +72,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Die Sapir-Whorf-Hypothese zeigt die tiefere Bedeutung von Sprache."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du analysierst einen komplexen Sachverhalt.",
+      "question": "Wie drückst du Nuancen aus?",
+      "options": [
+            "Die Sachlage ist vielschichtig und erfordert eine differenzierte Betrachtung.",
+            "Es ist kompliziert.",
+            "Ich weiß es nicht genau."
+      ],
+      "answer": 0,
+      "explanation": "Differenzierte Ausdrucksweise ist das Kennzeichen von C2."
+}
     ]
   },
   {
@@ -142,7 +154,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du hältst eine Rede vor einem Fachpublikum.",
+      "question": "Wie schließt du ab?",
+      "options": [
+            "Zusammenfassend lässt sich festhalten, dass die Ergebnisse weitreichende Implikationen haben.",
+            "Das war alles.",
+            "Danke fürs Zuhören."
+      ],
+      "answer": 0,
+      "explanation": "Ein akademischer Abschluss einer Rede zeigt sprachliche Souveränität."
+}
     ]
   },
   {
@@ -212,7 +236,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du verfasst eine Stellungnahme.",
+      "question": "Welcher Stil ist angemessen?",
+      "options": [
+            "Sachlich-analytisch mit differenzierter Argumentation.",
+            "Emotional und persönlich.",
+            "Kurz und knapp."
+      ],
+      "answer": 0,
+      "explanation": "Stellungnahmen erfordern analytische Präzision und Objektivität."
+}
     ]
   },
   {
@@ -282,7 +318,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du moderierst eine Podiumsdiskussion.",
+      "question": "Wie leitest du über?",
+      "options": [
+            "Erlauben Sie mir, an dieser Stelle den Fokus auf einen weiteren Aspekt zu lenken.",
+            "Nächstes Thema.",
+            "Wer möchte etwas sagen?"
+      ],
+      "answer": 0,
+      "explanation": "Elegante Überleitungen zeugen von Moderationskompetenz auf C2-Niveau."
+}
     ]
   },
   {
@@ -352,7 +400,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du interpretierst eine mehrdeutige Aussage.",
+      "question": "Wie gehst du vor?",
+      "options": [
+            "Ich beleuchte die verschiedenen Lesarten und ordne sie kontextuell ein.",
+            "Ich wähle eine Bedeutung.",
+            "Ich frage nach."
+      ],
+      "answer": 0,
+      "explanation": "Mehrdeutigkeiten zu analysieren ist eine C2-Kernkompetenz."
+}
     ]
   },
   {
@@ -422,7 +482,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du analysierst einen komplexen Sachverhalt.",
+      "question": "Wie drückst du Nuancen aus?",
+      "options": [
+            "Die Sachlage ist vielschichtig und erfordert eine differenzierte Betrachtung.",
+            "Es ist kompliziert.",
+            "Ich weiß es nicht genau."
+      ],
+      "answer": 0,
+      "explanation": "Differenzierte Ausdrucksweise ist das Kennzeichen von C2."
+}
     ]
   },
   {
@@ -492,7 +564,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du hältst eine Rede vor einem Fachpublikum.",
+      "question": "Wie schließt du ab?",
+      "options": [
+            "Zusammenfassend lässt sich festhalten, dass die Ergebnisse weitreichende Implikationen haben.",
+            "Das war alles.",
+            "Danke fürs Zuhören."
+      ],
+      "answer": 0,
+      "explanation": "Ein akademischer Abschluss einer Rede zeigt sprachliche Souveränität."
+}
     ]
   },
   {
@@ -562,7 +646,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du verfasst eine Stellungnahme.",
+      "question": "Welcher Stil ist angemessen?",
+      "options": [
+            "Sachlich-analytisch mit differenzierter Argumentation.",
+            "Emotional und persönlich.",
+            "Kurz und knapp."
+      ],
+      "answer": 0,
+      "explanation": "Stellungnahmen erfordern analytische Präzision und Objektivität."
+}
     ]
   },
   {
@@ -632,7 +728,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du moderierst eine Podiumsdiskussion.",
+      "question": "Wie leitest du über?",
+      "options": [
+            "Erlauben Sie mir, an dieser Stelle den Fokus auf einen weiteren Aspekt zu lenken.",
+            "Nächstes Thema.",
+            "Wer möchte etwas sagen?"
+      ],
+      "answer": 0,
+      "explanation": "Elegante Überleitungen zeugen von Moderationskompetenz auf C2-Niveau."
+}
     ]
   },
   {
@@ -702,7 +810,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du interpretierst eine mehrdeutige Aussage.",
+      "question": "Wie gehst du vor?",
+      "options": [
+            "Ich beleuchte die verschiedenen Lesarten und ordne sie kontextuell ein.",
+            "Ich wähle eine Bedeutung.",
+            "Ich frage nach."
+      ],
+      "answer": 0,
+      "explanation": "Mehrdeutigkeiten zu analysieren ist eine C2-Kernkompetenz."
+}
     ]
   },
   {
@@ -772,7 +892,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du analysierst einen komplexen Sachverhalt.",
+      "question": "Wie drückst du Nuancen aus?",
+      "options": [
+            "Die Sachlage ist vielschichtig und erfordert eine differenzierte Betrachtung.",
+            "Es ist kompliziert.",
+            "Ich weiß es nicht genau."
+      ],
+      "answer": 0,
+      "explanation": "Differenzierte Ausdrucksweise ist das Kennzeichen von C2."
+}
     ]
   },
   {
@@ -842,7 +974,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du hältst eine Rede vor einem Fachpublikum.",
+      "question": "Wie schließt du ab?",
+      "options": [
+            "Zusammenfassend lässt sich festhalten, dass die Ergebnisse weitreichende Implikationen haben.",
+            "Das war alles.",
+            "Danke fürs Zuhören."
+      ],
+      "answer": 0,
+      "explanation": "Ein akademischer Abschluss einer Rede zeigt sprachliche Souveränität."
+}
     ]
   },
   {
@@ -912,7 +1056,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du verfasst eine Stellungnahme.",
+      "question": "Welcher Stil ist angemessen?",
+      "options": [
+            "Sachlich-analytisch mit differenzierter Argumentation.",
+            "Emotional und persönlich.",
+            "Kurz und knapp."
+      ],
+      "answer": 0,
+      "explanation": "Stellungnahmen erfordern analytische Präzision und Objektivität."
+}
     ]
   },
   {
@@ -982,7 +1138,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du moderierst eine Podiumsdiskussion.",
+      "question": "Wie leitest du über?",
+      "options": [
+            "Erlauben Sie mir, an dieser Stelle den Fokus auf einen weiteren Aspekt zu lenken.",
+            "Nächstes Thema.",
+            "Wer möchte etwas sagen?"
+      ],
+      "answer": 0,
+      "explanation": "Elegante Überleitungen zeugen von Moderationskompetenz auf C2-Niveau."
+}
     ]
   },
   {
@@ -1052,7 +1220,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du interpretierst eine mehrdeutige Aussage.",
+      "question": "Wie gehst du vor?",
+      "options": [
+            "Ich beleuchte die verschiedenen Lesarten und ordne sie kontextuell ein.",
+            "Ich wähle eine Bedeutung.",
+            "Ich frage nach."
+      ],
+      "answer": 0,
+      "explanation": "Mehrdeutigkeiten zu analysieren ist eine C2-Kernkompetenz."
+}
     ]
   },
   {
@@ -1122,7 +1302,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du analysierst einen komplexen Sachverhalt.",
+      "question": "Wie drückst du Nuancen aus?",
+      "options": [
+            "Die Sachlage ist vielschichtig und erfordert eine differenzierte Betrachtung.",
+            "Es ist kompliziert.",
+            "Ich weiß es nicht genau."
+      ],
+      "answer": 0,
+      "explanation": "Differenzierte Ausdrucksweise ist das Kennzeichen von C2."
+}
     ]
   },
   {
@@ -1192,7 +1384,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du hältst eine Rede vor einem Fachpublikum.",
+      "question": "Wie schließt du ab?",
+      "options": [
+            "Zusammenfassend lässt sich festhalten, dass die Ergebnisse weitreichende Implikationen haben.",
+            "Das war alles.",
+            "Danke fürs Zuhören."
+      ],
+      "answer": 0,
+      "explanation": "Ein akademischer Abschluss einer Rede zeigt sprachliche Souveränität."
+}
     ]
   },
   {
@@ -1262,7 +1466,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du verfasst eine Stellungnahme.",
+      "question": "Welcher Stil ist angemessen?",
+      "options": [
+            "Sachlich-analytisch mit differenzierter Argumentation.",
+            "Emotional und persönlich.",
+            "Kurz und knapp."
+      ],
+      "answer": 0,
+      "explanation": "Stellungnahmen erfordern analytische Präzision und Objektivität."
+}
     ]
   },
   {
@@ -1332,7 +1548,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du moderierst eine Podiumsdiskussion.",
+      "question": "Wie leitest du über?",
+      "options": [
+            "Erlauben Sie mir, an dieser Stelle den Fokus auf einen weiteren Aspekt zu lenken.",
+            "Nächstes Thema.",
+            "Wer möchte etwas sagen?"
+      ],
+      "answer": 0,
+      "explanation": "Elegante Überleitungen zeugen von Moderationskompetenz auf C2-Niveau."
+}
     ]
   },
   {
@@ -1402,7 +1630,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du interpretierst eine mehrdeutige Aussage.",
+      "question": "Wie gehst du vor?",
+      "options": [
+            "Ich beleuchte die verschiedenen Lesarten und ordne sie kontextuell ein.",
+            "Ich wähle eine Bedeutung.",
+            "Ich frage nach."
+      ],
+      "answer": 0,
+      "explanation": "Mehrdeutigkeiten zu analysieren ist eine C2-Kernkompetenz."
+}
     ]
   },
   {
@@ -1472,7 +1712,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du analysierst einen komplexen Sachverhalt.",
+      "question": "Wie drückst du Nuancen aus?",
+      "options": [
+            "Die Sachlage ist vielschichtig und erfordert eine differenzierte Betrachtung.",
+            "Es ist kompliziert.",
+            "Ich weiß es nicht genau."
+      ],
+      "answer": 0,
+      "explanation": "Differenzierte Ausdrucksweise ist das Kennzeichen von C2."
+}
     ]
   },
   {
@@ -1542,7 +1794,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du hältst eine Rede vor einem Fachpublikum.",
+      "question": "Wie schließt du ab?",
+      "options": [
+            "Zusammenfassend lässt sich festhalten, dass die Ergebnisse weitreichende Implikationen haben.",
+            "Das war alles.",
+            "Danke fürs Zuhören."
+      ],
+      "answer": 0,
+      "explanation": "Ein akademischer Abschluss einer Rede zeigt sprachliche Souveränität."
+}
     ]
   },
   {
@@ -1612,7 +1876,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du verfasst eine Stellungnahme.",
+      "question": "Welcher Stil ist angemessen?",
+      "options": [
+            "Sachlich-analytisch mit differenzierter Argumentation.",
+            "Emotional und persönlich.",
+            "Kurz und knapp."
+      ],
+      "answer": 0,
+      "explanation": "Stellungnahmen erfordern analytische Präzision und Objektivität."
+}
     ]
   },
   {
@@ -1682,7 +1958,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du moderierst eine Podiumsdiskussion.",
+      "question": "Wie leitest du über?",
+      "options": [
+            "Erlauben Sie mir, an dieser Stelle den Fokus auf einen weiteren Aspekt zu lenken.",
+            "Nächstes Thema.",
+            "Wer möchte etwas sagen?"
+      ],
+      "answer": 0,
+      "explanation": "Elegante Überleitungen zeugen von Moderationskompetenz auf C2-Niveau."
+}
     ]
   },
   {
@@ -1752,7 +2040,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du interpretierst eine mehrdeutige Aussage.",
+      "question": "Wie gehst du vor?",
+      "options": [
+            "Ich beleuchte die verschiedenen Lesarten und ordne sie kontextuell ein.",
+            "Ich wähle eine Bedeutung.",
+            "Ich frage nach."
+      ],
+      "answer": 0,
+      "explanation": "Mehrdeutigkeiten zu analysieren ist eine C2-Kernkompetenz."
+}
     ]
   },
   {
@@ -1822,7 +2122,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du analysierst einen komplexen Sachverhalt.",
+      "question": "Wie drückst du Nuancen aus?",
+      "options": [
+            "Die Sachlage ist vielschichtig und erfordert eine differenzierte Betrachtung.",
+            "Es ist kompliziert.",
+            "Ich weiß es nicht genau."
+      ],
+      "answer": 0,
+      "explanation": "Differenzierte Ausdrucksweise ist das Kennzeichen von C2."
+}
     ]
   },
   {
@@ -1892,7 +2204,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du hältst eine Rede vor einem Fachpublikum.",
+      "question": "Wie schließt du ab?",
+      "options": [
+            "Zusammenfassend lässt sich festhalten, dass die Ergebnisse weitreichende Implikationen haben.",
+            "Das war alles.",
+            "Danke fürs Zuhören."
+      ],
+      "answer": 0,
+      "explanation": "Ein akademischer Abschluss einer Rede zeigt sprachliche Souveränität."
+}
     ]
   },
   {
@@ -1962,7 +2286,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du verfasst eine Stellungnahme.",
+      "question": "Welcher Stil ist angemessen?",
+      "options": [
+            "Sachlich-analytisch mit differenzierter Argumentation.",
+            "Emotional und persönlich.",
+            "Kurz und knapp."
+      ],
+      "answer": 0,
+      "explanation": "Stellungnahmen erfordern analytische Präzision und Objektivität."
+}
     ]
   },
   {
@@ -2032,7 +2368,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du moderierst eine Podiumsdiskussion.",
+      "question": "Wie leitest du über?",
+      "options": [
+            "Erlauben Sie mir, an dieser Stelle den Fokus auf einen weiteren Aspekt zu lenken.",
+            "Nächstes Thema.",
+            "Wer möchte etwas sagen?"
+      ],
+      "answer": 0,
+      "explanation": "Elegante Überleitungen zeugen von Moderationskompetenz auf C2-Niveau."
+}
     ]
   },
   {
@@ -2102,7 +2450,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du interpretierst eine mehrdeutige Aussage.",
+      "question": "Wie gehst du vor?",
+      "options": [
+            "Ich beleuchte die verschiedenen Lesarten und ordne sie kontextuell ein.",
+            "Ich wähle eine Bedeutung.",
+            "Ich frage nach."
+      ],
+      "answer": 0,
+      "explanation": "Mehrdeutigkeiten zu analysieren ist eine C2-Kernkompetenz."
+}
     ]
   },
   {
@@ -2172,7 +2532,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du analysierst einen komplexen Sachverhalt.",
+      "question": "Wie drückst du Nuancen aus?",
+      "options": [
+            "Die Sachlage ist vielschichtig und erfordert eine differenzierte Betrachtung.",
+            "Es ist kompliziert.",
+            "Ich weiß es nicht genau."
+      ],
+      "answer": 0,
+      "explanation": "Differenzierte Ausdrucksweise ist das Kennzeichen von C2."
+}
     ]
   },
   {
@@ -2242,7 +2614,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du hältst eine Rede vor einem Fachpublikum.",
+      "question": "Wie schließt du ab?",
+      "options": [
+            "Zusammenfassend lässt sich festhalten, dass die Ergebnisse weitreichende Implikationen haben.",
+            "Das war alles.",
+            "Danke fürs Zuhören."
+      ],
+      "answer": 0,
+      "explanation": "Ein akademischer Abschluss einer Rede zeigt sprachliche Souveränität."
+}
     ]
   },
   {
@@ -2312,7 +2696,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du verfasst eine Stellungnahme.",
+      "question": "Welcher Stil ist angemessen?",
+      "options": [
+            "Sachlich-analytisch mit differenzierter Argumentation.",
+            "Emotional und persönlich.",
+            "Kurz und knapp."
+      ],
+      "answer": 0,
+      "explanation": "Stellungnahmen erfordern analytische Präzision und Objektivität."
+}
     ]
   },
   {
@@ -2382,7 +2778,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du moderierst eine Podiumsdiskussion.",
+      "question": "Wie leitest du über?",
+      "options": [
+            "Erlauben Sie mir, an dieser Stelle den Fokus auf einen weiteren Aspekt zu lenken.",
+            "Nächstes Thema.",
+            "Wer möchte etwas sagen?"
+      ],
+      "answer": 0,
+      "explanation": "Elegante Überleitungen zeugen von Moderationskompetenz auf C2-Niveau."
+}
     ]
   },
   {
@@ -2452,7 +2860,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du interpretierst eine mehrdeutige Aussage.",
+      "question": "Wie gehst du vor?",
+      "options": [
+            "Ich beleuchte die verschiedenen Lesarten und ordne sie kontextuell ein.",
+            "Ich wähle eine Bedeutung.",
+            "Ich frage nach."
+      ],
+      "answer": 0,
+      "explanation": "Mehrdeutigkeiten zu analysieren ist eine C2-Kernkompetenz."
+}
     ]
   },
   {
@@ -2522,7 +2942,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du analysierst einen komplexen Sachverhalt.",
+      "question": "Wie drückst du Nuancen aus?",
+      "options": [
+            "Die Sachlage ist vielschichtig und erfordert eine differenzierte Betrachtung.",
+            "Es ist kompliziert.",
+            "Ich weiß es nicht genau."
+      ],
+      "answer": 0,
+      "explanation": "Differenzierte Ausdrucksweise ist das Kennzeichen von C2."
+}
     ]
   },
   {
@@ -2592,7 +3024,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du hältst eine Rede vor einem Fachpublikum.",
+      "question": "Wie schließt du ab?",
+      "options": [
+            "Zusammenfassend lässt sich festhalten, dass die Ergebnisse weitreichende Implikationen haben.",
+            "Das war alles.",
+            "Danke fürs Zuhören."
+      ],
+      "answer": 0,
+      "explanation": "Ein akademischer Abschluss einer Rede zeigt sprachliche Souveränität."
+}
     ]
   },
   {
@@ -2662,7 +3106,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du verfasst eine Stellungnahme.",
+      "question": "Welcher Stil ist angemessen?",
+      "options": [
+            "Sachlich-analytisch mit differenzierter Argumentation.",
+            "Emotional und persönlich.",
+            "Kurz und knapp."
+      ],
+      "answer": 0,
+      "explanation": "Stellungnahmen erfordern analytische Präzision und Objektivität."
+}
     ]
   },
   {
@@ -2732,7 +3188,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du moderierst eine Podiumsdiskussion.",
+      "question": "Wie leitest du über?",
+      "options": [
+            "Erlauben Sie mir, an dieser Stelle den Fokus auf einen weiteren Aspekt zu lenken.",
+            "Nächstes Thema.",
+            "Wer möchte etwas sagen?"
+      ],
+      "answer": 0,
+      "explanation": "Elegante Überleitungen zeugen von Moderationskompetenz auf C2-Niveau."
+}
     ]
   },
   {
@@ -2802,7 +3270,19 @@ export const lessonsC2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Multiperspektivische Betrachtung zeigt sprachliche Meisterschaft."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du interpretierst eine mehrdeutige Aussage.",
+      "question": "Wie gehst du vor?",
+      "options": [
+            "Ich beleuchte die verschiedenen Lesarten und ordne sie kontextuell ein.",
+            "Ich wähle eine Bedeutung.",
+            "Ich frage nach."
+      ],
+      "answer": 0,
+      "explanation": "Mehrdeutigkeiten zu analysieren ist eine C2-Kernkompetenz."
+}
     ]
   }
 ];
