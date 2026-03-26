@@ -1696,6 +1696,27 @@ const translations: Record<Language, TranslationKeys> = {
     "dir.loginRequired": "You must be signed in to add a business.",
     ...missionsEn as any, ...portalEn as any, ...miscEn as any, ...homeEn as any, ...premiumEn as any, ...newKeysEn as any, ...indexChatEn as any,
   },
+  sl: {
+    "nav.home": "Domov", "nav.qa": "Vprašanja in odgovori", "nav.directory": "Imenik",
+    "nav.login": "Prijava", "nav.register": "Registracija", "nav.logout": "Odjava",
+    "hero.slide1.title": "Vaš vodič za življenje v Nemčiji",
+    "hero.slide1.subtitle": "Preverjene informacije, korak za korakom — v vašem jeziku.",
+    "hero.slide2.title": "Mesta, ki postanejo dom",
+    "hero.slide2.subtitle": "München, Berlin, Frankfurt — poiščite svojo pot.",
+    "hero.slide3.title": "Kariera brez meja",
+    "hero.slide3.subtitle": "Delo, CV, razgovor in delavske pravice — vse na enem mestu.",
+    "cta.new.title": "Začnite tukaj", "cta.new.desc": "Dokumenti, prijava, prvi koraki.",
+    "cta.daily.title": "Življenje & nasveti", "cta.daily.desc": "Stanovanje, delo, davki, zdravstvo.",
+    "cta.help.title": "Potrebujem pomoč", "cta.help.desc": "Hitre rešitve za probleme.",
+    "countries.title": "Za ves Balkan",
+    "categories.title": "Kategorije", "categories.subtitle": "Izberite temo in poiščite odgovor v nekaj sekundah.",
+    "business.title": "Imate posel?", "business.subtitle": "Dodajte svoj posel v naš imenik in postanite vidni za celotno skupnost.",
+    "business.search": "Prebrskaj imenik", "business.add": "Dodaj svoj posel",
+    "qa.title": "Vprašanja in odgovori", "qa.subtitle": "Poiščite odgovor na vaše vprašanje — hitro in v vašem jeziku.",
+    "qa.search": "Iščite...", "qa.all": "Vse teme", "qa.results": "rezultatov",
+    "qa.empty": "Ni rezultatov. Poskusite z drugim izrazom.",
+    ...dirBs as any, ...missionsBs as any, ...portalBs as any, ...miscBs as any, ...homeBs as any, ...premiumBs as any, ...newKeysBs as any, ...indexChatSl as any,
+  },
 };
 
 // Vorlagen translations
