@@ -36,13 +36,13 @@ export function useTTS() {
     }
   }, []);
 
-  const speak = useCallback((text: string, slow = false) => {
+  const speak = useCallback((text: string) => {
     if (!("speechSynthesis" in window)) return;
     speechSynthesis.cancel();
 
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = "de-DE";
-    utterance.rate = slow ? 0.8 : 1.4;
+    utterance.rate = 1.2;
     utterance.pitch = 1.0;
     utterance.volume = 1;
 
