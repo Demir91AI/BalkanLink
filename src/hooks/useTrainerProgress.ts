@@ -50,5 +50,11 @@ export function useTrainerProgress() {
     });
   }, []);
 
-  return { progress, addXp, completeLesson };
+  const resetProgress = useCallback(() => {
+    const fresh: TrainerProgress = { xp: 0, streak: 0, lastDate: "", completedLessons: [], level: 1 };
+    save(fresh);
+    setProgress(fresh);
+  }, []);
+
+  return { progress, addXp, completeLesson, resetProgress };
 }
