@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     q: "Wie funktioniert die Preisstruktur?",
-    a: "Du kannst einzelne Niveaus kaufen (ab 4,99 €) oder Pakete wählen (z.B. A1+A2 für 14,99 €). Pakete sind günstiger und bieten einen Wertgutschein bei 100% Abschluss.",
+    a: "Du kannst einzelne Niveaus kaufen (ab 9,99 €) oder Pakete wählen (z.B. A1+A2 für 19,99 €). Pakete sind günstiger und bieten einen Wertgutschein bei 100% Abschluss.",
   },
   {
     q: "Was ist der Wertgutschein?",
