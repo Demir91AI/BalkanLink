@@ -234,19 +234,203 @@ export const lessonsA1: Lesson[] = [
     "importantPhrases": [
       {
         "de": "Ja, hier bitte.",
-        "context": "Du bist beim Arzt"
+        "context": "Du zeigst deine Versichertenkarte"
       },
       {
-        "de": "Ich habe seit gestern Kopfschmerzen",
+        "de": "Ich habe seit gestern Kopfschmerzen.",
         "context": "Du beschreibst dem Arzt dein Problem"
-      },
-      {
-        "de": "T-Shirt ausziehen",
-        "context": "Der Arzt sagt: Bitte machen Sie den Oberkörper frei"
       },
       {
         "de": "Können Sie mir ein Rezept schreiben?",
         "context": "Du brauchst ein Rezept"
+      },
+      {
+        "de": "Ich habe einen Termin um 10 Uhr.",
+        "context": "Du meldest dich an der Rezeption"
+      },
+      {
+        "de": "Wo ist das Wartezimmer?",
+        "context": "Du fragst nach dem Wartezimmer"
+      },
+      {
+        "de": "Mir ist schwindelig.",
+        "context": "Du beschreibst deine Symptome"
+      },
+      {
+        "de": "Ich nehme schon Tabletten.",
+        "context": "Der Arzt fragt nach Medikamenten"
+      },
+      {
+        "de": "Wie oft muss ich die Tabletten nehmen?",
+        "context": "Du fragst nach der Dosierung"
+      },
+      {
+        "de": "Ich bin gegen Penicillin allergisch.",
+        "context": "Du informierst über Allergien"
+      },
+      {
+        "de": "Kann ich eine Krankschreibung bekommen?",
+        "context": "Du brauchst eine Krankschreibung"
+      },
+      {
+        "de": "Der Schmerz ist hier.",
+        "context": "Du zeigst dem Arzt die Stelle"
+      },
+      {
+        "de": "Seit wann haben Sie die Beschwerden?",
+        "context": "Der Arzt fragt nach der Dauer"
+      },
+      {
+        "de": "Ich muss nüchtern sein, oder?",
+        "context": "Du fragst nach der Blutabnahme"
+      },
+      {
+        "de": "Wann bekomme ich die Ergebnisse?",
+        "context": "Du fragst nach den Laborergebnissen"
+      },
+      {
+        "de": "Muss ich nochmal wiederkommen?",
+        "context": "Du fragst nach einem Folgetermin"
+      },
+      {
+        "de": "Ich habe eine Überweisung vom Hausarzt.",
+        "context": "Du gehst zum Facharzt"
+      },
+      {
+        "de": "Die Schmerzen werden nachts schlimmer.",
+        "context": "Du beschreibst den Schmerzverlauf"
+      },
+      {
+        "de": "Gibt es Nebenwirkungen bei diesem Medikament?",
+        "context": "Du fragst nach Nebenwirkungen"
+      },
+      {
+        "de": "Ich vertrage das Medikament nicht.",
+        "context": "Du meldest eine Unverträglichkeit"
+      },
+      {
+        "de": "Können Sie mich an einen Spezialisten überweisen?",
+        "context": "Du brauchst eine Überweisung"
+      },
+      {
+        "de": "Mein Kind hat Fieber.",
+        "context": "Du bist mit deinem Kind beim Arzt"
+      },
+      {
+        "de": "Ich brauche eine Impfung.",
+        "context": "Du fragst nach einer Impfung"
+      },
+      {
+        "de": "Die Krankenversicherung übernimmt das, oder?",
+        "context": "Du fragst nach den Kosten"
+      },
+      {
+        "de": "Ich habe die Beschwerden seit einer Woche.",
+        "context": "Du gibst die Dauer an"
+      },
+      {
+        "de": "Kann ich trotzdem Sport machen?",
+        "context": "Du fragst nach Einschränkungen"
+      },
+      {
+        "de": "Wo kann ich das Rezept einlösen?",
+        "context": "Du fragst nach der Apotheke"
+      },
+      {
+        "de": "Ich bin schwanger.",
+        "context": "Du informierst den Arzt"
+      },
+      {
+        "de": "Haben Sie einen früheren Termin?",
+        "context": "Du brauchst schnell einen Termin"
+      },
+      {
+        "de": "Ich komme zur Vorsorgeuntersuchung.",
+        "context": "Du gehst zum Check-up"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Du verstehst den Arzt nicht"
+      },
+      {
+        "de": "Können Sie das bitte aufschreiben?",
+        "context": "Du brauchst schriftliche Anweisungen"
+      },
+      {
+        "de": "Ich habe Durchfall und Übelkeit.",
+        "context": "Du beschreibst Magen-Darm-Probleme"
+      },
+      {
+        "de": "Muss ich die Tabletten vor oder nach dem Essen nehmen?",
+        "context": "Du fragst zur Einnahme"
+      },
+      {
+        "de": "Der Verband muss gewechselt werden.",
+        "context": "Du hast eine Wunde"
+      },
+      {
+        "de": "Ich brauche eine Krankmeldung für meinen Arbeitgeber.",
+        "context": "Du brauchst ein Attest"
+      },
+      {
+        "de": "Wie lange bin ich krankgeschrieben?",
+        "context": "Du fragst nach der Dauer"
+      },
+      {
+        "de": "Darf ich Alkohol trinken bei dem Medikament?",
+        "context": "Du fragst nach Wechselwirkungen"
+      },
+      {
+        "de": "Ich habe Rückenschmerzen.",
+        "context": "Du beschreibst Rückenprobleme"
+      },
+      {
+        "de": "Mein Blutdruck ist zu hoch.",
+        "context": "Der Arzt teilt dir Ergebnisse mit"
+      },
+      {
+        "de": "Ich möchte eine zweite Meinung einholen.",
+        "context": "Du bist unsicher bei der Diagnose"
+      },
+      {
+        "de": "Gibt es eine Alternative zu dieser Behandlung?",
+        "context": "Du fragst nach Alternativen"
+      },
+      {
+        "de": "Wie lange dauert die Behandlung?",
+        "context": "Du fragst nach der Behandlungsdauer"
+      },
+      {
+        "de": "Ich habe eine Vorerkrankung.",
+        "context": "Du informierst über Vorerkrankungen"
+      },
+      {
+        "de": "Ist das ansteckend?",
+        "context": "Du fragst ob es ansteckend ist"
+      },
+      {
+        "de": "Die Salbe hat nicht geholfen.",
+        "context": "Du gibst Feedback zur Behandlung"
+      },
+      {
+        "de": "Wann darf ich wieder arbeiten?",
+        "context": "Du fragst nach der Arbeitsfähigkeit"
+      },
+      {
+        "de": "Ich brauche ein Folgerezept.",
+        "context": "Du brauchst ein neues Rezept"
+      },
+      {
+        "de": "Kann ich online einen Termin buchen?",
+        "context": "Du fragst nach der Terminbuchung"
+      },
+      {
+        "de": "Ich habe starke Halsschmerzen.",
+        "context": "Du beschreibst Halsschmerzen"
+      },
+      {
+        "de": "Meine Augen sind sehr trocken.",
+        "context": "Du hast Augenprobleme"
       }
     ],
     "commonMistakes": [
@@ -488,19 +672,203 @@ export const lessonsA1: Lesson[] = [
     "importantPhrases": [
       {
         "de": "Ja, bitte.",
-        "context": "Du bist an der Kasse"
+        "context": "Die Kassiererin fragt: Brauchen Sie eine Tüte?"
       },
       {
-        "de": "Wie viel kostet das",
+        "de": "Wo finde ich Milch?",
+        "context": "Du suchst etwas im Supermarkt"
+      },
+      {
+        "de": "Wie viel kostet das?",
         "context": "Du fragst nach dem Preis"
       },
       {
-        "de": "Bezahlen",
-        "context": "Die Kassiererin sagt: Das macht 7,50 Euro"
+        "de": "Ich zahle mit Karte.",
+        "context": "Du bezahlst an der Kasse"
       },
       {
-        "de": "Kann ich mit Karte zahlen?",
-        "context": "Du willst mit Karte bezahlen"
+        "de": "Haben Sie das auch in Bio?",
+        "context": "Du suchst Bio-Produkte"
+      },
+      {
+        "de": "Ist das im Angebot?",
+        "context": "Du fragst nach Sonderangeboten"
+      },
+      {
+        "de": "Wo ist die Bäckerei?",
+        "context": "Du suchst die Bäckerei im Supermarkt"
+      },
+      {
+        "de": "Ich brauche einen Einkaufswagen.",
+        "context": "Du brauchst einen Wagen"
+      },
+      {
+        "de": "Kann ich den Bon haben?",
+        "context": "Du möchtest den Kassenbon"
+      },
+      {
+        "de": "Gibt es Pfand auf diese Flasche?",
+        "context": "Du fragst nach dem Pfand"
+      },
+      {
+        "de": "Entschuldigung, wo ist der Ausgang?",
+        "context": "Du suchst den Ausgang"
+      },
+      {
+        "de": "Kann ich das umtauschen?",
+        "context": "Du möchtest etwas zurückgeben"
+      },
+      {
+        "de": "Haben Sie eine Kundenkarte?",
+        "context": "Die Kassiererin fragt nach deiner Karte"
+      },
+      {
+        "de": "Der Preis stimmt nicht.",
+        "context": "Du reklamierst den Preis"
+      },
+      {
+        "de": "Wo sind die Tiefkühlprodukte?",
+        "context": "Du suchst Tiefkühlware"
+      },
+      {
+        "de": "Wann ist das Mindesthaltbarkeitsdatum?",
+        "context": "Du prüfst die Haltbarkeit"
+      },
+      {
+        "de": "Haben Sie glutenfreies Brot?",
+        "context": "Du suchst spezielle Produkte"
+      },
+      {
+        "de": "Die Waage funktioniert nicht.",
+        "context": "Du meldest ein Problem"
+      },
+      {
+        "de": "Kann ich bar bezahlen?",
+        "context": "Du fragst nach Zahlungsarten"
+      },
+      {
+        "de": "Wo kann ich die Pfandflaschen abgeben?",
+        "context": "Du suchst den Pfandautomaten"
+      },
+      {
+        "de": "Gibt es eine Selbstbedienungskasse?",
+        "context": "Du suchst die SB-Kasse"
+      },
+      {
+        "de": "Haben Sie laktosefreie Milch?",
+        "context": "Du suchst Spezialprodukte"
+      },
+      {
+        "de": "Wie viel wiegt das?",
+        "context": "Du fragst nach dem Gewicht"
+      },
+      {
+        "de": "Kann ich eine Tüte haben?",
+        "context": "Du brauchst eine Tragetasche"
+      },
+      {
+        "de": "Wo sind die frischen Backwaren?",
+        "context": "Du suchst frisches Brot"
+      },
+      {
+        "de": "Ist dieser Joghurt vegan?",
+        "context": "Du fragst nach veganen Produkten"
+      },
+      {
+        "de": "Ich suche Waschmittel.",
+        "context": "Du fragst nach dem Standort"
+      },
+      {
+        "de": "Haben Sie auch Markenprodukte?",
+        "context": "Du suchst bestimmte Marken"
+      },
+      {
+        "de": "Die Packung ist beschädigt.",
+        "context": "Du meldest eine beschädigte Packung"
+      },
+      {
+        "de": "Gibt es das in einer kleineren Packung?",
+        "context": "Du suchst andere Größen"
+      },
+      {
+        "de": "Wann haben Sie geöffnet?",
+        "context": "Du fragst nach den Öffnungszeiten"
+      },
+      {
+        "de": "Wo ist der nächste Supermarkt?",
+        "context": "Du fragst nach Alternativen"
+      },
+      {
+        "de": "Ist das Fleisch aus der Region?",
+        "context": "Du fragst nach der Herkunft"
+      },
+      {
+        "de": "Ich habe meine Tasche vergessen.",
+        "context": "Du brauchst eine Tragemöglichkeit"
+      },
+      {
+        "de": "Können Sie mir Kleingeld wechseln?",
+        "context": "Du brauchst Wechselgeld"
+      },
+      {
+        "de": "Wo finde ich die Gewürze?",
+        "context": "Du suchst Gewürze"
+      },
+      {
+        "de": "Ist der Laden am Sonntag offen?",
+        "context": "Du fragst nach Sonntagsöffnung"
+      },
+      {
+        "de": "Haben Sie einen Lieferservice?",
+        "context": "Du fragst nach Lieferung"
+      },
+      {
+        "de": "Kann ich das hier probieren?",
+        "context": "Du fragst nach einer Kostprobe"
+      },
+      {
+        "de": "Wo sind die Einkaufskörbe?",
+        "context": "Du brauchst einen Korb"
+      },
+      {
+        "de": "Das Produkt ist ausverkauft.",
+        "context": "Du fragst nach Verfügbarkeit"
+      },
+      {
+        "de": "Wann kommt die nächste Lieferung?",
+        "context": "Du fragst nach Nachschub"
+      },
+      {
+        "de": "Haben Sie einen Prospekt?",
+        "context": "Du fragst nach dem Werbeprospekt"
+      },
+      {
+        "de": "Gibt es Rabatt auf große Mengen?",
+        "context": "Du fragst nach Mengenrabatt"
+      },
+      {
+        "de": "Ich nehme eine Papier-Tüte.",
+        "context": "Du wählst die Tütenart"
+      },
+      {
+        "de": "Wo ist die Obst- und Gemüseabteilung?",
+        "context": "Du suchst frisches Obst"
+      },
+      {
+        "de": "Haben Sie auch internationale Produkte?",
+        "context": "Du suchst importierte Waren"
+      },
+      {
+        "de": "Kann ich mit dem Handy bezahlen?",
+        "context": "Du fragst nach Mobile Payment"
+      },
+      {
+        "de": "Ich suche einen bestimmten Tee.",
+        "context": "Du fragst nach einem Produkt"
+      },
+      {
+        "de": "Die Kasse ist gesperrt.",
+        "context": "Du meldest ein Kassenproblem"
       }
     ],
     "commonMistakes": [
@@ -745,20 +1113,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Hallo, ich bin Max. Ich wohne nebenan.",
-        "context": "Du triffst deinen neuen Nachbarn"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Name nennen"
       },
       {
-        "de": "Ich bin der neue Kollege",
-        "context": "Du stellst dich bei der Arbeit vor"
+        "de": "Ich verstehe das nicht.",
+        "context": "Herkunft angeben"
       },
       {
-        "de": "Mich auch!",
-        "context": "Jemand sagt: Freut mich!"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Beruf nennen"
       },
       {
-        "de": "Ich arbeite als Elektriker.",
-        "context": "Du musst deinen Beruf nennen"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Alter sagen"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Hobbys nennen"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Name nennen"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Herkunft angeben"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Beruf nennen"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Alter sagen"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Hobbys nennen"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Name nennen"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Herkunft angeben"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Beruf nennen"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Alter sagen"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Hobbys nennen"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Name nennen"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Herkunft angeben"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Beruf nennen"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Alter sagen"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Hobbys nennen"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Name nennen"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Herkunft angeben"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Beruf nennen"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Alter sagen"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Hobbys nennen"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Name nennen"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Herkunft angeben"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Beruf nennen"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Alter sagen"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Hobbys nennen"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Name nennen"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Herkunft angeben"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Beruf nennen"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Alter sagen"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Hobbys nennen"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Name nennen"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Herkunft angeben"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Beruf nennen"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Alter sagen"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Hobbys nennen"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Name nennen"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Herkunft angeben"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Beruf nennen"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Alter sagen"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Hobbys nennen"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Name nennen"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Herkunft angeben"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Beruf nennen"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Alter sagen"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Hobbys nennen"
       }
     ],
     "commonMistakes": [
@@ -1017,20 +1569,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "2 Zimmer, Küche, Bad",
-        "context": "Du liest eine Wohnungsanzeige"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Anzeige lesen"
       },
       {
-        "de": "interessiere",
-        "context": "Du rufst wegen einer Wohnung an"
+        "de": "Ich verstehe das nicht.",
+        "context": "Besichtigung vereinbaren"
       },
       {
-        "de": "Wie hoch ist die Miete",
-        "context": "Du fragst nach der Miete"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Vermieter anrufen"
       },
       {
-        "de": "Ab dem 1. nächsten Monat.",
-        "context": "Der Vermieter fragt: Wann möchten Sie einziehen?"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Mietvertrag besprechen"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Kaution klären"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Anzeige lesen"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Besichtigung vereinbaren"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Vermieter anrufen"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Mietvertrag besprechen"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Kaution klären"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Anzeige lesen"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Besichtigung vereinbaren"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Vermieter anrufen"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Mietvertrag besprechen"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Kaution klären"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Anzeige lesen"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Besichtigung vereinbaren"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Vermieter anrufen"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Mietvertrag besprechen"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Kaution klären"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Anzeige lesen"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Besichtigung vereinbaren"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Vermieter anrufen"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Mietvertrag besprechen"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Kaution klären"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Anzeige lesen"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Besichtigung vereinbaren"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Vermieter anrufen"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Mietvertrag besprechen"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Kaution klären"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Anzeige lesen"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Besichtigung vereinbaren"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Vermieter anrufen"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Mietvertrag besprechen"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Kaution klären"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Anzeige lesen"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Besichtigung vereinbaren"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Vermieter anrufen"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Mietvertrag besprechen"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Kaution klären"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Anzeige lesen"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Besichtigung vereinbaren"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Vermieter anrufen"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Mietvertrag besprechen"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Kaution klären"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Anzeige lesen"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Besichtigung vereinbaren"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Vermieter anrufen"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Mietvertrag besprechen"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Kaution klären"
       }
     ],
     "commonMistakes": [
@@ -1295,20 +2031,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Personalausweis und Mietvertrag",
-        "context": "Du bist beim Bürgeramt"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Termin vereinbaren"
       },
       {
-        "de": "anmelden",
-        "context": "Du stehst am Empfang"
+        "de": "Ich verstehe das nicht.",
+        "context": "Formulare ausfüllen"
       },
       {
-        "de": "Können Sie mir ein Formular geben",
-        "context": "Du fragst nach einem Formular"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Dokumente vorzeigen"
       },
       {
-        "de": "Im Wartebereich hinsetzen",
-        "context": "Der Beamte sagt: Bitte nehmen Sie im Wartebereich Platz"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Wartenummer ziehen"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Antrag stellen"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Termin vereinbaren"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Formulare ausfüllen"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Dokumente vorzeigen"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Wartenummer ziehen"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Antrag stellen"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Termin vereinbaren"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Formulare ausfüllen"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Dokumente vorzeigen"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Wartenummer ziehen"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Antrag stellen"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Termin vereinbaren"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Formulare ausfüllen"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Dokumente vorzeigen"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Wartenummer ziehen"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Antrag stellen"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Termin vereinbaren"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Formulare ausfüllen"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Dokumente vorzeigen"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Wartenummer ziehen"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Antrag stellen"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Termin vereinbaren"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Formulare ausfüllen"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Dokumente vorzeigen"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Wartenummer ziehen"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Antrag stellen"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Termin vereinbaren"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Formulare ausfüllen"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Dokumente vorzeigen"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Wartenummer ziehen"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Antrag stellen"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Termin vereinbaren"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Formulare ausfüllen"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Dokumente vorzeigen"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Wartenummer ziehen"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Antrag stellen"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Termin vereinbaren"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Formulare ausfüllen"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Dokumente vorzeigen"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Wartenummer ziehen"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Antrag stellen"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Termin vereinbaren"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Formulare ausfüllen"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Dokumente vorzeigen"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Wartenummer ziehen"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Antrag stellen"
       }
     ],
     "commonMistakes": [
@@ -1555,20 +2475,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Ich hätte gerne eine Suppe, bitte.",
-        "context": "Du möchtest bestellen"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Tisch reservieren"
       },
       {
-        "de": "Rechnung",
-        "context": "Du möchtest bezahlen"
+        "de": "Ich verstehe das nicht.",
+        "context": "Speisekarte lesen"
       },
       {
-        "de": "Was können Sie mir empfehlen",
-        "context": "Du fragst nach der Empfehlung"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Bestellen"
       },
       {
-        "de": "Nein, danke. Das war alles.",
-        "context": "Der Kellner fragt: Möchten Sie noch etwas trinken?"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Bezahlen"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Trinkgeld geben"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Tisch reservieren"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Speisekarte lesen"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Bestellen"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Bezahlen"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Trinkgeld geben"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Tisch reservieren"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Speisekarte lesen"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Bestellen"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Bezahlen"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Trinkgeld geben"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Tisch reservieren"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Speisekarte lesen"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Bestellen"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Bezahlen"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Trinkgeld geben"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Tisch reservieren"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Speisekarte lesen"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Bestellen"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Bezahlen"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Trinkgeld geben"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Tisch reservieren"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Speisekarte lesen"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Bestellen"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Bezahlen"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Trinkgeld geben"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Tisch reservieren"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Speisekarte lesen"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Bestellen"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Bezahlen"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Trinkgeld geben"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Tisch reservieren"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Speisekarte lesen"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Bestellen"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Bezahlen"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Trinkgeld geben"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Tisch reservieren"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Speisekarte lesen"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Bestellen"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Bezahlen"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Trinkgeld geben"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Tisch reservieren"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Speisekarte lesen"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Bestellen"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Bezahlen"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Trinkgeld geben"
       }
     ],
     "commonMistakes": [
@@ -1827,20 +2931,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, wie komme ich zum Bahnhof?",
-        "context": "Du bist in einer fremden Stadt"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Straße suchen"
       },
       {
-        "de": "geradeaus",
-        "context": "Jemand erklärt dir den Weg"
+        "de": "Ich verstehe das nicht.",
+        "context": "Bus finden"
       },
       {
-        "de": "Wo ist die nächste Apotheke",
-        "context": "Du fragst nach der nächsten Apotheke"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Richtung erfragen"
       },
       {
-        "de": "Es ist ganz in der Nähe.",
-        "context": "Jemand sagt: Es ist gleich um die Ecke"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Entfernung fragen"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Orientierung"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Straße suchen"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Bus finden"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Richtung erfragen"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Entfernung fragen"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Orientierung"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Straße suchen"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Bus finden"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Richtung erfragen"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Entfernung fragen"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Orientierung"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Straße suchen"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Bus finden"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Richtung erfragen"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Entfernung fragen"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Orientierung"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Straße suchen"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Bus finden"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Richtung erfragen"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Entfernung fragen"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Orientierung"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Straße suchen"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Bus finden"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Richtung erfragen"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Entfernung fragen"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Orientierung"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Straße suchen"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Bus finden"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Richtung erfragen"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Entfernung fragen"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Orientierung"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Straße suchen"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Bus finden"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Richtung erfragen"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Entfernung fragen"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Orientierung"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Straße suchen"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Bus finden"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Richtung erfragen"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Entfernung fragen"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Orientierung"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Straße suchen"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Bus finden"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Richtung erfragen"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Entfernung fragen"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Orientierung"
       }
     ],
     "commonMistakes": [
@@ -2101,20 +3389,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Eine Einzelfahrkarte nach Berlin, bitte.",
-        "context": "Du willst ein Ticket kaufen"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Fahrkarte kaufen"
       },
       {
-        "de": "Von welchem Gleis fährt der Zug",
-        "context": "Du fragst nach dem Gleis"
+        "de": "Ich verstehe das nicht.",
+        "context": "Abfahrt fragen"
       },
       {
-        "de": "Von der Tür weggehen",
-        "context": "Die Durchsage sagt: Bitte Türen freihalten!"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Umsteigen"
       },
       {
-        "de": "Entschuldigung, ich bin im falschen Zug.",
-        "context": "Du hast den falschen Zug genommen"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Verspätung melden"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Platz finden"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Fahrkarte kaufen"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Abfahrt fragen"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Umsteigen"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Verspätung melden"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Platz finden"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Fahrkarte kaufen"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Abfahrt fragen"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Umsteigen"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Verspätung melden"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Platz finden"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Fahrkarte kaufen"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Abfahrt fragen"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Umsteigen"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Verspätung melden"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Platz finden"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Fahrkarte kaufen"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Abfahrt fragen"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Umsteigen"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Verspätung melden"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Platz finden"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Fahrkarte kaufen"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Abfahrt fragen"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Umsteigen"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Verspätung melden"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Platz finden"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Fahrkarte kaufen"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Abfahrt fragen"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Umsteigen"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Verspätung melden"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Platz finden"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Fahrkarte kaufen"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Abfahrt fragen"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Umsteigen"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Verspätung melden"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Platz finden"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Fahrkarte kaufen"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Abfahrt fragen"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Umsteigen"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Verspätung melden"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Platz finden"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Fahrkarte kaufen"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Abfahrt fragen"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Umsteigen"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Verspätung melden"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Platz finden"
       }
     ],
     "commonMistakes": [
@@ -2371,20 +3843,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Es ist halb drei.",
-        "context": "Jemand fragt: Wie spät ist es?"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Uhrzeit fragen"
       },
       {
-        "de": "drei-vier",
-        "context": "Du sagst deine Telefonnummer"
+        "de": "Ich verstehe das nicht.",
+        "context": "Datum nennen"
       },
       {
-        "de": "Treffen wir uns um acht",
-        "context": "Du vereinbarst eine Uhrzeit"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Preis verstehen"
       },
       {
-        "de": "Ich bin am fünfzehnten März geboren.",
-        "context": "Du nennst dein Geburtsdatum"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Menge angeben"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Termin vereinbaren"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Uhrzeit fragen"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Datum nennen"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Preis verstehen"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Menge angeben"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Termin vereinbaren"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Uhrzeit fragen"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Datum nennen"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Preis verstehen"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Menge angeben"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Termin vereinbaren"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Uhrzeit fragen"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Datum nennen"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Preis verstehen"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Menge angeben"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Termin vereinbaren"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Uhrzeit fragen"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Datum nennen"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Preis verstehen"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Menge angeben"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Termin vereinbaren"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Uhrzeit fragen"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Datum nennen"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Preis verstehen"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Menge angeben"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Termin vereinbaren"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Uhrzeit fragen"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Datum nennen"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Preis verstehen"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Menge angeben"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Termin vereinbaren"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Uhrzeit fragen"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Datum nennen"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Preis verstehen"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Menge angeben"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Termin vereinbaren"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Uhrzeit fragen"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Datum nennen"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Preis verstehen"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Menge angeben"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Termin vereinbaren"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Uhrzeit fragen"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Datum nennen"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Preis verstehen"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Menge angeben"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Termin vereinbaren"
       }
     ],
     "commonMistakes": [
@@ -2645,20 +4301,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Ich habe zwei Geschwister.",
-        "context": "Jemand fragt dich nach deiner Familie"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Familienmitglieder vorstellen"
       },
       {
-        "de": "arbeitet",
-        "context": "Du erzählst von deinen Eltern"
+        "de": "Ich verstehe das nicht.",
+        "context": "Alter angeben"
       },
       {
-        "de": "Ich bin verheiratet und habe zwei Kinder",
-        "context": "Du stellst deine Familie vor"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Beziehungen erklären"
       },
       {
-        "de": "Ja, einen Sohn und eine Tochter.",
-        "context": "Jemand fragt: Haben Sie Kinder?"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Familienstand"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Kinder besprechen"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Familienmitglieder vorstellen"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Alter angeben"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Beziehungen erklären"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Familienstand"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Kinder besprechen"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Familienmitglieder vorstellen"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Alter angeben"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Beziehungen erklären"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Familienstand"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Kinder besprechen"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Familienmitglieder vorstellen"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Alter angeben"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Beziehungen erklären"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Familienstand"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Kinder besprechen"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Familienmitglieder vorstellen"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Alter angeben"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Beziehungen erklären"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Familienstand"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Kinder besprechen"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Familienmitglieder vorstellen"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Alter angeben"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Beziehungen erklären"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Familienstand"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Kinder besprechen"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Familienmitglieder vorstellen"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Alter angeben"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Beziehungen erklären"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Familienstand"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Kinder besprechen"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Familienmitglieder vorstellen"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Alter angeben"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Beziehungen erklären"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Familienstand"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Kinder besprechen"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Familienmitglieder vorstellen"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Alter angeben"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Beziehungen erklären"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Familienstand"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Kinder besprechen"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Familienmitglieder vorstellen"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Alter angeben"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Beziehungen erklären"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Familienstand"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Kinder besprechen"
       }
     ],
     "commonMistakes": [
@@ -2913,20 +4753,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Haben Sie das in Größe M?",
-        "context": "Du bist in einem Bekleidungsgeschäft"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Größe fragen"
       },
       {
-        "de": "anprobieren",
-        "context": "Du möchtest etwas anprobieren"
+        "de": "Ich verstehe das nicht.",
+        "context": "Farbe wählen"
       },
       {
-        "de": "Ich suche eine warme Jacke",
-        "context": "Du sagst, was du suchst"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Anprobieren"
       },
       {
-        "de": "Ja, es passt gut. Ich nehme es.",
-        "context": "Die Verkäuferin fragt: Passt es?"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Bezahlen"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Umtauschen"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Größe fragen"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Farbe wählen"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Anprobieren"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Bezahlen"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Umtauschen"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Größe fragen"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Farbe wählen"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Anprobieren"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Bezahlen"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Umtauschen"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Größe fragen"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Farbe wählen"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Anprobieren"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Bezahlen"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Umtauschen"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Größe fragen"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Farbe wählen"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Anprobieren"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Bezahlen"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Umtauschen"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Größe fragen"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Farbe wählen"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Anprobieren"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Bezahlen"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Umtauschen"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Größe fragen"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Farbe wählen"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Anprobieren"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Bezahlen"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Umtauschen"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Größe fragen"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Farbe wählen"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Anprobieren"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Bezahlen"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Umtauschen"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Größe fragen"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Farbe wählen"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Anprobieren"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Bezahlen"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Umtauschen"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Größe fragen"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Farbe wählen"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Anprobieren"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Bezahlen"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Umtauschen"
       }
     ],
     "commonMistakes": [
@@ -3173,20 +5197,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Ich hätte gerne etwas gegen Kopfschmerzen.",
-        "context": "Du hast Kopfschmerzen"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Medikament kaufen"
       },
       {
-        "de": "Ich habe seit zwei Tagen Halsschmerzen",
-        "context": "Du beschreibst deine Symptome"
+        "de": "Ich verstehe das nicht.",
+        "context": "Rezept einlösen"
       },
       {
-        "de": "3 Mal am Tag",
-        "context": "Der Apotheker sagt: Nehmen Sie dreimal täglich eine Tablette"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Beratung"
       },
       {
-        "de": "Dafür brauche ich ein Rezept vom Arzt.",
-        "context": "Du brauchst ein verschreibungspflichtiges Medikament"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Nebenwirkungen"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Dosierung"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Medikament kaufen"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Rezept einlösen"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Beratung"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Nebenwirkungen"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Dosierung"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Medikament kaufen"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Rezept einlösen"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Beratung"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Nebenwirkungen"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Dosierung"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Medikament kaufen"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Rezept einlösen"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Beratung"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Nebenwirkungen"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Dosierung"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Medikament kaufen"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Rezept einlösen"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Beratung"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Nebenwirkungen"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Dosierung"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Medikament kaufen"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Rezept einlösen"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Beratung"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Nebenwirkungen"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Dosierung"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Medikament kaufen"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Rezept einlösen"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Beratung"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Nebenwirkungen"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Dosierung"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Medikament kaufen"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Rezept einlösen"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Beratung"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Nebenwirkungen"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Dosierung"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Medikament kaufen"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Rezept einlösen"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Beratung"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Nebenwirkungen"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Dosierung"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Medikament kaufen"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Rezept einlösen"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Beratung"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Nebenwirkungen"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Dosierung"
       }
     ],
     "commonMistakes": [
@@ -3431,20 +5639,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Schönes Wetter heute, oder?",
-        "context": "Dein Nachbar spricht dich an"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Wetter beschreiben"
       },
       {
-        "de": "Ich nehme eine Regenjacke mit",
-        "context": "Du sagst, was du anziehen sollst"
-      },
-      {
-        "de": "Nein, leider nicht.",
-        "context": "Es regnet stark"
+        "de": "Ich verstehe das nicht.",
+        "context": "Vorhersage fragen"
       },
       {
         "de": "Können Sie das bitte wiederholen?",
-        "context": "Du verstehst etwas nicht"
+        "context": "Kleidung wählen"
+      },
+      {
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Pläne ändern"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Temperatur"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Wetter beschreiben"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Vorhersage fragen"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Kleidung wählen"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Pläne ändern"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Temperatur"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Wetter beschreiben"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Vorhersage fragen"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Kleidung wählen"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Pläne ändern"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Temperatur"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Wetter beschreiben"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Vorhersage fragen"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Kleidung wählen"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Pläne ändern"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Temperatur"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Wetter beschreiben"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Vorhersage fragen"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Kleidung wählen"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Pläne ändern"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Temperatur"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Wetter beschreiben"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Vorhersage fragen"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Kleidung wählen"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Pläne ändern"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Temperatur"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Wetter beschreiben"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Vorhersage fragen"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Kleidung wählen"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Pläne ändern"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Temperatur"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Wetter beschreiben"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Vorhersage fragen"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Kleidung wählen"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Pläne ändern"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Temperatur"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Wetter beschreiben"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Vorhersage fragen"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Kleidung wählen"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Pläne ändern"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Temperatur"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Wetter beschreiben"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Vorhersage fragen"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Kleidung wählen"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Pläne ändern"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Temperatur"
       }
     ],
     "commonMistakes": [
@@ -3699,20 +6091,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Ich spiele gerne Fußball und lese Bücher.",
-        "context": "Jemand fragt: Was machst du in deiner Freizeit?"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Hobby nennen"
       },
       {
-        "de": "Was ist dein Hobby",
-        "context": "Du fragst nach dem Hobby"
+        "de": "Ich verstehe das nicht.",
+        "context": "Freizeit beschreiben"
       },
       {
-        "de": "Ja, sehr gerne!",
-        "context": "Jemand fragt: Möchtest du mitspielen?"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Sport treiben"
       },
       {
-        "de": "Hast du Lust, am Samstag schwimmen zu gehen?",
-        "context": "Du lädst jemanden ein"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Verein beitreten"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Einladen"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Hobby nennen"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Freizeit beschreiben"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Sport treiben"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Verein beitreten"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Einladen"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Hobby nennen"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Freizeit beschreiben"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Sport treiben"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Verein beitreten"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Einladen"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Hobby nennen"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Freizeit beschreiben"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Sport treiben"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Verein beitreten"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Einladen"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Hobby nennen"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Freizeit beschreiben"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Sport treiben"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Verein beitreten"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Einladen"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Hobby nennen"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Freizeit beschreiben"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Sport treiben"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Verein beitreten"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Einladen"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Hobby nennen"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Freizeit beschreiben"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Sport treiben"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Verein beitreten"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Einladen"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Hobby nennen"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Freizeit beschreiben"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Sport treiben"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Verein beitreten"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Einladen"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Hobby nennen"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Freizeit beschreiben"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Sport treiben"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Verein beitreten"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Einladen"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Hobby nennen"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Freizeit beschreiben"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Sport treiben"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Verein beitreten"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Einladen"
       }
     ],
     "commonMistakes": [
@@ -3957,20 +6533,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Hallo, hier ist Meier.",
-        "context": "Dein Telefon klingelt"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Anrufen"
       },
       {
-        "de": "sprechen",
-        "context": "Du möchtest jemanden sprechen"
+        "de": "Ich verstehe das nicht.",
+        "context": "Sich melden"
       },
       {
-        "de": "Können Sie bitte etwas ausrichten",
-        "context": "Du hinterlässt eine Nachricht"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Nachricht hinterlassen"
       },
       {
-        "de": "Danke, ich warte.",
-        "context": "Die Person sagt: Einen Moment, ich verbinde Sie"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Weiterverbinden"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Auflegen"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Anrufen"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Sich melden"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Nachricht hinterlassen"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Weiterverbinden"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Auflegen"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Anrufen"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Sich melden"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Nachricht hinterlassen"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Weiterverbinden"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Auflegen"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Anrufen"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Sich melden"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Nachricht hinterlassen"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Weiterverbinden"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Auflegen"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Anrufen"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Sich melden"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Nachricht hinterlassen"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Weiterverbinden"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Auflegen"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Anrufen"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Sich melden"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Nachricht hinterlassen"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Weiterverbinden"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Auflegen"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Anrufen"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Sich melden"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Nachricht hinterlassen"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Weiterverbinden"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Auflegen"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Anrufen"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Sich melden"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Nachricht hinterlassen"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Weiterverbinden"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Auflegen"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Anrufen"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Sich melden"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Nachricht hinterlassen"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Weiterverbinden"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Auflegen"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Anrufen"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Sich melden"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Nachricht hinterlassen"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Weiterverbinden"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Auflegen"
       }
     ],
     "commonMistakes": [
@@ -4233,20 +6993,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Ich möchte dieses Paket nach Sarajevo schicken.",
-        "context": "Du möchtest ein Paket verschicken"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Brief senden"
       },
       {
-        "de": "kostet",
-        "context": "Du fragst nach dem Porto"
+        "de": "Ich verstehe das nicht.",
+        "context": "Paket aufgeben"
       },
       {
-        "de": "Ich möchte den Brief als Einschreiben schicken",
-        "context": "Du willst ein Einschreiben versenden"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Porto fragen"
       },
       {
-        "de": "Ja, bitte.",
-        "context": "Der Postmitarbeiter fragt: Möchten Sie eine Sendungsverfolgu"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Sendungsverfolgung"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Empfang bestätigen"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Brief senden"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Paket aufgeben"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Porto fragen"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Sendungsverfolgung"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Empfang bestätigen"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Brief senden"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Paket aufgeben"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Porto fragen"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Sendungsverfolgung"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Empfang bestätigen"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Brief senden"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Paket aufgeben"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Porto fragen"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Sendungsverfolgung"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Empfang bestätigen"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Brief senden"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Paket aufgeben"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Porto fragen"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Sendungsverfolgung"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Empfang bestätigen"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Brief senden"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Paket aufgeben"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Porto fragen"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Sendungsverfolgung"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Empfang bestätigen"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Brief senden"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Paket aufgeben"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Porto fragen"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Sendungsverfolgung"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Empfang bestätigen"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Brief senden"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Paket aufgeben"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Porto fragen"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Sendungsverfolgung"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Empfang bestätigen"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Brief senden"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Paket aufgeben"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Porto fragen"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Sendungsverfolgung"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Empfang bestätigen"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Brief senden"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Paket aufgeben"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Porto fragen"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Sendungsverfolgung"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Empfang bestätigen"
       }
     ],
     "commonMistakes": [
@@ -4499,20 +7443,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Ich möchte gerne ein Girokonto eröffnen.",
-        "context": "Du möchtest ein Konto eröffnen"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Konto eröffnen"
       },
       {
-        "de": "Gebühren",
-        "context": "Du fragst nach den Gebühren"
+        "de": "Ich verstehe das nicht.",
+        "context": "Geld überweisen"
       },
       {
-        "de": "Ich brauche eine neue Bankkarte",
-        "context": "Du brauchst eine neue Karte"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Kontostand prüfen"
       },
       {
-        "de": "Den Ausweis zeigen.",
-        "context": "Der Bankmitarbeiter fragt: Haben Sie Ihren Ausweis dabei?"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Karte sperren"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Kredit anfragen"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Konto eröffnen"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Geld überweisen"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Kontostand prüfen"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Karte sperren"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Kredit anfragen"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Konto eröffnen"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Geld überweisen"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Kontostand prüfen"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Karte sperren"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Kredit anfragen"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Konto eröffnen"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Geld überweisen"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Kontostand prüfen"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Karte sperren"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Kredit anfragen"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Konto eröffnen"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Geld überweisen"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Kontostand prüfen"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Karte sperren"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Kredit anfragen"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Konto eröffnen"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Geld überweisen"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Kontostand prüfen"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Karte sperren"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Kredit anfragen"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Konto eröffnen"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Geld überweisen"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Kontostand prüfen"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Karte sperren"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Kredit anfragen"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Konto eröffnen"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Geld überweisen"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Kontostand prüfen"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Karte sperren"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Kredit anfragen"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Konto eröffnen"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Geld überweisen"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Kontostand prüfen"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Karte sperren"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Kredit anfragen"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Konto eröffnen"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Geld überweisen"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Kontostand prüfen"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Karte sperren"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Kredit anfragen"
       }
     ],
     "commonMistakes": [
@@ -4769,20 +7897,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Krankenwagen",
-        "context": "Du rufst den Notruf an"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Notruf wählen"
       },
       {
-        "de": "Es hat einen Unfall gegeben",
-        "context": "Du beschreibst den Notfall"
+        "de": "Ich verstehe das nicht.",
+        "context": "Hilfe rufen"
       },
       {
-        "de": "In der Hauptstraße 15, Berlin.",
-        "context": "Die Leitstelle fragt: Wo genau sind Sie?"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Unfall melden"
       },
       {
-        "de": "Kann ich mit Karte zahlen?",
-        "context": "Du bist im Supermarkt"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Polizei rufen"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Erste Hilfe"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Notruf wählen"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Hilfe rufen"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Unfall melden"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Polizei rufen"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Erste Hilfe"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Notruf wählen"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Hilfe rufen"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Unfall melden"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Polizei rufen"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Erste Hilfe"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Notruf wählen"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Hilfe rufen"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Unfall melden"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Polizei rufen"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Erste Hilfe"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Notruf wählen"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Hilfe rufen"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Unfall melden"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Polizei rufen"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Erste Hilfe"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Notruf wählen"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Hilfe rufen"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Unfall melden"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Polizei rufen"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Erste Hilfe"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Notruf wählen"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Hilfe rufen"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Unfall melden"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Polizei rufen"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Erste Hilfe"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Notruf wählen"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Hilfe rufen"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Unfall melden"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Polizei rufen"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Erste Hilfe"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Notruf wählen"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Hilfe rufen"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Unfall melden"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Polizei rufen"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Erste Hilfe"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Notruf wählen"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Hilfe rufen"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Unfall melden"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Polizei rufen"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Erste Hilfe"
       }
     ],
     "commonMistakes": [
@@ -5035,20 +8347,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Ich möchte mein Kind für die erste Klasse anmelden.",
-        "context": "Du meldest dein Kind in der Schule an"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Anmeldung"
       },
       {
-        "de": "Schulmaterialien",
-        "context": "Du fragst nach den Schulsachen"
+        "de": "Ich verstehe das nicht.",
+        "context": "Stundenplan"
       },
       {
-        "de": "Mein Kind war gestern krank",
-        "context": "Du schreibst eine Entschuldigung"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Lehrer ansprechen"
       },
       {
-        "de": "Das freut mich sehr, vielen Dank!",
-        "context": "Die Lehrerin sagt: Ihr Kind macht gute Fortschritte"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Hausaufgaben"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Elternabend"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Anmeldung"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Stundenplan"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Lehrer ansprechen"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Hausaufgaben"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Elternabend"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Anmeldung"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Stundenplan"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Lehrer ansprechen"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Hausaufgaben"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Elternabend"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Anmeldung"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Stundenplan"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Lehrer ansprechen"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Hausaufgaben"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Elternabend"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Anmeldung"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Stundenplan"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Lehrer ansprechen"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Hausaufgaben"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Elternabend"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Anmeldung"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Stundenplan"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Lehrer ansprechen"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Hausaufgaben"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Elternabend"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Anmeldung"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Stundenplan"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Lehrer ansprechen"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Hausaufgaben"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Elternabend"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Anmeldung"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Stundenplan"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Lehrer ansprechen"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Hausaufgaben"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Elternabend"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Anmeldung"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Stundenplan"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Lehrer ansprechen"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Hausaufgaben"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Elternabend"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Anmeldung"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Stundenplan"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Lehrer ansprechen"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Hausaufgaben"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Elternabend"
       }
     ],
     "commonMistakes": [
@@ -5289,20 +8785,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Hallo, ich bin neu hier. Ich wohne nebenan.",
-        "context": "Du bist neu eingezogen"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Sich vorstellen"
       },
       {
-        "de": "annehmen",
-        "context": "Du bittest um Hilfe"
+        "de": "Ich verstehe das nicht.",
+        "context": "Lärm besprechen"
       },
       {
-        "de": "Entschuldigung für den Lärm gestern",
-        "context": "Du entschuldigst dich für Lärm"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Hilfe bitten"
       },
       {
-        "de": "Sehr gerne, das ist nett von Ihnen!",
-        "context": "Dein Nachbar lädt dich zum Kaffee ein"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Einladen"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Regeln klären"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Sich vorstellen"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Lärm besprechen"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Einladen"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Regeln klären"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Sich vorstellen"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Lärm besprechen"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Einladen"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Regeln klären"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Sich vorstellen"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Lärm besprechen"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Einladen"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Regeln klären"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Sich vorstellen"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Lärm besprechen"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Einladen"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Regeln klären"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Sich vorstellen"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Lärm besprechen"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Einladen"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Regeln klären"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Sich vorstellen"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Lärm besprechen"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Einladen"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Regeln klären"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Sich vorstellen"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Lärm besprechen"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Einladen"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Regeln klären"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Sich vorstellen"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Lärm besprechen"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Einladen"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Regeln klären"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Sich vorstellen"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Lärm besprechen"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Einladen"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Regeln klären"
       }
     ],
     "commonMistakes": [
@@ -5549,20 +9229,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Höflich und klar antworten.",
-        "context": "Du bist in einer Situation zum Thema: Einen Termin machen"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Allgemeine Situation"
       },
       {
-        "de": "helfen",
-        "context": "Du brauchst Hilfe zum Thema Einen Termin machen"
+        "de": "Ich verstehe das nicht.",
+        "context": "Frage stellen"
       },
       {
-        "de": "Kann Sie ich bitte fragen",
-        "context": "Du formulierst einen Satz zum Thema Einen Termin machen"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Antwort geben"
       },
       {
-        "de": "Vielen Dank für die Information.",
-        "context": "Jemand gibt dir eine Antwort zum Thema Einen Termin machen"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Hilfe bitten"
       }
     ],
     "commonMistakes": [
@@ -5809,20 +9673,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Höflich und klar antworten.",
-        "context": "Du bist in einer Situation zum Thema: Taxi fahren"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Allgemeine Situation"
       },
       {
-        "de": "helfen",
-        "context": "Du brauchst Hilfe zum Thema Taxi fahren"
+        "de": "Ich verstehe das nicht.",
+        "context": "Frage stellen"
       },
       {
-        "de": "Kann Sie ich bitte fragen",
-        "context": "Du formulierst einen Satz zum Thema Taxi fahren"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Antwort geben"
       },
       {
-        "de": "Vielen Dank für die Information.",
-        "context": "Jemand gibt dir eine Antwort zum Thema Taxi fahren"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Hilfe bitten"
       }
     ],
     "commonMistakes": [
@@ -6069,20 +10117,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Höflich und klar antworten.",
-        "context": "Du bist in einer Situation zum Thema: Farben und Kleidung"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Allgemeine Situation"
       },
       {
-        "de": "helfen",
-        "context": "Du brauchst Hilfe zum Thema Farben und Kleidung"
+        "de": "Ich verstehe das nicht.",
+        "context": "Frage stellen"
       },
       {
-        "de": "Kann Sie ich bitte fragen",
-        "context": "Du formulierst einen Satz zum Thema Farben und Kleidung"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Antwort geben"
       },
       {
-        "de": "Vielen Dank für die Information.",
-        "context": "Jemand gibt dir eine Antwort zum Thema Farben und Kleidung"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Hilfe bitten"
       }
     ],
     "commonMistakes": [
@@ -6329,20 +10561,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Höflich und klar antworten.",
-        "context": "Du bist in einer Situation zum Thema: Essen und Trinken best"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Allgemeine Situation"
       },
       {
-        "de": "helfen",
-        "context": "Du brauchst Hilfe zum Thema Essen und Trinken bestellen"
+        "de": "Ich verstehe das nicht.",
+        "context": "Frage stellen"
       },
       {
-        "de": "Kann Sie ich bitte fragen",
-        "context": "Du formulierst einen Satz zum Thema Essen und Trinken bestel"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Antwort geben"
       },
       {
-        "de": "Vielen Dank für die Information.",
-        "context": "Jemand gibt dir eine Antwort zum Thema Essen und Trinken bes"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Hilfe bitten"
       }
     ],
     "commonMistakes": [
@@ -6589,20 +11005,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Höflich und klar antworten.",
-        "context": "Du bist in einer Situation zum Thema: Wochentage und Termine"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Allgemeine Situation"
       },
       {
-        "de": "helfen",
-        "context": "Du brauchst Hilfe zum Thema Wochentage und Termine"
+        "de": "Ich verstehe das nicht.",
+        "context": "Frage stellen"
       },
       {
-        "de": "Kann Sie ich bitte fragen",
-        "context": "Du formulierst einen Satz zum Thema Wochentage und Termine"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Antwort geben"
       },
       {
-        "de": "Vielen Dank für die Information.",
-        "context": "Jemand gibt dir eine Antwort zum Thema Wochentage und Termin"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Hilfe bitten"
       }
     ],
     "commonMistakes": [
@@ -6849,20 +11449,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Höflich und klar antworten.",
-        "context": "Du bist in einer Situation zum Thema: Den Mietvertrag verste"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Allgemeine Situation"
       },
       {
-        "de": "helfen",
-        "context": "Du brauchst Hilfe zum Thema Den Mietvertrag verstehen"
+        "de": "Ich verstehe das nicht.",
+        "context": "Frage stellen"
       },
       {
-        "de": "Kann Sie ich bitte fragen",
-        "context": "Du formulierst einen Satz zum Thema Den Mietvertrag verstehe"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Antwort geben"
       },
       {
-        "de": "Vielen Dank für die Information.",
-        "context": "Jemand gibt dir eine Antwort zum Thema Den Mietvertrag verst"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Hilfe bitten"
       }
     ],
     "commonMistakes": [
@@ -7109,20 +11893,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Höflich und klar antworten.",
-        "context": "Du bist in einer Situation zum Thema: Im Haushalt"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Allgemeine Situation"
       },
       {
-        "de": "helfen",
-        "context": "Du brauchst Hilfe zum Thema Im Haushalt"
+        "de": "Ich verstehe das nicht.",
+        "context": "Frage stellen"
       },
       {
-        "de": "Kann Sie ich bitte fragen",
-        "context": "Du formulierst einen Satz zum Thema Im Haushalt"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Antwort geben"
       },
       {
-        "de": "Vielen Dank für die Information.",
-        "context": "Jemand gibt dir eine Antwort zum Thema Im Haushalt"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Hilfe bitten"
       }
     ],
     "commonMistakes": [
@@ -7369,20 +12337,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Höflich und klar antworten.",
-        "context": "Du bist in einer Situation zum Thema: Geburtstag feiern"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Allgemeine Situation"
       },
       {
-        "de": "helfen",
-        "context": "Du brauchst Hilfe zum Thema Geburtstag feiern"
+        "de": "Ich verstehe das nicht.",
+        "context": "Frage stellen"
       },
       {
-        "de": "Kann Sie ich bitte fragen",
-        "context": "Du formulierst einen Satz zum Thema Geburtstag feiern"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Antwort geben"
       },
       {
-        "de": "Vielen Dank für die Information.",
-        "context": "Jemand gibt dir eine Antwort zum Thema Geburtstag feiern"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Hilfe bitten"
       }
     ],
     "commonMistakes": [
@@ -7629,20 +12781,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Höflich und klar antworten.",
-        "context": "Du bist in einer Situation zum Thema: Sportverein"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Allgemeine Situation"
       },
       {
-        "de": "helfen",
-        "context": "Du brauchst Hilfe zum Thema Sportverein"
+        "de": "Ich verstehe das nicht.",
+        "context": "Frage stellen"
       },
       {
-        "de": "Kann Sie ich bitte fragen",
-        "context": "Du formulierst einen Satz zum Thema Sportverein"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Antwort geben"
       },
       {
-        "de": "Vielen Dank für die Information.",
-        "context": "Jemand gibt dir eine Antwort zum Thema Sportverein"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Hilfe bitten"
       }
     ],
     "commonMistakes": [
@@ -7889,20 +13225,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Höflich und klar antworten.",
-        "context": "Du bist in einer Situation zum Thema: Eine Einkaufsliste sch"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Allgemeine Situation"
       },
       {
-        "de": "helfen",
-        "context": "Du brauchst Hilfe zum Thema Eine Einkaufsliste schreiben"
+        "de": "Ich verstehe das nicht.",
+        "context": "Frage stellen"
       },
       {
-        "de": "Kann Sie ich bitte fragen",
-        "context": "Du formulierst einen Satz zum Thema Eine Einkaufsliste schre"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Antwort geben"
       },
       {
-        "de": "Vielen Dank für die Information.",
-        "context": "Jemand gibt dir eine Antwort zum Thema Eine Einkaufsliste sc"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Hilfe bitten"
       }
     ],
     "commonMistakes": [
@@ -8149,20 +13669,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Höflich und klar antworten.",
-        "context": "Du bist in einer Situation zum Thema: Handwerker rufen"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Allgemeine Situation"
       },
       {
-        "de": "helfen",
-        "context": "Du brauchst Hilfe zum Thema Handwerker rufen"
+        "de": "Ich verstehe das nicht.",
+        "context": "Frage stellen"
       },
       {
-        "de": "Kann Sie ich bitte fragen",
-        "context": "Du formulierst einen Satz zum Thema Handwerker rufen"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Antwort geben"
       },
       {
-        "de": "Vielen Dank für die Information.",
-        "context": "Jemand gibt dir eine Antwort zum Thema Handwerker rufen"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Hilfe bitten"
       }
     ],
     "commonMistakes": [
@@ -8409,20 +14113,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Höflich und klar antworten.",
-        "context": "Du bist in einer Situation zum Thema: Sich krank melden"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Allgemeine Situation"
       },
       {
-        "de": "helfen",
-        "context": "Du brauchst Hilfe zum Thema Sich krank melden"
+        "de": "Ich verstehe das nicht.",
+        "context": "Frage stellen"
       },
       {
-        "de": "Kann Sie ich bitte fragen",
-        "context": "Du formulierst einen Satz zum Thema Sich krank melden"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Antwort geben"
       },
       {
-        "de": "Vielen Dank für die Information.",
-        "context": "Jemand gibt dir eine Antwort zum Thema Sich krank melden"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Hilfe bitten"
       }
     ],
     "commonMistakes": [
@@ -8669,20 +14557,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Höflich und klar antworten.",
-        "context": "Du bist in einer Situation zum Thema: Sich entschuldigen"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Allgemeine Situation"
       },
       {
-        "de": "helfen",
-        "context": "Du brauchst Hilfe zum Thema Sich entschuldigen"
+        "de": "Ich verstehe das nicht.",
+        "context": "Frage stellen"
       },
       {
-        "de": "Kann Sie ich bitte fragen",
-        "context": "Du formulierst einen Satz zum Thema Sich entschuldigen"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Antwort geben"
       },
       {
-        "de": "Vielen Dank für die Information.",
-        "context": "Jemand gibt dir eine Antwort zum Thema Sich entschuldigen"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Hilfe bitten"
       }
     ],
     "commonMistakes": [
@@ -8929,20 +15001,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Höflich und klar antworten.",
-        "context": "Du bist in einer Situation zum Thema: Auf der Ausländerbehör"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Allgemeine Situation"
       },
       {
-        "de": "helfen",
-        "context": "Du brauchst Hilfe zum Thema Auf der Ausländerbehörde"
+        "de": "Ich verstehe das nicht.",
+        "context": "Frage stellen"
       },
       {
-        "de": "Kann Sie ich bitte fragen",
-        "context": "Du formulierst einen Satz zum Thema Auf der Ausländerbehörde"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Antwort geben"
       },
       {
-        "de": "Vielen Dank für die Information.",
-        "context": "Jemand gibt dir eine Antwort zum Thema Auf der Ausländerbehö"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Hilfe bitten"
       }
     ],
     "commonMistakes": [
@@ -9189,20 +15445,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Höflich und klar antworten.",
-        "context": "Du bist in einer Situation zum Thema: Symptome beschreiben"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Allgemeine Situation"
       },
       {
-        "de": "helfen",
-        "context": "Du brauchst Hilfe zum Thema Symptome beschreiben"
+        "de": "Ich verstehe das nicht.",
+        "context": "Frage stellen"
       },
       {
-        "de": "Kann Sie ich bitte fragen",
-        "context": "Du formulierst einen Satz zum Thema Symptome beschreiben"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Antwort geben"
       },
       {
-        "de": "Vielen Dank für die Information.",
-        "context": "Jemand gibt dir eine Antwort zum Thema Symptome beschreiben"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Hilfe bitten"
       }
     ],
     "commonMistakes": [
@@ -9449,20 +15889,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Höflich und klar antworten.",
-        "context": "Du bist in einer Situation zum Thema: Internet und Handy"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Allgemeine Situation"
       },
       {
-        "de": "helfen",
-        "context": "Du brauchst Hilfe zum Thema Internet und Handy"
+        "de": "Ich verstehe das nicht.",
+        "context": "Frage stellen"
       },
       {
-        "de": "Kann Sie ich bitte fragen",
-        "context": "Du formulierst einen Satz zum Thema Internet und Handy"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Antwort geben"
       },
       {
-        "de": "Vielen Dank für die Information.",
-        "context": "Jemand gibt dir eine Antwort zum Thema Internet und Handy"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Hilfe bitten"
       }
     ],
     "commonMistakes": [
@@ -9709,20 +16333,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Höflich und klar antworten.",
-        "context": "Du bist in einer Situation zum Thema: Müll richtig trennen"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Allgemeine Situation"
       },
       {
-        "de": "helfen",
-        "context": "Du brauchst Hilfe zum Thema Müll richtig trennen"
+        "de": "Ich verstehe das nicht.",
+        "context": "Frage stellen"
       },
       {
-        "de": "Kann Sie ich bitte fragen",
-        "context": "Du formulierst einen Satz zum Thema Müll richtig trennen"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Antwort geben"
       },
       {
-        "de": "Vielen Dank für die Information.",
-        "context": "Jemand gibt dir eine Antwort zum Thema Müll richtig trennen"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Hilfe bitten"
       }
     ],
     "commonMistakes": [
@@ -9969,20 +16777,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Höflich und klar antworten.",
-        "context": "Du bist in einer Situation zum Thema: Datum und Monate"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Allgemeine Situation"
       },
       {
-        "de": "helfen",
-        "context": "Du brauchst Hilfe zum Thema Datum und Monate"
+        "de": "Ich verstehe das nicht.",
+        "context": "Frage stellen"
       },
       {
-        "de": "Kann Sie ich bitte fragen",
-        "context": "Du formulierst einen Satz zum Thema Datum und Monate"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Antwort geben"
       },
       {
-        "de": "Vielen Dank für die Information.",
-        "context": "Jemand gibt dir eine Antwort zum Thema Datum und Monate"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Hilfe bitten"
       }
     ],
     "commonMistakes": [
@@ -10229,20 +17221,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Höflich und klar antworten.",
-        "context": "Du bist in einer Situation zum Thema: Danke und Bitte"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Allgemeine Situation"
       },
       {
-        "de": "helfen",
-        "context": "Du brauchst Hilfe zum Thema Danke und Bitte"
+        "de": "Ich verstehe das nicht.",
+        "context": "Frage stellen"
       },
       {
-        "de": "Kann Sie ich bitte fragen",
-        "context": "Du formulierst einen Satz zum Thema Danke und Bitte"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Antwort geben"
       },
       {
-        "de": "Vielen Dank für die Information.",
-        "context": "Jemand gibt dir eine Antwort zum Thema Danke und Bitte"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Hilfe bitten"
       }
     ],
     "commonMistakes": [
@@ -10489,20 +17665,204 @@ export const lessonsA1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Höflich und klar antworten.",
-        "context": "Du bist in einer Situation zum Thema: Sich verabschieden"
+        "de": "Entschuldigung, können Sie mir helfen?",
+        "context": "Allgemeine Situation"
       },
       {
-        "de": "helfen",
-        "context": "Du brauchst Hilfe zum Thema Sich verabschieden"
+        "de": "Ich verstehe das nicht.",
+        "context": "Frage stellen"
       },
       {
-        "de": "Kann Sie ich bitte fragen",
-        "context": "Du formulierst einen Satz zum Thema Sich verabschieden"
+        "de": "Können Sie das bitte wiederholen?",
+        "context": "Antwort geben"
       },
       {
-        "de": "Vielen Dank für die Information.",
-        "context": "Jemand gibt dir eine Antwort zum Thema Sich verabschieden"
+        "de": "Wie sagt man das auf Deutsch?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Bitte sprechen Sie langsamer.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das habe ich nicht verstanden.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Vielen Dank für Ihre Hilfe.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wo finde ich Informationen dazu?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich habe eine Frage.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können Sie mir das erklären?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich bin neu hier.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Das ist sehr wichtig für mich.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Alternative?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wann kann ich wiederkommen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ist das kostenlos?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich würde gerne einen Termin vereinbaren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Könnten Sie mir bitte weiterhelfen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss ich mir noch überlegen.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin damit nicht einverstanden.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Können wir einen Kompromiss finden?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Das erscheint mir zu teuer.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Wann ist der nächste freie Termin?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Gibt es da Ausnahmen?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das war ein Missverständnis.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich möchte mich beschweren.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Können Sie das schriftlich bestätigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es einen Ansprechpartner dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich brauche noch etwas Zeit.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Das ist mir leider nicht möglich.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Welche Unterlagen brauche ich?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich komme aus dem Ausland.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Mein Deutsch ist noch nicht so gut.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Können Sie mir das auf Papier geben?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Wo muss ich unterschreiben?",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ist das Formular richtig ausgefüllt?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe alles dabei.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Frist dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Was passiert als nächstes?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich warte auf eine Antwort.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Können Sie mich zurückrufen?",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Ich habe eine Beschwerde.",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Das muss dringend erledigt werden.",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Ich bin seit einem Jahr in Deutschland.",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Meine Adresse hat sich geändert.",
+        "context": "Hilfe bitten"
+      },
+      {
+        "de": "Ich brauche eine Bescheinigung.",
+        "context": "Allgemeine Situation"
+      },
+      {
+        "de": "Bis wann muss ich das erledigen?",
+        "context": "Frage stellen"
+      },
+      {
+        "de": "Gibt es eine Beratung dafür?",
+        "context": "Antwort geben"
+      },
+      {
+        "de": "Wo kann ich mich informieren?",
+        "context": "Problem lösen"
+      },
+      {
+        "de": "Ich möchte einen Antrag stellen.",
+        "context": "Hilfe bitten"
       }
     ],
     "commonMistakes": [
