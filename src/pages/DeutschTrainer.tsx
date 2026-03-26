@@ -212,21 +212,26 @@ export default function DeutschTrainer() {
             </div>
 
             {/* Upgrade CTA */}
-            <div className="mt-4 rounded-xl border border-gold/20 bg-gold/5 p-5 text-center">
-              <Crown className="mx-auto mb-1.5 h-6 w-6 text-gold" />
-              <p className="text-xl font-black">Einmalig ab 19,99 €</p>
-              <p className="mt-1 text-xs font-medium text-foreground/80">
-                Dauerhafter Zugriff auf alle Lektionen
+            <div className="mt-6 rounded-2xl border-2 border-gold/30 bg-gradient-to-b from-gold/5 to-gold/10 p-6 text-center">
+              <Crown className="mx-auto mb-2 h-7 w-7 text-gold" />
+              <h3 className="text-base font-black">Weiter lernen</h3>
+              <p className="mt-1 text-xs text-muted-foreground">
+                Schalte alle Lektionen frei und lerne ohne Einschränkungen weiter
               </p>
-              <p className="mt-0.5 text-[10px] text-muted-foreground">
-                Kein Abo – keine monatlichen Kosten
+              <p className="mt-3 text-2xl font-black">
+                Einmalig ab 19,99 €
               </p>
               <Button
                 onClick={() => navigate("/deutsch-trainer/preise")}
-                className="mt-3 h-10 rounded-full bg-gold px-6 text-xs font-bold text-gold-foreground shadow-[0_4px_20px_rgba(255,204,0,0.3)] hover:bg-gold-light"
+                className="mt-4 h-11 w-full rounded-xl bg-gold text-sm font-bold text-gold-foreground shadow-[0_4px_20px_rgba(255,204,0,0.3)] hover:bg-gold-light"
               >
-                Jetzt freischalten
+                Alle Lektionen freischalten
               </Button>
+              <div className="mt-3 flex items-center justify-center gap-3 text-[10px] text-muted-foreground">
+                <span>✓ Kein Abo</span>
+                <span>✓ Einmal zahlen</span>
+                <span>✓ Alle Niveaus</span>
+              </div>
             </div>
           </div>
         )}
