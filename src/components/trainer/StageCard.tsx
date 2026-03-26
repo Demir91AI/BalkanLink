@@ -45,7 +45,7 @@ export default function StageCard({ label, index, freeCount, lockedCount, isPrem
       </button>
 
       {/* Locked indicator for free users */}
-      {!isPremium && (
+      {!isPremium && lockedCount > 0 && (
         <div className="border-t border-dashed border-border/50 px-4 py-2.5 bg-muted/20">
           <div className="flex items-center gap-2">
             <Lock className="h-3.5 w-3.5 text-gold" />
