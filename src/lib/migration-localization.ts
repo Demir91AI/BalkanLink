@@ -9,6 +9,7 @@ const LANGUAGE_ALIASES: Record<Language, "bs" | "hr" | "sr" | "me" | "sq" | "mk"
   sq: "sq",
   xk: "sq",
   mk: "mk",
+  sl: "hr",
   de: "de",
   en: "en",
 };

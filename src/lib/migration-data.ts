@@ -306,6 +306,12 @@ export const COUNTRIES: CountryMigrationData[] = [
     isEU: false,
     categories: [WORK_WESTBALKAN("mk"), EDUCATION_NONEU, STUDY_NONEU, FSJ_NONEU, RECOGNITION_NONEU],
   },
+  {
+    code: "si",
+    flag: "🇸🇮",
+    isEU: true,
+    categories: [WORK_EU, EDUCATION_EU, STUDY_EU, FSJ_EU, RECOGNITION_EU],
+  },
 ];
 
 export const CATEGORY_KEYS = ["work", "education", "study", "fsj", "recognition"] as const;
