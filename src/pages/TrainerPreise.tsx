@@ -127,37 +127,45 @@ export default function TrainerPreise() {
               <span className="text-xs font-medium text-muted-foreground">{tier.subtitle}</span>
             </div>
 
-            <div className={`relative rounded-xl border-2 bg-card p-5 ${tier.popular ? "border-gold shadow-[0_8px_30px_rgba(255,204,0,0.18)]" : "border-border shadow-sm"}`}>
+            <div className={`relative rounded-2xl border-2 bg-card px-5 py-6 sm:px-6 ${tier.popular ? "border-gold shadow-[0_8px_30px_rgba(255,204,0,0.18)]" : "border-border shadow-sm"}`}>
               {tier.popular && (
-                <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 rounded-full bg-gold px-3 py-0.5 text-[10px] font-bold text-gold-foreground shadow-sm">
+                <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 rounded-full bg-gold px-3.5 py-0.5 text-[10px] font-bold text-gold-foreground shadow-sm">
                   🔥 Beliebteste Wahl
                 </div>
               )}
-              <div className="mb-2 flex items-center gap-2">
-                <Crown className={`h-4 w-4 ${tier.popular ? "text-gold" : "text-muted-foreground"}`} />
-                <h3 className="text-sm font-black">{tier.subtitle}</h3>
+
+              <div className="flex items-center gap-2.5">
+                <Crown className={`h-4.5 w-4.5 ${tier.popular ? "text-gold" : "text-muted-foreground"}`} />
+                <h3 className="text-[15px] font-black leading-snug">{tier.subtitle}</h3>
               </div>
-              <p className="text-2xl font-black">
+
+              <p className="mt-3 text-[28px] font-black leading-tight tracking-tight">
                 {tier.price}
                 <span className="ml-1.5 text-xs font-normal text-muted-foreground">/ einmalig</span>
               </p>
-              <p className="mt-1 text-[11px] text-muted-foreground">5 Lektionen kostenlos testen</p>
+
+              <p className="mt-1.5 text-[11px] leading-relaxed text-muted-foreground">
+                5 Lektionen kostenlos testen
+              </p>
+
               <Button
                 onClick={() => navigate("/premium")}
-                className={`mt-4 h-10 w-full rounded-xl text-xs font-bold ${tier.popular ? "bg-gold text-gold-foreground shadow-[0_4px_20px_rgba(255,204,0,0.3)] hover:bg-gold-light" : "bg-primary text-primary-foreground hover:bg-primary/90"}`}
+                className={`mt-5 h-11 w-full rounded-xl text-[13px] font-bold ${tier.popular ? "bg-gold text-gold-foreground shadow-[0_4px_20px_rgba(255,204,0,0.3)] hover:bg-gold-light" : "bg-primary text-primary-foreground hover:bg-primary/90"}`}
               >
                 <Star className="mr-1.5 h-3.5 w-3.5" /> Jetzt freischalten
               </Button>
-              <ul className="mt-4 space-y-2">
+
+              <ul className="mt-5 space-y-3">
                 {ultimateFeatures.map((f) => (
-                  <li key={f} className="flex items-center gap-2 text-xs font-medium">
-                    <Check className={`h-3.5 w-3.5 shrink-0 ${tier.popular ? "text-gold" : "text-primary"}`} />
+                  <li key={f} className="flex items-center gap-2.5 text-[13px] font-medium leading-relaxed">
+                    <Check className={`h-4 w-4 shrink-0 ${tier.popular ? "text-gold" : "text-primary"}`} />
                     {f}
                   </li>
                 ))}
               </ul>
+
               {tier.popular && (
-                <p className="mt-4 text-center text-[11px] font-semibold text-gold-dark">
+                <p className="mt-5 text-center text-[11px] font-semibold text-gold-dark">
                   ⭐ Die meisten Nutzer wählen dieses Paket
                 </p>
               )}
