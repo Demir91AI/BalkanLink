@@ -1,14 +1,17 @@
 import { useState, useEffect, useCallback } from "react";
 import { useAuth } from "@/contexts/AuthContext";
+import { DEV_MODE } from "@/lib/dev-mode";
 import { supabase } from "@/integrations/supabase/client";
 
 const FREE_DAILY_LIMIT = 3;
 
 export function usePremiumAccess() {
-  const { isPremium, user } = useAuth();
+  const { isPremium: rawPremium, user } = useAuth();
+  const isPremium = DEV_MODE || rawPremium;
 
   return {
     isPremium,
+    isDevMode: DEV_MODE,
     isLoggedIn: !!user,
     /** Free users see first N steps; rest locked */
     canAccessStep: (stepIndex: number) => isPremium || stepIndex < 1,
