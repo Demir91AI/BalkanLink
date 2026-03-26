@@ -68,7 +68,7 @@ export default function DeutschTrainer() {
     return <TrainerLesson lesson={activeLesson} onBack={() => setActiveLesson(null)} />;
   }
 
-  const totalExercisesPerLesson = 15; // 3 stages × 5
+  const freeExercisesPerStage = 50;
 
   return (
     <>
@@ -181,7 +181,7 @@ export default function DeutschTrainer() {
                       {isLocked && <Lock className="h-3 w-3 text-muted-foreground/60" />}
                     </div>
                     <p className={`mt-0.5 text-[11px] ${isLocked ? "text-muted-foreground/60" : "text-muted-foreground"}`}>
-                      {lesson.title} · {totalExercisesPerLesson} Aufgaben · 3 Level
+                      {lesson.title} · 3 Stufen · {freeExercisesPerStage} Aufgaben pro Stufe
                     </p>
                   </div>
                   {isFree && !completed && (

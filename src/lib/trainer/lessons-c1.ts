@@ -243,206 +243,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Was wollen Sie?",
@@ -697,206 +697,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -1151,206 +1151,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -1605,206 +1605,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -2059,206 +2059,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -2513,206 +2513,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -2967,206 +2967,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -3421,206 +3421,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -3875,206 +3875,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -4329,206 +4329,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -4783,206 +4783,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -5237,206 +5237,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -5691,206 +5691,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -6145,206 +6145,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -6599,206 +6599,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -7053,206 +7053,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -7507,206 +7507,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -7961,206 +7961,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -8415,206 +8415,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -8869,206 +8869,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -9323,206 +9323,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -9777,206 +9777,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -10231,206 +10231,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -10685,206 +10685,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -11139,206 +11139,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -11593,206 +11593,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -12047,206 +12047,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -12501,206 +12501,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -12955,206 +12955,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -13409,206 +13409,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -13863,206 +13863,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -14317,206 +14317,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -14771,206 +14771,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -15225,206 +15225,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -15679,206 +15679,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -16133,206 +16133,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -16587,206 +16587,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -17041,206 +17041,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -17495,206 +17495,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",
@@ -17949,206 +17949,206 @@ export const lessonsC1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte an dieser Stelle ausdrücklich betonen, dass die vorgebrachten Argumente einer kritischen Überprüfung bedürfen.",
+            "context": "Kritische Analyse einleiten"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Die zugrunde liegende Problematik lässt sich nicht auf einen einzigen Faktor reduzieren.",
+            "context": "Komplexität hervorheben"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Es wäre verfehlt, voreilige Schlüsse aus den vorliegenden Daten zu ziehen.",
+            "context": "Voreilige Urteile vermeiden"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Die Tragweite dieser Entscheidung sollte keinesfalls unterschätzt werden.",
+            "context": "Bedeutung unterstreichen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Gestatten Sie mir, einen differenzierten Standpunkt darzulegen.",
+            "context": "Nuancierte Position vorstellen"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Die Sachlage erfordert eine umfassende und sorgfältige Analyse.",
+            "context": "Gründliche Analyse fordern"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Unter Berücksichtigung aller relevanten Faktoren ergibt sich folgendes Bild.",
+            "context": "Gesamtbetrachtung einleiten"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Ich halte es für geboten, die langfristigen Konsequenzen in Betracht zu ziehen.",
+            "context": "Langzeitperspektive"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Die Argumentation weist an mehreren Stellen logische Inkonsistenzen auf.",
+            "context": "Logikfehler identifizieren"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Es bedarf einer grundlegenden Neubewertung der bisherigen Vorgehensweise.",
+            "context": "Neuausrichtung fordern"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Die vorliegenden Erkenntnisse stützen die These nur bedingt.",
+            "context": "Einschränkung formulieren"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich möchte darauf aufmerksam machen, dass ein Paradigmenwechsel erforderlich ist.",
+            "context": "Grundsatzänderung"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die empirischen Befunde deuten auf eine weitaus komplexere Realität hin.",
+            "context": "Befunde interpretieren"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Angesichts der gegenwärtigen Entwicklungen erscheint ein Umdenken unausweichlich.",
+            "context": "Wandel einfordern"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Die Diskrepanz zwischen Anspruch und Wirklichkeit ist nicht zu übersehen.",
+            "context": "Widerspruch aufzeigen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich vertrete die Auffassung, dass eine interdisziplinäre Herangehensweise zielführend wäre.",
+            "context": "Interdisziplinarität"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Die strategischen Implikationen dieser Maßnahme sind noch nicht hinreichend analysiert.",
+            "context": "Strategieanalyse"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Es wäre unverantwortlich, die sozialen Auswirkungen außer Acht zu lassen.",
+            "context": "Soziale Verantwortung"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag verdient eine eingehende Prüfung unter Berücksichtigung aller Stakeholder.",
+            "context": "Stakeholder-Analyse"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Ich erlaube mir den Hinweis, dass die Datenlage eine solche Schlussfolgerung nicht rechtfertigt.",
+            "context": "Datenbasierte Kritik"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Die institutionellen Rahmenbedingungen setzen der Umsetzung enge Grenzen.",
+            "context": "Rahmenbedingungen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Eine differenziertere Betrachtungsweise würde zu einem nuancierteren Ergebnis führen.",
+            "context": "Differenzierung fordern"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Lassen Sie mich die wesentlichen Aspekte in einen größeren Zusammenhang einordnen.",
+            "context": "Kontextualisierung"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Die Herausforderung besteht darin, widerstreitende Interessen in Einklang zu bringen.",
+            "context": "Interessenausgleich"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte die Diskussion auf eine sachlichere Ebene zurückführen.",
+            "context": "Versachlichung"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Die Erfahrungen aus vergleichbaren Projekten legen einen anderen Ansatz nahe.",
+            "context": "Best Practices"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Es gilt abzuwägen, ob der Nutzen die potenziellen Risiken überwiegt.",
+            "context": "Risiko-Nutzen-Abwägung"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Die Komplexität der Materie verbietet eine vereinfachende Darstellung.",
+            "context": "Vereinfachung ablehnen"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich bin der festen Überzeugung, dass konstruktiver Dialog der Schlüssel zur Lösung ist.",
+            "context": "Dialog befürworten"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die vorgetragenen Bedenken sind durchaus berechtigt und verdienen Beachtung.",
+            "context": "Bedenken anerkennen"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Ein nachhaltiger Ansatz erfordert die Einbeziehung aller beteiligten Akteure.",
+            "context": "Inklusion fordern"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Die methodischen Schwächen der Studie schränken die Aussagekraft erheblich ein.",
+            "context": "Methodik kritisieren"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Wir sollten uns hüten, aus einzelnen Fällen allgemeingültige Regeln abzuleiten.",
+            "context": "Verallgemeinerung vermeiden"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Synergieeffekte einer engeren Zusammenarbeit werden häufig unterschätzt.",
+            "context": "Synergien hervorheben"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich sehe es als meine Pflicht an, auf die Dringlichkeit der Angelegenheit hinzuweisen.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Die ökonomischen Rahmenbedingungen erfordern eine grundlegende Neujustierung.",
+            "context": "Wirtschaftliche Anpassung"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Ungeachtet der Kritik halte ich den eingeschlagenen Kurs für richtig.",
+            "context": "Position verteidigen"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Die vorgeschlagene Maßnahme greift meines Erachtens zu kurz.",
+            "context": "Maßnahme bewerten"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Es empfiehlt sich, die Angelegenheit im größeren gesellschaftlichen Kontext zu betrachten.",
+            "context": "Gesellschaftlicher Kontext"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich die zentralen Erkenntnisse in drei Thesen bündeln.",
+            "context": "Fazit strukturieren"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Die ethischen Implikationen dieser Vorgehensweise dürfen nicht ignoriert werden.",
+            "context": "Ethische Dimension"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Ich schlage eine systematische Evaluation der bisherigen Maßnahmen vor.",
+            "context": "Evaluation anregen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Die Evidenzlage spricht für eine grundsätzlich andere Strategie.",
+            "context": "Strategiewechsel"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Wir befinden uns an einem kritischen Wendepunkt, der entschlossenes Handeln erfordert.",
+            "context": "Handlungsbedarf"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Die multikausale Natur des Problems erfordert einen ganzheitlichen Ansatz.",
+            "context": "Ganzheitlichkeit"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte die strukturellen Defizite nochmals explizit benennen.",
+            "context": "Strukturkritik"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Der wissenschaftliche Konsens stützt diese Hypothese nicht mehr.",
+            "context": "Forschungsstand"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Eine ergebnisorientierte Vorgehensweise wäre in diesem Fall angemessener.",
+            "context": "Ergebnisorientierung"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Die Verantwortung liegt bei den Entscheidungsträgern auf allen Ebenen.",
+            "context": "Verantwortung zuweisen"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie mich abschließend die strategische Relevanz dieses Themas hervorheben.",
+            "context": "Strategische Relevanz"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach formulieren.",

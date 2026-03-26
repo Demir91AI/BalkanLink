@@ -239,206 +239,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Läuft.",
@@ -685,206 +685,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Heizung kaputt!",
@@ -1135,206 +1135,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -1585,206 +1585,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -2035,206 +2035,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -2485,206 +2485,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -2935,206 +2935,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -3385,206 +3385,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -3835,206 +3835,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -4285,206 +4285,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -4735,206 +4735,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -5185,206 +5185,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -5635,206 +5635,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -6085,206 +6085,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -6535,206 +6535,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -6985,206 +6985,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -7435,206 +7435,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -7885,206 +7885,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -8335,206 +8335,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -8785,206 +8785,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -9235,206 +9235,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -9685,206 +9685,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -10135,206 +10135,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -10585,206 +10585,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -11035,206 +11035,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -11485,206 +11485,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -11935,206 +11935,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -12385,206 +12385,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -12835,206 +12835,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -13285,206 +13285,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -13735,206 +13735,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -14185,206 +14185,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -14635,206 +14635,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -15085,206 +15085,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -15535,206 +15535,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -15985,206 +15985,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -16435,206 +16435,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -16885,206 +16885,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -17335,206 +17335,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",
@@ -17785,206 +17785,206 @@ export const lessonsB2: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich würde gerne die Konditionen des Vertrags nochmals besprechen.",
+            "context": "Vertragsverhandlung"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erläutern, wie sich die Kündigungsfrist berechnet?",
+            "context": "Kündigungsfrist klären"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Meiner Einschätzung nach wäre eine Nachverhandlung sinnvoll.",
+            "context": "Einschätzung äußern"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Ich möchte darauf hinweisen, dass die Abrechnung fehlerhaft ist.",
+            "context": "Fehler ansprechen"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "In Anbetracht der Umstände halte ich eine Verlängerung für angemessen.",
+            "context": "Fristverlängerung"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Wäre es möglich, einen Zahlungsaufschub zu vereinbaren?",
+            "context": "Zahlungsaufschub"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich würde das gerne mit meinem Anwalt besprechen.",
+            "context": "Rechtliche Beratung"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Der Sachverhalt ist komplexer als zunächst angenommen.",
+            "context": "Situation erklären"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Können wir die wesentlichen Punkte nochmals zusammenfassen?",
+            "context": "Zusammenfassung erbitten"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe den Eindruck, dass hier ein Informationsdefizit besteht.",
+            "context": "Informationslücke ansprechen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Aus meiner Sicht gibt es dafür keine rechtliche Grundlage.",
+            "context": "Rechtsposition darlegen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Ich würde vorschlagen, dass wir das Thema vertagen.",
+            "context": "Vertagung vorschlagen"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Die Qualität der Leistung entspricht nicht den vereinbarten Standards.",
+            "context": "Qualitätsmängel"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bitte Sie, die Angelegenheit mit Priorität zu behandeln.",
+            "context": "Dringlichkeit betonen"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Können Sie mir die Hintergründe dieser Entscheidung erklären?",
+            "context": "Entscheidung hinterfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte meine Unzufriedenheit formell zum Ausdruck bringen.",
+            "context": "Formelle Beschwerde"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Es wäre hilfreich, wenn wir einen konkreten Zeitplan erstellen könnten.",
+            "context": "Zeitplan vorschlagen"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Die bisherige Kommunikation war leider nicht zufriedenstellend.",
+            "context": "Kommunikation kritisieren"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Ich stimme Ihnen grundsätzlich zu, möchte aber einen Aspekt ergänzen.",
+            "context": "Zustimmung mit Ergänzung"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Wie sieht die weitere Vorgehensweise aus?",
+            "context": "Nächste Schritte klären"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe Bedenken hinsichtlich der Datenschutzbestimmungen.",
+            "context": "Datenschutz ansprechen"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir die aktuelle Rechtslage erläutern?",
+            "context": "Rechtsauskunft"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Meines Erachtens wäre eine schriftliche Vereinbarung ratsam.",
+            "context": "Schriftform empfehlen"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich möchte sicherstellen, dass alle Parteien informiert sind.",
+            "context": "Transparenz sichern"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Der Bericht enthält einige Unstimmigkeiten.",
+            "context": "Inkonsistenz melden"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich schlage vor, einen externen Berater hinzuzuziehen.",
+            "context": "Beratung vorschlagen"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Frist ist nach meinem Verständnis bereits abgelaufen.",
+            "context": "Fristablauf feststellen"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Ich würde es begrüßen, wenn wir das Gespräch fortsetzen könnten.",
+            "context": "Gesprächsfortsetzung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Es gibt durchaus Argumente für beide Seiten.",
+            "context": "Abwägen"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Ich kann Ihre Position nachvollziehen, sehe das aber anders.",
+            "context": "Höflicher Widerspruch"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Die Zusammenarbeit hat sich in letzter Zeit deutlich verbessert.",
+            "context": "Positives Feedback"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich möchte auf einen möglichen Interessenkonflikt hinweisen.",
+            "context": "Konflikt ansprechen"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Könnten wir einen Mediator einschalten?",
+            "context": "Mediation vorschlagen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Die Ergebnisse der Untersuchung liegen mittlerweile vor.",
+            "context": "Ergebnisse mitteilen"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Ich habe mir erlaubt, einen Alternativvorschlag auszuarbeiten.",
+            "context": "Alternative vorstellen"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Der finanzielle Aspekt sollte dabei nicht außer Acht gelassen werden.",
+            "context": "Kosten berücksichtigen"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mir ist aufgefallen, dass die Dokumentation unvollständig ist.",
+            "context": "Unvollständigkeit melden"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wir sollten die Vor- und Nachteile sorgfältig abwägen.",
+            "context": "Pro-Contra-Analyse"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich setze mich dafür ein, dass eine faire Lösung gefunden wird.",
+            "context": "Engagement zeigen"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Lassen Sie uns die Kernpunkte nochmals durchgehen.",
+            "context": "Punkte wiederholen"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Es wäre ratsam, eine Fachperson zurate zu ziehen.",
+            "context": "Expertenrat suchen"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Die Rahmenbedingungen haben sich seit unserem letzten Gespräch geändert.",
+            "context": "Änderungen darlegen"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich würde eine pragmatische Lösung bevorzugen.",
+            "context": "Pragmatismus vorschlagen"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Dieser Punkt bedarf einer genaueren Prüfung.",
+            "context": "Prüfung anregen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Können wir uns auf einen Kompromiss einigen?",
+            "context": "Kompromiss suchen"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich danke Ihnen für Ihre Geduld in dieser Angelegenheit.",
+            "context": "Dank ausdrücken"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Die Verhandlungen befinden sich in einem fortgeschrittenen Stadium.",
+            "context": "Fortschritt mitteilen"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich möchte die Gelegenheit nutzen, meine Bedenken vorzubringen.",
+            "context": "Bedenken äußern"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Vorschlag hat sowohl Stärken als auch Schwächen.",
+            "context": "Differenzierte Bewertung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Abschließend möchte ich betonen, dass mir die Zusammenarbeit wichtig ist.",
+            "context": "Kooperation betonen"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Einfach machen.",

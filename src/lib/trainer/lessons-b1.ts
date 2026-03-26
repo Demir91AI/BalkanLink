@@ -237,206 +237,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Hallo? Ich brauche Hilfe!",
@@ -689,206 +689,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Ich bin der Beste.",
@@ -1143,206 +1143,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Hey!",
@@ -1587,206 +1587,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -2031,206 +2031,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -2475,206 +2475,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -2919,206 +2919,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -3363,206 +3363,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -3807,206 +3807,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -4251,206 +4251,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -4695,206 +4695,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -5139,206 +5139,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -5583,206 +5583,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -6027,206 +6027,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -6471,206 +6471,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -6915,206 +6915,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -7359,206 +7359,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -7803,206 +7803,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -8247,206 +8247,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -8691,206 +8691,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -9135,206 +9135,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -9579,206 +9579,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -10023,206 +10023,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -10467,206 +10467,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -10911,206 +10911,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -11355,206 +11355,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -11799,206 +11799,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -12243,206 +12243,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -12687,206 +12687,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -13131,206 +13131,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -13575,206 +13575,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -14019,206 +14019,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -14463,206 +14463,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -14907,206 +14907,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -15351,206 +15351,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -15795,206 +15795,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -16239,206 +16239,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -16683,206 +16683,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -17127,206 +17127,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
@@ -17571,206 +17571,206 @@ export const lessonsB1: Lesson[] = [
     ],
     "importantPhrases": [
       {
-        "de": "Entschuldigung, können Sie mir helfen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte einen Termin bei der Ausländerbehörde vereinbaren.",
+            "context": "Behördengang planen"
       },
       {
-        "de": "Ich verstehe das nicht.",
-        "context": "Frage stellen"
+            "de": "Könnten Sie mir erklären, welche Unterlagen ich mitbringen muss?",
+            "context": "Dokumentenvorbereitung"
       },
       {
-        "de": "Können Sie das bitte wiederholen?",
-        "context": "Antwort geben"
+            "de": "Ich habe die Frist leider verpasst. Was kann ich jetzt tun?",
+            "context": "Fristversäumnis klären"
       },
       {
-        "de": "Wie sagt man das auf Deutsch?",
-        "context": "Problem lösen"
+            "de": "Mein Arbeitsvertrag läuft nächsten Monat aus.",
+            "context": "Vertragssituation erklären"
       },
       {
-        "de": "Bitte sprechen Sie langsamer.",
-        "context": "Hilfe bitten"
+            "de": "Ich möchte meine Krankenversicherung wechseln.",
+            "context": "Versicherungswechsel"
       },
       {
-        "de": "Das habe ich nicht verstanden.",
-        "context": "Allgemeine Situation"
+            "de": "Könnte ich bitte mit dem zuständigen Sachbearbeiter sprechen?",
+            "context": "Weiterleitung erbitten"
       },
       {
-        "de": "Vielen Dank für Ihre Hilfe.",
-        "context": "Frage stellen"
+            "de": "Ich habe einen Bescheid bekommen, den ich nicht verstehe.",
+            "context": "Amtsbrief klären"
       },
       {
-        "de": "Wo finde ich Informationen dazu?",
-        "context": "Antwort geben"
+            "de": "Wäre es möglich, den Termin auf nächste Woche zu verschieben?",
+            "context": "Terminverlegung"
       },
       {
-        "de": "Ich habe eine Frage.",
-        "context": "Problem lösen"
+            "de": "Ich möchte Widerspruch gegen diesen Bescheid einlegen.",
+            "context": "Rechtsmittel nutzen"
       },
       {
-        "de": "Können Sie mir das erklären?",
-        "context": "Hilfe bitten"
+            "de": "Welche Fristen muss ich beachten?",
+            "context": "Fristen erfragen"
       },
       {
-        "de": "Ich bin neu hier.",
-        "context": "Allgemeine Situation"
+            "de": "Ich arbeite seit zwei Jahren bei derselben Firma.",
+            "context": "Berufserfahrung nennen"
       },
       {
-        "de": "Das ist sehr wichtig für mich.",
-        "context": "Frage stellen"
+            "de": "Können Sie mir sagen, wie ich das online beantragen kann?",
+            "context": "Online-Antrag"
       },
       {
-        "de": "Gibt es eine Alternative?",
-        "context": "Antwort geben"
+            "de": "Das Gespräch war sehr hilfreich, vielen Dank.",
+            "context": "Gespräch abschließen"
       },
       {
-        "de": "Wann kann ich wiederkommen?",
-        "context": "Problem lösen"
+            "de": "Ich bin mit der Entscheidung nicht einverstanden.",
+            "context": "Widerspruch ausdrücken"
       },
       {
-        "de": "Ist das kostenlos?",
-        "context": "Hilfe bitten"
+            "de": "Gibt es eine Möglichkeit, das in Raten zu zahlen?",
+            "context": "Ratenzahlung erfragen"
       },
       {
-        "de": "Ich würde gerne einen Termin vereinbaren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte eine Beschwerde einreichen.",
+            "context": "Beschwerde formulieren"
       },
       {
-        "de": "Könnten Sie mir bitte weiterhelfen?",
-        "context": "Frage stellen"
+            "de": "Der Vermieter hat die Kaution noch nicht zurückgezahlt.",
+            "context": "Kaution einfordern"
       },
       {
-        "de": "Das muss ich mir noch überlegen.",
-        "context": "Antwort geben"
+            "de": "Ich suche eine Wohnung mit zwei Zimmern.",
+            "context": "Wohnungssuche"
       },
       {
-        "de": "Ich bin damit nicht einverstanden.",
-        "context": "Problem lösen"
+            "de": "Wie hoch ist die Warmmiete?",
+            "context": "Mietkosten erfragen"
       },
       {
-        "de": "Können wir einen Kompromiss finden?",
-        "context": "Hilfe bitten"
+            "de": "Der Mietvertrag enthält eine Klausel, die ich nicht verstehe.",
+            "context": "Vertrag prüfen"
       },
       {
-        "de": "Das erscheint mir zu teuer.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich für die Stelle als Lagerarbeiter bewerben.",
+            "context": "Bewerbung"
       },
       {
-        "de": "Ich hätte gerne eine schriftliche Bestätigung.",
-        "context": "Frage stellen"
+            "de": "Wann könnte ich mit einer Rückmeldung rechnen?",
+            "context": "Antwort erfragen"
       },
       {
-        "de": "Wann ist der nächste freie Termin?",
-        "context": "Antwort geben"
+            "de": "Mein Chef hat mir gekündigt. Was sind meine Rechte?",
+            "context": "Kündigung klären"
       },
       {
-        "de": "Gibt es da Ausnahmen?",
-        "context": "Problem lösen"
+            "de": "Ich würde gerne Überstunden machen.",
+            "context": "Arbeitszeit besprechen"
       },
       {
-        "de": "Das war ein Missverständnis.",
-        "context": "Hilfe bitten"
+            "de": "Das Arbeitszeugnis stimmt nicht mit meiner Erfahrung überein.",
+            "context": "Zeugnis prüfen"
       },
       {
-        "de": "Ich möchte mich beschweren.",
-        "context": "Allgemeine Situation"
+            "de": "Ich habe mich für einen Deutschkurs angemeldet.",
+            "context": "Kursanmeldung"
       },
       {
-        "de": "Können Sie das schriftlich bestätigen?",
-        "context": "Frage stellen"
+            "de": "Die Prüfung findet nächste Woche statt.",
+            "context": "Prüfungstermin"
       },
       {
-        "de": "Gibt es einen Ansprechpartner dafür?",
-        "context": "Antwort geben"
+            "de": "Können Sie mir ein günstiges Angebot machen?",
+            "context": "Preisverhandlung"
       },
       {
-        "de": "Ich brauche noch etwas Zeit.",
-        "context": "Problem lösen"
+            "de": "Ich möchte den Vertrag kündigen.",
+            "context": "Vertragskündigung"
       },
       {
-        "de": "Das ist mir leider nicht möglich.",
-        "context": "Hilfe bitten"
+            "de": "Die Rechnung stimmt nicht.",
+            "context": "Reklamation"
       },
       {
-        "de": "Welche Unterlagen brauche ich?",
-        "context": "Allgemeine Situation"
+            "de": "Könnten Sie mir das bitte schriftlich geben?",
+            "context": "Schriftliche Bestätigung"
       },
       {
-        "de": "Ich komme aus dem Ausland.",
-        "context": "Frage stellen"
+            "de": "Ich bin mit dem Service nicht zufrieden.",
+            "context": "Unzufriedenheit ausdrücken"
       },
       {
-        "de": "Mein Deutsch ist noch nicht so gut.",
-        "context": "Antwort geben"
+            "de": "Welche Möglichkeiten habe ich in diesem Fall?",
+            "context": "Optionen erfragen"
       },
       {
-        "de": "Können Sie mir das auf Papier geben?",
-        "context": "Problem lösen"
+            "de": "Ich muss meinen Führerschein umschreiben lassen.",
+            "context": "Führerscheinumschreibung"
       },
       {
-        "de": "Wo muss ich unterschreiben?",
-        "context": "Hilfe bitten"
+            "de": "Wie lange dauert das Verfahren?",
+            "context": "Bearbeitungsdauer"
       },
       {
-        "de": "Ist das Formular richtig ausgefüllt?",
-        "context": "Allgemeine Situation"
+            "de": "Gibt es Förderungen für Sprachkurse?",
+            "context": "Fördermittel"
       },
       {
-        "de": "Ich habe alles dabei.",
-        "context": "Frage stellen"
+            "de": "Mein Kind geht ab September in die Schule.",
+            "context": "Schulanmeldung"
       },
       {
-        "de": "Gibt es eine Frist dafür?",
-        "context": "Antwort geben"
+            "de": "Wo bekomme ich das Kindergeld beantragt?",
+            "context": "Kindergeld"
       },
       {
-        "de": "Was passiert als nächstes?",
-        "context": "Problem lösen"
+            "de": "Ich brauche eine Übersetzung meiner Dokumente.",
+            "context": "Dokumentenübersetzung"
       },
       {
-        "de": "Ich warte auf eine Antwort.",
-        "context": "Hilfe bitten"
+            "de": "Die Nachbarn sind sehr laut. Was kann ich tun?",
+            "context": "Nachbarschaftsproblem"
       },
       {
-        "de": "Können Sie mich zurückrufen?",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte mich beim Einwohnermeldeamt anmelden.",
+            "context": "Wohnsitzanmeldung"
       },
       {
-        "de": "Ich habe eine Beschwerde.",
-        "context": "Frage stellen"
+            "de": "Wie bekomme ich eine Steuer-ID?",
+            "context": "Steueridentifikation"
       },
       {
-        "de": "Das muss dringend erledigt werden.",
-        "context": "Antwort geben"
+            "de": "Ich habe einen Unfall gehabt und brauche eine Bescheinigung.",
+            "context": "Unfall melden"
       },
       {
-        "de": "Ich bin seit einem Jahr in Deutschland.",
-        "context": "Problem lösen"
+            "de": "Können wir einen Kompromiss finden?",
+            "context": "Einigung suchen"
       },
       {
-        "de": "Meine Adresse hat sich geändert.",
-        "context": "Hilfe bitten"
+            "de": "Das war leider ein Missverständnis.",
+            "context": "Missverständnis klären"
       },
       {
-        "de": "Ich brauche eine Bescheinigung.",
-        "context": "Allgemeine Situation"
+            "de": "Ich möchte das Angebot annehmen.",
+            "context": "Angebot akzeptieren"
       },
       {
-        "de": "Bis wann muss ich das erledigen?",
-        "context": "Frage stellen"
+            "de": "Können Sie mir erklären, was ich als Nächstes tun soll?",
+            "context": "Nächste Schritte"
       },
       {
-        "de": "Gibt es eine Beratung dafür?",
-        "context": "Antwort geben"
+            "de": "Ich bin gesetzlich versichert.",
+            "context": "Versicherungsstatus"
       },
       {
-        "de": "Wo kann ich mich informieren?",
-        "context": "Problem lösen"
+            "de": "Der Arzt hat mich für eine Woche krankgeschrieben.",
+            "context": "Krankmeldung"
       },
       {
-        "de": "Ich möchte einen Antrag stellen.",
-        "context": "Hilfe bitten"
+            "de": "Ich muss bis Ende des Monats ausziehen.",
+            "context": "Auszugsfrist"
       }
-    ],
+],
     "commonMistakes": [
       {
         "wrong": "Kurz und knapp.",
