@@ -6,28 +6,28 @@ import { navigateBackOrHome } from "@/lib/navigation";
 
 const faqs = [
   {
-    q: "Was bekomme ich im Standard-Paket?",
-    a: "Du erhältst Zugriff auf alle Lektionen des gewählten Niveaus mit 4 Aufgabentypen, XP-System und Streak-Tracking.",
+    q: "Was ist in der Free-Version enthalten?",
+    a: "Du bekommst 5 Lektionen pro Niveau mit jeweils 3 Stufen (Grundlagen, Anwendung, Realität) und 50 Aufgaben pro Stufe. Dazu 5 Sprachassistent-Sätze pro Lektion – komplett kostenlos.",
   },
   {
     q: "Was ist im Ultimate-Paket enthalten?",
-    a: "Zusätzlich zu allen Standard-Inhalten bekommst du mehr Aufgabenvarianten, erweiterte Praxis-Szenarien und schnelleren Fortschritt.",
+    a: "Mit Ultimate erhältst du alle Lektionen, 300 Aufgaben pro Stufe, vollen Zugriff auf den Sprachassistent mit 300 Sätzen pro Lektion und dynamisch generierte Aufgaben für maximale Abwechslung.",
   },
   {
     q: "Kann ich kostenlos testen?",
-    a: "Ja, die ersten 5 Lektionen pro Niveau sind komplett kostenlos und sofort verfügbar.",
+    a: "Ja, die ersten 5 Lektionen pro Niveau sind komplett kostenlos und sofort verfügbar – mit allen 3 Stufen.",
   },
   {
     q: "Für wen ist das geeignet?",
-    a: "Für alle, die Deutsch in realen Alltagssituationen trainieren möchten – ob Anfänger oder Fortgeschrittene.",
+    a: "Für alle, die Deutsch in realen Alltagssituationen trainieren möchten – ob Anfänger (A1) oder Fortgeschrittene (C2).",
   },
   {
     q: "Wie lange dauert eine Lektion?",
-    a: "Eine Lektion dauert ca. 2–5 Minuten und besteht aus 4–6 kurzen, interaktiven Aufgaben.",
+    a: "Eine Lektion dauert ca. 3–10 Minuten je nach Stufe. Jede Stufe hat 50 (Free) oder 300 (Ultimate) Aufgaben.",
   },
   {
-    q: "Kann ich jederzeit kündigen?",
-    a: "Ja, es gibt keine Mindestlaufzeit. Du kannst jederzeit kündigen.",
+    q: "Ist Ultimate ein Abo?",
+    a: "Nein. Ultimate ist eine einmalige Zahlung. Du zahlst einmal und hast dauerhaften Zugriff auf alle Inhalte.",
   },
   {
     q: "Muss ich Grammatik lernen?",

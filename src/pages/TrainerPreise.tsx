@@ -29,21 +29,21 @@ const tiers = [
 
 const freeFeatures = [
   { text: "5 Lektionen pro Niveau", included: true },
-  { text: "Grundübungen", included: true },
-  { text: "1 Beispiel im Sprachassistent", included: true },
+  { text: "50 Aufgaben pro Stufe", included: true },
+  { text: "5 Sprachassistent-Sätze", included: true },
   { text: "Alle Lektionen", included: false },
-  { text: "Sprachassistent (voller Zugriff)", included: false },
-  { text: "Alle Szenarien & Situationen", included: false },
+  { text: "300 Aufgaben pro Stufe", included: false },
+  { text: "Sprachassistent (300 Sätze)", included: false },
 ];
 
 const ultimateFeatures = [
   "Alle Lektionen freischalten",
-  "Alle Niveaus (A1 – C2)",
-  "Sprachassistent (voller Zugriff)",
+  "300 Aufgaben pro Stufe",
+  "Sprachassistent mit 300 Sätzen",
   "Alle Szenarien aus dem echten Leben",
   "Dynamische Aufgaben (immer neu)",
   "Smart Progress System",
-  "Neue Inhalte zuerst",
+  "Kein Abo – einmal zahlen",
 ];
 
 export default function TrainerPreise() {
