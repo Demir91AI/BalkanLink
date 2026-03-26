@@ -774,6 +774,7 @@ export const indexChatMk: Record<string, string> = {
   "migration.country.al": "Албанија",
   "migration.country.xk": "Косово",
   "migration.country.mk": "Северна Македонија",
+  "migration.country.si": "Словенија",
 };
 
 export const indexChatDe: Record<string, string> = {
@@ -904,6 +905,7 @@ export const indexChatDe: Record<string, string> = {
   "migration.country.al": "Albanien",
   "migration.country.xk": "Kosovo",
   "migration.country.mk": "Nordmazedonien",
+  "migration.country.si": "Slowenien",
 };
 
 export const indexChatEn: Record<string, string> = {
@@ -1034,6 +1036,7 @@ export const indexChatEn: Record<string, string> = {
   "migration.country.al": "Albania",
   "migration.country.xk": "Kosovo",
   "migration.country.mk": "North Macedonia",
+  "migration.country.si": "Slovenia",
 };
 
 // ── Proper newKeys for languages that were using Bosnian fallback ──
