@@ -214,9 +214,12 @@ export default function DeutschTrainer() {
             {/* Upgrade CTA */}
             <div className="mt-4 rounded-xl border border-gold/20 bg-gold/5 p-5 text-center">
               <Crown className="mx-auto mb-1.5 h-6 w-6 text-gold" />
-              <p className="text-sm font-bold">Schalte alle Lektionen frei</p>
-              <p className="mt-0.5 text-xs text-muted-foreground">
-                Zugriff auf alle Inhalte ab {ULTIMATE_PRICES[selectedLevel]}
+              <p className="text-xl font-black">Einmalig ab 19,99 €</p>
+              <p className="mt-1 text-xs font-medium text-foreground/80">
+                Dauerhafter Zugriff auf alle Lektionen
+              </p>
+              <p className="mt-0.5 text-[10px] text-muted-foreground">
+                Kein Abo – keine monatlichen Kosten
               </p>
               <Button
                 onClick={() => navigate("/deutsch-trainer/preise")}
