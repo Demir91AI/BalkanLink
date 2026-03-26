@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Check, X, Crown, Zap, Star, GraduationCap, ChevronRight } from "lucide-react";
+import { ArrowLeft, Check, X, Crown, Zap, Star, GraduationCap, ChevronRight, HelpCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { navigateBackOrHome } from "@/lib/navigation";
 
 const tiers = [
@@ -43,58 +42,27 @@ const ultimateExtras = [
   "Prioritäts-Support",
 ];
 
-const faqs = [
-  {
-    q: "Was bekomme ich im Standard-Paket?",
-    a: "Du erhältst Zugriff auf alle Lektionen des gewählten Niveaus mit 4 Aufgabentypen, XP-System und Streak-Tracking.",
-  },
-  {
-    q: "Was ist im Ultimate-Paket enthalten?",
-    a: "Zusätzlich zu allen Standard-Inhalten bekommst du mehr Aufgabenvarianten, erweiterte Praxis-Szenarien und schnelleren Fortschritt.",
-  },
-  {
-    q: "Kann ich kostenlos testen?",
-    a: "Ja, die ersten 10 Lektionen pro Niveau sind komplett kostenlos und sofort verfügbar.",
-  },
-  {
-    q: "Für wen ist das geeignet?",
-    a: "Für alle, die Deutsch in realen Alltagssituationen trainieren möchten – ob Anfänger oder Fortgeschrittene.",
-  },
-  {
-    q: "Wie lange dauert eine Lektion?",
-    a: "Eine Lektion dauert ca. 2–5 Minuten und besteht aus 4–6 kurzen, interaktiven Aufgaben.",
-  },
-  {
-    q: "Kann ich jederzeit kündigen?",
-    a: "Ja, es gibt keine Mindestlaufzeit. Du kannst jederzeit kündigen.",
-  },
-  {
-    q: "Muss ich Grammatik lernen?",
-    a: "Nein. Der Deutsch Trainer fokussiert auf praktische Situationen. Grammatik lernst du nebenbei durch die Übungen.",
-  },
-];
-
 export default function TrainerPreise() {
   const navigate = useNavigate();
 
   return (
     <>
       {/* Header */}
-      <section className="border-b bg-primary py-8">
+      <section className="border-b bg-primary py-6">
         <div className="container max-w-4xl">
           <button
             onClick={() => navigateBackOrHome(navigate)}
-            className="mb-4 flex items-center gap-1.5 text-sm text-primary-foreground/60 hover:text-primary-foreground"
+            className="mb-3 flex items-center gap-1.5 text-sm text-primary-foreground/60 hover:text-primary-foreground"
           >
             <ArrowLeft className="h-4 w-4" /> Zurück
           </button>
           <div className="flex items-center gap-3">
-            <GraduationCap className="h-8 w-8 text-gold" />
+            <GraduationCap className="h-7 w-7 text-gold" />
             <div>
-              <h1 className="text-xl font-black text-primary-foreground sm:text-2xl">
-                Wähle dein Niveau und deinen Lernmodus
+              <h1 className="text-lg font-black text-primary-foreground sm:text-xl">
+                Pakete & Optionen
               </h1>
-              <p className="text-sm text-primary-foreground/70">
+              <p className="text-xs text-primary-foreground/70">
                 Deutsch für echte Situationen in Deutschland
               </p>
             </div>
@@ -102,9 +70,9 @@ export default function TrainerPreise() {
         </div>
       </section>
 
-      <div className="container max-w-4xl py-8 space-y-10">
+      <div className="container max-w-4xl py-6 space-y-8">
         {/* Free CTA */}
-        <div className="rounded-2xl border bg-card p-6 text-center">
+        <div className="rounded-xl border bg-card p-5 text-center">
           <p className="text-sm font-bold">🎯 Erst mal testen?</p>
           <p className="mt-1 text-xs text-muted-foreground">
             Die ersten 10 Lektionen pro Niveau sind komplett kostenlos.
@@ -112,7 +80,7 @@ export default function TrainerPreise() {
           <Button
             variant="outline"
             onClick={() => navigate("/deutsch-trainer")}
-            className="mt-4 h-11 rounded-xl px-8 font-bold"
+            className="mt-3 h-10 rounded-xl px-6 text-xs font-bold"
           >
             Kostenlos starten
           </Button>
@@ -120,36 +88,36 @@ export default function TrainerPreise() {
 
         {/* Per-level pricing */}
         {tiers.map((tier) => (
-          <div key={tier.label} className="space-y-4">
+          <div key={tier.label} className="space-y-3">
             <div className="flex items-center gap-3">
-              <span className="rounded-full bg-primary px-4 py-1.5 text-xs font-black text-primary-foreground">
+              <span className="rounded-full bg-primary px-3.5 py-1 text-[11px] font-black text-primary-foreground">
                 {tier.label}
               </span>
-              <span className="text-sm font-medium text-muted-foreground">{tier.subtitle}</span>
+              <span className="text-xs font-medium text-muted-foreground">{tier.subtitle}</span>
             </div>
 
-            <div className="grid gap-4 md:grid-cols-2">
+            <div className="grid gap-3 md:grid-cols-2">
               {/* Standard */}
-              <div className="rounded-2xl border bg-card p-6">
-                <div className="mb-3 flex items-center gap-2">
-                  <Zap className="h-5 w-5 text-muted-foreground" />
-                  <h3 className="text-base font-black">Standard</h3>
+              <div className="rounded-xl border bg-card p-5">
+                <div className="mb-2 flex items-center gap-2">
+                  <Zap className="h-4 w-4 text-muted-foreground" />
+                  <h3 className="text-sm font-black">Standard</h3>
                 </div>
-                <p className="text-3xl font-black">
+                <p className="text-2xl font-black">
                   {tier.standard}{" "}
-                  <span className="text-sm font-normal text-muted-foreground">/ einmalig</span>
+                  <span className="text-xs font-normal text-muted-foreground">/ einmalig</span>
                 </p>
                 <Button
                   variant="outline"
                   onClick={() => navigate("/premium")}
-                  className="mt-5 h-10 w-full rounded-xl font-bold"
+                  className="mt-4 h-9 w-full rounded-xl text-xs font-bold"
                 >
                   Standard wählen
                 </Button>
-                <ul className="mt-5 space-y-2.5">
+                <ul className="mt-4 space-y-2">
                   {standardFeatures.map((f) => (
-                    <li key={f} className="flex items-center gap-2 text-sm">
-                      <Check className="h-4 w-4 shrink-0 text-[hsl(var(--success))]" />
+                    <li key={f} className="flex items-center gap-2 text-xs">
+                      <Check className="h-3.5 w-3.5 shrink-0 text-[hsl(var(--success))]" />
                       {f}
                     </li>
                   ))}
@@ -157,28 +125,28 @@ export default function TrainerPreise() {
               </div>
 
               {/* Ultimate */}
-              <div className="relative rounded-2xl border-2 border-gold bg-card p-6 shadow-lg">
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gold px-4 py-1 text-xs font-bold text-gold-foreground">
+              <div className="relative rounded-xl border-2 border-gold bg-card p-5 shadow-md">
+                <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 rounded-full bg-gold px-3 py-0.5 text-[10px] font-bold text-gold-foreground">
                   🔥 Empfohlen
                 </div>
-                <div className="mb-3 flex items-center gap-2">
-                  <Crown className="h-5 w-5 text-gold" />
-                  <h3 className="text-base font-black">Ultimate</h3>
+                <div className="mb-2 flex items-center gap-2">
+                  <Crown className="h-4 w-4 text-gold" />
+                  <h3 className="text-sm font-black">Ultimate</h3>
                 </div>
-                <p className="text-3xl font-black">
+                <p className="text-2xl font-black">
                   {tier.ultimate}{" "}
-                  <span className="text-sm font-normal text-muted-foreground">/ einmalig</span>
+                  <span className="text-xs font-normal text-muted-foreground">/ einmalig</span>
                 </p>
                 <Button
                   onClick={() => navigate("/premium")}
-                  className="mt-5 h-10 w-full rounded-xl bg-gold font-bold text-gold-foreground shadow-[0_4px_20px_rgba(255,204,0,0.3)] hover:bg-gold-light"
+                  className="mt-4 h-9 w-full rounded-xl bg-gold text-xs font-bold text-gold-foreground shadow-[0_4px_20px_rgba(255,204,0,0.3)] hover:bg-gold-light"
                 >
-                  <Star className="mr-2 h-4 w-4" /> Ultimate wählen
+                  <Star className="mr-1.5 h-3.5 w-3.5" /> Ultimate wählen
                 </Button>
-                <ul className="mt-5 space-y-2.5">
+                <ul className="mt-4 space-y-2">
                   {ultimateExtras.map((f) => (
-                    <li key={f} className="flex items-center gap-2 text-sm font-medium">
-                      <Check className="h-4 w-4 shrink-0 text-gold" />
+                    <li key={f} className="flex items-center gap-2 text-xs font-medium">
+                      <Check className="h-3.5 w-3.5 shrink-0 text-gold" />
                       {f}
                     </li>
                   ))}
@@ -186,10 +154,10 @@ export default function TrainerPreise() {
               </div>
             </div>
 
-            {/* Topics for this tier */}
-            <div className="flex flex-wrap gap-2 pl-1">
+            {/* Topics */}
+            <div className="flex flex-wrap gap-1.5 pl-0.5">
               {tier.topics.map((t) => (
-                <span key={t} className="rounded-full bg-muted px-3 py-1 text-[11px] font-medium text-muted-foreground">
+                <span key={t} className="rounded-full bg-muted px-2.5 py-0.5 text-[10px] font-medium text-muted-foreground">
                   {t}
                 </span>
               ))}
@@ -198,8 +166,8 @@ export default function TrainerPreise() {
         ))}
 
         {/* Comparison table */}
-        <div className="rounded-2xl border bg-card overflow-hidden">
-          <div className="grid grid-cols-3 border-b bg-muted/50 px-5 py-3 text-xs font-bold">
+        <div className="rounded-xl border bg-card overflow-hidden">
+          <div className="grid grid-cols-3 border-b bg-muted/50 px-4 py-2.5 text-[11px] font-bold">
             <span>Feature</span>
             <span className="text-center">Standard</span>
             <span className="text-center">Ultimate</span>
@@ -214,57 +182,51 @@ export default function TrainerPreise() {
             { name: "Schnellerer Fortschritt", std: false, ult: true },
             { name: "Prioritäts-Support", std: false, ult: true },
           ].map((row) => (
-            <div key={row.name} className="grid grid-cols-3 items-center border-b last:border-0 px-5 py-3 text-sm">
+            <div key={row.name} className="grid grid-cols-3 items-center border-b last:border-0 px-4 py-2.5 text-xs">
               <span>{row.name}</span>
               <span className="flex justify-center">
                 {row.std === true ? (
-                  <Check className="h-4 w-4 text-[hsl(var(--success))]" />
+                  <Check className="h-3.5 w-3.5 text-[hsl(var(--success))]" />
                 ) : row.std === false ? (
-                  <X className="h-4 w-4 text-muted-foreground/40" />
+                  <X className="h-3.5 w-3.5 text-muted-foreground/40" />
                 ) : (
-                  <span className="text-xs text-muted-foreground">{row.std}</span>
+                  <span className="text-[11px] text-muted-foreground">{row.std}</span>
                 )}
               </span>
               <span className="flex justify-center">
                 {row.ult === true ? (
-                  <Check className="h-4 w-4 text-gold" />
+                  <Check className="h-3.5 w-3.5 text-gold" />
                 ) : (
-                  <span className="text-xs font-medium text-gold-dark">{row.ult}</span>
+                  <span className="text-[11px] font-medium text-gold-dark">{row.ult}</span>
                 )}
               </span>
             </div>
           ))}
         </div>
 
-        {/* FAQ */}
-        <div>
-          <h2 className="mb-4 text-lg font-black">Häufige Fragen zum Deutsch Trainer</h2>
-          <Accordion type="single" collapsible className="rounded-2xl border bg-card">
-            {faqs.map((faq, i) => (
-              <AccordionItem key={i} value={`faq-${i}`} className="border-b last:border-0 px-5">
-                <AccordionTrigger className="text-sm font-bold hover:no-underline">
-                  {faq.q}
-                </AccordionTrigger>
-                <AccordionContent className="text-sm text-muted-foreground">
-                  {faq.a}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+        {/* FAQ link */}
+        <div className="text-center">
+          <button
+            onClick={() => navigate("/deutsch-trainer/faq")}
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
+          >
+            <HelpCircle className="h-4 w-4" />
+            Fragen? Hier klicken
+          </button>
         </div>
 
         {/* Bottom CTA */}
-        <div className="rounded-2xl border-2 border-gold/30 bg-gold/5 p-8 text-center">
-          <GraduationCap className="mx-auto mb-3 h-10 w-10 text-gold" />
-          <p className="text-base font-black">Bereit für besseres Deutsch?</p>
-          <p className="mt-1 text-sm text-muted-foreground">
+        <div className="rounded-xl border border-gold/20 bg-gold/5 p-6 text-center">
+          <GraduationCap className="mx-auto mb-2 h-8 w-8 text-gold" />
+          <p className="text-sm font-black">Bereit für besseres Deutsch?</p>
+          <p className="mt-0.5 text-xs text-muted-foreground">
             Starte jetzt kostenlos und entscheide später.
           </p>
           <Button
             onClick={() => navigate("/deutsch-trainer")}
-            className="mt-5 h-12 rounded-full bg-gold px-10 text-sm font-bold text-gold-foreground shadow-[0_4px_20px_rgba(255,204,0,0.3)] hover:bg-gold-light"
+            className="mt-4 h-10 rounded-full bg-gold px-8 text-xs font-bold text-gold-foreground shadow-[0_4px_20px_rgba(255,204,0,0.3)] hover:bg-gold-light"
           >
-            Kostenlos starten <ChevronRight className="ml-1 h-4 w-4" />
+            Kostenlos starten <ChevronRight className="ml-1 h-3.5 w-3.5" />
           </Button>
         </div>
       </div>
