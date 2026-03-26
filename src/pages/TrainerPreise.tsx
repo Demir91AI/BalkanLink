@@ -62,20 +62,6 @@ export default function TrainerPreise() {
       </section>
 
       <div className="container max-w-3xl py-6 space-y-8">
-        {/* Free info */}
-        <div className="rounded-xl border bg-card p-5 text-center">
-          <p className="text-sm font-bold">🎯 Erst mal testen?</p>
-          <p className="mt-1 text-xs text-muted-foreground">
-            Die ersten 10 Lektionen pro Niveau sind komplett kostenlos.
-          </p>
-          <Button
-            variant="outline"
-            onClick={() => navigate("/deutsch-trainer")}
-            className="mt-3 h-10 rounded-xl px-6 text-xs font-bold"
-          >
-            Kostenlos starten
-          </Button>
-        </div>
 
         {/* Per-level Ultimate cards */}
         {tiers.map((tier) => (
