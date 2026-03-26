@@ -68,6 +68,8 @@ export default function DeutschTrainer() {
     return <TrainerLesson lesson={activeLesson} onBack={() => setActiveLesson(null)} />;
   }
 
+  const totalExercisesPerLesson = 15; // 3 stages × 5
+
   return (
     <>
       {/* Header */}
@@ -179,7 +181,7 @@ export default function DeutschTrainer() {
                       {isLocked && <Lock className="h-3 w-3 text-muted-foreground/60" />}
                     </div>
                     <p className={`mt-0.5 text-[11px] ${isLocked ? "text-muted-foreground/60" : "text-muted-foreground"}`}>
-                      {lesson.title} · {lesson.exercises.length} Aufgaben
+                      {lesson.title} · {totalExercisesPerLesson} Aufgaben · 3 Level
                     </p>
                   </div>
                   {isFree && !completed && (
@@ -226,7 +228,7 @@ export default function DeutschTrainer() {
           </div>
         )}
 
-        {/* ── UPGRADE CTA (no price, just action) ── */}
+        {/* ── UPGRADE CTA ── */}
         {!isPremium && (
           <div className="mb-6 rounded-2xl border-2 border-gold/30 bg-gradient-to-b from-gold/5 to-gold/10 p-6 text-center">
             <Crown className="mx-auto mb-2 h-7 w-7 text-gold" />
