@@ -18,7 +18,7 @@ const STAGE_COLORS = [
 ];
 
 export default function StageCard({ label, index, freeCount, lockedCount, isPremium, onSelect, onUpgrade }: Props) {
-  const totalCount = isPremium ? freeCount + lockedCount : freeCount;
+  const totalCount = freeCount + lockedCount;
 
   return (
     <motion.div
@@ -38,7 +38,7 @@ export default function StageCard({ label, index, freeCount, lockedCount, isPrem
         <div className="flex-1">
           <h3 className="text-sm font-bold">{label}</h3>
           <p className="text-[11px] text-muted-foreground">
-            {isPremium ? `${freeCount + lockedCount} Aufgaben` : `${freeCount} Aufgaben`}
+            {totalCount} Aufgaben{!isPremium && ` · ${freeCount} frei`}
           </p>
         </div>
         <ArrowRight className="h-4 w-4 text-muted-foreground" />
