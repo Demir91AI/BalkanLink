@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Check, Crown, Star, GraduationCap, ChevronRight, HelpCircle } from "lucide-react";
+import { ArrowLeft, Check, Crown, Star, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { navigateBackOrHome } from "@/lib/navigation";
 
