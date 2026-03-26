@@ -25,7 +25,7 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
   const [results, setResults] = useState<boolean[]>([]);
   const [answered, setAnswered] = useState(false);
   const { progress, addXp, completeLesson } = useTrainerProgress();
-  const { speak, isSpeaking } = useTTS();
+  const { toggle, state: ttsState } = useTTS();
 
   const stage = selectedStage !== null ? lesson.stages[selectedStage] : null;
   const exercises = useMemo(
@@ -122,7 +122,7 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
             <div className="flex flex-col gap-2">
               {lesson.importantPhrases.map((phrase, i) => (
                 <div key={i} className="flex items-center gap-2 rounded-lg bg-muted/50 px-3 py-2">
-                  <AudioButton text={phrase.de} speak={speak} isSpeaking={isSpeaking} size="sm" />
+                  <AudioButton text={phrase.de} toggle={toggle} state={ttsState} size="sm" />
                   <div className="min-w-0">
                     <p className="text-xs font-semibold">{phrase.de}</p>
                     <p className="text-[10px] text-muted-foreground">{phrase.context}</p>
