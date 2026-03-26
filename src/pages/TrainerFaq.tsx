@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     q: "Was ist der Wertgutschein?",
-    a: "Bei 100% Abschluss eines Pakets erhältst du einen Wertgutschein (5–30 €). Dies ist eine freiwillige Bonusleistung, kein Rechtsanspruch. Details findest du in den Bonusbedingungen.",
+    a: "Als Premium-Nutzer erhältst du bei 100% Abschluss eines Pakets einen Wertgutschein (5–30 €). Der Wertgutschein ist eine freiwillige Bonusleistung – es besteht kein Rechtsanspruch. Die Prüfung erfolgt manuell durch BalkanLink. Details findest du in den Bonusbedingungen.",
   },
   {
     q: "Ist Ultimate ein Abo?",
