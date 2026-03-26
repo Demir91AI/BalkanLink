@@ -396,7 +396,7 @@ export default function ChatAssistant() {
     } finally {
       setLoading(false);
     }
-  }, [loading, messages, isPremium, language, t]);
+  }, [loading, messages, isPremium, language, t, canChat, recordQuery]);
 
   const sendMessage = useCallback(() => sendMessageWithText(input), [input, sendMessageWithText]);
 
