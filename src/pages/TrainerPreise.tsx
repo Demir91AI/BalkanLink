@@ -182,8 +182,8 @@ export default function TrainerPreise() {
                     {pkg.saving}
                   </p>
 
-                  <p className="mt-1.5 text-[11px] leading-relaxed text-muted-foreground">
-                    5 Lektionen kostenlos testen · {pkg.voucher} bei 100% Abschluss
+          <p className="mt-1.5 text-[11px] leading-relaxed text-muted-foreground">
+                    5 Lektionen kostenlos testen · {pkg.voucher} für Premium-Nutzer bei 100% Abschluss
                   </p>
 
                   <Button
@@ -252,8 +252,14 @@ export default function TrainerPreise() {
           <h2 className="mb-3 text-sm font-black flex items-center gap-2">
             🎁 Wertgutschein-Programm
           </h2>
-          <p className="text-xs text-muted-foreground leading-relaxed mb-3">
-            Schließe den Kurs ab und sichere dir einen Wertgutschein als Bonus.
+          <p className="text-xs font-semibold leading-relaxed mb-1">
+            Schließe den Kurs ab und sichere dir als Premium-Nutzer einen Wertgutschein
+          </p>
+          <p className="text-[11px] text-muted-foreground leading-relaxed mb-3">
+            Nur für aktive Premium-Nutzer. Es gelten die{" "}
+            <button onClick={() => navigate("/deutsch-trainer/bonusbedingungen")} className="text-primary underline">
+              Bonusbedingungen
+            </button>.
           </p>
           <div className="space-y-2">
             {[
@@ -269,11 +275,8 @@ export default function TrainerPreise() {
             ))}
           </div>
           <p className="mt-3 text-[10px] text-muted-foreground leading-relaxed">
-            Voraussetzung: 100% Abschluss aller Aufgaben im Paket. Gutscheine nur für Pakete, nicht für Einzelniveaus. 
-            Manuelle Prüfung durch BalkanLink. Es gelten die{" "}
-            <button onClick={() => navigate("/deutsch-trainer/bonusbedingungen")} className="text-primary underline">
-              Bonusbedingungen
-            </button>.
+            Voraussetzung: Aktiver Premium-Zugang + 100% Abschluss aller Aufgaben im Paket. Gutscheine nur für Pakete, nicht für Einzelniveaus. 
+            Der Wertgutschein ist eine freiwillige Bonusleistung – kein Rechtsanspruch. Manuelle Prüfung durch BalkanLink.
           </p>
         </div>
 

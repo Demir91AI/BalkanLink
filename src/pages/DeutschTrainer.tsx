@@ -249,7 +249,7 @@ export default function DeutschTrainer() {
             <div className="mt-3 flex items-center justify-center gap-3 text-[10px] text-muted-foreground">
               <span>✓ Kein Abo</span>
               <span>✓ Einmal zahlen</span>
-              <span>✓ Wertgutschein</span>
+              <span>✓ Wertgutschein für Premium</span>
             </div>
           </div>
         )}

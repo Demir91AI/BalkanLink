@@ -39,6 +39,7 @@ export default function TrainerBonusbedingungen() {
 
           <h2 className="text-base font-black text-foreground">2. Voraussetzungen</h2>
           <ul className="list-disc pl-5 space-y-1">
+            <li><strong>Aktiver Premium-Zugang</strong> – Teilnahme nur für Premium-Nutzer</li>
             <li>100% Abschluss aller Aufgaben im jeweiligen Paket</li>
             <li>Kein Überspringen von Aufgaben</li>
             <li>Ausreichender Score (alle Aufgaben korrekt beantwortet)</li>
@@ -77,8 +78,8 @@ export default function TrainerBonusbedingungen() {
 
           <h2 className="text-base font-black text-foreground">7. Teilnahme</h2>
           <p>
-            Die Teilnahme am Wertgutschein-Programm erfordert die aktive Zustimmung zu den 
-            allgemeinen Geschäftsbedingungen (AGB) von BalkanLink.
+            Die Teilnahme am Wertgutschein-Programm ist ausschließlich Premium-Nutzern vorbehalten 
+            und erfordert die aktive Zustimmung zu den allgemeinen Geschäftsbedingungen (AGB) von BalkanLink.
           </p>
 
           <h2 className="text-base font-black text-foreground">8. Änderungen</h2>
