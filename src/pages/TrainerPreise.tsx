@@ -29,17 +29,17 @@ const tiers = [
 
 const freeFeatures = [
   { text: "5 Lektionen pro Niveau", included: true },
-  { text: "50 Aufgaben pro Stufe", included: true },
+  { text: "30 Aufgaben pro Lektion", included: true },
   { text: "5 Sprachassistent-Sätze", included: true },
   { text: "Alle Lektionen", included: false },
-  { text: "300 Aufgaben pro Stufe", included: false },
-  { text: "Sprachassistent (300 Sätze)", included: false },
+  { text: "300 Aufgaben pro Lektion", included: false },
+  { text: "Sprachassistent (100 Sätze)", included: false },
 ];
 
 const ultimateFeatures = [
   "Alle Lektionen freischalten",
-  "300 Aufgaben pro Stufe",
-  "Sprachassistent mit 300 Sätzen",
+  "300 Aufgaben pro Lektion",
+  "Sprachassistent mit 100 Sätzen",
   "Alle Szenarien aus dem echten Leben",
   "Dynamische Aufgaben (immer neu)",
   "Smart Progress System",
