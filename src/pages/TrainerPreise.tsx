@@ -163,9 +163,9 @@ export default function TrainerPreise() {
               )}
             </div>
 
-            <div className="flex flex-wrap gap-1.5 pl-0.5">
+            <div className="flex flex-wrap gap-1 pl-0.5">
               {tier.topics.map((t) => (
-                <span key={t} className="rounded-full bg-muted px-2.5 py-0.5 text-[10px] font-medium text-muted-foreground">
+                <span key={t} className="rounded-full bg-muted px-2 py-0.5 text-[9px] font-medium text-muted-foreground">
                   {t}
                 </span>
               ))}
