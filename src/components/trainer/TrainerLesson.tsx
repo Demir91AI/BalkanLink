@@ -42,6 +42,16 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
     setStep((s) => s + 1);
   };
 
+  const handleBack = () => {
+    if (step > 0 && !answered) {
+      // Go back to previous exercise (re-do it)
+      setStep((s) => s - 1);
+      setResults((r) => r.slice(0, -1));
+    } else {
+      onBack();
+    }
+  };
+
   const handleRestart = () => {
     setStep(0);
     setResults([]);
@@ -82,7 +92,7 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
     <div className="mx-auto flex w-full max-w-lg flex-col px-4 py-6">
       {/* Header */}
       <div className="mb-6 flex items-center gap-3">
-        <button onClick={onBack} className="text-muted-foreground hover:text-foreground">
+        <button onClick={handleBack} className="text-muted-foreground hover:text-foreground">
           <ArrowLeft className="h-5 w-5" />
         </button>
         <div className="flex-1">
