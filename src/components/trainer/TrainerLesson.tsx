@@ -11,6 +11,7 @@ import QuickReaction from "./QuickReaction";
 import LessonComplete from "./LessonComplete";
 import { useTrainerProgress } from "@/hooks/useTrainerProgress";
 import { useTTS } from "@/hooks/useTTS";
+import AudioButton from "./AudioButton";
 import { Button } from "@/components/ui/button";
 
 interface Props {
