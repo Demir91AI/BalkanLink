@@ -111,6 +111,7 @@ export const indexChatBs: Record<string, string> = {
   "migration.country.al": "Albanija",
   "migration.country.xk": "Kosovo",
   "migration.country.mk": "Sjeverna Makedonija",
+  "migration.country.si": "Slovenija",
 };
 
 export const indexChatHr: Record<string, string> = {
@@ -241,6 +242,7 @@ export const indexChatHr: Record<string, string> = {
   "migration.country.al": "Albanija",
   "migration.country.xk": "Kosovo",
   "migration.country.mk": "Sjeverna Makedonija",
+  "migration.country.si": "Slovenija",
 };
 
 export const indexChatSr: Record<string, string> = {
@@ -371,6 +373,7 @@ export const indexChatSr: Record<string, string> = {
   "migration.country.al": "Albanija",
   "migration.country.xk": "Kosovo",
   "migration.country.mk": "Severna Makedonija",
+  "migration.country.si": "Slovenija",
 };
 
 export const indexChatMe: Record<string, string> = {
@@ -501,6 +504,7 @@ export const indexChatMe: Record<string, string> = {
   "migration.country.al": "Albanija",
   "migration.country.xk": "Kosovo",
   "migration.country.mk": "Sjeverna Makedonija",
+  "migration.country.si": "Slovenija",
 };
 
 export const indexChatSq: Record<string, string> = {
@@ -631,6 +635,7 @@ export const indexChatSq: Record<string, string> = {
   "migration.country.al": "Shqipëria",
   "migration.country.xk": "Kosova",
   "migration.country.mk": "Maqedonia e Veriut",
+  "migration.country.si": "Sllovenia",
 };
 
 export const indexChatXk: Record<string, string> = {
