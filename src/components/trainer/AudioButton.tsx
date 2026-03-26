@@ -1,34 +1,46 @@
-import { Volume2, Pause } from "lucide-react";
+import { Play, Pause } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface AudioButtonProps {
+  id: string;
   text: string;
-  toggle: (text: string) => void;
-  state: "idle" | "playing" | "paused";
-  size?: "sm" | "md";
+  toggle: (id: string, text: string) => void;
+  activeId: string | null;
+  playState: "idle" | "playing" | "paused";
 }
 
-export default function AudioButton({ text, toggle, state, size = "sm" }: AudioButtonProps) {
-  const isActive = state === "playing";
-  const iconSize = size === "sm" ? "h-3.5 w-3.5" : "h-4 w-4";
-  const btnSize = size === "sm" ? "h-7 w-7" : "h-8 w-8";
+export default function AudioButton({
+  id,
+  text,
+  toggle,
+  activeId,
+  playState,
+}: AudioButtonProps) {
+  const isThisActive = activeId === id;
+  const isPlaying = isThisActive && playState === "playing";
 
   return (
     <button
-      onClick={() => toggle(text)}
+      onClick={(e) => {
+        e.stopPropagation();
+        toggle(id, text);
+      }}
       className={cn(
-        "inline-flex items-center justify-center rounded-full transition-all duration-150",
-        btnSize,
-        isActive
-          ? "bg-primary text-primary-foreground"
-          : "bg-primary/10 text-primary hover:bg-primary/20"
+        "relative inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full",
+        "transition-all duration-200 ease-out",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50",
+        isPlaying
+          ? "bg-primary text-primary-foreground shadow-[0_0_12px_hsl(var(--primary)/0.4)]"
+          : isThisActive && playState === "paused"
+            ? "bg-primary/20 text-primary ring-1 ring-primary/30"
+            : "bg-primary/10 text-primary hover:bg-primary/20 hover:shadow-sm active:scale-95"
       )}
-      aria-label={isActive ? "Pause" : "Abspielen"}
+      aria-label={isPlaying ? "Pause" : "Abspielen"}
     >
-      {isActive ? (
-        <Pause className={iconSize} />
+      {isPlaying ? (
+        <Pause className="h-3.5 w-3.5" fill="currentColor" />
       ) : (
-        <Volume2 className={iconSize} />
+        <Play className="h-3.5 w-3.5 translate-x-[1px]" fill="currentColor" />
       )}
     </button>
   );

@@ -21,10 +21,12 @@ function getBestGermanVoice(): SpeechSynthesisVoice | null {
   return german[0];
 }
 
+type PlayState = "idle" | "playing" | "paused";
+
 export function useTTS() {
-  const [state, setState] = useState<"idle" | "playing" | "paused">("idle");
+  const [activeId, setActiveId] = useState<string | null>(null);
+  const [playState, setPlayState] = useState<PlayState>("idle");
   const cachedVoice = useRef<SpeechSynthesisVoice | null>(null);
-  const currentText = useRef<string>("");
 
   useEffect(() => {
     const load = () => {
@@ -36,8 +38,7 @@ export function useTTS() {
     }
   }, []);
 
-  const play = useCallback((text: string) => {
-    if (!("speechSynthesis" in window)) return;
+  const playNew = useCallback((id: string, text: string) => {
     speechSynthesis.cancel();
 
     const utterance = new SpeechSynthesisUtterance(text);
@@ -52,37 +53,49 @@ export function useTTS() {
       utterance.lang = voice.lang;
     }
 
-    currentText.current = text;
-    utterance.onstart = () => setState("playing");
-    utterance.onend = () => setState("idle");
-    utterance.onerror = () => setState("idle");
+    utterance.onstart = () => {
+      setActiveId(id);
+      setPlayState("playing");
+    };
+    utterance.onend = () => {
+      setActiveId(null);
+      setPlayState("idle");
+    };
+    utterance.onerror = () => {
+      setActiveId(null);
+      setPlayState("idle");
+    };
+
     speechSynthesis.speak(utterance);
   }, []);
 
-  const pause = useCallback(() => {
-    speechSynthesis.pause();
-    setState("paused");
-  }, []);
+  const toggle = useCallback(
+    (id: string, text: string) => {
+      // Same sentence playing → pause
+      if (activeId === id && playState === "playing") {
+        speechSynthesis.pause();
+        setPlayState("paused");
+        return;
+      }
 
-  const resume = useCallback(() => {
-    speechSynthesis.resume();
-    setState("playing");
-  }, []);
+      // Same sentence paused → resume
+      if (activeId === id && playState === "paused") {
+        speechSynthesis.resume();
+        setPlayState("playing");
+        return;
+      }
 
-  const toggle = useCallback((text: string) => {
-    if (state === "playing") {
-      pause();
-    } else if (state === "paused") {
-      resume();
-    } else {
-      play(text);
-    }
-  }, [state, play, pause, resume]);
+      // Different sentence or idle → play new
+      playNew(id, text);
+    },
+    [activeId, playState, playNew]
+  );
 
   const stop = useCallback(() => {
     speechSynthesis.cancel();
-    setState("idle");
+    setActiveId(null);
+    setPlayState("idle");
   }, []);
 
-  return { toggle, stop, state };
+  return { toggle, stop, activeId, playState };
 }
