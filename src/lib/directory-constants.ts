@@ -6,6 +6,7 @@ export const ORIGIN_COUNTRIES = [
   { code: "AL", label: "Albanija", flag: "🇦🇱" },
   { code: "KS", label: "Kosovo", flag: "🇽🇰" },
   { code: "MK", label: "Makedonija", flag: "🇲🇰" },
+  { code: "SI", label: "Slovenija", flag: "🇸🇮" },
 ] as const;
 
 export const DIRECTORY_CATEGORIES = [

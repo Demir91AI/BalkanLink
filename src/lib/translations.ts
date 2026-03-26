@@ -1,6 +1,6 @@
-import { indexChatBs, indexChatHr, indexChatSr, indexChatMe, indexChatSq, indexChatXk, indexChatMk, indexChatDe, indexChatEn, newKeysSq, newKeysXk, newKeysMk, newKeysMe } from "./i18n-extra";
+import { indexChatBs, indexChatHr, indexChatSr, indexChatMe, indexChatSq, indexChatXk, indexChatMk, indexChatDe, indexChatEn, indexChatSl, newKeysSq, newKeysXk, newKeysMk, newKeysMe } from "./i18n-extra";
 
-export type Language = "bs" | "hr" | "sr" | "me" | "sq" | "mk" | "xk" | "de" | "en";
+export type Language = "bs" | "hr" | "sr" | "me" | "sq" | "mk" | "xk" | "de" | "en" | "sl";
 
 export interface LanguageInfo {
   code: Language;
@@ -17,6 +17,7 @@ export const LANGUAGES: LanguageInfo[] = [
   { code: "sq", name: "Shqip", country: "Shqipëria", flag: "🇦🇱" },
   { code: "xk", name: "Shqip (Kosovo)", country: "Kosova", flag: "🇽🇰" },
   { code: "mk", name: "Македонски", country: "Македонија", flag: "🇲🇰" },
+  { code: "sl", name: "Slovenščina", country: "Slovenija", flag: "🇸🇮" },
   { code: "de", name: "Deutsch", country: "Deutschland", flag: "🇩🇪" },
   { code: "en", name: "English", country: "United Kingdom", flag: "🇬🇧" },
 ];

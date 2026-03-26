@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useCallback, type ReactNode } from "react";
 
-export type CountryCode = "BIH" | "SRB" | "HR" | "ME" | "MK" | "XK" | "AL";
+export type CountryCode = "BIH" | "SRB" | "HR" | "ME" | "MK" | "XK" | "AL" | "SI";
 
 export interface CountryInfo {
   code: CountryCode;
@@ -16,6 +16,7 @@ export const COUNTRIES: CountryInfo[] = [
   { code: "MK",  flag: "🇲🇰", nameKey: "country.MK" },
   { code: "XK",  flag: "🇽🇰", nameKey: "country.XK" },
   { code: "AL",  flag: "🇦🇱", nameKey: "country.AL" },
+  { code: "SI",  flag: "🇸🇮", nameKey: "country.SI" },
 ];
 
 interface CountryContextType {
