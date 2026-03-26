@@ -3,7 +3,7 @@
  * BS/HR/SR are linguistically differentiated where appropriate.
  */
 
-type Lang = "bs" | "hr" | "sr" | "me" | "sq" | "xk" | "mk" | "de" | "en";
+type Lang = "bs" | "hr" | "sr" | "me" | "sq" | "xk" | "mk" | "de" | "en" | "sl";
 
 // ─── Dokumenten-Check ───
 const docCheckTranslations: Record<Lang, Record<string, string>> = {
