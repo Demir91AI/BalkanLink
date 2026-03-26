@@ -26,6 +26,7 @@ export default function SmartGuide() {
   const { searchParams, setSearchState } = useHistorySearchState();
   const guide = getGuideBySlug(slug ?? "");
   const lang: LangKey = "bs";
+  const { canAccessStep, isPremium } = usePremiumAccess();
 
   if (!guide) {
     return (
