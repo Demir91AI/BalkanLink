@@ -4,6 +4,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { navigateBackOrHome } from "@/lib/navigation";
 import { VORLAGEN_TEMPLATES, getTemplate } from "@/lib/vorlagen-templates";
 import VorlagenGenerator from "@/components/vorlagen/VorlagenGenerator";
+import { usePremiumAccess } from "@/hooks/usePremiumAccess";
+import PremiumPaywall from "@/components/PremiumPaywall";
 
 const ICON_MAP: Record<string, React.ElementType> = {
   briefcase: Briefcase,
@@ -23,6 +25,7 @@ export default function Vorlagen() {
   const navigate = useNavigate();
   const { slug } = useParams();
   const { t } = useLanguage();
+  const { canUseDocGenerator } = usePremiumAccess();
 
   /* ── Individual template detail/generator view ── */
   if (slug) {
@@ -62,8 +65,11 @@ export default function Vorlagen() {
             <p className="text-sm text-muted-foreground">{tpl.titleBs}</p>
           </div>
         </div>
-
-        <VorlagenGenerator template={tpl} />
+        {canUseDocGenerator ? (
+          <VorlagenGenerator template={tpl} />
+        ) : (
+          <PremiumPaywall variant="doc-generator" />
+        )}
       </div>
     );
   }

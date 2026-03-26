@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
+import { useChatLimit } from "@/hooks/usePremiumAccess";
 import { Link } from "react-router-dom";
 import { formCatalog, type FormEntry } from "@/lib/form-catalog";
 import { BLIcon } from "@/components/BrandLogo";
@@ -209,6 +210,7 @@ function ResponseActions({ msg, t }: { msg: Msg; t: (key: string) => string }) {
 export default function ChatAssistant() {
   const { language, t } = useLanguage();
   const { isPremium } = useAuth();
+  const { canChat, remaining, recordQuery } = useChatLimit();
 
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([]);
@@ -244,6 +246,19 @@ export default function ChatAssistant() {
 
   const sendMessageWithText = useCallback(async (text: string) => {
     if (!text.trim() || loading) return;
+
+    // Enforce daily limit for free users
+    if (!canChat) {
+      setMessages((prev) => [...prev,
+        { role: "user", content: text.trim() },
+        { role: "assistant", content: "⚡ Dostigao/la si dnevni limit od 3 pitanja.\n\nSa **BalkanLink Premium** dobijaš neograničenu AI pomoć i personalizirane odgovore.\n\n[👉 Premium aktivieren](/premium)" },
+      ]);
+      setInput("");
+      return;
+    }
+
+    // Record usage
+    await recordQuery();
 
     const userMsg: Msg = { role: "user", content: text.trim() };
     const newMessages = [...messages, userMsg];
@@ -381,7 +396,7 @@ export default function ChatAssistant() {
     } finally {
       setLoading(false);
     }
-  }, [loading, messages, isPremium, language, t]);
+  }, [loading, messages, isPremium, language, t, canChat, recordQuery]);
 
   const sendMessage = useCallback(() => sendMessageWithText(input), [input, sendMessageWithText]);
 
@@ -571,11 +586,18 @@ export default function ChatAssistant() {
 
               {/* Input area */}
               <div className="border-t border-border/40 px-4 py-3 shrink-0">
-                <div className="flex items-center gap-1 mb-1.5 px-0.5">
-                  <ShieldCheck className="h-2.5 w-2.5 text-emerald-600/60 dark:text-emerald-400/60 shrink-0" />
-                  <p className="text-[8px] text-muted-foreground/40">
-                    {t("chat.noSensitiveData")}
-                  </p>
+                <div className="flex items-center justify-between mb-1.5 px-0.5">
+                  <div className="flex items-center gap-1">
+                    <ShieldCheck className="h-2.5 w-2.5 text-emerald-600/60 dark:text-emerald-400/60 shrink-0" />
+                    <p className="text-[8px] text-muted-foreground/40">
+                      {t("chat.noSensitiveData")}
+                    </p>
+                  </div>
+                  {!isPremium && (
+                    <p className="text-[8px] text-muted-foreground/50 font-medium">
+                      {remaining > 0 ? `${remaining}/3 preostalo` : "Limit dostignut"}
+                    </p>
+                  )}
                 </div>
                 <div className="flex items-end gap-2">
                   <textarea

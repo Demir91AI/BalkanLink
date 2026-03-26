@@ -599,6 +599,18 @@ export default function BruttoNettoRechner() {
               <p className="text-[10px] text-muted-foreground text-center">
                 {t("calc.disclaimerShort")}
               </p>
+
+              {/* Premium upsell */}
+              <div className="rounded-xl border border-[hsl(var(--gold))]/20 bg-[hsl(var(--gold))]/5 p-4 text-center">
+                <p className="text-sm font-semibold mb-1">Želiš znati kako da dobiješ više?</p>
+                <p className="text-xs text-muted-foreground mb-3">Saznaj koje olakšice i pomoći možeš koristiti za veću neto platu.</p>
+                <a
+                  href="/premium"
+                  className="inline-flex items-center gap-1.5 rounded-lg bg-[hsl(var(--gold))]/10 px-4 py-2 text-xs font-semibold text-[hsl(var(--gold))] transition-colors hover:bg-[hsl(var(--gold))]/20"
+                >
+                  ✨ Optimierung freischalten
+                </a>
+              </div>
             </div>
           </div>
 

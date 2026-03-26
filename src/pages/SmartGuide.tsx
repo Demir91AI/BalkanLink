@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { getGuideBySlug, getOfficialUrl, type GuideStepCard } from "@/lib/guide-data";
+import { usePremiumAccess } from "@/hooks/usePremiumAccess";
+import { StepLockOverlay } from "@/components/PremiumPaywall";
 
 type LangKey = "de" | "bs" | "en";
 
@@ -24,6 +26,7 @@ export default function SmartGuide() {
   const { searchParams, setSearchState } = useHistorySearchState();
   const guide = getGuideBySlug(slug ?? "");
   const lang: LangKey = "bs";
+  const { canAccessStep, isPremium } = usePremiumAccess();
 
   if (!guide) {
     return (
@@ -146,36 +149,38 @@ export default function SmartGuide() {
           ))}
         </div>
 
-        {/* Step header */}
-        <div className="rounded-2xl border bg-card p-5">
-          <div className="mb-1 flex items-center gap-2">
-            <Badge variant="outline" className="text-[10px]">
-              <BookOpen className="mr-1 h-3 w-3" /> Korak {step + 1}
-            </Badge>
+        <StepLockOverlay locked={!canAccessStep(step)}>
+          {/* Step header */}
+          <div className="rounded-2xl border bg-card p-5">
+            <div className="mb-1 flex items-center gap-2">
+              <Badge variant="outline" className="text-[10px]">
+                <BookOpen className="mr-1 h-3 w-3" /> Korak {step + 1}
+              </Badge>
+            </div>
+            <h3 className="font-bold text-sm mt-2">{current.field}</h3>
+            <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{current.instruction}</p>
           </div>
-          <h3 className="font-bold text-sm mt-2">{current.field}</h3>
-          <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{current.instruction}</p>
-        </div>
 
-        {/* Detail cards */}
-        {current.cards && current.cards.length > 0 && (
-          <div className="grid gap-3 sm:grid-cols-2">
-            {current.cards.map((card, ci) =>
-              cardConfig.map(({ key, label, icon, color }) => {
-                const value = card[key];
-                if (!value) return null;
-                return (
-                  <div key={`${ci}-${key}`} className={`rounded-xl border p-4 ${color}`}>
-                    <h4 className="mb-1.5 flex items-center gap-1.5 text-[11px] font-bold">
-                      {icon} {label}
-                    </h4>
-                    <p className="text-xs leading-relaxed text-foreground/80">{value}</p>
-                  </div>
-                );
-              })
-            )}
-          </div>
-        )}
+          {/* Detail cards */}
+          {current.cards && current.cards.length > 0 && (
+            <div className="grid gap-3 sm:grid-cols-2 mt-3">
+              {current.cards.map((card, ci) =>
+                cardConfig.map(({ key, label, icon, color }) => {
+                  const value = card[key];
+                  if (!value) return null;
+                  return (
+                    <div key={`${ci}-${key}`} className={`rounded-xl border p-4 ${color}`}>
+                      <h4 className="mb-1.5 flex items-center gap-1.5 text-[11px] font-bold">
+                        {icon} {label}
+                      </h4>
+                      <p className="text-xs leading-relaxed text-foreground/80">{value}</p>
+                    </div>
+                  );
+                })
+              )}
+            </div>
+          )}
+        </StepLockOverlay>
 
         {/* Navigation */}
         <div className="flex items-center justify-between">

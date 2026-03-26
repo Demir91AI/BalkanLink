@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "@/hooks/use-toast";
 import type { Tables } from "@/integrations/supabase/types";
+import { usePremiumAccess } from "@/hooks/usePremiumAccess";
+import { StepLockOverlay } from "@/components/PremiumPaywall";
 
 type FormField = Tables<"form_fields">;
 
@@ -428,6 +430,7 @@ interface Props {
 export default function SmartGuideWizard({ fields, pdfUrl }: Props) {
   const [step, setStep] = useState(0);
   const current = steps[step];
+  const { canAccessStep } = usePremiumAccess();
 
   const sectionFields = fields.filter((f) => f.section === current.key);
   const hasMappedFields = sectionFields.length > 0;
@@ -458,134 +461,99 @@ export default function SmartGuideWizard({ fields, pdfUrl }: Props) {
         ))}
       </div>
 
-      {/* Step header */}
-      <div className="rounded-2xl border bg-card p-5">
-        <div className="flex items-start justify-between gap-2">
-          <div>
-            <h3 className="font-bold text-sm">{current.title}</h3>
-            <p className="text-xs text-muted-foreground">{current.desc}</p>
-          </div>
-          <Button variant="outline" size="sm" className="shrink-0 text-[10px]" onClick={handleScrollToPdf}>
-            <Eye className="mr-1 h-3 w-3" /> Prikaži na PDF-u
-          </Button>
-        </div>
-
-        {/* Mapping notice */}
-        {!hasMappedFields && (
-          <div className="mt-3 flex items-start gap-2 rounded-xl border border-yellow-300/40 bg-yellow-50 p-3 dark:border-yellow-700/40 dark:bg-yellow-950/30">
-            <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-yellow-600 dark:text-yellow-400" />
+      <StepLockOverlay locked={!canAccessStep(step)}>
+        {/* Step header */}
+        <div className="rounded-2xl border bg-card p-5">
+          <div className="flex items-start justify-between gap-2">
             <div>
-              <div className="mb-1 flex items-center gap-2">
-                <Badge variant="outline" className="border-yellow-500/30 text-yellow-700 dark:text-yellow-300 text-[9px]">
-                  <BookOpen className="mr-1 h-3 w-3" /> Guide mode
-                </Badge>
-              </div>
-              <p className="text-xs text-yellow-800 dark:text-yellow-200">
-                Mapiranje klikabilnih polja je u toku. Ovaj korak možeš popuniti uz vodič ispod, a PDF pregled će raditi čim mapiranje bude završeno.
-              </p>
+              <h3 className="font-bold text-sm">{current.title}</h3>
+              <p className="text-xs text-muted-foreground">{current.desc}</p>
             </div>
+            <Button variant="outline" size="sm" className="shrink-0 text-[10px]" onClick={handleScrollToPdf}>
+              <Eye className="mr-1 h-3 w-3" /> Prikaži na PDF-u
+            </Button>
           </div>
-        )}
 
-        {/* Mapped field cards (from DB) */}
-        {hasMappedFields && (
-          <div className="mt-4 space-y-3">
-            {sectionFields.map((field) => (
-              <div key={field.id} className="rounded-xl border bg-background p-4">
-                <div className="mb-1 flex items-start justify-between gap-2">
-                  <p className="text-xs font-bold text-primary">{field.label_de}</p>
+          {!hasMappedFields && (
+            <div className="mt-3 flex items-start gap-2 rounded-xl border border-yellow-300/40 bg-yellow-50 p-3 dark:border-yellow-700/40 dark:bg-yellow-950/30">
+              <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-yellow-600 dark:text-yellow-400" />
+              <div>
+                <div className="mb-1 flex items-center gap-2">
+                  <Badge variant="outline" className="border-yellow-500/30 text-yellow-700 dark:text-yellow-300 text-[9px]">
+                    <BookOpen className="mr-1 h-3 w-3" /> Guide mode
+                  </Badge>
                 </div>
-                <p className="text-xs font-medium">{field.label_bs}</p>
-                {field.help_text_bs && (
-                  <div className="mt-2">
-                    <p className="text-[10px] font-semibold text-muted-foreground">Šta upisati ovdje:</p>
-                    <p className="text-xs">{field.help_text_bs}</p>
-                  </div>
-                )}
-                {field.example && (
-                  <div className="mt-2">
-                    <p className="text-[10px] font-semibold text-muted-foreground">Primjer:</p>
-                    <p className="text-xs font-mono bg-muted/50 rounded px-2 py-1 inline-block">{field.example}</p>
-                  </div>
-                )}
-                {field.where_to_find_bs && (
-                  <div className="mt-2">
-                    <p className="text-[10px] font-semibold text-muted-foreground">Gdje to nađeš:</p>
-                    <p className="text-xs">{field.where_to_find_bs}</p>
-                  </div>
-                )}
-                {field.common_mistakes_bs && (
-                  <div className="mt-2">
-                    <p className="text-[10px] font-semibold text-muted-foreground">Najčešće greške:</p>
-                    <p className="text-xs text-red-600 dark:text-red-400">{field.common_mistakes_bs}</p>
-                  </div>
-                )}
-                {field.format_hint_bs && (
-                  <div className="mt-2">
-                    <p className="text-[10px] font-semibold text-muted-foreground">Kako upisati:</p>
-                    <p className="text-xs">{field.format_hint_bs}</p>
-                  </div>
-                )}
+                <p className="text-xs text-yellow-800 dark:text-yellow-200">
+                  Mapiranje klikabilnih polja je u toku. Ovaj korak možeš popuniti uz vodič ispod, a PDF pregled će raditi čim mapiranje bude završeno.
+                </p>
               </div>
-            ))}
-          </div>
-        )}
-      </div>
+            </div>
+          )}
 
-      {/* Rejection reasons (Step 1 only) */}
-      {current.rejectionReasons && (
-        <div className="rounded-2xl border border-red-200 bg-red-50 p-4 dark:border-red-900/40 dark:bg-red-950/20">
-          <h4 className="mb-2 flex items-center gap-1.5 text-xs font-bold text-red-700 dark:text-red-400">
-            <AlertTriangle className="h-3.5 w-3.5" /> Najčešći razlozi zbog kojih odbijaju zahtjev
-          </h4>
-          <ul className="space-y-1 pl-4 list-disc">
-            {current.rejectionReasons.map((r, i) => (
-              <li key={i} className="text-xs text-red-600 dark:text-red-300">{r}</li>
-            ))}
-          </ul>
+          {hasMappedFields && (
+            <div className="mt-4 space-y-3">
+              {sectionFields.map((field) => (
+                <div key={field.id} className="rounded-xl border bg-background p-4">
+                  <div className="mb-1 flex items-start justify-between gap-2">
+                    <p className="text-xs font-bold text-primary">{field.label_de}</p>
+                  </div>
+                  <p className="text-xs font-medium">{field.label_bs}</p>
+                  {field.help_text_bs && (<div className="mt-2"><p className="text-[10px] font-semibold text-muted-foreground">Šta upisati ovdje:</p><p className="text-xs">{field.help_text_bs}</p></div>)}
+                  {field.example && (<div className="mt-2"><p className="text-[10px] font-semibold text-muted-foreground">Primjer:</p><p className="text-xs font-mono bg-muted/50 rounded px-2 py-1 inline-block">{field.example}</p></div>)}
+                  {field.where_to_find_bs && (<div className="mt-2"><p className="text-[10px] font-semibold text-muted-foreground">Gdje to nađeš:</p><p className="text-xs">{field.where_to_find_bs}</p></div>)}
+                  {field.common_mistakes_bs && (<div className="mt-2"><p className="text-[10px] font-semibold text-muted-foreground">Najčešće greške:</p><p className="text-xs text-red-600 dark:text-red-400">{field.common_mistakes_bs}</p></div>)}
+                  {field.format_hint_bs && (<div className="mt-2"><p className="text-[10px] font-semibold text-muted-foreground">Kako upisati:</p><p className="text-xs">{field.format_hint_bs}</p></div>)}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
-      )}
 
-      {/* Guide cards */}
-      <div className="grid gap-3 sm:grid-cols-2">
-        {current.cards.map((card) => (
-          <div key={card.title} className="rounded-2xl border bg-card p-4">
-            <h4 className="mb-2 text-xs font-bold">
-              <span className="mr-1.5">{card.icon}</span>{card.title}
+        {current.rejectionReasons && (
+          <div className="rounded-2xl border border-red-200 bg-red-50 p-4 dark:border-red-900/40 dark:bg-red-950/20">
+            <h4 className="mb-2 flex items-center gap-1.5 text-xs font-bold text-red-700 dark:text-red-400">
+              <AlertTriangle className="h-3.5 w-3.5" /> Najčešći razlozi zbog kojih odbijaju zahtjev
             </h4>
             <ul className="space-y-1 pl-4 list-disc">
-              {card.items.map((item, i) => (
-                <li key={i} className="text-xs text-muted-foreground leading-relaxed">{item}</li>
+              {current.rejectionReasons.map((r, i) => (
+                <li key={i} className="text-xs text-red-600 dark:text-red-300">{r}</li>
               ))}
             </ul>
           </div>
-        ))}
-      </div>
+        )}
 
-      {/* Example block */}
-      <div className="rounded-2xl border border-primary/20 bg-primary/5 p-4">
-        <h4 className="mb-2 text-xs font-bold text-primary">📝 {current.example.label}</h4>
-        <div className="space-y-0.5">
-          {current.example.lines.map((line, i) => (
-            <p key={i} className="text-xs font-mono">{line}</p>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {current.cards.map((card) => (
+            <div key={card.title} className="rounded-2xl border bg-card p-4">
+              <h4 className="mb-2 text-xs font-bold"><span className="mr-1.5">{card.icon}</span>{card.title}</h4>
+              <ul className="space-y-1 pl-4 list-disc">
+                {card.items.map((item, i) => (<li key={i} className="text-xs text-muted-foreground leading-relaxed">{item}</li>))}
+              </ul>
+            </div>
           ))}
         </div>
-      </div>
 
-      {/* Mini dictionary */}
-      {current.miniDict && (
-        <div className="rounded-2xl border bg-card p-4">
-          <h4 className="mb-2 text-xs font-bold">📖 Mini rječnik</h4>
-          <div className="grid grid-cols-2 gap-x-4 gap-y-1 sm:grid-cols-3">
-            {current.miniDict.map((d) => (
-              <div key={d.term} className="text-xs">
-                <span className="font-semibold">{d.term}</span>{" "}
-                <span className="text-muted-foreground">— {d.meaning}</span>
-              </div>
-            ))}
+        <div className="rounded-2xl border border-primary/20 bg-primary/5 p-4">
+          <h4 className="mb-2 text-xs font-bold text-primary">📝 {current.example.label}</h4>
+          <div className="space-y-0.5">
+            {current.example.lines.map((line, i) => (<p key={i} className="text-xs font-mono">{line}</p>))}
           </div>
         </div>
-      )}
+
+        {current.miniDict && (
+          <div className="rounded-2xl border bg-card p-4">
+            <h4 className="mb-2 text-xs font-bold">📖 Mini rječnik</h4>
+            <div className="grid grid-cols-2 gap-x-4 gap-y-1 sm:grid-cols-3">
+              {current.miniDict.map((d) => (
+                <div key={d.term} className="text-xs">
+                  <span className="font-semibold">{d.term}</span>{" "}
+                  <span className="text-muted-foreground">— {d.meaning}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </StepLockOverlay>
 
       {/* Navigation */}
       <div className="flex items-center justify-between">

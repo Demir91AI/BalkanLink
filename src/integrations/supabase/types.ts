@@ -119,6 +119,27 @@ export type Database = {
         }
         Relationships: []
       }
+      chat_usage: {
+        Row: {
+          id: string
+          query_date: string
+          used_at: string
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          query_date?: string
+          used_at?: string
+          user_id: string
+        }
+        Update: {
+          id?: string
+          query_date?: string
+          used_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       city_geo: {
         Row: {
           bundesland: string
@@ -829,6 +850,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      get_daily_chat_count: { Args: { _user_id: string }; Returns: number }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
