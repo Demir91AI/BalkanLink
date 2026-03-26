@@ -13,9 +13,9 @@ import { navigateBackOrHome } from "@/lib/navigation";
 const LESSONS_PER_PAGE = 5;
 
 const INDIVIDUAL_PRICES: Record<string, string> = {
-  "A1": "4,99 €", "A2": "9,99 €",
-  "B1": "14,99 €", "B2": "19,99 €",
-  "C1": "24,99 €", "C2": "29,99 €",
+  "A1": "9,99 €", "A2": "14,99 €",
+  "B1": "16,99 €", "B2": "22,99 €",
+  "C1": "26,99 €", "C2": "32,99 €",
 };
 
 export default function DeutschTrainer() {
