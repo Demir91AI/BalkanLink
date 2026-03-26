@@ -15,7 +15,7 @@ const faqs = [
   },
   {
     q: "Kann ich kostenlos testen?",
-    a: "Ja, die ersten 10 Lektionen pro Niveau sind komplett kostenlos und sofort verfügbar.",
+    a: "Ja, die ersten 5 Lektionen pro Niveau sind komplett kostenlos und sofort verfügbar.",
   },
   {
     q: "Für wen ist das geeignet?",

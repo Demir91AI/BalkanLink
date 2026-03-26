@@ -254,9 +254,9 @@ export default function DeutschTrainer() {
               </button>
               <div className="text-center">
                 <Crown className="mx-auto mb-3 h-10 w-10 text-gold" />
-                <h2 className="text-base font-black">Schalte alle Lektionen frei</h2>
+                <h2 className="text-base font-black">Weitere Lektionen freischalten</h2>
                 <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">
-                  Erhalte Zugriff auf alle Inhalte und trainiere Deutsch für echte Situationen in Deutschland.
+                  Du hast die kostenlosen Lektionen abgeschlossen. Schalte jetzt alle Inhalte frei und trainiere Deutsch für echte Situationen.
                 </p>
                 <p className="mt-3 text-2xl font-black text-gold-dark">
                   {ULTIMATE_PRICES[selectedLevel]}
