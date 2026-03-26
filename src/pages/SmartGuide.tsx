@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { getGuideBySlug, getOfficialUrl, type GuideStepCard } from "@/lib/guide-data";
+import { usePremiumAccess } from "@/hooks/usePremiumAccess";
+import { StepLockOverlay } from "@/components/PremiumPaywall";
 
 type LangKey = "de" | "bs" | "en";
 
