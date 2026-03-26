@@ -33,4 +33,4 @@ export const LEVEL_COLORS: Record<Level, string> = {
 
 export const XP_PER_LESSON = 20;
 export const XP_PER_CORRECT = 4;
-export const FREE_LESSONS_PER_LEVEL = 10;
+export const FREE_LESSONS_PER_LEVEL = 5;
