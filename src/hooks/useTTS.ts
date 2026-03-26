@@ -42,8 +42,8 @@ export function useTTS() {
 
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = "de-DE";
-    utterance.rate = slow ? 0.6 : 0.88;
-    utterance.pitch = 1.05;
+    utterance.rate = slow ? 0.8 : 0.9;
+    utterance.pitch = 1.0;
     utterance.volume = 1;
 
     const voice = cachedVoice.current ?? getBestGermanVoice();
