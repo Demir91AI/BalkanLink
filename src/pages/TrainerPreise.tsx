@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Check, Crown, Star, GraduationCap, ChevronRight, HelpCircle } from "lucide-react";
+import { ArrowLeft, Check, Crown, Star, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { navigateBackOrHome } from "@/lib/navigation";
 
@@ -131,31 +131,6 @@ export default function TrainerPreise() {
           </div>
         ))}
 
-        {/* FAQ link */}
-        <div className="text-center">
-          <button
-            onClick={() => navigate("/deutsch-trainer/faq")}
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
-          >
-            <HelpCircle className="h-4 w-4" />
-            Fragen? Hier klicken
-          </button>
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="rounded-xl border border-gold/20 bg-gold/5 p-6 text-center">
-          <GraduationCap className="mx-auto mb-2 h-8 w-8 text-gold" />
-          <p className="text-sm font-black">Bereit für besseres Deutsch?</p>
-          <p className="mt-0.5 text-xs text-muted-foreground">
-            Starte jetzt kostenlos und entscheide später.
-          </p>
-          <Button
-            onClick={() => navigate("/deutsch-trainer")}
-            className="mt-4 h-10 rounded-full bg-gold px-8 text-xs font-bold text-gold-foreground shadow-[0_4px_20px_rgba(255,204,0,0.3)] hover:bg-gold-light"
-          >
-            Kostenlos starten <ChevronRight className="ml-1 h-3.5 w-3.5" />
-          </Button>
-        </div>
       </div>
     </>
   );
