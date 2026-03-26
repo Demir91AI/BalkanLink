@@ -108,15 +108,7 @@ export default function TrainerPreise() {
                 {ultimateFeatures.map((f) => (
                   <li key={f} className="flex items-start gap-1.5 text-[11px] font-medium">
                     <Check className="mt-0.5 h-3 w-3 shrink-0 text-gold" />
-                    {/* Highlight Sprachassistent */}
-                    {f.includes("Sprachassistent") ? (
-                      <span className="flex items-center gap-1">
-                        <Volume2 className="h-3 w-3 text-gold" />
-                        <strong className="text-gold-dark">{f}</strong>
-                      </span>
-                    ) : (
-                      <span>{f}</span>
-                    )}
+                    <span>{f}</span>
                   </li>
                 ))}
               </ul>
@@ -124,14 +116,6 @@ export default function TrainerPreise() {
           </div>
         </div>
 
-        {/* ── Sprachassistent highlight ── */}
-        <div className="rounded-2xl border-2 border-primary/20 bg-gradient-to-br from-primary/5 via-transparent to-gold/5 p-5 text-center">
-          <Volume2 className="mx-auto mb-2 h-8 w-8 text-primary" />
-          <h3 className="text-sm font-black">Sprachassistent</h3>
-          <p className="mt-1 text-xs text-muted-foreground leading-relaxed max-w-sm mx-auto">
-            Höre echte Sätze, trainiere Aussprache und lerne Deutsch für reale Situationen – mit vollem Zugriff in der Ultimate-Version.
-          </p>
-        </div>
 
         {/* Per-level Ultimate cards */}
         {tiers.map((tier) => (
