@@ -1,6 +1,6 @@
 import { useState, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ArrowLeft, Volume2, BookOpen, AlertTriangle } from "lucide-react";
+import { ArrowRight, ArrowLeft, BookOpen, AlertTriangle } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import type { Lesson } from "@/lib/deutsch-trainer-data";
 import { XP_PER_CORRECT, STAGE_LABELS, shuffleExercise } from "@/lib/deutsch-trainer-data";
@@ -11,6 +11,7 @@ import QuickReaction from "./QuickReaction";
 import LessonComplete from "./LessonComplete";
 import { useTrainerProgress } from "@/hooks/useTrainerProgress";
 import { useTTS } from "@/hooks/useTTS";
+import AudioButton from "./AudioButton";
 import { Button } from "@/components/ui/button";
 
 interface Props {
@@ -24,7 +25,7 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
   const [results, setResults] = useState<boolean[]>([]);
   const [answered, setAnswered] = useState(false);
   const { progress, addXp, completeLesson } = useTrainerProgress();
-  const { speak } = useTTS();
+  const { speak, isSpeaking } = useTTS();
 
   const stage = selectedStage !== null ? lesson.stages[selectedStage] : null;
   const exercises = useMemo(
@@ -121,12 +122,7 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
             <div className="flex flex-col gap-2">
               {lesson.importantPhrases.map((phrase, i) => (
                 <div key={i} className="flex items-center gap-2 rounded-lg bg-muted/50 px-3 py-2">
-                  <button
-                    onClick={() => speak(phrase.de)}
-                    className="shrink-0 rounded-full bg-primary/10 p-1.5 text-primary hover:bg-primary/20"
-                  >
-                    <Volume2 className="h-3.5 w-3.5" />
-                  </button>
+                  <AudioButton text={phrase.de} speak={speak} isSpeaking={isSpeaking} size="sm" />
                   <div className="min-w-0">
                     <p className="text-xs font-semibold">{phrase.de}</p>
                     <p className="text-[10px] text-muted-foreground">{phrase.context}</p>
