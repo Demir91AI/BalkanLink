@@ -141,6 +141,7 @@ const App = () => (
                 <Route path="/vorlagen/:slug" element={<Vorlagen />} />
                 <Route path="/deutsch-trainer" element={<DeutschTrainer />} />
                 <Route path="/deutsch-trainer/preise" element={<TrainerPreise />} />
+                <Route path="/deutsch-trainer/faq" element={<TrainerFaq />} />
                 <Route path="/firma/:slug" element={<FirmDetail />} />
               </Route>
               <Route path="*" element={<NotFound />} />
