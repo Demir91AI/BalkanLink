@@ -586,11 +586,18 @@ export default function ChatAssistant() {
 
               {/* Input area */}
               <div className="border-t border-border/40 px-4 py-3 shrink-0">
-                <div className="flex items-center gap-1 mb-1.5 px-0.5">
-                  <ShieldCheck className="h-2.5 w-2.5 text-emerald-600/60 dark:text-emerald-400/60 shrink-0" />
-                  <p className="text-[8px] text-muted-foreground/40">
-                    {t("chat.noSensitiveData")}
-                  </p>
+                <div className="flex items-center justify-between mb-1.5 px-0.5">
+                  <div className="flex items-center gap-1">
+                    <ShieldCheck className="h-2.5 w-2.5 text-emerald-600/60 dark:text-emerald-400/60 shrink-0" />
+                    <p className="text-[8px] text-muted-foreground/40">
+                      {t("chat.noSensitiveData")}
+                    </p>
+                  </div>
+                  {!isPremium && (
+                    <p className="text-[8px] text-muted-foreground/50 font-medium">
+                      {remaining > 0 ? `${remaining}/3 preostalo` : "Limit dostignut"}
+                    </p>
+                  )}
                 </div>
                 <div className="flex items-end gap-2">
                   <textarea
