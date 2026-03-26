@@ -143,6 +143,7 @@ const App = () => (
                 <Route path="/deutsch-trainer" element={<DeutschTrainer />} />
                 <Route path="/deutsch-trainer/preise" element={<TrainerPreise />} />
                 <Route path="/deutsch-trainer/faq" element={<TrainerFaq />} />
+                <Route path="/deutsch-trainer/bonusbedingungen" element={<TrainerBonusbedingungen />} />
                 <Route path="/firma/:slug" element={<FirmDetail />} />
               </Route>
               <Route path="*" element={<NotFound />} />
