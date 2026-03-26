@@ -234,7 +234,7 @@ export default function DeutschTrainer() {
             <Crown className="mx-auto mb-2 h-7 w-7 text-gold" />
             <h3 className="text-base font-black">Weiter lernen</h3>
             <p className="mt-1 text-xs text-muted-foreground">
-              Schalte alle Lektionen frei und lerne ohne Einschränkungen weiter
+              Schalte alle Lektionen & den vollen Sprachassistent frei
             </p>
             <Button
               onClick={() => navigate("/deutsch-trainer/preise")}
@@ -245,7 +245,7 @@ export default function DeutschTrainer() {
             <div className="mt-3 flex items-center justify-center gap-3 text-[10px] text-muted-foreground">
               <span>✓ Kein Abo</span>
               <span>✓ Einmal zahlen</span>
-              <span>✓ Alle Niveaus</span>
+              <span>✓ Sprachassistent</span>
             </div>
           </div>
         )}
