@@ -21,11 +21,14 @@ import StageCard from "./StageCard";
 import SprachassistentSection from "./SprachassistentSection";
 
 const FREE_PHRASE_LIMIT = 5;
-const TOTAL_PHRASES = 300;
+const TOTAL_PHRASES = 100;
 
-const FREE_EXERCISE_COUNT = 50;
-const ULTIMATE_EXERCISE_COUNT = 300;
-const LOCKED_EXERCISE_COUNT = ULTIMATE_EXERCISE_COUNT - FREE_EXERCISE_COUNT; // 250
+const EXERCISES_PER_STAGE = 100;
+/** Free users: 30 Grundlagen, 100 Anwendung, 100 Realität */
+const FREE_STAGE_COUNTS = [30, 100, 100] as const;
+const LOCKED_STAGE_COUNTS = FREE_STAGE_COUNTS.map(
+  (free) => EXERCISES_PER_STAGE - free
+) as unknown as readonly [number, number, number];
 
 const STAGE_LABELS_MAP = ["Grundlagen", "Anwendung", "Realität"] as const;
 const STAGE_TYPES = ["Grundlagen", "Anwendung", "Realitaet"] as const;
