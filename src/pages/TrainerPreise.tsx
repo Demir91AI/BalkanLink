@@ -23,7 +23,7 @@ const tiers = [
     subtitle: "Professionelles Niveau",
     price: "39,99 €",
     popular: false,
-    topics: ["Verhandlung", "Präsentation", "Konflikt", "Fachwissen", "Debatte"],
+    topics: ["Verhandlung", "Präsentation", "Konflikt", "Fachwissen", "Debatte", "Rhetorik"],
   },
 ];
 
