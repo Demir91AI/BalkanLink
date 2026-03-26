@@ -7,15 +7,15 @@ import { navigateBackOrHome } from "@/lib/navigation";
 const faqs = [
   {
     q: "Was ist in der Free-Version enthalten?",
-    a: "Du bekommst 5 Lektionen pro Niveau mit jeweils 3 Stufen (Grundlagen, Anwendung, Realität) und 50 Aufgaben pro Stufe. Dazu 5 Sprachassistent-Sätze pro Lektion – komplett kostenlos.",
+    a: "Du bekommst 5 Lektionen pro Niveau mit 30 Aufgaben und 5 Sprachassistent-Sätzen pro Lektion – komplett kostenlos.",
   },
   {
     q: "Was ist im Ultimate-Paket enthalten?",
-    a: "Mit Ultimate erhältst du alle Lektionen, 300 Aufgaben pro Stufe, vollen Zugriff auf den Sprachassistent mit 300 Sätzen pro Lektion und dynamisch generierte Aufgaben für maximale Abwechslung.",
+    a: "Mit Ultimate erhältst du alle Lektionen, 300 Aufgaben pro Lektion, vollen Zugriff auf den Sprachassistent mit 100 Sätzen und dynamisch generierte Aufgaben für maximale Abwechslung.",
   },
   {
     q: "Kann ich kostenlos testen?",
-    a: "Ja, die ersten 5 Lektionen pro Niveau sind komplett kostenlos und sofort verfügbar – mit allen 3 Stufen.",
+    a: "Ja, die ersten 5 Lektionen pro Niveau sind komplett kostenlos und sofort verfügbar.",
   },
   {
     q: "Für wen ist das geeignet?",
@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     q: "Wie lange dauert eine Lektion?",
-    a: "Eine Lektion dauert ca. 3–10 Minuten je nach Stufe. Jede Stufe hat 50 (Free) oder 300 (Ultimate) Aufgaben.",
+    a: "Eine Lektion dauert ca. 3–10 Minuten. Jede Lektion hat 30 (Free) oder 300 (Ultimate) Aufgaben.",
   },
   {
     q: "Ist Ultimate ein Abo?",

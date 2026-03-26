@@ -24,8 +24,8 @@ const FREE_PHRASE_LIMIT = 5;
 const TOTAL_PHRASES = 100;
 
 const EXERCISES_PER_STAGE = 100;
-/** Free users: 30 Grundlagen, 100 Anwendung, 100 Realität */
-const FREE_STAGE_COUNTS = [30, 100, 100] as const;
+/** Free users: 30 per stage, Ultimate: 100 per stage */
+const FREE_STAGE_COUNTS = [30, 30, 30] as const;
 const LOCKED_STAGE_COUNTS = FREE_STAGE_COUNTS.map(
   (free) => EXERCISES_PER_STAGE - free
 ) as unknown as readonly [number, number, number];
