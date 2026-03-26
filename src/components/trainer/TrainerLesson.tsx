@@ -1,6 +1,6 @@
 import { useState, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ArrowLeft, BookOpen, AlertTriangle } from "lucide-react";
+import { ArrowRight, ArrowLeft, BookOpen, AlertTriangle, Lock, Crown, Volume2 } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import type { Lesson } from "@/lib/deutsch-trainer-data";
 import { XP_PER_CORRECT, STAGE_LABELS, shuffleExercise } from "@/lib/deutsch-trainer-data";
@@ -11,8 +11,10 @@ import QuickReaction from "./QuickReaction";
 import LessonComplete from "./LessonComplete";
 import { useTrainerProgress } from "@/hooks/useTrainerProgress";
 import { useTTS } from "@/hooks/useTTS";
+import { usePremiumAccess } from "@/hooks/usePremiumAccess";
 import AudioButton from "./AudioButton";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   lesson: Lesson;
