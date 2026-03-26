@@ -184,7 +184,7 @@ export default function DeutschTrainer() {
                   </div>
                   {isFree && !completed && (
                     <span className="shrink-0 rounded-full bg-[hsl(var(--success)/0.1)] px-2 py-0.5 text-[9px] font-bold text-[hsl(var(--success))]">
-                      Gratis
+                      Free
                     </span>
                   )}
                 </motion.button>
