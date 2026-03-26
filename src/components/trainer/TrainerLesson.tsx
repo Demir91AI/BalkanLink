@@ -1,9 +1,9 @@
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ArrowLeft, BookOpen, AlertTriangle, Lock, Crown, Volume2 } from "lucide-react";
+import { ArrowRight, ArrowLeft, AlertTriangle, Lock, Crown, Volume2, Loader2 } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
-import type { Lesson } from "@/lib/deutsch-trainer-data";
-import { XP_PER_CORRECT, STAGE_LABELS, shuffleExercise } from "@/lib/deutsch-trainer-data";
+import type { Lesson, Exercise } from "@/lib/deutsch-trainer-data";
+import { XP_PER_CORRECT, shuffleExercise } from "@/lib/deutsch-trainer-data";
 import MultipleChoice from "./MultipleChoice";
 import SortSentence from "./SortSentence";
 import FillBlank from "./FillBlank";
@@ -15,6 +15,16 @@ import { usePremiumAccess } from "@/hooks/usePremiumAccess";
 import AudioButton from "./AudioButton";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import { useGeneratedExercises } from "@/hooks/useGeneratedExercises";
+
+const FREE_PHRASE_LIMIT = 2;
+
+// Exercise counts per stage
+const FREE_EXERCISE_COUNT = 50;
+const ULTIMATE_EXERCISE_COUNT = 300;
+
+const STAGE_LABELS_MAP = ["Grundlagen", "Anwendung", "Realität"] as const;
+const STAGE_TYPES = ["Grundlagen", "Anwendung", "Realitaet"] as const;
 
 interface Props {
   lesson: Lesson;
@@ -30,14 +40,61 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
   const { progress, addXp, completeLesson } = useTrainerProgress();
   const { toggle, activeId, playState } = useTTS();
   const { isPremium } = usePremiumAccess();
+  const { generate, loading: aiLoading, error: aiError } = useGeneratedExercises();
+
+  // AI-generated exercises state
+  const [aiExercises, setAiExercises] = useState<Exercise[]>([]);
+  const [useAi, setUseAi] = useState(false);
+
+  const exerciseCount = isPremium ? ULTIMATE_EXERCISE_COUNT : FREE_EXERCISE_COUNT;
+
+  // When a stage is selected, decide: use static or generate AI exercises
+  useEffect(() => {
+    if (selectedStage === null) {
+      setAiExercises([]);
+      setUseAi(false);
+      return;
+    }
+
+    const stage = lesson.stages[selectedStage];
+    const staticExercises = stage?.exercises ?? [];
+
+    // If static exercises cover the needed count, use them
+    if (staticExercises.length >= exerciseCount) {
+      setUseAi(false);
+      return;
+    }
+
+    // Generate AI exercises to fill the gap
+    setUseAi(true);
+    const stageType = STAGE_TYPES[selectedStage] || "Grundlagen";
+    const needed = exerciseCount;
+
+    generate(lesson.level, lesson.title, stageType, needed).then((generated) => {
+      if (generated.length > 0) {
+        // Combine static + AI, up to the needed count
+        const combined = [...staticExercises, ...generated].slice(0, needed);
+        setAiExercises(combined);
+      } else {
+        // Fallback to static only
+        setAiExercises(staticExercises);
+      }
+    });
+  }, [selectedStage, lesson, exerciseCount, generate]);
 
   const stage = selectedStage !== null ? lesson.stages[selectedStage] : null;
-  const exercises = useMemo(
-    () => stage?.exercises.map((ex) => shuffleExercise(ex)) ?? [],
-    [stage]
-  );
+
+  const exercises = useMemo(() => {
+    if (selectedStage === null) return [];
+    if (useAi && aiExercises.length > 0) {
+      return aiExercises.map((ex) => shuffleExercise(ex));
+    }
+    const staticEx = stage?.exercises ?? [];
+    return staticEx.map((ex) => shuffleExercise(ex));
+  }, [selectedStage, useAi, aiExercises, stage]);
+
   const total = exercises.length;
-  const done = step >= total;
+  const done = step >= total && total > 0;
   const exercise = !done ? exercises[step] : null;
   const correctCount = results.filter(Boolean).length;
 
@@ -93,7 +150,7 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
 
         {/* Stage buttons */}
         <div className="mb-6 flex flex-col gap-2">
-          {lesson.stages.map((s, idx) => (
+          {STAGE_LABELS_MAP.map((label, idx) => (
             <motion.button
               key={idx}
               initial={{ opacity: 0, y: 8 }}
@@ -108,8 +165,8 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
                 {idx + 1}
               </span>
               <div className="flex-1">
-                <h3 className="text-sm font-bold">{s.label}</h3>
-                <p className="text-[11px] text-muted-foreground">{s.exercises.length} Aufgaben</p>
+                <h3 className="text-sm font-bold">{label}</h3>
+                <p className="text-[11px] text-muted-foreground">{exerciseCount} Aufgaben</p>
               </div>
               <ArrowRight className="h-4 w-4 text-muted-foreground" />
             </motion.button>
@@ -118,7 +175,6 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
 
         {/* Important Phrases – Sprachassistent */}
         {lesson.importantPhrases.length > 0 && (() => {
-          const FREE_PHRASE_LIMIT = 15;
           const visiblePhrases = isPremium
             ? lesson.importantPhrases
             : lesson.importantPhrases.slice(0, FREE_PHRASE_LIMIT);
@@ -194,6 +250,16 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
     );
   }
 
+  // ── LOADING AI EXERCISES ──
+  if (aiLoading && exercises.length === 0) {
+    return (
+      <div className="mx-auto flex w-full max-w-lg flex-col items-center justify-center px-4 py-20">
+        <Loader2 className="mb-3 h-8 w-8 animate-spin text-primary" />
+        <p className="text-sm font-medium text-muted-foreground">Aufgaben werden generiert…</p>
+      </div>
+    );
+  }
+
   // ── LESSON COMPLETE ──
   if (done) {
     return (
@@ -241,7 +307,7 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
         <span className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold text-primary-foreground ${
           selectedStage === 0 ? "bg-[hsl(var(--success))]" : selectedStage === 1 ? "bg-gold" : "bg-primary"
         }`}>
-          {stage!.label}
+          {STAGE_LABELS_MAP[selectedStage]}
         </span>
         <div className="flex-1">
           <Progress value={((step + 1) / total) * 100} className="h-2.5 rounded-full" />
