@@ -25,7 +25,7 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
   const [results, setResults] = useState<boolean[]>([]);
   const [answered, setAnswered] = useState(false);
   const { progress, addXp, completeLesson } = useTrainerProgress();
-  const { speak } = useTTS();
+  const { speak, isSpeaking } = useTTS();
 
   const stage = selectedStage !== null ? lesson.stages[selectedStage] : null;
   const exercises = useMemo(
