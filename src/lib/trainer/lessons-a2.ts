@@ -64,7 +64,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Die Kündigungsfrist gibt an, wie früh man kündigen muss."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Dein Nachbar beschwert sich über Lärm.",
+      "question": "Wie reagierst du?",
+      "options": [
+            "Es tut mir leid, ich werde leiser sein.",
+            "Das ist mir egal.",
+            "Rufen Sie die Polizei."
+      ],
+      "answer": 0,
+      "explanation": "Sich entschuldigen löst Konflikte schneller."
+}
     ]
   },
   {
@@ -130,7 +142,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Das genaue Datum des Schadens ist wichtig."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du bekommst eine Rechnung per Post.",
+      "question": "Was machst du?",
+      "options": [
+            "Ich überweise den Betrag bis zum Fälligkeitsdatum.",
+            "Ich werfe sie weg.",
+            "Ich rufe die Polizei."
+      ],
+      "answer": 0,
+      "explanation": "Rechnungen pünktlich bezahlen ist wichtig."
+}
     ]
   },
   {
@@ -200,7 +224,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Klar sagen, was man möchte: Umtausch oder Geld zurück."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du willst einen Termin absagen.",
+      "question": "Was sagst du?",
+      "options": [
+            "Ich muss den Termin leider absagen.",
+            "Ich komme nicht.",
+            "Vergessen Sie es."
+      ],
+      "answer": 0,
+      "explanation": "Höfliches Absagen ist im Deutschen wichtig."
+}
     ]
   },
   {
@@ -266,7 +302,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Ein Kollege fragt nach deiner Meinung.",
+      "question": "Wie antwortest du?",
+      "options": [
+            "Ich finde, das ist eine gute Idee.",
+            "Keine Ahnung.",
+            "Mir egal."
+      ],
+      "answer": 0,
+      "explanation": "Eine begründete Meinung zeigt Engagement."
+}
     ]
   },
   {
@@ -332,7 +380,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du erhältst ein Paket.",
+      "question": "Was machst du?",
+      "options": [
+            "Ich unterschreibe und bedanke mich.",
+            "Ich nehme es ohne Worte.",
+            "Ich öffne es vor dem Postboten."
+      ],
+      "answer": 0,
+      "explanation": "Beim Paketempfang unterschreibt man die Zustellung."
+}
     ]
   },
   {
@@ -398,7 +458,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Dein Nachbar beschwert sich über Lärm.",
+      "question": "Wie reagierst du?",
+      "options": [
+            "Es tut mir leid, ich werde leiser sein.",
+            "Das ist mir egal.",
+            "Rufen Sie die Polizei."
+      ],
+      "answer": 0,
+      "explanation": "Sich entschuldigen löst Konflikte schneller."
+}
     ]
   },
   {
@@ -464,7 +536,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du bekommst eine Rechnung per Post.",
+      "question": "Was machst du?",
+      "options": [
+            "Ich überweise den Betrag bis zum Fälligkeitsdatum.",
+            "Ich werfe sie weg.",
+            "Ich rufe die Polizei."
+      ],
+      "answer": 0,
+      "explanation": "Rechnungen pünktlich bezahlen ist wichtig."
+}
     ]
   },
   {
@@ -530,7 +614,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du willst einen Termin absagen.",
+      "question": "Was sagst du?",
+      "options": [
+            "Ich muss den Termin leider absagen.",
+            "Ich komme nicht.",
+            "Vergessen Sie es."
+      ],
+      "answer": 0,
+      "explanation": "Höfliches Absagen ist im Deutschen wichtig."
+}
     ]
   },
   {
@@ -596,7 +692,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Ein Kollege fragt nach deiner Meinung.",
+      "question": "Wie antwortest du?",
+      "options": [
+            "Ich finde, das ist eine gute Idee.",
+            "Keine Ahnung.",
+            "Mir egal."
+      ],
+      "answer": 0,
+      "explanation": "Eine begründete Meinung zeigt Engagement."
+}
     ]
   },
   {
@@ -662,7 +770,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du erhältst ein Paket.",
+      "question": "Was machst du?",
+      "options": [
+            "Ich unterschreibe und bedanke mich.",
+            "Ich nehme es ohne Worte.",
+            "Ich öffne es vor dem Postboten."
+      ],
+      "answer": 0,
+      "explanation": "Beim Paketempfang unterschreibt man die Zustellung."
+}
     ]
   },
   {
@@ -728,7 +848,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Dein Nachbar beschwert sich über Lärm.",
+      "question": "Wie reagierst du?",
+      "options": [
+            "Es tut mir leid, ich werde leiser sein.",
+            "Das ist mir egal.",
+            "Rufen Sie die Polizei."
+      ],
+      "answer": 0,
+      "explanation": "Sich entschuldigen löst Konflikte schneller."
+}
     ]
   },
   {
@@ -794,7 +926,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du bekommst eine Rechnung per Post.",
+      "question": "Was machst du?",
+      "options": [
+            "Ich überweise den Betrag bis zum Fälligkeitsdatum.",
+            "Ich werfe sie weg.",
+            "Ich rufe die Polizei."
+      ],
+      "answer": 0,
+      "explanation": "Rechnungen pünktlich bezahlen ist wichtig."
+}
     ]
   },
   {
@@ -860,7 +1004,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du willst einen Termin absagen.",
+      "question": "Was sagst du?",
+      "options": [
+            "Ich muss den Termin leider absagen.",
+            "Ich komme nicht.",
+            "Vergessen Sie es."
+      ],
+      "answer": 0,
+      "explanation": "Höfliches Absagen ist im Deutschen wichtig."
+}
     ]
   },
   {
@@ -926,7 +1082,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Ein Kollege fragt nach deiner Meinung.",
+      "question": "Wie antwortest du?",
+      "options": [
+            "Ich finde, das ist eine gute Idee.",
+            "Keine Ahnung.",
+            "Mir egal."
+      ],
+      "answer": 0,
+      "explanation": "Eine begründete Meinung zeigt Engagement."
+}
     ]
   },
   {
@@ -992,7 +1160,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du erhältst ein Paket.",
+      "question": "Was machst du?",
+      "options": [
+            "Ich unterschreibe und bedanke mich.",
+            "Ich nehme es ohne Worte.",
+            "Ich öffne es vor dem Postboten."
+      ],
+      "answer": 0,
+      "explanation": "Beim Paketempfang unterschreibt man die Zustellung."
+}
     ]
   },
   {
@@ -1058,7 +1238,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Dein Nachbar beschwert sich über Lärm.",
+      "question": "Wie reagierst du?",
+      "options": [
+            "Es tut mir leid, ich werde leiser sein.",
+            "Das ist mir egal.",
+            "Rufen Sie die Polizei."
+      ],
+      "answer": 0,
+      "explanation": "Sich entschuldigen löst Konflikte schneller."
+}
     ]
   },
   {
@@ -1124,7 +1316,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du bekommst eine Rechnung per Post.",
+      "question": "Was machst du?",
+      "options": [
+            "Ich überweise den Betrag bis zum Fälligkeitsdatum.",
+            "Ich werfe sie weg.",
+            "Ich rufe die Polizei."
+      ],
+      "answer": 0,
+      "explanation": "Rechnungen pünktlich bezahlen ist wichtig."
+}
     ]
   },
   {
@@ -1190,7 +1394,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du willst einen Termin absagen.",
+      "question": "Was sagst du?",
+      "options": [
+            "Ich muss den Termin leider absagen.",
+            "Ich komme nicht.",
+            "Vergessen Sie es."
+      ],
+      "answer": 0,
+      "explanation": "Höfliches Absagen ist im Deutschen wichtig."
+}
     ]
   },
   {
@@ -1256,7 +1472,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Ein Kollege fragt nach deiner Meinung.",
+      "question": "Wie antwortest du?",
+      "options": [
+            "Ich finde, das ist eine gute Idee.",
+            "Keine Ahnung.",
+            "Mir egal."
+      ],
+      "answer": 0,
+      "explanation": "Eine begründete Meinung zeigt Engagement."
+}
     ]
   },
   {
@@ -1322,7 +1550,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du erhältst ein Paket.",
+      "question": "Was machst du?",
+      "options": [
+            "Ich unterschreibe und bedanke mich.",
+            "Ich nehme es ohne Worte.",
+            "Ich öffne es vor dem Postboten."
+      ],
+      "answer": 0,
+      "explanation": "Beim Paketempfang unterschreibt man die Zustellung."
+}
     ]
   },
   {
@@ -1388,7 +1628,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Dein Nachbar beschwert sich über Lärm.",
+      "question": "Wie reagierst du?",
+      "options": [
+            "Es tut mir leid, ich werde leiser sein.",
+            "Das ist mir egal.",
+            "Rufen Sie die Polizei."
+      ],
+      "answer": 0,
+      "explanation": "Sich entschuldigen löst Konflikte schneller."
+}
     ]
   },
   {
@@ -1454,7 +1706,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du bekommst eine Rechnung per Post.",
+      "question": "Was machst du?",
+      "options": [
+            "Ich überweise den Betrag bis zum Fälligkeitsdatum.",
+            "Ich werfe sie weg.",
+            "Ich rufe die Polizei."
+      ],
+      "answer": 0,
+      "explanation": "Rechnungen pünktlich bezahlen ist wichtig."
+}
     ]
   },
   {
@@ -1520,7 +1784,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du willst einen Termin absagen.",
+      "question": "Was sagst du?",
+      "options": [
+            "Ich muss den Termin leider absagen.",
+            "Ich komme nicht.",
+            "Vergessen Sie es."
+      ],
+      "answer": 0,
+      "explanation": "Höfliches Absagen ist im Deutschen wichtig."
+}
     ]
   },
   {
@@ -1586,7 +1862,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Ein Kollege fragt nach deiner Meinung.",
+      "question": "Wie antwortest du?",
+      "options": [
+            "Ich finde, das ist eine gute Idee.",
+            "Keine Ahnung.",
+            "Mir egal."
+      ],
+      "answer": 0,
+      "explanation": "Eine begründete Meinung zeigt Engagement."
+}
     ]
   },
   {
@@ -1652,7 +1940,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du erhältst ein Paket.",
+      "question": "Was machst du?",
+      "options": [
+            "Ich unterschreibe und bedanke mich.",
+            "Ich nehme es ohne Worte.",
+            "Ich öffne es vor dem Postboten."
+      ],
+      "answer": 0,
+      "explanation": "Beim Paketempfang unterschreibt man die Zustellung."
+}
     ]
   },
   {
@@ -1718,7 +2018,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Dein Nachbar beschwert sich über Lärm.",
+      "question": "Wie reagierst du?",
+      "options": [
+            "Es tut mir leid, ich werde leiser sein.",
+            "Das ist mir egal.",
+            "Rufen Sie die Polizei."
+      ],
+      "answer": 0,
+      "explanation": "Sich entschuldigen löst Konflikte schneller."
+}
     ]
   },
   {
@@ -1784,7 +2096,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du bekommst eine Rechnung per Post.",
+      "question": "Was machst du?",
+      "options": [
+            "Ich überweise den Betrag bis zum Fälligkeitsdatum.",
+            "Ich werfe sie weg.",
+            "Ich rufe die Polizei."
+      ],
+      "answer": 0,
+      "explanation": "Rechnungen pünktlich bezahlen ist wichtig."
+}
     ]
   },
   {
@@ -1850,7 +2174,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du willst einen Termin absagen.",
+      "question": "Was sagst du?",
+      "options": [
+            "Ich muss den Termin leider absagen.",
+            "Ich komme nicht.",
+            "Vergessen Sie es."
+      ],
+      "answer": 0,
+      "explanation": "Höfliches Absagen ist im Deutschen wichtig."
+}
     ]
   },
   {
@@ -1916,7 +2252,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Ein Kollege fragt nach deiner Meinung.",
+      "question": "Wie antwortest du?",
+      "options": [
+            "Ich finde, das ist eine gute Idee.",
+            "Keine Ahnung.",
+            "Mir egal."
+      ],
+      "answer": 0,
+      "explanation": "Eine begründete Meinung zeigt Engagement."
+}
     ]
   },
   {
@@ -1982,7 +2330,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du erhältst ein Paket.",
+      "question": "Was machst du?",
+      "options": [
+            "Ich unterschreibe und bedanke mich.",
+            "Ich nehme es ohne Worte.",
+            "Ich öffne es vor dem Postboten."
+      ],
+      "answer": 0,
+      "explanation": "Beim Paketempfang unterschreibt man die Zustellung."
+}
     ]
   },
   {
@@ -2048,7 +2408,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Dein Nachbar beschwert sich über Lärm.",
+      "question": "Wie reagierst du?",
+      "options": [
+            "Es tut mir leid, ich werde leiser sein.",
+            "Das ist mir egal.",
+            "Rufen Sie die Polizei."
+      ],
+      "answer": 0,
+      "explanation": "Sich entschuldigen löst Konflikte schneller."
+}
     ]
   },
   {
@@ -2114,7 +2486,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du bekommst eine Rechnung per Post.",
+      "question": "Was machst du?",
+      "options": [
+            "Ich überweise den Betrag bis zum Fälligkeitsdatum.",
+            "Ich werfe sie weg.",
+            "Ich rufe die Polizei."
+      ],
+      "answer": 0,
+      "explanation": "Rechnungen pünktlich bezahlen ist wichtig."
+}
     ]
   },
   {
@@ -2180,7 +2564,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du willst einen Termin absagen.",
+      "question": "Was sagst du?",
+      "options": [
+            "Ich muss den Termin leider absagen.",
+            "Ich komme nicht.",
+            "Vergessen Sie es."
+      ],
+      "answer": 0,
+      "explanation": "Höfliches Absagen ist im Deutschen wichtig."
+}
     ]
   },
   {
@@ -2246,7 +2642,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Ein Kollege fragt nach deiner Meinung.",
+      "question": "Wie antwortest du?",
+      "options": [
+            "Ich finde, das ist eine gute Idee.",
+            "Keine Ahnung.",
+            "Mir egal."
+      ],
+      "answer": 0,
+      "explanation": "Eine begründete Meinung zeigt Engagement."
+}
     ]
   },
   {
@@ -2312,7 +2720,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du erhältst ein Paket.",
+      "question": "Was machst du?",
+      "options": [
+            "Ich unterschreibe und bedanke mich.",
+            "Ich nehme es ohne Worte.",
+            "Ich öffne es vor dem Postboten."
+      ],
+      "answer": 0,
+      "explanation": "Beim Paketempfang unterschreibt man die Zustellung."
+}
     ]
   },
   {
@@ -2378,7 +2798,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Dein Nachbar beschwert sich über Lärm.",
+      "question": "Wie reagierst du?",
+      "options": [
+            "Es tut mir leid, ich werde leiser sein.",
+            "Das ist mir egal.",
+            "Rufen Sie die Polizei."
+      ],
+      "answer": 0,
+      "explanation": "Sich entschuldigen löst Konflikte schneller."
+}
     ]
   },
   {
@@ -2444,7 +2876,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du bekommst eine Rechnung per Post.",
+      "question": "Was machst du?",
+      "options": [
+            "Ich überweise den Betrag bis zum Fälligkeitsdatum.",
+            "Ich werfe sie weg.",
+            "Ich rufe die Polizei."
+      ],
+      "answer": 0,
+      "explanation": "Rechnungen pünktlich bezahlen ist wichtig."
+}
     ]
   },
   {
@@ -2510,7 +2954,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du willst einen Termin absagen.",
+      "question": "Was sagst du?",
+      "options": [
+            "Ich muss den Termin leider absagen.",
+            "Ich komme nicht.",
+            "Vergessen Sie es."
+      ],
+      "answer": 0,
+      "explanation": "Höfliches Absagen ist im Deutschen wichtig."
+}
     ]
   },
   {
@@ -2576,7 +3032,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Ein Kollege fragt nach deiner Meinung.",
+      "question": "Wie antwortest du?",
+      "options": [
+            "Ich finde, das ist eine gute Idee.",
+            "Keine Ahnung.",
+            "Mir egal."
+      ],
+      "answer": 0,
+      "explanation": "Eine begründete Meinung zeigt Engagement."
+}
     ]
   },
   {
@@ -2642,7 +3110,19 @@ export const lessonsA2: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du erhältst ein Paket.",
+      "question": "Was machst du?",
+      "options": [
+            "Ich unterschreibe und bedanke mich.",
+            "Ich nehme es ohne Worte.",
+            "Ich öffne es vor dem Postboten."
+      ],
+      "answer": 0,
+      "explanation": "Beim Paketempfang unterschreibt man die Zustellung."
+}
     ]
   }
 ];

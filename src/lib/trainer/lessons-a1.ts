@@ -850,7 +850,19 @@ export const lessonsA1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Klare Antwort, ob die Kleidung passt."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Jemand grüßt dich.",
+      "question": "Wie antwortest du?",
+      "options": [
+            "Hallo, wie geht es Ihnen?",
+            "Ich bin müde.",
+            "Tschüss!"
+      ],
+      "answer": 0,
+      "explanation": "Eine freundliche Begrüßung ist immer passend."
+}
     ]
   },
   {
@@ -996,7 +1008,19 @@ export const lessonsA1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Höflich antworten und nach Hilfe fragen."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du verstehst etwas nicht.",
+      "question": "Was sagst du?",
+      "options": [
+            "Können Sie das bitte wiederholen?",
+            "Das ist mir egal.",
+            "Ich gehe jetzt."
+      ],
+      "answer": 0,
+      "explanation": "Nachfragen zeigt Interesse und hilft beim Verstehen."
+}
     ]
   },
   {
@@ -1138,7 +1162,19 @@ export const lessonsA1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Höflich warten ist die richtige Reaktion."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du bedankst dich.",
+      "question": "Was ist höflich?",
+      "options": [
+            "Vielen Dank, das ist sehr nett.",
+            "Okay.",
+            "Warum?"
+      ],
+      "answer": 0,
+      "explanation": "Sich zu bedanken gehört zur Höflichkeit."
+}
     ]
   },
   {
@@ -1208,7 +1244,19 @@ export const lessonsA1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Mit Sendungsverfolgung kannst du das Paket online verfolgen."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Jemand fragt nach dem Weg.",
+      "question": "Wie hilfst du?",
+      "options": [
+            "Gehen Sie geradeaus und dann links.",
+            "Ich weiß nicht.",
+            "Fragen Sie jemand anderen."
+      ],
+      "answer": 0,
+      "explanation": "Wegbeschreibungen helfen im Alltag."
+}
     ]
   },
   {
@@ -1352,7 +1400,19 @@ export const lessonsA1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Die genaue Adresse angeben ist lebenswichtig."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du bist im Supermarkt.",
+      "question": "Was sagst du an der Kasse?",
+      "options": [
+            "Kann ich mit Karte zahlen?",
+            "Ich kaufe nichts.",
+            "Das ist teuer."
+      ],
+      "answer": 0,
+      "explanation": "An der Kasse fragt man nach der Zahlungsmethode."
+}
     ]
   },
   {
@@ -1418,7 +1478,19 @@ export const lessonsA1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich freuen und bedanken zeigt Wertschätzung."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Jemand grüßt dich.",
+      "question": "Wie antwortest du?",
+      "options": [
+            "Hallo, wie geht es Ihnen?",
+            "Ich bin müde.",
+            "Tschüss!"
+      ],
+      "answer": 0,
+      "explanation": "Eine freundliche Begrüßung ist immer passend."
+}
     ]
   },
   {
@@ -1484,7 +1556,19 @@ export const lessonsA1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Die Einladung freundlich annehmen."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du verstehst etwas nicht.",
+      "question": "Was sagst du?",
+      "options": [
+            "Können Sie das bitte wiederholen?",
+            "Das ist mir egal.",
+            "Ich gehe jetzt."
+      ],
+      "answer": 0,
+      "explanation": "Nachfragen zeigt Interesse und hilft beim Verstehen."
+}
     ]
   },
   {
@@ -1550,7 +1634,19 @@ export const lessonsA1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken ist immer die beste Reaktion."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du bedankst dich.",
+      "question": "Was ist höflich?",
+      "options": [
+            "Vielen Dank, das ist sehr nett.",
+            "Okay.",
+            "Warum?"
+      ],
+      "answer": 0,
+      "explanation": "Sich zu bedanken gehört zur Höflichkeit."
+}
     ]
   },
   {
@@ -1616,7 +1712,19 @@ export const lessonsA1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken ist immer die beste Reaktion."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Jemand fragt nach dem Weg.",
+      "question": "Wie hilfst du?",
+      "options": [
+            "Gehen Sie geradeaus und dann links.",
+            "Ich weiß nicht.",
+            "Fragen Sie jemand anderen."
+      ],
+      "answer": 0,
+      "explanation": "Wegbeschreibungen helfen im Alltag."
+}
     ]
   },
   {
@@ -1682,7 +1790,19 @@ export const lessonsA1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken ist immer die beste Reaktion."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du bist im Supermarkt.",
+      "question": "Was sagst du an der Kasse?",
+      "options": [
+            "Kann ich mit Karte zahlen?",
+            "Ich kaufe nichts.",
+            "Das ist teuer."
+      ],
+      "answer": 0,
+      "explanation": "An der Kasse fragt man nach der Zahlungsmethode."
+}
     ]
   },
   {
@@ -1748,7 +1868,19 @@ export const lessonsA1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken ist immer die beste Reaktion."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Jemand grüßt dich.",
+      "question": "Wie antwortest du?",
+      "options": [
+            "Hallo, wie geht es Ihnen?",
+            "Ich bin müde.",
+            "Tschüss!"
+      ],
+      "answer": 0,
+      "explanation": "Eine freundliche Begrüßung ist immer passend."
+}
     ]
   },
   {
@@ -1814,7 +1946,19 @@ export const lessonsA1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken ist immer die beste Reaktion."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du verstehst etwas nicht.",
+      "question": "Was sagst du?",
+      "options": [
+            "Können Sie das bitte wiederholen?",
+            "Das ist mir egal.",
+            "Ich gehe jetzt."
+      ],
+      "answer": 0,
+      "explanation": "Nachfragen zeigt Interesse und hilft beim Verstehen."
+}
     ]
   },
   {
@@ -1880,7 +2024,19 @@ export const lessonsA1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken ist immer die beste Reaktion."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du bedankst dich.",
+      "question": "Was ist höflich?",
+      "options": [
+            "Vielen Dank, das ist sehr nett.",
+            "Okay.",
+            "Warum?"
+      ],
+      "answer": 0,
+      "explanation": "Sich zu bedanken gehört zur Höflichkeit."
+}
     ]
   },
   {
@@ -1946,7 +2102,19 @@ export const lessonsA1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken ist immer die beste Reaktion."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Jemand fragt nach dem Weg.",
+      "question": "Wie hilfst du?",
+      "options": [
+            "Gehen Sie geradeaus und dann links.",
+            "Ich weiß nicht.",
+            "Fragen Sie jemand anderen."
+      ],
+      "answer": 0,
+      "explanation": "Wegbeschreibungen helfen im Alltag."
+}
     ]
   },
   {
@@ -2012,7 +2180,19 @@ export const lessonsA1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken ist immer die beste Reaktion."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du bist im Supermarkt.",
+      "question": "Was sagst du an der Kasse?",
+      "options": [
+            "Kann ich mit Karte zahlen?",
+            "Ich kaufe nichts.",
+            "Das ist teuer."
+      ],
+      "answer": 0,
+      "explanation": "An der Kasse fragt man nach der Zahlungsmethode."
+}
     ]
   },
   {
@@ -2078,7 +2258,19 @@ export const lessonsA1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken ist immer die beste Reaktion."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Jemand grüßt dich.",
+      "question": "Wie antwortest du?",
+      "options": [
+            "Hallo, wie geht es Ihnen?",
+            "Ich bin müde.",
+            "Tschüss!"
+      ],
+      "answer": 0,
+      "explanation": "Eine freundliche Begrüßung ist immer passend."
+}
     ]
   },
   {
@@ -2144,7 +2336,19 @@ export const lessonsA1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken ist immer die beste Reaktion."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du verstehst etwas nicht.",
+      "question": "Was sagst du?",
+      "options": [
+            "Können Sie das bitte wiederholen?",
+            "Das ist mir egal.",
+            "Ich gehe jetzt."
+      ],
+      "answer": 0,
+      "explanation": "Nachfragen zeigt Interesse und hilft beim Verstehen."
+}
     ]
   },
   {
@@ -2210,7 +2414,19 @@ export const lessonsA1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken ist immer die beste Reaktion."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du bedankst dich.",
+      "question": "Was ist höflich?",
+      "options": [
+            "Vielen Dank, das ist sehr nett.",
+            "Okay.",
+            "Warum?"
+      ],
+      "answer": 0,
+      "explanation": "Sich zu bedanken gehört zur Höflichkeit."
+}
     ]
   },
   {
@@ -2276,7 +2492,19 @@ export const lessonsA1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken ist immer die beste Reaktion."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Jemand fragt nach dem Weg.",
+      "question": "Wie hilfst du?",
+      "options": [
+            "Gehen Sie geradeaus und dann links.",
+            "Ich weiß nicht.",
+            "Fragen Sie jemand anderen."
+      ],
+      "answer": 0,
+      "explanation": "Wegbeschreibungen helfen im Alltag."
+}
     ]
   },
   {
@@ -2342,7 +2570,19 @@ export const lessonsA1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken ist immer die beste Reaktion."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du bist im Supermarkt.",
+      "question": "Was sagst du an der Kasse?",
+      "options": [
+            "Kann ich mit Karte zahlen?",
+            "Ich kaufe nichts.",
+            "Das ist teuer."
+      ],
+      "answer": 0,
+      "explanation": "An der Kasse fragt man nach der Zahlungsmethode."
+}
     ]
   },
   {
@@ -2408,7 +2648,19 @@ export const lessonsA1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken ist immer die beste Reaktion."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Jemand grüßt dich.",
+      "question": "Wie antwortest du?",
+      "options": [
+            "Hallo, wie geht es Ihnen?",
+            "Ich bin müde.",
+            "Tschüss!"
+      ],
+      "answer": 0,
+      "explanation": "Eine freundliche Begrüßung ist immer passend."
+}
     ]
   },
   {
@@ -2474,7 +2726,19 @@ export const lessonsA1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken ist immer die beste Reaktion."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du verstehst etwas nicht.",
+      "question": "Was sagst du?",
+      "options": [
+            "Können Sie das bitte wiederholen?",
+            "Das ist mir egal.",
+            "Ich gehe jetzt."
+      ],
+      "answer": 0,
+      "explanation": "Nachfragen zeigt Interesse und hilft beim Verstehen."
+}
     ]
   },
   {
@@ -2540,7 +2804,19 @@ export const lessonsA1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken ist immer die beste Reaktion."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du bedankst dich.",
+      "question": "Was ist höflich?",
+      "options": [
+            "Vielen Dank, das ist sehr nett.",
+            "Okay.",
+            "Warum?"
+      ],
+      "answer": 0,
+      "explanation": "Sich zu bedanken gehört zur Höflichkeit."
+}
     ]
   },
   {
@@ -2606,7 +2882,19 @@ export const lessonsA1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken ist immer die beste Reaktion."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Jemand fragt nach dem Weg.",
+      "question": "Wie hilfst du?",
+      "options": [
+            "Gehen Sie geradeaus und dann links.",
+            "Ich weiß nicht.",
+            "Fragen Sie jemand anderen."
+      ],
+      "answer": 0,
+      "explanation": "Wegbeschreibungen helfen im Alltag."
+}
     ]
   },
   {
@@ -2672,7 +2960,19 @@ export const lessonsA1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken ist immer die beste Reaktion."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du bist im Supermarkt.",
+      "question": "Was sagst du an der Kasse?",
+      "options": [
+            "Kann ich mit Karte zahlen?",
+            "Ich kaufe nichts.",
+            "Das ist teuer."
+      ],
+      "answer": 0,
+      "explanation": "An der Kasse fragt man nach der Zahlungsmethode."
+}
     ]
   },
   {
@@ -2738,7 +3038,19 @@ export const lessonsA1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken ist immer die beste Reaktion."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Jemand grüßt dich.",
+      "question": "Wie antwortest du?",
+      "options": [
+            "Hallo, wie geht es Ihnen?",
+            "Ich bin müde.",
+            "Tschüss!"
+      ],
+      "answer": 0,
+      "explanation": "Eine freundliche Begrüßung ist immer passend."
+}
     ]
   },
   {
@@ -2804,7 +3116,19 @@ export const lessonsA1: Lesson[] = [
         ],
         "answer": 0,
         "explanation": "Sich bedanken ist immer die beste Reaktion."
-      }
+      },
+      {
+      "type": "quick_reaction",
+      "situation": "Du verstehst etwas nicht.",
+      "question": "Was sagst du?",
+      "options": [
+            "Können Sie das bitte wiederholen?",
+            "Das ist mir egal.",
+            "Ich gehe jetzt."
+      ],
+      "answer": 0,
+      "explanation": "Nachfragen zeigt Interesse und hilft beim Verstehen."
+}
     ]
   }
 ];
