@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     q: "Muss ich Grammatik lernen?",
-    a: "Nein. Der Deutsch Trainer fokussiert auf praktische Situationen. Grammatik lernst du nebenbei durch die Übungen.",
+    a: "Nein. BalkanLink Deutsch fokussiert auf praktische Situationen. Grammatik lernst du nebenbei durch die Übungen.",
   },
 ];
 
@@ -52,7 +52,7 @@ export default function TrainerFaq() {
             <GraduationCap className="h-7 w-7 text-gold" />
             <div>
               <h1 className="text-lg font-black text-primary-foreground sm:text-xl">
-                Häufige Fragen zum Deutsch Trainer
+                Häufige Fragen zu BalkanLink Deutsch
               </h1>
               <p className="text-xs text-primary-foreground/70">
                 Alles Wichtige auf einen Blick

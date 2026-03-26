@@ -79,8 +79,8 @@ export default function DeutschTrainer() {
           <div className="flex items-center gap-3">
             <GraduationCap className="h-7 w-7 text-gold" />
             <div>
-              <h1 className="text-lg font-black text-primary-foreground sm:text-xl">Deutsch Trainer</h1>
-              <p className="text-xs text-primary-foreground/70">Deutsch für das echte Leben</p>
+              <h1 className="text-lg font-black text-primary-foreground sm:text-xl">BalkanLink Deutsch</h1>
+              <p className="text-xs text-primary-foreground/70">Effektives Deutschlernen für das echte Leben</p>
             </div>
           </div>
         </div>
