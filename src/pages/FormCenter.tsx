@@ -38,24 +38,18 @@ function GuideContent({ slug }: { slug: string }) {
       {/* FREE section */}
       <FormFreeContent guide={guide} lang={lang} />
 
-      {/* PREMIUM section */}
-      {isPremium ? (
-        <>
-          <div className="relative py-2">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-border/60" />
-            </div>
-            <div className="relative flex justify-center">
-              <span className="bg-background px-4 text-xs font-semibold text-muted-foreground">
-                {t("formCenter.smartGuideLabel")}
-              </span>
-            </div>
-          </div>
-          <FormSmartGuide guide={guide} lang={lang} />
-        </>
-      ) : (
-        <FormPaywall formLabel={entry?.label || guide.title.de} />
-      )}
+      {/* Smart Guide section */}
+      <div className="relative py-2">
+        <div className="absolute inset-0 flex items-center">
+          <div className="w-full border-t border-border/60" />
+        </div>
+        <div className="relative flex justify-center">
+          <span className="bg-background px-4 text-xs font-semibold text-muted-foreground">
+            {t("formCenter.smartGuideLabel")}
+          </span>
+        </div>
+      </div>
+      <FormSmartGuide guide={guide} lang={lang} />
     </div>
   );
 }
