@@ -8,6 +8,8 @@ export default function AdminForms() {
   const { data: forms } = useForms();
 
   return (
+    <>
+    <SubpageNav />
     <div className="mx-auto max-w-4xl px-4 py-8">
       <h1 className="font-heading text-2xl font-extrabold mb-6">Admin — Forms</h1>
       <div className="space-y-3">
@@ -29,5 +31,6 @@ export default function AdminForms() {
         ))}
       </div>
     </div>
+    </>
   );
 }
