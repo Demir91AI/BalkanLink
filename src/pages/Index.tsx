@@ -181,12 +181,23 @@ function AdFlowSection() {
 
 function ShowcaseCarousel() {
   const doubled = [...premiumShowcaseFirms, ...premiumShowcaseFirms];
+  const { ref, pause, scheduleResume, onTouchStart, onTouchMove, onTouchEnd } = useInfiniteScroll(0.4, 4000);
 
   return (
-    <div className="relative overflow-hidden">
+    <div
+      className="relative overflow-hidden"
+      onMouseEnter={pause}
+      onMouseLeave={scheduleResume}
+    >
       <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-[#0B0F1A] to-transparent" />
       <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-[#0B0F1A] to-transparent" />
-      <div className="flex w-max animate-[scroll-left_40s_linear_infinite] hover:[animation-play-state:paused] gap-5 px-4">
+      <div
+        ref={ref}
+        className="flex gap-5 px-4 overflow-x-hidden scrollbar-hide"
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
         {doubled.map((firm, i) => (
           <article
             key={`${firm.slug}-${i}`}
