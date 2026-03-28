@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
@@ -62,11 +62,10 @@ const placeholderAds = [
 /* CSS-animated auto-scroll — no JS needed */
 
 function AdFlowSection() {
-  const { scrollRef, pause } = useAutoScroll(AD_SPEED, AD_RESUME_DELAY);
-  const tripled = [...placeholderAds, ...placeholderAds, ...placeholderAds];
+  const doubled = [...placeholderAds, ...placeholderAds];
 
   return (
-    <section className="py-10 sm:py-12 border-t border-white/[0.05] bg-[#0B0F1A]">
+    <section className="py-10 sm:py-12 border-t border-white/[0.05] bg-[#0B0F1A] overflow-hidden">
       <div className="container mb-5">
         <div className="inline-flex items-center gap-2 rounded-full border border-[#EAB308]/20 bg-[#EAB308]/[0.06] px-3 py-1">
           <Megaphone className="h-3 w-3 text-[#EAB308]" />
@@ -76,23 +75,17 @@ function AdFlowSection() {
       <div className="relative">
         <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-[#0B0F1A] to-transparent" />
         <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-[#0B0F1A] to-transparent" />
-        <div
-          ref={scrollRef}
-          onTouchStart={pause}
-          onMouseDown={pause}
-          className="flex gap-4 overflow-x-auto px-4 scrollbar-hide"
-          style={{ WebkitOverflowScrolling: "touch" }}
-        >
-          {tripled.map((ad, i) => (
+        <div className="flex w-max animate-[scroll-left_30s_linear_infinite] hover:[animation-play-state:paused] gap-4 px-4">
+          {doubled.map((ad, i) => (
             <a
               key={i}
               href={MAILTO_AD}
-              className="group flex h-20 shrink-0 items-center gap-4 rounded-xl border border-white/8 bg-[#111827] px-5 transition-all duration-300 hover:border-[#EAB308]/30 hover:bg-[#111827]/80 min-w-[300px]"
+              className="group flex h-[100px] shrink-0 items-center gap-4 rounded-xl border border-white/8 bg-[#111827] px-5 transition-all duration-300 hover:border-[#EAB308]/30 hover:bg-[#111827]/80 min-w-[320px]"
             >
               <img
                 src={ad.logo}
                 alt={ad.name}
-                className="h-10 w-10 shrink-0 rounded-lg object-contain bg-white/5 p-1"
+                className="h-12 w-12 shrink-0 rounded-lg object-contain bg-white/5 p-1.5"
                 loading="lazy"
               />
               <div className="flex-1 min-w-0">
@@ -111,21 +104,14 @@ function AdFlowSection() {
 }
 
 function ShowcaseCarousel() {
-  const { scrollRef, pause } = useAutoScroll(SHOWCASE_SPEED, AD_RESUME_DELAY);
-  const tripled = [...premiumShowcaseFirms, ...premiumShowcaseFirms, ...premiumShowcaseFirms];
+  const doubled = [...premiumShowcaseFirms, ...premiumShowcaseFirms];
 
   return (
-    <div className="relative">
+    <div className="relative overflow-hidden">
       <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-[#0B0F1A] to-transparent" />
       <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-[#0B0F1A] to-transparent" />
-      <div
-        ref={scrollRef}
-        onTouchStart={pause}
-        onMouseDown={pause}
-        className="flex gap-5 overflow-x-auto px-4 scrollbar-hide"
-        style={{ WebkitOverflowScrolling: "touch" }}
-      >
-        {tripled.map((firm, i) => (
+      <div className="flex w-max animate-[scroll-left_40s_linear_infinite] hover:[animation-play-state:paused] gap-5 px-4">
+        {doubled.map((firm, i) => (
           <article
             key={`${firm.slug}-${i}`}
             className="min-w-[320px] max-w-[360px] shrink-0 rounded-2xl border border-white/8 bg-[#111827] overflow-hidden flex flex-col"
