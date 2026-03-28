@@ -13,6 +13,11 @@ import FormFreeContent from "@/components/FormFreeContent";
 import FormSmartGuide from "@/components/FormSmartGuide";
 import KindergeldGuideContent from "@/components/KindergeldGuideContent";
 import AnmeldungGuideContent from "@/components/AnmeldungGuideContent";
+import SteuerIdGuideContent from "@/components/guides/SteuerIdGuideContent";
+import KrankenkasseGuideContent from "@/components/guides/KrankenkasseGuideContent";
+import ElterngeldGuideContent from "@/components/guides/ElterngeldGuideContent";
+import BurgergeldGuideContent from "@/components/guides/BurgergeldGuideContent";
+import WohngeldGuideContent from "@/components/guides/WohngeldGuideContent";
 import { navigateBackOrHome } from "@/lib/navigation";
 
 type LangKey = "de" | "bs" | "en";
