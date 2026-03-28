@@ -65,41 +65,57 @@ const placeholderAds = [
 
 function AdFlowSection() {
   const doubled = [...placeholderAds, ...placeholderAds];
-  const trackRef = useRef<HTMLDivElement>(null);
-  const touchStartX = useRef(0);
-  const scrollStartX = useRef(0);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef(0);
+  const pausedRef = useRef(false);
+  const resumeTimer = useRef<ReturnType<typeof setTimeout>>();
+  const isDragging = useRef(false);
+  const dragStartX = useRef(0);
+  const dragScrollLeft = useRef(0);
 
-  const pauseAnimation = () => {
-    if (trackRef.current) trackRef.current.style.animationPlayState = "paused";
-  };
-  const resumeAnimation = () => {
-    if (trackRef.current) trackRef.current.style.animationPlayState = "running";
-  };
-
-  const onTouchStart = (e: React.TouchEvent) => {
-    pauseAnimation();
-    touchStartX.current = e.touches[0].clientX;
-    const el = trackRef.current;
-    if (el) {
-      const transform = getComputedStyle(el).transform;
-      const matrix = new DOMMatrixReadOnly(transform);
-      scrollStartX.current = matrix.m41;
+  const animate = useCallback(() => {
+    const el = wrapperRef.current;
+    if (el && !pausedRef.current) {
+      el.scrollLeft += 0.5;
+      // infinite loop: when past halfway, jump back
+      const half = el.scrollWidth / 2;
+      if (el.scrollLeft >= half) el.scrollLeft -= half;
     }
-  };
+    rafRef.current = requestAnimationFrame(animate);
+  }, []);
 
+  useEffect(() => {
+    const el = wrapperRef.current;
+    if (el) el.scrollLeft = 0;
+    rafRef.current = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, [animate]);
+
+  const pause = useCallback(() => {
+    pausedRef.current = true;
+    if (resumeTimer.current) clearTimeout(resumeTimer.current);
+  }, []);
+
+  const scheduleResume = useCallback(() => {
+    if (resumeTimer.current) clearTimeout(resumeTimer.current);
+    resumeTimer.current = setTimeout(() => { pausedRef.current = false; }, 3000);
+  }, []);
+
+  // Touch handlers
+  const onTouchStart = (e: React.TouchEvent) => {
+    pause();
+    isDragging.current = true;
+    dragStartX.current = e.touches[0].clientX;
+    dragScrollLeft.current = wrapperRef.current?.scrollLeft ?? 0;
+  };
   const onTouchMove = (e: React.TouchEvent) => {
-    const el = trackRef.current;
-    if (!el) return;
-    const delta = e.touches[0].clientX - touchStartX.current;
-    el.style.transform = `translateX(${scrollStartX.current + delta}px)`;
+    if (!isDragging.current || !wrapperRef.current) return;
+    const delta = e.touches[0].clientX - dragStartX.current;
+    wrapperRef.current.scrollLeft = dragScrollLeft.current - delta;
   };
-
   const onTouchEnd = () => {
-    const el = trackRef.current;
-    if (!el) return;
-    // Remove inline transform so CSS animation resumes from current position
-    el.style.transform = "";
-    resumeAnimation();
+    isDragging.current = false;
+    scheduleResume();
   };
 
   return (
@@ -112,48 +128,46 @@ function AdFlowSection() {
       </div>
       <div
         className="relative"
-        onMouseEnter={pauseAnimation}
-        onMouseLeave={resumeAnimation}
+        onMouseEnter={pause}
+        onMouseLeave={scheduleResume}
       >
         <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-[#0B0F1A] to-transparent" />
         <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-[#0B0F1A] to-transparent" />
-        <div className="overflow-hidden">
-          <div
-            ref={trackRef}
-            className="flex w-max animate-[marquee_35s_linear_infinite] gap-4 px-4"
-            onTouchStart={onTouchStart}
-            onTouchMove={onTouchMove}
-            onTouchEnd={onTouchEnd}
-          >
-            {doubled.map((ad, i) => (
-              <a
-                key={i}
-                href={ad.href || MAILTO_AD}
-                target={ad.href ? "_blank" : undefined}
-                rel={ad.href ? "noopener noreferrer" : undefined}
-                className="group flex flex-col w-[260px] h-[300px] md:w-[280px] md:h-[320px] shrink-0 rounded-xl border border-[#2a2f3e] overflow-hidden transition-all duration-300 hover:border-[#EAB308]/30"
-              >
-                <div className="flex items-center justify-center h-[140px] md:h-[160px] bg-[#1a1f2e] p-4 md:p-5">
-                  <img
-                    src={ad.logo}
-                    alt={ad.name}
-                    className="max-h-full max-w-full object-contain mix-blend-lighten"
-                    loading="lazy"
-                  />
+        <div
+          ref={wrapperRef}
+          className="flex gap-4 px-4 overflow-x-hidden scrollbar-hide"
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
+          {doubled.map((ad, i) => (
+            <a
+              key={i}
+              href={ad.href || MAILTO_AD}
+              target={ad.href ? "_blank" : undefined}
+              rel={ad.href ? "noopener noreferrer" : undefined}
+              className="group flex flex-col w-[260px] h-[300px] md:w-[280px] md:h-[320px] shrink-0 rounded-xl border border-[#2a2f3e] overflow-hidden transition-all duration-300 hover:border-[#EAB308]/30"
+            >
+              <div className="flex items-center justify-center h-[140px] md:h-[160px] bg-[#1a1f2e] p-4 md:p-5">
+                <img
+                  src={ad.logo}
+                  alt={ad.name}
+                  className="max-h-full max-w-full object-contain mix-blend-lighten"
+                  loading="lazy"
+                />
+              </div>
+              <div className="flex flex-col flex-1 bg-[#111827] p-4">
+                <p className="text-lg font-bold text-white leading-tight">{ad.name}</p>
+                <p className="text-[13px] text-[#EAB308] mt-1">{ad.slogan}</p>
+                <p className="text-xs text-[#9CA3AF] mt-1 line-clamp-2">{ad.desc}</p>
+                <div className="mt-auto pt-3">
+                  <span className="inline-flex items-center gap-1.5 rounded-md border border-[#EAB308] px-4 py-2 text-[13px] font-semibold text-[#EAB308] transition-colors group-hover:bg-[#EAB308]/10">
+                    Mehr erfahren →
+                  </span>
                 </div>
-                <div className="flex flex-col flex-1 bg-[#111827] p-4">
-                  <p className="text-lg font-bold text-white leading-tight">{ad.name}</p>
-                  <p className="text-[13px] text-[#EAB308] mt-1">{ad.slogan}</p>
-                  <p className="text-xs text-[#9CA3AF] mt-1 line-clamp-2">{ad.desc}</p>
-                  <div className="mt-auto pt-3">
-                    <span className="inline-flex items-center gap-1.5 rounded-md border border-[#EAB308] px-4 py-2 text-[13px] font-semibold text-[#EAB308] transition-colors group-hover:bg-[#EAB308]/10">
-                      Mehr erfahren →
-                    </span>
-                  </div>
-                </div>
-              </a>
-            ))}
-          </div>
+              </div>
+            </a>
+          ))}
         </div>
       </div>
     </section>
