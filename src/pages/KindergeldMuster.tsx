@@ -12,9 +12,6 @@ const printCSS = `
   #kg1-root > .kg1-scale { display:block!important }
   .kg1-scale > #kg1-paper { display:block!important; box-shadow:none!important; margin:0!important; transform:none!important; max-width:100%!important; padding:20px!important }
 }
-@media (max-width:768px) {
-  .kg1-scale { transform:scale(0.48); transform-origin:top center; margin-bottom:-600px }
-}
 `;
 
 const S = {
