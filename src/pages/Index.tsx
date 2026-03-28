@@ -38,9 +38,10 @@ const trustBadgeKeys = ["hero.bullet.simple", "hero.bullet.language", "hero.bull
 
 const highlights = [
   { icon: ClipboardList, titleKey: "Formulari", descKey: "Svi formulari na jednom mjestu", to: "/formulari" },
-  { icon: BookOpen, titleKey: "Deutsch", descKey: "Nauči njemački kroz praksu", to: "/deutsch-trainer" },
   { icon: Calculator, titleKey: "Kalkulatori", descKey: "Brutto-Netto i više", to: "/tools" },
+  { icon: BookOpen, titleKey: "Deutsch", descKey: "Nauči njemački kroz praksu", to: "/deutsch-trainer" },
   { icon: Megaphone, titleKey: "Oglasi", descKey: "Nudim / Tražim oglasi", to: "/nudim-trazim" },
+  { icon: null as any, titleKey: "Nudim / Tražim", descKey: "Poveži se s ljudima", to: "/nudim-trazim" },
 ];
 
 const steps = [
