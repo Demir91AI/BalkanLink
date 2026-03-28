@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useSidebar } from "@/components/ui/sidebar";
-import { ChevronDown, Mail, List, Send, Menu, Globe, LogIn, LogOut } from "lucide-react";
+import { ChevronDown, Mail, List, Send, Menu, Globe, LogIn, LogOut, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -17,7 +17,7 @@ const menuBtnClass =
   "h-10 w-10 rounded-lg text-white/70 hover:text-white hover:bg-white/8 active:scale-[0.93] transition-transform duration-150";
 
 export default function Header() {
-  const { user, loading, signOut } = useAuth();
+  const { user, loading, signOut, isAdmin } = useAuth();
   const { t, language, setLanguage, languages, currentFlag } = useLanguage();
   const { toggleSidebar } = useSidebar();
   const navigate = useNavigate();
@@ -65,6 +65,14 @@ export default function Header() {
                 <span className="bg-gradient-to-r from-[hsl(var(--brand-orange))] to-[hsl(var(--gold-light))] bg-clip-text text-transparent">Link</span>
               </span>
             </Link>
+
+            {/* Admin badge */}
+            {!loading && isAdmin && (
+              <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full border border-emerald-500/30 bg-emerald-500/15 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-emerald-400 backdrop-blur-sm">
+                <ShieldCheck className="h-2.5 w-2.5" />
+                Admin
+              </span>
+            )}
           </div>
 
           {/* Right: extra menu trigger */}

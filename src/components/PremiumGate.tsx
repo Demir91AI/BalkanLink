@@ -37,12 +37,12 @@ interface PremiumGateProps {
 }
 
 export default function PremiumGate({ children, fallback }: PremiumGateProps) {
-  const { isPremium, user } = useAuth();
+  const { isPremium, isAdmin, user } = useAuth();
   const { language } = useLanguage();
   const lk = getLk(language);
   const t = texts[lk];
 
-  if (isPremium) return <>{children}</>;
+  if (isPremium || isAdmin) return <>{children}</>;
 
   return (
     <div className="relative mt-8">

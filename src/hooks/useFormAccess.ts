@@ -3,11 +3,16 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 
 export function useFormAccess(formSlug: string) {
-  const { user } = useAuth();
+  const { user, isAdmin } = useAuth();
   const [hasAccess, setHasAccess] = useState(false);
   const [loading, setLoading] = useState(true);
 
   const checkAccess = useCallback(async () => {
+    if (isAdmin) {
+      setHasAccess(true);
+      setLoading(false);
+      return;
+    }
     if (!user) {
       setHasAccess(false);
       setLoading(false);
@@ -22,7 +27,7 @@ export function useFormAccess(formSlug: string) {
       .maybeSingle();
     setHasAccess(!!data);
     setLoading(false);
-  }, [user, formSlug]);
+  }, [user, formSlug, isAdmin]);
 
   useEffect(() => {
     checkAccess();
