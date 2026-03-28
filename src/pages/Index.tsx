@@ -417,7 +417,7 @@ export default function Index() {
             <div className="mx-auto mt-3 h-[3px] w-16 rounded-full bg-gradient-to-r from-[#3B82F6] to-gold" />
           </motion.div>
 
-          <div className="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4 sm:gap-5">
+          <div className="mx-auto mt-12 grid w-full max-w-4xl grid-cols-2 gap-3">
             {highlights.map((h, i) => (
               <motion.div
                 key={h.to}
@@ -425,18 +425,19 @@ export default function Index() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.15 + i * 0.1 }}
+                className={h.to === "/deutsch-trainer" ? "col-span-2 w-full" : "w-full"}
               >
                 {h.to === "/deutsch-trainer" ? (
                   <Link
                     to={h.to}
-                    className="group relative flex flex-col items-center rounded-2xl border border-[#EAB308] p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(234,179,8,0.3)]"
-                    style={{ background: "#111827" }}
+                    className="group relative flex w-full flex-col items-center rounded-2xl border border-[#EAB308] p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(234,179,8,0.3)]"
+                    style={{ background: "#111827", minHeight: 180 }}
                   >
                     <span className="absolute top-3 right-3 rounded-full px-2 py-0.5 text-[11px] font-bold text-white" style={{ background: "#22C55E" }}>FREE</span>
-                    <span className="mb-3 text-[32px] leading-none">🎓</span>
-                    <h3 className="text-lg font-bold text-white">BalkanLink Deutsch</h3>
-                    <p className="mt-1 text-[13px] font-medium text-[#EAB308]">Nauči njemački za pravi život</p>
-                    <p className="mt-1.5 text-xs text-[#9CA3AF] leading-relaxed">Kod doktora, na poslu, u opštini — jasno i bez komplikacija.</p>
+                    <span className="mb-3 text-[40px] leading-none">🎓</span>
+                    <h3 className="text-[22px] font-bold text-white">BalkanLink Deutsch</h3>
+                    <p className="mt-1 text-[14px] font-medium text-[#EAB308]">Nauči njemački za pravi život</p>
+                    <p className="mt-1.5 text-[13px] text-[#9CA3AF] leading-relaxed">Kod doktora, na poslu, u opštini — jasno i bez komplikacija.</p>
                     <span className="mt-3 text-xs text-[#9CA3AF]">A1 → C2</span>
                     <span className="mt-3 block w-full rounded-lg py-2 text-center text-sm font-bold text-black transition-opacity group-hover:opacity-90" style={{ background: "#EAB308" }}>
                       Počni besplatno →
@@ -445,13 +446,14 @@ export default function Index() {
                 ) : (
                   <Link
                     to={h.to}
-                    className="group flex flex-col items-center rounded-2xl border border-white/8 bg-white/[0.03] px-4 py-7 text-center transition-all duration-300 hover:-translate-y-1 hover:border-gold/30 hover:bg-white/[0.06] hover:shadow-[0_12px_40px_rgba(0,0,0,0.3)]"
+                    className="group flex w-full flex-col items-center justify-center rounded-2xl border border-white/8 bg-white/[0.03] px-4 text-center transition-all duration-300 hover:-translate-y-1 hover:border-gold/30 hover:bg-white/[0.06] hover:shadow-[0_12px_40px_rgba(0,0,0,0.3)]"
+                    style={{ minHeight: 140 }}
                   >
-                    <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[#0B1F3A] to-[#163057] border border-gold/25 shadow-[0_4px_16px_rgba(11,31,58,0.3)] transition-transform duration-300 group-hover:scale-105">
-                      <h.icon className="h-5 w-5 text-[#F5A623]" strokeWidth={1.8} />
+                    <div className="mb-2 flex h-7 w-7 items-center justify-center">
+                      <h.icon className="h-7 w-7 text-[#F5A623]" strokeWidth={1.8} />
                     </div>
-                    <h3 className="text-sm font-bold text-white group-hover:text-gold transition-colors">{h.titleKey}</h3>
-                    <p className="mt-1 text-xs text-white/40 line-clamp-2">{h.descKey}</p>
+                    <h3 className="text-[14px] font-bold text-white group-hover:text-gold transition-colors">{h.titleKey}</h3>
+                    <p className="mt-1 text-[12px] text-white/40 line-clamp-2">{h.descKey}</p>
                   </Link>
                 )}
               </motion.div>
