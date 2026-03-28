@@ -24,7 +24,6 @@ function getLangKey(lang: string): LangKey {
 /* ─── Guide Content (right side) ─── */
 function GuideContent({ slug }: { slug: string }) {
   const guide = getGuideBySlug(slug);
-  const { isPremium } = useAuth();
   const { t, language } = useLanguage();
   const lang = getLangKey(language);
   const entry = getAllFormEntries().find((e) => e.slug === slug);
