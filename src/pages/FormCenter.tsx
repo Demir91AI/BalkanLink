@@ -18,6 +18,7 @@ import KrankenkasseGuideContent from "@/components/guides/KrankenkasseGuideConte
 import ElterngeldGuideContent from "@/components/guides/ElterngeldGuideContent";
 import BurgergeldGuideContent from "@/components/guides/BurgergeldGuideContent";
 import WohngeldGuideContent from "@/components/guides/WohngeldGuideContent";
+import AufenthaltsNavigator from "@/components/AufenthaltsNavigator";
 import { navigateBackOrHome } from "@/lib/navigation";
 
 type LangKey = "de" | "bs" | "en";
@@ -42,6 +43,7 @@ function GuideContent({ slug }: { slug: string }) {
   if (slug === "elterngeld") return <ElterngeldGuideContent />;
   if (slug === "burgergeld") return <BurgergeldGuideContent />;
   if (slug === "wohngeld") return <WohngeldGuideContent />;
+  if (slug === "aufenthaltstitel") return <AufenthaltsNavigator />;
 
   if (!guide) return null;
 

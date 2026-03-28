@@ -11,7 +11,7 @@ const countries = [
   { id: "svn", flag: "🇸🇮", name: "Slovenija", full: "Slovenija", group: "eu" },
 ];
 
-const embassyLinks = {
+const embassyLinks: Record<string, { name: string; url: string } | null> = {
   bih: { name: "Ambasada Njemačke u Sarajevu", url: "https://sarajevo.diplo.de" },
   srb: { name: "Ambasada Njemačke u Beogradu", url: "https://belgrad.diplo.de" },
   mne: { name: "Ambasada Njemačke u Podgorici", url: "https://podgorica.diplo.de" },
@@ -22,7 +22,7 @@ const embassyLinks = {
   svn: null,
 };
 
-const wbSections = (country) => [
+const wbSections = (country: string) => [
   {
     id: "first",
     icon: "✈️",
