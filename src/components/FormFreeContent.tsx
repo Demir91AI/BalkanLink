@@ -1,4 +1,4 @@
-import { AlertTriangle, ClipboardList, PenLine, Clock, ExternalLink, Info } from "lucide-react";
+import { AlertTriangle, ClipboardList, PenLine, Clock } from "lucide-react";
 import { Guide, getOfficialUrl } from "@/lib/guide-data";
 
 type LangKey = "de" | "bs" | "en";
