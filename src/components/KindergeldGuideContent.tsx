@@ -113,7 +113,6 @@ export default function KindergeldGuideContent() {
           <p className="mt-0.5 text-xs text-muted-foreground">Formular: Zahtjev za dječji dodatak (KG1)</p>
         </div>
 
-        {/* Ko može podnijeti */}
         <div className="rounded-2xl border border-border/60 bg-card p-4">
           <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold">
             <PenLine className="h-3.5 w-3.5 text-primary" /> Ko može podnijeti zahtjev
@@ -129,7 +128,6 @@ export default function KindergeldGuideContent() {
           </p>
         </div>
 
-        {/* Šta treba pripremiti */}
         <div className="rounded-2xl border border-border/60 bg-card p-4">
           <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold">
             <ClipboardList className="h-3.5 w-3.5 text-primary" /> Šta treba pripremiti
@@ -144,7 +142,6 @@ export default function KindergeldGuideContent() {
           </ul>
         </div>
 
-        {/* Najčešće greške — crveni box, ne mijenjati */}
         <div className="rounded-2xl border border-red-200 bg-red-50 p-4 dark:border-red-900/40 dark:bg-red-950/20">
           <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold text-red-700 dark:text-red-400">
             <AlertTriangle className="h-3.5 w-3.5" /> Najčešće greške
@@ -158,32 +155,7 @@ export default function KindergeldGuideContent() {
         </div>
       </div>
 
-      {/* ─── DIO 2: Musterformular kartica ─── */}
-      <div
-        className="rounded-2xl p-6 text-center"
-        style={{ backgroundColor: "#111827", border: "1px solid #3B82F6" }}
-      >
-        <div className="text-[32px] mb-3">📋</div>
-        <h2 className="text-xl font-bold text-white">Vježbaj na Musterformlaru</h2>
-        <p className="mt-1 text-sm font-semibold" style={{ color: "#EAB308" }}>
-          Popuni kao original — pa znaš tačno šta ide gdje
-        </p>
-        <p className="mt-2 text-[13px] text-gray-400">
-          Interaktivna kopija originalnog KG1 formulara. Bez državnih obilježja — samo za učenje i vježbu.
-        </p>
-        <p className="mt-1 text-[11px] text-gray-500">
-          Original KG1 formulara dostupan na službenoj stranici Familienkasse.
-        </p>
-        <button
-          onClick={() => navigate("/formulari/kindergeld/muster")}
-          className="mt-4 w-full font-bold text-white py-3 px-6 rounded-[10px]"
-          style={{ backgroundColor: "#3B82F6" }}
-        >
-          📋 Otvori Musterformular →
-        </button>
-      </div>
-
-      {/* ─── DIO 3: Smart Guide korak po korak ─── */}
+      {/* ─── DIO 2: Smart Guide korak po korak ─── */}
       <div className="space-y-4">
         <div className="text-center">
           <h2 className="text-lg font-bold text-foreground">Smart Guide — korak po korak</h2>
@@ -192,7 +164,6 @@ export default function KindergeldGuideContent() {
           </p>
         </div>
 
-        {/* Progress */}
         <div className="flex items-center gap-3">
           <Progress value={progress} className="h-2 flex-1" />
           <span className="text-xs font-medium text-muted-foreground whitespace-nowrap">
@@ -200,7 +171,6 @@ export default function KindergeldGuideContent() {
           </span>
         </div>
 
-        {/* Step pills */}
         <div className="flex items-center gap-1 overflow-x-auto pb-2">
           {STEPS.map((_, i) => (
             <button
@@ -220,14 +190,12 @@ export default function KindergeldGuideContent() {
           ))}
         </div>
 
-        {/* Current step card */}
         <div className="rounded-2xl border border-border/60 bg-card p-5">
           <p className="text-[10px] font-medium text-muted-foreground mb-1">Korak {step + 1}</p>
           <h3 className="font-bold text-sm">{current.deField}</h3>
           <p className="text-xs text-muted-foreground mt-0.5">{current.bhsField}</p>
         </div>
 
-        {/* Detail cards */}
         <div className="grid gap-3 sm:grid-cols-2">
           {cardConfig.map(({ key, label, icon, color }) => {
             const value = current[key as CardKey];
@@ -249,7 +217,6 @@ export default function KindergeldGuideContent() {
           )}
         </div>
 
-        {/* Navigation */}
         <div className="flex items-center justify-between">
           <Button variant="outline" size="sm" disabled={step === 0} onClick={() => setStep(step - 1)}>
             <ChevronLeft className="mr-1 h-4 w-4" /> Nazad
@@ -274,6 +241,31 @@ export default function KindergeldGuideContent() {
             </Button>
           )}
         </div>
+      </div>
+
+      {/* ─── DIO 3: Musterformular kartica ─── */}
+      <div
+        className="rounded-2xl p-6 text-center"
+        style={{ backgroundColor: "#111827", border: "1px solid #3B82F6" }}
+      >
+        <div className="text-[32px] mb-3">📋</div>
+        <h2 className="text-xl font-bold text-white">Vježbaj na Musterformlaru</h2>
+        <p className="mt-1 text-sm font-semibold" style={{ color: "#EAB308" }}>
+          Popuni kao original — pa znaš tačno šta ide gdje
+        </p>
+        <p className="mt-2 text-[13px] text-gray-400">
+          Interaktivna kopija originalnog KG1 formulara. Bez državnih obilježja — samo za učenje i vježbu.
+        </p>
+        <p className="mt-1 text-[11px] text-gray-500">
+          Original KG1 formulara dostupan na službenoj stranici Familienkasse.
+        </p>
+        <button
+          onClick={() => navigate("/formulari/kindergeld/muster")}
+          className="mt-4 w-full font-bold text-white py-3 px-6 rounded-[10px]"
+          style={{ backgroundColor: "#3B82F6" }}
+        >
+          📋 Otvori Musterformular →
+        </button>
       </div>
 
       {/* ─── DIO 4: Link na original ─── */}
