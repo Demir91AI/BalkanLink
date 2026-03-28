@@ -1,4 +1,3 @@
-import { useRef, useEffect, useCallback } from "react";
 import { Megaphone, Mail, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import flowPlaceholder from "@/assets/flow-ad-placeholder.png";
@@ -9,8 +8,6 @@ const MAILTO_AD = `mailto:kontakt@balkanlink.de?subject=${encodeURIComponent("Og
 )}`;
 
 const PLACEHOLDER_COUNT = 7;
-const AUTO_SPEED = 0.5;
-const RESUME_DELAY = 4000;
 
 function RealCoreCard() {
   return (
@@ -77,45 +74,10 @@ function PlaceholderCard() {
 
 export function AdFlowBanner() {
   const { t } = useLanguage();
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const rafRef = useRef<number>(0);
-  const pausedRef = useRef(false);
-  const resumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Build one set: RealCore first, then placeholders
   const ITEMS_PER_SET = 1 + PLACEHOLDER_COUNT;
-
-  const animate = useCallback(() => {
-    const el = scrollRef.current;
-    if (el && !pausedRef.current) {
-      el.scrollLeft += AUTO_SPEED;
-      const third = el.scrollWidth / 3;
-      if (el.scrollLeft >= third * 2) {
-        el.scrollLeft -= third;
-      }
-    }
-    rafRef.current = requestAnimationFrame(animate);
-  }, []);
-
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (el) {
-      el.scrollLeft = el.scrollWidth / 3;
-    }
-    rafRef.current = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(rafRef.current);
-  }, [animate]);
-
-  const pauseAuto = useCallback(() => {
-    pausedRef.current = true;
-    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
-    resumeTimerRef.current = setTimeout(() => {
-      pausedRef.current = false;
-    }, RESUME_DELAY);
-  }, []);
-
-  // Triplicate for infinite loop
-  const totalItems = ITEMS_PER_SET * 3;
+  // Duplicate for seamless loop
+  const totalItems = ITEMS_PER_SET * 2;
 
   return (
     <section className="relative overflow-hidden border-y border-white/[0.06] bg-gradient-to-b from-[hsl(215,55%,5%)] to-[hsl(215,55%,7%)]">
@@ -138,21 +100,17 @@ export function AdFlowBanner() {
         <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 bg-gradient-to-r from-[hsl(215,55%,5%)] to-transparent" />
         <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 bg-gradient-to-l from-[hsl(215,55%,7%)] to-transparent" />
 
-        <div
-          ref={scrollRef}
-          onTouchStart={pauseAuto}
-          onMouseDown={pauseAuto}
-          className="flex gap-4 overflow-x-auto px-4 scrollbar-hide"
-          style={{ WebkitOverflowScrolling: "touch" }}
-        >
-          {Array.from({ length: totalItems }).map((_, i) => {
-            const posInSet = i % ITEMS_PER_SET;
-            return posInSet === 0 ? (
-              <RealCoreCard key={i} />
-            ) : (
-              <PlaceholderCard key={i} />
-            );
-          })}
+        <div className="overflow-hidden w-full">
+          <div className="flex w-fit gap-4 px-4 animate-flow-scroll hover:[animation-play-state:paused] active:[animation-play-state:paused]">
+            {Array.from({ length: totalItems }).map((_, i) => {
+              const posInSet = i % ITEMS_PER_SET;
+              return posInSet === 0 ? (
+                <RealCoreCard key={i} />
+              ) : (
+                <PlaceholderCard key={i} />
+              );
+            })}
+          </div>
         </div>
       </div>
 

@@ -228,7 +228,7 @@ export default function FormCenter() {
           ) : (
             <div className="flex flex-col items-center justify-center py-20 text-center">
               {isMobile ? (
-                <div className="w-full space-y-3">
+                <div className="w-full space-y-1">
                   <div className="relative mb-4">
                     <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                     <Input
@@ -238,20 +238,54 @@ export default function FormCenter() {
                       className="pl-9 h-10 text-sm rounded-xl border-border/60 bg-card"
                     />
                   </div>
-                  {(isSearching ? searchResults : allEntries).map((item) => (
-                    <button
-                      key={item.slug}
-                      onClick={() => handleSelect(item.slug)}
-                      className="w-full flex items-center gap-3 rounded-xl border border-border/40 bg-card px-4 py-3 text-left text-sm transition hover:border-gold/40 hover:shadow-sm"
-                    >
-                      <FileText className="h-4 w-4 shrink-0 text-muted-foreground" />
-                      <div className="min-w-0">
-                        <p className="font-semibold truncate">{item.label}</p>
-                        <p className="text-[11px] text-muted-foreground truncate">{item.desc}</p>
+                  {isSearching ? (
+                    searchResults.length > 0 ? (
+                      <div className="space-y-2">
+                        {searchResults.map((item) => (
+                          <button
+                            key={item.slug}
+                            onClick={() => handleSelect(item.slug)}
+                            className="w-full flex items-center gap-3 rounded-xl border border-border/40 bg-card px-4 py-3 text-left text-sm transition hover:border-gold/40 hover:shadow-sm"
+                          >
+                            <FileText className="h-4 w-4 shrink-0 text-muted-foreground" />
+                            <div className="min-w-0">
+                              <p className="font-semibold truncate">{item.label}</p>
+                              <p className="text-[11px] text-muted-foreground truncate">{item.desc}</p>
+                            </div>
+                            <ChevronRight className="ml-auto h-4 w-4 shrink-0 text-muted-foreground" />
+                          </button>
+                        ))}
                       </div>
-                      <ChevronRight className="ml-auto h-4 w-4 shrink-0 text-muted-foreground" />
-                    </button>
-                  ))}
+                    ) : (
+                      <p className="px-3 py-6 text-xs text-muted-foreground text-center">
+                        {t("formCenter.noResults")}
+                      </p>
+                    )
+                  ) : (
+                    formCatalog.map((group) => (
+                      <div key={group.id}>
+                        <div className="px-4 py-3 text-[11px] font-bold uppercase tracking-widest text-[hsl(45,92%,50%)] bg-[hsl(220,50%,8%)] rounded-lg mt-3 mb-1.5">
+                          {group.icon} {group.title}
+                        </div>
+                        <div className="space-y-2">
+                          {group.items.map((item) => (
+                            <button
+                              key={item.slug}
+                              onClick={() => handleSelect(item.slug)}
+                              className="w-full flex items-center gap-3 rounded-xl border border-border/40 bg-card px-4 py-3 text-left text-sm transition hover:border-gold/40 hover:shadow-sm"
+                            >
+                              <FileText className="h-4 w-4 shrink-0 text-muted-foreground" />
+                              <div className="min-w-0">
+                                <p className="font-semibold truncate">{item.label}</p>
+                                <p className="text-[11px] text-muted-foreground truncate">{item.desc}</p>
+                              </div>
+                              <ChevronRight className="ml-auto h-4 w-4 shrink-0 text-muted-foreground" />
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    ))
+                  )}
                 </div>
               ) : (
                 <>
