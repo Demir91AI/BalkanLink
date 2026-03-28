@@ -29,7 +29,7 @@ const wbSections = (country: string) => [
     title: "Dolazim prvi put — trebam vizu",
     content: (
       <div>
-        <p style={{ marginBottom: 12, color: "#94a3b8", fontSize: 14 }}>
+        <p className="text-slate-400 text-sm mb-3 leading-relaxed">
           {country === "xk"
             ? "Kosovo ima visa-free od 2024. za Schengen zonu (kratki boravak do 90 dana). Za rad i duži boravak, potrebna je radna viza."
             : "Western Balkans Regulierung ti daje lakši pristup njemačkom tržištu rada bez prethodnog priznavanja diplome u određenim sektorima."}
@@ -40,7 +40,7 @@ const wbSections = (country: string) => [
           { n: 3, text: "Zakaži termin na Ambasadi Njemačke u tvojoj zemlji" },
           { n: 4, text: "Čekaj odluku — obično 4–12 sedmica" },
         ]} />
-        <Warning text="Dolazak turistskom vizom pa pokušaj promjene statusa unutar Njemačke — u većini slučajeva ne funkcioniše. Apliciraj iz matične zemlje!" />
+        <Warning text="Dolazak turistkom vizom pa pokušaj promjene statusa unutar Njemačke — u većini slučajeva ne funkcioniše. Apliciraj iz matične zemlje!" />
       </div>
     ),
   },
@@ -50,7 +50,7 @@ const wbSections = (country: string) => [
     title: "Već sam u Njemačkoj — produžujem",
     content: (
       <div>
-        <p style={{ marginBottom: 12, color: "#94a3b8", fontSize: 14 }}>
+        <p className="text-slate-400 text-sm mb-3 leading-relaxed">
           Produženje se radi kod lokalnog Ausländerbehörde-a (ABH).
         </p>
         <Steps steps={[
@@ -68,8 +68,8 @@ const wbSections = (country: string) => [
     title: "Promjena statusa: Student → Posao",
     content: (
       <div>
-        <p style={{ marginBottom: 12, color: "#94a3b8", fontSize: 14 }}>
-          Nakon završetka studija imaš <strong style={{ color: "#f1f5f9" }}>18 mjeseci</strong> za traženje posla u Njemačkoj.
+        <p className="text-slate-400 text-sm mb-3 leading-relaxed">
+          Nakon završetka studija imaš <strong className="text-slate-100">18 mjeseci</strong> za traženje posla u Njemačkoj.
         </p>
         <Steps steps={[
           { n: 1, text: "Odmah po završetku studija — idi na ABH i traži Aufenthaltserlaubnis zur Jobsuche (18 mj.)" },
@@ -87,19 +87,19 @@ const wbSections = (country: string) => [
     title: "Plava karta — Blaue Karte EU",
     content: (
       <div>
-        <p style={{ marginBottom: 12, color: "#94a3b8", fontSize: 14 }}>
+        <p className="text-slate-400 text-sm mb-3 leading-relaxed">
           Za visokokvalifikovane stručnjake — brži put do stalnog boravka.
         </p>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 16 }}>
+        <div className="aufenthalt-info-grid mb-4">
           <InfoCard label="Opće struke" value="~45.300 €/god." sub="minimalna plata" color="#3b82f6" />
           <InfoCard label="IT, inženjering, medicina" value="~41.000 €/god." sub="manjkave struke" color="#10b981" />
         </div>
-        <div style={{ marginBottom: 12 }}>
-          <p style={{ fontSize: 13, color: "#64748b", marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.05em" }}>Prednosti</p>
+        <div className="mb-3">
+          <p className="text-xs text-slate-500 uppercase tracking-wider mb-1.5">Prednosti</p>
           {["Stalni boravak već nakon 21 mj. (uz B1 njemački) ili 33 mj.", "Lakše spajanje porodice", "Mobilnost unutar EU nakon 18 mj."].map((t, i) => (
-            <div key={i} style={{ display: "flex", gap: 8, marginBottom: 6, alignItems: "flex-start" }}>
-              <span style={{ color: "#10b981", flexShrink: 0 }}>✓</span>
-              <span style={{ color: "#94a3b8", fontSize: 14 }}>{t}</span>
+            <div key={i} className="flex gap-2 mb-1.5 items-start">
+              <span className="text-emerald-500 shrink-0">✓</span>
+              <span className="text-slate-400 text-sm">{t}</span>
             </div>
           ))}
         </div>
@@ -117,17 +117,17 @@ const wbSections = (country: string) => [
     title: "Spajanje porodice — Familienzusammenführung",
     content: (
       <div>
-        <p style={{ marginBottom: 12, color: "#94a3b8", fontSize: 14 }}>
+        <p className="text-slate-400 text-sm mb-3 leading-relaxed">
           Bračni partner aplicira na Ambasadi Njemačke u matičnoj zemlji.
         </p>
-        <div style={{ background: "rgba(251,191,36,0.08)", border: "1px solid rgba(251,191,36,0.2)", borderRadius: 8, padding: 12, marginBottom: 16 }}>
-          <p style={{ fontSize: 13, color: "#fbbf24", margin: 0 }}>⏳ Realno čekanje: <strong>3–12 mjeseci</strong> ovisno o ambasadi</p>
+        <div className="rounded-lg p-3 mb-4" style={{ background: "rgba(251,191,36,0.08)", border: "1px solid rgba(251,191,36,0.2)" }}>
+          <p className="m-0 text-sm" style={{ color: "#fbbf24" }}>⏳ Realno čekanje: <strong>3–12 mjeseci</strong> ovisno o ambasadi</p>
         </div>
-        <p style={{ fontSize: 13, color: "#64748b", marginBottom: 8, textTransform: "uppercase", letterSpacing: "0.05em" }}>Potrebna dokumentacija</p>
+        <p className="text-xs text-slate-500 uppercase tracking-wider mb-2">Potrebna dokumentacija</p>
         {["Vjenčani list (ovjeren i preveden)", "Dokaz o prihodima sponzora (zadnje 3 platne liste)", "Dokaz o stanu (Mietvertrag)", "A1 certifikat iz njemačkog (Goethe Institut ili sl.)", "Biometrijska fotografija"].map((d, i) => (
-          <div key={i} style={{ display: "flex", gap: 8, marginBottom: 6 }}>
-            <span style={{ color: "#6366f1", flexShrink: 0 }}>•</span>
-            <span style={{ color: "#94a3b8", fontSize: 14 }}>{d}</span>
+          <div key={i} className="flex gap-2 mb-1.5">
+            <span className="text-indigo-400 shrink-0">•</span>
+            <span className="text-slate-400 text-sm">{d}</span>
           </div>
         ))}
       </div>
@@ -139,10 +139,10 @@ const wbSections = (country: string) => [
     title: "Stalni boravak — Niederlassungserlaubnis",
     content: (
       <div>
-        <p style={{ marginBottom: 12, color: "#94a3b8", fontSize: 14 }}>
+        <p className="text-slate-400 text-sm mb-3 leading-relaxed">
           Krajnji cilj — boraviš trajno, bez obnavljanja.
         </p>
-        <p style={{ fontSize: 13, color: "#64748b", marginBottom: 8, textTransform: "uppercase", letterSpacing: "0.05em" }}>Opći uslovi (§9 AufenthG)</p>
+        <p className="text-xs text-slate-500 uppercase tracking-wider mb-2">Opći uslovi (§9 AufenthG)</p>
         {[
           "5 godina zakonskog boravka u Njemačkoj",
           "Osigurana egzistencija (bez socijalne pomoći)",
@@ -151,18 +151,18 @@ const wbSections = (country: string) => [
           "Znanje njemačkog — minimum B1",
           "Osnovno poznavanje pravnog poretka",
         ].map((u, i) => (
-          <div key={i} style={{ display: "flex", gap: 8, marginBottom: 6 }}>
-            <span style={{ color: "#10b981", flexShrink: 0 }}>✓</span>
-            <span style={{ color: "#94a3b8", fontSize: 14 }}>{u}</span>
+          <div key={i} className="flex gap-2 mb-1.5">
+            <span className="text-emerald-500 shrink-0">✓</span>
+            <span className="text-slate-400 text-sm">{u}</span>
           </div>
         ))}
-        <div style={{ marginTop: 16 }}>
-          <p style={{ fontSize: 13, color: "#64748b", marginBottom: 8, textTransform: "uppercase", letterSpacing: "0.05em" }}>Posebni slučajevi — brže</p>
-          <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
+        <div className="mt-4">
+          <p className="text-xs text-slate-500 uppercase tracking-wider mb-2">Posebni slučajevi — brže</p>
+          <table className="w-full text-sm" style={{ borderCollapse: "collapse" }}>
             <thead>
               <tr>
-                <th style={{ textAlign: "left", color: "#64748b", paddingBottom: 6, fontWeight: 500 }}>Slučaj</th>
-                <th style={{ textAlign: "right", color: "#64748b", paddingBottom: 6, fontWeight: 500 }}>Min. period</th>
+                <th className="text-left text-slate-500 pb-1.5 font-medium">Slučaj</th>
+                <th className="text-right text-slate-500 pb-1.5 font-medium">Min. period</th>
               </tr>
             </thead>
             <tbody>
@@ -172,8 +172,8 @@ const wbSections = (country: string) => [
                 ["Bračni partner njemačkog državljanina", "3 godine"],
               ].map(([s, p], i) => (
                 <tr key={i} style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-                  <td style={{ color: "#94a3b8", padding: "8px 0" }}>{s}</td>
-                  <td style={{ color: "#6366f1", textAlign: "right", padding: "8px 0", fontWeight: 600 }}>{p}</td>
+                  <td className="text-slate-400 py-2">{s}</td>
+                  <td className="text-indigo-400 text-right py-2 font-semibold">{p}</td>
                 </tr>
               ))}
             </tbody>
@@ -186,16 +186,12 @@ const wbSections = (country: string) => [
 
 function Steps({ steps }: { steps: { n: number; text: string }[] }) {
   return (
-    <div style={{ marginBottom: 16 }}>
+    <div className="mb-4">
       {steps.map((s) => (
-        <div key={s.n} style={{ display: "flex", gap: 12, marginBottom: 10, alignItems: "flex-start" }}>
-          <div style={{
-            width: 24, height: 24, borderRadius: "50%",
-            background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            fontSize: 11, fontWeight: 700, color: "white", flexShrink: 0,
-          }}>{s.n}</div>
-          <span style={{ color: "#94a3b8", fontSize: 14, lineHeight: 1.6, paddingTop: 2 }}>{s.text}</span>
+        <div key={s.n} className="flex gap-3 mb-2.5 items-start">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white shrink-0"
+            style={{ background: "linear-gradient(135deg, #6366f1, #8b5cf6)" }}>{s.n}</div>
+          <span className="text-slate-400 text-sm leading-relaxed pt-0.5">{s.text}</span>
         </div>
       ))}
     </div>
@@ -204,26 +200,26 @@ function Steps({ steps }: { steps: { n: number; text: string }[] }) {
 
 function Warning({ text }: { text: string }) {
   return (
-    <div style={{ background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.2)", borderRadius: 8, padding: 12 }}>
-      <p style={{ margin: 0, fontSize: 13, color: "#fca5a5" }}>⚠️ <strong>Česta greška:</strong> {text}</p>
+    <div className="rounded-lg p-3" style={{ background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.2)" }}>
+      <p className="m-0 text-sm" style={{ color: "#fca5a5" }}>⚠️ <strong>Česta greška:</strong> {text}</p>
     </div>
   );
 }
 
 function Tip({ text }: { text: string }) {
   return (
-    <div style={{ background: "rgba(16,185,129,0.08)", border: "1px solid rgba(16,185,129,0.2)", borderRadius: 8, padding: 12 }}>
-      <p style={{ margin: 0, fontSize: 13, color: "#6ee7b7" }}>✅ {text}</p>
+    <div className="rounded-lg p-3" style={{ background: "rgba(16,185,129,0.08)", border: "1px solid rgba(16,185,129,0.2)" }}>
+      <p className="m-0 text-sm" style={{ color: "#6ee7b7" }}>✅ {text}</p>
     </div>
   );
 }
 
 function InfoCard({ label, value, sub, color }: { label: string; value: string; sub: string; color: string }) {
   return (
-    <div style={{ background: "rgba(255,255,255,0.04)", border: `1px solid ${color}33`, borderRadius: 10, padding: 12 }}>
-      <p style={{ margin: "0 0 4px", fontSize: 12, color: "#64748b" }}>{label}</p>
-      <p style={{ margin: "0 0 2px", fontSize: 18, fontWeight: 700, color }}>{value}</p>
-      <p style={{ margin: 0, fontSize: 11, color: "#475569" }}>{sub}</p>
+    <div className="rounded-xl p-3" style={{ background: "rgba(255,255,255,0.04)", border: `1px solid ${color}33` }}>
+      <p className="m-0 mb-1 text-xs text-slate-500">{label}</p>
+      <p className="m-0 mb-0.5 text-lg font-bold" style={{ color }}>{value}</p>
+      <p className="m-0 text-xs text-slate-600">{sub}</p>
     </div>
   );
 }
@@ -231,37 +227,27 @@ function InfoCard({ label, value, sub, color }: { label: string; value: string; 
 function Accordion({ sections }: { sections: { id: string; icon: string; title: string; content: React.ReactNode }[] }) {
   const [open, setOpen] = useState<string | null>(null);
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+    <div className="flex flex-col gap-2">
       {sections.map((s) => (
-        <div key={s.id} style={{
-          background: "rgba(255,255,255,0.03)",
-          border: open === s.id ? "1px solid rgba(99,102,241,0.4)" : "1px solid rgba(255,255,255,0.07)",
-          borderRadius: 12,
-          overflow: "hidden",
-          transition: "border-color 0.2s",
-        }}>
+        <div key={s.id} className="rounded-xl overflow-hidden transition-colors duration-200"
+          style={{
+            background: "rgba(255,255,255,0.03)",
+            border: open === s.id ? "1px solid rgba(99,102,241,0.4)" : "1px solid rgba(255,255,255,0.07)",
+          }}>
           <button
             onClick={() => setOpen(open === s.id ? null : s.id)}
-            style={{
-              width: "100%", display: "flex", justifyContent: "space-between",
-              alignItems: "center", padding: "14px 16px",
-              background: "none", border: "none", cursor: "pointer",
-              textAlign: "left",
-            }}
+            className="aufenthalt-accordion-btn"
           >
-            <span style={{ display: "flex", gap: 10, alignItems: "center" }}>
-              <span style={{ fontSize: 18 }}>{s.icon}</span>
-              <span style={{ color: "#e2e8f0", fontWeight: 600, fontSize: 15 }}>{s.title}</span>
+            <span className="flex gap-2.5 items-center">
+              <span className="text-lg">{s.icon}</span>
+              <span className="title text-slate-200 font-semibold text-[15px]">{s.title}</span>
             </span>
-            <span style={{
-              color: "#6366f1", fontSize: 18, transition: "transform 0.2s",
-              transform: open === s.id ? "rotate(180deg)" : "rotate(0deg)",
-              display: "inline-block",
-            }}>›</span>
+            <span className="text-indigo-500 text-lg inline-block transition-transform duration-200"
+              style={{ transform: open === s.id ? "rotate(180deg)" : "rotate(0deg)" }}>›</span>
           </button>
           {open === s.id && (
-            <div style={{ padding: "0 16px 16px" }}>
-              <div style={{ height: 1, background: "rgba(255,255,255,0.06)", marginBottom: 16 }} />
+            <div className="px-4 pb-4">
+              <div className="h-px mb-4" style={{ background: "rgba(255,255,255,0.06)" }} />
               {s.content}
             </div>
           )}
@@ -273,38 +259,31 @@ function Accordion({ sections }: { sections: { id: string; icon: string; title: 
 
 function EUContent({ country }: { country: { group: string; full: string } }) {
   return (
-    <div style={{ textAlign: "center", padding: "40px 20px" }}>
-      <div style={{ fontSize: 64, marginBottom: 16 }}>🇪🇺</div>
-      <h3 style={{ color: "#e2e8f0", fontSize: 22, fontWeight: 700, marginBottom: 12 }}>
+    <div className="text-center py-10 px-5 md:px-8">
+      <div className="text-6xl mb-4">🇪🇺</div>
+      <h3 className="text-slate-200 text-xl md:text-2xl font-bold mb-3">
         Sloboda kretanja
       </h3>
-      <p style={{ color: "#94a3b8", fontSize: 15, maxWidth: 400, margin: "0 auto 24px", lineHeight: 1.7 }}>
-        Kao {country.group === "eu" ? "EU" : ""} državljanin <strong style={{ color: "#e2e8f0" }}>{country.full}</strong>, imaš pravo slobodnog kretanja i rada unutar EU — uključujući Njemačku.
+      <p className="text-slate-400 text-sm md:text-base max-w-[400px] mx-auto mb-6 leading-relaxed">
+        Kao {country.group === "eu" ? "EU" : ""} državljanin <strong className="text-slate-200">{country.full}</strong>, imaš pravo slobodnog kretanja i rada unutar EU — uključujući Njemačku.
       </p>
-      <div style={{ display: "flex", flexDirection: "column", gap: 10, maxWidth: 360, margin: "0 auto" }}>
+      <div className="flex flex-col gap-2.5 max-w-[360px] mx-auto">
         {[
           { icon: "✅", text: "Nema vize ni Aufenthaltstitel" },
           { icon: "✅", text: "Slobodan pristup tržištu rada" },
           { icon: "📋", text: "Trebaš Anmeldung (prijava boravišta)" },
           { icon: "🔒", text: "Trebaš Krankenversicherung" },
         ].map((item, i) => (
-          <div key={i} style={{
-            display: "flex", gap: 12, alignItems: "center",
-            background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)",
-            borderRadius: 10, padding: "10px 14px",
-          }}>
-            <span style={{ fontSize: 18 }}>{item.icon}</span>
-            <span style={{ color: "#94a3b8", fontSize: 14 }}>{item.text}</span>
+          <div key={i} className="flex gap-3 items-center rounded-xl px-3.5 py-2.5"
+            style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)" }}>
+            <span className="text-lg">{item.icon}</span>
+            <span className="text-slate-400 text-sm">{item.text}</span>
           </div>
         ))}
       </div>
-      <div style={{ marginTop: 24 }}>
-        <a href="/anmeldung" style={{
-          display: "inline-flex", alignItems: "center", gap: 8,
-          background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
-          color: "white", textDecoration: "none",
-          padding: "10px 20px", borderRadius: 10, fontSize: 14, fontWeight: 600,
-        }}>
+      <div className="mt-6">
+        <a href="/anmeldung" className="inline-flex items-center gap-2 text-white no-underline px-5 py-2.5 rounded-xl text-sm font-semibold w-full md:w-auto justify-center"
+          style={{ background: "linear-gradient(135deg, #6366f1, #8b5cf6)" }}>
           📋 Vidi Anmeldung vodič →
         </a>
       </div>
@@ -314,113 +293,73 @@ function EUContent({ country }: { country: { group: string; full: string } }) {
 
 export default function AufenthaltsNavigator() {
   const [active, setActive] = useState("bih");
-  const country = countries.find((c) => c.id === active);
+  const country = countries.find((c) => c.id === active)!;
   const embassy = embassyLinks[active];
   const isEU = country.group === "eu";
 
   return (
-    <div style={{
-      fontFamily: "'DM Sans', 'Segoe UI', sans-serif",
-      background: "#0f172a",
-      minHeight: "100vh",
-      padding: "32px 16px",
-      color: "#e2e8f0",
-    }}>
-      <div style={{ maxWidth: 720, margin: "0 auto" }}>
+    <div className="min-h-screen p-4 md:p-8 text-slate-200"
+      style={{ fontFamily: "'DM Sans', 'Segoe UI', sans-serif", background: "#0f172a" }}>
+      <div className="max-w-[720px] mx-auto">
 
         {/* Header */}
-        <div style={{ marginBottom: 32 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
-            <span style={{ fontSize: 28 }}>🗂️</span>
-            <h1 style={{ fontSize: 26, fontWeight: 800, margin: 0, background: "linear-gradient(135deg, #e2e8f0, #94a3b8)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+        <div className="mb-6 md:mb-8">
+          <div className="flex items-center gap-2.5 mb-2">
+            <span className="text-2xl md:text-3xl">🗂️</span>
+            <h1 className="text-xl md:text-2xl font-extrabold m-0"
+              style={{ background: "linear-gradient(135deg, #e2e8f0, #94a3b8)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
               Aufenthaltstitel Navigator
             </h1>
           </div>
-          <p style={{ color: "#64748b", fontSize: 15, margin: 0 }}>
+          <p className="text-slate-500 text-sm md:text-base m-0">
             Odaberi svoju zemlju i pronađi pravi put do boravka u Njemačkoj.
           </p>
         </div>
 
         {/* Country Tabs */}
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          gap: 8,
-          marginBottom: 28,
-        }}>
+        <div className="aufenthalt-country-grid mb-6 md:mb-7">
           {countries.map((c) => (
             <button
               key={c.id}
               onClick={() => setActive(c.id)}
-              style={{
-                display: "flex", flexDirection: "column", alignItems: "center", gap: 4,
-                padding: "10px 6px",
-                background: active === c.id
-                  ? "linear-gradient(135deg, rgba(99,102,241,0.2), rgba(139,92,246,0.2))"
-                  : "rgba(255,255,255,0.03)",
-                border: active === c.id
-                  ? "1px solid rgba(99,102,241,0.5)"
-                  : "1px solid rgba(255,255,255,0.07)",
-                borderRadius: 12,
-                cursor: "pointer",
-                transition: "all 0.15s",
-              }}
+              className={`aufenthalt-country-btn ${active === c.id ? "active" : ""}`}
             >
-              <span style={{ fontSize: 32 }}>{c.flag}</span>
-              <span style={{ fontSize: 11, color: active === c.id ? "#a5b4fc" : "#64748b", fontWeight: 500, textAlign: "center", lineHeight: 1.2 }}>
-                {c.full}
-              </span>
+              <span className="flag">{c.flag}</span>
+              <span className="name">{c.full}</span>
             </button>
           ))}
         </div>
 
         {/* Active Country Card */}
-        <div style={{
-          background: "rgba(255,255,255,0.02)",
-          border: "1px solid rgba(255,255,255,0.08)",
-          borderRadius: 16,
-          overflow: "hidden",
-        }}>
+        <div className="rounded-2xl overflow-hidden"
+          style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.08)" }}>
           {/* Card Header */}
-          <div style={{
-            padding: "20px 24px",
-            borderBottom: "1px solid rgba(255,255,255,0.06)",
-            display: "flex", justifyContent: "space-between", alignItems: "center",
-            flexWrap: "wrap", gap: 12,
-          }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-              <span style={{ fontSize: 36 }}>{country.flag}</span>
+          <div className="aufenthalt-card-header">
+            <div className="flex items-center gap-3">
+              <span className="text-3xl md:text-4xl">{country.flag}</span>
               <div>
-                <h2 style={{ margin: 0, fontSize: 20, fontWeight: 700, color: "#f1f5f9" }}>{country.full}</h2>
-                <span style={{
-                  fontSize: 12, padding: "2px 10px", borderRadius: 999, fontWeight: 600,
-                  background: isEU ? "rgba(16,185,129,0.15)" : country.group === "xk" ? "rgba(251,191,36,0.15)" : "rgba(99,102,241,0.15)",
-                  color: isEU ? "#6ee7b7" : country.group === "xk" ? "#fbbf24" : "#a5b4fc",
-                  border: isEU ? "1px solid rgba(16,185,129,0.3)" : country.group === "xk" ? "1px solid rgba(251,191,36,0.3)" : "1px solid rgba(99,102,241,0.3)",
-                }}>
+                <h2 className="m-0 text-lg md:text-xl font-bold text-slate-100">{country.full}</h2>
+                <span className="text-xs px-2.5 py-0.5 rounded-full font-semibold"
+                  style={{
+                    background: isEU ? "rgba(16,185,129,0.15)" : country.group === "xk" ? "rgba(251,191,36,0.15)" : "rgba(99,102,241,0.15)",
+                    color: isEU ? "#6ee7b7" : country.group === "xk" ? "#fbbf24" : "#a5b4fc",
+                    border: isEU ? "1px solid rgba(16,185,129,0.3)" : country.group === "xk" ? "1px solid rgba(251,191,36,0.3)" : "1px solid rgba(99,102,241,0.3)",
+                  }}>
                   {isEU ? "🇪🇺 EU članica" : country.group === "xk" ? "⭐ Poseban status" : "🌍 Western Balkans"}
                 </span>
               </div>
             </div>
             {embassy && (
-              <a
-                href={embassy.url}
-                target="_blank"
-                rel="noreferrer"
-                style={{
-                  fontSize: 13, color: "#6366f1", textDecoration: "none",
-                  display: "flex", alignItems: "center", gap: 6,
-                  background: "rgba(99,102,241,0.1)", border: "1px solid rgba(99,102,241,0.2)",
-                  padding: "6px 12px", borderRadius: 8,
-                }}
-              >
+              <a href={embassy.url} target="_blank" rel="noreferrer"
+                className="text-sm no-underline flex items-center gap-1.5 rounded-lg px-3 py-1.5 w-full md:w-auto justify-center"
+                style={{ color: "#6366f1", background: "rgba(99,102,241,0.1)", border: "1px solid rgba(99,102,241,0.2)" }}>
                 🔗 {embassy.name}
               </a>
             )}
           </div>
 
           {/* Card Content */}
-          <div style={{ padding: "24px" }}>
+          <div className="aufenthalt-card-content">
             {isEU ? (
               <EUContent country={country} />
             ) : (
@@ -430,21 +369,21 @@ export default function AufenthaltsNavigator() {
         </div>
 
         {/* Footer Links */}
-        <div style={{ marginTop: 24, display: "flex", gap: 10, flexWrap: "wrap" }}>
+        <div className="aufenthalt-footer-links">
           {[
             { label: "🏛️ BAMF", url: "https://www.bamf.de" },
             { label: "🌐 Make it in Germany", url: "https://www.make-it-in-germany.com" },
             { label: "🎓 Anabin — diplome", url: "https://anabin.kmk.org" },
           ].map((l) => (
-            <a key={l.url} href={l.url} target="_blank" rel="noreferrer" style={{
-              fontSize: 13, color: "#64748b", textDecoration: "none",
-              background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)",
-              padding: "6px 14px", borderRadius: 8, transition: "color 0.15s",
-            }}>{l.label}</a>
+            <a key={l.url} href={l.url} target="_blank" rel="noreferrer"
+              className="text-sm no-underline rounded-lg px-3.5 py-1.5 transition-colors text-center"
+              style={{ color: "#64748b", background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)" }}>
+              {l.label}
+            </a>
           ))}
         </div>
 
-        <p style={{ marginTop: 20, fontSize: 12, color: "#334155", textAlign: "center" }}>
+        <p className="mt-5 text-xs text-slate-700 text-center">
           BalkanLink — Vodič za Balkan u Njemačkoj · Informacije su informativan karakter, uvijek provjeri sa ABH-om ili advokatom.
         </p>
       </div>
