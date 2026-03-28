@@ -1,16 +1,12 @@
 import {
   FileText,
-  Briefcase,
   Megaphone,
   Wrench,
-  ShieldCheck,
-  Compass,
-  Building2,
-  Footprints,
-  Plane,
+  BookOpen,
+  Star,
   ChevronDown,
   FileCheck,
-  Car,
+  Plane,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -42,15 +38,11 @@ export function AppSidebar() {
   );
 
   const sidebarItems = [
-    { title: t("index.nav.firstSteps"), url: "/dolazak/prvi-koraci", icon: Footprints },
     { title: t("index.nav.forms"), url: "/formulari", icon: FileText },
-    { title: t("index.nav.jobSearch"), url: "/stellenangebote", icon: Briefcase },
-    { title: t("index.nav.housingSearch"), url: "/wohnungen", icon: Building2 },
-    { title: t("index.nav.docCheck"), url: "/dokumenten-check", icon: ShieldCheck },
-    { title: t("index.nav.visaNav"), url: "/dolazak/boravisna-dozvola", icon: Compass },
+    { title: "Deutsch", url: "/deutsch-trainer", icon: BookOpen },
     { title: t("index.nav.tools"), url: "/tools", icon: Wrench },
     { title: t("index.nav.offerSeek"), url: "/nudim-trazim", icon: Megaphone },
-    { title: "🚗 Bußgeld-Assistent", url: "/bussgeld", icon: Car },
+    { title: "Premium", url: "/premium", icon: Star },
   ];
 
   const isMigrationActive = location.pathname.startsWith("/nach-deutschland");

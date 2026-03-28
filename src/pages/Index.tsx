@@ -2,17 +2,12 @@ import { useState, useEffect, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
-  Footprints, Briefcase, ShieldCheck, Compass, Wrench, Plane,
-  ClipboardList, Home, HandshakeIcon, CheckCircle2, ArrowRight,
+  ClipboardList, BookOpen, Calculator, Megaphone,
+  CheckCircle2, ArrowRight, Star,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 
-import { HeroAdBanner } from "@/components/home/AdSections";
-import { AdCarousel } from "@/components/home/AdCarousel";
-import { AdFlowBanner } from "@/components/home/AdFlowBanner";
-import { WowSection } from "@/components/home/WowSection";
-import TrainerHeroSection from "@/components/trainer/TrainerHeroSection";
 import heroBerlin from "@/assets/hero-berlin.jpg";
 import heroMuenchen from "@/assets/hero-muenchen.jpg";
 import heroFrankfurt from "@/assets/hero-frankfurt.jpg";
@@ -23,18 +18,6 @@ import heroDuesseldorf from "@/assets/hero-duesseldorf.jpg";
 import heroNuernberg from "@/assets/hero-nuernberg.jpg";
 import heroLeipzig from "@/assets/hero-leipzig.jpg";
 import heroFreilassing from "@/assets/hero-freilassing-real.jpg";
-
-const sidebarNav = [
-  { labelKey: "index.nav.firstSteps", icon: Footprints, to: "/dolazak/prvi-koraci" },
-  { labelKey: "index.nav.forms", icon: ClipboardList, to: "/formulari" },
-  { labelKey: "index.nav.jobSearch", icon: Briefcase, to: "/stellenangebote" },
-  { labelKey: "index.nav.housingSearch", icon: Home, to: "/wohnungen" },
-  { labelKey: "index.nav.offerSeek", icon: HandshakeIcon, to: "/nudim-trazim" },
-  { labelKey: "index.nav.tools", icon: Wrench, to: "/tools" },
-  { labelKey: "index.nav.docCheck", icon: ShieldCheck, to: "/dokumenten-check" },
-  { labelKey: "index.nav.visaNav", icon: Compass, to: "/dolazak/boravisna-dozvola" },
-  { labelKey: "migration.sidebarTitle", icon: Plane, to: "/nach-deutschland" },
-];
 
 const slides = [
   { image: heroFrankfurt, city: "FRANKFURT" },
@@ -50,6 +33,19 @@ const slides = [
 ];
 
 const trustBadgeKeys = ["hero.bullet.simple", "hero.bullet.language", "hero.bullet.verified"];
+
+const highlights = [
+  { icon: ClipboardList, titleKey: "Formulari", descKey: "Svi formulari na jednom mjestu", to: "/formulari" },
+  { icon: BookOpen, titleKey: "Deutsch", descKey: "Nauči njemački kroz praksu", to: "/deutsch-trainer" },
+  { icon: Calculator, titleKey: "Kalkulatori", descKey: "Brutto-Netto i više", to: "/tools" },
+  { icon: Megaphone, titleKey: "Oglasi", descKey: "Nudim / Tražim oglasi", to: "/nudim-trazim" },
+];
+
+const steps = [
+  { num: "01", title: "Odaberi temu", desc: "Pronađi ono što ti treba – formulari, jezik ili kalkulatori." },
+  { num: "02", title: "Prati vodič", desc: "Svaki korak je objašnjen jednostavno, na tvom jeziku." },
+  { num: "03", title: "Završi bez grešaka", desc: "Kompletno i tačno – bez skupih grešaka." },
+];
 
 export default function Index() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -73,18 +69,14 @@ export default function Index() {
   }, []);
 
   return (
-    <>
-      {/* ─── HERO — HIGH CONVERSION ─── */}
-      <section className="relative min-h-[92vh] overflow-hidden bg-[hsl(215,68%,6%)]">
-        {/* Background slideshow with heavy blur */}
+    <div className="bg-[#0B0F1A]">
+      {/* ─── HERO ─── */}
+      <section className="relative min-h-[92vh] overflow-hidden">
         {slides.map((slide, idx) => (
           <div
             key={idx}
             className="absolute inset-0 transition-opacity duration-[1200ms] ease-in-out"
-            style={{
-              opacity: idx === currentSlide ? 1 : 0,
-              zIndex: idx === currentSlide ? 1 : 0,
-            }}
+            style={{ opacity: idx === currentSlide ? 1 : 0, zIndex: idx === currentSlide ? 1 : 0 }}
           >
             <img
               src={slide.image}
@@ -99,20 +91,17 @@ export default function Index() {
           </div>
         ))}
 
-        {/* Gradient overlays — no blur, image stays vivid */}
-        <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/60 via-black/30 to-black/50" />
+        <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/60 via-black/30 to-[#0B0F1A]" />
 
-        {/* Content */}
         <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-5 py-16 lg:py-20">
           <div className="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
-
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
               className="flex flex-col items-center text-center"
             >
-               <h1
+              <h1
                 className="font-heading text-[1.65rem] font-black leading-[1.15] tracking-tight text-white sm:text-3xl md:text-4xl lg:text-[3.4rem]"
                 style={{ textShadow: "0 4px 30px rgba(0,0,0,0.5)" }}
               >
@@ -129,7 +118,6 @@ export default function Index() {
                 {t("hero.subtitle")}
               </p>
 
-              {/* Primary CTA */}
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -144,7 +132,6 @@ export default function Index() {
                   <ArrowRight className="ml-1 h-4 w-4 sm:h-5 sm:w-5" />
                 </Button>
 
-                {/* Secondary CTA */}
                 <Link
                   to="/qa"
                   className="group flex items-center gap-1.5 text-sm font-medium text-white/50 transition-colors hover:text-gold"
@@ -152,9 +139,13 @@ export default function Index() {
                   {t("hero.ctaSecondary")}
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                 </Link>
+
+                {/* Disclaimer */}
+                <p className="mt-2 max-w-sm text-[10px] leading-relaxed text-white/30">
+                  BalkanLink je edukativna platforma. Sadržaj nije pravni savjet.
+                </p>
               </motion.div>
 
-              {/* Trust badges */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -169,11 +160,9 @@ export default function Index() {
                 ))}
               </motion.div>
             </motion.div>
-
           </div>
         </div>
 
-        {/* Slide indicators */}
         <div className="absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 gap-1.5">
           {slides.map((_, idx) => (
             <button
@@ -188,40 +177,124 @@ export default function Index() {
             />
           ))}
         </div>
-
-        <div className="absolute bottom-0 left-0 right-0 z-10 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
       </section>
 
-      <HeroAdBanner />
+      {/* ─── HIGHLIGHTS (4 cards) ─── */}
+      <section className="py-16 sm:py-20">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mx-auto max-w-2xl text-center"
+          >
+            <h2 className="font-heading text-2xl font-extrabold text-white sm:text-3xl lg:text-4xl">
+              Sve što ti treba —{" "}
+              <span className="text-gold">na jednom mjestu</span>
+            </h2>
+            <div className="mx-auto mt-3 h-[3px] w-16 rounded-full bg-gradient-to-r from-[#3B82F6] to-gold" />
+          </motion.div>
 
-      <div className="flex">
-        {/* Desktop sidebar */}
-        <nav className="hidden md:flex w-[260px] shrink-0 flex-col border-r border-border/40 bg-[hsl(215,55%,7%)] sticky top-0 self-start h-screen py-6 px-3">
-          <p className="mb-4 px-3 text-[11px] font-semibold uppercase tracking-widest text-white/30">
-            {t("index.navLabel")}
-          </p>
-          <ul className="space-y-1">
-            {sidebarNav.map((item) => (
-              <li key={item.to}>
+          <div className="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-5">
+            {highlights.map((h, i) => (
+              <motion.div
+                key={h.to}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.15 + i * 0.1 }}
+              >
                 <Link
-                  to={item.to}
-                  className="group flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium text-white/55 transition-all duration-200 hover:bg-white/5 hover:text-white"
+                  to={h.to}
+                  className="group flex flex-col items-center rounded-2xl border border-white/8 bg-white/[0.03] px-4 py-7 text-center transition-all duration-300 hover:-translate-y-1 hover:border-gold/30 hover:bg-white/[0.06] hover:shadow-[0_12px_40px_rgba(0,0,0,0.3)]"
                 >
-                  <item.icon className="h-[18px] w-[18px] shrink-0 text-white/35 transition-colors group-hover:text-gold" />
-                  <span>{t(item.labelKey)}</span>
+                  <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[#0B1F3A] to-[#163057] border border-gold/25 shadow-[0_4px_16px_rgba(11,31,58,0.3)] transition-transform duration-300 group-hover:scale-105">
+                    <h.icon className="h-5 w-5 text-[#F5A623]" strokeWidth={1.8} />
+                  </div>
+                  <h3 className="text-sm font-bold text-white group-hover:text-gold transition-colors">{h.titleKey}</h3>
+                  <p className="mt-1 text-xs text-white/40 line-clamp-2">{h.descKey}</p>
                 </Link>
-              </li>
+              </motion.div>
             ))}
-          </ul>
-        </nav>
-
-        <div className="flex-1 min-w-0">
-          <TrainerHeroSection />
-          <WowSection />
-          <AdCarousel />
-          <AdFlowBanner />
+          </div>
         </div>
-      </div>
-    </>
+      </section>
+
+      {/* ─── KAKO FUNKCIONIŠE (3 steps) ─── */}
+      <section className="py-16 sm:py-20 border-t border-white/[0.05]">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mx-auto max-w-2xl text-center"
+          >
+            <h2 className="font-heading text-2xl font-extrabold text-white sm:text-3xl">
+              Kako funkcioniše?
+            </h2>
+            <p className="mt-2 text-sm text-white/40">Tri jednostavna koraka do cilja.</p>
+          </motion.div>
+
+          <div className="mx-auto mt-12 grid max-w-3xl grid-cols-1 gap-6 sm:grid-cols-3">
+            {steps.map((s, i) => (
+              <motion.div
+                key={s.num}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.15 + i * 0.12 }}
+                className="flex flex-col items-center rounded-2xl border border-white/8 bg-white/[0.03] px-5 py-8 text-center"
+              >
+                <span className="mb-3 text-3xl font-black text-gold/30">{s.num}</span>
+                <h3 className="text-base font-bold text-white">{s.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/40">{s.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── PREMIUM CTA ─── */}
+      <section className="py-16 sm:py-20 border-t border-white/[0.05]">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mx-auto max-w-xl text-center"
+          >
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-gold/20 bg-gold/[0.06] px-3 py-1">
+              <Star className="h-3 w-3 text-gold" />
+              <span className="text-[10px] font-bold uppercase tracking-widest text-gold">Premium</span>
+            </div>
+            <h2 className="font-heading text-2xl font-extrabold text-white sm:text-3xl">
+              Otključaj sve mogućnosti
+            </h2>
+            <p className="mt-3 text-sm text-white/40">
+              Premium pristup svim formularima, kursu njemačkog i ekskluzivnim alatima.
+            </p>
+            <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+              <Button
+                onClick={() => navigate("/premium")}
+                className="h-12 rounded-full bg-gold px-8 text-base font-bold text-gold-foreground shadow-[0_4px_24px_rgba(255,204,0,0.35)] hover:bg-gold-light hover:shadow-[0_8px_36px_rgba(255,204,0,0.5)] hover:scale-[1.03] transition-all duration-300"
+              >
+                Pogledaj Premium
+                <ArrowRight className="ml-1.5 h-4 w-4" />
+              </Button>
+              <Button
+                variant="outline"
+                onClick={() => navigate("/mitgliedschaft")}
+                className="h-12 rounded-full border-white/12 bg-white/5 px-8 text-sm font-semibold text-white hover:bg-white/10 transition-all"
+              >
+                Uporedi planove
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </div>
   );
 }
