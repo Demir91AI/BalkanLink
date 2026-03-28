@@ -13,6 +13,11 @@ import FormFreeContent from "@/components/FormFreeContent";
 import FormSmartGuide from "@/components/FormSmartGuide";
 import KindergeldGuideContent from "@/components/KindergeldGuideContent";
 import AnmeldungGuideContent from "@/components/AnmeldungGuideContent";
+import SteuerIdGuideContent from "@/components/guides/SteuerIdGuideContent";
+import KrankenkasseGuideContent from "@/components/guides/KrankenkasseGuideContent";
+import ElterngeldGuideContent from "@/components/guides/ElterngeldGuideContent";
+import BurgergeldGuideContent from "@/components/guides/BurgergeldGuideContent";
+import WohngeldGuideContent from "@/components/guides/WohngeldGuideContent";
 import { navigateBackOrHome } from "@/lib/navigation";
 
 type LangKey = "de" | "bs" | "en";
@@ -32,6 +37,11 @@ function GuideContent({ slug }: { slug: string }) {
   /* Custom pages */
   if (slug === "kindergeld") return <KindergeldGuideContent />;
   if (slug === "anmeldung") return <AnmeldungGuideContent />;
+  if (slug === "steuer-id") return <SteuerIdGuideContent />;
+  if (slug === "krankenkasse") return <KrankenkasseGuideContent />;
+  if (slug === "elterngeld") return <ElterngeldGuideContent />;
+  if (slug === "burgergeld") return <BurgergeldGuideContent />;
+  if (slug === "wohngeld") return <WohngeldGuideContent />;
 
   if (!guide) return null;
 
