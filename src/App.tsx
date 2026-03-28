@@ -65,6 +65,7 @@ import NotFound from "./pages/NotFound";
 import FirmDetail from "./pages/FirmDetail";
 import BussgeldAssistent from "./pages/BussgeldAssistent";
 import KindergeldMuster from "./pages/KindergeldMuster";
+import AnmeldungMuster from "./pages/AnmeldungMuster";
 
 const queryClient = new QueryClient();
 
@@ -103,6 +104,7 @@ const App = () => (
                 <Route path="/formulare" element={<Formulare />} />
                 <Route path="/formulari" element={<FormCenter />} />
                 <Route path="/formulari/kindergeld/muster" element={<KindergeldMuster />} />
+                <Route path="/formulari/anmeldung/muster" element={<AnmeldungMuster />} />
                 <Route path="/formulari/:slug" element={<FormCenter />} />
                 <Route path="/familie" element={<Familie />} />
                 <Route path="/foerderungen" element={<Foerderungen />} />
