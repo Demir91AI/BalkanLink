@@ -257,7 +257,7 @@ export default function Index() {
         </div>
       </section>
 
-      {/* ─── PREMIUM SHOWCASE ─── */}
+      {/* ─── PREMIUM SHOWCASE (Grid) ─── */}
       <section className="py-16 sm:py-20 border-t border-white/[0.05]">
         <div className="container">
           <motion.div
@@ -273,7 +273,7 @@ export default function Index() {
             </h2>
           </motion.div>
 
-          <div className="flex gap-5 overflow-x-auto pb-4 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white/10 snap-x snap-mandatory">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {premiumShowcaseFirms.map((firm, i) => (
               <motion.article
                 key={firm.slug}
@@ -281,9 +281,8 @@ export default function Index() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 + i * 0.08 }}
-                className="min-w-[300px] max-w-[340px] shrink-0 snap-start rounded-2xl border border-white/8 bg-[#111827] overflow-hidden flex flex-col"
+                className="rounded-2xl border border-white/8 bg-[#111827] overflow-hidden flex flex-col"
               >
-                {/* Image */}
                 <div className="relative h-[180px] w-full overflow-hidden">
                   <img
                     src={firm.images[0]}
@@ -293,7 +292,6 @@ export default function Index() {
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#111827] via-transparent to-transparent" />
-                  {/* Logo pill */}
                   <div className="absolute left-3 top-3 flex items-center rounded-xl border border-white/25 bg-white/20 px-3 py-1.5 backdrop-blur-md">
                     <img src={firm.logoUrl} alt={firm.logoAlt} className="h-6 max-w-[90px] object-contain" />
                   </div>
@@ -301,8 +299,6 @@ export default function Index() {
                     <Star className="h-2.5 w-2.5 fill-current" /> Preporučeno
                   </span>
                 </div>
-
-                {/* Info */}
                 <div className="flex flex-1 flex-col gap-3 p-5">
                   <div>
                     <h3 className="text-base font-bold text-white">{firm.name}</h3>
@@ -349,6 +345,9 @@ export default function Index() {
           </div>
         </div>
       </section>
+
+      {/* ─── OGLAŠAVANJE FLOW BANNER ─── */}
+      <AdFlowSection />
 
       {/* ─── PREMIUM CTA ─── */}
       <section className="py-16 sm:py-20 border-t border-white/[0.05]">
