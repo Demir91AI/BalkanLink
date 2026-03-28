@@ -410,7 +410,7 @@ export default function ChatAssistant() {
             <div className="relative flex h-14 w-14 items-center justify-center rounded-full shadow-[0_4px_20px_rgba(234,179,8,0.4)] overflow-hidden"
               style={{ background: "linear-gradient(135deg, #EAB308 0%, #F59E0B 100%)" }}
             >
-              <BLIcon size={28} className="text-white drop-shadow-sm" />
+              <BLIcon size={28} />
             </div>
           </motion.div>
         )}
@@ -446,7 +446,7 @@ export default function ChatAssistant() {
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl overflow-hidden"
                       style={{ background: "linear-gradient(135deg, #EAB308 0%, #F59E0B 100%)" }}
                     >
-                      <BLIcon size={24} className="text-white" />
+                      <BLIcon size={24} />
                     </div>
                     <div>
                       <span className="text-[15px] font-bold text-white block leading-tight">🤖 BalkanLink Asistent</span>
