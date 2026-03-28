@@ -51,18 +51,19 @@ const steps = [
 const MAILTO_AD = `mailto:kontakt@balkanlink.de?subject=${encodeURIComponent("Oglašavanje na BalkanLink")}&body=${encodeURIComponent("Pozdrav,\n\nZanima me oglašavanje na BalkanLink platformi.\n\nNaziv firme:\nVrsta usluge:\nGrad:\nBudžet:\n")}`;
 
 const placeholderAds = [
-  { name: "Vaša firma", slogan: "Predstavite se zajednici" },
-  { name: "Mjesto za reklamu", slogan: "Oglasite svoju uslugu" },
-  { name: "Vaš brend ovdje", slogan: "Dođite do nove publike" },
-  { name: "Reklama", slogan: "Povećajte vidljivost" },
-  { name: "Vaša ponuda", slogan: "Budite ispred konkurencije" },
-  { name: "Partner slot", slogan: "Zakažite promociju" },
+  { name: "Vaša firma", slogan: "Predstavite se zajednici", logo: "/placeholder.svg" },
+  { name: "Mjesto za reklamu", slogan: "Oglasite svoju uslugu", logo: "/placeholder.svg" },
+  { name: "Vaš brend ovdje", slogan: "Dođite do nove publike", logo: "/placeholder.svg" },
+  { name: "Reklama", slogan: "Povećajte vidljivost", logo: "/placeholder.svg" },
+  { name: "Vaša ponuda", slogan: "Budite ispred konkurencije", logo: "/placeholder.svg" },
+  { name: "Partner slot", slogan: "Zakažite promociju", logo: "/placeholder.svg" },
 ];
 
 const AD_SPEED = 0.4;
 const AD_RESUME_DELAY = 4000;
+const SHOWCASE_SPEED = 0.35;
 
-function AdFlowSection() {
+function useAutoScroll(speed: number, resumeDelay = 4000) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const rafRef = useRef<number>(0);
   const pausedRef = useRef(false);
@@ -71,12 +72,12 @@ function AdFlowSection() {
   const animate = useCallback(() => {
     const el = scrollRef.current;
     if (el && !pausedRef.current) {
-      el.scrollLeft += AD_SPEED;
+      el.scrollLeft += speed;
       const third = el.scrollWidth / 3;
       if (el.scrollLeft >= third * 2) el.scrollLeft -= third;
     }
     rafRef.current = requestAnimationFrame(animate);
-  }, []);
+  }, [speed]);
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -85,13 +86,17 @@ function AdFlowSection() {
     return () => cancelAnimationFrame(rafRef.current);
   }, [animate]);
 
-  const pauseAuto = useCallback(() => {
+  const pause = useCallback(() => {
     pausedRef.current = true;
     if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
-    resumeTimerRef.current = setTimeout(() => { pausedRef.current = false; }, AD_RESUME_DELAY);
-  }, []);
+    resumeTimerRef.current = setTimeout(() => { pausedRef.current = false; }, resumeDelay);
+  }, [resumeDelay]);
 
-  // Triplicate for infinite loop
+  return { scrollRef, pause };
+}
+
+function AdFlowSection() {
+  const { scrollRef, pause } = useAutoScroll(AD_SPEED, AD_RESUME_DELAY);
   const tripled = [...placeholderAds, ...placeholderAds, ...placeholderAds];
 
   return (
@@ -103,12 +108,12 @@ function AdFlowSection() {
         </div>
       </div>
       <div className="relative">
-        <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 bg-gradient-to-r from-[#0B0F1A] to-transparent" />
-        <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 bg-gradient-to-l from-[#0B0F1A] to-transparent" />
+        <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-[#0B0F1A] to-transparent" />
+        <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-[#0B0F1A] to-transparent" />
         <div
           ref={scrollRef}
-          onTouchStart={pauseAuto}
-          onMouseDown={pauseAuto}
+          onTouchStart={pause}
+          onMouseDown={pause}
           className="flex gap-4 overflow-x-auto px-4 scrollbar-hide"
           style={{ WebkitOverflowScrolling: "touch" }}
         >
@@ -116,23 +121,110 @@ function AdFlowSection() {
             <a
               key={i}
               href={MAILTO_AD}
-              className="group flex shrink-0 items-center gap-3 rounded-xl border border-white/8 bg-[#111827] px-4 py-3 transition-all duration-300 hover:border-[#EAB308]/30 hover:bg-[#111827]/80 min-w-[260px]"
+              className="group flex h-20 shrink-0 items-center gap-4 rounded-xl border border-white/8 bg-[#111827] px-5 transition-all duration-300 hover:border-[#EAB308]/30 hover:bg-[#111827]/80 min-w-[300px]"
             >
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#EAB308]/10 text-sm font-bold text-[#EAB308]">
-                {ad.name.charAt(0)}
-              </div>
+              <img
+                src={ad.logo}
+                alt={ad.name}
+                className="h-10 w-10 shrink-0 rounded-lg object-contain bg-white/5 p-1"
+                loading="lazy"
+              />
               <div className="flex-1 min-w-0">
-                <p className="text-xs font-bold text-white truncate">{ad.name}</p>
-                <p className="text-[10px] text-white/40 truncate">{ad.slogan}</p>
+                <p className="text-sm font-bold text-white truncate">{ad.name}</p>
+                <p className="text-xs text-white/40 truncate">{ad.slogan}</p>
               </div>
-              <span className="shrink-0 flex items-center gap-1 rounded-md bg-[#EAB308]/15 px-2 py-0.5 text-[9px] font-semibold text-[#EAB308] transition-colors group-hover:bg-[#EAB308]/25">
-                <Mail className="h-2.5 w-2.5" /> Kontakt
+              <span className="shrink-0 flex items-center gap-1.5 rounded-lg bg-[#EAB308]/15 px-3 py-1.5 text-[11px] font-bold text-[#EAB308] transition-colors group-hover:bg-[#EAB308]/25">
+                <Mail className="h-3 w-3" /> Kontakt
               </span>
             </a>
           ))}
         </div>
       </div>
     </section>
+  );
+}
+
+function ShowcaseCarousel() {
+  const { scrollRef, pause } = useAutoScroll(SHOWCASE_SPEED, AD_RESUME_DELAY);
+  const tripled = [...premiumShowcaseFirms, ...premiumShowcaseFirms, ...premiumShowcaseFirms];
+
+  return (
+    <div className="relative">
+      <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-[#0B0F1A] to-transparent" />
+      <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-[#0B0F1A] to-transparent" />
+      <div
+        ref={scrollRef}
+        onTouchStart={pause}
+        onMouseDown={pause}
+        className="flex gap-5 overflow-x-auto px-4 scrollbar-hide"
+        style={{ WebkitOverflowScrolling: "touch" }}
+      >
+        {tripled.map((firm, i) => (
+          <article
+            key={`${firm.slug}-${i}`}
+            className="min-w-[320px] max-w-[360px] shrink-0 rounded-2xl border border-white/8 bg-[#111827] overflow-hidden flex flex-col"
+          >
+            <div className="relative h-[180px] w-full overflow-hidden">
+              <img
+                src={firm.images[0]}
+                alt={firm.name}
+                className="h-full w-full object-cover"
+                style={{ filter: "brightness(0.88) saturate(1.1)" }}
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#111827] via-transparent to-transparent" />
+              <div className="absolute left-3 top-3 flex items-center rounded-xl border border-white/25 bg-white/20 px-3 py-1.5 backdrop-blur-md">
+                <img src={firm.logoUrl} alt={firm.logoAlt} className="h-6 max-w-[90px] object-contain" />
+              </div>
+              <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full border border-white/20 bg-gold/90 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-gold-foreground">
+                <Star className="h-2.5 w-2.5 fill-current" /> Preporučeno
+              </span>
+            </div>
+            <div className="flex flex-1 flex-col gap-3 p-5">
+              <div>
+                <h3 className="text-base font-bold text-white">{firm.name}</h3>
+                <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-white/50">{firm.description}</p>
+              </div>
+              <div className="flex flex-wrap gap-1.5">
+                {firm.highlights.map((h) => (
+                  <span key={h} className="rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-[10px] font-semibold text-white/60">
+                    {h}
+                  </span>
+                ))}
+              </div>
+              <div className="mt-auto flex gap-2 pt-2">
+                <Button asChild size="sm" className="h-8 rounded-xl bg-gold px-4 text-xs font-bold text-gold-foreground hover:bg-gold-light">
+                  {firm.website ? (
+                    <a href={firm.website} target="_blank" rel="noopener noreferrer">
+                      Pogledaj više <ExternalLink className="ml-1 h-3 w-3" />
+                    </a>
+                  ) : (
+                    <Link to={`/firma/${firm.slug}`}>
+                      Pogledaj više <ExternalLink className="ml-1 h-3 w-3" />
+                    </Link>
+                  )}
+                </Button>
+                <Button asChild variant="outline" size="sm" className="h-8 rounded-xl border-white/12 bg-white/5 px-4 text-xs font-semibold text-white hover:bg-white/10">
+                  {firm.contactUrl ? (
+                    <a href={firm.contactUrl} target="_blank" rel="noopener noreferrer">
+                      Kontakt <ArrowRight className="ml-1 h-3 w-3" />
+                    </a>
+                  ) : firm.phone ? (
+                    <a href={`tel:${firm.phone}`}>
+                      Kontakt <ArrowRight className="ml-1 h-3 w-3" />
+                    </a>
+                  ) : (
+                    <Link to={`/firma/${firm.slug}`}>
+                      Kontakt <ArrowRight className="ml-1 h-3 w-3" />
+                    </Link>
+                  )}
+                </Button>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
   );
 }
 
