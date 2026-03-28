@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const PDF_URL = "https://www.arbeitsagentur.de/datei/kg1-antrag-kindergeld_ba017202.pdf";
@@ -77,9 +77,15 @@ const initial = () => ({
   ort: "", datum: "",
 });
 
+const LS_KEY = "kg1-muster-data";
+
 export default function KindergeldMusterPDF() {
   const navigate = useNavigate();
-  const [f, setF] = useState(initial);
+  const [f, setF] = useState(() => {
+    try { const s = localStorage.getItem(LS_KEY); if (s) return { ...initial(), ...JSON.parse(s) }; } catch {}
+    return initial();
+  });
+  const [saved, setSaved] = useState(false);
   const set = (key: string, val: string) => setF(p => ({ ...p, [key]: val }));
   const setKind = (i: number, key: string, val: string) => setF(p => {
     const k = [...p.kinder]; k[i] = { ...k[i], [key]: val }; return { ...p, kinder: k };
@@ -304,15 +310,17 @@ export default function KindergeldMusterPDF() {
       </div>
 
       {/* BUTTONS */}
-      <div style={{ padding: "0 16px 40px", maxWidth: 794, margin: "0 auto" }}>
+      <div style={{ padding: "0 16px 40px", maxWidth: 794, margin: "0 auto", display: "flex", flexDirection: "column", gap: 10 }}>
         <button onClick={() => {
-          const orig = document.title;
-          document.title = "BalkanLink-KG1-Musterformular";
-          const restore = () => { document.title = orig; window.removeEventListener("afterprint", restore); };
-          window.addEventListener("afterprint", restore);
-          window.print();
+          localStorage.setItem(LS_KEY, JSON.stringify(f));
+          setSaved(true);
+          setTimeout(() => setSaved(false), 2000);
         }} style={{ display: "block", background: "#EAB308", color: "#111", border: "none", padding: "12px", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: "pointer", textAlign: "center", width: "100%", boxSizing: "border-box" }}>
-          ⬇️ Preuzmi Musterformular (PDF)
+          💾 Sačuvaj unose
+        </button>
+        {saved && <div style={{ textAlign: "center", color: "#22c55e", fontWeight: 600, fontSize: 14 }}>✅ Podaci sačuvani!</div>}
+        <button onClick={() => { localStorage.removeItem(LS_KEY); setF(initial()); }} style={{ display: "block", background: "transparent", color: "#9CA3AF", border: "2px solid #6b7280", padding: "12px", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: "pointer", textAlign: "center", width: "100%", boxSizing: "border-box" }}>
+          🔄 Poništi sve
         </button>
       </div>
     </div>
