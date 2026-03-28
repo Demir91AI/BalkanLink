@@ -9,10 +9,8 @@ import { AppSidebar } from "./AppSidebar";
 export default function HomeLayout() {
   return (
     <SidebarProvider defaultOpen={false}>
-      <div className="flex min-h-screen w-full flex-col">
-        <div className="md:hidden">
-          <AppSidebar />
-        </div>
+      <div className="relative min-h-screen w-full flex-col">
+        <AppSidebar />
         <Header />
         <main className="flex-1">
           <Outlet />
