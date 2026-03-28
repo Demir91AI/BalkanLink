@@ -257,6 +257,99 @@ export default function Index() {
         </div>
       </section>
 
+      {/* ─── PREMIUM SHOWCASE ─── */}
+      <section className="py-16 sm:py-20 border-t border-white/[0.05]">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-8"
+          >
+            <p className="text-xs font-bold uppercase tracking-[0.26em] text-gold">PREMIUM SHOWCASE</p>
+            <h2 className="mt-2 font-heading text-2xl font-extrabold text-white sm:text-3xl">
+              Izdvojene firme na BalkanLink
+            </h2>
+          </motion.div>
+
+          <div className="flex gap-5 overflow-x-auto pb-4 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white/10 snap-x snap-mandatory">
+            {premiumShowcaseFirms.map((firm, i) => (
+              <motion.article
+                key={firm.slug}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 + i * 0.08 }}
+                className="min-w-[300px] max-w-[340px] shrink-0 snap-start rounded-2xl border border-white/8 bg-[#111827] overflow-hidden flex flex-col"
+              >
+                {/* Image */}
+                <div className="relative h-[180px] w-full overflow-hidden">
+                  <img
+                    src={firm.images[0]}
+                    alt={firm.name}
+                    className="h-full w-full object-cover"
+                    style={{ filter: "brightness(0.88) saturate(1.1)" }}
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#111827] via-transparent to-transparent" />
+                  {/* Logo pill */}
+                  <div className="absolute left-3 top-3 flex items-center rounded-xl border border-white/25 bg-white/20 px-3 py-1.5 backdrop-blur-md">
+                    <img src={firm.logoUrl} alt={firm.logoAlt} className="h-6 max-w-[90px] object-contain" />
+                  </div>
+                  <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full border border-white/20 bg-gold/90 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-gold-foreground">
+                    <Star className="h-2.5 w-2.5 fill-current" /> Preporučeno
+                  </span>
+                </div>
+
+                {/* Info */}
+                <div className="flex flex-1 flex-col gap-3 p-5">
+                  <div>
+                    <h3 className="text-base font-bold text-white">{firm.name}</h3>
+                    <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-white/50">{firm.description}</p>
+                  </div>
+                  <div className="flex flex-wrap gap-1.5">
+                    {firm.highlights.map((h) => (
+                      <span key={h} className="rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-[10px] font-semibold text-white/60">
+                        {h}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="mt-auto flex gap-2 pt-2">
+                    <Button asChild size="sm" className="h-8 rounded-xl bg-gold px-4 text-xs font-bold text-gold-foreground hover:bg-gold-light">
+                      {firm.website ? (
+                        <a href={firm.website} target="_blank" rel="noopener noreferrer">
+                          Pogledaj više <ExternalLink className="ml-1 h-3 w-3" />
+                        </a>
+                      ) : (
+                        <Link to={`/firma/${firm.slug}`}>
+                          Pogledaj više <ExternalLink className="ml-1 h-3 w-3" />
+                        </Link>
+                      )}
+                    </Button>
+                    <Button asChild variant="outline" size="sm" className="h-8 rounded-xl border-white/12 bg-white/5 px-4 text-xs font-semibold text-white hover:bg-white/10">
+                      {firm.contactUrl ? (
+                        <a href={firm.contactUrl} target="_blank" rel="noopener noreferrer">
+                          Kontakt <ArrowRight className="ml-1 h-3 w-3" />
+                        </a>
+                      ) : firm.phone ? (
+                        <a href={`tel:${firm.phone}`}>
+                          Kontakt <ArrowRight className="ml-1 h-3 w-3" />
+                        </a>
+                      ) : (
+                        <Link to={`/firma/${firm.slug}`}>
+                          Kontakt <ArrowRight className="ml-1 h-3 w-3" />
+                        </Link>
+                      )}
+                    </Button>
+                  </div>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ─── PREMIUM CTA ─── */}
       <section className="py-16 sm:py-20 border-t border-white/[0.05]">
         <div className="container">
