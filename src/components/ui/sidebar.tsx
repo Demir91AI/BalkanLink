@@ -151,25 +151,12 @@ const Sidebar = React.forwardRef<
   }
 
   if (isMobile || collapsible === "offcanvas") {
-    const isOpen = isMobile ? openMobile : state === "expanded";
-    const setIsOpen = isMobile ? setOpenMobile : (open: boolean) => {
-      // Toggle via the context
-      if (!open && state === "expanded") {
-        document.querySelector('[data-sidebar-toggle]')?.dispatchEvent(new Event('click'));
-      }
-    };
+    const isSheetOpen = isMobile ? openMobile : state === "expanded";
+    const onSheetChange = isMobile
+      ? setOpenMobile
+      : (v: boolean) => setOpen(v);
     return (
-      <Sheet open={isOpen} onOpenChange={(open) => {
-        if (isMobile) {
-          setOpenMobile(open);
-        } else if (!open) {
-          // Use toggleSidebar from context indirectly
-          const provider = document.querySelector('[data-sidebar-provider]');
-          if (provider) {
-            provider.dispatchEvent(new CustomEvent('sidebar-close'));
-          }
-        }
-      }} {...props}>
+      <Sheet open={isSheetOpen} onOpenChange={onSheetChange} {...props}>
         <SheetContent
           data-sidebar="sidebar"
           data-mobile="true"
