@@ -136,6 +136,7 @@ function AdFlowSection() {
   );
 }
 
+export default function Index() {
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const { t } = useLanguage();
