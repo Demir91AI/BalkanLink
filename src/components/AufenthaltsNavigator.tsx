@@ -366,9 +366,9 @@ export default function AufenthaltsNavigator() {
                 transition: "all 0.15s",
               }}
             >
-              <span style={{ fontSize: 22 }}>{c.flag}</span>
-              <span style={{ fontSize: 11, color: active === c.id ? "#a5b4fc" : "#64748b", fontWeight: 500, textAlign: "center" }}>
-                {c.name}
+              <span style={{ fontSize: 32 }}>{c.flag}</span>
+              <span style={{ fontSize: 11, color: active === c.id ? "#a5b4fc" : "#64748b", fontWeight: 500, textAlign: "center", lineHeight: 1.2 }}>
+                {c.full}
               </span>
             </button>
           ))}
