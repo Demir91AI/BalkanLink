@@ -63,9 +63,8 @@ const placeholderAds = [
 
 /* CSS-animated auto-scroll — no JS needed */
 
-function AdFlowSection() {
-  const doubled = [...placeholderAds, ...placeholderAds];
-  const wrapperRef = useRef<HTMLDivElement>(null);
+function useInfiniteScroll(speed = 0.5, resumeDelay = 3000) {
+  const ref = useRef<HTMLDivElement>(null);
   const rafRef = useRef(0);
   const pausedRef = useRef(false);
   const resumeTimer = useRef<ReturnType<typeof setTimeout>>();
@@ -74,19 +73,17 @@ function AdFlowSection() {
   const dragScrollLeft = useRef(0);
 
   const animate = useCallback(() => {
-    const el = wrapperRef.current;
+    const el = ref.current;
     if (el && !pausedRef.current) {
-      el.scrollLeft += 0.5;
-      // infinite loop: when past halfway, jump back
+      el.scrollLeft += speed;
       const half = el.scrollWidth / 2;
       if (el.scrollLeft >= half) el.scrollLeft -= half;
+      if (el.scrollLeft <= 0) el.scrollLeft += half;
     }
     rafRef.current = requestAnimationFrame(animate);
-  }, []);
+  }, [speed]);
 
   useEffect(() => {
-    const el = wrapperRef.current;
-    if (el) el.scrollLeft = 0;
     rafRef.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(rafRef.current);
   }, [animate]);
@@ -98,25 +95,33 @@ function AdFlowSection() {
 
   const scheduleResume = useCallback(() => {
     if (resumeTimer.current) clearTimeout(resumeTimer.current);
-    resumeTimer.current = setTimeout(() => { pausedRef.current = false; }, 3000);
-  }, []);
+    resumeTimer.current = setTimeout(() => { pausedRef.current = false; }, resumeDelay);
+  }, [resumeDelay]);
 
-  // Touch handlers
-  const onTouchStart = (e: React.TouchEvent) => {
+  const onTouchStart = useCallback((e: React.TouchEvent) => {
     pause();
     isDragging.current = true;
     dragStartX.current = e.touches[0].clientX;
-    dragScrollLeft.current = wrapperRef.current?.scrollLeft ?? 0;
-  };
-  const onTouchMove = (e: React.TouchEvent) => {
-    if (!isDragging.current || !wrapperRef.current) return;
+    dragScrollLeft.current = ref.current?.scrollLeft ?? 0;
+  }, [pause]);
+
+  const onTouchMove = useCallback((e: React.TouchEvent) => {
+    if (!isDragging.current || !ref.current) return;
     const delta = e.touches[0].clientX - dragStartX.current;
-    wrapperRef.current.scrollLeft = dragScrollLeft.current - delta;
-  };
-  const onTouchEnd = () => {
+    ref.current.scrollLeft = dragScrollLeft.current - delta;
+  }, []);
+
+  const onTouchEnd = useCallback(() => {
     isDragging.current = false;
     scheduleResume();
-  };
+  }, [scheduleResume]);
+
+  return { ref, pause, scheduleResume, onTouchStart, onTouchMove, onTouchEnd };
+}
+
+function AdFlowSection() {
+  const doubled = [...placeholderAds, ...placeholderAds];
+  const { ref, pause, scheduleResume, onTouchStart, onTouchMove, onTouchEnd } = useInfiniteScroll(0.5);
 
   return (
     <section className="py-10 sm:py-12 border-t border-white/[0.05] bg-[#0B0F1A] overflow-hidden">
@@ -134,7 +139,7 @@ function AdFlowSection() {
         <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-[#0B0F1A] to-transparent" />
         <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-[#0B0F1A] to-transparent" />
         <div
-          ref={wrapperRef}
+          ref={ref}
           className="flex gap-4 px-4 overflow-x-hidden scrollbar-hide"
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
@@ -176,12 +181,23 @@ function AdFlowSection() {
 
 function ShowcaseCarousel() {
   const doubled = [...premiumShowcaseFirms, ...premiumShowcaseFirms];
+  const { ref, pause, scheduleResume, onTouchStart, onTouchMove, onTouchEnd } = useInfiniteScroll(0.4, 4000);
 
   return (
-    <div className="relative overflow-hidden">
+    <div
+      className="relative overflow-hidden"
+      onMouseEnter={pause}
+      onMouseLeave={scheduleResume}
+    >
       <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-[#0B0F1A] to-transparent" />
       <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-[#0B0F1A] to-transparent" />
-      <div className="flex w-max animate-[scroll-left_40s_linear_infinite] hover:[animation-play-state:paused] gap-5 px-4">
+      <div
+        ref={ref}
+        className="flex gap-5 px-4 overflow-x-hidden scrollbar-hide"
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
         {doubled.map((firm, i) => (
           <article
             key={`${firm.slug}-${i}`}
