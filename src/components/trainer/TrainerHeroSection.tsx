@@ -7,7 +7,7 @@ export default function TrainerHeroSection() {
   const navigate = useNavigate();
 
   return (
-    <section className="border-y border-border/40 bg-gradient-to-br from-primary/[0.03] via-background to-gold/[0.03] py-16 lg:py-24">
+    <section className="border-y border-white/[0.05] py-16 lg:py-24" style={{ background: "#0B0F1A" }}>
       <div className="container max-w-5xl">
         <div className="flex flex-col items-center gap-12 md:flex-row md:gap-16">
           {/* Left content */}
