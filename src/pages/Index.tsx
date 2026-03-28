@@ -51,12 +51,12 @@ const steps = [
 const MAILTO_AD = `mailto:kontakt@balkanlink.de?subject=${encodeURIComponent("Oglašavanje na BalkanLink")}&body=${encodeURIComponent("Pozdrav,\n\nZanima me oglašavanje na BalkanLink platformi.\n\nNaziv firme:\nVrsta usluge:\nGrad:\nBudžet:\n")}`;
 
 const placeholderAds = [
-  { name: "Vaša firma", slogan: "Predstavite se zajednici", logo: "/placeholder.svg" },
-  { name: "Mjesto za reklamu", slogan: "Oglasite svoju uslugu", logo: "/placeholder.svg" },
-  { name: "Vaš brend ovdje", slogan: "Dođite do nove publike", logo: "/placeholder.svg" },
-  { name: "Reklama", slogan: "Povećajte vidljivost", logo: "/placeholder.svg" },
-  { name: "Vaša ponuda", slogan: "Budite ispred konkurencije", logo: "/placeholder.svg" },
-  { name: "Partner slot", slogan: "Zakažite promociju", logo: "/placeholder.svg" },
+  { name: "Vaša firma", slogan: "Predstavite se zajednici", desc: "Zakupite ovaj prostor i pokažite svoju uslugu cijeloj zajednici.", logo: "/placeholder.svg" },
+  { name: "Mjesto za reklamu", slogan: "Oglasite svoju uslugu", desc: "Premium pozicija za vašu firmu — vidljiva svim korisnicima.", logo: "/placeholder.svg" },
+  { name: "Vaš brend ovdje", slogan: "Dođite do nove publike", desc: "Povežite se sa hiljadama korisnika iz regije.", logo: "/placeholder.svg" },
+  { name: "Reklama", slogan: "Povećajte vidljivost", desc: "Istaknite svoju ponudu na najpopularnijoj platformi.", logo: "/placeholder.svg" },
+  { name: "Vaša ponuda", slogan: "Budite ispred konkurencije", desc: "Profesionalan nastup za vašu firmu ili uslugu.", logo: "/placeholder.svg" },
+  { name: "Partner slot", slogan: "Zakažite promociju", desc: "Ekskluzivno oglasno mjesto — kontaktirajte nas danas.", logo: "/placeholder.svg" },
 ];
 
 /* CSS-animated auto-scroll — no JS needed */
@@ -75,26 +75,33 @@ function AdFlowSection() {
       <div className="relative">
         <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-[#0B0F1A] to-transparent" />
         <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-[#0B0F1A] to-transparent" />
-        <div className="flex w-max animate-[scroll-left_30s_linear_infinite] hover:[animation-play-state:paused] gap-4 px-4">
+        <div className="flex w-max animate-[marquee_35s_linear_infinite] hover:[animation-play-state:paused] gap-4 px-4">
           {doubled.map((ad, i) => (
             <a
               key={i}
               href={MAILTO_AD}
-              className="group flex h-[100px] shrink-0 items-center gap-4 rounded-xl border border-white/8 bg-[#111827] px-5 transition-all duration-300 hover:border-[#EAB308]/30 hover:bg-[#111827]/80 min-w-[320px]"
+              className="group flex flex-col w-[280px] h-[320px] shrink-0 rounded-xl border border-[#2a2f3e] overflow-hidden transition-all duration-300 hover:border-[#EAB308]/30"
             >
-              <img
-                src={ad.logo}
-                alt={ad.name}
-                className="h-12 w-12 shrink-0 rounded-lg object-contain bg-white/5 p-1.5"
-                loading="lazy"
-              />
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-bold text-white truncate">{ad.name}</p>
-                <p className="text-xs text-white/40 truncate">{ad.slogan}</p>
+              {/* Top: logo area */}
+              <div className="flex items-center justify-center h-[160px] bg-[#1a1f2e] p-5">
+                <img
+                  src={ad.logo}
+                  alt={ad.name}
+                  className="max-h-full max-w-full object-contain"
+                  loading="lazy"
+                />
               </div>
-              <span className="shrink-0 flex items-center gap-1.5 rounded-lg bg-[#EAB308]/15 px-3 py-1.5 text-[11px] font-bold text-[#EAB308] transition-colors group-hover:bg-[#EAB308]/25">
-                <Mail className="h-3 w-3" /> Kontakt
-              </span>
+              {/* Bottom: info area */}
+              <div className="flex flex-col flex-1 bg-[#111827] p-4">
+                <p className="text-lg font-bold text-white leading-tight">{ad.name}</p>
+                <p className="text-[13px] text-[#EAB308] mt-1">{ad.slogan}</p>
+                <p className="text-xs text-[#9CA3AF] mt-1 line-clamp-2">{ad.desc}</p>
+                <div className="mt-auto pt-3">
+                  <span className="inline-flex items-center gap-1.5 rounded-md border border-[#EAB308] px-4 py-2 text-[13px] font-semibold text-[#EAB308] transition-colors group-hover:bg-[#EAB308]/10">
+                    Mehr erfahren →
+                  </span>
+                </div>
+              </div>
             </a>
           ))}
         </div>
