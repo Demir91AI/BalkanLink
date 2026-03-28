@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import CookieConsent from "@/components/CookieConsent";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "./AppSidebar";
+import { DEV_MODE } from "@/lib/dev-mode";
 
 export default function Layout() {
   return (
