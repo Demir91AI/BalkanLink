@@ -415,3 +415,13 @@
   #kg1-paper table { font-size: 11px !important; }
   #kg1-paper input, #kg1-paper select { font-size: 12px !important; }
 }
+
+/* Dev preview switcher — mobile simulation */
+body.mobile-preview #root {
+  max-width: 390px;
+  margin-left: auto;
+  margin-right: auto;
+  border-left: 1px solid hsl(215 20% 20%);
+  border-right: 1px solid hsl(215 20% 20%);
+  min-height: 100vh;
+}
