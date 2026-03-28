@@ -1,16 +1,12 @@
 import {
   FileText,
-  Briefcase,
   Megaphone,
   Wrench,
-  ShieldCheck,
-  Compass,
-  Building2,
-  Footprints,
-  Plane,
+  BookOpen,
+  Star,
   ChevronDown,
   FileCheck,
-  Car,
+  Plane,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation, useNavigate } from "react-router-dom";
