@@ -25,6 +25,7 @@ import { Calendar as CalendarPicker } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { toast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
+import SubpageNav from "@/components/SubpageNav";
 
 /* ── Bus Transport Directory ── */
 type TransportBadge = "Direktlinie" | "Umstieg" | "Kleinbus / Tür-zu-Tür";
@@ -307,6 +308,7 @@ export default function Putovanja() {
 
   return (
     <>
+      <SubpageNav />
       {/* ── Hero ── */}
       <section className="relative overflow-hidden" style={{ background: "#0F1B2D" }}>
         <div className="absolute inset-0 bg-gradient-to-br from-[#E3B341]/5 via-transparent to-[#E3B341]/3" />
