@@ -7,12 +7,10 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import { getGuideBySlug } from "@/lib/guide-data";
 import { formCatalog, getAllFormEntries, type FormEntry } from "@/lib/form-catalog";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { cn } from "@/lib/utils";
 import FormFreeContent from "@/components/FormFreeContent";
 import FormSmartGuide from "@/components/FormSmartGuide";
-import FormPaywall from "@/components/FormPaywall";
 import { navigateBackOrHome } from "@/lib/navigation";
 
 type LangKey = "de" | "bs" | "en";
@@ -26,7 +24,6 @@ function getLangKey(lang: string): LangKey {
 /* ─── Guide Content (right side) ─── */
 function GuideContent({ slug }: { slug: string }) {
   const guide = getGuideBySlug(slug);
-  const { isPremium } = useAuth();
   const { t, language } = useLanguage();
   const lang = getLangKey(language);
   const entry = getAllFormEntries().find((e) => e.slug === slug);
@@ -38,24 +35,18 @@ function GuideContent({ slug }: { slug: string }) {
       {/* FREE section */}
       <FormFreeContent guide={guide} lang={lang} />
 
-      {/* PREMIUM section */}
-      {isPremium ? (
-        <>
-          <div className="relative py-2">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-border/60" />
-            </div>
-            <div className="relative flex justify-center">
-              <span className="bg-background px-4 text-xs font-semibold text-muted-foreground">
-                {t("formCenter.smartGuideLabel")}
-              </span>
-            </div>
-          </div>
-          <FormSmartGuide guide={guide} lang={lang} />
-        </>
-      ) : (
-        <FormPaywall formLabel={entry?.label || guide.title.de} />
-      )}
+      {/* Smart Guide section */}
+      <div className="relative py-2">
+        <div className="absolute inset-0 flex items-center">
+          <div className="w-full border-t border-border/60" />
+        </div>
+        <div className="relative flex justify-center">
+          <span className="bg-background px-4 text-xs font-semibold text-muted-foreground">
+            {t("formCenter.smartGuideLabel")}
+          </span>
+        </div>
+      </div>
+      <FormSmartGuide guide={guide} lang={lang} />
     </div>
   );
 }
