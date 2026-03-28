@@ -3,40 +3,33 @@ import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared"
 
 const STEPS: StepData[] = [
   {
-    deField: "Was ist die Steuer-ID?",
-    bhsField: "Šta je Steuer-ID",
-    whatToWrite: "Tvoj lični 11-cifreni poreski identifikacioni broj koji dobijaš automatski kad se prijaviš u Njemačkoj",
-    whereToFind: "Pismo od Bundeszentralamt für Steuern koje stiže na adresu par sedmica nakon Anmeldung. Također na platnoj listi (Lohnsteuerbescheinigung)",
+    deField: "Provjeri imaš li ga već",
+    bhsField: "Korak 1 — Provjera",
+    whatToWrite:
+      "Nakon Anmeldung-a (prijave boravišta), Finanzamt ti automatski šalje Steuer-ID poštom na registrovanu adresu — u roku od 2–4 sedmice.",
+    commonMistake:
+      "Pismo izgleda nezvanično — mnogi ga bace misleći da je reklama. Pažljivo pregledaj poštu!",
     format: "Tačno 11 cifara, nikad se ne mijenja. Primjer: 65 929 310 054",
-    commonMistake: "Miješati sa Steuernummer (format 12/345/67890) — to su dva potpuno različita broja",
+    whereToFind:
+      "Pismo od Bundeszentralamt für Steuern koje stiže na adresu. Također na platnoj listi (Lohnsteuerbescheinigung) ili u ELSTER profilu.",
   },
   {
-    deField: "Steuer-ID erhalten",
-    bhsField: "Kako dobiti Steuer-ID",
-    whatToWrite: "Automatski stiže poštom 2-4 sedmice nakon Anmeldung prijave adrese",
-    whereToFind: "Ako nisi dobio: idi na bzst.de i zatraži ponovnu dostavu — besplatno",
-    commonMistake: "Misliti da treba ići u Finanzamt — nije potrebno, sve se radi online ili poštom",
+    deField: "Novo u Njemačkoj? Evo šta radiš",
+    bhsField: "Korak 2 — Novi dolazak",
+    whatToWrite:
+      "1. Prijavi boravište (Anmeldung) u lokalnom Bürgeramt-u\n2. Sačekaj 2–4 sedmice — Steuer-ID stiže poštom automatski\n3. Nisi dobio? → Idi na Korak 3",
+    commonMistake:
+      "Misliti da treba ići u Finanzamt da zatražiš Steuer-ID — nije potrebno, dolazi automatski nakon Anmeldung-a.",
+    note: "Bez Steuer-ID poslodavac ti odbija porez po najvišoj stopi (Steuerklasse 6). Predaj broj HR-u odmah čim ga dobiješ!",
   },
   {
-    deField: "Verwendung der Steuer-ID",
-    bhsField: "Gdje se koristi",
-    whatToWrite: "Na poslu: daj poslodavcu odmah — bez Steuer-ID ne može te prijaviti. Kindergeld: obavezan za tebe i svako dijete. Bankovni račun: neki banke traže",
-    commonMistake: "Dati poslodavcu Steuernummer umjesto Steuer-ID",
-  },
-  {
-    deField: "Steuer-ID verloren",
-    bhsField: "Izgubio sam Steuer-ID",
-    whatToWrite: "Idi na bzst.de → 'Steuerliche Identifikationsnummer mitteilen' → upiši ime, adresu, datum rođenja",
-    format: "Pismo stiže za 2-4 sedmice",
-    commonMistake: "Zvati Finanzamt — ne mogu dati Steuer-ID telefonom iz sigurnosnih razloga",
-  },
-  {
-    deField: "Steuer-ID für Kinder",
-    bhsField: "Steuer-ID za dijete",
-    whatToWrite: "Svako dijete dobija vlastiti Steuer-ID automatski nakon prijave rođenja",
-    whereToFind: "Pismo na adresu odmah nakon registracije rođenja (Geburtsanmeldung)",
-    commonMistake: "Kindergeld — bez Steuer-ID djeteta zahtjev ne može biti obrađen",
-    note: "Potrebno za: Kindergeld — bez Steuer-ID djeteta zahtjev ne može biti obrađen",
+    deField: "Zaboravio si ili nisi dobio?",
+    bhsField: "Korak 3 — Ponovna dostava",
+    whatToWrite:
+      "Opcija A — Online (najbrže): Idi na identifikationsmerkmal.de → unesite ime, adresu i datum rođenja → broj stiže na registrovanu adresu poštom u roku od 2–4 sedmice.\n\nOpcija B — Direktno u Finanzamt-u: Odi lično s ličnom kartom ili pasošem. Na licu mjesta mogu provjeriti tvoj broj.\n\nOpcija C — Kod poslodavca: Ako si već radio u Njemačkoj, HR odjel vjerovatno ima tvoj broj u sistemu.",
+    commonMistake:
+      "Tražiti Steuer-ID u ELSTER portalu — tamo se nalazi samo Steuernummer, ne Steuer-ID.",
+    whereToFind: "identifikationsmerkmal.de — zvanična stranica za online upit",
   },
 ];
 
@@ -44,28 +37,48 @@ export default function SteuerIdGuideContent() {
   return (
     <div className="space-y-8">
       <GuideInfoHeader
-        title="Poreski identifikacioni broj (Steuer-ID)"
+        title="🪪 Steuer-ID — Kompletan vodič"
         source="Bundeszentralamt für Steuern"
         formName="Steuerliche Identifikationsnummer"
-        whoCanApply="Svaka osoba prijavljena u Njemačkoj automatski dobija Steuer-ID."
-        processingTime="2-4 sedmice nakon Anmeldung (poštom)"
+        whoCanApply="Svaka osoba prijavljena u Njemačkoj automatski dobija Steuer-ID. Sastoji se od 11 cifara i prati te cijeli život — ne mijenja se ni ako se seliš ili mijenjaš posao."
+        processingTime="2–4 sedmice nakon Anmeldung-a (poštom)"
         requirements={[
           "Prijava prebivališta (Anmeldung) — Steuer-ID stiže automatski",
-          "Pasoš ili lična karta",
-          "Meldebescheinigung",
+          "Prijavu kod poslodavca (bez njega ti odbijaju više poreza!)",
+          "Poresku prijavu (Steuererklärung)",
+          "Dječiji dodatak (Kindergeld)",
+          "Otvaranje bankovnog računa",
         ]}
         commonMistakes={[
-          "Miješati Steuer-ID (11 cifara) sa Steuernummer (format 12/345/67890)",
-          "Čekati da Finanzamt pošalje — dolazi od Bundeszentralamt für Steuern",
-          "Ne sačuvati pismo sa Steuer-ID",
+          "Mješanje Steuer-ID i Steuernummer — Steuer-ID = 11 cifara, doživotni. Steuernummer = lokalni broj, mijenja se sa selidbom",
+          "Baciti pismo od Finanzamt-a — sva pisma od Finanzamt čuvaj!",
+          "Čekati da ih poslodavac pita — predaj broj HR-u odmah pri zapošljavanju",
+          "Tražiti ga na pogrešnom mjestu — ne tražiti u ELSTER-u, to je za Steuernummer",
         ]}
       />
       <SmartGuideWizardShared steps={STEPS} />
       <div className="rounded-lg p-4 text-center" style={{ backgroundColor: "#1F2937" }}>
-        <p className="text-[13px] text-gray-400">Više informacija na službenoj stranici BZSt</p>
-        <a href="https://www.bzst.de" target="_blank" rel="noopener noreferrer" className="inline-block mt-2 text-sm font-medium" style={{ color: "#3B82F6" }}>
-          🔗 Službena stranica BZSt
-        </a>
+        <p className="text-[13px] text-gray-400">Korisni linkovi</p>
+        <div className="flex flex-col items-center gap-2 mt-2">
+          <a
+            href="https://www.identifikationsmerkmal.de"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block text-sm font-medium"
+            style={{ color: "#3B82F6" }}
+          >
+            🌐 identifikationsmerkmal.de — zvanična stranica za online upit
+          </a>
+          <a
+            href="https://www.bzst.de"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block text-sm font-medium"
+            style={{ color: "#3B82F6" }}
+          >
+            🌐 Bundeszentralamt für Steuern — centralni porezni ured
+          </a>
+        </div>
       </div>
     </div>
   );
