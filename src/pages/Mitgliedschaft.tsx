@@ -1,5 +1,9 @@
+import SubpageNav from "@/components/SubpageNav";
+
 export default function Mitgliedschaft() {
   return (
+    <>
+    <SubpageNav />
     <div className="container max-w-3xl py-16">
       <h1 className="mb-10 text-3xl font-bold">Premium – Zahlungsbedingungen &amp; Widerrufsbelehrung</h1>
       <div className="space-y-8 text-sm leading-relaxed text-muted-foreground">
@@ -142,5 +146,6 @@ export default function Mitgliedschaft() {
         </section>
       </div>
     </div>
+    </>
   );
 }

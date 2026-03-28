@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
+import SubpageNav from "@/components/SubpageNav";
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState("");
@@ -47,6 +48,8 @@ export default function ForgotPassword() {
   }
 
   return (
+    <>
+    <SubpageNav />
     <div className="container flex min-h-[70vh] items-center justify-center py-12">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
@@ -69,5 +72,6 @@ export default function ForgotPassword() {
         </form>
       </Card>
     </div>
+    </>
   );
 }

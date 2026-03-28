@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { GERMAN_CITIES_FULL } from "@/lib/germany-data";
 import { useLanguage } from "@/contexts/LanguageContext";
+import SubpageNav from "@/components/SubpageNav";
 
 const enc = encodeURIComponent;
 
@@ -58,6 +59,7 @@ export default function TrebamMajstora() {
 
   return (
     <div className="min-h-screen bg-muted/30">
+      <SubpageNav />
       <section className="bg-primary py-12 text-primary-foreground md:py-16">
         <div className="container max-w-4xl text-center">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm">
