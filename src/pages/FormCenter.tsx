@@ -12,6 +12,7 @@ import { cn } from "@/lib/utils";
 import FormFreeContent from "@/components/FormFreeContent";
 import FormSmartGuide from "@/components/FormSmartGuide";
 import KindergeldGuideContent from "@/components/KindergeldGuideContent";
+import AnmeldungGuideContent from "@/components/AnmeldungGuideContent";
 import { navigateBackOrHome } from "@/lib/navigation";
 
 type LangKey = "de" | "bs" | "en";
@@ -28,8 +29,9 @@ function GuideContent({ slug }: { slug: string }) {
   const { t, language } = useLanguage();
   const lang = getLangKey(language);
 
-  /* Custom page for Kindergeld */
+  /* Custom pages */
   if (slug === "kindergeld") return <KindergeldGuideContent />;
+  if (slug === "anmeldung") return <AnmeldungGuideContent />;
 
   if (!guide) return null;
 
