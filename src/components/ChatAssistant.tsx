@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import { X, Send, Copy, ShieldCheck, ExternalLink, BookOpen, Briefcase, Home, FileText, Calculator, HelpCircle, MapPin } from "lucide-react";
+import { X, Send, Copy, ShieldCheck, ExternalLink, BookOpen } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -106,15 +106,15 @@ function detectGuideSlugFromText(text: string): string | null {
   return null;
 }
 
-// ── Quick action chips ──
-const QUICK_ACTIONS = [
-  { key: "jobs", icon: Briefcase, label: "Pretraga poslova", message: "Tražim posao u Njemačkoj" },
-  { key: "housing", icon: Home, label: "Pretraga stanova", message: "Tražim stan u Njemačkoj" },
-  { key: "forms", icon: FileText, label: "Formulari", message: "Koji formulari postoje?" },
-  { key: "calculator", icon: Calculator, label: "Kalkulator plate", message: "Kolika je neto plata od 3000€ bruto?" },
-  { key: "arrival", icon: MapPin, label: "Dolazak u DE", message: "Koji su prvi koraci kad dođem u Njemačku?" },
-  { key: "help", icon: HelpCircle, label: "Pomoći i davanja", message: "Koje pomoći mogu dobiti u Njemačkoj?" },
+// ── Quick starter buttons ──
+const STARTER_QUESTIONS = [
+  { emoji: "📋", label: "Trebam Kindergeld", message: "Trebam Kindergeld" },
+  { emoji: "🏠", label: "Kako prijaviti adresu?", message: "Kako prijaviti adresu u Njemačkoj?" },
+  { emoji: "💼", label: "Izgubio sam posao", message: "Izgubio sam posao, šta da radim?" },
+  { emoji: "📄", label: "Šta je Steuer-ID?", message: "Šta je Steuer-ID i kako ga dobiti?" },
 ];
+
+const WELCOME_MESSAGE = "Zdravo! 👋 Ja sam BalkanLink Asistent. Pomažem Balkancima u Njemačkoj da se snađu — od formulara do svakodnevnog života. Šta te muči?";
 
 // ── Markdown renderer ──
 function ChatMarkdown({ content }: { content: string }) {
@@ -123,20 +123,20 @@ function ChatMarkdown({ content }: { content: string }) {
       components={{
         a: ({ href, children }) => {
           if (href && href.startsWith("/")) {
-            if (!isValidRoute(href)) return <span className="font-medium text-muted-foreground">{children}</span>;
-            return <Link to={href} className="font-medium text-primary underline underline-offset-2 hover:text-primary/80">{children}</Link>;
+            if (!isValidRoute(href)) return <span className="font-medium text-white/50">{children}</span>;
+            return <Link to={href} className="font-medium text-[hsl(45,93%,49%)] underline underline-offset-2 hover:text-[hsl(45,93%,60%)]">{children}</Link>;
           }
-          return <a href={href} target="_blank" rel="noopener noreferrer" className="font-medium text-primary underline underline-offset-2 hover:text-primary/80">{children}</a>;
+          return <a href={href} target="_blank" rel="noopener noreferrer" className="font-medium text-[hsl(45,93%,49%)] underline underline-offset-2 hover:text-[hsl(45,93%,60%)]">{children}</a>;
         },
         p: ({ children }) => <p className="mb-2 last:mb-0">{children}</p>,
         ol: ({ children }) => <ol className="mb-2 list-decimal space-y-0.5 pl-5">{children}</ol>,
         ul: ({ children }) => <ul className="mb-2 list-disc space-y-0.5 pl-5">{children}</ul>,
         li: ({ children }) => <li className="text-[13px] leading-snug">{children}</li>,
-        strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
-        h1: ({ children }) => <h4 className="text-[13px] font-bold mt-2 mb-1">{children}</h4>,
-        h2: ({ children }) => <h4 className="text-[13px] font-bold mt-2 mb-1">{children}</h4>,
-        h3: ({ children }) => <h4 className="text-[13px] font-bold mt-2 mb-1">{children}</h4>,
-        h4: ({ children }) => <h4 className="text-[13px] font-bold mt-2 mb-1">{children}</h4>,
+        strong: ({ children }) => <strong className="font-semibold text-white">{children}</strong>,
+        h1: ({ children }) => <h4 className="text-[13px] font-bold mt-2 mb-1 text-white">{children}</h4>,
+        h2: ({ children }) => <h4 className="text-[13px] font-bold mt-2 mb-1 text-white">{children}</h4>,
+        h3: ({ children }) => <h4 className="text-[13px] font-bold mt-2 mb-1 text-white">{children}</h4>,
+        h4: ({ children }) => <h4 className="text-[13px] font-bold mt-2 mb-1 text-white">{children}</h4>,
       }}
     >
       {content}
@@ -145,36 +145,22 @@ function ChatMarkdown({ content }: { content: string }) {
 }
 
 // ── Action buttons ──
-function ResponseActions({ msg, t }: { msg: Msg; t: (key: string) => string }) {
+function ResponseActions({ msg }: { msg: Msg }) {
   const actions: { label: string; to: string; icon: typeof BookOpen; primary?: boolean }[] = [];
 
-  // Redirect action (job/housing search)
   if (msg.redirectUrl && msg.redirectLabel) {
-    actions.push({
-      label: msg.redirectLabel,
-      to: msg.redirectUrl,
-      icon: ExternalLink,
-      primary: true,
-    });
+    actions.push({ label: msg.redirectLabel, to: msg.redirectUrl, icon: ExternalLink, primary: true });
   }
-
   if (msg.guideSlug && VALID_GUIDE_SLUGS.has(msg.guideSlug)) {
-    actions.push({
-      label: t("chat.openGuide"),
-      to: `/guide/${msg.guideSlug}`,
-      icon: BookOpen,
-      primary: true,
-    });
+    actions.push({ label: "Otvori Smart Guide", to: `/guide/${msg.guideSlug}`, icon: BookOpen, primary: true });
   }
-
   if (msg.formSlugs && msg.formSlugs.length > 0) {
     const slug = msg.formSlugs[0];
     const formPath = `/formulari/${slug}`;
     if (!actions.some(a => a.to === formPath)) {
-      actions.push({ label: t("chat.openForm"), to: formPath, icon: ExternalLink });
+      actions.push({ label: "Otvori formular", to: formPath, icon: ExternalLink });
     }
   }
-
   if (msg.siteTopics && msg.siteTopics.length > 0) {
     for (const topic of msg.siteTopics) {
       if (!isValidRoute(topic.url)) continue;
@@ -194,8 +180,8 @@ function ResponseActions({ msg, t }: { msg: Msg; t: (key: string) => string }) {
           to={a.to}
           className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-[11px] font-medium transition-all ${
             a.primary
-              ? "bg-primary text-primary-foreground hover:bg-primary/90"
-              : "border border-border bg-background text-foreground hover:bg-accent"
+              ? "bg-[hsl(45,93%,49%)] text-black hover:bg-[hsl(45,93%,55%)]"
+              : "border border-white/20 bg-white/5 text-white/80 hover:bg-white/10"
           }`}
         >
           <a.icon className="h-3 w-3" />
@@ -225,7 +211,7 @@ export default function ChatAssistant() {
   }, [messages, loading]);
 
   useEffect(() => {
-    if (open) setTimeout(() => inputRef.current?.focus({ preventScroll: true }), 150);
+    if (open) setTimeout(() => inputRef.current?.focus({ preventScroll: true }), 250);
   }, [open]);
 
   useEffect(() => {
@@ -247,7 +233,6 @@ export default function ChatAssistant() {
   const sendMessageWithText = useCallback(async (text: string) => {
     if (!text.trim() || loading) return;
 
-    // Enforce daily limit for free users
     if (!canChat) {
       setMessages((prev) => [...prev,
         { role: "user", content: text.trim() },
@@ -257,7 +242,6 @@ export default function ChatAssistant() {
       return;
     }
 
-    // Record usage
     await recordQuery();
 
     const userMsg: Msg = { role: "user", content: text.trim() };
@@ -268,7 +252,7 @@ export default function ChatAssistant() {
 
     let assistantSoFar = "";
     const detectedSlug = detectGuideSlugFromText(text);
-    const errorMsg = t("chat.error");
+    const errorMsg = "Ups, nešto je pošlo po krivu. Pokušaj ponovo.";
 
     const upsertAssistant = (chunk: string) => {
       assistantSoFar += chunk;
@@ -298,31 +282,18 @@ export default function ChatAssistant() {
       if (contentType.includes("application/json")) {
         const data = await resp.json();
 
-        // Job/Housing search redirect
         if (data.search_redirect) {
-          setMessages(prev => [...prev, {
-            role: "assistant",
-            content: data.content,
-            redirectUrl: data.redirect_url,
-            redirectLabel: data.redirect_label,
-          }]);
+          setMessages(prev => [...prev, { role: "assistant", content: data.content, redirectUrl: data.redirect_url, redirectLabel: data.redirect_label }]);
           setLoading(false);
           return;
         }
-
         if (data.smart_guide_redirect) {
           setMessages(prev => [...prev, { role: "assistant", content: data.content, guideSlug: data.guideSlug || detectedSlug, formSlugs: data.detectedForm ? [data.detectedForm.slug] : [] }]);
           setLoading(false);
           return;
         }
         if (data.premium_required) {
-          setMessages(prev => [...prev, {
-            role: "assistant",
-            content: `${data.teaser}\n\n${data.cta}`,
-            formSlugs: data.detectedForm ? [data.detectedForm.slug] : [],
-            redirectUrl: "/premium",
-            redirectLabel: "Premium pogledaj",
-          }]);
+          setMessages(prev => [...prev, { role: "assistant", content: `${data.teaser}\n\n${data.cta}`, formSlugs: data.detectedForm ? [data.detectedForm.slug] : [], redirectUrl: "/premium", redirectLabel: "Premium pogledaj" }]);
           setLoading(false);
           return;
         }
@@ -396,7 +367,7 @@ export default function ChatAssistant() {
     } finally {
       setLoading(false);
     }
-  }, [loading, messages, isPremium, language, t, canChat, recordQuery]);
+  }, [loading, messages, isPremium, language, canChat, recordQuery]);
 
   const sendMessage = useCallback(() => sendMessageWithText(input), [input, sendMessageWithText]);
 
@@ -406,15 +377,13 @@ export default function ChatAssistant() {
 
   const handleClose = () => {
     setOpen(false);
-    setMessages([]);
-    setInput("");
   };
 
   const showStartScreen = messages.length === 0;
 
   return (
     <>
-      {/* ── Floating Trigger ── */}
+      {/* ── Floating Trigger Button ── */}
       <AnimatePresence>
         {!open && (
           <motion.div
@@ -422,72 +391,72 @@ export default function ChatAssistant() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
+            className="fixed bottom-6 right-6 z-50 group cursor-pointer"
             onClick={() => setOpen(true)}
-            className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-1.5 cursor-pointer group"
           >
-            <motion.div
-              initial={{ opacity: 0, y: 4 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="flex flex-col items-center gap-0.5 rounded-xl bg-white/95 dark:bg-card/95 backdrop-blur-sm px-4 py-1.5 shadow-md border border-border/30"
-            >
-              <span className="text-[12px] font-bold text-foreground leading-tight">
-                {t("chatbot.trigger")}
-              </span>
-              <span className="text-[10px] font-medium text-muted-foreground leading-tight">
-                {t("chatbot.triggerSub")}
-              </span>
-            </motion.div>
+            {/* Tooltip */}
+            <div className="absolute bottom-full right-0 mb-2 whitespace-nowrap rounded-lg bg-[hsl(220,30%,12%)] border border-white/10 px-3 py-1.5 text-[11px] font-medium text-white opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
+              Pitaj BalkanLink Asistenta
+            </div>
 
-            <div className="relative">
-              <div className="absolute inset-[-14px] rounded-[22px] bg-gradient-to-br from-[hsl(var(--primary))]/30 to-[#9333EA]/30 blur-2xl group-hover:from-[hsl(var(--primary))]/50 group-hover:to-[#9333EA]/50 transition-all duration-300" />
-              <motion.div
-                animate={{ scale: [1, 1.08, 1] }}
-                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-                className="relative flex items-center justify-center w-[58px] h-[58px] sm:w-16 sm:h-16 rounded-[18px] sm:rounded-[20px] shadow-[0_0_30px_rgba(59,130,246,0.4),0_0_60px_rgba(147,51,234,0.2),0_4px_16px_rgba(0,0,0,0.2)] transition-all duration-200 group-hover:scale-105 group-active:scale-95 border border-white/20 overflow-hidden"
-                style={{ background: "linear-gradient(135deg, #3B82F6 0%, #7C3AED 50%, #9333EA 100%)" }}
-              >
-                <BLIcon size={32} />
-              </motion.div>
+            {/* Pulsing ring */}
+            <motion.div
+              animate={{ scale: [1, 1.4, 1], opacity: [0.4, 0, 0.4] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute inset-0 rounded-full bg-[hsl(45,93%,49%)]"
+            />
+
+            {/* Button */}
+            <div className="relative flex h-14 w-14 items-center justify-center rounded-full shadow-[0_4px_20px_rgba(234,179,8,0.4)] overflow-hidden"
+              style={{ background: "linear-gradient(135deg, #EAB308 0%, #F59E0B 100%)" }}
+            >
+              <BLIcon size={28} className="text-white drop-shadow-sm" />
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* ── Modal Overlay + Chat ── */}
+      {/* ── Panel Overlay + Side Panel ── */}
       <AnimatePresence>
         {open && (
           <>
+            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
               onClick={handleClose}
-              className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm"
+              className="fixed inset-0 z-[999] bg-black/50 backdrop-blur-sm"
             />
 
+            {/* Side Panel */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.92, y: 30 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.92, y: 30 }}
-              transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
-              className="fixed inset-4 sm:inset-auto sm:left-1/2 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 z-50 flex flex-col w-auto sm:w-[460px] sm:max-w-[calc(100vw-2rem)] h-auto sm:h-[600px] sm:max-h-[80vh] rounded-2xl border border-border/50 bg-card shadow-2xl overflow-hidden"
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className="fixed top-0 right-0 z-[1000] flex flex-col w-full md:w-[420px] h-full border-l border-[hsl(215,20%,15%)]"
+              style={{ background: "#0d1526" }}
             >
               {/* Header */}
-              <div className="relative overflow-hidden px-5 py-4 shrink-0" style={{ background: "linear-gradient(135deg, #3B82F6 0%, #7C3AED 50%, #9333EA 100%)" }}>
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.1),transparent_60%)]" />
-                <div className="flex items-center justify-between relative z-10">
+              <div className="shrink-0 px-5 py-4 border-b border-[hsl(215,20%,15%)]">
+                <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/15 backdrop-blur-sm overflow-hidden">
-                      <BLIcon size={28} />
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl overflow-hidden"
+                      style={{ background: "linear-gradient(135deg, #EAB308 0%, #F59E0B 100%)" }}
+                    >
+                      <BLIcon size={24} className="text-white" />
                     </div>
                     <div>
-                      <span className="text-[15px] font-bold text-white block leading-tight">{t("chat.headerTitle")}</span>
-                      <span className="text-[11px] text-white/55 leading-tight">{t("chat.headerSubtitle")}</span>
+                      <span className="text-[15px] font-bold text-white block leading-tight">🤖 BalkanLink Asistent</span>
+                      <span className="text-[11px] text-white/40 leading-tight">Tvoj vodič kroz Njemačku</span>
                     </div>
                   </div>
-                  <button onClick={handleClose} className="rounded-lg p-1.5 text-white/60 transition-colors hover:bg-white/10 hover:text-white" title={t("chat.close")}>
+                  <button
+                    onClick={handleClose}
+                    className="rounded-lg p-2 text-white/40 transition-colors hover:bg-white/5 hover:text-white"
+                  >
                     <X className="h-5 w-5" />
                   </button>
                 </div>
@@ -495,31 +464,38 @@ export default function ChatAssistant() {
 
               {/* Messages area */}
               <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-4 space-y-3">
+                {/* Welcome message (always first) */}
                 {showStartScreen && (
-                  <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }} className="flex flex-col items-center justify-center pt-6 pb-4 text-center">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl mb-4 overflow-hidden" style={{ background: "linear-gradient(135deg, rgba(59,130,246,0.1) 0%, rgba(147,51,234,0.1) 100%)" }}>
-                      <BLIcon size={40} />
-                    </div>
-                    <h2 className="text-base font-bold text-foreground mb-1">
-                      {t("chatbot.welcome")}
-                    </h2>
-                    <p className="text-[13px] text-muted-foreground leading-relaxed max-w-[280px] mb-5">
-                      {t("chatbot.welcomeSub")}
-                    </p>
-
-                    {/* Quick action chips */}
-                    <div className="grid grid-cols-2 gap-2 w-full max-w-[340px]">
-                      {QUICK_ACTIONS.map((action, i) => (
-                        <motion.button
-                          key={action.key}
-                          initial={{ opacity: 0, y: 8 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.2, delay: 0.1 + i * 0.05 }}
-                          onClick={() => sendMessageWithText(action.message)}
-                          className="flex items-center gap-2 rounded-xl border border-border/60 bg-background px-3 py-2.5 text-left text-[12px] font-medium text-foreground transition-all hover:bg-accent hover:border-primary/30 active:scale-[0.97]"
+                  <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="space-y-4"
+                  >
+                    {/* Welcome bubble */}
+                    <div className="flex justify-start">
+                      <div className="max-w-[88%]">
+                        <div className="rounded-xl rounded-bl-none px-4 py-3 text-[13px] leading-relaxed text-white/90"
+                          style={{ background: "#1F2937" }}
                         >
-                          <action.icon className="h-3.5 w-3.5 text-primary shrink-0" />
-                          <span className="truncate">{action.label}</span>
+                          {WELCOME_MESSAGE}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Starter buttons */}
+                    <div className="grid grid-cols-2 gap-2 px-1">
+                      {STARTER_QUESTIONS.map((q, i) => (
+                        <motion.button
+                          key={i}
+                          initial={{ opacity: 0, y: 6 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.2, delay: 0.15 + i * 0.06 }}
+                          onClick={() => sendMessageWithText(q.message)}
+                          className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2.5 text-left text-[12px] font-medium text-white/80 transition-all hover:bg-white/[0.07] hover:border-[hsl(45,93%,49%)]/30 active:scale-[0.97]"
+                        >
+                          <span className="text-base shrink-0">{q.emoji}</span>
+                          <span className="truncate">{q.label}</span>
                         </motion.button>
                       ))}
                     </div>
@@ -536,11 +512,12 @@ export default function ChatAssistant() {
                   >
                     <div className="max-w-[88%] space-y-1">
                       <div
-                        className={`rounded-2xl px-3.5 py-2.5 text-[13px] leading-relaxed ${
+                        className={`px-4 py-3 text-[13px] leading-relaxed ${
                           msg.role === "user"
-                            ? "bg-primary text-primary-foreground shadow-sm"
-                            : "bg-muted/60 text-foreground shadow-sm"
+                            ? "rounded-xl rounded-br-none bg-[hsl(45,93%,49%)] text-black"
+                            : "rounded-xl rounded-bl-none text-white/90"
                         }`}
+                        style={msg.role === "assistant" ? { background: "#1F2937" } : undefined}
                       >
                         {msg.role === "assistant" ? (
                           <>
@@ -548,10 +525,10 @@ export default function ChatAssistant() {
                             {msg.content.length > 200 && (
                               <button
                                 onClick={() => copyToClipboard(msg.content, i)}
-                                className="mt-2 flex items-center gap-1 text-[10px] text-muted-foreground hover:text-foreground transition"
+                                className="mt-2 flex items-center gap-1 text-[10px] text-white/30 hover:text-white/60 transition"
                               >
                                 <Copy className="h-3 w-3" />
-                                {copied === i ? "✓" : t("chat.copy")}
+                                {copied === i ? "✓ Kopirano" : "Kopiraj"}
                               </button>
                             )}
                           </>
@@ -560,19 +537,20 @@ export default function ChatAssistant() {
                         )}
                       </div>
                       {msg.role === "assistant" && !loading && (
-                        <ResponseActions msg={msg} t={t} />
+                        <ResponseActions msg={msg} />
                       )}
                     </div>
                   </motion.div>
                 ))}
 
+                {/* Loading dots */}
                 {loading && messages[messages.length - 1]?.role === "user" && (
                   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex justify-start">
-                    <div className="rounded-2xl bg-muted/60 px-4 py-3">
-                      <div className="flex items-center gap-1">
-                        <motion.span animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 0.5, repeat: Infinity, delay: 0 }} className="h-1.5 w-1.5 rounded-full bg-muted-foreground/40" />
-                        <motion.span animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 0.5, repeat: Infinity, delay: 0.1 }} className="h-1.5 w-1.5 rounded-full bg-muted-foreground/40" />
-                        <motion.span animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 0.5, repeat: Infinity, delay: 0.2 }} className="h-1.5 w-1.5 rounded-full bg-muted-foreground/40" />
+                    <div className="rounded-xl rounded-bl-none px-4 py-3" style={{ background: "#1F2937" }}>
+                      <div className="flex items-center gap-1.5">
+                        <motion.span animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 0.6, repeat: Infinity, delay: 0 }} className="h-2 w-2 rounded-full bg-white/30" />
+                        <motion.span animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 0.6, repeat: Infinity, delay: 0.15 }} className="h-2 w-2 rounded-full bg-white/30" />
+                        <motion.span animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 0.6, repeat: Infinity, delay: 0.3 }} className="h-2 w-2 rounded-full bg-white/30" />
                       </div>
                     </div>
                   </motion.div>
@@ -580,42 +558,39 @@ export default function ChatAssistant() {
               </div>
 
               {/* Disclaimer */}
-              <div className="px-4 py-1 border-t border-border/20 shrink-0">
-                <p className="text-[8px] text-center text-muted-foreground/40">{t("chat.disclaimer")}</p>
-              </div>
-
-              {/* Input area */}
-              <div className="border-t border-border/40 px-4 py-3 shrink-0">
-                <div className="flex items-center justify-between mb-1.5 px-0.5">
+              <div className="px-4 py-1 border-t border-white/5 shrink-0">
+                <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1">
-                    <ShieldCheck className="h-2.5 w-2.5 text-emerald-600/60 dark:text-emerald-400/60 shrink-0" />
-                    <p className="text-[8px] text-muted-foreground/40">
-                      {t("chat.noSensitiveData")}
-                    </p>
+                    <ShieldCheck className="h-2.5 w-2.5 text-emerald-500/50 shrink-0" />
+                    <p className="text-[8px] text-white/20">Ne unosi lične podatke</p>
                   </div>
                   {!isPremium && (
-                    <p className="text-[8px] text-muted-foreground/50 font-medium">
+                    <p className="text-[8px] text-white/30 font-medium">
                       {remaining > 0 ? `${remaining}/3 preostalo` : "Limit dostignut"}
                     </p>
                   )}
                 </div>
+              </div>
+
+              {/* Input area */}
+              <div className="border-t border-white/10 px-4 py-3 shrink-0">
                 <div className="flex items-end gap-2">
                   <textarea
                     ref={inputRef}
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     onKeyDown={handleKeyDown}
-                    placeholder={t("chatbot.placeholder")}
+                    placeholder="Pitaj me bilo šta..."
                     rows={1}
-                    className="flex-1 resize-none rounded-xl border border-border/60 bg-background px-3 py-2.5 text-[13px] outline-none transition-all placeholder:text-muted-foreground/40 focus:border-primary/40 focus:ring-2 focus:ring-primary/10"
+                    className="flex-1 resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-[13px] text-white outline-none transition-all placeholder:text-white/25 focus:border-[hsl(45,93%,49%)]/40 focus:ring-1 focus:ring-[hsl(45,93%,49%)]/20"
                   />
                   <button
                     onClick={sendMessage}
                     disabled={!input.trim() || loading}
-                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-white transition-all duration-200 disabled:opacity-30 hover:opacity-90 active:scale-95"
-                    style={{ background: "linear-gradient(135deg, #3B82F6, #9333EA)" }}
+                    className="flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-xl text-black transition-all duration-200 disabled:opacity-30 hover:brightness-110 active:scale-95"
+                    style={{ background: "linear-gradient(135deg, #EAB308 0%, #F59E0B 100%)" }}
                   >
-                    <Send className="h-4 w-4" />
+                    <Send className="h-4.5 w-4.5" />
                   </button>
                 </div>
               </div>
