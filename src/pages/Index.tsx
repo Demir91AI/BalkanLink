@@ -84,9 +84,9 @@ function AdFlowSection() {
               href={ad.href || MAILTO_AD}
               target={ad.href ? "_blank" : undefined}
               rel={ad.href ? "noopener noreferrer" : undefined}
-              className="group flex flex-col w-[280px] h-[320px] shrink-0 rounded-xl border border-[#2a2f3e] overflow-hidden transition-all duration-300 hover:border-[#EAB308]/30"
+              className="group flex flex-col w-[260px] h-[300px] md:w-[280px] md:h-[320px] shrink-0 rounded-xl border border-[#2a2f3e] overflow-hidden transition-all duration-300 hover:border-[#EAB308]/30"
             >
-              <div className="flex items-center justify-center h-[160px] bg-[#1a1f2e] p-5">
+              <div className="flex items-center justify-center h-[140px] md:h-[160px] bg-[#1a1f2e] p-4 md:p-5">
                 <img
                   src={ad.logo}
                   alt={ad.name}
@@ -123,7 +123,7 @@ function ShowcaseCarousel() {
         {doubled.map((firm, i) => (
           <article
             key={`${firm.slug}-${i}`}
-            className="min-w-[320px] max-w-[360px] shrink-0 rounded-2xl border border-white/8 bg-[#111827] overflow-hidden flex flex-col"
+            className="min-w-[85vw] max-w-[85vw] md:min-w-[320px] md:max-w-[360px] shrink-0 rounded-2xl border border-white/8 bg-[#111827] overflow-hidden flex flex-col"
           >
             <div className="relative h-[180px] w-full overflow-hidden">
               <img
@@ -265,11 +265,11 @@ export default function Index() {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="mt-8 flex flex-col items-center gap-3"
+                className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center"
               >
                 <Button
                   onClick={() => navigate("/formulari")}
-                  className="h-12 rounded-full bg-gold px-8 text-base font-bold text-gold-foreground shadow-[0_4px_24px_rgba(255,204,0,0.4)] hover:bg-gold-light hover:shadow-[0_8px_36px_rgba(255,204,0,0.55)] hover:scale-[1.03] transition-all duration-300 sm:h-14 sm:px-10 sm:text-lg"
+                  className="w-full sm:w-auto h-12 rounded-full bg-gold px-8 text-base font-bold text-gold-foreground shadow-[0_4px_24px_rgba(255,204,0,0.4)] hover:bg-gold-light hover:shadow-[0_8px_36px_rgba(255,204,0,0.55)] hover:scale-[1.03] transition-all duration-300 sm:h-14 sm:px-10 sm:text-lg"
                 >
                   {t("hero.ctaPrimary")}
                   <ArrowRight className="ml-1 h-4 w-4 sm:h-5 sm:w-5" />
@@ -339,7 +339,7 @@ export default function Index() {
             <div className="mx-auto mt-3 h-[3px] w-16 rounded-full bg-gradient-to-r from-[#3B82F6] to-gold" />
           </motion.div>
 
-          <div className="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-5">
+          <div className="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4 sm:gap-5">
             {highlights.map((h, i) => (
               <motion.div
                 key={h.to}
@@ -443,7 +443,7 @@ export default function Index() {
             <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
               <Button
                 onClick={() => navigate("/premium")}
-                className="h-12 rounded-full bg-gold px-8 text-base font-bold text-gold-foreground shadow-[0_4px_24px_rgba(255,204,0,0.35)] hover:bg-gold-light hover:shadow-[0_8px_36px_rgba(255,204,0,0.5)] hover:scale-[1.03] transition-all duration-300"
+                className="w-full sm:w-auto h-12 rounded-full bg-gold px-8 text-base font-bold text-gold-foreground shadow-[0_4px_24px_rgba(255,204,0,0.35)] hover:bg-gold-light hover:shadow-[0_8px_36px_rgba(255,204,0,0.5)] hover:scale-[1.03] transition-all duration-300"
               >
                 Pogledaj Premium
                 <ArrowRight className="ml-1.5 h-4 w-4" />
@@ -451,7 +451,7 @@ export default function Index() {
               <Button
                 variant="outline"
                 onClick={() => navigate("/mitgliedschaft")}
-                className="h-12 rounded-full border-white/12 bg-white/5 px-8 text-sm font-semibold text-white hover:bg-white/10 transition-all"
+                className="w-full sm:w-auto h-12 rounded-full border-white/12 bg-white/5 px-8 text-sm font-semibold text-white hover:bg-white/10 transition-all"
               >
                 Uporedi planove
               </Button>
