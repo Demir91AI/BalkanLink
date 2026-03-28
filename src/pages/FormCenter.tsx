@@ -27,7 +27,9 @@ function GuideContent({ slug }: { slug: string }) {
   const guide = getGuideBySlug(slug);
   const { t, language } = useLanguage();
   const lang = getLangKey(language);
-  const entry = getAllFormEntries().find((e) => e.slug === slug);
+
+  /* Custom page for Kindergeld */
+  if (slug === "kindergeld") return <KindergeldGuideContent />;
 
   if (!guide) return null;
 
