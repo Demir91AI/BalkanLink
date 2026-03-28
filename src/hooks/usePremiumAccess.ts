@@ -6,12 +6,13 @@ import { supabase } from "@/integrations/supabase/client";
 const FREE_DAILY_LIMIT = 3;
 
 export function usePremiumAccess() {
-  const { isPremium: rawPremium, user } = useAuth();
-  const isPremium = DEV_MODE || rawPremium;
+  const { isPremium: rawPremium, isAdmin, user } = useAuth();
+  const isPremium = DEV_MODE || isAdmin || rawPremium;
 
   return {
     isPremium,
     isDevMode: DEV_MODE,
+    isAdmin,
     isLoggedIn: !!user,
     /** Free users see first N steps; rest locked */
     canAccessStep: (stepIndex: number) => isPremium || stepIndex < 1,
@@ -25,7 +26,8 @@ export function usePremiumAccess() {
  * Returns remaining count + a function to record a new query.
  */
 export function useChatLimit() {
-  const { isPremium, user } = useAuth();
+  const { isPremium, isAdmin, user } = useAuth();
+  const effectivePremium = DEV_MODE || isAdmin || isPremium;
   const [dailyCount, setDailyCount] = useState(0);
   const [loaded, setLoaded] = useState(false);
 
@@ -40,18 +42,18 @@ export function useChatLimit() {
 
   const recordQuery = useCallback(async () => {
     if (!user) return false;
-    if (!isPremium && dailyCount >= FREE_DAILY_LIMIT) return false;
+    if (!isPremium && !isAdmin && dailyCount >= FREE_DAILY_LIMIT) return false;
     const { error } = await supabase.from("chat_usage" as any).insert({ user_id: user.id });
     if (!error) setDailyCount((c) => c + 1);
     return !error;
   }, [user, isPremium, dailyCount]);
 
   return {
-    canChat: isPremium || dailyCount < FREE_DAILY_LIMIT,
-    remaining: isPremium ? Infinity : Math.max(0, FREE_DAILY_LIMIT - dailyCount),
+    canChat: effectivePremium || dailyCount < FREE_DAILY_LIMIT,
+    remaining: effectivePremium ? Infinity : Math.max(0, FREE_DAILY_LIMIT - dailyCount),
     dailyCount,
     recordQuery,
     loaded,
-    isPremium,
+    isPremium: effectivePremium,
   };
 }
