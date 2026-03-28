@@ -5,10 +5,12 @@ const PDF_URL = "https://www.arbeitsagentur.de/datei/kg1-antrag-kindergeld_ba017
 
 const printCSS = `
 @media print {
-  body > *:not(#kg1-root) { display:none!important }
+  body > * { display:none!important }
+  body > #kg1-root { display:block!important }
   #kg1-root { background:#fff!important }
-  #kg1-root > *:not(#kg1-paper) { display:none!important }
-  #kg1-paper { box-shadow:none!important; margin:0!important; transform:none!important; max-width:100%!important }
+  #kg1-root > * { display:none!important }
+  #kg1-root > .kg1-scale { display:block!important }
+  .kg1-scale > #kg1-paper { display:block!important; box-shadow:none!important; margin:0!important; transform:none!important; max-width:100%!important; padding:20px!important }
 }
 @media (max-width:768px) {
   .kg1-scale { transform:scale(0.48); transform-origin:top center; margin-bottom:-600px }
@@ -303,9 +305,15 @@ export default function KindergeldMusterPDF() {
 
       {/* BUTTONS */}
       <div style={{ padding: "0 16px 40px", maxWidth: 794, margin: "0 auto" }}>
-        <a href={PDF_URL} target="_blank" rel="noopener noreferrer" style={{ display: "block", background: "#EAB308", color: "#111", border: "none", padding: "12px 24px", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: "pointer", textAlign: "center", textDecoration: "none", width: "100%", boxSizing: "border-box" }}>
-          ⬇️ Preuzmi originalni KG1 (PDF)
-        </a>
+        <button onClick={() => {
+          const orig = document.title;
+          document.title = "BalkanLink-KG1-Musterformular";
+          const restore = () => { document.title = orig; window.removeEventListener("afterprint", restore); };
+          window.addEventListener("afterprint", restore);
+          window.print();
+        }} style={{ display: "block", background: "#EAB308", color: "#111", border: "none", padding: "12px", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: "pointer", textAlign: "center", width: "100%", boxSizing: "border-box" }}>
+          ⬇️ Preuzmi Musterformular (PDF)
+        </button>
       </div>
     </div>
   );
