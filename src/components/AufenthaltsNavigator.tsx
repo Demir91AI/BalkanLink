@@ -184,7 +184,7 @@ const wbSections = (country) => [
   },
 ];
 
-function Steps({ steps }) {
+function Steps({ steps }: { steps: { n: number; text: string }[] }) {
   return (
     <div style={{ marginBottom: 16 }}>
       {steps.map((s) => (
@@ -202,7 +202,7 @@ function Steps({ steps }) {
   );
 }
 
-function Warning({ text }) {
+function Warning({ text }: { text: string }) {
   return (
     <div style={{ background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.2)", borderRadius: 8, padding: 12 }}>
       <p style={{ margin: 0, fontSize: 13, color: "#fca5a5" }}>⚠️ <strong>Česta greška:</strong> {text}</p>
@@ -210,7 +210,7 @@ function Warning({ text }) {
   );
 }
 
-function Tip({ text }) {
+function Tip({ text }: { text: string }) {
   return (
     <div style={{ background: "rgba(16,185,129,0.08)", border: "1px solid rgba(16,185,129,0.2)", borderRadius: 8, padding: 12 }}>
       <p style={{ margin: 0, fontSize: 13, color: "#6ee7b7" }}>✅ {text}</p>
@@ -218,7 +218,7 @@ function Tip({ text }) {
   );
 }
 
-function InfoCard({ label, value, sub, color }) {
+function InfoCard({ label, value, sub, color }: { label: string; value: string; sub: string; color: string }) {
   return (
     <div style={{ background: "rgba(255,255,255,0.04)", border: `1px solid ${color}33`, borderRadius: 10, padding: 12 }}>
       <p style={{ margin: "0 0 4px", fontSize: 12, color: "#64748b" }}>{label}</p>
@@ -228,8 +228,8 @@ function InfoCard({ label, value, sub, color }) {
   );
 }
 
-function Accordion({ sections }) {
-  const [open, setOpen] = useState(null);
+function Accordion({ sections }: { sections: { id: string; icon: string; title: string; content: React.ReactNode }[] }) {
+  const [open, setOpen] = useState<string | null>(null);
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
       {sections.map((s) => (
@@ -271,7 +271,7 @@ function Accordion({ sections }) {
   );
 }
 
-function EUContent({ country }) {
+function EUContent({ country }: { country: { group: string; full: string } }) {
   return (
     <div style={{ textAlign: "center", padding: "40px 20px" }}>
       <div style={{ fontSize: 64, marginBottom: 16 }}>🇪🇺</div>
