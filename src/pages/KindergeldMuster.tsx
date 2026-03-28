@@ -1,183 +1,246 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {
+  Document,
+  Page,
+  Text,
+  View,
+  StyleSheet,
+  PDFViewer,
+  Font,
+} from "@react-pdf/renderer";
 
+/* ────────────── PDF styles ────────────── */
+const s = StyleSheet.create({
+  page: { padding: 28, fontSize: 8, fontFamily: "Helvetica", color: "#111" },
+  header: { marginBottom: 10, borderBottom: "1.5pt solid #333", paddingBottom: 6 },
+  title: { fontSize: 16, fontWeight: "bold", fontFamily: "Helvetica-Bold" },
+  subtitle: { fontSize: 7, color: "#666", marginTop: 2 },
+  secRow: {
+    flexDirection: "row", alignItems: "center", backgroundColor: "#e5e7eb",
+    padding: "3 6", marginTop: 8, borderTop: "1pt solid #6b7280", borderBottom: "1pt solid #6b7280",
+  },
+  secNum: {
+    width: 14, height: 14, border: "1.5pt solid #111", marginRight: 6,
+    alignItems: "center", justifyContent: "center",
+  },
+  secNumText: { fontSize: 8, fontFamily: "Helvetica-Bold" },
+  secTitle: { fontSize: 8, fontFamily: "Helvetica-Bold", textTransform: "uppercase" },
+  row: { flexDirection: "row", borderBottom: "0.5pt solid #9ca3af" },
+  cell: { borderRight: "0.5pt solid #9ca3af", padding: "3 5", justifyContent: "flex-start" },
+  cellLast: { padding: "3 5", justifyContent: "flex-start" },
+  lbl: { fontSize: 6.5, color: "#555", marginBottom: 1.5, fontFamily: "Helvetica-Bold" },
+  val: { fontSize: 8, minHeight: 11, borderBottom: "0.5pt solid #bbb", marginTop: 1 },
+  valPlaceholder: { fontSize: 7, color: "#aaa", minHeight: 11, borderBottom: "0.5pt solid #bbb", marginTop: 1 },
+  note: { fontSize: 6, color: "#888", marginTop: 1 },
+  checkRow: { flexDirection: "row", flexWrap: "wrap", gap: 2, marginTop: 2 },
+  checkItem: { flexDirection: "row", alignItems: "center", marginRight: 8, marginBottom: 2 },
+  checkBox: { width: 7, height: 7, border: "0.75pt solid #555", marginRight: 3 },
+  checkLabel: { fontSize: 7 },
+  sigLine: { borderBottom: "0.75pt solid #333", height: 28, marginTop: 6 },
+  sigCaption: { fontSize: 6, color: "#666", marginTop: 2 },
+  footer: {
+    position: "absolute", bottom: 16, left: 28, right: 28,
+    borderTop: "0.5pt solid #ccc", paddingTop: 4, textAlign: "center",
+  },
+  footerText: { fontSize: 6, color: "#999" },
+  fullRow: { borderBottom: "0.5pt solid #9ca3af", padding: "3 5" },
+});
+
+/* ────────────── helpers ────────────── */
+const Sec = ({ num, title }: { num: string; title: string }) => (
+  <View style={s.secRow}>
+    <View style={s.secNum}><Text style={s.secNumText}>{num}</Text></View>
+    <Text style={s.secTitle}>{title}</Text>
+  </View>
+);
+
+const Field = ({ label, placeholder, width, note }: { label: string; placeholder?: string; width?: string | number; note?: string }) => (
+  <View style={[s.cell, width ? { width } : { flex: 1 }]}>
+    <Text style={s.lbl}>{label}</Text>
+    <Text style={s.valPlaceholder}>{placeholder || " "}</Text>
+    {note && <Text style={s.note}>{note}</Text>}
+  </View>
+);
+
+const FieldLast = ({ label, placeholder, width, note }: { label: string; placeholder?: string; width?: string | number; note?: string }) => (
+  <View style={[s.cellLast, width ? { width } : { flex: 1 }]}>
+    <Text style={s.lbl}>{label}</Text>
+    <Text style={s.valPlaceholder}>{placeholder || " "}</Text>
+    {note && <Text style={s.note}>{note}</Text>}
+  </View>
+);
+
+const CheckBoxes = ({ label, options }: { label: string; options: string[] }) => (
+  <View style={s.fullRow}>
+    <Text style={s.lbl}>{label}</Text>
+    <View style={s.checkRow}>
+      {options.map((o) => (
+        <View key={o} style={s.checkItem}>
+          <View style={s.checkBox} />
+          <Text style={s.checkLabel}>{o}</Text>
+        </View>
+      ))}
+    </View>
+  </View>
+);
+
+/* ────────────── PDF Document ────────────── */
+const KG1Document = () => (
+  <Document title="KG1 Musterformular — BalkanLink" author="BalkanLink">
+    <Page size="A4" style={s.page}>
+      {/* Header */}
+      <View style={s.header}>
+        <Text style={s.title}>Antrag auf Kindergeld</Text>
+        <Text style={s.subtitle}>Musterformular KG 1 — BalkanLink — nur zur Orientierung</Text>
+      </View>
+
+      {/* ── 1 ── */}
+      <Sec num="1" title="Angaben zur antragstellenden Person" />
+      <View style={s.row}>
+        <View style={[s.cell, { flex: 1 }]}>
+          <Text style={s.lbl}>Steuerliche Identifikationsnummer (zwingend)</Text>
+          <Text style={s.valPlaceholder}>11 Ziffern — z.B. 65 929 310 054</Text>
+          <Text style={s.note}>⚠ Nicht die Steuernummer (12/345/67890)</Text>
+        </View>
+      </View>
+      <View style={s.row}>
+        <Field label="Familienname" width="30%" />
+        <Field label="Titel" width="12%" placeholder="Dr." />
+        <Field label="Vorname" width="28%" />
+        <FieldLast label="Geburtsname / früherer Name" />
+      </View>
+      <View style={s.row}>
+        <Field label="Geburtsdatum" width="18%" placeholder="TT.MM.JJJJ" />
+        <Field label="Geburtsort" width="22%" />
+        <Field label="Geschlecht" width="15%" placeholder="m / w / d" />
+        <FieldLast label="Staatsangehörigkeit" placeholder="z.B. BiH" note="Nicht EU/EWR? Aufenthaltstitel beifügen!" />
+      </View>
+      <View style={s.row}>
+        <Field label="Straße / Hausnr." width="40%" />
+        <Field label="PLZ" width="12%" placeholder="12345" />
+        <Field label="Wohnort" width="28%" />
+        <FieldLast label="Staat" placeholder="Deutschland" />
+      </View>
+      <CheckBoxes
+        label="Familienstand"
+        options={["ledig", "verheiratet", "eingetragene Lebenspartnerschaft", "geschieden", "verwitwet", "dauernd getrennt lebend"]}
+      />
+
+      {/* ── 2 ── */}
+      <Sec num="2" title="Angaben zum Ehepartner / Lebenspartner" />
+      <View style={s.row}>
+        <Field label="Steuerliche Identifikationsnummer" width="30%" placeholder="11 Ziffern" />
+        <Field label="Familienname, Vorname, Titel" />
+        <Field label="Geburtsdatum" width="16%" placeholder="TT.MM.JJJJ" />
+        <FieldLast label="Staatsangehörigkeit" width="18%" />
+      </View>
+      <View style={s.row}>
+        <Field label="Geschlecht" width="14%" placeholder="m / w / d" />
+        <FieldLast label="Anschrift (wenn abweichend)" placeholder="Nur ausfüllen wenn abweichend" />
+      </View>
+
+      {/* ── 3 ── */}
+      <Sec num="3" title="Angaben zum Zahlungsweg" />
+      <View style={s.row}>
+        <Field label="IBAN" width="40%" placeholder="DE00 0000 0000 0000 0000 00" />
+        <Field label="BIC" width="20%" />
+        <FieldLast label="Bank / Finanzinstitut" />
+      </View>
+      <CheckBoxes
+        label="Kontoinhaber(in) ist"
+        options={["antragstellende Person (Nr. 1)", "nicht antragstellende Person, sondern: _______________"]}
+      />
+
+      {/* ── 4 ── */}
+      <Sec num="4" title="Bescheid-Empfänger (optional)" />
+      <View style={s.fullRow}>
+        <Text style={s.lbl}>Bescheid an andere Person senden?</Text>
+        <View style={s.row}>
+          <Field label="Name" width="35%" />
+          <FieldLast label="Anschrift" />
+        </View>
+      </View>
+
+      {/* ── 5 ── */}
+      <Sec num="5" title="Angaben zu Kindern" />
+      <View style={s.fullRow}>
+        <Text style={[s.note, { marginBottom: 3 }]}>Für jedes Kind eine gesonderte „Anlage Kind" einreichen.</Text>
+        <View style={s.row}>
+          <Field label="Anzahl Anlage Kind" width="25%" placeholder="1" />
+          <Field label="Wurde bereits Kindergeld bezogen?" width="35%" placeholder="Nein / Ja" />
+          <Field label="Kindergeld-Nr." width="20%" />
+          <FieldLast label="Familienkasse" />
+        </View>
+      </View>
+
+      {/* ── 6 ── */}
+      <Sec num="6" title="Datum und Unterschrift" />
+      <View style={s.fullRow}>
+        <Text style={[s.note, { fontStyle: "italic", marginBottom: 4 }]}>
+          Ich versichere, dass meine Angaben in diesem Antrag und den beigefügten Unterlagen vollständig und wahrheitsgemäß sind.
+        </Text>
+        <View style={s.row}>
+          <Field label="Ort" width="40%" />
+          <FieldLast label="Datum" placeholder="TT.MM.JJJJ" />
+        </View>
+        <View style={{ flexDirection: "row", gap: 16, marginTop: 4 }}>
+          <View style={{ flex: 1 }}>
+            <View style={s.sigLine} />
+            <Text style={s.sigCaption}>Unterschrift antragstellende Person</Text>
+          </View>
+          <View style={{ flex: 1 }}>
+            <View style={s.sigLine} />
+            <Text style={s.sigCaption}>Unterschrift Ehepartner/Lebenspartner</Text>
+          </View>
+        </View>
+      </View>
+
+      {/* Footer */}
+      <View style={s.footer}>
+        <Text style={s.footerText}>
+          Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original bei Familienkasse einreichen
+        </Text>
+      </View>
+    </Page>
+  </Document>
+);
+
+/* ────────────── Page wrapper ────────────── */
 const KindergeldMusterPDF = () => {
   const navigate = useNavigate();
-  const [form, setForm] = useState<Record<string, string>>({
-    staat: "Deutschland",
-    kontoinhaber: "antragsteller",
-    anzahlKinder: "1",
-    bisherigesKindergeld: "nein",
-  });
-  const [errors, setErrors] = useState<Record<string, string>>({});
-  const [validated, setValidated] = useState(false);
-
-  const set = (k: string, v: string) => {
-    setForm((p) => ({ ...p, [k]: v }));
-    setErrors((p) => ({ ...p, [k]: "" }));
-  };
-
-  const validate = () => {
-    const e: Record<string, string> = {};
-    if (!/^\d{11}$/.test((form.steuerID || "").replace(/\s/g, ""))) e.steuerID = "Tačno 11 cifara";
-    if (!form.familienname) e.familienname = "Obavezno";
-    if (!form.vorname) e.vorname = "Obavezno";
-    if (!form.geburtsdatum) e.geburtsdatum = "Obavezno";
-    if (!form.geburtsort) e.geburtsort = "Obavezno";
-    if (!form.geschlecht) e.geschlecht = "Obavezno";
-    if (!form.staatsangehoerigkeit) e.staatsangehoerigkeit = "Obavezno";
-    if (!form.strasse) e.strasse = "Obavezno";
-    if (!form.plz) e.plz = "Obavezno";
-    if (!form.wohnort) e.wohnort = "Obavezno";
-    if (!form.familienstand) e.familienstand = "Obavezno";
-    if (!form.iban || !form.iban.toUpperCase().startsWith("DE")) e.iban = "Mora početi s DE";
-    if (!form.bank) e.bank = "Obavezno";
-    setErrors(e);
-    setValidated(Object.keys(e).length === 0);
-  };
-
-  const reset = () => {
-    setForm({ staat: "Deutschland", kontoinhaber: "antragsteller", anzahlKinder: "1", bisherigesKindergeld: "nein" });
-    setErrors({});
-    setValidated(false);
-  };
-
-  const fbox = (key: string, placeholder = "", style: React.CSSProperties = {}) => (
-    <div style={{ position: "relative", ...style }}>
-      <input
-        value={form[key] || ""}
-        onChange={(e) => set(key, e.target.value)}
-        placeholder={placeholder}
-        style={{
-          width: "100%", border: errors[key] ? "1.5px solid #dc2626" : form[key] ? "1.5px solid #16a34a" : "1px solid #9ca3af",
-          background: "white", fontSize: "11px", padding: "3px 4px", outline: "none", color: "#111", boxSizing: "border-box",
-        }}
-      />
-      {errors[key] && <div style={{ fontSize: "9px", color: "#dc2626" }}>{errors[key]}</div>}
-    </div>
-  );
-
-  const rb = (name: string, value: string, label: string) => (
-    <label style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "10px", cursor: "pointer", color: "#111" }}>
-      <input type="radio" name={name} value={value} checked={form[name] === value} onChange={() => set(name, value)} style={{ width: "10px", height: "10px" }} />
-      {label}
-    </label>
-  );
-
-  const cell = (children: React.ReactNode, props: { colSpan?: number; width?: string } = {}) => {
-    const { colSpan, width } = props;
-    return (
-      <td colSpan={colSpan} style={{ border: "1px solid #6b7280", padding: "4px 6px", verticalAlign: "top", width }}>{children}</td>
-    );
-  };
-
-  const lbl = (text: string, req = false) => (
-    <div style={{ fontSize: "9px", color: "#374151", marginBottom: "2px", fontWeight: 500 }}>
-      {text}{req && <span style={{ color: "#dc2626" }}> *</span>}
-    </div>
-  );
-
-  const sec = (num: string, title: string) => (
-    <tr>
-      <td colSpan={6} style={{ background: "#e5e7eb", border: "1px solid #6b7280", padding: "4px 8px" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <div style={{ width: "18px", height: "18px", border: "2px solid #111", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "11px", fontWeight: "bold", flexShrink: 0 }}>{num}</div>
-          <span style={{ fontSize: "10px", fontWeight: "bold", textTransform: "uppercase" }}>{title}</span>
-        </div>
-      </td>
-    </tr>
-  );
 
   return (
-    <div style={{ minHeight: "100vh", background: "#0B0F1A" }}>
-      <div style={{ background: "#EAB308", color: "#000", fontSize: "11px", textAlign: "center", padding: "4px", fontWeight: "bold" }}>
-        🔧 ADMIN MODE — Premium aktivan
-      </div>
-      <div style={{ background: "#0d1526", padding: "10px 16px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <button onClick={() => navigate(-1)} style={{ color: "#9ca3af", background: "none", border: "none", cursor: "pointer", fontSize: "13px" }}>← Nazad</button>
-        <span style={{ color: "#EAB308", fontWeight: "bold", fontSize: "15px" }}>BL BalkanLink</span>
-        <button onClick={() => navigate("/")} style={{ color: "#9ca3af", background: "none", border: "none", cursor: "pointer", fontSize: "15px" }}>🏠</button>
+    <div className="min-h-screen flex flex-col" style={{ background: "#0B0F1A" }}>
+      {/* Top bar */}
+      <div className="flex items-center justify-between px-4 py-2" style={{ background: "#0d1526" }}>
+        <button onClick={() => navigate(-1)} className="text-sm" style={{ color: "#9ca3af", background: "none", border: "none", cursor: "pointer" }}>← Nazad</button>
+        <span className="font-bold" style={{ color: "#EAB308", fontSize: 15 }}>BL BalkanLink</span>
+        <button onClick={() => navigate("/")} className="text-sm" style={{ color: "#9ca3af", background: "none", border: "none", cursor: "pointer" }}>🏠</button>
       </div>
 
-      <div style={{ maxWidth: "760px", margin: "0 auto", padding: "16px" }}>
-        <div style={{ background: "#fefce8", border: "2px solid #EAB308", borderRadius: "6px", padding: "10px 14px", marginBottom: "12px" }}>
-          <p style={{ fontWeight: "bold", color: "#92400e", fontSize: "12px", margin: "0 0 4px" }}>⚠️ Musterformular — nur zur Orientierung</p>
-          <p style={{ color: "#78350f", fontSize: "11px", margin: "0 0 6px" }}>Übungsversion des KG1-Formulars der Bundesagentur für Arbeit (Stand September 2025). Ersetzt nicht das offizielle Dokument.</p>
-          <a href="https://www.arbeitsagentur.de/datei/kg1-antrag-kindergeld_ba017202.pdf" target="_blank" rel="noopener noreferrer" style={{ color: "#1d4ed8", fontSize: "11px" }}>🔗 Zum offiziellen KG1-Formular →</a>
+      {/* Disclaimer */}
+      <div className="mx-auto w-full" style={{ maxWidth: 820, padding: "12px 16px 0" }}>
+        <div style={{ background: "#fefce8", border: "2px solid #EAB308", borderRadius: 6, padding: "10px 14px", marginBottom: 10 }}>
+          <p style={{ fontWeight: "bold", color: "#92400e", fontSize: 12, margin: "0 0 4px" }}>⚠️ Musterformular — nur zur Orientierung</p>
+          <p style={{ color: "#78350f", fontSize: 11, margin: "0 0 6px" }}>
+            Übungsversion des KG1-Formulars der Bundesagentur für Arbeit (Stand September 2025). Ersetzt nicht das offizielle Dokument.
+          </p>
+          <a
+            href="https://www.arbeitsagentur.de/datei/kg1-antrag-kindergeld_ba017202.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "#1d4ed8", fontSize: 11 }}
+          >
+            🔗 Zum offiziellen KG1-Formular →
+          </a>
         </div>
+      </div>
 
-        <div style={{ background: "white", boxShadow: "0 4px 24px rgba(0,0,0,0.4)" }}>
-          <div style={{ borderBottom: "2px solid #374151", padding: "10px 14px" }}>
-            <div style={{ fontSize: "9px", color: "#6b7280" }}>Musterformular KG 1 — BalkanLink</div>
-            <div style={{ fontSize: "18px", fontWeight: "bold", color: "#111", margin: "4px 0" }}>Antrag auf Kindergeld</div>
-            <div style={{ fontSize: "10px", color: "#374151" }}>Bitte fügen Sie für jedes Kind eine „Anlage Kind" bei. Anzahl: {fbox("anzahlAnlage", "", { display: "inline-block", width: "40px" })}</div>
-          </div>
-
-          <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "11px", fontFamily: "Arial, sans-serif" }}>
-            <tbody>
-              {sec("1", "Angaben zur antragstellenden Person")}
-              <tr>{cell(<>{lbl("Steuerliche Identifikationsnummer", true)}<div style={{ fontSize: "9px", color: "#6b7280", marginBottom: "3px" }}>(zwingend auszufüllen)</div>{fbox("steuerID", "11 Ziffern — z.B. 65929310054")}<div style={{ fontSize: "9px", color: "#9ca3af", marginTop: "2px" }}>⚠️ Nicht Steuernummer (Format 12/345/67890)</div></>, { colSpan: 6 })}</tr>
-              <tr>
-                {cell(<>{lbl("Familienname", true)}{fbox("familienname")}</>, { width: "25%" })}
-                {cell(<>{lbl("Titel")}{fbox("titel", "Dr..")}</>, { width: "10%" })}
-                {cell(<>{lbl("Vorname", true)}{fbox("vorname")}</>, { width: "25%" })}
-                {cell(<>{lbl("Geburtsname / früherer Familienname")}{fbox("geburtsname")}</>, { colSpan: 3 })}
-              </tr>
-              <tr>
-                {cell(<>{lbl("Geburtsdatum", true)}<input type="date" value={form.geburtsdatum || ""} onChange={e => set("geburtsdatum", e.target.value)} style={{ width: "100%", border: "1px solid #9ca3af", fontSize: "10px", padding: "2px", outline: "none" }} /></>, { width: "15%" })}
-                {cell(<>{lbl("Geburtsort", true)}{fbox("geburtsort")}</>, { width: "20%" })}
-                {cell(<>{lbl("Geschlecht", true)}<select value={form.geschlecht || ""} onChange={e => set("geschlecht", e.target.value)} style={{ width: "100%", border: "1px solid #9ca3af", fontSize: "10px", padding: "2px", outline: "none" }}><option value="">—</option><option value="m">männlich</option><option value="w">weiblich</option><option value="d">divers</option></select></>, { width: "15%" })}
-                {cell(<>{lbl("Staatsangehörigkeit", true)}{fbox("staatsangehoerigkeit", "z.B. Bosnien und Herzegowina")}{form.staatsangehoerigkeit && form.staatsangehoerigkeit !== "Deutschland" && <div style={{ fontSize: "9px", color: "#d97706" }}>* Nicht EU/EWR? Aufenthaltstitel beifügen!</div>}</>, { colSpan: 3 })}
-              </tr>
-              <tr>{cell(<>{lbl("Anschrift", true)}<div style={{ display: "flex", gap: "6px" }}><div style={{ flex: 3 }}>{lbl("Straße / Hausnr.")}{fbox("strasse")}</div><div style={{ flex: 1 }}>{lbl("PLZ")}{fbox("plz", "12345")}</div><div style={{ flex: 2 }}>{lbl("Wohnort")}{fbox("wohnort")}</div><div style={{ flex: 1 }}>{lbl("Staat")}{fbox("staat")}</div></div></>, { colSpan: 6 })}</tr>
-              <tr>{cell(<>{lbl("Familienstand", true)}{errors.familienstand && <div style={{ fontSize: "9px", color: "#dc2626" }}>{errors.familienstand}</div>}<div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "3px" }}>{["ledig","verheiratet","in eingetragener Lebenspartnerschaft lebend","geschieden","verwitwet","dauernd getrennt lebend"].map(fs => <label key={fs} style={{ display: "flex", alignItems: "center", gap: "3px", fontSize: "10px", cursor: "pointer" }}><input type="radio" name="familienstand" value={fs} checked={form.familienstand === fs} onChange={() => set("familienstand", fs)} style={{ width: "10px", height: "10px" }} />{fs}</label>)}</div></>, { colSpan: 6 })}</tr>
-
-              {sec("2", "Angaben zum Ehepartner / Lebenspartner")}
-              <tr>
-                {cell(<>{lbl("Steuerliche Identifikationsnummer")}{fbox("steuerID2", "11 Ziffern")}</>, { colSpan: 2 })}
-                {cell(<>{lbl("Familienname, Vorname, Titel")}{fbox("name2")}</>, { colSpan: 2 })}
-                {cell(<>{lbl("Geburtsdatum")}<input type="date" value={form.geburtsdatum2 || ""} onChange={e => set("geburtsdatum2", e.target.value)} style={{ width: "100%", border: "1px solid #9ca3af", fontSize: "10px", padding: "2px", outline: "none" }} /></>, {})}
-                {cell(<>{lbl("Staatsangehörigkeit")}{fbox("staatsangehoerigkeit2")}</>, {})}
-              </tr>
-              <tr>
-                {cell(<>{lbl("Geschlecht")}<select value={form.geschlecht2 || ""} onChange={e => set("geschlecht2", e.target.value)} style={{ border: "1px solid #9ca3af", fontSize: "10px", padding: "2px", outline: "none", width: "100%" }}><option value="">—</option><option value="m">männlich</option><option value="w">weiblich</option><option value="d">divers</option></select></>, { width: "15%" })}
-                {cell(<>{lbl("Anschrift (wenn abweichend)")}{fbox("anschrift2", "Nur wenn abweichend")}</>, { colSpan: 5 })}
-              </tr>
-
-              {sec("3", "Angaben zum Zahlungsweg")}
-              <tr>
-                {cell(<>{lbl("IBAN", true)}{fbox("iban", "DE00 0000 0000 0000 0000 00")}{errors.iban && <div style={{ fontSize: "9px", color: "#dc2626" }}>{errors.iban}</div>}</>, { colSpan: 2 })}
-                {cell(<>{lbl("BIC")}{fbox("bic")}</>, {})}
-                {cell(<>{lbl("Bank / Finanzinstitut", true)}{fbox("bank")}</>, { colSpan: 3 })}
-              </tr>
-              <tr>{cell(<>{lbl("Kontoinhaber(in) ist")}<div style={{ display: "flex", gap: "16px" }}>{rb("kontoinhaber", "antragsteller", "antragstellende Person (wie unter Nr. 1)")}{rb("kontoinhaber", "andere", "nicht antragstellende Person, sondern:")}</div>{form.kontoinhaber === "andere" && <div style={{ marginTop: "4px" }}>{lbl("Familienname, Vorname")}{fbox("kontoinhaberName")}</div>}</>, { colSpan: 6 })}</tr>
-
-              {sec("4", "Bescheid-Empfänger (optional)")}
-              <tr>{cell(<><label style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "10px", cursor: "pointer" }}><input type="checkbox" checked={form.andereBescheid === "yes"} onChange={e => set("andereBescheid", e.target.checked ? "yes" : "")} />Bescheid an andere Person senden</label>{form.andereBescheid === "yes" && <div style={{ display: "flex", gap: "6px", marginTop: "4px" }}><div style={{ flex: 1 }}>{lbl("Name")}{fbox("bescheidName")}</div><div style={{ flex: 2 }}>{lbl("Anschrift")}{fbox("bescheidAnschrift")}</div></div>}</>, { colSpan: 6 })}</tr>
-
-              {sec("5", "Angaben zu Kindern")}
-              <tr>{cell(<><div style={{ fontSize: "10px", color: "#374151", marginBottom: "6px" }}>Für jedes Kind eine gesonderte „Anlage Kind" einreichen.</div>{lbl("Anzahl Anlage Kind")}<input type="number" min={1} max={10} value={form.anzahlKinder} onChange={e => set("anzahlKinder", e.target.value)} style={{ width: "50px", border: "1px solid #9ca3af", fontSize: "11px", padding: "2px 4px", outline: "none" }} /></>, { colSpan: 6 })}</tr>
-              <tr>{cell(<>{lbl("Wurde bereits Kindergeld beantragt?")}<div style={{ display: "flex", gap: "16px" }}>{rb("bisherigesKindergeld", "nein", "Nein, erstmaliger Antrag")}{rb("bisherigesKindergeld", "ja", "Ja, wurde bereits bezogen")}</div>{form.bisherigesKindergeld === "ja" && <div style={{ display: "flex", gap: "6px", marginTop: "4px" }}><div style={{ flex: 1 }}>{lbl("Kindergeld-Nr.")}{fbox("bisherigeKGNr")}</div><div style={{ flex: 2 }}>{lbl("Bei welcher Familienkasse?")}{fbox("bisherigeFK")}</div></div>}</>, { colSpan: 6 })}</tr>
-
-              {sec("6", "Datum und Unterschrift")}
-              <tr>{cell(<><div style={{ fontSize: "10px", color: "#374151", marginBottom: "8px", fontStyle: "italic" }}>Ich versichere, dass alle Angaben vollständig und wahrheitsgemäß sind.</div><div style={{ display: "flex", gap: "12px", marginBottom: "20px" }}><div style={{ flex: 1 }}>{lbl("Ort")}{fbox("ort", "Stadt")}</div><div style={{ flex: 1 }}>{lbl("Datum")}<input type="date" value={form.datum || ""} onChange={e => set("datum", e.target.value)} style={{ width: "100%", border: "1px solid #9ca3af", fontSize: "10px", padding: "2px", outline: "none" }} /></div></div><div style={{ display: "flex", gap: "24px" }}><div style={{ flex: 1 }}><div style={{ height: "40px", borderBottom: "1px solid #374151", marginBottom: "3px" }} /><div style={{ fontSize: "9px", color: "#6b7280" }}>Unterschrift antragstellende Person — nur auf dem Original</div></div><div style={{ flex: 1 }}><div style={{ height: "40px", borderBottom: "1px solid #374151", marginBottom: "3px" }} /><div style={{ fontSize: "9px", color: "#6b7280" }}>Unterschrift Ehepartner — nur auf dem Original</div></div></div></>, { colSpan: 6 })}</tr>
-            </tbody>
-          </table>
-
-          <div style={{ borderTop: "1px solid #d1d5db", background: "#f9fafb", padding: "8px", textAlign: "center" }}>
-            <p style={{ fontSize: "9px", color: "#9ca3af", margin: 0 }}>Musterformular zur Orientierung • Ersetzt nicht das offizielle Dokument • Alle Angaben ohne Gewähr</p>
-          </div>
-        </div>
-
-        <div style={{ display: "flex", gap: "12px", marginTop: "16px" }}>
-          <button onClick={reset} style={{ flex: 1, border: "2px solid #6b7280", background: "transparent", color: "#d1d5db", padding: "12px", borderRadius: "6px", fontSize: "13px", fontWeight: "600", cursor: "pointer" }}>🔄 Zurücksetzen</button>
-          <button onClick={validate} style={{ flex: 1, background: "#EAB308", color: "#000", padding: "12px", border: "none", borderRadius: "6px", fontSize: "13px", fontWeight: "bold", cursor: "pointer" }}>✅ Angaben prüfen</button>
-        </div>
-
-        {validated && <div style={{ marginTop: "12px", background: "#14532d", border: "1px solid #16a34a", borderRadius: "6px", padding: "12px", color: "#86efac", textAlign: "center" }}><p style={{ fontWeight: "bold", margin: "0 0 6px" }}>✅ Sve ispravno! Popuni original na Familienkasse.</p><a href="https://www.arbeitsagentur.de/datei/kg1-antrag-kindergeld_ba017202.pdf" target="_blank" rel="noopener noreferrer" style={{ color: "#60a5fa", fontSize: "12px" }}>🔗 Originalni KG1 (PDF) →</a></div>}
-        {!validated && Object.keys(errors).length > 0 && <div style={{ marginTop: "12px", background: "#450a0a", border: "1px solid #dc2626", borderRadius: "6px", padding: "12px", color: "#fca5a5" }}><p style={{ fontWeight: "bold", margin: "0 0 6px" }}>⚠️ Popravi sljedeće:</p><ul style={{ margin: 0, paddingLeft: "16px", fontSize: "12px" }}>{Object.values(errors).map((e, i) => <li key={i}>{e}</li>)}</ul></div>}
-
-        <p style={{ fontSize: "11px", color: "#6b7280", textAlign: "center", margin: "16px 0 32px" }}>BalkanLink ist eine edukative Plattform. Das Original muss bei der Familienkasse eingereicht werden.</p>
+      {/* PDF Viewer */}
+      <div className="flex-1" style={{ minHeight: 0 }}>
+        <PDFViewer width="100%" height="100%" style={{ border: "none" }}>
+          <KG1Document />
+        </PDFViewer>
       </div>
     </div>
   );
