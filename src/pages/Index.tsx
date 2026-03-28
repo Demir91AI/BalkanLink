@@ -9,6 +9,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
 
+import realcoreDigitalLogo from "@/assets/realcore-digital-logo.png";
 import heroBerlin from "@/assets/hero-berlin.jpg";
 import heroMuenchen from "@/assets/hero-muenchen.jpg";
 import heroFrankfurt from "@/assets/hero-frankfurt.jpg";
@@ -51,6 +52,7 @@ const steps = [
 const MAILTO_AD = `mailto:kontakt@balkanlink.de?subject=${encodeURIComponent("Oglašavanje na BalkanLink")}&body=${encodeURIComponent("Pozdrav,\n\nZanima me oglašavanje na BalkanLink platformi.\n\nNaziv firme:\nVrsta usluge:\nGrad:\nBudžet:\n")}`;
 
 const placeholderAds = [
+  { name: "RealCore Digital", slogan: "Klar denken. Digital umsetzen.", desc: "Webdesign, KI-Lösungen und digitale Strategien — professionell und effizient.", logo: realcoreDigitalLogo, href: "https://realcore.digital" },
   { name: "Vaša firma", slogan: "Predstavite se zajednici", desc: "Zakupite ovaj prostor i pokažite svoju uslugu cijeloj zajednici.", logo: "/placeholder.svg" },
   { name: "Mjesto za reklamu", slogan: "Oglasite svoju uslugu", desc: "Premium pozicija za vašu firmu — vidljiva svim korisnicima.", logo: "/placeholder.svg" },
   { name: "Vaš brend ovdje", slogan: "Dođite do nove publike", desc: "Povežite se sa hiljadama korisnika iz regije.", logo: "/placeholder.svg" },
@@ -79,19 +81,19 @@ function AdFlowSection() {
           {doubled.map((ad, i) => (
             <a
               key={i}
-              href={MAILTO_AD}
+              href={ad.href || MAILTO_AD}
+              target={ad.href ? "_blank" : undefined}
+              rel={ad.href ? "noopener noreferrer" : undefined}
               className="group flex flex-col w-[280px] h-[320px] shrink-0 rounded-xl border border-[#2a2f3e] overflow-hidden transition-all duration-300 hover:border-[#EAB308]/30"
             >
-              {/* Top: logo area */}
               <div className="flex items-center justify-center h-[160px] bg-[#1a1f2e] p-5">
                 <img
                   src={ad.logo}
                   alt={ad.name}
-                  className="max-h-full max-w-full object-contain"
+                  className="max-h-full max-w-full object-contain mix-blend-lighten"
                   loading="lazy"
                 />
               </div>
-              {/* Bottom: info area */}
               <div className="flex flex-col flex-1 bg-[#111827] p-4">
                 <p className="text-lg font-bold text-white leading-tight">{ad.name}</p>
                 <p className="text-[13px] text-[#EAB308] mt-1">{ad.slogan}</p>
