@@ -25,8 +25,9 @@ import {
 } from "@/components/ui/sidebar";
 
 export function AppSidebar() {
-  const { state, setOpenMobile } = useSidebar();
-  const collapsed = state === "collapsed";
+  const { state, setOpenMobile, isMobile } = useSidebar();
+  const collapsed = state === "collapsed" && !isMobile;
+  // On mobile, always show text regardless of collapsed state
   const location = useLocation();
   const navigate = useNavigate();
   const { t } = useLanguage();
@@ -77,7 +78,8 @@ export function AppSidebar() {
                       asChild
                       tooltip={collapsed ? item.title : undefined}
                       className={`
-                        group h-11 rounded-lg transition-all duration-200
+                        group rounded-lg transition-all duration-200
+                        ${isMobile ? "h-12" : "h-11"}
                         ${isActive
                           ? "bg-white/10 text-gold shadow-[inset_3px_0_0_hsl(var(--gold))]"
                           : "text-white/55 hover:text-white hover:bg-white/5"
@@ -86,7 +88,7 @@ export function AppSidebar() {
                     >
                       <NavLink
                         to={item.url}
-                        className="flex items-center gap-3 px-3"
+                        className={`flex items-center gap-3 ${isMobile ? "px-4" : "px-3"}`}
                         activeClassName=""
                         onClick={handleNavClick}
                       >
@@ -96,7 +98,7 @@ export function AppSidebar() {
                           }`}
                         />
                         {!collapsed && (
-                          <span className={`text-sm font-medium ${isActive ? "text-gold" : ""}`}>
+                          <span className={`${isMobile ? "text-base" : "text-sm"} font-medium ${isActive ? "text-gold" : "text-white"}`}>
                             {item.title}
                           </span>
                         )}
@@ -147,9 +149,9 @@ export function AppSidebar() {
                           activeClassName=""
                           onClick={handleNavClick}
                         >
-                          <span className="text-base shrink-0">{country.flag}</span>
+                          <span className={`${isMobile ? "text-lg" : "text-base"} shrink-0`}>{country.flag}</span>
                           {!collapsed && (
-                            <span className={`text-sm font-medium ${isActive ? "text-gold" : ""}`}>
+                            <span className={`${isMobile ? "text-base" : "text-sm"} font-medium ${isActive ? "text-gold" : "text-white"}`}>
                               {t(`migration.country.${country.code}`)}
                             </span>
                           )}
