@@ -10,6 +10,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Check, X } from "lucide-react";
+import SubpageNav from "@/components/SubpageNav";
 
 const PW_RULES = [
   { key: "auth.pwRule.length" as const, test: (pw: string) => pw.length >= 8 },

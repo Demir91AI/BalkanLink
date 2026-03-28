@@ -6,6 +6,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { LogIn, Mail, Lock } from "lucide-react";
+import SubpageNav from "@/components/SubpageNav";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -35,6 +36,8 @@ export default function Login() {
   };
 
   return (
+    <>
+    <SubpageNav />
     <div className="relative min-h-[85vh] flex items-center justify-center px-4 py-16 overflow-hidden">
       {/* Subtle gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--primary)/0.03)] via-background to-[hsl(var(--brand-orange)/0.04)]" />
