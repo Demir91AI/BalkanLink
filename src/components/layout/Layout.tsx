@@ -8,9 +8,9 @@ import { AppSidebar } from "./AppSidebar";
 export default function Layout() {
   return (
     <SidebarProvider defaultOpen={false}>
-      <div className="flex min-h-screen w-full">
+      <div className="relative min-h-screen w-full">
         <AppSidebar />
-        <div className="flex flex-1 flex-col min-w-0">
+        <div className="flex flex-col min-h-screen w-full">
           <Header />
           <main className="flex-1">
             <Outlet />
