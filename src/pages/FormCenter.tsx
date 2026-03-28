@@ -37,6 +37,11 @@ function GuideContent({ slug }: { slug: string }) {
   /* Custom pages */
   if (slug === "kindergeld") return <KindergeldGuideContent />;
   if (slug === "anmeldung") return <AnmeldungGuideContent />;
+  if (slug === "steuer-id") return <SteuerIdGuideContent />;
+  if (slug === "krankenkasse") return <KrankenkasseGuideContent />;
+  if (slug === "elterngeld") return <ElterngeldGuideContent />;
+  if (slug === "burgergeld") return <BurgergeldGuideContent />;
+  if (slug === "wohngeld") return <WohngeldGuideContent />;
 
   if (!guide) return null;
 
