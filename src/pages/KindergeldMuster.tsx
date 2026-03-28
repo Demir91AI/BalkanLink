@@ -302,13 +302,10 @@ export default function KindergeldMusterPDF() {
       </div>
 
       {/* BUTTONS */}
-      <div style={{ display: "flex", justifyContent: "center", gap: 12, padding: "0 16px 40px" }}>
-        <button onClick={() => window.print()} style={{ background: "#EAB308", color: "#111", border: "none", padding: "10px 24px", borderRadius: 6, fontWeight: 700, fontSize: 14, cursor: "pointer" }}>
-          🖨️ Odštampaj / Sačuvaj kao PDF
-        </button>
-        <button onClick={() => setF(initial())} style={{ background: "transparent", color: "#9CA3AF", border: "1px solid #9CA3AF", padding: "10px 24px", borderRadius: 6, fontWeight: 600, fontSize: 14, cursor: "pointer" }}>
-          🔄 Poništi sve
-        </button>
+      <div style={{ padding: "0 16px 40px", maxWidth: 794, margin: "0 auto" }}>
+        <a href={PDF_URL} target="_blank" rel="noopener noreferrer" style={{ display: "block", background: "#EAB308", color: "#111", border: "none", padding: "12px 24px", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: "pointer", textAlign: "center", textDecoration: "none", width: "100%", boxSizing: "border-box" }}>
+          ⬇️ Preuzmi originalni KG1 (PDF)
+        </a>
       </div>
     </div>
   );
