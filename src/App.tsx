@@ -103,6 +103,7 @@ const App = () => (
                 <Route path="/formulare" element={<Formulare />} />
                 <Route path="/formulari" element={<FormCenter />} />
                 <Route path="/formulari/:slug" element={<FormCenter />} />
+                <Route path="/formulari/kindergeld/muster" element={<KindergeldMuster />} />
                 <Route path="/familie" element={<Familie />} />
                 <Route path="/foerderungen" element={<Foerderungen />} />
                 <Route path="/tools" element={<Generatoren />} />
