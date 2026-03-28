@@ -66,7 +66,7 @@ export function AppSidebar() {
 
   return (
     <Sidebar
-      collapsible="icon"
+      collapsible="offcanvas"
       className="border-r border-white/8 bg-[hsl(215,55%,7%)]"
     >
       <SidebarContent className="pt-4 bg-[hsl(215,55%,7%)]">
