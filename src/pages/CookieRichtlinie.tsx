@@ -96,5 +96,6 @@ export default function CookieRichtlinie() {
         </section>
       </div>
     </div>
+    </>
   );
 }

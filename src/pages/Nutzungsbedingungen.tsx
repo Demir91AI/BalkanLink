@@ -219,5 +219,6 @@ export default function Nutzungsbedingungen() {
         </section>
       </div>
     </div>
+    </>
   );
 }

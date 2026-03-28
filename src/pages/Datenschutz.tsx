@@ -252,5 +252,6 @@ export default function Datenschutz() {
         </section>
       </div>
     </div>
+    </>
   );
 }

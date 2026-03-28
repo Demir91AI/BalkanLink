@@ -106,5 +106,6 @@ export default function DSA() {
         </section>
       </div>
     </div>
+    </>
   );
 }
