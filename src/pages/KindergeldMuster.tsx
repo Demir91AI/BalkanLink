@@ -64,9 +64,12 @@ const KindergeldMusterPDF = () => {
     </label>
   );
 
-  const cell = (children: React.ReactNode, style: React.CSSProperties = {}) => (
-    <td style={{ border: "1px solid #6b7280", padding: "4px 6px", verticalAlign: "top", ...style }}>{children}</td>
-  );
+  const cell = (children: React.ReactNode, props: { colSpan?: number; width?: string } = {}) => {
+    const { colSpan, width } = props;
+    return (
+      <td colSpan={colSpan} style={{ border: "1px solid #6b7280", padding: "4px 6px", verticalAlign: "top", width }}>{children}</td>
+    );
+  };
 
   const lbl = (text: string, req = false) => (
     <div style={{ fontSize: "9px", color: "#374151", marginBottom: "2px", fontWeight: 500 }}>
