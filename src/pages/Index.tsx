@@ -1,9 +1,9 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   ClipboardList, BookOpen, Calculator, Megaphone,
-  CheckCircle2, ArrowRight, Star, ExternalLink,
+  CheckCircle2, ArrowRight, Star, ExternalLink, Mail,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
@@ -48,7 +48,96 @@ const steps = [
   { num: "03", title: "Završi bez grešaka", desc: "Kompletno i tačno – bez skupih grešaka." },
 ];
 
+const MAILTO_AD = `mailto:kontakt@balkanlink.de?subject=${encodeURIComponent("Oglašavanje na BalkanLink")}&body=${encodeURIComponent("Pozdrav,\n\nZanima me oglašavanje na BalkanLink platformi.\n\nNaziv firme:\nVrsta usluge:\nGrad:\nBudžet:\n")}`;
+
+const placeholderAds = [
+  { name: "Vaša firma", slogan: "Predstavite se zajednici" },
+  { name: "Mjesto za reklamu", slogan: "Oglasite svoju uslugu" },
+  { name: "Vaš brend ovdje", slogan: "Dođite do nove publike" },
+  { name: "Reklama", slogan: "Povećajte vidljivost" },
+  { name: "Vaša ponuda", slogan: "Budite ispred konkurencije" },
+  { name: "Partner slot", slogan: "Zakažite promociju" },
+];
+
+const AD_SPEED = 0.4;
+const AD_RESUME_DELAY = 4000;
+
+function AdFlowSection() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number>(0);
+  const pausedRef = useRef(false);
+  const resumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const animate = useCallback(() => {
+    const el = scrollRef.current;
+    if (el && !pausedRef.current) {
+      el.scrollLeft += AD_SPEED;
+      const third = el.scrollWidth / 3;
+      if (el.scrollLeft >= third * 2) el.scrollLeft -= third;
+    }
+    rafRef.current = requestAnimationFrame(animate);
+  }, []);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (el) el.scrollLeft = el.scrollWidth / 3;
+    rafRef.current = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, [animate]);
+
+  const pauseAuto = useCallback(() => {
+    pausedRef.current = true;
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    resumeTimerRef.current = setTimeout(() => { pausedRef.current = false; }, AD_RESUME_DELAY);
+  }, []);
+
+  // Triplicate for infinite loop
+  const tripled = [...placeholderAds, ...placeholderAds, ...placeholderAds];
+
+  return (
+    <section className="py-10 sm:py-12 border-t border-white/[0.05] bg-[#0B0F1A]">
+      <div className="container mb-5">
+        <div className="inline-flex items-center gap-2 rounded-full border border-[#EAB308]/20 bg-[#EAB308]/[0.06] px-3 py-1">
+          <Megaphone className="h-3 w-3 text-[#EAB308]" />
+          <span className="text-[10px] font-bold uppercase tracking-widest text-[#EAB308]">OGLAŠAVANJE</span>
+        </div>
+      </div>
+      <div className="relative">
+        <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 bg-gradient-to-r from-[#0B0F1A] to-transparent" />
+        <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 bg-gradient-to-l from-[#0B0F1A] to-transparent" />
+        <div
+          ref={scrollRef}
+          onTouchStart={pauseAuto}
+          onMouseDown={pauseAuto}
+          className="flex gap-4 overflow-x-auto px-4 scrollbar-hide"
+          style={{ WebkitOverflowScrolling: "touch" }}
+        >
+          {tripled.map((ad, i) => (
+            <a
+              key={i}
+              href={MAILTO_AD}
+              className="group flex shrink-0 items-center gap-3 rounded-xl border border-white/8 bg-[#111827] px-4 py-3 transition-all duration-300 hover:border-[#EAB308]/30 hover:bg-[#111827]/80 min-w-[260px]"
+            >
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#EAB308]/10 text-sm font-bold text-[#EAB308]">
+                {ad.name.charAt(0)}
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-xs font-bold text-white truncate">{ad.name}</p>
+                <p className="text-[10px] text-white/40 truncate">{ad.slogan}</p>
+              </div>
+              <span className="shrink-0 flex items-center gap-1 rounded-md bg-[#EAB308]/15 px-2 py-0.5 text-[9px] font-semibold text-[#EAB308] transition-colors group-hover:bg-[#EAB308]/25">
+                <Mail className="h-2.5 w-2.5" /> Kontakt
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Index() {
+
   const [currentSlide, setCurrentSlide] = useState(0);
   const { t } = useLanguage();
   const navigate = useNavigate();
@@ -257,7 +346,7 @@ export default function Index() {
         </div>
       </section>
 
-      {/* ─── PREMIUM SHOWCASE ─── */}
+      {/* ─── PREMIUM SHOWCASE (Grid) ─── */}
       <section className="py-16 sm:py-20 border-t border-white/[0.05]">
         <div className="container">
           <motion.div
@@ -273,7 +362,7 @@ export default function Index() {
             </h2>
           </motion.div>
 
-          <div className="flex gap-5 overflow-x-auto pb-4 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white/10 snap-x snap-mandatory">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {premiumShowcaseFirms.map((firm, i) => (
               <motion.article
                 key={firm.slug}
@@ -281,9 +370,8 @@ export default function Index() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 + i * 0.08 }}
-                className="min-w-[300px] max-w-[340px] shrink-0 snap-start rounded-2xl border border-white/8 bg-[#111827] overflow-hidden flex flex-col"
+                className="rounded-2xl border border-white/8 bg-[#111827] overflow-hidden flex flex-col"
               >
-                {/* Image */}
                 <div className="relative h-[180px] w-full overflow-hidden">
                   <img
                     src={firm.images[0]}
@@ -293,7 +381,6 @@ export default function Index() {
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#111827] via-transparent to-transparent" />
-                  {/* Logo pill */}
                   <div className="absolute left-3 top-3 flex items-center rounded-xl border border-white/25 bg-white/20 px-3 py-1.5 backdrop-blur-md">
                     <img src={firm.logoUrl} alt={firm.logoAlt} className="h-6 max-w-[90px] object-contain" />
                   </div>
@@ -301,8 +388,6 @@ export default function Index() {
                     <Star className="h-2.5 w-2.5 fill-current" /> Preporučeno
                   </span>
                 </div>
-
-                {/* Info */}
                 <div className="flex flex-1 flex-col gap-3 p-5">
                   <div>
                     <h3 className="text-base font-bold text-white">{firm.name}</h3>
@@ -349,6 +434,9 @@ export default function Index() {
           </div>
         </div>
       </section>
+
+      {/* ─── OGLAŠAVANJE FLOW BANNER ─── */}
+      <AdFlowSection />
 
       {/* ─── PREMIUM CTA ─── */}
       <section className="py-16 sm:py-20 border-t border-white/[0.05]">
