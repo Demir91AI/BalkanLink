@@ -3,10 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   ClipboardList, BookOpen, Calculator, Megaphone,
-  CheckCircle2, ArrowRight, Star,
+  CheckCircle2, ArrowRight, Star, ExternalLink,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
+import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
 
 import heroBerlin from "@/assets/hero-berlin.jpg";
 import heroMuenchen from "@/assets/hero-muenchen.jpg";
