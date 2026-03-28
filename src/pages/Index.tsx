@@ -59,41 +59,7 @@ const placeholderAds = [
   { name: "Partner slot", slogan: "Zakažite promociju", logo: "/placeholder.svg" },
 ];
 
-const AD_SPEED = 0.4;
-const AD_RESUME_DELAY = 4000;
-const SHOWCASE_SPEED = 0.35;
-
-function useAutoScroll(speed: number, resumeDelay = 4000) {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const rafRef = useRef<number>(0);
-  const pausedRef = useRef(false);
-  const resumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const animate = useCallback(() => {
-    const el = scrollRef.current;
-    if (el && !pausedRef.current) {
-      el.scrollLeft += speed;
-      const third = el.scrollWidth / 3;
-      if (el.scrollLeft >= third * 2) el.scrollLeft -= third;
-    }
-    rafRef.current = requestAnimationFrame(animate);
-  }, [speed]);
-
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (el) el.scrollLeft = el.scrollWidth / 3;
-    rafRef.current = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(rafRef.current);
-  }, [animate]);
-
-  const pause = useCallback(() => {
-    pausedRef.current = true;
-    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
-    resumeTimerRef.current = setTimeout(() => { pausedRef.current = false; }, resumeDelay);
-  }, [resumeDelay]);
-
-  return { scrollRef, pause };
-}
+/* CSS-animated auto-scroll — no JS needed */
 
 function AdFlowSection() {
   const { scrollRef, pause } = useAutoScroll(AD_SPEED, AD_RESUME_DELAY);
