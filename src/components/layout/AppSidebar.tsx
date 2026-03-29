@@ -43,6 +43,7 @@ export function AppSidebar() {
     { title: t("index.nav.forms"), url: "/formulari", icon: FileText },
     { title: "Deutsch", url: "/deutsch-trainer", icon: BookOpen },
     { title: t("index.nav.tools"), url: "/tools", icon: Wrench },
+    { title: "Dokumenten-Check", url: "/dokumenten-check", icon: Camera, badge: "NOVO" },
     { title: t("index.nav.offerSeek"), url: "/nudim-trazim", icon: Megaphone },
     { title: "Premium", url: "/premium", icon: Star },
   ];
