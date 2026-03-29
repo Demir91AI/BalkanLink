@@ -108,7 +108,7 @@ export default function Paketi() {
           <ul className="space-y-2.5 text-[14px] text-white">
             {[
               "Svi Smart Guide vodiči korak po korak",
-              "Kompletni Deutsch kurs A1 do C2",
+              "Kompletni BalkanLink Deutsch A1 do C2",
               "Musterformulari za sve formulare",
               "Dokumenten-Check — AI analiza pisama",
               "BalkanLink Asistent unlimited",
@@ -123,7 +123,7 @@ export default function Paketi() {
             ))}
             <li className="flex items-start gap-2">
               <span className="mt-0.5 shrink-0">🎁</span>
-              <span>Amazon voucher program za Deutsch kurs</span>
+              <span>Amazon voucher program za BalkanLink Deutsch</span>
             </li>
           </ul>
 
@@ -134,7 +134,7 @@ export default function Paketi() {
             Aktiviraj Premium →
           </Link>
           <p className="mt-2 text-[11px] text-[#9CA3AF] text-center">
-            5 lekcija Deutsch kursa besplatno za sve korisnike
+            5 lekcija BalkanLink Deutsch besplatno za sve korisnike
           </p>
         </div>
 
