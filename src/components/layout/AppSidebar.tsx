@@ -104,6 +104,11 @@ export function AppSidebar() {
                             {item.title}
                           </span>
                         )}
+                        {!collapsed && (item as any).badge && (
+                          <span className="ml-auto rounded-full bg-[#22C55E] px-1.5 py-0.5 text-[9px] font-bold leading-none text-black">
+                            {(item as any).badge}
+                          </span>
+                        )}
                       </NavLink>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
