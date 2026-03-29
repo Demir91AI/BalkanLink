@@ -9,7 +9,7 @@ const comparisonData = [
   { label: "5 Deutsch lekcija po nivou", free: true, premium: true },
   { label: "Besplatni oglas 7 dana", free: true, premium: true },
   { label: "Smart Guide korak po korak", free: false, premium: true },
-  { label: "Kompletni Deutsch kurs A1-C2", free: false, premium: true },
+  { label: "Kompletni BalkanLink Deutsch A1-C2", free: false, premium: true },
   { label: "Musterformulari", free: false, premium: true },
   { label: "Dokumenten-Check", free: false, premium: true },
   { label: "AI Asistent unlimited", free: false, premium: true },
