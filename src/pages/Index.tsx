@@ -99,6 +99,7 @@ function useInfiniteScroll(speed = 0.5, resumeDelay = 3000) {
     resumeTimer.current = setTimeout(() => { pausedRef.current = false; }, resumeDelay);
   }, [resumeDelay]);
 
+  /* Touch events */
   const onTouchStart = useCallback((e: React.TouchEvent) => {
     pause();
     isDragging.current = true;
@@ -117,7 +118,37 @@ function useInfiniteScroll(speed = 0.5, resumeDelay = 3000) {
     scheduleResume();
   }, [scheduleResume]);
 
-  return { ref, pause, scheduleResume, onTouchStart, onTouchMove, onTouchEnd };
+  /* Mouse drag events */
+  const onMouseDown = useCallback((e: React.MouseEvent) => {
+    pause();
+    isDragging.current = true;
+    dragStartX.current = e.clientX;
+    dragScrollLeft.current = ref.current?.scrollLeft ?? 0;
+    if (ref.current) ref.current.style.cursor = "grabbing";
+    e.preventDefault();
+  }, [pause]);
+
+  const onMouseMove = useCallback((e: React.MouseEvent) => {
+    if (!isDragging.current || !ref.current) return;
+    const delta = e.clientX - dragStartX.current;
+    ref.current.scrollLeft = dragScrollLeft.current - delta;
+  }, []);
+
+  const onMouseUp = useCallback(() => {
+    isDragging.current = false;
+    if (ref.current) ref.current.style.cursor = "grab";
+    scheduleResume();
+  }, [scheduleResume]);
+
+  const onMouseLeave = useCallback(() => {
+    if (isDragging.current) {
+      isDragging.current = false;
+      if (ref.current) ref.current.style.cursor = "grab";
+    }
+    scheduleResume();
+  }, [scheduleResume]);
+
+  return { ref, pause, scheduleResume, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave };
 }
 
 function AdFlowSection() {
