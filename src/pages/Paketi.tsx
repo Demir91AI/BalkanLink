@@ -151,15 +151,19 @@ export default function Paketi() {
               <li>• A1 + A2 kompletno → <b>1 mjesec Premium gratis</b></li>
               <li>• B1 + B2 kompletno → <b>2 mjeseca Premium gratis</b></li>
               <li>• C1 + C2 kompletno → <b>3 mjeseca Premium gratis</b></li>
-              <li>• Godišnji Abo → <b>30€ Amazon.de voucher odmah</b></li>
             </ul>
+            <p className="mt-4 text-[13px] font-bold text-[#92400E]">🏆 POSEBNA NAGRADA:</p>
+            <p className="mt-1 text-[13px] text-[#92400E]">
+              Godišnji Premium + A1 do C2 kompletno<br />
+              → <b>30€ Amazon.de voucher!</b>
+            </p>
             <p className="mt-4 text-[12px] font-semibold text-[#92400E]">⚠️ Uvjeti:</p>
             <ul className="mt-1 space-y-0.5 text-[12px] text-[#92400E]">
-              <li>• Samo za aktivne Premium članove</li>
-              <li>• 100% završenost svih lekcija i zadataka</li>
-              <li>• Provjera ručno u roku 7 radnih dana</li>
-              <li>• Jedan voucher po korisniku po paru nivoa</li>
-              <li>• BalkanLink zadržava pravo provjere autentičnosti</li>
+              <li>- Mora biti aktivan Godišnji Premium Abo</li>
+              <li>- 100% završenost SVIH nivoa A1 do C2</li>
+              <li>- Provjera ručno u roku 7 radnih dana</li>
+              <li>- Jedan voucher po korisniku</li>
+              <li>- BalkanLink zadržava pravo provjere autentičnosti</li>
             </ul>
           </div>
         </div>
