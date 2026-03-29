@@ -58,7 +58,7 @@ export default function NtProModal({ open, onClose }: Props) {
                 : "border-border/60 bg-card hover:border-border"
             )}
           >
-            <p className="text-xl font-extrabold">4.99€</p>
+            <p className="text-xl font-extrabold">9.99€</p>
             <p className="mt-1 text-xs text-muted-foreground">{st("nt.pro7days")}</p>
           </button>
           <button

@@ -67,6 +67,7 @@ import FirmDetail from "./pages/FirmDetail";
 import BussgeldAssistent from "./pages/BussgeldAssistent";
 import KindergeldMuster from "./pages/KindergeldMuster";
 import AnmeldungMuster from "./pages/AnmeldungMuster";
+import Paketi from "./pages/Paketi";
 
 const queryClient = new QueryClient();
 
@@ -152,6 +153,7 @@ const App = () => (
                 <Route path="/deutsch-trainer/bonusbedingungen" element={<TrainerBonusbedingungen />} />
                 <Route path="/firma/:slug" element={<FirmDetail />} />
                 <Route path="/bussgeld" element={<BussgeldAssistent />} />
+                <Route path="/paketi" element={<Paketi />} />
               </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>
