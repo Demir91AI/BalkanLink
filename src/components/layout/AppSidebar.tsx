@@ -45,7 +45,7 @@ export function AppSidebar() {
     { title: t("index.nav.tools"), url: "/tools", icon: Wrench },
     { title: "Dokumenten-Check", url: "/dokumenten-check", icon: Camera, badge: "NOVO" },
     { title: t("index.nav.offerSeek"), url: "/nudim-trazim", icon: Megaphone },
-    { title: "Premium", url: "/premium", icon: Star },
+    { title: "Paketi i opcije", url: "/paketi", icon: Star },
   ];
 
   const isMigrationActive = location.pathname.startsWith("/nach-deutschland");

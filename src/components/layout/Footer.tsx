@@ -26,6 +26,7 @@ export default function Footer() {
               <Link to="/" className="text-[13px] text-white/50 transition-colors hover:text-brand-orange">{t("footer.navHome")}</Link>
               <Link to="/dolazak" className="text-[13px] text-white/50 transition-colors hover:text-brand-orange">{t("footer.navHow")}</Link>
               <Link to="/formulari" className="text-[13px] text-white/50 transition-colors hover:text-brand-orange">{t("footer.navFormulari") || "Formulari"}</Link>
+              <Link to="/paketi" className="text-[13px] text-white/50 transition-colors hover:text-brand-orange">Paketi i opcije</Link>
             </nav>
           </div>
 
