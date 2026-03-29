@@ -165,7 +165,7 @@ export function AppSidebar() {
                           <span className={`${isMobile ? "text-lg" : "text-base"} shrink-0`}>{country.flag}</span>
                           {!collapsed && (
                             <span className={`${isMobile ? "text-base" : "text-sm"} font-medium ${isActive ? "text-gold" : "text-white"}`}>
-                              {t(`migration.country.${country.code}`)}
+                              {country.flag} {t(`migration.country.${country.code}`)}
                             </span>
                           )}
                         </NavLink>
