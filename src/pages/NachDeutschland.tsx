@@ -128,6 +128,11 @@ export default function NachDeutschland() {
             );
           })}
         </div>
+
+        {/* Cost calculator */}
+        <div className="mt-8">
+          <CostCalculator />
+        </div>
       </div>
     );
   }
