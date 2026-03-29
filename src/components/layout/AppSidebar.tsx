@@ -7,6 +7,7 @@ import {
   ChevronDown,
   FileCheck,
   Plane,
+  Camera,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -42,6 +43,7 @@ export function AppSidebar() {
     { title: t("index.nav.forms"), url: "/formulari", icon: FileText },
     { title: "Deutsch", url: "/deutsch-trainer", icon: BookOpen },
     { title: t("index.nav.tools"), url: "/tools", icon: Wrench },
+    { title: "Dokumenten-Check", url: "/dokumenten-check", icon: Camera, badge: "NOVO" },
     { title: t("index.nav.offerSeek"), url: "/nudim-trazim", icon: Megaphone },
     { title: "Premium", url: "/premium", icon: Star },
   ];
@@ -100,6 +102,11 @@ export function AppSidebar() {
                         {!collapsed && (
                           <span className={`${isMobile ? "text-base" : "text-sm"} font-medium ${isActive ? "text-gold" : "text-white"}`}>
                             {item.title}
+                          </span>
+                        )}
+                        {!collapsed && (item as any).badge && (
+                          <span className="ml-auto rounded-full bg-[#22C55E] px-1.5 py-0.5 text-[9px] font-bold leading-none text-black">
+                            {(item as any).badge}
                           </span>
                         )}
                       </NavLink>
