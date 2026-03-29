@@ -145,7 +145,7 @@ export default function Paketi() {
           </h3>
           <div className="rounded-xl border border-[#EAB308] p-5" style={{ background: "#FEF3C7" }}>
             <p className="text-[14px] font-semibold text-[#92400E]">
-              Završi Deutsch kurs → dobijaš nagradu!
+              Završi BalkanLink Deutsch → dobijaš nagradu!
             </p>
             <ul className="mt-3 space-y-1.5 text-[13px] text-[#92400E]">
               <li>• A1 + A2 kompletno → <b>1 mjesec Premium gratis</b></li>
