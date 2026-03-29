@@ -330,7 +330,7 @@ function detectFormFromCatalog(text: string): typeof FORM_CATALOG[0] | null {
 
 // ── SYSTEM PROMPT ──
 
-function buildSystemPrompt(isPremium: boolean, language: string, dbResults: any[]): string {
+function buildSystemPrompt(isPremium: boolean, language: string, dbResults: any[], pageContext: string): string {
   const langName = LANG_NAMES[language] || "Deutsch";
 
   if (dbResults.length > 0) {
@@ -451,7 +451,8 @@ serve(async (req) => {
   }
 
   try {
-    const { messages, isPremium, language } = await req.json();
+    const { messages, isPremium, language, currentPage } = await req.json();
+    const pageContext = currentPage ? `Korisnik se trenutno nalazi na stranici: ${currentPage}` : "";
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY is not configured");
 
@@ -516,7 +517,7 @@ serve(async (req) => {
 
     // DB search
     const dbResults = await searchDatabase(userText);
-    const systemPrompt = buildSystemPrompt(isPremium, language || "de", dbResults);
+    const systemPrompt = buildSystemPrompt(isPremium, language || "de", dbResults, pageContext);
 
     const response = await fetch(
       "https://ai.gateway.lovable.dev/v1/chat/completions",
