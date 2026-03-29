@@ -3,11 +3,14 @@ import {
   Megaphone,
   Wrench,
   BookOpen,
-  Star,
   ChevronDown,
   FileCheck,
   Plane,
   Camera,
+  Home,
+  Briefcase,
+  Building,
+  Shield,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -40,12 +43,15 @@ export function AppSidebar() {
   );
 
   const sidebarItems = [
+    { title: "Početna", url: "/", icon: Home },
     { title: t("index.nav.forms"), url: "/formulari", icon: FileText },
-    { title: "Deutsch", url: "/deutsch-trainer", icon: BookOpen },
-    { title: t("index.nav.tools"), url: "/tools", icon: Wrench },
+    { title: "BalkanLink Deutsch", url: "/deutsch-trainer", icon: BookOpen },
     { title: "Dokumenten-Check", url: "/dokumenten-check", icon: Camera, badge: "NOVO" },
+    { title: "Pretraga poslova", url: "/stellenangebote", icon: Briefcase },
+    { title: "Pretraga stanova", url: "/wohnungen", icon: Building },
     { title: t("index.nav.offerSeek"), url: "/nudim-trazim", icon: Megaphone },
-    { title: "Paketi i opcije", url: "/paketi", icon: Star },
+    { title: t("index.nav.tools"), url: "/tools", icon: Wrench },
+    { title: "Viza Navigator", url: "/dolazak/boravisna-dozvola", icon: Shield },
   ];
 
   const isMigrationActive = location.pathname.startsWith("/nach-deutschland");
@@ -118,7 +124,7 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
 
-        {/* Migration section */}
+        {/* Dolazak u Njemačku section */}
         <SidebarGroup>
           {!collapsed && (
             <button
@@ -128,7 +134,7 @@ export function AppSidebar() {
               }`}
             >
               <Plane className={`h-3.5 w-3.5 ${isMigrationActive ? "text-gold" : "text-white/25"}`} />
-              <span className="flex-1 text-left">{t("migration.sidebarTitle")}</span>
+              <span className="flex-1 text-left">Dolazak u Njemačku</span>
               <ChevronDown className={`h-3 w-3 transition-transform ${migrationOpen ? "" : "-rotate-90"}`} />
             </button>
           )}

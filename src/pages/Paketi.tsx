@@ -9,7 +9,7 @@ const comparisonData = [
   { label: "5 Deutsch lekcija po nivou", free: true, premium: true },
   { label: "Besplatni oglas 7 dana", free: true, premium: true },
   { label: "Smart Guide korak po korak", free: false, premium: true },
-  { label: "Kompletni Deutsch kurs A1-C2", free: false, premium: true },
+  { label: "Kompletni BalkanLink Deutsch A1-C2", free: false, premium: true },
   { label: "Musterformulari", free: false, premium: true },
   { label: "Dokumenten-Check", free: false, premium: true },
   { label: "AI Asistent unlimited", free: false, premium: true },
@@ -108,7 +108,7 @@ export default function Paketi() {
           <ul className="space-y-2.5 text-[14px] text-white">
             {[
               "Svi Smart Guide vodiči korak po korak",
-              "Kompletni Deutsch kurs A1 do C2",
+              "Kompletni BalkanLink Deutsch A1 do C2",
               "Musterformulari za sve formulare",
               "Dokumenten-Check — AI analiza pisama",
               "BalkanLink Asistent unlimited",
@@ -123,7 +123,7 @@ export default function Paketi() {
             ))}
             <li className="flex items-start gap-2">
               <span className="mt-0.5 shrink-0">🎁</span>
-              <span>Amazon voucher program za Deutsch kurs</span>
+              <span>Amazon voucher program za BalkanLink Deutsch</span>
             </li>
           </ul>
 
@@ -134,7 +134,7 @@ export default function Paketi() {
             Aktiviraj Premium →
           </Link>
           <p className="mt-2 text-[11px] text-[#9CA3AF] text-center">
-            5 lekcija Deutsch kursa besplatno za sve korisnike
+            5 lekcija BalkanLink Deutsch besplatno za sve korisnike
           </p>
         </div>
 
@@ -145,7 +145,7 @@ export default function Paketi() {
           </h3>
           <div className="rounded-xl border border-[#EAB308] p-5" style={{ background: "#FEF3C7" }}>
             <p className="text-[14px] font-semibold text-[#92400E]">
-              Završi Deutsch kurs → dobijaš nagradu!
+              Završi BalkanLink Deutsch → dobijaš nagradu!
             </p>
             <ul className="mt-3 space-y-1.5 text-[13px] text-[#92400E]">
               <li>• A1 + A2 kompletno → <b>1 mjesec Premium gratis</b></li>
@@ -187,7 +187,7 @@ export default function Paketi() {
                 { ok: true, t: "Musterformular interaktivni" },
                 { ok: true, t: "Doživotni pristup tom formularu" },
                 { ok: false, t: "Ostali formulari nisu uključeni" },
-                { ok: false, t: "Deutsch kurs nije uključen" },
+                { ok: false, t: "BalkanLink Deutsch nije uključen" },
                 { ok: false, t: "Istaknuti oglasi nisu uključeni" },
               ].map((f) => (
                 <li key={f.t} className="flex items-start gap-2">
