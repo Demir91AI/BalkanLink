@@ -3,7 +3,9 @@ import { getMigrationCountries, type CategoryKey } from "@/lib/migration-data";
 import { Briefcase, GraduationCap, BookOpen, Heart, Award, ExternalLink, ShieldAlert, CheckCircle2, ChevronRight, Globe, ArrowLeft, Info } from "lucide-react";
 import { useParams, useNavigate } from "react-router-dom";
 import { navigateBackOrHome } from "@/lib/navigation";
-
+import GdjePocetiTimeline from "@/components/migration/GdjePocetiTimeline";
+import CostCalculator from "@/components/migration/CostCalculator";
+import CountryInfoBox from "@/components/migration/CountryInfoBox";
 
 const ICON_FOR_KEY: Record<CategoryKey, React.ElementType> = {
   work: Briefcase,
@@ -22,9 +24,6 @@ export default function NachDeutschland() {
   const selectedCountry = countries.find((c) => c.code === countryCode);
   const selectedCategory = selectedCountry?.categories.find((c) => c.key === categoryKey);
 
-  // Country list → back to homepage
-  // Country selected → back to country list
-  // Category selected → back to country
   const handleBack = () => navigateBackOrHome(navigate);
 
   // Country selection view
@@ -42,6 +41,12 @@ export default function NachDeutschland() {
           <p className="text-xs text-muted-foreground">{t("migration.disclaimer")}</p>
         </div>
 
+        {/* Gdje početi timeline */}
+        <GdjePocetiTimeline />
+
+        {/* Cost calculator */}
+        <CostCalculator />
+
         <h2 className="text-lg font-semibold mb-4">{t("migration.selectCountry")}</h2>
         <div className="grid gap-3 sm:grid-cols-2">
           {countries.map((country) => (
@@ -53,7 +58,7 @@ export default function NachDeutschland() {
               <span className="text-3xl">{country.flag}</span>
               <div className="flex-1 min-w-0">
                 <p className="font-semibold text-foreground group-hover:text-[hsl(var(--brand-orange))]">
-                  {t(`migration.country.${country.code}`)}
+                  {country.flag} {t(`migration.country.${country.code}`)}
                 </p>
                 <p className="text-xs text-muted-foreground">
                   {country.isEU ? t("migration.euMember") : t("migration.westbalkan")}
@@ -78,14 +83,17 @@ export default function NachDeutschland() {
         <div className="flex items-center gap-3 mb-2">
           <span className="text-3xl">{selectedCountry.flag}</span>
           <div>
-            <h1 className="text-2xl font-bold text-foreground">{t(`migration.country.${selectedCountry.code}`)}</h1>
+            <h1 className="text-2xl font-bold text-foreground">{selectedCountry.flag} {t(`migration.country.${selectedCountry.code}`)}</h1>
             <p className="text-sm text-muted-foreground">
               {selectedCountry.isEU ? t("migration.euMember") : t("migration.westbalkan")}
             </p>
           </div>
         </div>
 
-        <div className="rounded-lg border border-[hsl(var(--brand-orange))]/30 bg-[hsl(var(--brand-orange))]/5 p-3 mb-6 mt-4 flex items-start gap-2">
+        {/* Country-specific info box */}
+        <CountryInfoBox isEU={selectedCountry.isEU} />
+
+        <div className="rounded-lg border border-[hsl(var(--brand-orange))]/30 bg-[hsl(var(--brand-orange))]/5 p-3 mb-6 flex items-start gap-2">
           <ShieldAlert className="h-4 w-4 text-[hsl(var(--brand-orange))] mt-0.5 shrink-0" />
           <p className="text-xs text-muted-foreground">{t("migration.disclaimer")}</p>
         </div>
@@ -136,12 +144,15 @@ export default function NachDeutschland() {
       <div className="flex items-center gap-3 mb-1">
         <span className="text-2xl">{selectedCountry.flag}</span>
         <h1 className="text-xl font-bold text-foreground">
-          {t(`migration.country.${selectedCountry.code}`)} – {t(`migration.cat.${selectedCategory.key}`)}
+          {selectedCountry.flag} {t(`migration.country.${selectedCountry.code}`)} – {t(`migration.cat.${selectedCategory.key}`)}
         </h1>
       </div>
       <p className="text-sm text-muted-foreground mb-4 ml-10">
         {selectedCountry.isEU ? t("migration.euMember") : t("migration.westbalkan")}
       </p>
+
+      {/* Country-specific info box */}
+      <CountryInfoBox isEU={selectedCountry.isEU} />
 
       <div className="rounded-lg border border-[hsl(var(--brand-orange))]/30 bg-[hsl(var(--brand-orange))]/5 p-3 mb-6 flex items-start gap-2">
         <ShieldAlert className="h-4 w-4 text-[hsl(var(--brand-orange))] mt-0.5 shrink-0" />
