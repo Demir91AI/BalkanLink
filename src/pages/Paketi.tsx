@@ -152,10 +152,10 @@ export default function Paketi() {
               <li>• B1 + B2 kompletno → <b>2 mjeseca Premium gratis</b></li>
               <li>• C1 + C2 kompletno → <b>3 mjeseca Premium gratis</b></li>
             </ul>
-            <p className="mt-4 text-[13px] font-bold text-[#92400E]">🏆 POSEBNA NAGRADA:</p>
+            <p className="mt-4 text-[13px] font-bold text-[#92400E]">⭐ ZUSÄTZLICHER RABATT:</p>
             <p className="mt-1 text-[13px] text-[#92400E]">
-              Godišnji Premium + A1 do C2 kompletno<br />
-              → <b>30€ Amazon.de voucher!</b>
+              Godišnji Premium Abo + završiš A1 do C2 kompletno<br />
+              → <b>30€ Amazon.de Gutschein kao bonus za lojalnost</b>
             </p>
             <p className="mt-4 text-[12px] font-semibold text-[#92400E]">⚠️ Uvjeti:</p>
             <ul className="mt-1 space-y-0.5 text-[12px] text-[#92400E]">
@@ -410,7 +410,7 @@ export default function Paketi() {
         {/* FOOTER DISCLAIMER */}
         <div className="rounded-lg p-4 text-center" style={{ background: "#1F2937" }}>
           <p className="text-[12px] text-[#9CA3AF]">
-            Sve cijene uključuju PDV. Premium pretplata se može otkazati u bilo koje vrijeme.
+            Alle Preise gemäß §19 UStG ohne Umsatzsteuer. Premium pretplata se može otkazati u bilo koje vrijeme.
             Jednokratne kupovine su trajne. Wertgutschein program podliježe uvjetima navedenim u AGB.
             PRO oglasi automatski ističu nakon odabranog perioda.
           </p>
