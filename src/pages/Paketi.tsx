@@ -187,7 +187,7 @@ export default function Paketi() {
                 { ok: true, t: "Musterformular interaktivni" },
                 { ok: true, t: "Doživotni pristup tom formularu" },
                 { ok: false, t: "Ostali formulari nisu uključeni" },
-                { ok: false, t: "Deutsch kurs nije uključen" },
+                { ok: false, t: "BalkanLink Deutsch nije uključen" },
                 { ok: false, t: "Istaknuti oglasi nisu uključeni" },
               ].map((f) => (
                 <li key={f.t} className="flex items-start gap-2">
