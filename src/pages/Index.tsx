@@ -221,16 +221,19 @@ function ShowcaseCarousel() {
     <div
       className="relative overflow-hidden"
       onMouseEnter={pause}
-      onMouseLeave={scheduleResume}
     >
       <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-[#0B0F1A] to-transparent" />
       <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-[#0B0F1A] to-transparent" />
       <div
         ref={ref}
-        className="flex gap-5 px-4 overflow-x-hidden scrollbar-hide"
+        className="flex gap-5 px-4 overflow-x-hidden scrollbar-hide cursor-grab select-none"
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
+        onMouseDown={onMouseDown}
+        onMouseMove={onMouseMove}
+        onMouseUp={onMouseUp}
+        onMouseLeave={onMouseLeave}
       >
         {doubled.map((firm, i) => (
           <article
