@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { ArrowRight, ArrowLeft, Home, FileText, CreditCard, Heart, Landmark, ClipboardList, Shield, Radio, Car, KeyRound } from "lucide-react";
+import { ArrowRight, ChevronLeft, Home, FileText, CreditCard, Heart, Landmark, ClipboardList, Shield, Radio, Car, KeyRound } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { navigateBackOrHome } from "@/lib/navigation";
 
@@ -103,7 +103,7 @@ export default function PocniOvdje() {
       <section className="border-b bg-primary py-10">
         <div className="container max-w-3xl">
           <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
-            <ArrowLeft /> Nazad
+            <ChevronLeft className="h-4 w-4" /> Nazad
           </button>
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl text-center">
             {pt(language, "title")}

@@ -128,31 +128,38 @@
 
 @layer utilities {
   .back-button {
-    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm transition-all duration-200;
-    color: hsl(var(--foreground));
-    background: hsl(var(--muted));
-    border: 1px solid hsl(var(--border));
+    @apply inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all duration-200;
+    color: hsl(220 12% 35%);
+    background: #ffffff;
+    border: 1px solid hsl(220 16% 82%);
   }
   .back-button svg {
-    color: #FFC107;
     width: 16px;
     height: 16px;
+    color: hsl(220 12% 35%);
   }
   .back-button:hover {
-    background: hsl(var(--accent));
-    border-color: hsl(var(--border));
+    background: hsl(220 16% 97%);
+    border-color: hsl(220 16% 75%);
   }
   /* On dark parent (e.g. primary hero sections) */
   .bg-primary .back-button,
-  [class*="bg-primary"] .back-button {
-    color: #FFFFFF;
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.15);
-  }
-  .bg-primary .back-button:hover,
-  [class*="bg-primary"] .back-button:hover {
+  [class*="bg-primary"] .back-button,
+  [class*="bg-gradient"] .back-button {
+    color: #ffffff;
     background: rgba(255, 255, 255, 0.12);
     border-color: rgba(255, 255, 255, 0.25);
+  }
+  .bg-primary .back-button svg,
+  [class*="bg-primary"] .back-button svg,
+  [class*="bg-gradient"] .back-button svg {
+    color: #ffffff;
+  }
+  .bg-primary .back-button:hover,
+  [class*="bg-primary"] .back-button:hover,
+  [class*="bg-gradient"] .back-button:hover {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.35);
   }
 
   .glass {

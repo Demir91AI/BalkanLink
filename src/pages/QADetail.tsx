@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { ArrowLeft, ExternalLink, Calendar } from "lucide-react";
+import { ChevronLeft, ExternalLink, Calendar } from "lucide-react";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -71,7 +71,7 @@ export default function QADetail() {
       <div className="container max-w-3xl py-16 text-center">
         <p className="text-muted-foreground">Pitanje nije pronađeno.</p>
         <button className="back-button" onClick={() => navigateBackOrHome(navigate)}>
-          <ArrowLeft />
+          <ChevronLeft className="h-4 w-4" />
           Nazad
         </button>
       </div>
@@ -87,7 +87,7 @@ export default function QADetail() {
         onClick={() => navigateBackOrHome(navigate)}
         className="back-button"
       >
-        <ArrowLeft />
+        <ChevronLeft className="h-4 w-4" />
         Nazad
       </button>
 

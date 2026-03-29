@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { MapPin, Building, Landmark, Filter, Phone, Mail, Globe, Info, ArrowLeft } from "lucide-react";
+import { MapPin, Building, Landmark, Filter, Phone, Mail, Globe, Info, ChevronLeft } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -20,7 +20,7 @@ function MissionDetail({ id, onBack }: { id: string; onBack: () => void }) {
   if (!mission) return (
     <div className="container py-8 text-center">
       <p className="text-muted-foreground">{t("missions.empty")}</p>
-      <button onClick={onBack} className="back-button"><ArrowLeft />Nazad</button>
+      <button onClick={onBack} className="back-button"><ChevronLeft className="h-4 w-4" />Nazad</button>
     </div>
   );
 
@@ -32,7 +32,7 @@ function MissionDetail({ id, onBack }: { id: string; onBack: () => void }) {
   return (
     <div className="container py-8">
       <button onClick={onBack} className="back-button">
-        <ArrowLeft />
+        <ChevronLeft className="h-4 w-4" />
         Nazad
       </button>
 
@@ -119,7 +119,7 @@ export default function Missions() {
     <div className="container py-8">
       <div className="mb-8">
         <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
-          <ArrowLeft /> Nazad
+          <ChevronLeft className="h-4 w-4" /> Nazad
         </button>
         <h1 className="text-2xl font-bold md:text-3xl">{t("missions.title")}</h1>
         <p className="mt-1 text-muted-foreground">{t("missions.subtitle")}</p>

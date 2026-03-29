@@ -1,4 +1,4 @@
-import { ArrowLeft, FileCheck, Clock, Briefcase, Home, Wifi, Star, Heart, File } from "lucide-react";
+import { ChevronLeft, FileCheck, Clock, Briefcase, Home, Wifi, Star, Heart, File } from "lucide-react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { navigateBackOrHome } from "@/lib/navigation";
@@ -38,7 +38,7 @@ export default function Vorlagen() {
             onClick={() => navigateBackOrHome(navigate)}
             className="back-button"
           >
-            <ArrowLeft /> Nazad
+            <ChevronLeft className="h-4 w-4" /> Nazad
           </button>
           <p className="text-muted-foreground">Vorlage nicht gefunden.</p>
         </div>
@@ -53,7 +53,7 @@ export default function Vorlagen() {
           onClick={() => navigateBackOrHome(navigate)}
           className="back-button"
         >
-          <ArrowLeft /> Nazad
+          <ChevronLeft className="h-4 w-4" /> Nazad
         </button>
 
         <div className="flex items-center gap-3 mb-6">
@@ -81,7 +81,7 @@ export default function Vorlagen() {
         onClick={() => navigateBackOrHome(navigate)}
         className="back-button"
       >
-        <ArrowLeft /> Nazad
+        <ChevronLeft className="h-4 w-4" /> Nazad
       </button>
       <h1 className="text-2xl font-bold mb-1">Šabloni / Vorlagen</h1>
       <p className="text-sm text-muted-foreground mb-8">

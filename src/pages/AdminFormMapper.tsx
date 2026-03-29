@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { navigateBackOrHome } from "@/lib/navigation";
-import { ArrowLeft, Search, Check, Download, Upload } from "lucide-react";
+import { ChevronLeft, Search, Check, Download, Upload } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -99,7 +99,7 @@ export default function AdminFormMapper() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-6">
       <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
-        <ArrowLeft /> Nazad
+        <ChevronLeft className="h-4 w-4" /> Nazad
       </button>
       <h1 className="font-heading text-xl font-extrabold mb-4">{t("admin.mapper.title")} — {formSlug}</h1>
 

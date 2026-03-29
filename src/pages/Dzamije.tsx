@@ -4,7 +4,7 @@ import { navigateBackOrHome } from "@/lib/navigation";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Input } from "@/components/ui/input";
-import { MapPin, ChevronDown, Search, Building2, ArrowLeft } from "lucide-react";
+import { MapPin, ChevronDown, Search, Building2, ChevronLeft } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface Listing {
@@ -105,7 +105,7 @@ export default function Dzamije() {
         <div className="absolute inset-0 bg-gradient-to-br from-[#E3B341]/5 via-transparent to-[#E3B341]/3" />
         <div className="container relative max-w-5xl py-14">
           <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
-            <ArrowLeft /> Nazad
+            <ChevronLeft className="h-4 w-4" /> Nazad
           </button>
           <div className="text-center">
           <motion.h1

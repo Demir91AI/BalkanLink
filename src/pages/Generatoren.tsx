@@ -1,4 +1,4 @@
-import { ExternalLink, Calculator, AlertTriangle, Euro, ArrowLeft } from "lucide-react";
+import { ExternalLink, Calculator, AlertTriangle, Euro, ChevronLeft } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { navigateBackOrHome } from "@/lib/navigation";
@@ -22,7 +22,7 @@ export default function Generatoren() {
       <section className="border-b bg-primary py-12">
         <div className="container">
           <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
-            <ArrowLeft /> Nazad
+            <ChevronLeft className="h-4 w-4" /> Nazad
           </button>
           <div className="text-center">
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">{t("tools.pageTitle")}</h1>

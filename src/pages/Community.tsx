@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 import { motion } from "framer-motion";
 import { navigateBackOrHome } from "@/lib/navigation";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -33,7 +33,7 @@ export default function Community() {
         <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-gold/3" />
         <div className="container relative max-w-5xl">
           <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
-            <ArrowLeft /> {t("common.back")}
+            <ChevronLeft className="h-4 w-4" /> {t("common.back")}
           </button>
           <div className="text-center">
             <motion.h1

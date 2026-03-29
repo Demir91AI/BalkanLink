@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { navigateBackOrHome } from "@/lib/navigation";
 import {
-  ArrowLeft, Search, ChevronRight, AlertTriangle, ClipboardList,
+  ChevronLeft, Search, ChevronRight, AlertTriangle, ClipboardList,
   PenLine, ExternalLink, Info, Lock, Crown, Check, FileText,
 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -234,7 +234,7 @@ export default function BoravisnaDozvola() {
           onClick={() => navigateBackOrHome(navigate)}
           className="back-button"
         >
-          <ArrowLeft /> Nazad
+          <ChevronLeft className="h-4 w-4" /> Nazad
         </button>
         <VisaDetail visa={activeVisa} st={st} />
       </div>
@@ -250,7 +250,7 @@ export default function BoravisnaDozvola() {
             onClick={() => navigateBackOrHome(navigate)}
             className="back-button"
           >
-            <ArrowLeft /> Nazad
+            <ChevronLeft className="h-4 w-4" /> Nazad
           </button>
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">
             {st("viza.title")}

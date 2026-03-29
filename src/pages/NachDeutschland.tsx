@@ -1,6 +1,6 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { getMigrationCountries, type CategoryKey } from "@/lib/migration-data";
-import { Briefcase, GraduationCap, BookOpen, Heart, Award, ExternalLink, ShieldAlert, CheckCircle2, ChevronRight, Globe, ArrowLeft, Info } from "lucide-react";
+import { Briefcase, GraduationCap, BookOpen, Heart, Award, ExternalLink, ShieldAlert, CheckCircle2, ChevronRight, Globe, ChevronLeft, Info } from "lucide-react";
 import { useParams, useNavigate } from "react-router-dom";
 import { navigateBackOrHome } from "@/lib/navigation";
 import GdjePocetiTimeline from "@/components/migration/GdjePocetiTimeline";
@@ -31,7 +31,7 @@ export default function NachDeutschland() {
     return (
       <div className="container max-w-4xl py-8 px-4">
         <button onClick={handleBack} className="back-button">
-          <ArrowLeft /> {t("common.back")}
+          <ChevronLeft className="h-4 w-4" /> {t("common.back")}
         </button>
         <h1 className="text-2xl font-bold text-foreground mb-2">{t("migration.title")}</h1>
         <p className="text-sm text-muted-foreground mb-6">{t("migration.subtitle")}</p>
@@ -77,7 +77,7 @@ export default function NachDeutschland() {
     return (
       <div className="container max-w-4xl py-8 px-4">
         <button onClick={handleBack} className="back-button">
-          <ArrowLeft /> {t("common.back")}
+          <ChevronLeft className="h-4 w-4" /> {t("common.back")}
         </button>
 
         <div className="flex items-center gap-3 mb-2">
@@ -143,7 +143,7 @@ export default function NachDeutschland() {
   return (
     <div className="container max-w-4xl py-8 px-4">
       <button onClick={handleBack} className="back-button">
-        <ArrowLeft /> {t("common.back")}
+        <ChevronLeft className="h-4 w-4" /> {t("common.back")}
       </button>
 
       <div className="flex items-center gap-3 mb-1">

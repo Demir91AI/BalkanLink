@@ -36,11 +36,11 @@ export default function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 border-b border-white/8 bg-[hsl(var(--primary))]/95 backdrop-blur-xl shadow-lg shadow-black/20">
+      <header className="sticky top-0 z-50 border-b border-white/8 bg-[#0f1f3d]/95 backdrop-blur-xl shadow-lg shadow-black/20">
         {/* Subtle gold accent line at top */}
         <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[hsl(var(--brand-orange))] to-transparent opacity-60" />
 
-        <div className="relative flex h-16 items-center px-4">
+        <div className="relative flex h-14 items-center px-4">
           {/* Left: sidebar trigger */}
           <Button
             variant="ghost"

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useSearchParams, useNavigate } from "react-router-dom";
-import { Search, Lock, Crown, ChevronRight, ArrowLeft } from "lucide-react";
+import { Search, Lock, Crown, ChevronRight, ChevronLeft } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -39,7 +39,7 @@ export default function QA() {
     <div className="container py-8 md:py-12">
       <div className="mb-8 max-w-2xl">
         <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
-          <ArrowLeft /> Nazad
+          <ChevronLeft className="h-4 w-4" /> Nazad
         </button>
         <h1 className="text-3xl font-bold md:text-4xl">{t("qa.title")}</h1>
         <p className="mt-2 text-muted-foreground">{t("qa.subtitle")}</p>

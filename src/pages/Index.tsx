@@ -99,6 +99,7 @@ function useInfiniteScroll(speed = 0.5, resumeDelay = 3000) {
     resumeTimer.current = setTimeout(() => { pausedRef.current = false; }, resumeDelay);
   }, [resumeDelay]);
 
+  /* Touch events */
   const onTouchStart = useCallback((e: React.TouchEvent) => {
     pause();
     isDragging.current = true;
@@ -117,13 +118,42 @@ function useInfiniteScroll(speed = 0.5, resumeDelay = 3000) {
     scheduleResume();
   }, [scheduleResume]);
 
-  return { ref, pause, scheduleResume, onTouchStart, onTouchMove, onTouchEnd };
+  /* Mouse drag events */
+  const onMouseDown = useCallback((e: React.MouseEvent) => {
+    pause();
+    isDragging.current = true;
+    dragStartX.current = e.clientX;
+    dragScrollLeft.current = ref.current?.scrollLeft ?? 0;
+    if (ref.current) ref.current.style.cursor = "grabbing";
+    e.preventDefault();
+  }, [pause]);
+
+  const onMouseMove = useCallback((e: React.MouseEvent) => {
+    if (!isDragging.current || !ref.current) return;
+    const delta = e.clientX - dragStartX.current;
+    ref.current.scrollLeft = dragScrollLeft.current - delta;
+  }, []);
+
+  const onMouseUp = useCallback(() => {
+    isDragging.current = false;
+    if (ref.current) ref.current.style.cursor = "grab";
+    scheduleResume();
+  }, [scheduleResume]);
+
+  const onMouseLeave = useCallback(() => {
+    if (isDragging.current) {
+      isDragging.current = false;
+      if (ref.current) ref.current.style.cursor = "grab";
+    }
+    scheduleResume();
+  }, [scheduleResume]);
+
+  return { ref, pause, scheduleResume, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave };
 }
 
 function AdFlowSection() {
   const doubled = [...placeholderAds, ...placeholderAds];
-  const { ref, pause, scheduleResume, onTouchStart, onTouchMove, onTouchEnd } = useInfiniteScroll(0.5);
-
+  const { ref, pause, scheduleResume, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.5);
   return (
     <section className="py-10 sm:py-12 border-t border-white/[0.05] bg-[#0B0F1A] overflow-hidden">
       <div className="container mb-5">
@@ -135,16 +165,19 @@ function AdFlowSection() {
       <div
         className="relative"
         onMouseEnter={pause}
-        onMouseLeave={scheduleResume}
       >
         <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-[#0B0F1A] to-transparent" />
         <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-[#0B0F1A] to-transparent" />
         <div
           ref={ref}
-          className="flex gap-4 px-4 overflow-x-hidden scrollbar-hide"
+          className="flex gap-4 px-4 overflow-x-hidden scrollbar-hide cursor-grab select-none"
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
+          onMouseDown={onMouseDown}
+          onMouseMove={onMouseMove}
+          onMouseUp={onMouseUp}
+          onMouseLeave={onMouseLeave}
         >
           {doubled.map((ad, i) => (
             <a
@@ -182,22 +215,25 @@ function AdFlowSection() {
 
 function ShowcaseCarousel() {
   const doubled = [...premiumShowcaseFirms, ...premiumShowcaseFirms];
-  const { ref, pause, scheduleResume, onTouchStart, onTouchMove, onTouchEnd } = useInfiniteScroll(0.4, 4000);
+  const { ref, pause, scheduleResume, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.4, 4000);
 
   return (
     <div
       className="relative overflow-hidden"
       onMouseEnter={pause}
-      onMouseLeave={scheduleResume}
     >
       <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-[#0B0F1A] to-transparent" />
       <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-[#0B0F1A] to-transparent" />
       <div
         ref={ref}
-        className="flex gap-5 px-4 overflow-x-hidden scrollbar-hide"
+        className="flex gap-5 px-4 overflow-x-hidden scrollbar-hide cursor-grab select-none"
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
+        onMouseDown={onMouseDown}
+        onMouseMove={onMouseMove}
+        onMouseUp={onMouseUp}
+        onMouseLeave={onMouseLeave}
       >
         {doubled.map((firm, i) => (
           <article
@@ -324,7 +360,7 @@ export default function Index() {
               className="flex flex-col items-center text-center"
             >
               <h1
-                className="font-heading text-[1.65rem] font-black leading-[1.15] tracking-tight text-white sm:text-3xl md:text-4xl lg:text-[3.4rem]"
+                className="mx-auto max-w-[700px] font-heading text-2xl font-black leading-[1.15] tracking-tight text-white sm:text-3xl md:text-4xl lg:text-[3.4rem]"
                 style={{ textShadow: "0 4px 30px rgba(0,0,0,0.5)" }}
               >
                 {t("hero.title")}{" "}
@@ -334,21 +370,16 @@ export default function Index() {
               </h1>
 
               <p
-                className="mt-5 max-w-xl text-sm font-medium leading-relaxed text-white/80 sm:text-base md:text-lg lg:mt-6"
+                className="mx-auto mt-5 max-w-[550px] text-sm font-medium leading-relaxed text-white/80 sm:text-base md:text-lg lg:mt-6"
                 style={{ textShadow: "0 2px 12px rgba(0,0,0,0.4)" }}
               >
                 {t("hero.subtitle")}
               </p>
 
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center"
-              >
+              <div className="mt-6 flex flex-row items-center justify-center gap-4 flex-wrap">
                 <Button
                   onClick={() => navigate("/formulari")}
-                  className="w-full sm:w-auto h-12 rounded-full bg-gold px-8 text-base font-bold text-gold-foreground shadow-[0_4px_24px_rgba(255,204,0,0.4)] hover:bg-gold-light hover:shadow-[0_8px_36px_rgba(255,204,0,0.55)] hover:scale-[1.03] transition-all duration-300 sm:h-14 sm:px-10 sm:text-lg"
+                  className="h-12 rounded-full bg-gold px-8 text-base font-bold text-gold-foreground shadow-[0_4px_24px_rgba(255,204,0,0.4)] hover:bg-gold-light hover:shadow-[0_8px_36px_rgba(255,204,0,0.55)] hover:scale-[1.03] transition-all duration-300 sm:h-14 sm:px-10 sm:text-lg"
                 >
                   {t("hero.ctaPrimary")}
                   <ArrowRight className="ml-1 h-4 w-4 sm:h-5 sm:w-5" />
@@ -361,18 +392,18 @@ export default function Index() {
                   {t("hero.ctaSecondary")}
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                 </Link>
+              </div>
 
-                {/* Disclaimer */}
-                <p className="mt-2 max-w-sm text-[10px] leading-relaxed text-white/30">
-                  BalkanLink je edukativna platforma. Sadržaj nije pravni savjet.
-                </p>
-              </motion.div>
+              {/* Disclaimer */}
+              <p className="mx-auto mt-4 max-w-sm text-center text-[10px] leading-relaxed text-white/30">
+                BalkanLink je edukativna platforma. Sadržaj nije pravni savjet.
+              </p>
 
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.7 }}
-                className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 lg:mt-10"
+                className="mt-6 flex flex-row flex-wrap items-center justify-center gap-x-6 gap-y-2"
               >
                 {trustBadgeKeys.map((key) => (
                   <span key={key} className="flex items-center gap-1.5 text-xs font-medium text-white/60 sm:text-sm">

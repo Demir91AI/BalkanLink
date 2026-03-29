@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { ArrowRight, ArrowLeft, Home, Briefcase, HeartPulse, GraduationCap } from "lucide-react";
+import { ArrowRight, ChevronLeft, Home, Briefcase, HeartPulse, GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
 import { getGuidesByCategory, type Guide } from "@/lib/guide-data";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -40,7 +40,7 @@ export default function Foerderungen() {
       <section className="border-b bg-primary py-12">
         <div className="container max-w-3xl">
           <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
-            <ArrowLeft /> Nazad
+            <ChevronLeft className="h-4 w-4" /> Nazad
           </button>
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl text-center">{t.title}</h1>
           <p className="mt-2 text-sm text-primary-foreground/80 md:text-base text-center">{t.subtitle}</p>

@@ -26,7 +26,7 @@ export default function FirmDetail() {
     <div className="mx-auto max-w-4xl px-4 py-8">
       {/* Back */}
       <Link to="/" className="mb-6 inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-        <ArrowLeft /> {t("firm.back")}
+        <ChevronLeft className="h-4 w-4" /> {t("firm.back")}
       </Link>
 
       {/* Hero image */}

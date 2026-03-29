@@ -3,7 +3,7 @@ import { useMemo, useState, useRef, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, ChevronDown, MapPin, Building2, Search, Landmark, Users, Trophy } from "lucide-react";
+import { ChevronLeft, ChevronDown, MapPin, Building2, Search, Landmark, Users, Trophy } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { BUNDESLAENDER } from "@/lib/germany-data";
 import ListingMapPreview from "@/components/ListingMapPreview";
@@ -189,7 +189,7 @@ export default function CountryPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-gold/3" />
         <div className="container relative max-w-5xl">
           <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
-            <ArrowLeft /> Nazad
+            <ChevronLeft className="h-4 w-4" /> Nazad
           </button>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <span className="text-5xl">{country.flag}</span>

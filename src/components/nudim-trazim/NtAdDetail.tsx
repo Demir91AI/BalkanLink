@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowLeft, MapPin, Calendar, Eye, Star, Shield } from "lucide-react";
+import { ChevronLeft, MapPin, Calendar, Eye, Star, Shield } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -29,7 +29,7 @@ export default function NtAdDetail({ ad, onBack, onOpen }: Props) {
   return (
     <div className="space-y-8">
       <button onClick={onBack} className="back-button">
-        <ArrowLeft /> Nazad
+        <ChevronLeft className="h-4 w-4" /> Nazad
       </button>
 
       <Card className="border-border/60">

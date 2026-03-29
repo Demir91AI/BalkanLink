@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FileText, ChevronDown, ExternalLink, Download, CheckCircle2, Info,
@@ -965,7 +965,7 @@ export default function Formulare() {
       <section className="border-b bg-primary py-12">
         <div className="container max-w-3xl">
           <button onClick={handleBack} className="back-button">
-            <ArrowLeft /> {getLk(language) === "de" ? "Zurück" : getLk(language) === "en" ? "Back" : getLk(language) === "sq" ? "Kthehu" : getLk(language) === "mk" ? "Назад" : "Nazad"}
+            <ChevronLeft className="h-4 w-4" /> {getLk(language) === "de" ? "Zurück" : getLk(language) === "en" ? "Back" : getLk(language) === "sq" ? "Kthehu" : getLk(language) === "mk" ? "Назад" : "Nazad"}
           </button>
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl text-center">{t.title}</h1>
           <p className="mt-2 text-sm text-primary-foreground/80 md:text-base text-center">{t.subtitle}</p>
