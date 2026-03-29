@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { navigateBackOrHome } from "@/lib/navigation";
 import { hasManagedBackHistory, useHistorySearchState } from "@/hooks/useHistorySearchState";
-import { ArrowLeft, ChevronLeft, ChevronRight, AlertTriangle, BookOpen, ClipboardList, PenLine, Pencil, MapPin, Hash, XCircle, MinusCircle, FileCheck, Info, ExternalLink } from "lucide-react";
+import { ChevronLeft, ChevronRight, AlertTriangle, BookOpen, ClipboardList, PenLine, Pencil, MapPin, Hash, XCircle, MinusCircle, FileCheck, Info, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
