@@ -58,7 +58,7 @@ export default function NachDeutschland() {
               <span className="text-3xl">{country.flag}</span>
               <div className="flex-1 min-w-0">
                 <p className="font-semibold text-foreground group-hover:text-[hsl(var(--brand-orange))]">
-                  {country.flag} {t(`migration.country.${country.code}`)}
+                  {t(`migration.country.${country.code}`)}
                 </p>
                 <p className="text-xs text-muted-foreground">
                   {country.isEU ? t("migration.euMember") : t("migration.westbalkan")}
@@ -83,7 +83,7 @@ export default function NachDeutschland() {
         <div className="flex items-center gap-3 mb-2">
           <span className="text-3xl">{selectedCountry.flag}</span>
           <div>
-            <h1 className="text-2xl font-bold text-foreground">{selectedCountry.flag} {t(`migration.country.${selectedCountry.code}`)}</h1>
+            <h1 className="text-2xl font-bold text-foreground">{t(`migration.country.${selectedCountry.code}`)}</h1>
             <p className="text-sm text-muted-foreground">
               {selectedCountry.isEU ? t("migration.euMember") : t("migration.westbalkan")}
             </p>
@@ -144,7 +144,7 @@ export default function NachDeutschland() {
       <div className="flex items-center gap-3 mb-1">
         <span className="text-2xl">{selectedCountry.flag}</span>
         <h1 className="text-xl font-bold text-foreground">
-          {selectedCountry.flag} {t(`migration.country.${selectedCountry.code}`)} – {t(`migration.cat.${selectedCategory.key}`)}
+          {t(`migration.country.${selectedCountry.code}`)} – {t(`migration.cat.${selectedCategory.key}`)}
         </h1>
       </div>
       <p className="text-sm text-muted-foreground mb-4 ml-10">
