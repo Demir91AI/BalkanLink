@@ -153,8 +153,7 @@ function useInfiniteScroll(speed = 0.5, resumeDelay = 3000) {
 
 function AdFlowSection() {
   const doubled = [...placeholderAds, ...placeholderAds];
-  const { ref, pause, scheduleResume, onTouchStart, onTouchMove, onTouchEnd } = useInfiniteScroll(0.5);
-
+  const { ref, pause, scheduleResume, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.5);
   return (
     <section className="py-10 sm:py-12 border-t border-white/[0.05] bg-[#0B0F1A] overflow-hidden">
       <div className="container mb-5">
@@ -166,16 +165,19 @@ function AdFlowSection() {
       <div
         className="relative"
         onMouseEnter={pause}
-        onMouseLeave={scheduleResume}
       >
         <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-[#0B0F1A] to-transparent" />
         <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-[#0B0F1A] to-transparent" />
         <div
           ref={ref}
-          className="flex gap-4 px-4 overflow-x-hidden scrollbar-hide"
+          className="flex gap-4 px-4 overflow-x-hidden scrollbar-hide cursor-grab select-none"
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
+          onMouseDown={onMouseDown}
+          onMouseMove={onMouseMove}
+          onMouseUp={onMouseUp}
+          onMouseLeave={onMouseLeave}
         >
           {doubled.map((ad, i) => (
             <a
