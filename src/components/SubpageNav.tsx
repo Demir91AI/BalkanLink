@@ -1,29 +1,22 @@
 import { useNavigate, Link } from "react-router-dom";
-import { Home } from "lucide-react";
+import { Home, ChevronLeft } from "lucide-react";
+import { navigateBackOrHome } from "@/lib/navigation";
 
 export default function SubpageNav() {
   const navigate = useNavigate();
-
-  const handleBack = () => {
-    if (window.history.length > 1) {
-      navigate(-1);
-    } else {
-      navigate("/");
-    }
-  };
 
   return (
     <div className="border-b bg-background">
       <div className="container flex items-center gap-1 py-1">
         <button
-          onClick={handleBack}
-          className="border-none bg-transparent cursor-pointer px-3 py-2 text-sm text-[#9CA3AF] transition-colors hover:text-[#EAB308]"
+          onClick={() => navigateBackOrHome(navigate)}
+          className="back-button"
         >
-          ← Nazad
+          <ChevronLeft className="h-4 w-4" /> Nazad
         </button>
         <Link
           to="/"
-          className="border-none bg-transparent cursor-pointer px-3 py-2 text-sm text-[#9CA3AF] transition-colors hover:text-[#EAB308]"
+          className="border-none bg-transparent cursor-pointer px-3 py-2 text-sm text-muted-foreground transition-colors hover:text-[hsl(var(--gold))]"
         >
           <Home className="h-4 w-4" />
         </Link>

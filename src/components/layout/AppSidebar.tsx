@@ -52,6 +52,7 @@ export function AppSidebar() {
     { title: t("index.nav.offerSeek"), url: "/nudim-trazim", icon: Megaphone },
     { title: t("index.nav.tools"), url: "/tools", icon: Wrench },
     { title: "Viza Navigator", url: "/dolazak/boravisna-dozvola", icon: Shield },
+    { title: "Šabloni / Vorlagen", url: "/vorlagen", icon: FileCheck },
   ];
 
   const isMigrationActive = location.pathname.startsWith("/nach-deutschland");
