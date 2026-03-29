@@ -234,7 +234,7 @@ export default function BoravisnaDozvola() {
           onClick={() => navigateBackOrHome(navigate)}
           className="back-button"
         >
-          <ArrowLeft /> Nazad
+          <ChevronLeft className="h-4 w-4" /> Nazad
         </button>
         <VisaDetail visa={activeVisa} st={st} />
       </div>
@@ -250,7 +250,7 @@ export default function BoravisnaDozvola() {
             onClick={() => navigateBackOrHome(navigate)}
             className="back-button"
           >
-            <ArrowLeft /> Nazad
+            <ChevronLeft className="h-4 w-4" /> Nazad
           </button>
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">
             {st("viza.title")}

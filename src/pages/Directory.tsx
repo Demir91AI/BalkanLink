@@ -34,7 +34,7 @@ export default function Directory() {
       <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
-            <ArrowLeft /> {t("common.back")}
+            <ChevronLeft className="h-4 w-4" /> {t("common.back")}
           </button>
           <h1 className="text-2xl font-bold md:text-3xl">{t("dir.title")}</h1>
           <p className="mt-1 text-muted-foreground">{t("dir.subtitle")}</p>

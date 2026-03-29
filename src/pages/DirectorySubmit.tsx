@@ -82,7 +82,7 @@ export default function DirectorySubmit() {
   return (
     <div className="container max-w-2xl py-8">
       <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
-        <ArrowLeft /> Nazad
+        <ChevronLeft className="h-4 w-4" /> Nazad
       </button>
 
       <h1 className="mb-2 text-2xl font-bold">{t("dir.submitTitle")}</h1>

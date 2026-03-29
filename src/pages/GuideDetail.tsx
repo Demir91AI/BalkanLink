@@ -32,7 +32,7 @@ export default function GuideDetail() {
           {lk === "de" ? "Der gewünschte Guide existiert nicht." : lk === "bs" ? "Traženi vodič ne postoji." : "The requested guide does not exist."}
         </p>
         <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
-          <ArrowLeft /> Nazad
+          <ChevronLeft className="h-4 w-4" /> Nazad
         </button>
       </section>
     );
@@ -56,7 +56,7 @@ export default function GuideDetail() {
             onClick={() => navigateBackOrHome(navigate)}
             className="back-button"
           >
-            <ArrowLeft /> Nazad
+            <ChevronLeft className="h-4 w-4" /> Nazad
           </button>
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">
             {guide.title[lk]}

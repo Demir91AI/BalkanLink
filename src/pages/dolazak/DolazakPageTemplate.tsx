@@ -37,7 +37,7 @@ export default function DolazakPageTemplate({ title, subtitle, sections, links }
       <section className="border-b bg-primary py-10">
         <div className="container max-w-3xl">
           <button onClick={handleBack} className="back-button">
-            <ArrowLeft /> Nazad
+            <ChevronLeft className="h-4 w-4" /> Nazad
           </button>
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">{title}</h1>
           <p className="mt-2 text-sm text-primary-foreground/80 md:text-base">{subtitle}</p>
