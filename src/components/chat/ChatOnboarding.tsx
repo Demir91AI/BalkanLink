@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { ONBOARDING_STEPS, type UserProfile, saveProfile, generateTodoList } from "./chatUtils";
 
@@ -36,7 +37,6 @@ export default function ChatOnboarding({ onComplete }: Props) {
       animate={{ opacity: 1, y: 0 }}
       className="space-y-3 px-1"
     >
-      {/* Show previous Q&A */}
       {answers.map((ans, i) => (
         <div key={i} className="space-y-1.5">
           <div className="flex justify-start">
@@ -52,7 +52,6 @@ export default function ChatOnboarding({ onComplete }: Props) {
         </div>
       ))}
 
-      {/* Current question */}
       {current && (
         <motion.div
           key={step}
@@ -84,5 +83,3 @@ export default function ChatOnboarding({ onComplete }: Props) {
     </motion.div>
   );
 }
-
-import { useState } from "react";
