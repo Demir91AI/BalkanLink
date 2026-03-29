@@ -16,28 +16,26 @@ export default function DevPreviewSwitcher() {
   if (!DEV_MODE) return null;
 
   return (
-    <div
-      className="fixed bottom-20 right-4 z-[9999] flex items-center gap-1 rounded-lg border border-[hsl(215,20%,27%)] bg-[hsl(215,25%,15%)] p-1 shadow-lg"
-    >
+    <div className="flex items-center justify-center gap-1 rounded-[20px] border border-[#374151] bg-[#1F2937] p-1">
       <button
         onClick={() => setMode("mobile")}
-        className={`rounded-md px-3 py-1.5 text-xs font-bold transition-colors ${
+        className={`rounded-[16px] px-3 py-1 text-[11px] font-medium transition-colors ${
           mode === "mobile"
-            ? "bg-gold text-black"
-            : "text-white/50 hover:text-white/80"
+            ? "bg-[#EAB308] text-black"
+            : "text-[#9CA3AF] hover:text-white/80"
         }`}
       >
-        📱
+        📱 Mobilni prikaz
       </button>
       <button
         onClick={() => setMode("desktop")}
-        className={`rounded-md px-3 py-1.5 text-xs font-bold transition-colors ${
+        className={`rounded-[16px] px-3 py-1 text-[11px] font-medium transition-colors ${
           mode === "desktop"
-            ? "bg-gold text-black"
-            : "text-white/50 hover:text-white/80"
+            ? "bg-[#EAB308] text-black"
+            : "text-[#9CA3AF] hover:text-white/80"
         }`}
       >
-        🖥️
+        🖥️ Desktop prikaz
       </button>
     </div>
   );

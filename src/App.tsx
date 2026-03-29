@@ -155,7 +155,7 @@ const App = () => (
               </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>
-            <DevPreviewSwitcher />
+            
           </AuthProvider>
           </CountryProvider>
         </LanguageProvider>

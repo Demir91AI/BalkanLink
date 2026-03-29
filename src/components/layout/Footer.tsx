@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Star, CreditCard, Landmark, Wallet } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import BrandLogo from "@/components/BrandLogo";
+import DevPreviewSwitcher from "@/components/DevPreviewSwitcher";
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -93,6 +94,10 @@ export default function Footer() {
         <p className="mt-6 text-center text-[11px] text-white/15">
           © {new Date().getFullYear()} BalkanLink. {t("footer.copyright")}
         </p>
+
+        <div className="mt-4 flex justify-center">
+          <DevPreviewSwitcher />
+        </div>
       </div>
     </footer>
   );
