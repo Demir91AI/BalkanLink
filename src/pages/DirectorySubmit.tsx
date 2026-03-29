@@ -14,7 +14,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { ORIGIN_COUNTRIES, DIRECTORY_CATEGORIES, GERMAN_CITIES } from "@/lib/directory-constants";
-import { ArrowLeft, Send } from "lucide-react";
+import { ChevronLeft, Send } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const schema = z.object({

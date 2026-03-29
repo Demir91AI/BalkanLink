@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FileText, ChevronDown, ExternalLink, Download, CheckCircle2, Info,

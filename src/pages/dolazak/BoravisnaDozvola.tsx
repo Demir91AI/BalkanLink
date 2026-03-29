@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { navigateBackOrHome } from "@/lib/navigation";
 import {
-  ArrowLeft, Search, ChevronRight, AlertTriangle, ClipboardList,
+  ChevronLeft, Search, ChevronRight, AlertTriangle, ClipboardList,
   PenLine, ExternalLink, Info, Lock, Crown, Check, FileText,
 } from "lucide-react";
 import { motion } from "framer-motion";

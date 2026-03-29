@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { ArrowRight, ArrowLeft, Home, FileText, CreditCard, Heart, Landmark, ClipboardList, Shield, Radio, Car, KeyRound } from "lucide-react";
+import { ArrowRight, ChevronLeft, Home, FileText, CreditCard, Heart, Landmark, ClipboardList, Shield, Radio, Car, KeyRound } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { navigateBackOrHome } from "@/lib/navigation";
 

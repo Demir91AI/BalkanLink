@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { Briefcase, Receipt, Home, Heart, Users, HandCoins, ArrowRight, ArrowLeft } from "lucide-react";
+import { Briefcase, Receipt, Home, Heart, Users, HandCoins, ArrowRight, ChevronLeft } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 import LegalDisclaimer from "@/components/LegalDisclaimer";

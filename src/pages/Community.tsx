@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 import { motion } from "framer-motion";
 import { navigateBackOrHome } from "@/lib/navigation";
 import { useLanguage } from "@/contexts/LanguageContext";

@@ -3,7 +3,7 @@ import { useMemo, useState, useRef, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, ChevronDown, MapPin, Building2, Search, Landmark, Users, Trophy } from "lucide-react";
+import { ChevronLeft, ChevronDown, MapPin, Building2, Search, Landmark, Users, Trophy } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { BUNDESLAENDER } from "@/lib/germany-data";
 import ListingMapPreview from "@/components/ListingMapPreview";

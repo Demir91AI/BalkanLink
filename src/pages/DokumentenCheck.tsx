@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback } from "react";
-import { FileText, Upload, Type, Shield, AlertTriangle, Loader2, X, CheckCircle2, ArrowLeft } from "lucide-react";
+import { FileText, Upload, Type, Shield, AlertTriangle, Loader2, X, CheckCircle2, ChevronLeft } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";

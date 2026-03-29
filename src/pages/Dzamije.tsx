@@ -4,7 +4,7 @@ import { navigateBackOrHome } from "@/lib/navigation";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Input } from "@/components/ui/input";
-import { MapPin, ChevronDown, Search, Building2, ArrowLeft } from "lucide-react";
+import { MapPin, ChevronDown, Search, Building2, ChevronLeft } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface Listing {

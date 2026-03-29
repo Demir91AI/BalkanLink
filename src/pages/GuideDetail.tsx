@@ -1,5 +1,5 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { ArrowLeft, CheckCircle2, AlertTriangle, Clock, FileText, Building2, Info, ExternalLink } from "lucide-react";
+import { ChevronLeft, CheckCircle2, AlertTriangle, Clock, FileText, Building2, Info, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 import { getGuideBySlug, getOfficialUrl } from "@/lib/guide-data";
 import { useLanguage } from "@/contexts/LanguageContext";

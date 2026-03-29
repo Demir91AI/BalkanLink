@@ -1,4 +1,4 @@
-import { ExternalLink, Calculator, AlertTriangle, Euro, ArrowLeft } from "lucide-react";
+import { ExternalLink, Calculator, AlertTriangle, Euro, ChevronLeft } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { navigateBackOrHome } from "@/lib/navigation";

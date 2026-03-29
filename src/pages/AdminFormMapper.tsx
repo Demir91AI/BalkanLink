@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { navigateBackOrHome } from "@/lib/navigation";
-import { ArrowLeft, Search, Check, Download, Upload } from "lucide-react";
+import { ChevronLeft, Search, Check, Download, Upload } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";

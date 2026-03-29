@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { ArrowLeft, ExternalLink, Calendar } from "lucide-react";
+import { ChevronLeft, ExternalLink, Calendar } from "lucide-react";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";

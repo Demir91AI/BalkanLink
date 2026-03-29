@@ -1,4 +1,4 @@
-import { ArrowRight, AlertTriangle, FileX, Mail, Wallet, HomeIcon, Briefcase, HeartPulse, ArrowLeft } from "lucide-react";
+import { ArrowRight, AlertTriangle, FileX, Mail, Wallet, HomeIcon, Briefcase, HeartPulse, ChevronLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
