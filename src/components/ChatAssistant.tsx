@@ -112,14 +112,67 @@ const STARTER_QUESTIONS = [
 
 const DEFAULT_WELCOME = "Zdravo! 👋 Ja sam BalkanLink Asistent. Pomažem Balkancima u Njemačkoj da se snađu — od formulara do svakodnevnog života. Šta te muči?";
 
+// ── Auto-link keywords ──
+const KEYWORD_LINKS: [RegExp, string][] = [
+  // FORMULARI
+  [/\b(dječji dodatak|djecji dodatak)\b/gi, "/formulari/kindergeld"],
+  [/\b(Kindergeld|kindergeld)\b/g, "/formulari/kindergeld"],
+  [/\b(prijava adrese)\b/gi, "/formulari/anmeldung"],
+  [/\b(Anmeldung|anmeldung)\b/g, "/formulari/anmeldung"],
+  [/\b(Ummeldung|ummeldung)\b/g, "/formulari/anmeldung"],
+  [/\b(Steuer-ID|steuer-id|poreski broj)\b/gi, "/formulari/steuer-id"],
+  [/\b(Elterngeld|elterngeld|roditeljska naknada)\b/gi, "/formulari/elterngeld"],
+  [/\b(Krankenkasse|krankenkasse|zdravstveno osiguranje)\b/gi, "/formulari/krankenkasse"],
+  [/\b(Bürgergeld|bürgergeld|socijalna pomoć)\b/gi, "/formulari/burgergeld"],
+  [/\b(Wohngeld|wohngeld|pomoć za kiriju)\b/gi, "/formulari/wohngeld"],
+  [/\b(BAföG|bafög|stipendija)\b/gi, "/formulari/bafog"],
+  [/\b(Führungszeugnis|führungszeugnis|potvrda o nekažnjavanju)\b/gi, "/formulari/fuhrungszeugnis"],
+  [/\b(Steuerklassenwechsel|steuerklassenwechsel|Steuerklasse|steuerklasse|porezna klasa)\b/gi, "/formulari/steuerklassenwechsel"],
+  // AUFENTHALTSTITEL / VIZA
+  [/\b(Aufenthaltstitel|aufenthaltstitel|boravišna dozvola|boravisna dozvola)\b/gi, "/formulari/aufenthaltstitel"],
+  [/\b(Niederlassungserlaubnis|niederlassungserlaubnis|stalni boravak)\b/gi, "/formulari/aufenthaltstitel"],
+  [/\b(Blaue Karte|blaue karte|plava karta)\b/gi, "/formulari/aufenthaltstitel"],
+  [/\b(Arbeitsvisum|arbeitsvisum|radna viza)\b/gi, "/formulari/aufenthaltstitel"],
+  // DEUTSCH
+  [/\b(BalkanLink Deutsch|balkanlink deutsch)\b/gi, "/deutsch-trainer"],
+  [/\b(učenje njemačkog|ucenje njemackog)\b/gi, "/deutsch-trainer"],
+  // ALATI
+  [/\b(Brutto-Netto|brutto-netto)\b/g, "/brutto-netto-rechner"],
+  // DOKUMENTEN CHECK
+  [/\b(Dokumenten-Check|dokumenten-check|analiza pisma)\b/gi, "/dokumenten-check"],
+  // DOLAZAK
+  [/\b(dolazak u njemačku|dolazak u njemacku|preseljenje)\b/gi, "/nach-deutschland"],
+  // PAKETI
+  [/\b(paketi i opcije|Paketi i opcije)\b/gi, "/paketi"],
+];
+
+function autoLinkKeywords(text: string): string {
+  let result = text;
+  const linked = new Set<string>();
+  for (const [regex, url] of KEYWORD_LINKS) {
+    result = result.replace(regex, (match) => {
+      // Only link each keyword once per message to avoid clutter
+      if (linked.has(url)) return match;
+      // Don't link if already inside a markdown link
+      const idx = result.indexOf(match);
+      const before = result.slice(Math.max(0, idx - 2), idx);
+      if (before.includes("[") || before.includes("(")) return match;
+      linked.add(url);
+      return `[${match}](${url})`;
+    });
+  }
+  return result;
+}
+
 // ── Markdown renderer ──
 function ChatMarkdown({ content }: { content: string }) {
+  const linkedContent = autoLinkKeywords(content);
   return (
     <ReactMarkdown
       components={{
         a: ({ href, children }) => {
           if (href?.startsWith("/")) {
-            if (!isValidRoute(href)) return <span className="font-medium text-white/50">{children}</span>;
+            if (!isValidRoute(href) && !href.startsWith("/formulari/") && !href.startsWith("/guide/")) return <span className="font-medium text-white/50">{children}</span>;
             return <Link to={href} className="font-medium text-[hsl(45,93%,49%)] underline underline-offset-2 hover:text-[hsl(45,93%,60%)]">{children}</Link>;
           }
           return <a href={href} target="_blank" rel="noopener noreferrer" className="font-medium text-[hsl(45,93%,49%)] underline underline-offset-2 hover:text-[hsl(45,93%,60%)]">{children}</a>;
@@ -135,7 +188,7 @@ function ChatMarkdown({ content }: { content: string }) {
         h4: ({ children }) => <h4 className="text-[13px] font-bold mt-2 mb-1 text-white">{children}</h4>,
       }}
     >
-      {content}
+      {linkedContent}
     </ReactMarkdown>
   );
 }

@@ -383,6 +383,14 @@ NAVIGACIJA:
 - Aktivno koristi linkove na BalkanLink stranice
 - Svaki odgovor treba imati barem jedan interni link
 - Koristi [Pogledaj stranicu](/putanja) format
+- Na kraju svakog odgovora gdje je relevantno dodaj:
+  "👉 Pogledaj: [naziv]" gdje naziv odgovara temi:
+  - Pitanje o Kindergeld → "👉 Pogledaj: [Kindergeld vodič](/guide/kindergeld)"
+  - Pitanje o vizi/aufenthaltstitel/produženju → "👉 Pogledaj: [Viza Navigator](/formulari/aufenthaltstitel)"
+  - Pitanje o dolasku → "👉 Pogledaj: [Dolazak u Njemačku](/nach-deutschland)"
+  - Pitanje o cijeni/premiumu → "👉 Pogledaj: [Paketi i opcije](/paketi)"
+  - Pitanje o dokumentu koji ne razumije → "👉 Pogledaj: [Dokumenten-Check](/dokumenten-check)"
+  - Pitanje o učenju njemačkog → "👉 Pogledaj: [BalkanLink Deutsch](/deutsch-trainer)"
 
 ${pageContext ? `KONTEKST STRANICE:\n${pageContext}\nPrilagodi odgovor kontekstu stranice na kojoj se korisnik nalazi.\n` : ""}
 
