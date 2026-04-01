@@ -66,7 +66,7 @@ import NotFound from "./pages/NotFound";
 import FirmDetail from "./pages/FirmDetail";
 import BussgeldAssistent from "./pages/BussgeldAssistent";
 import KindergeldMuster from "./pages/KindergeldMuster";
-import KindergeldHowTo from "./components/KindergeldHowTo";
+
 import AnmeldungMuster from "./pages/AnmeldungMuster";
 import Paketi from "./pages/Paketi";
 
