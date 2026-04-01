@@ -106,8 +106,8 @@ const App = () => (
                 <Route path="/trebam-pomoc" element={<TrebamPomoc />} />
                 <Route path="/formulare" element={<Formulare />} />
                 <Route path="/formulari" element={<FormCenter />} />
-                <Route path="/formulari/kindergeld/muster" element={<KindergeldMuster />} />
                 <Route path="/formulari/kindergeld/howto" element={<div className="mx-auto max-w-2xl px-4 py-6"><KindergeldHowTo /></div>} />
+                <Route path="/formulari/kindergeld/muster" element={<KindergeldMuster />} />
                 <Route path="/formulari/anmeldung/muster" element={<AnmeldungMuster />} />
                 <Route path="/formulari/:slug" element={<FormCenter />} />
                 <Route path="/familie" element={<Familie />} />
