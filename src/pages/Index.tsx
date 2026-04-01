@@ -2,8 +2,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
-  ClipboardList, BookOpen, Calculator, Megaphone,
-  CheckCircle2, ArrowRight, Star, ExternalLink, Mail,
+  ArrowRight, Star, ExternalLink, Mail,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";

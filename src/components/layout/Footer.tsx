@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Star, CreditCard, Landmark, Wallet } from "lucide-react";
+import { CreditCard, Landmark, Wallet } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import BrandLogo from "@/components/BrandLogo";
 import DevPreviewSwitcher from "@/components/DevPreviewSwitcher";
