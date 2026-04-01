@@ -1,24 +1,9 @@
 import { motion } from "framer-motion";
 
 const steps = [
-  {
-    num: "01",
-    emoji: "🎯",
-    title: "Izaberi šta ti treba",
-    desc: "Formular, viza, kurs ili pomoć sa dokumentima — sve na jednom mjestu.",
-  },
-  {
-    num: "02",
-    emoji: "📋",
-    title: "Prati korake na bosanskom",
-    desc: "Svako polje objašnjeno, svaka greška predviđena. Bez njemačkog rječnika.",
-  },
-  {
-    num: "03",
-    emoji: "✅",
-    title: "Predaj bez greške",
-    desc: "Potpuno popunjen zahtjev, tačni dokumenti, bez stresa.",
-  },
+  { num: "01", emoji: "🎯", title: "Izaberi šta trebaš" },
+  { num: "02", emoji: "📋", title: "Prati korake" },
+  { num: "03", emoji: "✅", title: "Riješi bez greške" },
 ];
 
 export default function HomeHowItWorks() {
@@ -35,7 +20,6 @@ export default function HomeHowItWorks() {
           <h2 className="font-heading text-2xl font-extrabold text-white sm:text-3xl">
             Kako funkcioniše?
           </h2>
-          <p className="mt-2 text-sm text-white/40">Tri jednostavna koraka do cilja.</p>
         </motion.div>
 
         <div className="mx-auto mt-12 grid max-w-3xl grid-cols-1 gap-6 sm:grid-cols-3">
@@ -51,13 +35,12 @@ export default function HomeHowItWorks() {
               <span className="mb-2 text-3xl">{s.emoji}</span>
               <span className="mb-2 text-2xl font-black text-gold/30">{s.num}</span>
               <h3 className="text-base font-bold text-white">{s.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-white/40">{s.desc}</p>
             </motion.div>
           ))}
         </div>
 
         {/* Connecting line for desktop */}
-        <div className="hidden sm:block mx-auto max-w-3xl mt-[-140px] mb-[100px]">
+        <div className="hidden sm:block mx-auto max-w-3xl mt-[-100px] mb-[60px]">
           <div className="h-[2px] bg-gradient-to-r from-gold/0 via-gold/30 to-gold/0 mx-16" />
         </div>
       </div>

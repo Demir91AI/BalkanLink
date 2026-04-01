@@ -27,7 +27,7 @@ export default function Stellenangebote() {
               <Briefcase className="h-4 w-4" /> Pretraga poslova
             </div>
             <h1 className="font-heading text-2xl font-bold sm:text-3xl md:text-4xl">
-              Preporučeni sajtovi za traženje posla u Njemačkoj
+              Najbolji portali za posao u Njemačkoj
             </h1>
             <p className="mx-auto mt-2 max-w-lg text-sm text-primary-foreground/75 sm:text-base">
               Direktni linkovi na najveće njemačke job portale.

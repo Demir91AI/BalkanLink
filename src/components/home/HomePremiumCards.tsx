@@ -31,8 +31,8 @@ const premiumCards = [
 ];
 
 const secondaryCards = [
-  { icon: FileText, title: "Dokumenten-Check", desc: "Besplatno • 2 provjere dnevno", to: "/dokumenten-check" },
-  { icon: Megaphone, title: "Nudim / Tražim", desc: `Objava besplatna • PRO isticanje od ${PRICING.proAd7Days}`, to: "/nudim-trazim" },
+  { icon: FileText, title: "Dokumenten-Check", desc: "✓ Besplatno — 2 provjere dnevno", to: "/dokumenten-check" },
+  { icon: Megaphone, title: "Nudim / Tražim", desc: `Objava besplatna • PRO od ${PRICING.proAd7Days}`, to: "/nudim-trazim" },
   { icon: Search, title: "Pretraga poslova", desc: "Besplatno — korisni linkovi", to: "/stellenangebote" },
   { icon: Home, title: "Pretraga stanova", desc: "Besplatno — korisni linkovi", to: "/wohnungen" },
   { icon: Wrench, title: "Šabloni / Vorlagen", desc: "Besplatno", to: "/vorlagen" },
