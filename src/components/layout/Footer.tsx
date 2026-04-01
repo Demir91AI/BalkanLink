@@ -52,16 +52,12 @@ export default function Footer() {
           {/* Trust + Payment */}
           <div>
             <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/25">{t("footer.trustSection")}</h4>
-            <div className="flex items-center justify-center sm:justify-start gap-1 text-brand-orange">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="h-3.5 w-3.5 fill-current" />
-              ))}
-              <span className="ml-1.5 text-[13px] font-semibold text-white/60">4.9 / 5</span>
-            </div>
-            <p className="mt-1.5 text-[12px] text-white/30">{t("footer.trustRating")}</p>
-            <p className="mt-4 text-[13px] font-medium text-white/40">
-              <span className="text-brand-orange font-semibold">10.000+</span> {t("footer.trustUsers")}
+            <p className="text-[13px] text-white/40">
+              Budi prvi koji ostavi recenziju — pomozi drugima iz zajednice.
             </p>
+            <Link to="/qa" className="mt-2 inline-block text-[12px] text-brand-orange hover:underline">
+              Ostavi recenziju →
+            </Link>
 
             {/* Payment methods - prepared */}
             <div className="mt-6">

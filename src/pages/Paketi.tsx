@@ -313,7 +313,7 @@ export default function Paketi() {
             🏢 Oglašavanje za firme
           </h3>
           <p className="text-[13px] text-[#9CA3AF] text-center mb-5">
-            Imaš registrovanu firmu? Postavi se pred 10.000+ Balkanaca u Njemačkoj.
+            Imaš registrovanu firmu? Postavi se pred zajednicom Balkanaca u Njemačkoj.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
