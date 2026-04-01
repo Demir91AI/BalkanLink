@@ -8,6 +8,8 @@ import {
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
+import HomePremiumCards from "@/components/home/HomePremiumCards";
+import HomeHowItWorks from "@/components/home/HomeHowItWorks";
 
 import realcoreDigitalLogo from "@/assets/realcore-digital-logo.png";
 import heroBerlin from "@/assets/hero-berlin.jpg";
