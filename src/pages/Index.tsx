@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
 import HomePremiumCards from "@/components/home/HomePremiumCards";
 import HomeHowItWorks from "@/components/home/HomeHowItWorks";
+import HomeReviews from "@/components/home/HomeReviews";
 
 import realcoreDigitalLogo from "@/assets/realcore-digital-logo.png";
 import heroBerlin from "@/assets/hero-berlin.jpg";
@@ -425,6 +426,9 @@ export default function Index() {
 
       {/* ─── KAKO FUNKCIONIŠE ─── */}
       <HomeHowItWorks />
+
+      {/* ─── RECENZIJE ─── */}
+      <HomeReviews />
 
       {/* ─── PREMIUM SHOWCASE (Carousel) ─── */}
       <section className="py-16 sm:py-20 border-t border-white/[0.05]">

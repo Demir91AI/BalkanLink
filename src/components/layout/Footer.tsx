@@ -53,11 +53,18 @@ export default function Footer() {
           <div>
             <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/25">{t("footer.trustSection")}</h4>
             <p className="text-[13px] text-white/40">
-              Budi prvi koji ostavi recenziju — pomozi drugima iz zajednice.
+              Budi prvi koji ostavi recenziju — pomozi zajednici.
             </p>
-            <Link to="/qa" className="mt-2 inline-block text-[12px] text-brand-orange hover:underline">
+            <button
+              onClick={() => {
+                const el = document.getElementById("reviews-section");
+                if (el) el.scrollIntoView({ behavior: "smooth" });
+                else window.location.href = "/#reviews";
+              }}
+              className="mt-2 inline-block text-[12px] text-brand-orange hover:underline"
+            >
               Ostavi recenziju →
-            </Link>
+            </button>
 
             {/* Payment methods - prepared */}
             <div className="mt-6">

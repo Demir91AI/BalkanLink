@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback } from "react";
-import { FileText, Upload, Type, Shield, AlertTriangle, Loader2, X, CheckCircle2, ChevronLeft } from "lucide-react";
+import { FileText, Upload, Type, Shield, AlertTriangle, Loader2, X, CheckCircle2, ChevronLeft, Lock } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -10,6 +10,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useSectionT } from "@/hooks/useSectionT";
 import { useNavigate } from "react-router-dom";
 import { navigateBackOrHome } from "@/lib/navigation";
+import { IS_ADMIN_PREVIEW } from "@/lib/config";
 
 type InputMode = "upload" | "text";
 
@@ -26,6 +27,8 @@ export default function DokumentenCheck() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const isPremium = IS_ADMIN_PREVIEW; // In production, check real premium status
 
   const clearFile = useCallback(() => {
     setFile(null);
@@ -113,6 +116,9 @@ export default function DokumentenCheck() {
     navigateBackOrHome(navigate);
   }, [navigate]);
 
+  // Split analysis into basic (free) and detailed (premium) sections
+  const analysisSections = analysis ? splitAnalysis(analysis) : null;
+
   return (
     <>
       <section className="border-b bg-primary py-10">
@@ -126,6 +132,9 @@ export default function DokumentenCheck() {
           <p className="mt-2 text-sm text-primary-foreground/80">
             {st("docCheck.subtitle")}
           </p>
+          <span className="mt-2 inline-block rounded-full bg-[hsl(var(--success))]/20 px-3 py-1 text-xs font-semibold text-[hsl(var(--success))]">
+            ✓ Besplatno — 2 provjere dnevno
+          </span>
         </div>
       </section>
 
@@ -210,12 +219,50 @@ export default function DokumentenCheck() {
             </div>
           )}
 
-          {analysis && (
+          {analysisSections && (
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-              className="rounded-xl border bg-card p-6 shadow-sm">
-              <h2 className="mb-4 text-sm font-bold uppercase tracking-wide text-muted-foreground">{st("docCheck.resultTitle")}</h2>
-              <div className="prose prose-sm max-w-none"><ReactMarkdown>{analysis}</ReactMarkdown></div>
-              <div className="mt-6 rounded-lg bg-muted/50 p-3">
+              className="space-y-0">
+              {/* FREE: Basic info */}
+              <div className="rounded-t-xl border border-b-0 bg-card p-6 shadow-sm">
+                <h2 className="mb-4 text-sm font-bold uppercase tracking-wide text-muted-foreground">{st("docCheck.resultTitle")}</h2>
+                <div className="prose prose-sm max-w-none">
+                  <ReactMarkdown>{analysisSections.basic}</ReactMarkdown>
+                </div>
+              </div>
+
+              {/* PREMIUM: Detailed steps */}
+              <div className="relative rounded-b-xl border bg-card p-6 shadow-sm">
+                {!isPremium && (
+                  <div className="absolute inset-0 z-10 flex flex-col items-center justify-center rounded-b-xl bg-background/80 backdrop-blur-sm">
+                    <Lock className="h-8 w-8 text-[hsl(var(--gold))] mb-3" />
+                    <p className="text-sm font-bold text-foreground mb-4 text-center px-4">
+                      🔒 Detaljni koraci i rješenje dostupni u Premium verziji
+                    </p>
+                    <div className="flex flex-col gap-2">
+                      <button
+                        onClick={() => navigate("/premium")}
+                        className="rounded-full bg-[hsl(var(--gold))] px-6 py-3 text-sm font-bold text-[#0f1f3d] transition-all hover:opacity-90"
+                      >
+                        BalkanLink Premium — 9.99€/mj.
+                      </button>
+                      <button
+                        onClick={() => navigate("/premium")}
+                        className="rounded-full bg-[#0f1f3d] px-6 py-3 text-sm font-bold text-white border border-white/20 transition-all hover:bg-[#0f1f3d]/80"
+                      >
+                        Jedan pristup — 3.99€
+                      </button>
+                    </div>
+                  </div>
+                )}
+                <div className={!isPremium ? "blur-sm select-none pointer-events-none" : ""}>
+                  <h3 className="mb-3 text-xs font-bold uppercase tracking-wide text-muted-foreground">Detaljni koraci i rješenje</h3>
+                  <div className="prose prose-sm max-w-none">
+                    <ReactMarkdown>{analysisSections.detailed}</ReactMarkdown>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-4 rounded-lg bg-muted/50 p-3">
                 <p className="text-xs text-muted-foreground">
                   ⚖️ <strong>{st("docCheck.legalNote")}</strong> {st("docCheck.legalNoteDesc")}
                 </p>
@@ -232,4 +279,47 @@ export default function DokumentenCheck() {
       </section>
     </>
   );
+}
+
+/** Split AI analysis into basic (free) and detailed (premium) sections */
+function splitAnalysis(text: string): { basic: string; detailed: string } {
+  const lines = text.split("\n");
+  const basicLines: string[] = [];
+  const detailedLines: string[] = [];
+  let inDetailed = false;
+  
+  for (const line of lines) {
+    const lower = line.toLowerCase();
+    if (
+      lower.includes("šta uraditi") ||
+      lower.includes("koraci") ||
+      lower.includes("rješenje") ||
+      lower.includes("preporuk") ||
+      lower.includes("česte greške") ||
+      lower.includes("rok") ||
+      lower.includes("predaj") ||
+      lower.includes("sljedeći korak")
+    ) {
+      inDetailed = true;
+    }
+    if (inDetailed) {
+      detailedLines.push(line);
+    } else {
+      basicLines.push(line);
+    }
+  }
+  
+  // If we couldn't split, show first 40% free, rest premium
+  if (detailedLines.length === 0 && basicLines.length > 4) {
+    const splitAt = Math.ceil(basicLines.length * 0.4);
+    return {
+      basic: basicLines.slice(0, splitAt).join("\n"),
+      detailed: basicLines.slice(splitAt).join("\n"),
+    };
+  }
+  
+  return {
+    basic: basicLines.join("\n") || "Analiza dokumenta...",
+    detailed: detailedLines.join("\n") || "Detaljni koraci nisu dostupni za ovaj dokument.",
+  };
 }
