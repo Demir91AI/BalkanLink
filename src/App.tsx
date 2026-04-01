@@ -66,6 +66,7 @@ import NotFound from "./pages/NotFound";
 import FirmDetail from "./pages/FirmDetail";
 import BussgeldAssistent from "./pages/BussgeldAssistent";
 import KindergeldMuster from "./pages/KindergeldMuster";
+import KindergeldHowTo from "./components/KindergeldHowTo";
 import AnmeldungMuster from "./pages/AnmeldungMuster";
 import Paketi from "./pages/Paketi";
 
@@ -106,6 +107,7 @@ const App = () => (
                 <Route path="/formulare" element={<Formulare />} />
                 <Route path="/formulari" element={<FormCenter />} />
                 <Route path="/formulari/kindergeld/muster" element={<KindergeldMuster />} />
+                <Route path="/formulari/kindergeld/howto" element={<div className="mx-auto max-w-2xl px-4 py-6"><KindergeldHowTo /></div>} />
                 <Route path="/formulari/anmeldung/muster" element={<AnmeldungMuster />} />
                 <Route path="/formulari/:slug" element={<FormCenter />} />
                 <Route path="/familie" element={<Familie />} />
