@@ -1,9 +1,5 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AlertTriangle, ClipboardList, PenLine, Clock, ChevronLeft, ChevronRight, Pencil, MapPin, Hash, XCircle, MinusCircle, FileCheck } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
-import KindergeldHowTo from "@/components/KindergeldHowTo";
+import { AlertTriangle, ClipboardList, PenLine, Clock } from "lucide-react";
 
 export default function KindergeldGuideContent() {
   const navigate = useNavigate();
@@ -60,10 +56,7 @@ export default function KindergeldGuideContent() {
         </div>
       </div>
 
-      {/* ─── DIO 2: Video slideshow + Interactive Smart Guide ─── */}
-      <KindergeldHowTo />
-
-      {/* ─── DIO 3: Musterformular kartica ─── */}
+      {/* ─── DIO 2: Musterformular kartica ─── */}
       <div
         className="rounded-2xl p-6 text-center"
         style={{ backgroundColor: "#111827", border: "1px solid #3B82F6" }}
@@ -88,7 +81,7 @@ export default function KindergeldGuideContent() {
         </button>
       </div>
 
-      {/* ─── DIO 4: Link na original ─── */}
+      {/* ─── DIO 3: Link na original ─── */}
       <div className="rounded-lg p-4 text-center" style={{ backgroundColor: "#1F2937" }}>
         <p className="text-[13px] text-gray-400">
           Original KG1 formular preuzmi direktno od Bundesagentur für Arbeit
