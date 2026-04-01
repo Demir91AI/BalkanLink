@@ -2,12 +2,13 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
-  ClipboardList, BookOpen, Calculator, Megaphone,
-  CheckCircle2, ArrowRight, Star, ExternalLink, Mail,
+  Megaphone, CheckCircle2, ArrowRight, Star, ExternalLink, Mail,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
+import HomePremiumCards from "@/components/home/HomePremiumCards";
+import HomeHowItWorks from "@/components/home/HomeHowItWorks";
 
 import realcoreDigitalLogo from "@/assets/realcore-digital-logo.png";
 import heroBerlin from "@/assets/hero-berlin.jpg";
@@ -36,19 +37,6 @@ const slides = [
 
 const trustBadgeKeys = ["hero.bullet.simple", "hero.bullet.language", "hero.bullet.verified"];
 
-const highlights = [
-  { icon: ClipboardList, titleKey: "Formulari", descKey: "Svi formulari na jednom mjestu", to: "/formulari" },
-  { icon: Calculator, titleKey: "Kalkulatori", descKey: "Brutto-Netto i više", to: "/tools" },
-  { icon: BookOpen, titleKey: "Deutsch", descKey: "Nauči njemački kroz praksu", to: "/deutsch-trainer" },
-  { icon: Megaphone, titleKey: "Oglasi", descKey: "Nudim / Tražim oglasi", to: "/nudim-trazim" },
-  { icon: null as any, titleKey: "Nudim / Tražim", descKey: "Poveži se s ljudima", to: "/nudim-trazim" },
-];
-
-const steps = [
-  { num: "01", title: "Odaberi temu", desc: "Pronađi ono što ti treba – formulari, jezik ili kalkulatori." },
-  { num: "02", title: "Prati vodič", desc: "Svaki korak je objašnjen jednostavno, na tvom jeziku." },
-  { num: "03", title: "Završi bez grešaka", desc: "Kompletno i tačno – bez skupih grešaka." },
-];
 
 const MAILTO_AD = `mailto:kontakt@balkanlink.de?subject=${encodeURIComponent("Oglašavanje na BalkanLink")}&body=${encodeURIComponent("Pozdrav,\n\nZanima me oglašavanje na BalkanLink platformi.\n\nNaziv firme:\nVrsta usluge:\nGrad:\nBudžet:\n")}`;
 
@@ -432,110 +420,11 @@ export default function Index() {
         </div>
       </section>
 
-      {/* ─── HIGHLIGHTS (4 cards) ─── */}
-      <section className="py-16 sm:py-20">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mx-auto max-w-2xl text-center"
-          >
-            <h2 className="font-heading text-2xl font-extrabold text-white sm:text-3xl lg:text-4xl">
-              Sve što ti treba —{" "}
-              <span className="text-gold">na jednom mjestu</span>
-            </h2>
-            <div className="mx-auto mt-3 h-[3px] w-16 rounded-full bg-gradient-to-r from-[#3B82F6] to-gold" />
-          </motion.div>
+      {/* ─── PREMIUM PRODUCTS + FREE TOOLS ─── */}
+      <HomePremiumCards />
 
-          <div className="mx-auto mt-12 grid w-full max-w-4xl grid-cols-2 gap-3">
-            {highlights.map((h, i) => {
-              const isDeutsch = h.to === "/deutsch-trainer";
-              const isNudimTrazim = h.titleKey === "Nudim / Tražim";
-              return (
-                <motion.div
-                  key={h.titleKey}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.15 + i * 0.1 }}
-                  className={isDeutsch ? "col-span-2 w-full" : "w-full"}
-                >
-                  {isDeutsch ? (
-                    <Link
-                      to={h.to}
-                      className="group relative flex w-full flex-col items-center rounded-2xl border border-[#EAB308] p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(234,179,8,0.3)]"
-                      style={{ background: "#111827", minHeight: 180 }}
-                    >
-                      <span className="absolute top-3 right-3 rounded-full px-2 py-0.5 text-[11px] font-bold text-white" style={{ background: "#22C55E" }}>FREE</span>
-                      <span className="mb-3 text-[40px] leading-none">🎓</span>
-                      <h3 className="text-[22px] font-bold text-white">BalkanLink Deutsch</h3>
-                      <p className="mt-1 text-[14px] font-medium text-[#EAB308]">Nauči njemački za pravi život</p>
-                      <p className="mt-1.5 text-[13px] text-[#9CA3AF] leading-relaxed">Kod doktora, na poslu, u opštini — jasno i bez komplikacija.</p>
-                      <span className="mt-3 text-xs text-[#9CA3AF]">A1 → C2</span>
-                      <span className="mt-3 block w-full rounded-lg py-2 text-center text-sm font-bold text-black transition-opacity group-hover:opacity-90" style={{ background: "#EAB308" }}>
-                        Počni besplatno →
-                      </span>
-                    </Link>
-                  ) : (
-                    <Link
-                      to={h.to}
-                      className="group flex w-full flex-col items-center justify-center rounded-2xl border border-white/8 bg-white/[0.03] px-4 text-center transition-all duration-300 hover:-translate-y-1 hover:border-gold/30 hover:bg-white/[0.06] hover:shadow-[0_12px_40px_rgba(0,0,0,0.3)]"
-                      style={{ minHeight: 140 }}
-                    >
-                      <div className="mb-2 flex items-center justify-center">
-                        {isNudimTrazim ? (
-                          <span className="text-[28px] leading-none">🤝</span>
-                        ) : (
-                          <h.icon className="h-7 w-7 text-[#F5A623]" strokeWidth={1.8} />
-                        )}
-                      </div>
-                      <h3 className="text-[14px] font-bold text-white group-hover:text-gold transition-colors">{h.titleKey}</h3>
-                      <p className="mt-1 text-[12px] text-white/40 line-clamp-2">{h.descKey}</p>
-                    </Link>
-                  )}
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── KAKO FUNKCIONIŠE (3 steps) ─── */}
-      <section className="py-16 sm:py-20 border-t border-white/[0.05]">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mx-auto max-w-2xl text-center"
-          >
-            <h2 className="font-heading text-2xl font-extrabold text-white sm:text-3xl">
-              Kako funkcioniše?
-            </h2>
-            <p className="mt-2 text-sm text-white/40">Tri jednostavna koraka do cilja.</p>
-          </motion.div>
-
-          <div className="mx-auto mt-12 grid max-w-3xl grid-cols-1 gap-6 sm:grid-cols-3">
-            {steps.map((s, i) => (
-              <motion.div
-                key={s.num}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.15 + i * 0.12 }}
-                className="flex flex-col items-center rounded-2xl border border-white/8 bg-white/[0.03] px-5 py-8 text-center"
-              >
-                <span className="mb-3 text-3xl font-black text-gold/30">{s.num}</span>
-                <h3 className="text-base font-bold text-white">{s.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/40">{s.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ─── KAKO FUNKCIONIŠE ─── */}
+      <HomeHowItWorks />
 
       {/* ─── PREMIUM SHOWCASE (Carousel) ─── */}
       <section className="py-16 sm:py-20 border-t border-white/[0.05]">

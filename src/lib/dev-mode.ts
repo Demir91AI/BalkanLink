@@ -1,6 +1,6 @@
 /**
- * Development mode flag.
- * When enabled, all premium locks are bypassed for testing.
- * Set to `false` before production release.
+ * Development mode flag — now delegates to IS_ADMIN_PREVIEW.
  */
-export const DEV_MODE = true;
+import { IS_ADMIN_PREVIEW } from "./config";
+
+export const DEV_MODE = IS_ADMIN_PREVIEW;

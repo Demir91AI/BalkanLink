@@ -256,7 +256,7 @@ export default function Paketi() {
               </span>
               <h4 className="text-[15px] font-bold text-white mt-1">Istaknuti oglas</h4>
               <p className="mt-1">
-                <span className="text-[28px] font-bold text-white">1.99€</span>
+                <span className="text-[28px] font-bold text-white">2.99€</span>
                 <span className="text-[13px] text-[#9CA3AF] ml-1">/ 7 dana</span>
               </p>
               <ul className="mt-3 space-y-1.5 text-[13px] text-white">
@@ -280,10 +280,10 @@ export default function Paketi() {
               </span>
               <h4 className="text-[15px] font-bold text-white mt-1">Istaknuti oglas</h4>
               <p className="mt-1">
-                <span className="text-[28px] font-bold text-[#EAB308]">4.99€</span>
+                <span className="text-[28px] font-bold text-[#EAB308]">9.99€</span>
                 <span className="text-[13px] text-[#9CA3AF] ml-1">/ 30 dana</span>
               </p>
-              <p className="text-[11px] text-[#9CA3AF]">= 0.17€ dnevno</p>
+              <p className="text-[11px] text-[#9CA3AF]">= 0.33€ dnevno</p>
               <ul className="mt-3 space-y-1.5 text-[13px] text-white">
                 <li className="flex items-start gap-2"><Check className="h-3.5 w-3.5 text-[#22C55E] mt-0.5 shrink-0" />Cijeli mjesec na vrhu</li>
                 <li className="flex items-start gap-2"><Check className="h-3.5 w-3.5 text-[#22C55E] mt-0.5 shrink-0" />⭐ PRO oznaka</li>
@@ -313,7 +313,7 @@ export default function Paketi() {
             🏢 Oglašavanje za firme
           </h3>
           <p className="text-[13px] text-[#9CA3AF] text-center mb-5">
-            Imaš registrovanu firmu? Postavi se pred 10.000+ Balkanaca u Njemačkoj.
+            Imaš registrovanu firmu? Postavi se pred zajednicom Balkanaca u Njemačkoj.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
