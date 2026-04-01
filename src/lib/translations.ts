@@ -526,7 +526,7 @@ const newKeysBs: Partial<TranslationKeys> = {
   "paywall.simulate": "Simuliraj uplatu (7€)",
   "paywall.processing": "Obrađujem…",
   "paywall.loginRequired": "Prijavi se za pristup",
-  "paywall.feature1": "Objašnjenje svakog polja na bosanskom",
+  "paywall.feature1": "Objašnjenje svakog polja na tvom jeziku",
   "paywall.feature2": "Najčešće greške i kako ih izbjeći",
   "paywall.feature3": "Interaktivni PDF pregled s klikabilnim poljima",
   "paywall.feature4": "Step-by-step vodič",
