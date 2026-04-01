@@ -256,7 +256,7 @@ export default function Paketi() {
               </span>
               <h4 className="text-[15px] font-bold text-white mt-1">Istaknuti oglas</h4>
               <p className="mt-1">
-                <span className="text-[28px] font-bold text-white">1.99€</span>
+                <span className="text-[28px] font-bold text-white">2.99€</span>
                 <span className="text-[13px] text-[#9CA3AF] ml-1">/ 7 dana</span>
               </p>
               <ul className="mt-3 space-y-1.5 text-[13px] text-white">
