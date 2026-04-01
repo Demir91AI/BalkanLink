@@ -7,7 +7,7 @@ const premiumCards = [
   {
     emoji: "📋",
     title: "Smart Guide — Formulari",
-    desc: "Popuni svaki njemački formular korak po korak, na bosanskom.",
+    desc: "Popuni svaki njemački formular korak po korak.",
     cta: "Otvori Smart Guide →",
     to: "/formulari",
     price: `Od ${PRICING.singleForm} / formular ili ${PRICING.premiumMonthly} Premium`,
@@ -15,7 +15,7 @@ const premiumCards = [
   {
     emoji: "🛂",
     title: "Viza Navigator",
-    desc: "Pronađi pravu vizu ili boravišnu dozvolu za tvoju situaciju.",
+    desc: "Pronađi pravu vizu ili boravišnu dozvolu za svoju situaciju.",
     cta: "Otvori Navigator →",
     to: "/dolazak/boravisna-dozvola",
     price: `Uključeno u Premium — ${PRICING.premiumMonthly}`,
