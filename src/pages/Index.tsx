@@ -38,19 +38,6 @@ const slides = [
 
 const trustBadgeKeys = ["hero.bullet.simple", "hero.bullet.language", "hero.bullet.verified"];
 
-const highlights = [
-  { icon: ClipboardList, titleKey: "Formulari", descKey: "Svi formulari na jednom mjestu", to: "/formulari" },
-  { icon: Calculator, titleKey: "Kalkulatori", descKey: "Brutto-Netto i više", to: "/tools" },
-  { icon: BookOpen, titleKey: "Deutsch", descKey: "Nauči njemački kroz praksu", to: "/deutsch-trainer" },
-  { icon: Megaphone, titleKey: "Oglasi", descKey: "Nudim / Tražim oglasi", to: "/nudim-trazim" },
-  { icon: null as any, titleKey: "Nudim / Tražim", descKey: "Poveži se s ljudima", to: "/nudim-trazim" },
-];
-
-const steps = [
-  { num: "01", title: "Odaberi temu", desc: "Pronađi ono što ti treba – formulari, jezik ili kalkulatori." },
-  { num: "02", title: "Prati vodič", desc: "Svaki korak je objašnjen jednostavno, na tvom jeziku." },
-  { num: "03", title: "Završi bez grešaka", desc: "Kompletno i tačno – bez skupih grešaka." },
-];
 
 const MAILTO_AD = `mailto:kontakt@balkanlink.de?subject=${encodeURIComponent("Oglašavanje na BalkanLink")}&body=${encodeURIComponent("Pozdrav,\n\nZanima me oglašavanje na BalkanLink platformi.\n\nNaziv firme:\nVrsta usluge:\nGrad:\nBudžet:\n")}`;
 
