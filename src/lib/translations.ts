@@ -516,7 +516,7 @@ const newKeysBs: Partial<TranslationKeys> = {
   "auth.pwRule.number": "Najmanje 1 broj (0-9)",
   "auth.pwRule.special": "Najmanje 1 specijalni znak (!@#$%^&*)",
   "formCenter.title": "Formulari — Smart Guide",
-  "formCenter.subtitle": "Interaktivna pomoć za popunjavanje njemačkih formulara. Svako polje objašnjeno na bosanskom.",
+  "formCenter.subtitle": "Interaktivna pomoć za popunjavanje njemačkih formulara. Svako polje objašnjeno na tvom jeziku.",
   "formCenter.openGuide": "Otvori Smart Guide",
   "formCenter.pdfUnavailable": "PDF trenutno nije dostupan",
   "formCenter.comingSoon": "Uskoro dostupno",
