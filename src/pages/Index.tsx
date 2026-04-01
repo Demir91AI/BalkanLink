@@ -427,6 +427,9 @@ export default function Index() {
       {/* ─── KAKO FUNKCIONIŠE ─── */}
       <HomeHowItWorks />
 
+      {/* ─── RECENZIJE ─── */}
+      <HomeReviews />
+
       {/* ─── PREMIUM SHOWCASE (Carousel) ─── */}
       <section className="py-16 sm:py-20 border-t border-white/[0.05]">
         <div className="container mb-8">
