@@ -348,6 +348,8 @@ export default function Index() {
         ))}
 
         <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/60 via-black/30 to-[#0B0F1A]" />
+        {/* Hero bottom overlay - smooth blend */}
+        <div className="absolute left-0 right-0 bottom-0 h-[220px] z-[3] pointer-events-none" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(11,15,26,0.35) 40%, rgba(11,15,26,0.72) 72%, #0B0F1A 100%)" }} />
 
         <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-5 py-16 lg:py-20">
           <div className="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
