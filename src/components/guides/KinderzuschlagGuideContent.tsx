@@ -63,6 +63,7 @@ const STEPS: StepData[] = [
     whatToWrite:
       "OPCIJA 1 — Online (preporučeno):\n📱 con.arbeitsagentur.de/prod/kiz/ui/start\n\nOPCIJA 2 — Pismeno:\n• Preuzi formular sa arbeitsagentur.de\n• Predaj u svojoj Familienkasse\n\nNakon prijave dobijaš Bescheid — pismenu odluku s iznosom i periodom. KiZ se odobrava na 6 mjeseci, nakon toga treba novi zahtjev.",
     commonMistake:
+      "Ne koristiti KiZ-Lotse prije prijave — možeš uštedjeti vrijeme ako nemaš pravo.",
       "Kasno podnošenje — KiZ se ne isplaćuje retroaktivno. Promjenu prihoda ili stanarine ne prijaviti Familienkasse → može doći do povrata novca. Misliti da Kindergeld automatski uključuje KiZ — KiZ je odvojen zahtjev.",
     note:
       "KiZ se isplaćuje zajedno sa Kindergeldom na isti račun.",
