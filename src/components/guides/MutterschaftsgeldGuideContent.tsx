@@ -9,24 +9,30 @@ const DECISION_OPTIONS = [
     title: "Gesetzlich versichert (vlastito članstvo)",
     icon: ShieldCheck,
     description: "Max 13€/dan od Krankenkasse + Arbeitgeberzuschuss od poslodavca",
-    color: "border-emerald-300 bg-emerald-50 dark:border-emerald-800 dark:bg-emerald-950/20",
-    badge: "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300",
+    gradient: "from-emerald-500/10 via-emerald-500/5 to-transparent",
+    border: "border-emerald-400/40 hover:border-emerald-400/70",
+    iconBg: "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400",
+    badge: "bg-emerald-500 text-white shadow-lg shadow-emerald-500/30",
   },
   {
     label: "B",
     title: "Privat versichert ili familienversichert",
     icon: Users,
     description: "210€ ukupno jednokratno od Bundesamt für Soziale Sicherung",
-    color: "border-blue-300 bg-blue-50 dark:border-blue-800 dark:bg-blue-950/20",
-    badge: "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300",
+    gradient: "from-blue-500/10 via-blue-500/5 to-transparent",
+    border: "border-blue-400/40 hover:border-blue-400/70",
+    iconBg: "bg-blue-500/15 text-blue-600 dark:text-blue-400",
+    badge: "bg-blue-500 text-white shadow-lg shadow-blue-500/30",
   },
   {
     label: "C",
     title: "Selbstständig mit privater Krankentagegeldversicherung",
     icon: Briefcase,
     description: "Kontaktiraj svoju privatnu osiguravajuću kuću",
-    color: "border-violet-300 bg-violet-50 dark:border-violet-800 dark:bg-violet-950/20",
-    badge: "bg-violet-100 text-violet-700 dark:bg-violet-900/40 dark:text-violet-300",
+    gradient: "from-violet-500/10 via-violet-500/5 to-transparent",
+    border: "border-violet-400/40 hover:border-violet-400/70",
+    iconBg: "bg-violet-500/15 text-violet-600 dark:text-violet-400",
+    badge: "bg-violet-500 text-white shadow-lg shadow-violet-500/30",
   },
 ] as const;
 
@@ -121,29 +127,38 @@ export default function MutterschaftsgeldGuideContent() {
       />
 
       {/* Decision Tree */}
-      <div className="space-y-3">
+      <div className="space-y-4">
         <h3 className="text-sm font-bold">Koja vrsta Mutterschaftsgeld ti pripada?</h3>
         <div className="grid gap-3">
           {DECISION_OPTIONS.map((opt) => (
-            <div key={opt.label} className={`rounded-xl border p-4 ${opt.color}`}>
-              <div className="flex items-start gap-3">
-                <span className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-bold ${opt.badge}`}>
+            <div
+              key={opt.label}
+              className={`group relative overflow-hidden rounded-2xl border ${opt.border} bg-card p-5 transition-all duration-300 shadow-sm hover:shadow-md`}
+            >
+              {/* gradient accent */}
+              <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${opt.gradient}`} />
+              <div className="relative flex items-start gap-4">
+                <span className={`shrink-0 flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold ${opt.badge}`}>
                   {opt.label}
                 </span>
-                <div className="space-y-1">
-                  <div className="flex items-center gap-1.5">
-                    <opt.icon className="h-3.5 w-3.5 shrink-0" />
-                    <p className="text-xs font-semibold">{opt.title}</p>
+                <div className="space-y-1.5 min-w-0">
+                  <div className="flex items-center gap-2">
+                    <span className={`flex h-7 w-7 items-center justify-center rounded-lg ${opt.iconBg}`}>
+                      <opt.icon className="h-4 w-4" />
+                    </span>
+                    <p className="text-[13px] font-semibold leading-tight">{opt.title}</p>
                   </div>
-                  <p className="text-xs text-foreground/70 leading-relaxed">{opt.description}</p>
+                  <p className="text-xs text-muted-foreground leading-relaxed pl-9">{opt.description}</p>
                 </div>
               </div>
             </div>
           ))}
         </div>
-        <p className="text-[11px] text-muted-foreground leading-relaxed rounded-lg bg-muted/50 p-3">
-          ℹ️ Kako znati jesi li sama član GKV? Provjeri zdravstvenu karticu — ako piše <strong>„Mitglied"</strong> a ne „Familienversichert", imaš vlastito članstvo.
-        </p>
+        <div className="rounded-xl border border-primary/20 bg-primary/5 p-4">
+          <p className="text-[11px] text-foreground/70 leading-relaxed">
+            ℹ️ Kako znati jesi li sama član GKV? Provjeri zdravstvenu karticu — ako piše <strong className="text-foreground">„Mitglied"</strong> a ne „Familienversichert", imaš vlastito članstvo.
+          </p>
+        </div>
       </div>
 
       {/* Smart Guide Wizard */}
