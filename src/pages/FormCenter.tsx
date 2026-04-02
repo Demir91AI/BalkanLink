@@ -21,6 +21,15 @@ import WohngeldGuideContent from "@/components/guides/WohngeldGuideContent";
 import MutterschaftsgeldGuideContent from "@/components/guides/MutterschaftsgeldGuideContent";
 import KinderzuschlagGuideContent from "@/components/guides/KinderzuschlagGuideContent";
 import KrippengeldBayernGuideContent from "@/components/guides/KrippengeldBayernGuideContent";
+import AnlageBBGuideContent from "@/components/guides/AnlageBBGuideContent";
+import AnlageSVGuideContent from "@/components/guides/AnlageSVGuideContent";
+import AnlageVEGuideContent from "@/components/guides/AnlageVEGuideContent";
+import AnlageHGGuideContent from "@/components/guides/AnlageHGGuideContent";
+import AnlageMEBGuideContent from "@/components/guides/AnlageMEBGuideContent";
+import AnlageUFGuideContent from "@/components/guides/AnlageUFGuideContent";
+import AnlageSEGuideContent from "@/components/guides/AnlageSEGuideContent";
+import ArbeitsbescheinigungGuideContent from "@/components/guides/ArbeitsbescheinigungGuideContent";
+import AntragsruecknahmeGuideContent from "@/components/guides/AntragsruecknahmeGuideContent";
 import AufenthaltsNavigator from "@/components/AufenthaltsNavigator";
 import { navigateBackOrHome } from "@/lib/navigation";
 
@@ -49,6 +58,15 @@ function GuideContent({ slug }: { slug: string }) {
   if (slug === "mutterschaftsgeld") return <MutterschaftsgeldGuideContent />;
   if (slug === "kinderzuschlag") return <KinderzuschlagGuideContent />;
   if (slug === "krippengeld-bayern") return <KrippengeldBayernGuideContent />;
+  if (slug === "anlage-bb") return <AnlageBBGuideContent />;
+  if (slug === "anlage-sv") return <AnlageSVGuideContent />;
+  if (slug === "anlage-ve") return <AnlageVEGuideContent />;
+  if (slug === "anlage-hg") return <AnlageHGGuideContent />;
+  if (slug === "anlage-meb") return <AnlageMEBGuideContent />;
+  if (slug === "anlage-uf") return <AnlageUFGuideContent />;
+  if (slug === "anlage-se") return <AnlageSEGuideContent />;
+  if (slug === "arbeitsbescheinigung") return <ArbeitsbescheinigungGuideContent />;
+  if (slug === "antragsruecknahme") return <AntragsruecknahmeGuideContent />;
   if (slug === "aufenthaltstitel") return <AufenthaltsNavigator />;
 
   if (!guide) return null;
