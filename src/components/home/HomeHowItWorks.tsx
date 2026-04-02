@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const steps = [
   { num: "01", emoji: "🎯", title: "Izaberi šta trebaš" },
-  { num: "02", emoji: "📋", title: "Prati korake" },
+  { num: "02", emoji: "📋", title: "Prati upute korak po korak" },
   { num: "03", emoji: "✅", title: "Riješi bez greške" },
 ];
 
