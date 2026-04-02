@@ -1,13 +1,10 @@
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, ChevronDown, ChevronUp, ExternalLink, Info } from "lucide-react";
+import { ArrowLeft, ChevronDown, ChevronUp, ExternalLink, X } from "lucide-react";
 import { Label } from "@/components/ui/label";
 import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from "@/components/ui/select";
-import {
-  Tooltip, TooltipContent, TooltipTrigger, TooltipProvider,
-} from "@/components/ui/tooltip";
 import {
   Collapsible, CollapsibleContent, CollapsibleTrigger,
 } from "@/components/ui/collapsible";
@@ -48,6 +45,18 @@ const STEUERKLASSE_OPTIONS = [
   { value: 4, label: "IV — Bračni par, slične plate" },
   { value: 5, label: "V — Bračni par, manja plata" },
   { value: 6, label: "VI — Drugi posao / više poslodavaca" },
+];
+
+const KINDERFREIBETRAG_OPTIONS = [
+  { value: "0", label: "0 — Nemam pravo / ne koristim" },
+  { value: "0.5", label: "0.5 — Pola (jedan roditelj)" },
+  { value: "1.0", label: "1.0 — Standardno (jedan roditelj, oba dijela)" },
+  { value: "1.5", label: "1.5" },
+  { value: "2.0", label: "2.0 — Standardno (oba roditelja, jedno dijete)" },
+  { value: "2.5", label: "2.5" },
+  { value: "3.0", label: "3.0" },
+  { value: "4.0", label: "4.0" },
+  { value: "6.0", label: "6.0 — Maksimalno (oba roditelja, troje+ djece)" },
 ];
 
 /* ── Tax computation 2025 §32a EStG ── */
@@ -93,7 +102,8 @@ interface CalcInputs {
   bundesland: string;
   hasDjeca: boolean;
   brojDjece: number;
-  kinderfreibetrag: boolean;
+  brojDjeceIspod25: number;
+  kinderfreibetrag: number;
   alter: number;
   kvType: "gesetzlich" | "privat";
   zusatzbeitrag: number;
@@ -113,7 +123,8 @@ const DEFAULTS: CalcInputs = {
   bundesland: "BY",
   hasDjeca: false,
   brojDjece: 1,
-  kinderfreibetrag: false,
+  brojDjeceIspod25: 0,
+  kinderfreibetrag: 2.0,
   alter: 30,
   kvType: "gesetzlich",
   zusatzbeitrag: 2.5,
@@ -133,15 +144,12 @@ function calculate(inp: CalcInputs) {
   const isSachsen = inp.bundesland === "SN";
   const is2025 = inp.godina >= 2025;
 
-  // BBG per year
   const bbgKvPv = is2025 ? 5512.50 : 5175;
   const bbgRvAv = is2025 ? 7550 : (isOst ? 7450 : 7550);
-  const defaultZusatz = is2025 ? 2.5 : 1.7;
 
   const rvBasis = Math.min(bruttoMonat, bbgRvAv);
   const kvBasis = Math.min(bruttoMonat, bbgKvPv);
 
-  // Social contributions
   const rv = inp.rvEnabled ? rvBasis * 0.093 : 0;
   const av = inp.avEnabled ? rvBasis * 0.013 : 0;
 
@@ -153,8 +161,10 @@ function calculate(inp: CalcInputs) {
     pkvMonat = inp.pkvBeitrag;
   }
 
+  // PV: kinderlos zuschlag only if no children under 25 AND age >= 23
   let pvRate = isSachsen ? 0.02025 : 0.01525;
-  if (!inp.hasDjeca && inp.alter >= 23) pvRate += 0.0035;
+  const hasChildUnder25 = inp.hasDjeca && inp.brojDjeceIspod25 > 0;
+  if (!hasChildUnder25 && !inp.hasDjeca && inp.alter >= 23) pvRate += 0.0035;
   const pv = kvBasis * pvRate;
 
   const sozialGesamt = rv + av + kv + pv + pkvMonat;
@@ -163,25 +173,37 @@ function calculate(inp: CalcInputs) {
   const gvJahr = inp.geldwerterVorteil * 12;
   let taxableBrutto = bruttoJahr + gvJahr - inp.freibetrag;
 
-  const werbungskosten = is2025 ? 1230 : 1230;
+  const werbungskosten = 1230;
   const sonderausgaben = 36;
   const vorsorgepauschale = bruttoJahr * 0.11;
 
   let zvE = taxableBrutto - werbungskosten - sonderausgaben - vorsorgepauschale;
 
-  // Kinderfreibetrag: 2025: 9312€, 2024: 6384€ per child
-  const kfbPerChild = is2025 ? 9312 : 6384;
-  const kfbTotal = inp.kinderfreibetrag && inp.hasDjeca ? inp.brojDjece * kfbPerChild : 0;
+  // Kinderfreibetrag
+  const kfbPerUnit = is2025 ? 9312 : 6384;
+  const kfbTotal = inp.hasDjeca ? inp.kinderfreibetrag * kfbPerUnit : 0;
+
+  // Günstigerprüfung: only apply KFB if tax saving > Kindergeld equivalent
+  const applyKfb = (baseZvE: number): number => {
+    if (kfbTotal <= 0) return baseZvE;
+    const taxWithout = computeYearlyTax(Math.max(0, baseZvE), inp.godina);
+    const taxWith = computeYearlyTax(Math.max(0, baseZvE - kfbTotal), inp.godina);
+    const kindergeldYearly = (inp.hasDjeca ? inp.brojDjece : 0) * 250 * 12;
+    if ((taxWithout - taxWith) > kindergeldYearly) {
+      return Math.max(0, baseZvE - kfbTotal);
+    }
+    return baseZvE;
+  };
 
   let yearlyTax: number;
   switch (inp.steuerklasse) {
     case 2:
       zvE = Math.max(0, zvE - 4260);
-      zvE = Math.max(0, zvE - kfbTotal);
-      yearlyTax = computeYearlyTax(zvE, inp.godina);
+      zvE = applyKfb(zvE);
+      yearlyTax = computeYearlyTax(Math.max(0, zvE), inp.godina);
       break;
     case 3:
-      zvE = Math.max(0, zvE - kfbTotal);
+      zvE = applyKfb(Math.max(0, zvE));
       yearlyTax = computeYearlyTax(Math.max(0, zvE / 2), inp.godina) * 2;
       break;
     case 5:
@@ -190,14 +212,13 @@ function calculate(inp: CalcInputs) {
       zvE = Math.max(0, zvE);
       yearlyTax = computeYearlyTax(zvE, inp.godina);
       break;
-    default: // 1, 4
-      zvE = Math.max(0, zvE - kfbTotal);
+    default:
+      zvE = applyKfb(Math.max(0, zvE));
       yearlyTax = computeYearlyTax(Math.max(0, zvE), inp.godina);
   }
 
   const lohnsteuerMonat = Math.max(0, yearlyTax / 12);
 
-  // Soli
   let soliMonat = 0;
   if (yearlyTax > 31080) {
     soliMonat = lohnsteuerMonat * 0.055;
@@ -206,7 +227,6 @@ function calculate(inp: CalcInputs) {
     soliMonat = lohnsteuerMonat * 0.055 * factor;
   }
 
-  // Kirchensteuer
   const ksRate = BUNDESLAENDER.find(b => b.value === inp.bundesland)?.ks ?? 9;
   const kirchensteuerMonat = inp.kirchensteuer ? lohnsteuerMonat * (ksRate / 100) : 0;
 
@@ -228,23 +248,134 @@ function calculate(inp: CalcInputs) {
   };
 }
 
-/* ── Info tooltip ── */
-function InfoTip({ text }: { text: string }) {
+/* ── Info tooltip data ── */
+const INFO_TEXTS: Record<string, { title: string; text: string; extra?: string }> = {
+  brutto: {
+    title: "Bruto plata",
+    text: "Bruto plata je iznos koji ste dogovorili s poslodavcem — prije svih odbitaka. Od ovog iznosa se odbijaju porezi i doprinosi i na kraju dobijate neto platu na račun. Što je veća bruto plata, to su i odbitci viši, ali neto iznos raste brže od poreza do određene granice.",
+    extra: "Zašto bitno: Ovo je polazna tačka za cijeli izračun.",
+  },
+  period: {
+    title: "Mjesečno ili godišnje?",
+    text: "Ako unosite bruto platu po mjesecu, rezultat će biti mjesečni neto iznos. Ako unosite godišnju platu, kalkulator je dijeli sa 12 i računa po istoj logici. Korisno ako u ugovoru imate navedenu godišnju platu (Jahresgehalt).",
+  },
+  godina: {
+    title: "Godina obračuna",
+    text: "Porezne stope, pragovi i iznosi doprinosa se mijenjaju svake godine. Izaberite godinu za koju želite obračun. Ranija godina je korisna ako želite usporediti ili provjeriti retroaktivni obračun.",
+  },
+  steuerklasse: {
+    title: "Porezna klasa (Steuerklasse)",
+    text: "Porezna klasa određuje koliko poreza se odbija od plate svaki mjesec. Postoji 6 klasa:\n• Klasa I: samci, razvedeni, udovci — standardna\n• Klasa II: samohrani roditelji — nešto povoljnija\n• Klasa III: bračni par gdje jedan ima veću platu — manje poreza odbija se od veće plate\n• Klasa IV: bračni par sa sličnim platama\n• Klasa V: bračni par, manja plata — više poreza\n• Klasa VI: drugi posao ili više poslodavaca — najveći odbitak, bez olakšica\nVažno: klasa ne mijenja ukupnu godišnju obavezu, nego raspodjelu. Klasa III i V se zajedno koriste kao par.",
+  },
+  bundesland: {
+    title: "Savezna zemlja (Bundesland)",
+    text: "Bundesland je bitan zbog Kirchensteuer — crkveni porez se razlikuje po saveznoj zemlji: Bayern i Baden-Württemberg naplaćuju 8% od Lohnsteuer, svi ostali naplaćuju 9%. Također, za Pflegeversicherung postoji razlika u Sachsenu. Ako niste sigurni, izaberite saveznu zemlju u kojoj radite.",
+  },
+  djeca: {
+    title: "Djeca i poreski obračun",
+    text: "Djeca mogu uticati na vaš poreski obračun na nekoliko načina: kroz Kinderfreibetrag (poreznu olakšicu) i kroz Pflegeversicherung (ako imate djecu ispod 25, ne plaćate dodatnih 0.35%). Ako nemate djecu, ovi faktori se ne primjenjuju.",
+  },
+  brojDjece: {
+    title: "Ukupan broj djece",
+    text: "Unesite ukupan broj djece za koje imate roditeljsku odgovornost. Ovaj broj se koristi za izračun Kinderfreibetrag i može uticati na Pflegeversicherung. Djeca koja žive u drugom domaćinstvu se i dalje računaju ako ih vi uzdržavate ili imate zajedničko starateljstvo.",
+  },
+  brojDjeceIspod25: {
+    title: "Djeca ispod 25 godina — zašto je bitno?",
+    text: "U Njemačkoj se i starija djeca uzimaju u obzir ako su još na školovanju ili studiju — do maksimalno 25. godine. Ovo polje je posebno važno za Pflegeversicherung: osobe bez djece starije od 23 plaćaju dodatnih 0.35% kao Kinderlosenzuschlag. Ako imate dijete ispod 25 godina (čak i jedno), taj dodatak se ne naplaćuje.",
+    extra: "Može smanjiti odbitak za osiguranje njege.",
+  },
+  kinderfreibetrag: {
+    title: "Kinderfreibetrag — porezna olakšica za djecu",
+    text: "Kinderfreibetrag je iznos koji se može oduzeti od poreske osnovice za svako dijete. Za 2024 iznosi 6.384 € po djetetu godišnje (za oba roditelja zajedno). Ovaj iznos smanjuje poreznu osnovicu i time i Lohnsteuer.\nVažno: Finanzamt automatski provjerava da li je Kinderfreibetrag ili Kindergeld povoljniji i primjenjuje bolju opciju. Za niske prihode Kindergeld je obično povoljniji i Kinderfreibetrag ne pravi razliku. Za više prihode Kinderfreibetrag može smanjiti porez.\nU ovom kalkulatoru možete izabrati udio koji vam odgovara zavisno od toga da li oba roditelja koriste olakšicu ili samo jedan.",
+  },
+  alter: {
+    title: "Starost",
+    text: "Starost je relevantna za Pflegeversicherung — osobe bez djece starije od 23 plaćaju dodatnih 0.35% kao Kinderlosenzuschlag.",
+  },
+  kvType: {
+    title: "Zakonsko ili privatno zdravstveno osiguranje?",
+    text: "U Njemačkoj postoje dva sistema zdravstvenog osiguranja:\n• GKV (gesetzlich): zakonsko, obavezno za većinu zaposlenih. Doprinos se računa kao procenat od bruto plate.\n• PKV (privat): privatno, dostupno za osobe s višim primanjima ili samozaposlene. Iznos zavisi od ugovora, ne od plate.\nAko ste u GKV sistemu, odbitak se automatski izračunava. Ako imate PKV, unesite vaš stvarni mjesečni doprinos.",
+  },
+  zusatzbeitrag: {
+    title: "Zusatzbeitrag — dodatni procenat KV",
+    text: "Zusatzbeitrag je dodatni procenat koji naplaćuje vaša zdravstvena osiguravajuća kuća povrh standardnog doprinosa. Standardni GKV doprinos je 14.6% (polovina = 7.3% plaća zaposleni). Zusatzbeitrag varira zavisno od osiguravajuće kuće — obično između 0.9% i 2.5%. Provjerite tačan iznos u dokumentima vaše zdravstvene kase.",
+  },
+  pkv: {
+    title: "Privatno zdravstveno osiguranje (PKV)",
+    text: "Unesite vaš stvarni mjesečni PKV iznos kako bi kalkulator mogao tačno izračunati odbitke.",
+  },
+  rv: {
+    title: "Rentenversicherung — penzijsko osiguranje",
+    text: "Penzijsko osiguranje je obavezno za većinu zaposlenih. Stopa za 2024 iznosi 18.6% — polovina (9.3%) plaća zaposleni, drugu polovinu plaća poslodavac. Odbitak se primjenjuje samo do određene gornje granice plate (Beitragsbemessungsgrenze). Iznad te granice nema dodatnog odbitka. Beamte (državni službenici) i neke posebne kategorije mogu biti izuzete — u tom slučaju isključite ovo polje.",
+  },
+  av: {
+    title: "Arbeitslosenversicherung",
+    text: "Osiguranje od nezaposlenosti je obavezno za zaposlenike. Stopa za 2024 je 2.6% — polovina (1.3%) plaća zaposleni. Daje pravo na Arbeitslosengeld (naknadu za nezaposlenost) ako ostanete bez posla pod određenim uslovima. Samozaposleni i Beamte obično nisu obuhvaćeni — u tom slučaju isključite ovo polje.",
+  },
+  pv: {
+    title: "Pflegeversicherung — osiguranje za njegu",
+    text: "Pflegeversicherung pokriva troškove dugotrajne njege (npr. starački dom, kućna njega) ako to postane potrebno. Stopa za 2024 je 3.05% — polovina plaća zaposleni (1.525%). Izuzetak: osobe bez djece starije od 23 plaćaju dodatnih 0.35% (Kinderlosenzuschlag). U Sachsenu je raspodjela malo drugačija. Ako imate dijete ispod 25 godina, dodatak se ne primjenjuje.",
+  },
+  kirchensteuer: {
+    title: "Crkveni porez (Kirchensteuer)",
+    text: "Kirchensteuer se odbija samo ako ste prijavljeni kao član vjerske zajednice koja ga naplaćuje u Njemačkoj (npr. Katolička ili Evangelička crkva). Ako niste član takve zajednice, ili ste istupili, ovo polje ostavite isključeno. Iznos zavisi od savezne zemlje: Bayern i Baden-Württemberg = 8%, ostali = 9% od Lohnsteuer. Ovo može značajno promijeniti ukupni odbitak, posebno kod viših plata.",
+  },
+  freibetrag: {
+    title: "Godišnji porezni odbitak (Freibetrag)",
+    text: "Ovo polje nije automatski isto za svakoga. Freibetrag je individualna porezna olakšica koja može smanjiti vaš mjesečni porez ako vam je posebno odobrena od Finanzamt-a. Može biti vezana za određene prijavljene troškove, posebne životne okolnosti ili druge porezno relevantne situacije. Nije isto što i Grundfreibetrag — zakonski neoporezivi minimum koji važi za sve i koji kalkulator automatski uzima u obzir. Ako niste tražili i dobili posebni Freibetrag od Finanzamt-a, ovo polje ostavite na 0. Nasumičan unos broja bez stvarne osnove daje pogrešan rezultat.",
+    extra: "Primjer: ako imate odobreno 1.200 € godišnje za troškove prevoza ili dvojno domaćinstvo, unesite 1200.",
+  },
+  geldwerterVorteil: {
+    title: "Geldwerter Vorteil — nenovčana korist",
+    text: "Geldwerter Vorteil je nenovčana korist od poslodavca koja se porezno tretira kao dio prihoda. Najčešći primjer je firmeni automobil koji koristite privatno — obračunava se kao 1% od kataložne cijene auta per mjesec. Drugi primjeri: plaćena stanarina, obroci, parking. Ovaj iznos se dodaje na bruto i povećava poreznu osnovicu, što znači više poreza — čak i ako novac direktno ne primite. Ako nemate ovakvu pogodnost, ostavite polje na 0.",
+  },
+};
+
+/* ── InfoTooltip component ── */
+function InfoTooltip({ id, activeId, setActiveId }: { id: string; activeId: string | null; setActiveId: (id: string | null) => void }) {
+  const info = INFO_TEXTS[id];
+  if (!info) return null;
+  const isOpen = activeId === id;
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setActiveId(null);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, [isOpen, setActiveId]);
+
   return (
-    <Tooltip>
-      <TooltipTrigger asChild>
-        <span className="inline-block ml-1 text-[#F59E0B]/60 cursor-pointer text-xs">ⓘ</span>
-      </TooltipTrigger>
-      <TooltipContent side="top" className="max-w-[240px] text-xs">{text}</TooltipContent>
-    </Tooltip>
+    <span className="relative inline-block">
+      <span
+        onClick={(e) => { e.preventDefault(); setActiveId(isOpen ? null : id); }}
+        className="inline-block ml-1.5 text-[#F59E0B]/70 hover:text-[#F59E0B] text-sm cursor-pointer select-none"
+      >
+        ⓘ
+      </span>
+      {isOpen && (
+        <div ref={ref} className="absolute left-0 top-full z-50 mt-2 w-[320px] max-w-[90vw] rounded-xl border border-[#F59E0B]/20 bg-[#0a1628] p-4 shadow-xl">
+          <button onClick={() => setActiveId(null)} className="absolute top-2 right-2 text-white/40 hover:text-white/80">
+            <X className="h-3.5 w-3.5" />
+          </button>
+          <p className="text-[#F59E0B] font-bold text-sm mb-2">{info.title}</p>
+          <p className="text-white/70 text-sm leading-relaxed whitespace-pre-line">{info.text}</p>
+          {info.extra && (
+            <p className="mt-2 text-white/50 text-xs">{info.extra}</p>
+          )}
+        </div>
+      )}
+    </span>
   );
 }
 
 /* ── Toggle buttons component ── */
 function ToggleButtons({
-  options,
-  value,
-  onChange,
+  options, value, onChange,
 }: {
   options: { label: string; value: string }[];
   value: string;
@@ -298,6 +429,7 @@ export default function Kalkulatori() {
   const [isYearly, setIsYearly] = useState(false);
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [linkErrors, setLinkErrors] = useState<Record<number, boolean>>({});
+  const [activeInfo, setActiveInfo] = useState<string | null>(null);
 
   const update = useCallback((patch: Partial<CalcInputs>) => {
     setInputs(prev => ({ ...prev, ...patch }));
@@ -315,6 +447,8 @@ export default function Kalkulatori() {
   const total = netto + steuern + sozial;
   const segPct = (val: number) => total > 0 ? Math.max(0, (val / total) * 100) : 0;
 
+  const djecaIspod25Error = inputs.hasDjeca && inputs.brojDjeceIspod25 > inputs.brojDjece;
+
   const handleExternalLink = (primaryUrl: string, fallbackUrl: string, index: number) => {
     const newWindow = window.open(primaryUrl, "_blank", "noopener,noreferrer");
     if (!newWindow || newWindow.closed) {
@@ -325,421 +459,386 @@ export default function Kalkulatori() {
     }
   };
 
+  const I = (id: string) => <InfoTooltip id={id} activeId={activeInfo} setActiveId={setActiveInfo} />;
+
   return (
-    <TooltipProvider>
-      <div className="min-h-screen bg-[#0B0F1A]">
-        <SubpageNav />
+    <div className="min-h-screen bg-[#0B0F1A]">
+      <SubpageNav />
 
-        {/* Header */}
-        <div className="container pt-6 pb-2">
-          <button
-            onClick={() => navigate(-1)}
-            className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white shadow backdrop-blur hover:bg-white/20 transition-colors mb-6"
-          >
-            <ArrowLeft className="h-4 w-4" /> Nazad
-          </button>
-          <h1 className="text-2xl font-bold text-white md:text-3xl">Kalkulatori</h1>
-          <p className="mt-2 text-sm text-white/50">Korisni alati za finansijsko planiranje u Njemačkoj</p>
-        </div>
+      {/* Header */}
+      <div className="container pt-6 pb-2">
+        <button
+          onClick={() => navigate(-1)}
+          className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white shadow backdrop-blur hover:bg-white/20 transition-colors mb-6"
+        >
+          <ArrowLeft className="h-4 w-4" /> Nazad
+        </button>
+        <h1 className="text-2xl font-bold text-white md:text-3xl">Kalkulatori</h1>
+        <p className="mt-2 text-sm text-white/50">Korisni alati za finansijsko planiranje u Njemačkoj</p>
+      </div>
 
-        {/* ── SEKCIJA 1: Brutto-Netto Rechner ── */}
-        <section className="container py-8">
-          <div className="rounded-2xl border border-[#F59E0B]/20 bg-[#0f1f3d] p-6 shadow-xl">
-            <span className="inline-block rounded-full bg-[#F59E0B] px-3 py-1 text-xs font-bold text-[#0f1f3d] mb-4">
-              BalkanLink Tool
-            </span>
-            <h2 className="text-2xl font-black text-white">Brutto-Netto Rechner</h2>
-            <p className="text-sm text-white/50 mb-6">Izračunaj svoju neto platu u Njemačkoj</p>
+      {/* ── SEKCIJA 1: Brutto-Netto Rechner ── */}
+      <section className="container py-8">
+        <div className="rounded-2xl border border-[#F59E0B]/20 bg-[#0f1f3d] p-6 shadow-xl">
+          <span className="inline-block rounded-full bg-[#F59E0B] px-3 py-1 text-xs font-bold text-[#0f1f3d] mb-4">
+            BalkanLink Tool
+          </span>
+          <h2 className="text-2xl font-black text-white">Brutto-Netto Rechner</h2>
+          <p className="text-sm text-white/50 mb-6">Izračunaj svoju neto platu u Njemačkoj</p>
 
-            <div className="grid gap-8 lg:grid-cols-2">
-              {/* ─── INPUT FORM ─── */}
-              <div className="space-y-6">
-                {/* GRUPA 1: OSNOVNO */}
-                <div className="space-y-4">
-                  {/* Bruto plata */}
-                  <div className="space-y-1">
-                    <Label className="text-sm text-white/70 font-medium">Bruto plata</Label>
-                    <div className="relative">
-                      <input
-                        type="number"
-                        min={0}
-                        step={50}
-                        value={inputs.brutto || ""}
-                        onChange={e => update({ brutto: Number(e.target.value) })}
-                        placeholder="npr. 3000"
-                        className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white text-lg font-bold focus:border-[#F59E0B] focus:outline-none placeholder:text-white/30 transition-all duration-300"
-                      />
-                      <span className="absolute right-4 top-1/2 -translate-y-1/2 text-sm text-white/40">€</span>
-                    </div>
-                  </div>
-
-                  {/* Period */}
-                  <div className="space-y-1">
-                    <Label className="text-sm text-white/70 font-medium">Obračunski period</Label>
-                    <ToggleButtons
-                      options={[
-                        { label: "Mjesečno", value: "monatlich" },
-                        { label: "Godišnje", value: "jaehrlich" },
-                      ]}
-                      value={inputs.period}
-                      onChange={v => update({ period: v as "monatlich" | "jaehrlich" })}
+          <div className="grid gap-8 lg:grid-cols-2">
+            {/* ─── INPUT FORM ─── */}
+            <div className="space-y-6">
+              {/* GRUPA 1: OSNOVNO */}
+              <div className="space-y-4">
+                <div className="space-y-1">
+                  <Label className="text-sm text-white/70 font-medium">Bruto plata {I("brutto")}</Label>
+                  <div className="relative">
+                    <input
+                      type="number" min={0} step={50}
+                      value={inputs.brutto || ""}
+                      onChange={e => update({ brutto: Number(e.target.value) })}
+                      placeholder="npr. 3000"
+                      className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white text-lg font-bold focus:border-[#F59E0B] focus:outline-none placeholder:text-white/30 transition-all duration-300"
                     />
-                  </div>
-
-                  {/* Godina */}
-                  <div className="space-y-1">
-                    <Label className="text-sm text-white/70 font-medium">Godina obračuna</Label>
-                    <Select value={String(inputs.godina)} onValueChange={v => update({ godina: Number(v) })}>
-                      <SelectTrigger className="bg-white/10 border-white/20 text-white text-sm">
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="2026">2026</SelectItem>
-                        <SelectItem value="2025">2025</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  {/* Steuerklasse */}
-                  <div className="space-y-1">
-                    <Label className="text-sm text-white/70 font-medium">Porezna klasa (Steuerklasse)</Label>
-                    <Select value={String(inputs.steuerklasse)} onValueChange={v => update({ steuerklasse: Number(v) })}>
-                      <SelectTrigger className="bg-white/10 border-white/20 text-white text-sm">
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {STEUERKLASSE_OPTIONS.map(o => (
-                          <SelectItem key={o.value} value={String(o.value)} className="text-sm">
-                            {o.label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  {/* Bundesland */}
-                  <div className="space-y-1">
-                    <Label className="text-sm text-white/70 font-medium">Savezna zemlja (Bundesland)</Label>
-                    <Select value={inputs.bundesland} onValueChange={v => update({ bundesland: v })}>
-                      <SelectTrigger className="bg-white/10 border-white/20 text-white text-sm">
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {BUNDESLAENDER.map(b => (
-                          <SelectItem key={b.value} value={b.value} className="text-sm">{b.label}</SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
+                    <span className="absolute right-4 top-1/2 -translate-y-1/2 text-sm text-white/40">€</span>
                   </div>
                 </div>
 
-                <div className="border-t border-white/10" />
+                <div className="space-y-1">
+                  <Label className="text-sm text-white/70 font-medium">Obračunski period {I("period")}</Label>
+                  <ToggleButtons
+                    options={[
+                      { label: "Mjesečno", value: "monatlich" },
+                      { label: "Godišnje", value: "jaehrlich" },
+                    ]}
+                    value={inputs.period}
+                    onChange={v => update({ period: v as "monatlich" | "jaehrlich" })}
+                  />
+                </div>
 
-                {/* GRUPA 2: PORODICA I DODACI */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {/* Djeca toggle */}
-                  <div className="space-y-1">
-                    <Label className="text-sm text-white/70 font-medium">Imate li djecu?</Label>
-                    <ToggleButtons
-                      options={[{ label: "Ne", value: "ne" }, { label: "Da", value: "da" }]}
-                      value={inputs.hasDjeca ? "da" : "ne"}
-                      onChange={v => update({ hasDjeca: v === "da" })}
-                    />
-                  </div>
+                <div className="space-y-1">
+                  <Label className="text-sm text-white/70 font-medium">Godina obračuna {I("godina")}</Label>
+                  <Select value={String(inputs.godina)} onValueChange={v => update({ godina: Number(v) })}>
+                    <SelectTrigger className="bg-white/10 border-white/20 text-white text-sm">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="2026">2026</SelectItem>
+                      <SelectItem value="2025">2025</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
 
-                  {/* Broj djece */}
-                  {inputs.hasDjeca && (
+                <div className="space-y-1">
+                  <Label className="text-sm text-white/70 font-medium">Porezna klasa (Steuerklasse) {I("steuerklasse")}</Label>
+                  <Select value={String(inputs.steuerklasse)} onValueChange={v => update({ steuerklasse: Number(v) })}>
+                    <SelectTrigger className="bg-white/10 border-white/20 text-white text-sm">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {STEUERKLASSE_OPTIONS.map(o => (
+                        <SelectItem key={o.value} value={String(o.value)} className="text-sm">{o.label}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div className="space-y-1">
+                  <Label className="text-sm text-white/70 font-medium">Savezna zemlja (Bundesland) {I("bundesland")}</Label>
+                  <Select value={inputs.bundesland} onValueChange={v => update({ bundesland: v })}>
+                    <SelectTrigger className="bg-white/10 border-white/20 text-white text-sm">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {BUNDESLAENDER.map(b => (
+                        <SelectItem key={b.value} value={b.value} className="text-sm">{b.label}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+
+              <div className="border-t border-white/10" />
+
+              {/* GRUPA 2: PORODICA I DODACI */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-1">
+                  <Label className="text-sm text-white/70 font-medium">Imate li djecu? {I("djeca")}</Label>
+                  <ToggleButtons
+                    options={[{ label: "Ne", value: "ne" }, { label: "Da", value: "da" }]}
+                    value={inputs.hasDjeca ? "da" : "ne"}
+                    onChange={v => update({ hasDjeca: v === "da" })}
+                  />
+                </div>
+
+                {inputs.hasDjeca && (
+                  <>
                     <div className="space-y-1">
-                      <Label className="text-sm text-white/70 font-medium">Broj djece</Label>
-                      <Select value={String(inputs.brojDjece)} onValueChange={v => update({ brojDjece: Number(v) })}>
+                      <Label className="text-sm text-white/70 font-medium">Broj djece (ukupno) {I("brojDjece")}</Label>
+                      <input
+                        type="number" min={1} max={15}
+                        value={inputs.brojDjece}
+                        onChange={e => update({ brojDjece: Math.max(1, Math.min(15, Number(e.target.value))) })}
+                        className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white text-sm font-bold focus:border-[#F59E0B] focus:outline-none transition-all duration-300"
+                      />
+                    </div>
+
+                    <div className="space-y-1">
+                      <Label className="text-sm text-white/70 font-medium">Broj djece ispod 25 godina {I("brojDjeceIspod25")}</Label>
+                      <input
+                        type="number" min={0}
+                        value={inputs.brojDjeceIspod25}
+                        onChange={e => update({ brojDjeceIspod25: Math.max(0, Number(e.target.value)) })}
+                        className={`w-full bg-white/10 rounded-xl px-4 py-3 text-white text-sm font-bold focus:outline-none transition-all duration-300 ${
+                          djecaIspod25Error ? "border-2 border-red-400 focus:border-red-400" : "border border-white/20 focus:border-[#F59E0B]"
+                        }`}
+                      />
+                      {djecaIspod25Error && (
+                        <p className="text-xs text-red-400 mt-1">Broj djece ispod 25 ne može biti veći od ukupnog broja djece</p>
+                      )}
+                    </div>
+
+                    <div className="space-y-1">
+                      <Label className="text-sm text-white/70 font-medium">Kinderfreibetrag {I("kinderfreibetrag")}</Label>
+                      <Select value={String(inputs.kinderfreibetrag)} onValueChange={v => update({ kinderfreibetrag: Number(v) })}>
                         <SelectTrigger className="bg-white/10 border-white/20 text-white text-sm">
                           <SelectValue />
                         </SelectTrigger>
                         <SelectContent>
-                          {[1, 2, 3, 4, 5].map(n => (
-                            <SelectItem key={n} value={String(n)}>{n === 5 ? "5+" : String(n)}</SelectItem>
+                          {KINDERFREIBETRAG_OPTIONS.map(o => (
+                            <SelectItem key={o.value} value={o.value} className="text-sm">{o.label}</SelectItem>
                           ))}
                         </SelectContent>
                       </Select>
                     </div>
-                  )}
+                  </>
+                )}
 
-                  {/* Kinderfreibetrag */}
-                  {inputs.hasDjeca && (
-                    <div className="space-y-1">
-                      <Label className="text-sm text-white/70 font-medium">
-                        Kinderfreibetrag
-                        <InfoTip text="Porezno oslobođenje za djecu — automatski se primjenjuje ako je povoljnije od Kindergeld" />
-                      </Label>
-                      <ToggleButtons
-                        options={[{ label: "Ne", value: "ne" }, { label: "Da", value: "da" }]}
-                        value={inputs.kinderfreibetrag ? "da" : "ne"}
-                        onChange={v => update({ kinderfreibetrag: v === "da" })}
-                      />
-                    </div>
-                  )}
+                <div className="space-y-1">
+                  <Label className="text-sm text-white/70 font-medium">Starost {I("alter")}</Label>
+                  <input
+                    type="number" min={18} max={67}
+                    value={inputs.alter}
+                    onChange={e => update({ alter: Number(e.target.value) })}
+                    className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white text-sm font-bold focus:border-[#F59E0B] focus:outline-none transition-all duration-300"
+                  />
+                </div>
+              </div>
 
-                  {/* Starost */}
+              <div className="border-t border-white/10" />
+
+              {/* GRUPA 3: OSIGURANJA I DODACI */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-1">
+                  <Label className="text-sm text-white/70 font-medium">Zdravstveno osiguranje {I("kvType")}</Label>
+                  <ToggleButtons
+                    options={[
+                      { label: "Gesetzlich (GKV)", value: "gesetzlich" },
+                      { label: "Privat (PKV)", value: "privat" },
+                    ]}
+                    value={inputs.kvType}
+                    onChange={v => update({ kvType: v as "gesetzlich" | "privat" })}
+                  />
+                </div>
+
+                {inputs.kvType === "gesetzlich" && (
                   <div className="space-y-1">
-                    <Label className="text-sm text-white/70 font-medium">Starost</Label>
+                    <Label className="text-sm text-white/70 font-medium">Zusatzbeitrag (%) {I("zusatzbeitrag")}</Label>
                     <input
-                      type="number"
-                      min={18}
-                      max={67}
-                      value={inputs.alter}
-                      onChange={e => update({ alter: Number(e.target.value) })}
+                      type="number" step={0.1} min={0} max={5}
+                      value={inputs.zusatzbeitrag}
+                      onChange={e => update({ zusatzbeitrag: Number(e.target.value) })}
                       className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white text-sm font-bold focus:border-[#F59E0B] focus:outline-none transition-all duration-300"
                     />
                   </div>
-                </div>
+                )}
 
-                <div className="border-t border-white/10" />
-
-                {/* GRUPA 3: OSIGURANJA I DODACI */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {/* KV type */}
+                {inputs.kvType === "privat" && (
                   <div className="space-y-1">
-                    <Label className="text-sm text-white/70 font-medium">Zdravstveno osiguranje</Label>
-                    <ToggleButtons
-                      options={[
-                        { label: "Gesetzlich (GKV)", value: "gesetzlich" },
-                        { label: "Privat (PKV)", value: "privat" },
-                      ]}
-                      value={inputs.kvType}
-                      onChange={v => update({ kvType: v as "gesetzlich" | "privat" })}
-                    />
-                  </div>
-
-                  {/* Zusatzbeitrag */}
-                  {inputs.kvType === "gesetzlich" && (
-                    <div className="space-y-1">
-                      <Label className="text-sm text-white/70 font-medium">
-                        Zusatzbeitrag (%)
-                        <InfoTip text={inputs.godina >= 2025 ? "Prosječni Zusatzbeitrag 2025 je 2.5%" : "Prosječni Zusatzbeitrag 2024 je 1.7%"} />
-                      </Label>
-                      <input
-                        type="number"
-                        step={0.1}
-                        min={0}
-                        max={5}
-                        value={inputs.zusatzbeitrag}
-                        onChange={e => update({ zusatzbeitrag: Number(e.target.value) })}
-                        className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white text-sm font-bold focus:border-[#F59E0B] focus:outline-none transition-all duration-300"
-                      />
-                    </div>
-                  )}
-
-                  {/* PKV Beitrag */}
-                  {inputs.kvType === "privat" && (
-                    <div className="space-y-1">
-                      <Label className="text-sm text-white/70 font-medium">
-                        Mjesečni PKV doprinos (€)
-                        <InfoTip text="Unesite vaš stvarni PKV iznos" />
-                      </Label>
-                      <input
-                        type="number"
-                        min={0}
-                        value={inputs.pkvBeitrag}
-                        onChange={e => update({ pkvBeitrag: Number(e.target.value) })}
-                        className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white text-sm font-bold focus:border-[#F59E0B] focus:outline-none transition-all duration-300"
-                      />
-                    </div>
-                  )}
-
-                  {/* RV */}
-                  <div className="space-y-1">
-                    <Label className="text-sm text-white/70 font-medium">
-                      Penzijsko osiguranje
-                      <InfoTip text="Beamte i samozaposleni mogu biti izuzeti" />
-                    </Label>
-                    <ToggleButtons
-                      options={[{ label: "Uključeno", value: "on" }, { label: "Isključeno", value: "off" }]}
-                      value={inputs.rvEnabled ? "on" : "off"}
-                      onChange={v => update({ rvEnabled: v === "on" })}
-                    />
-                  </div>
-
-                  {/* AV */}
-                  <div className="space-y-1">
-                    <Label className="text-sm text-white/70 font-medium">Osiguranje od nezaposlenosti</Label>
-                    <ToggleButtons
-                      options={[{ label: "Uključeno", value: "on" }, { label: "Isključeno", value: "off" }]}
-                      value={inputs.avEnabled ? "on" : "off"}
-                      onChange={v => update({ avEnabled: v === "on" })}
-                    />
-                  </div>
-
-                  {/* Kirchensteuer */}
-                  <div className="space-y-1">
-                    <Label className="text-sm text-white/70 font-medium">Kirchensteuer</Label>
-                    <ToggleButtons
-                      options={[{ label: "Ne", value: "ne" }, { label: "Da", value: "da" }]}
-                      value={inputs.kirchensteuer ? "da" : "ne"}
-                      onChange={v => update({ kirchensteuer: v === "da" })}
-                    />
-                  </div>
-
-                  {/* Freibetrag */}
-                  <div className="space-y-1">
-                    <Label className="text-sm text-white/70 font-medium">
-                      Godišnji porezni odbitak (€) — opcionalno
-                      <InfoTip text="Unesi ako imaš odobren Freibetrag od Finanzamt" />
-                    </Label>
+                    <Label className="text-sm text-white/70 font-medium">Mjesečni PKV doprinos (€) {I("pkv")}</Label>
                     <input
-                      type="number"
-                      min={0}
-                      value={inputs.freibetrag || ""}
-                      onChange={e => update({ freibetrag: Number(e.target.value) })}
-                      placeholder="npr. 1000"
-                      className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white text-sm font-bold focus:border-[#F59E0B] focus:outline-none placeholder:text-white/30 transition-all duration-300"
+                      type="number" min={0}
+                      value={inputs.pkvBeitrag}
+                      onChange={e => update({ pkvBeitrag: Number(e.target.value) })}
+                      className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white text-sm font-bold focus:border-[#F59E0B] focus:outline-none transition-all duration-300"
                     />
                   </div>
+                )}
 
-                  {/* Geldwerter Vorteil */}
-                  <div className="space-y-1">
-                    <Label className="text-sm text-white/70 font-medium">
-                      Geldwerter Vorteil / Firmenwagen (€) — opcionalno
-                      <InfoTip text="Dodaj ako imaš benefit u naravi (npr. firmeni auto, stan plaćen od firme)" />
-                    </Label>
-                    <input
-                      type="number"
-                      min={0}
-                      value={inputs.geldwerterVorteil || ""}
-                      onChange={e => update({ geldwerterVorteil: Number(e.target.value) })}
-                      placeholder="npr. 300"
-                      className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white text-sm font-bold focus:border-[#F59E0B] focus:outline-none placeholder:text-white/30 transition-all duration-300"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* ─── OUTPUT / RESULTS ─── */}
-              <div className="space-y-5">
-                {/* Highlight box */}
-                <div className="rounded-2xl border border-green-400/30 bg-green-950 p-6 transition-all duration-300">
-                  <p className="text-sm text-green-300/70 font-medium">Dobiješ na račun:</p>
-                  <p className="text-6xl font-black text-green-400 tabular-nums transition-all duration-300 my-2">
-                    {fmt(netto)} €
-                  </p>
-                  <p className="text-sm text-green-300/50">neto / {periodLabel}</p>
-                  <button
-                    onClick={() => setIsYearly(!isYearly)}
-                    className="mt-3 text-xs text-[#F59E0B] cursor-pointer underline"
-                  >
-                    {isYearly ? "Prikaži mjesečno" : "Prikaži godišnje"}
-                  </button>
-                  {isYearly && (
-                    <p className="mt-2 text-sm font-bold text-green-400/80">
-                      Godišnje na račun: {fmt(netto)} €
-                    </p>
-                  )}
+                <div className="space-y-1">
+                  <Label className="text-sm text-white/70 font-medium">Penzijsko osiguranje {I("rv")}</Label>
+                  <ToggleButtons
+                    options={[{ label: "Uključeno", value: "on" }, { label: "Isključeno", value: "off" }]}
+                    value={inputs.rvEnabled ? "on" : "off"}
+                    onChange={v => update({ rvEnabled: v === "on" })}
+                  />
                 </div>
 
-                {/* Breakdown bar */}
-                <div className="space-y-3">
-                  <div className="flex h-5 w-full overflow-hidden rounded-full">
-                    <div className="bg-green-400 transition-all duration-300" style={{ width: `${segPct(netto)}%` }} />
-                    <div className="bg-red-400 transition-all duration-300" style={{ width: `${segPct(steuern)}%` }} />
-                    <div className="bg-orange-400 transition-all duration-300" style={{ width: `${segPct(sozial)}%` }} />
-                  </div>
-                  <div className="grid grid-cols-3 gap-2 text-center">
-                    <div>
-                      <span className="text-green-400 text-sm font-bold">🟢 Neto</span>
-                      <p className="text-sm font-bold text-green-400 tabular-nums">{fmt(netto)} €</p>
-                      <p className="text-[10px] text-white/40">({pct(netto, brutto)}%)</p>
-                    </div>
-                    <div>
-                      <span className="text-red-400 text-sm font-bold">🔴 Porez</span>
-                      <p className="text-sm font-bold text-red-400 tabular-nums">{fmt(steuern)} €</p>
-                      <p className="text-[10px] text-white/40">({pct(steuern, brutto)}%)</p>
-                    </div>
-                    <div>
-                      <span className="text-orange-400 text-sm font-bold">🟠 Doprinosi</span>
-                      <p className="text-sm font-bold text-orange-400 tabular-nums">{fmt(sozial)} €</p>
-                      <p className="text-[10px] text-white/40">({pct(sozial, brutto)}%)</p>
-                    </div>
-                  </div>
-
-                  {/* Difference */}
-                  <p className="text-red-400 font-bold text-sm mt-3 text-center">
-                    Razlika: − {fmt(diff)} € ({pct(diff, brutto)}% odlazi državi)
-                  </p>
+                <div className="space-y-1">
+                  <Label className="text-sm text-white/70 font-medium">Osiguranje od nezaposlenosti {I("av")}</Label>
+                  <ToggleButtons
+                    options={[{ label: "Uključeno", value: "on" }, { label: "Isključeno", value: "off" }]}
+                    value={inputs.avEnabled ? "on" : "off"}
+                    onChange={v => update({ avEnabled: v === "on" })}
+                  />
                 </div>
 
-                {/* Collapsible details */}
-                <Collapsible open={detailsOpen} onOpenChange={setDetailsOpen}>
-                  <CollapsibleTrigger className="flex items-center gap-2 text-[#F59E0B] text-sm cursor-pointer mt-4">
-                    {detailsOpen ? (
-                      <>Sakrij detalje <ChevronUp className="h-3.5 w-3.5" /></>
-                    ) : (
-                      <>Prikaži detalje <ChevronDown className="h-3.5 w-3.5" /></>
-                    )}
-                  </CollapsibleTrigger>
-                  <CollapsibleContent>
-                    <div className="mt-3 rounded-xl border border-white/10 bg-white/5 p-4 space-y-2 text-sm text-white/70">
-                      <DetailRow label="Lohnsteuer" amount={result.lohnsteuerMonat * mult} brutto={brutto} />
-                      <DetailRow label="Solidaritätszuschlag" amount={result.soliMonat * mult} brutto={brutto} />
-                      {inputs.kirchensteuer && <DetailRow label="Kirchensteuer" amount={result.kirchensteuerMonat * mult} brutto={brutto} />}
-                      <div className="border-t border-white/10 my-2" />
-                      <DetailRow label={inputs.kvType === "gesetzlich" ? "Krankenversicherung (GKV)" : "Private KV (PKV)"} amount={(inputs.kvType === "gesetzlich" ? result.kv : result.pkvMonat) * mult} brutto={brutto} />
-                      {inputs.rvEnabled && <DetailRow label="Rentenversicherung" amount={result.rv * mult} brutto={brutto} />}
-                      {inputs.avEnabled && <DetailRow label="Arbeitslosenversicherung" amount={result.av * mult} brutto={brutto} />}
-                      <DetailRow label="Pflegeversicherung" amount={result.pv * mult} brutto={brutto} />
-                      {inputs.geldwerterVorteil > 0 && (
-                        <div className="flex justify-between text-white/50 italic">
-                          <span>Geldwerter Vorteil</span>
-                          <span>+{fmt(inputs.geldwerterVorteil * mult)} €</span>
-                        </div>
-                      )}
-                      {inputs.freibetrag > 0 && (
-                        <div className="flex justify-between text-white/50 italic">
-                          <span>Steuerfreibetrag</span>
-                          <span>−{fmt(inputs.freibetrag / (isYearly ? 1 : 12))} €</span>
-                        </div>
-                      )}
-                      <div className="border-t border-white/10 my-2" />
-                      <div className="flex justify-between font-bold text-red-400">
-                        <span>UKUPNI ODBICI</span>
-                        <span className="tabular-nums">{fmt(diff)} €</span>
-                      </div>
-                      <div className="flex justify-between font-bold text-green-400 text-lg">
-                        <span>NETO</span>
-                        <span className="tabular-nums">{fmt(netto)} €</span>
-                      </div>
-                    </div>
-                  </CollapsibleContent>
-                </Collapsible>
+                <div className="space-y-1">
+                  <Label className="text-sm text-white/70 font-medium">Kirchensteuer {I("kirchensteuer")}</Label>
+                  <ToggleButtons
+                    options={[{ label: "Ne", value: "ne" }, { label: "Da", value: "da" }]}
+                    value={inputs.kirchensteuer ? "da" : "ne"}
+                    onChange={v => update({ kirchensteuer: v === "da" })}
+                  />
+                </div>
+
+                <div className="space-y-1">
+                  <Label className="text-sm text-white/70 font-medium">Godišnji porezni odbitak (€) {I("freibetrag")}</Label>
+                  <input
+                    type="number" min={0}
+                    value={inputs.freibetrag || ""}
+                    onChange={e => update({ freibetrag: Number(e.target.value) })}
+                    placeholder="npr. 1000"
+                    className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white text-sm font-bold focus:border-[#F59E0B] focus:outline-none placeholder:text-white/30 transition-all duration-300"
+                  />
+                </div>
+
+                <div className="space-y-1">
+                  <Label className="text-sm text-white/70 font-medium">Geldwerter Vorteil / Firmenwagen (€) {I("geldwerterVorteil")}</Label>
+                  <input
+                    type="number" min={0}
+                    value={inputs.geldwerterVorteil || ""}
+                    onChange={e => update({ geldwerterVorteil: Number(e.target.value) })}
+                    placeholder="npr. 300"
+                    className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white text-sm font-bold focus:border-[#F59E0B] focus:outline-none placeholder:text-white/30 transition-all duration-300"
+                  />
+                </div>
               </div>
             </div>
-          </div>
-        </section>
 
-        {/* ── SEKCIJA 2: Dodatni alati ── */}
-        <section className="container pb-16">
-          <h3 className="text-lg font-semibold text-gray-600 mb-4 mt-2">Dodatni alati</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {externalTools.map((tool, i) => (
-              <div
-                key={tool.title}
-                className="bg-white border-2 border-gray-200 rounded-xl p-5 shadow-sm hover:border-[#0f1f3d] hover:shadow-md transition-all"
-              >
-                <h4 className="text-[#0f1f3d] font-bold text-base">{tool.title}</h4>
-                <p className="text-gray-600 text-sm mt-1 mb-4">{tool.desc}</p>
+            {/* ─── OUTPUT / RESULTS ─── */}
+            <div className="space-y-5">
+              <div className="rounded-2xl border border-green-400/30 bg-green-950 p-6 transition-all duration-300">
+                <p className="text-sm text-green-300/70 font-medium">Dobiješ na račun:</p>
+                <p className="text-6xl font-black text-green-400 tabular-nums transition-all duration-300 my-2">
+                  {fmt(netto)} €
+                </p>
+                <p className="text-sm text-green-300/50">neto / {periodLabel}</p>
                 <button
-                  onClick={() => handleExternalLink(tool.primaryUrl, tool.fallbackUrl, i)}
-                  className="w-full bg-[#0f1f3d] text-white font-bold rounded-full px-5 py-2.5 text-sm hover:bg-[#1a3a6b] transition-colors cursor-pointer flex items-center justify-center gap-2"
+                  onClick={() => setIsYearly(!isYearly)}
+                  className="mt-3 text-xs text-[#F59E0B] cursor-pointer underline"
                 >
-                  Otvori kalkulator <ExternalLink className="h-3.5 w-3.5" />
+                  {isYearly ? "Prikaži mjesečno" : "Prikaži godišnje"}
                 </button>
-                {linkErrors[i] && (
-                  <p className="text-xs text-red-500 mt-2 text-center">Trenutno nedostupno — pokušajte kasnije</p>
+                {isYearly && (
+                  <p className="mt-2 text-sm font-bold text-green-400/80">
+                    Godišnje na račun: {fmt(netto)} €
+                  </p>
                 )}
               </div>
-            ))}
+
+              <div className="space-y-3">
+                <div className="flex h-5 w-full overflow-hidden rounded-full">
+                  <div className="bg-green-400 transition-all duration-300" style={{ width: `${segPct(netto)}%` }} />
+                  <div className="bg-red-400 transition-all duration-300" style={{ width: `${segPct(steuern)}%` }} />
+                  <div className="bg-orange-400 transition-all duration-300" style={{ width: `${segPct(sozial)}%` }} />
+                </div>
+                <div className="grid grid-cols-3 gap-2 text-center">
+                  <div>
+                    <span className="text-green-400 text-sm font-bold">🟢 Neto</span>
+                    <p className="text-sm font-bold text-green-400 tabular-nums">{fmt(netto)} €</p>
+                    <p className="text-[10px] text-white/40">({pct(netto, brutto)}%)</p>
+                  </div>
+                  <div>
+                    <span className="text-red-400 text-sm font-bold">🔴 Porez</span>
+                    <p className="text-sm font-bold text-red-400 tabular-nums">{fmt(steuern)} €</p>
+                    <p className="text-[10px] text-white/40">({pct(steuern, brutto)}%)</p>
+                  </div>
+                  <div>
+                    <span className="text-orange-400 text-sm font-bold">🟠 Doprinosi</span>
+                    <p className="text-sm font-bold text-orange-400 tabular-nums">{fmt(sozial)} €</p>
+                    <p className="text-[10px] text-white/40">({pct(sozial, brutto)}%)</p>
+                  </div>
+                </div>
+
+                <p className="text-red-400 font-bold text-sm mt-3 text-center">
+                  Razlika: − {fmt(diff)} € ({pct(diff, brutto)}% odlazi državi)
+                </p>
+              </div>
+
+              <Collapsible open={detailsOpen} onOpenChange={setDetailsOpen}>
+                <CollapsibleTrigger className="flex items-center gap-2 text-[#F59E0B] text-sm cursor-pointer mt-4">
+                  {detailsOpen ? (
+                    <>Sakrij detalje <ChevronUp className="h-3.5 w-3.5" /></>
+                  ) : (
+                    <>Prikaži detalje <ChevronDown className="h-3.5 w-3.5" /></>
+                  )}
+                </CollapsibleTrigger>
+                <CollapsibleContent>
+                  <div className="mt-3 rounded-xl border border-white/10 bg-white/5 p-4 space-y-2 text-sm text-white/70">
+                    <DetailRow label="Lohnsteuer" amount={result.lohnsteuerMonat * mult} brutto={brutto} />
+                    <DetailRow label="Solidaritätszuschlag" amount={result.soliMonat * mult} brutto={brutto} />
+                    {inputs.kirchensteuer && <DetailRow label="Kirchensteuer" amount={result.kirchensteuerMonat * mult} brutto={brutto} />}
+                    <div className="border-t border-white/10 my-2" />
+                    <DetailRow label={inputs.kvType === "gesetzlich" ? "Krankenversicherung (GKV)" : "Private KV (PKV)"} amount={(inputs.kvType === "gesetzlich" ? result.kv : result.pkvMonat) * mult} brutto={brutto} />
+                    {inputs.rvEnabled && <DetailRow label="Rentenversicherung" amount={result.rv * mult} brutto={brutto} />}
+                    {inputs.avEnabled && <DetailRow label="Arbeitslosenversicherung" amount={result.av * mult} brutto={brutto} />}
+                    <DetailRow label="Pflegeversicherung" amount={result.pv * mult} brutto={brutto} />
+                    {inputs.geldwerterVorteil > 0 && (
+                      <div className="flex justify-between text-white/50 italic">
+                        <span>Geldwerter Vorteil</span>
+                        <span>+{fmt(inputs.geldwerterVorteil * mult)} €</span>
+                      </div>
+                    )}
+                    {inputs.freibetrag > 0 && (
+                      <div className="flex justify-between text-white/50 italic">
+                        <span>Steuerfreibetrag</span>
+                        <span>−{fmt(inputs.freibetrag / (isYearly ? 1 : 12))} €</span>
+                      </div>
+                    )}
+                    <div className="border-t border-white/10 my-2" />
+                    <div className="flex justify-between font-bold text-red-400">
+                      <span>UKUPNI ODBICI</span>
+                      <span className="tabular-nums">{fmt(diff)} €</span>
+                    </div>
+                    <div className="flex justify-between font-bold text-green-400 text-lg">
+                      <span>NETO</span>
+                      <span className="tabular-nums">{fmt(netto)} €</span>
+                    </div>
+                  </div>
+                </CollapsibleContent>
+              </Collapsible>
+            </div>
           </div>
-        </section>
-      </div>
-    </TooltipProvider>
+        </div>
+      </section>
+
+      {/* ── SEKCIJA 2: Dodatni alati ── */}
+      <section className="container pb-16">
+        <h3 className="text-lg font-semibold text-gray-600 mb-4 mt-2">Dodatni alati</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {externalTools.map((tool, i) => (
+            <div
+              key={tool.title}
+              className="bg-white border-2 border-gray-200 rounded-xl p-5 shadow-sm hover:border-[#0f1f3d] hover:shadow-md transition-all"
+            >
+              <h4 className="text-[#0f1f3d] font-bold text-base">{tool.title}</h4>
+              <p className="text-gray-600 text-sm mt-1 mb-4">{tool.desc}</p>
+              <button
+                onClick={() => handleExternalLink(tool.primaryUrl, tool.fallbackUrl, i)}
+                className="w-full bg-[#0f1f3d] text-white font-bold rounded-full px-5 py-2.5 text-sm hover:bg-[#1a3a6b] transition-colors cursor-pointer flex items-center justify-center gap-2"
+              >
+                Otvori kalkulator <ExternalLink className="h-3.5 w-3.5" />
+              </button>
+              {linkErrors[i] && (
+                <p className="text-xs text-red-500 mt-2 text-center">Trenutno nedostupno — pokušajte kasnije</p>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
   );
 }
 
