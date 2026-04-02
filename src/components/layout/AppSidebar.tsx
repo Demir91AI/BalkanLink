@@ -94,7 +94,7 @@ export function AppSidebar() {
           )}
           <SidebarGroupContent>
             <SidebarMenu className="gap-1.5 px-2">
-              {premiumItems.map((item) => {
+              {mainItems.map((item) => {
                 const isActive =
                   location.pathname === item.url ||
                   location.pathname.startsWith(item.url + "/");
