@@ -108,6 +108,7 @@ interface CalcInputs {
 const DEFAULTS: CalcInputs = {
   brutto: 3000,
   period: "monatlich",
+  godina: 2026,
   steuerklasse: 1,
   bundesland: "BY",
   hasDjeca: false,
@@ -115,7 +116,7 @@ const DEFAULTS: CalcInputs = {
   kinderfreibetrag: false,
   alter: 30,
   kvType: "gesetzlich",
-  zusatzbeitrag: 1.7,
+  zusatzbeitrag: 2.5,
   pkvBeitrag: 400,
   rvEnabled: true,
   avEnabled: true,
