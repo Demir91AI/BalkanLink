@@ -11,6 +11,8 @@ import HomePremiumCards from "@/components/home/HomePremiumCards";
 import HomeMistakes from "@/components/home/HomeMistakes";
 import HomePremiumBanner from "@/components/home/HomePremiumBanner";
 import HomeReviews from "@/components/home/HomeReviews";
+import FlowBanner from "@/components/home/FlowBanner";
+import PWAInstallBanner from "@/components/PWAInstallBanner";
 
 import realcoreDigitalLogo from "@/assets/realcore-digital-logo.png";
 import heroBerlin from "@/assets/hero-berlin.jpg";
