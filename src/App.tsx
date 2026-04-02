@@ -75,7 +75,8 @@ import Kalkulatori from "./pages/Kalkulatori";
 import ElterngeldMuster from "./pages/muster/ElterngeldMuster";
 import BuergergeldMuster from "./pages/muster/BuergergeldMuster";
 import WohngeldMuster from "./pages/muster/WohngeldMuster";
-import RundfunkbeitragMuster from "./pages/muster/RundfunkbeitragMuster";
+import AufenthaltstitelMuster from "./pages/muster/AufenthaltstitelMuster";
+import LohnfortzahlungMuster from "./pages/muster/LohnfortzahlungMuster";
 import SteuerklasseMuster from "./pages/muster/SteuerklasseMuster";
 import ArbeitslosengeldMuster from "./pages/muster/ArbeitslosengeldMuster";
 import BafoegMuster from "./pages/muster/BafoegMuster";
@@ -128,7 +129,8 @@ const App = () => (
                 <Route path="/musterformular/anmeldung" element={<AnmeldungMuster />} />
                 <Route path="/musterformular/buergergeld" element={<BuergergeldMuster />} />
                 <Route path="/musterformular/wohngeld" element={<WohngeldMuster />} />
-                <Route path="/musterformular/rundfunkbeitrag" element={<RundfunkbeitragMuster />} />
+                <Route path="/musterformular/aufenthaltstitel" element={<AufenthaltstitelMuster />} />
+                <Route path="/musterformular/lohnfortzahlung" element={<LohnfortzahlungMuster />} />
                 <Route path="/musterformular/steuerklasse" element={<SteuerklasseMuster />} />
                 <Route path="/musterformular/arbeitslosengeld" element={<ArbeitslosengeldMuster />} />
                 <Route path="/musterformular/bafoeg" element={<BafoegMuster />} />
