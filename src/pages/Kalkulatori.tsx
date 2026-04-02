@@ -737,9 +737,12 @@ export default function Kalkulatori() {
                   <div className="space-y-1">
                     <Label className="text-sm text-white/70 font-medium">Zusatzbeitrag (%) {I("zusatzbeitrag")}</Label>
                     <input
-                      type="number" step={0.1} min={0} max={5}
-                      value={inputs.zusatzbeitrag}
-                      onChange={e => update({ zusatzbeitrag: Number(e.target.value) })}
+                      type="text"
+                      inputMode="decimal"
+                      value={getFieldStr("zusatzbeitrag", inputs.zusatzbeitrag)}
+                      onFocus={() => handleFocus("zusatzbeitrag", inputs.zusatzbeitrag)}
+                      onChange={e => handleChange("zusatzbeitrag", e.target.value)}
+                      onBlur={() => handleBlur("zusatzbeitrag", { allowDecimal: true, min: 0 })}
                       className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white text-sm font-bold focus:border-[#F59E0B] focus:outline-none transition-all duration-300"
                     />
                   </div>
