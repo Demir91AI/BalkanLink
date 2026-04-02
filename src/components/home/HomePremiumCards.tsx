@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, FileText, Shield, GraduationCap, Search, Home, Megaphone, Wrench, Star } from "lucide-react";
+import { ArrowRight, FileText, Shield, GraduationCap, Search, Home, Megaphone, Wrench, Star, Calculator } from "lucide-react";
 import { PRICING } from "@/lib/config";
 
 const premiumCards = [
