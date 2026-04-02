@@ -35,6 +35,7 @@ const secondaryCards = [
   { icon: Megaphone, title: "Nudim / Tražim", desc: `Objava besplatna • PRO od ${PRICING.proAd7Days}`, to: "/nudim-trazim" },
   { icon: Search, title: "Pretraga poslova", desc: "Besplatno — korisni linkovi", to: "/stellenangebote" },
   { icon: Home, title: "Pretraga stanova", desc: "Besplatno — korisni linkovi", to: "/wohnungen" },
+  { icon: Calculator, title: "Kalkulatori", desc: "Brutto-netto i drugi korisni alati", to: "/kalkulatori" },
   { icon: Wrench, title: "Šabloni / Vorlagen", desc: "Besplatno", to: "/vorlagen" },
 ];
 
