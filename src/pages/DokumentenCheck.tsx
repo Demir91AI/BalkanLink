@@ -236,20 +236,20 @@ export default function DokumentenCheck() {
                   <div className="absolute inset-0 z-10 flex flex-col items-center justify-center rounded-b-xl bg-background/80 backdrop-blur-sm">
                     <Lock className="h-8 w-8 text-[hsl(var(--gold))] mb-3" />
                     <p className="text-sm font-bold text-foreground mb-4 text-center px-4">
-                      🔒 Detaljni koraci i rješenje dostupni u Premium verziji
+                      {st("docCheck.lockText")}
                     </p>
                     <div className="flex flex-col gap-2">
                       <button
                         onClick={() => navigate("/premium")}
                         className="rounded-full bg-[hsl(var(--gold))] px-6 py-3 text-sm font-bold text-[#0f1f3d] transition-all hover:opacity-90"
                       >
-                        BalkanLink Premium — 9.99€/mj.
+                        {st("docCheck.premiumCta")}
                       </button>
                       <button
                         onClick={() => navigate("/premium")}
                         className="rounded-full bg-[#0f1f3d] px-6 py-3 text-sm font-bold text-white border border-white/20 transition-all hover:bg-[#0f1f3d]/80"
                       >
-                        Jedan pristup — 3.99€
+                        {st("docCheck.singleCta")}
                       </button>
                     </div>
                   </div>
