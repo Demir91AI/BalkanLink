@@ -336,6 +336,7 @@ function InfoTooltip({ id, activeId, setActiveId }: { id: string; activeId: stri
   const ref = useRef<HTMLDivElement>(null);
   const info = INFO_TEXTS[id];
   const isOpen = activeId === id;
+  if (!info) return null;
 
   useEffect(() => {
     if (!isOpen) return;
