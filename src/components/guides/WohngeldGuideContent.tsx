@@ -57,12 +57,7 @@ export default function WohngeldGuideContent() {
         ]}
       />
       <SmartGuideWizardShared steps={STEPS} />
-      <div className="rounded-lg p-4 text-center" style={{ backgroundColor: "#1F2937" }}>
-        <p className="text-[13px] text-gray-400">Više informacija o Wohngeld</p>
-        <a href="https://www.bmwsb.bund.de/Webs/BMWSB/DE/themen/stadt-wohnen/wohnraumfoerderung/wohngeld/wohngeld-node.html" target="_blank" rel="noopener noreferrer" className="inline-block mt-2 text-sm font-medium" style={{ color: "#3B82F6" }}>
-          🔗 Službena stranica BMWSB
-        </a>
-      </div>
+      <MusterCTA formName="Wohngeld" institution="BMWSB" musterPath="/musterformular/wohngeld" pdfUrl="https://www.stmb.bayern.de/assets/stmi/wohnen/wohngeld/35_mz_antrag.pdf" />
     </div>
   );
 }
