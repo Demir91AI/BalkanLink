@@ -389,13 +389,13 @@ export default function Kalkulatori() {
                   {/* Godina */}
                   <div className="space-y-1">
                     <Label className="text-sm text-white/70 font-medium">Godina obračuna</Label>
-                    <Select value="2024" onValueChange={() => {}}>
+                    <Select value={String(inputs.godina)} onValueChange={v => set({ godina: Number(v) })}>
                       <SelectTrigger className="bg-white/10 border-white/20 text-white text-sm">
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="2024">2024</SelectItem>
-                        <SelectItem value="2023">2023</SelectItem>
+                        <SelectItem value="2026">2026</SelectItem>
+                        <SelectItem value="2025">2025</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
