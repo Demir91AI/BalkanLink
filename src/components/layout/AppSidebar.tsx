@@ -8,9 +8,10 @@ import {
   Megaphone,
   FileCheck,
   Calculator,
+  Map,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import {
   Sidebar,
@@ -59,6 +60,13 @@ const mainItems = [
     icon: Megaphone,
     premium: false,
   },
+  {
+    title: "Balkanci u DE",
+    desc: "Vidi gdje smo svi na mapi",
+    url: "/mapa",
+    icon: Map,
+    premium: false,
+  },
 ];
 
 const secondaryItems = [
@@ -69,22 +77,26 @@ const secondaryItems = [
 ];
 
 export function AppSidebar() {
-  const { state, setOpenMobile, isMobile } = useSidebar();
+  const { state, setOpenMobile, setOpen, isMobile } = useSidebar();
   const collapsed = state === "collapsed" && !isMobile;
   const location = useLocation();
 
   const handleNavClick = () => {
+    // Close sidebar on ANY click — mobile AND desktop
     setOpenMobile(false);
+    setOpen(false);
   };
 
   useEffect(() => {
     setOpenMobile(false);
-  }, [location.pathname, setOpenMobile]);
+    setOpen(false);
+  }, [location.pathname, setOpenMobile, setOpen]);
 
   return (
     <Sidebar
       collapsible="offcanvas"
-      className="border-r border-white/8 bg-[hsl(215,55%,7%)] min-w-[280px]"
+      className="border-r border-white/8 bg-[hsl(215,55%,7%)]"
+      style={{ minWidth: isMobile ? "85vw" : "300px", maxWidth: isMobile ? "100vw" : "340px" }}
     >
       <SidebarContent className="pt-3 bg-[hsl(215,55%,7%)] overflow-y-auto">
         {/* ── GLAVNE FUNKCIJE ── */}
@@ -115,7 +127,7 @@ export function AppSidebar() {
                     >
                       <NavLink
                         to={item.url}
-                        className="flex items-center gap-2.5 py-2.5 px-3"
+                        className="flex items-center gap-[10px] py-[10px] px-4"
                         activeClassName=""
                         onClick={handleNavClick}
                       >
@@ -126,14 +138,14 @@ export function AppSidebar() {
                         />
                         {!collapsed && (
                           <div className="flex-1 min-w-0">
-                            <span className={`block text-[14px] font-semibold leading-[1.3] truncate ${isActive ? "text-[hsl(var(--gold))]" : "text-white"}`}>
+                            <span className={`block text-[14px] font-semibold leading-[1.3] ${isActive ? "text-[hsl(var(--gold))]" : "text-white"}`}>
                               {item.title}
                             </span>
-                            <span className="block text-[12px] text-gray-400 mt-0.5 truncate leading-[1.3]">{item.desc}</span>
+                            <span className="block text-[12px] text-gray-400 mt-0.5 leading-[1.3]">{item.desc}</span>
                           </div>
                         )}
                         {!collapsed && item.premium && (
-                          <span className="shrink-0 rounded-full bg-[hsl(var(--gold))] px-2 py-0.5 text-[9px] font-bold leading-none text-[hsl(var(--gold-foreground))]">
+                          <span className="shrink-0 rounded-full bg-[hsl(var(--gold))] px-2 py-0.5 text-[9px] font-bold leading-none text-[hsl(var(--gold-foreground))] ml-1">
                             PREMIUM
                           </span>
                         )}
@@ -175,7 +187,7 @@ export function AppSidebar() {
                     >
                       <NavLink
                         to={item.url}
-                        className="flex items-center gap-2.5 px-3"
+                        className="flex items-center gap-[10px] px-4"
                         activeClassName=""
                         onClick={handleNavClick}
                       >
@@ -185,7 +197,7 @@ export function AppSidebar() {
                           }`}
                         />
                         {!collapsed && (
-                          <span className={`text-[14px] font-medium leading-[1.3] truncate ${isActive ? "text-[hsl(var(--gold))]" : "text-white/60"}`}>
+                          <span className={`text-[14px] font-medium leading-[1.3] ${isActive ? "text-[hsl(var(--gold))]" : "text-white/60"}`}>
                             {item.title}
                           </span>
                         )}

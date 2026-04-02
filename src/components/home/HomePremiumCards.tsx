@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, FileText, Shield, GraduationCap, Search, Home, Megaphone, Wrench, Star, Calculator } from "lucide-react";
+import { ArrowRight, FileText, Shield, GraduationCap, Search, Home, Megaphone, Wrench, Star, Calculator, Map } from "lucide-react";
 import { PRICING } from "@/lib/config";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -32,19 +32,18 @@ const premiumCards = [
 ];
 
 const secondaryCards = [
-  { icon: FileText, title: "Dokumenten-Check", desc: "✓ Besplatno — 2 provjere dnevno", to: "/dokumenten-check" },
-  { icon: Megaphone, title: "Nudim / Tražim", desc: `Objavi besplatno ili se istakni uz Pro oglas`, to: "/nudim-trazim", badge: "Free + Pro" },
+  { icon: FileText, title: "Dokumenten-Check", desc: "2.99€ po dokumentu · Premium: 1/dan", to: "/dokumenten-check" },
+  { icon: Megaphone, title: "Nudim / Tražim", desc: "Objavi besplatno ili se istakni uz Pro oglas", to: "/nudim-trazim", badge: "Free + Pro" },
+  { icon: Map, title: "Balkanci u DE", desc: "Vidi gdje smo svi — pinuj se na mapu", to: "/mapa", badge: "Free" },
   { icon: Search, title: "Pretraga poslova", desc: "Besplatno — korisni linkovi", to: "/stellenangebote" },
   { icon: Home, title: "Pretraga stanova", desc: "Besplatno — korisni linkovi", to: "/wohnungen" },
   { icon: Calculator, title: "Kalkulatori", desc: "Brutto-netto i drugi korisni alati", to: "/kalkulatori" },
-  { icon: Wrench, title: "Šabloni / Vorlagen", desc: "Besplatno", to: "/vorlagen" },
 ];
 
 export default function HomePremiumCards() {
   return (
     <section className="py-16 sm:py-20">
       <div className="container">
-        {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -59,7 +58,6 @@ export default function HomePremiumCards() {
           <div className="mx-auto mt-3 h-[3px] w-16 rounded-full bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--gold))]" />
         </motion.div>
 
-        {/* Premium cards */}
         <div className="mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
           {premiumCards.map((card, i) => (
             <motion.div
@@ -88,10 +86,8 @@ export default function HomePremiumCards() {
           ))}
         </div>
 
-        {/* Separator */}
         <div className="mx-auto max-w-5xl border-t border-white/[0.06] mb-10" />
 
-        {/* Secondary free tools */}
         <div className="mx-auto max-w-5xl grid grid-cols-2 md:grid-cols-6 gap-3">
           {secondaryCards.map((card, i) => {
             const Icon = card.icon;
