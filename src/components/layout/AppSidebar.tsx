@@ -130,7 +130,7 @@ export function AppSidebar() {
                             <span className="block text-sm text-gray-400 mt-0.5">{item.desc}</span>
                           </div>
                         )}
-                        {!collapsed && (
+                        {!collapsed && item.premium && (
                           <span className="shrink-0 rounded-full bg-[#F59E0B] px-2 py-0.5 text-[9px] font-bold leading-none text-[#0f1f3d]">
                             PREMIUM
                           </span>
