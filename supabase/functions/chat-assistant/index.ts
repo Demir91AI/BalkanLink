@@ -38,10 +38,8 @@ const FORM_CATALOG: { slug: string; label: string; desc: string }[] = [
   { slug: "integrationskurs", label: "Integrationskurs", desc: "Kurs njemačkog." },
   { slug: "lernfoerderung", label: "Lernförderung", desc: "Dopunska nastava." },
   { slug: "wbs", label: "WBS", desc: "Socijalni stanovi." },
-  { slug: "gez-anmeldung", label: "Rundfunkbeitrag", desc: "RTV taksa." },
   { slug: "heizkostenzuschuss", label: "Heizkostenzuschuss", desc: "Grijanje." },
   { slug: "fuehrungszeugnis", label: "Führungszeugnis", desc: "Nekažnjavanje." },
-  { slug: "aufenthaltstitel-verlaengerung", label: "Aufenthaltstitel", desc: "Boravišna dozvola." },
   { slug: "kirchenaustritt", label: "Kirchenaustritt", desc: "Odjava iz crkve." },
 ];
 
