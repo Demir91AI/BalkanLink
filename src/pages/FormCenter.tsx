@@ -79,6 +79,18 @@ function GuideContent({ slug }: { slug: string }) {
   if (slug === "anlage-se") return <AnlageSEGuideContent />;
   if (slug === "arbeitsbescheinigung") return <ArbeitsbescheinigungGuideContent />;
   if (slug === "antragsruecknahme") return <AntragsruecknahmeGuideContent />;
+  if (slug === "hauptantrag") return <HauptantragGuideContent />;
+  if (slug === "weiterbewilligung") return <WeiterbewilligungGuideContent />;
+  if (slug === "anlage-kdu") return <AnlageKDUGuideContent />;
+  if (slug === "anlage-ek") return <AnlageEKGuideContent />;
+  if (slug === "anlage-eks") return <AnlageEKSGuideContent />;
+  if (slug === "anlage-vm") return <AnlageVMGuideContent />;
+  if (slug === "anlage-wep") return <AnlageWEPGuideContent />;
+  if (slug === "anlage-ki") return <AnlageKIGuideContent />;
+  if (slug === "anlage-uh1") return <AnlageUH1GuideContent />;
+  if (slug === "anlage-uh2") return <AnlageUH2GuideContent />;
+  if (slug === "anlage-uh3") return <AnlageUH3GuideContent />;
+  if (slug === "nichterreichbarkeit") return <AnfrageNichterreichbarkeitGuideContent />;
   if (slug === "aufenthaltstitel") return <AufenthaltsNavigator />;
 
   if (!guide) return null;
