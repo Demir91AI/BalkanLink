@@ -206,6 +206,7 @@ const App = () => (
                 <Route path="/bussgeld" element={<BussgeldAssistent />} />
                 <Route path="/paketi" element={<Paketi />} />
                 <Route path="/kalkulatori" element={<Kalkulatori />} />
+                <Route path="/mapa" element={<CommunityMapa />} />
               </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>
