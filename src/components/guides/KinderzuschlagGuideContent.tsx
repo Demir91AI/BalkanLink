@@ -17,6 +17,7 @@ const STEPS: StepData[] = [
       "Familienkasse pri Bundesagentur für Arbeit — online ili pismeno.",
     commonMistake:
       "Misliti da je KiZ automatski uključen u Kindergeld — to je potpuno odvojen zahtjev.",
+    note:
       "KiZ + Wohngeld = moguće i Bildung und Teilhabe: besplatan ručak u školi/vrtiću, školski paket od 195€, oslobađanje od Kita naknada.",
   },
   {
