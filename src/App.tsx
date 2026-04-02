@@ -70,6 +70,7 @@ import AnmeldungMusterOld from "./pages/AnmeldungMuster";
 import AnmeldungMuster from "./pages/muster/AnmeldungMuster";
 import Paketi from "./pages/Paketi";
 import Kalkulatori from "./pages/Kalkulatori";
+import CommunityMapa from "./pages/CommunityMapa";
 
 // Musterformulare
 import ElterngeldMuster from "./pages/muster/ElterngeldMuster";
