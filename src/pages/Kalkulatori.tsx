@@ -632,17 +632,19 @@ export default function Kalkulatori() {
                       <Label className="text-sm text-white/70 font-medium">Broj djece (ukupno) {I("brojDjece")}</Label>
                       <div className="relative">
                         <input
-                          type="number"
+                          type="text"
                           inputMode="numeric"
-                          value={inputs.brojDjece ?? ""}
-                          onChange={e => {
-                            const raw = e.target.value;
-                            if (raw === "") { update({ brojDjece: null }); return; }
-                            const n = parseInt(raw, 10);
-                            if (!isNaN(n) && n >= 0) update({ brojDjece: n });
-                          }}
+                          value={getFieldStr("brojDjece", inputs.brojDjece)}
+                          onFocus={() => handleFocus("brojDjece", inputs.brojDjece)}
+                          onChange={e => handleChange("brojDjece", e.target.value)}
+                          onBlur={() => handleBlur("brojDjece", { min: 0, nullable: true })}
                           placeholder="npr. 2"
-                          className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 pr-12 text-white text-sm font-bold focus:border-[#F59E0B] focus:outline-none transition-all duration-300 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none [-moz-appearance:textfield]"
+                          className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 pr-12 text-white text-sm font-bold focus:border-[#F59E0B] focus:outline-none transition-all duration-300"
+                        />
+                        <div className="absolute right-1 top-1/2 -translate-y-1/2 flex flex-col">
+                          <button type="button" onClick={() => { setEditStr(prev => { const n = { ...prev }; delete n["brojDjece"]; return n; }); update({ brojDjece: (inputs.brojDjece ?? 0) + 1 }); }} className="px-2 py-0.5 text-white/50 hover:text-[#F59E0B] transition-colors text-xs leading-none">▲</button>
+                          <button type="button" onClick={() => { setEditStr(prev => { const n = { ...prev }; delete n["brojDjece"]; return n; }); const v = Math.max(0, (inputs.brojDjece ?? 0) - 1); update({ brojDjece: v || null }); }} className="px-2 py-0.5 text-white/50 hover:text-[#F59E0B] transition-colors text-xs leading-none">▼</button>
+                        </div>
                         />
                         <div className="absolute right-1 top-1/2 -translate-y-1/2 flex flex-col">
                           <button type="button" onClick={() => update({ brojDjece: (inputs.brojDjece ?? 0) + 1 })} className="px-2 py-0.5 text-white/50 hover:text-[#F59E0B] transition-colors text-xs leading-none">▲</button>
