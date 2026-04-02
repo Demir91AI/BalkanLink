@@ -55,6 +55,8 @@ const STEPS: StepData[] = [
       "OBAVEZNO:\n□ Einkommensnachweise — potvrde o prihodima svih članova\n□ Nachweise zu Wohnkosten — Mietvertrag ili potvrde o kamatama\n□ Vermögensnachweise — izvodi računa i imovina\n□ Kindergeld-Bescheid — potvrda da primaš Kindergeld\n\nPO POTREBI:\n□ Elterngeld-Bescheid\n□ BAföG-Bescheid\n□ Unterhaltsnachweis (alimentacija)",
     whereToFind:
       "Potvrde o prihodima od poslodavca, Kindergeld-Bescheid od Familienkasse, Mietvertrag od stanodavca.",
+    commonMistake:
+      "Ne priložiti Kindergeld-Bescheid — bez njega zahtjev ne može biti obrađen.",
     note:
       "Nedostaju ti dokumenti? Možeš podnijeti zahtjev bez svih dokumenata i naknadno ih dostaviti online ili poštom putem 'Mitteilung an die Familienkasse'.",
   },
