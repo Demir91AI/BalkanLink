@@ -12,7 +12,7 @@ interface Review {
   createdAt: string;
 }
 
-const LS_KEY = "bl_reviews";
+const LS_KEY = "bl_reviews_v2";
 
 function loadReviews(): Review[] {
   try {
