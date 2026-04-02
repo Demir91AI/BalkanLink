@@ -122,7 +122,7 @@ const App = () => (
                 <Route path="/formulari" element={<FormCenter />} />
                 
                 <Route path="/formulari/kindergeld/muster" element={<KindergeldMuster />} />
-                <Route path="/formulari/anmeldung/muster" element={<AnmeldungMuster />} />
+                <Route path="/formulari/anmeldung/muster" element={<AnmeldungMusterOld />} />
                 
                 <Route path="/musterformular/elterngeld" element={<ElterngeldMuster />} />
                 <Route path="/musterformular/anmeldung" element={<AnmeldungMuster />} />
