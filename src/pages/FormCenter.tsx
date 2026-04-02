@@ -19,6 +19,7 @@ import ElterngeldGuideContent from "@/components/guides/ElterngeldGuideContent";
 import BurgergeldGuideContent from "@/components/guides/BurgergeldGuideContent";
 import WohngeldGuideContent from "@/components/guides/WohngeldGuideContent";
 import MutterschaftsgeldGuideContent from "@/components/guides/MutterschaftsgeldGuideContent";
+import KinderzuschlagGuideContent from "@/components/guides/KinderzuschlagGuideContent";
 import AufenthaltsNavigator from "@/components/AufenthaltsNavigator";
 import { navigateBackOrHome } from "@/lib/navigation";
 
