@@ -288,7 +288,7 @@ export default function BruttoNettoRechner() {
               </div>
 
               {/* Highlight box */}
-              <div className="rounded-2xl border-2 border-[hsl(var(--success))]/30 bg-[#0f1f3d] p-6 shadow-xl shadow-[hsl(var(--success))]/5 transition-all duration-300">
+              <div data-result-box className="rounded-2xl border-2 border-[hsl(var(--success))]/30 bg-[#0f1f3d] p-6 shadow-xl shadow-[hsl(var(--success))]/5 transition-all duration-300">
                 <p className="text-xs font-semibold text-white/50 mb-1">Dobiješ na račun:</p>
                 <p className="text-5xl font-black text-[hsl(var(--success))] tabular-nums transition-all duration-300">
                   {fmt(netto)} €
