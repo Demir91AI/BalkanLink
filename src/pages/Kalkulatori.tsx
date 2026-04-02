@@ -423,6 +423,12 @@ const externalTools = [
     primaryUrl: "https://www.rvrecht.de/rentenrechner",
     fallbackUrl: "https://www.rentenrechner.de",
   },
+  {
+    title: "ALG 1 Rechner",
+    desc: "Izračunaj visinu naknade za nezaposlenost (Arbeitslosengeld I) — zvanični alat Bundesagentur für Arbeit",
+    primaryUrl: "https://www.arbeitsagentur.de/arbeitslosengeld-rechner",
+    fallbackUrl: "https://www.pub.arbeitsagentur.de/selbst/fn/alg/index",
+  },
 ];
 
 /* ── Main component ── */
