@@ -255,7 +255,7 @@ export default function DokumentenCheck() {
                   </div>
                 )}
                 <div className={!isPremium ? "blur-sm select-none pointer-events-none" : ""}>
-                  <h3 className="mb-3 text-xs font-bold uppercase tracking-wide text-muted-foreground">Detaljni koraci i rješenje</h3>
+                  <h3 className="mb-3 text-xs font-bold uppercase tracking-wide text-muted-foreground">{st("docCheck.detailedTitle")}</h3>
                   <div className="prose prose-sm max-w-none">
                     <ReactMarkdown>{analysisSections.detailed}</ReactMarkdown>
                   </div>
