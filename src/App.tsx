@@ -82,6 +82,8 @@ import FuehrungszeugnisMuster from "./pages/muster/FuehrungszeugnisMuster";
 import KirchenaustrittMuster from "./pages/muster/KirchenaustrittMuster";
 import IntegrationskursMuster from "./pages/muster/IntegrationskursMuster";
 import KinderzuschlagMuster from "./pages/muster/KinderzuschlagMuster";
+import SchuelerBafoegMuster from "./pages/muster/SchuelerBafoegMuster";
+import GrundsicherungMuster from "./pages/muster/GrundsicherungMuster";
 
 const queryClient = new QueryClient();
 
@@ -134,6 +136,8 @@ const App = () => (
                 <Route path="/musterformular/kirchenaustritt" element={<KirchenaustrittMuster />} />
                 <Route path="/musterformular/integrationskurs" element={<IntegrationskursMuster />} />
                 <Route path="/musterformular/kinderzuschlag" element={<KinderzuschlagMuster />} />
+                <Route path="/musterformular/schueler-bafoeg" element={<SchuelerBafoegMuster />} />
+                <Route path="/musterformular/grundsicherung" element={<GrundsicherungMuster />} />
                 
                 <Route path="/formulari/:slug" element={<FormCenter />} />
                 <Route path="/familie" element={<Familie />} />
