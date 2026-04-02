@@ -141,11 +141,6 @@ export const guideLinkRegistry: Record<string, GuideLinks> = {
     downloadsUrl: "",
     infoUrl: "https://www.kirchenaustritt.de",
   },
-  "gez-anmeldung": {
-    portalUrl: "https://www.rundfunkbeitrag.de",
-    downloadsUrl: "",
-    infoUrl: "",
-  },
   bildungsgutschein: {
     portalUrl: "",
     downloadsUrl: "",

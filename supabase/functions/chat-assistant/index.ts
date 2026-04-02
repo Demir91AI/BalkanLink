@@ -38,10 +38,8 @@ const FORM_CATALOG: { slug: string; label: string; desc: string }[] = [
   { slug: "integrationskurs", label: "Integrationskurs", desc: "Kurs njemačkog." },
   { slug: "lernfoerderung", label: "Lernförderung", desc: "Dopunska nastava." },
   { slug: "wbs", label: "WBS", desc: "Socijalni stanovi." },
-  { slug: "gez-anmeldung", label: "Rundfunkbeitrag", desc: "RTV taksa." },
   { slug: "heizkostenzuschuss", label: "Heizkostenzuschuss", desc: "Grijanje." },
   { slug: "fuehrungszeugnis", label: "Führungszeugnis", desc: "Nekažnjavanje." },
-  { slug: "aufenthaltstitel-verlaengerung", label: "Aufenthaltstitel", desc: "Boravišna dozvola." },
   { slug: "kirchenaustritt", label: "Kirchenaustritt", desc: "Odjava iz crkve." },
 ];
 
@@ -294,11 +292,11 @@ const TOPIC_GUIDE_MAP: Record<string, string> = {
   unterhalt: "unterhaltsvorschuss", bürgergeld: "buergergeld", burgergeld: "buergergeld",
   wohngeld: "wohngeld", bafög: "bafoeg", bafoeg: "bafoeg", sozialhilfe: "sozialhilfe",
   krankengeld: "krankengeld", führungszeugnis: "fuehrungszeugnis",
-  aufenthaltstitel: "aufenthaltstitel-verlaengerung", boravisna: "aufenthaltstitel-verlaengerung",
   anmeldung: "anmeldung", wbs: "wbs", arbeitslosengeld: "arbeitslosengeld",
   kurzarbeitergeld: "kurzarbeitergeld", bildungsgutschein: "bildungsgutschein",
   integrationskurs: "integrationskurs", kirchenaustritt: "kirchenaustritt",
-  heizkostenzuschuss: "heizkostenzuschuss", rundfunkbeitrag: "gez-anmeldung", gez: "gez-anmeldung",
+  heizkostenzuschuss: "heizkostenzuschuss",
+  steuerklasse: "steuerklassenwechsel", krankenkasse: "familienversicherung",
   steuerklasse: "steuerklassenwechsel", krankenkasse: "familienversicherung",
 };
 
@@ -319,7 +317,7 @@ function detectFormFromCatalog(text: string): typeof FORM_CATALOG[0] | null {
     "dječji dodatak": "kindergeld", "djecji dodatak": "kindergeld",
     "prijava adrese": "anmeldung", "roditeljski novac": "elterngeld",
     "socijalna pomoć": "sozialhilfe", "pomoć za stan": "wohngeld",
-    "boravišna dozvola": "aufenthaltstitel-verlaengerung", "boravisna dozvola": "aufenthaltstitel-verlaengerung",
+    
     "alimentacija": "unterhaltsvorschuss",
   };
   for (const [alias, slug] of Object.entries(aliases)) {

@@ -1860,51 +1860,6 @@ export const guides: Guide[] = [
     onlineLink: "",
     officialInfoUrl: "https://www.kirchenaustritt.de",
   },
-  {
-    slug: "gez-anmeldung",
-    category: "wohnen",
-    title: { de: "GEZ / Rundfunkbeitrag Anmeldung", bs: "Prijava Rundfunkbeitrag (GEZ)", en: "Broadcasting Fee Registration (GEZ)" },
-    who: {
-      de: "Jeder Haushalt in Deutschland muss den Rundfunkbeitrag (18,36 €/Monat) zahlen.",
-      bs: "Svako domaćinstvo u Njemačkoj mora plaćati Rundfunkbeitrag (18,36 €/mjesečno).",
-      en: "Every household in Germany must pay the broadcasting fee (€18.36/month).",
-    },
-    authority: { de: "ARD ZDF Deutschlandradio Beitragsservice", bs: "ARD ZDF Deutschlandradio Beitragsservice", en: "ARD ZDF Deutschlandradio Beitragsservice" },
-    formName: { de: "Anmeldung zum Rundfunkbeitrag", bs: "Prijava za Rundfunkbeitrag", en: "Broadcasting Fee Registration" },
-    steps: {
-      de: [
-        { field: "Online anmelden", instruction: "Auf rundfunkbeitrag.de → 'Wohnung anmelden'. Name, Adresse und Einzugsdatum eingeben." },
-        { field: "Zahlungsart wählen", instruction: "SEPA-Lastschrift (empfohlen), Überweisung oder Dauerauftrag. Zahlung monatlich, vierteljährlich, halbjährlich oder jährlich möglich." },
-        { field: "Beitragsnummer erhalten", instruction: "Nach Anmeldung erhalten Sie Ihre Beitragsnummer per Post. Diese für alle Korrespondenz aufbewahren." },
-        { field: "Befreiung prüfen", instruction: "Empfänger von Bürgergeld, BAföG oder Grundsicherung können sich befreien lassen. Antrag mit aktuellem Bescheid online stellen." },
-      ],
-      bs: [
-        { field: "Online prijava", instruction: "Na rundfunkbeitrag.de prijaviti stan. Unijeti ime, adresu i datum useljenja." },
-        { field: "Način plaćanja", instruction: "SEPA (preporučeno), uplata ili trajni nalog." },
-        { field: "Beitragsnummer", instruction: "Dolazi poštom – čuvati za svu komunikaciju." },
-        { field: "Oslobođenje", instruction: "Primaoci Bürgergeld-a, BAföG-a mogu se osloboditi." },
-      ],
-      en: [
-        { field: "Register online", instruction: "At rundfunkbeitrag.de register your apartment." },
-        { field: "Choose payment method", instruction: "SEPA direct debit (recommended), transfer, or standing order." },
-        { field: "Receive number", instruction: "Contribution number arrives by mail — keep it." },
-        { field: "Check exemption", instruction: "Bürgergeld, BAföG recipients can be exempt." },
-      ],
-    },
-    documents: {
-      de: ["Meldebescheinigung (zur Info)", "Ggf. Leistungsbescheid für Befreiung"],
-      bs: ["Potvrda o prijavi (za informaciju)", "Eventualno rješenje za oslobođenje"],
-      en: ["Registration certificate (for info)", "Benefit notice for exemption if applicable"],
-    },
-    processingTime: { de: "Sofort nach Online-Anmeldung aktiv", bs: "Odmah nakon online prijave", en: "Active immediately after online registration" },
-    commonMistakes: {
-      de: ["Anmeldung ignoriert — Schulden kumulieren sich!", "In WG doppelt angemeldet (nur einmal pro Wohnung)", "Befreiungsantrag ohne aktuellen Bescheid"],
-      bs: ["Ignorisana prijava — dugovi rastu!", "U WG dupla prijava (samo jednom po stanu)", "Zahtjev za oslobođenje bez aktuelnog rješenja"],
-      en: ["Ignoring registration — debts accumulate!", "Double registration in shared apartment", "Exemption request without current notice"],
-    },
-    officialPdf: "",
-    onlineLink: "https://www.rundfunkbeitrag.de",
-  },
   // ===================== BILDUNG (additional) =====================
   {
     slug: "bildungsgutschein",
@@ -2043,52 +1998,6 @@ export const guides: Guide[] = [
     },
     officialPdf: "",
     onlineLink: "https://www.bundesjustizamt.de",
-  },
-  {
-    slug: "aufenthaltstitel-verlaengerung",
-    category: "arbeit",
-    title: { de: "Aufenthaltstitel Verlängerung", bs: "Produženje boravišne dozvole", en: "Residence Permit Extension" },
-    who: {
-      de: "Nicht-EU-Bürger mit befristetem Aufenthaltstitel, der vor Ablauf verlängert werden muss.",
-      bs: "Državljani koji nisu iz EU sa privremenom boravišnom dozvolom koja se mora produžiti prije isteka.",
-      en: "Non-EU citizens with a temporary residence permit that must be extended before expiry.",
-    },
-    authority: { de: "Ausländerbehörde (ABH) der Stadt", bs: "Ausländerbehörde (ABH) grada", en: "Immigration Office (ABH)" },
-    formName: { de: "Antrag auf Verlängerung des Aufenthaltstitels", bs: "Zahtjev za produženje boravišne dozvole", en: "Application for Residence Permit Extension" },
-    steps: {
-      de: [
-        { field: "Frühzeitig beantragen", instruction: "Antrag mindestens 6–8 Wochen vor Ablauf stellen. Bei rechtzeitigem Antrag gilt eine Fiktionsbescheinigung." },
-        { field: "Persönliche Daten", instruction: "Name, Geburtsdatum, Staatsangehörigkeit, Passnummer, aktuelle Adresse, Aufenthaltszweck." },
-        { field: "Nachweise beifügen", instruction: "Arbeitsvertrag, Mietvertrag, Krankenversicherungsnachweis, Gehaltsabrechnungen, ggf. Sprachzertifikat." },
-        { field: "Termin vereinbaren", instruction: "Bei der Ausländerbehörde online Termin buchen. Alle Originale und Kopien mitbringen." },
-      ],
-      bs: [
-        { field: "Pravovremeno podnijeti", instruction: "Zahtjev podnijeti najmanje 6–8 sedmica prije isteka. Uz pravovremeni zahtjev važi fiktivna dozvola." },
-        { field: "Lični podaci", instruction: "Ime, datum rođenja, državljanstvo, broj pasoša, adresa, svrha boravka." },
-        { field: "Priložiti dokaze", instruction: "Ugovor o radu, ugovor o najmu, zdravstveno osiguranje, platne liste, jezički certifikat." },
-        { field: "Zakazati termin", instruction: "Online zakazati termin kod Ausländerbehörde. Ponijeti sve originale i kopije." },
-      ],
-      en: [
-        { field: "Apply early", instruction: "Apply at least 6–8 weeks before expiry. Timely application triggers a fiction certificate." },
-        { field: "Personal data", instruction: "Name, date of birth, nationality, passport number, address, purpose of stay." },
-        { field: "Attach proof", instruction: "Employment contract, rental contract, health insurance, pay slips, language certificate." },
-        { field: "Book appointment", instruction: "Book appointment online at immigration office. Bring all originals and copies." },
-      ],
-    },
-    documents: {
-      de: ["Gültiger Reisepass", "Aktueller Aufenthaltstitel", "Biometrisches Passfoto", "Arbeitsvertrag + Gehaltsabrechnungen", "Mietvertrag", "Krankenversicherungsnachweis", "Ggf. Sprachzertifikat (A1/B1)"],
-      bs: ["Važeći pasoš", "Aktuelna boravišna dozvola", "Biometrijska fotografija", "Ugovor o radu + platne liste", "Ugovor o najmu", "Zdravstveno osiguranje", "Jezički certifikat (A1/B1)"],
-      en: ["Valid passport", "Current residence permit", "Biometric photo", "Employment contract + pay slips", "Rental contract", "Health insurance proof", "Language certificate (A1/B1)"],
-    },
-    processingTime: { de: "4–12 Wochen (je nach ABH)", bs: "4–12 sedmica (zavisno od ABH)", en: "4–12 weeks (depends on ABH)" },
-    commonMistakes: {
-      de: ["Antrag zu spät gestellt — Aufenthalt wird illegal!", "Reisepass abgelaufen", "Keine Krankenversicherung nachgewiesen", "Fehlende Gehaltsabrechnungen"],
-      bs: ["Zahtjev predan prekasno — boravak postaje nelegalan!", "Pasoš istekao", "Nema dokaza o zdravstvenom osiguranju", "Nedostaju platne liste"],
-      en: ["Applied too late — stay becomes illegal!", "Passport expired", "No health insurance proof", "Missing pay slips"],
-    },
-    officialPdf: "",
-    onlineLink: "",
-    officialInfoUrl: "https://www.bamf.de/DE/Themen/MigrationAufenthalt/migrationaufenthalt-node.html",
   },
   {
     slug: "anmeldung",

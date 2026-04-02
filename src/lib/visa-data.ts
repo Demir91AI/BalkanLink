@@ -189,7 +189,7 @@ export const visaTypes: VisaType[] = [
       "Nedostaju platne liste ili dokaz o zaposlenju",
       "Nije zakazan termin na vrijeme kod Ausländerbehörde",
     ],
-    guideSlug: "aufenthaltstitel-verlaengerung",
+    guideSlug: "",
     officialUrl: "https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwijAndInDeutschl/Aufenthaltstitel/aufenthaltstitel-node.html",
   },
   {

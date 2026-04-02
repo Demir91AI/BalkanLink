@@ -44,7 +44,7 @@ export const formCatalog: FormGroup[] = [
       { slug: "buergergeld", label: "Bürgergeld", desc: "Osnovna pomoć za život ako prihod nije dovoljan." },
       { slug: "wohngeld", label: "Wohngeld", desc: "Finansijska pomoć za troškove stanovanja ako imaš manja primanja." },
       { slug: "sozialhilfe", label: "Sozialhilfe / Grundsicherung", desc: "Osnovna socijalna pomoć za osobe koje ne mogu raditi." },
-      { slug: "gez-befreiung", label: "Rundfunkbeitrag Befreiung", desc: "Oslobađanje od obavezne RTV takse." },
+      
       { slug: "heizkostenzuschuss", label: "Heizkostenzuschuss", desc: "Dodatak za troškove grijanja." },
     ],
   },
@@ -55,7 +55,7 @@ export const formCatalog: FormGroup[] = [
     items: [
       { slug: "krankenkasse", label: "Krankenkasse Anmeldung", desc: "Prijava u zdravstveno osiguranje u Njemačkoj." },
       { slug: "steuerklassenwechsel", label: "Steuerklassenwechsel", desc: "Promjena poreske klase, npr. nakon braka ili promjene porodične situacije." },
-      { slug: "lohnfortzahlung", label: "Lohnfortzahlung / Krankmeldung", desc: "Nastavak plaće i bolovanje u Njemačkoj." },
+      
       { slug: "arbeitslosengeld", label: "Arbeitslosengeld I", desc: "Naknada ako si izgubio posao i ispunjavaš uslove osiguranja." },
       { slug: "kurzarbeitergeld", label: "Kurzarbeitergeld", desc: "Naknada kad firma privremeno smanji radne sate." },
       { slug: "bildungsgutschein", label: "Bildungsgutschein", desc: "Vaučer za finansiranje prekvalifikacije ili dodatnog obrazovanja." },
@@ -78,7 +78,7 @@ export const formCatalog: FormGroup[] = [
     title: "Dokumenti i administracija",
     items: [
       { slug: "fuehrungszeugnis", label: "Führungszeugnis", desc: "Potvrda o nekažnjavanju koju često traže poslodavci ili institucije." },
-      { slug: "aufenthaltstitel-verlaengerung", label: "Aufenthaltstitel Verlängerung", desc: "Zahtjev za produženje boravišne dozvole." },
+      
       { slug: "kirchenaustritt", label: "Kirchenaustritt", desc: "Odjava iz crkve radi prestanka crkvenog poreza." },
     ],
   },
