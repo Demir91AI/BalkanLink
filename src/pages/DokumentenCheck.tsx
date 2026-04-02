@@ -124,7 +124,7 @@ export default function DokumentenCheck() {
       <section className="border-b bg-primary py-10">
         <div className="container max-w-3xl">
           <button onClick={handleBack} className="back-button">
-            <ChevronLeft className="h-4 w-4" /> Nazad
+            <ChevronLeft className="h-4 w-4" /> {st("guide.back")}
           </button>
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">
             {t("index.nav.docCheck")}
@@ -133,7 +133,7 @@ export default function DokumentenCheck() {
             {st("docCheck.subtitle")}
           </p>
           <span className="mt-2 inline-block rounded-full bg-[hsl(var(--success))]/20 px-3 py-1 text-xs font-semibold text-[hsl(var(--success))]">
-            ✓ Besplatno — 2 provjere dnevno
+            {st("docCheck.freeLabel")}
           </span>
         </div>
       </section>
@@ -236,26 +236,26 @@ export default function DokumentenCheck() {
                   <div className="absolute inset-0 z-10 flex flex-col items-center justify-center rounded-b-xl bg-background/80 backdrop-blur-sm">
                     <Lock className="h-8 w-8 text-[hsl(var(--gold))] mb-3" />
                     <p className="text-sm font-bold text-foreground mb-4 text-center px-4">
-                      🔒 Detaljni koraci i rješenje dostupni u Premium verziji
+                      {st("docCheck.lockText")}
                     </p>
                     <div className="flex flex-col gap-2">
                       <button
                         onClick={() => navigate("/premium")}
                         className="rounded-full bg-[hsl(var(--gold))] px-6 py-3 text-sm font-bold text-[#0f1f3d] transition-all hover:opacity-90"
                       >
-                        BalkanLink Premium — 9.99€/mj.
+                        {st("docCheck.premiumCta")}
                       </button>
                       <button
                         onClick={() => navigate("/premium")}
                         className="rounded-full bg-[#0f1f3d] px-6 py-3 text-sm font-bold text-white border border-white/20 transition-all hover:bg-[#0f1f3d]/80"
                       >
-                        Jedan pristup — 3.99€
+                        {st("docCheck.singleCta")}
                       </button>
                     </div>
                   </div>
                 )}
                 <div className={!isPremium ? "blur-sm select-none pointer-events-none" : ""}>
-                  <h3 className="mb-3 text-xs font-bold uppercase tracking-wide text-muted-foreground">Detaljni koraci i rješenje</h3>
+                  <h3 className="mb-3 text-xs font-bold uppercase tracking-wide text-muted-foreground">{st("docCheck.detailedTitle")}</h3>
                   <div className="prose prose-sm max-w-none">
                     <ReactMarkdown>{analysisSections.detailed}</ReactMarkdown>
                   </div>
