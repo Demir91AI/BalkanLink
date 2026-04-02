@@ -75,6 +75,8 @@ const STEPS: StepData[] = [
     bhsField: "Šta ako dijete ima vlastiti prihod?",
     whatToWrite:
       "Prihodi djeteta se uzimaju u obzir — ali samo 45%:\n• Alimentacija (Unterhalt) → 45% se uračunava\n• Unterhaltsvorschuss → 45% se uračunava\n• Waisenrente → 45% se uračunava",
+    commonMistake:
+      "Misliti da se cijeli iznos alimentacije oduzima od KiZ — uračunava se samo 45%.",
     note:
       "Primjer: Dijete prima 200€ alimentacije mjesečno. Na KiZ se uračunava samo 90€ (45% od 200€). KiZ se smanjuje za 90€, ne za 200€.",
   },
