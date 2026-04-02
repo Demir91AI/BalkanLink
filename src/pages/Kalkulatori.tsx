@@ -807,9 +807,12 @@ export default function Kalkulatori() {
                 <div className="space-y-1">
                   <Label className="text-sm text-white/70 font-medium">Geldwerter Vorteil / Firmenwagen (€) {I("geldwerterVorteil")}</Label>
                   <input
-                    type="number" min={0}
-                    value={inputs.geldwerterVorteil || ""}
-                    onChange={e => update({ geldwerterVorteil: Number(e.target.value) })}
+                    type="text"
+                    inputMode="numeric"
+                    value={getFieldStr("geldwerterVorteil", inputs.geldwerterVorteil, "")}
+                    onFocus={() => handleFocus("geldwerterVorteil", inputs.geldwerterVorteil)}
+                    onChange={e => handleChange("geldwerterVorteil", e.target.value)}
+                    onBlur={() => handleBlur("geldwerterVorteil", { min: 0 })}
                     placeholder="npr. 300"
                     className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white text-sm font-bold focus:border-[#F59E0B] focus:outline-none placeholder:text-white/30 transition-all duration-300"
                   />
