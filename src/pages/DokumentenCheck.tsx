@@ -14,6 +14,28 @@ import { IS_ADMIN_PREVIEW } from "@/lib/config";
 
 type InputMode = "upload" | "text";
 
+function getDokUsage(): { count: number; date: string } {
+  try {
+    const raw = localStorage.getItem("dok_used");
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      const today = new Date().toISOString().slice(0, 10);
+      if (parsed.date === today) return parsed;
+    }
+  } catch {}
+  return { count: 0, date: new Date().toISOString().slice(0, 10) };
+}
+
+function incrementDokUsage() {
+  const today = new Date().toISOString().slice(0, 10);
+  const usage = getDokUsage();
+  if (usage.date !== today) {
+    localStorage.setItem("dok_used", JSON.stringify({ count: 1, date: today }));
+  } else {
+    localStorage.setItem("dok_used", JSON.stringify({ count: usage.count + 1, date: today }));
+  }
+}
+
 export default function DokumentenCheck() {
   const { t } = useLanguage();
   const st = useSectionT();
@@ -27,6 +49,7 @@ export default function DokumentenCheck() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [dokLimitHit, setDokLimitHit] = useState(false);
 
   const isPremium = IS_ADMIN_PREVIEW; // In production, check real premium status
 
@@ -63,6 +86,16 @@ export default function DokumentenCheck() {
 
   const handleAnalyze = useCallback(async () => {
     if (!confirmed) return;
+
+    // Check daily limit (1 free per day)
+    if (!isPremium) {
+      const usage = getDokUsage();
+      if (usage.count >= 1) {
+        setDokLimitHit(true);
+        return;
+      }
+    }
+
     setLoading(true);
     setError(null);
     setAnalysis(null);
@@ -97,12 +130,13 @@ export default function DokumentenCheck() {
       if (fnError) throw fnError;
       if (data?.error) throw new Error(data.error);
       setAnalysis(data.analysis);
+      if (!isPremium) incrementDokUsage();
     } catch (err: any) {
       setError(err.message || st("docCheck.analysisFailed"));
     } finally {
       setLoading(false);
     }
-  }, [confirmed, mode, textInput, file, st]);
+  }, [confirmed, mode, textInput, file, st, isPremium]);
 
   const handleClear = useCallback(() => {
     clearFile();
@@ -217,6 +251,22 @@ export default function DokumentenCheck() {
             <div className="flex items-center gap-2 rounded-lg border border-destructive/30 bg-destructive/5 p-3 text-sm text-destructive">
               <AlertTriangle className="h-4 w-4 shrink-0" /> {error}
             </div>
+          )}
+
+          {dokLimitHit && (
+            <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
+              className="flex flex-col items-center rounded-2xl border border-[#F59E0B]/20 bg-[#0f1f3d] p-8 text-center">
+              <Lock className="h-8 w-8 text-[#F59E0B] mb-3" />
+              <p className="text-sm font-bold text-white mb-4">
+                🔒 Ostale provjere dostupne u Premium verziji
+              </p>
+              <button
+                onClick={() => navigate("/premium")}
+                className="rounded-full bg-[#F59E0B] px-6 py-3 text-[#0f1f3d] font-bold transition-all hover:opacity-90"
+              >
+                BalkanLink Premium — 9.99€/mj.
+              </button>
+            </motion.div>
           )}
 
           {analysisSections && (

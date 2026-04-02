@@ -127,10 +127,13 @@ export default function HomeReviews() {
             />
             <Button
               onClick={handleSubmit}
-              className="bg-[hsl(var(--gold))] text-[hsl(var(--gold-foreground))] font-bold hover:bg-[hsl(var(--gold))]/90"
+              className="bg-[#F59E0B] text-[#0f1f3d] font-bold hover:bg-[#F59E0B]/90"
             >
               Pošalji recenziju
             </Button>
+            <p className="text-xs text-gray-400 text-center mt-2">
+              Bez lažnih recenzija — samo stvarna iskustva korisnika
+            </p>
           </motion.div>
         ) : (
           <div className="rounded-2xl border border-[hsl(var(--gold))]/20 bg-[hsl(var(--gold))]/5 p-6 mb-8 text-center">
