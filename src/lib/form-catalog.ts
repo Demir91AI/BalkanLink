@@ -78,7 +78,7 @@ export const formCatalog: FormGroup[] = [
     title: "Dokumenti i administracija",
     items: [
       { slug: "fuehrungszeugnis", label: "Führungszeugnis", desc: "Potvrda o nekažnjavanju koju često traže poslodavci ili institucije." },
-      { slug: "aufenthaltstitel-verlaengerung", label: "Aufenthaltstitel Verlängerung", desc: "Zahtjev za produženje boravišne dozvole." },
+      
       { slug: "kirchenaustritt", label: "Kirchenaustritt", desc: "Odjava iz crkve radi prestanka crkvenog poreza." },
     ],
   },
