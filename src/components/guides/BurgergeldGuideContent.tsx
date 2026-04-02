@@ -1,5 +1,6 @@
 import GuideInfoHeader from "./GuideInfoHeader";
 import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
+import MusterCTA from "./MusterCTA";
 
 const STEPS: StepData[] = [
   {
