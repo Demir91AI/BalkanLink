@@ -22,37 +22,47 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 
-const premiumItems = [
+const mainItems = [
   {
     title: "Formulari (Smart Guide)",
     desc: "Korak po korak bez greške",
     url: "/formulari",
     icon: FileText,
+    premium: true,
   },
   {
     title: "Visa Navigator",
     desc: "Sve o vizama za Njemačku — jasno i korak po korak",
     url: "/dolazak/boravisna-dozvola",
     icon: Shield,
+    premium: true,
   },
   {
     title: "BalkanLink Deutsch",
     desc: "Njemački za stvarni život",
     url: "/deutsch-trainer",
     icon: BookOpen,
+    premium: true,
   },
   {
     title: "Dokumenten-Check",
     desc: "Razumij svaki dokument odmah",
     url: "/dokumenten-check",
     icon: Camera,
+    premium: true,
+  },
+  {
+    title: "Nudim / Tražim",
+    desc: "Oglasi, usluge i ponude zajednice",
+    url: "/nudim-trazim",
+    icon: Megaphone,
+    premium: false,
   },
 ];
 
 const secondaryItems = [
   { title: "Pretraga poslova", url: "/stellenangebote", icon: Briefcase },
   { title: "Pretraga stanova", url: "/wohnungen", icon: Building },
-  { title: "Nudim / Tražim", url: "/nudim-trazim", icon: Megaphone },
   { title: "Šabloni", url: "/vorlagen", icon: FileCheck },
 ];
 
@@ -84,7 +94,7 @@ export function AppSidebar() {
           )}
           <SidebarGroupContent>
             <SidebarMenu className="gap-1.5 px-2">
-              {premiumItems.map((item) => {
+              {mainItems.map((item) => {
                 const isActive =
                   location.pathname === item.url ||
                   location.pathname.startsWith(item.url + "/");
@@ -120,7 +130,7 @@ export function AppSidebar() {
                             <span className="block text-sm text-gray-400 mt-0.5">{item.desc}</span>
                           </div>
                         )}
-                        {!collapsed && (
+                        {!collapsed && item.premium && (
                           <span className="shrink-0 rounded-full bg-[#F59E0B] px-2 py-0.5 text-[9px] font-bold leading-none text-[#0f1f3d]">
                             PREMIUM
                           </span>
