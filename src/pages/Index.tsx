@@ -506,6 +506,9 @@ export default function Index() {
           </motion.div>
         </div>
       </section>
+
+      {/* PWA Install Banner */}
+      <PWAInstallBanner />
     </div>
   );
 }
