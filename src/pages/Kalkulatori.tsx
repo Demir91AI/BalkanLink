@@ -101,8 +101,8 @@ interface CalcInputs {
   steuerklasse: number;
   bundesland: string;
   hasDjeca: boolean;
-  brojDjece: number;
-  brojDjeceIspod25: number;
+  brojDjece: number | null;
+  brojDjeceIspod25: number | null;
   kinderfreibetrag: number;
   alter: number;
   kvType: "gesetzlich" | "privat";
@@ -122,8 +122,8 @@ const DEFAULTS: CalcInputs = {
   steuerklasse: 1,
   bundesland: "BY",
   hasDjeca: false,
-  brojDjece: 1,
-  brojDjeceIspod25: 0,
+  brojDjece: null,
+  brojDjeceIspod25: null,
   kinderfreibetrag: 2.0,
   alter: 30,
   kvType: "gesetzlich",
@@ -162,8 +162,10 @@ function calculate(inp: CalcInputs) {
   }
 
   // PV: kinderlos zuschlag only if no children under 25 AND age >= 23
+  const effBrojDjece = inp.brojDjece ?? 0;
+  const effBrojDjeceIspod25 = inp.brojDjeceIspod25 ?? 0;
   let pvRate = isSachsen ? 0.02025 : 0.01525;
-  const hasChildUnder25 = inp.hasDjeca && inp.brojDjeceIspod25 > 0;
+  const hasChildUnder25 = inp.hasDjeca && effBrojDjeceIspod25 > 0;
   if (!hasChildUnder25 && !inp.hasDjeca && inp.alter >= 23) pvRate += 0.0035;
   const pv = kvBasis * pvRate;
 
@@ -188,7 +190,7 @@ function calculate(inp: CalcInputs) {
     if (kfbTotal <= 0) return baseZvE;
     const taxWithout = computeYearlyTax(Math.max(0, baseZvE), inp.godina);
     const taxWith = computeYearlyTax(Math.max(0, baseZvE - kfbTotal), inp.godina);
-    const kindergeldYearly = (inp.hasDjeca ? inp.brojDjece : 0) * 250 * 12;
+    const kindergeldYearly = (inp.hasDjeca ? effBrojDjece : 0) * 250 * 12;
     if ((taxWithout - taxWith) > kindergeldYearly) {
       return Math.max(0, baseZvE - kfbTotal);
     }
@@ -448,7 +450,7 @@ export default function Kalkulatori() {
   const total = netto + steuern + sozial;
   const segPct = (val: number) => total > 0 ? Math.max(0, (val / total) * 100) : 0;
 
-  const djecaIspod25Error = inputs.hasDjeca && inputs.brojDjeceIspod25 > inputs.brojDjece;
+  const djecaIspod25Error = inputs.hasDjeca && inputs.brojDjeceIspod25 != null && inputs.brojDjece != null && inputs.brojDjeceIspod25 > inputs.brojDjece;
 
   const handleExternalLink = (primaryUrl: string, fallbackUrl: string, index: number) => {
     const newWindow = window.open(primaryUrl, "_blank", "noopener,noreferrer");
@@ -577,24 +579,64 @@ export default function Kalkulatori() {
                   <>
                     <div className="space-y-1">
                       <Label className="text-sm text-white/70 font-medium">Broj djece (ukupno) {I("brojDjece")}</Label>
-                      <input
-                        type="number" min={1} max={15}
-                        value={inputs.brojDjece}
-                        onChange={e => update({ brojDjece: Math.max(1, Math.min(15, Number(e.target.value))) })}
-                        className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white text-sm font-bold focus:border-[#F59E0B] focus:outline-none transition-all duration-300"
-                      />
+                      <div className="relative">
+                        <input
+                          type="number"
+                          inputMode="numeric"
+                          value={inputs.brojDjece ?? ""}
+                          onChange={e => {
+                            const raw = e.target.value;
+                            if (raw === "") { update({ brojDjece: null }); return; }
+                            const n = parseInt(raw, 10);
+                            if (!isNaN(n) && n >= 0) update({ brojDjece: n });
+                          }}
+                          placeholder="npr. 2"
+                          className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 pr-12 text-white text-sm font-bold focus:border-[#F59E0B] focus:outline-none transition-all duration-300 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none [-moz-appearance:textfield]"
+                        />
+                        <div className="absolute right-1 top-1/2 -translate-y-1/2 flex flex-col">
+                          <button type="button" onClick={() => update({ brojDjece: (inputs.brojDjece ?? 0) + 1 })} className="px-2 py-0.5 text-white/50 hover:text-[#F59E0B] transition-colors text-xs leading-none">▲</button>
+                          <button type="button" onClick={() => update({ brojDjece: Math.max(0, (inputs.brojDjece ?? 0) - 1) || null })} className="px-2 py-0.5 text-white/50 hover:text-[#F59E0B] transition-colors text-xs leading-none">▼</button>
+                        </div>
+                      </div>
+                      <div className="flex gap-1.5 mt-1.5 flex-wrap">
+                        {[1, 2, 3, 4, 5].map(n => (
+                          <button key={n} type="button" onClick={() => update({ brojDjece: n })}
+                            className={`px-3 py-1 rounded-lg text-xs font-bold transition-all duration-200 ${inputs.brojDjece === n ? "bg-[#F59E0B] text-[#0f1f3d]" : "bg-white/10 text-white/60 hover:bg-white/20"}`}
+                          >{n}</button>
+                        ))}
+                      </div>
                     </div>
 
                     <div className="space-y-1">
                       <Label className="text-sm text-white/70 font-medium">Broj djece ispod 25 godina {I("brojDjeceIspod25")}</Label>
-                      <input
-                        type="number" min={0}
-                        value={inputs.brojDjeceIspod25}
-                        onChange={e => update({ brojDjeceIspod25: Math.max(0, Number(e.target.value)) })}
-                        className={`w-full bg-white/10 rounded-xl px-4 py-3 text-white text-sm font-bold focus:outline-none transition-all duration-300 ${
-                          djecaIspod25Error ? "border-2 border-red-400 focus:border-red-400" : "border border-white/20 focus:border-[#F59E0B]"
-                        }`}
-                      />
+                      <div className="relative">
+                        <input
+                          type="number"
+                          inputMode="numeric"
+                          value={inputs.brojDjeceIspod25 ?? ""}
+                          onChange={e => {
+                            const raw = e.target.value;
+                            if (raw === "") { update({ brojDjeceIspod25: null }); return; }
+                            const n = parseInt(raw, 10);
+                            if (!isNaN(n) && n >= 0) update({ brojDjeceIspod25: n });
+                          }}
+                          placeholder="npr. 1"
+                          className={`w-full bg-white/10 rounded-xl px-4 py-3 pr-12 text-white text-sm font-bold focus:outline-none transition-all duration-300 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none [-moz-appearance:textfield] ${
+                            djecaIspod25Error ? "border-2 border-red-400 focus:border-red-400" : "border border-white/20 focus:border-[#F59E0B]"
+                          }`}
+                        />
+                        <div className="absolute right-1 top-1/2 -translate-y-1/2 flex flex-col">
+                          <button type="button" onClick={() => update({ brojDjeceIspod25: (inputs.brojDjeceIspod25 ?? 0) + 1 })} className="px-2 py-0.5 text-white/50 hover:text-[#F59E0B] transition-colors text-xs leading-none">▲</button>
+                          <button type="button" onClick={() => update({ brojDjeceIspod25: Math.max(0, (inputs.brojDjeceIspod25 ?? 0) - 1) || null })} className="px-2 py-0.5 text-white/50 hover:text-[#F59E0B] transition-colors text-xs leading-none">▼</button>
+                        </div>
+                      </div>
+                      <div className="flex gap-1.5 mt-1.5 flex-wrap">
+                        {[0, 1, 2, 3, 4].map(n => (
+                          <button key={n} type="button" onClick={() => update({ brojDjeceIspod25: n || null })}
+                            className={`px-3 py-1 rounded-lg text-xs font-bold transition-all duration-200 ${inputs.brojDjeceIspod25 === n ? "bg-[#F59E0B] text-[#0f1f3d]" : "bg-white/10 text-white/60 hover:bg-white/20"}`}
+                          >{n}</button>
+                        ))}
+                      </div>
                       {djecaIspod25Error && (
                         <p className="text-xs text-red-400 mt-1">Broj djece ispod 25 ne može biti veći od ukupnog broja djece</p>
                       )}
