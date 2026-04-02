@@ -11,6 +11,12 @@ export interface FormGroup {
   icon: string; // emoji
   title: string;
   items: FormEntry[];
+  /** Sub-groups within a group (e.g. Bürgergeld Anlagen) */
+  subGroups?: {
+    id: string;
+    title: string;
+    items: FormEntry[];
+  }[];
 }
 
 export const formCatalog: FormGroup[] = [
@@ -41,31 +47,46 @@ export const formCatalog: FormGroup[] = [
     icon: "💰",
     title: "Socijalna pomoć",
     items: [
-      { slug: "buergergeld", label: "Bürgergeld", desc: "Osnovna pomoć za život ako prihod nije dovoljan." },
-      { slug: "hauptantrag", label: "Hauptantrag Bürgergeld (HA)", desc: "Centralni formular za podnošenje zahtjeva za Bürgergeld." },
-      { slug: "weiterbewilligung", label: "Weiterbewilligungsantrag (WBA)", desc: "Produženje Bürgergelda nakon isteka odobrenja." },
-      { slug: "anlage-kdu", label: "Anlage KDU — Kosten der Unterkunft", desc: "Troškovi stanovanja i grijanja." },
-      { slug: "anlage-ek", label: "Anlage EK — Einkommen", desc: "Prihodi svake osobe 15+ u Bedarfsgemeinschaft." },
-      { slug: "anlage-eks", label: "Anlage EKS — Einkommen Selbständige", desc: "Prihodi i rashodi samozaposlenih u BG." },
-      { slug: "anlage-vm", label: "Anlage VM — Vermögen", desc: "Imovina svih osoba u Bedarfsgemeinschaft." },
-      { slug: "anlage-wep", label: "Anlage WEP — Weitere Person", desc: "Podaci za partnera/djecu 15–24 god. u BG." },
-      { slug: "anlage-ki", label: "Anlage KI — Kind unter 15", desc: "Podaci za dijete mlađe od 15 godina u BG." },
-      { slug: "anlage-uh1", label: "Anlage UH1 — Trennungsunterhalt", desc: "Alimentacija nakon rastave/razvoda." },
-      { slug: "anlage-uh2", label: "Anlage UH2 — Unterhalt Schwangerschaft", desc: "Alimentacija trudne osobe od oca djeteta." },
-      { slug: "anlage-uh3", label: "Anlage UH3 — Kindesunterhalt", desc: "Alimentacija djeteta od odsutnog roditelja." },
-      { slug: "nichterreichbarkeit", label: "Anfrage Nichterreichbarkeit (ANE)", desc: "Prijava privremene odsutnosti Jobcentru." },
-      { slug: "anlage-bb", label: "Anlage BB — Besonderer Bedarf", desc: "Zahtjev za vanredni trošak koji nije pokriven Regelsatzom." },
-      { slug: "anlage-sv", label: "Anlage SV — Sozialversicherung", desc: "Status zdravstvenog osiguranja tokom Bürgergeld primanja." },
-      { slug: "anlage-ve", label: "Anlage VE — Einstehensgemeinschaft", desc: "Provjera da li živiš u eheähnliche Gemeinschaft." },
-      { slug: "anlage-hg", label: "Anlage HG — Haushaltsgemeinschaft", desc: "Zajedničko stanovanje sa srodnicima." },
-      { slug: "anlage-meb", label: "Anlage MEB — Mehrbedarf Ernährung", desc: "Doplatak za medicinsku ishranu." },
-      { slug: "anlage-uf", label: "Anlage UF — Unfallfragebogen", desc: "Upitnik o nesreći/šteti od treće osobe." },
-      { slug: "anlage-se", label: "Anlage SE — Schweigepflichtentbindung", desc: "Oslobađanje od liječničke tajne (uz Anlage UF)." },
-      { slug: "arbeitsbescheinigung", label: "Arbeitsbescheinigung § 57 SGB II", desc: "Potvrda o zaposlenju — popunjava SAMO poslodavac." },
-      { slug: "antragsruecknahme", label: "Erklärung der Antragsrücknahme", desc: "Povlačenje već podnesenog Bürgergeld zahtjeva." },
-      { slug: "wohngeld", label: "Wohngeld", desc: "Finansijska pomoć za troškove stanovanja ako imaš manja primanja." },
-      { slug: "sozialhilfe", label: "Sozialhilfe / Grundsicherung", desc: "Osnovna socijalna pomoć za osobe koje ne mogu raditi." },
-      { slug: "heizkostenzuschuss", label: "Heizkostenzuschuss", desc: "Dodatak za troškove grijanja." },
+      // Primary - Bürgergeld Hauptantrag
+      { slug: "hauptantrag", label: "Bürgergeld Hauptantrag (HA)", desc: "Centralni formular za podnošenje zahtjeva za Bürgergeld." },
+    ],
+    subGroups: [
+      {
+        id: "buergergeld-anlagen",
+        title: "Bürgergeld — Prilozi (Anlagen)",
+        items: [
+          { slug: "weiterbewilligung", label: "Weiterbewilligungsantrag (WBA)", desc: "Produženje Bürgergelda nakon isteka odobrenja." },
+          { slug: "anlage-kdu", label: "Anlage KDU (Troškovi stanovanja)", desc: "Prilog za troškove stanovanja i grijanja." },
+          { slug: "anlage-ek", label: "Anlage EK (Prihodi)", desc: "Prihodi svake osobe 15+ u zajednici." },
+          { slug: "anlage-eks", label: "Anlage EKS (Samozaposleni)", desc: "Prihodi i rashodi samozaposlenih." },
+          { slug: "anlage-vm", label: "Anlage VM (Imovina)", desc: "Imovina svih osoba u zajednici." },
+          { slug: "anlage-wep", label: "Anlage WEP (Dodatna osoba)", desc: "Podaci za partnera/djecu 15–24 god." },
+          { slug: "anlage-ki", label: "Anlage KI (Dijete do 15)", desc: "Podaci za dijete mlađe od 15 godina." },
+          { slug: "anlage-sv", label: "Anlage SV (Osiguranje)", desc: "Status zdravstvenog osiguranja." },
+          { slug: "anlage-bb", label: "Anlage BB (Poseban trošak)", desc: "Zahtjev za vanredni trošak." },
+          { slug: "anlage-ve", label: "Anlage VE (Partnerska zajednica)", desc: "Provjera zajednice slične braku." },
+          { slug: "anlage-hg", label: "Anlage HG (Domaćinstvo)", desc: "Zajedničko stanovanje sa srodnicima." },
+          { slug: "anlage-meb", label: "Anlage MEB (Med. ishrana)", desc: "Doplatak za medicinsku ishranu." },
+          { slug: "anlage-uf", label: "Anlage UF (Nesreća)", desc: "Upitnik o nesreći/šteti od treće osobe." },
+          { slug: "anlage-se", label: "Anlage SE (Liječ. tajna)", desc: "Oslobađanje od liječničke tajne." },
+          { slug: "anlage-uh1", label: "Anlage UH1 (Alimentacija)", desc: "Alimentacija nakon rastave/razvoda." },
+          { slug: "anlage-uh2", label: "Anlage UH2 (Trudnoća)", desc: "Alimentacija trudne osobe." },
+          { slug: "anlage-uh3", label: "Anlage UH3 (Dijete)", desc: "Alimentacija djeteta od odsutnog roditelja." },
+          { slug: "nichterreichbarkeit", label: "Anfrage Nichterreichbarkeit (ANE)", desc: "Prijava privremene odsutnosti Jobcentru." },
+          { slug: "arbeitsbescheinigung", label: "Arbeitsbescheinigung § 57", desc: "Potvrda o zaposlenju — popunjava SAMO poslodavac." },
+          { slug: "antragsruecknahme", label: "Erklärung der Antragsrücknahme", desc: "Povlačenje podnesenog Bürgergeld zahtjeva." },
+        ],
+      },
+      {
+        id: "socijala-ostalo",
+        title: "Ostala socijalna pomoć",
+        items: [
+          { slug: "buergergeld", label: "Bürgergeld (Pregled)", desc: "Osnovna pomoć za život ako prihod nije dovoljan." },
+          { slug: "wohngeld", label: "Wohngeld (Stambeni dodatak)", desc: "Finansijska pomoć za troškove stanovanja." },
+          { slug: "sozialhilfe", label: "Sozialhilfe (Socijalna pomoć)", desc: "Osnovna pomoć za osobe koje ne mogu raditi." },
+          { slug: "heizkostenzuschuss", label: "Heizkostenzuschuss (Dodatak za grijanje)", desc: "Dodatak za troškove grijanja." },
+        ],
+      },
     ],
   },
   {
@@ -74,11 +95,10 @@ export const formCatalog: FormGroup[] = [
     title: "Posao i prihodi",
     items: [
       { slug: "krankenkasse", label: "Krankenkasse Anmeldung", desc: "Prijava u zdravstveno osiguranje u Njemačkoj." },
-      { slug: "steuerklassenwechsel", label: "Steuerklassenwechsel", desc: "Promjena poreske klase, npr. nakon braka ili promjene porodične situacije." },
-      
-      { slug: "arbeitslosengeld", label: "Arbeitslosengeld I", desc: "Naknada ako si izgubio posao i ispunjavaš uslove osiguranja." },
+      { slug: "steuerklassenwechsel", label: "Steuerklassenwechsel", desc: "Promjena poreske klase, npr. nakon braka." },
+      { slug: "arbeitslosengeld", label: "Arbeitslosengeld I", desc: "Naknada ako si izgubio posao i ispunjavaš uslove." },
       { slug: "kurzarbeitergeld", label: "Kurzarbeitergeld", desc: "Naknada kad firma privremeno smanji radne sate." },
-      { slug: "bildungsgutschein", label: "Bildungsgutschein", desc: "Vaučer za finansiranje prekvalifikacije ili dodatnog obrazovanja." },
+      { slug: "bildungsgutschein", label: "Bildungsgutschein", desc: "Vaučer za finansiranje prekvalifikacije." },
     ],
   },
   {
@@ -88,8 +108,8 @@ export const formCatalog: FormGroup[] = [
     items: [
       { slug: "bafoeg", label: "BAföG", desc: "Finansijska pomoć za školovanje ili studij." },
       { slug: "schueler-bafoeg", label: "Schüler-BAföG", desc: "Finansijska pomoć za učenike srednjih škola." },
-      { slug: "integrationskurs", label: "Integrationskurs", desc: "Kurs njemačkog jezika i orijentacije za nove stanovnike." },
-      { slug: "lernfoerderung", label: "Lernförderung", desc: "Pomoć za dopunsku nastavu za djecu sa poteškoćama u školi." },
+      { slug: "integrationskurs", label: "Integrationskurs", desc: "Kurs njemačkog jezika i orijentacije." },
+      { slug: "lernfoerderung", label: "Lernförderung", desc: "Pomoć za dopunsku nastavu za djecu." },
     ],
   },
   {
@@ -97,8 +117,7 @@ export const formCatalog: FormGroup[] = [
     icon: "📋",
     title: "Dokumenti i administracija",
     items: [
-      { slug: "fuehrungszeugnis", label: "Führungszeugnis", desc: "Potvrda o nekažnjavanju koju često traže poslodavci ili institucije." },
-      
+      { slug: "fuehrungszeugnis", label: "Führungszeugnis", desc: "Potvrda o nekažnjavanju." },
       { slug: "kirchenaustritt", label: "Kirchenaustritt", desc: "Odjava iz crkve radi prestanka crkvenog poreza." },
     ],
   },
@@ -113,6 +132,16 @@ export function getAllFormEntries(): FormEntry[] {
       if (!seen.has(item.slug)) {
         seen.add(item.slug);
         result.push(item);
+      }
+    }
+    if (group.subGroups) {
+      for (const sub of group.subGroups) {
+        for (const item of sub.items) {
+          if (!seen.has(item.slug)) {
+            seen.add(item.slug);
+            result.push(item);
+          }
+        }
       }
     }
   }
