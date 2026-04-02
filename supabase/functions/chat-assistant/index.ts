@@ -317,7 +317,7 @@ function detectFormFromCatalog(text: string): typeof FORM_CATALOG[0] | null {
     "dječji dodatak": "kindergeld", "djecji dodatak": "kindergeld",
     "prijava adrese": "anmeldung", "roditeljski novac": "elterngeld",
     "socijalna pomoć": "sozialhilfe", "pomoć za stan": "wohngeld",
-    "boravišna dozvola": "aufenthaltstitel-verlaengerung", "boravisna dozvola": "aufenthaltstitel-verlaengerung",
+    
     "alimentacija": "unterhaltsvorschuss",
   };
   for (const [alias, slug] of Object.entries(aliases)) {
