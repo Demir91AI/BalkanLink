@@ -35,27 +35,31 @@ export default function GuideInfoHeader({ title, source, formName, whoCanApply, 
         </p>
       </div>
 
-      <div className="rounded-2xl border border-border/60 bg-card p-4">
-        <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold">
-          <ClipboardList className="h-3.5 w-3.5 text-primary" /> {st("guide.requirements")}
-        </h3>
-        <ul className="space-y-1 pl-4 list-disc">
-          {requirements.map((r, i) => (
-            <li key={i} className="text-xs text-muted-foreground">{r}</li>
-          ))}
-        </ul>
-      </div>
+      {requirements && requirements.length > 0 && (
+        <div className="rounded-2xl border border-border/60 bg-card p-4">
+          <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold">
+            <ClipboardList className="h-3.5 w-3.5 text-primary" /> {st("guide.requirements")}
+          </h3>
+          <ul className="space-y-1 pl-4 list-disc">
+            {requirements.map((r, i) => (
+              <li key={i} className="text-xs text-muted-foreground">{r}</li>
+            ))}
+          </ul>
+        </div>
+      )}
 
-      <div className="rounded-2xl border border-red-200 bg-red-50 p-4 dark:border-red-900/40 dark:bg-red-950/20">
-        <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold text-red-700 dark:text-red-400">
-          <AlertTriangle className="h-3.5 w-3.5" /> {st("guide.mistakes")}
-        </h3>
-        <ul className="space-y-1 pl-4 list-disc">
-          {commonMistakes.map((m, i) => (
-            <li key={i} className="text-xs text-red-600 dark:text-red-300">{m}</li>
-          ))}
-        </ul>
-      </div>
+      {commonMistakes && commonMistakes.length > 0 && (
+        <div className="rounded-2xl border border-red-200 bg-red-50 p-4 dark:border-red-900/40 dark:bg-red-950/20">
+          <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold text-red-700 dark:text-red-400">
+            <AlertTriangle className="h-3.5 w-3.5" /> {st("guide.mistakes")}
+          </h3>
+          <ul className="space-y-1 pl-4 list-disc">
+            {commonMistakes.map((m, i) => (
+              <li key={i} className="text-xs text-red-600 dark:text-red-300">{m}</li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
