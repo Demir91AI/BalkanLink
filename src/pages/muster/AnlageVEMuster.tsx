@@ -39,11 +39,11 @@ export default function AnlageVEMuster() {
       </div>
       <div style={S.sec}>
         <SecHeader num={3} title="C. Gründe gegen eine VE" />
-        <Field label="13. Begründung" value={f.begruendung} onChange={v => set("begruendung", v)} multiline />
+        <Field label="13. Begründung" value={f.begruendung} onChange={v => set("begruendung", v)} />
       </div>
       <div style={S.sec}>
         <SecHeader num={4} title="D. Unterschrift" />
-        <Signature datum={f.sigDatum} onDatum={v => set("sigDatum", v)} />
+        <Signature label="Datum, Unterschrift" />
       </div>
     </MusterFormBase>
   );

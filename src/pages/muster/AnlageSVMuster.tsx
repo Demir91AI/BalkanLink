@@ -50,7 +50,7 @@ export default function AnlageSVMuster() {
       </div>
       <div style={S.sec}>
         <SecHeader num={5} title="E. Unterschrift" />
-        <Signature datum={f.sigDatum} onDatum={v => set("sigDatum", v)} />
+        <Signature label="Datum, Unterschrift" />
       </div>
     </MusterFormBase>
   );

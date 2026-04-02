@@ -32,7 +32,7 @@ export default function AnlageBBMuster() {
       </div>
       <div style={S.sec}>
         <SecHeader num={3} title="C. Angaben zum Bedarf" />
-        <Field label="8. Art des besonderen Bedarfs" value={f.artDesBedarf} onChange={v => set("artDesBedarf", v)} multiline />
+        <Field label="8. Art des besonderen Bedarfs" value={f.artDesBedarf} onChange={v => set("artDesBedarf", v)} />
         <div style={{ marginTop: 8 }}>
           <div style={S.lbl}>9. Zahlungsrhythmus</div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
@@ -42,7 +42,7 @@ export default function AnlageBBMuster() {
           </div>
         </div>
         <Field label="Zeitpunkt" value={f.bedarfZeitpunkt} onChange={v => set("bedarfZeitpunkt", v)} />
-        <Field label="10. Begründung (Pflicht)" value={f.begruendung} onChange={v => set("begruendung", v)} multiline />
+        <Field label="10. Begründung (Pflicht)" value={f.begruendung} onChange={v => set("begruendung", v)} />
       </div>
       <div style={S.sec}>
         <SecHeader num={4} title="Höhe und Vorschuss" />
@@ -59,7 +59,7 @@ export default function AnlageBBMuster() {
       </div>
       <div style={S.sec}>
         <SecHeader num={5} title="D. Unterschrift" />
-        <Signature datum={f.sigDatum} onDatum={v => set("sigDatum", v)} />
+        <Signature label="Datum, Unterschrift" />
       </div>
     </MusterFormBase>
   );

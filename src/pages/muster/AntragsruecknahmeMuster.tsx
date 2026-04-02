@@ -45,7 +45,7 @@ export default function AntragsruecknahmeMuster() {
       <div style={S.sec}>
         <SecHeader num={3} title="Einreichung" />
         <p style={{ fontSize: 10, color: "#6b7280", lineHeight: 1.5 }}>Das Formular beim zuständigen Jobcenter einreichen (persönlich, per Post oder online). Unterschrift ist optional.</p>
-        <Signature datum={f.sigDatum} onDatum={v => set("sigDatum", v)} label="Datum der Einreichung (optional)" />
+        <Signature label="Datum der Einreichung (optional)" />
       </div>
     </MusterFormBase>
   );

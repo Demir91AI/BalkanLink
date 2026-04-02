@@ -62,8 +62,8 @@ export default function AnlageSEMuster() {
           <label style={S.chk}><input type="checkbox" checked={f.abschnittD} onChange={e => set("abschnittD", e.target.checked)} /> Abschnitt D — Einsichtnahme bei Versicherung</label>
           <label style={S.chk}><input type="checkbox" checked={f.abschnittE} onChange={e => set("abschnittE", e.target.checked)} /> Abschnitt E — Übersendung an Versicherung</label>
         </div>
-        <Signature datum={f.sigDatumG} onDatum={v => set("sigDatumG", v)} label="Unterschrift geschädigte Person" />
-        <Signature datum={f.sigDatumA} onDatum={v => set("sigDatumA", v)} label="Unterschrift antragstellende Person" />
+        <Signature label="Unterschrift geschädigte Person" />
+        <Signature label="Unterschrift antragstellende Person" />
       </div>
     </MusterFormBase>
   );

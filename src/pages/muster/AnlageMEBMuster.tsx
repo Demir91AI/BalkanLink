@@ -40,7 +40,7 @@ export default function AnlageMEBMuster() {
       </div>
       <div style={S.sec}>
         <SecHeader num={4} title="D. Unterschrift Antragsteller" />
-        <Signature datum={f.sigDatum} onDatum={v => set("sigDatum", v)} />
+        <Signature label="Datum, Unterschrift" />
       </div>
       <div style={{ ...S.sec, background: "#fef3c7", border: "1px solid #f59e0b", borderRadius: 8 }}>
         <SecHeader num={5} title="Ärztliche Bescheinigung (vom Arzt)" />
@@ -51,7 +51,7 @@ export default function AnlageMEBMuster() {
         <Field label="13. Krankheitsbild" value={f.krankheitsbild} onChange={v => set("krankheitsbild", v)} />
         <Field label="Erforderliche Kostform" value={f.kostform} onChange={v => set("kostform", v)} />
         <div style={S.row}><Field label="16. Zeitraum von" type="date" value={f.zeitraumVon} onChange={v => set("zeitraumVon", v)} /><Field label="bis" type="date" value={f.zeitraumBis} onChange={v => set("zeitraumBis", v)} /></div>
-        <Signature datum={f.patSigDatum} onDatum={v => set("patSigDatum", v)} label="Unterschrift Patient" />
+        <Signature label="Unterschrift Patient" />
       </div>
     </MusterFormBase>
   );

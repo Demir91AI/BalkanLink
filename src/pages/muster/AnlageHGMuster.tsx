@@ -51,7 +51,7 @@ export default function AnlageHGMuster() {
       </div>
       <div style={S.sec}>
         <SecHeader num={4} title="D. Unterschrift" />
-        <Signature datum={f.sigDatum} onDatum={v => set("sigDatum", v)} />
+        <Signature label="Datum, Unterschrift" />
       </div>
     </MusterFormBase>
   );

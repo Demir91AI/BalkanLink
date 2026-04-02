@@ -54,7 +54,7 @@ export default function AnlageUFMuster() {
           <div style={{ marginBottom: 8 }}><div style={S.lbl}>Anwaltliche Vertretung?</div><Radio name="anwalt" value={f.anwalt} /></div>
           {f.anwalt === "ja" && <Field label="Name des Anwalts" value={f.anwaltName} onChange={v => set("anwaltName", v)} />}
         </>}
-        <Field label="36. Beschreibung der Verletzungen" value={f.verletzungen} onChange={v => set("verletzungen", v)} multiline />
+        <Field label="36. Beschreibung der Verletzungen" value={f.verletzungen} onChange={v => set("verletzungen", v)} />
         <div style={{ marginBottom: 8 }}><div style={S.lbl}>37. Ärztliches Gutachten vorhanden?</div><Radio name="gutachtenVorhanden" value={f.gutachtenVorhanden} /></div>
       </div>
       <div style={S.sec}>
@@ -72,7 +72,7 @@ export default function AnlageUFMuster() {
       </div>
       <div style={S.sec}>
         <SecHeader num={7} title="L. Unterschrift" />
-        <Signature datum={f.sigDatum} onDatum={v => set("sigDatum", v)} />
+        <Signature label="Datum, Unterschrift" />
       </div>
     </MusterFormBase>
   );

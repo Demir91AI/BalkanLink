@@ -87,7 +87,7 @@ export default function ArbeitsbescheinigungMuster() {
       </div>
       <div style={S.sec}>
         <SecHeader num={7} title="G. Unterschrift Arbeitgeber" />
-        <Signature datum={f.sigDatum} onDatum={v => set("sigDatum", v)} label="Unterschrift und Firmenstempel" />
+        <Signature label="Unterschrift und Firmenstempel" />
       </div>
     </MusterFormBase>
   );
