@@ -1,5 +1,3 @@
-import { ExternalLink, FileText } from "lucide-react";
-import { Link } from "react-router-dom";
 import GuideInfoHeader from "./GuideInfoHeader";
 import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
 import MusterCTA from "./MusterCTA";
