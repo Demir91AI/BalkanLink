@@ -11,6 +11,8 @@ import HomePremiumCards from "@/components/home/HomePremiumCards";
 import HomeMistakes from "@/components/home/HomeMistakes";
 import HomePremiumBanner from "@/components/home/HomePremiumBanner";
 import HomeReviews from "@/components/home/HomeReviews";
+import FlowBanner from "@/components/home/FlowBanner";
+import PWAInstallBanner from "@/components/PWAInstallBanner";
 
 import realcoreDigitalLogo from "@/assets/realcore-digital-logo.png";
 import heroBerlin from "@/assets/hero-berlin.jpg";
@@ -317,7 +319,13 @@ export default function Index() {
   }, []);
 
   return (
-    <div className="bg-[#0B0F1A]">
+    <div className="relative" style={{ background: "linear-gradient(180deg, #0B0F1A 0%, #0F1F3D 58%, #16294D 78%, #1A2F5A 100%)" }}>
+      {/* Glow orbs */}
+      <div className="pointer-events-none absolute top-[8%] left-[-110px] w-[320px] h-[320px] rounded-full opacity-[0.14] blur-[120px] md:w-[320px] md:h-[320px]" style={{ background: "rgba(59,130,246,0.95)" }} />
+      <div className="pointer-events-none absolute right-[-90px] top-[34%] w-[260px] h-[260px] rounded-full opacity-[0.10] blur-[120px]" style={{ background: "rgba(168,85,247,0.85)" }} />
+      <div className="pointer-events-none absolute bottom-[-120px] right-[-70px] w-[340px] h-[340px] rounded-full opacity-[0.14] blur-[130px]" style={{ background: "rgba(250,204,21,0.95)" }} />
+      {/* Radial highlight */}
+      <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(circle at top center, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 45%)" }} />
       {/* ─── HERO ─── */}
       <section className="relative min-h-[92vh] overflow-hidden">
         {slides.map((slide, idx) => (
@@ -340,6 +348,8 @@ export default function Index() {
         ))}
 
         <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/60 via-black/30 to-[#0B0F1A]" />
+        {/* Hero bottom overlay - smooth blend */}
+        <div className="absolute left-0 right-0 bottom-0 h-[220px] z-[3] pointer-events-none" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(11,15,26,0.35) 40%, rgba(11,15,26,0.72) 72%, #0B0F1A 100%)" }} />
 
         <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-5 py-16 lg:py-20">
           <div className="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
@@ -422,17 +432,19 @@ export default function Index() {
         </div>
       </section>
 
+      {/* ─── FLOW BANNER ─── */}
+      <FlowBanner />
+
       {/* ─── NAJČEŠĆE GREŠKE ─── */}
       <HomeMistakes />
 
       {/* ─── PREMIUM PRODUCTS + FREE TOOLS ─── */}
-      <HomePremiumCards />
+      <div className="opacity-[0.88]">
+        <HomePremiumCards />
+      </div>
 
       {/* ─── PREMIUM BANNER ─── */}
       <HomePremiumBanner />
-
-      {/* ─── RECENZIJE ─── */}
-      <HomeReviews />
 
       {/* ─── PREMIUM SHOWCASE (Carousel) ─── */}
       <section className="py-16 sm:py-20 border-t border-white/[0.05]">
@@ -494,6 +506,9 @@ export default function Index() {
           </motion.div>
         </div>
       </section>
+
+      {/* PWA Install Banner */}
+      <PWAInstallBanner />
     </div>
   );
 }

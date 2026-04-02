@@ -1,14 +1,20 @@
 import { Link } from "react-router-dom";
-import { CreditCard, Landmark, Wallet } from "lucide-react";
+import { CreditCard, Landmark, Wallet, Star } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import BrandLogo from "@/components/BrandLogo";
 import DevPreviewSwitcher from "@/components/DevPreviewSwitcher";
+import HomeReviews from "@/components/home/HomeReviews";
 
 export default function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="border-t border-white/8 bg-[#0B1F3A] text-white">
+    <footer className="border-t border-white/[0.07] text-white" style={{ background: "#060B14" }}>
+      {/* Reviews section at top of footer */}
+      <div className="border-b border-white/[0.08]">
+        <HomeReviews />
+      </div>
+
       <div className="container py-10 sm:py-12 lg:py-14">
         <div className="grid gap-10 grid-cols-1 text-center sm:text-left sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
@@ -59,14 +65,13 @@ export default function Footer() {
               onClick={() => {
                 const el = document.getElementById("reviews-section");
                 if (el) el.scrollIntoView({ behavior: "smooth" });
-                else window.location.href = "/#reviews";
               }}
               className="mt-2 inline-block text-[12px] text-brand-orange hover:underline"
             >
               Ostavi recenziju →
             </button>
 
-            {/* Payment methods - prepared */}
+            {/* Payment methods */}
             <div className="mt-6">
               <h4 className="mb-3 text-[11px] font-bold uppercase tracking-[0.15em] text-white/25">
                 {t("footer.paymentMethods")}
