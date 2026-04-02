@@ -336,7 +336,6 @@ function InfoTooltip({ id, activeId, setActiveId }: { id: string; activeId: stri
   const ref = useRef<HTMLDivElement>(null);
   const info = INFO_TEXTS[id];
   const isOpen = activeId === id;
-  if (!info) return null;
 
   useEffect(() => {
     if (!isOpen) return;
@@ -348,6 +347,8 @@ function InfoTooltip({ id, activeId, setActiveId }: { id: string; activeId: stri
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
   }, [isOpen, setActiveId]);
+
+  if (!info) return null;
 
   return (
     <span className="relative inline-block">
