@@ -21,6 +21,7 @@ const STEPS: StepData[] = [
     bhsField: "Državljanstvo",
     whatToWrite: "Samo ako osoba NIJE njemački državljanin → navedi boravišnu dozvolu, Asylbewerberleistungen itd.",
     whenToLeaveEmpty: "Ako je osoba njemački državljanin → označi 'Nein' i preskoči.",
+    commonMistake: "Ne navesti boravišnu dozvolu za osobu koja nije njemački državljanin.",
   },
   {
     deField: "Abschnitt D: Aktuelle Lebenssituation",

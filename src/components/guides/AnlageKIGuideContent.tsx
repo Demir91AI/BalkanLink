@@ -21,6 +21,7 @@ const STEPS: StepData[] = [
     bhsField: "Državljanstvo djeteta",
     whatToWrite: "Samo ako dijete NIJE njemački državljanin → navedi boravišnu dozvolu.",
     whenToLeaveEmpty: "Ako je dijete njemački državljanin → označi 'Nein'.",
+    commonMistake: "Ne navesti boravišnu dozvolu za ne-njemačko dijete.",
   },
   {
     deField: "Abschnitt D: Lebenssituation des Kindes",

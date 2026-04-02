@@ -28,6 +28,7 @@ const STEPS: StepData[] = [
     bhsField: "Vlasništvo (ako imaš vlastiti stan/kuću)",
     whatToWrite: "Samo ako živiš u vlastitu nekretninu → navedi Grundsteuer, osiguranje, kredit i troškove održavanja.",
     whenToLeaveEmpty: "Ako živiš u najmu → preskoči Abschnitt D i idi na E.",
+    commonMistake: "Popuniti Abschnitt D ako si u najmu — samo za vlasnike nekretnina.",
   },
   {
     deField: "Abschnitt E: Energiequellen & Heizung",

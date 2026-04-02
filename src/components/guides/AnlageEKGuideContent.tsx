@@ -26,6 +26,7 @@ const STEPS: StepData[] = [
     bhsField: "Podaci poslodavca",
     whatToWrite: "Ako imaš zaposlenje → navedi ime i adresu poslodavca, datum početka, vrstu ugovora.",
     whenToLeaveEmpty: "Ako nemaš zaposlenje → preskoči dio o poslodavcu.",
+    commonMistake: "Ne popunjavati ako nemaš zaposlenje.",
   },
   {
     deField: "Abschnitt D: Werbungskosten",
