@@ -1,5 +1,5 @@
 import { AlertTriangle, ClipboardList, PenLine, Clock } from "lucide-react";
-import { type ReactNode } from "react";
+import { useSectionT } from "@/hooks/useSectionT";
 
 interface Props {
   title: string;
@@ -12,22 +12,24 @@ interface Props {
 }
 
 export default function GuideInfoHeader({ title, source, formName, whoCanApply, processingTime, requirements, commonMistakes }: Props) {
+  const st = useSectionT();
+
   return (
     <div className="space-y-4">
       <div>
         <h1 className="font-heading text-xl font-extrabold sm:text-2xl">{title}</h1>
-        <p className="mt-1 text-xs text-muted-foreground">Izvor: {source}</p>
-        <p className="mt-0.5 text-xs text-muted-foreground">Formular: {formName}</p>
+        <p className="mt-1 text-xs text-muted-foreground">{st("guide.source")}: {source}</p>
+        <p className="mt-0.5 text-xs text-muted-foreground">{st("guide.form")}: {formName}</p>
       </div>
 
       <div className="rounded-2xl border border-border/60 bg-card p-4">
         <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold">
-          <PenLine className="h-3.5 w-3.5 text-primary" /> Ko može podnijeti zahtjev
+          <PenLine className="h-3.5 w-3.5 text-primary" /> {st("guide.whoCanApply")}
         </h3>
         <p className="text-xs text-muted-foreground leading-relaxed">{whoCanApply}</p>
         <p className="mt-3 text-xs">
           <span className="font-semibold flex items-center gap-1">
-            <Clock className="h-3 w-3" /> Vrijeme obrade:
+            <Clock className="h-3 w-3" /> {st("guide.processingTime")}:
           </span>
           <span className="text-muted-foreground">{processingTime}</span>
         </p>
@@ -35,7 +37,7 @@ export default function GuideInfoHeader({ title, source, formName, whoCanApply, 
 
       <div className="rounded-2xl border border-border/60 bg-card p-4">
         <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold">
-          <ClipboardList className="h-3.5 w-3.5 text-primary" /> Šta treba pripremiti
+          <ClipboardList className="h-3.5 w-3.5 text-primary" /> {st("guide.requirements")}
         </h3>
         <ul className="space-y-1 pl-4 list-disc">
           {requirements.map((r, i) => (
@@ -46,7 +48,7 @@ export default function GuideInfoHeader({ title, source, formName, whoCanApply, 
 
       <div className="rounded-2xl border border-red-200 bg-red-50 p-4 dark:border-red-900/40 dark:bg-red-950/20">
         <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold text-red-700 dark:text-red-400">
-          <AlertTriangle className="h-3.5 w-3.5" /> Najčešće greške
+          <AlertTriangle className="h-3.5 w-3.5" /> {st("guide.mistakes")}
         </h3>
         <ul className="space-y-1 pl-4 list-disc">
           {commonMistakes.map((m, i) => (

@@ -133,7 +133,7 @@ export default function DokumentenCheck() {
             {st("docCheck.subtitle")}
           </p>
           <span className="mt-2 inline-block rounded-full bg-[hsl(var(--success))]/20 px-3 py-1 text-xs font-semibold text-[hsl(var(--success))]">
-            ✓ Besplatno — 2 provjere dnevno
+            {st("docCheck.freeLabel")}
           </span>
         </div>
       </section>
