@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import CookieConsent from "@/components/CookieConsent";
+import PWAInstallBanner from "@/components/PWAInstallBanner";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "./AppSidebar";
 import { DEV_MODE } from "@/lib/dev-mode";
