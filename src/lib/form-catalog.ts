@@ -33,7 +33,7 @@ export const formCatalog: FormGroup[] = [
       { slug: "elterngeld", label: "Elterngeld", desc: "Naknada za roditelje nakon rođenja djeteta kao zamjena dijela prihoda." },
       { slug: "mutterschaftsgeld", label: "Mutterschaftsgeld", desc: "Naknada za vrijeme zaštitnog perioda prije i poslije poroda." },
       { slug: "kinderzuschlag", label: "Kinderzuschlag", desc: "Dodatna pomoć za porodice sa manjim prihodima." },
-      { slug: "kita-zuschuss", label: "Kita-Zuschuss", desc: "Pomoć za troškove vrtića ili jaslica." },
+      { slug: "krippengeld-bayern", label: "Krippengeld (Bayern)", desc: "Pomoć za troškove vrtića u Bayernu za djecu do 3 godine." },
     ],
   },
   {
