@@ -86,6 +86,16 @@ export default function DokumentenCheck() {
 
   const handleAnalyze = useCallback(async () => {
     if (!confirmed) return;
+
+    // Check daily limit (1 free per day)
+    if (!isPremium) {
+      const usage = getDokUsage();
+      if (usage.count >= 1) {
+        setDokLimitHit(true);
+        return;
+      }
+    }
+
     setLoading(true);
     setError(null);
     setAnalysis(null);
