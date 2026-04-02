@@ -333,10 +333,9 @@ const INFO_TEXTS: Record<string, { title: string; text: string; extra?: string }
 
 /* ── InfoTooltip component ── */
 function InfoTooltip({ id, activeId, setActiveId }: { id: string; activeId: string | null; setActiveId: (id: string | null) => void }) {
-  const info = INFO_TEXTS[id];
-  if (!info) return null;
-  const isOpen = activeId === id;
   const ref = useRef<HTMLDivElement>(null);
+  const info = INFO_TEXTS[id];
+  const isOpen = activeId === id;
 
   useEffect(() => {
     if (!isOpen) return;
