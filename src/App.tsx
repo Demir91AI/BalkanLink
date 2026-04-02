@@ -129,7 +129,8 @@ const App = () => (
                 <Route path="/musterformular/anmeldung" element={<AnmeldungMuster />} />
                 <Route path="/musterformular/buergergeld" element={<BuergergeldMuster />} />
                 <Route path="/musterformular/wohngeld" element={<WohngeldMuster />} />
-                <Route path="/musterformular/rundfunkbeitrag" element={<RundfunkbeitragMuster />} />
+                <Route path="/musterformular/aufenthaltstitel" element={<AufenthaltstitelMuster />} />
+                <Route path="/musterformular/lohnfortzahlung" element={<LohnfortzahlungMuster />} />
                 <Route path="/musterformular/steuerklasse" element={<SteuerklasseMuster />} />
                 <Route path="/musterformular/arbeitslosengeld" element={<ArbeitslosengeldMuster />} />
                 <Route path="/musterformular/bafoeg" element={<BafoegMuster />} />
