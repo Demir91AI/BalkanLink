@@ -82,6 +82,8 @@ import FuehrungszeugnisMuster from "./pages/muster/FuehrungszeugnisMuster";
 import KirchenaustrittMuster from "./pages/muster/KirchenaustrittMuster";
 import IntegrationskursMuster from "./pages/muster/IntegrationskursMuster";
 import KinderzuschlagMuster from "./pages/muster/KinderzuschlagMuster";
+import SchuelerBafoegMuster from "./pages/muster/SchuelerBafoegMuster";
+import GrundsicherungMuster from "./pages/muster/GrundsicherungMuster";
 
 const queryClient = new QueryClient();
 
