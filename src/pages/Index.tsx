@@ -8,7 +8,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
 import HomePremiumCards from "@/components/home/HomePremiumCards";
-import HomeHowItWorks from "@/components/home/HomeHowItWorks";
+import HomeMistakes from "@/components/home/HomeMistakes";
+import HomePremiumBanner from "@/components/home/HomePremiumBanner";
 import HomeReviews from "@/components/home/HomeReviews";
 
 import realcoreDigitalLogo from "@/assets/realcore-digital-logo.png";
