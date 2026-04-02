@@ -130,12 +130,13 @@ export default function DokumentenCheck() {
       if (fnError) throw fnError;
       if (data?.error) throw new Error(data.error);
       setAnalysis(data.analysis);
+      if (!isPremium) incrementDokUsage();
     } catch (err: any) {
       setError(err.message || st("docCheck.analysisFailed"));
     } finally {
       setLoading(false);
     }
-  }, [confirmed, mode, textInput, file, st]);
+  }, [confirmed, mode, textInput, file, st, isPremium]);
 
   const handleClear = useCallback(() => {
     clearFile();
