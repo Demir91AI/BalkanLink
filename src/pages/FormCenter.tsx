@@ -58,6 +58,15 @@ function GuideContent({ slug }: { slug: string }) {
   if (slug === "mutterschaftsgeld") return <MutterschaftsgeldGuideContent />;
   if (slug === "kinderzuschlag") return <KinderzuschlagGuideContent />;
   if (slug === "krippengeld-bayern") return <KrippengeldBayernGuideContent />;
+  if (slug === "anlage-bb") return <AnlageBBGuideContent />;
+  if (slug === "anlage-sv") return <AnlageSVGuideContent />;
+  if (slug === "anlage-ve") return <AnlageVEGuideContent />;
+  if (slug === "anlage-hg") return <AnlageHGGuideContent />;
+  if (slug === "anlage-meb") return <AnlageMEBGuideContent />;
+  if (slug === "anlage-uf") return <AnlageUFGuideContent />;
+  if (slug === "anlage-se") return <AnlageSEGuideContent />;
+  if (slug === "arbeitsbescheinigung") return <ArbeitsbescheinigungGuideContent />;
+  if (slug === "antragsruecknahme") return <AntragsruecknahmeGuideContent />;
   if (slug === "aufenthaltstitel") return <AufenthaltsNavigator />;
 
   if (!guide) return null;

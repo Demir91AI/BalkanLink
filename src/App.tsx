@@ -147,6 +147,15 @@ const App = () => (
                 <Route path="/musterformular/kinderzuschlag" element={<KinderzuschlagMuster />} />
                 <Route path="/musterformular/schueler-bafoeg" element={<SchuelerBafoegMuster />} />
                 <Route path="/musterformular/grundsicherung" element={<GrundsicherungMuster />} />
+                <Route path="/musterformular/anlage-bb" element={<AnlageBBMuster />} />
+                <Route path="/musterformular/anlage-sv" element={<AnlageSVMuster />} />
+                <Route path="/musterformular/anlage-ve" element={<AnlageVEMuster />} />
+                <Route path="/musterformular/anlage-hg" element={<AnlageHGMuster />} />
+                <Route path="/musterformular/anlage-meb" element={<AnlageMEBMuster />} />
+                <Route path="/musterformular/anlage-uf" element={<AnlageUFMuster />} />
+                <Route path="/musterformular/anlage-se" element={<AnlageSEMuster />} />
+                <Route path="/musterformular/arbeitsbescheinigung" element={<ArbeitsbescheinigungMuster />} />
+                <Route path="/musterformular/antragsruecknahme" element={<AntragsruecknahmeMuster />} />
                 
                 <Route path="/formulari/:slug" element={<FormCenter />} />
                 <Route path="/familie" element={<Familie />} />

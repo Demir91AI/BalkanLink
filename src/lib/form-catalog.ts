@@ -42,9 +42,17 @@ export const formCatalog: FormGroup[] = [
     title: "Socijalna pomoć",
     items: [
       { slug: "buergergeld", label: "Bürgergeld", desc: "Osnovna pomoć za život ako prihod nije dovoljan." },
+      { slug: "anlage-bb", label: "Anlage BB — Besonderer Bedarf", desc: "Zahtjev za vanredni trošak koji nije pokriven Regelsatzom." },
+      { slug: "anlage-sv", label: "Anlage SV — Sozialversicherung", desc: "Status zdravstvenog osiguranja tokom Bürgergeld primanja." },
+      { slug: "anlage-ve", label: "Anlage VE — Einstehensgemeinschaft", desc: "Provjera da li živiš u eheähnliche Gemeinschaft." },
+      { slug: "anlage-hg", label: "Anlage HG — Haushaltsgemeinschaft", desc: "Zajedničko stanovanje sa srodnicima." },
+      { slug: "anlage-meb", label: "Anlage MEB — Mehrbedarf Ernährung", desc: "Doplatak za medicinsku ishranu." },
+      { slug: "anlage-uf", label: "Anlage UF — Unfallfragebogen", desc: "Upitnik o nesreći/šteti od treće osobe." },
+      { slug: "anlage-se", label: "Anlage SE — Schweigepflichtentbindung", desc: "Oslobađanje od liječničke tajne (uz Anlage UF)." },
+      { slug: "arbeitsbescheinigung", label: "Arbeitsbescheinigung § 57 SGB II", desc: "Potvrda o zaposlenju — popunjava SAMO poslodavac." },
+      { slug: "antragsruecknahme", label: "Erklärung der Antragsrücknahme", desc: "Povlačenje već podnesenog Bürgergeld zahtjeva." },
       { slug: "wohngeld", label: "Wohngeld", desc: "Finansijska pomoć za troškove stanovanja ako imaš manja primanja." },
       { slug: "sozialhilfe", label: "Sozialhilfe / Grundsicherung", desc: "Osnovna socijalna pomoć za osobe koje ne mogu raditi." },
-      
       { slug: "heizkostenzuschuss", label: "Heizkostenzuschuss", desc: "Dodatak za troškove grijanja." },
     ],
   },
