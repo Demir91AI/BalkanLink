@@ -653,7 +653,7 @@ export default function Kalkulatori() {
                       </div>
                       <div className="flex gap-1.5 mt-1.5 flex-wrap">
                         {[1, 2, 3, 4, 5].map(n => (
-                          <button key={n} type="button" onClick={() => update({ brojDjece: n })}
+                          <button key={n} type="button" onClick={() => { setEditStr(prev => { const ne = { ...prev }; delete ne["brojDjece"]; return ne; }); update({ brojDjece: n }); }}
                             className={`px-3 py-1 rounded-lg text-xs font-bold transition-all duration-200 ${inputs.brojDjece === n ? "bg-[#F59E0B] text-[#0f1f3d]" : "bg-white/10 text-white/60 hover:bg-white/20"}`}
                           >{n}</button>
                         ))}
