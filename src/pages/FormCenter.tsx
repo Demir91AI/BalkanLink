@@ -46,6 +46,7 @@ function GuideContent({ slug }: { slug: string }) {
   if (slug === "burgergeld") return <BurgergeldGuideContent />;
   if (slug === "wohngeld") return <WohngeldGuideContent />;
   if (slug === "mutterschaftsgeld") return <MutterschaftsgeldGuideContent />;
+  if (slug === "kinderzuschlag") return <KinderzuschlagGuideContent />;
   if (slug === "aufenthaltstitel") return <AufenthaltsNavigator />;
 
   if (!guide) return null;
