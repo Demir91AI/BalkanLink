@@ -66,10 +66,22 @@ import NotFound from "./pages/NotFound";
 import FirmDetail from "./pages/FirmDetail";
 import BussgeldAssistent from "./pages/BussgeldAssistent";
 import KindergeldMuster from "./pages/KindergeldMuster";
-
 import AnmeldungMuster from "./pages/AnmeldungMuster";
 import Paketi from "./pages/Paketi";
 import Kalkulatori from "./pages/Kalkulatori";
+
+// Musterformulare
+import ElterngeldMuster from "./pages/muster/ElterngeldMuster";
+import BuergergeldMuster from "./pages/muster/BuergergeldMuster";
+import WohngeldMuster from "./pages/muster/WohngeldMuster";
+import RundfunkbeitragMuster from "./pages/muster/RundfunkbeitragMuster";
+import SteuerklasseMuster from "./pages/muster/SteuerklasseMuster";
+import ArbeitslosengeldMuster from "./pages/muster/ArbeitslosengeldMuster";
+import BafoegMuster from "./pages/muster/BafoegMuster";
+import FuehrungszeugnisMuster from "./pages/muster/FuehrungszeugnisMuster";
+import KirchenaustrittMuster from "./pages/muster/KirchenaustrittMuster";
+import IntegrationskursMuster from "./pages/muster/IntegrationskursMuster";
+import KinderzuschlagMuster from "./pages/muster/KinderzuschlagMuster";
 
 const queryClient = new QueryClient();
 
@@ -110,6 +122,20 @@ const App = () => (
                 
                 <Route path="/formulari/kindergeld/muster" element={<KindergeldMuster />} />
                 <Route path="/formulari/anmeldung/muster" element={<AnmeldungMuster />} />
+                
+                <Route path="/musterformular/elterngeld" element={<ElterngeldMuster />} />
+                <Route path="/musterformular/anmeldung" element={<AnmeldungMuster />} />
+                <Route path="/musterformular/buergergeld" element={<BuergergeldMuster />} />
+                <Route path="/musterformular/wohngeld" element={<WohngeldMuster />} />
+                <Route path="/musterformular/rundfunkbeitrag" element={<RundfunkbeitragMuster />} />
+                <Route path="/musterformular/steuerklasse" element={<SteuerklasseMuster />} />
+                <Route path="/musterformular/arbeitslosengeld" element={<ArbeitslosengeldMuster />} />
+                <Route path="/musterformular/bafoeg" element={<BafoegMuster />} />
+                <Route path="/musterformular/fuehrungszeugnis" element={<FuehrungszeugnisMuster />} />
+                <Route path="/musterformular/kirchenaustritt" element={<KirchenaustrittMuster />} />
+                <Route path="/musterformular/integrationskurs" element={<IntegrationskursMuster />} />
+                <Route path="/musterformular/kinderzuschlag" element={<KinderzuschlagMuster />} />
+                
                 <Route path="/formulari/:slug" element={<FormCenter />} />
                 <Route path="/familie" element={<Familie />} />
                 <Route path="/foerderungen" element={<Foerderungen />} />
