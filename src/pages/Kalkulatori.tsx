@@ -793,9 +793,12 @@ export default function Kalkulatori() {
                 <div className="space-y-1">
                   <Label className="text-sm text-white/70 font-medium">Godišnji porezni odbitak (€) {I("freibetrag")}</Label>
                   <input
-                    type="number" min={0}
-                    value={inputs.freibetrag || ""}
-                    onChange={e => update({ freibetrag: Number(e.target.value) })}
+                    type="text"
+                    inputMode="numeric"
+                    value={getFieldStr("freibetrag", inputs.freibetrag, "")}
+                    onFocus={() => handleFocus("freibetrag", inputs.freibetrag)}
+                    onChange={e => handleChange("freibetrag", e.target.value)}
+                    onBlur={() => handleBlur("freibetrag", { min: 0 })}
                     placeholder="npr. 1000"
                     className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white text-sm font-bold focus:border-[#F59E0B] focus:outline-none placeholder:text-white/30 transition-all duration-300"
                   />
