@@ -426,6 +426,16 @@ const externalTools = [
 ];
 
 /* ── Main component ── */
+/* ── Parse helper: accept comma or dot, strip leading zeros ── */
+function parseNum(raw: string, allowDecimal = false): number {
+  const cleaned = raw.replace(",", ".");
+  const n = allowDecimal ? parseFloat(cleaned) : parseInt(cleaned, 10);
+  return isNaN(n) ? 0 : n;
+}
+
+/* ── String-state numeric input for clean editing ── */
+type EditStrings = Record<string, string>;
+
 export default function Kalkulatori() {
   const navigate = useNavigate();
   const [inputs, setInputs] = useState<CalcInputs>({ ...DEFAULTS });
@@ -433,10 +443,48 @@ export default function Kalkulatori() {
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [linkErrors, setLinkErrors] = useState<Record<number, boolean>>({});
   const [activeInfo, setActiveInfo] = useState<string | null>(null);
+  const [editStr, setEditStr] = useState<EditStrings>({});
 
   const update = useCallback((patch: Partial<CalcInputs>) => {
     setInputs(prev => ({ ...prev, ...patch }));
   }, []);
+
+  /* Get the displayed string for a numeric field */
+  const getFieldStr = (key: string, value: number | null | undefined, fallback = ""): string => {
+    if (key in editStr) return editStr[key];
+    if (value == null || (value === 0 && fallback === "")) return "";
+    return String(value);
+  };
+
+  /* Handle focus: start string editing */
+  const handleFocus = (key: string, value: number | null | undefined) => {
+    setEditStr(prev => ({
+      ...prev,
+      [key]: value == null ? "" : (value === 0 ? "" : String(value)),
+    }));
+  };
+
+  /* Handle change: just store raw string */
+  const handleChange = (key: string, raw: string) => {
+    setEditStr(prev => ({ ...prev, [key]: raw }));
+  };
+
+  /* Handle blur: parse, clean, commit to numeric state */
+  const handleBlur = (key: string, opts?: { allowDecimal?: boolean; min?: number; nullable?: boolean }) => {
+    const raw = editStr[key] ?? "";
+    setEditStr(prev => { const n = { ...prev }; delete n[key]; return n; });
+    if (raw.trim() === "") {
+      if (opts?.nullable) {
+        update({ [key]: null } as any);
+      } else {
+        update({ [key]: opts?.min ?? 0 } as any);
+      }
+      return;
+    }
+    let n = parseNum(raw, opts?.allowDecimal);
+    if (opts?.min != null && n < opts.min) n = opts.min;
+    update({ [key]: n } as any);
+  };
 
   const result = useMemo(() => calculate(inputs), [inputs]);
 
