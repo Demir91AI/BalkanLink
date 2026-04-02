@@ -14,6 +14,28 @@ import { IS_ADMIN_PREVIEW } from "@/lib/config";
 
 type InputMode = "upload" | "text";
 
+function getDokUsage(): { count: number; date: string } {
+  try {
+    const raw = localStorage.getItem("dok_used");
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      const today = new Date().toISOString().slice(0, 10);
+      if (parsed.date === today) return parsed;
+    }
+  } catch {}
+  return { count: 0, date: new Date().toISOString().slice(0, 10) };
+}
+
+function incrementDokUsage() {
+  const today = new Date().toISOString().slice(0, 10);
+  const usage = getDokUsage();
+  if (usage.date !== today) {
+    localStorage.setItem("dok_used", JSON.stringify({ count: 1, date: today }));
+  } else {
+    localStorage.setItem("dok_used", JSON.stringify({ count: usage.count + 1, date: today }));
+  }
+}
+
 export default function DokumentenCheck() {
   const { t } = useLanguage();
   const st = useSectionT();
@@ -27,6 +49,7 @@ export default function DokumentenCheck() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [dokLimitHit, setDokLimitHit] = useState(false);
 
   const isPremium = IS_ADMIN_PREVIEW; // In production, check real premium status
 
