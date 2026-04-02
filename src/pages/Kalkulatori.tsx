@@ -50,13 +50,13 @@ const STEUERKLASSE_OPTIONS = [
 const KINDERFREIBETRAG_OPTIONS = [
   { value: "0", label: "0 — Nemam pravo / ne koristim" },
   { value: "0.5", label: "0.5 — Pola (jedan roditelj)" },
-  { value: "1.0", label: "1.0 — Standardno (jedan roditelj, oba dijela)" },
+  { value: "1", label: "1.0 — Standardno (jedan roditelj, oba dijela)" },
   { value: "1.5", label: "1.5" },
-  { value: "2.0", label: "2.0 — Standardno (oba roditelja, jedno dijete)" },
+  { value: "2", label: "2.0 — Standardno (oba roditelja, jedno dijete)" },
   { value: "2.5", label: "2.5" },
-  { value: "3.0", label: "3.0" },
-  { value: "4.0", label: "4.0" },
-  { value: "6.0", label: "6.0 — Maksimalno (oba roditelja, troje+ djece)" },
+  { value: "3", label: "3.0" },
+  { value: "4", label: "4.0" },
+  { value: "6", label: "6.0 — Maksimalno (oba roditelja, troje+ djece)" },
 ];
 
 /* ── Tax computation 2025 §32a EStG ── */
@@ -426,6 +426,16 @@ const externalTools = [
 ];
 
 /* ── Main component ── */
+/* ── Parse helper: accept comma or dot, strip leading zeros ── */
+function parseNum(raw: string, allowDecimal = false): number {
+  const cleaned = raw.replace(",", ".");
+  const n = allowDecimal ? parseFloat(cleaned) : parseInt(cleaned, 10);
+  return isNaN(n) ? 0 : n;
+}
+
+/* ── String-state numeric input for clean editing ── */
+type EditStrings = Record<string, string>;
+
 export default function Kalkulatori() {
   const navigate = useNavigate();
   const [inputs, setInputs] = useState<CalcInputs>({ ...DEFAULTS });
@@ -433,10 +443,48 @@ export default function Kalkulatori() {
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [linkErrors, setLinkErrors] = useState<Record<number, boolean>>({});
   const [activeInfo, setActiveInfo] = useState<string | null>(null);
+  const [editStr, setEditStr] = useState<EditStrings>({});
 
   const update = useCallback((patch: Partial<CalcInputs>) => {
     setInputs(prev => ({ ...prev, ...patch }));
   }, []);
+
+  /* Get the displayed string for a numeric field */
+  const getFieldStr = (key: string, value: number | null | undefined, fallback = ""): string => {
+    if (key in editStr) return editStr[key];
+    if (value == null || (value === 0 && fallback === "")) return "";
+    return String(value);
+  };
+
+  /* Handle focus: start string editing */
+  const handleFocus = (key: string, value: number | null | undefined) => {
+    setEditStr(prev => ({
+      ...prev,
+      [key]: value == null ? "" : (value === 0 ? "" : String(value)),
+    }));
+  };
+
+  /* Handle change: just store raw string */
+  const handleChange = (key: string, raw: string) => {
+    setEditStr(prev => ({ ...prev, [key]: raw }));
+  };
+
+  /* Handle blur: parse, clean, commit to numeric state */
+  const handleBlur = (key: string, opts?: { allowDecimal?: boolean; min?: number; nullable?: boolean }) => {
+    const raw = editStr[key] ?? "";
+    setEditStr(prev => { const n = { ...prev }; delete n[key]; return n; });
+    if (raw.trim() === "") {
+      if (opts?.nullable) {
+        update({ [key]: null } as any);
+      } else {
+        update({ [key]: opts?.min ?? 0 } as any);
+      }
+      return;
+    }
+    let n = parseNum(raw, opts?.allowDecimal);
+    if (opts?.min != null && n < opts.min) n = opts.min;
+    update({ [key]: n } as any);
+  };
 
   const result = useMemo(() => calculate(inputs), [inputs]);
 
@@ -498,9 +546,12 @@ export default function Kalkulatori() {
                   <Label className="text-sm text-white/70 font-medium">Bruto plata {I("brutto")}</Label>
                   <div className="relative">
                     <input
-                      type="number" min={0} step={50}
-                      value={inputs.brutto || ""}
-                      onChange={e => update({ brutto: Number(e.target.value) })}
+                      type="text"
+                      inputMode="numeric"
+                      value={getFieldStr("brutto", inputs.brutto)}
+                      onFocus={() => handleFocus("brutto", inputs.brutto)}
+                      onChange={e => handleChange("brutto", e.target.value)}
+                      onBlur={() => handleBlur("brutto", { min: 0 })}
                       placeholder="npr. 3000"
                       className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white text-lg font-bold focus:border-[#F59E0B] focus:outline-none placeholder:text-white/30 transition-all duration-300"
                     />
@@ -581,26 +632,23 @@ export default function Kalkulatori() {
                       <Label className="text-sm text-white/70 font-medium">Broj djece (ukupno) {I("brojDjece")}</Label>
                       <div className="relative">
                         <input
-                          type="number"
+                          type="text"
                           inputMode="numeric"
-                          value={inputs.brojDjece ?? ""}
-                          onChange={e => {
-                            const raw = e.target.value;
-                            if (raw === "") { update({ brojDjece: null }); return; }
-                            const n = parseInt(raw, 10);
-                            if (!isNaN(n) && n >= 0) update({ brojDjece: n });
-                          }}
+                          value={getFieldStr("brojDjece", inputs.brojDjece)}
+                          onFocus={() => handleFocus("brojDjece", inputs.brojDjece)}
+                          onChange={e => handleChange("brojDjece", e.target.value)}
+                          onBlur={() => handleBlur("brojDjece", { min: 0, nullable: true })}
                           placeholder="npr. 2"
-                          className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 pr-12 text-white text-sm font-bold focus:border-[#F59E0B] focus:outline-none transition-all duration-300 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none [-moz-appearance:textfield]"
+                          className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 pr-12 text-white text-sm font-bold focus:border-[#F59E0B] focus:outline-none transition-all duration-300"
                         />
                         <div className="absolute right-1 top-1/2 -translate-y-1/2 flex flex-col">
-                          <button type="button" onClick={() => update({ brojDjece: (inputs.brojDjece ?? 0) + 1 })} className="px-2 py-0.5 text-white/50 hover:text-[#F59E0B] transition-colors text-xs leading-none">▲</button>
-                          <button type="button" onClick={() => update({ brojDjece: Math.max(0, (inputs.brojDjece ?? 0) - 1) || null })} className="px-2 py-0.5 text-white/50 hover:text-[#F59E0B] transition-colors text-xs leading-none">▼</button>
+                          <button type="button" onClick={() => { setEditStr(prev => { const c = { ...prev }; delete c.brojDjece; return c; }); update({ brojDjece: (inputs.brojDjece ?? 0) + 1 }); }} className="px-2 py-0.5 text-white/50 hover:text-[#F59E0B] transition-colors text-xs leading-none">▲</button>
+                          <button type="button" onClick={() => { setEditStr(prev => { const c = { ...prev }; delete c.brojDjece; return c; }); const v = Math.max(0, (inputs.brojDjece ?? 0) - 1); update({ brojDjece: v || null }); }} className="px-2 py-0.5 text-white/50 hover:text-[#F59E0B] transition-colors text-xs leading-none">▼</button>
                         </div>
                       </div>
                       <div className="flex gap-1.5 mt-1.5 flex-wrap">
                         {[1, 2, 3, 4, 5].map(n => (
-                          <button key={n} type="button" onClick={() => update({ brojDjece: n })}
+                          <button key={n} type="button" onClick={() => { setEditStr(prev => { const c = { ...prev }; delete c.brojDjece; return c; }); update({ brojDjece: n }); }}
                             className={`px-3 py-1 rounded-lg text-xs font-bold transition-all duration-200 ${inputs.brojDjece === n ? "bg-[#F59E0B] text-[#0f1f3d]" : "bg-white/10 text-white/60 hover:bg-white/20"}`}
                           >{n}</button>
                         ))}
@@ -611,28 +659,25 @@ export default function Kalkulatori() {
                       <Label className="text-sm text-white/70 font-medium">Broj djece ispod 25 godina {I("brojDjeceIspod25")}</Label>
                       <div className="relative">
                         <input
-                          type="number"
+                          type="text"
                           inputMode="numeric"
-                          value={inputs.brojDjeceIspod25 ?? ""}
-                          onChange={e => {
-                            const raw = e.target.value;
-                            if (raw === "") { update({ brojDjeceIspod25: null }); return; }
-                            const n = parseInt(raw, 10);
-                            if (!isNaN(n) && n >= 0) update({ brojDjeceIspod25: n });
-                          }}
+                          value={getFieldStr("brojDjeceIspod25", inputs.brojDjeceIspod25)}
+                          onFocus={() => handleFocus("brojDjeceIspod25", inputs.brojDjeceIspod25)}
+                          onChange={e => handleChange("brojDjeceIspod25", e.target.value)}
+                          onBlur={() => handleBlur("brojDjeceIspod25", { min: 0, nullable: true })}
                           placeholder="npr. 1"
-                          className={`w-full bg-white/10 rounded-xl px-4 py-3 pr-12 text-white text-sm font-bold focus:outline-none transition-all duration-300 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none [-moz-appearance:textfield] ${
+                          className={`w-full bg-white/10 rounded-xl px-4 py-3 pr-12 text-white text-sm font-bold focus:outline-none transition-all duration-300 ${
                             djecaIspod25Error ? "border-2 border-red-400 focus:border-red-400" : "border border-white/20 focus:border-[#F59E0B]"
                           }`}
                         />
                         <div className="absolute right-1 top-1/2 -translate-y-1/2 flex flex-col">
-                          <button type="button" onClick={() => update({ brojDjeceIspod25: (inputs.brojDjeceIspod25 ?? 0) + 1 })} className="px-2 py-0.5 text-white/50 hover:text-[#F59E0B] transition-colors text-xs leading-none">▲</button>
-                          <button type="button" onClick={() => update({ brojDjeceIspod25: Math.max(0, (inputs.brojDjeceIspod25 ?? 0) - 1) || null })} className="px-2 py-0.5 text-white/50 hover:text-[#F59E0B] transition-colors text-xs leading-none">▼</button>
+                          <button type="button" onClick={() => { setEditStr(prev => { const c = { ...prev }; delete c.brojDjeceIspod25; return c; }); update({ brojDjeceIspod25: (inputs.brojDjeceIspod25 ?? 0) + 1 }); }} className="px-2 py-0.5 text-white/50 hover:text-[#F59E0B] transition-colors text-xs leading-none">▲</button>
+                          <button type="button" onClick={() => { setEditStr(prev => { const c = { ...prev }; delete c.brojDjeceIspod25; return c; }); const v = Math.max(0, (inputs.brojDjeceIspod25 ?? 0) - 1); update({ brojDjeceIspod25: v || null }); }} className="px-2 py-0.5 text-white/50 hover:text-[#F59E0B] transition-colors text-xs leading-none">▼</button>
                         </div>
                       </div>
                       <div className="flex gap-1.5 mt-1.5 flex-wrap">
                         {[0, 1, 2, 3, 4].map(n => (
-                          <button key={n} type="button" onClick={() => update({ brojDjeceIspod25: n || null })}
+                          <button key={n} type="button" onClick={() => { setEditStr(prev => { const c = { ...prev }; delete c.brojDjeceIspod25; return c; }); update({ brojDjeceIspod25: n || null }); }}
                             className={`px-3 py-1 rounded-lg text-xs font-bold transition-all duration-200 ${inputs.brojDjeceIspod25 === n ? "bg-[#F59E0B] text-[#0f1f3d]" : "bg-white/10 text-white/60 hover:bg-white/20"}`}
                           >{n}</button>
                         ))}
@@ -661,9 +706,12 @@ export default function Kalkulatori() {
                 <div className="space-y-1">
                   <Label className="text-sm text-white/70 font-medium">Starost {I("alter")}</Label>
                   <input
-                    type="number" min={18} max={67}
-                    value={inputs.alter}
-                    onChange={e => update({ alter: Number(e.target.value) })}
+                    type="text"
+                    inputMode="numeric"
+                    value={getFieldStr("alter", inputs.alter)}
+                    onFocus={() => handleFocus("alter", inputs.alter)}
+                    onChange={e => handleChange("alter", e.target.value)}
+                    onBlur={() => handleBlur("alter", { min: 18 })}
                     className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white text-sm font-bold focus:border-[#F59E0B] focus:outline-none transition-all duration-300"
                   />
                 </div>
@@ -689,9 +737,12 @@ export default function Kalkulatori() {
                   <div className="space-y-1">
                     <Label className="text-sm text-white/70 font-medium">Zusatzbeitrag (%) {I("zusatzbeitrag")}</Label>
                     <input
-                      type="number" step={0.1} min={0} max={5}
-                      value={inputs.zusatzbeitrag}
-                      onChange={e => update({ zusatzbeitrag: Number(e.target.value) })}
+                      type="text"
+                      inputMode="decimal"
+                      value={getFieldStr("zusatzbeitrag", inputs.zusatzbeitrag)}
+                      onFocus={() => handleFocus("zusatzbeitrag", inputs.zusatzbeitrag)}
+                      onChange={e => handleChange("zusatzbeitrag", e.target.value)}
+                      onBlur={() => handleBlur("zusatzbeitrag", { allowDecimal: true, min: 0 })}
                       className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white text-sm font-bold focus:border-[#F59E0B] focus:outline-none transition-all duration-300"
                     />
                   </div>
@@ -701,9 +752,12 @@ export default function Kalkulatori() {
                   <div className="space-y-1">
                     <Label className="text-sm text-white/70 font-medium">Mjesečni PKV doprinos (€) {I("pkv")}</Label>
                     <input
-                      type="number" min={0}
-                      value={inputs.pkvBeitrag}
-                      onChange={e => update({ pkvBeitrag: Number(e.target.value) })}
+                      type="text"
+                      inputMode="numeric"
+                      value={getFieldStr("pkvBeitrag", inputs.pkvBeitrag)}
+                      onFocus={() => handleFocus("pkvBeitrag", inputs.pkvBeitrag)}
+                      onChange={e => handleChange("pkvBeitrag", e.target.value)}
+                      onBlur={() => handleBlur("pkvBeitrag", { min: 0 })}
                       className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white text-sm font-bold focus:border-[#F59E0B] focus:outline-none transition-all duration-300"
                     />
                   </div>
@@ -739,9 +793,12 @@ export default function Kalkulatori() {
                 <div className="space-y-1">
                   <Label className="text-sm text-white/70 font-medium">Godišnji porezni odbitak (€) {I("freibetrag")}</Label>
                   <input
-                    type="number" min={0}
-                    value={inputs.freibetrag || ""}
-                    onChange={e => update({ freibetrag: Number(e.target.value) })}
+                    type="text"
+                    inputMode="numeric"
+                    value={getFieldStr("freibetrag", inputs.freibetrag, "")}
+                    onFocus={() => handleFocus("freibetrag", inputs.freibetrag)}
+                    onChange={e => handleChange("freibetrag", e.target.value)}
+                    onBlur={() => handleBlur("freibetrag", { min: 0 })}
                     placeholder="npr. 1000"
                     className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white text-sm font-bold focus:border-[#F59E0B] focus:outline-none placeholder:text-white/30 transition-all duration-300"
                   />
@@ -750,9 +807,12 @@ export default function Kalkulatori() {
                 <div className="space-y-1">
                   <Label className="text-sm text-white/70 font-medium">Geldwerter Vorteil / Firmenwagen (€) {I("geldwerterVorteil")}</Label>
                   <input
-                    type="number" min={0}
-                    value={inputs.geldwerterVorteil || ""}
-                    onChange={e => update({ geldwerterVorteil: Number(e.target.value) })}
+                    type="text"
+                    inputMode="numeric"
+                    value={getFieldStr("geldwerterVorteil", inputs.geldwerterVorteil, "")}
+                    onFocus={() => handleFocus("geldwerterVorteil", inputs.geldwerterVorteil)}
+                    onChange={e => handleChange("geldwerterVorteil", e.target.value)}
+                    onBlur={() => handleBlur("geldwerterVorteil", { min: 0 })}
                     placeholder="npr. 300"
                     className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white text-sm font-bold focus:border-[#F59E0B] focus:outline-none placeholder:text-white/30 transition-all duration-300"
                   />
