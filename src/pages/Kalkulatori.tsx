@@ -88,6 +88,7 @@ function computeYearlyTax(zvE: number, year: number): number {
 interface CalcInputs {
   brutto: number;
   period: "monatlich" | "jaehrlich";
+  godina: number;
   steuerklasse: number;
   bundesland: string;
   hasDjeca: boolean;
