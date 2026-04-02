@@ -48,6 +48,7 @@ function GuideContent({ slug }: { slug: string }) {
   if (slug === "wohngeld") return <WohngeldGuideContent />;
   if (slug === "mutterschaftsgeld") return <MutterschaftsgeldGuideContent />;
   if (slug === "kinderzuschlag") return <KinderzuschlagGuideContent />;
+  if (slug === "krippengeld-bayern") return <KrippengeldBayernGuideContent />;
   if (slug === "aufenthaltstitel") return <AufenthaltsNavigator />;
 
   if (!guide) return null;
