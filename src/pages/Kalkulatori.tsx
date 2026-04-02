@@ -162,8 +162,10 @@ function calculate(inp: CalcInputs) {
   }
 
   // PV: kinderlos zuschlag only if no children under 25 AND age >= 23
+  const effBrojDjece = inp.brojDjece ?? 0;
+  const effBrojDjeceIspod25 = inp.brojDjeceIspod25 ?? 0;
   let pvRate = isSachsen ? 0.02025 : 0.01525;
-  const hasChildUnder25 = inp.hasDjeca && inp.brojDjeceIspod25 > 0;
+  const hasChildUnder25 = inp.hasDjeca && effBrojDjeceIspod25 > 0;
   if (!hasChildUnder25 && !inp.hasDjeca && inp.alter >= 23) pvRate += 0.0035;
   const pv = kvBasis * pvRate;
 
