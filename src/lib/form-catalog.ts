@@ -55,7 +55,7 @@ export const formCatalog: FormGroup[] = [
     items: [
       { slug: "krankenkasse", label: "Krankenkasse Anmeldung", desc: "Prijava u zdravstveno osiguranje u Njemačkoj." },
       { slug: "steuerklassenwechsel", label: "Steuerklassenwechsel", desc: "Promjena poreske klase, npr. nakon braka ili promjene porodične situacije." },
-      { slug: "lohnfortzahlung", label: "Lohnfortzahlung / Krankmeldung", desc: "Nastavak plaće i bolovanje u Njemačkoj." },
+      
       { slug: "arbeitslosengeld", label: "Arbeitslosengeld I", desc: "Naknada ako si izgubio posao i ispunjavaš uslove osiguranja." },
       { slug: "kurzarbeitergeld", label: "Kurzarbeitergeld", desc: "Naknada kad firma privremeno smanji radne sate." },
       { slug: "bildungsgutschein", label: "Bildungsgutschein", desc: "Vaučer za finansiranje prekvalifikacije ili dodatnog obrazovanja." },
