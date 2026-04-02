@@ -120,6 +120,32 @@ export default function MutterschaftsgeldGuideContent() {
         processingTime="1–2 sedmice"
       />
 
+      {/* Decision Tree */}
+      <div className="space-y-3">
+        <h3 className="text-sm font-bold">Koja vrsta Mutterschaftsgeld ti pripada?</h3>
+        <div className="grid gap-3">
+          {DECISION_OPTIONS.map((opt) => (
+            <div key={opt.label} className={`rounded-xl border p-4 ${opt.color}`}>
+              <div className="flex items-start gap-3">
+                <span className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-bold ${opt.badge}`}>
+                  {opt.label}
+                </span>
+                <div className="space-y-1">
+                  <div className="flex items-center gap-1.5">
+                    <opt.icon className="h-3.5 w-3.5 shrink-0" />
+                    <p className="text-xs font-semibold">{opt.title}</p>
+                  </div>
+                  <p className="text-xs text-foreground/70 leading-relaxed">{opt.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <p className="text-[11px] text-muted-foreground leading-relaxed rounded-lg bg-muted/50 p-3">
+          ℹ️ Kako znati jesi li sama član GKV? Provjeri zdravstvenu karticu — ako piše <strong>„Mitglied"</strong> a ne „Familienversichert", imaš vlastito članstvo.
+        </p>
+      </div>
+
       {/* Smart Guide Wizard */}
       <SmartGuideWizardShared steps={STEPS} />
 
