@@ -1,22 +1,16 @@
 import {
   FileText,
-  Megaphone,
-  Wrench,
+  Shield,
   BookOpen,
-  ChevronDown,
-  FileCheck,
-  Plane,
   Camera,
-  Home,
   Briefcase,
   Building,
-  Shield,
+  Megaphone,
+  FileCheck,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
-import { useLocation, useNavigate } from "react-router-dom";
-import { useLanguage } from "@/contexts/LanguageContext";
-import { COUNTRIES } from "@/lib/migration-data";
-import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import {
   Sidebar,
   SidebarContent,
@@ -28,35 +22,44 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 
+const premiumItems = [
+  {
+    title: "Formulari (Smart Guide)",
+    desc: "Korak po korak bez greške",
+    url: "/formulari",
+    icon: FileText,
+  },
+  {
+    title: "Visa Navigator",
+    desc: "Sve o vizama za Njemačku — jasno i korak po korak",
+    url: "/dolazak/boravisna-dozvola",
+    icon: Shield,
+  },
+  {
+    title: "BalkanLink Deutsch",
+    desc: "Njemački za stvarni život",
+    url: "/deutsch-trainer",
+    icon: BookOpen,
+  },
+  {
+    title: "Dokumenten-Check",
+    desc: "Razumij svaki dokument odmah",
+    url: "/dokumenten-check",
+    icon: Camera,
+  },
+];
+
+const secondaryItems = [
+  { title: "Pretraga poslova", url: "/stellenangebote", icon: Briefcase },
+  { title: "Pretraga stanova", url: "/wohnungen", icon: Building },
+  { title: "Nudim / Tražim", url: "/nudim-trazim", icon: Megaphone },
+  { title: "Šabloni", url: "/vorlagen", icon: FileCheck },
+];
+
 export function AppSidebar() {
   const { state, setOpenMobile, isMobile } = useSidebar();
   const collapsed = state === "collapsed" && !isMobile;
-  // On mobile, always show text regardless of collapsed state
   const location = useLocation();
-  const navigate = useNavigate();
-  const { t } = useLanguage();
-  const [migrationOpen, setMigrationOpen] = useState(
-    location.pathname.startsWith("/nach-deutschland")
-  );
-  const [vorlagenOpen, setVorlagenOpen] = useState(
-    location.pathname.startsWith("/vorlagen")
-  );
-
-  const sidebarItems = [
-    { title: "Početna", url: "/", icon: Home },
-    { title: t("index.nav.forms"), url: "/formulari", icon: FileText },
-    { title: "BalkanLink Deutsch", url: "/deutsch-trainer", icon: BookOpen },
-    { title: "Dokumenten-Check", url: "/dokumenten-check", icon: Camera, badge: "NOVO" },
-    { title: "Pretraga poslova", url: "/stellenangebote", icon: Briefcase },
-    { title: "Pretraga stanova", url: "/wohnungen", icon: Building },
-    { title: t("index.nav.offerSeek"), url: "/nudim-trazim", icon: Megaphone },
-    { title: t("index.nav.tools"), url: "/tools", icon: Wrench },
-    { title: "Viza Navigator", url: "/dolazak/boravisna-dozvola", icon: Shield },
-    { title: "Šabloni / Vorlagen", url: "/vorlagen", icon: FileCheck },
-  ];
-
-  const isMigrationActive = location.pathname.startsWith("/nach-deutschland");
-  const isVorlagenActive = location.pathname.startsWith("/vorlagen");
 
   const handleNavClick = () => {
     setOpenMobile(false);
@@ -72,48 +75,54 @@ export function AppSidebar() {
       className="border-r border-white/8 bg-[hsl(215,55%,7%)]"
     >
       <SidebarContent className="pt-4 bg-[hsl(215,55%,7%)]">
-        {/* Main nav */}
+        {/* ── GLAVNE FUNKCIJE ── */}
         <SidebarGroup>
+          {!collapsed && (
+            <p className="px-4 pt-2 pb-3 text-[10px] font-bold uppercase tracking-[0.14em] text-white/25">
+              — Glavne funkcije —
+            </p>
+          )}
           <SidebarGroupContent>
-            <SidebarMenu className="gap-1 px-2">
-              {sidebarItems.map((item) => {
+            <SidebarMenu className="gap-1.5 px-2">
+              {premiumItems.map((item) => {
                 const isActive =
                   location.pathname === item.url ||
                   location.pathname.startsWith(item.url + "/");
-
                 return (
                   <SidebarMenuItem key={item.url}>
                     <SidebarMenuButton
                       asChild
                       tooltip={collapsed ? item.title : undefined}
                       className={`
-                        group rounded-lg transition-all duration-200
-                        ${isMobile ? "h-12" : "h-11"}
+                        group rounded-xl transition-all duration-200 h-auto
                         ${isActive
-                          ? "bg-white/10 text-gold shadow-[inset_3px_0_0_hsl(var(--gold))]"
-                          : "text-white/55 hover:text-white hover:bg-white/5"
+                          ? "bg-white/10 shadow-[inset_3px_0_0_hsl(var(--gold))]"
+                          : "hover:bg-white/10"
                         }
                       `}
                     >
                       <NavLink
                         to={item.url}
-                        className={`flex items-center gap-3 ${isMobile ? "px-4" : "px-3"}`}
+                        className="flex items-center gap-3 p-4"
                         activeClassName=""
                         onClick={handleNavClick}
                       >
                         <item.icon
                           className={`h-[18px] w-[18px] shrink-0 transition-colors ${
-                            isActive ? "text-gold" : "text-white/40 group-hover:text-white/70"
+                            isActive ? "text-[hsl(var(--gold))]" : "text-white/40 group-hover:text-white/70"
                           }`}
                         />
                         {!collapsed && (
-                          <span className={`${isMobile ? "text-base" : "text-sm"} font-medium ${isActive ? "text-gold" : "text-white"}`}>
-                            {item.title}
-                          </span>
+                          <div className="flex-1 min-w-0">
+                            <span className={`block text-base font-semibold ${isActive ? "text-[hsl(var(--gold))]" : "text-white"}`}>
+                              {item.title}
+                            </span>
+                            <span className="block text-sm text-gray-400 mt-0.5">{item.desc}</span>
+                          </div>
                         )}
-                        {!collapsed && (item as any).badge && (
-                          <span className="ml-auto rounded-full bg-[#22C55E] px-1.5 py-0.5 text-[9px] font-bold leading-none text-black">
-                            {(item as any).badge}
+                        {!collapsed && (
+                          <span className="shrink-0 rounded-full bg-[#F59E0B] px-2 py-0.5 text-[9px] font-bold leading-none text-[#0f1f3d]">
+                            PREMIUM
                           </span>
                         )}
                       </NavLink>
@@ -125,170 +134,56 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
 
-        {/* Dolazak u Njemačku section */}
+        {/* ── OSTALO ── */}
         <SidebarGroup>
           {!collapsed && (
-            <button
-              onClick={() => setMigrationOpen(!migrationOpen)}
-              className={`flex items-center gap-2 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.12em] transition-colors ${
-                isMigrationActive ? "text-gold" : "text-white/30 hover:text-white/50"
-              }`}
-            >
-              <Plane className={`h-3.5 w-3.5 ${isMigrationActive ? "text-gold" : "text-white/25"}`} />
-              <span className="flex-1 text-left">Dolazak u Njemačku</span>
-              <ChevronDown className={`h-3 w-3 transition-transform ${migrationOpen ? "" : "-rotate-90"}`} />
-            </button>
+            <p className="px-4 mt-4 mb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-gray-500">
+              — Ostalo —
+            </p>
           )}
-          {(migrationOpen || collapsed) && (
-            <SidebarGroupContent>
-              <SidebarMenu className="gap-0.5 px-2">
-                {COUNTRIES.map((country) => {
-                  const isActive = location.pathname.startsWith(`/nach-deutschland/${country.code}`);
-                  return (
-                    <SidebarMenuItem key={country.code}>
-                      <SidebarMenuButton
-                        asChild
-                        tooltip={collapsed ? t(`migration.country.${country.code}`) : undefined}
-                        className={`
-                          group h-9 rounded-lg transition-all duration-200
-                          ${isActive
-                            ? "bg-white/10 text-gold shadow-[inset_3px_0_0_hsl(var(--gold))]"
-                            : "text-white/55 hover:text-white hover:bg-white/5"
-                          }
-                        `}
+          <SidebarGroupContent>
+            <SidebarMenu className="gap-0.5 px-2">
+              {secondaryItems.map((item) => {
+                const isActive =
+                  location.pathname === item.url ||
+                  location.pathname.startsWith(item.url + "/");
+                return (
+                  <SidebarMenuItem key={item.url}>
+                    <SidebarMenuButton
+                      asChild
+                      tooltip={collapsed ? item.title : undefined}
+                      className={`
+                        group rounded-lg transition-all duration-200
+                        ${isMobile ? "h-10" : "h-9"}
+                        ${isActive
+                          ? "bg-white/10 text-[hsl(var(--gold))] shadow-[inset_3px_0_0_hsl(var(--gold))]"
+                          : "text-white/45 hover:text-white hover:bg-white/5"
+                        }
+                      `}
+                    >
+                      <NavLink
+                        to={item.url}
+                        className="flex items-center gap-3 px-3"
+                        activeClassName=""
+                        onClick={handleNavClick}
                       >
-                        <NavLink
-                          to={`/nach-deutschland/${country.code}`}
-                          className="flex items-center gap-3 px-3"
-                          activeClassName=""
-                          onClick={handleNavClick}
-                        >
-                          <span className={`${isMobile ? "text-lg" : "text-base"} shrink-0`}>{country.flag}</span>
-                          {!collapsed && (
-                            <span className={`${isMobile ? "text-base" : "text-sm"} font-medium ${isActive ? "text-gold" : "text-white"}`}>
-                              {country.flag} {t(`migration.country.${country.code}`)}
-                            </span>
-                          )}
-                        </NavLink>
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                  );
-                })}
-              </SidebarMenu>
-            </SidebarGroupContent>
-          )}
-        </SidebarGroup>
-
-        {/* Vorlagen / Šabloni section */}
-        <SidebarGroup>
-          {!collapsed && (
-            <button
-              onClick={() => setVorlagenOpen(!vorlagenOpen)}
-              className={`flex items-center gap-2 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.12em] transition-colors ${
-                isVorlagenActive ? "text-gold" : "text-white/30 hover:text-white/50"
-              }`}
-            >
-              <FileCheck className={`h-3.5 w-3.5 ${isVorlagenActive ? "text-gold" : "text-white/25"}`} />
-              <span className="flex-1 text-left">{t("vorlagen.sidebarTitle")}</span>
-              <ChevronDown className={`h-3 w-3 transition-transform ${vorlagenOpen ? "" : "-rotate-90"}`} />
-            </button>
-          )}
-          {(vorlagenOpen || collapsed) && (
-            <SidebarGroupContent>
-              {/* A) Bewerbung & Karriere */}
-              {!collapsed && (
-                <p className="px-5 pt-3 pb-1 text-[10px] font-semibold uppercase tracking-[0.1em] text-white/25">
-                  {t("vorlagen.sectionWork")}
-                </p>
-              )}
-              <SidebarMenu className="gap-0.5 px-2">
-                {[
-                  { label: t("vorlagen.bewerbung"), to: "/vorlagen/bewerbung" },
-                  { label: t("vorlagen.lebenslauf"), to: "/vorlagen/lebenslauf" },
-                  { label: t("vorlagen.anschreiben"), to: "/vorlagen/anschreiben" },
-                  { label: t("vorlagen.kuendigung"), to: "/vorlagen/kuendigung" },
-                  { label: t("vorlagen.fristlose"), to: "/vorlagen/fristlose-kuendigung" },
-                  { label: t("vorlagen.probezeit"), to: "/vorlagen/kuendigung-probezeit" },
-                ].map((item) => {
-                  const isActive = location.pathname === item.to;
-                  return (
-                    <SidebarMenuItem key={item.to}>
-                      <SidebarMenuButton
-                        asChild
-                        tooltip={collapsed ? item.label : undefined}
-                        className={`
-                          group h-9 rounded-lg transition-all duration-200
-                          ${isActive
-                            ? "bg-white/10 text-gold shadow-[inset_3px_0_0_hsl(var(--gold))]"
-                            : "text-white/55 hover:text-white hover:bg-white/5"
-                          }
-                        `}
-                      >
-                        <NavLink
-                          to={item.to}
-                          className="flex items-center gap-3 px-3"
-                          activeClassName=""
-                          onClick={handleNavClick}
-                        >
-                          <FileCheck className={`h-[14px] w-[14px] shrink-0 transition-colors ${isActive ? "text-gold" : "text-white/40 group-hover:text-white/70"}`} />
-                          {!collapsed && (
-                            <span className={`text-sm font-medium ${isActive ? "text-gold" : ""}`}>
-                              {item.label}
-                            </span>
-                          )}
-                        </NavLink>
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                  );
-                })}
-              </SidebarMenu>
-
-              {/* B) Kundenservice / Vertragsangelegenheiten */}
-              {!collapsed && (
-                <p className="px-5 pt-4 pb-1 text-[10px] font-semibold uppercase tracking-[0.1em] text-white/25">
-                  {t("vorlagen.sectionService")}
-                </p>
-              )}
-              <SidebarMenu className="gap-0.5 px-2">
-                {[
-                  { label: t("vorlagen.widerruf"), to: "/vorlagen/widerruf" },
-                  { label: t("vorlagen.vertragKuendigung"), to: "/vorlagen/vertragskundigung" },
-                  { label: t("vorlagen.reklamation"), to: "/vorlagen/reklamation" },
-                ].map((item) => {
-                  const isActive = location.pathname === item.to;
-                  return (
-                    <SidebarMenuItem key={item.to}>
-                      <SidebarMenuButton
-                        asChild
-                        tooltip={collapsed ? item.label : undefined}
-                        className={`
-                          group h-9 rounded-lg transition-all duration-200
-                          ${isActive
-                            ? "bg-white/10 text-gold shadow-[inset_3px_0_0_hsl(var(--gold))]"
-                            : "text-white/55 hover:text-white hover:bg-white/5"
-                          }
-                        `}
-                      >
-                        <NavLink
-                          to={item.to}
-                          className="flex items-center gap-3 px-3"
-                          activeClassName=""
-                          onClick={handleNavClick}
-                        >
-                          <FileCheck className={`h-[14px] w-[14px] shrink-0 transition-colors ${isActive ? "text-gold" : "text-white/40 group-hover:text-white/70"}`} />
-                          {!collapsed && (
-                            <span className={`text-sm font-medium ${isActive ? "text-gold" : ""}`}>
-                              {item.label}
-                            </span>
-                          )}
-                        </NavLink>
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                  );
-                })}
-              </SidebarMenu>
-            </SidebarGroupContent>
-          )}
+                        <item.icon
+                          className={`h-4 w-4 shrink-0 transition-colors ${
+                            isActive ? "text-[hsl(var(--gold))]" : "text-white/30 group-hover:text-white/50"
+                          }`}
+                        />
+                        {!collapsed && (
+                          <span className={`text-[13px] font-medium ${isActive ? "text-[hsl(var(--gold))]" : "text-white/60"}`}>
+                            {item.title}
+                          </span>
+                        )}
+                      </NavLink>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                );
+              })}
+            </SidebarMenu>
+          </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
     </Sidebar>
