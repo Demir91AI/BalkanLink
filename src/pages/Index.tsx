@@ -432,17 +432,19 @@ export default function Index() {
         </div>
       </section>
 
+      {/* ─── FLOW BANNER ─── */}
+      <FlowBanner />
+
       {/* ─── NAJČEŠĆE GREŠKE ─── */}
       <HomeMistakes />
 
       {/* ─── PREMIUM PRODUCTS + FREE TOOLS ─── */}
-      <HomePremiumCards />
+      <div className="opacity-[0.88]">
+        <HomePremiumCards />
+      </div>
 
       {/* ─── PREMIUM BANNER ─── */}
       <HomePremiumBanner />
-
-      {/* ─── RECENZIJE ─── */}
-      <HomeReviews />
 
       {/* ─── PREMIUM SHOWCASE (Carousel) ─── */}
       <section className="py-16 sm:py-20 border-t border-white/[0.05]">
