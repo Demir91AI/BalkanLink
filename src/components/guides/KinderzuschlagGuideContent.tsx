@@ -15,7 +15,8 @@ const STEPS: StepData[] = [
       "Kinderzuschlag (KiZ) je namijenjen porodicama koje zarađuju dovoljno za sebe, ali ne i za pokriće troškova cijele porodice. Cilj je spriječiti da porodica mora tražiti Bürgergeld.\n\n• Maksimalno 297€ po djetetu mjesečno (od 1.1.2025)\n• Uključuje Sofortzuschlag od 25€/mj. po djetetu\n• Iznos se smanjuje ako prihod porodice raste\n• Isplaćuje se zajedno sa Kindergeldom od Familienkasse\n• Pravna osnova: § 6a BKGG",
     whereToFind:
       "Familienkasse pri Bundesagentur für Arbeit — online ili pismeno.",
-    note:
+    commonMistake:
+      "Misliti da je KiZ automatski uključen u Kindergeld — to je potpuno odvojen zahtjev.",
       "KiZ + Wohngeld = moguće i Bildung und Teilhabe: besplatan ručak u školi/vrtiću, školski paket od 195€, oslobađanje od Kita naknada.",
   },
   {
