@@ -20,7 +20,7 @@ const STEPS: StepData[] = [
     deField: "Ärztliches Zeugnis einholen",
     bhsField: "Ärztliches Zeugnis einholen",
     whatToWrite:
-      "Potvrda sadrži: ime, prezime, datum — i „voraussichtlicher Tag der Entbindung" (procijenjeni datum porođaja).",
+      "Potvrda sadrži: ime, prezime, datum — i 'voraussichtlicher Tag der Entbindung' (procijenjeni datum porođaja).",
     whereToFind:
       "Kod svog ginekologa ili babice — svaka gesetzliche Krankenkasse ima vlastiti formular, najčešće na njihovoj web stranici.",
     format:
