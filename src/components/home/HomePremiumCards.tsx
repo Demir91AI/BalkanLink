@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, FileText, Shield, GraduationCap, Search, Home, Megaphone, Wrench, Star } from "lucide-react";
+import { ArrowRight, FileText, Shield, GraduationCap, Search, Home, Megaphone, Wrench, Star, Calculator } from "lucide-react";
 import { PRICING } from "@/lib/config";
 
 const premiumCards = [
@@ -35,6 +35,7 @@ const secondaryCards = [
   { icon: Megaphone, title: "Nudim / Tražim", desc: `Objava besplatna • PRO od ${PRICING.proAd7Days}`, to: "/nudim-trazim" },
   { icon: Search, title: "Pretraga poslova", desc: "Besplatno — korisni linkovi", to: "/stellenangebote" },
   { icon: Home, title: "Pretraga stanova", desc: "Besplatno — korisni linkovi", to: "/wohnungen" },
+  { icon: Calculator, title: "Kalkulatori", desc: "Brutto-netto i drugi korisni alati", to: "/kalkulatori" },
   { icon: Wrench, title: "Šabloni / Vorlagen", desc: "Besplatno", to: "/vorlagen" },
 ];
 

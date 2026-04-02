@@ -7,6 +7,7 @@ import {
   Building,
   Megaphone,
   FileCheck,
+  Calculator,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation } from "react-router-dom";
@@ -53,7 +54,7 @@ const mainItems = [
   },
   {
     title: "Nudim / Tražim",
-    desc: "Oglasi, usluge i ponude zajednice",
+    desc: "Ponudi ili pronađi — sve na jednom mjestu",
     url: "/nudim-trazim",
     icon: Megaphone,
     premium: false,
@@ -63,6 +64,7 @@ const mainItems = [
 const secondaryItems = [
   { title: "Pretraga poslova", url: "/stellenangebote", icon: Briefcase },
   { title: "Pretraga stanova", url: "/wohnungen", icon: Building },
+  { title: "Kalkulatori", url: "/kalkulatori", icon: Calculator },
   { title: "Šabloni", url: "/vorlagen", icon: FileCheck },
 ];
 
