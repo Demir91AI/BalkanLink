@@ -124,7 +124,7 @@ export default function DokumentenCheck() {
       <section className="border-b bg-primary py-10">
         <div className="container max-w-3xl">
           <button onClick={handleBack} className="back-button">
-            <ChevronLeft className="h-4 w-4" /> Nazad
+            <ChevronLeft className="h-4 w-4" /> {st("guide.back")}
           </button>
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">
             {t("index.nav.docCheck")}
