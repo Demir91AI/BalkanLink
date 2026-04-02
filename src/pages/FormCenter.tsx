@@ -20,6 +20,7 @@ import BurgergeldGuideContent from "@/components/guides/BurgergeldGuideContent";
 import WohngeldGuideContent from "@/components/guides/WohngeldGuideContent";
 import MutterschaftsgeldGuideContent from "@/components/guides/MutterschaftsgeldGuideContent";
 import KinderzuschlagGuideContent from "@/components/guides/KinderzuschlagGuideContent";
+import KrippengeldBayernGuideContent from "@/components/guides/KrippengeldBayernGuideContent";
 import AufenthaltsNavigator from "@/components/AufenthaltsNavigator";
 import { navigateBackOrHome } from "@/lib/navigation";
 
