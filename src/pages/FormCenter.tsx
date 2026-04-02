@@ -30,6 +30,18 @@ import AnlageUFGuideContent from "@/components/guides/AnlageUFGuideContent";
 import AnlageSEGuideContent from "@/components/guides/AnlageSEGuideContent";
 import ArbeitsbescheinigungGuideContent from "@/components/guides/ArbeitsbescheinigungGuideContent";
 import AntragsruecknahmeGuideContent from "@/components/guides/AntragsruecknahmeGuideContent";
+import HauptantragGuideContent from "@/components/guides/HauptantragGuideContent";
+import WeiterbewilligungGuideContent from "@/components/guides/WeiterbewilligungGuideContent";
+import AnlageKDUGuideContent from "@/components/guides/AnlageKDUGuideContent";
+import AnlageEKGuideContent from "@/components/guides/AnlageEKGuideContent";
+import AnlageEKSGuideContent from "@/components/guides/AnlageEKSGuideContent";
+import AnlageVMGuideContent from "@/components/guides/AnlageVMGuideContent";
+import AnlageWEPGuideContent from "@/components/guides/AnlageWEPGuideContent";
+import AnlageKIGuideContent from "@/components/guides/AnlageKIGuideContent";
+import AnlageUH1GuideContent from "@/components/guides/AnlageUH1GuideContent";
+import AnlageUH2GuideContent from "@/components/guides/AnlageUH2GuideContent";
+import AnlageUH3GuideContent from "@/components/guides/AnlageUH3GuideContent";
+import AnfrageNichterreichbarkeitGuideContent from "@/components/guides/AnfrageNichterreichbarkeitGuideContent";
 import AufenthaltsNavigator from "@/components/AufenthaltsNavigator";
 import { navigateBackOrHome } from "@/lib/navigation";
 
