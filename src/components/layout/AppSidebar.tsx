@@ -22,37 +22,47 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 
-const premiumItems = [
+const mainItems = [
   {
     title: "Formulari (Smart Guide)",
     desc: "Korak po korak bez greške",
     url: "/formulari",
     icon: FileText,
+    premium: true,
   },
   {
     title: "Visa Navigator",
     desc: "Sve o vizama za Njemačku — jasno i korak po korak",
     url: "/dolazak/boravisna-dozvola",
     icon: Shield,
+    premium: true,
   },
   {
     title: "BalkanLink Deutsch",
     desc: "Njemački za stvarni život",
     url: "/deutsch-trainer",
     icon: BookOpen,
+    premium: true,
   },
   {
     title: "Dokumenten-Check",
     desc: "Razumij svaki dokument odmah",
     url: "/dokumenten-check",
     icon: Camera,
+    premium: true,
+  },
+  {
+    title: "Nudim / Tražim",
+    desc: "Oglasi, usluge i ponude zajednice",
+    url: "/nudim-trazim",
+    icon: Megaphone,
+    premium: false,
   },
 ];
 
 const secondaryItems = [
   { title: "Pretraga poslova", url: "/stellenangebote", icon: Briefcase },
   { title: "Pretraga stanova", url: "/wohnungen", icon: Building },
-  { title: "Nudim / Tražim", url: "/nudim-trazim", icon: Megaphone },
   { title: "Šabloni", url: "/vorlagen", icon: FileCheck },
 ];
 
