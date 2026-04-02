@@ -292,11 +292,11 @@ const TOPIC_GUIDE_MAP: Record<string, string> = {
   unterhalt: "unterhaltsvorschuss", bürgergeld: "buergergeld", burgergeld: "buergergeld",
   wohngeld: "wohngeld", bafög: "bafoeg", bafoeg: "bafoeg", sozialhilfe: "sozialhilfe",
   krankengeld: "krankengeld", führungszeugnis: "fuehrungszeugnis",
-  aufenthaltstitel: "aufenthaltstitel-verlaengerung", boravisna: "aufenthaltstitel-verlaengerung",
   anmeldung: "anmeldung", wbs: "wbs", arbeitslosengeld: "arbeitslosengeld",
   kurzarbeitergeld: "kurzarbeitergeld", bildungsgutschein: "bildungsgutschein",
   integrationskurs: "integrationskurs", kirchenaustritt: "kirchenaustritt",
-  heizkostenzuschuss: "heizkostenzuschuss", rundfunkbeitrag: "gez-anmeldung", gez: "gez-anmeldung",
+  heizkostenzuschuss: "heizkostenzuschuss",
+  steuerklasse: "steuerklassenwechsel", krankenkasse: "familienversicherung",
   steuerklasse: "steuerklassenwechsel", krankenkasse: "familienversicherung",
 };
 
