@@ -6,18 +6,19 @@ const LS_KEY = "steuerklasse-muster-data";
 const initial = () => ({
   p1Familienname: "", p1Vorname: "", p1Geburtsdatum: "", p1SteuerId: "", p1Strasse: "", p1Plz: "", p1Ort: "", p1Arbeitgeber: "", p1Bisherige: "", p1Gewuenschte: "", p1Kinderfreibetrag: "",
   p2Familienname: "", p2Vorname: "", p2Geburtsdatum: "", p2SteuerId: "", p2Arbeitgeber: "", p2Bisherige: "", p2Gewuenschte: "", p2Kinderfreibetrag: "",
-  grund: "",
-  sonstigerGrund: "",
-  finanzamt: "",
-  sigOrt: "", sigDatum: "",
+  anzahlKinder: "",
+  kinder: Array.from({ length: 4 }, () => ({ vorname: "", geburtsdatum: "", steuerId: "", wohnhaftBei: "" })),
+  grund: "", sonstigerGrund: "",
+  finanzamt: "", sigOrt: "", sigDatum: "",
 });
 
 const steuerklassen = ["I", "II", "III", "IV", "V", "VI"];
-const kinderfreibetraege = ["0,0", "0,5", "1,0", "1,5", "2,0", "2,5"];
+const kinderfreibetraege = ["0,0", "0,5", "1,0", "1,5", "2,0", "2,5", "3,0"];
 
 export default function SteuerklasseMuster() {
   const [f, setF] = useState(() => { try { const s = localStorage.getItem(LS_KEY); if (s) return { ...initial(), ...JSON.parse(s) }; } catch {} return initial(); });
   const set = (k: string, v: string) => setF(p => ({ ...p, [k]: v }));
+  const setKind = (i: number, k: string, v: string) => setF(p => { const kinder = [...p.kinder]; kinder[i] = { ...kinder[i], [k]: v }; return { ...p, kinder }; });
 
   const PartnerSection = ({ num, prefix, label }: { num: number; prefix: string; label: string }) => (
     <div style={S.sec}>
@@ -28,7 +29,7 @@ export default function SteuerklasseMuster() {
       {prefix === "p1" && (
         <div style={S.row}><Field label="Straße, Hausnr." flex={2} value={f.p1Strasse} onChange={v => set("p1Strasse", v)} /><Field label="PLZ" width={80} value={f.p1Plz} onChange={v => set("p1Plz", v)} /><Field label="Ort" flex={1} value={f.p1Ort} onChange={v => set("p1Ort", v)} /></div>
       )}
-      <div style={S.row}><Field label="Arbeitgeber" value={(f as any)[prefix + "Arbeitgeber"]} onChange={v => set(prefix + "Arbeitgeber", v)} /></div>
+      <div style={S.row}><Field label="Arbeitgeber (Name, Anschrift)" value={(f as any)[prefix + "Arbeitgeber"]} onChange={v => set(prefix + "Arbeitgeber", v)} /></div>
       <div style={S.row}>
         <div style={{ flex: 1 }}><div style={S.lbl}>Bisherige Steuerklasse</div><div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>{steuerklassen.map(sk => (<label key={sk} style={S.chk}><input type="radio" name={prefix + "Bisherige"} checked={(f as any)[prefix + "Bisherige"] === sk} onChange={() => set(prefix + "Bisherige", sk)} />{sk}</label>))}</div></div>
         <div style={{ flex: 1 }}><div style={S.lbl}>Gewünschte Steuerklasse</div><div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>{steuerklassen.map(sk => (<label key={sk} style={S.chk}><input type="radio" name={prefix + "Gewuenschte"} checked={(f as any)[prefix + "Gewuenschte"] === sk} onChange={() => set(prefix + "Gewuenschte", sk)} />{sk}</label>))}</div></div>
@@ -44,9 +45,24 @@ export default function SteuerklasseMuster() {
       <PartnerSection num={2} prefix="p2" label="Ehegatte / Lebenspartner 2" />
 
       <div style={S.sec}>
-        <SecHeader num={3} title="Grund" />
+        <SecHeader num={3} title="Angaben zu den Kindern" />
+        <div style={S.row}><Field label="Anzahl der Kinder" width={60} value={f.anzahlKinder} onChange={v => set("anzahlKinder", v)} /></div>
+        {f.kinder.map((k, i) => (
+          <div key={i} style={{ marginBottom: 8, paddingBottom: 6, borderBottom: i < 3 ? "1px dashed #e5e7eb" : "none" }}>
+            <div style={{ fontSize: 9, fontWeight: 600, color: "#6b7280", marginBottom: 4 }}>Kind {i + 1}</div>
+            <div style={S.row}><Field label="Vorname" value={k.vorname} onChange={v => setKind(i, "vorname", v)} /><Field label="Geburtsdatum" type="date" value={k.geburtsdatum} onChange={v => setKind(i, "geburtsdatum", v)} /></div>
+            <div style={S.row}>
+              <Field label="Steuer-ID des Kindes" value={k.steuerId} onChange={v => setKind(i, "steuerId", v)} />
+              <div style={{ flex: 1 }}><div style={S.lbl}>Wohnhaft bei</div><div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>{["Elternteil 1", "Elternteil 2", "Beiden"].map(w => (<label key={w} style={S.chk}><input type="radio" name={`wohnhaft${i}`} checked={k.wohnhaftBei === w} onChange={() => setKind(i, "wohnhaftBei", w)} />{w}</label>))}</div></div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div style={S.sec}>
+        <SecHeader num={4} title="Grund des Wechsels" />
         <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-          {["Heirat / Eintragung Lebenspartnerschaft", "Änderung der Einkommensverhältnisse", "Aufnahme / Aufgabe Erwerbstätigkeit"].map(g => (
+          {["Heirat / Eintragung der Lebenspartnerschaft", "Änderung der Einkommensverhältnisse", "Aufnahme einer Erwerbstätigkeit", "Aufgabe einer Erwerbstätigkeit", "Geburt eines Kindes"].map(g => (
             <label key={g} style={S.chk}><input type="radio" name="grund" checked={f.grund === g} onChange={() => set("grund", g)} />{g}</label>
           ))}
           <label style={S.chk}><input type="radio" name="grund" checked={f.grund === "Sonstiges"} onChange={() => set("grund", "Sonstiges")} />Sonstiger Grund:</label>
@@ -55,9 +71,9 @@ export default function SteuerklasseMuster() {
       </div>
 
       <div style={S.sec}>
-        <SecHeader num={4} title="Datum und Unterschrift" />
+        <SecHeader num={5} title="Datum und Unterschrift" />
         <div style={S.row}><Field label="Ort" value={f.sigOrt} onChange={v => set("sigOrt", v)} /><Field label="Datum" type="date" value={f.sigDatum} onChange={v => set("sigDatum", v)} /></div>
-        <div style={{ display: "flex", gap: 24, marginTop: 12 }}><Signature label="Unterschrift Partner 1" /><Signature label="Unterschrift Partner 2" /></div>
+        <div style={{ display: "flex", gap: 24, marginTop: 12 }}><Signature label="Unterschrift Ehegatte/Partner 1" /><Signature label="Unterschrift Ehegatte/Partner 2" /></div>
         <div style={{ marginTop: 8 }}><Field label="Zuständiges Finanzamt" value={f.finanzamt} onChange={v => set("finanzamt", v)} /></div>
       </div>
 

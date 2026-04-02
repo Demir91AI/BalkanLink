@@ -66,7 +66,8 @@ import NotFound from "./pages/NotFound";
 import FirmDetail from "./pages/FirmDetail";
 import BussgeldAssistent from "./pages/BussgeldAssistent";
 import KindergeldMuster from "./pages/KindergeldMuster";
-import AnmeldungMuster from "./pages/AnmeldungMuster";
+import AnmeldungMusterOld from "./pages/AnmeldungMuster";
+import AnmeldungMuster from "./pages/muster/AnmeldungMuster";
 import Paketi from "./pages/Paketi";
 import Kalkulatori from "./pages/Kalkulatori";
 
@@ -121,7 +122,7 @@ const App = () => (
                 <Route path="/formulari" element={<FormCenter />} />
                 
                 <Route path="/formulari/kindergeld/muster" element={<KindergeldMuster />} />
-                <Route path="/formulari/anmeldung/muster" element={<AnmeldungMuster />} />
+                <Route path="/formulari/anmeldung/muster" element={<AnmeldungMusterOld />} />
                 
                 <Route path="/musterformular/elterngeld" element={<ElterngeldMuster />} />
                 <Route path="/musterformular/anmeldung" element={<AnmeldungMuster />} />
