@@ -30,6 +30,18 @@ import AnlageUFGuideContent from "@/components/guides/AnlageUFGuideContent";
 import AnlageSEGuideContent from "@/components/guides/AnlageSEGuideContent";
 import ArbeitsbescheinigungGuideContent from "@/components/guides/ArbeitsbescheinigungGuideContent";
 import AntragsruecknahmeGuideContent from "@/components/guides/AntragsruecknahmeGuideContent";
+import HauptantragGuideContent from "@/components/guides/HauptantragGuideContent";
+import WeiterbewilligungGuideContent from "@/components/guides/WeiterbewilligungGuideContent";
+import AnlageKDUGuideContent from "@/components/guides/AnlageKDUGuideContent";
+import AnlageEKGuideContent from "@/components/guides/AnlageEKGuideContent";
+import AnlageEKSGuideContent from "@/components/guides/AnlageEKSGuideContent";
+import AnlageVMGuideContent from "@/components/guides/AnlageVMGuideContent";
+import AnlageWEPGuideContent from "@/components/guides/AnlageWEPGuideContent";
+import AnlageKIGuideContent from "@/components/guides/AnlageKIGuideContent";
+import AnlageUH1GuideContent from "@/components/guides/AnlageUH1GuideContent";
+import AnlageUH2GuideContent from "@/components/guides/AnlageUH2GuideContent";
+import AnlageUH3GuideContent from "@/components/guides/AnlageUH3GuideContent";
+import AnfrageNichterreichbarkeitGuideContent from "@/components/guides/AnfrageNichterreichbarkeitGuideContent";
 import AufenthaltsNavigator from "@/components/AufenthaltsNavigator";
 import { navigateBackOrHome } from "@/lib/navigation";
 
@@ -67,6 +79,18 @@ function GuideContent({ slug }: { slug: string }) {
   if (slug === "anlage-se") return <AnlageSEGuideContent />;
   if (slug === "arbeitsbescheinigung") return <ArbeitsbescheinigungGuideContent />;
   if (slug === "antragsruecknahme") return <AntragsruecknahmeGuideContent />;
+  if (slug === "hauptantrag") return <HauptantragGuideContent />;
+  if (slug === "weiterbewilligung") return <WeiterbewilligungGuideContent />;
+  if (slug === "anlage-kdu") return <AnlageKDUGuideContent />;
+  if (slug === "anlage-ek") return <AnlageEKGuideContent />;
+  if (slug === "anlage-eks") return <AnlageEKSGuideContent />;
+  if (slug === "anlage-vm") return <AnlageVMGuideContent />;
+  if (slug === "anlage-wep") return <AnlageWEPGuideContent />;
+  if (slug === "anlage-ki") return <AnlageKIGuideContent />;
+  if (slug === "anlage-uh1") return <AnlageUH1GuideContent />;
+  if (slug === "anlage-uh2") return <AnlageUH2GuideContent />;
+  if (slug === "anlage-uh3") return <AnlageUH3GuideContent />;
+  if (slug === "nichterreichbarkeit") return <AnfrageNichterreichbarkeitGuideContent />;
   if (slug === "aufenthaltstitel") return <AufenthaltsNavigator />;
 
   if (!guide) return null;
