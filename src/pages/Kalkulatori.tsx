@@ -515,7 +515,7 @@ export default function Kalkulatori() {
                     <div className="space-y-1">
                       <Label className="text-sm text-white/70 font-medium">
                         Zusatzbeitrag (%)
-                        <InfoTip text="Prosječni Zusatzbeitrag 2024 je 1.7%" />
+                        <InfoTip text={inputs.godina >= 2025 ? "Prosječni Zusatzbeitrag 2025 je 2.5%" : "Prosječni Zusatzbeitrag 2024 je 1.7%"} />
                       </Label>
                       <input
                         type="number"
