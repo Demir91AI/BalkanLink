@@ -1,15 +1,15 @@
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Check, Crown, Star, GraduationCap, X, Sparkles } from "lucide-react";
+import { ArrowLeft, Check, Crown, Star, GraduationCap, X, Sparkles, Gift } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { navigateBackOrHome } from "@/lib/navigation";
 
 const individualLevels = [
   { level: "A1", price: "9,99 €", desc: "Grundlagen – erste Schritte" },
   { level: "A2", price: "14,99 €", desc: "Alltag – einfache Gespräche" },
-  { level: "B1", price: "16,99 €", desc: "Selbstständig kommunizieren" },
-  { level: "B2", price: "22,99 €", desc: "Komplexere Situationen" },
-  { level: "C1", price: "26,99 €", desc: "Anspruchsvoll & beruflich" },
-  { level: "C2", price: "32,99 €", desc: "Professionelles Niveau" },
+  { level: "B1", price: "14,99 €", desc: "Selbstständig kommunizieren" },
+  { level: "B2", price: "19,99 €", desc: "Komplexere Situationen" },
+  { level: "C1", price: "19,99 €", desc: "Anspruchsvoll & beruflich" },
+  { level: "C2", price: "24,99 €", desc: "Professionelles Niveau" },
 ];
 
 const packages = [
@@ -22,29 +22,32 @@ const packages = [
     saving: "Du sparst 4,99 €",
     popular: false,
     topics: ["Arzt", "Supermarkt", "Vorstellung", "Wohnung", "Post", "Alltag"],
-    voucher: "5 € Wertgutschein",
+    reward: "1 mjesec Premium gratis",
+    rewardIcon: "🎁",
   },
   {
     label: "Paket B",
     levels: "B1 + B2",
     subtitle: "Selbstständig kommunizieren",
     price: "29,99 €",
-    singleTotal: "39,98 €",
-    saving: "Du sparst 9,99 €",
+    singleTotal: "34,98 €",
+    saving: "Du sparst 4,99 €",
     popular: true,
     topics: ["Bewerbung", "Telefon", "Büro", "Vertrag", "Bank", "Versicherung"],
-    voucher: "10 € Wertgutschein",
+    reward: "2 mjeseca Premium gratis",
+    rewardIcon: "🎁",
   },
   {
     label: "Paket C",
     levels: "C1 + C2",
     subtitle: "Professionelles Niveau",
     price: "39,99 €",
-    singleTotal: "59,98 €",
-    saving: "Du sparst 19,99 €",
+    singleTotal: "44,98 €",
+    saving: "Du sparst 4,99 €",
     popular: false,
     topics: ["Verhandlung", "Präsentation", "Konflikt", "Fachwissen", "Debatte", "Rhetorik"],
-    voucher: "15 € Wertgutschein",
+    reward: "3 mjeseca Premium gratis",
+    rewardIcon: "🎁",
   },
 ];
 
@@ -86,7 +89,7 @@ export default function TrainerPreise() {
             <GraduationCap className="h-7 w-7 text-gold" />
             <div>
               <h1 className="text-lg font-black text-primary-foreground sm:text-xl">
-                Pakete & Optionen
+                BalkanLink Deutsch — Pakete & Preise
               </h1>
               <p className="text-xs text-primary-foreground/70">
                 Deutsch für echte Situationen in Deutschland
@@ -137,6 +140,32 @@ export default function TrainerPreise() {
           </div>
         </div>
 
+        {/* ── EINZELNE NIVEAUS ── */}
+        <div>
+          <h2 className="mb-3 text-sm font-black text-center">Einzelne Niveaus</h2>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+            {individualLevels.map((lvl) => (
+              <div key={lvl.level} className="rounded-xl border bg-card p-4 text-center">
+                <span className="mb-1 inline-block rounded-full bg-primary px-3 py-0.5 text-[10px] font-black text-primary-foreground">
+                  {lvl.level}
+                </span>
+                <p className="mt-2 text-lg font-black">{lvl.price}</p>
+                <p className="mt-0.5 text-[10px] text-muted-foreground">{lvl.desc}</p>
+                <Button
+                  onClick={() => navigate("/premium")}
+                  variant="outline"
+                  className="mt-3 h-8 w-full rounded-lg text-[11px] font-bold"
+                >
+                  Freischalten
+                </Button>
+              </div>
+            ))}
+          </div>
+          <p className="mt-2 text-center text-[10px] text-muted-foreground">
+            Hinweis: Wertgutscheine gibt es nur bei Paket-Kauf, nicht bei Einzelniveaus.
+          </p>
+        </div>
+
         {/* ── PAKETE (BEST VALUE) ── */}
         <div>
           <h2 className="mb-3 text-sm font-black text-center flex items-center justify-center gap-2">
@@ -182,9 +211,13 @@ export default function TrainerPreise() {
                     {pkg.saving}
                   </p>
 
-          <p className="mt-1.5 text-[11px] leading-relaxed text-muted-foreground">
-                    5 Lektionen kostenlos testen · {pkg.voucher} für Premium-Nutzer bei 100% Abschluss
-                  </p>
+                  {/* Reward highlight */}
+                  <div className="mt-3 flex items-center gap-2 rounded-lg bg-gold/10 border border-gold/20 px-3 py-2">
+                    <Gift className="h-4 w-4 text-gold shrink-0" />
+                    <p className="text-[12px] font-bold text-gold-dark">
+                      100% Abschluss → {pkg.reward}
+                    </p>
+                  </div>
 
                   <Button
                     onClick={() => navigate("/premium")}
@@ -208,43 +241,9 @@ export default function TrainerPreise() {
                     </p>
                   )}
                 </div>
-
-                <div className="flex justify-between px-5 sm:px-6">
-                  {pkg.topics.map((t) => (
-                    <span key={t} className="text-[9px] font-medium text-muted-foreground">
-                      {t}
-                    </span>
-                  ))}
-                </div>
               </div>
             ))}
           </div>
-        </div>
-
-        {/* ── EINZELNE NIVEAUS ── */}
-        <div>
-          <h2 className="mb-3 text-sm font-black text-center">Einzelne Niveaus</h2>
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-            {individualLevels.map((lvl) => (
-              <div key={lvl.level} className="rounded-xl border bg-card p-4 text-center">
-                <span className="mb-1 inline-block rounded-full bg-primary px-3 py-0.5 text-[10px] font-black text-primary-foreground">
-                  {lvl.level}
-                </span>
-                <p className="mt-2 text-lg font-black">{lvl.price}</p>
-                <p className="mt-0.5 text-[10px] text-muted-foreground">{lvl.desc}</p>
-                <Button
-                  onClick={() => navigate("/premium")}
-                  variant="outline"
-                  className="mt-3 h-8 w-full rounded-lg text-[11px] font-bold"
-                >
-                  Freischalten
-                </Button>
-              </div>
-            ))}
-          </div>
-          <p className="mt-2 text-center text-[10px] text-muted-foreground">
-            Hinweis: Wertgutscheine gibt es nur bei Paket-Kauf, nicht bei Einzelniveaus.
-          </p>
         </div>
 
         {/* ── WERTGUTSCHEIN INFO ── */}
@@ -263,10 +262,10 @@ export default function TrainerPreise() {
           </p>
           <div className="space-y-2">
             {[
-              { label: "Paket A (A1+A2)", value: "5 €" },
-              { label: "Paket B (B1+B2)", value: "10 €" },
-              { label: "Paket C (C1+C2)", value: "15 €" },
-              { label: "Alle Pakete (A1–C2)", value: "30 €" },
+              { label: "A1 + A2 kompletno", value: "1 mjesec Premium gratis" },
+              { label: "B1 + B2 kompletno", value: "2 mjeseca Premium gratis" },
+              { label: "C1 + C2 kompletno", value: "3 mjeseca Premium gratis" },
+              { label: "A1–C2 + Godišnji Premium", value: "30€ Amazon.de Gutschein" },
             ].map((v) => (
               <div key={v.label} className="flex items-center justify-between rounded-lg bg-card px-3 py-2 text-xs">
                 <span className="font-medium">{v.label}</span>
