@@ -72,7 +72,7 @@ export default function AnlageBBGuideContent() {
         </p>
       </div>
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterCTA slug="anlage-bb" label="Anlage BB" />
+      <MusterCTA formName="Anlage BB" institution="Jobcenter" musterPath="/musterformular/anlage-bb" pdfUrl="https://www.arbeitsagentur.de/datei/anlage-bb_ba015342.pdf" />
     </div>
   );
 }

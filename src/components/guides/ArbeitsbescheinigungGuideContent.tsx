@@ -75,7 +75,7 @@ export default function ArbeitsbescheinigungGuideContent() {
         </p>
       </div>
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterCTA slug="arbeitsbescheinigung" label="Arbeitsbescheinigung" />
+      <MusterCTA formName="Arbeitsbescheinigung" institution="Agentur für Arbeit" musterPath="/musterformular/arbeitsbescheinigung" pdfUrl="https://www.arbeitsagentur.de/datei/arbeitsbescheinigung_ba034534.pdf" />
     </div>
   );
 }

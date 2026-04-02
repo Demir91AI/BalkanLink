@@ -63,7 +63,7 @@ export default function AnlageSVGuideContent() {
         </p>
       </div>
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterCTA slug="anlage-sv" label="Anlage SV" />
+      <MusterCTA formName="Anlage SV" institution="Jobcenter" musterPath="/musterformular/anlage-sv" pdfUrl="https://www.arbeitsagentur.de/datei/anlage-sv_ba015207.pdf" />
     </div>
   );
 }
