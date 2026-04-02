@@ -24,6 +24,7 @@ export default function Layout() {
           </main>
           <Footer />
           <CookieConsent />
+          <PWAInstallBanner />
         </div>
       </div>
     </SidebarProvider>
