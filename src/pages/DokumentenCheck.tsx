@@ -253,6 +253,22 @@ export default function DokumentenCheck() {
             </div>
           )}
 
+          {dokLimitHit && (
+            <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
+              className="flex flex-col items-center rounded-2xl border border-[#F59E0B]/20 bg-[#0f1f3d] p-8 text-center">
+              <Lock className="h-8 w-8 text-[#F59E0B] mb-3" />
+              <p className="text-sm font-bold text-white mb-4">
+                🔒 Ostale provjere dostupne u Premium verziji
+              </p>
+              <button
+                onClick={() => navigate("/premium")}
+                className="rounded-full bg-[#F59E0B] px-6 py-3 text-[#0f1f3d] font-bold transition-all hover:opacity-90"
+              >
+                BalkanLink Premium — 9.99€/mj.
+              </button>
+            </motion.div>
+          )}
+
           {analysisSections && (
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
               className="space-y-0">
