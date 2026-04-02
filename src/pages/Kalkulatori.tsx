@@ -426,8 +426,8 @@ const externalTools = [
   {
     title: "ALG 1 Rechner",
     desc: "Izračunaj visinu naknade za nezaposlenost (Arbeitslosengeld I) — zvanični alat Bundesagentur für Arbeit",
-    primaryUrl: "https://www.arbeitsagentur.de/arbeitslosengeld-rechner",
-    fallbackUrl: "https://www.pub.arbeitsagentur.de/selbst/fn/alg/index",
+    primaryUrl: "https://www.pub.arbeitsagentur.de/selbst.php",
+    fallbackUrl: "https://www.arbeitsagentur.de/arbeitslosengeld-rechner",
   },
 ];
 
