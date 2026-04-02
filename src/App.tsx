@@ -84,6 +84,15 @@ import IntegrationskursMuster from "./pages/muster/IntegrationskursMuster";
 import KinderzuschlagMuster from "./pages/muster/KinderzuschlagMuster";
 import SchuelerBafoegMuster from "./pages/muster/SchuelerBafoegMuster";
 import GrundsicherungMuster from "./pages/muster/GrundsicherungMuster";
+import AnlageBBMuster from "./pages/muster/AnlageBBMuster";
+import AnlageSVMuster from "./pages/muster/AnlageSVMuster";
+import AnlageVEMuster from "./pages/muster/AnlageVEMuster";
+import AnlageHGMuster from "./pages/muster/AnlageHGMuster";
+import AnlageMEBMuster from "./pages/muster/AnlageMEBMuster";
+import AnlageUFMuster from "./pages/muster/AnlageUFMuster";
+import AnlageSEMuster from "./pages/muster/AnlageSEMuster";
+import ArbeitsbescheinigungMuster from "./pages/muster/ArbeitsbescheinigungMuster";
+import AntragsruecknahmeMuster from "./pages/muster/AntragsruecknahmeMuster";
 
 const queryClient = new QueryClient();
 
