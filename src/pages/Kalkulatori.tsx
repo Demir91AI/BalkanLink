@@ -50,6 +50,21 @@ const STEUERKLASSE_OPTIONS = [
   { value: 6, label: "VI — Drugi posao / više poslodavaca" },
 ];
 
+/* ── Tax computation 2025 §32a EStG ── */
+function computeYearlyTax2025(zvE: number): number {
+  if (zvE <= 12084) return 0;
+  if (zvE <= 17430) {
+    const y = (zvE - 12084) / 10000;
+    return Math.floor((932.30 * y + 1400) * y);
+  }
+  if (zvE <= 68430) {
+    const y = (zvE - 17430) / 10000;
+    return Math.floor((176.44 * y + 2397) * y + 1025.38);
+  }
+  if (zvE <= 277825) return Math.floor(0.42 * zvE - 10602.13);
+  return Math.floor(0.45 * zvE - 18936.88);
+}
+
 /* ── Tax computation 2024 §32a EStG ── */
 function computeYearlyTax2024(zvE: number): number {
   if (zvE <= 11604) return 0;
@@ -63,6 +78,10 @@ function computeYearlyTax2024(zvE: number): number {
   }
   if (zvE <= 277825) return Math.floor(0.42 * zvE - 10602.13);
   return Math.floor(0.45 * zvE - 18936.88);
+}
+
+function computeYearlyTax(zvE: number, year: number): number {
+  return year >= 2025 ? computeYearlyTax2025(zvE) : computeYearlyTax2024(zvE);
 }
 
 /* ── Inputs state ── */
