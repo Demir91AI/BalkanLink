@@ -101,8 +101,8 @@ interface CalcInputs {
   steuerklasse: number;
   bundesland: string;
   hasDjeca: boolean;
-  brojDjece: number;
-  brojDjeceIspod25: number;
+  brojDjece: number | null;
+  brojDjeceIspod25: number | null;
   kinderfreibetrag: number;
   alter: number;
   kvType: "gesetzlich" | "privat";
