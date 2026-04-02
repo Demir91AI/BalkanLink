@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Search, ChevronLeft, FileText, ChevronDown, ChevronRight } from "lucide-react";
+import { Search, ChevronLeft, FileText, ChevronDown, ChevronRight, Info, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
@@ -53,6 +53,40 @@ function getLangKey(lang: string): LangKey {
   return "bs";
 }
 
+/* ─── Bürgergeld Info Modal ─── */
+function BuergergeldInfoModal({ open, onClose, onOpenForm }: { open: boolean; onClose: () => void; onOpenForm: () => void }) {
+  if (!open) return null;
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4" onClick={onClose}>
+      <div className="relative w-full max-w-md rounded-2xl border border-border bg-card p-6 shadow-xl" onClick={e => e.stopPropagation()}>
+        <button onClick={onClose} className="absolute top-4 right-4 text-muted-foreground hover:text-foreground"><X className="h-5 w-5" /></button>
+        <h3 className="text-lg font-bold mb-3">Šta je Bürgergeld?</h3>
+        <p className="text-sm text-muted-foreground mb-3">
+          Bürgergeld (ranije Hartz IV) je osnovna socijalna pomoć u Njemačkoj prema SGB II. Namijenjen je osobama koje su sposobne za rad ali nemaju dovoljno prihoda za osnovne životne potrebe.
+        </p>
+        <p className="text-sm text-muted-foreground mb-4">
+          Zahtjev se podnosi kod Jobcentra i uključuje glavni formular (Hauptantrag) te niz priloga zavisno od vaše situacije.
+        </p>
+        <h4 className="text-sm font-bold mb-2">⚠️ Najčešće greške:</h4>
+        <ul className="text-sm text-muted-foreground space-y-1 mb-5">
+          <li>• Kasno podnošenje — Bürgergeld NE ide retroaktivno</li>
+          <li>• Zaboravljena Anlage VM — obavezno uz Hauptantrag</li>
+          <li>• Nepotpuni kontoauszüge (izvodi iz banke)</li>
+          <li>• Pogrešna porezna klasa ili IBAN</li>
+        </ul>
+        <div className="flex gap-3">
+          <button onClick={onOpenForm} className="flex-1 rounded-full py-2.5 text-sm font-bold text-[hsl(var(--gold-foreground))]" style={{ background: "linear-gradient(135deg, #FFD700, #FFA500)" }}>
+            Otvori formular
+          </button>
+          <button onClick={onClose} className="flex-1 rounded-full py-2.5 text-sm font-medium border border-border text-muted-foreground hover:bg-muted">
+            Zatvori
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ─── Guide Content (right side) ─── */
 function GuideContent({ slug }: { slug: string }) {
   const guide = getGuideBySlug(slug);
@@ -65,7 +99,7 @@ function GuideContent({ slug }: { slug: string }) {
   if (slug === "steuer-id") return <SteuerIdGuideContent />;
   if (slug === "krankenkasse") return <KrankenkasseGuideContent />;
   if (slug === "elterngeld") return <ElterngeldGuideContent />;
-  if (slug === "burgergeld") return <BurgergeldGuideContent />;
+  if (slug === "burgergeld" || slug === "buergergeld") return <BurgergeldGuideContent />;
   if (slug === "wohngeld") return <WohngeldGuideContent />;
   if (slug === "mutterschaftsgeld") return <MutterschaftsgeldGuideContent />;
   if (slug === "kinderzuschlag") return <KinderzuschlagGuideContent />;
@@ -97,10 +131,7 @@ function GuideContent({ slug }: { slug: string }) {
 
   return (
     <div className="space-y-8">
-      {/* FREE section */}
       <FormFreeContent guide={guide} lang={lang} />
-
-      {/* Smart Guide section */}
       <div className="relative py-2">
         <div className="absolute inset-0 flex items-center">
           <div className="w-full border-t border-border/60" />
@@ -126,11 +157,12 @@ export default function FormCenter() {
   const [openGroups, setOpenGroups] = useState<Set<string>>(
     () => new Set(formCatalog.map((g) => g.id))
   );
+  const [openSubGroups, setOpenSubGroups] = useState<Set<string>>(new Set());
+  const [showBgInfo, setShowBgInfo] = useState(false);
 
   const activeSlug = slug || "";
   const handleBack = () => navigateBackOrHome(navigate);
 
-  // Search across all entries
   const allEntries = useMemo(() => getAllFormEntries(), []);
   const isSearching = search.trim().length > 0;
   const searchResults = useMemo(() => {
@@ -155,7 +187,15 @@ export default function FormCenter() {
     });
   };
 
-  // Sidebar item renderer
+  const toggleSubGroup = (id: string) => {
+    setOpenSubGroups((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
+
   const renderItem = (item: FormEntry) => {
     const isActive = item.slug === activeSlug;
     return (
@@ -169,12 +209,12 @@ export default function FormCenter() {
             : "text-foreground/80 hover:bg-accent hover:text-foreground"
         )}
       >
-        <span className={cn("text-sm font-medium truncate", isActive && "font-semibold")}>
+        <span className={cn("text-sm font-medium truncate leading-[1.3]", isActive && "font-semibold")}>
           {item.label}
         </span>
         <span
           className={cn(
-            "text-[11px] leading-tight truncate",
+            "text-[11px] leading-[1.3] truncate",
             isActive ? "text-primary-foreground/70" : "text-muted-foreground"
           )}
         >
@@ -184,14 +224,11 @@ export default function FormCenter() {
     );
   };
 
-  // Mobile: if a slug is selected, show only the guide
+  // Mobile: if slug selected, show guide
   if (isMobile && activeSlug) {
     return (
       <div className="px-4 py-6">
-        <button
-          onClick={handleBack}
-          className="back-button"
-        >
+        <button onClick={handleBack} className="back-button">
           <ChevronLeft className="h-4 w-4" /> {t("common.back")}
         </button>
         <GuideContent key={activeSlug} slug={activeSlug} />
@@ -201,12 +238,15 @@ export default function FormCenter() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-6">
+      <BuergergeldInfoModal
+        open={showBgInfo}
+        onClose={() => setShowBgInfo(false)}
+        onOpenForm={() => { setShowBgInfo(false); handleSelect("hauptantrag"); }}
+      />
+
       {/* Page title */}
       <div className="mb-6">
-        <button
-          onClick={handleBack}
-          className="back-button"
-        >
+        <button onClick={handleBack} className="back-button">
           <ChevronLeft className="h-4 w-4" /> {t("common.back")}
         </button>
         <h1 className="font-heading text-2xl font-extrabold sm:text-3xl">
@@ -220,7 +260,6 @@ export default function FormCenter() {
       <div className="flex gap-6">
         {/* ─── Sidebar ─── */}
         <aside className={cn("shrink-0", isMobile ? "hidden" : "sticky top-20 self-start w-72")}>
-          {/* Search */}
           <div className="relative mb-4">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
@@ -260,7 +299,37 @@ export default function FormCenter() {
                       />
                     </CollapsibleTrigger>
                     <CollapsibleContent className="space-y-0.5 pb-2">
-                      {group.items.map(renderItem)}
+                      {/* Primary items with optional info icon for Bürgergeld */}
+                      {group.items.map((item) => (
+                        <div key={item.slug} className="relative">
+                          {renderItem(item)}
+                          {item.slug === "hauptantrag" && (
+                            <button
+                              onClick={(e) => { e.stopPropagation(); setShowBgInfo(true); }}
+                              className="absolute right-2 top-2 text-muted-foreground hover:text-foreground"
+                              title="Info o Bürgergeld"
+                            >
+                              <Info className="h-3.5 w-3.5" />
+                            </button>
+                          )}
+                        </div>
+                      ))}
+                      {/* Sub-groups (accordion) */}
+                      {group.subGroups?.map((sub) => (
+                        <Collapsible
+                          key={sub.id}
+                          open={openSubGroups.has(sub.id)}
+                          onOpenChange={() => toggleSubGroup(sub.id)}
+                        >
+                          <CollapsibleTrigger className="flex w-full items-center gap-2 rounded-lg px-3 py-1.5 text-[11px] font-semibold text-muted-foreground hover:text-foreground transition-colors ml-2">
+                            <span className="flex-1 text-left">{sub.title}</span>
+                            <ChevronDown className={cn("h-3 w-3 transition-transform", openSubGroups.has(sub.id) && "rotate-180")} />
+                          </CollapsibleTrigger>
+                          <CollapsibleContent className="space-y-0.5 ml-2">
+                            {sub.items.map(renderItem)}
+                          </CollapsibleContent>
+                        </Collapsible>
+                      ))}
                     </CollapsibleContent>
                   </Collapsible>
                 ))
@@ -293,7 +362,7 @@ export default function FormCenter() {
                           <button
                             key={item.slug}
                             onClick={() => handleSelect(item.slug)}
-                            className="w-full flex items-center gap-3 rounded-xl border border-border/40 bg-card px-4 py-3 text-left text-sm transition hover:border-gold/40 hover:shadow-sm"
+                            className="w-full flex items-center gap-3 rounded-xl border border-border/40 bg-card px-4 py-3 text-left text-sm transition hover:border-[hsl(var(--gold))]/40 hover:shadow-sm"
                           >
                             <FileText className="h-4 w-4 shrink-0 text-muted-foreground" />
                             <div className="min-w-0">
@@ -312,7 +381,7 @@ export default function FormCenter() {
                   ) : (
                     formCatalog.map((group) => (
                       <div key={group.id}>
-                        <div className="px-4 py-3 text-[11px] font-bold uppercase tracking-widest text-[hsl(45,92%,50%)] bg-[hsl(220,50%,8%)] rounded-lg mt-3 mb-1.5">
+                        <div className="px-4 py-3 text-[11px] font-bold uppercase tracking-widest text-[hsl(var(--gold))] bg-[hsl(220,50%,8%)] rounded-lg mt-3 mb-1.5">
                           {group.icon} {group.title}
                         </div>
                         <div className="space-y-2">
@@ -320,7 +389,7 @@ export default function FormCenter() {
                             <button
                               key={item.slug}
                               onClick={() => handleSelect(item.slug)}
-                              className="w-full flex items-center gap-3 rounded-xl border border-border/40 bg-card px-4 py-3 text-left text-sm transition hover:border-gold/40 hover:shadow-sm"
+                              className="w-full flex items-center gap-3 rounded-xl border border-border/40 bg-card px-4 py-3 text-left text-sm transition hover:border-[hsl(var(--gold))]/40 hover:shadow-sm"
                             >
                               <FileText className="h-4 w-4 shrink-0 text-muted-foreground" />
                               <div className="min-w-0">
@@ -329,6 +398,25 @@ export default function FormCenter() {
                               </div>
                               <ChevronRight className="ml-auto h-4 w-4 shrink-0 text-muted-foreground" />
                             </button>
+                          ))}
+                          {group.subGroups?.map((sub) => (
+                            <div key={sub.id}>
+                              <p className="px-4 py-2 text-[10px] font-bold uppercase tracking-wider text-muted-foreground mt-2">{sub.title}</p>
+                              {sub.items.map((item) => (
+                                <button
+                                  key={item.slug}
+                                  onClick={() => handleSelect(item.slug)}
+                                  className="w-full flex items-center gap-3 rounded-xl border border-border/40 bg-card px-4 py-3 text-left text-sm transition hover:border-[hsl(var(--gold))]/40 hover:shadow-sm"
+                                >
+                                  <FileText className="h-4 w-4 shrink-0 text-muted-foreground" />
+                                  <div className="min-w-0">
+                                    <p className="font-semibold truncate">{item.label}</p>
+                                    <p className="text-[11px] text-muted-foreground truncate">{item.desc}</p>
+                                  </div>
+                                  <ChevronRight className="ml-auto h-4 w-4 shrink-0 text-muted-foreground" />
+                                </button>
+                              ))}
+                            </div>
                           ))}
                         </div>
                       </div>

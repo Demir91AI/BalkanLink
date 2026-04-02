@@ -251,6 +251,19 @@ export default function BruttoNettoRechner() {
                     <Share2 className="h-3.5 w-3.5" /> {t("calc.share")}
                   </Button>
                 </div>
+
+                {/* Izračunaj button */}
+                <button
+                  type="button"
+                  onClick={() => {
+                    const el = document.querySelector('[data-result-box]');
+                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                  }}
+                  className="w-full md:w-auto mt-2 rounded-full px-7 py-3 text-[15px] font-bold text-[hsl(var(--gold-foreground))] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(255,184,0,0.35)] active:scale-[0.985]"
+                  style={{ background: "linear-gradient(135deg, #FFD700 0%, #FFA500 100%)", boxShadow: "0 10px 24px rgba(255,184,0,0.30)" }}
+                >
+                  Izračunaj
+                </button>
               </div>
             </div>
 
@@ -275,7 +288,7 @@ export default function BruttoNettoRechner() {
               </div>
 
               {/* Highlight box */}
-              <div className="rounded-2xl border-2 border-[hsl(var(--success))]/30 bg-[#0f1f3d] p-6 shadow-xl shadow-[hsl(var(--success))]/5 transition-all duration-300">
+              <div data-result-box className="rounded-2xl border-2 border-[hsl(var(--success))]/30 bg-[#0f1f3d] p-6 shadow-xl shadow-[hsl(var(--success))]/5 transition-all duration-300">
                 <p className="text-xs font-semibold text-white/50 mb-1">Dobiješ na račun:</p>
                 <p className="text-5xl font-black text-[hsl(var(--success))] tabular-nums transition-all duration-300">
                   {fmt(netto)} €

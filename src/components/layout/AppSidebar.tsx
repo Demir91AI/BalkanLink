@@ -33,7 +33,7 @@ const mainItems = [
   },
   {
     title: "Visa Navigator",
-    desc: "Sve o vizama za Njemačku — jasno i korak po korak",
+    desc: "Sve o vizama za Njemačku",
     url: "/dolazak/boravisna-dozvola",
     icon: Shield,
     premium: true,
@@ -54,7 +54,7 @@ const mainItems = [
   },
   {
     title: "Nudim / Tražim",
-    desc: "Ponudi ili pronađi — sve na jednom mjestu",
+    desc: "Ponudi ili pronađi",
     url: "/nudim-trazim",
     icon: Megaphone,
     premium: false,
@@ -84,9 +84,9 @@ export function AppSidebar() {
   return (
     <Sidebar
       collapsible="offcanvas"
-      className="border-r border-white/8 bg-[hsl(215,55%,7%)]"
+      className="border-r border-white/8 bg-[hsl(215,55%,7%)] min-w-[280px]"
     >
-      <SidebarContent className="pt-4 bg-[hsl(215,55%,7%)]">
+      <SidebarContent className="pt-3 bg-[hsl(215,55%,7%)] overflow-y-auto">
         {/* ── GLAVNE FUNKCIJE ── */}
         <SidebarGroup>
           {!collapsed && (
@@ -95,7 +95,7 @@ export function AppSidebar() {
             </p>
           )}
           <SidebarGroupContent>
-            <SidebarMenu className="gap-1.5 px-2">
+            <SidebarMenu className="gap-1 px-4">
               {mainItems.map((item) => {
                 const isActive =
                   location.pathname === item.url ||
@@ -115,7 +115,7 @@ export function AppSidebar() {
                     >
                       <NavLink
                         to={item.url}
-                        className="flex items-center gap-3 p-4"
+                        className="flex items-center gap-2.5 py-2.5 px-3"
                         activeClassName=""
                         onClick={handleNavClick}
                       >
@@ -126,14 +126,14 @@ export function AppSidebar() {
                         />
                         {!collapsed && (
                           <div className="flex-1 min-w-0">
-                            <span className={`block text-base font-semibold ${isActive ? "text-[hsl(var(--gold))]" : "text-white"}`}>
+                            <span className={`block text-[14px] font-semibold leading-[1.3] truncate ${isActive ? "text-[hsl(var(--gold))]" : "text-white"}`}>
                               {item.title}
                             </span>
-                            <span className="block text-sm text-gray-400 mt-0.5">{item.desc}</span>
+                            <span className="block text-[12px] text-gray-400 mt-0.5 truncate leading-[1.3]">{item.desc}</span>
                           </div>
                         )}
                         {!collapsed && item.premium && (
-                          <span className="shrink-0 rounded-full bg-[#F59E0B] px-2 py-0.5 text-[9px] font-bold leading-none text-[#0f1f3d]">
+                          <span className="shrink-0 rounded-full bg-[hsl(var(--gold))] px-2 py-0.5 text-[9px] font-bold leading-none text-[hsl(var(--gold-foreground))]">
                             PREMIUM
                           </span>
                         )}
@@ -154,7 +154,7 @@ export function AppSidebar() {
             </p>
           )}
           <SidebarGroupContent>
-            <SidebarMenu className="gap-0.5 px-2">
+            <SidebarMenu className="gap-0.5 px-4">
               {secondaryItems.map((item) => {
                 const isActive =
                   location.pathname === item.url ||
@@ -175,17 +175,17 @@ export function AppSidebar() {
                     >
                       <NavLink
                         to={item.url}
-                        className="flex items-center gap-3 px-3"
+                        className="flex items-center gap-2.5 px-3"
                         activeClassName=""
                         onClick={handleNavClick}
                       >
                         <item.icon
-                          className={`h-4 w-4 shrink-0 transition-colors ${
+                          className={`h-[18px] w-[18px] shrink-0 transition-colors ${
                             isActive ? "text-[hsl(var(--gold))]" : "text-white/30 group-hover:text-white/50"
                           }`}
                         />
                         {!collapsed && (
-                          <span className={`text-[13px] font-medium ${isActive ? "text-[hsl(var(--gold))]" : "text-white/60"}`}>
+                          <span className={`text-[14px] font-medium leading-[1.3] truncate ${isActive ? "text-[hsl(var(--gold))]" : "text-white/60"}`}>
                             {item.title}
                           </span>
                         )}
