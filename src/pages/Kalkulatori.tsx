@@ -546,9 +546,12 @@ export default function Kalkulatori() {
                   <Label className="text-sm text-white/70 font-medium">Bruto plata {I("brutto")}</Label>
                   <div className="relative">
                     <input
-                      type="number" min={0} step={50}
-                      value={inputs.brutto || ""}
-                      onChange={e => update({ brutto: Number(e.target.value) })}
+                      type="text"
+                      inputMode="numeric"
+                      value={getFieldStr("brutto", inputs.brutto)}
+                      onFocus={() => handleFocus("brutto", inputs.brutto)}
+                      onChange={e => handleChange("brutto", e.target.value)}
+                      onBlur={() => handleBlur("brutto", { min: 0 })}
                       placeholder="npr. 3000"
                       className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white text-lg font-bold focus:border-[#F59E0B] focus:outline-none placeholder:text-white/30 transition-all duration-300"
                     />
