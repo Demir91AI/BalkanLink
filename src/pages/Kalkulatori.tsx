@@ -131,10 +131,12 @@ function calculate(inp: CalcInputs) {
   const bruttoJahr = bruttoMonat * 12;
   const isOst = OST_LAENDER.includes(inp.bundesland);
   const isSachsen = inp.bundesland === "SN";
+  const is2025 = inp.godina >= 2025;
 
-  // BBG 2024
-  const bbgKvPv = 5175;
-  const bbgRvAv = isOst ? 7450 : 7550;
+  // BBG per year
+  const bbgKvPv = is2025 ? 5512.50 : 5175;
+  const bbgRvAv = is2025 ? 7550 : (isOst ? 7450 : 7550);
+  const defaultZusatz = is2025 ? 2.5 : 1.7;
 
   const rvBasis = Math.min(bruttoMonat, bbgRvAv);
   const kvBasis = Math.min(bruttoMonat, bbgKvPv);
@@ -161,35 +163,36 @@ function calculate(inp: CalcInputs) {
   const gvJahr = inp.geldwerterVorteil * 12;
   let taxableBrutto = bruttoJahr + gvJahr - inp.freibetrag;
 
-  const werbungskosten = 1230;
+  const werbungskosten = is2025 ? 1230 : 1230;
   const sonderausgaben = 36;
   const vorsorgepauschale = bruttoJahr * 0.11;
 
   let zvE = taxableBrutto - werbungskosten - sonderausgaben - vorsorgepauschale;
 
-  // Kinderfreibetrag 2024: 6384€ per child
-  const kfbTotal = inp.kinderfreibetrag && inp.hasDjeca ? inp.brojDjece * 6384 : 0;
+  // Kinderfreibetrag: 2025: 9312€, 2024: 6384€ per child
+  const kfbPerChild = is2025 ? 9312 : 6384;
+  const kfbTotal = inp.kinderfreibetrag && inp.hasDjeca ? inp.brojDjece * kfbPerChild : 0;
 
   let yearlyTax: number;
   switch (inp.steuerklasse) {
     case 2:
       zvE = Math.max(0, zvE - 4260);
       zvE = Math.max(0, zvE - kfbTotal);
-      yearlyTax = computeYearlyTax2024(zvE);
+      yearlyTax = computeYearlyTax(zvE, inp.godina);
       break;
     case 3:
       zvE = Math.max(0, zvE - kfbTotal);
-      yearlyTax = computeYearlyTax2024(Math.max(0, zvE / 2)) * 2;
+      yearlyTax = computeYearlyTax(Math.max(0, zvE / 2), inp.godina) * 2;
       break;
     case 5:
     case 6:
       zvE = taxableBrutto - werbungskosten - sonderausgaben - vorsorgepauschale;
       zvE = Math.max(0, zvE);
-      yearlyTax = computeYearlyTax2024(zvE);
+      yearlyTax = computeYearlyTax(zvE, inp.godina);
       break;
     default: // 1, 4
       zvE = Math.max(0, zvE - kfbTotal);
-      yearlyTax = computeYearlyTax2024(Math.max(0, zvE));
+      yearlyTax = computeYearlyTax(Math.max(0, zvE), inp.godina);
   }
 
   const lohnsteuerMonat = Math.max(0, yearlyTax / 12);
