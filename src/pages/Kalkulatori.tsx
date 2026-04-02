@@ -450,7 +450,7 @@ export default function Kalkulatori() {
   const total = netto + steuern + sozial;
   const segPct = (val: number) => total > 0 ? Math.max(0, (val / total) * 100) : 0;
 
-  const djecaIspod25Error = inputs.hasDjeca && inputs.brojDjeceIspod25 > inputs.brojDjece;
+  const djecaIspod25Error = inputs.hasDjeca && inputs.brojDjeceIspod25 != null && inputs.brojDjece != null && inputs.brojDjeceIspod25 > inputs.brojDjece;
 
   const handleExternalLink = (primaryUrl: string, fallbackUrl: string, index: number) => {
     const newWindow = window.open(primaryUrl, "_blank", "noopener,noreferrer");
