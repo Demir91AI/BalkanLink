@@ -44,7 +44,7 @@ export const formCatalog: FormGroup[] = [
       { slug: "buergergeld", label: "Bürgergeld", desc: "Osnovna pomoć za život ako prihod nije dovoljan." },
       { slug: "wohngeld", label: "Wohngeld", desc: "Finansijska pomoć za troškove stanovanja ako imaš manja primanja." },
       { slug: "sozialhilfe", label: "Sozialhilfe / Grundsicherung", desc: "Osnovna socijalna pomoć za osobe koje ne mogu raditi." },
-      { slug: "gez-befreiung", label: "Rundfunkbeitrag Befreiung", desc: "Oslobađanje od obavezne RTV takse." },
+      
       { slug: "heizkostenzuschuss", label: "Heizkostenzuschuss", desc: "Dodatak za troškove grijanja." },
     ],
   },
