@@ -422,11 +422,14 @@ export default function Index() {
         </div>
       </section>
 
+      {/* ─── NAJČEŠĆE GREŠKE ─── */}
+      <HomeMistakes />
+
       {/* ─── PREMIUM PRODUCTS + FREE TOOLS ─── */}
       <HomePremiumCards />
 
-      {/* ─── KAKO FUNKCIONIŠE ─── */}
-      <HomeHowItWorks />
+      {/* ─── PREMIUM BANNER ─── */}
+      <HomePremiumBanner />
 
       {/* ─── RECENZIJE ─── */}
       <HomeReviews />
