@@ -5,12 +5,17 @@ const LS_KEY = "kinderzuschlag-muster-data";
 const PDF_URL = "https://www.arbeitsagentur.de/familie-und-kinder/kinderzuschlag";
 
 const initial = () => ({
-  familienname: "", vorname: "", geburtsdatum: "", steuerId: "",
-  strasse: "", plz: "", ort: "", iban: "", bic: "",
-  kinder: Array.from({ length: 5 }, () => ({ vorname: "", nachname: "", geburtsdatum: "", steuerId: "", kindergeld: "", imHaushalt: "" })),
-  brutto1: "", brutto2: "", sonstige: "", unterhalt: "",
-  kaltmiete: "", heizkosten: "", wohnflaeche: "",
-  sigOrt: "", sigDatum: "",
+  familienname: "", vorname: "", geburtsdatum: "", steuerId: "", staatsangehoerigkeit: "",
+  aufenthaltstitelArt: "", aufenthaltstitelBis: "",
+  strasse: "", plz: "", ort: "", telefon: "", email: "",
+  iban: "", bic: "", kontoinhaber: "",
+  e2Familienname: "", e2Vorname: "", e2Geburtsdatum: "", e2SteuerId: "", e2ImHaushalt: "", e2Anschrift: "",
+  kinder: Array.from({ length: 5 }, () => ({ vorname: "", nachname: "", geburtsdatum: "", steuerId: "", kindergeld: "", imHaushalt: "", beiWem: "" })),
+  einkommensart1: "", brutto1: "", netto1: "",
+  einkommensart2: "", brutto2: "",
+  sonstigeArt: "", sonstigeBetrag: "",
+  kaltmiete: "", betriebskosten: "", heizkosten: "", wohnflaeche: "", anzahlPersonen: "",
+  familienkasse: "", sigOrt: "", sigDatum: "",
 });
 
 export default function KinderzuschlagMuster() {
@@ -26,41 +31,66 @@ export default function KinderzuschlagMuster() {
         <div style={S.row}><Field label="Familienname" value={f.familienname} onChange={v => set("familienname", v)} /><Field label="Vorname" value={f.vorname} onChange={v => set("vorname", v)} /></div>
         <div style={S.row}><Field label="Geburtsdatum" type="date" value={f.geburtsdatum} onChange={v => set("geburtsdatum", v)} /></div>
         <div style={{ marginBottom: 6 }}><div style={S.lbl}>Steuerliche Identifikationsnummer</div><IdBoxes count={11} value={f.steuerId} onChange={v => set("steuerId", v)} /></div>
+        <div style={S.row}><Field label="Staatsangehörigkeit" value={f.staatsangehoerigkeit} onChange={v => set("staatsangehoerigkeit", v)} /></div>
+        <div style={S.row}><Field label="Aufenthaltstitel (Nicht-EU): Art" value={f.aufenthaltstitelArt} onChange={v => set("aufenthaltstitelArt", v)} /><Field label="Gültig bis" type="date" value={f.aufenthaltstitelBis} onChange={v => set("aufenthaltstitelBis", v)} /></div>
         <div style={S.row}><Field label="Straße, Hausnr." flex={2} value={f.strasse} onChange={v => set("strasse", v)} /><Field label="PLZ" width={80} value={f.plz} onChange={v => set("plz", v)} /><Field label="Ort" flex={1} value={f.ort} onChange={v => set("ort", v)} /></div>
+        <div style={S.row}><Field label="Telefon" value={f.telefon} onChange={v => set("telefon", v)} /><Field label="E-Mail" value={f.email} onChange={v => set("email", v)} /></div>
         <div style={{ marginBottom: 6 }}><div style={S.lbl}>IBAN</div><IdBoxes count={22} value={f.iban} onChange={v => set("iban", v)} /></div>
-        <div style={S.row}><Field label="BIC" value={f.bic} onChange={v => set("bic", v)} /></div>
+        <div style={S.row}><Field label="BIC" value={f.bic} onChange={v => set("bic", v)} /><Field label="Kontoinhaber/in" value={f.kontoinhaber} onChange={v => set("kontoinhaber", v)} /></div>
       </div>
 
       <div style={S.sec}>
-        <SecHeader num={2} title="Angaben zu den Kindern" />
-        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 11 }}>
-          <thead><tr>{["Vorname", "Nachname", "Geburtsdatum", "Steuer-ID", "Kindergeld?", "Im Haushalt?"].map(h => (<th key={h} style={{ border: "1px solid #9ca3af", padding: "4px 6px", background: "#f3f4f6", fontSize: 9, color: "#6b7280", textAlign: "left", fontWeight: 600 }}>{h}</th>))}</tr></thead>
-          <tbody>{f.kinder.map((k, i) => (<tr key={i}>
-            <td style={{ border: "1px solid #9ca3af", padding: 2 }}><input style={{ ...S.inp, border: "none" }} value={k.vorname} onChange={e => setKind(i, "vorname", e.target.value)} /></td>
-            <td style={{ border: "1px solid #9ca3af", padding: 2 }}><input style={{ ...S.inp, border: "none" }} value={k.nachname} onChange={e => setKind(i, "nachname", e.target.value)} /></td>
-            <td style={{ border: "1px solid #9ca3af", padding: 2 }}><input style={{ ...S.inp, border: "none" }} type="date" value={k.geburtsdatum} onChange={e => setKind(i, "geburtsdatum", e.target.value)} /></td>
-            <td style={{ border: "1px solid #9ca3af", padding: 2 }}><input style={{ ...S.inp, border: "none" }} value={k.steuerId} onChange={e => setKind(i, "steuerId", e.target.value)} /></td>
-            <td style={{ border: "1px solid #9ca3af", padding: 2 }}><select style={{ ...S.inp, border: "none" }} value={k.kindergeld} onChange={e => setKind(i, "kindergeld", e.target.value)}><option value="">—</option><option value="Ja">Ja</option><option value="Nein">Nein</option></select></td>
-            <td style={{ border: "1px solid #9ca3af", padding: 2 }}><select style={{ ...S.inp, border: "none" }} value={k.imHaushalt} onChange={e => setKind(i, "imHaushalt", e.target.value)}><option value="">—</option><option value="Ja">Ja</option><option value="Nein">Nein</option></select></td>
-          </tr>))}</tbody>
-        </table>
+        <SecHeader num={2} title="Angaben zum anderen Elternteil" />
+        <p style={{ fontSize: 10, fontStyle: "italic", margin: "0 0 8px", color: "#6b7280" }}>Falls vorhanden</p>
+        <div style={S.row}><Field label="Familienname" value={f.e2Familienname} onChange={v => set("e2Familienname", v)} /><Field label="Vorname" value={f.e2Vorname} onChange={v => set("e2Vorname", v)} /><Field label="Geburtsdatum" type="date" value={f.e2Geburtsdatum} onChange={v => set("e2Geburtsdatum", v)} /></div>
+        <div style={S.row}><Field label="Steuerliche Identifikationsnummer" value={f.e2SteuerId} onChange={v => set("e2SteuerId", v)} /></div>
+        <div style={{ marginBottom: 6 }}><div style={S.lbl}>Im selben Haushalt lebend?</div>
+          <div style={{ display: "flex", gap: 16 }}>{["Ja", "Nein"].map(o => (<label key={o} style={S.chk}><input type="radio" name="e2ImHaushalt" checked={f.e2ImHaushalt === o} onChange={() => set("e2ImHaushalt", o)} />{o}</label>))}</div>
+        </div>
+        {f.e2ImHaushalt === "Nein" && <div style={S.row}><Field label="Anschrift des anderen Elternteils" value={f.e2Anschrift} onChange={v => set("e2Anschrift", v)} /></div>}
       </div>
 
       <div style={S.sec}>
-        <SecHeader num={3} title="Einkommen der Eltern" />
-        <div style={S.row}><Field label="Bruttoeinkommen Elternteil 1 (€/Monat)" value={f.brutto1} onChange={v => set("brutto1", v)} /><Field label="Bruttoeinkommen Elternteil 2 (€/Monat)" value={f.brutto2} onChange={v => set("brutto2", v)} /></div>
-        <div style={S.row}><Field label="Sonstige Einnahmen (€)" value={f.sonstige} onChange={v => set("sonstige", v)} /><Field label="Unterhalt (€)" value={f.unterhalt} onChange={v => set("unterhalt", v)} /></div>
+        <SecHeader num={3} title="Angaben zu den Kindern" />
+        {f.kinder.map((k, i) => (
+          <div key={i} style={{ marginBottom: 8, paddingBottom: 6, borderBottom: i < 4 ? "1px dashed #e5e7eb" : "none" }}>
+            <div style={{ fontSize: 9, fontWeight: 600, color: "#6b7280", marginBottom: 4 }}>Kind {i + 1}</div>
+            <div style={S.row}><Field label="Vorname" value={k.vorname} onChange={v => setKind(i, "vorname", v)} /><Field label="Familienname" value={k.nachname} onChange={v => setKind(i, "nachname", v)} /><Field label="Geburtsdatum" type="date" value={k.geburtsdatum} onChange={v => setKind(i, "geburtsdatum", v)} /></div>
+            <div style={S.row}><Field label="Steuer-ID des Kindes" value={k.steuerId} onChange={v => setKind(i, "steuerId", v)} /></div>
+            <div style={S.row}>
+              <div style={{ flex: 1 }}><div style={S.lbl}>Kindergeld wird bezogen?</div><div style={{ display: "flex", gap: 12 }}>{["Ja", "Nein"].map(o => (<label key={o} style={S.chk}><input type="radio" name={`kindergeld${i}`} checked={k.kindergeld === o} onChange={() => setKind(i, "kindergeld", o)} />{o}</label>))}</div></div>
+              <div style={{ flex: 1 }}><div style={S.lbl}>Kind lebt im Haushalt?</div><div style={{ display: "flex", gap: 12 }}>{["Ja", "Nein"].map(o => (<label key={o} style={S.chk}><input type="radio" name={`imHaushalt${i}`} checked={k.imHaushalt === o} onChange={() => setKind(i, "imHaushalt", o)} />{o}</label>))}</div></div>
+            </div>
+            {k.imHaushalt === "Nein" && <div style={S.row}><Field label="Bei wem lebt das Kind?" value={k.beiWem} onChange={v => setKind(i, "beiWem", v)} /></div>}
+          </div>
+        ))}
       </div>
 
       <div style={S.sec}>
-        <SecHeader num={4} title="Wohnsituation" />
-        <div style={S.row}><Field label="Kaltmiete (€/Monat)" value={f.kaltmiete} onChange={v => set("kaltmiete", v)} /><Field label="Heizkosten (€/Monat)" value={f.heizkosten} onChange={v => set("heizkosten", v)} /><Field label="Wohnfläche (m²)" value={f.wohnflaeche} onChange={v => set("wohnflaeche", v)} /></div>
+        <SecHeader num={4} title="Einkommen der Eltern" />
+        <div style={{ fontSize: 10, fontWeight: 600, color: "#374151", marginBottom: 4 }}>Antragstellende Person</div>
+        <div style={{ marginBottom: 6 }}><div style={S.lbl}>Einkommensart</div>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>{["Arbeitslohn", "Selbstständig", "Rente", "Sonstiges"].map(a => (<label key={a} style={S.chk}><input type="radio" name="einkommensart1" checked={f.einkommensart1 === a} onChange={() => set("einkommensart1", a)} />{a}</label>))}</div>
+        </div>
+        <div style={S.row}><Field label="Bruttoeinkommen (€/Monat)" value={f.brutto1} onChange={v => set("brutto1", v)} /><Field label="Nettoeinkommen (€/Monat)" value={f.netto1} onChange={v => set("netto1", v)} /></div>
+        <div style={{ fontSize: 10, fontWeight: 600, color: "#374151", marginBottom: 4, marginTop: 8 }}>Anderer Elternteil (falls zutreffend)</div>
+        <div style={S.row}><Field label="Einkommensart" value={f.einkommensart2} onChange={v => set("einkommensart2", v)} /><Field label="Bruttoeinkommen (€/Monat)" value={f.brutto2} onChange={v => set("brutto2", v)} /></div>
+        <div style={{ marginTop: 6 }}><div style={{ fontSize: 10, fontWeight: 600, color: "#374151", marginBottom: 4 }}>Sonstige Einnahmen (Unterhalt, Rente, Kindergeld etc.)</div>
+          <div style={S.row}><Field label="Art" value={f.sonstigeArt} onChange={v => set("sonstigeArt", v)} /><Field label="Betrag (€/Monat)" value={f.sonstigeBetrag} onChange={v => set("sonstigeBetrag", v)} /></div>
+        </div>
       </div>
 
       <div style={S.sec}>
-        <SecHeader num={5} title="Datum und Unterschrift" />
+        <SecHeader num={5} title="Wohnsituation" />
+        <div style={S.row}><Field label="Kaltmiete (€/Monat)" value={f.kaltmiete} onChange={v => set("kaltmiete", v)} /><Field label="Betriebskosten (€/Monat)" value={f.betriebskosten} onChange={v => set("betriebskosten", v)} /><Field label="Heizkosten (€/Monat)" value={f.heizkosten} onChange={v => set("heizkosten", v)} /></div>
+        <div style={S.row}><Field label="Wohnfläche (m²)" value={f.wohnflaeche} onChange={v => set("wohnflaeche", v)} /><Field label="Anzahl Personen im Haushalt" value={f.anzahlPersonen} onChange={v => set("anzahlPersonen", v)} /></div>
+      </div>
+
+      <div style={S.sec}>
+        <SecHeader num={6} title="Datum und Unterschrift" />
         <div style={S.row}><Field label="Ort" value={f.sigOrt} onChange={v => set("sigOrt", v)} /><Field label="Datum" type="date" value={f.sigDatum} onChange={v => set("sigDatum", v)} /></div>
         <div style={{ marginTop: 12 }}><Signature label="Unterschrift" /></div>
+        <div style={{ marginTop: 8 }}><Field label="Zuständige Familienkasse" value={f.familienkasse} onChange={v => set("familienkasse", v)} /></div>
       </div>
 
     </MusterFormBase>

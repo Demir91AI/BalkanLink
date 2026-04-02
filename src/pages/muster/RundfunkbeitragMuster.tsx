@@ -1,5 +1,5 @@
 import { useState } from "react";
-import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/muster/MusterFormBase";
+import MusterFormBase, { S, Field, IdBoxes, SecHeader, Signature } from "@/components/muster/MusterFormBase";
 
 const LS_KEY = "rundfunkbeitrag-muster-data";
 const PDF_URL = "https://www.rundfunkbeitrag.de/buergerinnen_und_buerger/formulare/";
@@ -8,7 +8,8 @@ const initial = () => ({
   beitragsnummer: "", familienname: "", vorname: "", geburtsdatum: "",
   strasse: "", plz: "", ort: "", telefon: "", email: "",
   grund: "",
-  gueltigBis: "",
+  bescheidVorhanden: "", ausstellendeBehoerde: "", bewilligungVon: "", bewilligungBis: "", nachweisBeigefuegt: "",
+  iban: "",
   sigOrt: "", sigDatum: "",
 });
 
@@ -17,14 +18,14 @@ export default function RundfunkbeitragMuster() {
   const set = (k: string, v: string) => setF(p => ({ ...p, [k]: v }));
 
   const gruende = [
-    "Bürgergeld / SGB II",
-    "Grundsicherung im Alter (SGB XII)",
-    "Sozialhilfe / Hilfe zum Lebensunterhalt",
-    "Hilfe zur Pflege",
-    "BAföG / Berufsausbildungsbeihilfe",
-    "Blindenhilfe",
+    "Bürgergeld (SGB II)",
+    "Grundsicherung im Alter oder bei Erwerbsminderung (SGB XII)",
+    "Sozialhilfe / Hilfe zum Lebensunterhalt (SGB XII)",
+    "Hilfe zur Pflege (SGB XII / SGB XI)",
+    "Ausbildungsförderung BAföG / Berufsausbildungsbeihilfe",
+    "Blindenhilfe (§ 72 SGB XII)",
     "Taubblindheit",
-    "Behinderung (GdB mind. 80, Merkzeichen RF)",
+    "Schwerbehinderung (GdB mind. 80 + Merkzeichen RF)",
   ];
 
   return (
@@ -50,11 +51,23 @@ export default function RundfunkbeitragMuster() {
 
       <div style={S.sec}>
         <SecHeader num={3} title="Nachweise" />
-        <div style={S.row}><Field label="Gültig bis (Datum des Bescheids)" type="date" value={f.gueltigBis} onChange={v => set("gueltigBis", v)} /></div>
+        <div style={{ marginBottom: 8 }}><div style={S.lbl}>Bescheid vorhanden?</div>
+          <div style={{ display: "flex", gap: 16 }}>{["Ja", "Nein"].map(o => (<label key={o} style={S.chk}><input type="radio" name="bescheidVorhanden" checked={f.bescheidVorhanden === o} onChange={() => set("bescheidVorhanden", o)} />{o}</label>))}</div>
+        </div>
+        <div style={S.row}><Field label="Ausstellende Behörde" value={f.ausstellendeBehoerde} onChange={v => set("ausstellendeBehoerde", v)} /></div>
+        <div style={S.row}><Field label="Bewilligungszeitraum von" type="date" value={f.bewilligungVon} onChange={v => set("bewilligungVon", v)} /><Field label="bis" type="date" value={f.bewilligungBis} onChange={v => set("bewilligungBis", v)} /></div>
+        <div><div style={S.lbl}>Nachweis wird beigefügt</div>
+          <label style={S.chk}><input type="checkbox" checked={f.nachweisBeigefuegt === "Ja"} onChange={e => set("nachweisBeigefuegt", e.target.checked ? "Ja" : "")} />Ja</label>
+        </div>
       </div>
 
       <div style={S.sec}>
-        <SecHeader num={4} title="Datum und Unterschrift" />
+        <SecHeader num={4} title="Bankverbindung (für Rückerstattung)" />
+        <div style={{ marginBottom: 6 }}><div style={S.lbl}>IBAN</div><IdBoxes count={22} value={f.iban} onChange={v => set("iban", v)} /></div>
+      </div>
+
+      <div style={S.sec}>
+        <SecHeader num={5} title="Datum und Unterschrift" />
         <div style={S.row}><Field label="Ort" value={f.sigOrt} onChange={v => set("sigOrt", v)} /><Field label="Datum" type="date" value={f.sigDatum} onChange={v => set("sigDatum", v)} /></div>
         <div style={{ marginTop: 12 }}><Signature label="Unterschrift" /></div>
       </div>
