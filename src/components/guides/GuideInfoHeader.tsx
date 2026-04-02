@@ -7,8 +7,8 @@ interface Props {
   formName: string;
   whoCanApply: string;
   processingTime: string;
-  requirements: string[];
-  commonMistakes: string[];
+  requirements?: string[];
+  commonMistakes?: string[];
 }
 
 export default function GuideInfoHeader({ title, source, formName, whoCanApply, processingTime, requirements, commonMistakes }: Props) {
