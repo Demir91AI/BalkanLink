@@ -319,7 +319,13 @@ export default function Index() {
   }, []);
 
   return (
-    <div className="bg-[#0B0F1A]">
+    <div className="relative" style={{ background: "linear-gradient(180deg, #0B0F1A 0%, #0F1F3D 58%, #16294D 78%, #1A2F5A 100%)" }}>
+      {/* Glow orbs */}
+      <div className="pointer-events-none absolute top-[8%] left-[-110px] w-[320px] h-[320px] rounded-full opacity-[0.14] blur-[120px] md:w-[320px] md:h-[320px]" style={{ background: "rgba(59,130,246,0.95)" }} />
+      <div className="pointer-events-none absolute right-[-90px] top-[34%] w-[260px] h-[260px] rounded-full opacity-[0.10] blur-[120px]" style={{ background: "rgba(168,85,247,0.85)" }} />
+      <div className="pointer-events-none absolute bottom-[-120px] right-[-70px] w-[340px] h-[340px] rounded-full opacity-[0.14] blur-[130px]" style={{ background: "rgba(250,204,21,0.95)" }} />
+      {/* Radial highlight */}
+      <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(circle at top center, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 45%)" }} />
       {/* ─── HERO ─── */}
       <section className="relative min-h-[92vh] overflow-hidden">
         {slides.map((slide, idx) => (
