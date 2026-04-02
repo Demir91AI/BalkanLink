@@ -1860,51 +1860,6 @@ export const guides: Guide[] = [
     onlineLink: "",
     officialInfoUrl: "https://www.kirchenaustritt.de",
   },
-  {
-    slug: "gez-anmeldung",
-    category: "wohnen",
-    title: { de: "GEZ / Rundfunkbeitrag Anmeldung", bs: "Prijava Rundfunkbeitrag (GEZ)", en: "Broadcasting Fee Registration (GEZ)" },
-    who: {
-      de: "Jeder Haushalt in Deutschland muss den Rundfunkbeitrag (18,36 €/Monat) zahlen.",
-      bs: "Svako domaćinstvo u Njemačkoj mora plaćati Rundfunkbeitrag (18,36 €/mjesečno).",
-      en: "Every household in Germany must pay the broadcasting fee (€18.36/month).",
-    },
-    authority: { de: "ARD ZDF Deutschlandradio Beitragsservice", bs: "ARD ZDF Deutschlandradio Beitragsservice", en: "ARD ZDF Deutschlandradio Beitragsservice" },
-    formName: { de: "Anmeldung zum Rundfunkbeitrag", bs: "Prijava za Rundfunkbeitrag", en: "Broadcasting Fee Registration" },
-    steps: {
-      de: [
-        { field: "Online anmelden", instruction: "Auf rundfunkbeitrag.de → 'Wohnung anmelden'. Name, Adresse und Einzugsdatum eingeben." },
-        { field: "Zahlungsart wählen", instruction: "SEPA-Lastschrift (empfohlen), Überweisung oder Dauerauftrag. Zahlung monatlich, vierteljährlich, halbjährlich oder jährlich möglich." },
-        { field: "Beitragsnummer erhalten", instruction: "Nach Anmeldung erhalten Sie Ihre Beitragsnummer per Post. Diese für alle Korrespondenz aufbewahren." },
-        { field: "Befreiung prüfen", instruction: "Empfänger von Bürgergeld, BAföG oder Grundsicherung können sich befreien lassen. Antrag mit aktuellem Bescheid online stellen." },
-      ],
-      bs: [
-        { field: "Online prijava", instruction: "Na rundfunkbeitrag.de prijaviti stan. Unijeti ime, adresu i datum useljenja." },
-        { field: "Način plaćanja", instruction: "SEPA (preporučeno), uplata ili trajni nalog." },
-        { field: "Beitragsnummer", instruction: "Dolazi poštom – čuvati za svu komunikaciju." },
-        { field: "Oslobođenje", instruction: "Primaoci Bürgergeld-a, BAföG-a mogu se osloboditi." },
-      ],
-      en: [
-        { field: "Register online", instruction: "At rundfunkbeitrag.de register your apartment." },
-        { field: "Choose payment method", instruction: "SEPA direct debit (recommended), transfer, or standing order." },
-        { field: "Receive number", instruction: "Contribution number arrives by mail — keep it." },
-        { field: "Check exemption", instruction: "Bürgergeld, BAföG recipients can be exempt." },
-      ],
-    },
-    documents: {
-      de: ["Meldebescheinigung (zur Info)", "Ggf. Leistungsbescheid für Befreiung"],
-      bs: ["Potvrda o prijavi (za informaciju)", "Eventualno rješenje za oslobođenje"],
-      en: ["Registration certificate (for info)", "Benefit notice for exemption if applicable"],
-    },
-    processingTime: { de: "Sofort nach Online-Anmeldung aktiv", bs: "Odmah nakon online prijave", en: "Active immediately after online registration" },
-    commonMistakes: {
-      de: ["Anmeldung ignoriert — Schulden kumulieren sich!", "In WG doppelt angemeldet (nur einmal pro Wohnung)", "Befreiungsantrag ohne aktuellen Bescheid"],
-      bs: ["Ignorisana prijava — dugovi rastu!", "U WG dupla prijava (samo jednom po stanu)", "Zahtjev za oslobođenje bez aktuelnog rješenja"],
-      en: ["Ignoring registration — debts accumulate!", "Double registration in shared apartment", "Exemption request without current notice"],
-    },
-    officialPdf: "",
-    onlineLink: "https://www.rundfunkbeitrag.de",
-  },
   // ===================== BILDUNG (additional) =====================
   {
     slug: "bildungsgutschein",
