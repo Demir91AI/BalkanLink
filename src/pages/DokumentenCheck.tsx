@@ -14,28 +14,6 @@ import { IS_ADMIN_PREVIEW } from "@/lib/config";
 
 type InputMode = "upload" | "text";
 
-function getDokUsage(): { count: number; date: string } {
-  try {
-    const raw = localStorage.getItem("dok_used");
-    if (raw) {
-      const parsed = JSON.parse(raw);
-      const today = new Date().toISOString().slice(0, 10);
-      if (parsed.date === today) return parsed;
-    }
-  } catch {}
-  return { count: 0, date: new Date().toISOString().slice(0, 10) };
-}
-
-function incrementDokUsage() {
-  const today = new Date().toISOString().slice(0, 10);
-  const usage = getDokUsage();
-  if (usage.date !== today) {
-    localStorage.setItem("dok_used", JSON.stringify({ count: 1, date: today }));
-  } else {
-    localStorage.setItem("dok_used", JSON.stringify({ count: usage.count + 1, date: today }));
-  }
-}
-
 export default function DokumentenCheck() {
   const { t } = useLanguage();
   const st = useSectionT();
@@ -49,9 +27,9 @@ export default function DokumentenCheck() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const [dokLimitHit, setDokLimitHit] = useState(false);
+  const [showPaywall, setShowPaywall] = useState(false);
 
-  const isPremium = IS_ADMIN_PREVIEW; // In production, check real premium status
+  const isPremium = IS_ADMIN_PREVIEW;
 
   const clearFile = useCallback(() => {
     setFile(null);
@@ -87,13 +65,10 @@ export default function DokumentenCheck() {
   const handleAnalyze = useCallback(async () => {
     if (!confirmed) return;
 
-    // Check daily limit (1 free per day)
+    // Free users: no free checks, must pay
     if (!isPremium) {
-      const usage = getDokUsage();
-      if (usage.count >= 1) {
-        setDokLimitHit(true);
-        return;
-      }
+      setShowPaywall(true);
+      return;
     }
 
     setLoading(true);
@@ -130,7 +105,6 @@ export default function DokumentenCheck() {
       if (fnError) throw fnError;
       if (data?.error) throw new Error(data.error);
       setAnalysis(data.analysis);
-      if (!isPremium) incrementDokUsage();
     } catch (err: any) {
       setError(err.message || st("docCheck.analysisFailed"));
     } finally {
@@ -150,7 +124,6 @@ export default function DokumentenCheck() {
     navigateBackOrHome(navigate);
   }, [navigate]);
 
-  // Split analysis into basic (free) and detailed (premium) sections
   const analysisSections = analysis ? splitAnalysis(analysis) : null;
 
   return (
@@ -166,9 +139,15 @@ export default function DokumentenCheck() {
           <p className="mt-2 text-sm text-primary-foreground/80">
             {st("docCheck.subtitle")}
           </p>
-          <span className="mt-2 inline-block rounded-full bg-[hsl(var(--success))]/20 px-3 py-1 text-xs font-semibold text-[hsl(var(--success))]">
-            {st("docCheck.freeLabel")}
-          </span>
+          {/* Pricing info */}
+          <div className="mt-3 flex flex-wrap gap-2">
+            <span className="inline-block rounded-full bg-[hsl(var(--gold))]/20 px-3 py-1 text-xs font-semibold text-[hsl(var(--gold))]">
+              2.99€ po dokumentu bez pretplate
+            </span>
+            <span className="inline-block rounded-full bg-[hsl(var(--success))]/20 px-3 py-1 text-xs font-semibold text-[hsl(var(--success))]">
+              Premium uključuje 1 provjeru dnevno
+            </span>
+          </div>
         </div>
       </section>
 
@@ -253,26 +232,39 @@ export default function DokumentenCheck() {
             </div>
           )}
 
-          {dokLimitHit && (
+          {showPaywall && (
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-              className="flex flex-col items-center rounded-2xl border border-[#F59E0B]/20 bg-[#0f1f3d] p-8 text-center">
-              <Lock className="h-8 w-8 text-[#F59E0B] mb-3" />
-              <p className="text-sm font-bold text-white mb-4">
-                🔒 Ostale provjere dostupne u Premium verziji
+              className="flex flex-col items-center rounded-2xl border border-[hsl(var(--gold))]/20 bg-[#0f1f3d] p-8 text-center">
+              <Lock className="h-8 w-8 text-[hsl(var(--gold))] mb-3" />
+              <p className="text-sm font-bold text-white mb-2">
+                Dokumenten-Check
               </p>
-              <button
-                onClick={() => navigate("/premium")}
-                className="rounded-full bg-[#F59E0B] px-6 py-3 text-[#0f1f3d] font-bold transition-all hover:opacity-90"
-              >
-                BalkanLink Premium — 9.99€/mj.
-              </button>
+              <p className="text-xs text-white/60 mb-4">
+                2.99€ po dokumentu bez pretplate · Premium uključuje 1 provjeru dnevno
+              </p>
+              <div className="flex flex-col gap-2 w-full max-w-xs">
+                <button
+                  onClick={() => navigate("/premium")}
+                  className="rounded-full bg-[hsl(var(--gold))] px-6 py-3 text-[#0f1f3d] font-bold transition-all hover:opacity-90"
+                >
+                  BalkanLink Premium — 9.99€/mj.
+                </button>
+                <button
+                  onClick={() => {
+                    toast("Einzelkauf wird bald verfügbar sein");
+                    setShowPaywall(false);
+                  }}
+                  className="rounded-full bg-[#0f1f3d] px-6 py-3 text-sm font-bold text-white border border-white/20 transition-all hover:bg-[#0f1f3d]/80"
+                >
+                  Einzelprüfung — 2.99€
+                </button>
+              </div>
             </motion.div>
           )}
 
           {analysisSections && (
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
               className="space-y-0">
-              {/* FREE: Basic info */}
               <div className="rounded-t-xl border border-b-0 bg-card p-6 shadow-sm">
                 <h2 className="mb-4 text-sm font-bold uppercase tracking-wide text-muted-foreground">{st("docCheck.resultTitle")}</h2>
                 <div className="prose prose-sm max-w-none">
@@ -280,7 +272,6 @@ export default function DokumentenCheck() {
                 </div>
               </div>
 
-              {/* PREMIUM: Detailed steps */}
               <div className="relative rounded-b-xl border bg-card p-6 shadow-sm">
                 {!isPremium && (
                   <div className="absolute inset-0 z-10 flex flex-col items-center justify-center rounded-b-xl bg-background/80 backdrop-blur-sm">
@@ -299,7 +290,7 @@ export default function DokumentenCheck() {
                         onClick={() => navigate("/premium")}
                         className="rounded-full bg-[#0f1f3d] px-6 py-3 text-sm font-bold text-white border border-white/20 transition-all hover:bg-[#0f1f3d]/80"
                       >
-                        {st("docCheck.singleCta")}
+                        Einzelprüfung — 2.99€
                       </button>
                     </div>
                   </div>
@@ -331,7 +322,6 @@ export default function DokumentenCheck() {
   );
 }
 
-/** Split AI analysis into basic (free) and detailed (premium) sections */
 function splitAnalysis(text: string): { basic: string; detailed: string } {
   const lines = text.split("\n");
   const basicLines: string[] = [];
@@ -359,7 +349,6 @@ function splitAnalysis(text: string): { basic: string; detailed: string } {
     }
   }
   
-  // If we couldn't split, show first 40% free, rest premium
   if (detailedLines.length === 0 && basicLines.length > 4) {
     const splitAt = Math.ceil(basicLines.length * 0.4);
     return {
@@ -372,4 +361,10 @@ function splitAnalysis(text: string): { basic: string; detailed: string } {
     basic: basicLines.join("\n") || "Analiza dokumenta...",
     detailed: detailedLines.join("\n") || "Detaljni koraci nisu dostupni za ovaj dokument.",
   };
+}
+
+function toast(msg: string) {
+  // Simple inline toast fallback
+  const { toast: sonnerToast } = require("sonner");
+  sonnerToast.info(msg);
 }
