@@ -1,7 +1,34 @@
 import { Link } from "react-router-dom";
-import { ChevronRight, ExternalLink } from "lucide-react";
+import { ChevronRight, ExternalLink, ShieldCheck, Users, Briefcase } from "lucide-react";
 import GuideInfoHeader from "./GuideInfoHeader";
 import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
+
+const DECISION_OPTIONS = [
+  {
+    label: "A",
+    title: "Gesetzlich versichert (vlastito članstvo)",
+    icon: ShieldCheck,
+    description: "Max 13€/dan od Krankenkasse + Arbeitgeberzuschuss od poslodavca",
+    color: "border-emerald-300 bg-emerald-50 dark:border-emerald-800 dark:bg-emerald-950/20",
+    badge: "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300",
+  },
+  {
+    label: "B",
+    title: "Privat versichert ili familienversichert",
+    icon: Users,
+    description: "210€ ukupno jednokratno od Bundesamt für Soziale Sicherung",
+    color: "border-blue-300 bg-blue-50 dark:border-blue-800 dark:bg-blue-950/20",
+    badge: "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300",
+  },
+  {
+    label: "C",
+    title: "Selbstständig mit privater Krankentagegeldversicherung",
+    icon: Briefcase,
+    description: "Kontaktiraj svoju privatnu osiguravajuću kuću",
+    color: "border-violet-300 bg-violet-50 dark:border-violet-800 dark:bg-violet-950/20",
+    badge: "bg-violet-100 text-violet-700 dark:bg-violet-900/40 dark:text-violet-300",
+  },
+] as const;
 
 const STEPS: StepData[] = [
   {
@@ -92,6 +119,32 @@ export default function MutterschaftsgeldGuideContent() {
         whoCanApply="Zaposlene žene sa vlastitim GKV članstvom"
         processingTime="1–2 sedmice"
       />
+
+      {/* Decision Tree */}
+      <div className="space-y-3">
+        <h3 className="text-sm font-bold">Koja vrsta Mutterschaftsgeld ti pripada?</h3>
+        <div className="grid gap-3">
+          {DECISION_OPTIONS.map((opt) => (
+            <div key={opt.label} className={`rounded-xl border p-4 ${opt.color}`}>
+              <div className="flex items-start gap-3">
+                <span className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-bold ${opt.badge}`}>
+                  {opt.label}
+                </span>
+                <div className="space-y-1">
+                  <div className="flex items-center gap-1.5">
+                    <opt.icon className="h-3.5 w-3.5 shrink-0" />
+                    <p className="text-xs font-semibold">{opt.title}</p>
+                  </div>
+                  <p className="text-xs text-foreground/70 leading-relaxed">{opt.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <p className="text-[11px] text-muted-foreground leading-relaxed rounded-lg bg-muted/50 p-3">
+          ℹ️ Kako znati jesi li sama član GKV? Provjeri zdravstvenu karticu — ako piše <strong>„Mitglied"</strong> a ne „Familienversichert", imaš vlastito članstvo.
+        </p>
+      </div>
 
       {/* Smart Guide Wizard */}
       <SmartGuideWizardShared steps={STEPS} />
