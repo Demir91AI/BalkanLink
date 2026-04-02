@@ -50,13 +50,13 @@ const STEUERKLASSE_OPTIONS = [
 const KINDERFREIBETRAG_OPTIONS = [
   { value: "0", label: "0 — Nemam pravo / ne koristim" },
   { value: "0.5", label: "0.5 — Pola (jedan roditelj)" },
-  { value: "1.0", label: "1.0 — Standardno (jedan roditelj, oba dijela)" },
+  { value: "1", label: "1.0 — Standardno (jedan roditelj, oba dijela)" },
   { value: "1.5", label: "1.5" },
-  { value: "2.0", label: "2.0 — Standardno (oba roditelja, jedno dijete)" },
+  { value: "2", label: "2.0 — Standardno (oba roditelja, jedno dijete)" },
   { value: "2.5", label: "2.5" },
-  { value: "3.0", label: "3.0" },
-  { value: "4.0", label: "4.0" },
-  { value: "6.0", label: "6.0 — Maksimalno (oba roditelja, troje+ djece)" },
+  { value: "3", label: "3.0" },
+  { value: "4", label: "4.0" },
+  { value: "6", label: "6.0 — Maksimalno (oba roditelja, troje+ djece)" },
 ];
 
 /* ── Tax computation 2025 §32a EStG ── */
