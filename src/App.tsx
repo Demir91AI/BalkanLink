@@ -75,8 +75,6 @@ import Kalkulatori from "./pages/Kalkulatori";
 import ElterngeldMuster from "./pages/muster/ElterngeldMuster";
 import BuergergeldMuster from "./pages/muster/BuergergeldMuster";
 import WohngeldMuster from "./pages/muster/WohngeldMuster";
-import AufenthaltstitelMuster from "./pages/muster/AufenthaltstitelMuster";
-import LohnfortzahlungMuster from "./pages/muster/LohnfortzahlungMuster";
 import SteuerklasseMuster from "./pages/muster/SteuerklasseMuster";
 import ArbeitslosengeldMuster from "./pages/muster/ArbeitslosengeldMuster";
 import BafoegMuster from "./pages/muster/BafoegMuster";
