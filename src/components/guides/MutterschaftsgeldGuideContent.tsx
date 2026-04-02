@@ -240,27 +240,6 @@ export default function MutterschaftsgeldGuideContent() {
         </Link>
       </div>
 
-      {/* Muster CTA — no Musterformular, link to Krankenkasse */}
-      <div
-        className="rounded-2xl p-6 text-center"
-        style={{ backgroundColor: "#111827", border: "1px solid #3B82F6" }}
-      >
-        <div className="text-[32px] mb-3">📋</div>
-        <h2 className="text-xl font-bold text-white">Vježbaj na Musterformularu</h2>
-        <p className="mt-2 text-[13px] text-gray-400">
-          Svaka Krankenkasse ima vlastiti formular.
-          Nema jedinstvenog Musterformulara za Mutterschaftsgeld.
-        </p>
-        <a
-          href="https://www.krankenkassenzentrale.de"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-4 inline-block w-full font-bold text-white py-3 px-6 rounded-[10px]"
-          style={{ backgroundColor: "#3B82F6" }}
-        >
-          Idi na stranicu Krankenkasse →
-        </a>
-      </div>
 
       {/* Official link */}
       <div className="rounded-lg p-4 text-center" style={{ backgroundColor: "#1F2937" }}>
