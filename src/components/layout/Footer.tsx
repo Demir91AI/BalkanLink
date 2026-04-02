@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
-import { CreditCard, Landmark, Wallet, Star } from "lucide-react";
+import { CreditCard, Landmark, Wallet } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import BrandLogo from "@/components/BrandLogo";
-import DevPreviewSwitcher from "@/components/DevPreviewSwitcher";
 import HomeReviews from "@/components/home/HomeReviews";
 
 export default function Footer() {
@@ -103,10 +102,6 @@ export default function Footer() {
         <p className="mt-6 text-center text-[11px] text-white/15">
           © {new Date().getFullYear()} BalkanLink. {t("footer.copyright")}
         </p>
-
-        <div className="mt-4 flex justify-center">
-          <DevPreviewSwitcher />
-        </div>
       </div>
     </footer>
   );

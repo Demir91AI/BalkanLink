@@ -8,9 +8,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
 import HomePremiumCards from "@/components/home/HomePremiumCards";
-import HomeMistakes from "@/components/home/HomeMistakes";
 import HomePremiumBanner from "@/components/home/HomePremiumBanner";
-import HomeReviews from "@/components/home/HomeReviews";
 import FlowBanner from "@/components/home/FlowBanner";
 import PWAInstallBanner from "@/components/PWAInstallBanner";
 
@@ -41,20 +39,17 @@ const slides = [
 
 const trustBadgeKeys = ["hero.bullet.simple", "hero.bullet.language", "hero.bullet.verified"];
 
-
 const MAILTO_AD = `mailto:kontakt@balkanlink.de?subject=${encodeURIComponent("Oglašavanje na BalkanLink")}&body=${encodeURIComponent("Pozdrav,\n\nZanima me oglašavanje na BalkanLink platformi.\n\nNaziv firme:\nVrsta usluge:\nGrad:\nBudžet:\n")}`;
 
 const placeholderAds = [
   { name: "RealCore Digital", slogan: "Klar denken. Digital umsetzen.", desc: "Webdesign, KI-Lösungen und digitale Strategien — professionell und effizient.", logo: realcoreDigitalLogo, href: "https://realcore.digital" },
-  { name: "Vaša firma", slogan: "Predstavite se zajednici", desc: "Zakupite ovaj prostor i pokažite svoju uslugu cijeloj zajednici.", logo: "/placeholder.svg" },
-  { name: "Mjesto za reklamu", slogan: "Oglasite svoju uslugu", desc: "Premium pozicija za vašu firmu — vidljiva svim korisnicima.", logo: "/placeholder.svg" },
-  { name: "Vaš brend ovdje", slogan: "Dođite do nove publike", desc: "Povežite se sa hiljadama korisnika iz regije.", logo: "/placeholder.svg" },
-  { name: "Reklama", slogan: "Povećajte vidljivost", desc: "Istaknite svoju ponudu na najpopularnijoj platformi.", logo: "/placeholder.svg" },
-  { name: "Vaša ponuda", slogan: "Budite ispred konkurencije", desc: "Profesionalan nastup za vašu firmu ili uslugu.", logo: "/placeholder.svg" },
-  { name: "Partner slot", slogan: "Zakažite promociju", desc: "Ekskluzivno oglasno mjesto — kontaktirajte nas danas.", logo: "/placeholder.svg" },
+  { name: "BalkanLink", slogan: "Rezerviraj reklamni prostor", desc: "Predstavite svoju firmu cijeloj zajednici na BalkanLink platformi.", logo: "/icons/icon-192x192.png" },
+  { name: "BalkanLink", slogan: "Vaš oglas ovdje", desc: "Premium pozicija za vašu firmu — vidljiva svim korisnicima.", logo: "/icons/icon-192x192.png" },
+  { name: "BalkanLink", slogan: "Oglasite svoju uslugu", desc: "Dođite do hiljada korisnika iz regije putem BalkanLink platforme.", logo: "/icons/icon-192x192.png" },
+  { name: "BalkanLink", slogan: "Povećajte vidljivost", desc: "Istaknite svoju ponudu na najpopularnijoj platformi za Balkance u DE.", logo: "/icons/icon-192x192.png" },
+  { name: "BalkanLink", slogan: "Budite ispred konkurencije", desc: "Profesionalan nastup za vašu firmu ili uslugu.", logo: "/icons/icon-192x192.png" },
+  { name: "BalkanLink", slogan: "Zakažite promociju", desc: "Ekskluzivno oglasno mjesto — kontaktirajte nas danas.", logo: "/icons/icon-192x192.png" },
 ];
-
-/* CSS-animated auto-scroll — no JS needed */
 
 function useInfiniteScroll(speed = 0.5, resumeDelay = 3000) {
   const ref = useRef<HTMLDivElement>(null);
@@ -91,7 +86,6 @@ function useInfiniteScroll(speed = 0.5, resumeDelay = 3000) {
     resumeTimer.current = setTimeout(() => { pausedRef.current = false; }, resumeDelay);
   }, [resumeDelay]);
 
-  /* Touch events */
   const onTouchStart = useCallback((e: React.TouchEvent) => {
     pause();
     isDragging.current = true;
@@ -110,7 +104,6 @@ function useInfiniteScroll(speed = 0.5, resumeDelay = 3000) {
     scheduleResume();
   }, [scheduleResume]);
 
-  /* Mouse drag events */
   const onMouseDown = useCallback((e: React.MouseEvent) => {
     pause();
     isDragging.current = true;
@@ -154,10 +147,7 @@ function AdFlowSection() {
           <span className="text-[10px] font-bold uppercase tracking-widest text-[#EAB308]">OGLAŠAVANJE</span>
         </div>
       </div>
-      <div
-        className="relative"
-        onMouseEnter={pause}
-      >
+      <div className="relative" onMouseEnter={pause}>
         <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-[#0B0F1A] to-transparent" />
         <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-[#0B0F1A] to-transparent" />
         <div
@@ -180,12 +170,7 @@ function AdFlowSection() {
               className="group flex flex-col w-[260px] h-[300px] md:w-[280px] md:h-[320px] shrink-0 rounded-xl border border-[#2a2f3e] overflow-hidden transition-all duration-300 hover:border-[#EAB308]/30"
             >
               <div className="flex items-center justify-center h-[140px] md:h-[160px] bg-[#1a1f2e] p-4 md:p-5">
-                <img
-                  src={ad.logo}
-                  alt={ad.name}
-                  className="max-h-full max-w-full object-contain mix-blend-lighten"
-                  loading="lazy"
-                />
+                <img src={ad.logo} alt={ad.name} className="max-h-full max-w-full object-contain mix-blend-lighten" loading="lazy" />
               </div>
               <div className="flex flex-col flex-1 bg-[#111827] p-4">
                 <p className="text-lg font-bold text-white leading-tight">{ad.name}</p>
@@ -193,7 +178,7 @@ function AdFlowSection() {
                 <p className="text-xs text-[#9CA3AF] mt-1 line-clamp-2">{ad.desc}</p>
                 <div className="mt-auto pt-3">
                   <span className="inline-flex items-center gap-1.5 rounded-md border border-[#EAB308] px-4 py-2 text-[13px] font-semibold text-[#EAB308] transition-colors group-hover:bg-[#EAB308]/10">
-                    Mehr erfahren →
+                    {ad.href ? "Mehr erfahren →" : "Kontakt →"}
                   </span>
                 </div>
               </div>
@@ -210,10 +195,7 @@ function ShowcaseCarousel() {
   const { ref, pause, scheduleResume, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.4, 4000);
 
   return (
-    <div
-      className="relative overflow-hidden"
-      onMouseEnter={pause}
-    >
+    <div className="relative overflow-hidden" onMouseEnter={pause}>
       <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-[#0B0F1A] to-transparent" />
       <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-[#0B0F1A] to-transparent" />
       <div
@@ -233,13 +215,7 @@ function ShowcaseCarousel() {
             className="min-w-[85vw] max-w-[85vw] md:min-w-[320px] md:max-w-[360px] shrink-0 rounded-2xl border border-white/8 bg-[#111827] overflow-hidden flex flex-col"
           >
             <div className="relative h-[180px] w-full overflow-hidden">
-              <img
-                src={firm.images[0]}
-                alt={firm.name}
-                className="h-full w-full object-cover"
-                style={{ filter: "brightness(0.88) saturate(1.1)" }}
-                loading="lazy"
-              />
+              <img src={firm.images[0]} alt={firm.name} className="h-full w-full object-cover" style={{ filter: "brightness(0.88) saturate(1.1)" }} loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#111827] via-transparent to-transparent" />
               <div className="absolute left-3 top-3 flex items-center rounded-xl border border-white/25 bg-white/20 px-3 py-1.5 backdrop-blur-md">
                 <img src={firm.logoUrl} alt={firm.logoAlt} className="h-6 max-w-[90px] object-contain" />
@@ -255,36 +231,24 @@ function ShowcaseCarousel() {
               </div>
               <div className="flex flex-wrap gap-1.5">
                 {firm.highlights.map((h) => (
-                  <span key={h} className="rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-[10px] font-semibold text-white/60">
-                    {h}
-                  </span>
+                  <span key={h} className="rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-[10px] font-semibold text-white/60">{h}</span>
                 ))}
               </div>
               <div className="mt-auto flex gap-2 pt-2">
                 <Button asChild size="sm" className="h-8 rounded-xl bg-gold px-4 text-xs font-bold text-gold-foreground hover:bg-gold-light">
                   {firm.website ? (
-                    <a href={firm.website} target="_blank" rel="noopener noreferrer">
-                      Pogledaj više <ExternalLink className="ml-1 h-3 w-3" />
-                    </a>
+                    <a href={firm.website} target="_blank" rel="noopener noreferrer">Pogledaj više <ExternalLink className="ml-1 h-3 w-3" /></a>
                   ) : (
-                    <Link to={`/firma/${firm.slug}`}>
-                      Pogledaj više <ExternalLink className="ml-1 h-3 w-3" />
-                    </Link>
+                    <Link to={`/firma/${firm.slug}`}>Pogledaj više <ExternalLink className="ml-1 h-3 w-3" /></Link>
                   )}
                 </Button>
                 <Button asChild variant="outline" size="sm" className="h-8 rounded-xl border-white/12 bg-white/5 px-4 text-xs font-semibold text-white hover:bg-white/10">
                   {firm.contactUrl ? (
-                    <a href={firm.contactUrl} target="_blank" rel="noopener noreferrer">
-                      Kontakt <ArrowRight className="ml-1 h-3 w-3" />
-                    </a>
+                    <a href={firm.contactUrl} target="_blank" rel="noopener noreferrer">Kontakt <ArrowRight className="ml-1 h-3 w-3" /></a>
                   ) : firm.phone ? (
-                    <a href={`tel:${firm.phone}`}>
-                      Kontakt <ArrowRight className="ml-1 h-3 w-3" />
-                    </a>
+                    <a href={`tel:${firm.phone}`}>Kontakt <ArrowRight className="ml-1 h-3 w-3" /></a>
                   ) : (
-                    <Link to={`/firma/${firm.slug}`}>
-                      Kontakt <ArrowRight className="ml-1 h-3 w-3" />
-                    </Link>
+                    <Link to={`/firma/${firm.slug}`}>Kontakt <ArrowRight className="ml-1 h-3 w-3" /></Link>
                   )}
                 </Button>
               </div>
@@ -297,7 +261,6 @@ function ShowcaseCarousel() {
 }
 
 export default function Index() {
-
   const [currentSlide, setCurrentSlide] = useState(0);
   const { t } = useLanguage();
   const navigate = useNavigate();
@@ -321,11 +284,11 @@ export default function Index() {
   return (
     <div className="relative" style={{ background: "linear-gradient(180deg, #0B0F1A 0%, #0F1F3D 58%, #16294D 78%, #1A2F5A 100%)" }}>
       {/* Glow orbs */}
-      <div className="pointer-events-none absolute top-[8%] left-[-110px] w-[320px] h-[320px] rounded-full opacity-[0.14] blur-[120px] md:w-[320px] md:h-[320px]" style={{ background: "rgba(59,130,246,0.95)" }} />
-      <div className="pointer-events-none absolute right-[-90px] top-[34%] w-[260px] h-[260px] rounded-full opacity-[0.10] blur-[120px]" style={{ background: "rgba(168,85,247,0.85)" }} />
-      <div className="pointer-events-none absolute bottom-[-120px] right-[-70px] w-[340px] h-[340px] rounded-full opacity-[0.14] blur-[130px]" style={{ background: "rgba(250,204,21,0.95)" }} />
-      {/* Radial highlight */}
+      <div className="pointer-events-none absolute top-[8%] left-[-110px] w-[260px] h-[260px] md:w-[320px] md:h-[320px] rounded-full opacity-[0.14] blur-[120px]" style={{ background: "rgba(59,130,246,0.95)" }} />
+      <div className="pointer-events-none absolute right-[-90px] top-[34%] w-[200px] h-[200px] md:w-[260px] md:h-[260px] rounded-full opacity-[0.10] blur-[120px]" style={{ background: "rgba(168,85,247,0.85)" }} />
+      <div className="pointer-events-none absolute bottom-[-120px] right-[-70px] w-[270px] h-[270px] md:w-[340px] md:h-[340px] rounded-full opacity-[0.14] blur-[130px]" style={{ background: "rgba(250,204,21,0.95)" }} />
       <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(circle at top center, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 45%)" }} />
+
       {/* ─── HERO ─── */}
       <section className="relative min-h-[92vh] overflow-hidden">
         {slides.map((slide, idx) => (
@@ -348,7 +311,6 @@ export default function Index() {
         ))}
 
         <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/60 via-black/30 to-[#0B0F1A]" />
-        {/* Hero bottom overlay - smooth blend */}
         <div className="absolute left-0 right-0 bottom-0 h-[220px] z-[3] pointer-events-none" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(11,15,26,0.35) 40%, rgba(11,15,26,0.72) 72%, #0B0F1A 100%)" }} />
 
         <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-5 py-16 lg:py-20">
@@ -394,7 +356,6 @@ export default function Index() {
                 </Link>
               </div>
 
-              {/* Disclaimer */}
               <p className="mx-auto mt-4 max-w-sm text-center text-[10px] leading-relaxed text-white/30">
                 BalkanLink je edukativna platforma. Sadržaj nije pravni savjet.
               </p>
@@ -434,9 +395,6 @@ export default function Index() {
 
       {/* ─── FLOW BANNER ─── */}
       <FlowBanner />
-
-      {/* ─── NAJČEŠĆE GREŠKE ─── */}
-      <HomeMistakes />
 
       {/* ─── PREMIUM PRODUCTS + FREE TOOLS ─── */}
       <div className="opacity-[0.88]">

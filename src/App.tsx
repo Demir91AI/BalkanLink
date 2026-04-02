@@ -70,6 +70,7 @@ import AnmeldungMusterOld from "./pages/AnmeldungMuster";
 import AnmeldungMuster from "./pages/muster/AnmeldungMuster";
 import Paketi from "./pages/Paketi";
 import Kalkulatori from "./pages/Kalkulatori";
+import CommunityMapa from "./pages/CommunityMapa";
 
 // Musterformulare
 import ElterngeldMuster from "./pages/muster/ElterngeldMuster";
@@ -205,6 +206,7 @@ const App = () => (
                 <Route path="/bussgeld" element={<BussgeldAssistent />} />
                 <Route path="/paketi" element={<Paketi />} />
                 <Route path="/kalkulatori" element={<Kalkulatori />} />
+                <Route path="/mapa" element={<CommunityMapa />} />
               </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>
