@@ -1,5 +1,6 @@
 import GuideInfoHeader from "./GuideInfoHeader";
 import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
+import MusterCTA from "./MusterCTA";
 
 const STEPS: StepData[] = [
   {
@@ -66,12 +67,7 @@ export default function BurgergeldGuideContent() {
         ]}
       />
       <SmartGuideWizardShared steps={STEPS} />
-      <div className="rounded-lg p-4 text-center" style={{ backgroundColor: "#1F2937" }}>
-        <p className="text-[13px] text-gray-400">Više informacija na službenoj stranici Jobcenter</p>
-        <a href="https://www.jobcenter-digital.de" target="_blank" rel="noopener noreferrer" className="inline-block mt-2 text-sm font-medium" style={{ color: "#3B82F6" }}>
-          🔗 Službena stranica Jobcenter Digital
-        </a>
-      </div>
+      <MusterCTA formName="Bürgergeld" institution="Bundesagentur für Arbeit" musterPath="/musterformular/buergergeld" pdfUrl="https://www.arbeitsagentur.de/datei/ba012914.pdf" />
     </div>
   );
 }

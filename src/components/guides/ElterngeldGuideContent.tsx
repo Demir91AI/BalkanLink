@@ -1,5 +1,6 @@
 import GuideInfoHeader from "./GuideInfoHeader";
 import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
+import MusterCTA from "./MusterCTA";
 
 const STEPS: StepData[] = [
   {
@@ -63,12 +64,7 @@ export default function ElterngeldGuideContent() {
         ]}
       />
       <SmartGuideWizardShared steps={STEPS} />
-      <div className="rounded-lg p-4 text-center" style={{ backgroundColor: "#1F2937" }}>
-        <p className="text-[13px] text-gray-400">Više informacija na Familienportal</p>
-        <a href="https://familienportal.de/familienportal/familienleistungen/elterngeld" target="_blank" rel="noopener noreferrer" className="inline-block mt-2 text-sm font-medium" style={{ color: "#3B82F6" }}>
-          🔗 Službena stranica Elterngeld
-        </a>
-      </div>
+      <MusterCTA formName="Elterngeld" institution="Familienportal" musterPath="/musterformular/elterngeld" pdfUrl="https://www.familienatlas.de/fileadmin/familienatlas/Downloads/Elterngeld/Antrag_auf_Elterngeld_01.pdf" />
     </div>
   );
 }
