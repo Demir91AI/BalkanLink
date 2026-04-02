@@ -752,9 +752,12 @@ export default function Kalkulatori() {
                   <div className="space-y-1">
                     <Label className="text-sm text-white/70 font-medium">Mjesečni PKV doprinos (€) {I("pkv")}</Label>
                     <input
-                      type="number" min={0}
-                      value={inputs.pkvBeitrag}
-                      onChange={e => update({ pkvBeitrag: Number(e.target.value) })}
+                      type="text"
+                      inputMode="numeric"
+                      value={getFieldStr("pkvBeitrag", inputs.pkvBeitrag)}
+                      onFocus={() => handleFocus("pkvBeitrag", inputs.pkvBeitrag)}
+                      onChange={e => handleChange("pkvBeitrag", e.target.value)}
+                      onBlur={() => handleBlur("pkvBeitrag", { min: 0 })}
                       className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white text-sm font-bold focus:border-[#F59E0B] focus:outline-none transition-all duration-300"
                     />
                   </div>
