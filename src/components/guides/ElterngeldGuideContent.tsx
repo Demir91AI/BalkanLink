@@ -64,7 +64,7 @@ export default function ElterngeldGuideContent() {
         ]}
       />
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterCTA formName="Elterngeld" institution="ZBFS Bayern" musterPath="/musterformular/elterngeld" pdfUrl="https://www.zbfs.bayern.de/imperia/md/content/zbfs_intranet/produktgruppe_i/formulare/beeg-antrag/elterngeldantrag_042024.pdf" />
+      <MusterCTA formName="Elterngeld" institution="Elterngeldstelle deines Bundeslandes" musterPath="/musterformular/elterngeld" pdfUrl="https://familienportal.de/familienportal/rechner-antraege/antragsformulare" />
     </div>
   );
 }

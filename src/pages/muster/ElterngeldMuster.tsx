@@ -2,7 +2,7 @@ import { useState, useCallback } from "react";
 import MusterFormBase, { S, Field, IdBoxes, SecHeader, Signature } from "@/components/muster/MusterFormBase";
 
 const LS_KEY = "elterngeld-muster-data";
-const PDF_URL = "https://www.zbfs.bayern.de/imperia/md/content/zbfs_intranet/produktgruppe_i/formulare/beeg-antrag/elterngeldantrag_042024.pdf";
+const PDF_URL = "https://familienportal.de/familienportal/rechner-antraege/antragsformulare";
 
 const blankChild = () => ({ nachname: "", vorname: "", gebdatum: "", aktenzeichen: "", behinderung: false });
 const blankParent = () => ({
