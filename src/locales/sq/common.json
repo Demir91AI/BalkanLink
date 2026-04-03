@@ -1,0 +1,20 @@
+{
+  "back": "← Prapa",
+  "home": "Kryefaqja",
+  "next": "Tjetër",
+  "submit": "Dërgo",
+  "cancel": "Anulo",
+  "save": "Ruaj",
+  "close": "Mbyll",
+  "loading": "Duke ngarkuar...",
+  "error": "Ndodhi një gabim.",
+  "success": "U ruajt me sukses.",
+  "noResults": "Nuk u gjetën rezultate.",
+  "anonymous": "Anonim",
+  "optional": "opsional",
+  "required": "Fushë e detyrueshme",
+  "search": "Kërko...",
+  "viewAll": "Shiko të gjitha",
+  "learnMore": "Mëso më shumë",
+  "getStarted": "Fillo tani"
+}

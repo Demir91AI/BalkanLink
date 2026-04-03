@@ -1,0 +1,11 @@
+{
+  "required": "Fushë e detyrueshme",
+  "email_invalid": "Adresë email e pavlefshme",
+  "min_length": "Nevojiten të paktën {{count}} karaktere",
+  "max_length": "Lejohen maksimumi {{count}} karaktere",
+  "number_only": "Vetëm numra të lejuar",
+  "iban_invalid": "IBAN i pavlefshëm",
+  "plz_invalid": "Kod postar i pavlefshëm",
+  "date_invalid": "Datë e pavlefshme",
+  "password_weak": "Fjalëkalimi shumë i dobët"
+}

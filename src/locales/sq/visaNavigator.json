@@ -1,0 +1,13 @@
+{
+  "title": "Navigator Vize",
+  "subtitle": "Gjej vizën e duhur për situatën tënde.",
+  "startBtn": "Fillo navigatorin",
+  "resultTitle": "Rezultati",
+  "recommendation": "Rekomandim",
+  "requirements": "Kushtet",
+  "duration": "Kohëzgjatja",
+  "cost": "Kostot",
+  "statusPending": "Në procesim",
+  "statusApproved": "Miratuar",
+  "statusDenied": "Refuzuar"
+}

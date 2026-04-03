@@ -1,0 +1,20 @@
+{
+  "back": "← Natrag",
+  "home": "Početna",
+  "next": "Dalje",
+  "submit": "Pošalji",
+  "cancel": "Odustani",
+  "save": "Spremi",
+  "close": "Zatvori",
+  "loading": "Učitavanje...",
+  "error": "Došlo je do pogreške.",
+  "success": "Uspješno spremljeno.",
+  "noResults": "Nema rezultata.",
+  "anonymous": "Anonimno",
+  "optional": "opcionalno",
+  "required": "Obavezno polje",
+  "search": "Pretraži...",
+  "viewAll": "Pogledaj sve",
+  "learnMore": "Saznaj više",
+  "getStarted": "Počni odmah"
+}

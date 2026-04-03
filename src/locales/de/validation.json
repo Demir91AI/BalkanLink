@@ -1,0 +1,11 @@
+{
+  "required": "Pflichtfeld",
+  "email_invalid": "Ungültige E-Mail-Adresse",
+  "min_length": "Mindestens {{count}} Zeichen erforderlich",
+  "max_length": "Maximal {{count}} Zeichen erlaubt",
+  "number_only": "Nur Zahlen erlaubt",
+  "iban_invalid": "Ungültige IBAN",
+  "plz_invalid": "Ungültige Postleitzahl",
+  "date_invalid": "Ungültiges Datum",
+  "password_weak": "Passwort zu schwach"
+}

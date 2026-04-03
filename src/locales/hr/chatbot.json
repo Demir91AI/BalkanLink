@@ -1,0 +1,15 @@
+{
+  "title": "BalkanLink Asistent",
+  "welcome": "Bok! Ja sam tvoj BalkanLink asistent. Kako ti mogu pomoći?",
+  "placeholder": "Postavi pitanje...",
+  "send": "Pošalji",
+  "loading": "Asistent tipka...",
+  "error": "Pogreška pri učitavanju odgovora.",
+  "suggestions_title": "Česta pitanja",
+  "suggestion_1": "Kako prijaviti stan?",
+  "suggestion_2": "Kako podnijeti zahtjev za Kindergeld?",
+  "suggestion_3": "Kako otvoriti račun?",
+  "suggestion_4": "Koje zdravstveno osiguranje trebam?",
+  "premium_locked": "Ovaj odgovor dostupan je samo Premium korisnicima.",
+  "powered_by": "Powered by BalkanLink AI"
+}

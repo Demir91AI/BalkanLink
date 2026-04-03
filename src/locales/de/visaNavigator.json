@@ -1,0 +1,13 @@
+{
+  "title": "Visa Navigator",
+  "subtitle": "Finde das richtige Visum für deine Situation.",
+  "startBtn": "Navigator starten",
+  "resultTitle": "Ergebnis",
+  "recommendation": "Empfehlung",
+  "requirements": "Voraussetzungen",
+  "duration": "Dauer",
+  "cost": "Kosten",
+  "statusPending": "In Bearbeitung",
+  "statusApproved": "Genehmigt",
+  "statusDenied": "Abgelehnt"
+}

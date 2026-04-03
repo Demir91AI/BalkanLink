@@ -1,0 +1,13 @@
+{
+  "title": "Njoftime",
+  "post_ad": "Publiko njoftim",
+  "edit_ad": "Modifiko",
+  "delete_ad": "Fshi",
+  "contact_seller": "Kontakto shitësin",
+  "no_ads": "Ende nuk ka njoftime.",
+  "ad_expires": "Skadon pas {{days}} ditësh",
+  "report": "Raporto",
+  "category": "Kategoria",
+  "city": "Qyteti",
+  "price": "Çmimi"
+}

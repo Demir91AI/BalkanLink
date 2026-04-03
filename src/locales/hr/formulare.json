@@ -1,0 +1,15 @@
+{
+  "title": "Formulari",
+  "subtitle": "Svi važni formulari s objašnjenjima.",
+  "step": "Korak",
+  "of": "od",
+  "nextStep": "Dalje",
+  "prevStep": "Natrag",
+  "complete": "Završi",
+  "fieldRequired": "Ovo polje je obavezno.",
+  "downloadPdf": "Preuzmi PDF",
+  "guideTitle": "Pomoć pri ispunjavanju",
+  "tipTitle": "Savjet",
+  "warningTitle": "Pažnja",
+  "exampleTitle": "Primjer"
+}

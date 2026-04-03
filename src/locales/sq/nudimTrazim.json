@@ -1,0 +1,18 @@
+{
+  "title": "Ofroj / Kërkoj",
+  "subtitle": "Gjej ose ofro ndihmë në komunitetin tënd.",
+  "tab_nudim": "Ofroj",
+  "tab_trazim": "Kërkoj",
+  "post_ad": "Publiko njoftim",
+  "filter_city": "Filtro qytetin",
+  "filter_category": "Kategoria",
+  "search_placeholder": "Kërko njoftime...",
+  "pro_ads": "Pro njoftime",
+  "free_ad": "Njoftim falas",
+  "pro_badge": "PRO",
+  "duration_7": "7 ditë — 1,99 €",
+  "duration_30": "30 ditë — 4,99 €",
+  "contact_seller": "Kontakto shitësin",
+  "no_ads": "Ende nuk ka njoftime në këtë kategori.",
+  "ad_expires": "Skadon pas {{days}} ditësh"
+}

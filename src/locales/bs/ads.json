@@ -1,0 +1,13 @@
+{
+  "title": "Oglasi",
+  "post_ad": "Objavi oglas",
+  "edit_ad": "Uredi",
+  "delete_ad": "Obriši",
+  "contact_seller": "Kontaktiraj prodavača",
+  "no_ads": "Još nema oglasa.",
+  "ad_expires": "Ističe za {{days}} dana",
+  "report": "Prijavi",
+  "category": "Kategorija",
+  "city": "Grad",
+  "price": "Cijena"
+}

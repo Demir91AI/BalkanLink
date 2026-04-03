@@ -1,0 +1,15 @@
+{
+  "title": "Asistent BalkanLink",
+  "welcome": "Përshëndetje! Jam asistenti yt BalkanLink. Si mund të ndihmoj?",
+  "placeholder": "Bëj një pyetje...",
+  "send": "Dërgo",
+  "loading": "Asistenti po shkruan...",
+  "error": "Gabim gjatë ngarkimit të përgjigjes.",
+  "suggestions_title": "Pyetje të shpeshta",
+  "suggestion_1": "Si të regjistrohem?",
+  "suggestion_2": "Si të aplikoj për Kindergeld?",
+  "suggestion_3": "Si të hap llogari?",
+  "suggestion_4": "Cilin sigurim shëndetësor kam nevojë?",
+  "premium_locked": "Kjo përgjigje është e disponueshme vetëm për anëtarët Premium.",
+  "powered_by": "Powered by BalkanLink AI"
+}

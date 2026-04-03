@@ -1,0 +1,13 @@
+{
+  "title": "Inserate",
+  "post_ad": "Inserat aufgeben",
+  "edit_ad": "Bearbeiten",
+  "delete_ad": "Löschen",
+  "contact_seller": "Verkäufer kontaktieren",
+  "no_ads": "Noch keine Inserate.",
+  "ad_expires": "Läuft ab in {{days}} Tagen",
+  "report": "Melden",
+  "category": "Kategorie",
+  "city": "Stadt",
+  "price": "Preis"
+}

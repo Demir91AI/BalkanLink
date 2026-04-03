@@ -1,0 +1,14 @@
+{
+  "title": "Kalkulatoren",
+  "subtitle": "Berechne deine wichtigsten Werte.",
+  "cost_of_living": "Lebenshaltungskosten",
+  "salary_net": "Nettogehalt berechnen",
+  "tax_class": "Steuerklasse ermitteln",
+  "label_gross": "Bruttogehalt (€)",
+  "label_net": "Nettogehalt",
+  "label_city": "Stadt",
+  "label_result": "Ergebnis",
+  "calculate": "Berechnen",
+  "disclaimer": "Diese Berechnung ist nur ein Richtwert.",
+  "help_gross": "Gib dein monatliches Bruttogehalt ein."
+}

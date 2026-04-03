@@ -1,0 +1,13 @@
+{
+  "title": "Виза Навигатор",
+  "subtitle": "Најди ја правата виза за твојата ситуација.",
+  "startBtn": "Започни навигатор",
+  "resultTitle": "Резултат",
+  "recommendation": "Препорака",
+  "requirements": "Услови",
+  "duration": "Траење",
+  "cost": "Цена",
+  "statusPending": "Во обработка",
+  "statusApproved": "Одобрено",
+  "statusDenied": "Одбиено"
+}

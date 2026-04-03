@@ -1,0 +1,14 @@
+{
+  "title": "Kalkulatorji",
+  "subtitle": "Izračunaj najpomembnejše vrednosti.",
+  "cost_of_living": "Stroški življenja",
+  "salary_net": "Izračunaj neto plačo",
+  "tax_class": "Določi davčni razred",
+  "label_gross": "Bruto plača (€)",
+  "label_net": "Neto plača",
+  "label_city": "Mesto",
+  "label_result": "Rezultat",
+  "calculate": "Izračunaj",
+  "disclaimer": "Ta izračun je le okvirna vrednost.",
+  "help_gross": "Vnesi svojo mesečno bruto plačo."
+}

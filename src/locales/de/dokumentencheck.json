@@ -1,0 +1,9 @@
+{
+  "title": "Dokumenten-Check",
+  "subtitle": "Lade dein Dokument hoch und erhalte eine Erklärung.",
+  "uploadBtn": "Dokument hochladen",
+  "uploadHint": "PDF oder Bild hochladen",
+  "analyzing": "Wird analysiert...",
+  "resultTitle": "Ergebnis",
+  "disclaimer": "Dies ist keine Rechtsberatung."
+}
