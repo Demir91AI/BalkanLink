@@ -49,7 +49,7 @@ export default function ForgotPassword() {
 
   return (
     <>
-    <SubpageNav />
+    <PageNav />
     <div className="container flex min-h-[70vh] items-center justify-center py-12">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">

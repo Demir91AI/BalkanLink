@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
-import SubpageNav from "@/components/SubpageNav";
+import PageNav from "@/components/navigation/PageNav";
 
 export default function ResetPassword() {
   const [password, setPassword] = useState("");

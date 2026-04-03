@@ -19,7 +19,7 @@ import {
   otherOffensesTable,
 } from "@/lib/bussgeld-data";
 import { useLanguage } from "@/contexts/LanguageContext";
-import SubpageNav from "@/components/SubpageNav";
+import PageNav from "@/components/navigation/PageNav";
 
 const offenseOptions: { value: OffenseType; label: string; icon: typeof Car }[] = [
   { value: "speed", label: "Brzina", icon: Car },

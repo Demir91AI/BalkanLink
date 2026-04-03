@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useSectionT } from "@/hooks/useSectionT";
 import type { ReactNode } from "react";
-import SubpageNav from "@/components/SubpageNav";
+import PageNav from "@/components/navigation/PageNav";
 
 /* ─── Floating Particles ─── */
 function HeroParticles() {

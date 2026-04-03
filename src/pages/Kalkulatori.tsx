@@ -8,7 +8,7 @@ import {
 import {
   Collapsible, CollapsibleContent, CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import SubpageNav from "@/components/SubpageNav";
+import PageNav from "@/components/navigation/PageNav";
 
 /* ── German locale formatter ── */
 const fmt = (n: number) =>

@@ -24,7 +24,7 @@ import {
   type BruttoNettoInputs, type BruttoNettoResult, type TaxYear,
 } from "@/lib/brutto-netto-config";
 import { useLanguage } from "@/contexts/LanguageContext";
-import SubpageNav from "@/components/SubpageNav";
+import PageNav from "@/components/navigation/PageNav";
 
 /* ─── Helpers ─── */
 const fmt = (n: number) =>

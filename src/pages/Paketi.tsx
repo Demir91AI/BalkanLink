@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Check, X, Crown, Flame } from "lucide-react";
-import SubpageNav from "@/components/SubpageNav";
+import PageNav from "@/components/navigation/PageNav";
 
 const comparisonData = [
   { label: "Osnovne info o formularima", free: true, premium: true },

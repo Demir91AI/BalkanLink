@@ -6,7 +6,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { LogIn, Mail, Lock } from "lucide-react";
-import SubpageNav from "@/components/SubpageNav";
+import PageNav from "@/components/navigation/PageNav";
 
 export default function Login() {
   const [email, setEmail] = useState("");

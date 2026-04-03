@@ -25,7 +25,7 @@ import { Calendar as CalendarPicker } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { toast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
-import SubpageNav from "@/components/SubpageNav";
+import PageNav from "@/components/navigation/PageNav";
 
 /* ── Bus Transport Directory ── */
 type TransportBadge = "Direktlinie" | "Umstieg" | "Kleinbus / Tür-zu-Tür";

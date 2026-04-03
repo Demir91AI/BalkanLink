@@ -1,4 +1,4 @@
-import SubpageNav from "@/components/SubpageNav";
+import PageNav from "@/components/navigation/PageNav";
 
 export default function Impressum() {
   return (

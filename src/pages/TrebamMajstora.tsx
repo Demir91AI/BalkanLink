@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { GERMAN_CITIES_FULL } from "@/lib/germany-data";
 import { useLanguage } from "@/contexts/LanguageContext";
-import SubpageNav from "@/components/SubpageNav";
+import PageNav from "@/components/navigation/PageNav";
 
 const enc = encodeURIComponent;
 
