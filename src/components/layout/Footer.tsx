@@ -138,7 +138,7 @@ function AllReviewsModal() {
   );
 }
 
-
+export default function Footer() {
   const { t } = useLanguage();
   const [reviews, setReviews] = useState<FooterReview[]>([]);
 
