@@ -5,6 +5,10 @@
 @tailwind utilities;
 
 @layer base {
+  html, body {
+    min-width: 1200px;
+  }
+
   :root {
     --background: 40 20% 97%;
     --foreground: 240 6% 15%;
