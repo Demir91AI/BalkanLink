@@ -1,16 +1,31 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { CreditCard, Landmark, Wallet, Star } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import BrandLogo from "@/components/BrandLogo";
+import { supabase } from "@/integrations/supabase/client";
 
-const footerReviews = [
-  { comment: "Konačno neko objasni formulare normalno!", username: "Emina S.", rating: 5 },
-  { comment: "Uštedila sam 200€ jer sam sama popunila.", username: "Anonimno", rating: 5 },
-  { comment: "Super platforma, svaka preporuka.", username: "Damir K.", rating: 4 },
-];
+interface FooterReview {
+  id: string;
+  username: string;
+  rating: number;
+  comment: string;
+}
 
 export default function Footer() {
   const { t } = useLanguage();
+  const [reviews, setReviews] = useState<FooterReview[]>([]);
+
+  useEffect(() => {
+    supabase
+      .from("reviews")
+      .select("id, username, rating, comment")
+      .order("created_at", { ascending: false })
+      .limit(3)
+      .then(({ data }) => {
+        if (data) setReviews(data as FooterReview[]);
+      });
+  }, []);
 
   return (
     <footer className="border-t border-[#E8E0D0] text-[#2D2D2D]" style={{ background: "#FAFAF7" }}>
@@ -54,24 +69,26 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Povjerenje — Compact Reviews */}
+          {/* Povjerenje — Real Reviews from DB */}
           <div>
             <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-[#6B6B6B]">Povjerenje</h4>
             <div className="flex flex-col gap-3">
-              {footerReviews.map((r, i) => (
-                <div key={i} className="text-left">
+              {reviews.length > 0 ? reviews.map((r) => (
+                <div key={r.id} className="text-left">
                   <p className="text-[13px] text-[#6B6B6B] leading-snug line-clamp-2">"{r.comment}"</p>
-                  <div className="flex items-center gap-1 mt-1">
+                  <div className="flex items-center gap-0.5 mt-1">
                     {Array.from({ length: 5 }).map((_, si) => (
                       <Star key={si} className={`h-3 w-3 ${si < r.rating ? "fill-[hsl(var(--gold))] text-[hsl(var(--gold))]" : "text-[#E8E0D0]"}`} />
                     ))}
                   </div>
                   <p className="text-[11px] text-[#6B6B6B]/60 mt-0.5">— {r.username}</p>
                 </div>
-              ))}
-              <Link to="/qa" className="text-[12px] font-semibold text-[hsl(var(--gold))] hover:underline mt-1">
-                Pregledaj sve recenzije →
-              </Link>
+              )) : (
+                <p className="text-[12px] text-[#6B6B6B]/60">Još nema recenzija.</p>
+              )}
+              <a href="#reviews-section" className="text-[12px] font-semibold text-[hsl(var(--gold))] hover:underline mt-1">
+                Pogledaj sve recenzije →
+              </a>
             </div>
           </div>
 
