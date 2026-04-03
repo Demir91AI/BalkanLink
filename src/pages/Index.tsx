@@ -447,10 +447,20 @@ export default function Index() {
           </div>
         </div>
 
-        {/* Balkan + DE flags row — above dots, spread wide */}
-        <div className="absolute bottom-14 left-1/2 z-10 -translate-x-1/2 w-full max-w-[720px] flex flex-row flex-nowrap items-center justify-between px-8">
-          {["🇧🇦","🇷🇸","🇭🇷","🇲🇪","🇩🇪","🇸🇮","🇲🇰","🇦🇱","🇽🇰"].map((flag) => (
-            <span key={flag} className="text-4xl leading-none select-none transition-transform duration-150 hover:scale-110" style={{ opacity: 0.92 }}>{flag}</span>
+        {/* Balkan + DE flags row — above dots, flagcdn images */}
+        <div className="absolute bottom-14 left-1/2 z-10 -translate-x-1/2 flex flex-row flex-nowrap items-center justify-between px-8" style={{ width: "70%" }}>
+          {[
+            "https://flagcdn.com/h40/ba.png",
+            "https://flagcdn.com/h40/rs.png",
+            "https://flagcdn.com/h40/hr.png",
+            "https://flagcdn.com/h40/me.png",
+            "https://flagcdn.com/h40/de.png",
+            "https://flagcdn.com/h40/si.png",
+            "https://flagcdn.com/h40/mk.png",
+            "https://flagcdn.com/h40/al.png",
+            "https://flagcdn.com/h40/xk.png",
+          ].map((src) => (
+            <img key={src} src={src} alt="" className="select-none transition-transform duration-150 hover:scale-[1.12]" style={{ height: 34, width: "auto", objectFit: "contain", opacity: 0.92 }} loading="eager" />
           ))}
         </div>
 
