@@ -435,6 +435,13 @@ export default function Index() {
                   </span>
                 ))}
               </motion.div>
+
+              {/* Balkan flags row */}
+              <div className="mt-6 flex flex-row flex-nowrap items-center justify-center gap-[10px] opacity-90">
+                {["🇧🇦", "🇷🇸", "🇭🇷", "🇲🇪", "🇸🇮", "🇲🇰", "🇦🇱", "🇽🇰"].map((flag) => (
+                  <span key={flag} className="text-2xl leading-none select-none">{flag}</span>
+                ))}
+              </div>
             </motion.div>
           </div>
         </div>
