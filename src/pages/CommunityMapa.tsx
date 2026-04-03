@@ -1,5 +1,9 @@
 import { useState, useMemo, useCallback, useRef, useEffect } from "react";
 import { MapPin, Search, Shield, X, Users, ChevronLeft, ChevronRight, MessageSquare, Send, Home } from "lucide-react";
+import balkanSarajevo from "@/assets/balkan-sarajevo.jpg";
+import balkanBeograd from "@/assets/balkan-beograd.jpg";
+import balkanZagreb from "@/assets/balkan-zagreb.jpg";
+import balkanMostar from "@/assets/balkan-mostar.jpg";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -54,42 +58,25 @@ const GERMAN_CITIES = [
 
 /* Visual carousel images - placeholder stock-style descriptions */
 const visualSlides = [
-  { emoji: "☕", label: "Kafa i druženje" },
-  { emoji: "🌿", label: "Café bašta" },
-  { emoji: "🚗", label: "Auto susreti" },
-  { emoji: "👫", label: "Druženje i zajednica" },
+  { img: balkanSarajevo, label: "Sarajevo" },
+  { img: balkanBeograd, label: "Beograd" },
+  { img: balkanZagreb, label: "Zagreb" },
+  { img: balkanMostar, label: "Mostar" },
 ];
 
 function VisualCarousel() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const rafRef = useRef(0);
-
-  useEffect(() => {
-    const animate = () => {
-      const el = scrollRef.current;
-      if (el) {
-        el.scrollLeft += 0.4;
-        const half = el.scrollWidth / 2;
-        if (el.scrollLeft >= half) el.scrollLeft -= half;
-      }
-      rafRef.current = requestAnimationFrame(animate);
-    };
-    rafRef.current = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(rafRef.current);
-  }, []);
-
-  const doubled = [...visualSlides, ...visualSlides];
-
   return (
-    <div className="overflow-hidden w-full mb-6">
-      <div ref={scrollRef} className="flex gap-4 overflow-x-hidden scrollbar-hide">
-        {doubled.map((slide, i) => (
+    <div className="w-full mb-6">
+      <div className="flex flex-row flex-nowrap gap-4">
+        {visualSlides.map((slide) => (
           <div
-            key={i}
-            className="shrink-0 w-[200px] h-[120px] rounded-xl bg-gradient-to-br from-[hsl(var(--gold))]/10 to-[hsl(var(--warm-cream))] border border-[#E8E0D0] flex flex-col items-center justify-center gap-2 shadow-sm"
+            key={slide.label}
+            className="flex-1 min-w-0 rounded-xl bg-white shadow-[0_2px_16px_rgba(0,0,0,0.08)] overflow-hidden cursor-pointer transition-all duration-250 hover:scale-[1.03] hover:shadow-[0_8px_32px_rgba(0,0,0,0.14)]"
           >
-            <span className="text-4xl">{slide.emoji}</span>
-            <span className="text-xs font-semibold text-[#2D2D2D]">{slide.label}</span>
+            <div className="aspect-video w-full overflow-hidden">
+              <img src={slide.img} alt={slide.label} className="h-full w-full object-cover" loading="lazy" width={800} height={512} />
+            </div>
+            <p className="px-4 py-3 text-[15px] font-semibold text-[#2D2D2D]">{slide.label}</p>
           </div>
         ))}
       </div>

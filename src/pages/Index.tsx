@@ -23,10 +23,6 @@ import heroDuesseldorf from "@/assets/hero-duesseldorf.jpg";
 import heroNuernberg from "@/assets/hero-nuernberg.jpg";
 import heroLeipzig from "@/assets/hero-leipzig.jpg";
 import heroFreilassing from "@/assets/hero-freilassing-real.jpg";
-import balkKafa from "@/assets/balkanci-kafa.jpg";
-import balkBasta from "@/assets/balkanci-basta.jpg";
-import balkAuto from "@/assets/balkanci-auto.jpg";
-import balkZajednica from "@/assets/balkanci-zajednica.jpg";
 
 const slides = [
   { image: heroFrankfurt, city: "FRANKFURT" },
@@ -492,33 +488,6 @@ export default function Index() {
         </div>
         <ServicesCarousel />
       </section>
-
-      {/* ─── BALKANCI U NJEMAČKOJ ─── */}
-      <section className="py-20 bg-white border-t border-[#E8E0D0]">
-        <div className="mx-auto max-w-[1100px] px-6">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-10">
-            <h2 className="font-heading text-2xl font-extrabold text-[#2D2D2D] lg:text-4xl">Balkanci u Njemačkoj</h2>
-            <p className="mt-2 text-sm text-[#6B6B6B]">Kako živimo, gdje se družimo</p>
-            <div className="mx-auto mt-3 h-[3px] w-16 rounded-full bg-gradient-to-r from-[hsl(var(--gold-dark))] to-[hsl(var(--gold))]" />
-          </motion.div>
-          <div className="flex flex-row flex-nowrap gap-5">
-            {[
-              { img: balkKafa, title: "Kafa i druženje" },
-              { img: balkBasta, title: "Café bašta" },
-              { img: balkAuto, title: "Auto susreti" },
-              { img: balkZajednica, title: "Druženje i zajednica" },
-            ].map((card) => (
-              <div key={card.title} className="flex-1 min-w-0 rounded-xl bg-white shadow-[0_2px_16px_rgba(0,0,0,0.08)] overflow-hidden cursor-pointer transition-all duration-250 hover:scale-[1.03] hover:shadow-[0_8px_32px_rgba(0,0,0,0.14)]">
-                <div className="aspect-video w-full overflow-hidden">
-                  <img src={card.img} alt={card.title} className="h-full w-full object-cover" loading="lazy" width={800} height={512} />
-                </div>
-                <p className="px-4 py-3 text-[15px] font-semibold text-[#2D2D2D]">{card.title}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
 
       <section className="py-16 sm:py-20 bg-white border-t border-[#E8E0D0]">
         <div className="container max-w-[1200px] mx-auto mb-8">
