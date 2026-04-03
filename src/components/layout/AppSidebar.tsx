@@ -4,28 +4,30 @@ import {
   FileText, Shield, BookOpen, Camera, Megaphone, Map,
   Briefcase, Building, Calculator, FileCheck, X,
 } from "lucide-react";
-
-const mainItems = [
-  { title: "Smart Guide — Formulari", url: "/formulari", icon: FileText, premium: true },
-  { title: "Visa Navigator", url: "/dolazak/boravisna-dozvola", icon: Shield, premium: true },
-  { title: "BalkanLink Deutsch", url: "/deutsch-trainer", icon: BookOpen, premium: true },
-  { title: "Dokumenten-Check", url: "/dokumenten-check", icon: Camera, premium: true },
-  { title: "Nudim / Tražim", url: "/nudim-trazim", icon: Megaphone, premium: false },
-  { title: "Balkanci u DE", url: "/mapa", icon: Map, premium: false },
-];
-
-const secondaryItems = [
-  { title: "Pretraga poslova", url: "/stellenangebote", icon: Briefcase },
-  { title: "Pretraga stanova", url: "/wohnungen", icon: Building },
-  { title: "Kalkulatori", url: "/kalkulatori", icon: Calculator },
-  { title: "Šabloni", url: "/vorlagen", icon: FileCheck },
-];
+import { useTranslation } from "@/i18n/useTranslation";
 
 export function AppSidebar() {
   const [isOpen, setIsOpen] = useState(false);
   const debounceRef = useRef(0);
   const navigate = useNavigate();
   const location = useLocation();
+  const { t } = useTranslation();
+
+  const mainItems = [
+    { titleKey: "sidebar.smartGuide", url: "/formulari", icon: FileText, premium: true },
+    { titleKey: "sidebar.visaNavigator", url: "/dolazak/boravisna-dozvola", icon: Shield, premium: true },
+    { titleKey: "sidebar.deutsch", url: "/deutsch-trainer", icon: BookOpen, premium: true },
+    { titleKey: "sidebar.dokumentenCheck", url: "/dokumenten-check", icon: Camera, premium: true },
+    { titleKey: "sidebar.nudim", url: "/nudim-trazim", icon: Megaphone, premium: false },
+    { titleKey: "sidebar.balkanci", url: "/mapa", icon: Map, premium: false },
+  ];
+
+  const secondaryItems = [
+    { titleKey: "sidebar.jobs", url: "/stellenangebote", icon: Briefcase },
+    { titleKey: "sidebar.housing", url: "/wohnungen", icon: Building },
+    { titleKey: "sidebar.kalkulator", url: "/kalkulatori", icon: Calculator },
+    { titleKey: "sidebar.templates", url: "/vorlagen", icon: FileCheck },
+  ];
 
   const toggle = useCallback(() => {
     const now = Date.now();
@@ -41,7 +43,6 @@ export function AppSidebar() {
   }, [toggle]);
 
   const close = useCallback(() => setIsOpen(false), []);
-
   useEffect(() => { close(); }, [location.pathname, close]);
 
   const handleNav = useCallback((url: string) => {
@@ -51,7 +52,6 @@ export function AppSidebar() {
 
   return (
     <>
-      {/* Backdrop */}
       <div
         className="fixed inset-0 z-[998] bg-black/45 transition-opacity duration-300 ease-in-out"
         style={{ opacity: isOpen ? 1 : 0, pointerEvents: isOpen ? "auto" : "none" }}
@@ -59,7 +59,6 @@ export function AppSidebar() {
         aria-hidden="true"
       />
 
-      {/* Sidebar panel — 300px wide, labels fully visible */}
       <aside
         className="fixed left-0 top-0 z-[999] h-screen bg-white shadow-2xl overflow-y-auto transition-transform duration-300 ease-in-out"
         style={{
@@ -69,15 +68,14 @@ export function AppSidebar() {
         }}
       >
         <div className="flex items-center justify-between px-5 py-4 border-b border-[#E8E0D0]">
-          <span className="text-sm font-bold text-[#2D2D2D] tracking-wide uppercase">Meni</span>
+          <span className="text-sm font-bold text-[#2D2D2D] tracking-wide uppercase">{t("sidebar.menu")}</span>
           <button onClick={close} className="h-8 w-8 rounded-lg flex items-center justify-center hover:bg-[#F0EDE6] transition-colors">
             <X className="h-4 w-4 text-[#6B6B6B]" />
           </button>
         </div>
 
-        {/* Main items */}
         <div className="px-3 pt-4">
-          <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">Glavne funkcije</p>
+          <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">{t("sidebar.mainFunctions")}</p>
           <nav className="flex flex-col gap-0.5">
             {mainItems.map((item) => {
               const active = location.pathname === item.url || location.pathname.startsWith(item.url + "/");
@@ -92,12 +90,8 @@ export function AppSidebar() {
                   }`}
                 >
                   <item.icon className={`h-[18px] w-[18px] shrink-0 ${active ? "text-[hsl(var(--gold))]" : "text-[#6B6B6B]"}`} />
-                  <span
-                    className={`text-[14px] font-semibold whitespace-nowrap overflow-visible ${
-                      active ? "text-[hsl(var(--gold))]" : "text-[#2D2D2D]"
-                    }`}
-                  >
-                    {item.title}
+                  <span className={`text-[14px] font-semibold whitespace-nowrap overflow-visible ${active ? "text-[hsl(var(--gold))]" : "text-[#2D2D2D]"}`}>
+                    {t(item.titleKey)}
                   </span>
                   {item.premium && (
                     <span className="ml-auto shrink-0 rounded-full bg-[hsl(var(--gold))] px-1.5 py-0.5 text-[8px] font-bold leading-none text-white">
@@ -110,9 +104,8 @@ export function AppSidebar() {
           </nav>
         </div>
 
-        {/* Secondary items */}
         <div className="px-3 pt-5 pb-6">
-          <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">Ostalo</p>
+          <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">{t("sidebar.other")}</p>
           <nav className="flex flex-col gap-0.5">
             {secondaryItems.map((item) => {
               const active = location.pathname === item.url || location.pathname.startsWith(item.url + "/");
@@ -128,7 +121,7 @@ export function AppSidebar() {
                 >
                   <item.icon className={`h-[18px] w-[18px] shrink-0 ${active ? "text-[hsl(var(--gold))]" : ""}`} />
                   <span className="text-[14px] font-medium whitespace-nowrap overflow-visible">
-                    {item.title}
+                    {t(item.titleKey)}
                   </span>
                 </button>
               );

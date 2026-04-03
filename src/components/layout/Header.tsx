@@ -1,7 +1,7 @@
 import { useState, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useTranslation } from "@/i18n/useTranslation";
 import { ChevronDown, Mail, List, Send, Menu, Globe, LogIn, LogOut, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,18 +11,30 @@ import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Link } from "react-router-dom";
 
+const LANG_OPTIONS = [
+  { code: "de", name: "Deutsch", flag: "🇩🇪" },
+  { code: "bs", name: "Bosanski", flag: "🇧🇦" },
+  { code: "hr", name: "Hrvatski", flag: "🇭🇷" },
+  { code: "sr", name: "Srpski", flag: "🇷🇸" },
+  { code: "en", name: "English", flag: "🇬🇧" },
+  { code: "mk", name: "Македонски", flag: "🇲🇰" },
+  { code: "sl", name: "Slovenščina", flag: "🇸🇮" },
+  { code: "sq", name: "Shqip", flag: "🇦🇱" },
+];
+
 const menuBtnClass =
   "h-10 w-10 rounded-lg text-white/70 hover:text-white hover:bg-white/8 active:scale-[0.93] transition-transform duration-150";
 
 export default function Header() {
   const { user, loading, signOut, isAdmin } = useAuth();
-  const { t, language, setLanguage, languages, currentFlag } = useLanguage();
+  const { t, currentLanguage, setLanguage } = useTranslation();
   const navigate = useNavigate();
   const [contactOpen, setContactOpen] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
   const [contactForm, setContactForm] = useState({ firstName: "", lastName: "", email: "", message: "" });
 
-  // Toggle left sidebar via custom event
+  const currentLang = LANG_OPTIONS.find(l => l.code === currentLanguage) || LANG_OPTIONS[0];
+
   const lastToggleRef = useRef(0);
   const handleToggleSidebar = useCallback(() => {
     const now = Date.now();
@@ -46,13 +58,7 @@ export default function Header() {
         <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[hsl(var(--gold))] to-transparent opacity-60" />
 
         <div className="relative flex h-14 items-center px-4">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={handleToggleSidebar}
-            className={menuBtnClass}
-            aria-label="Meni"
-          >
+          <Button variant="ghost" size="icon" onClick={handleToggleSidebar} className={menuBtnClass} aria-label={t("sidebar.menu")}>
             <Menu className="h-5 w-5" />
           </Button>
 
@@ -77,13 +83,7 @@ export default function Header() {
             )}
           </div>
 
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => setSheetOpen(true)}
-            className={`ml-auto ${menuBtnClass}`}
-            aria-label="Meni"
-          >
+          <Button variant="ghost" size="icon" onClick={() => setSheetOpen(true)} className={`ml-auto ${menuBtnClass}`} aria-label={t("sidebar.menu")}>
             <Menu className="h-5 w-5" />
           </Button>
         </div>
@@ -96,14 +96,14 @@ export default function Header() {
               <DropdownMenuTrigger asChild>
                 <button className="group flex items-center gap-3 px-3 h-11 rounded-lg text-sm font-medium text-white/55 hover:text-white hover:bg-white/5 transition-all duration-200 w-full">
                   <Globe className="h-[18px] w-[18px] shrink-0 text-white/40 group-hover:text-white/70 transition-colors" />
-                  <span className="flex-1 text-left">{currentFlag} {languages.find(l => l.code === language)?.name}</span>
+                  <span className="flex-1 text-left">{currentLang.flag} {currentLang.name}</span>
                   <ChevronDown className="h-3 w-3 text-white/40" />
                 </button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="min-w-[180px] bg-[hsl(215,55%,10%)] border-white/10 shadow-xl">
-                {languages.map((lang) => (
+                {LANG_OPTIONS.map((lang) => (
                   <DropdownMenuItem key={lang.code} onClick={() => setLanguage(lang.code)}
-                    className={`text-white/80 hover:text-white focus:text-white focus:bg-white/10 ${language === lang.code ? "bg-white/10 text-[hsl(var(--gold))] font-medium" : ""}`}>
+                    className={`text-white/80 hover:text-white focus:text-white focus:bg-white/10 ${currentLanguage === lang.code ? "bg-white/10 text-[hsl(var(--gold))] font-medium" : ""}`}>
                     <span className="mr-2 text-base leading-none">{lang.flag}</span>
                     {lang.name}
                   </DropdownMenuItem>
@@ -112,37 +112,24 @@ export default function Header() {
             </DropdownMenu>
 
             {!loading && !user && (
-              <Link
-                to="/login"
-                onClick={() => setSheetOpen(false)}
-                className="group flex items-center gap-3 px-3 h-11 rounded-lg text-sm font-medium text-white/55 hover:text-white hover:bg-white/5 transition-all duration-200"
-              >
+              <Link to="/login" onClick={() => setSheetOpen(false)} className="group flex items-center gap-3 px-3 h-11 rounded-lg text-sm font-medium text-white/55 hover:text-white hover:bg-white/5 transition-all duration-200">
                 <LogIn className="h-[18px] w-[18px] shrink-0 text-white/40 group-hover:text-white/70 transition-colors" />
                 {t("nav.login")}
               </Link>
             )}
             {!loading && user && (
-              <button
-                onClick={() => { setSheetOpen(false); signOut(); }}
-                className="group flex items-center gap-3 px-3 h-11 rounded-lg text-sm font-medium text-white/55 hover:text-white hover:bg-white/5 transition-all duration-200"
-              >
+              <button onClick={() => { setSheetOpen(false); signOut(); }} className="group flex items-center gap-3 px-3 h-11 rounded-lg text-sm font-medium text-white/55 hover:text-white hover:bg-white/5 transition-all duration-200">
                 <LogOut className="h-[18px] w-[18px] shrink-0 text-white/40 group-hover:text-white/70 transition-colors" />
                 {t("nav.logout")}
               </button>
             )}
 
-            <button
-              onClick={() => { setSheetOpen(false); navigate("/paketi"); }}
-              className="group flex items-center gap-3 px-3 h-11 rounded-lg text-sm font-medium text-white/55 hover:text-white hover:bg-white/5 transition-all duration-200"
-            >
+            <button onClick={() => { setSheetOpen(false); navigate("/paketi"); }} className="group flex items-center gap-3 px-3 h-11 rounded-lg text-sm font-medium text-white/55 hover:text-white hover:bg-white/5 transition-all duration-200">
               <List className="h-[18px] w-[18px] shrink-0 text-white/40 group-hover:text-white/70 transition-colors" />
-              Paketi i opcije
+              {t("nav.packages")}
             </button>
 
-            <button
-              onClick={() => { setSheetOpen(false); setContactOpen(true); }}
-              className="group flex items-center gap-3 px-3 h-11 rounded-lg text-sm font-medium text-white/55 hover:text-white hover:bg-white/5 transition-all duration-200"
-            >
+            <button onClick={() => { setSheetOpen(false); setContactOpen(true); }} className="group flex items-center gap-3 px-3 h-11 rounded-lg text-sm font-medium text-white/55 hover:text-white hover:bg-white/5 transition-all duration-200">
               <Mail className="h-[18px] w-[18px] shrink-0 text-white/40 group-hover:text-white/70 transition-colors" />
               {t("contact.title")}
             </button>

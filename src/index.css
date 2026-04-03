@@ -136,7 +136,56 @@
 }
 
 @layer utilities {
-  /* Back+Home navigation row wrapper */
+  /* PageNav row */
+  .page-nav-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    margin-bottom: 24px;
+    line-height: 1;
+  }
+  .page-nav-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 150ms ease;
+    white-space: nowrap;
+    box-sizing: border-box;
+    line-height: 1;
+    vertical-align: middle;
+  }
+  .page-nav-btn--back {
+    padding: 0 18px;
+    min-width: 100px;
+    background: #FFFFFF;
+    border: 1.5px solid #C4B49A;
+    color: #2D2D2D;
+  }
+  .page-nav-btn--back:hover {
+    background: #F5EFE6;
+    border-color: #A89070;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.10);
+  }
+  .page-nav-btn--home {
+    width: 40px;
+    padding: 0;
+    background: #C9A84C;
+    border: none;
+    flex-shrink: 0;
+  }
+  .page-nav-btn--home:hover {
+    background: #B8943D;
+    box-shadow: 0 2px 10px rgba(201,168,76,0.30);
+  }
+
+  /* Legacy back-home-row (kept for compatibility) */
   .back-home-row {
     display: flex;
     flex-direction: row;

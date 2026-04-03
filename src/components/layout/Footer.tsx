@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { CreditCard, Landmark, Wallet, Star, X } from "lucide-react";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useTranslation } from "@/i18n/useTranslation";
 import BrandLogo from "@/components/BrandLogo";
 import { supabase } from "@/integrations/supabase/client";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
@@ -25,17 +25,6 @@ interface FullReview {
   created_at: string;
 }
 
-function timeAgo(dateStr: string) {
-  const diff = Date.now() - new Date(dateStr).getTime();
-  const mins = Math.floor(diff / 60000);
-  if (mins < 60) return `prije ${mins} min`;
-  const hrs = Math.floor(mins / 60);
-  if (hrs < 24) return `prije ${hrs}h`;
-  const days = Math.floor(hrs / 24);
-  if (days < 30) return `prije ${days} dana`;
-  return `prije ${Math.floor(days / 30)} mj.`;
-}
-
 function StarInput({ value, onChange }: { value: number; onChange: (v: number) => void }) {
   const [hover, setHover] = useState(0);
   return (
@@ -50,6 +39,7 @@ function StarInput({ value, onChange }: { value: number; onChange: (v: number) =
 }
 
 function AllReviewsModal() {
+  const { t } = useTranslation();
   const [allReviews, setAllReviews] = useState<FullReview[]>([]);
   const [loading, setLoading] = useState(false);
   const [rating, setRating] = useState(0);
@@ -71,9 +61,9 @@ function AllReviewsModal() {
 
   const handleSubmit = async () => {
     if (rating === 0 || comment.trim().length < 3) return;
-    const { error } = await supabase.from("reviews").insert({ username: username.trim() || "Anonimno", rating, comment: comment.trim() });
-    if (error) { toast.error("Greška pri slanju recenzije"); return; }
-    toast.success("Hvala na recenziji!");
+    const { error } = await supabase.from("reviews").insert({ username: username.trim() || t("reviews.anonymous"), rating, comment: comment.trim() });
+    if (error) { toast.error(t("reviews.errorSend")); return; }
+    toast.success(t("reviews.successSend"));
     setSubmitted(true);
     setRating(0); setComment(""); setUsername("");
     fetchAll();
@@ -85,17 +75,16 @@ function AllReviewsModal() {
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <button className="text-[12px] font-semibold text-[hsl(var(--gold))] hover:underline hover:opacity-80 cursor-pointer mt-1 text-left transition-opacity">
-          Pogledaj sve recenzije →
+          {t("reviews.viewAll")} →
         </button>
       </DialogTrigger>
       <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-xl font-bold">Sve recenzije</DialogTitle>
+          <DialogTitle className="text-xl font-bold">{t("reviews.allTitle")}</DialogTitle>
         </DialogHeader>
 
-        {/* Review list */}
         {loading ? (
-          <p className="text-sm text-muted-foreground text-center py-4">Učitavanje...</p>
+          <p className="text-sm text-muted-foreground text-center py-4">{t("reviews.loading")}</p>
         ) : allReviews.length > 0 ? (
           <div className="space-y-3 mb-6">
             {allReviews.map((r) => (
@@ -106,7 +95,6 @@ function AllReviewsModal() {
                       <Star key={i} className={`h-3.5 w-3.5 ${i < r.rating ? "fill-[hsl(var(--gold))] text-[hsl(var(--gold))]" : "text-[#E8E0D0]"}`} />
                     ))}
                   </div>
-                  <span className="text-[10px] text-muted-foreground">{timeAgo(r.created_at)}</span>
                 </div>
                 <p className="text-[13px] text-foreground leading-relaxed mb-1">{r.comment}</p>
                 <p className="text-[11px] font-semibold text-muted-foreground">— {r.username}</p>
@@ -114,23 +102,22 @@ function AllReviewsModal() {
             ))}
           </div>
         ) : (
-          <p className="text-sm text-muted-foreground text-center py-6">Još nema recenzija.</p>
+          <p className="text-sm text-muted-foreground text-center py-6">{t("reviews.noReviews")}</p>
         )}
 
-        {/* Submit form */}
         <div className="border-t border-[#E8E0D0] pt-5">
-          <h3 className="text-sm font-bold mb-3">Ostavi recenziju</h3>
+          <h3 className="text-sm font-bold mb-3">{t("reviews.leaveReview")}</h3>
           {!submitted ? (
             <div className="space-y-3">
               <StarInput value={rating} onChange={setRating} />
-              <Textarea value={comment} onChange={(e) => setComment(e.target.value)} placeholder="Napiši komentar..." className="border-[#E8E0D0] resize-none min-h-[80px]" rows={3} />
-              <Input value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Tvoje ime (opcionalno)" className="border-[#E8E0D0]" />
+              <Textarea value={comment} onChange={(e) => setComment(e.target.value)} placeholder={t("reviews.comment")} className="border-[#E8E0D0] resize-none min-h-[80px]" rows={3} />
+              <Input value={username} onChange={(e) => setUsername(e.target.value)} placeholder={t("reviews.name")} className="border-[#E8E0D0]" />
               <Button onClick={handleSubmit} disabled={!isValid} className="bg-[hsl(var(--gold))] text-white font-bold hover:bg-[hsl(var(--gold-dark))] disabled:opacity-50">
-                Pošalji recenziju
+                {t("reviews.submit")}
               </Button>
             </div>
           ) : (
-            <p className="text-sm font-semibold text-center py-3">✅ Hvala! Recenzija je poslana.</p>
+            <p className="text-sm font-semibold text-center py-3">{t("reviews.thanks")}</p>
           )}
         </div>
       </DialogContent>
@@ -139,65 +126,51 @@ function AllReviewsModal() {
 }
 
 export default function Footer() {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
   const [reviews, setReviews] = useState<FooterReview[]>([]);
 
   useEffect(() => {
-    supabase
-      .from("reviews")
-      .select("id, username, rating, comment")
-      .order("created_at", { ascending: false })
-      .limit(3)
-      .then(({ data }) => {
-        if (data) setReviews(data as FooterReview[]);
-      });
+    supabase.from("reviews").select("id, username, rating, comment").order("created_at", { ascending: false }).limit(3).then(({ data }) => {
+      if (data) setReviews(data as FooterReview[]);
+    });
   }, []);
 
   return (
     <footer className="border-t border-[#E8E0D0] text-[#2D2D2D]" style={{ background: "#FAFAF7" }}>
-      <div className="container py-12 sm:py-14">
-        <div className="grid gap-10 grid-cols-1 text-center sm:text-left sm:grid-cols-2 lg:grid-cols-5">
-          {/* Brand */}
+      <div className="container py-12">
+        <div className="grid gap-10 text-left grid-cols-5">
           <div>
             <BrandLogo variant="small" />
-            <p className="mt-3 text-[13px] leading-relaxed text-[#6B6B6B]">
-              {t("footer.tagline")}
-            </p>
+            <p className="mt-3 text-[13px] leading-relaxed text-[#6B6B6B]">{t("footer.tagline")}</p>
           </div>
 
-          {/* Navigation */}
           <div>
             <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-[#6B6B6B]">{t("footer.navSection")}</h4>
-            <nav className="flex flex-col items-center sm:items-start gap-2.5">
+            <nav className="flex flex-col items-start gap-2.5">
               <Link to="/" className="text-[13px] text-[#6B6B6B] transition-colors hover:text-[hsl(var(--gold))]">{t("footer.navHome")}</Link>
               <Link to="/dolazak" className="text-[13px] text-[#6B6B6B] transition-colors hover:text-[hsl(var(--gold))]">{t("footer.navHow")}</Link>
-              <Link to="/formulari" className="text-[13px] text-[#6B6B6B] transition-colors hover:text-[hsl(var(--gold))]">{t("footer.navFormulari") || "Formulari"}</Link>
-              <Link to="/paketi" className="text-[13px] text-[#6B6B6B] transition-colors hover:text-[hsl(var(--gold))]">Paketi i opcije</Link>
+              <Link to="/formulari" className="text-[13px] text-[#6B6B6B] transition-colors hover:text-[hsl(var(--gold))]">{t("footer.navFormulari")}</Link>
+              <Link to="/paketi" className="text-[13px] text-[#6B6B6B] transition-colors hover:text-[hsl(var(--gold))]">{t("footer.navPaketi")}</Link>
             </nav>
           </div>
 
-          {/* Legal */}
           <div>
             <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-[#6B6B6B]">{t("footer.legalSection")}</h4>
-            <nav className="flex flex-col items-center sm:items-start gap-2.5">
+            <nav className="flex flex-col items-start gap-2.5">
               <Link to="/impressum" className="text-[13px] text-[#6B6B6B] transition-colors hover:text-[hsl(var(--gold))]">{t("footer.imprint")}</Link>
               <Link to="/datenschutz" className="text-[13px] text-[#6B6B6B] transition-colors hover:text-[hsl(var(--gold))]">{t("footer.privacy")}</Link>
               <Link to="/agb" className="text-[13px] text-[#6B6B6B] transition-colors hover:text-[hsl(var(--gold))]">{t("footer.agb")}</Link>
               <Link to="/haftungsausschluss" className="text-[13px] text-[#6B6B6B] transition-colors hover:text-[hsl(var(--gold))]">{t("footer.haftung")}</Link>
               <Link to="/ki-hinweis" className="text-[13px] text-[#6B6B6B] transition-colors hover:text-[hsl(var(--gold))]">{t("footer.kiHinweis")}</Link>
               <Link to="/inhalte-melden" className="text-[13px] text-[#6B6B6B] transition-colors hover:text-[hsl(var(--gold))]">{t("footer.reportContent")}</Link>
-              <button
-                onClick={() => (window as any).__blOpenCookieSettings?.()}
-                className="text-[13px] text-[#6B6B6B] transition-colors hover:text-[hsl(var(--gold))] text-left"
-              >
+              <button onClick={() => (window as any).__blOpenCookieSettings?.()} className="text-[13px] text-[#6B6B6B] transition-colors hover:text-[hsl(var(--gold))] text-left">
                 {t("cookie.footerLink")}
               </button>
             </nav>
           </div>
 
-          {/* Povjerenje — Real Reviews from DB */}
           <div>
-            <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-[#6B6B6B]">Povjerenje</h4>
+            <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-[#6B6B6B]">{t("footer.trust")}</h4>
             <div className="flex flex-col gap-3">
               {reviews.length > 0 ? reviews.map((r) => (
                 <div key={r.id} className="text-left">
@@ -210,18 +183,15 @@ export default function Footer() {
                   <p className="text-[11px] text-[#6B6B6B]/60 mt-0.5">— {r.username}</p>
                 </div>
               )) : (
-                <p className="text-[12px] text-[#6B6B6B]/60">Još nema recenzija.</p>
+                <p className="text-[12px] text-[#6B6B6B]/60">{t("reviews.noReviews")}</p>
               )}
               <AllReviewsModal />
             </div>
           </div>
 
-          {/* Payment */}
           <div>
-            <h4 className="mb-3 text-[11px] font-bold uppercase tracking-[0.15em] text-[#6B6B6B]">
-              {t("footer.paymentMethods")}
-            </h4>
-            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3">
+            <h4 className="mb-3 text-[11px] font-bold uppercase tracking-[0.15em] text-[#6B6B6B]">{t("footer.paymentMethods")}</h4>
+            <div className="flex flex-wrap items-start gap-3">
               <div className="flex h-8 items-center rounded-md border border-[#E8E0D0] bg-white px-2.5" title="Stripe">
                 <CreditCard className="h-4 w-4 text-[#6B6B6B]" />
                 <span className="ml-1.5 text-[10px] font-semibold text-[#6B6B6B]">Stripe</span>
@@ -243,10 +213,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 h-px bg-gradient-to-r from-transparent via-[#E8E0D0] to-transparent" />
-
-        <p className="mt-6 text-center text-sm text-[#6B6B6B]">
-          © {new Date().getFullYear()} BalkanLink. {t("footer.copyright")}
-        </p>
+        <p className="mt-6 text-center text-sm text-[#6B6B6B]">© {new Date().getFullYear()} BalkanLink. {t("footer.copyright")}</p>
       </div>
     </footer>
   );
