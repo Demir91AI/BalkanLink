@@ -104,5 +104,50 @@
       "docCheck": "Dokumenten-Check",
       "offerSeek": "Nudim / Tražim"
     }
+  },
+  "smartGuide": {
+    "title": "Smart Guide – Formulare",
+    "desc": "Schritt-für-Schritt-Anleitungen für alle deutschen Formulare.",
+    "cta": "Guide starten"
+  },
+  "visa": {
+    "title": "Visa Navigator",
+    "desc": "Finde heraus, welches Visum du brauchst.",
+    "cta": "Navigator starten"
+  },
+  "deutsch": {
+    "title": "BalkanLink Deutsch",
+    "desc": "Lerne Deutsch für den Alltag in Deutschland.",
+    "cta": "Kurs starten"
+  },
+  "docCheck": {
+    "title": "Dokumenten-Check",
+    "desc": "Lade Dokumente hoch und erhalte eine Analyse.",
+    "cta": "Jetzt prüfen"
+  },
+  "nudim": {
+    "title": "Nudim / Tražim",
+    "desc": "Finde oder biete Hilfe in der Community.",
+    "cta": "Inserate ansehen"
+  },
+  "balkanci": {
+    "title": "Balkanen in DE",
+    "desc": "Finde Balkanen in deiner Stadt.",
+    "cta": "Karte öffnen"
+  },
+  "jobs": {
+    "title": "Stellenangebote",
+    "desc": "Jobs und Stellenangebote für die Diaspora.",
+    "cta": "Jobs suchen"
+  },
+  "housing": {
+    "title": "Wohnungssuche",
+    "desc": "Tipps und Portale für die Wohnungssuche.",
+    "cta": "Wohnungen suchen"
+  },
+  "calc": {
+    "title": "Kalkulatoren",
+    "desc": "Brutto-Netto, Lebenshaltungskosten und mehr.",
+    "cta": "Berechnen"
   }
 }

@@ -104,5 +104,50 @@
       "docCheck": "Provjera dokumenata",
       "offerSeek": "Nudim / Tražim"
     }
+  },
+  "smartGuide": {
+    "title": "Smart Guide – Formularët",
+    "desc": "Udhëzime hap pas hapi për të gjitha formularët gjermanë.",
+    "cta": "Fillo udhëzuesin"
+  },
+  "visa": {
+    "title": "Navigatori i Vizave",
+    "desc": "Zbulo se cilën vizë të duhet.",
+    "cta": "Fillo navigatorin"
+  },
+  "deutsch": {
+    "title": "BalkanLink Deutsch",
+    "desc": "Mëso gjermanisht për jetën e përditshme.",
+    "cta": "Fillo kursin"
+  },
+  "docCheck": {
+    "title": "Kontrolli i Dokumenteve",
+    "desc": "Ngarko dokumentin dhe merr analizën.",
+    "cta": "Kontrollo tani"
+  },
+  "nudim": {
+    "title": "Ofroj / Kërkoj",
+    "desc": "Gjej ose ofro ndihmë në komunitet.",
+    "cta": "Shiko shpalljet"
+  },
+  "balkanci": {
+    "title": "Ballkanasit në DE",
+    "desc": "Gjej ballkanasit në qytetin tënd.",
+    "cta": "Hap hartën"
+  },
+  "jobs": {
+    "title": "Shpallje pune",
+    "desc": "Vende pune dhe shpallje për diasporën.",
+    "cta": "Kërko punë"
+  },
+  "housing": {
+    "title": "Kërkim banese",
+    "desc": "Këshilla dhe portale për gjetjen e banesës.",
+    "cta": "Kërko banesë"
+  },
+  "calc": {
+    "title": "Kalkulatorë",
+    "desc": "Bruto-neto, kosto jetese dhe më shumë.",
+    "cta": "Llogarit"
   }
 }
