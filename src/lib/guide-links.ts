@@ -142,7 +142,7 @@ export const guideLinkRegistry: Record<string, GuideLinks> = {
     infoUrl: "https://www.kirchenaustritt.de",
   },
   bildungsgutschein: {
-    portalUrl: "",
+    portalUrl: "https://web.arbeitsagentur.de/fbwo/fbwo-ui/pd/anfrage",
     downloadsUrl: "",
     infoUrl: "https://www.arbeitsagentur.de/karriere-und-weiterbildung/bildungsgutschein",
   },
