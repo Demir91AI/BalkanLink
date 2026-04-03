@@ -359,8 +359,8 @@ export default function Index() {
           </div>
         ))}
 
-        {/* Overlay — reduced opacity for clearer images */}
-        <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/35 via-black/15 to-[hsl(var(--warm-cream))]" />
+        {/* Overlay — clean dark tint, no blur, no white wash */}
+        <div className="absolute inset-0 z-[2]" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.30) 85%, rgba(0,0,0,0.45) 100%)" }} />
 
         <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-5 py-16 lg:py-20">
           <div className="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
@@ -435,6 +435,13 @@ export default function Index() {
                   </span>
                 ))}
               </motion.div>
+
+              {/* Balkan flags row */}
+              <div className="mt-6 flex flex-row flex-nowrap items-center justify-center gap-[10px] opacity-90">
+                {["🇧🇦", "🇷🇸", "🇭🇷", "🇲🇪", "🇸🇮", "🇲🇰", "🇦🇱", "🇽🇰"].map((flag) => (
+                  <span key={flag} className="text-2xl leading-none select-none">{flag}</span>
+                ))}
+              </div>
             </motion.div>
           </div>
         </div>
