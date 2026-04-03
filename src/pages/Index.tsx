@@ -8,7 +8,6 @@ import {
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import LanguageSelector from "@/components/LanguageSelector";
-import { Button } from "@/components/ui/button";
 import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
 import PWAInstallBanner from "@/components/PWAInstallBanner";
 import HomeReviews from "@/components/home/HomeReviews";
