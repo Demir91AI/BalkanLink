@@ -105,7 +105,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
-        <GlobalHomeButton />
+        
         <LanguageProvider>
           <CountryProvider>
           <AuthProvider>
