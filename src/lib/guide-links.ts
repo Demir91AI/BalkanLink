@@ -112,7 +112,7 @@ export const guideLinkRegistry: Record<string, GuideLinks> = {
   lernfoerderung: {
     portalUrl: "",
     downloadsUrl: "",
-    infoUrl: "https://www.bmas.de/DE/Arbeit/Grundsicherung-Buergergeld/Bildungspaket/bildungspaket.html",
+    infoUrl: "https://familienportal.de/familienportal/familienleistungen/bildung-und-teilhabe",
   },
   "kita-zuschuss": {
     portalUrl: "",
