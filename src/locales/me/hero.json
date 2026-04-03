@@ -9,5 +9,13 @@
   "language_label": "Crnogorski",
   "badge": "Za balkansku dijasporu u Njemačkoj",
   "scroll_hint": "Skrolaj dolje",
-  "trusted_by": "Koriste ga hiljade korisnika"
+  "trusted_by": "Koriste ga hiljade korisnika",
+  "bullet": {
+    "simple": "Bez komplikacija",
+    "language": "Na tvom jeziku",
+    "verified": "Provjerene informacije"
+  },
+  "title_highlight": "bez stresa.",
+  "ctaPrimary": "Započni vodič",
+  "ctaSecondary": "Ili pitaj BalkanLink asistenta"
 }
