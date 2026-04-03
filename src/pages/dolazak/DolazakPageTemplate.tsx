@@ -26,7 +26,7 @@ const fade = (i: number) => ({ initial: { opacity: 0, y: 14 }, animate: { opacit
 
 export default function DolazakPageTemplate({ title, subtitle, sections, links }: DolazakPageProps) {
   const navigate = useNavigate();
-  const { t } = useLanguage();
+  const { t } = useTranslation("common");
 
   const handleBack = () => {
     navigateBackOrHome(navigate);
