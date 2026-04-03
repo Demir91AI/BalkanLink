@@ -418,3 +418,25 @@ body.mobile-preview #root {
   border-right: 1px solid hsl(215 20% 20%);
   min-height: 100vh;
 }
+
+/* Global injected Home button next to every Nazad */
+.bl-injected-home {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  width: 38px;
+  border: 1px solid #E0D8C8;
+  border-radius: 8px;
+  background: #FFFFFF;
+  color: #2D2D2D;
+  cursor: pointer;
+  transition: background 150ms ease, box-shadow 150ms ease;
+  margin-left: 6px;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+.bl-injected-home:hover {
+  background: #F0EBE0;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.10);
+}
