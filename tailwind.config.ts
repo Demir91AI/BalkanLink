@@ -57,6 +57,10 @@ export default {
           DEFAULT: "hsl(var(--brand-orange))",
           foreground: "hsl(var(--brand-orange-foreground))",
         },
+        "warm-cream": {
+          DEFAULT: "hsl(var(--warm-cream))",
+          alt: "hsl(var(--warm-cream-alt))",
+        },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",

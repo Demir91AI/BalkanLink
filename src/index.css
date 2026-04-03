@@ -6,31 +6,31 @@
 
 @layer base {
   :root {
-    --background: 220 30% 96%;
-    --foreground: 215 50% 10%;
+    --background: 40 20% 97%;
+    --foreground: 240 6% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 50% 10%;
+    --card-foreground: 240 6% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 50% 10%;
+    --popover-foreground: 240 6% 15%;
 
-    --primary: 215 68% 14%;
+    --primary: 240 6% 15%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 18% 93%;
-    --secondary-foreground: 215 50% 14%;
+    --secondary: 36 14% 93%;
+    --secondary-foreground: 240 6% 15%;
 
-    --muted: 220 16% 95%;
-    --muted-foreground: 220 12% 42%;
+    --muted: 36 14% 95%;
+    --muted-foreground: 0 0% 42%;
 
-    --accent: 220 18% 91%;
-    --accent-foreground: 215 50% 14%;
+    --accent: 36 18% 91%;
+    --accent-foreground: 240 6% 15%;
 
-    --gold: 45 93% 49%;
-    --gold-foreground: 45 10% 8%;
-    --gold-light: 45 88% 58%;
-    --gold-dark: 45 80% 40%;
+    --gold: 43 52% 54%;
+    --gold-foreground: 0 0% 100%;
+    --gold-light: 43 52% 62%;
+    --gold-dark: 43 52% 42%;
 
     --brand-orange: 38 91% 55%;
     --brand-orange-foreground: 38 10% 8%;
@@ -38,9 +38,9 @@
     --destructive: 0 70% 40%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 16% 89%;
-    --input: 220 16% 89%;
-    --ring: 215 68% 14%;
+    --border: 36 30% 86%;
+    --input: 36 30% 86%;
+    --ring: 43 52% 54%;
 
     --radius: 0.625rem;
 
@@ -49,14 +49,17 @@
     --warning: 0 70% 40%;
     --warning-foreground: 0 0% 100%;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 220 25% 20%;
-    --sidebar-primary: 215 68% 14%;
+    --sidebar-background: 215 55% 7%;
+    --sidebar-foreground: 210 20% 90%;
+    --sidebar-primary: 43 52% 54%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 15% 93%;
-    --sidebar-accent-foreground: 220 30% 20%;
-    --sidebar-border: 220 13% 90%;
-    --sidebar-ring: 215 68% 14%;
+    --sidebar-accent: 215 30% 13%;
+    --sidebar-accent-foreground: 210 20% 90%;
+    --sidebar-border: 215 30% 15%;
+    --sidebar-ring: 43 52% 54%;
+
+    --warm-cream: 36 33% 95%;
+    --warm-cream-alt: 36 38% 93%;
   }
 
   .dark {
@@ -81,10 +84,10 @@
     --accent: 215 30% 13%;
     --accent-foreground: 210 30% 90%;
 
-    --gold: 45 85% 46%;
-    --gold-foreground: 45 10% 95%;
-    --gold-light: 45 80% 56%;
-    --gold-dark: 45 70% 36%;
+    --gold: 43 52% 54%;
+    --gold-foreground: 0 0% 100%;
+    --gold-light: 43 52% 62%;
+    --gold-dark: 43 52% 42%;
 
     --brand-orange: 38 85% 52%;
     --brand-orange-foreground: 38 10% 95%;
@@ -119,10 +122,12 @@
 
   body {
     @apply bg-background text-foreground font-body antialiased;
+    font-size: 15px;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading tracking-tight;
+    color: hsl(240 6% 15%);
   }
 }
 
@@ -131,7 +136,7 @@
     @apply inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all duration-200;
     color: hsl(220 12% 35%);
     background: #ffffff;
-    border: 1px solid hsl(220 16% 82%);
+    border: 1px solid hsl(36 30% 86%);
   }
   .back-button svg {
     width: 16px;
@@ -139,10 +144,9 @@
     color: hsl(220 12% 35%);
   }
   .back-button:hover {
-    background: hsl(220 16% 97%);
-    border-color: hsl(220 16% 75%);
+    background: hsl(36 14% 97%);
+    border-color: hsl(36 30% 78%);
   }
-  /* On dark parent (e.g. primary hero sections) */
   .bg-primary .back-button,
   [class*="bg-primary"] .back-button,
   [class*="bg-gradient"] .back-button {
@@ -178,7 +182,6 @@
     border-color: hsl(var(--gold));
   }
 
-  /* Gold gradient button */
   .btn-gold-gradient {
     background: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-light)) 50%, hsl(var(--gold)) 100%);
     color: hsl(var(--gold-foreground));
@@ -190,28 +193,23 @@
     transform: translateY(-2px);
   }
 
-  /* Section separator gradient */
   .section-separator {
     background: linear-gradient(90deg, transparent, hsl(var(--gold) / 0.2), transparent);
     height: 1px;
   }
 
-  /* Premium dark section bg */
   .bg-navy {
     background: linear-gradient(135deg, hsl(215 68% 8%) 0%, hsl(215 68% 14%) 100%);
   }
 
-  /* HUD neon lines — sharp layer */
   .hud-line {
     background: linear-gradient(135deg, rgba(34, 211, 238, 0.65), rgba(56, 189, 248, 0.6), rgba(52, 211, 153, 0.65));
     filter: drop-shadow(0 0 4px rgba(34, 211, 238, 0.5)) drop-shadow(0 0 10px rgba(34, 211, 238, 0.3));
   }
-  /* HUD neon lines — bloom/glow layer */
   .hud-glow {
     background: linear-gradient(135deg, rgba(34, 211, 238, 0.35), rgba(56, 189, 248, 0.3), rgba(52, 211, 153, 0.35));
     filter: blur(10px);
   }
-  /* HUD neon node dots */
   .hud-node {
     width: 5px;
     height: 5px;
@@ -220,19 +218,10 @@
     box-shadow: 0 0 6px 2px rgba(34, 211, 238, 0.6), 0 0 16px 4px rgba(34, 211, 238, 0.3), 0 0 24px 6px rgba(52, 211, 153, 0.15);
   }
 
-  /* ECG pulse line animation */
   @keyframes ecg-draw {
-    0% {
-      stroke-dashoffset: 600;
-      opacity: 0.3;
-    }
-    40% {
-      opacity: 1;
-    }
-    100% {
-      stroke-dashoffset: 0;
-      opacity: 0.3;
-    }
+    0% { stroke-dashoffset: 600; opacity: 0.3; }
+    40% { opacity: 1; }
+    100% { stroke-dashoffset: 0; opacity: 0.3; }
   }
   .animate-ecg-draw {
     stroke-dasharray: 600;
@@ -240,30 +229,17 @@
     animation: ecg-draw 2.5s ease-in-out infinite;
   }
 
-  /* Infinite horizontal scroll for flow banners */
   @keyframes scroll-x {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
   }
   @keyframes scroll-left {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
   }
   @keyframes marquee {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
   }
   .animate-scroll-x {
     animation: scroll-x 60s linear infinite;
@@ -280,17 +256,26 @@
   }
 }
 
+/* ─── Sidebar slide animation ─── */
+[data-sidebar="sidebar"] {
+  transition: transform 300ms ease-in-out !important;
+}
+
+/* Sidebar backdrop overlay for mobile */
+[data-sidebar="sidebar"] ~ [data-sidebar="trigger-backdrop"],
+.sidebar-backdrop {
+  transition: opacity 300ms ease-in-out !important;
+}
+
 /* ─── Global Responsive Rules ─── */
 @layer base {
-  /* Mobile-first typography */
   @media (max-width: 767px) {
-    h1 { font-size: 1.5rem !important; }       /* 24px */
-    h2 { font-size: 1.25rem !important; }      /* 20px */
+    h1 { font-size: 1.5rem !important; }
+    h2 { font-size: 1.25rem !important; }
     h3 { font-size: 1.1rem !important; }
-    body, p, span, li, td, th { font-size: 0.875rem; } /* 14px */
+    body, p, span, li, td, th { font-size: 0.875rem; }
   }
 
-  /* Touch-friendly interactive elements */
   @media (max-width: 767px) {
     button, a[role="button"], [role="tab"], summary {
       min-height: 44px;
@@ -319,27 +304,27 @@
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.15s;
-  border: 1px solid rgba(255,255,255,0.07);
-  background: rgba(255,255,255,0.03);
+  border: 1px solid hsl(36 30% 86%);
+  background: hsl(0 0% 100%);
   min-height: 80px;
   justify-content: center;
 }
 .aufenthalt-country-btn.active {
-  background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(139,92,246,0.2));
-  border-color: rgba(99,102,241,0.5);
+  background: linear-gradient(135deg, hsl(43 52% 54% / 0.1), hsl(43 52% 54% / 0.15));
+  border-color: hsl(43 52% 54% / 0.5);
 }
 .aufenthalt-country-btn .flag {
   font-size: 32px;
 }
 .aufenthalt-country-btn .name {
   font-size: 11px;
-  color: #64748b;
+  color: hsl(0 0% 42%);
   font-weight: 500;
   text-align: center;
   line-height: 1.2;
 }
 .aufenthalt-country-btn.active .name {
-  color: #a5b4fc;
+  color: hsl(43 52% 44%);
 }
 @media (max-width: 767px) {
   .aufenthalt-country-btn .flag { font-size: 28px; }
@@ -348,7 +333,7 @@
 
 .aufenthalt-card-header {
   padding: 20px 24px;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid hsl(36 30% 86%);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -397,7 +382,6 @@
   .aufenthalt-footer-links a { width: 100%; text-align: center; }
 }
 
-/* Blue Card info grid */
 .aufenthalt-info-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -409,7 +393,6 @@
   }
 }
 
-/* ─── KindergeldMuster Responsive ─── */
 @media (max-width: 767px) {
   .kg1-scale {
     transform: none !important;
@@ -423,7 +406,6 @@
   #kg1-paper input, #kg1-paper select { font-size: 12px !important; }
 }
 
-/* Dev preview switcher — mobile simulation */
 body.mobile-preview #root {
   max-width: 390px;
   margin-left: auto;
