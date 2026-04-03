@@ -197,7 +197,7 @@ export function AppSidebar() {
                           }`}
                         />
                         {!collapsed && (
-                          <span className={`text-[14px] font-medium leading-[1.3] ${isActive ? "text-[hsl(var(--gold))]" : "text-white/60"}`}>
+                          <span className={`text-[14px] font-medium leading-[1.3] whitespace-nowrap overflow-hidden text-ellipsis ${isActive ? "text-[hsl(var(--gold))]" : "text-white/60"}`}>
                             {item.title}
                           </span>
                         )}
