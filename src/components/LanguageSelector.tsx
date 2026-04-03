@@ -1,24 +1,31 @@
 import { useState, useRef, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
-import { useTranslation } from "@/i18n/useTranslation";
+import { useTranslation } from "react-i18next";
+import i18n from "@/i18n";
 
 const LANG_OPTIONS: { code: string; label: string; flag: string }[] = [
   { code: "de", label: "Deutsch", flag: "https://flagcdn.com/h40/de.png" },
   { code: "bs", label: "Bosanski", flag: "https://flagcdn.com/h40/ba.png" },
   { code: "hr", label: "Hrvatski", flag: "https://flagcdn.com/h40/hr.png" },
   { code: "sr", label: "Srpski", flag: "https://flagcdn.com/h40/rs.png" },
-  { code: "en", label: "English", flag: "https://flagcdn.com/h40/gb.png" },
-  { code: "mk", label: "Македонски", flag: "https://flagcdn.com/h40/mk.png" },
+  { code: "me", label: "Crnogorski", flag: "https://flagcdn.com/h40/me.png" },
   { code: "sl", label: "Slovenščina", flag: "https://flagcdn.com/h40/si.png" },
+  { code: "mk", label: "Македонски", flag: "https://flagcdn.com/h40/mk.png" },
   { code: "sq", label: "Shqip", flag: "https://flagcdn.com/h40/al.png" },
 ];
 
 export default function LanguageSelector() {
-  const { currentLanguage, setLanguage } = useTranslation();
+  const { i18n: instance } = useTranslation();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  const current = LANG_OPTIONS.find((l) => l.code === currentLanguage) || LANG_OPTIONS[0];
+  const current = LANG_OPTIONS.find((l) => l.code === instance.language) || LANG_OPTIONS[0];
+
+  const handleChange = (code: string) => {
+    i18n.changeLanguage(code);
+    localStorage.setItem("app_language", code);
+    setOpen(false);
+  };
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {
@@ -53,14 +60,11 @@ export default function LanguageSelector() {
           {LANG_OPTIONS.map((opt) => (
             <button
               key={opt.code}
-              onClick={() => {
-                setLanguage(opt.code);
-                setOpen(false);
-              }}
+              onClick={() => handleChange(opt.code)}
               className="flex w-full items-center gap-3 px-4 py-[10px] text-left transition-colors hover:bg-[#FFF8EC]"
               style={{
-                borderLeft: opt.code === currentLanguage ? "3px solid #C9A84C" : "3px solid transparent",
-                fontWeight: opt.code === currentLanguage ? 700 : 400,
+                borderLeft: opt.code === instance.language ? "3px solid #C9A84C" : "3px solid transparent",
+                fontWeight: opt.code === instance.language ? 700 : 400,
               }}
             >
               <img src={opt.flag} alt="" className="h-[20px] w-auto" />
