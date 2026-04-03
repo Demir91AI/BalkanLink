@@ -138,10 +138,10 @@ export function AppSidebar() {
                         />
                         {!collapsed && (
                           <div className="flex-1 min-w-0">
-                            <span className={`block text-[14px] font-semibold leading-[1.3] ${isActive ? "text-[hsl(var(--gold))]" : "text-white"}`}>
+                            <span className={`block text-[14px] font-semibold leading-[1.3] whitespace-nowrap overflow-hidden text-ellipsis ${isActive ? "text-[hsl(var(--gold))]" : "text-white"}`}>
                               {item.title}
                             </span>
-                            <span className="block text-[12px] text-gray-400 mt-0.5 leading-[1.3]">{item.desc}</span>
+                            <span className="block text-[12px] text-gray-400 mt-0.5 leading-[1.3] whitespace-nowrap overflow-hidden text-ellipsis">{item.desc}</span>
                           </div>
                         )}
                         {!collapsed && item.premium && (
