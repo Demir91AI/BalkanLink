@@ -38,7 +38,7 @@ const VALID_GUIDE_SLUGS = new Set([
   "kindergeld", "kinderzuschlag", "elterngeld", "bildung-teilhabe", "unterhaltsvorschuss",
   "elternzeit", "mutterschutz", "mutterschaftsleistungen", "unterhalt", "wohngeld",
   "buergergeld", "heizkostenzuschuss", "arbeitslosengeld", "kurzarbeitergeld", "krankengeld",
-  "pflegegrad", "reha", "bafoeg", "schueler-bafoeg", "lernfoerderung", "kita-zuschuss",
+  "pflegegrad", "reha", "bafoeg", "lernfoerderung", "kita-zuschuss",
   "mutterschaftsgeld", "familienversicherung", "steuerklassenwechsel", "kirchenaustritt",
   "gez-anmeldung", "bildungsgutschein", "integrationskurs", "fuehrungszeugnis",
   "aufenthaltstitel-verlaengerung", "anmeldung", "wbs", "krippengeld-bayern", "sozialhilfe",

@@ -119,8 +119,7 @@ export const formCatalog: FormGroup[] = [
     icon: "🎓",
     title: "Škola i obrazovanje",
     items: [
-      { slug: "bafoeg", label: "BAföG", desc: "Finansijska pomoć za školovanje ili studij." },
-      { slug: "schueler-bafoeg", label: "Schüler-BAföG", desc: "Finansijska pomoć za učenike srednjih škola." },
+      { slug: "bafoeg", label: "BAföG", desc: "Finansijska pomoć za školovanje ili studij (studenti, učenici, strukovno usavršavanje)." },
       { slug: "integrationskurs", label: "Integrationskurs", desc: "Kurs njemačkog jezika i orijentacije." },
       { slug: "lernfoerderung", label: "Lernförderung", desc: "Pomoć za dopunsku nastavu za djecu." },
     ],

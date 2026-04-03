@@ -34,7 +34,7 @@ const FORM_CATALOG: { slug: string; label: string; desc: string }[] = [
   { slug: "krankengeld", label: "Krankengeld", desc: "Naknada pri bolesti." },
   { slug: "bildungsgutschein", label: "Bildungsgutschein", desc: "Vaučer za edukaciju." },
   { slug: "bafoeg", label: "BAföG", desc: "Pomoć za studij." },
-  { slug: "schueler-bafoeg", label: "Schüler-BAföG", desc: "Pomoć za učenike." },
+  
   { slug: "integrationskurs", label: "Integrationskurs", desc: "Kurs njemačkog." },
   { slug: "lernfoerderung", label: "Lernförderung", desc: "Dopunska nastava." },
   { slug: "wbs", label: "WBS", desc: "Socijalni stanovi." },
