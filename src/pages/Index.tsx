@@ -9,6 +9,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
 import PWAInstallBanner from "@/components/PWAInstallBanner";
+import HomeReviews from "@/components/home/HomeReviews";
 import { PRICING } from "@/lib/config";
 
 import realcoreDigitalLogo from "@/assets/realcore-digital-logo.png";
@@ -41,15 +42,15 @@ const trustBadgeKeys = ["hero.bullet.simple", "hero.bullet.language", "hero.bull
 const MAILTO_AD = `mailto:kontakt@balkanlink.de?subject=${encodeURIComponent("Oglašavanje na BalkanLink")}&body=${encodeURIComponent("Pozdrav,\n\nZanima me oglašavanje na BalkanLink platformi.\n\nNaziv firme:\nVrsta usluge:\nGrad:\nBudžet:\n")}`;
 
 const serviceCards = [
-  { emoji: "📋", icon: FileText, title: "Smart Guide — Formulari", desc: "Popuni svaki njemački formular korak po korak.", cta: "Otvori Smart Guide →", to: "/formulari", premium: true },
-  { emoji: "🛂", icon: Shield, title: "Visa Navigator", desc: "Pronađi pravu vizu ili boravišnu dozvolu za svoju situaciju.", cta: "Otvori Navigator →", to: "/dolazak/boravisna-dozvola", premium: true },
-  { emoji: "🎓", icon: GraduationCap, title: "BalkanLink Deutsch", desc: "Nauči njemački za stvarni život.", cta: "Počni učiti →", to: "/deutsch-trainer", premium: true },
-  { emoji: "📸", icon: Camera, title: "Dokumenten-Check", desc: "Razumij svaki dokument odmah.", cta: "Provjeri dokument →", to: "/dokumenten-check", premium: true },
-  { emoji: "📢", icon: Megaphone, title: "Nudim / Tražim", desc: "Ponudi ili pronađi uslugu.", cta: "Pregledaj →", to: "/nudim-trazim", premium: false },
-  { emoji: "🗺️", icon: Map, title: "Balkanci u DE", desc: "Vidi gdje smo svi na mapi.", cta: "Otvori mapu →", to: "/mapa", premium: false },
-  { emoji: "🔍", icon: Search, title: "Pretraga poslova", desc: "Korisni linkovi za posao.", cta: "Traži →", to: "/stellenangebote", premium: false },
-  { emoji: "🏠", icon: Home, title: "Pretraga stanova", desc: "Korisni linkovi za stan.", cta: "Traži →", to: "/wohnungen", premium: false },
-  { emoji: "🧮", icon: Calculator, title: "Kalkulatori", desc: "Brutto-netto i drugi alati.", cta: "Izračunaj →", to: "/kalkulatori", premium: false },
+  { emoji: "📋", icon: FileText, title: "Smart Guide — Formulari", desc: "Popuni svaki njemački formular korak po korak.", cta: "Otvori Smart Guide", to: "/formulari", premium: true },
+  { emoji: "🛂", icon: Shield, title: "Visa Navigator", desc: "Pronađi pravu vizu ili boravišnu dozvolu za svoju situaciju.", cta: "Otvori Navigator", to: "/dolazak/boravisna-dozvola", premium: true },
+  { emoji: "🎓", icon: GraduationCap, title: "BalkanLink Deutsch", desc: "Nauči njemački za stvarni život.", cta: "Počni učiti", to: "/deutsch-trainer", premium: true },
+  { emoji: "📸", icon: Camera, title: "Dokumenten-Check", desc: "Razumij svaki dokument odmah.", cta: "Provjeri dokument", to: "/dokumenten-check", premium: true },
+  { emoji: "📢", icon: Megaphone, title: "Nudim / Tražim", desc: "Ponudi ili pronađi uslugu.", cta: "Pregledaj", to: "/nudim-trazim", premium: false },
+  { emoji: "🗺️", icon: Map, title: "Balkanci u DE", desc: "Vidi gdje smo svi na mapi.", cta: "Otvori mapu", to: "/mapa", premium: false },
+  { emoji: "🔍", icon: Search, title: "Pretraga poslova", desc: "Korisni linkovi za posao.", cta: "Traži", to: "/stellenangebote", premium: false },
+  { emoji: "🏠", icon: Home, title: "Pretraga stanova", desc: "Korisni linkovi za stan.", cta: "Traži", to: "/wohnungen", premium: false },
+  { emoji: "🧮", icon: Calculator, title: "Kalkulatori", desc: "Brutto-netto i drugi alati.", cta: "Izračunaj", to: "/kalkulatori", premium: false },
 ];
 
 const placeholderAds = [
@@ -60,6 +61,7 @@ const placeholderAds = [
   { name: "BalkanLink", slogan: "Povećajte vidljivost", desc: "Istaknite svoju ponudu na platformi.", logo: "/icons/icon-192x192.png" },
 ];
 
+/* ─── Infinite scroll hook ─── */
 function useInfiniteScroll(speed = 0.5, resumeDelay = 3000) {
   const ref = useRef<HTMLDivElement>(null);
   const rafRef = useRef(0);
@@ -176,6 +178,7 @@ function CarouselArrows({ onLeft, onRight }: { onLeft: () => void; onRight: () =
   );
 }
 
+/* ─── Services Carousel ─── */
 function ServicesCarousel() {
   const doubled = [...serviceCards, ...serviceCards];
   const { ref, pause, scheduleResume, scrollByCard, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.6, 3000);
@@ -222,6 +225,7 @@ function ServicesCarousel() {
   );
 }
 
+/* ─── Showcase Carousel ─── */
 function ShowcaseCarousel() {
   const doubled = [...premiumShowcaseFirms, ...premiumShowcaseFirms];
   const { ref, pause, scheduleResume, scrollByCard, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.4, 4000);
@@ -275,11 +279,11 @@ function ShowcaseCarousel() {
                 </Button>
                 <Button asChild variant="outline" size="sm" className="h-8 rounded-lg border-[#E8E0D0] px-4 text-xs font-semibold text-[#2D2D2D] hover:bg-[hsl(var(--warm-cream))]">
                   {firm.contactUrl ? (
-                    <a href={firm.contactUrl} target="_blank" rel="noopener noreferrer">Kontakt <ArrowRight className="ml-1 h-3 w-3" /></a>
+                    <a href={firm.contactUrl} target="_blank" rel="noopener noreferrer">Kontakt</a>
                   ) : firm.phone ? (
-                    <a href={`tel:${firm.phone}`}>Kontakt <ArrowRight className="ml-1 h-3 w-3" /></a>
+                    <a href={`tel:${firm.phone}`}>Kontakt</a>
                   ) : (
-                    <Link to={`/firma/${firm.slug}`}>Kontakt <ArrowRight className="ml-1 h-3 w-3" /></Link>
+                    <Link to={`/firma/${firm.slug}`}>Kontakt</Link>
                   )}
                 </Button>
               </div>
@@ -291,9 +295,10 @@ function ShowcaseCarousel() {
   );
 }
 
+/* ─── Ad Flow Section ─── */
 function AdFlowSection() {
   const doubled = [...placeholderAds, ...placeholderAds];
-  const { ref, pause, scheduleResume, scrollByCard, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.5);
+  const { ref, pause, scheduleResume, scrollByCard, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.7);
   return (
     <section className="py-10 sm:py-12 border-t border-[#E8E0D0] bg-[hsl(var(--warm-cream))] overflow-hidden">
       <div className="container mb-5">
@@ -332,7 +337,7 @@ function AdFlowSection() {
                 <p className="text-xs text-[#6B6B6B] mt-1 line-clamp-2">{ad.desc}</p>
                 <div className="mt-auto pt-3">
                   <span className="inline-flex items-center gap-1.5 rounded-md border border-[hsl(var(--gold))] px-4 py-2 text-[13px] font-semibold text-[hsl(var(--gold))] transition-colors group-hover:bg-[hsl(var(--gold))]/10">
-                    {ad.href ? "Mehr erfahren →" : "Kontakt →"}
+                    {ad.href ? "Mehr erfahren" : "Kontakt"}
                   </span>
                 </div>
               </div>
@@ -344,6 +349,7 @@ function AdFlowSection() {
   );
 }
 
+/* ─── Main Page ─── */
 export default function Index() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const { t } = useLanguage();
@@ -367,7 +373,7 @@ export default function Index() {
 
   return (
     <div className="relative bg-[hsl(var(--warm-cream))]">
-      {/* ─── HERO (dark section with rotating images) ─── */}
+      {/* ─── HERO ─── */}
       <section className="relative min-h-[92vh] overflow-hidden">
         {slides.map((slide, idx) => (
           <div
@@ -398,9 +404,13 @@ export default function Index() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="flex flex-col items-center text-center"
             >
+              {/* HERO TITLE — single line, responsive font */}
               <h1
-                className="mx-auto max-w-[700px] font-heading text-2xl font-black leading-[1.15] tracking-tight text-white sm:text-3xl md:text-4xl lg:text-[3.4rem]"
-                style={{ textShadow: "0 4px 30px rgba(0,0,0,0.5)" }}
+                className="mx-auto max-w-[700px] font-heading font-black leading-[1.15] tracking-tight text-white whitespace-nowrap"
+                style={{
+                  fontSize: "clamp(1.6rem, 4vw, 3.4rem)",
+                  textShadow: "0 4px 30px rgba(0,0,0,0.5)",
+                }}
               >
                 {t("hero.title")}{" "}
                 <span className="text-[hsl(var(--gold))] drop-shadow-[0_0_24px_rgba(201,168,76,0.5)]">
@@ -408,32 +418,39 @@ export default function Index() {
                 </span>
               </h1>
 
+              {/* SUBTITLE — single line on desktop, max 2 on mobile */}
               <p
-                className="mx-auto mt-5 max-w-[550px] text-sm font-medium leading-relaxed text-white/80 sm:text-base md:text-lg lg:mt-6"
-                style={{ textShadow: "0 2px 12px rgba(0,0,0,0.4)" }}
+                className="mx-auto mt-5 max-w-[600px] font-medium leading-relaxed text-white/90 sm:whitespace-nowrap"
+                style={{
+                  fontSize: "clamp(0.8rem, 1.8vw, 1.15rem)",
+                  textShadow: "0 2px 12px rgba(0,0,0,0.4)",
+                }}
               >
                 {t("hero.subtitle")}
               </p>
 
+              {/* BUTTONS — NO arrow icons */}
               <div className="mt-6 flex flex-row items-center justify-center gap-4 flex-wrap">
                 <Button
                   onClick={() => navigate("/formulari")}
-                  className="h-12 rounded-full bg-[hsl(var(--gold))] px-8 text-base font-bold text-white shadow-[0_4px_24px_rgba(201,168,76,0.4)] hover:bg-[hsl(var(--gold-dark))] hover:shadow-[0_8px_36px_rgba(201,168,76,0.55)] hover:scale-[1.03] transition-all duration-300 sm:h-14 sm:px-10 sm:text-lg"
+                  className="h-12 rounded-full bg-[hsl(var(--gold))] px-8 text-base font-bold text-white shadow-[0_4px_24px_rgba(201,168,76,0.4)] hover:bg-[hsl(var(--gold-dark))] hover:shadow-[0_8px_36px_rgba(201,168,76,0.55)] hover:scale-[1.03] transition-all duration-300 sm:h-14 sm:px-10 sm:text-lg text-center"
                 >
                   {t("hero.ctaPrimary")}
-                  <ArrowRight className="ml-1 h-4 w-4 sm:h-5 sm:w-5" />
                 </Button>
 
                 <Link
                   to="/qa"
-                  className="group flex items-center gap-1.5 text-sm font-medium text-white/60 transition-colors hover:text-[hsl(var(--gold))]"
+                  className="group flex items-center gap-1.5 text-sm font-medium text-white/70 transition-colors hover:text-[hsl(var(--gold))]"
                 >
                   {t("hero.ctaSecondary")}
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>
 
-              <p className="mx-auto mt-4 max-w-sm text-center text-[10px] leading-relaxed text-white/30">
+              {/* DISCLAIMER — high contrast */}
+              <p
+                className="mx-auto mt-4 max-w-sm text-center text-[11px] leading-relaxed text-white font-medium"
+                style={{ textShadow: "0 1px 3px rgba(0,0,0,0.8)" }}
+              >
                 BalkanLink je edukativna platforma. Sadržaj nije pravni savjet.
               </p>
 
@@ -511,6 +528,9 @@ export default function Index() {
       {/* ─── OGLAŠAVANJE ─── */}
       <AdFlowSection />
 
+      {/* ─── REVIEWS (Povjerenje) ─── */}
+      <HomeReviews />
+
       {/* ─── PREMIUM CTA ─── */}
       <section className="py-16 sm:py-20 bg-white border-t border-[#E8E0D0]">
         <div className="container">
@@ -537,7 +557,6 @@ export default function Index() {
                 className="w-full sm:w-auto h-12 rounded-full bg-[hsl(var(--gold))] px-8 text-base font-bold text-white shadow-[0_4px_24px_rgba(201,168,76,0.35)] hover:bg-[hsl(var(--gold-dark))] hover:shadow-[0_8px_36px_rgba(201,168,76,0.5)] hover:scale-[1.03] transition-all duration-300"
               >
                 Pogledaj Premium
-                <ArrowRight className="ml-1.5 h-4 w-4" />
               </Button>
               <Button
                 variant="outline"
@@ -551,7 +570,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* PWA Install Banner */}
       <PWAInstallBanner />
     </div>
   );
