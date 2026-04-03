@@ -3,7 +3,7 @@ import PageNav from "@/components/navigation/PageNav";
 export default function Nutzungsbedingungen() {
   return (
     <>
-    <SubpageNav />
+    <PageNav />
     <div className="container max-w-3xl py-16">
       <h1 className="mb-10 text-3xl font-bold">Allgemeine Nutzungsbedingungen</h1>
       <div className="space-y-8 text-sm leading-relaxed text-muted-foreground">

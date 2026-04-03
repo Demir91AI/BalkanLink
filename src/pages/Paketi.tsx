@@ -30,7 +30,7 @@ export default function Paketi() {
 
   return (
     <div className="min-h-screen" style={{ background: "#0B0F1A" }}>
-      <SubpageNav />
+      <PageNav />
 
       {/* HERO */}
       <section className="py-14 text-center px-4">

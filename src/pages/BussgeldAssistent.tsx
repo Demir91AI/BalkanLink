@@ -60,7 +60,7 @@ export default function BussgeldAssistent() {
 
   return (
     <div className="min-h-screen pb-16">
-      <SubpageNav />
+      <PageNav />
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-muted/40 py-10 px-4">
         <div className="mx-auto max-w-3xl text-center">

@@ -308,7 +308,7 @@ export default function Putovanja() {
 
   return (
     <>
-      <SubpageNav />
+      <PageNav />
       {/* ── Hero ── */}
       <section className="relative overflow-hidden" style={{ background: "#0F1B2D" }}>
         <div className="absolute inset-0 bg-gradient-to-br from-[#E3B341]/5 via-transparent to-[#E3B341]/3" />

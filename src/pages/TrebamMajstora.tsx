@@ -59,7 +59,7 @@ export default function TrebamMajstora() {
 
   return (
     <div className="min-h-screen bg-muted/30">
-      <SubpageNav />
+      <PageNav />
       <section className="bg-primary py-12 text-primary-foreground md:py-16">
         <div className="container max-w-4xl text-center">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm">
