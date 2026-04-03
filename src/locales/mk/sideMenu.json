@@ -27,5 +27,16 @@
   "jobs": "Огласи за работа",
   "housing": "Станови",
   "kalkulator": "Калкулатори",
-  "templates": "Предлошки"
+  "templates": "Предлошки",
+  "dolazakGroup": "Доаѓање во Германија",
+  "anmeldung": "Пријава и живеалиште",
+  "aufenthalt": "Дозвола за престој и виза",
+  "steuerId": "Steuer-ID и даночна класа",
+  "krankenversicherung": "Здравствено осигурување",
+  "bankkonto": "Отворање банкарска сметка",
+  "sozialversicherung": "Социјално осигурување",
+  "gez": "Rundfunkbeitrag (GEZ)",
+  "fuehrerschein": "Возачка дозвола",
+  "fahrzeugzulassung": "Регистрација на возило (Kfz)",
+  "ersteSchritte": "Први чекори – Чеклиста"
 }

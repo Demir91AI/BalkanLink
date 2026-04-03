@@ -27,5 +27,16 @@
   "jobs": "Oglasi za posao",
   "housing": "Stanovi",
   "kalkulator": "Kalkulatori",
-  "templates": "Predlošci"
+  "templates": "Predlošci",
+  "dolazakGroup": "Dolazak u Njemačku",
+  "anmeldung": "Anmeldung & Prebivalište",
+  "aufenthalt": "Boravišna dozvola & Viza",
+  "steuerId": "Steuer-ID & Porezna klasa",
+  "krankenversicherung": "Zdravstveno osiguranje",
+  "bankkonto": "Otvaranje bankovnog računa",
+  "sozialversicherung": "Socijalno osiguranje",
+  "gez": "Rundfunkbeitrag (GEZ)",
+  "fuehrerschein": "Vozačka dozvola",
+  "fahrzeugzulassung": "Registracija vozila (Kfz)",
+  "ersteSchritte": "Prvi koraci – Checklista"
 }
