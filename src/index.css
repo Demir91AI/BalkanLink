@@ -137,19 +137,30 @@
 
 @layer utilities {
   .back-button {
-    @apply inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all duration-200;
-    color: hsl(220 12% 35%);
-    background: #ffffff;
-    border: 1px solid hsl(36 30% 86%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: 40px;
+    padding: 0 18px;
+    background: #FFFFFF;
+    border: 1.5px solid #C4B49A;
+    border-radius: 8px;
+    color: #2D2D2D;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 150ms ease;
   }
   .back-button svg {
     width: 16px;
     height: 16px;
-    color: hsl(220 12% 35%);
+    color: #2D2D2D;
   }
   .back-button:hover {
-    background: hsl(36 14% 97%);
-    border-color: hsl(36 30% 78%);
+    background: #F5EFE6;
+    border-color: #A89070;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.10);
   }
   .bg-primary .back-button,
   [class*="bg-primary"] .back-button,
