@@ -212,24 +212,17 @@ function ServicesCarousel() {
   );
 }
 
-/* ─── Showcase Carousel ─── */
+/* ─── Showcase Carousel — CSS endless strip ─── */
 function ShowcaseCarousel() {
   const doubled = [...premiumShowcaseFirms, ...premiumShowcaseFirms];
-  const { ref, pause, scheduleResume, scrollByCard, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.4, 4000);
 
   return (
-    <div className="relative overflow-hidden" onMouseEnter={pause} onMouseLeave={scheduleResume}>
-      <CarouselArrows onLeft={() => scrollByCard("left")} onRight={() => scrollByCard("right")} />
-      <div
-        ref={ref}
-        className="flex gap-6 px-4 overflow-x-hidden scrollbar-hide cursor-grab select-none"
-        onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}
-        onMouseDown={onMouseDown} onMouseMove={onMouseMove} onMouseUp={onMouseUp} onMouseLeave={onMouseLeave}
-      >
+    <div className="overflow-hidden w-full">
+      <div className="flex w-fit gap-6 animate-showcase-scroll hover:[animation-play-state:paused] active:[animation-play-state:paused]">
         {doubled.map((firm, i) => (
           <article
             key={`${firm.slug}-${i}`}
-            className="min-w-[85vw] max-w-[85vw] md:min-w-[340px] md:max-w-[380px] shrink-0 rounded-2xl bg-white border border-[#E8E0D0] overflow-hidden flex flex-col shadow-[0_4px_24px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,0,0,0.14)]"
+            className="min-w-[340px] max-w-[380px] shrink-0 rounded-2xl bg-white border border-[#E8E0D0] overflow-hidden flex flex-col shadow-[0_4px_24px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,0,0,0.14)]"
           >
             <div className="relative h-[180px] w-full overflow-hidden">
               <img src={firm.images[0]} alt={firm.name} className="h-full w-full object-cover" style={{ filter: "brightness(0.92) saturate(1.1)" }} loading="lazy" />
