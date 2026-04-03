@@ -9,5 +9,13 @@
   "language_label": "Slovenščina",
   "badge": "Za balkansko diasporo v Nemčiji",
   "scroll_hint": "Pomakni se navzdol",
-  "trusted_by": "Zaupajo mu tisoči uporabnikov"
+  "trusted_by": "Zaupajo mu tisoči uporabnikov",
+  "bullet": {
+    "simple": "Brez zapletov",
+    "language": "V tvojem jeziku",
+    "verified": "Preverjene informacije"
+  },
+  "title_highlight": "brez stresa.",
+  "ctaPrimary": "Začni vodič",
+  "ctaSecondary": "Ali vprašaj BalkanLink asistenta"
 }

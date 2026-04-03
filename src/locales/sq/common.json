@@ -54,5 +54,12 @@
   "contact.lastName": "Mbiemri",
   "contact.email": "Email",
   "contact.message": "Mesazhi",
-  "contact.send": "Dërgo"
+  "contact.send": "Dërgo",
+  "firm": {
+    "notFound": "Firma nuk u gjet",
+    "back": "Kthehu në kryefaqe",
+    "recommended": "E rekomanduar",
+    "visitWebsite": "Vizito faqen e internetit",
+    "contact": "Kontakt"
+  }
 }

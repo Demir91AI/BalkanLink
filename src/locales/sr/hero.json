@@ -9,5 +9,13 @@
   "language_label": "Srpski",
   "badge": "Za balkansku dijasporu u Nemačkoj",
   "scroll_hint": "Skroluj dole",
-  "trusted_by": "Koriste ga hiljade korisnika"
+  "trusted_by": "Koriste ga hiljade korisnika",
+  "bullet": {
+    "simple": "Bez komplikacija",
+    "language": "Na tvom jeziku",
+    "verified": "Proverene informacije"
+  },
+  "title_highlight": "bez stresa.",
+  "ctaPrimary": "Započni vodič",
+  "ctaSecondary": "Ili pitaj BalkanLink asistenta"
 }

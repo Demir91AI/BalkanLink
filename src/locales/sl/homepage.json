@@ -104,5 +104,50 @@
       "docCheck": "Provjera dokumenata",
       "offerSeek": "Nudim / Tražim"
     }
+  },
+  "smartGuide": {
+    "title": "Smart Guide – Obrazci",
+    "desc": "Korak za korakom navodila za vse nemške obrazce.",
+    "cta": "Začni vodič"
+  },
+  "visa": {
+    "title": "Vizum Navigator",
+    "desc": "Ugotovi, kateri vizum potrebuješ.",
+    "cta": "Začni navigator"
+  },
+  "deutsch": {
+    "title": "BalkanLink Deutsch",
+    "desc": "Uči se nemščino za vsakdanje življenje.",
+    "cta": "Začni tečaj"
+  },
+  "docCheck": {
+    "title": "Pregled dokumentov",
+    "desc": "Naloži dokument in prejmi analizo.",
+    "cta": "Preveri zdaj"
+  },
+  "nudim": {
+    "title": "Ponujam / Iščem",
+    "desc": "Najdi ali ponudi pomoč v skupnosti.",
+    "cta": "Poglej oglase"
+  },
+  "balkanci": {
+    "title": "Balkanci v DE",
+    "desc": "Najdi Balkance v svojem mestu.",
+    "cta": "Odpri zemljevid"
+  },
+  "jobs": {
+    "title": "Zaposlitveni oglasi",
+    "desc": "Službe in oglasi za diasporo.",
+    "cta": "Išči službo"
+  },
+  "housing": {
+    "title": "Iskanje stanovanja",
+    "desc": "Nasveti in portali za iskanje stanovanja.",
+    "cta": "Išči stanovanje"
+  },
+  "calc": {
+    "title": "Kalkulatorji",
+    "desc": "Bruto-neto, stroški življenja in več.",
+    "cta": "Izračunaj"
   }
 }

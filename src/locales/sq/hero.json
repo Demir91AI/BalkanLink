@@ -9,5 +9,13 @@
   "language_label": "Shqip",
   "badge": "Për diasporën ballkanike në Gjermani",
   "scroll_hint": "Lëviz poshtë",
-  "trusted_by": "I besuar nga mijëra përdorues"
+  "trusted_by": "I besuar nga mijëra përdorues",
+  "bullet": {
+    "simple": "Pa komplikime",
+    "language": "Në gjuhën tënde",
+    "verified": "Informacione të verifikuara"
+  },
+  "title_highlight": "pa stres.",
+  "ctaPrimary": "Fillo udhëzuesin",
+  "ctaSecondary": "Ose pyet BalkanLink asistentin"
 }

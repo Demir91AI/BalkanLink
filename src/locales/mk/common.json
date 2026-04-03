@@ -54,5 +54,12 @@
   "contact.lastName": "Презиме",
   "contact.email": "Е-пошта",
   "contact.message": "Порака",
-  "contact.send": "Испрати"
+  "contact.send": "Испрати",
+  "firm": {
+    "notFound": "Фирмата не е пронајдена",
+    "back": "Назад на почетна",
+    "recommended": "Препорачано",
+    "visitWebsite": "Посети веб страница",
+    "contact": "Контакт"
+  }
 }
