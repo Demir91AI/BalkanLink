@@ -412,8 +412,13 @@ export default function Index() {
                   onClick={() => navigate("/qa")}
                   className="h-11 rounded-lg border border-white/40 bg-transparent px-6 text-sm font-semibold text-white hover:bg-white/10 hover:border-white/60 transition-all duration-300"
                 >
-                  Ili pitaj BalkanLink asistenta
+                  {t("hero.ctaSecondary")}
                 </Button>
+              </div>
+
+              {/* LANGUAGE SELECTOR */}
+              <div className="mt-6">
+                <LanguageSelector />
               </div>
 
               {/* DISCLAIMER — high contrast */}
