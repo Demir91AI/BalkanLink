@@ -136,7 +136,7 @@
 }
 
 @layer utilities {
-  /* PageNav row */
+  /* ─── PageNav unified row ─── */
   .page-nav-row {
     display: flex;
     flex-direction: row;
@@ -165,97 +165,31 @@
     padding: 0 18px;
     min-width: 100px;
     background: #FFFFFF;
-    border: 1.5px solid #C4B49A;
-    color: #2D2D2D;
+    border: 1.5px solid hsl(36 30% 72%);
+    color: hsl(240 6% 15%);
   }
   .page-nav-btn--back:hover {
-    background: #F5EFE6;
-    border-color: #A89070;
+    background: hsl(36 33% 95%);
+    border-color: hsl(30 20% 55%);
     box-shadow: 0 1px 6px rgba(0,0,0,0.10);
   }
   .page-nav-btn--home {
     width: 40px;
     padding: 0;
-    background: #C9A84C;
+    background: hsl(43 52% 54%);
     border: none;
     flex-shrink: 0;
   }
   .page-nav-btn--home:hover {
-    background: #B8943D;
-    box-shadow: 0 2px 10px rgba(201,168,76,0.30);
+    background: hsl(43 52% 42%);
+    box-shadow: 0 2px 10px hsla(43, 52%, 54%, 0.30);
   }
 
-  /* Legacy back-home-row (kept for compatibility) */
-  .back-home-row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 8px;
-    padding: 0;
-    line-height: 1;
-  }
-
-  .back-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    height: 40px;
-    padding: 0 16px;
-    min-width: 100px;
-    background: #FFFFFF;
-    border: 1.5px solid #C4B49A;
-    border-radius: 8px;
-    color: #2D2D2D;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background 150ms ease, box-shadow 150ms ease;
-    white-space: nowrap;
-    line-height: 1;
-    box-sizing: border-box;
-    margin: 0;
-  }
-  .back-button svg {
-    width: 16px;
-    height: 16px;
-    color: #2D2D2D;
-    display: block;
-  }
-  .back-button:hover {
-    background: #F5EFE6;
-    border-color: #A89070;
-    box-shadow: 0 1px 6px rgba(0,0,0,0.10);
-  }
-  .bg-primary .back-button,
-  [class*="bg-primary"] .back-button,
-  [class*="bg-gradient"] .back-button {
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.12);
-    border-color: rgba(255, 255, 255, 0.25);
-  }
-  .bg-primary .back-button svg,
-  [class*="bg-primary"] .back-button svg,
-  [class*="bg-gradient"] .back-button svg {
-    color: #ffffff;
-  }
-  .bg-primary .back-button:hover,
-  [class*="bg-primary"] .back-button:hover,
-  [class*="bg-gradient"] .back-button:hover {
-    background: rgba(255, 255, 255, 0.18);
-    border-color: rgba(255, 255, 255, 0.35);
-  }
-  /* Home button on primary backgrounds */
-  .bg-primary .bl-injected-home,
-  [class*="bg-primary"] .bl-injected-home,
-  [class*="bg-gradient"] .bl-injected-home {
-    background: rgba(255, 255, 255, 0.20);
-  }
-  .bg-primary .bl-injected-home:hover,
-  [class*="bg-primary"] .bl-injected-home:hover,
-  [class*="bg-gradient"] .bl-injected-home:hover {
-    background: rgba(255, 255, 255, 0.30);
+  /* ─── Page content wrapper ─── */
+  .page-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 48px 80px 48px;
   }
 
   .glass {
@@ -353,39 +287,17 @@
   transition: transform 300ms ease-in-out !important;
 }
 
-/* Sidebar backdrop overlay for mobile */
+/* Sidebar backdrop overlay */
 [data-sidebar="sidebar"] ~ [data-sidebar="trigger-backdrop"],
 .sidebar-backdrop {
   transition: opacity 300ms ease-in-out !important;
 }
 
-/* ─── Global Responsive Rules ─── */
-@layer base {
-  @media (max-width: 767px) {
-    h1 { font-size: 1.5rem !important; }
-    h2 { font-size: 1.25rem !important; }
-    h3 { font-size: 1.1rem !important; }
-    body, p, span, li, td, th { font-size: 0.875rem; }
-  }
-
-  @media (max-width: 767px) {
-    button, a[role="button"], [role="tab"], summary {
-      min-height: 44px;
-      min-width: 44px;
-    }
-  }
-}
-
-/* ─── AufenthaltsNavigator Responsive ─── */
+/* ─── AufenthaltsNavigator ─── */
 .aufenthalt-country-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 8px;
-}
-@media (max-width: 767px) {
-  .aufenthalt-country-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 .aufenthalt-country-btn {
   display: flex;
@@ -418,10 +330,6 @@
 .aufenthalt-country-btn.active .name {
   color: hsl(43 52% 44%);
 }
-@media (max-width: 767px) {
-  .aufenthalt-country-btn .flag { font-size: 28px; }
-  .aufenthalt-country-btn .name { font-size: 12px; }
-}
 
 .aufenthalt-card-header {
   padding: 20px 24px;
@@ -432,19 +340,9 @@
   flex-wrap: wrap;
   gap: 12px;
 }
-@media (max-width: 767px) {
-  .aufenthalt-card-header {
-    padding: 16px;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
 
 .aufenthalt-card-content {
   padding: 24px;
-}
-@media (max-width: 767px) {
-  .aufenthalt-card-content { padding: 16px; }
 }
 
 .aufenthalt-accordion-btn {
@@ -458,10 +356,6 @@
   cursor: pointer;
   text-align: left;
 }
-@media (max-width: 767px) {
-  .aufenthalt-accordion-btn { padding: 16px; }
-  .aufenthalt-accordion-btn .title { font-size: 13px !important; }
-}
 
 .aufenthalt-footer-links {
   margin-top: 24px;
@@ -469,68 +363,33 @@
   gap: 10px;
   flex-wrap: wrap;
 }
-@media (max-width: 767px) {
-  .aufenthalt-footer-links { flex-direction: column; }
-  .aufenthalt-footer-links a { width: 100%; text-align: center; }
-}
 
 .aufenthalt-info-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
-@media (max-width: 767px) {
-  .aufenthalt-info-grid {
-    grid-template-columns: 1fr;
-  }
-}
 
-@media (max-width: 767px) {
-  .kg1-scale {
-    transform: none !important;
-    margin-bottom: 0 !important;
-  }
-  #kg1-paper {
-    padding: 16px !important;
-    font-size: 12px !important;
-  }
-  #kg1-paper table { font-size: 11px !important; }
-  #kg1-paper input, #kg1-paper select { font-size: 12px !important; }
+/* ─── Premium lock overlay ─── */
+.premium-lock-overlay {
+  position: relative;
 }
-
-body.mobile-preview #root {
-  max-width: 390px;
-  margin-left: auto;
-  margin-right: auto;
-  border-left: 1px solid hsl(215 20% 20%);
-  border-right: 1px solid hsl(215 20% 20%);
-  min-height: 100vh;
+.premium-lock-overlay .premium-blurred {
+  filter: blur(4px);
+  user-select: none;
+  pointer-events: none;
 }
-
-/* Global injected Home button next to every Nazad */
-.bl-injected-home {
-  display: inline-flex;
+.premium-lock-overlay .premium-gate {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 40px;
-  width: 40px;
-  padding: 0;
-  background: #C9A84C;
-  border: none;
-  border-radius: 8px;
-  color: #FFFFFF;
-  cursor: pointer;
-  transition: background 150ms ease, box-shadow 150ms ease;
-  flex-shrink: 0;
-  line-height: 1;
-  box-sizing: border-box;
-  margin: 0;
-}
-.bl-injected-home:hover {
-  background: #B8943D;
-  box-shadow: 0 2px 10px rgba(201,168,76,0.30);
-}
-.bl-injected-home svg {
-  color: #FFFFFF;
-  display: block;
+  background: hsla(0, 0%, 100%, 0.78);
+  border-radius: 12px;
+  z-index: 5;
+  gap: 12px;
+  text-align: center;
+  padding: 32px;
 }
