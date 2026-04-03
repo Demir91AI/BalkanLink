@@ -1,8 +1,13 @@
 {
   "title": "Deutsche Bürokratie ohne Stress.",
   "subtitle": "Fülle alle wichtigen Formulare mit klaren Erklärungen aus — Schritt für Schritt, in deiner Sprache.",
-  "cta_primary": "Leitfaden starten",
-  "cta_secondary": "Assistenten fragen",
+  "cta": {
+    "primary": "Leitfaden starten",
+    "secondary": "Assistenten fragen"
+  },
   "disclaimer": "BalkanLink ist eine Bildungsplattform und kein Rechtsberater.",
-  "language_label": "Deutsch"
+  "language_label": "Deutsch",
+  "badge": "Für die Balkan-Diaspora in Deutschland",
+  "scroll_hint": "Nach unten scrollen",
+  "trusted_by": "Bereits von tausenden Nutzern vertraut"
 }

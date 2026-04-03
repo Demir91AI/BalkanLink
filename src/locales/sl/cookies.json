@@ -1,11 +1,22 @@
 {
-  "banner_text": "Uporabljamo piškotke za izboljšanje tvoje izkušnje.",
-  "accept_all": "Sprejmi vse",
-  "reject_all": "Zavrni vse",
+  "banner_text": "Koristimo kolačiće za poboljšanje iskustva.",
+  "accept_all": "Prihvati sve",
+  "reject_all": "Odbij sve",
   "customize": "Prilagodi",
-  "necessary": "Nujni piškotki",
-  "analytics": "Analitični piškotki",
-  "marketing": "Tržni piškotki",
-  "save_preferences": "Shrani nastavitve",
-  "privacy_link": "Izvedi več"
+  "necessary": "Neophodni kolačići",
+  "analytics": "Analitički kolačići",
+  "marketing": "Marketing kolačići",
+  "save_preferences": "Spremi postavke",
+  "privacy_link": "Zaštita podataka",
+  "cookie": {
+    "acceptAll": "Prihvati sve",
+    "desc": "Koristimo kolačiće.",
+    "footerLink": "Postavke kolačića",
+    "necessaryOnly": "Samo neophodni",
+    "saveSettings": "Spremi postavke",
+    "settings": "Postavke",
+    "settingsDesc": "Prilagodi postavke kolačića.",
+    "settingsTitle": "Postavke kolačića",
+    "title": "Kolačići"
+  }
 }

@@ -1,8 +1,22 @@
 {
-  "pending": "На чекање",
-  "active": "Активно",
-  "expired": "Истечено",
-  "removed": "Отстрането",
-  "approved": "Одобрено",
-  "denied": "Одбиено"
+  "approved": "Odobreno",
+  "pending": "Na čekanju",
+  "rejected": "Odbijeno",
+  "incomplete": "Nepotpuno",
+  "complete": "Potpuno",
+  "expired": "Isteklo",
+  "active": "Aktivno",
+  "inactive": "Neaktivno",
+  "locked": "Zaključano",
+  "unlocked": "Otključano",
+  "free": "Besplatno",
+  "premium": "Premium",
+  "new": "Novo",
+  "updated": "Ažurirano",
+  "processing": "Obrađuje se...",
+  "sent": "Poslano",
+  "delivered": "Dostavljeno",
+  "read": "Pročitano",
+  "removed": "Uklonjeno",
+  "denied": "Odbijeno"
 }

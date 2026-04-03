@@ -3,11 +3,42 @@
   "post_ad": "Objavi oglas",
   "edit_ad": "Uredi",
   "delete_ad": "Obriši",
-  "contact_seller": "Kontaktiraj prodavača",
-  "no_ads": "Još nema oglasa.",
-  "ad_expires": "Istječe za {{days}} dana",
+  "contact_seller": "Kontaktiraj",
+  "no_ads": "Nema oglasa.",
+  "ad_expires": "Ističe za {{days}} dana",
   "report": "Prijavi",
   "category": "Kategorija",
   "city": "Grad",
-  "price": "Cijena"
+  "price": "Cijena",
+  "banner_title": "Partneri",
+  "banner_subtitle": "Provjerene firme.",
+  "advertise": "Reklamiraj se",
+  "sponsored": "Sponzorisano",
+  "ad": {
+    "benefit1": "Dosegni hiljade korisnika",
+    "benefit2": "Ciljna grupa Balkanci",
+    "benefit3": "Fleksibilno",
+    "cta": "Reklamiraj se",
+    "flowLabel": "Reklama",
+    "flowSubtitle": "Dosegni zajednicu.",
+    "flowTitle": "Reklamiranje na BalkanLink",
+    "headline": "Reklamiraj se na",
+    "headlineHighlight": "BalkanLink",
+    "label": "Oglas",
+    "learnMore": "Saznaj više",
+    "quote": "Najbolja platforma za balkansku dijasporu.",
+    "subtitle": "Dosegni svoju ciljnu grupu.",
+    "subtitle2": "Jednostavno i efikasno."
+  },
+  "showcase": {
+    "label": "Istaknuto",
+    "title": "Naši partneri"
+  },
+  "firm": {
+    "back": "Nazad",
+    "contact": "Kontakt",
+    "notFound": "Firma nije pronađena.",
+    "recommended": "Preporučeno",
+    "visitWebsite": "Posjeti stranicu"
+  }
 }

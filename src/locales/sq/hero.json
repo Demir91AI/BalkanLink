@@ -1,8 +1,13 @@
 {
   "title": "Burokracia gjermane pa stres.",
-  "subtitle": "Plotëso të gjitha formularët e rëndësishëm me shpjegime të qarta — hap pas hapi, në gjuhën tënde.",
-  "cta_primary": "Fillo udhëzuesin",
-  "cta_secondary": "Pyet asistentin",
+  "subtitle": "Plotëso të gjitha formularët me shpjegime të qarta — hap pas hapi, në gjuhën tënde.",
+  "cta": {
+    "primary": "Fillo udhëzuesin",
+    "secondary": "Pyet asistentin"
+  },
   "disclaimer": "BalkanLink është platformë edukative dhe jo këshilltar ligjor.",
-  "language_label": "Shqip"
+  "language_label": "Shqip",
+  "badge": "Për diasporën ballkanike në Gjermani",
+  "scroll_hint": "Lëviz poshtë",
+  "trusted_by": "I besuar nga mijëra përdorues"
 }

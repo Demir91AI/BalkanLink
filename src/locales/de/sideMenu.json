@@ -4,6 +4,8 @@
   "deutsch": "BalkanLink Deutsch",
   "dokumentenCheck": "Dokumenten-Check",
   "calculators": "Kalkulatoren",
+  "nudim": "Ich biete",
+  "trazim": "Ich suche",
   "nudimTrazim": "Nudim / Tražim",
   "balkanci": "Balkanen in DE",
   "assistant": "BalkanLink Assistent",
@@ -13,10 +15,13 @@
   "free_label": "Kostenlos",
   "account": "Mein Konto",
   "upgrade": "Auf Premium upgraden",
-  "foerderungen": "Förderungen",
-  "stellenangebote": "Stellenangebote",
-  "wohnungen": "Wohnungen",
-  "trebamMajstora": "Handwerker finden",
-  "putovanja": "Reisen & Transport",
-  "community": "Community"
+  "section_tools": "Tools & Hilfe",
+  "section_community": "Community",
+  "section_account": "Konto",
+  "locked": "Gesperrt",
+  "new_badge": "NEU",
+  "popular_badge": "BELIEBT",
+  "mainFunctions": "Hauptfunktionen",
+  "menu": "Menü",
+  "other": "Sonstiges"
 }

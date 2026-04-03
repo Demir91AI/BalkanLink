@@ -2,21 +2,107 @@
   "services_title": "Што сакаш да решиш денес?",
   "services_subtitle": "Избери тема и почни веднаш — без лутање.",
   "premium_title": "Премиум алатки",
-  "premium_subtitle": "Сè што ти треба, на едно место.",
+  "premium_subtitle": "Сè на едно место.",
   "trending_title": "Најбарани денес",
   "community_title": "Балканци во Германија",
-  "community_subtitle": "Поврзи се со заедницата.",
-  "reviews_section_title": "Доверба",
+  "community_subtitle": "Најди Балканци во твојот град.",
+  "reviews_section_title": "Што кажуваат нашите корисници",
   "card_anmeldung": "Пријава на живеалиште",
-  "card_anmeldung_desc": "Пријави стан едноставно.",
+  "card_anmeldung_desc": "Пријави живеалиште — брзо и точно.",
   "card_steuer": "Даночна пријава",
-  "card_steuer_desc": "Среди ги даноците правилно.",
-  "card_kindergeld": "Kindergeld",
+  "card_steuer_desc": "Уреди даночна пријава правилно.",
+  "card_kindergeld": "Детски додаток",
   "card_kindergeld_desc": "Аплицирај за Kindergeld — чекор по чекор.",
   "card_kranken": "Здравствено осигурување",
-  "card_kranken_desc": "Најди го правото осигурување.",
-  "card_konto": "Отворање сметка",
-  "card_konto_desc": "Отвори сметка брзо и лесно.",
-  "card_arbeit": "Договор за вработување",
-  "card_arbeit_desc": "Разбери го твојот договор."
+  "card_kranken_desc": "Најди го вистинското осигурување.",
+  "card_konto": "Отварање на сметка",
+  "card_konto_desc": "Отвори банкарска сметка едноставно.",
+  "card_arbeit": "Работен договор",
+  "card_arbeit_desc": "Разбери го работниот договор.",
+  "card_wohnung": "Наоѓање стан",
+  "card_wohnung_desc": "Совети за наоѓање стан.",
+  "card_visum": "Виза и престој",
+  "card_visum_desc": "Сè за виза и дозвола за престој.",
+  "section_free": "Besplatno koristi",
+  "section_premium": "Uz Premium još više",
+  "cta_start": "Počni odmah",
+  "cta_explore": "Istraži sve teme",
+  "balkanci_card1": "Кафе и дружење",
+  "balkanci_card2": "Кафе градина",
+  "balkanci_card3": "Авто средби",
+  "balkanci_card4": "Заедница",
+  "balkanci_search": "Пребарај град...",
+  "balkanci_no_results": "Nema rezultata za \"{{query}}\"",
+  "balkanci_message": "Испрати порака",
+  "balkanci_title": "Балканци во Германија",
+  "balkanci_subtitle": "Најди Балканци во твојот град.",
+  "servicesTitle": "Што сакаш да решиш денес?",
+  "servicesSubtitle": "Избери тема и почни веднаш.",
+  "premiumTitle": "Премиум алатки",
+  "premiumSubtitle": "Сè на едно место.",
+  "adLabel": "Reklama",
+  "comparePlans": "Uporedi pakete",
+  "contact": "Kontakt",
+  "premiumCta": "Otključaj Premium",
+  "recommended": "Preporučeno",
+  "showcaseLabel": "Istaknuto",
+  "showcaseTitle": "Naši partneri",
+  "unlockAll": "Otključaj sve",
+  "unlockDesc": "Sa Premium imaš pristup svemu.",
+  "viewMore": "Pogledaj više",
+  "wow": {
+    "headline1": "Sve",
+    "headline2": "na jednom mjestu.",
+    "subtitle": "BalkanLink pojednostavljuje njemačku birokratiju.",
+    "cta": "Počni odmah",
+    "feat1": {
+      "title": "Smart Guides",
+      "desc": "Korak-po-korak uputstva za svaki formular."
+    },
+    "feat2": {
+      "title": "AI Asistent",
+      "desc": "Postavi pitanje i dobij odgovor odmah."
+    },
+    "feat3": {
+      "title": "Na tvom jeziku",
+      "desc": "Razumij svako polje — na maternjem jeziku."
+    }
+  },
+  "reviews": {
+    "title": "Recenzije",
+    "allTitle": "Sve recenzije",
+    "anonymous": "Anonimno",
+    "average": "Prosjek",
+    "comment": "Napiši komentar...",
+    "errorComment": "Napiši komentar.",
+    "errorRating": "Daj ocjenu.",
+    "errorSend": "Greška pri slanju.",
+    "leaveReview": "Ostavi recenziju",
+    "loading": "Učitava se...",
+    "name": "Tvoje ime (opcionalno)",
+    "noReviews": "Još nema recenzija. Budi prvi!",
+    "showMore": "Prikaži više",
+    "submit": "Pošalji recenziju",
+    "successSend": "Hvala na recenziji!",
+    "thanks": "Hvala!",
+    "viewAll": "Pogledaj sve recenzije"
+  },
+  "community": {
+    "title": "Balkanci u Njemačkoj",
+    "subtitle": "Povezi se sa zajednicom."
+  },
+  "cta": {
+    "daily": {
+      "title": "Dnevni savjet"
+    },
+    "help": {
+      "title": "Trebaš pomoć?"
+    }
+  },
+  "index": {
+    "nav": {
+      "docCheck": "Provjera dokumenata",
+      "offerSeek": "Nudim / Tražim"
+    }
+  }
 }

@@ -1,11 +1,22 @@
 {
-  "banner_text": "Përdorim biskota për të përmirësuar përvojën tënde.",
-  "accept_all": "Prano të gjitha",
-  "reject_all": "Refuzo të gjitha",
-  "customize": "Personalizo",
-  "necessary": "Biskota të domosdoshme",
-  "analytics": "Biskota analitike",
-  "marketing": "Biskota marketingu",
-  "save_preferences": "Ruaj preferencat",
-  "privacy_link": "Mëso më shumë"
+  "banner_text": "Koristimo kolačiće za poboljšanje iskustva.",
+  "accept_all": "Prihvati sve",
+  "reject_all": "Odbij sve",
+  "customize": "Prilagodi",
+  "necessary": "Neophodni kolačići",
+  "analytics": "Analitički kolačići",
+  "marketing": "Marketing kolačići",
+  "save_preferences": "Spremi postavke",
+  "privacy_link": "Zaštita podataka",
+  "cookie": {
+    "acceptAll": "Prihvati sve",
+    "desc": "Koristimo kolačiće.",
+    "footerLink": "Postavke kolačića",
+    "necessaryOnly": "Samo neophodni",
+    "saveSettings": "Spremi postavke",
+    "settings": "Postavke",
+    "settingsDesc": "Prilagodi postavke kolačića.",
+    "settingsTitle": "Postavke kolačića",
+    "title": "Kolačići"
+  }
 }

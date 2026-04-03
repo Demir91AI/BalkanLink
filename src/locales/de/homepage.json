@@ -5,18 +5,104 @@
   "premium_subtitle": "Alles was du brauchst, an einem Ort.",
   "trending_title": "Heute am meisten gesucht",
   "community_title": "Balkanen in Deutschland",
-  "community_subtitle": "Verbinde dich mit der Community.",
-  "reviews_section_title": "Vertrauen",
+  "community_subtitle": "Verbinde dich mit der Balkan-Community in deiner Stadt.",
+  "reviews_section_title": "Was unsere Nutzer sagen",
   "card_anmeldung": "Anmeldung",
-  "card_anmeldung_desc": "Wohnsitz anmelden leicht gemacht.",
+  "card_anmeldung_desc": "Wohnsitz in Deutschland anmelden — schnell und korrekt.",
   "card_steuer": "Steuererklärung",
-  "card_steuer_desc": "Deine Steuern richtig erledigen.",
+  "card_steuer_desc": "Deine Steuern richtig und vollständig erledigen.",
   "card_kindergeld": "Kindergeld",
-  "card_kindergeld_desc": "Kindergeld beantragen — Schritt für Schritt.",
+  "card_kindergeld_desc": "Kindergeld beantragen — Schritt für Schritt erklärt.",
   "card_kranken": "Krankenversicherung",
-  "card_kranken_desc": "Die richtige Versicherung finden.",
+  "card_kranken_desc": "Die richtige Versicherung für dich und deine Familie.",
   "card_konto": "Bankkonto eröffnen",
-  "card_konto_desc": "Konto schnell und einfach eröffnen.",
+  "card_konto_desc": "Konto schnell, sicher und einfach eröffnen.",
   "card_arbeit": "Arbeitsvertrag",
-  "card_arbeit_desc": "Verstehe deinen Arbeitsvertrag."
+  "card_arbeit_desc": "Deinen Arbeitsvertrag verstehen und richtig handeln.",
+  "card_wohnung": "Wohnung finden",
+  "card_wohnung_desc": "Tipps und Hilfe bei der Wohnungssuche.",
+  "card_visum": "Visum & Aufenthalt",
+  "card_visum_desc": "Alles rund um Visum und Aufenthaltstitel.",
+  "section_free": "Kostenlos nutzen",
+  "section_premium": "Mit Premium noch mehr",
+  "cta_start": "Jetzt starten",
+  "cta_explore": "Alle Themen entdecken",
+  "balkanci_card1": "Kaffee & Treffen",
+  "balkanci_card2": "Café-Garten",
+  "balkanci_card3": "Auto-Treffen",
+  "balkanci_card4": "Gemeinschaft",
+  "balkanci_search": "Stadt suchen...",
+  "balkanci_no_results": "Keine Ergebnisse für \"{{query}}\"",
+  "balkanci_message": "Nachricht senden",
+  "balkanci_title": "Balkanen in DE",
+  "balkanci_subtitle": "Finde Balkanen in deiner Stadt.",
+  "servicesTitle": "Was möchtest du heute lösen?",
+  "servicesSubtitle": "Wähle ein Thema und starte sofort — ohne Umwege.",
+  "premiumTitle": "Premium Tools",
+  "premiumSubtitle": "Alles was du brauchst, an einem Ort.",
+  "adLabel": "Werbung",
+  "comparePlans": "Pläne vergleichen",
+  "contact": "Kontakt",
+  "premiumCta": "Premium freischalten",
+  "recommended": "Empfohlen",
+  "showcaseLabel": "Vorgestellt",
+  "showcaseTitle": "Entdecke unsere Partner",
+  "unlockAll": "Alles freischalten",
+  "unlockDesc": "Mit Premium erhältst du Zugang zu allen Funktionen.",
+  "viewMore": "Mehr ansehen",
+  "wow": {
+    "headline1": "Alles",
+    "headline2": "an einem Ort.",
+    "subtitle": "BalkanLink vereinfacht die deutsche Bürokratie für dich.",
+    "cta": "Jetzt starten",
+    "feat1": {
+      "title": "Smart Guides",
+      "desc": "Schritt-für-Schritt-Anleitungen für jedes Formular."
+    },
+    "feat2": {
+      "title": "KI-Assistent",
+      "desc": "Stelle Fragen und erhalte sofort Antworten."
+    },
+    "feat3": {
+      "title": "Alles auf Deutsch & deiner Sprache",
+      "desc": "Verstehe jedes Feld — in deiner Muttersprache."
+    }
+  },
+  "reviews": {
+    "title": "Bewertungen",
+    "allTitle": "Alle Bewertungen",
+    "anonymous": "Anonym",
+    "average": "Durchschnitt",
+    "comment": "Kommentar schreiben...",
+    "errorComment": "Bitte schreibe einen Kommentar.",
+    "errorRating": "Bitte gib eine Bewertung ab.",
+    "errorSend": "Fehler beim Senden.",
+    "leaveReview": "Bewertung abgeben",
+    "loading": "Wird geladen...",
+    "name": "Dein Name (optional)",
+    "noReviews": "Noch keine Bewertungen. Sei der Erste!",
+    "showMore": "Mehr anzeigen",
+    "submit": "Bewertung senden",
+    "successSend": "Danke für deine Bewertung!",
+    "thanks": "Danke!",
+    "viewAll": "Alle Bewertungen ansehen"
+  },
+  "community": {
+    "title": "Balkanen in Deutschland",
+    "subtitle": "Verbinde dich mit der Community."
+  },
+  "cta": {
+    "daily": {
+      "title": "Täglicher Tipp"
+    },
+    "help": {
+      "title": "Brauchst du Hilfe?"
+    }
+  },
+  "index": {
+    "nav": {
+      "docCheck": "Dokumenten-Check",
+      "offerSeek": "Nudim / Tražim"
+    }
+  }
 }
