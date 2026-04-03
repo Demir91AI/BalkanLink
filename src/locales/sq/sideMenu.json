@@ -27,5 +27,16 @@
   "jobs": "Shpallje pune",
   "housing": "Banesa",
   "kalkulator": "Kalkulatorë",
-  "templates": "Shabllone"
+  "templates": "Shabllone",
+  "dolazakGroup": "Ardhja në Gjermani",
+  "anmeldung": "Regjistrimi & Vendbanimi",
+  "aufenthalt": "Leja e qëndrimit & Viza",
+  "steuerId": "Steuer-ID & Klasa tatimore",
+  "krankenversicherung": "Sigurimi shëndetësor",
+  "bankkonto": "Hapja e llogarisë bankare",
+  "sozialversicherung": "Sigurimi social",
+  "gez": "Rundfunkbeitrag (GEZ)",
+  "fuehrerschein": "Patenta e shoferit",
+  "fahrzeugzulassung": "Regjistrimi i automjetit (Kfz)",
+  "ersteSchritte": "Hapat e parë – Listë kontrolli"
 }
