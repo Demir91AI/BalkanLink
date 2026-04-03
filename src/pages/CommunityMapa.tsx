@@ -1,5 +1,9 @@
 import { useState, useMemo, useCallback, useRef, useEffect } from "react";
 import { MapPin, Search, Shield, X, Users, ChevronLeft, ChevronRight, MessageSquare, Send, Home } from "lucide-react";
+import balkanSarajevo from "@/assets/balkan-sarajevo.jpg";
+import balkanBeograd from "@/assets/balkan-beograd.jpg";
+import balkanZagreb from "@/assets/balkan-zagreb.jpg";
+import balkanMostar from "@/assets/balkan-mostar.jpg";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
