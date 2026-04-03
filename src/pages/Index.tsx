@@ -9,6 +9,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
 import PWAInstallBanner from "@/components/PWAInstallBanner";
+import HomeReviews from "@/components/home/HomeReviews";
 import { PRICING } from "@/lib/config";
 
 import realcoreDigitalLogo from "@/assets/realcore-digital-logo.png";
@@ -276,10 +277,9 @@ function ShowcaseCarousel() {
   );
 }
 
-/* ─── Ad Flow Section ─── */
+/* ─── Ad Flow Section — CSS keyframe endless strip ─── */
 function AdFlowSection() {
   const doubled = [...placeholderAds, ...placeholderAds];
-  const { ref, pause, scheduleResume, scrollByCard, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.7);
   return (
     <section className="py-10 sm:py-12 border-t border-[#E8E0D0] bg-[hsl(var(--warm-cream))] overflow-hidden">
       <div className="container mb-5">
@@ -288,13 +288,9 @@ function AdFlowSection() {
           <span className="text-[10px] font-bold uppercase tracking-widest text-[hsl(var(--gold))]">OGLAŠAVANJE</span>
         </div>
       </div>
-      <div className="relative" onMouseEnter={pause} onMouseLeave={scheduleResume}>
-        <CarouselArrows onLeft={() => scrollByCard("left")} onRight={() => scrollByCard("right")} />
+      <div className="overflow-hidden w-full">
         <div
-          ref={ref}
-          className="flex gap-4 px-4 overflow-x-hidden scrollbar-hide cursor-grab select-none"
-          onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}
-          onMouseDown={onMouseDown} onMouseMove={onMouseMove} onMouseUp={onMouseUp} onMouseLeave={onMouseLeave}
+          className="flex w-fit gap-4 animate-carousel-scroll hover:[animation-play-state:paused] active:[animation-play-state:paused]"
         >
           {doubled.map((ad, i) => (
             <a
@@ -362,7 +358,7 @@ export default function Index() {
               alt={slide.city}
               className="h-full w-full object-cover transition-transform duration-[5000ms] ease-out"
               style={{
-                filter: "brightness(0.75) saturate(1.15) contrast(1.05)",
+                filter: "brightness(0.85) saturate(1.1) contrast(1.02)",
                 transform: idx === currentSlide ? "scale(1.04)" : "scale(1)",
               }}
               loading="eager"
@@ -370,7 +366,8 @@ export default function Index() {
           </div>
         ))}
 
-        <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/60 via-black/30 to-[hsl(var(--warm-cream))]" />
+        {/* Overlay — reduced opacity for clearer images */}
+        <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/35 via-black/15 to-[hsl(var(--warm-cream))]" />
 
         <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-5 py-16 lg:py-20">
           <div className="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
@@ -380,12 +377,12 @@ export default function Index() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="flex flex-col items-center text-center"
             >
-              {/* HERO TITLE — single line */}
+              {/* HERO TITLE — single line on desktop */}
               <h1
                 className="mx-auto max-w-[700px] font-heading font-black leading-[1.15] tracking-tight text-white whitespace-nowrap"
                 style={{
-                  fontSize: "clamp(1.6rem, 4vw, 3.4rem)",
-                  textShadow: "0 4px 30px rgba(0,0,0,0.5)",
+                  fontSize: "clamp(1.6rem, 3.5vw, 3.2rem)",
+                  textShadow: "0 4px 30px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.4)",
                 }}
               >
                 {t("hero.title")}{" "}
@@ -394,12 +391,13 @@ export default function Index() {
                 </span>
               </h1>
 
-              {/* SUBTITLE */}
+              {/* SUBTITLE — single line on desktop */}
               <p
-                className="mx-auto mt-5 max-w-[600px] font-medium leading-relaxed text-white/90 sm:whitespace-nowrap"
+                className="mx-auto mt-5 max-w-[640px] font-medium leading-relaxed text-white/90"
                 style={{
-                  fontSize: "clamp(0.8rem, 1.8vw, 1.15rem)",
-                  textShadow: "0 2px 12px rgba(0,0,0,0.4)",
+                  fontSize: "clamp(0.8rem, 1.6vw, 1.1rem)",
+                  textShadow: "0 2px 12px rgba(0,0,0,0.5)",
+                  whiteSpace: "nowrap",
                 }}
               >
                 {t("hero.subtitle")}
@@ -426,7 +424,7 @@ export default function Index() {
               {/* DISCLAIMER — high contrast */}
               <p
                 className="mx-auto mt-4 max-w-sm text-center text-[11px] leading-relaxed text-white font-medium"
-                style={{ textShadow: "0 1px 3px rgba(0,0,0,0.8)" }}
+                style={{ textShadow: "0 1px 4px rgba(0,0,0,0.85)" }}
               >
                 BalkanLink je edukativna platforma. Sadržaj nije pravni savjet.
               </p>
@@ -438,7 +436,7 @@ export default function Index() {
                 className="mt-6 flex flex-row flex-wrap items-center justify-center gap-x-6 gap-y-2"
               >
                 {trustBadgeKeys.map((key) => (
-                  <span key={key} className="flex items-center gap-1.5 text-xs font-medium text-white/60 sm:text-sm">
+                  <span key={key} className="flex items-center gap-1.5 text-xs font-medium text-white/70 sm:text-sm" style={{ textShadow: "0 1px 3px rgba(0,0,0,0.6)" }}>
                     <CheckCircle2 className="h-3.5 w-3.5 text-[hsl(var(--gold))] sm:h-4 sm:w-4" />
                     {t(key)}
                   </span>
@@ -464,7 +462,7 @@ export default function Index() {
         </div>
       </section>
 
-      {/* ─── HERO → BODY TRANSITION: soft gold divider ─── */}
+      {/* ─── HERO → BODY TRANSITION: gradient fade ─── */}
       <div className="relative h-0">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(var(--gold))]/40 to-transparent" />
       </div>
@@ -507,10 +505,11 @@ export default function Index() {
         <ShowcaseCarousel />
       </section>
 
-      {/* ─── OGLAŠAVANJE ─── */}
+      {/* ─── OGLAŠAVANJE — CSS endless strip ─── */}
       <AdFlowSection />
 
-      {/* ─── REVIEWS REMOVED FROM HOMEPAGE ─── */}
+      {/* ─── REVIEWS / POVJERENJE ─── */}
+      <HomeReviews />
 
       {/* ─── PREMIUM CTA ─── */}
       <section className="py-16 sm:py-20 bg-white border-t border-[#E8E0D0]">

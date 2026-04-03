@@ -34,18 +34,14 @@ export function AppSidebar() {
     setIsOpen((prev) => !prev);
   }, []);
 
-  // Listen for toggle event from Header
   useEffect(() => {
     const handler = () => toggle();
     window.addEventListener("toggle-sidebar", handler);
     return () => window.removeEventListener("toggle-sidebar", handler);
   }, [toggle]);
 
-  const close = useCallback(() => {
-    setIsOpen(false);
-  }, []);
+  const close = useCallback(() => setIsOpen(false), []);
 
-  // Close on route change
   useEffect(() => { close(); }, [location.pathname, close]);
 
   const handleNav = useCallback((url: string) => {
@@ -58,22 +54,20 @@ export function AppSidebar() {
       {/* Backdrop */}
       <div
         className="fixed inset-0 z-[998] bg-black/45 transition-opacity duration-300 ease-in-out"
-        style={{
-          opacity: isOpen ? 1 : 0,
-          pointerEvents: isOpen ? "auto" : "none",
-        }}
+        style={{ opacity: isOpen ? 1 : 0, pointerEvents: isOpen ? "auto" : "none" }}
         onClick={close}
         aria-hidden="true"
       />
 
-      {/* Sidebar panel */}
+      {/* Sidebar panel — 300px wide, labels fully visible */}
       <aside
-        className="fixed left-0 top-0 z-[999] h-screen w-[280px] bg-white shadow-2xl overflow-y-auto transition-transform duration-300 ease-in-out"
+        className="fixed left-0 top-0 z-[999] h-screen bg-white shadow-2xl overflow-y-auto transition-transform duration-300 ease-in-out"
         style={{
+          width: "300px",
+          minWidth: "280px",
           transform: isOpen ? "translateX(0)" : "translateX(-100%)",
         }}
       >
-        {/* Close button */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-[#E8E0D0]">
           <span className="text-sm font-bold text-[#2D2D2D] tracking-wide uppercase">Meni</span>
           <button onClick={close} className="h-8 w-8 rounded-lg flex items-center justify-center hover:bg-[#F0EDE6] transition-colors">
@@ -99,15 +93,15 @@ export function AppSidebar() {
                 >
                   <item.icon className={`h-[18px] w-[18px] shrink-0 ${active ? "text-[hsl(var(--gold))]" : "text-[#6B6B6B]"}`} />
                   <span
-                    className={`text-[14px] font-semibold whitespace-nowrap overflow-hidden text-ellipsis ${
+                    className={`text-[14px] font-semibold whitespace-nowrap overflow-visible ${
                       active ? "text-[hsl(var(--gold))]" : "text-[#2D2D2D]"
                     }`}
                   >
                     {item.title}
                   </span>
                   {item.premium && (
-                    <span className="ml-auto shrink-0 rounded-full bg-[hsl(var(--gold))] px-2 py-0.5 text-[9px] font-bold leading-none text-white">
-                      PREMIUM
+                    <span className="ml-auto shrink-0 rounded-full bg-[hsl(var(--gold))] px-1.5 py-0.5 text-[8px] font-bold leading-none text-white">
+                      PRO
                     </span>
                   )}
                 </button>
@@ -133,7 +127,7 @@ export function AppSidebar() {
                   }`}
                 >
                   <item.icon className={`h-[18px] w-[18px] shrink-0 ${active ? "text-[hsl(var(--gold))]" : ""}`} />
-                  <span className="text-[14px] font-medium whitespace-nowrap overflow-hidden text-ellipsis">
+                  <span className="text-[14px] font-medium whitespace-nowrap overflow-visible">
                     {item.title}
                   </span>
                 </button>
@@ -145,4 +139,3 @@ export function AppSidebar() {
     </>
   );
 }
-

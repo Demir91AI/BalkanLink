@@ -19,10 +19,10 @@ export default function BackNav({ className = "" }: BackNavProps) {
       </button>
       <Link
         to="/"
-        className="inline-flex items-center gap-1.5 rounded-lg border border-[#E8E0D0] bg-white px-3 py-2 text-sm text-[#6B6B6B] transition-colors hover:bg-[hsl(var(--warm-cream))] hover:text-[hsl(var(--gold))] hover:shadow-sm"
+        className="inline-flex items-center gap-1.5 rounded-lg border border-[#E8E0D0] bg-white px-3 py-2 text-sm text-[#6B6B6B] transition-colors hover:bg-[hsl(var(--warm-cream))] hover:text-[hsl(var(--gold))] hover:shadow-[0_1px_4px_rgba(0,0,0,0.12)]"
         aria-label="Početna"
       >
-        <Home className="h-4 w-4" />
+        <Home className="h-[18px] w-[18px]" />
       </Link>
     </div>
   );
