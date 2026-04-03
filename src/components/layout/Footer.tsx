@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
-import { CreditCard, Landmark, Wallet } from "lucide-react";
+import { CreditCard, Landmark, Wallet, Star } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import BrandLogo from "@/components/BrandLogo";
+
+const footerReviews = [
+  { comment: "Konačno neko objasni formulare normalno!", username: "Emina S.", rating: 5 },
+  { comment: "Uštedila sam 200€ jer sam sama popunila.", username: "Anonimno", rating: 5 },
+  { comment: "Super platforma, svaka preporuka.", username: "Damir K.", rating: 4 },
+];
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -9,7 +15,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-[#E8E0D0] text-[#2D2D2D]" style={{ background: "#FAFAF7" }}>
       <div className="container py-12 sm:py-14">
-        <div className="grid gap-10 grid-cols-1 text-center sm:text-left sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 grid-cols-1 text-center sm:text-left sm:grid-cols-2 lg:grid-cols-5">
           {/* Brand */}
           <div>
             <BrandLogo variant="small" />
@@ -46,6 +52,27 @@ export default function Footer() {
                 {t("cookie.footerLink")}
               </button>
             </nav>
+          </div>
+
+          {/* Povjerenje — Compact Reviews */}
+          <div>
+            <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-[#6B6B6B]">Povjerenje</h4>
+            <div className="flex flex-col gap-3">
+              {footerReviews.map((r, i) => (
+                <div key={i} className="text-left">
+                  <p className="text-[13px] text-[#6B6B6B] leading-snug line-clamp-2">"{r.comment}"</p>
+                  <div className="flex items-center gap-1 mt-1">
+                    {Array.from({ length: 5 }).map((_, si) => (
+                      <Star key={si} className={`h-3 w-3 ${si < r.rating ? "fill-[hsl(var(--gold))] text-[hsl(var(--gold))]" : "text-[#E8E0D0]"}`} />
+                    ))}
+                  </div>
+                  <p className="text-[11px] text-[#6B6B6B]/60 mt-0.5">— {r.username}</p>
+                </div>
+              ))}
+              <Link to="/qa" className="text-[12px] font-semibold text-[hsl(var(--gold))] hover:underline mt-1">
+                Pregledaj sve recenzije →
+              </Link>
+            </div>
           </div>
 
           {/* Payment */}

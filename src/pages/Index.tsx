@@ -2,14 +2,13 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
-  Megaphone, CheckCircle2, ArrowRight, Star, ExternalLink, Mail,
-  ChevronLeft, ChevronRight, FileText, Shield, GraduationCap, Search, Home, Calculator, Map, Camera, Wrench, BookOpen,
+  Megaphone, CheckCircle2, Star, ExternalLink,
+  ChevronLeft, ChevronRight, FileText, Shield, GraduationCap, Search, Home, Calculator, Map, Camera,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
 import PWAInstallBanner from "@/components/PWAInstallBanner";
-import HomeReviews from "@/components/home/HomeReviews";
 import { PRICING } from "@/lib/config";
 
 import realcoreDigitalLogo from "@/assets/realcore-digital-logo.png";
@@ -42,15 +41,15 @@ const trustBadgeKeys = ["hero.bullet.simple", "hero.bullet.language", "hero.bull
 const MAILTO_AD = `mailto:kontakt@balkanlink.de?subject=${encodeURIComponent("Oglašavanje na BalkanLink")}&body=${encodeURIComponent("Pozdrav,\n\nZanima me oglašavanje na BalkanLink platformi.\n\nNaziv firme:\nVrsta usluge:\nGrad:\nBudžet:\n")}`;
 
 const serviceCards = [
-  { emoji: "📋", icon: FileText, title: "Smart Guide — Formulari", desc: "Popuni svaki njemački formular korak po korak.", cta: "Otvori Smart Guide", to: "/formulari", premium: true },
-  { emoji: "🛂", icon: Shield, title: "Visa Navigator", desc: "Pronađi pravu vizu ili boravišnu dozvolu za svoju situaciju.", cta: "Otvori Navigator", to: "/dolazak/boravisna-dozvola", premium: true },
-  { emoji: "🎓", icon: GraduationCap, title: "BalkanLink Deutsch", desc: "Nauči njemački za stvarni život.", cta: "Počni učiti", to: "/deutsch-trainer", premium: true },
-  { emoji: "📸", icon: Camera, title: "Dokumenten-Check", desc: "Razumij svaki dokument odmah.", cta: "Provjeri dokument", to: "/dokumenten-check", premium: true },
-  { emoji: "📢", icon: Megaphone, title: "Nudim / Tražim", desc: "Ponudi ili pronađi uslugu.", cta: "Pregledaj", to: "/nudim-trazim", premium: false },
-  { emoji: "🗺️", icon: Map, title: "Balkanci u DE", desc: "Vidi gdje smo svi na mapi.", cta: "Otvori mapu", to: "/mapa", premium: false },
-  { emoji: "🔍", icon: Search, title: "Pretraga poslova", desc: "Korisni linkovi za posao.", cta: "Traži", to: "/stellenangebote", premium: false },
-  { emoji: "🏠", icon: Home, title: "Pretraga stanova", desc: "Korisni linkovi za stan.", cta: "Traži", to: "/wohnungen", premium: false },
-  { emoji: "🧮", icon: Calculator, title: "Kalkulatori", desc: "Brutto-netto i drugi alati.", cta: "Izračunaj", to: "/kalkulatori", premium: false },
+  { icon: FileText, title: "Smart Guide — Formulari", desc: "Popuni svaki njemački formular korak po korak.", cta: "Otvori Smart Guide", to: "/formulari", premium: true },
+  { icon: Shield, title: "Visa Navigator", desc: "Pronađi pravu vizu ili boravišnu dozvolu.", cta: "Otvori Navigator", to: "/dolazak/boravisna-dozvola", premium: true },
+  { icon: GraduationCap, title: "BalkanLink Deutsch", desc: "Nauči njemački za stvarni život.", cta: "Počni učiti", to: "/deutsch-trainer", premium: true },
+  { icon: Camera, title: "Dokumenten-Check", desc: "Razumij svaki dokument odmah.", cta: "Provjeri dokument", to: "/dokumenten-check", premium: true },
+  { icon: Megaphone, title: "Nudim / Tražim", desc: "Ponudi ili pronađi uslugu.", cta: "Pregledaj", to: "/nudim-trazim", premium: false },
+  { icon: Map, title: "Balkanci u DE", desc: "Vidi gdje smo svi na mapi.", cta: "Otvori mapu", to: "/mapa", premium: false },
+  { icon: Search, title: "Pretraga poslova", desc: "Korisni linkovi za posao.", cta: "Traži", to: "/stellenangebote", premium: false },
+  { icon: Home, title: "Pretraga stanova", desc: "Korisni linkovi za stan.", cta: "Traži", to: "/wohnungen", premium: false },
+  { icon: Calculator, title: "Kalkulatori", desc: "Brutto-netto i drugi alati.", cta: "Izračunaj", to: "/kalkulatori", premium: false },
 ];
 
 const placeholderAds = [
@@ -61,7 +60,7 @@ const placeholderAds = [
   { name: "BalkanLink", slogan: "Povećajte vidljivost", desc: "Istaknite svoju ponudu na platformi.", logo: "/icons/icon-192x192.png" },
 ];
 
-/* ─── Infinite scroll hook ─── */
+/* ─── Infinite scroll hook (rAF based) ─── */
 function useInfiniteScroll(speed = 0.5, resumeDelay = 3000) {
   const ref = useRef<HTMLDivElement>(null);
   const rafRef = useRef(0);
@@ -160,18 +159,10 @@ function useInfiniteScroll(speed = 0.5, resumeDelay = 3000) {
 function CarouselArrows({ onLeft, onRight }: { onLeft: () => void; onRight: () => void }) {
   return (
     <>
-      <button
-        onClick={onLeft}
-        className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 z-20 h-10 w-10 rounded-full bg-white/80 shadow-md items-center justify-center hover:scale-105 hover:shadow-lg transition-all border border-[#E8E0D0]"
-        aria-label="Previous"
-      >
+      <button onClick={onLeft} className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 z-20 h-10 w-10 rounded-full bg-white/80 shadow-md items-center justify-center hover:scale-105 hover:shadow-lg transition-all border border-[#E8E0D0]" aria-label="Previous">
         <ChevronLeft className="h-5 w-5 text-[#2D2D2D]" />
       </button>
-      <button
-        onClick={onRight}
-        className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 z-20 h-10 w-10 rounded-full bg-white/80 shadow-md items-center justify-center hover:scale-105 hover:shadow-lg transition-all border border-[#E8E0D0]"
-        aria-label="Next"
-      >
+      <button onClick={onRight} className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 z-20 h-10 w-10 rounded-full bg-white/80 shadow-md items-center justify-center hover:scale-105 hover:shadow-lg transition-all border border-[#E8E0D0]" aria-label="Next">
         <ChevronRight className="h-5 w-5 text-[#2D2D2D]" />
       </button>
     </>
@@ -189,13 +180,8 @@ function ServicesCarousel() {
       <div
         ref={ref}
         className="flex gap-5 px-4 overflow-x-hidden scrollbar-hide cursor-grab select-none"
-        onTouchStart={onTouchStart}
-        onTouchMove={onTouchMove}
-        onTouchEnd={onTouchEnd}
-        onMouseDown={onMouseDown}
-        onMouseMove={onMouseMove}
-        onMouseUp={onMouseUp}
-        onMouseLeave={onMouseLeave}
+        onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}
+        onMouseDown={onMouseDown} onMouseMove={onMouseMove} onMouseUp={onMouseUp} onMouseLeave={onMouseLeave}
       >
         {doubled.map((card, i) => {
           const Icon = card.icon;
@@ -236,13 +222,8 @@ function ShowcaseCarousel() {
       <div
         ref={ref}
         className="flex gap-6 px-4 overflow-x-hidden scrollbar-hide cursor-grab select-none"
-        onTouchStart={onTouchStart}
-        onTouchMove={onTouchMove}
-        onTouchEnd={onTouchEnd}
-        onMouseDown={onMouseDown}
-        onMouseMove={onMouseMove}
-        onMouseUp={onMouseUp}
-        onMouseLeave={onMouseLeave}
+        onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}
+        onMouseDown={onMouseDown} onMouseMove={onMouseMove} onMouseUp={onMouseUp} onMouseLeave={onMouseLeave}
       >
         {doubled.map((firm, i) => (
           <article
@@ -312,13 +293,8 @@ function AdFlowSection() {
         <div
           ref={ref}
           className="flex gap-4 px-4 overflow-x-hidden scrollbar-hide cursor-grab select-none"
-          onTouchStart={onTouchStart}
-          onTouchMove={onTouchMove}
-          onTouchEnd={onTouchEnd}
-          onMouseDown={onMouseDown}
-          onMouseMove={onMouseMove}
-          onMouseUp={onMouseUp}
-          onMouseLeave={onMouseLeave}
+          onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}
+          onMouseDown={onMouseDown} onMouseMove={onMouseMove} onMouseUp={onMouseUp} onMouseLeave={onMouseLeave}
         >
           {doubled.map((ad, i) => (
             <a
@@ -404,7 +380,7 @@ export default function Index() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="flex flex-col items-center text-center"
             >
-              {/* HERO TITLE — single line, responsive font */}
+              {/* HERO TITLE — single line */}
               <h1
                 className="mx-auto max-w-[700px] font-heading font-black leading-[1.15] tracking-tight text-white whitespace-nowrap"
                 style={{
@@ -418,7 +394,7 @@ export default function Index() {
                 </span>
               </h1>
 
-              {/* SUBTITLE — single line on desktop, max 2 on mobile */}
+              {/* SUBTITLE */}
               <p
                 className="mx-auto mt-5 max-w-[600px] font-medium leading-relaxed text-white/90 sm:whitespace-nowrap"
                 style={{
@@ -429,21 +405,22 @@ export default function Index() {
                 {t("hero.subtitle")}
               </p>
 
-              {/* BUTTONS — NO arrow icons */}
-              <div className="mt-6 flex flex-row items-center justify-center gap-4 flex-wrap">
+              {/* BUTTONS — VERTICAL STACK, NO ARROWS */}
+              <div className="mt-8 flex flex-col items-center gap-4">
                 <Button
                   onClick={() => navigate("/formulari")}
-                  className="h-12 rounded-full bg-[hsl(var(--gold))] px-8 text-base font-bold text-white shadow-[0_4px_24px_rgba(201,168,76,0.4)] hover:bg-[hsl(var(--gold-dark))] hover:shadow-[0_8px_36px_rgba(201,168,76,0.55)] hover:scale-[1.03] transition-all duration-300 sm:h-14 sm:px-10 sm:text-lg text-center"
+                  className="h-12 rounded-lg bg-[hsl(var(--gold))] px-8 text-base font-bold text-white shadow-[0_4px_24px_rgba(201,168,76,0.4)] hover:bg-[hsl(var(--gold-dark))] hover:shadow-[0_8px_36px_rgba(201,168,76,0.55)] hover:scale-[1.03] transition-all duration-300 sm:h-14 sm:px-10 sm:text-lg text-center"
                 >
                   {t("hero.ctaPrimary")}
                 </Button>
 
-                <Link
-                  to="/qa"
-                  className="group flex items-center gap-1.5 text-sm font-medium text-white/70 transition-colors hover:text-[hsl(var(--gold))]"
+                <Button
+                  variant="outline"
+                  onClick={() => navigate("/qa")}
+                  className="h-11 rounded-lg border border-white/40 bg-transparent px-6 text-sm font-semibold text-white hover:bg-white/10 hover:border-white/60 transition-all duration-300"
                 >
-                  {t("hero.ctaSecondary")}
-                </Link>
+                  Ili pitaj BalkanLink asistenta
+                </Button>
               </div>
 
               {/* DISCLAIMER — high contrast */}
@@ -487,9 +464,14 @@ export default function Index() {
         </div>
       </section>
 
+      {/* ─── HERO → BODY TRANSITION: soft gold divider ─── */}
+      <div className="relative h-0">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(var(--gold))]/40 to-transparent" />
+      </div>
+
       {/* ─── SERVICES CAROUSEL ─── */}
       <section className="py-16 sm:py-20 bg-[hsl(var(--warm-cream))]">
-        <div className="container">
+        <div className="container max-w-[1200px] mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -509,7 +491,7 @@ export default function Index() {
 
       {/* ─── PREMIUM SHOWCASE ─── */}
       <section className="py-16 sm:py-20 bg-white border-t border-[#E8E0D0]">
-        <div className="container mb-8">
+        <div className="container max-w-[1200px] mx-auto mb-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -528,12 +510,11 @@ export default function Index() {
       {/* ─── OGLAŠAVANJE ─── */}
       <AdFlowSection />
 
-      {/* ─── REVIEWS (Povjerenje) ─── */}
-      <HomeReviews />
+      {/* ─── REVIEWS REMOVED FROM HOMEPAGE ─── */}
 
       {/* ─── PREMIUM CTA ─── */}
       <section className="py-16 sm:py-20 bg-white border-t border-[#E8E0D0]">
-        <div className="container">
+        <div className="container max-w-[1200px] mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
