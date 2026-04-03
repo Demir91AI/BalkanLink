@@ -2,16 +2,14 @@ import { useState, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useSidebar } from "@/components/ui/sidebar";
 import { ChevronDown, Mail, List, Send, Menu, Globe, LogIn, LogOut, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
+import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Link } from "react-router-dom";
-import BrandLogo from "@/components/BrandLogo";
 
 const menuBtnClass =
   "h-10 w-10 rounded-lg text-white/70 hover:text-white hover:bg-white/8 active:scale-[0.93] transition-transform duration-150";
@@ -19,20 +17,19 @@ const menuBtnClass =
 export default function Header() {
   const { user, loading, signOut, isAdmin } = useAuth();
   const { t, language, setLanguage, languages, currentFlag } = useLanguage();
-  const { toggleSidebar } = useSidebar();
   const navigate = useNavigate();
   const [contactOpen, setContactOpen] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
   const [contactForm, setContactForm] = useState({ firstName: "", lastName: "", email: "", message: "" });
 
-  // Debounce sidebar toggle — minimum 250ms between toggles
+  // Toggle left sidebar via custom event
   const lastToggleRef = useRef(0);
   const handleToggleSidebar = useCallback(() => {
     const now = Date.now();
     if (now - lastToggleRef.current < 250) return;
     lastToggleRef.current = now;
-    toggleSidebar();
-  }, [toggleSidebar]);
+    window.dispatchEvent(new CustomEvent("toggle-sidebar"));
+  }, []);
 
   const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
