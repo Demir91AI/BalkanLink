@@ -149,7 +149,7 @@ export const guideLinkRegistry: Record<string, GuideLinks> = {
   integrationskurs: {
     portalUrl: "",
     downloadsUrl: "",
-    infoUrl: "https://www.bamf.de/DE/Startseite/startseite_node.html",
+    infoUrl: "https://www.bamf.de/DE/Themen/Integration/ZugewanderteTeilnehmende/Integrationskurse/integrationskurse-node.html",
   },
 };
 
