@@ -19,7 +19,7 @@ import {
   otherOffensesTable,
 } from "@/lib/bussgeld-data";
 import { useLanguage } from "@/contexts/LanguageContext";
-import SubpageNav from "@/components/SubpageNav";
+import PageNav from "@/components/navigation/PageNav";
 
 const offenseOptions: { value: OffenseType; label: string; icon: typeof Car }[] = [
   { value: "speed", label: "Brzina", icon: Car },
@@ -60,7 +60,7 @@ export default function BussgeldAssistent() {
 
   return (
     <div className="min-h-screen pb-16">
-      <SubpageNav />
+      <PageNav />
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-muted/40 py-10 px-4">
         <div className="mx-auto max-w-3xl text-center">

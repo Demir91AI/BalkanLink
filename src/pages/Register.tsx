@@ -10,7 +10,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Check, X } from "lucide-react";
-import SubpageNav from "@/components/SubpageNav";
+import PageNav from "@/components/navigation/PageNav";
 
 const PW_RULES = [
   { key: "auth.pwRule.length" as const, test: (pw: string) => pw.length >= 8 },
@@ -59,7 +59,7 @@ export default function Register() {
 
   return (
     <>
-    <SubpageNav />
+    <PageNav />
     <div className="container flex min-h-[70vh] items-center justify-center py-12">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">

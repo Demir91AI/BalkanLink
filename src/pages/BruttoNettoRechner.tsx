@@ -24,7 +24,7 @@ import {
   type BruttoNettoInputs, type BruttoNettoResult, type TaxYear,
 } from "@/lib/brutto-netto-config";
 import { useLanguage } from "@/contexts/LanguageContext";
-import SubpageNav from "@/components/SubpageNav";
+import PageNav from "@/components/navigation/PageNav";
 
 /* ─── Helpers ─── */
 const fmt = (n: number) =>
@@ -129,7 +129,7 @@ export default function BruttoNettoRechner() {
 
   return (
     <div className="min-h-screen bg-background">
-      <SubpageNav />
+      <PageNav />
       {/* Breadcrumb */}
       <div className="border-b bg-card">
         <div className="container flex items-center gap-1.5 py-3 text-xs text-muted-foreground">

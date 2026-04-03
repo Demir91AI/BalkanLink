@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useSectionT } from "@/hooks/useSectionT";
 import type { ReactNode } from "react";
-import SubpageNav from "@/components/SubpageNav";
+import PageNav from "@/components/navigation/PageNav";
 
 /* ─── Floating Particles ─── */
 function HeroParticles() {
@@ -171,7 +171,7 @@ export default function Premium() {
 
   return (
     <>
-      <SubpageNav />
+      <PageNav />
       {/* HERO */}
       <section className="relative overflow-hidden py-24 md:py-32" style={{ background: "linear-gradient(135deg, #0B1F3A 0%, #12254a 40%, #1a2d5a 60%, #1f2a52 80%, #0B1F3A 100%)" }}>
         {/* Animated gradient orbs */}

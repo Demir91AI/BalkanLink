@@ -1,9 +1,9 @@
-import SubpageNav from "@/components/SubpageNav";
+import PageNav from "@/components/navigation/PageNav";
 
 export default function DSA() {
   return (
     <>
-    <SubpageNav />
+    <PageNav />
     <div className="container max-w-3xl py-16">
       <h1 className="mb-10 text-3xl font-bold">Meldung rechtswidriger Inhalte &amp; Beschwerdeverfahren</h1>
       <p className="mb-8 text-sm text-muted-foreground">

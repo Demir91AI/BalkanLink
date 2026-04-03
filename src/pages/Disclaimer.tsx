@@ -1,9 +1,9 @@
-import SubpageNav from "@/components/SubpageNav";
+import PageNav from "@/components/navigation/PageNav";
 
 export default function Disclaimer() {
   return (
     <>
-    <SubpageNav />
+    <PageNav />
     <div className="container max-w-3xl py-16">
       <h1 className="mb-10 text-3xl font-bold">Haftungsausschluss – Formulare, Tools &amp; Informationsinhalte</h1>
       <div className="space-y-8 text-sm leading-relaxed text-muted-foreground">

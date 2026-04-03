@@ -8,7 +8,7 @@ import {
 import {
   Collapsible, CollapsibleContent, CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import SubpageNav from "@/components/SubpageNav";
+import PageNav from "@/components/navigation/PageNav";
 
 /* ── German locale formatter ── */
 const fmt = (n: number) =>
@@ -520,7 +520,7 @@ export default function Kalkulatori() {
 
   return (
     <div className="min-h-screen bg-[#0B0F1A]">
-      <SubpageNav />
+      <PageNav />
 
       {/* Header */}
       <div className="container pt-6 pb-2">
