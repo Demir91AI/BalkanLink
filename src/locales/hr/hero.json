@@ -1,8 +1,13 @@
 {
   "title": "Njemačka birokracija bez stresa.",
   "subtitle": "Ispuni sve važne formulare uz jasna objašnjenja — korak po korak, na tvom jeziku.",
-  "cta_primary": "Započni vodič",
-  "cta_secondary": "Pitaj asistenta",
+  "cta": {
+    "primary": "Započni vodič",
+    "secondary": "Pitaj asistenta"
+  },
   "disclaimer": "BalkanLink je edukativna platforma i nije pravni savjetnik.",
-  "language_label": "Hrvatski"
+  "language_label": "Hrvatski",
+  "badge": "Za balkansku dijasporu u Njemačkoj",
+  "scroll_hint": "Skrolaj prema dolje",
+  "trusted_by": "Koriste ga tisuće korisnika"
 }

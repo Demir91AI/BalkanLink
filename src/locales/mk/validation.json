@@ -1,11 +1,15 @@
 {
-  "required": "Задолжително поле",
-  "email_invalid": "Невалидна email адреса",
-  "min_length": "Потребни се најмалку {{count}} знаци",
-  "max_length": "Дозволени се најмногу {{count}} знаци",
-  "number_only": "Само бројки дозволени",
-  "iban_invalid": "Невалиден IBAN",
-  "plz_invalid": "Невалиден поштенски број",
-  "date_invalid": "Невалиден датум",
-  "password_weak": "Лозинката е прослаба"
+  "required": "Obavezno polje.",
+  "email_invalid": "Nevažeća email adresa.",
+  "min_length": "Minimalno {{count}} znakova.",
+  "max_length": "Maksimalno {{count}} znakova.",
+  "number_only": "Samo brojevi.",
+  "iban_invalid": "Nevažeći IBAN.",
+  "plz_invalid": "Nevažeći poštanski broj.",
+  "date_invalid": "Nevažeći datum.",
+  "password_weak": "Lozinka je preslaba.",
+  "password_match": "Lozinke se ne podudaraju.",
+  "terms_required": "Prihvati uvjete korištenja.",
+  "file_too_large": "Fajl prevelik (maks. {{size}} MB).",
+  "file_wrong_type": "Format nije podržan."
 }

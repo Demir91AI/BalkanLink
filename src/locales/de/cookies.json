@@ -7,5 +7,16 @@
   "analytics": "Analyse-Cookies",
   "marketing": "Marketing-Cookies",
   "save_preferences": "Einstellungen speichern",
-  "privacy_link": "Mehr erfahren"
+  "privacy_link": "Datenschutzerklärung",
+  "cookie": {
+    "acceptAll": "Alle akzeptieren",
+    "desc": "Wir verwenden Cookies.",
+    "footerLink": "Cookie-Einstellungen",
+    "necessaryOnly": "Nur notwendige",
+    "saveSettings": "Einstellungen speichern",
+    "settings": "Einstellungen",
+    "settingsDesc": "Passe deine Cookie-Einstellungen an.",
+    "settingsTitle": "Cookie-Einstellungen",
+    "title": "Cookie-Hinweis"
+  }
 }

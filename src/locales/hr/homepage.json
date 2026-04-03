@@ -5,18 +5,104 @@
   "premium_subtitle": "Sve što trebaš, na jednom mjestu.",
   "trending_title": "Najtraženije danas",
   "community_title": "Balkanci u Njemačkoj",
-  "community_subtitle": "Poveži se sa zajednicom.",
-  "reviews_section_title": "Povjerenje",
-  "card_anmeldung": "Prijava prebivališta",
-  "card_anmeldung_desc": "Prijavi stan jednostavno.",
+  "community_subtitle": "Pronađi Balkance u svom gradu i poveži se s njima.",
+  "reviews_section_title": "Što kažu naši korisnici",
+  "card_anmeldung": "Prijava boravišta",
+  "card_anmeldung_desc": "Prijavi boravište — brzo i ispravno.",
   "card_steuer": "Porezna prijava",
-  "card_steuer_desc": "Uredi poreze ispravno.",
-  "card_kindergeld": "Kindergeld",
-  "card_kindergeld_desc": "Podnesi zahtjev za Kindergeld — korak po korak.",
+  "card_steuer_desc": "Uredi poreznu prijavu ispravno.",
+  "card_kindergeld": "Dječji doplatak",
+  "card_kindergeld_desc": "Apliciraj za Kindergeld — korak po korak.",
   "card_kranken": "Zdravstveno osiguranje",
-  "card_kranken_desc": "Pronađi pravo osiguranje.",
+  "card_kranken_desc": "Pronađi pravo osiguranje za svoju obitelj.",
   "card_konto": "Otvaranje računa",
   "card_konto_desc": "Otvori račun brzo i jednostavno.",
-  "card_arbeit": "Ugovor o radu",
-  "card_arbeit_desc": "Razumi svoj ugovor o radu."
+  "card_arbeit": "Radni ugovor",
+  "card_arbeit_desc": "Razumij radni ugovor i postupaj ispravno.",
+  "card_wohnung": "Pronalazak stana",
+  "card_wohnung_desc": "Savjeti za traženje stana.",
+  "card_visum": "Viza i boravak",
+  "card_visum_desc": "Sve o vizi i boravišnoj dozvoli.",
+  "section_free": "Besplatno koristi",
+  "section_premium": "Uz Premium još više",
+  "cta_start": "Počni odmah",
+  "cta_explore": "Istraži sve teme",
+  "balkanci_card1": "Kava i druženje",
+  "balkanci_card2": "Café vrt",
+  "balkanci_card3": "Auto susreti",
+  "balkanci_card4": "Zajednica",
+  "balkanci_search": "Pretraži grad...",
+  "balkanci_no_results": "Nema rezultata za \"{{query}}\"",
+  "balkanci_message": "Pošalji poruku",
+  "balkanci_title": "Balkanci u Njemačkoj",
+  "balkanci_subtitle": "Pronađi Balkance u svom gradu.",
+  "servicesTitle": "Što želiš riješiti danas?",
+  "servicesSubtitle": "Odaberi temu i kreni odmah.",
+  "premiumTitle": "Premium alati",
+  "premiumSubtitle": "Sve na jednom mjestu.",
+  "adLabel": "Reklama",
+  "comparePlans": "Uporedi pakete",
+  "contact": "Kontakt",
+  "premiumCta": "Otključaj Premium",
+  "recommended": "Preporučeno",
+  "showcaseLabel": "Istaknuto",
+  "showcaseTitle": "Naši partneri",
+  "unlockAll": "Otključaj sve",
+  "unlockDesc": "Sa Premium imaš pristup svemu.",
+  "viewMore": "Pogledaj više",
+  "wow": {
+    "headline1": "Sve",
+    "headline2": "na jednom mjestu.",
+    "subtitle": "BalkanLink pojednostavljuje njemačku birokratiju.",
+    "cta": "Počni odmah",
+    "feat1": {
+      "title": "Smart Guides",
+      "desc": "Korak-po-korak uputstva za svaki formular."
+    },
+    "feat2": {
+      "title": "AI Asistent",
+      "desc": "Postavi pitanje i dobij odgovor odmah."
+    },
+    "feat3": {
+      "title": "Na tvom jeziku",
+      "desc": "Razumij svako polje — na maternjem jeziku."
+    }
+  },
+  "reviews": {
+    "title": "Recenzije",
+    "allTitle": "Sve recenzije",
+    "anonymous": "Anonimno",
+    "average": "Prosjek",
+    "comment": "Napiši komentar...",
+    "errorComment": "Napiši komentar.",
+    "errorRating": "Daj ocjenu.",
+    "errorSend": "Greška pri slanju.",
+    "leaveReview": "Ostavi recenziju",
+    "loading": "Učitava se...",
+    "name": "Tvoje ime (opcionalno)",
+    "noReviews": "Još nema recenzija. Budi prvi!",
+    "showMore": "Prikaži više",
+    "submit": "Pošalji recenziju",
+    "successSend": "Hvala na recenziji!",
+    "thanks": "Hvala!",
+    "viewAll": "Pogledaj sve recenzije"
+  },
+  "community": {
+    "title": "Balkanci u Njemačkoj",
+    "subtitle": "Povezi se sa zajednicom."
+  },
+  "cta": {
+    "daily": {
+      "title": "Dnevni savjet"
+    },
+    "help": {
+      "title": "Trebaš pomoć?"
+    }
+  },
+  "index": {
+    "nav": {
+      "docCheck": "Provjera dokumenata",
+      "offerSeek": "Nudim / Tražim"
+    }
+  }
 }

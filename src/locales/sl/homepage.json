@@ -5,18 +5,104 @@
   "premium_subtitle": "Vse kar potrebuješ, na enem mestu.",
   "trending_title": "Danes najbolj iskano",
   "community_title": "Balkanci v Nemčiji",
-  "community_subtitle": "Poveži se s skupnostjo.",
-  "reviews_section_title": "Zaupanje",
-  "card_anmeldung": "Prijava prebivališča",
-  "card_anmeldung_desc": "Prijavi bivališče preprosto.",
+  "community_subtitle": "Najdi Balkance v svojem mestu.",
+  "reviews_section_title": "Kaj pravijo naši uporabniki",
+  "card_anmeldung": "Prijava bivališča",
+  "card_anmeldung_desc": "Prijavi bivališče — hitro in pravilno.",
   "card_steuer": "Davčna napoved",
-  "card_steuer_desc": "Uredi davke pravilno.",
-  "card_kindergeld": "Kindergeld",
+  "card_steuer_desc": "Uredi davčno napoved pravilno.",
+  "card_kindergeld": "Otroški dodatek",
   "card_kindergeld_desc": "Zaprosi za Kindergeld — korak za korakom.",
   "card_kranken": "Zdravstveno zavarovanje",
   "card_kranken_desc": "Najdi pravo zavarovanje.",
   "card_konto": "Odprtje računa",
-  "card_konto_desc": "Odpri račun hitro in enostavno.",
-  "card_arbeit": "Pogodba o zaposlitvi",
-  "card_arbeit_desc": "Razumi svojo pogodbo o zaposlitvi."
+  "card_konto_desc": "Odpri bančni račun enostavno.",
+  "card_arbeit": "Delovna pogodba",
+  "card_arbeit_desc": "Razumej delovno pogodbo.",
+  "card_wohnung": "Iskanje stanovanja",
+  "card_wohnung_desc": "Nasveti za iskanje stanovanja.",
+  "card_visum": "Vizum in bivanje",
+  "card_visum_desc": "Vse o vizumu in dovoljenju.",
+  "section_free": "Brezplačna uporaba",
+  "section_premium": "S Premiumom še več",
+  "cta_start": "Začni zdaj",
+  "cta_explore": "Razišči vse teme",
+  "balkanci_card1": "Kava in srečanja",
+  "balkanci_card2": "Café vrt",
+  "balkanci_card3": "Avto srečanja",
+  "balkanci_card4": "Skupnost",
+  "balkanci_search": "Išči mesto...",
+  "balkanci_no_results": "Ni rezultatov za \"{{query}}\"",
+  "balkanci_message": "Pošlji sporočilo",
+  "balkanci_title": "Balkanci v Nemčiji",
+  "balkanci_subtitle": "Najdi Balkance v svojem mestu.",
+  "servicesTitle": "Kaj želiš danes rešiti?",
+  "servicesSubtitle": "Izberi temo in začni takoj.",
+  "premiumTitle": "Premium orodja",
+  "premiumSubtitle": "Vse na enem mestu.",
+  "adLabel": "Reklama",
+  "comparePlans": "Uporedi pakete",
+  "contact": "Kontakt",
+  "premiumCta": "Otključaj Premium",
+  "recommended": "Preporučeno",
+  "showcaseLabel": "Istaknuto",
+  "showcaseTitle": "Naši partneri",
+  "unlockAll": "Otključaj sve",
+  "unlockDesc": "Sa Premium imaš pristup svemu.",
+  "viewMore": "Pogledaj više",
+  "wow": {
+    "headline1": "Sve",
+    "headline2": "na jednom mjestu.",
+    "subtitle": "BalkanLink pojednostavljuje njemačku birokratiju.",
+    "cta": "Počni odmah",
+    "feat1": {
+      "title": "Smart Guides",
+      "desc": "Korak-po-korak uputstva za svaki formular."
+    },
+    "feat2": {
+      "title": "AI Asistent",
+      "desc": "Postavi pitanje i dobij odgovor odmah."
+    },
+    "feat3": {
+      "title": "Na tvom jeziku",
+      "desc": "Razumij svako polje — na maternjem jeziku."
+    }
+  },
+  "reviews": {
+    "title": "Recenzije",
+    "allTitle": "Sve recenzije",
+    "anonymous": "Anonimno",
+    "average": "Prosjek",
+    "comment": "Napiši komentar...",
+    "errorComment": "Napiši komentar.",
+    "errorRating": "Daj ocjenu.",
+    "errorSend": "Greška pri slanju.",
+    "leaveReview": "Ostavi recenziju",
+    "loading": "Učitava se...",
+    "name": "Tvoje ime (opcionalno)",
+    "noReviews": "Još nema recenzija. Budi prvi!",
+    "showMore": "Prikaži više",
+    "submit": "Pošalji recenziju",
+    "successSend": "Hvala na recenziji!",
+    "thanks": "Hvala!",
+    "viewAll": "Pogledaj sve recenzije"
+  },
+  "community": {
+    "title": "Balkanci u Njemačkoj",
+    "subtitle": "Povezi se sa zajednicom."
+  },
+  "cta": {
+    "daily": {
+      "title": "Dnevni savjet"
+    },
+    "help": {
+      "title": "Trebaš pomoć?"
+    }
+  },
+  "index": {
+    "nav": {
+      "docCheck": "Provjera dokumenata",
+      "offerSeek": "Nudim / Tražim"
+    }
+  }
 }
