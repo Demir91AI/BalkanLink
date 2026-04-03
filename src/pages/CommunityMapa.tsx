@@ -1,14 +1,15 @@
-import { useState, useMemo, useCallback } from "react";
-import { MapPin, Search, Shield, X, Users, ChevronLeft, MessageSquare, Send } from "lucide-react";
+import { useState, useMemo, useCallback, useRef, useEffect } from "react";
+import { MapPin, Search, Shield, X, Users, ChevronLeft, ChevronRight, MessageSquare, Send, Home } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Textarea } from "@/components/ui/textarea";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { navigateBackOrHome } from "@/lib/navigation";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 interface MapMember {
   id: string;
@@ -20,7 +21,6 @@ interface MapMember {
 
 const LS_KEY = "bl_mapa_members";
 const LS_SELF_KEY = "bl_mapa_self_id";
-const LS_MSGS_KEY = "bl_mapa_messages";
 
 function loadMembers(): MapMember[] {
   try {
@@ -52,6 +52,51 @@ const GERMAN_CITIES = [
   "Landshut","Straubing","Deggendorf","Weiden","Schweinfurt","Coburg","Hof","Ansbach",
 ];
 
+/* Visual carousel images - placeholder stock-style descriptions */
+const visualSlides = [
+  { emoji: "☕", label: "Kafa i druženje" },
+  { emoji: "🌿", label: "Café bašta" },
+  { emoji: "🚗", label: "Auto susreti" },
+  { emoji: "👫", label: "Druženje i zajednica" },
+];
+
+function VisualCarousel() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef(0);
+
+  useEffect(() => {
+    const animate = () => {
+      const el = scrollRef.current;
+      if (el) {
+        el.scrollLeft += 0.4;
+        const half = el.scrollWidth / 2;
+        if (el.scrollLeft >= half) el.scrollLeft -= half;
+      }
+      rafRef.current = requestAnimationFrame(animate);
+    };
+    rafRef.current = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, []);
+
+  const doubled = [...visualSlides, ...visualSlides];
+
+  return (
+    <div className="overflow-hidden w-full mb-6">
+      <div ref={scrollRef} className="flex gap-4 overflow-x-hidden scrollbar-hide">
+        {doubled.map((slide, i) => (
+          <div
+            key={i}
+            className="shrink-0 w-[200px] h-[120px] rounded-xl bg-gradient-to-br from-[hsl(var(--gold))]/10 to-[hsl(var(--warm-cream))] border border-[#E8E0D0] flex flex-col items-center justify-center gap-2 shadow-sm"
+          >
+            <span className="text-4xl">{slide.emoji}</span>
+            <span className="text-xs font-semibold text-[#2D2D2D]">{slide.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function CommunityMapa() {
   const navigate = useNavigate();
   const [members, setMembers] = useState<MapMember[]>(loadMembers);
@@ -63,6 +108,7 @@ export default function CommunityMapa() {
   const [displayName, setDisplayName] = useState("");
   const [note, setNote] = useState("");
   const [selfId, setSelfId] = useState(() => localStorage.getItem(LS_SELF_KEY) || "");
+  const [showSuggestions, setShowSuggestions] = useState(false);
 
   // Messaging state
   const [msgOpen, setMsgOpen] = useState(false);
@@ -103,6 +149,11 @@ export default function CommunityMapa() {
     setShowAddForm(true);
   };
 
+  const selectCity = useCallback((c: string) => {
+    setCity(c);
+    setShowSuggestions(false);
+  }, []);
+
   const handleAddMember = () => {
     if (!city.trim()) return;
     const member: MapMember = {
@@ -138,20 +189,21 @@ export default function CommunityMapa() {
     setMsgOpen(true);
   };
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     if (!msgText.trim() || !msgRecipient) return;
-    // Store locally
-    try {
-      const msgs = JSON.parse(localStorage.getItem(LS_MSGS_KEY) || "[]");
-      msgs.push({
-        id: crypto.randomUUID(),
-        to: msgRecipient.name,
-        toCity: msgRecipient.city,
-        message: msgText.trim(),
-        createdAt: new Date().toISOString(),
-      });
-      localStorage.setItem(LS_MSGS_KEY, JSON.stringify(msgs));
-    } catch {}
+    
+    const { error } = await supabase.from("messages").insert({
+      sender_name: "Anonimno",
+      recipient_name: msgRecipient.name,
+      recipient_city: msgRecipient.city,
+      content: msgText.trim(),
+    });
+
+    if (error) {
+      toast.error("Greška pri slanju poruke");
+      return;
+    }
+
     toast.success("Poruka poslana!");
     setMsgOpen(false);
     setMsgText("");
@@ -165,9 +217,18 @@ export default function CommunityMapa() {
       {/* Hero */}
       <section className="border-b border-[#E8E0D0] bg-white py-10">
         <div className="container max-w-4xl">
-          <button onClick={handleBack} className="back-button mb-3">
-            <ChevronLeft className="h-4 w-4" /> Nazad
-          </button>
+          <div className="flex items-center gap-2 mb-3">
+            <button onClick={handleBack} className="back-button">
+              <ChevronLeft className="h-4 w-4" /> Nazad
+            </button>
+            <Link
+              to="/"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-[#E8E0D0] bg-white px-3 py-2 text-sm text-[#6B6B6B] transition-colors hover:bg-[hsl(var(--warm-cream))] hover:text-[hsl(var(--gold))] hover:shadow-sm"
+              aria-label="Početna"
+            >
+              <Home className="h-4 w-4" />
+            </Link>
+          </div>
           <div className="flex items-center gap-3 mb-3">
             <MapPin className="h-7 w-7 text-[hsl(var(--gold))]" />
             <h1 className="text-xl font-bold text-[#2D2D2D] sm:text-2xl">
@@ -181,6 +242,9 @@ export default function CommunityMapa() {
       </section>
 
       <div className="container max-w-4xl py-8 space-y-6">
+        {/* Visual carousel */}
+        <VisualCarousel />
+
         {/* Disclaimer */}
         <div className="rounded-xl border border-[hsl(var(--gold))]/20 bg-[hsl(var(--gold))]/5 p-4">
           <div className="flex items-start gap-3">
@@ -192,7 +256,7 @@ export default function CommunityMapa() {
         </div>
 
         {/* Search box */}
-        <div className="relative">
+        <div className="relative max-w-[480px] mx-auto">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#6B6B6B]" />
           <Input
             value={search}
@@ -264,14 +328,23 @@ export default function CommunityMapa() {
             <div className="relative">
               <Input
                 value={city}
-                onChange={e => setCity(e.target.value)}
+                onChange={e => { setCity(e.target.value); setShowSuggestions(true); }}
+                onFocus={() => setShowSuggestions(true)}
                 placeholder="Upiši grad / mjesto (npr. München)"
                 className="text-sm border-[#E8E0D0]"
               />
-              {citySuggestions.length > 0 && (
+              {showSuggestions && citySuggestions.length > 0 && (
                 <div className="absolute top-full left-0 right-0 z-20 mt-1 rounded-lg border border-[#E8E0D0] bg-white shadow-lg max-h-48 overflow-y-auto">
                   {citySuggestions.map(c => (
-                    <button key={c} onClick={() => setCity(c)} className="w-full px-4 py-2 text-sm text-left hover:bg-[hsl(var(--warm-cream))] transition-colors text-[#2D2D2D]">
+                    <button
+                      key={c}
+                      type="button"
+                      onMouseDown={(e) => {
+                        e.preventDefault();
+                        selectCity(c);
+                      }}
+                      className="w-full px-4 py-2.5 text-sm text-left hover:bg-[hsl(var(--warm-cream))] transition-colors text-[#2D2D2D] cursor-pointer"
+                    >
                       {c}
                     </button>
                   ))}
@@ -302,13 +375,13 @@ export default function CommunityMapa() {
 
         {/* City grid */}
         <div className="space-y-4">
-          <h3 className="text-sm font-bold text-[#6B6B6B] uppercase tracking-wider">
+          <h3 className="text-sm font-bold text-[#6B6B6B] uppercase tracking-wider text-center">
             Gradovi ({filteredGroups.length})
           </h3>
 
           {filteredGroups.length === 0 && search.trim() ? (
             <div className="rounded-xl border border-[#E8E0D0] bg-white p-8 text-center">
-              <p className="text-sm text-[#6B6B6B]">Nema rezultata za "{search}"</p>
+              <p className="text-sm text-[#6B6B6B]">Nema rezultata za &quot;{search}&quot;</p>
             </div>
           ) : filteredGroups.length === 0 ? (
             <div className="rounded-xl border border-[#E8E0D0] bg-white p-8 text-center">
@@ -318,13 +391,13 @@ export default function CommunityMapa() {
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {filteredGroups.map(([cityName, cityMembers]) => (
-                <div key={cityName} className="rounded-xl border border-[#E8E0D0] bg-white p-4 shadow-[0_2px_12px_rgba(0,0,0,0.06)] hover:border-[hsl(var(--gold))] hover:-translate-y-0.5 transition-all duration-200">
+                <div key={cityName} className="rounded-xl border border-[#E8E0D0] bg-white p-5 shadow-[0_2px_12px_rgba(0,0,0,0.06)] hover:border-[hsl(var(--gold))] hover:-translate-y-[3px] transition-all duration-300">
                   <div className="flex items-center justify-between mb-3">
                     <h4 className="text-sm font-bold text-[#2D2D2D] flex items-center gap-2">
                       <MapPin className="h-4 w-4 text-[hsl(var(--gold))]" />
                       {cityName}
                     </h4>
-                    <span className="text-xs text-[#6B6B6B] flex items-center gap-1">
+                    <span className="text-[13px] text-[#6B6B6B] flex items-center gap-1">
                       <Users className="h-3 w-3" /> {cityMembers.length}
                     </span>
                   </div>
@@ -337,10 +410,10 @@ export default function CommunityMapa() {
                         </div>
                         <button
                           onClick={() => openMessage(m)}
-                          className="shrink-0 inline-flex items-center gap-1 rounded-md bg-[hsl(var(--gold))] px-2 py-1 text-[10px] font-semibold text-white hover:bg-[hsl(var(--gold-dark))] transition-colors"
+                          className="shrink-0 inline-flex items-center gap-1 rounded-lg bg-[hsl(var(--gold))] px-2.5 py-1 text-[10px] font-semibold text-white hover:bg-[hsl(var(--gold-dark))] transition-colors"
                         >
                           <MessageSquare className="h-2.5 w-2.5" />
-                          Poruka
+                          Pošalji poruku
                         </button>
                       </div>
                     ))}
