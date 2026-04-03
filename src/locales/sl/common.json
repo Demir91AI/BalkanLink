@@ -54,5 +54,12 @@
   "contact.lastName": "Priimek",
   "contact.email": "E-pošta",
   "contact.message": "Sporočilo",
-  "contact.send": "Pošlji"
+  "contact.send": "Pošlji",
+  "firm": {
+    "notFound": "Podjetje ni najdeno",
+    "back": "Nazaj na domačo stran",
+    "recommended": "Priporočeno",
+    "visitWebsite": "Obišči spletno stran",
+    "contact": "Kontakt"
+  }
 }

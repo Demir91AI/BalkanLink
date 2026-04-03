@@ -54,5 +54,12 @@
   "contact.lastName": "Nachname",
   "contact.email": "E-Mail",
   "contact.message": "Nachricht",
-  "contact.send": "Senden"
+  "contact.send": "Senden",
+  "firm": {
+    "notFound": "Firma nicht gefunden",
+    "back": "Zurück zur Startseite",
+    "recommended": "Empfohlen",
+    "visitWebsite": "Website besuchen",
+    "contact": "Kontakt"
+  }
 }

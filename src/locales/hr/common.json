@@ -54,5 +54,12 @@
   "contact.lastName": "Prezime",
   "contact.email": "Email",
   "contact.message": "Poruka",
-  "contact.send": "Pošalji"
+  "contact.send": "Pošalji",
+  "firm": {
+    "notFound": "Tvrtka nije pronađena",
+    "back": "Natrag na početnu",
+    "recommended": "Preporučeno",
+    "visitWebsite": "Posjeti web stranicu",
+    "contact": "Kontakt"
+  }
 }
