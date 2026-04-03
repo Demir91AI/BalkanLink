@@ -1,0 +1,18 @@
+{
+  "title": "Nudim / Tražim",
+  "subtitle": "Pronađi ili ponudi pomoć u svojoj zajednici.",
+  "tab_nudim": "Nudim",
+  "tab_trazim": "Tražim",
+  "post_ad": "Objavi oglas",
+  "filter_city": "Filtriraj grad",
+  "filter_category": "Kategorija",
+  "search_placeholder": "Pretraži oglase...",
+  "pro_ads": "Pro oglasi",
+  "free_ad": "Besplatni oglas",
+  "pro_badge": "PRO",
+  "duration_7": "7 dana — 1,99 €",
+  "duration_30": "30 dana — 4,99 €",
+  "contact_seller": "Kontaktiraj prodavača",
+  "no_ads": "Još nema oglasa u ovoj kategoriji.",
+  "ad_expires": "Ističe za {{days}} dana"
+}

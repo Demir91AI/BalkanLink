@@ -1,0 +1,13 @@
+{
+  "title": "Viza Navigator",
+  "subtitle": "Pronađi pravu vizu za tvoju situaciju.",
+  "startBtn": "Započni navigator",
+  "resultTitle": "Rezultat",
+  "recommendation": "Preporuka",
+  "requirements": "Uslovi",
+  "duration": "Trajanje",
+  "cost": "Cijena",
+  "statusPending": "U obradi",
+  "statusApproved": "Odobreno",
+  "statusDenied": "Odbijeno"
+}

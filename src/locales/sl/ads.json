@@ -1,0 +1,13 @@
+{
+  "title": "Oglasi",
+  "post_ad": "Objavi oglas",
+  "edit_ad": "Uredi",
+  "delete_ad": "Izbriši",
+  "contact_seller": "Kontaktiraj prodajalca",
+  "no_ads": "Še ni oglasov.",
+  "ad_expires": "Poteče čez {{days}} dni",
+  "report": "Prijavi",
+  "category": "Kategorija",
+  "city": "Mesto",
+  "price": "Cena"
+}

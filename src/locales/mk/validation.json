@@ -1,0 +1,11 @@
+{
+  "required": "Задолжително поле",
+  "email_invalid": "Невалидна email адреса",
+  "min_length": "Потребни се најмалку {{count}} знаци",
+  "max_length": "Дозволени се најмногу {{count}} знаци",
+  "number_only": "Само бројки дозволени",
+  "iban_invalid": "Невалиден IBAN",
+  "plz_invalid": "Невалиден поштенски број",
+  "date_invalid": "Невалиден датум",
+  "password_weak": "Лозинката е прослаба"
+}

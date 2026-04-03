@@ -1,0 +1,8 @@
+{
+  "pending": "Na čekanju",
+  "active": "Aktivno",
+  "expired": "Isteklo",
+  "removed": "Uklonjeno",
+  "approved": "Odobreno",
+  "denied": "Odbijeno"
+}

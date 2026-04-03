@@ -1,0 +1,15 @@
+{
+  "title": "Obrazci",
+  "subtitle": "Vsi pomembni obrazci z razlagami.",
+  "step": "Korak",
+  "of": "od",
+  "nextStep": "Naprej",
+  "prevStep": "Nazaj",
+  "complete": "Zaključi",
+  "fieldRequired": "To polje je obvezno.",
+  "downloadPdf": "Prenesi PDF",
+  "guideTitle": "Pomoč pri izpolnjevanju",
+  "tipTitle": "Nasvet",
+  "warningTitle": "Pozor",
+  "exampleTitle": "Primer"
+}

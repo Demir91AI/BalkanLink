@@ -1,0 +1,8 @@
+{
+  "pending": "Ausstehend",
+  "active": "Aktiv",
+  "expired": "Abgelaufen",
+  "removed": "Entfernt",
+  "approved": "Genehmigt",
+  "denied": "Abgelehnt"
+}

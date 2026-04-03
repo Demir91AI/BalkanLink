@@ -1,0 +1,15 @@
+{
+  "title": "Formularë",
+  "subtitle": "Të gjithë formularët e rëndësishëm me shpjegime.",
+  "step": "Hapi",
+  "of": "nga",
+  "nextStep": "Tjetër",
+  "prevStep": "Prapa",
+  "complete": "Përfundo",
+  "fieldRequired": "Kjo fushë është e detyrueshme.",
+  "downloadPdf": "Shkarko PDF",
+  "guideTitle": "Ndihmë për plotësim",
+  "tipTitle": "Këshillë",
+  "warningTitle": "Kujdes",
+  "exampleTitle": "Shembull"
+}

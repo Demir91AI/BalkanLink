@@ -1,0 +1,18 @@
+{
+  "title": "Ponujam / Iščem",
+  "subtitle": "Najdi ali ponudi pomoč v svoji skupnosti.",
+  "tab_nudim": "Ponujam",
+  "tab_trazim": "Iščem",
+  "post_ad": "Objavi oglas",
+  "filter_city": "Filtriraj mesto",
+  "filter_category": "Kategorija",
+  "search_placeholder": "Išči oglase...",
+  "pro_ads": "Pro oglasi",
+  "free_ad": "Brezplačni oglas",
+  "pro_badge": "PRO",
+  "duration_7": "7 dni — 1,99 €",
+  "duration_30": "30 dni — 4,99 €",
+  "contact_seller": "Kontaktiraj prodajalca",
+  "no_ads": "Še ni oglasov v tej kategoriji.",
+  "ad_expires": "Poteče čez {{days}} dni"
+}

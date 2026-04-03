@@ -1,0 +1,14 @@
+{
+  "title": "Kalkulatori",
+  "subtitle": "Izračunaj najvažnije vrijednosti.",
+  "cost_of_living": "Troškovi života",
+  "salary_net": "Izračunaj neto platu",
+  "tax_class": "Odredi poreznu klasu",
+  "label_gross": "Bruto plata (€)",
+  "label_net": "Neto plata",
+  "label_city": "Grad",
+  "label_result": "Rezultat",
+  "calculate": "Izračunaj",
+  "disclaimer": "Ova kalkulacija je samo orijentaciona vrijednost.",
+  "help_gross": "Unesi svoju mjesečnu bruto platu."
+}

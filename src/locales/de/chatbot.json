@@ -1,0 +1,15 @@
+{
+  "title": "BalkanLink Assistent",
+  "welcome": "Hallo! Ich bin dein BalkanLink Assistent. Wie kann ich dir helfen?",
+  "placeholder": "Stelle eine Frage...",
+  "send": "Senden",
+  "loading": "Assistent tippt...",
+  "error": "Fehler beim Laden der Antwort.",
+  "suggestions_title": "Häufige Fragen",
+  "suggestion_1": "Wie melde ich mich an?",
+  "suggestion_2": "Wie beantrage ich Kindergeld?",
+  "suggestion_3": "Wie eröffne ich ein Konto?",
+  "suggestion_4": "Welche Krankenversicherung brauche ich?",
+  "premium_locked": "Diese Antwort ist nur für Premium-Mitglieder verfügbar.",
+  "powered_by": "Powered by BalkanLink AI"
+}

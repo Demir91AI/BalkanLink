@@ -1,0 +1,11 @@
+{
+  "required": "Obavezno polje",
+  "email_invalid": "Neispravna email adresa",
+  "min_length": "Potrebno najmanje {{count}} znakova",
+  "max_length": "Dozvoljeno najviše {{count}} znakova",
+  "number_only": "Samo brojevi dozvoljeni",
+  "iban_invalid": "Neispravan IBAN",
+  "plz_invalid": "Neispravan poštanski broj",
+  "date_invalid": "Neispravan datum",
+  "password_weak": "Lozinka preslaba"
+}

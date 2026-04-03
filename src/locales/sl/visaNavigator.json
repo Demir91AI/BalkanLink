@@ -1,0 +1,13 @@
+{
+  "title": "Vizum Navigator",
+  "subtitle": "Najdi pravi vizum za tvojo situacijo.",
+  "startBtn": "Začni navigator",
+  "resultTitle": "Rezultat",
+  "recommendation": "Priporočilo",
+  "requirements": "Pogoji",
+  "duration": "Trajanje",
+  "cost": "Stroški",
+  "statusPending": "V obdelavi",
+  "statusApproved": "Odobreno",
+  "statusDenied": "Zavrnjeno"
+}

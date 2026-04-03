@@ -1,0 +1,18 @@
+{
+  "title": "Nudim / Tražim",
+  "subtitle": "Finde oder biete Hilfe in deiner Community.",
+  "tab_nudim": "Ich biete",
+  "tab_trazim": "Ich suche",
+  "post_ad": "Inserat aufgeben",
+  "filter_city": "Stadt filtern",
+  "filter_category": "Kategorie",
+  "search_placeholder": "Inserat suchen...",
+  "pro_ads": "Pro Inserate",
+  "free_ad": "Kostenloses Inserat",
+  "pro_badge": "PRO",
+  "duration_7": "7 Tage — 1,99 €",
+  "duration_30": "30 Tage — 4,99 €",
+  "contact_seller": "Verkäufer kontaktieren",
+  "no_ads": "Noch keine Inserate in dieser Kategorie.",
+  "ad_expires": "Läuft ab in {{days}} Tagen"
+}

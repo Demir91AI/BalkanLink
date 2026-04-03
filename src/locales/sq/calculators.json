@@ -1,0 +1,14 @@
+{
+  "title": "Kalkulatorë",
+  "subtitle": "Llogarit vlerat më të rëndësishme.",
+  "cost_of_living": "Kostot e jetesës",
+  "salary_net": "Llogarit pagën neto",
+  "tax_class": "Përcakto klasën tatimore",
+  "label_gross": "Paga bruto (€)",
+  "label_net": "Paga neto",
+  "label_city": "Qyteti",
+  "label_result": "Rezultati",
+  "calculate": "Llogarit",
+  "disclaimer": "Ky llogaritje është vetëm orientuese.",
+  "help_gross": "Fut pagën tënde mujore bruto."
+}
