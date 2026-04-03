@@ -436,16 +436,18 @@ export default function Index() {
                 ))}
               </motion.div>
 
-              {/* Balkan flags row */}
-              <div className="mt-6 flex flex-row flex-nowrap items-center justify-center gap-[10px] opacity-90">
-                {["🇧🇦", "🇷🇸", "🇭🇷", "🇲🇪", "🇸🇮", "🇲🇰", "🇦🇱", "🇽🇰"].map((flag) => (
-                  <span key={flag} className="text-2xl leading-none select-none">{flag}</span>
-                ))}
-              </div>
             </motion.div>
           </div>
         </div>
 
+        {/* Balkan + DE flags row — above dots */}
+        <div className="absolute bottom-14 left-1/2 z-10 -translate-x-1/2 flex flex-row flex-nowrap items-center justify-center gap-3">
+          {["🇧🇦","🇷🇸","🇭🇷","🇲🇪","🇩🇪","🇸🇮","🇲🇰","🇦🇱","🇽🇰"].map((flag) => (
+            <span key={flag} className="text-2xl leading-none select-none transition-transform duration-150 hover:scale-110" style={{ opacity: 0.9 }}>{flag}</span>
+          ))}
+        </div>
+
+        {/* Slider dots */}
         <div className="absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 gap-1.5">
           {slides.map((_, idx) => (
             <button
