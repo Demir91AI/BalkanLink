@@ -91,9 +91,7 @@ export default function Footer() {
               )) : (
                 <p className="text-[12px] text-[#6B6B6B]/60">Još nema recenzija.</p>
               )}
-              <a href="#reviews-section" className="text-[12px] font-semibold text-[hsl(var(--gold))] hover:underline mt-1">
-                Pogledaj sve recenzije →
-              </a>
+              <AllReviewsModal />
             </div>
           </div>
 
