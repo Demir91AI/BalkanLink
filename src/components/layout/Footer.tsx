@@ -17,7 +17,128 @@ interface FooterReview {
   comment: string;
 }
 
-export default function Footer() {
+interface FullReview {
+  id: string;
+  username: string;
+  rating: number;
+  comment: string;
+  created_at: string;
+}
+
+function timeAgo(dateStr: string) {
+  const diff = Date.now() - new Date(dateStr).getTime();
+  const mins = Math.floor(diff / 60000);
+  if (mins < 60) return `prije ${mins} min`;
+  const hrs = Math.floor(mins / 60);
+  if (hrs < 24) return `prije ${hrs}h`;
+  const days = Math.floor(hrs / 24);
+  if (days < 30) return `prije ${days} dana`;
+  return `prije ${Math.floor(days / 30)} mj.`;
+}
+
+function StarInput({ value, onChange }: { value: number; onChange: (v: number) => void }) {
+  const [hover, setHover] = useState(0);
+  return (
+    <div className="flex gap-1.5">
+      {[1, 2, 3, 4, 5].map((s) => (
+        <button key={s} type="button" onClick={() => onChange(s)} onMouseEnter={() => setHover(s)} onMouseLeave={() => setHover(0)} className="transition-transform hover:scale-110">
+          <Star className={`h-7 w-7 transition-colors ${s <= (hover || value) ? "fill-[hsl(var(--gold))] text-[hsl(var(--gold))]" : "text-[#E8E0D0]"}`} />
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function AllReviewsModal() {
+  const [allReviews, setAllReviews] = useState<FullReview[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [rating, setRating] = useState(0);
+  const [comment, setComment] = useState("");
+  const [username, setUsername] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  const fetchAll = async () => {
+    setLoading(true);
+    const { data } = await supabase.from("reviews").select("*").order("created_at", { ascending: false }).limit(100);
+    if (data) setAllReviews(data as FullReview[]);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    if (open) { fetchAll(); setSubmitted(false); setRating(0); setComment(""); setUsername(""); }
+  }, [open]);
+
+  const handleSubmit = async () => {
+    if (rating === 0 || comment.trim().length < 3) return;
+    const { error } = await supabase.from("reviews").insert({ username: username.trim() || "Anonimno", rating, comment: comment.trim() });
+    if (error) { toast.error("Greška pri slanju recenzije"); return; }
+    toast.success("Hvala na recenziji!");
+    setSubmitted(true);
+    setRating(0); setComment(""); setUsername("");
+    fetchAll();
+  };
+
+  const isValid = rating > 0 && comment.trim().length >= 3;
+
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <button className="text-[12px] font-semibold text-[hsl(var(--gold))] hover:underline hover:opacity-80 cursor-pointer mt-1 text-left transition-opacity">
+          Pogledaj sve recenzije →
+        </button>
+      </DialogTrigger>
+      <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto">
+        <DialogHeader>
+          <DialogTitle className="text-xl font-bold">Sve recenzije</DialogTitle>
+        </DialogHeader>
+
+        {/* Review list */}
+        {loading ? (
+          <p className="text-sm text-muted-foreground text-center py-4">Učitavanje...</p>
+        ) : allReviews.length > 0 ? (
+          <div className="space-y-3 mb-6">
+            {allReviews.map((r) => (
+              <div key={r.id} className="rounded-[10px] border border-[#E8E0D0] bg-white p-4 shadow-[0_2px_12px_rgba(0,0,0,0.07)]">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center gap-0.5">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <Star key={i} className={`h-3.5 w-3.5 ${i < r.rating ? "fill-[hsl(var(--gold))] text-[hsl(var(--gold))]" : "text-[#E8E0D0]"}`} />
+                    ))}
+                  </div>
+                  <span className="text-[10px] text-muted-foreground">{timeAgo(r.created_at)}</span>
+                </div>
+                <p className="text-[13px] text-foreground leading-relaxed mb-1">{r.comment}</p>
+                <p className="text-[11px] font-semibold text-muted-foreground">— {r.username}</p>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p className="text-sm text-muted-foreground text-center py-6">Još nema recenzija.</p>
+        )}
+
+        {/* Submit form */}
+        <div className="border-t border-[#E8E0D0] pt-5">
+          <h3 className="text-sm font-bold mb-3">Ostavi recenziju</h3>
+          {!submitted ? (
+            <div className="space-y-3">
+              <StarInput value={rating} onChange={setRating} />
+              <Textarea value={comment} onChange={(e) => setComment(e.target.value)} placeholder="Napiši komentar..." className="border-[#E8E0D0] resize-none min-h-[80px]" rows={3} />
+              <Input value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Tvoje ime (opcionalno)" className="border-[#E8E0D0]" />
+              <Button onClick={handleSubmit} disabled={!isValid} className="bg-[hsl(var(--gold))] text-white font-bold hover:bg-[hsl(var(--gold-dark))] disabled:opacity-50">
+                Pošalji recenziju
+              </Button>
+            </div>
+          ) : (
+            <p className="text-sm font-semibold text-center py-3">✅ Hvala! Recenzija je poslana.</p>
+          )}
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
+
   const { t } = useLanguage();
   const [reviews, setReviews] = useState<FooterReview[]>([]);
 
