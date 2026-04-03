@@ -104,11 +104,6 @@ export const guideLinkRegistry: Record<string, GuideLinks> = {
     downloadsUrl: "",
     infoUrl: "https://www.xn--bafg-7qa.de",
   },
-  "schueler-bafoeg": {
-    portalUrl: "https://www.bafoeg-digital.de",
-    downloadsUrl: "",
-    infoUrl: "https://www.xn--bafg-7qa.de",
-  },
   lernfoerderung: {
     portalUrl: "",
     downloadsUrl: "",
