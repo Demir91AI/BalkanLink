@@ -58,10 +58,10 @@ const GERMAN_CITIES = [
 
 /* Visual carousel images - placeholder stock-style descriptions */
 const visualSlides = [
-  { img: balkanSarajevo, label: "Sarajevo" },
-  { img: balkanBeograd, label: "Beograd" },
-  { img: balkanZagreb, label: "Zagreb" },
-  { img: balkanMostar, label: "Mostar" },
+  { img: balkanSarajevo, label: "Kafa i druženje" },
+  { img: balkanBeograd, label: "Café bašta" },
+  { img: balkanZagreb, label: "Auto-Treffen" },
+  { img: balkanMostar, label: "Druženje i zajednica" },
 ];
 
 function VisualCarousel() {
