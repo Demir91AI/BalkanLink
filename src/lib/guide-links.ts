@@ -134,7 +134,7 @@ export const guideLinkRegistry: Record<string, GuideLinks> = {
   steuerklassenwechsel: {
     portalUrl: "https://www.elster.de/eportal/start",
     downloadsUrl: "",
-    infoUrl: "https://www.bundesfinanzministerium.de/Web/DE/Themen/Steuern/Steuerarten/Lohnsteuer/lohnsteuer.html",
+    infoUrl: "https://www.bundesfinanzministerium.de/Web/DE/Themen/Steuern/Formulare/formulare.html",
   },
   kirchenaustritt: {
     portalUrl: "",
