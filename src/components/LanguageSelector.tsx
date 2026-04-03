@@ -1,9 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
-import { useLanguage } from "@/contexts/LanguageContext";
-import type { Language } from "@/lib/translations";
+import { useTranslation } from "@/i18n/useTranslation";
 
-const LANG_OPTIONS: { code: Language; label: string; flag: string }[] = [
+const LANG_OPTIONS: { code: string; label: string; flag: string }[] = [
   { code: "de", label: "Deutsch", flag: "https://flagcdn.com/h40/de.png" },
   { code: "bs", label: "Bosanski", flag: "https://flagcdn.com/h40/ba.png" },
   { code: "hr", label: "Hrvatski", flag: "https://flagcdn.com/h40/hr.png" },
@@ -15,11 +14,11 @@ const LANG_OPTIONS: { code: Language; label: string; flag: string }[] = [
 ];
 
 export default function LanguageSelector() {
-  const { language, setLanguage } = useLanguage();
+  const { currentLanguage, setLanguage } = useTranslation();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  const current = LANG_OPTIONS.find((l) => l.code === language) || LANG_OPTIONS[0];
+  const current = LANG_OPTIONS.find((l) => l.code === currentLanguage) || LANG_OPTIONS[0];
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {
@@ -48,7 +47,7 @@ export default function LanguageSelector() {
 
       {open && (
         <div
-          className="absolute top-full mt-2 w-[200px] rounded-[12px] bg-white py-2"
+          className="absolute top-full right-0 mt-2 w-[200px] rounded-[12px] bg-white py-2"
           style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.15)" }}
         >
           {LANG_OPTIONS.map((opt) => (
@@ -60,8 +59,8 @@ export default function LanguageSelector() {
               }}
               className="flex w-full items-center gap-3 px-4 py-[10px] text-left transition-colors hover:bg-[#FFF8EC]"
               style={{
-                borderLeft: opt.code === language ? "3px solid #C9A84C" : "3px solid transparent",
-                fontWeight: opt.code === language ? 700 : 400,
+                borderLeft: opt.code === currentLanguage ? "3px solid #C9A84C" : "3px solid transparent",
+                fontWeight: opt.code === currentLanguage ? 700 : 400,
               }}
             >
               <img src={opt.flag} alt="" className="h-[20px] w-auto" />
