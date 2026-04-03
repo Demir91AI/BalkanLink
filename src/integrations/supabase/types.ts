@@ -483,6 +483,36 @@ export type Database = {
         }
         Relationships: []
       }
+      messages: {
+        Row: {
+          content: string
+          created_at: string
+          id: string
+          read: boolean
+          recipient_city: string
+          recipient_name: string
+          sender_name: string
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          id?: string
+          read?: boolean
+          recipient_city?: string
+          recipient_name: string
+          sender_name?: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          id?: string
+          read?: boolean
+          recipient_city?: string
+          recipient_name?: string
+          sender_name?: string
+        }
+        Relationships: []
+      }
       missions: {
         Row: {
           address_line: string
@@ -723,6 +753,33 @@ export type Database = {
           sources?: string[] | null
           step_by_step?: string | null
           tags?: string[] | null
+        }
+        Relationships: []
+      }
+      reviews: {
+        Row: {
+          comment: string
+          created_at: string
+          id: string
+          rating: number
+          user_id: string | null
+          username: string
+        }
+        Insert: {
+          comment?: string
+          created_at?: string
+          id?: string
+          rating?: number
+          user_id?: string | null
+          username?: string
+        }
+        Update: {
+          comment?: string
+          created_at?: string
+          id?: string
+          rating?: number
+          user_id?: string | null
+          username?: string
         }
         Relationships: []
       }
