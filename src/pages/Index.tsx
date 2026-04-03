@@ -3,14 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   Megaphone, CheckCircle2, ArrowRight, Star, ExternalLink, Mail,
+  ChevronLeft, ChevronRight, FileText, Shield, GraduationCap, Search, Home, Calculator, Map, Camera, Wrench, BookOpen,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
-import HomePremiumCards from "@/components/home/HomePremiumCards";
-import HomePremiumBanner from "@/components/home/HomePremiumBanner";
-import FlowBanner from "@/components/home/FlowBanner";
 import PWAInstallBanner from "@/components/PWAInstallBanner";
+import { PRICING } from "@/lib/config";
 
 import realcoreDigitalLogo from "@/assets/realcore-digital-logo.png";
 import heroBerlin from "@/assets/hero-berlin.jpg";
@@ -41,14 +40,24 @@ const trustBadgeKeys = ["hero.bullet.simple", "hero.bullet.language", "hero.bull
 
 const MAILTO_AD = `mailto:kontakt@balkanlink.de?subject=${encodeURIComponent("Oglašavanje na BalkanLink")}&body=${encodeURIComponent("Pozdrav,\n\nZanima me oglašavanje na BalkanLink platformi.\n\nNaziv firme:\nVrsta usluge:\nGrad:\nBudžet:\n")}`;
 
+const serviceCards = [
+  { emoji: "📋", icon: FileText, title: "Smart Guide — Formulari", desc: "Popuni svaki njemački formular korak po korak.", cta: "Otvori Smart Guide →", to: "/formulari", premium: true },
+  { emoji: "🛂", icon: Shield, title: "Visa Navigator", desc: "Pronađi pravu vizu ili boravišnu dozvolu za svoju situaciju.", cta: "Otvori Navigator →", to: "/dolazak/boravisna-dozvola", premium: true },
+  { emoji: "🎓", icon: GraduationCap, title: "BalkanLink Deutsch", desc: "Nauči njemački za stvarni život.", cta: "Počni učiti →", to: "/deutsch-trainer", premium: true },
+  { emoji: "📸", icon: Camera, title: "Dokumenten-Check", desc: "Razumij svaki dokument odmah.", cta: "Provjeri dokument →", to: "/dokumenten-check", premium: true },
+  { emoji: "📢", icon: Megaphone, title: "Nudim / Tražim", desc: "Ponudi ili pronađi uslugu.", cta: "Pregledaj →", to: "/nudim-trazim", premium: false },
+  { emoji: "🗺️", icon: Map, title: "Balkanci u DE", desc: "Vidi gdje smo svi na mapi.", cta: "Otvori mapu →", to: "/mapa", premium: false },
+  { emoji: "🔍", icon: Search, title: "Pretraga poslova", desc: "Korisni linkovi za posao.", cta: "Traži →", to: "/stellenangebote", premium: false },
+  { emoji: "🏠", icon: Home, title: "Pretraga stanova", desc: "Korisni linkovi za stan.", cta: "Traži →", to: "/wohnungen", premium: false },
+  { emoji: "🧮", icon: Calculator, title: "Kalkulatori", desc: "Brutto-netto i drugi alati.", cta: "Izračunaj →", to: "/kalkulatori", premium: false },
+];
+
 const placeholderAds = [
-  { name: "RealCore Digital", slogan: "Klar denken. Digital umsetzen.", desc: "Webdesign, KI-Lösungen und digitale Strategien — professionell und effizient.", logo: realcoreDigitalLogo, href: "https://realcore.digital" },
-  { name: "BalkanLink", slogan: "Rezerviraj reklamni prostor", desc: "Predstavite svoju firmu cijeloj zajednici na BalkanLink platformi.", logo: "/icons/icon-192x192.png" },
-  { name: "BalkanLink", slogan: "Vaš oglas ovdje", desc: "Premium pozicija za vašu firmu — vidljiva svim korisnicima.", logo: "/icons/icon-192x192.png" },
-  { name: "BalkanLink", slogan: "Oglasite svoju uslugu", desc: "Dođite do hiljada korisnika iz regije putem BalkanLink platforme.", logo: "/icons/icon-192x192.png" },
-  { name: "BalkanLink", slogan: "Povećajte vidljivost", desc: "Istaknite svoju ponudu na najpopularnijoj platformi za Balkance u DE.", logo: "/icons/icon-192x192.png" },
-  { name: "BalkanLink", slogan: "Budite ispred konkurencije", desc: "Profesionalan nastup za vašu firmu ili uslugu.", logo: "/icons/icon-192x192.png" },
-  { name: "BalkanLink", slogan: "Zakažite promociju", desc: "Ekskluzivno oglasno mjesto — kontaktirajte nas danas.", logo: "/icons/icon-192x192.png" },
+  { name: "RealCore Digital", slogan: "Klar denken. Digital umsetzen.", desc: "Webdesign, KI-Lösungen und digitale Strategien.", logo: realcoreDigitalLogo, href: "https://realcore.digital" },
+  { name: "BalkanLink", slogan: "Rezerviraj reklamni prostor", desc: "Predstavite svoju firmu cijeloj zajednici.", logo: "/icons/icon-192x192.png" },
+  { name: "BalkanLink", slogan: "Vaš oglas ovdje", desc: "Premium pozicija za vašu firmu.", logo: "/icons/icon-192x192.png" },
+  { name: "BalkanLink", slogan: "Oglasite svoju uslugu", desc: "Dođite do hiljada korisnika iz regije.", logo: "/icons/icon-192x192.png" },
+  { name: "BalkanLink", slogan: "Povećajte vidljivost", desc: "Istaknite svoju ponudu na platformi.", logo: "/icons/icon-192x192.png" },
 ];
 
 function useInfiniteScroll(speed = 0.5, resumeDelay = 3000) {
@@ -86,6 +95,18 @@ function useInfiniteScroll(speed = 0.5, resumeDelay = 3000) {
     resumeTimer.current = setTimeout(() => { pausedRef.current = false; }, resumeDelay);
   }, [resumeDelay]);
 
+  const scrollByCard = useCallback((direction: "left" | "right") => {
+    const el = ref.current;
+    if (!el || !el.children.length) return;
+    const firstCard = el.children[0] as HTMLElement;
+    const cardWidth = firstCard.offsetWidth;
+    const gap = parseInt(getComputedStyle(el).gap) || 20;
+    const amount = (cardWidth + gap) * (direction === "right" ? 1 : -1);
+    el.scrollBy({ left: amount, behavior: "smooth" });
+    pause();
+    scheduleResume();
+  }, [pause, scheduleResume]);
+
   const onTouchStart = useCallback((e: React.TouchEvent) => {
     pause();
     isDragging.current = true;
@@ -95,8 +116,7 @@ function useInfiniteScroll(speed = 0.5, resumeDelay = 3000) {
 
   const onTouchMove = useCallback((e: React.TouchEvent) => {
     if (!isDragging.current || !ref.current) return;
-    const delta = e.touches[0].clientX - dragStartX.current;
-    ref.current.scrollLeft = dragScrollLeft.current - delta;
+    ref.current.scrollLeft = dragScrollLeft.current - (e.touches[0].clientX - dragStartX.current);
   }, []);
 
   const onTouchEnd = useCallback(() => {
@@ -115,8 +135,7 @@ function useInfiniteScroll(speed = 0.5, resumeDelay = 3000) {
 
   const onMouseMove = useCallback((e: React.MouseEvent) => {
     if (!isDragging.current || !ref.current) return;
-    const delta = e.clientX - dragStartX.current;
-    ref.current.scrollLeft = dragScrollLeft.current - delta;
+    ref.current.scrollLeft = dragScrollLeft.current - (e.clientX - dragStartX.current);
   }, []);
 
   const onMouseUp = useCallback(() => {
@@ -133,23 +152,158 @@ function useInfiniteScroll(speed = 0.5, resumeDelay = 3000) {
     scheduleResume();
   }, [scheduleResume]);
 
-  return { ref, pause, scheduleResume, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave };
+  return { ref, pause, scheduleResume, scrollByCard, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave };
+}
+
+function CarouselArrows({ onLeft, onRight }: { onLeft: () => void; onRight: () => void }) {
+  return (
+    <>
+      <button
+        onClick={onLeft}
+        className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 z-20 h-10 w-10 rounded-full bg-white/80 shadow-md items-center justify-center hover:scale-105 hover:shadow-lg transition-all border border-[#E8E0D0]"
+        aria-label="Previous"
+      >
+        <ChevronLeft className="h-5 w-5 text-[#2D2D2D]" />
+      </button>
+      <button
+        onClick={onRight}
+        className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 z-20 h-10 w-10 rounded-full bg-white/80 shadow-md items-center justify-center hover:scale-105 hover:shadow-lg transition-all border border-[#E8E0D0]"
+        aria-label="Next"
+      >
+        <ChevronRight className="h-5 w-5 text-[#2D2D2D]" />
+      </button>
+    </>
+  );
+}
+
+function ServicesCarousel() {
+  const doubled = [...serviceCards, ...serviceCards];
+  const { ref, pause, scheduleResume, scrollByCard, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.6, 3000);
+
+  return (
+    <div className="relative overflow-hidden" onMouseEnter={pause} onMouseLeave={scheduleResume}>
+      <CarouselArrows onLeft={() => scrollByCard("left")} onRight={() => scrollByCard("right")} />
+      <div
+        ref={ref}
+        className="flex gap-5 px-4 overflow-x-hidden scrollbar-hide cursor-grab select-none"
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+        onMouseDown={onMouseDown}
+        onMouseMove={onMouseMove}
+        onMouseUp={onMouseUp}
+        onMouseLeave={onMouseLeave}
+      >
+        {doubled.map((card, i) => {
+          const Icon = card.icon;
+          return (
+            <Link
+              key={`${card.title}-${i}`}
+              to={card.to}
+              className="group flex flex-col w-[260px] sm:w-[280px] shrink-0 rounded-[14px] bg-white border border-[#E8E0D0] p-5 shadow-[0_2px_16px_rgba(0,0,0,0.07)] transition-all duration-300 hover:-translate-y-[3px] hover:shadow-[0_8px_28px_rgba(0,0,0,0.12)]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <Icon className="h-6 w-6 text-[hsl(var(--gold))] shrink-0" />
+                {card.premium && (
+                  <span className="rounded-full bg-[hsl(var(--gold))]/10 px-2 py-0.5 text-[9px] font-bold text-[hsl(var(--gold))] uppercase tracking-wider">Premium</span>
+                )}
+              </div>
+              <h3 className="text-sm font-semibold text-[#2D2D2D] mb-1">{card.title}</h3>
+              <p className="text-xs text-[#6B6B6B] leading-relaxed mb-4 flex-1">{card.desc}</p>
+              <span className="block w-full rounded-lg bg-[hsl(var(--gold))] py-2 text-center text-xs font-semibold text-white transition-colors group-hover:bg-[hsl(var(--gold-dark))]">
+                {card.cta}
+              </span>
+            </Link>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function ShowcaseCarousel() {
+  const doubled = [...premiumShowcaseFirms, ...premiumShowcaseFirms];
+  const { ref, pause, scheduleResume, scrollByCard, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.4, 4000);
+
+  return (
+    <div className="relative overflow-hidden" onMouseEnter={pause} onMouseLeave={scheduleResume}>
+      <CarouselArrows onLeft={() => scrollByCard("left")} onRight={() => scrollByCard("right")} />
+      <div
+        ref={ref}
+        className="flex gap-6 px-4 overflow-x-hidden scrollbar-hide cursor-grab select-none"
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+        onMouseDown={onMouseDown}
+        onMouseMove={onMouseMove}
+        onMouseUp={onMouseUp}
+        onMouseLeave={onMouseLeave}
+      >
+        {doubled.map((firm, i) => (
+          <article
+            key={`${firm.slug}-${i}`}
+            className="min-w-[85vw] max-w-[85vw] md:min-w-[340px] md:max-w-[380px] shrink-0 rounded-2xl bg-white border border-[#E8E0D0] overflow-hidden flex flex-col shadow-[0_4px_24px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,0,0,0.14)]"
+          >
+            <div className="relative h-[180px] w-full overflow-hidden">
+              <img src={firm.images[0]} alt={firm.name} className="h-full w-full object-cover" style={{ filter: "brightness(0.92) saturate(1.1)" }} loading="lazy" />
+              <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
+              <div className="absolute left-3 top-3 flex items-center rounded-xl border border-white/50 bg-white/70 px-3 py-1.5 backdrop-blur-md">
+                <img src={firm.logoUrl} alt={firm.logoAlt} className="h-6 max-w-[90px] object-contain" />
+              </div>
+              <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-[hsl(var(--gold))] px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-white">
+                <Star className="h-2.5 w-2.5 fill-current" /> Preporučeno
+              </span>
+            </div>
+            <div className="flex flex-1 flex-col gap-3 p-5 border-t-[3px] border-[hsl(var(--gold))]">
+              <div>
+                <h3 className="text-base font-bold text-[#2D2D2D]">{firm.name}</h3>
+                <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-[#6B6B6B]">{firm.description}</p>
+              </div>
+              <div className="flex flex-wrap gap-1.5">
+                {firm.highlights.map((h) => (
+                  <span key={h} className="rounded-full border border-[#E8E0D0] bg-[hsl(var(--warm-cream))] px-2.5 py-0.5 text-[10px] font-semibold text-[#6B6B6B]">{h}</span>
+                ))}
+              </div>
+              <div className="mt-auto flex gap-2 pt-2">
+                <Button asChild size="sm" className="h-8 rounded-lg bg-[hsl(var(--gold))] px-4 text-xs font-bold text-white hover:bg-[hsl(var(--gold-dark))]">
+                  {firm.website ? (
+                    <a href={firm.website} target="_blank" rel="noopener noreferrer">Pogledaj više <ExternalLink className="ml-1 h-3 w-3" /></a>
+                  ) : (
+                    <Link to={`/firma/${firm.slug}`}>Pogledaj više <ExternalLink className="ml-1 h-3 w-3" /></Link>
+                  )}
+                </Button>
+                <Button asChild variant="outline" size="sm" className="h-8 rounded-lg border-[#E8E0D0] px-4 text-xs font-semibold text-[#2D2D2D] hover:bg-[hsl(var(--warm-cream))]">
+                  {firm.contactUrl ? (
+                    <a href={firm.contactUrl} target="_blank" rel="noopener noreferrer">Kontakt <ArrowRight className="ml-1 h-3 w-3" /></a>
+                  ) : firm.phone ? (
+                    <a href={`tel:${firm.phone}`}>Kontakt <ArrowRight className="ml-1 h-3 w-3" /></a>
+                  ) : (
+                    <Link to={`/firma/${firm.slug}`}>Kontakt <ArrowRight className="ml-1 h-3 w-3" /></Link>
+                  )}
+                </Button>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 function AdFlowSection() {
   const doubled = [...placeholderAds, ...placeholderAds];
-  const { ref, pause, scheduleResume, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.5);
+  const { ref, pause, scheduleResume, scrollByCard, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.5);
   return (
-    <section className="py-10 sm:py-12 border-t border-white/[0.05] bg-[#0B0F1A] overflow-hidden">
+    <section className="py-10 sm:py-12 border-t border-[#E8E0D0] bg-[hsl(var(--warm-cream))] overflow-hidden">
       <div className="container mb-5">
-        <div className="inline-flex items-center gap-2 rounded-full border border-[#EAB308]/20 bg-[#EAB308]/[0.06] px-3 py-1">
-          <Megaphone className="h-3 w-3 text-[#EAB308]" />
-          <span className="text-[10px] font-bold uppercase tracking-widest text-[#EAB308]">OGLAŠAVANJE</span>
+        <div className="inline-flex items-center gap-2 rounded-full border border-[hsl(var(--gold))]/20 bg-[hsl(var(--gold))]/[0.08] px-3 py-1">
+          <Megaphone className="h-3 w-3 text-[hsl(var(--gold))]" />
+          <span className="text-[10px] font-bold uppercase tracking-widest text-[hsl(var(--gold))]">OGLAŠAVANJE</span>
         </div>
       </div>
-      <div className="relative" onMouseEnter={pause}>
-        <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-[#0B0F1A] to-transparent" />
-        <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-[#0B0F1A] to-transparent" />
+      <div className="relative" onMouseEnter={pause} onMouseLeave={scheduleResume}>
+        <CarouselArrows onLeft={() => scrollByCard("left")} onRight={() => scrollByCard("right")} />
         <div
           ref={ref}
           className="flex gap-4 px-4 overflow-x-hidden scrollbar-hide cursor-grab select-none"
@@ -167,17 +321,17 @@ function AdFlowSection() {
               href={ad.href || MAILTO_AD}
               target={ad.href ? "_blank" : undefined}
               rel={ad.href ? "noopener noreferrer" : undefined}
-              className="group flex flex-col w-[260px] h-[300px] md:w-[280px] md:h-[320px] shrink-0 rounded-xl border border-[#2a2f3e] overflow-hidden transition-all duration-300 hover:border-[#EAB308]/30"
+              className="group flex flex-col w-[260px] h-[300px] md:w-[280px] md:h-[320px] shrink-0 rounded-xl border border-[#E8E0D0] bg-white overflow-hidden transition-all duration-300 hover:border-[hsl(var(--gold))]/40 hover:shadow-lg"
             >
-              <div className="flex items-center justify-center h-[140px] md:h-[160px] bg-[#1a1f2e] p-4 md:p-5">
-                <img src={ad.logo} alt={ad.name} className="max-h-full max-w-full object-contain mix-blend-lighten" loading="lazy" />
+              <div className="flex items-center justify-center h-[140px] md:h-[160px] bg-[hsl(var(--warm-cream))] p-4 md:p-5">
+                <img src={ad.logo} alt={ad.name} className="max-h-full max-w-full object-contain" loading="lazy" />
               </div>
-              <div className="flex flex-col flex-1 bg-[#111827] p-4">
-                <p className="text-lg font-bold text-white leading-tight">{ad.name}</p>
-                <p className="text-[13px] text-[#EAB308] mt-1">{ad.slogan}</p>
-                <p className="text-xs text-[#9CA3AF] mt-1 line-clamp-2">{ad.desc}</p>
+              <div className="flex flex-col flex-1 bg-white p-4">
+                <p className="text-lg font-bold text-[#2D2D2D] leading-tight">{ad.name}</p>
+                <p className="text-[13px] text-[hsl(var(--gold))] mt-1 font-medium">{ad.slogan}</p>
+                <p className="text-xs text-[#6B6B6B] mt-1 line-clamp-2">{ad.desc}</p>
                 <div className="mt-auto pt-3">
-                  <span className="inline-flex items-center gap-1.5 rounded-md border border-[#EAB308] px-4 py-2 text-[13px] font-semibold text-[#EAB308] transition-colors group-hover:bg-[#EAB308]/10">
+                  <span className="inline-flex items-center gap-1.5 rounded-md border border-[hsl(var(--gold))] px-4 py-2 text-[13px] font-semibold text-[hsl(var(--gold))] transition-colors group-hover:bg-[hsl(var(--gold))]/10">
                     {ad.href ? "Mehr erfahren →" : "Kontakt →"}
                   </span>
                 </div>
@@ -187,76 +341,6 @@ function AdFlowSection() {
         </div>
       </div>
     </section>
-  );
-}
-
-function ShowcaseCarousel() {
-  const doubled = [...premiumShowcaseFirms, ...premiumShowcaseFirms];
-  const { ref, pause, scheduleResume, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.4, 4000);
-
-  return (
-    <div className="relative overflow-hidden" onMouseEnter={pause}>
-      <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-[#0B0F1A] to-transparent" />
-      <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-[#0B0F1A] to-transparent" />
-      <div
-        ref={ref}
-        className="flex gap-5 px-4 overflow-x-hidden scrollbar-hide cursor-grab select-none"
-        onTouchStart={onTouchStart}
-        onTouchMove={onTouchMove}
-        onTouchEnd={onTouchEnd}
-        onMouseDown={onMouseDown}
-        onMouseMove={onMouseMove}
-        onMouseUp={onMouseUp}
-        onMouseLeave={onMouseLeave}
-      >
-        {doubled.map((firm, i) => (
-          <article
-            key={`${firm.slug}-${i}`}
-            className="min-w-[85vw] max-w-[85vw] md:min-w-[320px] md:max-w-[360px] shrink-0 rounded-2xl border border-white/8 bg-[#111827] overflow-hidden flex flex-col"
-          >
-            <div className="relative h-[180px] w-full overflow-hidden">
-              <img src={firm.images[0]} alt={firm.name} className="h-full w-full object-cover" style={{ filter: "brightness(0.88) saturate(1.1)" }} loading="lazy" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#111827] via-transparent to-transparent" />
-              <div className="absolute left-3 top-3 flex items-center rounded-xl border border-white/25 bg-white/20 px-3 py-1.5 backdrop-blur-md">
-                <img src={firm.logoUrl} alt={firm.logoAlt} className="h-6 max-w-[90px] object-contain" />
-              </div>
-              <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full border border-white/20 bg-gold/90 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-gold-foreground">
-                <Star className="h-2.5 w-2.5 fill-current" /> Preporučeno
-              </span>
-            </div>
-            <div className="flex flex-1 flex-col gap-3 p-5">
-              <div>
-                <h3 className="text-base font-bold text-white">{firm.name}</h3>
-                <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-white/50">{firm.description}</p>
-              </div>
-              <div className="flex flex-wrap gap-1.5">
-                {firm.highlights.map((h) => (
-                  <span key={h} className="rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-[10px] font-semibold text-white/60">{h}</span>
-                ))}
-              </div>
-              <div className="mt-auto flex gap-2 pt-2">
-                <Button asChild size="sm" className="h-8 rounded-xl bg-gold px-4 text-xs font-bold text-gold-foreground hover:bg-gold-light">
-                  {firm.website ? (
-                    <a href={firm.website} target="_blank" rel="noopener noreferrer">Pogledaj više <ExternalLink className="ml-1 h-3 w-3" /></a>
-                  ) : (
-                    <Link to={`/firma/${firm.slug}`}>Pogledaj više <ExternalLink className="ml-1 h-3 w-3" /></Link>
-                  )}
-                </Button>
-                <Button asChild variant="outline" size="sm" className="h-8 rounded-xl border-white/12 bg-white/5 px-4 text-xs font-semibold text-white hover:bg-white/10">
-                  {firm.contactUrl ? (
-                    <a href={firm.contactUrl} target="_blank" rel="noopener noreferrer">Kontakt <ArrowRight className="ml-1 h-3 w-3" /></a>
-                  ) : firm.phone ? (
-                    <a href={`tel:${firm.phone}`}>Kontakt <ArrowRight className="ml-1 h-3 w-3" /></a>
-                  ) : (
-                    <Link to={`/firma/${firm.slug}`}>Kontakt <ArrowRight className="ml-1 h-3 w-3" /></Link>
-                  )}
-                </Button>
-              </div>
-            </div>
-          </article>
-        ))}
-      </div>
-    </div>
   );
 }
 
@@ -282,19 +366,13 @@ export default function Index() {
   }, []);
 
   return (
-    <div className="relative" style={{ background: "linear-gradient(180deg, #0B0F1A 0%, #0F1F3D 58%, #16294D 78%, #1A2F5A 100%)" }}>
-      {/* Glow orbs */}
-      <div className="pointer-events-none absolute top-[8%] left-[-110px] w-[260px] h-[260px] md:w-[320px] md:h-[320px] rounded-full opacity-[0.14] blur-[120px]" style={{ background: "rgba(59,130,246,0.95)" }} />
-      <div className="pointer-events-none absolute right-[-90px] top-[34%] w-[200px] h-[200px] md:w-[260px] md:h-[260px] rounded-full opacity-[0.10] blur-[120px]" style={{ background: "rgba(168,85,247,0.85)" }} />
-      <div className="pointer-events-none absolute bottom-[-120px] right-[-70px] w-[270px] h-[270px] md:w-[340px] md:h-[340px] rounded-full opacity-[0.14] blur-[130px]" style={{ background: "rgba(250,204,21,0.95)" }} />
-      <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(circle at top center, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 45%)" }} />
-
-      {/* ─── HERO ─── */}
+    <div className="relative bg-[hsl(var(--warm-cream))]">
+      {/* ─── HERO (dark section with rotating images) ─── */}
       <section className="relative min-h-[92vh] overflow-hidden">
         {slides.map((slide, idx) => (
           <div
             key={idx}
-            className="absolute inset-0 transition-opacity duration-[1200ms] ease-in-out"
+            className="absolute inset-0 transition-opacity duration-[1500ms] ease-in-out"
             style={{ opacity: idx === currentSlide ? 1 : 0, zIndex: idx === currentSlide ? 1 : 0 }}
           >
             <img
@@ -310,8 +388,7 @@ export default function Index() {
           </div>
         ))}
 
-        <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/60 via-black/30 to-[#0B0F1A]" />
-        <div className="absolute left-0 right-0 bottom-0 h-[220px] z-[3] pointer-events-none" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(11,15,26,0.35) 40%, rgba(11,15,26,0.72) 72%, #0B0F1A 100%)" }} />
+        <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/60 via-black/30 to-[hsl(var(--warm-cream))]" />
 
         <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-5 py-16 lg:py-20">
           <div className="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
@@ -326,7 +403,7 @@ export default function Index() {
                 style={{ textShadow: "0 4px 30px rgba(0,0,0,0.5)" }}
               >
                 {t("hero.title")}{" "}
-                <span className="text-gold drop-shadow-[0_0_24px_rgba(255,204,0,0.45)]">
+                <span className="text-[hsl(var(--gold))] drop-shadow-[0_0_24px_rgba(201,168,76,0.5)]">
                   {t("hero.titleHighlight")}
                 </span>
               </h1>
@@ -341,7 +418,7 @@ export default function Index() {
               <div className="mt-6 flex flex-row items-center justify-center gap-4 flex-wrap">
                 <Button
                   onClick={() => navigate("/formulari")}
-                  className="h-12 rounded-full bg-gold px-8 text-base font-bold text-gold-foreground shadow-[0_4px_24px_rgba(255,204,0,0.4)] hover:bg-gold-light hover:shadow-[0_8px_36px_rgba(255,204,0,0.55)] hover:scale-[1.03] transition-all duration-300 sm:h-14 sm:px-10 sm:text-lg"
+                  className="h-12 rounded-full bg-[hsl(var(--gold))] px-8 text-base font-bold text-white shadow-[0_4px_24px_rgba(201,168,76,0.4)] hover:bg-[hsl(var(--gold-dark))] hover:shadow-[0_8px_36px_rgba(201,168,76,0.55)] hover:scale-[1.03] transition-all duration-300 sm:h-14 sm:px-10 sm:text-lg"
                 >
                   {t("hero.ctaPrimary")}
                   <ArrowRight className="ml-1 h-4 w-4 sm:h-5 sm:w-5" />
@@ -349,7 +426,7 @@ export default function Index() {
 
                 <Link
                   to="/qa"
-                  className="group flex items-center gap-1.5 text-sm font-medium text-white/50 transition-colors hover:text-gold"
+                  className="group flex items-center gap-1.5 text-sm font-medium text-white/60 transition-colors hover:text-[hsl(var(--gold))]"
                 >
                   {t("hero.ctaSecondary")}
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
@@ -368,7 +445,7 @@ export default function Index() {
               >
                 {trustBadgeKeys.map((key) => (
                   <span key={key} className="flex items-center gap-1.5 text-xs font-medium text-white/60 sm:text-sm">
-                    <CheckCircle2 className="h-3.5 w-3.5 text-gold sm:h-4 sm:w-4" />
+                    <CheckCircle2 className="h-3.5 w-3.5 text-[hsl(var(--gold))] sm:h-4 sm:w-4" />
                     {t(key)}
                   </span>
                 ))}
@@ -384,7 +461,7 @@ export default function Index() {
               onClick={() => setCurrentSlide(idx)}
               className={`rounded-full transition-all duration-500 ${
                 idx === currentSlide
-                  ? "h-1.5 w-6 bg-gold shadow-[0_0_8px_rgba(255,204,0,0.5)]"
+                  ? "h-1.5 w-6 bg-[hsl(var(--gold))] shadow-[0_0_8px_rgba(201,168,76,0.5)]"
                   : "h-1.5 w-1.5 bg-white/15 hover:bg-white/30"
               }`}
               aria-label={`Slide ${idx + 1}`}
@@ -393,19 +470,28 @@ export default function Index() {
         </div>
       </section>
 
-      {/* ─── FLOW BANNER ─── */}
-      <FlowBanner />
+      {/* ─── SERVICES CAROUSEL ─── */}
+      <section className="py-16 sm:py-20 bg-[hsl(var(--warm-cream))]">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mx-auto max-w-2xl text-center mb-10"
+          >
+            <h2 className="font-heading text-2xl font-extrabold text-[#2D2D2D] sm:text-3xl lg:text-4xl">
+              Šta želiš riješiti danas?
+            </h2>
+            <p className="mt-2 text-sm text-[#6B6B6B]">Izaberi i kreni odmah — bez lutanja</p>
+            <div className="mx-auto mt-3 h-[3px] w-16 rounded-full bg-gradient-to-r from-[hsl(var(--gold-dark))] to-[hsl(var(--gold))]" />
+          </motion.div>
+        </div>
+        <ServicesCarousel />
+      </section>
 
-      {/* ─── PREMIUM PRODUCTS + FREE TOOLS ─── */}
-      <div className="opacity-[0.88]">
-        <HomePremiumCards />
-      </div>
-
-      {/* ─── PREMIUM BANNER ─── */}
-      <HomePremiumBanner />
-
-      {/* ─── PREMIUM SHOWCASE (Carousel) ─── */}
-      <section className="py-16 sm:py-20 border-t border-white/[0.05]">
+      {/* ─── PREMIUM SHOWCASE ─── */}
+      <section className="py-16 sm:py-20 bg-white border-t border-[#E8E0D0]">
         <div className="container mb-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -413,8 +499,8 @@ export default function Index() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-xs font-bold uppercase tracking-[0.26em] text-gold">PREMIUM SHOWCASE</p>
-            <h2 className="mt-2 font-heading text-2xl font-extrabold text-white sm:text-3xl">
+            <p className="text-xs font-bold uppercase tracking-[0.26em] text-[hsl(var(--gold))]">PREMIUM SHOWCASE</p>
+            <h2 className="mt-2 font-heading text-2xl font-extrabold text-[#2D2D2D] sm:text-3xl">
               Izdvojene firme na BalkanLink
             </h2>
           </motion.div>
@@ -422,11 +508,11 @@ export default function Index() {
         <ShowcaseCarousel />
       </section>
 
-      {/* ─── OGLAŠAVANJE FLOW BANNER ─── */}
+      {/* ─── OGLAŠAVANJE ─── */}
       <AdFlowSection />
 
       {/* ─── PREMIUM CTA ─── */}
-      <section className="py-16 sm:py-20 border-t border-white/[0.05]">
+      <section className="py-16 sm:py-20 bg-white border-t border-[#E8E0D0]">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -435,20 +521,20 @@ export default function Index() {
             transition={{ duration: 0.6 }}
             className="mx-auto max-w-xl text-center"
           >
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-gold/20 bg-gold/[0.06] px-3 py-1">
-              <Star className="h-3 w-3 text-gold" />
-              <span className="text-[10px] font-bold uppercase tracking-widest text-gold">Premium</span>
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[hsl(var(--gold))]/20 bg-[hsl(var(--gold))]/[0.08] px-3 py-1">
+              <Star className="h-3 w-3 text-[hsl(var(--gold))]" />
+              <span className="text-[10px] font-bold uppercase tracking-widest text-[hsl(var(--gold))]">Premium</span>
             </div>
-            <h2 className="font-heading text-2xl font-extrabold text-white sm:text-3xl">
+            <h2 className="font-heading text-2xl font-extrabold text-[#2D2D2D] sm:text-3xl">
               Otključaj sve mogućnosti
             </h2>
-            <p className="mt-3 text-sm text-white/40">
+            <p className="mt-3 text-sm text-[#6B6B6B]">
               Premium pristup svim formularima, kursu njemačkog i ekskluzivnim alatima.
             </p>
             <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
               <Button
                 onClick={() => navigate("/premium")}
-                className="w-full sm:w-auto h-12 rounded-full bg-gold px-8 text-base font-bold text-gold-foreground shadow-[0_4px_24px_rgba(255,204,0,0.35)] hover:bg-gold-light hover:shadow-[0_8px_36px_rgba(255,204,0,0.5)] hover:scale-[1.03] transition-all duration-300"
+                className="w-full sm:w-auto h-12 rounded-full bg-[hsl(var(--gold))] px-8 text-base font-bold text-white shadow-[0_4px_24px_rgba(201,168,76,0.35)] hover:bg-[hsl(var(--gold-dark))] hover:shadow-[0_8px_36px_rgba(201,168,76,0.5)] hover:scale-[1.03] transition-all duration-300"
               >
                 Pogledaj Premium
                 <ArrowRight className="ml-1.5 h-4 w-4" />
@@ -456,7 +542,7 @@ export default function Index() {
               <Button
                 variant="outline"
                 onClick={() => navigate("/mitgliedschaft")}
-                className="w-full sm:w-auto h-12 rounded-full border-white/12 bg-white/5 px-8 text-sm font-semibold text-white hover:bg-white/10 transition-all"
+                className="w-full sm:w-auto h-12 rounded-full border-[#E8E0D0] px-8 text-sm font-semibold text-[#2D2D2D] hover:bg-[hsl(var(--warm-cream))] transition-all"
               >
                 Uporedi planove
               </Button>

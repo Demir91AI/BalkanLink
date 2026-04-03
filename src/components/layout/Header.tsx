@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -25,6 +25,15 @@ export default function Header() {
   const [sheetOpen, setSheetOpen] = useState(false);
   const [contactForm, setContactForm] = useState({ firstName: "", lastName: "", email: "", message: "" });
 
+  // Debounce sidebar toggle — minimum 250ms between toggles
+  const lastToggleRef = useRef(0);
+  const handleToggleSidebar = useCallback(() => {
+    const now = Date.now();
+    if (now - lastToggleRef.current < 250) return;
+    lastToggleRef.current = now;
+    toggleSidebar();
+  }, [toggleSidebar]);
+
   const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const subject = encodeURIComponent(`${t("contact.title")} – ${contactForm.firstName} ${contactForm.lastName}`);
@@ -37,36 +46,32 @@ export default function Header() {
   return (
     <>
       <header className="sticky top-0 z-50 border-b border-white/8 bg-[#0f1f3d]/95 backdrop-blur-xl shadow-lg shadow-black/20">
-        {/* Subtle gold accent line at top */}
-        <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[hsl(var(--brand-orange))] to-transparent opacity-60" />
+        <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[hsl(var(--gold))] to-transparent opacity-60" />
 
         <div className="relative flex h-14 items-center px-4">
-          {/* Left: sidebar trigger */}
           <Button
             variant="ghost"
             size="icon"
-            onClick={toggleSidebar}
+            onClick={handleToggleSidebar}
             className={menuBtnClass}
             aria-label="Meni"
           >
             <Menu className="h-5 w-5" />
           </Button>
 
-          {/* Center: premium brand logo */}
           <div className="absolute left-1/2 top-[55%] -translate-x-1/2 -translate-y-1/2">
             <Link to="/" className="group relative inline-flex items-center gap-3" aria-label="BalkanLink home">
-              <span className="absolute -inset-3 rounded-2xl bg-[hsl(var(--brand-orange))]/10 blur-xl group-hover:bg-[hsl(var(--brand-orange))]/20 transition-all duration-500 pointer-events-none" />
-              <span className="relative font-heading text-[28px] font-extrabold leading-none tracking-tight drop-shadow-[0_0_10px_hsl(var(--brand-orange)/0.35)]">
+              <span className="absolute -inset-3 rounded-2xl bg-[hsl(var(--gold))]/10 blur-xl group-hover:bg-[hsl(var(--gold))]/20 transition-all duration-500 pointer-events-none" />
+              <span className="relative font-heading text-[28px] font-extrabold leading-none tracking-tight drop-shadow-[0_0_10px_hsl(var(--gold)/0.35)]">
                 <span className="text-white">B</span>
-                <span className="bg-gradient-to-r from-[hsl(var(--brand-orange))] to-[hsl(var(--gold-light))] bg-clip-text text-transparent">L</span>
+                <span className="bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--gold-light))] bg-clip-text text-transparent">L</span>
               </span>
-              <span className="relative font-heading text-[22px] font-extrabold leading-none tracking-tight drop-shadow-[0_0_16px_hsl(var(--brand-orange)/0.3)]">
+              <span className="relative font-heading text-[22px] font-extrabold leading-none tracking-tight drop-shadow-[0_0_16px_hsl(var(--gold)/0.3)]">
                 <span className="text-white">Balkan</span>
-                <span className="bg-gradient-to-r from-[hsl(var(--brand-orange))] to-[hsl(var(--gold-light))] bg-clip-text text-transparent">Link</span>
+                <span className="bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--gold-light))] bg-clip-text text-transparent">Link</span>
               </span>
             </Link>
 
-            {/* Admin badge */}
             {!loading && isAdmin && (
               <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full border border-emerald-500/30 bg-emerald-500/15 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-emerald-400 backdrop-blur-sm">
                 <ShieldCheck className="h-2.5 w-2.5" />
@@ -75,7 +80,6 @@ export default function Header() {
             )}
           </div>
 
-          {/* Right: extra menu trigger */}
           <Button
             variant="ghost"
             size="icon"
@@ -88,11 +92,9 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Side panel (Sheet) from right */}
       <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
         <SheetContent side="right" className="w-[280px] border-r border-white/8 bg-[hsl(215,55%,7%)] text-white p-0 [&>button]:hidden">
           <nav className="flex flex-col gap-1 px-2 pt-4">
-            {/* Jezik / Language */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <button className="group flex items-center gap-3 px-3 h-11 rounded-lg text-sm font-medium text-white/55 hover:text-white hover:bg-white/5 transition-all duration-200 w-full">
@@ -104,7 +106,7 @@ export default function Header() {
               <DropdownMenuContent align="start" className="min-w-[180px] bg-[hsl(215,55%,10%)] border-white/10 shadow-xl">
                 {languages.map((lang) => (
                   <DropdownMenuItem key={lang.code} onClick={() => setLanguage(lang.code)}
-                    className={`text-white/80 hover:text-white focus:text-white focus:bg-white/10 ${language === lang.code ? "bg-white/10 text-brand-orange font-medium" : ""}`}>
+                    className={`text-white/80 hover:text-white focus:text-white focus:bg-white/10 ${language === lang.code ? "bg-white/10 text-[hsl(var(--gold))] font-medium" : ""}`}>
                     <span className="mr-2 text-base leading-none">{lang.flag}</span>
                     {lang.name}
                   </DropdownMenuItem>
@@ -112,7 +114,6 @@ export default function Header() {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            {/* Prijava / Login */}
             {!loading && !user && (
               <Link
                 to="/login"
@@ -133,7 +134,6 @@ export default function Header() {
               </button>
             )}
 
-            {/* Paketi i opcije */}
             <button
               onClick={() => { setSheetOpen(false); navigate("/paketi"); }}
               className="group flex items-center gap-3 px-3 h-11 rounded-lg text-sm font-medium text-white/55 hover:text-white hover:bg-white/5 transition-all duration-200"
@@ -142,7 +142,6 @@ export default function Header() {
               Paketi i opcije
             </button>
 
-            {/* Kontakt */}
             <button
               onClick={() => { setSheetOpen(false); setContactOpen(true); }}
               className="group flex items-center gap-3 px-3 h-11 rounded-lg text-sm font-medium text-white/55 hover:text-white hover:bg-white/5 transition-all duration-200"
@@ -154,7 +153,6 @@ export default function Header() {
         </SheetContent>
       </Sheet>
 
-      {/* Contact Dialog */}
       <Dialog open={contactOpen} onOpenChange={setContactOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
@@ -180,7 +178,7 @@ export default function Header() {
               <label className="text-sm font-medium">{t("contact.message")}</label>
               <Textarea value={contactForm.message} onChange={(e) => setContactForm(p => ({ ...p, message: e.target.value }))} required className="min-h-[120px]" />
             </div>
-            <Button type="submit" className="w-full gap-2">
+            <Button type="submit" className="w-full gap-2 bg-[hsl(var(--gold))] text-white hover:bg-[hsl(var(--gold-dark))]">
               <Send className="h-4 w-4" />
               {t("contact.send")}
             </Button>
