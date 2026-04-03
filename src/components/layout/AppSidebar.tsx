@@ -146,5 +146,3 @@ export function AppSidebar() {
   );
 }
 
-// Export toggle hook for Header to use
-export { AppSidebar };
