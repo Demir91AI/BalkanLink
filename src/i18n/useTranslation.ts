@@ -16,14 +16,21 @@ const ALL_NS = [
 export function useTranslation(ns?: string | string[]) {
   const { t: i18nT, i18n: instance } = useI18nextTranslation(ns || ALL_NS);
 
-  const t = (key: string, opts?: Record<string, unknown>): string => {
-    const direct = String(i18nT(key, opts as any));
-    if (direct !== key) return direct;
+  const isValid = (result: string, ...fallbacks: string[]) =>
+    result && !fallbacks.includes(result) && !result.startsWith("[object") && !result.startsWith("key '");
 
-    // Search all namespaces for the key
+  const t = (key: string, opts?: Record<string, unknown>): string => {
+    const raw = i18nT(key, opts as any);
+    const direct = typeof raw === 'string' ? raw : String(raw);
+    if (typeof raw === 'string' && isValid(direct, key)) return direct;
+
+    // Search all namespaces for the key (skip object results)
     for (const namespace of ALL_NS) {
-      const result = String(i18nT(`${namespace}:${key}`, opts as any));
-      if (result !== `${namespace}:${key}` && result !== key) return result;
+      const nsKey = `${namespace}:${key}`;
+      const rawNs = i18nT(nsKey, opts as any);
+      if (typeof rawNs !== 'string') continue;
+      const result = rawNs;
+      if (isValid(result, nsKey, key)) return result;
     }
 
     // Try removing dot prefix: "sidebar.smartGuide" → search for "smartGuide" in each ns
@@ -31,8 +38,11 @@ export function useTranslation(ns?: string | string[]) {
     if (dotIdx > 0) {
       const subKey = key.substring(dotIdx + 1);
       for (const namespace of ALL_NS) {
-        const result = String(i18nT(`${namespace}:${subKey}`, opts as any));
-        if (result !== `${namespace}:${subKey}` && result !== subKey) return result;
+        const nsKey = `${namespace}:${subKey}`;
+        const rawNs = i18nT(nsKey, opts as any);
+        if (typeof rawNs !== 'string') continue;
+        const result = rawNs;
+        if (isValid(result, nsKey, subKey)) return result;
       }
     }
 
