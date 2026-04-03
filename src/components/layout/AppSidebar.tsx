@@ -34,12 +34,12 @@ export function AppSidebar() {
     setIsOpen((prev) => !prev);
   }, []);
 
-  const open = useCallback(() => {
-    const now = Date.now();
-    if (now - debounceRef.current < 250) return;
-    debounceRef.current = now;
-    setIsOpen(true);
-  }, []);
+  // Listen for toggle event from Header
+  useEffect(() => {
+    const handler = () => toggle();
+    window.addEventListener("toggle-sidebar", handler);
+    return () => window.removeEventListener("toggle-sidebar", handler);
+  }, [toggle]);
 
   const close = useCallback(() => {
     setIsOpen(false);
