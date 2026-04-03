@@ -112,7 +112,7 @@ export const guideLinkRegistry: Record<string, GuideLinks> = {
   lernfoerderung: {
     portalUrl: "",
     downloadsUrl: "",
-    infoUrl: "https://www.bmas.de/DE/Arbeit/Grundsicherung-Buergergeld/Bildungspaket/bildungspaket.html",
+    infoUrl: "https://familienportal.de/familienportal/familienleistungen/bildung-und-teilhabe",
   },
   "kita-zuschuss": {
     portalUrl: "",
@@ -134,7 +134,7 @@ export const guideLinkRegistry: Record<string, GuideLinks> = {
   steuerklassenwechsel: {
     portalUrl: "https://www.elster.de/eportal/start",
     downloadsUrl: "",
-    infoUrl: "https://www.bundesfinanzministerium.de/Web/DE/Themen/Steuern/Steuerarten/Lohnsteuer/lohnsteuer.html",
+    infoUrl: "https://www.bundesfinanzministerium.de/Web/DE/Themen/Steuern/Formulare/formulare.html",
   },
   kirchenaustritt: {
     portalUrl: "",
@@ -142,14 +142,14 @@ export const guideLinkRegistry: Record<string, GuideLinks> = {
     infoUrl: "https://www.kirchenaustritt.de",
   },
   bildungsgutschein: {
-    portalUrl: "",
+    portalUrl: "https://web.arbeitsagentur.de/fbwo/fbwo-ui/pd/anfrage",
     downloadsUrl: "",
     infoUrl: "https://www.arbeitsagentur.de/karriere-und-weiterbildung/bildungsgutschein",
   },
   integrationskurs: {
     portalUrl: "",
     downloadsUrl: "",
-    infoUrl: "https://www.bamf.de/DE/Startseite/startseite_node.html",
+    infoUrl: "https://www.bamf.de/DE/Themen/Integration/ZugewanderteTeilnehmende/Integrationskurse/integrationskurse-node.html",
   },
 };
 
