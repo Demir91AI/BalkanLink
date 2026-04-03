@@ -1927,12 +1927,27 @@ const uiExtraKeys: Record<string, Record<string, string>> = {
     "formCenter.smartGuideLabel": "Smart Guide – korak za korakom", "formCenter.searchPlaceholder": "Išči obrazec…", "formCenter.noResults": "Ni rezultatov.", "formCenter.selectForm": "Izberi obrazec", "formCenter.selectFormDesc": "Kliknite na obrazec na levi strani za podrobna navodila za izpolnjevanje." },
 };
 
-// Merge country names, vorlagen, UI extras, calc, and community into translations
+// nav.back per language
+const navBackKeys: Record<string, Record<string, string>> = {
+  bs: { "nav.back": "Nazad" },
+  hr: { "nav.back": "Natrag" },
+  sr: { "nav.back": "Nazad" },
+  me: { "nav.back": "Nazad" },
+  sq: { "nav.back": "Prapa" },
+  xk: { "nav.back": "Prapa" },
+  mk: { "nav.back": "Назад" },
+  sl: { "nav.back": "Nazaj" },
+  de: { "nav.back": "Zurück" },
+  en: { "nav.back": "Back" },
+};
+
+// Merge country names, vorlagen, UI extras, calc, community, and nav.back into translations
 for (const lang of Object.keys(translations) as Language[]) {
   if (countryNames[lang]) Object.assign(translations[lang], countryNames[lang]);
   if (vorlagenKeys[lang]) Object.assign(translations[lang], vorlagenKeys[lang]);
   if (uiExtraKeys[lang]) Object.assign(translations[lang], uiExtraKeys[lang]);
   if (communityKeys[lang]) Object.assign(translations[lang], communityKeys[lang]);
+  if (navBackKeys[lang]) Object.assign(translations[lang], navBackKeys[lang]);
   // Calc keys: bs-based languages fall back to calcBs, de to calcDe, en to calcEn
   const calcMap: Record<string, Record<string, string>> = { de: calcDe, en: calcEn };
   Object.assign(translations[lang], calcMap[lang] ?? calcBs);
