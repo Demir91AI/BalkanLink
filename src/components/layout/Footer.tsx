@@ -39,7 +39,7 @@ function StarInput({ value, onChange }: { value: number; onChange: (v: number) =
 }
 
 function ReviewFormModal() {
-  const { t } = useTranslation();
+  const { t } = useLanguage();
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
   const [username, setUsername] = useState("");
