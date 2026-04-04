@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Home } from "lucide-react";
-import { useTranslation } from "@/i18n/useTranslation";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function PageNav({ onBack }: { onBack?: () => void }) {
   const navigate = useNavigate();
