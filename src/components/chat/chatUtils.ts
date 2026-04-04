@@ -285,8 +285,8 @@ export function getPageContext(pathname: string): string {
     const slug = pathname.replace("/formulari/", "");
     return `Korisnik gleda formular: ${slug}.`;
   }
-  if (pathname.startsWith("/guide/")) {
-    const slug = pathname.replace("/guide/", "");
+  if (pathname.startsWith("/formulari/")) {
+    const slug = pathname.replace("/formulari/", "");
     return `Korisnik je u Smart Guide za: ${slug}.`;
   }
 

@@ -73,7 +73,7 @@ export default function Foerderungen() {
                       variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}
                     >
                       <Link
-                        to={`/guide/${guide.slug}`}
+                        to={`/formulari/${guide.slug}`}
                         className="group flex items-center gap-3 rounded-xl border bg-card p-4 shadow-sm transition-all duration-300 hover:border-gold/40 hover:shadow-md"
                       >
                         <div className="min-w-0 flex-1">

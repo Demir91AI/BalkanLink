@@ -123,9 +123,9 @@ const SITE_TOPIC_MAP: Record<string, SiteTopic> = {
   "subvencij": { url: "/foerderungen", label: "Subvencije", category: "finance" },
   "förderung": { url: "/foerderungen", label: "Förderungen", category: "finance" },
   "pomoći": { url: "/foerderungen", label: "Pomoći", category: "finance" },
-  "smart guide": { url: "/formulare", label: "Smart Guide", category: "forms" },
-  "formular": { url: "/formulare", label: "Formulari", category: "forms" },
-  "formulari": { url: "/formulare", label: "Formulari", category: "forms" },
+  "smart guide": { url: "/formulari", label: "Smart Guide", category: "forms" },
+  "formular": { url: "/formulari", label: "Formulari", category: "forms" },
+  "formulari": { url: "/formulari", label: "Formulari", category: "forms" },
 };
 
 function detectSiteTopics(text: string): SiteTopic[] {

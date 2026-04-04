@@ -66,7 +66,7 @@ export default function Familie() {
                   variants={{ hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0 } }}
                 >
                   <Link
-                    to={`/guide/${guide.slug}`}
+                    to={`/formulari/${guide.slug}`}
                     className="group flex flex-col gap-3 rounded-xl border bg-card p-5 shadow-sm transition-all duration-300 hover:border-gold/40 hover:shadow-md hover:-translate-y-0.5"
                   >
                     <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-gold/10 group-hover:text-gold">
