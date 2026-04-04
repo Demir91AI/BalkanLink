@@ -265,6 +265,16 @@ export default function ChatAssistant() {
     }
   }, [open]);
 
+  // Listen for external "open-assistant" events (e.g. hero CTA)
+  useEffect(() => {
+    const handler = () => {
+      setOpen(true);
+      setTimeout(() => inputRef.current?.focus({ preventScroll: true }), 350);
+    };
+    window.addEventListener("open-assistant", handler);
+    return () => window.removeEventListener("open-assistant", handler);
+  }, []);
+
   useEffect(() => {
     if (open) document.body.style.overflow = "hidden";
     else document.body.style.overflow = "";
