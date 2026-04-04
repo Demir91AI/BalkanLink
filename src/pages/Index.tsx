@@ -192,7 +192,7 @@ function ServicesCarousel() {
 
 /* ─── Showcase Carousel ─── */
 function ShowcaseCarousel() {
-  const { t } = useTranslation();
+  const { t } = useLanguage();
   const { ref, pause, scheduleResume, scrollByCard, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.7, 3000);
 
   const emptySlots = [
