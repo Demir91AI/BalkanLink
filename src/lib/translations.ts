@@ -224,6 +224,8 @@ type TranslationKeys = {
   "vorlagen.bewerbung": string; "vorlagen.lebenslauf": string; "vorlagen.anschreiben": string;
   "vorlagen.kuendigung": string; "vorlagen.fristlose": string; "vorlagen.probezeit": string;
   "vorlagen.widerruf": string; "vorlagen.vertragKuendigung": string; "vorlagen.reklamation": string;
+  "flowBanner.headline": string; "flowBanner.subheadline": string; "flowBanner.hint": string;
+  "flowBanner.cta": string; "flowBanner.ctaNote": string; "flowBanner.start": string; "flowBanner.open": string;
 };
 
 // --- Shared partial blocks ---
