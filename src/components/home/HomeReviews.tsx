@@ -45,7 +45,7 @@ function ReviewCard({ review }: { review: Review }) {
 }
 
 export default function HomeReviews() {
-  const { t } = useTranslation();
+  const { t } = useLanguage();
   const [reviews, setReviews] = useState<Review[]>([]);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");

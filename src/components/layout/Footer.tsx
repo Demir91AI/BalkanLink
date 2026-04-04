@@ -164,7 +164,7 @@ const Divider = () => (
 );
 
 export default function Footer() {
-  const { t } = useTranslation();
+  const { t } = useLanguage();
   const [reviews, setReviews] = useState<FooterReview[]>([]);
 
   useEffect(() => {

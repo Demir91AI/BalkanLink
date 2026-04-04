@@ -103,7 +103,7 @@ export default function Header() {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="min-w-[180px] bg-[hsl(215,55%,10%)] border-white/10 shadow-xl">
                 {LANG_OPTIONS.map((lang) => (
-                  <DropdownMenuItem key={lang.code} onClick={() => setLanguage(lang.code)}
+                  <DropdownMenuItem key={lang.code} onClick={() => setLanguage(lang.code as any)}
                     className={`text-white/80 hover:text-white focus:text-white focus:bg-white/10 ${currentLanguage === lang.code ? "bg-white/10 text-[hsl(var(--gold))] font-medium" : ""}`}>
                     <img src={lang.flag} alt="" className="mr-2 h-4 w-6 object-cover rounded-[2px] shrink-0" />
                     {lang.name}
