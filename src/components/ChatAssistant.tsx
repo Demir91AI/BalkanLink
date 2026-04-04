@@ -485,6 +485,12 @@ export default function ChatAssistant() {
       const ct = resp.headers.get("content-type") || "";
       if (ct.includes("application/json")) {
         const data = await resp.json();
+        // Safety block (illegal/dangerous content)
+        if (data.safety_blocked) {
+          setMessages(prev => [...prev, { role: "assistant", content: data.content }]);
+          setLoading(false);
+          return;
+        }
         if (data.search_redirect) {
           setMessages(prev => [...prev, { role: "assistant", content: data.content, redirectUrl: data.redirect_url, redirectLabel: data.redirect_label }]);
           setLoading(false);
@@ -496,7 +502,14 @@ export default function ChatAssistant() {
           return;
         }
         if (data.premium_required) {
-          setMessages(prev => [...prev, { role: "assistant", content: `${data.teaser}\n\n${data.cta}`, formSlugs: data.detectedForm ? [data.detectedForm.slug] : [], redirectUrl: "/premium", redirectLabel: "Premium pogledaj" }]);
+          setMessages(prev => [...prev, {
+            role: "assistant",
+            content: data.content,
+            formSlugs: data.detectedForm ? [data.detectedForm.slug] : [],
+            guideSlug: data.guideSlug,
+            redirectUrl: data.redirect_url || "/premium",
+            redirectLabel: data.redirect_label || "Premium pogledaj",
+          }]);
           setLoading(false);
           return;
         }
