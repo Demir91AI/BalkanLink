@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import LanguageSelector from "@/components/LanguageSelector";
 import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
 import PWAInstallBanner from "@/components/PWAInstallBanner";
-
+import FlowBanner from "@/components/home/FlowBanner";
 
 import realcoreDigitalLogo from "@/assets/realcore-digital-logo.png";
 import heroBerlin from "@/assets/hero-berlin.jpg";
@@ -390,19 +390,8 @@ export default function Index() {
         <PWAInstallBanner />
       </div>
 
-      {/* ─── SERVICES CAROUSEL ─── */}
-      <section className="py-16 bg-[hsl(var(--warm-cream))]">
-        <div className="container max-w-[1200px] mx-auto">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mx-auto max-w-2xl text-center mb-10">
-            <h2 className="font-heading text-2xl font-extrabold text-[#2D2D2D] lg:text-4xl">
-              {t("home.servicesTitle")}
-            </h2>
-            <p className="mt-2 text-sm text-[#6B6B6B]">{t("home.servicesSubtitle")}</p>
-            <div className="mx-auto mt-3 h-[3px] w-16 rounded-full bg-gradient-to-r from-[hsl(var(--gold-dark))] to-[hsl(var(--gold))]" />
-          </motion.div>
-        </div>
-        <ServicesCarousel />
-      </section>
+      {/* ─── FLOW BANNER CAROUSEL ─── */}
+      <FlowBanner />
 
       <section className="py-16 bg-white border-t border-[#E8E0D0]">
         <div className="container max-w-[1200px] mx-auto mb-8">
