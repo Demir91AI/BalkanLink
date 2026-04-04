@@ -463,6 +463,13 @@ export default function FormCenter() {
             </div>
           )}
         </main>
+        {!isMobile && (
+          <FormRightPanel
+            activeSlug={activeSlug || null}
+            formLabel={allEntries.find(e => e.slug === activeSlug)?.label}
+            formDesc={allEntries.find(e => e.slug === activeSlug)?.desc}
+          />
+        )}
       </div>
     </div>
   );
