@@ -275,7 +275,7 @@ export default function FormCenter() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder={t("formCenter.searchPlaceholder")}
-              className="pl-9 h-10 text-sm rounded-xl border-border/60 bg-card"
+              className="pl-9 h-10 text-sm rounded-xl border-[#E8E0D0] bg-white"
             />
           </div>
 
