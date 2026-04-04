@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
-import { useTranslation } from "react-i18next";
-import i18n from "@/i18n";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { type Language } from "@/lib/translations";
 
 const LANG_OPTIONS: { code: string; label: string; flag: string }[] = [
   { code: "de", label: "Deutsch", flag: "https://flagcdn.com/h40/de.png" },
@@ -15,15 +15,14 @@ const LANG_OPTIONS: { code: string; label: string; flag: string }[] = [
 ];
 
 export default function LanguageSelector() {
-  const { i18n: instance } = useTranslation();
+  const { language, setLanguage } = useLanguage();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  const current = LANG_OPTIONS.find((l) => l.code === instance.language) || LANG_OPTIONS[0];
+  const current = LANG_OPTIONS.find((l) => l.code === language) || LANG_OPTIONS[0];
 
   const handleChange = (code: string) => {
-    i18n.changeLanguage(code);
-    localStorage.setItem("app_language", code);
+    setLanguage(code as Language);
     setOpen(false);
   };
 
@@ -63,8 +62,8 @@ export default function LanguageSelector() {
               onClick={() => handleChange(opt.code)}
               className="flex w-full items-center gap-3 px-4 py-[10px] text-left transition-colors hover:bg-[#FFF8EC]"
               style={{
-                borderLeft: opt.code === instance.language ? "3px solid #C9A84C" : "3px solid transparent",
-                fontWeight: opt.code === instance.language ? 700 : 400,
+                borderLeft: opt.code === language ? "3px solid #C9A84C" : "3px solid transparent",
+                fontWeight: opt.code === language ? 700 : 400,
               }}
             >
               <img src={opt.flag} alt="" className="h-[20px] w-auto" />
