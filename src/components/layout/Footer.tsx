@@ -138,20 +138,10 @@ export default function Footer() {
   return (
     <footer className="border-t border-[#E8E0D0] text-[#2D2D2D]" style={{ background: "#FAFAF7" }}>
       <div className="container py-12">
-        <div className="grid gap-10 text-left grid-cols-5">
+        <div className="grid gap-10 text-left grid-cols-4">
           <div>
             <BrandLogo variant="small" />
             <p className="mt-3 text-[13px] leading-relaxed text-[#6B6B6B]">{t("footer.tagline")}</p>
-          </div>
-
-          <div>
-            <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-[#6B6B6B]">{t("footer.navSection")}</h4>
-            <nav className="flex flex-col items-start gap-2.5">
-              <Link to="/" className="text-[13px] text-[#6B6B6B] transition-colors hover:text-[hsl(var(--gold))]">{t("footer.navHome")}</Link>
-              <Link to="/dolazak" className="text-[13px] text-[#6B6B6B] transition-colors hover:text-[hsl(var(--gold))]">{t("footer.navHow")}</Link>
-              <Link to="/formulari" className="text-[13px] text-[#6B6B6B] transition-colors hover:text-[hsl(var(--gold))]">{t("footer.navFormulari")}</Link>
-              <Link to="/paketi" className="text-[13px] text-[#6B6B6B] transition-colors hover:text-[hsl(var(--gold))]">{t("footer.navPaketi")}</Link>
-            </nav>
           </div>
 
           <div>
