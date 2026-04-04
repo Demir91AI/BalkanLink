@@ -193,7 +193,7 @@ function ServicesCarousel() {
 /* ─── Showcase Carousel ─── */
 function ShowcaseCarousel() {
   const { t } = useTranslation();
-  const { ref, pause, scheduleResume, scrollByCard, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.4, 3000);
+  const { ref, pause, scheduleResume, scrollByCard, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.7, 3000);
 
   const emptySlots = [
     { title: "Vaša firma ovdje", desc: "Premium mjesto za vašu reklamu." },
