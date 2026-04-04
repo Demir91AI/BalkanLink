@@ -28,21 +28,22 @@ export default function FlowBanner() {
   }, []);
 
   return (
-    <section className="relative py-8 sm:py-12">
+    <section className="relative py-14 sm:py-20">
       {/* Bridge block */}
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="container text-center mb-6 sm:mb-8"
+        className="container text-center mb-8 sm:mb-12"
       >
-        <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
           Šta želiš riješiti danas?
         </h2>
-        <p className="text-sm text-gray-300 mt-1.5 leading-relaxed">
-          Izaberi i kreni odmah — bez lutanja
+        <p className="text-sm sm:text-base text-gray-300 mt-2.5 leading-relaxed max-w-md mx-auto">
+          Riješi papirologiju bez stresa — sve na jednom mjestu
         </p>
+        <div className="mx-auto mt-4 h-[3px] w-16 rounded-full bg-gradient-to-r from-[#FFD700] to-[#FFA500]" />
       </motion.div>
 
       {/* Flow cards */}
