@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Building, ChevronLeft, ExternalLink, Info } from "lucide-react";
+import { Building, ChevronLeft, ExternalLink, Home, Info } from "lucide-react";
 import { navigateBackOrHome } from "@/lib/navigation";
 
 const portals = [
