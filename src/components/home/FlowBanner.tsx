@@ -14,7 +14,7 @@ import imgOglasi from "@/assets/carousel/oglasi.jpg";
 
 const flowItems = [
   { icon: "📄", title: "Formulari", text: "Popuni bez greške — korak po korak", badge: "premium" as const, to: "/formulari", image: imgFormulari },
-  { icon: "🌍", title: "Viza", text: "Pronađi pravi put za dolazak u Njemačku", badge: "premium" as const, to: "/dolazak/boravisna-dozvola", image: imgVisa },
+  { icon: "🌍", title: "Viza", text: "Pronađi pravi put za dolazak u Njemačku", badge: "premium" as const, to: "/viza", image: imgVisa },
   { icon: "🇩🇪", title: "Njemački", text: "Uči kroz stvarne situacije (A1–C2)", badge: "premium" as const, to: "/deutsch-trainer", image: imgDeutsch },
   { icon: "📑", title: "Dokumenti", text: "Provjeri pisma i dokumente iz Njemačke", badge: "premium" as const, to: "/dokumenten-check", image: imgDokumente },
   { icon: "💶", title: "Novčana pomoć", text: "Bürgergeld, Wohngeld i dodaci", badge: null, to: "/formulari", image: imgGeld },
