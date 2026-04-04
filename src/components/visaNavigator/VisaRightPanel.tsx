@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
-import { Globe, ExternalLink, Info, Clock } from "lucide-react";
+import { Globe, ExternalLink, Clock } from "lucide-react";
 import { VISA_COUNTRIES, VISA_ROUTES } from "@/data/visaNavigatorData";
+import TrustSystem from "./TrustSystem";
 
 const QUICK_LINKS = [
   { key: "source_makeitingermany", url: "https://www.make-it-in-germany.com/de/visum-aufenthalt" },
