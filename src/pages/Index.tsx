@@ -385,6 +385,11 @@ export default function Index() {
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(var(--gold))]/40 to-transparent" />
       </div>
 
+      {/* ─── PWA INSTALL CARD ─── */}
+      <div className="bg-[hsl(var(--warm-cream))] pt-6">
+        <PWAInstallBanner />
+      </div>
+
       {/* ─── SERVICES CAROUSEL ─── */}
       <section className="py-16 bg-[hsl(var(--warm-cream))]">
         <div className="container max-w-[1200px] mx-auto">
@@ -445,7 +450,7 @@ export default function Index() {
         </div>
       </section>
 
-      <PWAInstallBanner />
+
     </div>
   );
 }
