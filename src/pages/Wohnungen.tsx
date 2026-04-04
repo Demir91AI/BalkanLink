@@ -15,34 +15,24 @@ export default function Wohnungen() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-muted/30">
-      {/* Hero */}
-      <section className="bg-primary py-10 text-primary-foreground md:py-14">
-        <div className="container max-w-3xl">
-          <div className="flex items-center gap-3 mb-4">
-            <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
-              <ChevronLeft className="h-4 w-4" /> Nazad
-            </button>
-            <button onClick={() => navigate("/")} className="flex items-center gap-1.5 text-[13px] font-medium text-primary-foreground/70 hover:text-primary-foreground transition-colors px-3 py-1.5 rounded-lg hover:bg-white/10">
-              <Home className="h-4 w-4" /> Početna
-            </button>
-          </div>
-          <div className="text-center">
-            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium">
-              <Building className="h-4 w-4" /> Pretraga stanova
-            </div>
-            <h1 className="font-heading text-2xl font-bold sm:text-3xl md:text-4xl">
-              Pretraži sve velike portale za stanove na jednom mjestu
-            </h1>
-            <p className="mx-auto mt-2 max-w-lg text-sm text-primary-foreground/75 sm:text-base">
-              Klikni na sajt koji ti odgovara — otvorit će se direktno.
-            </p>
-            <p className="mx-auto mt-1 text-xs text-gray-400">
-              Samo preusmjeravanje na eksterne stranice
-            </p>
-          </div>
+    <div className="min-h-screen" style={{ background: '#F5F0E8' }}>
+      <div style={{ background: '#F5F0E8' }} className="px-4 pt-8 pb-6 max-w-3xl mx-auto">
+        <div className="flex items-center gap-3 mb-6">
+          <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
+            <ChevronLeft className="h-4 w-4" /> Nazad
+          </button>
+          <button onClick={() => navigate("/")} className="flex items-center gap-1.5 text-[13px] font-medium text-[#6B6B6B] hover:text-[#2D2D2D] transition-colors px-3 py-1.5 rounded-lg hover:bg-[#F0EAD8]">
+            <Home className="h-4 w-4" /> Početna
+          </button>
         </div>
-      </section>
+        <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-[#C9A84C]/20 bg-[#C9A84C]/10 px-3 py-1">
+          <Building className="h-3.5 w-3.5 text-[#C9A84C]" />
+          <span className="text-[11px] font-bold uppercase tracking-wider text-[#C9A84C]">Pretraga stanova</span>
+        </div>
+        <h1 className="text-2xl font-bold text-[#2D2D2D] mt-2">Pretraži sve portale za stanove</h1>
+        <p className="text-sm text-[#6B6B6B] mt-1">Klikni na sajt koji ti odgovara — otvorit će se direktno.</p>
+        <p className="text-xs text-[#9CA3AF] mt-0.5">Samo preusmjeravanje na eksterne stranice</p>
+      </div>
 
       {/* Portal Cards */}
       <div className="container max-w-3xl py-6 sm:py-8">
