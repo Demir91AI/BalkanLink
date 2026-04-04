@@ -47,6 +47,7 @@ import FahrzeugzulassungGuide from "@/components/formulare/FahrzeugzulassungGuid
 import VisaWorkGuide from "@/components/formulare/VisaWorkGuide";
 import VisaBluecardGuide from "@/components/formulare/VisaBluecardGuide";
 import VisaFamilyGuide from "@/components/formulare/VisaFamilyGuide";
+import VisaStudyGuide from "@/components/formulare/VisaStudyGuide";
 import { navigateBackOrHome } from "@/lib/navigation";
 
 type LangKey = "de" | "bs" | "en";
@@ -134,6 +135,7 @@ function GuideContent({ slug }: { slug: string }) {
   if (slug === "visa-work") return <VisaWorkGuide />;
   if (slug === "visa-bluecard") return <VisaBluecardGuide />;
   if (slug === "visa-family") return <VisaFamilyGuide />;
+  if (slug === "visa-study") return <VisaStudyGuide />;
 
   if (!guide) return null;
 
