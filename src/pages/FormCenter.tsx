@@ -45,6 +45,7 @@ import AnfrageNichterreichbarkeitGuideContent from "@/components/guides/AnfrageN
 import FuehrerscheinGuideContent from "@/components/formulare/FuehrerscheinGuide";
 import FahrzeugzulassungGuide from "@/components/formulare/FahrzeugzulassungGuide";
 import { navigateBackOrHome } from "@/lib/navigation";
+import FormRightPanel from "@/components/formCenter/FormRightPanel";
 
 type LangKey = "de" | "bs" | "en";
 
