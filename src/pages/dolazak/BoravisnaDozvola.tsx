@@ -4,6 +4,7 @@ import { navigateBackOrHome } from "@/lib/navigation";
 import {
   ChevronLeft, Search, ChevronRight, AlertTriangle, ClipboardList,
   PenLine, ExternalLink, Info, Lock, Crown, Check, FileText,
+  Briefcase, GraduationCap, Users, RefreshCw, Award, Plane,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
@@ -11,12 +12,14 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { visaTypes, type VisaType } from "@/lib/visa-data";
 import { getGuideBySlug } from "@/lib/guide-data";
+import { VISA_COUNTRIES } from "@/data/visaNavigatorData";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useSectionT } from "@/hooks/useSectionT";
 import { useHistorySearchState } from "@/hooks/useHistorySearchState";
 import { cn } from "@/lib/utils";
+import { useTranslation } from "react-i18next";
 import FormSmartGuide from "@/components/FormSmartGuide";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
 
@@ -25,6 +28,16 @@ const fade = (i: number) => ({
   animate: { opacity: 1, y: 0 },
   transition: { delay: i * 0.05 },
 });
+
+const ROUTE_ITEMS = [
+  { id: "first_arrival", key: "route_first_arrival", icon: Plane },
+  { id: "work", key: "route_work", icon: Briefcase },
+  { id: "blue_card", key: "route_blue_card", icon: Award },
+  { id: "family", key: "route_family", icon: Users },
+  { id: "study", key: "route_study", icon: GraduationCap },
+  { id: "extension", key: "route_extension", icon: RefreshCw },
+  { id: "permanent", key: "route_permanent", icon: Award },
+];
 
 /* ─── Visual Paywall (non-blocking) ─── */
 function VisaPaywall({ visaLabel, st }: { visaLabel: string; st: (k: string) => string }) {
@@ -77,7 +90,6 @@ function VisaDetail({ visa, st }: { visa: VisaType; st: (k: string) => string })
 
   return (
     <div className="space-y-5">
-      {/* Header */}
       <div>
         <div className="flex items-center gap-2 mb-1">
           <span className="text-2xl">{visa.icon}</span>
@@ -87,7 +99,6 @@ function VisaDetail({ visa, st }: { visa: VisaType; st: (k: string) => string })
         <p className="mt-2 text-sm text-foreground/80">{visa.desc}</p>
       </div>
 
-      {/* Disclaimer */}
       <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 dark:border-amber-900/40 dark:bg-amber-950/20">
         <p className="text-xs text-amber-800 dark:text-amber-300 flex items-start gap-2">
           <Info className="h-3.5 w-3.5 shrink-0 mt-0.5" />
@@ -95,7 +106,6 @@ function VisaDetail({ visa, st }: { visa: VisaType; st: (k: string) => string })
         </p>
       </div>
 
-      {/* FREE: Who can apply */}
       <motion.div {...fade(0)} className="rounded-2xl border border-border/60 bg-card p-4">
         <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold">
           <PenLine className="h-3.5 w-3.5 text-primary" /> {st("viza.whoCanApply")}
@@ -107,7 +117,6 @@ function VisaDetail({ visa, st }: { visa: VisaType; st: (k: string) => string })
         </ul>
       </motion.div>
 
-      {/* FREE: Basic requirements */}
       <motion.div {...fade(1)} className="rounded-2xl border border-border/60 bg-card p-4">
         <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold">
           <ClipboardList className="h-3.5 w-3.5 text-primary" /> {st("viza.basicReqs")}
@@ -119,7 +128,6 @@ function VisaDetail({ visa, st }: { visa: VisaType; st: (k: string) => string })
         </ul>
       </motion.div>
 
-      {/* FREE: Documents */}
       <motion.div {...fade(2)} className="rounded-2xl border border-border/60 bg-card p-4">
         <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold">
           <FileText className="h-3.5 w-3.5 text-primary" /> {st("viza.documents")}
@@ -131,7 +139,6 @@ function VisaDetail({ visa, st }: { visa: VisaType; st: (k: string) => string })
         </ul>
       </motion.div>
 
-      {/* FREE: Common mistakes */}
       <motion.div {...fade(3)} className="rounded-2xl border border-red-200 bg-red-50 p-4 dark:border-red-900/40 dark:bg-red-950/20">
         <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold text-red-700 dark:text-red-400">
           <AlertTriangle className="h-3.5 w-3.5" /> {st("viza.mistakes")}
@@ -143,7 +150,6 @@ function VisaDetail({ visa, st }: { visa: VisaType; st: (k: string) => string })
         </ul>
       </motion.div>
 
-      {/* Official link */}
       <motion.div {...fade(4)} className="rounded-2xl border border-border/60 bg-card p-4 text-center">
         <h3 className="mb-2 flex items-center justify-center gap-1.5 text-xs font-bold">
           <Info className="h-3.5 w-3.5 text-primary" /> {st("viza.officialInfo")}
@@ -158,7 +164,6 @@ function VisaDetail({ visa, st }: { visa: VisaType; st: (k: string) => string })
         </a>
       </motion.div>
 
-      {/* PREMIUM: Smart Guide (non-blocking) */}
       {guide && (
         <>
           <div className="relative py-2">
@@ -176,7 +181,6 @@ function VisaDetail({ visa, st }: { visa: VisaType; st: (k: string) => string })
         </>
       )}
 
-      {/* If no guide yet, show paywall as teaser */}
       {!guide && (
         <>
           <div className="relative py-2">
@@ -206,14 +210,54 @@ function VisaDetail({ visa, st }: { visa: VisaType; st: (k: string) => string })
   );
 }
 
+/* ─── Sidebar Group ─── */
+function SidebarGroup({
+  label,
+  children,
+  defaultOpen = true,
+}: {
+  label: string;
+  children: React.ReactNode;
+  defaultOpen?: boolean;
+}) {
+  const [open, setOpen] = useState(defaultOpen);
+  return (
+    <div className="mb-3">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between px-2 py-1.5 text-[11px] font-semibold uppercase tracking-[0.1em] text-[hsl(var(--gold))] hover:text-[hsl(var(--gold-light))] transition-colors"
+      >
+        {label}
+        <ChevronRight
+          className={cn(
+            "h-3 w-3 transition-transform duration-200",
+            open && "rotate-90"
+          )}
+        />
+      </button>
+      <div
+        className={cn(
+          "overflow-hidden transition-all duration-200",
+          open ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+        )}
+      >
+        <div className="space-y-0.5 mt-1">{children}</div>
+      </div>
+    </div>
+  );
+}
+
 /* ─── Main Page ─── */
 export default function BoravisnaDozvola() {
   const navigate = useNavigate();
   const { t } = useLanguage();
+  const { t: vt } = useTranslation("visaNavigator");
   const st = useSectionT();
   const [search, setSearch] = useState("");
   const { searchParams, setSearchState } = useHistorySearchState();
   const isMobile = useIsMobile();
+  const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
+  const [selectedRoute, setSelectedRoute] = useState<string | null>(null);
 
   const q = search.toLowerCase();
   const filtered = visaTypes.filter(
@@ -226,6 +270,39 @@ export default function BoravisnaDozvola() {
   const selectedVisaId = searchParams.get("visa");
   const activeVisa = visaTypes.find((v) => v.id === selectedVisaId);
 
+  const euCountries = VISA_COUNTRIES.filter((c) => c.group === "eu");
+  const balkanCountries = VISA_COUNTRIES.filter((c) => c.group === "western_balkans");
+
+  const handleCountryClick = (code: string) => {
+    setSelectedCountry(code);
+    setSelectedRoute(null);
+    // Also try to find matching visa
+    const country = VISA_COUNTRIES.find((c) => c.code === code);
+    if (country?.isEU) {
+      // For EU countries, show EU info in main panel
+      setSearchState({ visa: null }, { state: { blInternalBack: true } });
+    }
+  };
+
+  const handleRouteClick = (routeId: string) => {
+    setSelectedRoute(routeId);
+    // Map route to existing visa type
+    const mapping: Record<string, string> = {
+      work: "arbeitsvisum",
+      blue_card: "blue-card",
+      family: "familiennachzug",
+      study: "studienvisum",
+      extension: "verlaengerung",
+      permanent: "niederlassungserlaubnis",
+      first_arrival: "arbeitsvisum",
+      status_change: "arbeitsvisum",
+    };
+    const visaId = mapping[routeId];
+    if (visaId) {
+      setSearchState({ visa: visaId }, { state: { blInternalBack: true } });
+    }
+  };
+
   // Mobile: show detail
   if (isMobile && activeVisa) {
     return (
@@ -234,7 +311,7 @@ export default function BoravisnaDozvola() {
           onClick={() => navigateBackOrHome(navigate)}
           className="back-button"
         >
-          <ChevronLeft className="h-4 w-4" /> Nazad
+          <ChevronLeft className="h-4 w-4" /> {vt("back_to_routes")}
         </button>
         <VisaDetail visa={activeVisa} st={st} />
       </div>
@@ -250,13 +327,13 @@ export default function BoravisnaDozvola() {
             onClick={() => navigateBackOrHome(navigate)}
             className="back-button"
           >
-            <ChevronLeft className="h-4 w-4" /> Nazad
+            <ChevronLeft className="h-4 w-4" /> {vt("back_to_countries")}
           </button>
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">
-            {st("viza.title")}
+            {vt("title")}
           </h1>
           <p className="mt-2 text-sm text-primary-foreground/80 md:text-base">
-            {st("viza.subtitle")}
+            {vt("subtitle")}
           </p>
         </div>
       </section>
@@ -267,12 +344,12 @@ export default function BoravisnaDozvola() {
           <div className="mb-6 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 dark:border-amber-900/40 dark:bg-amber-950/20">
             <p className="text-xs text-amber-800 dark:text-amber-300 flex items-start gap-2">
               <Info className="h-3.5 w-3.5 shrink-0 mt-0.5" />
-              {st("viza.disclaimer")}
+              {vt("disclaimer")}
             </p>
           </div>
 
           <div className="flex gap-6">
-            {/* Sidebar / list */}
+            {/* Sidebar */}
             <aside className={cn("shrink-0", isMobile ? "w-full" : "sticky top-20 self-start w-72")}>
               <div className="relative mb-4">
                 <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -284,37 +361,103 @@ export default function BoravisnaDozvola() {
                 />
               </div>
 
-              <nav className="space-y-1.5">
-                {filtered.map((visa) => (
+              {/* Group 1: EU */}
+              <SidebarGroup label={vt("sidebar_eu")}>
+                {euCountries.map((country) => (
                   <button
-                    key={visa.id}
-                    onClick={() =>
-                      setSearchState(
-                        { visa: visa.id },
-                        { state: { blInternalBack: true } }
-                      )
-                    }
+                    key={country.code}
+                    onClick={() => handleCountryClick(country.code)}
                     className={cn(
-                      "w-full flex items-center gap-3 rounded-xl border px-4 py-3 text-left text-sm transition-all",
-                      visa.id === selectedVisaId
-                        ? "border-primary/40 bg-primary/5 shadow-sm"
-                        : "border-border/40 bg-card hover:border-gold/40 hover:shadow-sm"
+                      "w-full flex items-center gap-2 rounded-lg px-3 py-2 text-sm whitespace-nowrap transition-all duration-200",
+                      selectedCountry === country.code
+                        ? "border-l-[3px] border-l-[#C9A84C] bg-[#FFF8EC] font-medium text-foreground"
+                        : "border-l-[3px] border-l-transparent hover:bg-muted/50 text-muted-foreground hover:text-foreground"
                     )}
                   >
-                    <span className="text-xl shrink-0">{visa.icon}</span>
-                    <div className="min-w-0 flex-1">
-                      <p className={cn("font-semibold truncate", visa.id === selectedVisaId && "text-primary")}>
-                        {visa.title}
-                      </p>
-                      <p className="text-[11px] text-muted-foreground truncate">{visa.desc}</p>
-                    </div>
-                    <ChevronRight className="ml-auto h-4 w-4 shrink-0 text-muted-foreground" />
+                    <img src={country.flagUrl} alt="" className="h-[18px] w-auto rounded-[2px] shrink-0" />
+                    <span>{vt(country.nameKey)}</span>
+                    <Badge variant="outline" className="ml-auto text-[9px] px-1.5 py-0 border-emerald-300 text-emerald-600 shrink-0">
+                      {vt("badge_eu")}
+                    </Badge>
                   </button>
                 ))}
-                {filtered.length === 0 && (
-                  <p className="px-3 py-6 text-xs text-muted-foreground text-center">{st("viza.noResults")}</p>
-                )}
-              </nav>
+              </SidebarGroup>
+
+              {/* Group 2: Western Balkans */}
+              <SidebarGroup label={vt("sidebar_balkan")}>
+                {balkanCountries.map((country) => (
+                  <button
+                    key={country.code}
+                    onClick={() => handleCountryClick(country.code)}
+                    className={cn(
+                      "w-full flex items-center gap-2 rounded-lg px-3 py-2 text-sm whitespace-nowrap transition-all duration-200",
+                      selectedCountry === country.code
+                        ? "border-l-[3px] border-l-[#C9A84C] bg-[#FFF8EC] font-medium text-foreground"
+                        : "border-l-[3px] border-l-transparent hover:bg-muted/50 text-muted-foreground hover:text-foreground"
+                    )}
+                  >
+                    <img src={country.flagUrl} alt="" className="h-[18px] w-auto rounded-[2px] shrink-0" />
+                    <span>{vt(country.nameKey)}</span>
+                  </button>
+                ))}
+              </SidebarGroup>
+
+              {/* Group 3: Routes */}
+              <SidebarGroup label={vt("sidebar_routes")}>
+                {ROUTE_ITEMS.map((route) => {
+                  const Icon = route.icon;
+                  return (
+                    <button
+                      key={route.id}
+                      onClick={() => handleRouteClick(route.id)}
+                      className={cn(
+                        "w-full flex items-center gap-2 rounded-lg px-3 py-2 text-sm whitespace-nowrap transition-all duration-200",
+                        selectedRoute === route.id
+                          ? "border-l-[3px] border-l-[#C9A84C] bg-[#FFF8EC] font-medium text-foreground"
+                          : "border-l-[3px] border-l-transparent hover:bg-muted/50 text-muted-foreground hover:text-foreground"
+                      )}
+                    >
+                      <Icon className="h-4 w-4 shrink-0" />
+                      <span>{vt(route.key)}</span>
+                    </button>
+                  );
+                })}
+              </SidebarGroup>
+
+              {/* Legacy visa list (filtered) */}
+              {search && (
+                <nav className="space-y-1.5 mt-4 border-t border-border/40 pt-4">
+                  {filtered.map((visa) => (
+                    <button
+                      key={visa.id}
+                      onClick={() =>
+                        setSearchState(
+                          { visa: visa.id },
+                          { state: { blInternalBack: true } }
+                        )
+                      }
+                      className={cn(
+                        "w-full flex items-center gap-3 rounded-xl border px-4 py-3 text-left text-sm transition-all",
+                        visa.id === selectedVisaId
+                          ? "border-primary/40 bg-primary/5 shadow-sm"
+                          : "border-border/40 bg-card hover:border-gold/40 hover:shadow-sm"
+                      )}
+                    >
+                      <span className="text-xl shrink-0">{visa.icon}</span>
+                      <div className="min-w-0 flex-1">
+                        <p className={cn("font-semibold truncate", visa.id === selectedVisaId && "text-primary")}>
+                          {visa.title}
+                        </p>
+                        <p className="text-[11px] text-muted-foreground truncate">{visa.desc}</p>
+                      </div>
+                      <ChevronRight className="ml-auto h-4 w-4 shrink-0 text-muted-foreground" />
+                    </button>
+                  ))}
+                  {filtered.length === 0 && (
+                    <p className="px-3 py-6 text-xs text-muted-foreground text-center">{st("viza.noResults")}</p>
+                  )}
+                </nav>
+              )}
             </aside>
 
             {/* Detail */}
@@ -327,9 +470,9 @@ export default function BoravisnaDozvola() {
                     <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-primary/5 mb-6">
                       <FileText className="h-10 w-10 text-primary/40" />
                     </div>
-                    <h2 className="text-lg font-bold text-foreground/70">{st("viza.selectType")}</h2>
+                    <h2 className="text-lg font-bold text-foreground/70">{vt("welcome_title")}</h2>
                     <p className="mt-2 max-w-sm text-sm text-muted-foreground">
-                      {st("viza.selectHint")}
+                      {vt("welcome_text")}
                     </p>
                   </div>
                 )}
