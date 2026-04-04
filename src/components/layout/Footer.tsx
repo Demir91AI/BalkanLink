@@ -222,9 +222,13 @@ export default function Footer() {
               </svg>
               <span className="text-[12px] font-semibold text-[#505050]">PayPal</span>
             </div>
-            {/* Credit Card */}
+            {/* Mastercard / Credit Card */}
             <div className="flex items-center gap-2 px-4 py-2 rounded-lg border border-[#D4CFC5] bg-white/60">
-              <CreditCard className="h-5 w-5 text-[#505050]" />
+              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none">
+                <circle cx="9" cy="12" r="7" fill="#EB001B" opacity="0.9"/>
+                <circle cx="15" cy="12" r="7" fill="#F79E1B" opacity="0.9"/>
+                <path d="M12 6.5a6.98 6.98 0 0 1 2.5 5.5 6.98 6.98 0 0 1-2.5 5.5A6.98 6.98 0 0 1 9.5 12 6.98 6.98 0 0 1 12 6.5z" fill="#FF5F00"/>
+              </svg>
               <span className="text-[12px] font-semibold text-[#505050]">{t("footer.creditCard")}</span>
             </div>
             {/* Bank Transfer */}
