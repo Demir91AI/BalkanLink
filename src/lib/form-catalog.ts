@@ -29,6 +29,7 @@ export const formCatalog: FormGroup[] = [
       { slug: "steuer-id", label: "Steuer-ID", desc: "Poreski identifikacijski broj koji ti treba za posao i prijavu." },
       { slug: "aufenthaltstitel", label: "Aufenthaltstitel / Viza Navigator", desc: "Boravišna dozvola i informacije o viznom postupku." },
       { slug: "fuehrerschein", label: "Führerschein", desc: "Zamjena i priznavanje vozačke dozvole u Njemačkoj." },
+      { slug: "fahrzeugzulassung", label: "Fahrzeugzulassung", desc: "Registracija motornih vozila u Njemačkoj." },
     ],
   },
   {

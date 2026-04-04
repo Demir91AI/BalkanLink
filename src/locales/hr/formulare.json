@@ -121,6 +121,7 @@
   "fz_cost6": "Kfz-Versicherung: 30–200 €/mjesečno",
   "fz_cost7": "Kfz-Steuer: 50–400 € godišnje (električna vozila oslobođena do 2030)",
   "fz_cost8": "Obrada na licu mjesta: ~30–60 minuta",
+  "fz_imp_intro": "Ako donosiš vozilo iz matične zemlje:",
   "fz_imp1": "Iz EU (npr. Hrvatska, Slovenija): COC dokument + HU pregled + preregistracija kod Zulassungsstelle",
   "fz_imp2": "Iz zemalja izvan EU (BiH, Srbija, Kosovo...): Einzelgenehmigung ili Vollgutachten od TÜV-a — znatno skuplji proces",
   "fz_imp3": "Carina: vozilo iz zemalja izvan EU podliježe carinskim pristojbama (10%) i PDV-u (19%)",
