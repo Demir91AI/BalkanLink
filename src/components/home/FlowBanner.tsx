@@ -1,16 +1,24 @@
 import { useRef, useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
+import imgFormulari from "@/assets/carousel/formulari.jpg";
+import imgVisa from "@/assets/carousel/visa.jpg";
+import imgDeutsch from "@/assets/carousel/deutsch.jpg";
+import imgDokumente from "@/assets/carousel/dokumente.jpg";
+import imgGeld from "@/assets/carousel/geld.jpg";
+import imgKalkulatori from "@/assets/carousel/kalkulatori.jpg";
+import imgOglasi from "@/assets/carousel/oglasi.jpg";
+
 const flowItems = [
-  { icon: "📄", title: "Formulari", text: "Popuni bez greške — korak po korak", badge: "premium", to: "/formulari", primary: true },
-  { icon: "🌍", title: "Viza", text: "Pronađi pravi put za dolazak u Njemačku", badge: "premium", to: "/dolazak/boravisna-dozvola" },
-  { icon: "🇩🇪", title: "Njemački", text: "Uči kroz stvarne situacije (A1–C2)", badge: "premium", to: "/deutsch-trainer" },
-  { icon: "📑", title: "Dokumenti", text: "Provjeri pisma i dokumente iz Njemačke", badge: "premium", to: "/dokumenten-check" },
-  { icon: "💶", title: "Novčana pomoć", text: "Bürgergeld, Wohngeld i dodaci", badge: null, to: "/formulari" },
-  { icon: "🧮", title: "Kalkulatori", text: "Izračunaj platu, poreze i više", badge: null, to: "/kalkulatori" },
-  { icon: "💼", title: "Oglasi", text: "Nađi posao ili objavi oglas", badge: "free", to: "/nudim-trazim" },
+  { icon: "📄", title: "Formulari", text: "Popuni bez greške — korak po korak", badge: "premium" as const, to: "/formulari", image: imgFormulari },
+  { icon: "🌍", title: "Viza", text: "Pronađi pravi put za dolazak u Njemačku", badge: "premium" as const, to: "/dolazak/boravisna-dozvola", image: imgVisa },
+  { icon: "🇩🇪", title: "Njemački", text: "Uči kroz stvarne situacije (A1–C2)", badge: "premium" as const, to: "/deutsch-trainer", image: imgDeutsch },
+  { icon: "📑", title: "Dokumenti", text: "Provjeri pisma i dokumente iz Njemačke", badge: "premium" as const, to: "/dokumenten-check", image: imgDokumente },
+  { icon: "💶", title: "Novčana pomoć", text: "Bürgergeld, Wohngeld i dodaci", badge: null, to: "/formulari", image: imgGeld },
+  { icon: "🧮", title: "Kalkulatori", text: "Izračunaj platu, poreze i više", badge: null, to: "/kalkulatori", image: imgKalkulatori },
+  { icon: "💼", title: "Oglasi", text: "Nađi posao ili objavi oglas", badge: "free" as const, to: "/nudim-trazim", image: imgOglasi },
 ];
 
 export default function FlowBanner() {
@@ -26,30 +34,25 @@ export default function FlowBanner() {
   const next = useCallback(() => goTo(activeIndex + 1), [activeIndex, goTo]);
   const prev = useCallback(() => goTo(activeIndex - 1), [activeIndex, goTo]);
 
-  // Autoplay
   useEffect(() => {
-    autoplayRef.current = setInterval(next, 4000);
+    autoplayRef.current = setInterval(next, 4500);
     return () => { if (autoplayRef.current) clearInterval(autoplayRef.current); };
   }, [next]);
 
   const resetAutoplay = useCallback(() => {
     if (autoplayRef.current) clearInterval(autoplayRef.current);
-    autoplayRef.current = setInterval(next, 4000);
+    autoplayRef.current = setInterval(next, 4500);
   }, [next]);
 
   const handlePrev = () => { prev(); resetAutoplay(); };
   const handleNext = () => { next(); resetAutoplay(); };
 
-  // Touch/swipe
   const onTouchStart = (e: React.TouchEvent) => { touchStartX.current = e.touches[0].clientX; };
   const onTouchEnd = (e: React.TouchEvent) => {
     const diff = touchStartX.current - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 50) {
-      if (diff > 0) handleNext(); else handlePrev();
-    }
+    if (Math.abs(diff) > 50) { diff > 0 ? handleNext() : handlePrev(); }
   };
 
-  // Keyboard
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if (e.key === "ArrowRight") handleNext();
@@ -59,7 +62,6 @@ export default function FlowBanner() {
     return () => window.removeEventListener("keydown", handler);
   }, [activeIndex]);
 
-  // Get position relative to center: -3..0..+3
   const getOffset = (index: number) => {
     let diff = index - activeIndex;
     if (diff > totalItems / 2) diff -= totalItems;
@@ -67,27 +69,26 @@ export default function FlowBanner() {
     return diff;
   };
 
-  // Visible range: show 5 cards max
   const visibleRange = 3;
 
   return (
     <section
       className="relative overflow-hidden"
       style={{
-        minHeight: "clamp(520px, 72vh, 780px)",
-        background: "radial-gradient(ellipse 120% 80% at 50% 40%, hsl(220 50% 12%) 0%, hsl(220 55% 6%) 70%, hsl(220 60% 4%) 100%)",
+        minHeight: "clamp(640px, 90vh, 960px)",
+        background: "radial-gradient(ellipse 130% 90% at 50% 35%, hsl(220 50% 11%) 0%, hsl(220 55% 5%) 65%, hsl(220 60% 3%) 100%)",
       }}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
-      {/* Ambient glow behind center card */}
+      {/* Ambient glow */}
       <div
-        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full blur-[120px] opacity-30"
+        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full blur-[140px] opacity-25"
         style={{
-          width: 500,
-          height: 400,
+          width: 600,
+          height: 500,
           background: flowItems[activeIndex].badge === "premium"
-            ? "radial-gradient(circle, hsla(43,70%,55%,0.4) 0%, transparent 70%)"
+            ? "radial-gradient(circle, hsla(43,70%,55%,0.45) 0%, transparent 70%)"
             : "radial-gradient(circle, hsla(220,60%,40%,0.25) 0%, transparent 70%)",
         }}
       />
@@ -98,37 +99,37 @@ export default function FlowBanner() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="relative z-10 pt-14 sm:pt-20 pb-6 sm:pb-10 text-center px-4"
+        className="relative z-10 pt-16 sm:pt-24 pb-8 sm:pb-12 text-center px-4"
       >
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
+        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
           Šta želiš riješiti danas?
         </h2>
-        <p className="text-sm sm:text-base lg:text-lg text-white/50 mt-3 leading-relaxed max-w-lg mx-auto">
-          Riješi papirologiju bez stresa — bez lutanja i bez grešaka
+        <p className="text-base sm:text-lg lg:text-xl text-white/45 mt-4 leading-relaxed max-w-xl mx-auto">
+          Riješi papirologiju bez stresa — sve na jednom mjestu
         </p>
-        <div className="mx-auto mt-5 h-[3px] w-20 rounded-full bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--brand-orange))]" />
+        <div className="mx-auto mt-6 h-[3px] w-24 rounded-full bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--brand-orange))]" />
       </motion.div>
 
       {/* Carousel */}
-      <div className="relative z-10 flex items-center justify-center" style={{ height: "clamp(280px, 42vh, 420px)" }}>
+      <div className="relative z-10 flex items-center justify-center" style={{ height: "clamp(360px, 50vh, 520px)" }}>
         {/* Nav arrows */}
         <button
           onClick={handlePrev}
-          className="absolute left-2 sm:left-6 z-30 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/60 backdrop-blur-sm transition hover:bg-white/10 hover:text-white"
+          className="absolute left-2 sm:left-8 z-30 flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/60 backdrop-blur-sm transition hover:bg-white/10 hover:text-white"
           aria-label="Prethodni"
         >
-          <ChevronLeft className="h-5 w-5" />
+          <ChevronLeft className="h-6 w-6" />
         </button>
         <button
           onClick={handleNext}
-          className="absolute right-2 sm:right-6 z-30 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/60 backdrop-blur-sm transition hover:bg-white/10 hover:text-white"
+          className="absolute right-2 sm:right-8 z-30 flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/60 backdrop-blur-sm transition hover:bg-white/10 hover:text-white"
           aria-label="Sljedeći"
         >
-          <ChevronRight className="h-5 w-5" />
+          <ChevronRight className="h-6 w-6" />
         </button>
 
         {/* Cards */}
-        <div className="relative w-full flex items-center justify-center" style={{ perspective: 1200 }}>
+        <div className="relative w-full flex items-center justify-center" style={{ perspective: 1400 }}>
           {flowItems.map((item, i) => {
             const offset = getOffset(i);
             if (Math.abs(offset) > visibleRange) return null;
@@ -137,16 +138,14 @@ export default function FlowBanner() {
             const isPremium = item.badge === "premium";
             const absOffset = Math.abs(offset);
 
-            // Sizing & positioning
-            const scale = isCenter ? 1.12 : Math.max(0.65, 1 - absOffset * 0.15);
-            const translateX = offset * (isCenter ? 0 : 280);
+            const scale = isCenter ? 1.2 : Math.max(0.6, 1 - absOffset * 0.18);
+            const translateX = offset * (isCenter ? 0 : 320);
             const zIndex = 20 - absOffset;
-            const opacity = isCenter ? 1 : Math.max(0.3, 1 - absOffset * 0.3);
-            const blur = isCenter ? 0 : absOffset * 1.5;
+            const opacity = isCenter ? 1 : Math.max(0.25, 1 - absOffset * 0.35);
+            const blur = isCenter ? 0 : absOffset * 2;
 
-            // Card dimensions
-            const cardW = isCenter ? 300 : 260;
-            const cardH = isCenter ? 320 : 260;
+            const cardW = isCenter ? 420 : 340;
+            const cardH = isCenter ? 440 : 340;
 
             return (
               <motion.div
@@ -157,7 +156,7 @@ export default function FlowBanner() {
                   opacity,
                   filter: `blur(${blur}px)`,
                 }}
-                transition={{ type: "spring", stiffness: 260, damping: 28 }}
+                transition={{ type: "spring", stiffness: 240, damping: 26 }}
                 className="absolute cursor-pointer"
                 style={{ zIndex, width: cardW }}
                 onClick={() => {
@@ -167,34 +166,47 @@ export default function FlowBanner() {
                 <Link
                   to={isCenter ? item.to : "#"}
                   onClick={(e) => { if (!isCenter) e.preventDefault(); }}
-                  className={`group relative flex flex-col overflow-hidden rounded-[24px] p-6 transition-all duration-300 border ${
+                  className={`group relative flex flex-col justify-end overflow-hidden rounded-[28px] transition-all duration-300 border ${
                     isCenter && isPremium
-                      ? "border-[hsla(43,70%,55%,0.6)] shadow-[0_20px_60px_rgba(0,0,0,0.4),0_0_40px_hsla(43,70%,55%,0.2)]"
+                      ? "border-[hsla(43,70%,55%,0.7)] shadow-[0_24px_80px_rgba(0,0,0,0.5),0_0_60px_hsla(43,70%,55%,0.25)]"
                       : isCenter
-                        ? "border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.35)]"
+                        ? "border-white/20 shadow-[0_24px_60px_rgba(0,0,0,0.4)]"
                         : isPremium
-                          ? "border-[hsla(43,70%,53%,0.25)] shadow-[0_10px_30px_rgba(0,0,0,0.25)]"
-                          : "border-white/8 shadow-[0_8px_24px_rgba(0,0,0,0.2)]"
-                  } ${isCenter ? "hover:-translate-y-2" : ""}`}
-                  style={{
-                    minHeight: cardH,
-                    background: isPremium
-                      ? isCenter
-                        ? "linear-gradient(160deg, hsl(220,50%,12%) 0%, hsl(225,48%,8%) 100%)"
-                        : "linear-gradient(160deg, hsl(220,50%,10%) 0%, hsl(225,45%,7%) 100%)"
-                      : "linear-gradient(180deg, rgba(18,30,58,0.9) 0%, rgba(20,35,65,0.85) 100%)",
-                  }}
+                          ? "border-[hsla(43,70%,53%,0.2)] shadow-[0_12px_40px_rgba(0,0,0,0.3)]"
+                          : "border-white/8 shadow-[0_10px_30px_rgba(0,0,0,0.25)]"
+                  } ${isCenter ? "hover:-translate-y-3" : ""}`}
+                  style={{ minHeight: cardH }}
                 >
+                  {/* Background image */}
+                  <div className="absolute inset-0">
+                    <img
+                      src={item.image}
+                      alt=""
+                      className="h-full w-full object-cover"
+                      loading={i === 0 ? undefined : "lazy"}
+                      width={960}
+                      height={640}
+                    />
+                    {/* Dark gradient overlay */}
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        background: isPremium
+                          ? "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.15) 100%)"
+                          : "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.1) 100%)",
+                      }}
+                    />
+                  </div>
+
                   {/* Premium glow */}
                   {isPremium && isCenter && (
-                    <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-[hsla(43,70%,53%,0.1)] blur-3xl pointer-events-none" />
+                    <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-[hsla(43,70%,53%,0.15)] blur-3xl pointer-events-none" />
                   )}
-                  <div className="absolute top-0 right-0 w-24 h-24 rounded-full bg-white/[0.015] blur-2xl pointer-events-none" />
 
                   {/* Badge */}
                   {isPremium && (
                     <span
-                      className={`absolute top-4 right-4 rounded-full px-2.5 py-1 text-[10px] font-black uppercase tracking-wider ${
+                      className={`absolute top-5 right-5 rounded-full px-3 py-1.5 text-[11px] font-black uppercase tracking-wider z-10 ${
                         isCenter ? "text-[hsl(220,50%,8%)]" : "text-[hsl(220,50%,10%)]"
                       }`}
                       style={{
@@ -202,7 +214,7 @@ export default function FlowBanner() {
                           ? "linear-gradient(135deg, #FFD700 0%, #FFB800 100%)"
                           : "linear-gradient(135deg, #C9A84C 0%, #B8942E 100%)",
                         boxShadow: isCenter
-                          ? "0 6px 20px rgba(255,200,0,0.35)"
+                          ? "0 8px 24px rgba(255,200,0,0.4)"
                           : "0 4px 12px rgba(200,168,76,0.2)",
                       }}
                     >
@@ -210,34 +222,44 @@ export default function FlowBanner() {
                     </span>
                   )}
                   {item.badge === "free" && (
-                    <span className="absolute top-4 right-4 rounded-full border border-white/10 bg-white/[0.08] px-2.5 py-1 text-[10px] font-bold text-white/60">
+                    <span className="absolute top-5 right-5 z-10 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-[11px] font-bold text-white/70 backdrop-blur-sm">
                       Free
                     </span>
                   )}
 
-                  {/* Content */}
-                  <span className={`mb-3 ${isCenter ? "text-[40px]" : isPremium ? "text-[30px]" : "text-[26px]"}`}>
-                    {item.icon}
-                  </span>
-                  <span className={`font-bold text-white mb-1.5 ${
-                    isCenter ? "text-[22px]" : isPremium ? "text-[17px]" : "text-[15px] text-white/85"
-                  }`}>
-                    {item.title}
-                  </span>
-                  <span className={`leading-[1.5] max-w-[92%] ${
-                    isCenter ? "text-[15px] text-white/70" : isPremium ? "text-[13px] text-white/60" : "text-[12px] text-white/45"
-                  }`}>
-                    {item.text}
-                  </span>
-
-                  {/* CTA */}
-                  {isCenter && (
-                    <span className={`mt-auto pt-4 font-bold flex items-center gap-1.5 transition-transform duration-200 group-hover:translate-x-1 ${
-                      isPremium ? "text-[15px] text-[hsl(var(--gold))]" : "text-[14px] text-white/60"
-                    }`}>
-                      {isPremium ? "Započni" : "Otvori"} <ArrowRight className="h-4 w-4" />
+                  {/* Content — bottom-left */}
+                  <div className="relative z-10 p-7 sm:p-8">
+                    <span className={`block mb-2 ${isCenter ? "text-[44px]" : "text-[32px]"}`}>
+                      {item.icon}
                     </span>
-                  )}
+                    <h3 className={`font-black text-white mb-2 leading-tight ${
+                      isCenter ? "text-[26px] sm:text-[28px]" : "text-[18px] sm:text-[20px] text-white/90"
+                    }`}>
+                      {item.title}
+                    </h3>
+                    <p className={`leading-relaxed max-w-[85%] ${
+                      isCenter ? "text-[16px] text-white/75" : "text-[13px] text-white/55"
+                    }`}>
+                      {item.text}
+                    </p>
+
+                    {/* CTA */}
+                    {isCenter && (
+                      <span
+                        className={`mt-5 inline-flex items-center gap-2 rounded-full px-6 py-3 font-extrabold text-[15px] transition-all duration-200 group-hover:translate-x-1 group-hover:shadow-lg ${
+                          isPremium
+                            ? "text-[hsl(220,50%,8%)]"
+                            : "text-white bg-white/10 border border-white/15"
+                        }`}
+                        style={isPremium ? {
+                          background: "linear-gradient(135deg, #FFD700 0%, #FFB800 100%)",
+                          boxShadow: "0 8px 28px rgba(255,200,0,0.35)",
+                        } : undefined}
+                      >
+                        {isPremium ? "Započni" : "Otvori"} <ArrowRight className="h-4 w-4" />
+                      </span>
+                    )}
+                  </div>
                 </Link>
               </motion.div>
             );
@@ -246,7 +268,7 @@ export default function FlowBanner() {
       </div>
 
       {/* Dot indicators */}
-      <div className="relative z-10 flex justify-center gap-2 pt-6 pb-4">
+      <div className="relative z-10 flex justify-center gap-2.5 pt-8 pb-6">
         {flowItems.map((item, i) => (
           <button
             key={i}
@@ -254,9 +276,9 @@ export default function FlowBanner() {
             className={`rounded-full transition-all duration-400 ${
               i === activeIndex
                 ? item.badge === "premium"
-                  ? "h-2 w-7 bg-[hsl(var(--gold))] shadow-[0_0_8px_hsla(43,70%,55%,0.5)]"
-                  : "h-2 w-7 bg-white/80"
-                : "h-2 w-2 bg-white/20 hover:bg-white/35"
+                  ? "h-2.5 w-8 bg-[hsl(var(--gold))] shadow-[0_0_10px_hsla(43,70%,55%,0.5)]"
+                  : "h-2.5 w-8 bg-white/80"
+                : "h-2.5 w-2.5 bg-white/20 hover:bg-white/35"
             }`}
             aria-label={`Slide ${i + 1}`}
           />
@@ -264,24 +286,24 @@ export default function FlowBanner() {
       </div>
 
       {/* CTA below */}
-      <div className="relative z-10 text-center pb-14 sm:pb-20">
-        <p className="text-sm text-white/35 mb-3">Ne znaš odakle početi?</p>
+      <div className="relative z-10 text-center pb-16 sm:pb-24">
+        <p className="text-sm text-white/30 mb-4">Ne znaš odakle početi?</p>
         <Link
           to="/formulari"
-          className="inline-flex items-center gap-2 rounded-full px-7 py-4 text-sm font-extrabold text-[hsl(220,50%,8%)] transition-all duration-200 hover:-translate-y-0.5 hover:scale-[1.03] active:scale-[0.985]"
+          className="inline-flex items-center gap-2 rounded-full px-8 py-4 text-[15px] font-extrabold text-[hsl(220,50%,8%)] transition-all duration-200 hover:-translate-y-1 hover:scale-[1.04] active:scale-[0.98]"
           style={{
             background: "linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--brand-orange)) 100%)",
-            boxShadow: "0 10px 30px hsla(43,70%,55%,0.3)",
+            boxShadow: "0 12px 40px hsla(43,70%,55%,0.35)",
           }}
         >
           Vodi me korak po korak
           <ArrowRight className="h-4 w-4" />
         </Link>
-        <p className="text-xs text-white/25 mt-2.5">Počni od formulara i vodiča koji ti najviše trebaju</p>
+        <p className="text-xs text-white/20 mt-3">Počni od formulara i vodiča koji ti najviše trebaju</p>
       </div>
 
       {/* Bottom edge fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[hsl(220,55%,5%)] to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[hsl(220,55%,5%)] to-transparent pointer-events-none" />
     </section>
   );
 }
