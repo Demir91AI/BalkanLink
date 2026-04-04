@@ -145,15 +145,40 @@ function ServicesCarousel() {
       <div ref={ref} className="flex gap-5 px-4 overflow-x-hidden scrollbar-hide cursor-grab select-none" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onMouseDown={onMouseDown} onMouseMove={onMouseMove} onMouseUp={onMouseUp} onMouseLeave={onMouseLeave}>
         {doubled.map((card, i) => {
           const Icon = card.icon;
+          const isPremium = card.premium;
           return (
-            <Link key={`${card.titleKey}-${i}`} to={card.to} className="group flex flex-col w-[280px] shrink-0 rounded-[14px] bg-white border border-[#E8E0D0] p-5 shadow-[0_2px_16px_rgba(0,0,0,0.07)] transition-all duration-300 hover:-translate-y-[3px] hover:shadow-[0_8px_28px_rgba(0,0,0,0.12)]" onClick={(e) => e.stopPropagation()}>
+            <Link
+              key={`${card.titleKey}-${i}`}
+              to={card.to}
+              className={`group flex flex-col w-[280px] shrink-0 rounded-[14px] p-5 transition-all duration-300 hover:-translate-y-[3px] ${
+                isPremium
+                  ? "border-2 border-[hsl(43,70%,53%)] shadow-[0_4px_20px_rgba(0,0,0,0.35),0_0_18px_hsla(43,70%,53%,0.12)] hover:border-[hsl(43,80%,62%)] hover:shadow-[0_12px_36px_rgba(0,0,0,0.45),0_0_28px_hsla(43,70%,53%,0.22)]"
+                  : "bg-white border border-[#E8E0D0] shadow-[0_2px_16px_rgba(0,0,0,0.07)] hover:shadow-[0_8px_28px_rgba(0,0,0,0.12)]"
+              }`}
+              style={isPremium ? { background: "linear-gradient(160deg, hsl(220,50%,8%), hsl(225,45%,6%))" } : undefined}
+              onClick={(e) => e.stopPropagation()}
+            >
               <div className="flex items-center gap-3 mb-3">
-                <Icon className="h-6 w-6 text-[hsl(var(--gold))] shrink-0" />
-                {card.premium && <span className="rounded-full bg-[hsl(var(--gold))]/10 px-2 py-0.5 text-[9px] font-bold text-[hsl(var(--gold))] uppercase tracking-wider">Premium</span>}
+                <Icon className={`h-6 w-6 shrink-0 ${isPremium ? "text-[hsl(43,70%,53%)]" : "text-[hsl(var(--gold))]"}`} />
+                {isPremium && (
+                  <span
+                    className="rounded-full px-2.5 py-0.5 text-[9px] font-extrabold uppercase tracking-wider text-[hsl(225,45%,6%)]"
+                    style={{ background: "linear-gradient(135deg, hsl(43,70%,53%), hsl(38,60%,42%))", boxShadow: "0 0 10px hsla(43,70%,53%,0.25)" }}
+                  >
+                    ⭐ Premium
+                  </span>
+                )}
               </div>
-              <h3 className="text-sm font-semibold text-[#2D2D2D] mb-1">{t(card.titleKey)}</h3>
-              <p className="text-xs text-[#6B6B6B] leading-relaxed mb-4 flex-1">{t(card.descKey)}</p>
-              <span className="block w-full rounded-lg bg-[hsl(var(--gold))] py-2 text-center text-xs font-semibold text-white transition-colors group-hover:bg-[hsl(var(--gold-dark))]">
+              <h3 className={`text-sm font-semibold mb-1 ${isPremium ? "text-white" : "text-[#2D2D2D]"}`}>{t(card.titleKey)}</h3>
+              <p className={`text-xs leading-relaxed mb-4 flex-1 ${isPremium ? "text-white/60" : "text-[#6B6B6B]"}`}>{t(card.descKey)}</p>
+              <span
+                className={`block w-full rounded-lg py-2 text-center text-xs font-semibold transition-all duration-300 ${
+                  isPremium
+                    ? "text-[hsl(225,45%,6%)] group-hover:brightness-110 group-hover:scale-[1.02]"
+                    : "bg-[hsl(var(--gold))] text-white group-hover:bg-[hsl(var(--gold-dark))]"
+                }`}
+                style={isPremium ? { background: "linear-gradient(135deg, hsl(43,70%,53%), hsl(38,65%,45%))", boxShadow: "0 2px 12px hsla(43,70%,53%,0.25)" } : undefined}
+              >
                 {t(card.ctaKey)}
               </span>
             </Link>
