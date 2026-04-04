@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import LanguageSelector from "@/components/LanguageSelector";
 import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
 import PWAInstallBanner from "@/components/PWAInstallBanner";
-import HomeReviews from "@/components/home/HomeReviews";
+
 
 import realcoreDigitalLogo from "@/assets/realcore-digital-logo.png";
 import heroBerlin from "@/assets/hero-berlin.jpg";
@@ -412,7 +412,7 @@ export default function Index() {
       </section>
 
       <AdFlowSection />
-      <HomeReviews />
+      
 
       {/* ─── PREMIUM CTA ─── */}
       <section className="py-16 bg-white border-t border-[#E8E0D0]">
