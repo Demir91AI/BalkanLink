@@ -44,6 +44,7 @@ import AnlageUH3GuideContent from "@/components/guides/AnlageUH3GuideContent";
 import AnfrageNichterreichbarkeitGuideContent from "@/components/guides/AnfrageNichterreichbarkeitGuideContent";
 import FuehrerscheinGuideContent from "@/components/formulare/FuehrerscheinGuide";
 import FahrzeugzulassungGuide from "@/components/formulare/FahrzeugzulassungGuide";
+import VisaWorkGuide from "@/components/formulare/VisaWorkGuide";
 import { navigateBackOrHome } from "@/lib/navigation";
 
 type LangKey = "de" | "bs" | "en";
