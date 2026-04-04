@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback, useMemo } from "react";
-import { FileText, Upload, Type, Shield, AlertTriangle, Loader2, X, CheckCircle2, ChevronLeft, Lock, Eye, BookOpen, Search, AlertCircle, Clock, DollarSign, Wrench, XCircle, ShieldAlert, Globe, Scale, FileWarning, CalendarClock, Banknote, CheckSquare } from "lucide-react";
+import { FileText, Upload, Type, Shield, AlertTriangle, Loader2, X, CheckCircle2, ChevronLeft, Lock, Eye, BookOpen, Search, AlertCircle, Clock, DollarSign, Wrench, XCircle, ShieldAlert, Globe, Scale, FileWarning, CalendarClock, Banknote, CheckSquare, Home } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
