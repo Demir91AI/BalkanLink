@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { PlusCircle, Megaphone, Search as SearchIcon, Star, Check, ChevronLeft } from "lucide-react";
+import { PlusCircle, Megaphone, Search as SearchIcon, Star, Check, ChevronLeft, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import NtFilters from "@/components/nudim-trazim/NtFilters";
 import NtCategoryChips from "@/components/nudim-trazim/NtCategoryChips";
@@ -123,9 +123,14 @@ export default function NudimTrazim() {
       {/* ── Hero ── */}
       <section className="bg-gradient-to-br from-[#0f1f3d] to-[#1a3a6b] text-white">
         <div className="mx-auto max-w-6xl px-4 py-12 md:py-16 space-y-5">
-          <button onClick={handleBack} className="back-button mb-2">
-            <ChevronLeft className="h-4 w-4" /> Nazad
-          </button>
+          <div className="flex items-center gap-3 mb-2">
+            <button onClick={handleBack} className="back-button">
+              <ChevronLeft className="h-4 w-4" /> Nazad
+            </button>
+            <button onClick={() => navigate("/")} className="flex items-center gap-1.5 text-[13px] font-medium text-white/60 hover:text-white transition-colors px-3 py-1.5 rounded-lg hover:bg-white/10">
+              <Home className="h-4 w-4" /> Početna
+            </button>
+          </div>
           <div className="text-center space-y-5">
             <div className="flex justify-center">
               <Megaphone className="h-12 w-12 text-[hsl(var(--gold))]" />
