@@ -127,6 +127,14 @@ export const formCatalog: FormGroup[] = [
     ],
   },
   {
+    id: "viza",
+    icon: "🛂",
+    title: "Viza i boravak",
+    items: [
+      { slug: "visa-work", label: "Arbeitsvisa §18 AufenthG", desc: "Radna viza i boravišna dozvola za zaposlenje u Njemačkoj." },
+    ],
+  },
+  {
     id: "dokumenti",
     icon: "📋",
     title: "Dokumenti i administracija",

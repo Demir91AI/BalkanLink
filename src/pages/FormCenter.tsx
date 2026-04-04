@@ -44,6 +44,7 @@ import AnlageUH3GuideContent from "@/components/guides/AnlageUH3GuideContent";
 import AnfrageNichterreichbarkeitGuideContent from "@/components/guides/AnfrageNichterreichbarkeitGuideContent";
 import FuehrerscheinGuideContent from "@/components/formulare/FuehrerscheinGuide";
 import FahrzeugzulassungGuide from "@/components/formulare/FahrzeugzulassungGuide";
+import VisaWorkGuide from "@/components/formulare/VisaWorkGuide";
 import { navigateBackOrHome } from "@/lib/navigation";
 
 type LangKey = "de" | "bs" | "en";
@@ -128,6 +129,7 @@ function GuideContent({ slug }: { slug: string }) {
   if (slug === "nichterreichbarkeit") return <AnfrageNichterreichbarkeitGuideContent />;
   if (slug === "fuehrerschein") return <FuehrerscheinGuideContent />;
   if (slug === "fahrzeugzulassung") return <FahrzeugzulassungGuide />;
+  if (slug === "visa-work") return <VisaWorkGuide />;
 
   if (!guide) return null;
 
