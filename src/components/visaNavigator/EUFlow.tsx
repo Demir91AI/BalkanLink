@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { MapPin, Heart, Building2, Briefcase, Shield, ExternalLink, Info } from "lucide-react";
+import { MapPin, Heart, Building2, Briefcase, Shield, ExternalLink } from "lucide-react";
+import TrustSystem from "./TrustSystem";
 
 const steps = [
   { icon: MapPin, titleKey: "eu_step1", detailKey: "eu_anmeldung_detail", link: "/formulari?topic=anmeldung" },
