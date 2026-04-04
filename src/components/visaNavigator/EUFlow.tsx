@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { MapPin, Heart, Building2, Briefcase, Shield, ExternalLink, Info } from "lucide-react";
+import { MapPin, Heart, Building2, Briefcase, Shield, ExternalLink } from "lucide-react";
+import TrustSystem from "./TrustSystem";
 
 const steps = [
   { icon: MapPin, titleKey: "eu_step1", detailKey: "eu_anmeldung_detail", link: "/formulari?topic=anmeldung" },
@@ -83,42 +84,8 @@ const EUFlow = () => {
         </div>
       </div>
 
-      {/* Sources */}
-      <div className="mt-8">
-        <p
-          className="text-[12px] font-semibold uppercase tracking-[0.1em] mb-3"
-          style={{ color: "#C9A84C" }}
-        >
-          {t("sources_title")}
-        </p>
-        <a
-          href="https://europa.eu/youreurope/citizens/travel/entry-exit/eu-citizens/index_de.htm"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 text-[13px] text-[#6B6B6B] hover:underline"
-        >
-          <ExternalLink size={14} />
-          {t("source_youreurope")}
-        </a>
-      </div>
-
-      {/* Disclaimer */}
-      <div
-        className="rounded-[10px] px-5 py-4 mt-6"
-        style={{ background: "#F9F6F0" }}
-      >
-        <div className="flex items-start gap-2.5">
-          <Info size={16} className="mt-0.5 flex-shrink-0" style={{ color: "#6B6B6B" }} />
-          <div>
-            <p className="text-[13px] text-[#6B6B6B] leading-relaxed">
-              {t("disclaimer")}
-            </p>
-            <p className="text-[13px] text-[#6B6B6B] leading-relaxed mt-1">
-              {t("warning")}
-            </p>
-          </div>
-        </div>
-      </div>
+      {/* Trust System */}
+      <TrustSystem variant="full" showSources={true} />
     </div>
   );
 };

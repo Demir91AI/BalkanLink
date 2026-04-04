@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
-import { Globe, ExternalLink, Info, Clock } from "lucide-react";
+import { Globe, ExternalLink, Clock } from "lucide-react";
 import { VISA_COUNTRIES, VISA_ROUTES } from "@/data/visaNavigatorData";
+import TrustSystem from "./TrustSystem";
 
 const QUICK_LINKS = [
   { key: "source_makeitingermany", url: "https://www.make-it-in-germany.com/de/visum-aufenthalt" },
@@ -112,10 +113,7 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
           </div>
 
           <div className="h-px" style={{ background: "#F0EAD8" }} />
-          <div className="flex items-start gap-1.5">
-            <Info size={14} className="mt-0.5 flex-shrink-0" style={{ color: "#9CA3AF" }} />
-            <p className="text-[12px] text-[#9CA3AF] leading-[1.6]">{t("disclaimer")}</p>
-          </div>
+          <TrustSystem variant="compact" showSources={false} />
         </div>
       ) : country ? (
         /* STATE 2: Country selected, no route */
@@ -196,10 +194,7 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
           )}
 
           <div className="h-px" style={{ background: "#F0EAD8" }} />
-          <div className="flex items-start gap-1.5">
-            <Info size={14} className="mt-0.5 flex-shrink-0" style={{ color: "#9CA3AF" }} />
-            <p className="text-[12px] text-[#9CA3AF] leading-[1.6]">{t("disclaimer")}</p>
-          </div>
+          <TrustSystem variant="compact" showSources={false} />
         </div>
       ) : (
         /* STATE 1: Nothing selected */
