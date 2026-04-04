@@ -27,7 +27,6 @@ export const formCatalog: FormGroup[] = [
     items: [
       { slug: "anmeldung", label: "Anmeldung / Ummeldung", desc: "Prijava ili promjena adrese stanovanja u Njemačkoj." },
       { slug: "steuer-id", label: "Steuer-ID", desc: "Poreski identifikacijski broj koji ti treba za posao i prijavu." },
-      { slug: "aufenthaltstitel", label: "Aufenthaltstitel / Viza Navigator", desc: "Boravišna dozvola i informacije o viznom postupku." },
       { slug: "fuehrerschein", label: "Führerschein", desc: "Zamjena i priznavanje vozačke dozvole u Njemačkoj." },
       { slug: "fahrzeugzulassung", label: "Fahrzeugzulassung", desc: "Registracija motornih vozila u Njemačkoj." },
     ],
