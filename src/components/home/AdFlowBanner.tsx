@@ -7,66 +7,75 @@ const MAILTO_AD = `mailto:kontakt@balkanlink.de?subject=${encodeURIComponent("Og
   "Pozdrav,\n\nZanima me oglašavanje na BalkanLink platformi.\n\nNaziv firme:\nVrsta usluge:\nGrad:\nBudžet:\n"
 )}`;
 
-const PLACEHOLDER_COUNT = 7;
+const PLACEHOLDER_VARIATIONS = [
+  { title: "Oglasni prostor", subtitle: "Vaša firma ovdje" },
+  { title: "Slobodno mjesto", subtitle: "Vaša firma ovdje" },
+  { title: "Oglasni prostor", subtitle: "Vaša firma ovdje" },
+  { title: "Slobodno mjesto", subtitle: "Vaša firma ovdje" },
+  { title: "Oglasni prostor", subtitle: "Vaša firma ovdje" },
+  { title: "Slobodno mjesto", subtitle: "Vaša firma ovdje" },
+  { title: "Oglasni prostor", subtitle: "Vaša firma ovdje" },
+];
 
 function RealCoreCard() {
   return (
-    <div className="group flex w-48 shrink-0 flex-col overflow-hidden rounded-xl border border-[hsl(200,60%,30%)/0.4] bg-gradient-to-br from-[hsl(215,50%,10%)] to-[hsl(215,55%,6%)] transition-all duration-300 hover:border-[hsl(200,70%,50%)/0.5] hover:shadow-[0_0_20px_hsl(200,70%,50%,0.1)]">
-      <div className="flex h-28 items-center justify-center overflow-hidden bg-[hsl(215,50%,8%)]">
-        <img
-          src={realcoreLogo}
-          alt="RealCore Digital"
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-          loading="eager"
-          width={192}
-          height={112}
-        />
-      </div>
-      <div className="flex flex-1 flex-col px-2.5 py-2 text-left">
+    <div className="group relative w-48 shrink-0 overflow-hidden rounded-xl border border-white/10 transition-all duration-300 hover:border-white/20 hover:shadow-md">
+      <img
+        src={realcoreLogo}
+        alt="RealCore Digital"
+        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        loading="eager"
+        width={192}
+        height={160}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 p-2.5">
         <p className="text-[11px] font-bold leading-tight text-white">
           RealCore Digital
         </p>
-        <p className="mt-0.5 text-[9px] font-medium leading-snug text-[hsl(200,70%,60%)]">
-          Webdesign. KI. Lösungen, die funktionieren.
+        <p className="mt-0.5 text-[9px] leading-snug text-white/60">
+          Webdesign · KI · Lösungen
         </p>
-        <p className="mt-0.5 text-[8px] text-white/40">
-          Professionelle digitale Lösungen
-        </p>
-        <button
-          type="button"
-          className="mt-1.5 inline-flex items-center gap-1 self-start rounded-md bg-[hsl(200,70%,50%)]/15 px-2 py-0.5 text-[8px] font-semibold text-[hsl(200,70%,60%)] transition-all duration-200 hover:bg-[hsl(200,70%,50%)]/25 hover:text-[hsl(200,70%,70%)] hover:shadow-[0_0_8px_hsl(200,70%,50%,0.15)]"
+        <a
+          href="https://realcore.digital"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-1.5 inline-flex items-center gap-1 rounded-md bg-white/10 px-2 py-0.5 text-[8px] font-semibold text-white/70 transition-colors hover:bg-white/20 hover:text-white"
         >
-          Mehr erfahren
+          Kontakt
           <ArrowRight className="h-2 w-2" />
-        </button>
+        </a>
       </div>
     </div>
   );
 }
 
-function PlaceholderCard() {
+function PlaceholderCard({ title, subtitle }: { title: string; subtitle: string }) {
   return (
     <a
       href={MAILTO_AD}
-      className="group flex w-48 shrink-0 flex-col overflow-hidden rounded-xl border border-white/8 bg-white/[0.03] transition-all duration-300 hover:border-[hsl(var(--gold)/0.3)] hover:bg-white/[0.06]"
+      className="group relative flex h-40 w-48 shrink-0 overflow-hidden rounded-xl border border-white/[0.06] transition-all duration-300 hover:border-white/15"
     >
-      <div className="flex h-28 items-center justify-center overflow-hidden bg-[hsl(215,55%,8%)]">
-        <img
-          src={flowPlaceholder}
-          alt="BalkanLink"
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-          loading="lazy"
-          width={192}
-          height={112}
-        />
-      </div>
-      <div className="px-2.5 py-2 text-center">
-        <p className="text-[10px] font-bold text-white/80 group-hover:text-[hsl(var(--gold))] transition-colors leading-tight">
-          Mjesto za vašu reklamu
+      <img
+        src={flowPlaceholder}
+        alt="BalkanLink"
+        className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        loading="lazy"
+        width={192}
+        height={160}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10" />
+      <div className="absolute bottom-0 left-0 right-0 p-2.5">
+        <p className="text-[10px] font-semibold text-white/70 group-hover:text-white/90 transition-colors leading-tight">
+          {title}
         </p>
-        <p className="mt-0.5 flex items-center justify-center gap-1 text-[9px] text-white/30">
-          <Mail className="h-2 w-2" /> Kontaktirajte nas
+        <p className="mt-0.5 text-[9px] text-white/40">
+          {subtitle}
         </p>
+        <span className="mt-1.5 inline-flex items-center gap-1 rounded-md bg-white/10 px-2 py-0.5 text-[8px] font-semibold text-white/50 transition-colors group-hover:bg-white/15 group-hover:text-white/70">
+          <Mail className="h-2 w-2" />
+          Kontakt
+        </span>
       </div>
     </a>
   );
@@ -75,8 +84,7 @@ function PlaceholderCard() {
 export function AdFlowBanner() {
   const { t } = useLanguage();
 
-  const ITEMS_PER_SET = 1 + PLACEHOLDER_COUNT;
-  // Duplicate for seamless loop
+  const ITEMS_PER_SET = 1 + PLACEHOLDER_VARIATIONS.length;
   const totalItems = ITEMS_PER_SET * 2;
 
   return (
@@ -104,11 +112,9 @@ export function AdFlowBanner() {
           <div className="flex w-fit gap-4 px-4 animate-flow-scroll hover:[animation-play-state:paused] active:[animation-play-state:paused]">
             {Array.from({ length: totalItems }).map((_, i) => {
               const posInSet = i % ITEMS_PER_SET;
-              return posInSet === 0 ? (
-                <RealCoreCard key={i} />
-              ) : (
-                <PlaceholderCard key={i} />
-              );
+              if (posInSet === 0) return <RealCoreCard key={i} />;
+              const variation = PLACEHOLDER_VARIATIONS[(posInSet - 1) % PLACEHOLDER_VARIATIONS.length];
+              return <PlaceholderCard key={i} title={variation.title} subtitle={variation.subtitle} />;
             })}
           </div>
         </div>
