@@ -51,7 +51,7 @@ function buildFormCatalogContext(): string {
 const SITE_CONTENT_INDEX = `
 BALKANLINK STRANICE:
 Dolazak: /dolazak/prvi-koraci, /dolazak/prijava-prebivalista (Anmeldung), /dolazak/boravisna-dozvola, /dolazak/steuer-id-i-porezna-klasa, /dolazak/zdravstveno-osiguranje, /dolazak/bankovni-racun, /dolazak/sozialversicherung, /dolazak/rundfunkbeitrag, /dolazak/fuehrerschein, /dolazak/auto-anmelden
-Formulari: /formulari (lista), /formulari/:slug (pojedinačni), /guide/:slug (Smart Guide vodič)
+Formulari: /formulari (lista), /formulari/:slug (pojedinačni vodič)
 Život: /zivot-savjeti, /trebam-pomoc, /familie, /foerderungen
 Alati: /brutto-netto-rechner, /dokumenten-check, /generatoren
 Stanovi: /wohnungen (pametna pretraga stanova sa filterima)
@@ -123,9 +123,9 @@ const SITE_TOPIC_MAP: Record<string, SiteTopic> = {
   "subvencij": { url: "/foerderungen", label: "Subvencije", category: "finance" },
   "förderung": { url: "/foerderungen", label: "Förderungen", category: "finance" },
   "pomoći": { url: "/foerderungen", label: "Pomoći", category: "finance" },
-  "smart guide": { url: "/formulare", label: "Smart Guide", category: "forms" },
-  "formular": { url: "/formulare", label: "Formulari", category: "forms" },
-  "formulari": { url: "/formulare", label: "Formulari", category: "forms" },
+  "smart guide": { url: "/formulari", label: "Smart Guide", category: "forms" },
+  "formular": { url: "/formulari", label: "Formulari", category: "forms" },
+  "formulari": { url: "/formulari", label: "Formulari", category: "forms" },
 };
 
 function detectSiteTopics(text: string): SiteTopic[] {

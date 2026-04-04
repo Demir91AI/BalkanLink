@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
 import DevPreviewSwitcher from "@/components/DevPreviewSwitcher";
 import { AuthProvider } from "@/contexts/AuthContext";
@@ -43,7 +43,7 @@ import ZivotSavjeti from "./pages/ZivotSavjeti";
 import TrebamPomoc from "./pages/TrebamPomoc";
 import Formulare from "./pages/Formulare";
 import FormCenter from "./pages/FormCenter";
-import SmartGuide from "./pages/SmartGuide";
+import LegacyGuideRedirect from "./pages/LegacyGuideRedirect";
 import Familie from "./pages/Familie";
 import Foerderungen from "./pages/Foerderungen";
 import Generatoren from "./pages/Generatoren";
@@ -131,7 +131,7 @@ const App = () => (
                 <Route path="/zivot-savjeti" element={<ZivotSavjeti />} />
                 <Route path="/probleme" element={<TrebamPomoc />} />
                 <Route path="/trebam-pomoc" element={<TrebamPomoc />} />
-                <Route path="/formulare" element={<Formulare />} />
+                <Route path="/formulare" element={<Navigate to="/formulari" replace />} />
                 <Route path="/formulari" element={<FormCenter />} />
                 
                 <Route path="/formulari/kindergeld/muster" element={<KindergeldMuster />} />
@@ -168,8 +168,8 @@ const App = () => (
                 <Route path="/wohnungen" element={<Wohnungen />} />
                 <Route path="/stellenangebote" element={<Stellenangebote />} />
                 <Route path="/premium" element={<Premium />} />
-                <Route path="/guide/:slug" element={<GuideDetail />} />
-                <Route path="/smart-guide/:slug" element={<SmartGuide />} />
+                <Route path="/guide/:slug" element={<LegacyGuideRedirect />} />
+                <Route path="/smart-guide/:slug" element={<LegacyGuideRedirect />} />
                 <Route path="/dokumenten-check" element={<DokumentenCheck />} />
                 <Route path="/admin/forms" element={<AdminForms />} />
                 <Route path="/admin/forms/:slug/mapper" element={<AdminFormMapper />} />

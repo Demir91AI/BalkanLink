@@ -7,6 +7,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useChatLimit } from "@/hooks/usePremiumAccess";
 import { Link, useLocation } from "react-router-dom";
 import { formCatalog, type FormEntry } from "@/lib/form-catalog";
+import { isValidProductionRoute } from "@/lib/canonical-routes";
 import { BLIcon } from "@/components/BrandLogo";
 import ChatOnboarding from "@/components/chat/ChatOnboarding";
 import ChatBenefitCalc from "@/components/chat/ChatBenefitCalc";
@@ -45,28 +46,10 @@ const VALID_GUIDE_SLUGS = new Set([
   "eu-blue-card", "radna-viza", "spajanje-porodice", "studentska-viza", "stalni-boravak",
 ]);
 
-const VALID_ROUTES = new Set([
-  "/", "/dolazak", "/pocni-ovdje", "/dolazak/prijava-prebivalista",
-  "/dolazak/boravisna-dozvola", "/dolazak/steuer-id-i-porezna-klasa",
-  "/dolazak/zdravstveno-osiguranje", "/dolazak/bankovni-racun",
-  "/dolazak/prvi-koraci", "/dolazak/sozialversicherung",
-  "/dolazak/rundfunkbeitrag", "/dolazak/fuehrerschein",
-  "/dolazak/auto-anmelden", "/zivot", "/zivot-savjeti",
-  "/probleme", "/trebam-pomoc", "/formulare", "/formulari",
-  "/familie", "/foerderungen", "/tools", "/brutto-netto-rechner",
-  "/wohnungen", "/stellenangebote", "/premium", "/dokumenten-check",
-  "/qa", "/directory", "/directory/submit", "/ambasade-konzulati",
-  "/ambasade", "/login", "/register", "/impressum", "/datenschutz",
-  "/disclaimer", "/haftungsausschluss", "/ki-hinweis", "/mitgliedschaft",
-  "/nudim-trazim", "/putovanja", "/generatoren",
-  "/forgot-password", "/reset-password",
-]);
+const VALID_ROUTES = new Set<string>(); // kept for backward compat but unused
 
 function isValidRoute(path: string): boolean {
-  if (VALID_ROUTES.has(path)) return true;
-  if (path.startsWith("/guide/")) return VALID_GUIDE_SLUGS.has(path.slice(7));
-  if (path.startsWith("/formulari/") || path.startsWith("/qa/")) return true;
-  return false;
+  return isValidProductionRoute(path);
 }
 
 function extractFormMarkers(text: string): { cleanText: string; formSlugs: string[] } {
@@ -172,7 +155,7 @@ function ChatMarkdown({ content }: { content: string }) {
       components={{
         a: ({ href, children }) => {
           if (href?.startsWith("/")) {
-            if (!isValidRoute(href) && !href.startsWith("/formulari/") && !href.startsWith("/guide/")) return <span className="font-medium text-white/50">{children}</span>;
+            if (!isValidRoute(href)) return <span className="font-medium text-white/50">{children}</span>;
             return <Link to={href} className="font-medium text-[hsl(45,93%,49%)] underline underline-offset-2 hover:text-[hsl(45,93%,60%)]">{children}</Link>;
           }
           return <a href={href} target="_blank" rel="noopener noreferrer" className="font-medium text-[hsl(45,93%,49%)] underline underline-offset-2 hover:text-[hsl(45,93%,60%)]">{children}</a>;
