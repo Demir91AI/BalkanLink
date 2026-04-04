@@ -5,7 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
-import { useTranslation } from "@/i18n/useTranslation";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface Review {
   id: string;
@@ -45,7 +45,7 @@ function ReviewCard({ review }: { review: Review }) {
 }
 
 export default function HomeReviews() {
-  const { t } = useTranslation();
+  const { t } = useLanguage();
   const [reviews, setReviews] = useState<Review[]>([]);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");

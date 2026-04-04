@@ -1,7 +1,8 @@
 import { useState, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
-import { useTranslation } from "@/i18n/useTranslation";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { type Language } from "@/lib/translations";
 import { ChevronDown, Mail, List, Send, Menu, Globe, LogIn, LogOut, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -28,7 +29,7 @@ const menuBtnClass =
 
 export default function Header() {
   const { user, loading, signOut, isAdmin } = useAuth();
-  const { t, currentLanguage, setLanguage } = useTranslation();
+  const { t, language: currentLanguage, setLanguage } = useLanguage();
   const navigate = useNavigate();
   const [contactOpen, setContactOpen] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
@@ -103,7 +104,7 @@ export default function Header() {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="min-w-[180px] bg-[hsl(215,55%,10%)] border-white/10 shadow-xl">
                 {LANG_OPTIONS.map((lang) => (
-                  <DropdownMenuItem key={lang.code} onClick={() => setLanguage(lang.code)}
+                  <DropdownMenuItem key={lang.code} onClick={() => setLanguage(lang.code as Language)}
                     className={`text-white/80 hover:text-white focus:text-white focus:bg-white/10 ${currentLanguage === lang.code ? "bg-white/10 text-[hsl(var(--gold))] font-medium" : ""}`}>
                     <img src={lang.flag} alt="" className="mr-2 h-4 w-6 object-cover rounded-[2px] shrink-0" />
                     {lang.name}

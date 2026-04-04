@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Star, CreditCard, Landmark } from "lucide-react";
-import { useTranslation } from "@/i18n/useTranslation";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { supabase } from "@/integrations/supabase/client";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -39,7 +39,7 @@ function StarInput({ value, onChange }: { value: number; onChange: (v: number) =
 }
 
 function ReviewFormModal() {
-  const { t } = useTranslation();
+  const { t } = useLanguage();
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
   const [username, setUsername] = useState("");
@@ -89,7 +89,7 @@ function ReviewFormModal() {
 }
 
 function AllReviewsModal({ reviews }: { reviews: FooterReview[] }) {
-  const { t } = useTranslation();
+  const { t } = useLanguage();
   const [allReviews, setAllReviews] = useState<FullReview[]>([]);
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
@@ -164,7 +164,7 @@ const Divider = () => (
 );
 
 export default function Footer() {
-  const { t } = useTranslation();
+  const { t } = useLanguage();
   const [reviews, setReviews] = useState<FooterReview[]>([]);
 
   useEffect(() => {

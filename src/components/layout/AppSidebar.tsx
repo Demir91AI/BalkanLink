@@ -4,14 +4,14 @@ import {
   FileText, Shield, BookOpen, Camera, Megaphone, Map,
   Briefcase, Building, Calculator, FileCheck, X,
 } from "lucide-react";
-import { useTranslation } from "@/i18n/useTranslation";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export function AppSidebar() {
   const [isOpen, setIsOpen] = useState(false);
   const debounceRef = useRef(0);
   const navigate = useNavigate();
   const location = useLocation();
-  const { t } = useTranslation();
+  const { t } = useLanguage();
 
   const mainItems = [
     { titleKey: "sidebar.smartGuide", url: "/formulari", icon: FileText, premium: true },
