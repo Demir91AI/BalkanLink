@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
-import realcoreLogo from "@/assets/realcore-logo.png";
+import realcoreLogo from "@/assets/realcore-logo-original.png";
 
 interface FooterReview {
   id: string;
