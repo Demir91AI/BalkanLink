@@ -131,7 +131,7 @@ const App = () => (
                 <Route path="/zivot-savjeti" element={<ZivotSavjeti />} />
                 <Route path="/probleme" element={<TrebamPomoc />} />
                 <Route path="/trebam-pomoc" element={<TrebamPomoc />} />
-                <Route path="/formulare" element={<Formulare />} />
+                <Route path="/formulare" element={<Navigate to="/formulari" replace />} />
                 <Route path="/formulari" element={<FormCenter />} />
                 
                 <Route path="/formulari/kindergeld/muster" element={<KindergeldMuster />} />
