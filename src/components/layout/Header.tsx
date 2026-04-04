@@ -12,14 +12,14 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Link } from "react-router-dom";
 
 const LANG_OPTIONS = [
-  { code: "de", name: "Deutsch", flag: "🇩🇪" },
-  { code: "bs", name: "Bosanski", flag: "🇧🇦" },
-  { code: "hr", name: "Hrvatski", flag: "🇭🇷" },
-  { code: "sr", name: "Srpski", flag: "🇷🇸" },
-  { code: "me", name: "Crnogorski", flag: "🇲🇪" },
-  { code: "mk", name: "Македонски", flag: "🇲🇰" },
-  { code: "sl", name: "Slovenščina", flag: "🇸🇮" },
-  { code: "sq", name: "Shqip", flag: "🇦🇱" },
+  { code: "de", name: "Deutsch", flag: "https://flagcdn.com/h40/de.png" },
+  { code: "bs", name: "Bosanski", flag: "https://flagcdn.com/h40/ba.png" },
+  { code: "hr", name: "Hrvatski", flag: "https://flagcdn.com/h40/hr.png" },
+  { code: "sr", name: "Srpski", flag: "https://flagcdn.com/h40/rs.png" },
+  { code: "me", name: "Crnogorski", flag: "https://flagcdn.com/h40/me.png" },
+  { code: "mk", name: "Македонски", flag: "https://flagcdn.com/h40/mk.png" },
+  { code: "sl", name: "Slovenščina", flag: "https://flagcdn.com/h40/si.png" },
+  { code: "sq", name: "Shqip", flag: "https://flagcdn.com/h40/al.png" },
 ];
 
 const menuBtnClass =
@@ -96,7 +96,7 @@ export default function Header() {
               <DropdownMenuTrigger asChild>
                 <button className="group flex items-center gap-3 px-3 h-11 rounded-lg text-sm font-medium text-white/55 hover:text-white hover:bg-white/5 transition-all duration-200 w-full">
                   <Globe className="h-[18px] w-[18px] shrink-0 text-white/40 group-hover:text-white/70 transition-colors" />
-                  <span className="flex-1 text-left">{currentLang.flag} {currentLang.name}</span>
+                  <img src={currentLang.flag} alt="" className="h-4 w-auto rounded-[2px]" /> <span className="flex-1 text-left">{currentLang.name}</span>
                   <ChevronDown className="h-3 w-3 text-white/40" />
                 </button>
               </DropdownMenuTrigger>
@@ -104,7 +104,7 @@ export default function Header() {
                 {LANG_OPTIONS.map((lang) => (
                   <DropdownMenuItem key={lang.code} onClick={() => setLanguage(lang.code)}
                     className={`text-white/80 hover:text-white focus:text-white focus:bg-white/10 ${currentLanguage === lang.code ? "bg-white/10 text-[hsl(var(--gold))] font-medium" : ""}`}>
-                    <span className="mr-2 text-base leading-none">{lang.flag}</span>
+                    <img src={lang.flag} alt="" className="mr-2 h-4 w-auto rounded-[2px]" />
                     {lang.name}
                   </DropdownMenuItem>
                 ))}
