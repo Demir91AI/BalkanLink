@@ -127,6 +127,7 @@ function GuideContent({ slug }: { slug: string }) {
   if (slug === "anlage-uh3") return <AnlageUH3GuideContent />;
   if (slug === "nichterreichbarkeit") return <AnfrageNichterreichbarkeitGuideContent />;
   if (slug === "aufenthaltstitel") return <AufenthaltsNavigator />;
+  if (slug === "fuehrerschein") return <FuehrerscheinGuideContent />;
 
   if (!guide) return null;
 
