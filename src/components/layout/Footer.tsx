@@ -38,14 +38,60 @@ function StarInput({ value, onChange }: { value: number; onChange: (v: number) =
   );
 }
 
-function AllReviewsModal() {
+function ReviewFormModal() {
   const { t } = useTranslation();
-  const [allReviews, setAllReviews] = useState<FullReview[]>([]);
-  const [loading, setLoading] = useState(false);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
   const [username, setUsername] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (open) { setSubmitted(false); setRating(0); setComment(""); setUsername(""); }
+  }, [open]);
+
+  const handleSubmit = async () => {
+    if (rating === 0 || comment.trim().length < 3) return;
+    const { error } = await supabase.from("reviews").insert({ username: username.trim() || t("reviews.anonymous"), rating, comment: comment.trim() });
+    if (error) { toast.error(t("reviews.errorSend")); return; }
+    toast.success(t("reviews.successSend"));
+    setSubmitted(true);
+  };
+
+  const isValid = rating > 0 && comment.trim().length >= 3;
+
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <button className="text-[11px] text-[hsl(var(--gold))] hover:underline cursor-pointer transition-opacity">
+          {t("reviews.leaveReview")}
+        </button>
+      </DialogTrigger>
+      <DialogContent className="max-w-md">
+        <DialogHeader>
+          <DialogTitle className="text-base font-bold">{t("reviews.leaveReview")}</DialogTitle>
+        </DialogHeader>
+        {!submitted ? (
+          <div className="space-y-3 pt-2">
+            <StarInput value={rating} onChange={setRating} />
+            <Textarea value={comment} onChange={(e) => setComment(e.target.value)} placeholder={t("reviews.comment")} className="border-[#E8E0D0] resize-none min-h-[70px]" rows={2} />
+            <Input value={username} onChange={(e) => setUsername(e.target.value)} placeholder={t("reviews.name")} className="border-[#E8E0D0]" />
+            <Button onClick={handleSubmit} disabled={!isValid} size="sm" className="bg-[hsl(var(--gold))] text-white font-bold hover:bg-[hsl(var(--gold-dark))] disabled:opacity-50 w-full">
+              {t("reviews.submit")}
+            </Button>
+          </div>
+        ) : (
+          <p className="text-sm font-semibold text-center py-4">{t("reviews.thanks")}</p>
+        )}
+      </DialogContent>
+    </Dialog>
+  );
+}
+
+function AllReviewsModal({ reviews }: { reviews: FooterReview[] }) {
+  const { t } = useTranslation();
+  const [allReviews, setAllReviews] = useState<FullReview[]>([]);
+  const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
 
   const fetchAll = async () => {
@@ -56,68 +102,41 @@ function AllReviewsModal() {
   };
 
   useEffect(() => {
-    if (open) { fetchAll(); setSubmitted(false); setRating(0); setComment(""); setUsername(""); }
+    if (open) fetchAll();
   }, [open]);
-
-  const handleSubmit = async () => {
-    if (rating === 0 || comment.trim().length < 3) return;
-    const { error } = await supabase.from("reviews").insert({ username: username.trim() || t("reviews.anonymous"), rating, comment: comment.trim() });
-    if (error) { toast.error(t("reviews.errorSend")); return; }
-    toast.success(t("reviews.successSend"));
-    setSubmitted(true);
-    setRating(0); setComment(""); setUsername("");
-    fetchAll();
-  };
-
-  const isValid = rating > 0 && comment.trim().length >= 3;
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <button className="text-[12px] font-semibold text-[hsl(var(--gold))] hover:underline hover:opacity-80 cursor-pointer mt-2 transition-opacity">
+        <button className="text-[11px] text-[#6A6A6A] hover:text-[hsl(var(--gold))] cursor-pointer transition-colors">
           {t("reviews.viewAll")} →
         </button>
       </DialogTrigger>
-      <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto">
+      <DialogContent className="max-w-lg max-h-[80vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-xl font-bold">{t("reviews.allTitle")}</DialogTitle>
+          <DialogTitle className="text-base font-bold">{t("reviews.allTitle")}</DialogTitle>
         </DialogHeader>
         {loading ? (
           <p className="text-sm text-muted-foreground text-center py-4">{t("reviews.loading")}</p>
         ) : allReviews.length > 0 ? (
-          <div className="space-y-3 mb-6">
+          <div className="space-y-2.5">
             {allReviews.map((r) => (
-              <div key={r.id} className="rounded-[10px] border border-[#E8E0D0] bg-white p-4 shadow-[0_2px_12px_rgba(0,0,0,0.07)]">
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-0.5">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star key={i} className={`h-3.5 w-3.5 ${i < r.rating ? "fill-[hsl(var(--gold))] text-[hsl(var(--gold))]" : "text-[#E8E0D0]"}`} />
-                    ))}
-                  </div>
+              <div key={r.id} className="flex items-start gap-3 py-2.5 border-b border-[#E8E0D0] last:border-0">
+                <div className="flex items-center gap-0.5 shrink-0 pt-0.5">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className={`h-3 w-3 ${i < r.rating ? "fill-[hsl(var(--gold))] text-[hsl(var(--gold))]" : "text-[#E8E0D0]"}`} />
+                  ))}
                 </div>
-                <p className="text-[13px] text-foreground leading-relaxed mb-1">{r.comment}</p>
-                <p className="text-[11px] font-semibold text-muted-foreground">— {r.username}</p>
+                <div className="min-w-0">
+                  <p className="text-[13px] text-foreground leading-snug">{r.comment}</p>
+                  <p className="text-[11px] text-muted-foreground mt-0.5">— {r.username}</p>
+                </div>
               </div>
             ))}
           </div>
         ) : (
-          <p className="text-sm text-muted-foreground text-center py-6">{t("reviews.noReviews")}</p>
+          <p className="text-sm text-muted-foreground text-center py-4">{t("reviews.noReviews")}</p>
         )}
-        <div className="border-t border-[#E8E0D0] pt-5">
-          <h3 className="text-sm font-bold mb-3">{t("reviews.leaveReview")}</h3>
-          {!submitted ? (
-            <div className="space-y-3">
-              <StarInput value={rating} onChange={setRating} />
-              <Textarea value={comment} onChange={(e) => setComment(e.target.value)} placeholder={t("reviews.comment")} className="border-[#E8E0D0] resize-none min-h-[80px]" rows={3} />
-              <Input value={username} onChange={(e) => setUsername(e.target.value)} placeholder={t("reviews.name")} className="border-[#E8E0D0]" />
-              <Button onClick={handleSubmit} disabled={!isValid} className="bg-[hsl(var(--gold))] text-white font-bold hover:bg-[hsl(var(--gold-dark))] disabled:opacity-50">
-                {t("reviews.submit")}
-              </Button>
-            </div>
-          ) : (
-            <p className="text-sm font-semibold text-center py-3">{t("reviews.thanks")}</p>
-          )}
-        </div>
       </DialogContent>
     </Dialog>
   );
@@ -241,25 +260,36 @@ export default function Footer() {
 
         <div className="my-10 w-full"><Divider /></div>
 
-        {/* 4. Trust */}
-        <div className="flex flex-col items-center gap-3">
-          <h4 className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#505050]">{t("footer.trust")}</h4>
+        {/* 4. Trust — compact */}
+        <div className="flex flex-col items-center gap-1.5">
           {reviews.length > 0 ? (
-            <div className="flex flex-col items-center gap-2">
-              <div className="flex items-center gap-1">
-                {Array.from({ length: 5 }).map((_, si) => (
-                  <Star key={si} className={`h-4.5 w-4.5 ${si < reviews[0].rating ? "fill-[hsl(var(--gold))] text-[hsl(var(--gold))]" : "text-[#D4CFC5]"}`} />
-                ))}
+            <>
+              {/* Rating summary row */}
+              <div className="flex items-center gap-2">
+                <span className="text-[20px] font-extrabold text-[#3A3A3A] leading-none">
+                  {(reviews.reduce((s, r) => s + r.rating, 0) / reviews.length).toFixed(1)}
+                </span>
+                <div className="flex items-center gap-0.5">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className={`h-3.5 w-3.5 ${i < Math.round(reviews.reduce((s, r) => s + r.rating, 0) / reviews.length) ? "fill-[hsl(var(--gold))] text-[hsl(var(--gold))]" : "text-[#D4CFC5]"}`} />
+                  ))}
+                </div>
+                <span className="text-[11px] text-[#8A8A8A]">({reviews.length})</span>
               </div>
-              <p className="text-[14px] font-medium text-[#3A3A3A] text-center max-w-md leading-relaxed italic">
-                "{reviews[0].comment}"
+              {/* Latest review */}
+              <p className="text-[12px] text-[#505050] text-center max-w-sm leading-relaxed italic">
+                "{reviews[0].comment}" <span className="not-italic text-[11px] text-[#8A8A8A]">— {reviews[0].username}</span>
               </p>
-              <p className="text-[11px] text-[#6A6A6A]">— {reviews[0].username}</p>
-            </div>
+            </>
           ) : (
-            <p className="text-[12px] text-[#6A6A6A]">{t("reviews.noReviews")}</p>
+            <p className="text-[11px] text-[#8A8A8A]">{t("reviews.noReviews")}</p>
           )}
-          <AllReviewsModal />
+          {/* Actions */}
+          <div className="flex items-center gap-3 mt-0.5">
+            <AllReviewsModal reviews={reviews} />
+            <span className="text-[#D4CFC5]">·</span>
+            <ReviewFormModal />
+          </div>
         </div>
 
         {/* RealCore accent divider */}
