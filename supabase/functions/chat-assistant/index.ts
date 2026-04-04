@@ -51,7 +51,7 @@ function buildFormCatalogContext(): string {
 const SITE_CONTENT_INDEX = `
 BALKANLINK STRANICE:
 Dolazak: /dolazak/prvi-koraci, /dolazak/prijava-prebivalista (Anmeldung), /dolazak/boravisna-dozvola, /dolazak/steuer-id-i-porezna-klasa, /dolazak/zdravstveno-osiguranje, /dolazak/bankovni-racun, /dolazak/sozialversicherung, /dolazak/rundfunkbeitrag, /dolazak/fuehrerschein, /dolazak/auto-anmelden
-Formulari: /formulari (lista), /formulari/:slug (pojedinačni), /guide/:slug (Smart Guide vodič)
+Formulari: /formulari (lista), /formulari/:slug (pojedinačni vodič)
 Život: /zivot-savjeti, /trebam-pomoc, /familie, /foerderungen
 Alati: /brutto-netto-rechner, /dokumenten-check, /generatoren
 Stanovi: /wohnungen (pametna pretraga stanova sa filterima)
