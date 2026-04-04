@@ -212,13 +212,14 @@ export default function FormCenter() {
         key={item.slug}
         onClick={() => handleSelect(item.slug)}
         className={cn(
-          "w-full flex flex-col gap-0.5 rounded-lg px-3 py-2 text-left transition-all",
+          "w-full flex flex-col gap-0.5 px-3 py-2 text-left transition-all",
           isActive
-            ? "bg-primary text-primary-foreground shadow-sm"
-            : "text-foreground/80 hover:bg-accent hover:text-foreground"
+            ? "text-[#C9A84C] font-bold"
+            : "text-foreground/80 hover:bg-[#FFF8EC] hover:text-foreground"
         )}
+        style={isActive ? { background: '#FFF8EC', borderLeft: '3px solid #C9A84C', borderRadius: 6 } : { borderRadius: 6 }}
       >
-        <span className={cn("text-sm font-medium truncate leading-[1.3]", isActive && "font-semibold")}>
+        <span className={cn("text-sm font-medium truncate leading-[1.3]", isActive && "font-bold")}>
           {item.label}
         </span>
         <span
@@ -246,7 +247,7 @@ export default function FormCenter() {
   }
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-6">
+    <div className="mx-auto max-w-7xl px-4 py-6 min-h-screen" style={{ background: "#F5F0E8" }}>
       <BuergergeldInfoModal
         open={showBgInfo}
         onClose={() => setShowBgInfo(false)}
@@ -264,18 +265,19 @@ export default function FormCenter() {
         <p className="mt-1 text-sm text-muted-foreground">
           {t("formCenter.subtitle")}
         </p>
+        <div className="h-px mt-4 mb-6" style={{ background: '#F0EAD8' }} />
       </div>
 
       <div className="flex gap-6">
         {/* ─── Sidebar ─── */}
-        <aside className={cn("shrink-0", isMobile ? "hidden" : "sticky top-20 self-start w-72")}>
+        <aside className={cn("shrink-0", isMobile ? "hidden" : "sticky top-20 self-start w-72")} style={{ background: "#FFFFFF", borderRight: "1px solid #F0EAD8" }}>
           <div className="relative mb-4">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder={t("formCenter.searchPlaceholder")}
-              className="pl-9 h-10 text-sm rounded-xl border-border/60 bg-card"
+              className="pl-9 h-10 text-sm rounded-xl border-[#E8E0D0] bg-white"
             />
           </div>
 
@@ -297,7 +299,7 @@ export default function FormCenter() {
                     open={openGroups.has(group.id)}
                     onOpenChange={() => toggleGroup(group.id)}
                   >
-                    <CollapsibleTrigger className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-xs font-bold text-muted-foreground uppercase tracking-wide hover:text-foreground transition-colors">
+                    <CollapsibleTrigger className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-xs font-bold uppercase tracking-wide hover:text-foreground transition-colors" style={{ color: '#C9A84C' }}>
                       <span>{group.icon}</span>
                       <span className="flex-1 text-left">{group.title}</span>
                       <ChevronDown
@@ -434,8 +436,8 @@ export default function FormCenter() {
                 </div>
               ) : (
                 <>
-                  <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-primary/5 mb-6">
-                    <FileText className="h-10 w-10 text-primary/40" />
+                  <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-[#FFF8EC] mb-6">
+                    <FileText className="h-10 w-10 text-[#C9A84C]/40" />
                   </div>
                   <h2 className="text-lg font-bold text-foreground/70">{t("formCenter.selectForm")}</h2>
                   <p className="mt-2 max-w-sm text-sm text-muted-foreground">
