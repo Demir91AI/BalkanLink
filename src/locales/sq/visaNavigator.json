@@ -147,5 +147,9 @@
     "visaRequired": "Vizë e detyrueshme",
     "visaYes": "Vizë e detyrueshme",
     "westbalkan": "Rregullimi i Ballkanit Perëndimor"
-  }
+  },
+  "decision_arrival_desc": "Vij për herë të parë dhe kam nevojë për vizë ose leje qëndrimi.",
+  "decision_extension_desc": "Kam leje qëndrimi dhe kam nevojë për zgjatje ose ndryshim statusi.",
+  "decision_family_desc": "Sjell bashkëshortin, fëmijët ose prindërit në Gjermani.",
+  "decision_permanent_desc": "Planifikoj të qëndroj përgjithmonë në Gjermani."
 }

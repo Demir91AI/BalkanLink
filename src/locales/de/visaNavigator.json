@@ -147,5 +147,9 @@
     "visaRequired": "Visum erforderlich",
     "visaYes": "Visum erforderlich",
     "westbalkan": "Westbalkan-Regelung"
-  }
+  },
+  "decision_arrival_desc": "Ich reise zum ersten Mal ein und benötige ein Visum oder eine Aufenthaltserlaubnis.",
+  "decision_extension_desc": "Ich habe eine Aufenthaltserlaubnis und brauche eine Verlängerung oder Statusänderung.",
+  "decision_family_desc": "Ich bringe Ehegatten, Kinder oder Eltern nach Deutschland.",
+  "decision_permanent_desc": "Ich plane dauerhaft in Deutschland zu bleiben."
 }
