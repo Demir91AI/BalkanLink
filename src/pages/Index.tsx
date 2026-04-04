@@ -265,23 +265,23 @@ function AdFlowSection() {
               href={ad.href || MAILTO_AD}
               target={ad.href ? "_blank" : undefined}
               rel={ad.href ? "noopener noreferrer" : undefined}
-              className="group relative w-[240px] h-[200px] shrink-0 rounded-xl overflow-hidden border border-[#E8E0D0] transition-all duration-300 hover:border-[hsl(var(--gold))]/40 hover:shadow-md"
+              className="group flex w-[340px] h-[160px] shrink-0 rounded-xl overflow-hidden border border-[#E8E0D0] bg-white shadow-sm transition-all duration-300 hover:border-[hsl(var(--gold))]/40 hover:shadow-md hover:-translate-y-0.5"
             >
-              {/* Full-bleed background image */}
-              <img
-                src={ad.logo}
-                alt={ad.name}
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                loading="lazy"
-              />
-              {/* Dark gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-black/5" />
-              {/* Text overlay — bottom-left */}
-              <div className="absolute bottom-0 left-0 right-0 p-4">
-                <p className="text-sm font-bold text-white leading-tight">{ad.name}</p>
-                <p className="mt-0.5 text-[11px] text-white/60">{ad.slogan}</p>
-                {ad.desc && <p className="mt-0.5 text-[10px] text-white/40">{ad.desc}</p>}
-                <span className="mt-2 inline-flex items-center gap-1 rounded-md bg-white/15 px-3 py-1 text-[11px] font-semibold text-white/80 transition-colors group-hover:bg-white/25 group-hover:text-white">
+              {/* LEFT — Image (50%) */}
+              <div className="w-1/2 h-full overflow-hidden bg-[hsl(var(--warm-cream))]">
+                <img
+                  src={ad.logo}
+                  alt={ad.name}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+              {/* RIGHT — Content (50%) */}
+              <div className="flex w-1/2 flex-col justify-center gap-1.5 p-4">
+                <p className="text-sm font-bold text-[#2D2D2D] leading-tight">{ad.name}</p>
+                <p className="text-[11px] text-[#6B6B6B] leading-snug">{ad.slogan}</p>
+                {ad.desc && <p className="text-[10px] text-[#999] leading-snug">{ad.desc}</p>}
+                <span className="mt-1.5 inline-flex w-fit items-center rounded-md border border-[hsl(var(--gold))]/30 bg-[hsl(var(--gold))]/[0.06] px-3 py-1 text-[11px] font-semibold text-[hsl(var(--gold))] transition-colors group-hover:bg-[hsl(var(--gold))]/[0.12]">
                   Kontakt
                 </span>
               </div>
