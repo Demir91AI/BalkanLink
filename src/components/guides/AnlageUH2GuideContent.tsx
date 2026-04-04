@@ -1,6 +1,6 @@
 import GuideInfoHeader from "./GuideInfoHeader";
 import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
-import MusterCTA from "./MusterCTA";
+import MusterformularCTA from "./MusterformularCTA";
 
 const STEPS: StepData[] = [
   {
@@ -59,7 +59,7 @@ export default function AnlageUH2GuideContent() {
         ]}
       />
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterCTA formName="Anlage UH2" institution="Bundesagentur für Arbeit" musterPath="/musterformular/anlage-uh2" pdfUrl="https://www.arbeitsagentur.de/datei/anlage-uh2_ba015346.pdf" />
+      <MusterformularCTA musterSlug="anlage-uh2" pdfUrl="https://www.arbeitsagentur.de/datei/anlage-uh2_ba015346.pdf" />
     </div>
   );
 }

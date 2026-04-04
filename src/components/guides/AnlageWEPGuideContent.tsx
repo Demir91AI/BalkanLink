@@ -1,6 +1,6 @@
 import GuideInfoHeader from "./GuideInfoHeader";
 import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
-import MusterCTA from "./MusterCTA";
+import MusterformularCTA from "./MusterformularCTA";
 
 const STEPS: StepData[] = [
   {
@@ -65,7 +65,7 @@ export default function AnlageWEPGuideContent() {
         ]}
       />
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterCTA formName="Anlage WEP" institution="Bundesagentur für Arbeit" musterPath="/musterformular/anlage-wep" pdfUrl="https://www.arbeitsagentur.de/datei/anlage-wep_ba012909.pdf" />
+      <MusterformularCTA musterSlug="anlage-wep" pdfUrl="https://www.arbeitsagentur.de/datei/anlage-wep_ba012909.pdf" />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import GuideInfoHeader from "./GuideInfoHeader";
 import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
-import MusterCTA from "./MusterCTA";
+import MusterformularCTA from "./MusterformularCTA";
 
 const STEPS: StepData[] = [
   {
@@ -57,7 +57,7 @@ export default function WohngeldGuideContent() {
         ]}
       />
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterCTA formName="Wohngeld" institution="BMWSB" musterPath="/musterformular/wohngeld" pdfUrl="https://www.stmb.bayern.de/assets/stmi/wohnen/wohngeld/35_mz_antrag.pdf" />
+      <MusterformularCTA musterSlug="wohngeld" pdfUrl="https://www.stmb.bayern.de/assets/stmi/wohnen/wohngeld/35_mz_antrag.pdf" />
     </div>
   );
 }

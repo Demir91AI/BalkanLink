@@ -1,6 +1,6 @@
 import GuideInfoHeader from "./GuideInfoHeader";
 import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
-import MusterCTA from "./MusterCTA";
+import MusterformularCTA from "./MusterformularCTA";
 
 const STEPS: StepData[] = [
   {
@@ -66,7 +66,7 @@ export default function AnlageKIGuideContent() {
         ]}
       />
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterCTA formName="Anlage KI" institution="Bundesagentur für Arbeit" musterPath="/musterformular/anlage-ki" pdfUrl="https://www.arbeitsagentur.de/datei/anlage-ki_ba015338.pdf" />
+      <MusterformularCTA musterSlug="anlage-ki" pdfUrl="https://www.arbeitsagentur.de/datei/anlage-ki_ba015338.pdf" />
     </div>
   );
 }

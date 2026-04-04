@@ -1,6 +1,6 @@
 import GuideInfoHeader from "./GuideInfoHeader";
 import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
-import MusterCTA from "./MusterCTA";
+import MusterformularCTA from "./MusterformularCTA";
 
 const STEPS: StepData[] = [
   {
@@ -67,7 +67,7 @@ export default function BurgergeldGuideContent() {
         ]}
       />
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterCTA formName="Bürgergeld" institution="Bundesagentur für Arbeit" musterPath="/musterformular/buergergeld" pdfUrl="https://www.arbeitsagentur.de/datei/ba012914.pdf" />
+      <MusterformularCTA musterSlug="buergergeld" pdfUrl="https://www.arbeitsagentur.de/datei/ba012914.pdf" />
     </div>
   );
 }
