@@ -63,7 +63,7 @@ export default function AnlageHGGuideContent() {
         </p>
       </div>
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterCTA formName="Anlage HG" institution="Jobcenter" musterPath="/musterformular/anlage-hg" pdfUrl="https://www.arbeitsagentur.de/datei/anlage-hg_ba015206.pdf" />
+      <MusterformularCTA musterSlug="anlage-hg" pdfUrl="https://www.arbeitsagentur.de/datei/anlage-hg_ba015206.pdf" />
     </div>
   );
 }

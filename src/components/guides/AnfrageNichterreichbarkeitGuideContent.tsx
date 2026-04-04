@@ -71,7 +71,7 @@ export default function AnfrageNichterreichbarkeitGuideContent() {
         </p>
       </div>
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterCTA formName="Anfrage Nichterreichbarkeit" institution="Bundesagentur für Arbeit" musterPath="/musterformular/nichterreichbarkeit" pdfUrl="https://www.arbeitsagentur.de/datei/anfrage-nichterreichbarkeit_ba015340.pdf" />
+      <MusterformularCTA musterSlug="nichterreichbarkeit" pdfUrl="https://www.arbeitsagentur.de/datei/anfrage-nichterreichbarkeit_ba015340.pdf" />
     </div>
   );
 }

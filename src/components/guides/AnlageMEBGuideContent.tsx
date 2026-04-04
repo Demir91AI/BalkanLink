@@ -69,7 +69,7 @@ export default function AnlageMEBGuideContent() {
         </p>
       </div>
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterCTA formName="Anlage MEB" institution="Jobcenter" musterPath="/musterformular/anlage-meb" pdfUrl="https://www.arbeitsagentur.de/datei/anlage-meb_ba146202.pdf" />
+      <MusterformularCTA musterSlug="anlage-meb" pdfUrl="https://www.arbeitsagentur.de/datei/anlage-meb_ba146202.pdf" />
     </div>
   );
 }

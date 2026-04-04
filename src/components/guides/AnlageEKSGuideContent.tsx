@@ -77,7 +77,7 @@ export default function AnlageEKSGuideContent() {
         </p>
       </div>
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterCTA formName="Anlage EKS" institution="Bundesagentur für Arbeit" musterPath="/musterformular/anlage-eks" pdfUrl="https://www.arbeitsagentur.de/datei/anlage-eks_ba015344.pdf" />
+      <MusterformularCTA musterSlug="anlage-eks" pdfUrl="https://www.arbeitsagentur.de/datei/anlage-eks_ba015344.pdf" />
     </div>
   );
 }

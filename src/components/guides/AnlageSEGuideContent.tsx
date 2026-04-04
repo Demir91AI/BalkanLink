@@ -68,7 +68,7 @@ export default function AnlageSEGuideContent() {
         </p>
       </div>
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterCTA formName="Anlage SE" institution="Jobcenter" musterPath="/musterformular/anlage-se" pdfUrl="https://www.arbeitsagentur.de/datei/anlage-se_ba015341.pdf" />
+      <MusterformularCTA musterSlug="anlage-se" pdfUrl="https://www.arbeitsagentur.de/datei/anlage-se_ba015341.pdf" />
     </div>
   );
 }

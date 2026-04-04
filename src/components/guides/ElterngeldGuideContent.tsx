@@ -64,7 +64,7 @@ export default function ElterngeldGuideContent() {
         ]}
       />
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterCTA formName="Elterngeld" institution="Elterngeldstelle deines Bundeslandes" musterPath="/musterformular/elterngeld" pdfUrl="https://familienportal.de/familienportal/rechner-antraege/antragsformulare" />
+      <MusterformularCTA musterSlug="elterngeld" pdfUrl="https://familienportal.de/familienportal/rechner-antraege/antragsformulare" />
     </div>
   );
 }

@@ -71,7 +71,7 @@ export default function WeiterbewilligungGuideContent() {
         </p>
       </div>
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterCTA formName="Weiterbewilligungsantrag" institution="Bundesagentur für Arbeit" musterPath="/musterformular/weiterbewilligung" pdfUrl="https://www.arbeitsagentur.de/datei/antrag-weiterbewilligung_ba012908.pdf" />
+      <MusterformularCTA musterSlug="weiterbewilligung" pdfUrl="https://www.arbeitsagentur.de/datei/antrag-weiterbewilligung_ba012908.pdf" />
     </div>
   );
 }

@@ -69,7 +69,7 @@ export default function AnlageUFGuideContent() {
         </p>
       </div>
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterCTA formName="Anlage UF" institution="Jobcenter" musterPath="/musterformular/anlage-uf" pdfUrl="https://www.arbeitsagentur.de/datei/anlage-uf_ba015340.pdf" />
+      <MusterformularCTA musterSlug="anlage-uf" pdfUrl="https://www.arbeitsagentur.de/datei/anlage-uf_ba015340.pdf" />
     </div>
   );
 }

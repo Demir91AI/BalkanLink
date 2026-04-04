@@ -88,7 +88,7 @@ export default function HauptantragGuideContent() {
         </p>
       </div>
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterCTA formName="Hauptantrag Bürgergeld" institution="Bundesagentur für Arbeit" musterPath="/musterformular/hauptantrag" pdfUrl="https://www.arbeitsagentur.de/datei/antrag-arbeitslosengeld-2_ba012907.pdf" />
+      <MusterformularCTA musterSlug="hauptantrag" pdfUrl="https://www.arbeitsagentur.de/datei/antrag-arbeitslosengeld-2_ba012907.pdf" />
     </div>
   );
 }

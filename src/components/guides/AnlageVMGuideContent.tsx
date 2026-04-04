@@ -75,7 +75,7 @@ export default function AnlageVMGuideContent() {
         </p>
       </div>
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterCTA formName="Anlage VM" institution="Bundesagentur für Arbeit" musterPath="/musterformular/anlage-vm" pdfUrl="https://www.arbeitsagentur.de/datei/anlage-vm_ba012912.pdf" />
+      <MusterformularCTA musterSlug="anlage-vm" pdfUrl="https://www.arbeitsagentur.de/datei/anlage-vm_ba012912.pdf" />
     </div>
   );
 }
