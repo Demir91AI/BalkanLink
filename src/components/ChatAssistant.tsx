@@ -8,7 +8,6 @@ import { useChatLimit } from "@/hooks/usePremiumAccess";
 import { Link, useLocation } from "react-router-dom";
 import { formCatalog, type FormEntry } from "@/lib/form-catalog";
 import { isValidProductionRoute } from "@/lib/canonical-routes";
-import { formCatalog, type FormEntry } from "@/lib/form-catalog";
 import { BLIcon } from "@/components/BrandLogo";
 import ChatOnboarding from "@/components/chat/ChatOnboarding";
 import ChatBenefitCalc from "@/components/chat/ChatBenefitCalc";
