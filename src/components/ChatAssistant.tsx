@@ -200,7 +200,7 @@ function ResponseActions({ msg }: { msg: Msg }) {
     actions.push({ label: msg.redirectLabel, to: msg.redirectUrl, icon: ExternalLink, primary: true });
   }
   if (msg.guideSlug && VALID_GUIDE_SLUGS.has(msg.guideSlug)) {
-    actions.push({ label: "Otvori Smart Guide", to: `/guide/${msg.guideSlug}`, icon: BookOpen, primary: true });
+    actions.push({ label: "Otvori Smart Guide", to: `/formulari/${msg.guideSlug}`, icon: BookOpen, primary: true });
   }
   if (msg.formSlugs?.length) {
     const fp = `/formulari/${msg.formSlugs[0]}`;
@@ -235,7 +235,21 @@ export default function ChatAssistant() {
   const location = useLocation();
 
   const [open, setOpen] = useState(false);
-  const [messages, setMessages] = useState<Msg[]>([]);
+  const { user } = useAuth();
+
+  // ── Session-scoped chat persistence ──
+  const chatStorageKey = user ? `bl-chat-${user.id}` : null;
+
+  const loadPersistedMessages = (): Msg[] => {
+    if (!chatStorageKey) return [];
+    try {
+      const raw = localStorage.getItem(chatStorageKey);
+      if (raw) return JSON.parse(raw) as Msg[];
+    } catch {}
+    return [];
+  };
+
+  const [messages, setMessages] = useState<Msg[]>(loadPersistedMessages);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState<number | null>(null);
@@ -247,6 +261,29 @@ export default function ChatAssistant() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // Persist messages to localStorage whenever they change
+  useEffect(() => {
+    if (chatStorageKey && messages.length > 0) {
+      localStorage.setItem(chatStorageKey, JSON.stringify(messages));
+    }
+  }, [messages, chatStorageKey]);
+
+  // Clear chat on logout (user becomes null)
+  useEffect(() => {
+    if (!user) {
+      setMessages([]);
+      // Clean up any previous user's chat key
+      const keys = Object.keys(localStorage).filter(k => k.startsWith("bl-chat-"));
+      keys.forEach(k => localStorage.removeItem(k));
+    } else {
+      // Restore messages for newly logged-in user
+      const restored = loadPersistedMessages();
+      if (restored.length > 0 && messages.length === 0) {
+        setMessages(restored);
+      }
+    }
+  }, [user?.id]);
 
   // Load chat lang preference
   useEffect(() => {

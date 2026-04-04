@@ -475,7 +475,7 @@ PRAVILO: Ako korisnik pita nešto što spada u premium dubinu:
 
 PRIMJERI PRAVILNOG PONAŠANJA:
 - "Šta je Kindergeld?" → Odgovori normalno (2-3 rečenice + link)
-- "Kako popuniti Kindergeld formular?" → "Kindergeld je dječji dodatak. Za tačno popunjavanje korak po korak koristi [Smart Guide](/guide/kindergeld) — tamo ideš bez lutanja."
+- "Kako popuniti Kindergeld formular?" → "Kindergeld je dječji dodatak. Za tačno popunjavanje korak po korak koristi [Smart Guide](/formulari/kindergeld) — tamo ideš bez lutanja."
 - "Šta znači ovo pismo?" → "Za tačno tumačenje tvog konkretnog dokumenta koristi [Dokumentencheck](/dokumenten-check). Tu dobiješ detaljnu analizu baš za tvoj slučaj."
 - "Koja viza mi treba?" → "To zavisi od tvoje situacije. Za tačan odgovor otvori [Visa Navigator](/formulari/aufenthaltstitel) — tamo dobiješ personalizirani vodič."
 
@@ -523,7 +523,7 @@ FORMULARI:
 ${buildFormCatalogContext()}
 
 NAVIGACIJSKI LINKOVI (koristi kad je relevantno):
-- Kindergeld → [Kindergeld vodič](/guide/kindergeld)
+- Kindergeld → [Kindergeld vodič](/formulari/kindergeld)
 - Viza/Aufenthaltstitel → [Visa Navigator](/formulari/aufenthaltstitel)
 - Dolazak → [Dolazak u Njemačku](/nach-deutschland)
 - Premium → [Paketi i opcije](/paketi)
@@ -642,7 +642,7 @@ function buildContextualPremiumRedirect(userText: string, lang: string): { text:
 
   // Default: Smart Guide / Formulari
   const guideSlug = detectGuideSlug(userText);
-  const guidePath = guideSlug ? `/guide/${guideSlug}` : "/formulare";
+  const guidePath = guideSlug ? `/formulari/${guideSlug}` : "/formulari";
   return {
     text: l === "de"
       ? "Für eine Schritt-für-Schritt-Anleitung nutze den Smart Guide."
@@ -725,7 +725,7 @@ serve(async (req) => {
     if (intent === "SMART_GUIDE_REDIRECT" && !isPremium) {
       const sg = SMART_GUIDE_MSG[lang] || SMART_GUIDE_MSG["bs"];
       const slug = guideSlug || detectedForm?.slug || "kindergeld";
-      const link = `/guide/${slug}`;
+      const link = `/formulari/${slug}`;
       return new Response(
         JSON.stringify({ smart_guide_redirect: true, content: `${sg.text}\n\n👉 [${sg.label}](${link})`, guideSlug: slug, detectedForm }),
         { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
