@@ -62,7 +62,6 @@ export default function AnlageHGGuideContent() {
         </p>
       </div>
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterformularCTA musterSlug="anlage-hg" pdfUrl="https://www.arbeitsagentur.de/datei/anlage-hg_ba015206.pdf" />
     </div>
   );
 }

@@ -87,7 +87,6 @@ export default function HauptantragGuideContent() {
         </p>
       </div>
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterformularCTA musterSlug="hauptantrag" pdfUrl="https://www.arbeitsagentur.de/datei/antrag-arbeitslosengeld-2_ba012907.pdf" />
     </div>
   );
 }

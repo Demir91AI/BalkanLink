@@ -56,7 +56,6 @@ export default function WohngeldGuideContent() {
         ]}
       />
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterformularCTA musterSlug="wohngeld" pdfUrl="https://www.stmb.bayern.de/assets/stmi/wohnen/wohngeld/35_mz_antrag.pdf" />
     </div>
   );
 }

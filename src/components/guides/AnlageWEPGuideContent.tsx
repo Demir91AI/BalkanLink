@@ -64,7 +64,6 @@ export default function AnlageWEPGuideContent() {
         ]}
       />
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterformularCTA musterSlug="anlage-wep" pdfUrl="https://www.arbeitsagentur.de/datei/anlage-wep_ba012909.pdf" />
     </div>
   );
 }

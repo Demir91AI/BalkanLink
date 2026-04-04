@@ -66,7 +66,6 @@ export default function BurgergeldGuideContent() {
         ]}
       />
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterformularCTA musterSlug="buergergeld" pdfUrl="https://www.arbeitsagentur.de/datei/ba012914.pdf" />
     </div>
   );
 }

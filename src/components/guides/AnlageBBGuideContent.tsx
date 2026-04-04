@@ -69,7 +69,6 @@ export default function AnlageBBGuideContent() {
         </p>
       </div>
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterformularCTA musterSlug="anlage-bb" pdfUrl="https://www.arbeitsagentur.de/datei/anlage-bb_ba015342.pdf" />
     </div>
   );
 }

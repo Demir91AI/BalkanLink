@@ -68,7 +68,6 @@ export default function AnlageUFGuideContent() {
         </p>
       </div>
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterformularCTA musterSlug="anlage-uf" pdfUrl="https://www.arbeitsagentur.de/datei/anlage-uf_ba015340.pdf" />
     </div>
   );
 }

@@ -74,7 +74,6 @@ export default function ArbeitsbescheinigungGuideContent() {
         </p>
       </div>
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterformularCTA musterSlug="arbeitsbescheinigung" pdfUrl="https://www.arbeitsagentur.de/datei/arbeitsbescheinigung_ba034534.pdf" />
     </div>
   );
 }

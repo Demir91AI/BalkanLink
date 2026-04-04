@@ -65,7 +65,6 @@ export default function AnlageKIGuideContent() {
         ]}
       />
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterformularCTA musterSlug="anlage-ki" pdfUrl="https://www.arbeitsagentur.de/datei/anlage-ki_ba015338.pdf" />
     </div>
   );
 }

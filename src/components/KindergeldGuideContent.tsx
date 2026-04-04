@@ -112,7 +112,6 @@ export default function KindergeldGuideContent() {
 
       <SmartGuideWizardShared steps={STEPS} />
 
-      <MusterformularCTA musterSlug="kindergeld" pdfUrl="https://www.arbeitsagentur.de/datei/kg1-antrag-kindergeld_ba017202.pdf" />
     </div>
   );
 }

@@ -57,7 +57,6 @@ export default function AntragsruecknahmeGuideContent() {
         </p>
       </div>
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterformularCTA musterSlug="antragsruecknahme" pdfUrl="https://www.arbeitsagentur.de/datei/antragsruecknahme_ba015959.pdf" />
     </div>
   );
 }

@@ -64,7 +64,6 @@ export default function AnlageUH3GuideContent() {
         ]}
       />
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterformularCTA musterSlug="anlage-uh3" pdfUrl="https://www.arbeitsagentur.de/datei/anlage-uh3_ba015347.pdf" />
     </div>
   );
 }

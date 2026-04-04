@@ -58,7 +58,6 @@ export default function AnlageUH2GuideContent() {
         ]}
       />
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterformularCTA musterSlug="anlage-uh2" pdfUrl="https://www.arbeitsagentur.de/datei/anlage-uh2_ba015346.pdf" />
     </div>
   );
 }

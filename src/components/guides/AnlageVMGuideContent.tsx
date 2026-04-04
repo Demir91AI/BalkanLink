@@ -74,7 +74,6 @@ export default function AnlageVMGuideContent() {
         </p>
       </div>
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterformularCTA musterSlug="anlage-vm" pdfUrl="https://www.arbeitsagentur.de/datei/anlage-vm_ba012912.pdf" />
     </div>
   );
 }
