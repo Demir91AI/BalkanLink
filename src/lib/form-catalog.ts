@@ -105,7 +105,7 @@ export const formCatalog: FormGroup[] = [
       { slug: "bafoeg", label: "BAföG", desc: "Finansijska pomoć za školovanje ili studij (studenti, učenici, strukovno usavršavanje)." },
       { slug: "schueler-bafoeg", label: "Schüler-BAföG", desc: "Učenički BAföG — finansijska pomoć za učenike koji žive odvojeno od roditelja." },
       { slug: "integrationskurs", label: "Integrationskurs", desc: "Kurs njemačkog jezika i orijentacije." },
-      { slug: "lernfoerderung", label: "Lernförderung", desc: "Pomoć za dopunsku nastavu za djecu." },
+      
     ],
   },
   {
