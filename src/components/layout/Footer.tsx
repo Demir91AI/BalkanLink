@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Star } from "lucide-react";
+import { Star, CreditCard, Landmark } from "lucide-react";
 import { useTranslation } from "@/i18n/useTranslation";
 import { supabase } from "@/integrations/supabase/client";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
@@ -203,7 +203,41 @@ export default function Footer() {
 
         <div className="my-10 w-full"><Divider /></div>
 
-        {/* 3. Trust */}
+        {/* 3. Payment methods with icons */}
+        <div className="flex flex-col items-center gap-4">
+          <h4 className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#505050]">{t("footer.paymentMethods")}</h4>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            {/* Stripe */}
+            <div className="flex items-center gap-2 px-4 py-2 rounded-lg border border-[#D4CFC5] bg-white/60">
+              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none">
+                <path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.591-7.305z" fill="#635BFF"/>
+              </svg>
+              <span className="text-[12px] font-semibold text-[#505050]">Stripe</span>
+            </div>
+            {/* PayPal */}
+            <div className="flex items-center gap-2 px-4 py-2 rounded-lg border border-[#D4CFC5] bg-white/60">
+              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none">
+                <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797H9.603c-.564 0-1.04.408-1.13.964L7.076 21.337z" fill="#003087"/>
+                <path d="M18.318 7.468c-.025.166-.054.333-.089.504-1.148 5.887-5.083 7.922-10.108 7.922H6.379c-.613 0-1.131.444-1.227 1.048l-1.154 7.322a.554.554 0 0 0 .547.64h3.842c.537 0 .993-.39 1.076-.919l.044-.23.853-5.4.055-.299c.083-.528.539-.919 1.076-.919h.677c4.383 0 7.816-1.78 8.819-6.932.419-2.15.202-3.946-.906-5.207a4.32 4.32 0 0 0-1.237-.93z" fill="#009cde"/>
+              </svg>
+              <span className="text-[12px] font-semibold text-[#505050]">PayPal</span>
+            </div>
+            {/* Credit Card */}
+            <div className="flex items-center gap-2 px-4 py-2 rounded-lg border border-[#D4CFC5] bg-white/60">
+              <CreditCard className="h-5 w-5 text-[#505050]" />
+              <span className="text-[12px] font-semibold text-[#505050]">{t("footer.creditCard")}</span>
+            </div>
+            {/* Bank Transfer */}
+            <div className="flex items-center gap-2 px-4 py-2 rounded-lg border border-[#D4CFC5] bg-white/60">
+              <Landmark className="h-5 w-5 text-[#505050]" />
+              <span className="text-[12px] font-semibold text-[#505050]">{t("footer.bankTransfer")}</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="my-10 w-full"><Divider /></div>
+
+        {/* 4. Trust */}
         <div className="flex flex-col items-center gap-3">
           <h4 className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#505050]">{t("footer.trust")}</h4>
           {reviews.length > 0 ? (
@@ -222,20 +256,6 @@ export default function Footer() {
             <p className="text-[12px] text-[#6A6A6A]">{t("reviews.noReviews")}</p>
           )}
           <AllReviewsModal />
-        </div>
-
-        <div className="my-10 w-full"><Divider /></div>
-
-        {/* 4. Payment methods — pills */}
-        <div className="flex flex-col items-center gap-3">
-          <h4 className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#505050]">{t("footer.paymentMethods")}</h4>
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            {paymentMethods.map((m) => (
-              <span key={m} className="text-[11px] font-medium text-[#505050] px-3 py-1 rounded-full border border-[#D4CFC5] bg-white/50">
-                {m}
-              </span>
-            ))}
-          </div>
         </div>
 
         {/* RealCore accent divider */}
