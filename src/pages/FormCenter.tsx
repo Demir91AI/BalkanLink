@@ -43,6 +43,7 @@ import AnlageUH2GuideContent from "@/components/guides/AnlageUH2GuideContent";
 import AnlageUH3GuideContent from "@/components/guides/AnlageUH3GuideContent";
 import AnfrageNichterreichbarkeitGuideContent from "@/components/guides/AnfrageNichterreichbarkeitGuideContent";
 import AufenthaltsNavigator from "@/components/AufenthaltsNavigator";
+import FuehrerscheinGuideContent from "@/components/formulare/FuehrerscheinGuide";
 import { navigateBackOrHome } from "@/lib/navigation";
 
 type LangKey = "de" | "bs" | "en";
