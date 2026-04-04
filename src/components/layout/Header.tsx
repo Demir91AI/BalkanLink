@@ -104,7 +104,7 @@ export default function Header() {
                 {LANG_OPTIONS.map((lang) => (
                   <DropdownMenuItem key={lang.code} onClick={() => setLanguage(lang.code)}
                     className={`text-white/80 hover:text-white focus:text-white focus:bg-white/10 ${currentLanguage === lang.code ? "bg-white/10 text-[hsl(var(--gold))] font-medium" : ""}`}>
-                    <img src={lang.flag} alt="" className="mr-2 h-4 w-auto rounded-[2px]" />
+                    <img src={lang.flag} alt="" className="mr-2 h-4 w-6 object-cover rounded-[2px] shrink-0" />
                     {lang.name}
                   </DropdownMenuItem>
                 ))}
