@@ -86,9 +86,22 @@ export default function MusterFormBase({ rootId, title, subtitle, pdfUrl, pdfLab
   return (
     <div id={rootId} style={S.page}>
       <div style={S.nav}>
-        <button style={S.navBtn} onClick={() => navigate(-1)}>← Nazad</button>
-        <span style={{ color: "#EAB308", fontWeight: 700, fontSize: 15 }}>BL BalkanLink</span>
-        <button style={S.navBtn} onClick={() => navigate("/")}>🏠</button>
+        <button style={{ ...S.navBtn, display: 'flex', alignItems: 'center', gap: 4 }} onClick={() => navigate(-1)}>
+          ← Nazad
+        </button>
+        <span style={{ color: "#C9A84C", fontWeight: 700, fontSize: 15 }}>BL BalkanLink</span>
+        <button style={{ ...S.navBtn, display: 'flex', alignItems: 'center', gap: 4 }} onClick={() => navigate("/")}>
+          <span>🏠</span> Početna
+        </button>
+      </div>
+      <div style={{ background: '#F5F0E8', padding: '8px 20px', borderBottom: '1px solid #F0EAD8' }}>
+        <span style={{ fontSize: 12, color: '#9CA3AF', cursor: 'pointer' }} onClick={() => navigate('/formulari')}>
+          Formulari
+        </span>
+        <span style={{ fontSize: 12, color: '#9CA3AF', margin: '0 6px' }}>›</span>
+        <span style={{ fontSize: 12, color: '#2D2D2D', fontWeight: 500 }}>{title}</span>
+        <span style={{ fontSize: 12, color: '#9CA3AF', margin: '0 6px' }}>›</span>
+        <span style={{ fontSize: 12, color: '#C9A84C', fontWeight: 500 }}>Musterformular</span>
       </div>
 
       <div style={{ padding: "0 16px" }}>
