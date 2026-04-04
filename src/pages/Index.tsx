@@ -334,7 +334,7 @@ export default function Index() {
                 <Button onClick={() => navigate("/formulari")} className="h-12 rounded-lg bg-[hsl(var(--gold))] px-8 text-base font-bold text-white shadow-[0_4px_24px_rgba(201,168,76,0.4)] hover:bg-[hsl(var(--gold-dark))] hover:shadow-[0_8px_36px_rgba(201,168,76,0.55)] hover:scale-[1.03] transition-all duration-300 h-14 px-10 text-lg text-center">
                   {t("hero.cta.primary")}
                 </Button>
-                <Button variant="outline" onClick={() => navigate("/qa")} className="h-11 rounded-lg border border-white/40 bg-transparent px-6 text-sm font-semibold text-white hover:bg-white/10 hover:border-white/60 transition-all duration-300">
+                <Button variant="outline" onClick={() => window.dispatchEvent(new CustomEvent("open-assistant"))} className="h-11 rounded-lg border border-white/40 bg-transparent px-6 text-sm font-semibold text-white hover:bg-white/10 hover:border-white/60 transition-all duration-300">
                   {t("hero.cta.secondary")}
                 </Button>
               </div>
