@@ -4,7 +4,7 @@ import {
   FileText, Shield, BookOpen, Camera, Megaphone, Map,
   Briefcase, Building, Calculator, FileCheck, X,
 } from "lucide-react";
-import { useTranslation } from "@/i18n/useTranslation";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export function AppSidebar() {
   const [isOpen, setIsOpen] = useState(false);
