@@ -23,6 +23,7 @@ const flowItems = [
 ];
 
 export default function FlowBanner() {
+  const { t } = useLanguage();
   const [activeIndex, setActiveIndex] = useState(0);
   const totalItems = flowItems.length;
   const autoplayRef = useRef<ReturnType<typeof setInterval> | null>(null);
