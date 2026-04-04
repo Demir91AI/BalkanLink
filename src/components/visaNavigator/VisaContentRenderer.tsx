@@ -1,0 +1,392 @@
+import React, { useState } from 'react';
+import { ExternalLink, CheckCircle, AlertTriangle, FileText, Clock, MapPin, Zap, Info, Printer, Euro, ChevronRight } from 'lucide-react';
+import { COUNTRY_CONTENT } from '../../data/vizaNavigatorContent';
+
+const loadForm = (formKey: string) => {
+  const formMap: Record<string, () => Promise<{ default: React.FC }>> = {
+    VisaWorkForm1: () => import('../formulare/muster/VisaWorkForm1').catch(() => ({ default: () => null as any })),
+    VisaWorkForm2: () => import('../formulare/muster/VisaWorkForm2').catch(() => ({ default: () => null as any })),
+    VisaBluecardForm: () => import('../formulare/muster/VisaBluecardForm').catch(() => ({ default: () => null as any })),
+    VisaFamilyForm: () => import('../formulare/muster/VisaFamilyForm').catch(() => ({ default: () => null as any })),
+    VisaStudyForm: () => import('../formulare/muster/VisaStudyForm').catch(() => ({ default: () => null as any })),
+    VisaPermanentForm1: () => import('../formulare/muster/VisaPermanentForm1').catch(() => ({ default: () => null as any })),
+    VisaPermanentForm2: () => import('../formulare/muster/VisaPermanentForm2').catch(() => ({ default: () => null as any })),
+  };
+  return formMap[formKey];
+};
+
+interface Props {
+  selectedCountry: string | null;
+  selectedRoute: string | null;
+  onSelectRoute: (routeId: string) => void;
+  onBack: () => void;
+}
+
+const GOLD = '#C9A84C';
+const CHARCOAL = '#1A1A2E';
+
+const Card = ({ children, bg = '#FFFFFF', border = '#F0EAD8', mb = 16 }: { children: React.ReactNode; bg?: string; border?: string; mb?: number }) => (
+  <div style={{ background: bg, border: `1px solid ${border}`, borderRadius: 14, padding: '20px 24px', marginBottom: mb, boxShadow: '0 2px 12px rgba(0,0,0,0.06)' }}>
+    {children}
+  </div>
+);
+
+const CardHeader = ({ icon: Icon, color = GOLD, title }: { icon: React.FC<any>; color?: string; title: string }) => (
+  <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>
+    <Icon size={18} color={color} />
+    <h3 style={{ fontSize: 15, fontWeight: 700, color: CHARCOAL, margin: 0 }}>{title}</h3>
+  </div>
+);
+
+const StepCircle = ({ n }: { n: number }) => (
+  <div style={{ minWidth: 32, height: 32, borderRadius: '50%', background: GOLD, color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 700, flexShrink: 0 }}>{n}</div>
+);
+
+const InlineFormPlaceholder = ({ title, onClose }: { title: string; onClose: () => void }) => (
+  <div style={{ background: 'white', border: '1px solid #E8D9B0', borderRadius: 12, padding: 32, textAlign: 'center', position: 'relative' }}>
+    <button onClick={onClose} style={{ position: 'absolute', top: 10, right: 10, background: '#EF4444', color: 'white', border: 'none', borderRadius: 6, padding: '4px 10px', cursor: 'pointer', fontSize: 12 }}>×</button>
+    <div style={{ fontSize: 40, marginBottom: 12 }}>📋</div>
+    <h3 style={{ color: CHARCOAL, marginBottom: 8 }}>{title}</h3>
+    <p style={{ color: '#6B6B6B', fontSize: 14 }}>Formular je dostupan. Klikom na dugme "Otvori" prikazuje se interaktivna verzija.</p>
+  </div>
+);
+
+export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selectedRoute, onSelectRoute, onBack }) => {
+  const [openFormKey, setOpenFormKey] = useState<string | null>(null);
+  const [LoadedForm, setLoadedForm] = useState<React.FC | null>(null);
+
+  const handleOpenForm = async (formKey: string) => {
+    if (openFormKey === formKey) {
+      setOpenFormKey(null);
+      setLoadedForm(null);
+      return;
+    }
+    setOpenFormKey(formKey);
+    try {
+      const loader = loadForm(formKey);
+      if (loader) {
+        const mod = await loader();
+        setLoadedForm(() => mod.default);
+      }
+    } catch {
+      setLoadedForm(null);
+    }
+  };
+
+  const country = COUNTRY_CONTENT.find(c => c.code === selectedCountry);
+
+  // ── EMPTY STATE ──
+  if (!country) return (
+    <div style={{ textAlign: 'center', padding: '80px 20px', color: '#6B6B6B' }}>
+      <FileText size={56} style={{ margin: '0 auto 20px', display: 'block', opacity: 0.2, color: CHARCOAL }} />
+      <h2 style={{ fontSize: 22, fontWeight: 700, color: CHARCOAL, marginBottom: 8 }}>Dobro došao/la u Viza Navigator</h2>
+      <p style={{ fontSize: 15, lineHeight: 1.7 }}>Izaberi svoju zemlju porijekla iz lijevog menija za personalizirane informacije o vizama i boravišnim dozvolama.</p>
+    </div>
+  );
+
+  const route = selectedRoute ? country.routes.find(r => r.id === selectedRoute) : null;
+
+  // ── EU FLOW ──
+  if (country.isEU) {
+    const r = country.routes[0];
+    return (
+      <div>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#DCFCE7', color: '#166534', borderRadius: 20, padding: '4px 16px', fontSize: 13, fontWeight: 600, marginBottom: 16 }}>
+          🇪🇺 EU građanin — sloboda kretanja
+        </div>
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
+          <img src={country.flag} alt={country.name} style={{ height: 28, borderRadius: 3 }} />
+          <h1 style={{ fontSize: 26, fontWeight: 700, color: CHARCOAL, margin: 0 }}>{country.name}</h1>
+        </div>
+
+        <p style={{ fontSize: 15, color: '#4A4A4A', lineHeight: 1.7, marginBottom: 24 }}>{r.subtitle}</p>
+
+        <Card>
+          <CardHeader icon={CheckCircle} color="#22C55E" title="Brzi start — šta trebaš napraviti" />
+          {r.steps.map((step, i) => (
+            <div key={i} style={{ display: 'flex', gap: 12, marginBottom: 14, alignItems: 'flex-start' }}>
+              <StepCircle n={i + 1} />
+              <p style={{ fontSize: 14, color: '#2D2D2D', lineHeight: 1.6, margin: 0, paddingTop: 6 }}>{step}</p>
+            </div>
+          ))}
+        </Card>
+
+        <Card>
+          <CardHeader icon={FileText} title="Potrebni dokumenti" />
+          {r.documents.map((doc, i) => (
+            <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8 }}>
+              <CheckCircle size={14} color="#22C55E" style={{ flexShrink: 0, marginTop: 3 }} />
+              <p style={{ fontSize: 14, color: '#2D2D2D', margin: 0 }}>{doc}</p>
+            </div>
+          ))}
+        </Card>
+
+        {r.costs.length > 0 && (
+          <Card>
+            <CardHeader icon={Euro} title="Troškovi" />
+            {r.costs.map((c, i) => (
+              <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 6 }}>
+                <span style={{ color: GOLD, fontWeight: 700, flexShrink: 0 }}>•</span>
+                <p style={{ fontSize: 14, color: '#2D2D2D', margin: 0 }}>{c}</p>
+              </div>
+            ))}
+          </Card>
+        )}
+
+        {r.errors.length > 0 && (
+          <Card bg="#FEF2F2" border="#FECACA">
+            <CardHeader icon={AlertTriangle} color="#EF4444" title="Česte greške" />
+            {r.errors.map((err, i) => (
+              <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8 }}>
+                <span style={{ color: '#EF4444', fontWeight: 700, flexShrink: 0 }}>✕</span>
+                <p style={{ fontSize: 14, color: '#7F1D1D', margin: 0 }}>{err}</p>
+              </div>
+            ))}
+          </Card>
+        )}
+
+        <Card>
+          <CardHeader icon={ExternalLink} title="Korisni linkovi" />
+          {r.sources.map((s, i) => (
+            <a key={i} href={s.url} target="_blank" rel="noopener noreferrer"
+              style={{ display: 'flex', alignItems: 'center', gap: 8, color: GOLD, fontSize: 13, textDecoration: 'none', marginBottom: 8 }}>
+              <ExternalLink size={14} />{s.label}
+            </a>
+          ))}
+        </Card>
+
+        <div style={{ background: '#F9F6F0', borderRadius: 10, padding: '14px 18px', fontSize: 12, color: '#9CA3AF' }}>
+          <Info size={13} style={{ marginRight: 6, verticalAlign: 'middle' }} />
+          BalkanLink pruža informativne smjernice i ne predstavlja pravni savjet. Stand 2025.
+        </div>
+      </div>
+    );
+  }
+
+  // ── NON-EU: NO ROUTE SELECTED ──
+  if (!route) {
+    return (
+      <div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
+          <img src={country.flag} alt={country.name} style={{ height: 28, borderRadius: 3 }} />
+          <h1 style={{ fontSize: 26, fontWeight: 700, color: CHARCOAL, margin: 0 }}>{country.name}</h1>
+          <span style={{ background: '#FEF9C3', color: '#854D0E', borderRadius: 20, padding: '3px 12px', fontSize: 12, fontWeight: 600 }}>Zapadni Balkan</span>
+        </div>
+
+        {/* Embassy */}
+        <div style={{ background: '#FFF8EC', border: '1px solid #E8D9B0', borderRadius: 10, padding: '12px 16px', marginBottom: 12, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <MapPin size={16} color={GOLD} />
+            <span style={{ fontSize: 14, fontWeight: 600, color: CHARCOAL }}>{country.embassyName}</span>
+          </div>
+          <a href={country.embassyUrl} target="_blank" rel="noopener noreferrer"
+            style={{ display: 'flex', alignItems: 'center', gap: 6, color: GOLD, fontSize: 13, textDecoration: 'none' }}>
+            Otvori <ExternalLink size={14} />
+          </a>
+        </div>
+
+        <p style={{ fontSize: 13, color: '#6B6B6B', marginBottom: 12 }}>{country.embassyNote}</p>
+
+        {/* Schengen free note */}
+        {country.schengenFree && (
+          <div style={{ background: '#EFF6FF', border: '1px solid #BFDBFE', borderRadius: 10, padding: '12px 16px', marginBottom: 12 }}>
+            <Info size={14} color="#3B82F6" style={{ marginRight: 8, verticalAlign: 'middle' }} />
+            <span style={{ fontSize: 13, color: '#1D4ED8' }}>{country.schengenNote}</span>
+          </div>
+        )}
+
+        {/* Kosovo specific */}
+        {country.code === 'xk' && country.kosovoNote && (
+          <div style={{ background: '#FEF9C3', border: '1px solid #FDE68A', borderRadius: 10, padding: '12px 16px', marginBottom: 12 }}>
+            <AlertTriangle size={14} color="#D97706" style={{ marginRight: 8, verticalAlign: 'middle' }} />
+            <span style={{ fontSize: 13, color: '#92400E', fontWeight: 600 }}>{country.kosovoNote}</span>
+          </div>
+        )}
+
+        <h2 style={{ fontSize: 18, fontWeight: 700, color: CHARCOAL, marginBottom: 16 }}>Odaberi svoju situaciju</h2>
+
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+          {country.routes.map(r => (
+            <div key={r.id} onClick={() => onSelectRoute(r.id)}
+              style={{ background: 'white', border: '1.5px solid #F0EAD8', borderRadius: 12, padding: '18px 20px', cursor: 'pointer', transition: 'all 200ms ease' }}
+              onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = GOLD; el.style.transform = 'translateY(-2px)'; el.style.boxShadow = '0 6px 20px rgba(0,0,0,0.1)'; }}
+              onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = '#F0EAD8'; el.style.transform = 'translateY(0)'; el.style.boxShadow = 'none'; }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <div>
+                  <div style={{ fontSize: 15, fontWeight: 700, color: CHARCOAL, marginBottom: 4 }}>{r.title}</div>
+                  <div style={{ fontSize: 12, color: '#9CA3AF', fontFamily: 'monospace' }}>{r.legalBasis}</div>
+                </div>
+                <ChevronRight size={18} color={GOLD} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  // ── NON-EU: ROUTE SELECTED ──
+  return (
+    <div>
+      {/* Back */}
+      <button onClick={onBack}
+        style={{ display: 'flex', alignItems: 'center', gap: 6, background: 'none', border: 'none', color: GOLD, cursor: 'pointer', fontSize: 14, marginBottom: 20, padding: 0, fontWeight: 600 }}>
+        ← Natrag na rute
+      </button>
+
+      {/* Breadcrumb */}
+      <div style={{ fontSize: 13, color: '#9CA3AF', marginBottom: 16 }}>
+        <img src={country.flag} alt="" style={{ height: 14, verticalAlign: 'middle', marginRight: 6, borderRadius: 2 }} />
+        {country.name} › <span style={{ color: CHARCOAL, fontWeight: 500 }}>{route.title}</span>
+      </div>
+
+      <h1 style={{ fontSize: 24, fontWeight: 700, color: CHARCOAL, marginBottom: 4 }}>{route.title}</h1>
+      <p style={{ fontSize: 13, fontFamily: 'monospace', color: '#9CA3AF', marginBottom: 8 }}>{route.legalBasis}</p>
+      <p style={{ fontSize: 15, color: '#4A4A4A', lineHeight: 1.7, marginBottom: 24 }}>{route.subtitle}</p>
+
+      {/* Westbalkan highlight */}
+      {route.westbalkanNote && (
+        <div style={{ background: '#FFF8EC', border: '1px solid #E8D9B0', borderRadius: 12, padding: '16px 20px', marginBottom: 16 }}>
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
+            <Zap size={18} color={GOLD} style={{ flexShrink: 0, marginTop: 2 }} />
+            <div>
+              <p style={{ fontSize: 13, fontWeight: 700, color: '#92400E', margin: '0 0 6px' }}>⚡ Westbalkan-Regelung aktivan!</p>
+              <p style={{ fontSize: 13, color: '#4A4A4A', margin: 0, lineHeight: 1.6 }}>{route.westbalkanNote}</p>
+              <a href="https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/arbeit/westbalkan-regelung"
+                target="_blank" rel="noopener noreferrer"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: 4, color: GOLD, fontSize: 12, marginTop: 8, textDecoration: 'none' }}>
+                Više info <ExternalLink size={12} />
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Kosovo note */}
+      {route.kosovoNote && (
+        <div style={{ background: '#FEF9C3', border: '1px solid #FDE68A', borderRadius: 12, padding: '14px 18px', marginBottom: 16 }}>
+          <AlertTriangle size={16} color="#D97706" style={{ marginRight: 8, verticalAlign: 'middle' }} />
+          <span style={{ fontSize: 13, color: '#92400E', fontWeight: 600 }}>{route.kosovoNote}</span>
+        </div>
+      )}
+
+      {/* Steps */}
+      <Card>
+        <CardHeader icon={CheckCircle} color="#22C55E" title="Korak-po-korak vodič" />
+        {route.steps.map((step, i) => (
+          <div key={i} style={{ display: 'flex', gap: 12, marginBottom: 14, alignItems: 'flex-start' }}>
+            <StepCircle n={i + 1} />
+            <p style={{ fontSize: 14, color: '#2D2D2D', lineHeight: 1.6, margin: 0, paddingTop: 6 }}>{step}</p>
+          </div>
+        ))}
+      </Card>
+
+      {/* Documents */}
+      <Card>
+        <CardHeader icon={FileText} title="Potrebni dokumenti" />
+        {route.documents.map((doc, i) => (
+          <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8 }}>
+            <CheckCircle size={14} color="#22C55E" style={{ flexShrink: 0, marginTop: 3 }} />
+            <p style={{ fontSize: 14, color: '#2D2D2D', margin: 0, lineHeight: 1.5 }}>{doc}</p>
+          </div>
+        ))}
+      </Card>
+
+      {/* Costs */}
+      <Card>
+        <CardHeader icon={Euro} title="Troškovi i rokovi" />
+        {route.costs.map((c, i) => (
+          <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 6 }}>
+            <span style={{ color: GOLD, fontWeight: 700, flexShrink: 0 }}>•</span>
+            <p style={{ fontSize: 14, color: '#2D2D2D', margin: 0 }}>{c}</p>
+          </div>
+        ))}
+      </Card>
+
+      {/* Errors */}
+      <Card bg="#FEF2F2" border="#FECACA">
+        <CardHeader icon={AlertTriangle} color="#EF4444" title="Česte greške — izbjegni ih!" />
+        {route.errors.map((err, i) => (
+          <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8 }}>
+            <span style={{ color: '#EF4444', fontWeight: 700, flexShrink: 0 }}>✕</span>
+            <p style={{ fontSize: 14, color: '#7F1D1D', margin: 0 }}>{err}</p>
+          </div>
+        ))}
+      </Card>
+
+      {/* Sources */}
+      <Card>
+        <CardHeader icon={ExternalLink} title="Provjereni zvanični izvori" />
+        {route.sources.map((s, i) => (
+          <a key={i} href={s.url} target="_blank" rel="noopener noreferrer"
+            style={{ display: 'flex', alignItems: 'center', gap: 8, color: GOLD, fontSize: 13, textDecoration: 'none', marginBottom: 8 }}>
+            <ExternalLink size={14} />{s.label}
+          </a>
+        ))}
+        <p style={{ fontSize: 11, color: '#9CA3AF', margin: 0, marginTop: 8 }}>Stand 2025. Isključivo zvanični državni izvori.</p>
+      </Card>
+
+      {/* Musterformulare */}
+      {route.musterformulare.length > 0 && (
+        <div style={{ marginBottom: 16 }}>
+          <div style={{ background: '#1E293B', borderRadius: 14, padding: 24 }}>
+            <div style={{ textAlign: 'center', marginBottom: 16 }}>
+              <div style={{ fontSize: 28, marginBottom: 8 }}>📋</div>
+              <h3 style={{ fontSize: 18, fontWeight: 700, color: 'white', margin: '0 0 4px' }}>Vježbaj na Musterformularu</h3>
+              <p style={{ fontSize: 13, color: GOLD, margin: '0 0 8px', fontWeight: 600 }}>Popuni kao original — pa znaš tačno šta ide gdje</p>
+              <p style={{ fontSize: 13, color: '#94A3B8', margin: 0 }}>Interaktivne kopije originalnih formulara. Bez državnih obilježja — samo za učenje i vježbu.</p>
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: route.musterformulare.length > 1 ? '1fr 1fr' : '1fr', gap: 12 }}>
+              {route.musterformulare.map((form, i) => (
+                <div key={i} style={{ background: '#0F172A', borderRadius: 10, padding: 16, border: openFormKey === form.formKey ? `1.5px solid ${GOLD}` : '1.5px solid #334155' }}>
+                  <p style={{ fontSize: 14, fontWeight: 600, color: 'white', margin: '0 0 4px' }}>{form.title}</p>
+                  <p style={{ fontSize: 12, color: '#94A3B8', margin: '0 0 12px' }}>{form.subtitle}</p>
+                  <button onClick={() => handleOpenForm(form.formKey)}
+                    style={{ width: '100%', padding: '10px', background: '#2563EB', color: 'white', border: 'none', borderRadius: 8, fontSize: 13, fontWeight: 600, cursor: 'pointer', marginBottom: 8 }}>
+                    📋 {openFormKey === form.formKey ? 'Zatvori Musterformular ×' : 'Otvori Musterformular →'}
+                  </button>
+                  {form.downloadUrl && (
+                    <button onClick={() => window.print()}
+                      style={{ width: '100%', padding: '8px', background: 'transparent', color: '#94A3B8', border: '1px solid #334155', borderRadius: 8, fontSize: 12, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}>
+                      <Printer size={12} /> Prikaži kao PDF
+                    </button>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Render open form */}
+          {openFormKey && (
+            <div style={{ marginTop: 16 }}>
+              {LoadedForm
+                ? <div style={{ position: 'relative' }}>
+                    <button onClick={() => { setOpenFormKey(null); setLoadedForm(null); }}
+                      style={{ position: 'absolute', top: 12, right: 12, zIndex: 10, background: '#EF4444', color: 'white', border: 'none', borderRadius: 6, padding: '6px 14px', fontSize: 12, cursor: 'pointer', fontWeight: 600 }}>
+                      Zatvori ×
+                    </button>
+                    <LoadedForm />
+                  </div>
+                : <InlineFormPlaceholder
+                    title={route.musterformulare.find(f => f.formKey === openFormKey)?.title || openFormKey}
+                    onClose={() => setOpenFormKey(null)}
+                  />
+              }
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Disclaimer */}
+      <div style={{ background: '#F9F6F0', borderRadius: 10, padding: '14px 18px', fontSize: 12, color: '#9CA3AF' }}>
+        <Info size={13} style={{ marginRight: 6, verticalAlign: 'middle' }} />
+        BalkanLink pruža informativne smjernice i ne predstavlja pravni savjet. — Stand 2025.
+        <br />
+        <AlertTriangle size={12} style={{ marginRight: 4, verticalAlign: 'middle', marginTop: 4 }} />
+        Zakonske odredbe se mogu mijenjati. Uvijek provjeri na zvaničnim stranicama ambasade i BAMF.
+      </div>
+    </div>
+  );
+};
