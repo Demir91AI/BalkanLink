@@ -16,7 +16,7 @@ const LANG_OPTIONS = [
   { code: "bs", name: "Bosanski", flag: "🇧🇦" },
   { code: "hr", name: "Hrvatski", flag: "🇭🇷" },
   { code: "sr", name: "Srpski", flag: "🇷🇸" },
-  { code: "en", name: "English", flag: "🇬🇧" },
+  { code: "me", name: "Crnogorski", flag: "🇲🇪" },
   { code: "mk", name: "Македонски", flag: "🇲🇰" },
   { code: "sl", name: "Slovenščina", flag: "🇸🇮" },
   { code: "sq", name: "Shqip", flag: "🇦🇱" },
