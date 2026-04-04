@@ -222,17 +222,36 @@ export default function ChatAssistant() {
 
   // ── Session-scoped chat persistence ──
   const chatStorageKey = user ? `bl-chat-${user.id}` : null;
+  // Track previous user id to detect logout vs initial load
+  const prevUserIdRef = useRef<string | null | undefined>(undefined);
+  // Flag to prevent save effect from overwriting localStorage before restore completes
+  const restoredRef = useRef(false);
 
-  const loadPersistedMessages = (): Msg[] => {
-    if (!chatStorageKey) return [];
+  function loadMessagesForUser(userId: string): Msg[] {
     try {
-      const raw = localStorage.getItem(chatStorageKey);
-      if (raw) return JSON.parse(raw) as Msg[];
-    } catch {}
+      const raw = localStorage.getItem(`bl-chat-${userId}`);
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed) && parsed.length > 0) return parsed as Msg[];
+      }
+    } catch (e) {
+      console.warn("[BL-Chat] Failed to parse stored chat, clearing:", e);
+      localStorage.removeItem(`bl-chat-${userId}`);
+    }
     return [];
-  };
+  }
 
-  const [messages, setMessages] = useState<Msg[]>(loadPersistedMessages);
+  const [messages, setMessages] = useState<Msg[]>(() => {
+    // Try to restore on very first render if user is already available
+    if (user?.id) {
+      const restored = loadMessagesForUser(user.id);
+      if (restored.length > 0) {
+        restoredRef.current = true;
+        return restored;
+      }
+    }
+    return [];
+  });
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState<number | null>(null);
@@ -245,26 +264,38 @@ export default function ChatAssistant() {
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  // Persist messages to localStorage whenever they change
+  // Persist messages to localStorage whenever they change — but never overwrite with empty before restore
   useEffect(() => {
-    if (chatStorageKey && messages.length > 0) {
+    if (!chatStorageKey) return;
+    if (messages.length > 0) {
       localStorage.setItem(chatStorageKey, JSON.stringify(messages));
     }
+    // Only remove stored chat if messages were explicitly cleared (logout), not on initial empty state
   }, [messages, chatStorageKey]);
 
-  // Clear chat on logout (user becomes null)
+  // Handle user changes: restore on login, clear on logout
   useEffect(() => {
+    const prevId = prevUserIdRef.current;
+    prevUserIdRef.current = user?.id ?? null;
+
     if (!user) {
-      setMessages([]);
-      // Clean up any previous user's chat key
-      const keys = Object.keys(localStorage).filter(k => k.startsWith("bl-chat-"));
-      keys.forEach(k => localStorage.removeItem(k));
-    } else {
-      // Restore messages for newly logged-in user
-      const restored = loadPersistedMessages();
-      if (restored.length > 0 && messages.length === 0) {
-        setMessages(restored);
+      // User logged out — clear chat state and localStorage
+      if (prevId && prevId !== undefined) {
+        // Actual logout (was logged in before)
+        setMessages([]);
+        const keys = Object.keys(localStorage).filter(k => k.startsWith("bl-chat-"));
+        keys.forEach(k => localStorage.removeItem(k));
+        restoredRef.current = false;
+        console.debug("[BL-Chat] Logout — chat cleared");
       }
+    } else if (!restoredRef.current) {
+      // User just became available (login or auth hydration) — restore
+      const restored = loadMessagesForUser(user.id);
+      if (restored.length > 0) {
+        setMessages(restored);
+        console.debug("[BL-Chat] Restored", restored.length, "messages for user", user.id);
+      }
+      restoredRef.current = true;
     }
   }, [user?.id]);
 
