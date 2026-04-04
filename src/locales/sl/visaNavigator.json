@@ -147,5 +147,9 @@
     "visaRequired": "Vizum je obvezen",
     "visaYes": "Vizum je obvezen",
     "westbalkan": "Zahodnobalkanska uredba"
-  }
+  },
+  "decision_arrival_desc": "Prvič prihajam in potrebujem vizum ali dovoljenje za bivanje.",
+  "decision_extension_desc": "Imam dovoljenje za bivanje in potrebujem podaljšanje ali spremembo statusa.",
+  "decision_family_desc": "Pripeljujem zakonca, otroke ali starše v Nemčijo.",
+  "decision_permanent_desc": "Načrtujem trajno ostati v Nemčiji."
 }

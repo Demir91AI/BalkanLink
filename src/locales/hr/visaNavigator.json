@@ -147,5 +147,9 @@
     "visaRequired": "Viza je obavezna",
     "visaYes": "Viza je obavezna",
     "westbalkan": "Zapadnobalkanski propis"
-  }
+  },
+  "decision_arrival_desc": "Dolazim po prvi put i trebam vizu ili boravišnu dozvolu.",
+  "decision_extension_desc": "Imam boravišnu dozvolu i trebam produženje ili promjenu statusa.",
+  "decision_family_desc": "Dovodim supružnika, djecu ili roditelje u Njemačku.",
+  "decision_permanent_desc": "Planiram trajno ostati u Njemačkoj."
 }
