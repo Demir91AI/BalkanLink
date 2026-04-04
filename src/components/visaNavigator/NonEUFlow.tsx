@@ -185,6 +185,36 @@ const NonEUFlow = ({ selectedCountry, selectedRoute, onSelectRoute }: NonEUFlowP
           </div>
         </div>
 
+        {/* Context card */}
+        <div
+          className="rounded-[14px] px-6 py-5"
+          style={{ background: "#FFF8EC", border: "1px solid #E8D9B0" }}
+        >
+          <div className="flex items-start gap-3">
+            <Lightbulb size={20} className="mt-0.5 flex-shrink-0" style={{ color: "#C9A84C" }} />
+            <div>
+              <p className="font-bold text-[15px] mb-1" style={{ color: "#92400E" }}>
+                {t(`${route.id}_context_title`)}
+              </p>
+              <p className="text-[14px] leading-[1.7]" style={{ color: "#4A4A4A" }}>
+                {t(`${route.id}_context_body`)}
+              </p>
+              {t(`${route.id}_context_url`) && !t(`${route.id}_context_url`).startsWith(route.id) && (
+                <a
+                  href={t(`${route.id}_context_url`)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 mt-2 text-[13px] font-medium hover:underline"
+                  style={{ color: "#C9A84C" }}
+                >
+                  <ExternalLink size={14} />
+                  {t(`${route.id}_context_link`)}
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+
         {/* Eligibility */}
         <div className="bg-white rounded-[14px] p-6" style={{ boxShadow: "0 2px 14px rgba(0,0,0,0.07)" }}>
           <p className="text-[12px] font-semibold uppercase tracking-[0.1em] mb-2" style={{ color: "#C9A84C" }}>
@@ -277,16 +307,8 @@ const NonEUFlow = ({ selectedCountry, selectedRoute, onSelectRoute }: NonEUFlowP
           </div>
         </div>
 
-        {/* Disclaimer */}
-        <div className="rounded-[10px] px-5 py-4" style={{ background: "#F9F6F0" }}>
-          <div className="flex items-start gap-2.5">
-            <Info size={16} className="mt-0.5 flex-shrink-0" style={{ color: "#6B6B6B" }} />
-            <div>
-              <p className="text-[13px] text-[#6B6B6B]">{t("disclaimer")}</p>
-              <p className="text-[13px] text-[#6B6B6B] mt-1">{t("warning")}</p>
-            </div>
-          </div>
-        </div>
+        {/* Trust System */}
+        <TrustSystem variant="full" showSources={true} />
       </div>
     );
   }
