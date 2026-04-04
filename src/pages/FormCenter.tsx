@@ -44,11 +44,6 @@ import AnlageUH3GuideContent from "@/components/guides/AnlageUH3GuideContent";
 import AnfrageNichterreichbarkeitGuideContent from "@/components/guides/AnfrageNichterreichbarkeitGuideContent";
 import FuehrerscheinGuideContent from "@/components/formulare/FuehrerscheinGuide";
 import FahrzeugzulassungGuide from "@/components/formulare/FahrzeugzulassungGuide";
-import VisaWorkGuide from "@/components/formulare/VisaWorkGuide";
-import VisaBluecardGuide from "@/components/formulare/VisaBluecardGuide";
-import VisaFamilyGuide from "@/components/formulare/VisaFamilyGuide";
-import VisaStudyGuide from "@/components/formulare/VisaStudyGuide";
-import VisaPermanentGuide from "@/components/formulare/VisaPermanentGuide";
 import { navigateBackOrHome } from "@/lib/navigation";
 
 type LangKey = "de" | "bs" | "en";
@@ -133,11 +128,6 @@ function GuideContent({ slug }: { slug: string }) {
   if (slug === "nichterreichbarkeit") return <AnfrageNichterreichbarkeitGuideContent />;
   if (slug === "fuehrerschein") return <FuehrerscheinGuideContent />;
   if (slug === "fahrzeugzulassung") return <FahrzeugzulassungGuide />;
-  if (slug === "visa-work") return <VisaWorkGuide />;
-  if (slug === "visa-bluecard") return <VisaBluecardGuide />;
-  if (slug === "visa-family") return <VisaFamilyGuide />;
-  if (slug === "visa-study") return <VisaStudyGuide />;
-  if (slug === "visa-permanent") return <VisaPermanentGuide />;
 
   if (!guide) return null;
 
