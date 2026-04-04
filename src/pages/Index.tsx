@@ -412,7 +412,7 @@ export default function Index() {
       </section>
 
       <AdFlowSection />
-      <HomeReviews />
+      
 
       {/* ─── PREMIUM CTA ─── */}
       <section className="py-16 bg-white border-t border-[#E8E0D0]">
