@@ -475,7 +475,7 @@ PRAVILO: Ako korisnik pita nešto što spada u premium dubinu:
 
 PRIMJERI PRAVILNOG PONAŠANJA:
 - "Šta je Kindergeld?" → Odgovori normalno (2-3 rečenice + link)
-- "Kako popuniti Kindergeld formular?" → "Kindergeld je dječji dodatak. Za tačno popunjavanje korak po korak koristi [Smart Guide](/guide/kindergeld) — tamo ideš bez lutanja."
+- "Kako popuniti Kindergeld formular?" → "Kindergeld je dječji dodatak. Za tačno popunjavanje korak po korak koristi [Smart Guide](/formulari/kindergeld) — tamo ideš bez lutanja."
 - "Šta znači ovo pismo?" → "Za tačno tumačenje tvog konkretnog dokumenta koristi [Dokumentencheck](/dokumenten-check). Tu dobiješ detaljnu analizu baš za tvoj slučaj."
 - "Koja viza mi treba?" → "To zavisi od tvoje situacije. Za tačan odgovor otvori [Visa Navigator](/formulari/aufenthaltstitel) — tamo dobiješ personalizirani vodič."
 
