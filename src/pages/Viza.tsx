@@ -77,42 +77,81 @@ export default function Viza() {
               <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-3" style={{ color: GOLD }}>
                 EU države
               </p>
-              <div className="flex flex-col gap-1.5 mb-5">
-                {euCountries.map(c => (
-                  <button key={c.code} onClick={() => handleSelectCountry(c.code)}
-                    className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-left transition-all duration-150 hover:bg-[#FFF8EC]"
-                    style={{
-                      background: selectedCountry === c.code ? '#FFF8EC' : 'transparent',
-                      border: selectedCountry === c.code ? `1.5px solid ${GOLD}` : '1.5px solid transparent',
-                    }}>
-                    <img src={c.flag} alt="" className="h-5 rounded-sm" />
-                    <span className="text-[14px]" style={{ fontWeight: selectedCountry === c.code ? 700 : 500, color: selectedCountry === c.code ? GOLD : '#2D2D2D' }}>
-                      {c.name}
-                    </span>
-                    <span className="ml-auto text-[10px] font-semibold px-2 py-0.5 rounded-full" style={{ background: '#DCFCE7', color: '#166534' }}>EU</span>
-                  </button>
-                ))}
+              <div className="flex flex-col gap-1 mb-5">
+                {euCountries.map(c => {
+                  const active = selectedCountry === c.code;
+                  return (
+                    <button key={c.code} onClick={() => handleSelectCountry(c.code)}
+                      className="flex items-center gap-2.5 px-3 py-2 text-left transition-all duration-150 hover:bg-[#FFF8EC]"
+                      style={{
+                        background: active ? '#FFF8EC' : 'transparent',
+                        borderLeft: active ? `3px solid ${GOLD}` : '3px solid transparent',
+                        borderRadius: 6,
+                      }}>
+                      <img src={c.flag} alt="" className="h-5 rounded-sm" />
+                      <span className="text-[14px]" style={{ fontWeight: active ? 700 : 500, color: active ? GOLD : '#2D2D2D' }}>
+                        {c.name}
+                      </span>
+                      <span className="ml-auto text-[10px] font-semibold px-2 py-0.5 rounded-full" style={{ background: '#DCFCE7', color: '#166534' }}>EU</span>
+                    </button>
+                  );
+                })}
               </div>
 
               <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-3" style={{ color: GOLD }}>
                 Zapadni Balkan
               </p>
-              <div className="flex flex-col gap-1.5">
-                {nonEuCountries.map(c => (
-                  <button key={c.code} onClick={() => handleSelectCountry(c.code)}
-                    className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-left transition-all duration-150 hover:bg-[#FFF8EC]"
-                    style={{
-                      background: selectedCountry === c.code ? '#FFF8EC' : 'transparent',
-                      border: selectedCountry === c.code ? `1.5px solid ${GOLD}` : '1.5px solid transparent',
-                    }}>
-                    <img src={c.flag} alt="" className="h-5 rounded-sm" />
-                    <span className="text-[14px]" style={{ fontWeight: selectedCountry === c.code ? 700 : 500, color: selectedCountry === c.code ? GOLD : '#2D2D2D' }}>
-                      {c.name}
-                    </span>
-                    <span className="ml-auto text-[10px] font-semibold px-2 py-0.5 rounded-full" style={{ background: '#FEF9C3', color: '#854D0E' }}>WB</span>
-                  </button>
-                ))}
+              <div className="flex flex-col gap-1">
+                {nonEuCountries.map(c => {
+                  const active = selectedCountry === c.code;
+                  return (
+                    <button key={c.code} onClick={() => handleSelectCountry(c.code)}
+                      className="flex items-center gap-2.5 px-3 py-2 text-left transition-all duration-150 hover:bg-[#FFF8EC]"
+                      style={{
+                        background: active ? '#FFF8EC' : 'transparent',
+                        borderLeft: active ? `3px solid ${GOLD}` : '3px solid transparent',
+                        borderRadius: 6,
+                      }}>
+                      <img src={c.flag} alt="" className="h-5 rounded-sm" />
+                      <span className="text-[14px]" style={{ fontWeight: active ? 700 : 500, color: active ? GOLD : '#2D2D2D' }}>
+                        {c.name}
+                      </span>
+                      <span className="ml-auto text-[10px] font-semibold px-2 py-0.5 rounded-full" style={{ background: '#FEF9C3', color: '#854D0E' }}>WB</span>
+                    </button>
+                  );
+                })}
               </div>
+
+              {/* Route list when non-EU country selected */}
+              {country && !country.isEU && (
+                <>
+                  <div className="h-px my-4" style={{ background: '#F0EAD8' }} />
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-3" style={{ color: GOLD }}>
+                    Putevi dolaska i boravka
+                  </p>
+                  <div className="flex flex-col gap-1">
+                    {country.routes.map(r => {
+                      const active = selectedRoute === r.id;
+                      return (
+                        <button key={r.id} onClick={() => setSelectedRoute(r.id)}
+                          className="text-left px-3 py-2 transition-all duration-150 hover:bg-[#FFF8EC]"
+                          style={{
+                            background: active ? '#FFF8EC' : 'transparent',
+                            borderLeft: active ? `3px solid ${GOLD}` : '3px solid transparent',
+                            borderRadius: 6,
+                          }}>
+                          <span className="text-[13px] block" style={{ fontWeight: active ? 700 : 500, color: active ? GOLD : '#2D2D2D' }}>
+                            {r.title}
+                          </span>
+                          <span className="text-[11px] block" style={{ color: '#9CA3AF', fontFamily: 'monospace' }}>
+                            {r.legalBasis.split('+')[0].trim()}
+                          </span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </>
+              )}
             </div>
           </div>
 
