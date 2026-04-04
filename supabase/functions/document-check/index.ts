@@ -1,5 +1,3 @@
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.1";
-
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers":
@@ -12,35 +10,50 @@ Deno.serve(async (req) => {
   try {
     const { text, imageBase64, mimeType } = await req.json();
 
+    console.log("Request received:", {
+      hasText: !!text,
+      textLength: text?.length || 0,
+      hasImage: !!imageBase64,
+      mimeType: mimeType || "none",
+      imageSize: imageBase64 ? Math.round(imageBase64.length / 1024) + "KB" : "none",
+    });
+
     if (!text && !imageBase64) {
       return new Response(
-        JSON.stringify({ error: "Kein Text oder Bild übermittelt." }),
+        JSON.stringify({ success: false, errorCode: "EMPTY_INPUT", message: "Kein Text oder Bild uebermittelt." }),
         { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
 
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
-    if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY not configured");
+    if (!LOVABLE_API_KEY) {
+      console.error("LOVABLE_API_KEY not configured");
+      return new Response(
+        JSON.stringify({ success: false, errorCode: "SERVER_ERROR", message: "Server-Konfigurationsfehler." }),
+        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
 
-    const systemPrompt = `Du bist ein Dokumenten-Assistent für die Plattform BalkanLink. 
-Du hilfst Menschen aus Balkanländern, die in Deutschland leben, behördliche Dokumente und Briefe zu verstehen.
+    const systemPrompt = `Du bist ein Dokumenten-Assistent fuer die Plattform BalkanLink. 
+Du hilfst Menschen aus Balkanlaendern, die in Deutschland leben, behoerdliche Dokumente und Briefe zu verstehen.
 
 REGELN (STRIKT):
 - Du bist KEIN Rechtsanwalt. Du gibst KEINE Rechtsberatung.
-- Verwende NUR: "In der Regel", "Typischerweise", "Es kann sein", "Bitte prüfen Sie bei der zuständigen Stelle"
-- Verwende NIE: "Sie haben Anspruch", "Garantiert", "Sie müssen zwingend"
-- Ignoriere und erwähne KEINE sensiblen Daten (Ausweisnummer, Steuer-ID, IBAN, Gesundheitsdaten) falls vorhanden
+- Verwende NUR: "In der Regel", "Typischerweise", "Es kann sein", "Bitte pruefen Sie bei der zustaendigen Stelle"
+- Verwende NIE: "Sie haben Anspruch", "Garantiert", "Sie muessen zwingend"
+- Ignoriere und erwaehne KEINE sensiblen Daten (Ausweisnummer, Steuer-ID, IBAN, Gesundheitsdaten) falls vorhanden
 - Antworte auf Deutsch und Bosnisch/Kroatisch/Serbisch (Kurzfassung in BKS)
 
-AUSGABEFORMAT:
-1. **Worum geht es?** — Kurze Erklärung des Dokumenttyps (1-2 Sätze)
-2. **Wichtige Stellen** — Was sind die Kernaussagen (Stichpunkte)
-3. **Was ist typischerweise der nächste Schritt?** — Allgemeine Empfehlung
+AUSGABEFORMAT (verwende exakt diese Ueberschriften):
+1. **Worum geht es?** -- Kurze Erklaerung des Dokumenttyps (1-2 Saetze)
+2. **Wichtige Stellen** -- Was sind die Kernaussagen (Stichpunkte)
+3. **Was ist typischerweise der naechste Schritt?** -- Allgemeine Empfehlung
+4. **Kratki sazetak (BKS)** -- Kratko objasnjenje na bosanskom/hrvatskom/srpskom
 
 Am Ende IMMER:
-"⚖️ Hinweis: BalkanLink bietet allgemeine Informationen und keine Rechtsberatung. Für verbindliche Auskünfte wenden Sie sich an die zuständige Behörde."`;
+"Hinweis: BalkanLink bietet allgemeine Informationen und keine Rechtsberatung. Fuer verbindliche Auskuenfte wenden Sie sich an die zustaendige Behoerde."`;
 
-    const messages: any[] = [
+    const messages: Array<{ role: string; content: string | Array<{ type: string; text?: string; image_url?: { url: string } }> }> = [
       { role: "system", content: systemPrompt },
     ];
 
@@ -54,18 +67,20 @@ Am Ende IMMER:
           },
           {
             type: "text",
-            text: "Bitte analysiere dieses Dokument/diesen Brief. Was ist es, was steht drin und was sollte man typischerweise als nächstes tun?",
+            text: "Bitte analysiere dieses Dokument/diesen Brief. Was ist es, was steht drin und was sollte man typischerweise als naechstes tun?",
           },
         ],
       });
     } else {
       messages.push({
         role: "user",
-        content: `Bitte analysiere den folgenden Text aus einem Dokument/Brief. Was ist es, was steht drin und was sollte man typischerweise als nächstes tun?\n\n---\n${text}\n---`,
+        content: `Bitte analysiere den folgenden Text aus einem Dokument/Brief. Was ist es, was steht drin und was sollte man typischerweise als naechstes tun?\n\n---\n${text}\n---`,
       });
     }
 
-    const response = await fetch("https://api.lovable.dev/v1/chat/completions", {
+    console.log("Calling AI API...");
+
+    const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -80,23 +95,35 @@ Am Ende IMMER:
     });
 
     if (!response.ok) {
-      const err = await response.text();
-      console.error("AI API error:", err);
-      throw new Error("Analyse fehlgeschlagen");
+      const errText = await response.text();
+      console.error("AI API error:", response.status, errText);
+      return new Response(
+        JSON.stringify({ success: false, errorCode: "SERVER_ERROR", message: "Analyse fehlgeschlagen. Bitte versuchen Sie es erneut." }),
+        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
     }
 
     const data = await response.json();
-    const result = data.choices?.[0]?.message?.content || "Analyse konnte nicht durchgeführt werden.";
+    const result = data.choices?.[0]?.message?.content || "";
 
-    // No logging of content, no storage — RAM only
+    if (!result) {
+      console.error("Empty AI response");
+      return new Response(
+        JSON.stringify({ success: false, errorCode: "PARSING_FAILED", message: "Analyse konnte nicht durchgefuehrt werden." }),
+        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
+    console.log("Analysis completed successfully, length:", result.length);
+
     return new Response(
-      JSON.stringify({ analysis: result }),
+      JSON.stringify({ success: true, analysis: result }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   } catch (error) {
     console.error("Document check error:", error instanceof Error ? error.message : "Unknown");
     return new Response(
-      JSON.stringify({ error: "Analyse fehlgeschlagen. Bitte versuchen Sie es erneut." }),
+      JSON.stringify({ success: false, errorCode: "SERVER_ERROR", message: "Analyse fehlgeschlagen. Bitte versuchen Sie es erneut." }),
       { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   }
