@@ -128,11 +128,6 @@ function GuideContent({ slug }: { slug: string }) {
   if (slug === "nichterreichbarkeit") return <AnfrageNichterreichbarkeitGuideContent />;
   if (slug === "fuehrerschein") return <FuehrerscheinGuideContent />;
   if (slug === "fahrzeugzulassung") return <FahrzeugzulassungGuide />;
-  if (slug === "visa-work") return <VisaWorkGuide />;
-  if (slug === "visa-bluecard") return <VisaBluecardGuide />;
-  if (slug === "visa-family") return <VisaFamilyGuide />;
-  if (slug === "visa-study") return <VisaStudyGuide />;
-  if (slug === "visa-permanent") return <VisaPermanentGuide />;
 
   if (!guide) return null;
 
