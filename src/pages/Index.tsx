@@ -23,6 +23,7 @@ import heroDuesseldorf from "@/assets/hero-duesseldorf.jpg";
 import heroNuernberg from "@/assets/hero-nuernberg.jpg";
 import heroLeipzig from "@/assets/hero-leipzig.jpg";
 import heroFreilassing from "@/assets/hero-freilassing-real.jpg";
+import placeholderPartnerImg from "@/assets/placeholder-partner.jpg";
 
 const slides = [
   { image: heroFrankfurt, city: "FRANKFURT" },
