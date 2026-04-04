@@ -157,6 +157,7 @@ const App = () => (
                 <Route path="/musterformular/anlage-uf" element={<AnlageUFMuster />} />
                 <Route path="/musterformular/anlage-se" element={<AnlageSEMuster />} />
                 <Route path="/musterformular/arbeitsbescheinigung" element={<ArbeitsbescheinigungMuster />} />
+                <Route path="/musterformular/kindergeld" element={<KindergeldMuster />} />
                 <Route path="/musterformular/antragsruecknahme" element={<AntragsruecknahmeMuster />} />
                 
                 <Route path="/formulari/:slug" element={<FormCenter />} />
