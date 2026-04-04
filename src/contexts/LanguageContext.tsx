@@ -1,5 +1,12 @@
 import { createContext, useContext, useState, useCallback, type ReactNode } from "react";
 import { type Language, getTranslation, LANGUAGES } from "@/lib/translations";
+import i18n from "@/i18n";
+
+const ALL_NS = [
+  "common","header","hero","homepage","footer","sideMenu","rightPanel",
+  "formulare","visaNavigator","dokumentencheck","deutsch","chatbot",
+  "calculators","cookies","validation","status","premium","ads","nudimTrazim"
+];
 
 interface LanguageContextType {
   language: Language;
@@ -20,10 +27,47 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const setLanguage = useCallback((lang: Language) => {
     setLanguageState(lang);
     localStorage.setItem("balkanlink-lang", lang);
+    // Sync i18next so both systems stay in lock-step
+    i18n.changeLanguage(lang);
+    localStorage.setItem("app_language", lang);
   }, []);
 
   const t = useCallback(
-    (key: string) => getTranslation(language, key as any),
+    (key: string) => {
+      // 1. Try the local translations map first
+      const local = getTranslation(language, key as any);
+      if (local !== key) return local;
+
+      // Helper: check if a result is a valid translated string
+      const isValid = (result: unknown, ...fallbacks: string[]) =>
+        typeof result === "string" && result.length > 0 &&
+        !fallbacks.includes(result) &&
+        !result.startsWith("[object") &&
+        !result.startsWith("key '");
+
+      // 2. Fallback: search i18next namespaces
+      const i18nT = i18n.t.bind(i18n);
+
+      // Direct lookup
+      for (const ns of ALL_NS) {
+        const nsKey = `${ns}:${key}`;
+        const result = i18nT(nsKey, { lng: language, returnObjects: false });
+        if (isValid(result, nsKey, key)) return result as string;
+      }
+
+      // Dot-prefix lookup: "sidebar.smartGuide" → try "sideMenu:smartGuide"
+      const dotIdx = key.indexOf(".");
+      if (dotIdx > 0) {
+        const subKey = key.substring(dotIdx + 1);
+        for (const ns of ALL_NS) {
+          const nsKey = `${ns}:${subKey}`;
+          const result = i18nT(nsKey, { lng: language, returnObjects: false });
+          if (isValid(result, nsKey, subKey)) return result as string;
+        }
+      }
+
+      return local;
+    },
     [language]
   );
 
