@@ -336,7 +336,7 @@ function AdFlowSection() {
 /* ─── Main Page ─── */
 export default function Index() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const { t } = useTranslation();
+  const { t } = useLanguage();
   const navigate = useNavigate();
 
   const nextSlide = useCallback(() => {
