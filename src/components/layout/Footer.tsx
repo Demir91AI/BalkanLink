@@ -141,7 +141,7 @@ function FooterBrandLogo() {
 }
 
 const Divider = () => (
-  <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4CFC5] to-transparent" />
+  <div className="h-px w-full bg-gradient-to-r from-transparent via-[#C4BDB0]/50 to-transparent" />
 );
 
 export default function Footer() {
@@ -168,88 +168,97 @@ export default function Footer() {
   return (
     <footer className="text-[#3A3A3A]" style={{ background: "#F0EDE6" }}>
       {/* Gold accent top */}
-      <div className="h-px bg-gradient-to-r from-transparent via-[hsl(var(--gold))] to-transparent opacity-40" />
+      <div className="h-px bg-gradient-to-r from-transparent via-[hsl(var(--gold))] to-transparent opacity-50" />
 
-      <div className="container max-w-3xl mx-auto py-14 flex flex-col items-center gap-8">
+      <div className="container max-w-3xl mx-auto py-16 flex flex-col items-center">
 
         {/* 1. Brand */}
-        <div className="flex flex-col items-center gap-2.5">
+        <div className="flex flex-col items-center gap-2">
           <FooterBrandLogo />
-          <p className="text-[13px] text-[#5A5A5A] leading-relaxed">{t("footer.tagline")}</p>
+          <p className="text-[13px] text-[#505050] leading-relaxed">{t("footer.tagline")}</p>
         </div>
 
-        <Divider />
+        <div className="my-10 w-full"><Divider /></div>
 
-        {/* 2. Legal links — horizontal */}
+        {/* 2. Legal links */}
         <nav className="flex flex-wrap items-center justify-center gap-x-1.5 gap-y-1.5">
           {legalLinks.map((link, i) => (
             <span key={link.to} className="flex items-center">
-              <Link to={link.to} className="text-[12px] text-[#5A5A5A] transition-colors hover:text-[hsl(var(--gold))]">
+              <Link to={link.to} className="text-[12px] text-[#505050] transition-colors hover:text-[hsl(var(--gold))]">
                 {link.label}
               </Link>
-              {i < legalLinks.length - 1 && <span className="text-[#C4BDB0] mx-1.5">·</span>}
+              {i < legalLinks.length - 1 && <span className="text-[#B8B0A0] mx-2">·</span>}
             </span>
           ))}
           <span className="flex items-center">
-            <span className="text-[#C4BDB0] mx-1.5">·</span>
+            <span className="text-[#B8B0A0] mx-2">·</span>
             <button
               onClick={() => (window as any).__blOpenCookieSettings?.()}
-              className="text-[12px] text-[#5A5A5A] transition-colors hover:text-[hsl(var(--gold))]"
+              className="text-[12px] text-[#505050] transition-colors hover:text-[hsl(var(--gold))]"
             >
               {t("cookie.footerLink")}
             </button>
           </span>
         </nav>
 
-        <Divider />
+        <div className="my-10 w-full"><Divider /></div>
 
         {/* 3. Trust */}
-        <div className="flex flex-col items-center gap-2">
-          <h4 className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#5A5A5A]">{t("footer.trust")}</h4>
+        <div className="flex flex-col items-center gap-3">
+          <h4 className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#505050]">{t("footer.trust")}</h4>
           {reviews.length > 0 ? (
-            <div className="flex flex-col items-center gap-1.5">
-              <div className="flex items-center gap-0.5">
+            <div className="flex flex-col items-center gap-2">
+              <div className="flex items-center gap-1">
                 {Array.from({ length: 5 }).map((_, si) => (
-                  <Star key={si} className={`h-3.5 w-3.5 ${si < reviews[0].rating ? "fill-[hsl(var(--gold))] text-[hsl(var(--gold))]" : "text-[#D4CFC5]"}`} />
+                  <Star key={si} className={`h-4.5 w-4.5 ${si < reviews[0].rating ? "fill-[hsl(var(--gold))] text-[hsl(var(--gold))]" : "text-[#D4CFC5]"}`} />
                 ))}
               </div>
-              <p className="text-[13px] text-[#4A4A4A] text-center max-w-md leading-snug">"{reviews[0].comment}"</p>
-              <p className="text-[11px] text-[#5A5A5A]/70">— {reviews[0].username}</p>
+              <p className="text-[14px] font-medium text-[#3A3A3A] text-center max-w-md leading-relaxed italic">
+                "{reviews[0].comment}"
+              </p>
+              <p className="text-[11px] text-[#6A6A6A]">— {reviews[0].username}</p>
             </div>
           ) : (
-            <p className="text-[12px] text-[#5A5A5A]/60">{t("reviews.noReviews")}</p>
+            <p className="text-[12px] text-[#6A6A6A]">{t("reviews.noReviews")}</p>
           )}
           <AllReviewsModal />
         </div>
 
-        <Divider />
+        <div className="my-10 w-full"><Divider /></div>
 
-        {/* 4. Payment methods — inline text */}
-        <div className="flex flex-col items-center gap-2">
-          <h4 className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#5A5A5A]">{t("footer.paymentMethods")}</h4>
-          <p className="text-[12px] text-[#5A5A5A]">
-            {paymentMethods.join("  •  ")}
-          </p>
+        {/* 4. Payment methods — pills */}
+        <div className="flex flex-col items-center gap-3">
+          <h4 className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#505050]">{t("footer.paymentMethods")}</h4>
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            {paymentMethods.map((m) => (
+              <span key={m} className="text-[11px] font-medium text-[#505050] px-3 py-1 rounded-full border border-[#D4CFC5] bg-white/50">
+                {m}
+              </span>
+            ))}
+          </div>
         </div>
 
-        <Divider />
+        {/* RealCore accent divider */}
+        <div className="mt-12 mb-8 w-full">
+          <div className="h-px w-full bg-gradient-to-r from-transparent via-[hsl(var(--gold))]/30 to-transparent" />
+        </div>
 
         {/* 5. RealCore */}
         <div className="flex flex-col items-center gap-2.5">
-          <p className="text-[11px] font-medium tracking-wide text-[#7A7A7A] uppercase">Powered by</p>
+          <p className="text-[10px] font-semibold tracking-[0.15em] text-[#8A8A8A] uppercase">Powered by</p>
           <img
             src={realcoreLogo}
             alt="RealCore Digital"
             loading="lazy"
             className="h-[46px] w-auto object-contain"
           />
-          <p className="text-[11px] text-[#7A7A7A] tracking-wide">Klar denken. Digital umsetzen.</p>
+          <p className="text-[11px] text-[#7A7A7A] tracking-wide italic">Klar denken. Digital umsetzen.</p>
         </div>
 
-        <Divider />
+        <div className="mt-10 mb-0 w-full"><Divider /></div>
 
         {/* 6. Copyright */}
-        <p className="text-[12px] text-[#5A5A5A]">
+        <p className="mt-6 text-[12px] text-[#6A6A6A]">
           © {new Date().getFullYear()} BalkanLink. {t("footer.copyright")}
         </p>
       </div>
