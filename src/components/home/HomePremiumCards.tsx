@@ -42,20 +42,23 @@ const secondaryCards = [
 
 export default function HomePremiumCards() {
   return (
-    <section className="py-16 sm:py-20">
+    <section className="py-20 sm:py-28">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mx-auto max-w-2xl text-center mb-10"
+          className="mx-auto max-w-2xl text-center mb-14"
         >
-          <h2 className="font-heading text-2xl font-extrabold text-white sm:text-3xl lg:text-4xl">
+          <h2 className="font-heading text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl tracking-tight">
             Premium alati za{" "}
             <span className="text-gold">tvoj uspjeh</span>
           </h2>
-          <div className="mx-auto mt-3 h-[3px] w-16 rounded-full bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--gold))]" />
+          <p className="text-sm sm:text-base text-white/50 mt-3 max-w-lg mx-auto leading-relaxed">
+            Profesionalni vodiči, AI asistent i provjera dokumenata — sve što ti treba za život u Njemačkoj.
+          </p>
+          <div className="mx-auto mt-5 h-[3px] w-20 rounded-full bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--gold))]" />
         </motion.div>
 
         <div className="mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
