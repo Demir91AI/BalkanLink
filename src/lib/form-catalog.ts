@@ -88,22 +88,6 @@ export const formCatalog: FormGroup[] = [
     ],
   },
   {
-    id: "sozialhilfe",
-    icon: "🤝",
-    title: "Sozialhilfe",
-    items: [
-      { slug: "sozialhilfe", label: "Sozialhilfe", desc: "Osnovna pomoć za osobe koje ne mogu raditi." },
-    ],
-  },
-  {
-    id: "heizkostenzuschuss",
-    icon: "🔥",
-    title: "Heizkostenzuschuss",
-    items: [
-      { slug: "heizkostenzuschuss", label: "Heizkostenzuschuss", desc: "Dodatak za troškove grijanja." },
-    ],
-  },
-  {
     id: "posao",
     icon: "💼",
     title: "Posao i prihodi",
@@ -111,8 +95,6 @@ export const formCatalog: FormGroup[] = [
       { slug: "krankenkasse", label: "Krankenkasse Anmeldung", desc: "Prijava u zdravstveno osiguranje u Njemačkoj." },
       { slug: "steuerklassenwechsel", label: "Steuerklassenwechsel", desc: "Promjena poreske klase, npr. nakon braka." },
       { slug: "arbeitslosengeld", label: "Arbeitslosengeld I", desc: "Naknada ako si izgubio posao i ispunjavaš uslove." },
-      { slug: "kurzarbeitergeld", label: "Kurzarbeitergeld", desc: "Naknada kad firma privremeno smanji radne sate." },
-      { slug: "bildungsgutschein", label: "Bildungsgutschein", desc: "Vaučer za finansiranje prekvalifikacije." },
     ],
   },
   {
@@ -123,7 +105,7 @@ export const formCatalog: FormGroup[] = [
       { slug: "bafoeg", label: "BAföG", desc: "Finansijska pomoć za školovanje ili studij (studenti, učenici, strukovno usavršavanje)." },
       { slug: "schueler-bafoeg", label: "Schüler-BAföG", desc: "Učenički BAföG — finansijska pomoć za učenike koji žive odvojeno od roditelja." },
       { slug: "integrationskurs", label: "Integrationskurs", desc: "Kurs njemačkog jezika i orijentacije." },
-      { slug: "lernfoerderung", label: "Lernförderung", desc: "Pomoć za dopunsku nastavu za djecu." },
+      
     ],
   },
   {
