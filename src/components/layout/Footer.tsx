@@ -260,25 +260,36 @@ export default function Footer() {
 
         <div className="my-10 w-full"><Divider /></div>
 
-        {/* 4. Trust */}
-        <div className="flex flex-col items-center gap-3">
-          <h4 className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#505050]">{t("footer.trust")}</h4>
+        {/* 4. Trust — compact */}
+        <div className="flex flex-col items-center gap-1.5">
           {reviews.length > 0 ? (
-            <div className="flex flex-col items-center gap-2">
-              <div className="flex items-center gap-1">
-                {Array.from({ length: 5 }).map((_, si) => (
-                  <Star key={si} className={`h-4.5 w-4.5 ${si < reviews[0].rating ? "fill-[hsl(var(--gold))] text-[hsl(var(--gold))]" : "text-[#D4CFC5]"}`} />
-                ))}
+            <>
+              {/* Rating summary row */}
+              <div className="flex items-center gap-2">
+                <span className="text-[20px] font-extrabold text-[#3A3A3A] leading-none">
+                  {(reviews.reduce((s, r) => s + r.rating, 0) / reviews.length).toFixed(1)}
+                </span>
+                <div className="flex items-center gap-0.5">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className={`h-3.5 w-3.5 ${i < Math.round(reviews.reduce((s, r) => s + r.rating, 0) / reviews.length) ? "fill-[hsl(var(--gold))] text-[hsl(var(--gold))]" : "text-[#D4CFC5]"}`} />
+                  ))}
+                </div>
+                <span className="text-[11px] text-[#8A8A8A]">({reviews.length})</span>
               </div>
-              <p className="text-[14px] font-medium text-[#3A3A3A] text-center max-w-md leading-relaxed italic">
-                "{reviews[0].comment}"
+              {/* Latest review */}
+              <p className="text-[12px] text-[#505050] text-center max-w-sm leading-relaxed italic">
+                "{reviews[0].comment}" <span className="not-italic text-[11px] text-[#8A8A8A]">— {reviews[0].username}</span>
               </p>
-              <p className="text-[11px] text-[#6A6A6A]">— {reviews[0].username}</p>
-            </div>
+            </>
           ) : (
-            <p className="text-[12px] text-[#6A6A6A]">{t("reviews.noReviews")}</p>
+            <p className="text-[11px] text-[#8A8A8A]">{t("reviews.noReviews")}</p>
           )}
-          <AllReviewsModal />
+          {/* Actions */}
+          <div className="flex items-center gap-3 mt-0.5">
+            <AllReviewsModal reviews={reviews} />
+            <span className="text-[#D4CFC5]">·</span>
+            <ReviewFormModal />
+          </div>
         </div>
 
         {/* RealCore accent divider */}
