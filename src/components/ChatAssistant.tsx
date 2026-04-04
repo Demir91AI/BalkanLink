@@ -200,7 +200,7 @@ function ResponseActions({ msg }: { msg: Msg }) {
     actions.push({ label: msg.redirectLabel, to: msg.redirectUrl, icon: ExternalLink, primary: true });
   }
   if (msg.guideSlug && VALID_GUIDE_SLUGS.has(msg.guideSlug)) {
-    actions.push({ label: "Otvori Smart Guide", to: `/guide/${msg.guideSlug}`, icon: BookOpen, primary: true });
+    actions.push({ label: "Otvori Smart Guide", to: `/formulari/${msg.guideSlug}`, icon: BookOpen, primary: true });
   }
   if (msg.formSlugs?.length) {
     const fp = `/formulari/${msg.formSlugs[0]}`;
