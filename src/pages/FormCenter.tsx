@@ -129,6 +129,7 @@ function GuideContent({ slug }: { slug: string }) {
   if (slug === "nichterreichbarkeit") return <AnfrageNichterreichbarkeitGuideContent />;
   if (slug === "fuehrerschein") return <FuehrerscheinGuideContent />;
   if (slug === "fahrzeugzulassung") return <FahrzeugzulassungGuide />;
+  if (slug === "visa-work") return <VisaWorkGuide />;
 
   if (!guide) return null;
 
