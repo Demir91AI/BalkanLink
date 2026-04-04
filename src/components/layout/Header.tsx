@@ -20,6 +20,7 @@ const LANG_OPTIONS = [
   { code: "mk", name: "Македонски", flag: "https://flagcdn.com/h40/mk.png" },
   { code: "sl", name: "Slovenščina", flag: "https://flagcdn.com/h40/si.png" },
   { code: "sq", name: "Shqip", flag: "https://flagcdn.com/h40/al.png" },
+  { code: "xk", name: "Kosovë", flag: "https://flagcdn.com/h40/xk.png" },
 ];
 
 const menuBtnClass =
