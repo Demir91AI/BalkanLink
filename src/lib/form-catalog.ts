@@ -135,6 +135,7 @@ export const formCatalog: FormGroup[] = [
       { slug: "visa-bluecard", label: "Blaue Karte EU §18g AufenthG", desc: "EU Plava karta za visokokvalificirane s ponudom posla." },
       { slug: "visa-family", label: "Familiennachzug §§27-36 AufenthG", desc: "Spajanje porodice s osobom koja živi u Njemačkoj." },
       { slug: "visa-study", label: "Studiumsvisa §16b AufenthG", desc: "Studentska viza i boravišna dozvola za studij u Njemačkoj." },
+      { slug: "visa-permanent", label: "Niederlassungserlaubnis §9 / Daueraufenthalt-EU §9a", desc: "Stalni boravak i neograničena dozvola boravka u Njemačkoj." },
     ],
   },
   {

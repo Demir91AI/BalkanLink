@@ -137,6 +137,7 @@ function GuideContent({ slug }: { slug: string }) {
   if (slug === "visa-bluecard") return <VisaBluecardGuide />;
   if (slug === "visa-family") return <VisaFamilyGuide />;
   if (slug === "visa-study") return <VisaStudyGuide />;
+  if (slug === "visa-permanent") return <VisaPermanentGuide />;
 
   if (!guide) return null;
 
