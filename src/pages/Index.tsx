@@ -5,7 +5,7 @@ import {
   Megaphone, CheckCircle2, Star, ExternalLink,
   ChevronLeft, ChevronRight, FileText, Shield, GraduationCap, Search, Home, Calculator, Map, Camera,
 } from "lucide-react";
-import { useTranslation } from "@/i18n/useTranslation";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import LanguageSelector from "@/components/LanguageSelector";
 import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
