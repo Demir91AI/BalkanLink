@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback } from "react";
-import { FileText, Upload, Type, Shield, AlertTriangle, Loader2, X, CheckCircle2, ChevronLeft, Lock } from "lucide-react";
+import { FileText, Upload, Type, Shield, AlertTriangle, Loader2, X, CheckCircle2, ChevronLeft, Lock, FileCheck, ListChecks, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -11,8 +11,22 @@ import { useSectionT } from "@/hooks/useSectionT";
 import { useNavigate } from "react-router-dom";
 import { navigateBackOrHome } from "@/lib/navigation";
 import { IS_ADMIN_PREVIEW } from "@/lib/config";
+import { toast } from "sonner";
 
 type InputMode = "upload" | "text";
+
+const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB
+const ALLOWED_TYPES = ["application/pdf", "image/jpeg", "image/png"];
+const ALLOWED_EXTENSIONS = [".pdf", ".jpg", ".jpeg", ".png"];
+
+function getFileExtension(name: string): string {
+  return name.slice(name.lastIndexOf(".")).toLowerCase();
+}
+
+function isFileAllowed(file: File): boolean {
+  if (ALLOWED_TYPES.includes(file.type)) return true;
+  return ALLOWED_EXTENSIONS.includes(getFileExtension(file.name));
+}
 
 export default function DokumentenCheck() {
   const { t } = useLanguage();
@@ -28,6 +42,7 @@ export default function DokumentenCheck() {
   const [error, setError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [showPaywall, setShowPaywall] = useState(false);
+  const submittingRef = useRef(false);
 
   const isPremium = IS_ADMIN_PREVIEW;
 
@@ -43,13 +58,13 @@ export default function DokumentenCheck() {
   const handleFileSelect = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const selected = e.target.files?.[0];
     if (!selected) return;
-    const allowed = ["application/pdf", "image/jpeg", "image/png", "image/webp"];
-    if (!allowed.includes(selected.type)) {
-      setError(st("docCheck.formatError"));
+
+    if (!isFileAllowed(selected)) {
+      setError("Podrzani su samo PDF, JPG i PNG fajlovi.");
       return;
     }
-    if (selected.size > 10 * 1024 * 1024) {
-      setError(st("docCheck.sizeError"));
+    if (selected.size > MAX_FILE_SIZE) {
+      setError("Fajl je prevelik za analizu. Molimo pokusajte s manjim dokumentom (maks. 10 MB).");
       return;
     }
     setError(null);
@@ -60,57 +75,100 @@ export default function DokumentenCheck() {
     } else {
       setFilePreviewUrl(null);
     }
-  }, [st]);
+  }, []);
 
   const handleAnalyze = useCallback(async () => {
-    if (!confirmed) return;
+    // Prevent duplicate submits
+    if (submittingRef.current || loading) return;
 
-    // Free users: no free checks, must pay
+    if (!confirmed) {
+      setError("Molimo potvrdite checkbox prije analize.");
+      return;
+    }
+
     if (!isPremium) {
       setShowPaywall(true);
       return;
     }
 
+    // Validate input
+    if (mode === "text" && !textInput.trim()) {
+      setError("Nije odabran dokument niti unesen tekst.");
+      return;
+    }
+    if (mode === "upload" && !file) {
+      setError("Nije odabran dokument niti unesen tekst.");
+      return;
+    }
+
+    submittingRef.current = true;
     setLoading(true);
     setError(null);
     setAnalysis(null);
 
+    console.log("[DocCheck] Starting analysis:", { mode, fileType: file?.type, fileSize: file?.size, textLength: textInput.length });
+
     try {
       let payload: { text?: string; imageBase64?: string; mimeType?: string } = {};
+
       if (mode === "text") {
-        if (!textInput.trim()) { setError(st("docCheck.noText")); setLoading(false); return; }
         payload = { text: textInput.trim() };
       } else if (file) {
-        if (file.type.startsWith("image/")) {
+        if (file.type.startsWith("image/") || file.type === "image/jpeg" || file.type === "image/png") {
           const buffer = await file.arrayBuffer();
           const base64 = btoa(new Uint8Array(buffer).reduce((data, byte) => data + String.fromCharCode(byte), ""));
           payload = { imageBase64: base64, mimeType: file.type };
+          console.log("[DocCheck] Sending image, base64 size:", base64.length);
         } else {
-          const text = await file.text();
-          if (text.trim().length > 50) {
-            payload = { text: text.trim().slice(0, 8000) };
+          // PDF: try to read as text first, fallback to sending as base64
+          const textContent = await file.text();
+          if (textContent.trim().length > 50 && !textContent.includes("\x00")) {
+            payload = { text: textContent.trim().slice(0, 8000) };
+            console.log("[DocCheck] Sending PDF as text, length:", payload.text!.length);
           } else {
             const buffer = await file.arrayBuffer();
             const base64 = btoa(new Uint8Array(buffer).reduce((data, byte) => data + String.fromCharCode(byte), ""));
-            payload = { imageBase64: base64, mimeType: file.type };
+            payload = { imageBase64: base64, mimeType: "application/pdf" };
+            console.log("[DocCheck] Sending PDF as base64, size:", base64.length);
           }
         }
-      } else {
-        setError(st("docCheck.noInput"));
-        setLoading(false);
-        return;
       }
 
+      console.log("[DocCheck] Invoking edge function...");
       const { data, error: fnError } = await supabase.functions.invoke("document-check", { body: payload });
-      if (fnError) throw fnError;
-      if (data?.error) throw new Error(data.error);
+
+      console.log("[DocCheck] Response:", { data, fnError });
+
+      if (fnError) {
+        console.error("[DocCheck] Function error:", fnError);
+        throw new Error("Greska na serveru pri analizi dokumenta. Pokusajte ponovo za nekoliko trenutaka.");
+      }
+
+      if (data?.success === false) {
+        const msg = data.message || "Dokument nije moguce obraditi. Pokusajte s drugim fajlom.";
+        throw new Error(msg);
+      }
+
+      if (!data?.analysis) {
+        throw new Error("Dokument nije moguce obraditi. Pokusajte s drugim fajlom.");
+      }
+
       setAnalysis(data.analysis);
+      console.log("[DocCheck] Analysis successful, length:", data.analysis.length);
     } catch (err: any) {
-      setError(err.message || st("docCheck.analysisFailed"));
+      console.error("[DocCheck] Error:", err);
+      const message = err.message || "Greska na serveru pri analizi dokumenta. Pokusajte ponovo za nekoliko trenutaka.";
+      // Never show raw technical errors
+      if (message.includes("Edge Function") || message.includes("FunctionsHttpError") || message.includes("fetch")) {
+        setError("Greska na serveru pri analizi dokumenta. Pokusajte ponovo za nekoliko trenutaka.");
+      } else {
+        setError(message);
+      }
     } finally {
       setLoading(false);
+      submittingRef.current = false;
     }
-  }, [confirmed, mode, textInput, file, st, isPremium]);
+  }, [confirmed, mode, textInput, file, isPremium, loading]);
 
   const handleClear = useCallback(() => {
     clearFile();
@@ -118,6 +176,9 @@ export default function DokumentenCheck() {
     setAnalysis(null);
     setError(null);
     setConfirmed(false);
+    setShowPaywall(false);
+    setLoading(false);
+    submittingRef.current = false;
   }, [clearFile]);
 
   const handleBack = useCallback(() => {
@@ -139,7 +200,6 @@ export default function DokumentenCheck() {
           <p className="mt-2 text-sm text-primary-foreground/80">
             {st("docCheck.subtitle")}
           </p>
-          {/* Pricing info */}
           <div className="mt-3 flex flex-wrap gap-2">
             <span className="inline-block rounded-full bg-[hsl(var(--gold))]/20 px-3 py-1 text-xs font-semibold text-[hsl(var(--gold))]">
               2.99€ po dokumentu bez pretplate
@@ -163,10 +223,10 @@ export default function DokumentenCheck() {
           </motion.div>
 
           <div className="flex gap-2">
-            <Button variant={mode === "text" ? "default" : "outline"} size="sm" onClick={() => { setMode("text"); clearFile(); setAnalysis(null); }} className="gap-2">
+            <Button variant={mode === "text" ? "default" : "outline"} size="sm" onClick={() => { setMode("text"); clearFile(); setAnalysis(null); setError(null); }} className="gap-2">
               <Type className="h-4 w-4" /> {st("docCheck.textMode")}
             </Button>
-            <Button variant={mode === "upload" ? "default" : "outline"} size="sm" onClick={() => { setMode("upload"); setTextInput(""); setAnalysis(null); }} className="gap-2">
+            <Button variant={mode === "upload" ? "default" : "outline"} size="sm" onClick={() => { setMode("upload"); setTextInput(""); setAnalysis(null); setError(null); }} className="gap-2">
               <Upload className="h-4 w-4" /> {st("docCheck.uploadMode")}
             </Button>
           </div>
@@ -189,7 +249,7 @@ export default function DokumentenCheck() {
                     className="flex cursor-pointer flex-col items-center justify-center gap-3 rounded-lg border-2 border-dashed border-border/60 p-10 transition-colors hover:border-primary/40 hover:bg-muted/30">
                     <Upload className="h-8 w-8 text-muted-foreground/50" />
                     <p className="text-sm text-muted-foreground">{st("docCheck.dropHere")}</p>
-                    <p className="text-xs text-muted-foreground/60">Max. 10 MB · PDF, JPG, PNG, WebP</p>
+                    <p className="text-xs text-muted-foreground/60">Max. 10 MB · PDF, JPG, PNG</p>
                   </div>
                 ) : (
                   <div className="rounded-lg border bg-muted/30 p-4">
@@ -204,7 +264,7 @@ export default function DokumentenCheck() {
                     {filePreviewUrl && <img src={filePreviewUrl} alt="Vorschau" className="mt-3 max-h-64 rounded-lg border object-contain" />}
                   </div>
                 )}
-                <input ref={fileInputRef} type="file" accept=".pdf,.jpg,.jpeg,.png,.webp" onChange={handleFileSelect} className="hidden" />
+                <input ref={fileInputRef} type="file" accept=".pdf,.jpg,.jpeg,.png" onChange={handleFileSelect} className="hidden" />
               </div>
             )}
           </motion.div>
@@ -221,24 +281,23 @@ export default function DokumentenCheck() {
               {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <CheckCircle2 className="h-4 w-4" />}
               {loading ? st("docCheck.analyzing") : st("docCheck.analyzeBtn")}
             </Button>
-            {(analysis || textInput || file) && (
+            {(analysis || textInput || file || error) && (
               <Button variant="outline" onClick={handleClear}>{st("docCheck.reset")}</Button>
             )}
           </div>
 
           {error && (
-            <div className="flex items-center gap-2 rounded-lg border border-destructive/30 bg-destructive/5 p-3 text-sm text-destructive">
+            <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
+              className="flex items-center gap-2 rounded-lg border border-destructive/30 bg-destructive/5 p-3 text-sm text-destructive">
               <AlertTriangle className="h-4 w-4 shrink-0" /> {error}
-            </div>
+            </motion.div>
           )}
 
           {showPaywall && (
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
               className="flex flex-col items-center rounded-2xl border border-[hsl(var(--gold))]/20 bg-[#0f1f3d] p-8 text-center">
               <Lock className="h-8 w-8 text-[hsl(var(--gold))] mb-3" />
-              <p className="text-sm font-bold text-white mb-2">
-                Dokumenten-Check
-              </p>
+              <p className="text-sm font-bold text-white mb-2">Dokumenten-Check</p>
               <p className="text-xs text-white/60 mb-4">
                 2.99€ po dokumentu bez pretplate · Premium uključuje 1 provjeru dnevno
               </p>
@@ -251,7 +310,7 @@ export default function DokumentenCheck() {
                 </button>
                 <button
                   onClick={() => {
-                    toast("Einzelkauf wird bald verfügbar sein");
+                    toast.info("Einzelkauf wird bald verfügbar sein");
                     setShowPaywall(false);
                   }}
                   className="rounded-full bg-[#0f1f3d] px-6 py-3 text-sm font-bold text-white border border-white/20 transition-all hover:bg-[#0f1f3d]/80"
@@ -263,11 +322,12 @@ export default function DokumentenCheck() {
           )}
 
           {analysisSections && (
-            <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-              className="space-y-0">
+            <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="space-y-0">
               <div className="rounded-t-xl border border-b-0 bg-card p-6 shadow-sm">
-                <h2 className="mb-4 text-sm font-bold uppercase tracking-wide text-muted-foreground">{st("docCheck.resultTitle")}</h2>
-                <div className="prose prose-sm max-w-none">
+                <h2 className="mb-4 flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-muted-foreground">
+                  <FileCheck className="h-4 w-4" /> {st("docCheck.resultTitle")}
+                </h2>
+                <div className="prose prose-sm max-w-none dark:prose-invert">
                   <ReactMarkdown>{analysisSections.basic}</ReactMarkdown>
                 </div>
               </div>
@@ -280,24 +340,18 @@ export default function DokumentenCheck() {
                       {st("docCheck.lockText")}
                     </p>
                     <div className="flex flex-col gap-2">
-                      <button
-                        onClick={() => navigate("/premium")}
-                        className="rounded-full bg-[hsl(var(--gold))] px-6 py-3 text-sm font-bold text-[#0f1f3d] transition-all hover:opacity-90"
-                      >
+                      <button onClick={() => navigate("/premium")}
+                        className="rounded-full bg-[hsl(var(--gold))] px-6 py-3 text-sm font-bold text-[#0f1f3d] transition-all hover:opacity-90">
                         {st("docCheck.premiumCta")}
-                      </button>
-                      <button
-                        onClick={() => navigate("/premium")}
-                        className="rounded-full bg-[#0f1f3d] px-6 py-3 text-sm font-bold text-white border border-white/20 transition-all hover:bg-[#0f1f3d]/80"
-                      >
-                        Einzelprüfung — 2.99€
                       </button>
                     </div>
                   </div>
                 )}
                 <div className={!isPremium ? "blur-sm select-none pointer-events-none" : ""}>
-                  <h3 className="mb-3 text-xs font-bold uppercase tracking-wide text-muted-foreground">{st("docCheck.detailedTitle")}</h3>
-                  <div className="prose prose-sm max-w-none">
+                  <h3 className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-muted-foreground">
+                    <ListChecks className="h-4 w-4" /> {st("docCheck.detailedTitle")}
+                  </h3>
+                  <div className="prose prose-sm max-w-none dark:prose-invert">
                     <ReactMarkdown>{analysisSections.detailed}</ReactMarkdown>
                   </div>
                 </div>
@@ -327,17 +381,17 @@ function splitAnalysis(text: string): { basic: string; detailed: string } {
   const basicLines: string[] = [];
   const detailedLines: string[] = [];
   let inDetailed = false;
-  
+
   for (const line of lines) {
     const lower = line.toLowerCase();
     if (
+      lower.includes("nächste schritt") ||
+      lower.includes("naechste schritt") ||
+      lower.includes("kratki sazetak") ||
       lower.includes("šta uraditi") ||
       lower.includes("koraci") ||
       lower.includes("rješenje") ||
       lower.includes("preporuk") ||
-      lower.includes("česte greške") ||
-      lower.includes("rok") ||
-      lower.includes("predaj") ||
       lower.includes("sljedeći korak")
     ) {
       inDetailed = true;
@@ -348,7 +402,7 @@ function splitAnalysis(text: string): { basic: string; detailed: string } {
       basicLines.push(line);
     }
   }
-  
+
   if (detailedLines.length === 0 && basicLines.length > 4) {
     const splitAt = Math.ceil(basicLines.length * 0.4);
     return {
@@ -356,15 +410,9 @@ function splitAnalysis(text: string): { basic: string; detailed: string } {
       detailed: basicLines.slice(splitAt).join("\n"),
     };
   }
-  
+
   return {
     basic: basicLines.join("\n") || "Analiza dokumenta...",
     detailed: detailedLines.join("\n") || "Detaljni koraci nisu dostupni za ovaj dokument.",
   };
-}
-
-function toast(msg: string) {
-  // Simple inline toast fallback
-  const { toast: sonnerToast } = require("sonner");
-  sonnerToast.info(msg);
 }

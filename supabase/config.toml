@@ -5,3 +5,6 @@ verify_jwt = false
 
 [functions.import-places]
 verify_jwt = false
+
+[functions.document-check]
+verify_jwt = false
