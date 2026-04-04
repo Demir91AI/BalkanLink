@@ -119,7 +119,7 @@ export default function HomePremiumCards() {
           ))}
         </div>
 
-        <div className="mx-auto max-w-5xl border-t border-white/[0.06] mb-10" />
+        <div className="mx-auto max-w-5xl border-t border-white/[0.06] mb-12" />
 
         <div className="mx-auto max-w-5xl grid grid-cols-2 md:grid-cols-6 gap-3">
           {secondaryCards.map((card, i) => {
@@ -127,23 +127,23 @@ export default function HomePremiumCards() {
             return (
               <motion.div
                 key={card.title}
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.05 + i * 0.06 }}
+                transition={{ duration: 0.35, delay: 0.05 + i * 0.05 }}
               >
                 <Link
                   to={card.to}
-                  className="flex flex-col items-center rounded-xl border border-white/10 bg-white/[0.03] p-4 text-center transition-all hover:border-white/20 hover:bg-white/[0.06] h-full relative"
+                  className="flex flex-col items-center rounded-xl border border-white/[0.07] bg-white/[0.025] p-4 text-center transition-all duration-250 hover:border-white/[0.15] hover:bg-white/[0.05] hover:-translate-y-0.5 h-full relative"
                 >
                   {"badge" in card && card.badge && (
-                    <span className="absolute -top-2 right-2 rounded-full border border-white/12 bg-white/[0.12] px-2 py-0.5 text-[9px] font-bold text-white/80">
+                    <span className="absolute -top-2 right-2 rounded-full border border-white/10 bg-white/[0.10] px-2 py-0.5 text-[9px] font-bold text-white/60">
                       {card.badge}
                     </span>
                   )}
-                  <Icon className="h-5 w-5 text-white/40 mb-2" />
-                  <h4 className="text-xs font-bold text-white mb-1">{card.title}</h4>
-                  <p className="text-[10px] text-white/30 leading-relaxed">{card.desc}</p>
+                  <Icon className="h-5 w-5 text-white/30 mb-2" />
+                  <h4 className="text-xs font-semibold text-white/80 mb-1">{card.title}</h4>
+                  <p className="text-[10px] text-white/25 leading-relaxed">{card.desc}</p>
                 </Link>
               </motion.div>
             );
