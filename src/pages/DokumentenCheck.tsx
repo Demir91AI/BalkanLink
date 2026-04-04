@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback, useMemo } from "react";
-import { FileText, Upload, Type, Shield, AlertTriangle, Loader2, X, CheckCircle2, ChevronLeft, Lock, Eye, BookOpen, Search, AlertCircle, Clock, DollarSign, Wrench, XCircle, ShieldAlert, Globe, Scale, FileWarning, CalendarClock, Banknote, CheckSquare } from "lucide-react";
+import { FileText, Upload, Type, Shield, AlertTriangle, Loader2, X, CheckCircle2, ChevronLeft, Lock, Eye, BookOpen, Search, AlertCircle, Clock, DollarSign, Wrench, XCircle, ShieldAlert, Globe, Scale, FileWarning, CalendarClock, Banknote, CheckSquare, Home } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -284,9 +284,14 @@ export default function DokumentenCheck() {
       {/* ── HEADER ── */}
       <section className="border-b bg-primary py-10 sm:py-14">
         <div className="container max-w-4xl">
-          <button onClick={handleBack} className="back-button">
-            <ChevronLeft className="h-4 w-4" /> {st("guide.back")}
-          </button>
+          <div className="flex items-center gap-3 mb-4">
+            <button onClick={handleBack} className="back-button">
+              <ChevronLeft className="h-4 w-4" /> {st("guide.back")}
+            </button>
+            <button onClick={() => navigate("/")} className="flex items-center gap-1.5 text-[13px] font-medium text-primary-foreground/70 hover:text-primary-foreground transition-colors px-3 py-1.5 rounded-lg hover:bg-white/10">
+              <Home className="h-4 w-4" /> Početna
+            </button>
+          </div>
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl lg:text-4xl">
             {t("index.nav.docCheck")}
           </h1>
