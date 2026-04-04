@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import LanguageSelector from "@/components/LanguageSelector";
 import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
 import PWAInstallBanner from "@/components/PWAInstallBanner";
-
+import FlowBanner from "@/components/home/FlowBanner";
 
 import realcoreDigitalLogo from "@/assets/realcore-digital-logo.png";
 import heroBerlin from "@/assets/hero-berlin.jpg";
