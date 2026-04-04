@@ -259,7 +259,7 @@ export default function Footer() {
             src={realcoreLogo}
             alt="RealCore Digital"
             loading="lazy"
-            className="h-[60px] w-auto object-contain"
+            className="h-12 w-auto object-contain"
           />
           <p className="text-[11px] text-[#7A7A7A] tracking-wide">
             Klar denken. Digital umsetzen.
