@@ -96,7 +96,7 @@ export default function Header() {
               <DropdownMenuTrigger asChild>
                 <button className="group flex items-center gap-3 px-3 h-11 rounded-lg text-sm font-medium text-white/55 hover:text-white hover:bg-white/5 transition-all duration-200 w-full">
                   <Globe className="h-[18px] w-[18px] shrink-0 text-white/40 group-hover:text-white/70 transition-colors" />
-                  <img src={currentLang.flag} alt="" className="h-4 w-auto rounded-[2px]" /> <span className="flex-1 text-left">{currentLang.name}</span>
+                  <img src={currentLang.flag} alt="" className="h-4 w-6 object-cover rounded-[2px] shrink-0" /> <span className="flex-1 text-left">{currentLang.name}</span>
                   <ChevronDown className="h-3 w-3 text-white/40" />
                 </button>
               </DropdownMenuTrigger>
@@ -104,7 +104,7 @@ export default function Header() {
                 {LANG_OPTIONS.map((lang) => (
                   <DropdownMenuItem key={lang.code} onClick={() => setLanguage(lang.code)}
                     className={`text-white/80 hover:text-white focus:text-white focus:bg-white/10 ${currentLanguage === lang.code ? "bg-white/10 text-[hsl(var(--gold))] font-medium" : ""}`}>
-                    <img src={lang.flag} alt="" className="mr-2 h-4 w-auto rounded-[2px]" />
+                    <img src={lang.flag} alt="" className="mr-2 h-4 w-6 object-cover rounded-[2px] shrink-0" />
                     {lang.name}
                   </DropdownMenuItem>
                 ))}
