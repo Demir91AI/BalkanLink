@@ -23,6 +23,7 @@ import heroDuesseldorf from "@/assets/hero-duesseldorf.jpg";
 import heroNuernberg from "@/assets/hero-nuernberg.jpg";
 import heroLeipzig from "@/assets/hero-leipzig.jpg";
 import heroFreilassing from "@/assets/hero-freilassing-real.jpg";
+import placeholderPartnerImg from "@/assets/placeholder-partner.jpg";
 
 const slides = [
   { image: heroFrankfurt, city: "FRANKFURT" },
@@ -192,54 +193,93 @@ function ServicesCarousel() {
 /* ─── Showcase Carousel ─── */
 function ShowcaseCarousel() {
   const { t } = useTranslation();
-  const doubled = [...premiumShowcaseFirms, ...premiumShowcaseFirms];
+  const { ref, pause, scheduleResume, scrollByCard, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.4, 3000);
+
+  const emptySlots = [
+    { title: "Vaša firma ovdje", desc: "Premium mjesto za vašu reklamu." },
+    { title: "Vaša firma ovdje", desc: "Premium mjesto za vašu reklamu." },
+    { title: "Vaša firma ovdje", desc: "Premium mjesto za vašu reklamu." },
+  ];
+
+  type CardItem = { type: "firm"; firm: typeof premiumShowcaseFirms[0] } | { type: "empty"; title: string; desc: string };
+  const items: CardItem[] = [
+    ...premiumShowcaseFirms.map((firm) => ({ type: "firm" as const, firm })),
+    ...emptySlots.map((s) => ({ type: "empty" as const, ...s })),
+  ];
+  const doubled = [...items, ...items];
 
   return (
-    <div className="overflow-hidden w-full">
-      <div className="flex w-fit gap-6 animate-showcase-scroll hover:[animation-play-state:paused] active:[animation-play-state:paused]">
-        {doubled.map((firm, i) => (
-          <article key={`${firm.slug}-${i}`} className="min-w-[340px] max-w-[380px] shrink-0 rounded-2xl bg-white border border-[#E8E0D0] overflow-hidden flex flex-col shadow-[0_4px_24px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,0,0,0.14)]">
-            <div className="relative h-[180px] w-full overflow-hidden">
-              <img src={firm.images[0]} alt={firm.name} className="h-full w-full object-cover" style={{ filter: "brightness(0.92) saturate(1.1)" }} loading="lazy" />
-              <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
-              <div className="absolute left-3 top-3 flex items-center rounded-xl border border-white/50 bg-white/70 px-3 py-1.5 backdrop-blur-md">
-                <img src={firm.logoUrl} alt={firm.logoAlt} className="h-6 max-w-[90px] object-contain" />
+    <div className="relative overflow-hidden" onMouseEnter={pause} onMouseLeave={scheduleResume}>
+      <CarouselArrows onLeft={() => scrollByCard("left")} onRight={() => scrollByCard("right")} />
+      <div ref={ref} className="flex gap-6 px-4 overflow-x-hidden scrollbar-hide cursor-grab select-none" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onMouseDown={onMouseDown} onMouseMove={onMouseMove} onMouseUp={onMouseUp} onMouseLeave={onMouseLeave}>
+        {doubled.map((item, i) => {
+          if (item.type === "firm") {
+            const firm = item.firm;
+            return (
+              <article key={`${firm.slug}-${i}`} className="min-w-[340px] max-w-[380px] shrink-0 rounded-2xl bg-white border border-[#E8E0D0] overflow-hidden flex flex-col shadow-[0_4px_24px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,0,0,0.14)]">
+                <div className="relative h-[180px] w-full overflow-hidden">
+                  <img src={firm.images[0]} alt={firm.name} className="h-full w-full object-cover" style={{ filter: "brightness(0.92) saturate(1.1)" }} loading="lazy" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
+                  <div className="absolute left-3 top-3 flex items-center rounded-xl border border-white/50 bg-white/70 px-3 py-1.5 backdrop-blur-md">
+                    <img src={firm.logoUrl} alt={firm.logoAlt} className="h-6 max-w-[90px] object-contain" />
+                  </div>
+                  <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-[hsl(var(--gold))] px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-white">
+                    <Star className="h-2.5 w-2.5 fill-current" /> {t("home.recommended")}
+                  </span>
+                </div>
+                <div className="flex flex-1 flex-col gap-3 p-5 border-t-[3px] border-[hsl(var(--gold))]">
+                  <div>
+                    <h3 className="text-base font-bold text-[#2D2D2D]">{firm.name}</h3>
+                    <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-[#6B6B6B]">{firm.description}</p>
+                  </div>
+                  <div className="flex flex-wrap gap-1.5">
+                    {firm.highlights.map((h) => (
+                      <span key={h} className="rounded-full border border-[#E8E0D0] bg-[hsl(var(--warm-cream))] px-2.5 py-0.5 text-[10px] font-semibold text-[#6B6B6B]">{h}</span>
+                    ))}
+                  </div>
+                  <div className="mt-auto flex gap-2 pt-2">
+                    <Button asChild size="sm" className="h-8 rounded-lg bg-[hsl(var(--gold))] px-4 text-xs font-bold text-white hover:bg-[hsl(var(--gold-dark))]">
+                      {firm.website ? (
+                        <a href={firm.website} target="_blank" rel="noopener noreferrer">{t("home.viewMore")} <ExternalLink className="ml-1 h-3 w-3" /></a>
+                      ) : (
+                        <Link to={`/firma/${firm.slug}`}>{t("home.viewMore")} <ExternalLink className="ml-1 h-3 w-3" /></Link>
+                      )}
+                    </Button>
+                    <Button asChild variant="outline" size="sm" className="h-8 rounded-lg border-[#E8E0D0] px-4 text-xs font-semibold text-[#2D2D2D] hover:bg-[hsl(var(--warm-cream))]">
+                      {firm.contactUrl ? (
+                        <a href={firm.contactUrl} target="_blank" rel="noopener noreferrer">{t("home.contact")}</a>
+                      ) : firm.phone ? (
+                        <a href={`tel:${firm.phone}`}>{t("home.contact")}</a>
+                      ) : (
+                        <Link to={`/firma/${firm.slug}`}>{t("home.contact")}</Link>
+                      )}
+                    </Button>
+                  </div>
+                </div>
+              </article>
+            );
+          }
+          // Empty placeholder card — same design
+          return (
+            <a key={`empty-${i}`} href={MAILTO_AD} className="min-w-[340px] max-w-[380px] shrink-0 rounded-2xl bg-white border border-[#E8E0D0] overflow-hidden flex flex-col shadow-[0_4px_24px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,0,0,0.14)]">
+              <div className="relative h-[180px] w-full overflow-hidden">
+                <img src={placeholderPartnerImg} alt="Oglasni prostor" className="h-full w-full object-cover" style={{ filter: "brightness(0.92) saturate(1.1)" }} loading="lazy" />
+                <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
               </div>
-              <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-[hsl(var(--gold))] px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-white">
-                <Star className="h-2.5 w-2.5 fill-current" /> {t("home.recommended")}
-              </span>
-            </div>
-            <div className="flex flex-1 flex-col gap-3 p-5 border-t-[3px] border-[hsl(var(--gold))]">
-              <div>
-                <h3 className="text-base font-bold text-[#2D2D2D]">{firm.name}</h3>
-                <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-[#6B6B6B]">{firm.description}</p>
+              <div className="flex flex-1 flex-col gap-3 p-5 border-t-[3px] border-[#E8E0D0]">
+                <div>
+                  <h3 className="text-base font-bold text-[#2D2D2D]">{item.title}</h3>
+                  <p className="mt-1 text-xs leading-relaxed text-[#6B6B6B]">{item.desc}</p>
+                </div>
+                <div className="mt-auto flex gap-2 pt-2">
+                  <Button size="sm" className="h-8 rounded-lg bg-[hsl(var(--gold))] px-4 text-xs font-bold text-white hover:bg-[hsl(var(--gold-dark))]">
+                    Kontakt
+                  </Button>
+                </div>
               </div>
-              <div className="flex flex-wrap gap-1.5">
-                {firm.highlights.map((h) => (
-                  <span key={h} className="rounded-full border border-[#E8E0D0] bg-[hsl(var(--warm-cream))] px-2.5 py-0.5 text-[10px] font-semibold text-[#6B6B6B]">{h}</span>
-                ))}
-              </div>
-              <div className="mt-auto flex gap-2 pt-2">
-                <Button asChild size="sm" className="h-8 rounded-lg bg-[hsl(var(--gold))] px-4 text-xs font-bold text-white hover:bg-[hsl(var(--gold-dark))]">
-                  {firm.website ? (
-                    <a href={firm.website} target="_blank" rel="noopener noreferrer">{t("home.viewMore")} <ExternalLink className="ml-1 h-3 w-3" /></a>
-                  ) : (
-                    <Link to={`/firma/${firm.slug}`}>{t("home.viewMore")} <ExternalLink className="ml-1 h-3 w-3" /></Link>
-                  )}
-                </Button>
-                <Button asChild variant="outline" size="sm" className="h-8 rounded-lg border-[#E8E0D0] px-4 text-xs font-semibold text-[#2D2D2D] hover:bg-[hsl(var(--warm-cream))]">
-                  {firm.contactUrl ? (
-                    <a href={firm.contactUrl} target="_blank" rel="noopener noreferrer">{t("home.contact")}</a>
-                  ) : firm.phone ? (
-                    <a href={`tel:${firm.phone}`}>{t("home.contact")}</a>
-                  ) : (
-                    <Link to={`/firma/${firm.slug}`}>{t("home.contact")}</Link>
-                  )}
-                </Button>
-              </div>
-            </div>
-          </article>
-        ))}
+            </a>
+          );
+        })}
       </div>
     </div>
   );
