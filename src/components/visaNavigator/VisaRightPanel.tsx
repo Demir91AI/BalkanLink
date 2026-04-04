@@ -113,10 +113,7 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
           </div>
 
           <div className="h-px" style={{ background: "#F0EAD8" }} />
-          <div className="flex items-start gap-1.5">
-            <Info size={14} className="mt-0.5 flex-shrink-0" style={{ color: "#9CA3AF" }} />
-            <p className="text-[12px] text-[#9CA3AF] leading-[1.6]">{t("disclaimer")}</p>
-          </div>
+          <TrustSystem variant="compact" showSources={false} />
         </div>
       ) : country ? (
         /* STATE 2: Country selected, no route */
