@@ -642,7 +642,7 @@ function buildContextualPremiumRedirect(userText: string, lang: string): { text:
 
   // Default: Smart Guide / Formulari
   const guideSlug = detectGuideSlug(userText);
-  const guidePath = guideSlug ? `/guide/${guideSlug}` : "/formulare";
+  const guidePath = guideSlug ? `/formulari/${guideSlug}` : "/formulari";
   return {
     text: l === "de"
       ? "Für eine Schritt-für-Schritt-Anleitung nutze den Smart Guide."
