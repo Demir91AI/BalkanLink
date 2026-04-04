@@ -133,8 +133,8 @@ const App = () => (
                 <Route path="/formulare" element={<Navigate to="/formulari" replace />} />
                 <Route path="/formulari" element={<FormCenter />} />
                 
-                <Route path="/formulari/kindergeld/muster" element={<KindergeldMuster />} />
-                <Route path="/formulari/anmeldung/muster" element={<AnmeldungMusterOld />} />
+                <Route path="/formulari/kindergeld/muster" element={<Navigate to="/musterformular/kindergeld" replace />} />
+                <Route path="/formulari/anmeldung/muster" element={<Navigate to="/musterformular/anmeldung" replace />} />
                 
                 <Route path="/musterformular/elterngeld" element={<ElterngeldMuster />} />
                 <Route path="/musterformular/anmeldung" element={<AnmeldungMuster />} />
