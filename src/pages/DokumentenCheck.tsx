@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback, useMemo } from "react";
-import { FileText, Upload, Type, Shield, AlertTriangle, Loader2, X, CheckCircle2, ChevronLeft, Lock, Eye, BookOpen, Search, AlertCircle, Clock, DollarSign, Wrench, XCircle, ShieldAlert, Globe, Scale } from "lucide-react";
+import { FileText, Upload, Type, Shield, AlertTriangle, Loader2, X, CheckCircle2, ChevronLeft, Lock, Eye, BookOpen, Search, AlertCircle, Clock, DollarSign, Wrench, XCircle, ShieldAlert, Globe, Scale, FileWarning, CalendarClock, Banknote, CheckSquare } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -33,22 +33,23 @@ interface AnalysisSection {
   icon: React.ReactNode;
   title: string;
   content: string;
-  color: string;
+  colorClass: string;
+  iconColorClass: string;
   isPremium: boolean;
 }
 
-const SECTION_CONFIG: Record<string, { icon: React.ReactNode; color: string; isPremium: boolean }> = {
-  "dokument na prvi pogled": { icon: <Eye className="h-5 w-5" />, color: "border-blue-500/30 bg-blue-500/5", isPremium: false },
-  "jednostavno objasnjenje": { icon: <BookOpen className="h-5 w-5" />, color: "border-emerald-500/30 bg-emerald-500/5", isPremium: false },
-  "detaljna analiza": { icon: <Search className="h-5 w-5" />, color: "border-purple-500/30 bg-purple-500/5", isPremium: true },
-  "sta je stvarno bitno": { icon: <AlertCircle className="h-5 w-5" />, color: "border-amber-500/30 bg-amber-500/5", isPremium: true },
-  "rokovi i hitnost": { icon: <Clock className="h-5 w-5" />, color: "border-red-500/30 bg-red-500/5", isPremium: true },
-  "finansijska analiza": { icon: <DollarSign className="h-5 w-5" />, color: "border-green-500/30 bg-green-500/5", isPremium: true },
-  "konkretne opcije": { icon: <Wrench className="h-5 w-5" />, color: "border-indigo-500/30 bg-indigo-500/5", isPremium: true },
-  "ako nista ne uradis": { icon: <XCircle className="h-5 w-5" />, color: "border-orange-500/30 bg-orange-500/5", isPremium: true },
-  "rizici i ceste greske": { icon: <ShieldAlert className="h-5 w-5" />, color: "border-rose-500/30 bg-rose-500/5", isPremium: true },
-  "sazetak na nasem jeziku": { icon: <Globe className="h-5 w-5" />, color: "border-cyan-500/30 bg-cyan-500/5", isPremium: true },
-  "pravna napomena": { icon: <Scale className="h-5 w-5" />, color: "border-muted bg-muted/30", isPremium: false },
+const SECTION_CONFIG: Record<string, { icon: React.ReactNode; colorClass: string; iconColorClass: string; isPremium: boolean }> = {
+  "dokument na prvi pogled": { icon: <Eye className="h-5 w-5" />, colorClass: "border-blue-500/30 bg-blue-50 dark:bg-blue-950/20", iconColorClass: "text-blue-500", isPremium: false },
+  "jednostavno objasnjenje": { icon: <BookOpen className="h-5 w-5" />, colorClass: "border-emerald-500/30 bg-emerald-50 dark:bg-emerald-950/20", iconColorClass: "text-emerald-500", isPremium: false },
+  "detaljna analiza": { icon: <Search className="h-5 w-5" />, colorClass: "border-purple-500/30 bg-purple-50 dark:bg-purple-950/20", iconColorClass: "text-purple-500", isPremium: true },
+  "sta je stvarno bitno": { icon: <AlertCircle className="h-5 w-5" />, colorClass: "border-amber-500/30 bg-amber-50 dark:bg-amber-950/20", iconColorClass: "text-amber-500", isPremium: true },
+  "rokovi i hitnost": { icon: <Clock className="h-5 w-5" />, colorClass: "border-red-500/30 bg-red-50 dark:bg-red-950/20", iconColorClass: "text-red-500", isPremium: true },
+  "finansijska analiza": { icon: <DollarSign className="h-5 w-5" />, colorClass: "border-green-500/30 bg-green-50 dark:bg-green-950/20", iconColorClass: "text-green-600", isPremium: true },
+  "konkretne opcije": { icon: <Wrench className="h-5 w-5" />, colorClass: "border-indigo-500/30 bg-indigo-50 dark:bg-indigo-950/20", iconColorClass: "text-indigo-500", isPremium: true },
+  "ako nista ne uradis": { icon: <XCircle className="h-5 w-5" />, colorClass: "border-orange-500/30 bg-orange-50 dark:bg-orange-950/20", iconColorClass: "text-orange-500", isPremium: true },
+  "rizici i ceste greske": { icon: <ShieldAlert className="h-5 w-5" />, colorClass: "border-rose-500/30 bg-rose-50 dark:bg-rose-950/20", iconColorClass: "text-rose-500", isPremium: true },
+  "sazetak na nasem jeziku": { icon: <Globe className="h-5 w-5" />, colorClass: "border-cyan-500/30 bg-cyan-50 dark:bg-cyan-950/20", iconColorClass: "text-cyan-500", isPremium: true },
+  "pravna napomena": { icon: <Scale className="h-5 w-5" />, colorClass: "border-muted bg-muted/30", iconColorClass: "text-muted-foreground", isPremium: false },
 };
 
 function matchSectionKey(heading: string): string | null {
@@ -74,7 +75,8 @@ function parseAnalysisSections(text: string): AnalysisSection[] {
         icon: cfg.icon,
         title: currentTitle,
         content: currentLines.join("\n").trim(),
-        color: cfg.color,
+        colorClass: cfg.colorClass,
+        iconColorClass: cfg.iconColorClass,
         isPremium: cfg.isPremium,
       });
     }
@@ -92,19 +94,75 @@ function parseAnalysisSections(text: string): AnalysisSection[] {
   }
   flush();
 
-  // Fallback: if no sections parsed, return entire text as one block
   if (sections.length === 0 && text.trim()) {
     sections.push({
       id: "full",
       icon: <FileText className="h-5 w-5" />,
       title: "Rezultat analize",
       content: text,
-      color: "border-border bg-card",
+      colorClass: "border-border bg-card",
+      iconColorClass: "text-foreground",
       isPremium: false,
     });
   }
 
   return sections;
+}
+
+/* ── Extract summary info from the first section ── */
+function extractSummaryFromSections(sections: AnalysisSection[]): {
+  docType: string;
+  action: string;
+  financial: string;
+  deadline: string;
+} {
+  const firstSection = sections.find((s) => s.id === "dokument na prvi pogled");
+  const urgencySection = sections.find((s) => s.id === "rokovi i hitnost");
+  const financeSection = sections.find((s) => s.id === "finansijska analiza");
+  const actionSection = sections.find((s) => s.id === "konkretne opcije");
+
+  const extractFirstLine = (content: string | undefined) => {
+    if (!content) return "—";
+    const lines = content.split("\n").filter((l) => l.trim().length > 5);
+    const first = lines[0]?.replace(/^[-*•]\s*/, "").replace(/\*\*/g, "").trim();
+    return first?.slice(0, 80) || "—";
+  };
+
+  // Try to extract document type from first section
+  let docType = "Dokument";
+  if (firstSection) {
+    const tipMatch = firstSection.content.match(/tip[a]?\s*dokumenta[:\s]*([^\n]+)/i);
+    if (tipMatch) docType = tipMatch[1].replace(/\*\*/g, "").trim().slice(0, 50);
+    else docType = extractFirstLine(firstSection.content);
+  }
+
+  // Action needed
+  let action = "Pogledaj analizu";
+  if (urgencySection) {
+    if (urgencySection.content.includes("🚨")) action = "Hitna akcija potrebna";
+    else if (urgencySection.content.includes("⚡")) action = "Preporučena akcija";
+    else if (urgencySection.content.includes("✅")) action = "Nije potrebna akcija";
+    else action = extractFirstLine(urgencySection.content);
+  }
+
+  // Financial
+  let financial = "Pogledaj finansijsku analizu";
+  if (financeSection) {
+    const amountMatch = financeSection.content.match(/(\d+[.,]?\d*)\s*€/);
+    if (amountMatch) financial = `${amountMatch[0]} identificirano`;
+    else financial = extractFirstLine(financeSection.content);
+  }
+
+  // Deadline
+  let deadline = "Nema vidljivog roka";
+  if (urgencySection) {
+    const dateMatch = urgencySection.content.match(/\d{1,2}\.\d{1,2}\.\d{2,4}/);
+    if (dateMatch) deadline = `Rok: ${dateMatch[0]}`;
+    else if (urgencySection.content.toLowerCase().includes("nema")) deadline = "Nema vidljivog roka";
+    else deadline = extractFirstLine(urgencySection.content);
+  }
+
+  return { docType, action, financial, deadline };
 }
 
 export default function DokumentenCheck() {
@@ -163,8 +221,6 @@ export default function DokumentenCheck() {
     setError(null);
     setAnalysis(null);
 
-    console.log("[DocCheck] Starting analysis:", { mode, fileType: file?.type, fileSize: file?.size, textLength: textInput.length });
-
     try {
       let payload: { text?: string; imageBase64?: string; mimeType?: string } = {};
 
@@ -189,21 +245,12 @@ export default function DokumentenCheck() {
 
       const { data, error: fnError } = await supabase.functions.invoke("document-check", { body: payload });
 
-      if (fnError) {
-        console.error("[DocCheck] Function error:", fnError);
-        throw new Error("Greška na serveru pri analizi dokumenta. Pokušajte ponovo za nekoliko trenutaka.");
-      }
-      if (data?.success === false) {
-        throw new Error(data.message || "Dokument nije moguće obraditi. Pokušajte s drugim fajlom.");
-      }
-      if (!data?.analysis) {
-        throw new Error("Dokument nije moguće obraditi. Pokušajte s drugim fajlom.");
-      }
+      if (fnError) throw new Error("Greška na serveru pri analizi dokumenta. Pokušajte ponovo za nekoliko trenutaka.");
+      if (data?.success === false) throw new Error(data.message || "Dokument nije moguće obraditi. Pokušajte s drugim fajlom.");
+      if (!data?.analysis) throw new Error("Dokument nije moguće obraditi. Pokušajte s drugim fajlom.");
 
       setAnalysis(data.analysis);
-      console.log("[DocCheck] Analysis successful, length:", data.analysis.length);
     } catch (err: any) {
-      console.error("[DocCheck] Error:", err);
       const message = err.message || "Greška na serveru pri analizi dokumenta.";
       if (message.includes("Edge Function") || message.includes("FunctionsHttpError") || message.includes("fetch")) {
         setError("Greška na serveru pri analizi dokumenta. Pokušajte ponovo za nekoliko trenutaka.");
@@ -230,19 +277,21 @@ export default function DokumentenCheck() {
   const handleBack = useCallback(() => { navigateBackOrHome(navigate); }, [navigate]);
 
   const sections = useMemo(() => analysis ? parseAnalysisSections(analysis) : [], [analysis]);
+  const summary = useMemo(() => sections.length > 0 ? extractSummaryFromSections(sections) : null, [sections]);
 
   return (
     <>
-      <section className="border-b bg-primary py-10">
-        <div className="container max-w-3xl">
+      {/* ── HEADER ── */}
+      <section className="border-b bg-primary py-10 sm:py-14">
+        <div className="container max-w-4xl">
           <button onClick={handleBack} className="back-button">
             <ChevronLeft className="h-4 w-4" /> {st("guide.back")}
           </button>
-          <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">
+          <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl lg:text-4xl">
             {t("index.nav.docCheck")}
           </h1>
-          <p className="mt-2 text-sm text-primary-foreground/80">{st("docCheck.subtitle")}</p>
-          <div className="mt-3 flex flex-wrap gap-2">
+          <p className="mt-2 text-sm text-primary-foreground/80 max-w-xl leading-relaxed">{st("docCheck.subtitle")}</p>
+          <div className="mt-4 flex flex-wrap gap-2">
             <span className="inline-block rounded-full bg-[hsl(var(--gold))]/20 px-3 py-1 text-xs font-semibold text-[hsl(var(--gold))]">
               2.99€ po dokumentu bez pretplate
             </span>
@@ -253,60 +302,60 @@ export default function DokumentenCheck() {
         </div>
       </section>
 
-      <section className="py-10">
-        <div className="container max-w-3xl space-y-6">
-          {/* Privacy notice */}
+      <section className="py-10 sm:py-14">
+        <div className="container max-w-4xl space-y-8">
+          {/* ── Privacy notice ── */}
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
-            className="flex items-start gap-3 rounded-xl border border-gold/20 bg-gold/5 p-4">
-            <Shield className="mt-0.5 h-5 w-5 shrink-0 text-gold" />
-            <div className="text-sm">
-              <p className="font-semibold text-foreground">{st("docCheck.privacyTitle")}</p>
-              <p className="mt-1 text-muted-foreground">{st("docCheck.privacyDesc")}</p>
+            className="flex items-start gap-4 rounded-2xl border border-[hsl(var(--gold))]/20 bg-[hsl(var(--gold))]/5 p-5 sm:p-6">
+            <Shield className="mt-0.5 h-6 w-6 shrink-0 text-[hsl(var(--gold))]" />
+            <div>
+              <p className="font-bold text-foreground">{st("docCheck.privacyTitle")}</p>
+              <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{st("docCheck.privacyDesc")}</p>
             </div>
           </motion.div>
 
-          {/* Mode switcher */}
-          <div className="flex gap-2">
-            <Button variant={mode === "text" ? "default" : "outline"} size="sm" onClick={() => { setMode("text"); clearFile(); setAnalysis(null); setError(null); }} className="gap-2">
+          {/* ── Mode switcher ── */}
+          <div className="flex gap-3">
+            <Button variant={mode === "text" ? "default" : "outline"} size="sm" onClick={() => { setMode("text"); clearFile(); setAnalysis(null); setError(null); }} className="gap-2 rounded-xl">
               <Type className="h-4 w-4" /> {st("docCheck.textMode")}
             </Button>
-            <Button variant={mode === "upload" ? "default" : "outline"} size="sm" onClick={() => { setMode("upload"); setTextInput(""); setAnalysis(null); setError(null); }} className="gap-2">
+            <Button variant={mode === "upload" ? "default" : "outline"} size="sm" onClick={() => { setMode("upload"); setTextInput(""); setAnalysis(null); setError(null); }} className="gap-2 rounded-xl">
               <Upload className="h-4 w-4" /> {st("docCheck.uploadMode")}
             </Button>
           </div>
 
-          {/* Input area */}
+          {/* ── Input area ── */}
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-            className="rounded-xl border bg-card p-5 shadow-sm">
+            className="rounded-2xl border bg-card p-6 sm:p-8 shadow-sm">
             {mode === "text" ? (
               <div>
-                <label className="mb-2 block text-sm font-semibold">{st("docCheck.textLabel")}</label>
+                <label className="mb-3 block text-sm font-bold">{st("docCheck.textLabel")}</label>
                 <Textarea value={textInput} onChange={(e) => setTextInput(e.target.value)}
                   placeholder={st("docCheck.textPlaceholder")}
-                  className="min-h-[160px] resize-y" maxLength={8000} />
-                <p className="mt-1 text-xs text-muted-foreground">{textInput.length} / 8.000 {st("docCheck.chars")}</p>
+                  className="min-h-[180px] resize-y text-sm" maxLength={8000} />
+                <p className="mt-2 text-xs text-muted-foreground">{textInput.length} / 8.000 {st("docCheck.chars")}</p>
               </div>
             ) : (
               <div>
-                <label className="mb-2 block text-sm font-semibold">{st("docCheck.uploadLabel")}</label>
+                <label className="mb-3 block text-sm font-bold">{st("docCheck.uploadLabel")}</label>
                 {!file ? (
                   <div onClick={() => fileInputRef.current?.click()}
-                    className="flex cursor-pointer flex-col items-center justify-center gap-3 rounded-lg border-2 border-dashed border-border/60 p-10 transition-colors hover:border-primary/40 hover:bg-muted/30">
-                    <Upload className="h-8 w-8 text-muted-foreground/50" />
-                    <p className="text-sm text-muted-foreground">{st("docCheck.dropHere")}</p>
+                    className="flex cursor-pointer flex-col items-center justify-center gap-4 rounded-xl border-2 border-dashed border-border/60 p-12 transition-colors hover:border-primary/40 hover:bg-muted/30">
+                    <Upload className="h-10 w-10 text-muted-foreground/40" />
+                    <p className="text-sm font-medium text-muted-foreground">{st("docCheck.dropHere")}</p>
                     <p className="text-xs text-muted-foreground/60">Max. 10 MB · PDF, JPG, PNG</p>
                   </div>
                 ) : (
-                  <div className="rounded-lg border bg-muted/30 p-4">
+                  <div className="rounded-xl border bg-muted/30 p-5">
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-3">
                         <FileText className="h-5 w-5 text-primary" />
                         <span className="text-sm font-medium">{file.name}</span>
                         <span className="text-xs text-muted-foreground">({(file.size / 1024).toFixed(0)} KB)</span>
                       </div>
-                      <Button variant="ghost" size="sm" onClick={clearFile} className="h-7 w-7 p-0"><X className="h-4 w-4" /></Button>
+                      <Button variant="ghost" size="sm" onClick={clearFile} className="h-8 w-8 p-0"><X className="h-4 w-4" /></Button>
                     </div>
-                    {filePreviewUrl && <img src={filePreviewUrl} alt="Vorschau" className="mt-3 max-h-64 rounded-lg border object-contain" />}
+                    {filePreviewUrl && <img src={filePreviewUrl} alt="Vorschau" className="mt-4 max-h-64 rounded-lg border object-contain" />}
                   </div>
                 )}
                 <input ref={fileInputRef} type="file" accept=".pdf,.jpg,.jpeg,.png" onChange={handleFileSelect} className="hidden" />
@@ -314,86 +363,156 @@ export default function DokumentenCheck() {
             )}
           </motion.div>
 
-          {/* Confirm checkbox */}
-          <div className="flex items-start gap-3 rounded-xl border bg-card p-4">
+          {/* ── Confirm checkbox ── */}
+          <div className="flex items-start gap-4 rounded-2xl border bg-card p-5">
             <Checkbox id="confirm" checked={confirmed} onCheckedChange={(v) => setConfirmed(v === true)} className="mt-0.5" />
             <label htmlFor="confirm" className="cursor-pointer text-sm leading-relaxed text-muted-foreground">
               {st("docCheck.confirmLabel")}
             </label>
           </div>
 
-          {/* Actions */}
+          {/* ── Actions ── */}
           <div className="flex gap-3">
-            <Button onClick={handleAnalyze} disabled={loading || !confirmed || (mode === "text" ? !textInput.trim() : !file)} className="gap-2">
+            <Button onClick={handleAnalyze} disabled={loading || !confirmed || (mode === "text" ? !textInput.trim() : !file)} className="gap-2 rounded-xl px-6">
               {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <CheckCircle2 className="h-4 w-4" />}
               {loading ? st("docCheck.analyzing") : st("docCheck.analyzeBtn")}
             </Button>
             {(analysis || textInput || file || error) && (
-              <Button variant="outline" onClick={handleClear}>{st("docCheck.reset")}</Button>
+              <Button variant="outline" onClick={handleClear} className="rounded-xl">{st("docCheck.reset")}</Button>
             )}
           </div>
 
-          {/* Error */}
+          {/* ── Error ── */}
           {error && (
             <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
-              className="flex items-center gap-2 rounded-lg border border-destructive/30 bg-destructive/5 p-3 text-sm text-destructive">
-              <AlertTriangle className="h-4 w-4 shrink-0" /> {error}
+              className="flex items-center gap-3 rounded-xl border border-destructive/30 bg-destructive/5 p-4 text-sm text-destructive">
+              <AlertTriangle className="h-5 w-5 shrink-0" /> {error}
             </motion.div>
           )}
 
-          {/* Paywall */}
+          {/* ── Paywall ── */}
           {showPaywall && (
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-              className="flex flex-col items-center rounded-2xl border border-[hsl(var(--gold))]/20 bg-[#0f1f3d] p-8 text-center">
-              <Lock className="h-8 w-8 text-[hsl(var(--gold))] mb-3" />
-              <p className="text-sm font-bold text-white mb-2">Dokumenten-Check</p>
-              <p className="text-xs text-white/60 mb-4">2.99€ po dokumentu bez pretplate · Premium uključuje 1 provjeru dnevno</p>
-              <div className="flex flex-col gap-2 w-full max-w-xs">
+              className="flex flex-col items-center rounded-2xl border border-[hsl(var(--gold))]/20 bg-[#0f1f3d] p-10 text-center">
+              <Lock className="h-10 w-10 text-[hsl(var(--gold))] mb-4" />
+              <p className="text-lg font-bold text-white mb-2">Dokumenten-Check</p>
+              <p className="text-sm text-white/60 mb-6 max-w-sm">2.99€ po dokumentu bez pretplate · Premium uključuje 1 provjeru dnevno</p>
+              <div className="flex flex-col gap-3 w-full max-w-xs">
                 <button onClick={() => navigate("/premium")}
-                  className="rounded-full bg-[hsl(var(--gold))] px-6 py-3 text-[#0f1f3d] font-bold transition-all hover:opacity-90">
+                  className="rounded-full bg-[hsl(var(--gold))] px-6 py-3.5 text-[#0f1f3d] font-bold transition-all hover:opacity-90">
                   BalkanLink Premium — 9.99€/mj.
                 </button>
                 <button onClick={() => { toast.info("Einzelkauf wird bald verfügbar sein"); setShowPaywall(false); }}
-                  className="rounded-full bg-[#0f1f3d] px-6 py-3 text-sm font-bold text-white border border-white/20 transition-all hover:bg-[#0f1f3d]/80">
+                  className="rounded-full bg-[#0f1f3d] px-6 py-3.5 text-sm font-bold text-white border border-white/20 transition-all hover:bg-[#0f1f3d]/80">
                   Einzelprüfung — 2.99€
                 </button>
               </div>
             </motion.div>
           )}
 
-          {/* RESULTS — Structured section cards */}
+          {/* ══════════════════════════════════════════════════════
+              RESULTS — Summary Card + Section Cards
+          ══════════════════════════════════════════════════════ */}
           {sections.length > 0 && (
-            <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="space-y-4">
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
+
+              {/* ── TOP SUMMARY CARD ── */}
+              {summary && (
+                <motion.div
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="rounded-2xl border-2 border-[hsl(var(--gold))]/30 bg-gradient-to-br from-[hsl(var(--gold))]/5 to-transparent p-6 sm:p-8 shadow-lg"
+                >
+                  <h2 className="text-lg font-black tracking-tight text-foreground mb-5 flex items-center gap-2">
+                    <CheckSquare className="h-5 w-5 text-[hsl(var(--gold))]" />
+                    Pregled dokumenta
+                  </h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* Doc type */}
+                    <div className="flex items-start gap-3 rounded-xl bg-blue-500/10 border border-blue-500/20 p-4">
+                      <FileWarning className="h-5 w-5 text-blue-500 mt-0.5 shrink-0" />
+                      <div>
+                        <p className="text-[11px] font-bold uppercase tracking-wider text-blue-500/80 mb-1">Tip dokumenta</p>
+                        <p className="text-sm font-semibold text-foreground leading-snug">{summary.docType}</p>
+                      </div>
+                    </div>
+                    {/* Action */}
+                    <div className={`flex items-start gap-3 rounded-xl p-4 border ${
+                      summary.action.includes("Hitna") ? "bg-red-500/10 border-red-500/20" :
+                      summary.action.includes("Preporučena") ? "bg-amber-500/10 border-amber-500/20" :
+                      "bg-emerald-500/10 border-emerald-500/20"
+                    }`}>
+                      <AlertCircle className={`h-5 w-5 mt-0.5 shrink-0 ${
+                        summary.action.includes("Hitna") ? "text-red-500" :
+                        summary.action.includes("Preporučena") ? "text-amber-500" :
+                        "text-emerald-500"
+                      }`} />
+                      <div>
+                        <p className={`text-[11px] font-bold uppercase tracking-wider mb-1 ${
+                          summary.action.includes("Hitna") ? "text-red-500/80" :
+                          summary.action.includes("Preporučena") ? "text-amber-500/80" :
+                          "text-emerald-500/80"
+                        }`}>Potrebna akcija</p>
+                        <p className="text-sm font-semibold text-foreground leading-snug">{summary.action}</p>
+                      </div>
+                    </div>
+                    {/* Financial */}
+                    <div className="flex items-start gap-3 rounded-xl bg-green-500/10 border border-green-500/20 p-4">
+                      <Banknote className="h-5 w-5 text-green-600 mt-0.5 shrink-0" />
+                      <div>
+                        <p className="text-[11px] font-bold uppercase tracking-wider text-green-600/80 mb-1">Finansijski uticaj</p>
+                        <p className="text-sm font-semibold text-foreground leading-snug">{summary.financial}</p>
+                      </div>
+                    </div>
+                    {/* Deadline */}
+                    <div className="flex items-start gap-3 rounded-xl bg-purple-500/10 border border-purple-500/20 p-4">
+                      <CalendarClock className="h-5 w-5 text-purple-500 mt-0.5 shrink-0" />
+                      <div>
+                        <p className="text-[11px] font-bold uppercase tracking-wider text-purple-500/80 mb-1">Rok</p>
+                        <p className="text-sm font-semibold text-foreground leading-snug">{summary.deadline}</p>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+
+              {/* ── SECTION CARDS ── */}
               {sections.map((section, idx) => {
                 const locked = section.isPremium && !isPremium;
                 return (
                   <motion.div
                     key={section.id}
-                    initial={{ opacity: 0, y: 12 }}
+                    initial={{ opacity: 0, y: 14 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: idx * 0.05 }}
-                    className={`relative rounded-xl border ${section.color} overflow-hidden`}
+                    transition={{ delay: idx * 0.04 }}
+                    className={`relative rounded-2xl border ${section.colorClass} overflow-hidden shadow-sm`}
                   >
-                    {/* Section header */}
-                    <div className="flex items-center gap-3 border-b border-border/30 px-5 py-3">
-                      <span className="text-primary">{section.icon}</span>
-                      <h3 className="text-sm font-bold tracking-wide">{section.title}</h3>
+                    {/* Card header */}
+                    <div className="flex items-center gap-3 px-6 py-4 border-b border-black/5 dark:border-white/5">
+                      <span className={section.iconColorClass}>{section.icon}</span>
+                      <h3 className="text-base font-bold tracking-tight text-foreground">{section.title}</h3>
                       {locked && <Lock className="ml-auto h-4 w-4 text-[hsl(var(--gold))]" />}
                     </div>
 
-                    {/* Section content */}
-                    <div className={`px-5 py-4 ${locked ? "relative" : ""}`}>
+                    {/* Card content */}
+                    <div className={`px-6 py-5 sm:py-6 ${locked ? "relative" : ""}`}>
                       {locked && (
-                        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-background/80 backdrop-blur-sm rounded-b-xl">
-                          <Lock className="h-6 w-6 text-[hsl(var(--gold))] mb-2" />
-                          <p className="text-xs font-semibold text-foreground mb-2">{st("docCheck.lockText")}</p>
+                        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-background/80 backdrop-blur-sm rounded-b-2xl">
+                          <Lock className="h-7 w-7 text-[hsl(var(--gold))] mb-3" />
+                          <p className="text-sm font-bold text-foreground mb-3">{st("docCheck.lockText")}</p>
                           <button onClick={() => navigate("/premium")}
-                            className="rounded-full bg-[hsl(var(--gold))] px-4 py-2 text-xs font-bold text-[#0f1f3d] transition-all hover:opacity-90">
+                            className="rounded-full bg-[hsl(var(--gold))] px-5 py-2.5 text-xs font-bold text-[#0f1f3d] transition-all hover:opacity-90">
                             {st("docCheck.premiumCta")}
                           </button>
                         </div>
                       )}
-                      <div className={`prose prose-sm max-w-none dark:prose-invert ${locked ? "blur-sm select-none pointer-events-none min-h-[80px]" : ""}`}>
+                      <div className={`prose prose-sm max-w-none dark:prose-invert
+                        prose-headings:text-foreground prose-headings:font-bold prose-headings:tracking-tight
+                        prose-strong:text-foreground prose-strong:font-semibold
+                        prose-li:text-muted-foreground prose-li:leading-relaxed
+                        prose-p:text-muted-foreground prose-p:leading-relaxed
+                        ${locked ? "blur-sm select-none pointer-events-none min-h-[100px]" : ""}`}
+                      >
                         <ReactMarkdown>{section.content}</ReactMarkdown>
                       </div>
                     </div>
@@ -403,8 +522,8 @@ export default function DokumentenCheck() {
             </motion.div>
           )}
 
-          {/* Disclaimer */}
-          <div className="rounded-lg border border-border/40 bg-muted/20 p-4 text-xs text-muted-foreground">
+          {/* ── Disclaimer ── */}
+          <div className="rounded-2xl border border-border/40 bg-muted/20 p-5 text-xs text-muted-foreground leading-relaxed">
             <p>
               <strong>{st("docCheck.disclaimerTitle")}</strong> {st("docCheck.disclaimerText")}
             </p>
