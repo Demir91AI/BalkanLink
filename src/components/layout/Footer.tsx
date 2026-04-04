@@ -178,6 +178,17 @@ export default function Footer() {
           <div>
             <FooterBrandLogo />
             <p className="mt-3 text-[13px] leading-relaxed text-[#4A4A4A]">{t("footer.tagline")}</p>
+
+            {/* Powered by RealCore */}
+            <div className="mt-5 flex items-center gap-2.5">
+              <span className="text-[11px] text-[#7A7A7A]">Powered by</span>
+              <img
+                src={realcoreLogo}
+                alt="RealCore Digital"
+                loading="lazy"
+                className="h-8 w-auto object-contain"
+              />
+            </div>
           </div>
 
           {/* Legal */}
@@ -241,32 +252,13 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Divider between main content and bottom */}
+        {/* Divider */}
         <div className="mt-12 h-px bg-gradient-to-r from-transparent via-[#D4CFC5] to-transparent" />
 
-        {/* Copyright line */}
+        {/* Copyright */}
         <p className="mt-6 text-center text-[13px] text-[#4A4A4A]">
           © {new Date().getFullYear()} BalkanLink. {t("footer.copyright")}
         </p>
-
-        {/* RealCore attribution divider */}
-        <div className="mt-6 h-px bg-gradient-to-r from-transparent via-[#D4CFC5]/60 to-transparent" />
-
-        {/* RealCore Digital attribution block */}
-        <div className="mt-6 flex flex-col items-center gap-3">
-          <p className="text-[11px] font-medium tracking-wide text-[#7A7A7A] uppercase">
-            Powered by
-          </p>
-          <img
-            src={realcoreLogo}
-            alt="RealCore Digital"
-            loading="lazy"
-            className="h-12 w-auto object-contain"
-          />
-          <p className="text-[11px] text-[#7A7A7A] tracking-wide">
-            Klar denken. Digital umsetzen.
-          </p>
-        </div>
       </div>
     </footer>
   );
