@@ -393,3 +393,32 @@
   text-align: center;
   padding: 32px;
 }
+
+@media print {
+  .page-nav-row,
+  .back-home-row,
+  nav,
+  aside,
+  button,
+  .trust-system,
+  .disclaimer-block,
+  .sidebar { display: none !important; }
+
+  .form-container {
+    max-width: 100% !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  body::before {
+    content: "BalkanLink Musterformular — nur zur Orientierung und Übung. Stand 2025.";
+    display: block;
+    text-align: center;
+    font-size: 10px;
+    color: #999;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 16px;
+  }
+}
