@@ -95,7 +95,7 @@ export function AppSidebar() {
                   </span>
                   {item.premium && (
                     <span className="ml-auto shrink-0 rounded-full bg-[hsl(var(--gold))] px-1.5 py-0.5 text-[8px] font-bold leading-none text-white">
-                      PRO
+                      PREMIUM
                     </span>
                   )}
                 </button>
