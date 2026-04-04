@@ -38,14 +38,21 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       const local = getTranslation(language, key as any);
       if (local !== key) return local;
 
+      // Helper: check if a result is a valid translated string
+      const isValid = (result: unknown, ...fallbacks: string[]) =>
+        typeof result === "string" && result.length > 0 &&
+        !fallbacks.includes(result) &&
+        !result.startsWith("[object") &&
+        !result.startsWith("key '");
+
       // 2. Fallback: search i18next namespaces
       const i18nT = i18n.t.bind(i18n);
 
-      // Direct lookup (e.g. "smartGuide" might be in sideMenu namespace)
+      // Direct lookup
       for (const ns of ALL_NS) {
         const nsKey = `${ns}:${key}`;
-        const result = i18nT(nsKey, { lng: language });
-        if (typeof result === "string" && result !== nsKey && result !== key) return result;
+        const result = i18nT(nsKey, { lng: language, returnObjects: false });
+        if (isValid(result, nsKey, key)) return result as string;
       }
 
       // Dot-prefix lookup: "sidebar.smartGuide" → try "sideMenu:smartGuide"
@@ -54,8 +61,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
         const subKey = key.substring(dotIdx + 1);
         for (const ns of ALL_NS) {
           const nsKey = `${ns}:${subKey}`;
-          const result = i18nT(nsKey, { lng: language });
-          if (typeof result === "string" && result !== nsKey && result !== subKey) return result;
+          const result = i18nT(nsKey, { lng: language, returnObjects: false });
+          if (isValid(result, nsKey, subKey)) return result as string;
         }
       }
 
