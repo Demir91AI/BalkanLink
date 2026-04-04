@@ -258,7 +258,7 @@ export default function FlowBanner() {
                           boxShadow: "0 8px 28px rgba(255,200,0,0.35)",
                         } : undefined}
                       >
-                        {isPremium ? "Započni" : "Otvori"} <ArrowRight className="h-4 w-4" />
+                        {isPremium ? t("flowBanner.start") : t("flowBanner.open")} <ArrowRight className="h-4 w-4" />
                       </span>
                     )}
                   </div>
