@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Briefcase, ChevronLeft, ExternalLink, Info } from "lucide-react";
+import { Briefcase, ChevronLeft, ExternalLink, Home, Info } from "lucide-react";
 import { navigateBackOrHome } from "@/lib/navigation";
 
 const portals = [
@@ -19,9 +19,14 @@ export default function Stellenangebote() {
       {/* Hero */}
       <section className="bg-primary py-10 text-primary-foreground md:py-14">
         <div className="container max-w-3xl">
-          <button onClick={() => navigateBackOrHome(navigate)} className="back-button mb-4">
-            <ChevronLeft className="h-4 w-4" /> Nazad
-          </button>
+          <div className="flex items-center gap-3 mb-4">
+            <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
+              <ChevronLeft className="h-4 w-4" /> Nazad
+            </button>
+            <button onClick={() => navigate("/")} className="flex items-center gap-1.5 text-[13px] font-medium text-primary-foreground/70 hover:text-primary-foreground transition-colors px-3 py-1.5 rounded-lg hover:bg-white/10">
+              <Home className="h-4 w-4" /> Početna
+            </button>
+          </div>
           <div className="text-center">
             <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium">
               <Briefcase className="h-4 w-4" /> Pretraga poslova
