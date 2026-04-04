@@ -3,7 +3,7 @@ import { ChevronLeft, ExternalLink, FileText, Info } from "lucide-react";
 import { navigateBackOrHome } from "@/lib/navigation";
 import { motion } from "framer-motion";
 import { type ReactNode } from "react";
-import { useTranslation } from "@/i18n/useTranslation";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface OfficialLink {
   type: "portal" | "pdf" | "info";
@@ -26,7 +26,7 @@ const fade = (i: number) => ({ initial: { opacity: 0, y: 14 }, animate: { opacit
 
 export default function DolazakPageTemplate({ title, subtitle, sections, links }: DolazakPageProps) {
   const navigate = useNavigate();
-  const { t } = useTranslation("common");
+  const { t } = useLanguage();
 
   const handleBack = () => {
     navigateBackOrHome(navigate);

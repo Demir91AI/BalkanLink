@@ -27,16 +27,5 @@
   "jobs": "Stellenangebote",
   "housing": "Wohnungen",
   "kalkulator": "Kalkulatoren",
-  "templates": "Vorlagen",
-  "dolazakGroup": "Ankunft in Deutschland",
-  "anmeldung": "Anmeldung & Wohnsitz",
-  "aufenthalt": "Aufenthalt & Visum",
-  "steuerId": "Steuer-ID & Steuerklasse",
-  "krankenversicherung": "Krankenversicherung",
-  "bankkonto": "Bankkonto eröffnen",
-  "sozialversicherung": "Sozialversicherung",
-  "gez": "Rundfunkbeitrag (GEZ)",
-  "fuehrerschein": "Führerschein",
-  "fahrzeugzulassung": "Fahrzeugzulassung (Kfz)",
-  "ersteSchritte": "Erste Schritte – Checkliste"
+  "templates": "Vorlagen"
 }
