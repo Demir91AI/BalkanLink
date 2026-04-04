@@ -7,6 +7,19 @@ interface BeforeInstallPromptEvent extends Event {
 
 const LS_DISMISS_KEY = "bl_pwa_dismiss";
 const LS_IOS_DISMISS_KEY = "bl_pwa_ios_dismiss";
+const DISMISS_DAYS = 7;
+
+function isDismissed(key: string): boolean {
+  try {
+    const raw = localStorage.getItem(key);
+    if (!raw) return false;
+    const ts = parseInt(raw, 10);
+    if (isNaN(ts)) return false;
+    return Date.now() - ts < DISMISS_DAYS * 24 * 60 * 60 * 1000;
+  } catch {
+    return false;
+  }
+}
 
 export function isStandalone() {
   return (
@@ -31,20 +44,16 @@ export function usePWAInstall() {
   useEffect(() => {
     if (isStandalone()) return;
 
-    // Android install prompt
     const handler = (e: Event) => {
       e.preventDefault();
       setDeferredPrompt(e as BeforeInstallPromptEvent);
-      const dismissed = localStorage.getItem(LS_DISMISS_KEY);
-      if (!dismissed) {
+      if (!isDismissed(LS_DISMISS_KEY)) {
         setShowAndroidBanner(true);
       }
     };
     window.addEventListener("beforeinstallprompt", handler);
 
-    // iOS detection
-    if (isIOS() && !localStorage.getItem(LS_IOS_DISMISS_KEY)) {
-      // Only show in Safari (not in-app browsers)
+    if (isIOS() && !isDismissed(LS_IOS_DISMISS_KEY)) {
       const isSafari = /Safari/.test(navigator.userAgent) && !/CriOS|FxiOS|OPiOS/.test(navigator.userAgent);
       if (isSafari) {
         setShowIOSBanner(true);
@@ -66,15 +75,20 @@ export function usePWAInstall() {
 
   const dismissAndroid = useCallback(() => {
     setShowAndroidBanner(false);
-    localStorage.setItem(LS_DISMISS_KEY, "1");
+    localStorage.setItem(LS_DISMISS_KEY, Date.now().toString());
   }, []);
 
   const dismissIOS = useCallback(() => {
     setShowIOSBanner(false);
-    localStorage.setItem(LS_IOS_DISMISS_KEY, "1");
+    localStorage.setItem(LS_IOS_DISMISS_KEY, Date.now().toString());
   }, []);
 
+  const canShow = showAndroidBanner || showIOSBanner;
+  const platform: "android" | "ios" | null = showAndroidBanner ? "android" : showIOSBanner ? "ios" : null;
+
   return {
+    canShow,
+    platform,
     showAndroidBanner,
     showIOSBanner,
     installAndroid,
