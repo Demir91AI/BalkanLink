@@ -12,14 +12,14 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Link } from "react-router-dom";
 
 const LANG_OPTIONS = [
-  { code: "de", name: "Deutsch", flag: "🇩🇪" },
-  { code: "bs", name: "Bosanski", flag: "🇧🇦" },
-  { code: "hr", name: "Hrvatski", flag: "🇭🇷" },
-  { code: "sr", name: "Srpski", flag: "🇷🇸" },
-  { code: "me", name: "Crnogorski", flag: "🇲🇪" },
-  { code: "mk", name: "Македонски", flag: "🇲🇰" },
-  { code: "sl", name: "Slovenščina", flag: "🇸🇮" },
-  { code: "sq", name: "Shqip", flag: "🇦🇱" },
+  { code: "de", name: "Deutsch", flag: "https://flagcdn.com/h40/de.png" },
+  { code: "bs", name: "Bosanski", flag: "https://flagcdn.com/h40/ba.png" },
+  { code: "hr", name: "Hrvatski", flag: "https://flagcdn.com/h40/hr.png" },
+  { code: "sr", name: "Srpski", flag: "https://flagcdn.com/h40/rs.png" },
+  { code: "me", name: "Crnogorski", flag: "https://flagcdn.com/h40/me.png" },
+  { code: "mk", name: "Македонски", flag: "https://flagcdn.com/h40/mk.png" },
+  { code: "sl", name: "Slovenščina", flag: "https://flagcdn.com/h40/si.png" },
+  { code: "sq", name: "Shqip", flag: "https://flagcdn.com/h40/al.png" },
 ];
 
 const menuBtnClass =
