@@ -1,6 +1,5 @@
 import GuideInfoHeader from "./GuideInfoHeader";
 import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
-import MusterformularCTA from "./MusterformularCTA";
 
 const STEPS: StepData[] = [
   {
@@ -64,7 +63,6 @@ export default function ElterngeldGuideContent() {
         ]}
       />
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterformularCTA musterSlug="elterngeld" pdfUrl="https://familienportal.de/familienportal/rechner-antraege/antragsformulare" />
     </div>
   );
 }

@@ -1,6 +1,5 @@
 import GuideInfoHeader from "./GuideInfoHeader";
 import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
-import MusterformularCTA from "./MusterformularCTA";
 
 const STEPS: StepData[] = [
   {
@@ -75,7 +74,6 @@ export default function ArbeitsbescheinigungGuideContent() {
         </p>
       </div>
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterformularCTA musterSlug="arbeitsbescheinigung" pdfUrl="https://www.arbeitsagentur.de/datei/arbeitsbescheinigung_ba034534.pdf" />
     </div>
   );
 }

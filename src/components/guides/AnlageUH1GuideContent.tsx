@@ -1,6 +1,5 @@
 import GuideInfoHeader from "./GuideInfoHeader";
 import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
-import MusterformularCTA from "./MusterformularCTA";
 
 const STEPS: StepData[] = [
   {
@@ -63,7 +62,6 @@ export default function AnlageUH1GuideContent() {
         </p>
       </div>
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterformularCTA musterSlug="anlage-uh1" pdfUrl="https://www.arbeitsagentur.de/datei/anlage-uh1_ba015345.pdf" />
     </div>
   );
 }

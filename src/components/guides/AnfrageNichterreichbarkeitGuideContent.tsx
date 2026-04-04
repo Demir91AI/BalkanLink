@@ -1,6 +1,5 @@
 import GuideInfoHeader from "./GuideInfoHeader";
 import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
-import MusterformularCTA from "./MusterformularCTA";
 
 const STEPS: StepData[] = [
   {
@@ -71,7 +70,6 @@ export default function AnfrageNichterreichbarkeitGuideContent() {
         </p>
       </div>
       <SmartGuideWizardShared steps={STEPS} />
-      <MusterformularCTA musterSlug="nichterreichbarkeit" pdfUrl="https://www.arbeitsagentur.de/datei/anfrage-nichterreichbarkeit_ba015340.pdf" />
     </div>
   );
 }
