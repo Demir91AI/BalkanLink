@@ -89,7 +89,7 @@ function ReviewFormModal() {
 }
 
 function AllReviewsModal({ reviews }: { reviews: FooterReview[] }) {
-  const { t } = useTranslation();
+  const { t } = useLanguage();
   const [allReviews, setAllReviews] = useState<FullReview[]>([]);
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
