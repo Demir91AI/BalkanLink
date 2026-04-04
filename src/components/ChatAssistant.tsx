@@ -156,7 +156,7 @@ function ChatMarkdown({ content }: { content: string }) {
       components={{
         a: ({ href, children }) => {
           if (href?.startsWith("/")) {
-            if (!isValidRoute(href) && !href.startsWith("/formulari/") && !href.startsWith("/guide/")) return <span className="font-medium text-white/50">{children}</span>;
+            if (!isValidRoute(href)) return <span className="font-medium text-white/50">{children}</span>;
             return <Link to={href} className="font-medium text-[hsl(45,93%,49%)] underline underline-offset-2 hover:text-[hsl(45,93%,60%)]">{children}</Link>;
           }
           return <a href={href} target="_blank" rel="noopener noreferrer" className="font-medium text-[hsl(45,93%,49%)] underline underline-offset-2 hover:text-[hsl(45,93%,60%)]">{children}</a>;
