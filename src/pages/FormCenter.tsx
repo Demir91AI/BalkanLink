@@ -48,6 +48,7 @@ import VisaWorkGuide from "@/components/formulare/VisaWorkGuide";
 import VisaBluecardGuide from "@/components/formulare/VisaBluecardGuide";
 import VisaFamilyGuide from "@/components/formulare/VisaFamilyGuide";
 import VisaStudyGuide from "@/components/formulare/VisaStudyGuide";
+import VisaPermanentGuide from "@/components/formulare/VisaPermanentGuide";
 import { navigateBackOrHome } from "@/lib/navigation";
 
 type LangKey = "de" | "bs" | "en";
