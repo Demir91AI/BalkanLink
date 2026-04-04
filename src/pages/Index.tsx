@@ -54,11 +54,11 @@ const serviceCardKeys = [
 ];
 
 const placeholderAds = [
-  { name: "RealCore Digital", slogan: "Klar denken. Digital umsetzen.", desc: "Webdesign, KI-Lösungen und digitale Strategien.", logo: realcoreDigitalLogo, href: "https://realcore.digital" },
-  { name: "BalkanLink", slogan: "Rezerviraj reklamni prostor", desc: "Predstavite svoju firmu cijeloj zajednici.", logo: "/icons/icon-192x192.png" },
-  { name: "BalkanLink", slogan: "Vaš oglas ovdje", desc: "Premium pozicija za vašu firmu.", logo: "/icons/icon-192x192.png" },
-  { name: "BalkanLink", slogan: "Oglasite svoju uslugu", desc: "Dođite do hiljada korisnika iz regije.", logo: "/icons/icon-192x192.png" },
-  { name: "BalkanLink", slogan: "Povećajte vidljivost", desc: "Istaknite svoju ponudu na platformi.", logo: "/icons/icon-192x192.png" },
+  { name: "RealCore Digital", slogan: "Webdesign · KI · Lösungen", desc: "Professionelle digitale Lösungen.", logo: realcoreDigitalLogo, href: "https://realcore.digital", isReal: true },
+  { name: "Oglasni prostor", slogan: "Vaša firma ovdje", desc: "", logo: "/icons/icon-192x192.png", isReal: false },
+  { name: "Slobodno mjesto", slogan: "Vaša firma ovdje", desc: "", logo: "/icons/icon-192x192.png", isReal: false },
+  { name: "Oglasni prostor", slogan: "Vaša firma ovdje", desc: "", logo: "/icons/icon-192x192.png", isReal: false },
+  { name: "Slobodno mjesto", slogan: "Vaša firma ovdje", desc: "", logo: "/icons/icon-192x192.png", isReal: false },
 ];
 
 /* ─── Infinite scroll hook (rAF based) ─── */
@@ -260,19 +260,30 @@ function AdFlowSection() {
       <div className="overflow-hidden w-full">
         <div className="flex w-fit gap-4 animate-carousel-scroll hover:[animation-play-state:paused] active:[animation-play-state:paused]">
           {doubled.map((ad, i) => (
-            <a key={i} href={ad.href || MAILTO_AD} target={ad.href ? "_blank" : undefined} rel={ad.href ? "noopener noreferrer" : undefined} className="group flex flex-col w-[280px] h-[320px] shrink-0 rounded-xl border border-[#E8E0D0] bg-white overflow-hidden transition-all duration-300 hover:border-[hsl(var(--gold))]/40 hover:shadow-lg">
-              <div className="flex items-center justify-center h-[160px] bg-[hsl(var(--warm-cream))] p-5">
-                <img src={ad.logo} alt={ad.name} className="max-h-full max-w-full object-contain" loading="lazy" />
-              </div>
-              <div className="flex flex-col flex-1 bg-white p-4">
-                <p className="text-lg font-bold text-[#2D2D2D] leading-tight">{ad.name}</p>
-                <p className="text-[13px] text-[hsl(var(--gold))] mt-1 font-medium">{ad.slogan}</p>
-                <p className="text-xs text-[#6B6B6B] mt-1 line-clamp-2">{ad.desc}</p>
-                <div className="mt-auto pt-3">
-                  <span className="inline-flex items-center gap-1.5 rounded-md border border-[hsl(var(--gold))] px-4 py-2 text-[13px] font-semibold text-[hsl(var(--gold))] transition-colors group-hover:bg-[hsl(var(--gold))]/10">
-                    {ad.href ? t("home.viewMore") : t("home.contact")}
-                  </span>
-                </div>
+            <a
+              key={i}
+              href={ad.href || MAILTO_AD}
+              target={ad.href ? "_blank" : undefined}
+              rel={ad.href ? "noopener noreferrer" : undefined}
+              className="group relative w-[240px] h-[200px] shrink-0 rounded-xl overflow-hidden border border-[#E8E0D0] transition-all duration-300 hover:border-[hsl(var(--gold))]/40 hover:shadow-md"
+            >
+              {/* Full-bleed background image */}
+              <img
+                src={ad.logo}
+                alt={ad.name}
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+              {/* Dark gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-black/5" />
+              {/* Text overlay — bottom-left */}
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <p className="text-sm font-bold text-white leading-tight">{ad.name}</p>
+                <p className="mt-0.5 text-[11px] text-white/60">{ad.slogan}</p>
+                {ad.desc && <p className="mt-0.5 text-[10px] text-white/40">{ad.desc}</p>}
+                <span className="mt-2 inline-flex items-center gap-1 rounded-md bg-white/15 px-3 py-1 text-[11px] font-semibold text-white/80 transition-colors group-hover:bg-white/25 group-hover:text-white">
+                  Kontakt
+                </span>
               </div>
             </a>
           ))}
