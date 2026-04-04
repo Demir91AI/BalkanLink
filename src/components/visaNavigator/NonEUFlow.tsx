@@ -2,8 +2,9 @@ import { useTranslation } from "react-i18next";
 import {
   Briefcase, CreditCard, Users, GraduationCap, RefreshCw, Home,
   ExternalLink, Info, Zap, Clock, CheckCircle, Scale, FileText,
-  AlertTriangle, ArrowLeft,
+  AlertTriangle, ArrowLeft, Lightbulb,
 } from "lucide-react";
+import TrustSystem from "./TrustSystem";
 
 const EMBASSY_MAP: Record<string, { label: string; url: string }> = {
   ba: { label: "Sarajevo", url: "https://sarajevo.diplo.de" },
