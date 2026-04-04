@@ -133,6 +133,7 @@ export const formCatalog: FormGroup[] = [
     items: [
       { slug: "visa-work", label: "Arbeitsvisa §18 AufenthG", desc: "Radna viza i boravišna dozvola za zaposlenje u Njemačkoj." },
       { slug: "visa-bluecard", label: "Blaue Karte EU §18g AufenthG", desc: "EU Plava karta za visokokvalificirane s ponudom posla." },
+      { slug: "visa-family", label: "Familiennachzug §§27-36 AufenthG", desc: "Spajanje porodice s osobom koja živi u Njemačkoj." },
     ],
   },
   {

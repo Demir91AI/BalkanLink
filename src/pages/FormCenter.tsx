@@ -46,6 +46,7 @@ import FuehrerscheinGuideContent from "@/components/formulare/FuehrerscheinGuide
 import FahrzeugzulassungGuide from "@/components/formulare/FahrzeugzulassungGuide";
 import VisaWorkGuide from "@/components/formulare/VisaWorkGuide";
 import VisaBluecardGuide from "@/components/formulare/VisaBluecardGuide";
+import VisaFamilyGuide from "@/components/formulare/VisaFamilyGuide";
 import { navigateBackOrHome } from "@/lib/navigation";
 
 type LangKey = "de" | "bs" | "en";
@@ -132,6 +133,7 @@ function GuideContent({ slug }: { slug: string }) {
   if (slug === "fahrzeugzulassung") return <FahrzeugzulassungGuide />;
   if (slug === "visa-work") return <VisaWorkGuide />;
   if (slug === "visa-bluecard") return <VisaBluecardGuide />;
+  if (slug === "visa-family") return <VisaFamilyGuide />;
 
   if (!guide) return null;
 
