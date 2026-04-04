@@ -45,6 +45,7 @@ import AnfrageNichterreichbarkeitGuideContent from "@/components/guides/AnfrageN
 import FuehrerscheinGuideContent from "@/components/formulare/FuehrerscheinGuide";
 import FahrzeugzulassungGuide from "@/components/formulare/FahrzeugzulassungGuide";
 import VisaWorkGuide from "@/components/formulare/VisaWorkGuide";
+import VisaBluecardGuide from "@/components/formulare/VisaBluecardGuide";
 import { navigateBackOrHome } from "@/lib/navigation";
 
 type LangKey = "de" | "bs" | "en";
@@ -130,6 +131,7 @@ function GuideContent({ slug }: { slug: string }) {
   if (slug === "fuehrerschein") return <FuehrerscheinGuideContent />;
   if (slug === "fahrzeugzulassung") return <FahrzeugzulassungGuide />;
   if (slug === "visa-work") return <VisaWorkGuide />;
+  if (slug === "visa-bluecard") return <VisaBluecardGuide />;
 
   if (!guide) return null;
 
