@@ -520,7 +520,7 @@ export default function Kalkulatori() {
 
   return (
     <div className="min-h-screen bg-[#0B0F1A]">
-      <PageNav />
+      
 
       {/* Header */}
       <div className="container pt-6 pb-2">
