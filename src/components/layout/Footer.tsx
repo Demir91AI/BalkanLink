@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { CreditCard, Landmark, Wallet, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import { useTranslation } from "@/i18n/useTranslation";
 import { supabase } from "@/integrations/supabase/client";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
@@ -74,7 +74,7 @@ function AllReviewsModal() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <button className="text-[12px] font-semibold text-[hsl(var(--gold))] hover:underline hover:opacity-80 cursor-pointer mt-1 text-left transition-opacity">
+        <button className="text-[12px] font-semibold text-[hsl(var(--gold))] hover:underline hover:opacity-80 cursor-pointer mt-2 transition-opacity">
           {t("reviews.viewAll")} →
         </button>
       </DialogTrigger>
@@ -82,7 +82,6 @@ function AllReviewsModal() {
         <DialogHeader>
           <DialogTitle className="text-xl font-bold">{t("reviews.allTitle")}</DialogTitle>
         </DialogHeader>
-
         {loading ? (
           <p className="text-sm text-muted-foreground text-center py-4">{t("reviews.loading")}</p>
         ) : allReviews.length > 0 ? (
@@ -104,7 +103,6 @@ function AllReviewsModal() {
         ) : (
           <p className="text-sm text-muted-foreground text-center py-6">{t("reviews.noReviews")}</p>
         )}
-
         <div className="border-t border-[#E8E0D0] pt-5">
           <h3 className="text-sm font-bold mb-3">{t("reviews.leaveReview")}</h3>
           {!submitted ? (
@@ -128,23 +126,9 @@ function AllReviewsModal() {
 function FooterBrandLogo() {
   return (
     <span className="inline-flex items-center gap-2">
-      <svg
-        width={28}
-        height={28}
-        viewBox="0 0 40 40"
-        fill="none"
-        className="block shrink-0"
-        aria-hidden="true"
-      >
+      <svg width={28} height={28} viewBox="0 0 40 40" fill="none" className="block shrink-0" aria-hidden="true">
         <rect width="40" height="40" rx="8" fill="hsl(var(--gold))" />
-        <text
-          x="4"
-          y="30"
-          fontFamily="'Arial Black', Arial, sans-serif"
-          fontWeight="900"
-          fontSize="28"
-          letterSpacing="-1"
-        >
+        <text x="4" y="30" fontFamily="'Arial Black', Arial, sans-serif" fontWeight="900" fontSize="28" letterSpacing="-1">
           <tspan fill="#FFFFFF">B</tspan>
           <tspan fill="#1E293B">L</tspan>
         </text>
@@ -156,6 +140,10 @@ function FooterBrandLogo() {
   );
 }
 
+const Divider = () => (
+  <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4CFC5] to-transparent" />
+);
+
 export default function Footer() {
   const { t } = useTranslation();
   const [reviews, setReviews] = useState<FooterReview[]>([]);
@@ -166,105 +154,104 @@ export default function Footer() {
     });
   }, []);
 
+  const legalLinks = [
+    { to: "/impressum", label: t("footer.imprint") },
+    { to: "/datenschutz", label: t("footer.privacy") },
+    { to: "/agb", label: t("footer.agb") },
+    { to: "/haftungsausschluss", label: t("footer.haftung") },
+    { to: "/ki-hinweis", label: t("footer.kiHinweis") },
+    { to: "/inhalte-melden", label: t("footer.reportContent") },
+  ];
+
+  const paymentMethods = ["Stripe", "PayPal", t("footer.creditCard"), t("footer.bankTransfer")];
+
   return (
-    <footer className="text-[#2D2D2D]" style={{ background: "#F0EDE6" }}>
-      {/* Premium gold top accent line */}
+    <footer className="text-[#3A3A3A]" style={{ background: "#F0EDE6" }}>
+      {/* Gold accent top */}
       <div className="h-px bg-gradient-to-r from-transparent via-[hsl(var(--gold))] to-transparent opacity-40" />
 
-      <div className="container py-14">
-        {/* Main grid */}
-        <div className="grid gap-10 text-left grid-cols-4">
-          {/* Brand block */}
-          <div>
-            <FooterBrandLogo />
-            <p className="mt-3 text-[13px] leading-relaxed text-[#4A4A4A]">{t("footer.tagline")}</p>
-          </div>
+      <div className="container max-w-3xl mx-auto py-14 flex flex-col items-center gap-8">
 
-          {/* Legal */}
-          <div>
-            <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-[#4A4A4A]">{t("footer.legalSection")}</h4>
-            <nav className="flex flex-col items-start gap-2.5">
-              <Link to="/impressum" className="text-[13px] text-[#4A4A4A] transition-colors hover:text-[hsl(var(--gold))]">{t("footer.imprint")}</Link>
-              <Link to="/datenschutz" className="text-[13px] text-[#4A4A4A] transition-colors hover:text-[hsl(var(--gold))]">{t("footer.privacy")}</Link>
-              <Link to="/agb" className="text-[13px] text-[#4A4A4A] transition-colors hover:text-[hsl(var(--gold))]">{t("footer.agb")}</Link>
-              <Link to="/haftungsausschluss" className="text-[13px] text-[#4A4A4A] transition-colors hover:text-[hsl(var(--gold))]">{t("footer.haftung")}</Link>
-              <Link to="/ki-hinweis" className="text-[13px] text-[#4A4A4A] transition-colors hover:text-[hsl(var(--gold))]">{t("footer.kiHinweis")}</Link>
-              <Link to="/inhalte-melden" className="text-[13px] text-[#4A4A4A] transition-colors hover:text-[hsl(var(--gold))]">{t("footer.reportContent")}</Link>
-              <button onClick={() => (window as any).__blOpenCookieSettings?.()} className="text-[13px] text-[#4A4A4A] transition-colors hover:text-[hsl(var(--gold))] text-left">
-                {t("cookie.footerLink")}
-              </button>
-            </nav>
-          </div>
-
-          {/* Trust / Reviews */}
-          <div>
-            <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-[#4A4A4A]">{t("footer.trust")}</h4>
-            <div className="flex flex-col gap-3">
-              {reviews.length > 0 ? reviews.map((r) => (
-                <div key={r.id} className="text-left">
-                  <p className="text-[13px] text-[#4A4A4A] leading-snug line-clamp-2">"{r.comment}"</p>
-                  <div className="flex items-center gap-0.5 mt-1">
-                    {Array.from({ length: 5 }).map((_, si) => (
-                      <Star key={si} className={`h-3 w-3 ${si < r.rating ? "fill-[hsl(var(--gold))] text-[hsl(var(--gold))]" : "text-[#D4CFC5]"}`} />
-                    ))}
-                  </div>
-                  <p className="text-[11px] text-[#4A4A4A]/60 mt-0.5">— {r.username}</p>
-                </div>
-              )) : (
-                <p className="text-[12px] text-[#4A4A4A]/60">{t("reviews.noReviews")}</p>
-              )}
-              <AllReviewsModal />
-            </div>
-          </div>
-
-          {/* Payment methods */}
-          <div>
-            <h4 className="mb-3 text-[11px] font-bold uppercase tracking-[0.15em] text-[#4A4A4A]">{t("footer.paymentMethods")}</h4>
-            <div className="flex flex-wrap items-start gap-3">
-              <div className="flex h-8 items-center rounded-md border border-[#D4CFC5] bg-white/70 px-2.5" title="Stripe">
-                <CreditCard className="h-4 w-4 text-[#4A4A4A]" />
-                <span className="ml-1.5 text-[10px] font-semibold text-[#4A4A4A]">Stripe</span>
-              </div>
-              <div className="flex h-8 items-center rounded-md border border-[#D4CFC5] bg-white/70 px-2.5" title="PayPal">
-                <Wallet className="h-4 w-4 text-[#4A4A4A]" />
-                <span className="ml-1.5 text-[10px] font-semibold text-[#4A4A4A]">PayPal</span>
-              </div>
-              <div className="flex h-8 items-center rounded-md border border-[#D4CFC5] bg-white/70 px-2.5" title={t("footer.creditCard")}>
-                <CreditCard className="h-4 w-4 text-[#4A4A4A]" />
-                <span className="ml-1.5 text-[10px] font-semibold text-[#4A4A4A]">{t("footer.creditCard")}</span>
-              </div>
-              <div className="flex h-8 items-center rounded-md border border-[#D4CFC5] bg-white/70 px-2.5" title={t("footer.bankTransfer")}>
-                <Landmark className="h-4 w-4 text-[#4A4A4A]" />
-                <span className="ml-1.5 text-[10px] font-semibold text-[#4A4A4A]">{t("footer.bankTransfer")}</span>
-              </div>
-            </div>
-          </div>
+        {/* 1. Brand */}
+        <div className="flex flex-col items-center gap-2.5">
+          <FooterBrandLogo />
+          <p className="text-[13px] text-[#5A5A5A] leading-relaxed">{t("footer.tagline")}</p>
         </div>
 
-        {/* Divider */}
-        <div className="mt-12 h-px bg-gradient-to-r from-transparent via-[#D4CFC5] to-transparent" />
+        <Divider />
 
-        {/* Copyright */}
-        <p className="mt-6 text-center text-[13px] text-[#4A4A4A]">
-          © {new Date().getFullYear()} BalkanLink. {t("footer.copyright")}
-        </p>
+        {/* 2. Legal links — horizontal */}
+        <nav className="flex flex-wrap items-center justify-center gap-x-1.5 gap-y-1.5">
+          {legalLinks.map((link, i) => (
+            <span key={link.to} className="flex items-center">
+              <Link to={link.to} className="text-[12px] text-[#5A5A5A] transition-colors hover:text-[hsl(var(--gold))]">
+                {link.label}
+              </Link>
+              {i < legalLinks.length - 1 && <span className="text-[#C4BDB0] mx-1.5">·</span>}
+            </span>
+          ))}
+          <span className="flex items-center">
+            <span className="text-[#C4BDB0] mx-1.5">·</span>
+            <button
+              onClick={() => (window as any).__blOpenCookieSettings?.()}
+              className="text-[12px] text-[#5A5A5A] transition-colors hover:text-[hsl(var(--gold))]"
+            >
+              {t("cookie.footerLink")}
+            </button>
+          </span>
+        </nav>
 
-        {/* RealCore attribution */}
-        <div className="mt-6 h-px bg-gradient-to-r from-transparent via-[#D4CFC5]/60 to-transparent" />
-        <div className="mt-6 flex flex-col items-center gap-3">
-          <p className="text-[11px] font-medium tracking-wide text-[#7A7A7A] uppercase">
-            Powered by
+        <Divider />
+
+        {/* 3. Trust */}
+        <div className="flex flex-col items-center gap-2">
+          <h4 className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#5A5A5A]">{t("footer.trust")}</h4>
+          {reviews.length > 0 ? (
+            <div className="flex flex-col items-center gap-1.5">
+              <div className="flex items-center gap-0.5">
+                {Array.from({ length: 5 }).map((_, si) => (
+                  <Star key={si} className={`h-3.5 w-3.5 ${si < reviews[0].rating ? "fill-[hsl(var(--gold))] text-[hsl(var(--gold))]" : "text-[#D4CFC5]"}`} />
+                ))}
+              </div>
+              <p className="text-[13px] text-[#4A4A4A] text-center max-w-md leading-snug">"{reviews[0].comment}"</p>
+              <p className="text-[11px] text-[#5A5A5A]/70">— {reviews[0].username}</p>
+            </div>
+          ) : (
+            <p className="text-[12px] text-[#5A5A5A]/60">{t("reviews.noReviews")}</p>
+          )}
+          <AllReviewsModal />
+        </div>
+
+        <Divider />
+
+        {/* 4. Payment methods — inline text */}
+        <div className="flex flex-col items-center gap-2">
+          <h4 className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#5A5A5A]">{t("footer.paymentMethods")}</h4>
+          <p className="text-[12px] text-[#5A5A5A]">
+            {paymentMethods.join("  •  ")}
           </p>
+        </div>
+
+        <Divider />
+
+        {/* 5. RealCore */}
+        <div className="flex flex-col items-center gap-2.5">
+          <p className="text-[11px] font-medium tracking-wide text-[#7A7A7A] uppercase">Powered by</p>
           <img
             src={realcoreLogo}
             alt="RealCore Digital"
             loading="lazy"
-            className="h-[78px] w-auto object-contain"
+            className="h-[46px] w-auto object-contain"
           />
-          <p className="text-[11px] text-[#7A7A7A] tracking-wide">
-            Klar denken. Digital umsetzen.
-          </p>
+          <p className="text-[11px] text-[#7A7A7A] tracking-wide">Klar denken. Digital umsetzen.</p>
         </div>
+
+        <Divider />
+
+        {/* 6. Copyright */}
+        <p className="text-[12px] text-[#5A5A5A]">
+          © {new Date().getFullYear()} BalkanLink. {t("footer.copyright")}
+        </p>
       </div>
     </footer>
   );
