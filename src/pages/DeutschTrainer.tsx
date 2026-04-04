@@ -79,9 +79,14 @@ export default function DeutschTrainer() {
       {/* Header */}
       <section className="border-b bg-primary py-6">
         <div className="container max-w-2xl">
-          <button onClick={() => navigateBackOrHome(navigate)} className="mb-3 flex items-center gap-1.5 text-sm text-primary-foreground/60 hover:text-primary-foreground">
-            <ArrowLeft className="h-4 w-4" /> Zurück
-          </button>
+          <div className="flex items-center gap-3 mb-3">
+            <button onClick={() => navigateBackOrHome(navigate)} className="flex items-center gap-1.5 text-sm text-primary-foreground/60 hover:text-primary-foreground">
+              <ArrowLeft className="h-4 w-4" /> Nazad
+            </button>
+            <button onClick={() => navigate("/")} className="flex items-center gap-1.5 text-sm text-primary-foreground/60 hover:text-primary-foreground">
+              <Home className="h-4 w-4" /> Početna
+            </button>
+          </div>
           <div className="flex items-center gap-3">
             <GraduationCap className="h-7 w-7 text-gold" />
             <div>
