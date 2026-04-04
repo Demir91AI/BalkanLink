@@ -265,6 +265,7 @@ export default function FormCenter() {
         <p className="mt-1 text-sm text-muted-foreground">
           {t("formCenter.subtitle")}
         </p>
+        <div className="h-px mt-4 mb-6" style={{ background: '#F0EAD8' }} />
       </div>
 
       <div className="flex gap-6">
