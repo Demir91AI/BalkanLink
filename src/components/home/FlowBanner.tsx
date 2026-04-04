@@ -28,21 +28,22 @@ export default function FlowBanner() {
   }, []);
 
   return (
-    <section className="relative py-8 sm:py-12">
+    <section className="relative py-14 sm:py-20">
       {/* Bridge block */}
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="container text-center mb-6 sm:mb-8"
+        className="container text-center mb-8 sm:mb-12"
       >
-        <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
           Šta želiš riješiti danas?
         </h2>
-        <p className="text-sm text-gray-300 mt-1.5 leading-relaxed">
-          Izaberi i kreni odmah — bez lutanja
+        <p className="text-sm sm:text-base text-gray-300 mt-2.5 leading-relaxed max-w-md mx-auto">
+          Riješi papirologiju bez stresa — sve na jednom mjestu
         </p>
+        <div className="mx-auto mt-4 h-[3px] w-16 rounded-full bg-gradient-to-r from-[#FFD700] to-[#FFA500]" />
       </motion.div>
 
       {/* Flow cards */}
@@ -66,38 +67,45 @@ export default function FlowBanner() {
             >
               <Link
                 to={item.to}
-                className={`group relative flex flex-col min-w-[232px] max-w-[232px] min-h-[158px] rounded-[22px] p-[18px] overflow-hidden snap-center cursor-pointer border transition-all duration-[220ms] active:scale-[0.985] ${
-                  item.primary
-                    ? "border-[rgba(59,130,246,0.3)] shadow-[0_12px_32px_rgba(0,0,0,0.22),0_0_20px_rgba(59,130,246,0.12)]"
-                    : "border-[rgba(255,255,255,0.08)] shadow-[0_12px_32px_rgba(0,0,0,0.22)]"
-                } hover:-translate-y-1 hover:scale-[1.025] hover:border-[rgba(255,255,255,0.16)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.3)]`}
+                className={`group relative flex flex-col snap-center cursor-pointer border overflow-hidden rounded-[22px] p-[20px] transition-all duration-300 active:scale-[0.985] ${
+                  item.badge === "premium"
+                    ? "min-w-[252px] max-w-[252px] min-h-[174px] border-[hsla(43,70%,53%,0.45)] shadow-[0_14px_36px_rgba(0,0,0,0.28),0_0_24px_hsla(43,70%,53%,0.12)] hover:-translate-y-1.5 hover:scale-[1.04] hover:border-[hsla(43,80%,62%,0.6)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.35),0_0_32px_hsla(43,70%,53%,0.2)]"
+                    : "min-w-[224px] max-w-[224px] min-h-[154px] border-[rgba(255,255,255,0.07)] shadow-[0_10px_28px_rgba(0,0,0,0.2)] hover:-translate-y-1 hover:scale-[1.02] hover:border-[rgba(255,255,255,0.14)] hover:shadow-[0_14px_36px_rgba(0,0,0,0.28)]"
+                }`}
                 style={{
-                  background: "linear-gradient(180deg, rgba(18,30,58,0.95) 0%, rgba(24,42,79,0.92) 100%)",
+                  background: item.badge === "premium"
+                    ? "linear-gradient(160deg, hsl(220,50%,10%) 0%, hsl(225,45%,7%) 100%)"
+                    : "linear-gradient(180deg, rgba(18,30,58,0.85) 0%, rgba(24,42,79,0.8) 100%)",
                 }}
               >
-                {/* Inner glow */}
-                <div className="absolute top-0 right-0 w-24 h-24 rounded-full bg-white/[0.03] blur-xl pointer-events-none" />
+                {/* Inner glow for premium */}
+                {item.badge === "premium" && (
+                  <div className="absolute -top-6 -right-6 w-32 h-32 rounded-full bg-[hsla(43,70%,53%,0.06)] blur-2xl pointer-events-none" />
+                )}
+                <div className="absolute top-0 right-0 w-20 h-20 rounded-full bg-white/[0.02] blur-xl pointer-events-none" />
 
                 {/* Badge */}
                 {item.badge === "premium" && (
                   <span
-                    className="absolute top-[14px] right-[14px] rounded-full px-2.5 py-1 text-[11px] font-bold text-[#0f1f3d]"
-                    style={{ background: "linear-gradient(135deg, #FFD700 0%, #FFB800 100%)", boxShadow: "0 6px 18px rgba(255,200,0,0.28)" }}
+                    className="absolute top-[14px] right-[14px] rounded-full px-2.5 py-1 text-[11px] font-black text-[#0f1f3d] uppercase tracking-wider"
+                    style={{ background: "linear-gradient(135deg, #FFD700 0%, #FFB800 100%)", boxShadow: "0 6px 18px rgba(255,200,0,0.32)" }}
                   >
                     ⭐ PREMIUM
                   </span>
                 )}
                 {item.badge === "free" && (
-                  <span className="absolute top-[14px] right-[14px] rounded-full border border-white/12 bg-white/[0.12] px-2.5 py-1 text-[11px] font-bold text-white">
+                  <span className="absolute top-[14px] right-[14px] rounded-full border border-white/12 bg-white/[0.10] px-2.5 py-1 text-[11px] font-bold text-white/70">
                     Free + Pro
                   </span>
                 )}
 
-                <span className="text-[28px] mb-3">{item.icon}</span>
-                <span className="text-[18px] font-bold text-white mb-1.5">{item.title}</span>
-                <span className="text-[14px] leading-[1.45] text-white/[0.72] max-w-[90%]">{item.text}</span>
+                <span className={`mb-3 ${item.badge === "premium" ? "text-[32px]" : "text-[26px]"}`}>{item.icon}</span>
+                <span className={`font-bold text-white mb-1.5 ${item.badge === "premium" ? "text-[19px]" : "text-[16px] text-white/90"}`}>{item.title}</span>
+                <span className={`leading-[1.45] max-w-[90%] ${item.badge === "premium" ? "text-[14px] text-white/75" : "text-[13px] text-white/55"}`}>{item.text}</span>
 
-                <span className="mt-auto pt-3 text-[13px] font-semibold text-white/[0.82] opacity-90 group-hover:translate-x-1 transition-transform duration-200 flex items-center gap-1">
+                <span className={`mt-auto pt-3 font-semibold opacity-90 group-hover:translate-x-1 transition-transform duration-200 flex items-center gap-1 ${
+                  item.badge === "premium" ? "text-[14px] text-[#FFD700]" : "text-[13px] text-white/60"
+                }`}>
                   Otvori <ArrowRight className="h-3 w-3" />
                 </span>
               </Link>
