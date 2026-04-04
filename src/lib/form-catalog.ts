@@ -88,22 +88,6 @@ export const formCatalog: FormGroup[] = [
     ],
   },
   {
-    id: "sozialhilfe",
-    icon: "🤝",
-    title: "Sozialhilfe",
-    items: [
-      { slug: "sozialhilfe", label: "Sozialhilfe", desc: "Osnovna pomoć za osobe koje ne mogu raditi." },
-    ],
-  },
-  {
-    id: "heizkostenzuschuss",
-    icon: "🔥",
-    title: "Heizkostenzuschuss",
-    items: [
-      { slug: "heizkostenzuschuss", label: "Heizkostenzuschuss", desc: "Dodatak za troškove grijanja." },
-    ],
-  },
-  {
     id: "posao",
     icon: "💼",
     title: "Posao i prihodi",
