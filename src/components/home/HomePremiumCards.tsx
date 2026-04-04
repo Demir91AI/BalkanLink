@@ -69,15 +69,37 @@ export default function HomePremiumCards() {
             >
               <Link
                 to={card.to}
-                className="group flex flex-col h-full rounded-2xl border border-[hsl(var(--gold))]/20 bg-[hsl(215,55%,15%)] p-6 transition-all duration-200 hover:shadow-xl hover:border-[hsl(var(--gold))]/60 hover:scale-[1.02]"
+                className="group relative flex flex-col h-full rounded-2xl border border-[hsl(var(--gold))]/25 bg-[hsl(215,55%,15%)] p-6 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[hsl(var(--gold))]/60"
+                style={{
+                  boxShadow: "0 0 20px 0 hsla(43,70%,53%,0.06), 0 2px 8px 0 rgba(0,0,0,0.2)",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.boxShadow = "0 0 30px 4px hsla(43,70%,53%,0.14), 0 8px 24px 0 rgba(0,0,0,0.25)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.boxShadow = "0 0 20px 0 hsla(43,70%,53%,0.06), 0 2px 8px 0 rgba(0,0,0,0.2)";
+                }}
               >
                 <span className="text-4xl mb-3">{card.emoji}</span>
-                <span className="inline-flex items-center gap-1 self-start rounded-full bg-[hsl(var(--gold))]/15 px-2 py-0.5 text-[10px] font-bold text-[hsl(var(--gold))] uppercase tracking-wider mb-2">
+                <span
+                  className="inline-flex items-center gap-1 self-start rounded-full px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider mb-2"
+                  style={{
+                    background: "linear-gradient(135deg, hsla(43,70%,53%,0.22), hsla(38,60%,45%,0.14))",
+                    color: "hsl(43,80%,62%)",
+                    boxShadow: "0 0 8px 0 hsla(43,70%,53%,0.10)",
+                  }}
+                >
                   <Star className="h-2.5 w-2.5 fill-current" /> Premium
                 </span>
                 <h3 className="text-base font-bold text-white mb-1">{card.title}</h3>
                 <p className="text-xs text-white/50 leading-relaxed mb-4 flex-1">{card.desc}</p>
-                <span className="block w-full rounded-full bg-[hsl(var(--gold))] py-2.5 text-center text-sm font-bold text-[hsl(var(--gold-foreground))] transition-opacity group-hover:opacity-90">
+                <span
+                  className="block w-full rounded-full py-2.5 text-center text-sm font-bold text-[hsl(var(--gold-foreground))] transition-all duration-300 group-hover:brightness-110"
+                  style={{
+                    background: "linear-gradient(135deg, hsl(43,70%,53%), hsl(38,65%,45%))",
+                    boxShadow: "0 0 12px 0 hsla(43,70%,53%,0.15)",
+                  }}
+                >
                   {card.cta}
                 </span>
                 <p className="mt-2 text-[10px] text-white/30 text-center">{card.price}</p>
