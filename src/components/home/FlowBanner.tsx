@@ -104,10 +104,10 @@ export default function FlowBanner() {
         className="relative z-10 pt-16 sm:pt-24 pb-8 sm:pb-12 text-center px-4"
       >
         <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
-          Šta želiš riješiti danas?
+          {t("flowBanner.headline")}
         </h2>
         <p className="text-base sm:text-lg lg:text-xl text-white/45 mt-4 leading-relaxed max-w-xl mx-auto">
-          Riješi papirologiju bez stresa — sve na jednom mjestu
+          {t("flowBanner.subheadline")}
         </p>
         <div className="mx-auto mt-6 h-[3px] w-24 rounded-full bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--brand-orange))]" />
       </motion.div>
