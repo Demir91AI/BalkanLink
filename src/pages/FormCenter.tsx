@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Search, ChevronLeft, FileText, ChevronDown, ChevronRight, Info, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -42,7 +42,6 @@ import AnlageUH1GuideContent from "@/components/guides/AnlageUH1GuideContent";
 import AnlageUH2GuideContent from "@/components/guides/AnlageUH2GuideContent";
 import AnlageUH3GuideContent from "@/components/guides/AnlageUH3GuideContent";
 import AnfrageNichterreichbarkeitGuideContent from "@/components/guides/AnfrageNichterreichbarkeitGuideContent";
-import AufenthaltsNavigator from "@/components/AufenthaltsNavigator";
 import FuehrerscheinGuideContent from "@/components/formulare/FuehrerscheinGuide";
 import FahrzeugzulassungGuide from "@/components/formulare/FahrzeugzulassungGuide";
 import { navigateBackOrHome } from "@/lib/navigation";
@@ -127,7 +126,6 @@ function GuideContent({ slug }: { slug: string }) {
   if (slug === "anlage-uh2") return <AnlageUH2GuideContent />;
   if (slug === "anlage-uh3") return <AnlageUH3GuideContent />;
   if (slug === "nichterreichbarkeit") return <AnfrageNichterreichbarkeitGuideContent />;
-  if (slug === "aufenthaltstitel") return <AufenthaltsNavigator />;
   if (slug === "fuehrerschein") return <FuehrerscheinGuideContent />;
   if (slug === "fahrzeugzulassung") return <FahrzeugzulassungGuide />;
 
@@ -165,7 +163,14 @@ export default function FormCenter() {
   const [showBgInfo, setShowBgInfo] = useState(false);
 
   const activeSlug = slug || "";
+  const isRemovedFormSlug = activeSlug === "aufenthaltstitel";
   const handleBack = () => navigateBackOrHome(navigate);
+
+  useEffect(() => {
+    if (isRemovedFormSlug) {
+      navigate("/formulari", { replace: true });
+    }
+  }, [isRemovedFormSlug, navigate]);
 
   const allEntries = useMemo(() => getAllFormEntries(), []);
   const isSearching = search.trim().length > 0;
@@ -229,7 +234,7 @@ export default function FormCenter() {
   };
 
   // Mobile: if slug selected, show guide
-  if (isMobile && activeSlug) {
+  if (isMobile && activeSlug && !isRemovedFormSlug) {
     return (
       <div className="px-4 py-6">
         <button onClick={handleBack} className="back-button">
@@ -344,7 +349,7 @@ export default function FormCenter() {
 
         {/* ─── Main content ─── */}
         <main className="min-w-0 flex-1">
-          {activeSlug ? (
+          {activeSlug && !isRemovedFormSlug ? (
             <GuideContent key={activeSlug} slug={activeSlug} />
           ) : (
             <div className="flex flex-col items-center justify-center py-20 text-center">
