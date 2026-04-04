@@ -450,7 +450,7 @@ export default function Index() {
         </div>
       </section>
 
-      <PWAInstallBanner />
+
     </div>
   );
 }
