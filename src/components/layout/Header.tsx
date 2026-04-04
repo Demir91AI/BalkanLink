@@ -28,7 +28,7 @@ const menuBtnClass =
 
 export default function Header() {
   const { user, loading, signOut, isAdmin } = useAuth();
-  const { t, currentLanguage, setLanguage } = useTranslation();
+  const { t, language: currentLanguage, setLanguage } = useLanguage();
   const navigate = useNavigate();
   const [contactOpen, setContactOpen] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
