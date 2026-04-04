@@ -436,6 +436,11 @@ export default function Index() {
                 {t("home.comparePlans")}
               </Button>
             </div>
+            <div className="mt-5 flex items-center justify-center gap-4 text-[12px] text-[#8A8A8A]">
+              <span>✔ {t("home.unlockBenefit1")}</span>
+              <span>✔ {t("home.unlockBenefit2")}</span>
+              <span>✔ {t("home.unlockBenefit3")}</span>
+            </div>
           </motion.div>
         </div>
       </section>
