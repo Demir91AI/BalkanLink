@@ -287,7 +287,7 @@ function ShowcaseCarousel() {
 
 /* ─── Ad Flow Section ─── */
 function AdFlowSection() {
-  const { t } = useTranslation();
+  const { t } = useLanguage();
   const doubled = [...placeholderAds, ...placeholderAds];
   return (
     <section className="py-10 border-t border-[#E8E0D0] bg-[hsl(var(--warm-cream))] overflow-hidden">
