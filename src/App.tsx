@@ -43,7 +43,7 @@ import ZivotSavjeti from "./pages/ZivotSavjeti";
 import TrebamPomoc from "./pages/TrebamPomoc";
 import Formulare from "./pages/Formulare";
 import FormCenter from "./pages/FormCenter";
-import SmartGuide from "./pages/SmartGuide";
+import LegacyGuideRedirect from "./pages/LegacyGuideRedirect";
 import Familie from "./pages/Familie";
 import Foerderungen from "./pages/Foerderungen";
 import Generatoren from "./pages/Generatoren";
