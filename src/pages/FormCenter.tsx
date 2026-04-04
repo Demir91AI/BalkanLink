@@ -43,6 +43,7 @@ import AnlageUH2GuideContent from "@/components/guides/AnlageUH2GuideContent";
 import AnlageUH3GuideContent from "@/components/guides/AnlageUH3GuideContent";
 import AnfrageNichterreichbarkeitGuideContent from "@/components/guides/AnfrageNichterreichbarkeitGuideContent";
 import AufenthaltsNavigator from "@/components/AufenthaltsNavigator";
+import FuehrerscheinGuideContent from "@/components/formulare/FuehrerscheinGuide";
 import { navigateBackOrHome } from "@/lib/navigation";
 
 type LangKey = "de" | "bs" | "en";
@@ -126,6 +127,7 @@ function GuideContent({ slug }: { slug: string }) {
   if (slug === "anlage-uh3") return <AnlageUH3GuideContent />;
   if (slug === "nichterreichbarkeit") return <AnfrageNichterreichbarkeitGuideContent />;
   if (slug === "aufenthaltstitel") return <AufenthaltsNavigator />;
+  if (slug === "fuehrerschein") return <FuehrerscheinGuideContent />;
 
   if (!guide) return null;
 
