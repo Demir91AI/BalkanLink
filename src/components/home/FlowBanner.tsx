@@ -2,6 +2,7 @@ import { useRef, useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 import imgFormulari from "@/assets/carousel/formulari.jpg";
 import imgVisa from "@/assets/carousel/visa.jpg";
@@ -13,7 +14,7 @@ import imgOglasi from "@/assets/carousel/oglasi.jpg";
 
 const flowItems = [
   { icon: "📄", title: "Formulari", text: "Popuni bez greške — korak po korak", badge: "premium" as const, to: "/formulari", image: imgFormulari },
-  { icon: "🌍", title: "Viza", text: "Pronađi pravi put za dolazak u Njemačku", badge: "premium" as const, to: "/dolazak/boravisna-dozvola", image: imgVisa },
+  { icon: "🌍", title: "Viza", text: "Pronađi pravi put za dolazak u Njemačku", badge: "premium" as const, to: "/viza", image: imgVisa },
   { icon: "🇩🇪", title: "Njemački", text: "Uči kroz stvarne situacije (A1–C2)", badge: "premium" as const, to: "/deutsch-trainer", image: imgDeutsch },
   { icon: "📑", title: "Dokumenti", text: "Provjeri pisma i dokumente iz Njemačke", badge: "premium" as const, to: "/dokumenten-check", image: imgDokumente },
   { icon: "💶", title: "Novčana pomoć", text: "Bürgergeld, Wohngeld i dodaci", badge: null, to: "/formulari", image: imgGeld },
@@ -22,6 +23,7 @@ const flowItems = [
 ];
 
 export default function FlowBanner() {
+  const { t } = useLanguage();
   const [activeIndex, setActiveIndex] = useState(0);
   const totalItems = flowItems.length;
   const autoplayRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -102,10 +104,10 @@ export default function FlowBanner() {
         className="relative z-10 pt-16 sm:pt-24 pb-8 sm:pb-12 text-center px-4"
       >
         <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
-          Šta želiš riješiti danas?
+          {t("flowBanner.headline")}
         </h2>
         <p className="text-base sm:text-lg lg:text-xl text-white/45 mt-4 leading-relaxed max-w-xl mx-auto">
-          Riješi papirologiju bez stresa — sve na jednom mjestu
+          {t("flowBanner.subheadline")}
         </p>
         <div className="mx-auto mt-6 h-[3px] w-24 rounded-full bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--brand-orange))]" />
       </motion.div>
@@ -256,7 +258,7 @@ export default function FlowBanner() {
                           boxShadow: "0 8px 28px rgba(255,200,0,0.35)",
                         } : undefined}
                       >
-                        {isPremium ? "Započni" : "Otvori"} <ArrowRight className="h-4 w-4" />
+                        {isPremium ? t("flowBanner.start") : t("flowBanner.open")} <ArrowRight className="h-4 w-4" />
                       </span>
                     )}
                   </div>
@@ -287,7 +289,7 @@ export default function FlowBanner() {
 
       {/* CTA below */}
       <div className="relative z-10 text-center pb-16 sm:pb-24">
-        <p className="text-sm text-white/30 mb-4">Ne znaš odakle početi?</p>
+        <p className="text-sm text-white/30 mb-4">{t("flowBanner.hint")}</p>
         <Link
           to="/formulari"
           className="inline-flex items-center gap-2 rounded-full px-8 py-4 text-[15px] font-extrabold text-[hsl(220,50%,8%)] transition-all duration-200 hover:-translate-y-1 hover:scale-[1.04] active:scale-[0.98]"
@@ -296,10 +298,10 @@ export default function FlowBanner() {
             boxShadow: "0 12px 40px hsla(43,70%,55%,0.35)",
           }}
         >
-          Vodi me korak po korak
+          {t("flowBanner.cta")}
           <ArrowRight className="h-4 w-4" />
         </Link>
-        <p className="text-xs text-white/20 mt-3">Počni od formulara i vodiča koji ti najviše trebaju</p>
+        <p className="text-xs text-white/20 mt-3">{t("flowBanner.ctaNote")}</p>
       </div>
 
       {/* Bottom edge fade */}
