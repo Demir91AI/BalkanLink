@@ -136,7 +136,7 @@ function CarouselArrows({ onLeft, onRight }: { onLeft: () => void; onRight: () =
 
 /* ─── Services Carousel ─── */
 function ServicesCarousel() {
-  const { t } = useTranslation();
+  const { t } = useLanguage();
   const doubled = [...serviceCardKeys, ...serviceCardKeys];
   const { ref, pause, scheduleResume, scrollByCard, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.6, 3000);
 
