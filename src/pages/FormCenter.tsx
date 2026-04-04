@@ -133,6 +133,7 @@ function GuideContent({ slug }: { slug: string }) {
   if (slug === "fahrzeugzulassung") return <FahrzeugzulassungGuide />;
   if (slug === "visa-work") return <VisaWorkGuide />;
   if (slug === "visa-bluecard") return <VisaBluecardGuide />;
+  if (slug === "visa-family") return <VisaFamilyGuide />;
 
   if (!guide) return null;
 
