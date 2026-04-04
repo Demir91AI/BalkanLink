@@ -523,7 +523,7 @@ FORMULARI:
 ${buildFormCatalogContext()}
 
 NAVIGACIJSKI LINKOVI (koristi kad je relevantno):
-- Kindergeld → [Kindergeld vodič](/guide/kindergeld)
+- Kindergeld → [Kindergeld vodič](/formulari/kindergeld)
 - Viza/Aufenthaltstitel → [Visa Navigator](/formulari/aufenthaltstitel)
 - Dolazak → [Dolazak u Njemačku](/nach-deutschland)
 - Premium → [Paketi i opcije](/paketi)
