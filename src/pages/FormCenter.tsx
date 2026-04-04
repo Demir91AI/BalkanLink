@@ -436,8 +436,8 @@ export default function FormCenter() {
                 </div>
               ) : (
                 <>
-                  <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-primary/5 mb-6">
-                    <FileText className="h-10 w-10 text-primary/40" />
+                  <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-[#FFF8EC] mb-6">
+                    <FileText className="h-10 w-10 text-[#C9A84C]/40" />
                   </div>
                   <h2 className="text-lg font-bold text-foreground/70">{t("formCenter.selectForm")}</h2>
                   <p className="mt-2 max-w-sm text-sm text-muted-foreground">
