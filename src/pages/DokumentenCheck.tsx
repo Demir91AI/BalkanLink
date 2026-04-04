@@ -1,5 +1,5 @@
-import { useState, useRef, useCallback } from "react";
-import { FileText, Upload, Type, Shield, AlertTriangle, Loader2, X, CheckCircle2, ChevronLeft, Lock, FileCheck, ListChecks, ArrowRight } from "lucide-react";
+import { useState, useRef, useCallback, useMemo } from "react";
+import { FileText, Upload, Type, Shield, AlertTriangle, Loader2, X, CheckCircle2, ChevronLeft, Lock, Eye, BookOpen, Search, AlertCircle, Clock, DollarSign, Wrench, XCircle, ShieldAlert, Globe, Scale } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -15,7 +15,7 @@ import { toast } from "sonner";
 
 type InputMode = "upload" | "text";
 
-const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB
+const MAX_FILE_SIZE = 10 * 1024 * 1024;
 const ALLOWED_TYPES = ["application/pdf", "image/jpeg", "image/png"];
 const ALLOWED_EXTENSIONS = [".pdf", ".jpg", ".jpeg", ".png"];
 
@@ -26,6 +26,85 @@ function getFileExtension(name: string): string {
 function isFileAllowed(file: File): boolean {
   if (ALLOWED_TYPES.includes(file.type)) return true;
   return ALLOWED_EXTENSIONS.includes(getFileExtension(file.name));
+}
+
+interface AnalysisSection {
+  id: string;
+  icon: React.ReactNode;
+  title: string;
+  content: string;
+  color: string;
+  isPremium: boolean;
+}
+
+const SECTION_CONFIG: Record<string, { icon: React.ReactNode; color: string; isPremium: boolean }> = {
+  "dokument na prvi pogled": { icon: <Eye className="h-5 w-5" />, color: "border-blue-500/30 bg-blue-500/5", isPremium: false },
+  "jednostavno objasnjenje": { icon: <BookOpen className="h-5 w-5" />, color: "border-emerald-500/30 bg-emerald-500/5", isPremium: false },
+  "detaljna analiza": { icon: <Search className="h-5 w-5" />, color: "border-purple-500/30 bg-purple-500/5", isPremium: true },
+  "sta je stvarno bitno": { icon: <AlertCircle className="h-5 w-5" />, color: "border-amber-500/30 bg-amber-500/5", isPremium: true },
+  "rokovi i hitnost": { icon: <Clock className="h-5 w-5" />, color: "border-red-500/30 bg-red-500/5", isPremium: true },
+  "finansijska analiza": { icon: <DollarSign className="h-5 w-5" />, color: "border-green-500/30 bg-green-500/5", isPremium: true },
+  "konkretne opcije": { icon: <Wrench className="h-5 w-5" />, color: "border-indigo-500/30 bg-indigo-500/5", isPremium: true },
+  "ako nista ne uradis": { icon: <XCircle className="h-5 w-5" />, color: "border-orange-500/30 bg-orange-500/5", isPremium: true },
+  "rizici i ceste greske": { icon: <ShieldAlert className="h-5 w-5" />, color: "border-rose-500/30 bg-rose-500/5", isPremium: true },
+  "sazetak na nasem jeziku": { icon: <Globe className="h-5 w-5" />, color: "border-cyan-500/30 bg-cyan-500/5", isPremium: true },
+  "pravna napomena": { icon: <Scale className="h-5 w-5" />, color: "border-muted bg-muted/30", isPremium: false },
+};
+
+function matchSectionKey(heading: string): string | null {
+  const lower = heading.toLowerCase().replace(/[^\w\sčćžšđ]/gi, "").trim();
+  for (const key of Object.keys(SECTION_CONFIG)) {
+    if (lower.includes(key)) return key;
+  }
+  return null;
+}
+
+function parseAnalysisSections(text: string): AnalysisSection[] {
+  const sections: AnalysisSection[] = [];
+  const lines = text.split("\n");
+  let currentTitle = "";
+  let currentKey: string | null = null;
+  let currentLines: string[] = [];
+
+  const flush = () => {
+    if (currentKey && currentLines.length > 0) {
+      const cfg = SECTION_CONFIG[currentKey];
+      sections.push({
+        id: currentKey,
+        icon: cfg.icon,
+        title: currentTitle,
+        content: currentLines.join("\n").trim(),
+        color: cfg.color,
+        isPremium: cfg.isPremium,
+      });
+    }
+    currentLines = [];
+  };
+
+  for (const line of lines) {
+    if (line.startsWith("## ")) {
+      flush();
+      currentTitle = line.replace(/^##\s*/, "").trim();
+      currentKey = matchSectionKey(currentTitle);
+    } else {
+      currentLines.push(line);
+    }
+  }
+  flush();
+
+  // Fallback: if no sections parsed, return entire text as one block
+  if (sections.length === 0 && text.trim()) {
+    sections.push({
+      id: "full",
+      icon: <FileText className="h-5 w-5" />,
+      title: "Rezultat analize",
+      content: text,
+      color: "border-border bg-card",
+      isPremium: false,
+    });
+  }
+
+  return sections;
 }
 
 export default function DokumentenCheck() {
@@ -58,48 +137,26 @@ export default function DokumentenCheck() {
   const handleFileSelect = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const selected = e.target.files?.[0];
     if (!selected) return;
-
     if (!isFileAllowed(selected)) {
-      setError("Podrzani su samo PDF, JPG i PNG fajlovi.");
+      setError("Podržani su samo PDF, JPG i PNG fajlovi.");
       return;
     }
     if (selected.size > MAX_FILE_SIZE) {
-      setError("Fajl je prevelik za analizu. Molimo pokusajte s manjim dokumentom (maks. 10 MB).");
+      setError("Fajl je prevelik za analizu. Molimo pokušajte s manjim dokumentom (maks. 10 MB).");
       return;
     }
     setError(null);
     setFile(selected);
     setAnalysis(null);
-    if (selected.type.startsWith("image/")) {
-      setFilePreviewUrl(URL.createObjectURL(selected));
-    } else {
-      setFilePreviewUrl(null);
-    }
+    setFilePreviewUrl(selected.type.startsWith("image/") ? URL.createObjectURL(selected) : null);
   }, []);
 
   const handleAnalyze = useCallback(async () => {
-    // Prevent duplicate submits
     if (submittingRef.current || loading) return;
-
-    if (!confirmed) {
-      setError("Molimo potvrdite checkbox prije analize.");
-      return;
-    }
-
-    if (!isPremium) {
-      setShowPaywall(true);
-      return;
-    }
-
-    // Validate input
-    if (mode === "text" && !textInput.trim()) {
-      setError("Nije odabran dokument niti unesen tekst.");
-      return;
-    }
-    if (mode === "upload" && !file) {
-      setError("Nije odabran dokument niti unesen tekst.");
-      return;
-    }
+    if (!confirmed) { setError("Molimo potvrdite checkbox prije analize."); return; }
+    if (!isPremium) { setShowPaywall(true); return; }
+    if (mode === "text" && !textInput.trim()) { setError("Nije odabran dokument niti unešen tekst."); return; }
+    if (mode === "upload" && !file) { setError("Nije odabran dokument niti unešen tekst."); return; }
 
     submittingRef.current = true;
     setLoading(true);
@@ -114,53 +171,42 @@ export default function DokumentenCheck() {
       if (mode === "text") {
         payload = { text: textInput.trim() };
       } else if (file) {
-        if (file.type.startsWith("image/") || file.type === "image/jpeg" || file.type === "image/png") {
+        if (file.type.startsWith("image/")) {
           const buffer = await file.arrayBuffer();
           const base64 = btoa(new Uint8Array(buffer).reduce((data, byte) => data + String.fromCharCode(byte), ""));
           payload = { imageBase64: base64, mimeType: file.type };
-          console.log("[DocCheck] Sending image, base64 size:", base64.length);
         } else {
-          // PDF: try to read as text first, fallback to sending as base64
           const textContent = await file.text();
           if (textContent.trim().length > 50 && !textContent.includes("\x00")) {
             payload = { text: textContent.trim().slice(0, 8000) };
-            console.log("[DocCheck] Sending PDF as text, length:", payload.text!.length);
           } else {
             const buffer = await file.arrayBuffer();
             const base64 = btoa(new Uint8Array(buffer).reduce((data, byte) => data + String.fromCharCode(byte), ""));
             payload = { imageBase64: base64, mimeType: "application/pdf" };
-            console.log("[DocCheck] Sending PDF as base64, size:", base64.length);
           }
         }
       }
 
-      console.log("[DocCheck] Invoking edge function...");
       const { data, error: fnError } = await supabase.functions.invoke("document-check", { body: payload });
-
-      console.log("[DocCheck] Response:", { data, fnError });
 
       if (fnError) {
         console.error("[DocCheck] Function error:", fnError);
-        throw new Error("Greska na serveru pri analizi dokumenta. Pokusajte ponovo za nekoliko trenutaka.");
+        throw new Error("Greška na serveru pri analizi dokumenta. Pokušajte ponovo za nekoliko trenutaka.");
       }
-
       if (data?.success === false) {
-        const msg = data.message || "Dokument nije moguce obraditi. Pokusajte s drugim fajlom.";
-        throw new Error(msg);
+        throw new Error(data.message || "Dokument nije moguće obraditi. Pokušajte s drugim fajlom.");
       }
-
       if (!data?.analysis) {
-        throw new Error("Dokument nije moguce obraditi. Pokusajte s drugim fajlom.");
+        throw new Error("Dokument nije moguće obraditi. Pokušajte s drugim fajlom.");
       }
 
       setAnalysis(data.analysis);
       console.log("[DocCheck] Analysis successful, length:", data.analysis.length);
     } catch (err: any) {
       console.error("[DocCheck] Error:", err);
-      const message = err.message || "Greska na serveru pri analizi dokumenta. Pokusajte ponovo za nekoliko trenutaka.";
-      // Never show raw technical errors
+      const message = err.message || "Greška na serveru pri analizi dokumenta.";
       if (message.includes("Edge Function") || message.includes("FunctionsHttpError") || message.includes("fetch")) {
-        setError("Greska na serveru pri analizi dokumenta. Pokusajte ponovo za nekoliko trenutaka.");
+        setError("Greška na serveru pri analizi dokumenta. Pokušajte ponovo za nekoliko trenutaka.");
       } else {
         setError(message);
       }
@@ -181,11 +227,9 @@ export default function DokumentenCheck() {
     submittingRef.current = false;
   }, [clearFile]);
 
-  const handleBack = useCallback(() => {
-    navigateBackOrHome(navigate);
-  }, [navigate]);
+  const handleBack = useCallback(() => { navigateBackOrHome(navigate); }, [navigate]);
 
-  const analysisSections = analysis ? splitAnalysis(analysis) : null;
+  const sections = useMemo(() => analysis ? parseAnalysisSections(analysis) : [], [analysis]);
 
   return (
     <>
@@ -197,9 +241,7 @@ export default function DokumentenCheck() {
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">
             {t("index.nav.docCheck")}
           </h1>
-          <p className="mt-2 text-sm text-primary-foreground/80">
-            {st("docCheck.subtitle")}
-          </p>
+          <p className="mt-2 text-sm text-primary-foreground/80">{st("docCheck.subtitle")}</p>
           <div className="mt-3 flex flex-wrap gap-2">
             <span className="inline-block rounded-full bg-[hsl(var(--gold))]/20 px-3 py-1 text-xs font-semibold text-[hsl(var(--gold))]">
               2.99€ po dokumentu bez pretplate
@@ -213,6 +255,7 @@ export default function DokumentenCheck() {
 
       <section className="py-10">
         <div className="container max-w-3xl space-y-6">
+          {/* Privacy notice */}
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
             className="flex items-start gap-3 rounded-xl border border-gold/20 bg-gold/5 p-4">
             <Shield className="mt-0.5 h-5 w-5 shrink-0 text-gold" />
@@ -222,6 +265,7 @@ export default function DokumentenCheck() {
             </div>
           </motion.div>
 
+          {/* Mode switcher */}
           <div className="flex gap-2">
             <Button variant={mode === "text" ? "default" : "outline"} size="sm" onClick={() => { setMode("text"); clearFile(); setAnalysis(null); setError(null); }} className="gap-2">
               <Type className="h-4 w-4" /> {st("docCheck.textMode")}
@@ -231,6 +275,7 @@ export default function DokumentenCheck() {
             </Button>
           </div>
 
+          {/* Input area */}
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
             className="rounded-xl border bg-card p-5 shadow-sm">
             {mode === "text" ? (
@@ -269,6 +314,7 @@ export default function DokumentenCheck() {
             )}
           </motion.div>
 
+          {/* Confirm checkbox */}
           <div className="flex items-start gap-3 rounded-xl border bg-card p-4">
             <Checkbox id="confirm" checked={confirmed} onCheckedChange={(v) => setConfirmed(v === true)} className="mt-0.5" />
             <label htmlFor="confirm" className="cursor-pointer text-sm leading-relaxed text-muted-foreground">
@@ -276,6 +322,7 @@ export default function DokumentenCheck() {
             </label>
           </div>
 
+          {/* Actions */}
           <div className="flex gap-3">
             <Button onClick={handleAnalyze} disabled={loading || !confirmed || (mode === "text" ? !textInput.trim() : !file)} className="gap-2">
               {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <CheckCircle2 className="h-4 w-4" />}
@@ -286,6 +333,7 @@ export default function DokumentenCheck() {
             )}
           </div>
 
+          {/* Error */}
           {error && (
             <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
               className="flex items-center gap-2 rounded-lg border border-destructive/30 bg-destructive/5 p-3 text-sm text-destructive">
@@ -293,78 +341,69 @@ export default function DokumentenCheck() {
             </motion.div>
           )}
 
+          {/* Paywall */}
           {showPaywall && (
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
               className="flex flex-col items-center rounded-2xl border border-[hsl(var(--gold))]/20 bg-[#0f1f3d] p-8 text-center">
               <Lock className="h-8 w-8 text-[hsl(var(--gold))] mb-3" />
               <p className="text-sm font-bold text-white mb-2">Dokumenten-Check</p>
-              <p className="text-xs text-white/60 mb-4">
-                2.99€ po dokumentu bez pretplate · Premium uključuje 1 provjeru dnevno
-              </p>
+              <p className="text-xs text-white/60 mb-4">2.99€ po dokumentu bez pretplate · Premium uključuje 1 provjeru dnevno</p>
               <div className="flex flex-col gap-2 w-full max-w-xs">
-                <button
-                  onClick={() => navigate("/premium")}
-                  className="rounded-full bg-[hsl(var(--gold))] px-6 py-3 text-[#0f1f3d] font-bold transition-all hover:opacity-90"
-                >
+                <button onClick={() => navigate("/premium")}
+                  className="rounded-full bg-[hsl(var(--gold))] px-6 py-3 text-[#0f1f3d] font-bold transition-all hover:opacity-90">
                   BalkanLink Premium — 9.99€/mj.
                 </button>
-                <button
-                  onClick={() => {
-                    toast.info("Einzelkauf wird bald verfügbar sein");
-                    setShowPaywall(false);
-                  }}
-                  className="rounded-full bg-[#0f1f3d] px-6 py-3 text-sm font-bold text-white border border-white/20 transition-all hover:bg-[#0f1f3d]/80"
-                >
+                <button onClick={() => { toast.info("Einzelkauf wird bald verfügbar sein"); setShowPaywall(false); }}
+                  className="rounded-full bg-[#0f1f3d] px-6 py-3 text-sm font-bold text-white border border-white/20 transition-all hover:bg-[#0f1f3d]/80">
                   Einzelprüfung — 2.99€
                 </button>
               </div>
             </motion.div>
           )}
 
-          {analysisSections && (
-            <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="space-y-0">
-              <div className="rounded-t-xl border border-b-0 bg-card p-6 shadow-sm">
-                <h2 className="mb-4 flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-muted-foreground">
-                  <FileCheck className="h-4 w-4" /> {st("docCheck.resultTitle")}
-                </h2>
-                <div className="prose prose-sm max-w-none dark:prose-invert">
-                  <ReactMarkdown>{analysisSections.basic}</ReactMarkdown>
-                </div>
-              </div>
-
-              <div className="relative rounded-b-xl border bg-card p-6 shadow-sm">
-                {!isPremium && (
-                  <div className="absolute inset-0 z-10 flex flex-col items-center justify-center rounded-b-xl bg-background/80 backdrop-blur-sm">
-                    <Lock className="h-8 w-8 text-[hsl(var(--gold))] mb-3" />
-                    <p className="text-sm font-bold text-foreground mb-4 text-center px-4">
-                      {st("docCheck.lockText")}
-                    </p>
-                    <div className="flex flex-col gap-2">
-                      <button onClick={() => navigate("/premium")}
-                        className="rounded-full bg-[hsl(var(--gold))] px-6 py-3 text-sm font-bold text-[#0f1f3d] transition-all hover:opacity-90">
-                        {st("docCheck.premiumCta")}
-                      </button>
+          {/* RESULTS — Structured section cards */}
+          {sections.length > 0 && (
+            <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="space-y-4">
+              {sections.map((section, idx) => {
+                const locked = section.isPremium && !isPremium;
+                return (
+                  <motion.div
+                    key={section.id}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: idx * 0.05 }}
+                    className={`relative rounded-xl border ${section.color} overflow-hidden`}
+                  >
+                    {/* Section header */}
+                    <div className="flex items-center gap-3 border-b border-border/30 px-5 py-3">
+                      <span className="text-primary">{section.icon}</span>
+                      <h3 className="text-sm font-bold tracking-wide">{section.title}</h3>
+                      {locked && <Lock className="ml-auto h-4 w-4 text-[hsl(var(--gold))]" />}
                     </div>
-                  </div>
-                )}
-                <div className={!isPremium ? "blur-sm select-none pointer-events-none" : ""}>
-                  <h3 className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-muted-foreground">
-                    <ListChecks className="h-4 w-4" /> {st("docCheck.detailedTitle")}
-                  </h3>
-                  <div className="prose prose-sm max-w-none dark:prose-invert">
-                    <ReactMarkdown>{analysisSections.detailed}</ReactMarkdown>
-                  </div>
-                </div>
-              </div>
 
-              <div className="mt-4 rounded-lg bg-muted/50 p-3">
-                <p className="text-xs text-muted-foreground">
-                  ⚖️ <strong>{st("docCheck.legalNote")}</strong> {st("docCheck.legalNoteDesc")}
-                </p>
-              </div>
+                    {/* Section content */}
+                    <div className={`px-5 py-4 ${locked ? "relative" : ""}`}>
+                      {locked && (
+                        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-background/80 backdrop-blur-sm rounded-b-xl">
+                          <Lock className="h-6 w-6 text-[hsl(var(--gold))] mb-2" />
+                          <p className="text-xs font-semibold text-foreground mb-2">{st("docCheck.lockText")}</p>
+                          <button onClick={() => navigate("/premium")}
+                            className="rounded-full bg-[hsl(var(--gold))] px-4 py-2 text-xs font-bold text-[#0f1f3d] transition-all hover:opacity-90">
+                            {st("docCheck.premiumCta")}
+                          </button>
+                        </div>
+                      )}
+                      <div className={`prose prose-sm max-w-none dark:prose-invert ${locked ? "blur-sm select-none pointer-events-none min-h-[80px]" : ""}`}>
+                        <ReactMarkdown>{section.content}</ReactMarkdown>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </motion.div>
           )}
 
+          {/* Disclaimer */}
           <div className="rounded-lg border border-border/40 bg-muted/20 p-4 text-xs text-muted-foreground">
             <p>
               <strong>{st("docCheck.disclaimerTitle")}</strong> {st("docCheck.disclaimerText")}
@@ -374,45 +413,4 @@ export default function DokumentenCheck() {
       </section>
     </>
   );
-}
-
-function splitAnalysis(text: string): { basic: string; detailed: string } {
-  const lines = text.split("\n");
-  const basicLines: string[] = [];
-  const detailedLines: string[] = [];
-  let inDetailed = false;
-
-  for (const line of lines) {
-    const lower = line.toLowerCase();
-    if (
-      lower.includes("nächste schritt") ||
-      lower.includes("naechste schritt") ||
-      lower.includes("kratki sazetak") ||
-      lower.includes("šta uraditi") ||
-      lower.includes("koraci") ||
-      lower.includes("rješenje") ||
-      lower.includes("preporuk") ||
-      lower.includes("sljedeći korak")
-    ) {
-      inDetailed = true;
-    }
-    if (inDetailed) {
-      detailedLines.push(line);
-    } else {
-      basicLines.push(line);
-    }
-  }
-
-  if (detailedLines.length === 0 && basicLines.length > 4) {
-    const splitAt = Math.ceil(basicLines.length * 0.4);
-    return {
-      basic: basicLines.slice(0, splitAt).join("\n"),
-      detailed: basicLines.slice(splitAt).join("\n"),
-    };
-  }
-
-  return {
-    basic: basicLines.join("\n") || "Analiza dokumenta...",
-    detailed: detailedLines.join("\n") || "Detaljni koraci nisu dostupni za ovaj dokument.",
-  };
 }

@@ -34,24 +34,126 @@ Deno.serve(async (req) => {
       );
     }
 
-    const systemPrompt = `Du bist ein Dokumenten-Assistent fuer die Plattform BalkanLink. 
-Du hilfst Menschen aus Balkanlaendern, die in Deutschland leben, behoerdliche Dokumente und Briefe zu verstehen.
+    const systemPrompt = `Du bist ein Premium-Dokumenten-Analyst fuer BalkanLink – eine Plattform fuer Menschen aus den Balkanlaendern, die in Deutschland leben.
 
-REGELN (STRIKT):
-- Du bist KEIN Rechtsanwalt. Du gibst KEINE Rechtsberatung.
-- Verwende NUR: "In der Regel", "Typischerweise", "Es kann sein", "Bitte pruefen Sie bei der zustaendigen Stelle"
+Deine Aufgabe: Dokumente und Briefe TIEFGREIFEND und STRUKTURIERT erklaeren, so dass ein Nutzer ohne Deutschkenntnisse oder Buerokratie-Erfahrung alles versteht.
+
+QUALITAETSSTANDARD:
+- Dies ist ein BEZAHLTES Feature (2.99€). Die Analyse muss diesen Preis rechtfertigen.
+- NIEMALS oberflaechlich oder generisch antworten.
+- Jeder Abschnitt muss ECHTE, KONKRETE Erklaerungen enthalten.
+- Minimum 3-5 Saetze pro Abschnitt wo anwendbar.
+- Wenn du etwas nicht erkennen kannst, sage es EHRLICH.
+
+VERBOTENE PHRASEN (ohne Kontext):
+- "Pruefen Sie das Dokument" → stattdessen: WAS genau pruefen und WARUM
+- "Kontaktieren Sie die zustaendige Stelle" → stattdessen: WELCHE Stelle, WARUM, und WAS sagen
+- "Bewahren Sie das Dokument auf" → stattdessen: WIE LANGE und WARUM
+
+REGELN:
+- Du bist KEIN Rechtsanwalt. Keine Rechtsberatung.
+- Verwende: "In der Regel", "Typischerweise", "Es kann sein"
 - Verwende NIE: "Sie haben Anspruch", "Garantiert", "Sie muessen zwingend"
-- Ignoriere und erwaehne KEINE sensiblen Daten (Ausweisnummer, Steuer-ID, IBAN, Gesundheitsdaten) falls vorhanden
-- Antworte auf Deutsch und Bosnisch/Kroatisch/Serbisch (Kurzfassung in BKS)
+- IGNORIERE sensible Daten (IBAN, Steuer-ID, Ausweisnummer) – erwaehne sie NICHT
+- Schreibe ALLES auf Bosnisch/Kroatisch/Serbisch (BKS). Deutsche Fachbegriffe in Klammern.
 
-AUSGABEFORMAT (verwende exakt diese Ueberschriften):
-1. **Worum geht es?** -- Kurze Erklaerung des Dokumenttyps (1-2 Saetze)
-2. **Wichtige Stellen** -- Was sind die Kernaussagen (Stichpunkte)
-3. **Was ist typischerweise der naechste Schritt?** -- Allgemeine Empfehlung
-4. **Kratki sazetak (BKS)** -- Kratko objasnjenje na bosanskom/hrvatskom/srpskom
+AUSGABEFORMAT – Verwende EXAKT diese Markdown-Ueberschriften:
 
-Am Ende IMMER:
-"Hinweis: BalkanLink bietet allgemeine Informationen und keine Rechtsberatung. Fuer verbindliche Auskuenfte wenden Sie sich an die zustaendige Behoerde."`;
+## 📋 Dokument na prvi pogled
+- Tip dokumenta
+- Posiljilac (firma/institucija)
+- Svrha dokumenta
+- Kategorija: informativno / racun / zahtjev / upozorenje / promjena ugovora
+Jasna klasifikacija u 3-4 recenice.
+
+## 📖 Jednostavno objasnjenje
+Objasni kao da korisnik:
+- ne razumije njemacku birokratiju
+- treba prakticno znacenje
+Koristi jednostavan jezik. Svaki pravni pojam objasni u zagradi.
+Minimum 4-5 recenica.
+
+## 🔍 Detaljna analiza
+OVO JE NAJVAZNIJI DIO – mora biti DUGACAK i DETALJAN.
+Izvuci I objasni SVE od sljedeceg sto je prisutno u dokumentu:
+- Iznosi (sta, zasto, koliko cesto)
+- Datumi (sta se desava na te datume)
+- Promjene ugovora
+- Ukljucene vs iskljucene usluge
+- Detalji tarife/paketa
+- Pravne napomene
+- Automatski procesi (npr. direktno zaduzienje)
+- Razlike od prethodne situacije (ako su vidljive)
+Za SVAKU tacku: objasni znacenje, posljedicu i relevantnost.
+Minimum 8-12 znacajnih objasnjenih tacaka ako je moguce.
+
+## ⚠️ Sta je stvarno bitno
+Razdvoji:
+- KRITICNE informacije (korisnik MORA znati)
+- Sekundarne informacije (korisno ali ne hitno)
+- Nebitni standardni tekst (boilerplate)
+Za svaku tacku objasni ZASTO je bitna ili nebitna.
+
+## ⏰ Rokovi i hitnost
+Klasificiraj jasno:
+- ✅ Nije potrebna akcija
+- ⚡ Preporucena akcija
+- 🚨 Hitno
+Ako postoji rok: TACNO navedi vremenski okvir i sta se desava ako se propusti.
+Ako nema roka: jasno napisi "Nema vidljivog roka u dokumentu."
+
+## 💰 Finansijska analiza
+OBAVEZNO ako se spominje novac:
+- Ukupan iznos
+- Period (mjesecno / godisnje / jednokratno)
+- Povecanje ili smanjenje u odnosu na ranije
+- Buduca placanja
+- Automatska zaduzienja
+- Moguce ustede ili dodatni troskovi
+Ako nema finansijskih podataka, napisi: "Dokument ne sadrzi finansijske informacije."
+
+## 🛠️ Konkretne opcije
+NE GENERICKE – daj STVARNE opcije:
+- Ne uraditi nista (ako je validno – objasni zasto)
+- Provjeriti konkretne podatke (KOJI tacno)
+- Otkazati (ako je moguce – KADA i KAKO)
+- Uporediti alternative
+- Kontaktirati instituciju (ZASTO tacno i STA reci)
+- Pripremiti dokumente (ako je potrebno – KOJE)
+Svaka opcija mora imati obrazlozenje.
+
+## ❌ Ako nista ne uradis
+Objasni jasno:
+- Sta se desava automatski
+- Finansijske posljedice
+- Nastavak ugovora
+- Rizik ignorisanja
+Ovaj dio povecava percipiranu vrijednost – mora biti JAK.
+
+## 🔒 Rizici i ceste greske
+Navedi realisticne rizike:
+- Pogresan iznos
+- Pogresni licni podaci
+- Skriveni uslovi
+- Propusten rok
+- Automatsko produzenje
+Svaki rizik kratko ali jasno objasni.
+
+## 🇧🇦 Sazetak na nasem jeziku
+5-8 jakih recenica. Bez ponavljanja. Mora sadrzavati:
+- Sta je dokument
+- Sta se mijenja
+- Da li je potrebna akcija
+- Koji je sljedeci korak
+
+## ⚖️ Pravna napomena
+"Ova analiza pruza opce informacije i ne predstavlja pravni savjet. Za obavezujuce informacije obratite se nadleznoj instituciji ili pravnom savjetniku."
+
+KVALITETNA PROVJERA PRIJE ODGOVORA:
+- Da li je ovo dovoljno detaljno za placeni feature?
+- Da li bi korisnik rekao: "Ovo mi je stvarno pomoglo"?
+- Da li jasno odgovara na: sta je ovo, sta znaci za mene, trebam li nesto uraditi?
+Ako NE → prosiri prije slanja.`;
 
     const messages: Array<{ role: string; content: string | Array<{ type: string; text?: string; image_url?: { url: string } }> }> = [
       { role: "system", content: systemPrompt },
@@ -67,18 +169,18 @@ Am Ende IMMER:
           },
           {
             type: "text",
-            text: "Bitte analysiere dieses Dokument/diesen Brief. Was ist es, was steht drin und was sollte man typischerweise als naechstes tun?",
+            text: "Analiziraj ovaj dokument/pismo detaljno koristeci SVE sekcije iz formata. Budi sto detaljniji i konkretniji.",
           },
         ],
       });
     } else {
       messages.push({
         role: "user",
-        content: `Bitte analysiere den folgenden Text aus einem Dokument/Brief. Was ist es, was steht drin und was sollte man typischerweise als naechstes tun?\n\n---\n${text}\n---`,
+        content: `Analiziraj sljedeci tekst iz dokumenta/pisma detaljno koristeci SVE sekcije iz formata. Budi sto detaljniji i konkretniji.\n\n---\n${text}\n---`,
       });
     }
 
-    console.log("Calling AI API...");
+    console.log("Calling AI API with deep analysis prompt...");
 
     const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
       method: "POST",
@@ -89,7 +191,7 @@ Am Ende IMMER:
       body: JSON.stringify({
         model: "google/gemini-2.5-flash",
         messages,
-        max_tokens: 2000,
+        max_tokens: 8000,
         temperature: 0.3,
       }),
     });
@@ -97,8 +199,22 @@ Am Ende IMMER:
     if (!response.ok) {
       const errText = await response.text();
       console.error("AI API error:", response.status, errText);
+
+      if (response.status === 429) {
+        return new Response(
+          JSON.stringify({ success: false, errorCode: "RATE_LIMITED", message: "Previse zahtjeva. Pokusajte ponovo za nekoliko trenutaka." }),
+          { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        );
+      }
+      if (response.status === 402) {
+        return new Response(
+          JSON.stringify({ success: false, errorCode: "CREDITS_EXHAUSTED", message: "Servis privremeno nedostupan. Pokusajte ponovo kasnije." }),
+          { status: 402, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        );
+      }
+
       return new Response(
-        JSON.stringify({ success: false, errorCode: "SERVER_ERROR", message: "Analyse fehlgeschlagen. Bitte versuchen Sie es erneut." }),
+        JSON.stringify({ success: false, errorCode: "SERVER_ERROR", message: "Analiza nije uspjela. Pokusajte ponovo." }),
         { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
@@ -109,7 +225,7 @@ Am Ende IMMER:
     if (!result) {
       console.error("Empty AI response");
       return new Response(
-        JSON.stringify({ success: false, errorCode: "PARSING_FAILED", message: "Analyse konnte nicht durchgefuehrt werden." }),
+        JSON.stringify({ success: false, errorCode: "PARSING_FAILED", message: "Analiza nije mogla biti provedena." }),
         { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
@@ -123,7 +239,7 @@ Am Ende IMMER:
   } catch (error) {
     console.error("Document check error:", error instanceof Error ? error.message : "Unknown");
     return new Response(
-      JSON.stringify({ success: false, errorCode: "SERVER_ERROR", message: "Analyse fehlgeschlagen. Bitte versuchen Sie es erneut." }),
+      JSON.stringify({ success: false, errorCode: "SERVER_ERROR", message: "Analiza nije uspjela. Pokusajte ponovo." }),
       { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   }
