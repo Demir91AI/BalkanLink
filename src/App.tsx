@@ -168,8 +168,8 @@ const App = () => (
                 <Route path="/wohnungen" element={<Wohnungen />} />
                 <Route path="/stellenangebote" element={<Stellenangebote />} />
                 <Route path="/premium" element={<Premium />} />
-                <Route path="/guide/:slug" element={<GuideDetail />} />
-                <Route path="/smart-guide/:slug" element={<SmartGuide />} />
+                <Route path="/guide/:slug" element={<LegacyGuideRedirect />} />
+                <Route path="/smart-guide/:slug" element={<LegacyGuideRedirect />} />
                 <Route path="/dokumenten-check" element={<DokumentenCheck />} />
                 <Route path="/admin/forms" element={<AdminForms />} />
                 <Route path="/admin/forms/:slug/mapper" element={<AdminFormMapper />} />
