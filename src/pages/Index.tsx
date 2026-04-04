@@ -54,11 +54,11 @@ const serviceCardKeys = [
 ];
 
 const placeholderAds = [
-  { name: "RealCore Digital", slogan: "Klar denken. Digital umsetzen.", desc: "Webdesign, KI-Lösungen und digitale Strategien.", logo: realcoreDigitalLogo, href: "https://realcore.digital" },
-  { name: "BalkanLink", slogan: "Rezerviraj reklamni prostor", desc: "Predstavite svoju firmu cijeloj zajednici.", logo: "/icons/icon-192x192.png" },
-  { name: "BalkanLink", slogan: "Vaš oglas ovdje", desc: "Premium pozicija za vašu firmu.", logo: "/icons/icon-192x192.png" },
-  { name: "BalkanLink", slogan: "Oglasite svoju uslugu", desc: "Dođite do hiljada korisnika iz regije.", logo: "/icons/icon-192x192.png" },
-  { name: "BalkanLink", slogan: "Povećajte vidljivost", desc: "Istaknite svoju ponudu na platformi.", logo: "/icons/icon-192x192.png" },
+  { name: "RealCore Digital", slogan: "Webdesign · KI · Lösungen", desc: "Professionelle digitale Lösungen.", logo: realcoreDigitalLogo, href: "https://realcore.digital", isReal: true },
+  { name: "Oglasni prostor", slogan: "Vaša firma ovdje", desc: "", logo: "/icons/icon-192x192.png", isReal: false },
+  { name: "Slobodno mjesto", slogan: "Vaša firma ovdje", desc: "", logo: "/icons/icon-192x192.png", isReal: false },
+  { name: "Oglasni prostor", slogan: "Vaša firma ovdje", desc: "", logo: "/icons/icon-192x192.png", isReal: false },
+  { name: "Slobodno mjesto", slogan: "Vaša firma ovdje", desc: "", logo: "/icons/icon-192x192.png", isReal: false },
 ];
 
 /* ─── Infinite scroll hook (rAF based) ─── */
