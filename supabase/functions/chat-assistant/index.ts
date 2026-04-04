@@ -725,7 +725,7 @@ serve(async (req) => {
     if (intent === "SMART_GUIDE_REDIRECT" && !isPremium) {
       const sg = SMART_GUIDE_MSG[lang] || SMART_GUIDE_MSG["bs"];
       const slug = guideSlug || detectedForm?.slug || "kindergeld";
-      const link = `/guide/${slug}`;
+      const link = `/formulari/${slug}`;
       return new Response(
         JSON.stringify({ smart_guide_redirect: true, content: `${sg.text}\n\n👉 [${sg.label}](${link})`, guideSlug: slug, detectedForm }),
         { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
