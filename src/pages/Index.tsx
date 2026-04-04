@@ -5,7 +5,7 @@ import {
   Megaphone, CheckCircle2, Star, ExternalLink,
   ChevronLeft, ChevronRight, FileText, Shield, GraduationCap, Search, Home, Calculator, Map, Camera,
 } from "lucide-react";
-import { useTranslation } from "@/i18n/useTranslation";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import LanguageSelector from "@/components/LanguageSelector";
 import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
@@ -136,7 +136,7 @@ function CarouselArrows({ onLeft, onRight }: { onLeft: () => void; onRight: () =
 
 /* ─── Services Carousel ─── */
 function ServicesCarousel() {
-  const { t } = useTranslation();
+  const { t } = useLanguage();
   const doubled = [...serviceCardKeys, ...serviceCardKeys];
   const { ref, pause, scheduleResume, scrollByCard, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.6, 3000);
 
@@ -192,7 +192,7 @@ function ServicesCarousel() {
 
 /* ─── Showcase Carousel ─── */
 function ShowcaseCarousel() {
-  const { t } = useTranslation();
+  const { t } = useLanguage();
   const { ref, pause, scheduleResume, scrollByCard, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.7, 3000);
 
   const emptySlots = [
@@ -287,7 +287,7 @@ function ShowcaseCarousel() {
 
 /* ─── Ad Flow Section ─── */
 function AdFlowSection() {
-  const { t } = useTranslation();
+  const { t } = useLanguage();
   const doubled = [...placeholderAds, ...placeholderAds];
   return (
     <section className="py-10 border-t border-[#E8E0D0] bg-[hsl(var(--warm-cream))] overflow-hidden">
@@ -336,7 +336,7 @@ function AdFlowSection() {
 /* ─── Main Page ─── */
 export default function Index() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const { t } = useTranslation();
+  const { t } = useLanguage();
   const navigate = useNavigate();
 
   const nextSlide = useCallback(() => {
