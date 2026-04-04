@@ -2,9 +2,9 @@ import { useState, useRef, useCallback, type ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const S = {
-  page: { minHeight: "100vh", background: "#0B0F1A", fontFamily: "Arial, sans-serif", fontSize: 11, color: "#111" } as React.CSSProperties,
-  nav: { background: "#0d1526", padding: "6px 16px", display: "flex", justifyContent: "space-between", alignItems: "center" } as React.CSSProperties,
-  navBtn: { background: "transparent", border: "none", cursor: "pointer", color: "#9CA3AF", fontSize: 14 } as React.CSSProperties,
+  page: { minHeight: "100vh", background: "#F5F0E8", fontFamily: "Arial, sans-serif", fontSize: 11, color: "#111" } as React.CSSProperties,
+  nav: { background: "#FFFFFF", borderBottom: "1px solid #F0EAD8", padding: "10px 20px", display: "flex", justifyContent: "space-between", alignItems: "center" } as React.CSSProperties,
+  navBtn: { background: "transparent", border: "none", cursor: "pointer", color: "#6B6B6B", fontSize: 13, fontWeight: 500 } as React.CSSProperties,
   disc: { background: "hsl(48,96%,89%)", border: "2px solid #EAB308", borderRadius: 6, padding: 12, margin: "12px auto", maxWidth: 794 } as React.CSSProperties,
   paper: { maxWidth: 794, margin: "0 auto 40px", background: "#fff", padding: 40, boxShadow: "0 0 30px rgba(0,0,0,0.5)", color: "#111" } as React.CSSProperties,
   secHead: { background: "#e5e7eb", padding: "5px 8px", display: "flex", alignItems: "center", gap: 8, marginBottom: 8, textTransform: "uppercase" as const, fontWeight: 700, fontSize: 11, letterSpacing: 0.5 },
