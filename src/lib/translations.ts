@@ -1950,6 +1950,7 @@ for (const lang of Object.keys(translations) as Language[]) {
   if (uiExtraKeys[lang]) Object.assign(translations[lang], uiExtraKeys[lang]);
   if (communityKeys[lang]) Object.assign(translations[lang], communityKeys[lang]);
   if (navBackKeys[lang]) Object.assign(translations[lang], navBackKeys[lang]);
+  if (flowBannerKeys[lang]) Object.assign(translations[lang], flowBannerKeys[lang]);
   // Calc keys: bs-based languages fall back to calcBs, de to calcDe, en to calcEn
   const calcMap: Record<string, Record<string, string>> = { de: calcDe, en: calcEn };
   Object.assign(translations[lang], calcMap[lang] ?? calcBs);

@@ -289,7 +289,7 @@ export default function FlowBanner() {
 
       {/* CTA below */}
       <div className="relative z-10 text-center pb-16 sm:pb-24">
-        <p className="text-sm text-white/30 mb-4">Ne znaš odakle početi?</p>
+        <p className="text-sm text-white/30 mb-4">{t("flowBanner.hint")}</p>
         <Link
           to="/formulari"
           className="inline-flex items-center gap-2 rounded-full px-8 py-4 text-[15px] font-extrabold text-[hsl(220,50%,8%)] transition-all duration-200 hover:-translate-y-1 hover:scale-[1.04] active:scale-[0.98]"
@@ -298,10 +298,10 @@ export default function FlowBanner() {
             boxShadow: "0 12px 40px hsla(43,70%,55%,0.35)",
           }}
         >
-          Vodi me korak po korak
+          {t("flowBanner.cta")}
           <ArrowRight className="h-4 w-4" />
         </Link>
-        <p className="text-xs text-white/20 mt-3">Počni od formulara i vodiča koji ti najviše trebaju</p>
+        <p className="text-xs text-white/20 mt-3">{t("flowBanner.ctaNote")}</p>
       </div>
 
       {/* Bottom edge fade */}
