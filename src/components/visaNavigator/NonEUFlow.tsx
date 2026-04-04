@@ -418,16 +418,8 @@ const NonEUFlow = ({ selectedCountry, selectedRoute, onSelectRoute }: NonEUFlowP
         </div>
       </div>
 
-      {/* Disclaimer */}
-      <div className="rounded-[10px] px-5 py-4" style={{ background: "#F9F6F0" }}>
-        <div className="flex items-start gap-2.5">
-          <Info size={16} className="mt-0.5 flex-shrink-0" style={{ color: "#6B6B6B" }} />
-          <div>
-            <p className="text-[13px] text-[#6B6B6B]">{t("disclaimer")}</p>
-            <p className="text-[13px] text-[#6B6B6B] mt-1">{t("warning")}</p>
-          </div>
-        </div>
-      </div>
+      {/* Trust System */}
+      <TrustSystem variant="full" showSources={false} />
     </div>
   );
 };
