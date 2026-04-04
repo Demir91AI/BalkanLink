@@ -61,56 +61,59 @@ export default function HomePremiumCards() {
           <div className="mx-auto mt-5 h-[3px] w-20 rounded-full bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--gold))]" />
         </motion.div>
 
-        <div className="mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
+        <div className="mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 mb-14">
           {premiumCards.map((card, i) => (
             <motion.div
               key={card.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 28, scale: 0.97 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
+              transition={{ duration: 0.55, delay: 0.1 + i * 0.12 }}
             >
               <Link
                 to={card.to}
-                className="group relative flex flex-col h-full rounded-2xl p-6 transition-all duration-300 ease-out hover:-translate-y-1"
+                className="group relative flex flex-col h-full rounded-2xl p-7 transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.03]"
                 style={{
-                  background: "linear-gradient(160deg, hsl(220,50%,8%), hsl(225,45%,6%))",
+                  background: "linear-gradient(160deg, hsl(220,50%,10%) 0%, hsl(225,45%,6%) 100%)",
                   border: "2px solid hsl(43,70%,53%)",
-                  boxShadow: "0 0 24px 0 hsla(43,70%,53%,0.10), 0 4px 16px 0 rgba(0,0,0,0.4)",
+                  boxShadow: "0 0 28px 0 hsla(43,70%,53%,0.12), 0 8px 24px 0 rgba(0,0,0,0.45)",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderColor = "hsl(43,80%,62%)";
-                  e.currentTarget.style.boxShadow = "0 0 36px 6px hsla(43,70%,53%,0.20), 0 12px 32px 0 rgba(0,0,0,0.45)";
+                  e.currentTarget.style.boxShadow = "0 0 44px 8px hsla(43,70%,53%,0.22), 0 16px 40px 0 rgba(0,0,0,0.5)";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.borderColor = "hsl(43,70%,53%)";
-                  e.currentTarget.style.boxShadow = "0 0 24px 0 hsla(43,70%,53%,0.10), 0 4px 16px 0 rgba(0,0,0,0.4)";
+                  e.currentTarget.style.boxShadow = "0 0 28px 0 hsla(43,70%,53%,0.12), 0 8px 24px 0 rgba(0,0,0,0.45)";
                 }}
               >
-                <span className="text-4xl mb-3">{card.emoji}</span>
+                {/* Ambient glow */}
+                <div className="absolute -top-8 -right-8 w-36 h-36 rounded-full bg-[hsla(43,70%,53%,0.06)] blur-3xl pointer-events-none" />
+
+                <span className="text-5xl mb-4">{card.emoji}</span>
                 <span
-                  className="inline-flex items-center gap-1 self-start rounded-full px-2.5 py-1 text-[10px] font-black uppercase tracking-wider mb-2"
+                  className="inline-flex items-center gap-1 self-start rounded-full px-3 py-1.5 text-[10px] font-black uppercase tracking-wider mb-3"
                   style={{
                     background: "linear-gradient(135deg, hsl(43,70%,53%), hsl(38,60%,42%))",
                     color: "hsl(225,45%,6%)",
-                    boxShadow: "0 0 10px 0 hsla(43,70%,53%,0.25)",
+                    boxShadow: "0 0 14px 0 hsla(43,70%,53%,0.3)",
                   }}
                 >
                   <Star className="h-2.5 w-2.5 fill-current" /> Premium
                 </span>
-                <h3 className="text-base font-bold text-white mb-1">{card.title}</h3>
-                <p className="text-xs text-white/60 leading-relaxed mb-4 flex-1">{card.desc}</p>
+                <h3 className="text-lg font-extrabold text-white mb-1.5">{card.title}</h3>
+                <p className="text-sm text-white/60 leading-relaxed mb-5 flex-1">{card.desc}</p>
                 <span
-                  className="block w-full rounded-full py-2.5 text-center text-sm font-bold transition-all duration-300 group-hover:brightness-110 group-hover:scale-[1.02]"
+                  className="block w-full rounded-full py-3 text-center text-sm font-extrabold transition-all duration-300 group-hover:brightness-110 group-hover:scale-[1.03] group-hover:shadow-[0_6px_24px_hsla(43,70%,53%,0.35)]"
                   style={{
                     background: "linear-gradient(135deg, hsl(43,70%,53%), hsl(38,65%,45%))",
                     color: "hsl(225,45%,6%)",
-                    boxShadow: "0 2px 12px 0 hsla(43,70%,53%,0.25)",
+                    boxShadow: "0 4px 16px 0 hsla(43,70%,53%,0.3)",
                   }}
                 >
                   {card.cta}
                 </span>
-                <p className="mt-2 text-[10px] text-white/35 text-center">{card.price}</p>
+                <p className="mt-2.5 text-[10px] text-white/35 text-center">{card.price}</p>
               </Link>
             </motion.div>
           ))}
