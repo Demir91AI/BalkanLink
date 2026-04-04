@@ -298,7 +298,7 @@ export default function FormCenter() {
                     open={openGroups.has(group.id)}
                     onOpenChange={() => toggleGroup(group.id)}
                   >
-                    <CollapsibleTrigger className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-xs font-bold text-muted-foreground uppercase tracking-wide hover:text-foreground transition-colors">
+                    <CollapsibleTrigger className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-xs font-bold uppercase tracking-wide hover:text-foreground transition-colors" style={{ color: '#C9A84C' }}>
                       <span>{group.icon}</span>
                       <span className="flex-1 text-left">{group.title}</span>
                       <ChevronDown
