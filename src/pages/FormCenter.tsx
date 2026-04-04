@@ -353,7 +353,21 @@ export default function FormCenter() {
         {/* ─── Main content ─── */}
         <main className="min-w-0 flex-1">
           {activeSlug && !isRemovedFormSlug ? (
-            <GuideContent key={activeSlug} slug={activeSlug} />
+            <>
+              <div className="flex items-center gap-2 mb-4 text-sm">
+                <button
+                  className="text-[#C9A84C] hover:underline font-medium"
+                  onClick={() => navigate('/formulari')}
+                >
+                  Formulari
+                </button>
+                <span className="text-muted-foreground">›</span>
+                <span className="text-foreground font-semibold truncate">
+                  {allEntries.find(e => e.slug === activeSlug)?.label || activeSlug}
+                </span>
+              </div>
+              <GuideContent key={activeSlug} slug={activeSlug} />
+            </>
           ) : (
             <div className="flex flex-col items-center justify-center py-20 text-center">
               {isMobile ? (
