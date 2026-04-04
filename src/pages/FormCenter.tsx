@@ -212,13 +212,14 @@ export default function FormCenter() {
         key={item.slug}
         onClick={() => handleSelect(item.slug)}
         className={cn(
-          "w-full flex flex-col gap-0.5 rounded-lg px-3 py-2 text-left transition-all",
+          "w-full flex flex-col gap-0.5 px-3 py-2 text-left transition-all",
           isActive
-            ? "bg-primary text-primary-foreground shadow-sm"
-            : "text-foreground/80 hover:bg-accent hover:text-foreground"
+            ? "text-[#C9A84C] font-bold"
+            : "text-foreground/80 hover:bg-[#FFF8EC] hover:text-foreground"
         )}
+        style={isActive ? { background: '#FFF8EC', borderLeft: '3px solid #C9A84C', borderRadius: 6 } : { borderRadius: 6 }}
       >
-        <span className={cn("text-sm font-medium truncate leading-[1.3]", isActive && "font-semibold")}>
+        <span className={cn("text-sm font-medium truncate leading-[1.3]", isActive && "font-bold")}>
           {item.label}
         </span>
         <span
