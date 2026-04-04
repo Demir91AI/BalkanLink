@@ -246,7 +246,7 @@ export default function FormCenter() {
   }
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-6">
+    <div className="mx-auto max-w-7xl px-4 py-6 min-h-screen" style={{ background: "#F5F0E8" }}>
       <BuergergeldInfoModal
         open={showBgInfo}
         onClose={() => setShowBgInfo(false)}
