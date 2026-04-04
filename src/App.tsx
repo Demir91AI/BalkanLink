@@ -94,6 +94,7 @@ import AnlageUFMuster from "./pages/muster/AnlageUFMuster";
 import AnlageSEMuster from "./pages/muster/AnlageSEMuster";
 import ArbeitsbescheinigungMuster from "./pages/muster/ArbeitsbescheinigungMuster";
 import AntragsruecknahmeMuster from "./pages/muster/AntragsruecknahmeMuster";
+import Viza from "./pages/Viza";
 
 const queryClient = new QueryClient();
 
