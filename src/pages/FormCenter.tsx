@@ -268,7 +268,7 @@ export default function FormCenter() {
 
       <div className="flex gap-6">
         {/* ─── Sidebar ─── */}
-        <aside className={cn("shrink-0", isMobile ? "hidden" : "sticky top-20 self-start w-72")}>
+        <aside className={cn("shrink-0", isMobile ? "hidden" : "sticky top-20 self-start w-72")} style={{ background: "#FFFFFF", borderRight: "1px solid #F0EAD8" }}>
           <div className="relative mb-4">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
