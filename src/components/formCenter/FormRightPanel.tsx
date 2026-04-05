@@ -6,6 +6,7 @@ const GOLD = '#C9A84C';
 interface FormMeta {
   agency: string;
   musterSlug?: string;
+  onlineUrl?: string;
   sourceLabel: string;
   sourceUrl: string;
 }
@@ -27,11 +28,11 @@ const FORM_META: Record<string, FormMeta> = {
   "kinderzuschlag":     { agency: "Familienkasse",                musterSlug: "kinderzuschlag",     sourceLabel: "BA — Kinderzuschlag",          sourceUrl: "https://www.arbeitsagentur.de/kinderzuschlag" },
   "steuerklassenwechsel":{ agency: "Finanzamt",                   musterSlug: "steuerklasse",       sourceLabel: "Elster.de",                   sourceUrl: "https://www.elster.de" },
   "arbeitslosengeld":   { agency: "Agentur für Arbeit",           musterSlug: "arbeitslosengeld",   sourceLabel: "BA — ALG I",                  sourceUrl: "https://www.arbeitsagentur.de" },
-  "mutterschaftsgeld":  { agency: "Krankenkasse / BA",                                              sourceLabel: "Mutterschaftsgeld-Stelle",     sourceUrl: "https://www.mutterschaftsgeld.de" },
-  "fuehrerschein":      { agency: "Fahrerlaubnisbehörde",                                           sourceLabel: "KBA — Führerschein",           sourceUrl: "https://www.kba.de" },
-  "fahrzeugzulassung":  { agency: "Zulassungsstelle (lokal)",                                       sourceLabel: "KBA — Fahrzeuge",              sourceUrl: "https://www.kba.de" },
+  "mutterschaftsgeld":  { agency: "Krankenkasse / BA",                                              onlineUrl: "https://www.mutterschaftsgeld.de", sourceLabel: "Mutterschaftsgeld-Stelle",     sourceUrl: "https://www.mutterschaftsgeld.de" },
+  "fuehrerschein":      { agency: "Fahrerlaubnisbehörde",                                           onlineUrl: "https://www.kba.de/DE/Themen/ZulassungFuehrerschein/Fuehrerschein/fuehrerschein_node.html", sourceLabel: "KBA — Führerschein",           sourceUrl: "https://www.kba.de" },
+  "fahrzeugzulassung":  { agency: "Zulassungsstelle (lokal)",                                       onlineUrl: "https://www.kba.de/DE/Themen/ZulassungFuehrerschein/Zulassung/zulassung_node.html", sourceLabel: "KBA — Fahrzeuge",              sourceUrl: "https://www.kba.de" },
   "grundsicherung":     { agency: "Sozialamt",                    musterSlug: "grundsicherung",     sourceLabel: "BMAS — Grundsicherung",        sourceUrl: "https://www.bmas.de" },
-  "krippengeld-bayern": { agency: "Landesamt Bayern",                                               sourceLabel: "Bayern.de",                   sourceUrl: "https://www.stmas.bayern.de" },
+  "krippengeld-bayern": { agency: "Landesamt Bayern",                                               onlineUrl: "https://www.zbfs.bayern.de/familienleistungen/krippengeld/", sourceLabel: "Bayern.de",                   sourceUrl: "https://www.stmas.bayern.de" },
   "anlage-bb":          { agency: "Jobcenter",                    musterSlug: "anlage-bb",          sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
   "anlage-sv":          { agency: "Jobcenter",                    musterSlug: "anlage-sv",          sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
   "anlage-ve":          { agency: "Jobcenter",                    musterSlug: "anlage-ve",          sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
@@ -39,16 +40,16 @@ const FORM_META: Record<string, FormMeta> = {
   "anlage-meb":         { agency: "Jobcenter",                    musterSlug: "anlage-meb",         sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
   "anlage-uf":          { agency: "Jobcenter",                    musterSlug: "anlage-uf",          sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
   "anlage-se":          { agency: "Jobcenter",                    musterSlug: "anlage-se",          sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
-  "anlage-kdu":         { agency: "Jobcenter",                                                      sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
-  "anlage-ek":          { agency: "Jobcenter",                                                      sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
-  "anlage-eks":         { agency: "Jobcenter",                                                      sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
-  "anlage-vm":          { agency: "Jobcenter",                                                      sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
-  "anlage-wep":         { agency: "Jobcenter",                                                      sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
-  "anlage-ki":          { agency: "Jobcenter",                                                      sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
-  "anlage-uh1":         { agency: "Jobcenter",                                                      sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
-  "anlage-uh2":         { agency: "Jobcenter",                                                      sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
-  "anlage-uh3":         { agency: "Jobcenter",                                                      sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
-  "nichterreichbarkeit":{ agency: "Jobcenter",                                                      sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
+  "anlage-kdu":         { agency: "Jobcenter",                                                      onlineUrl: "https://jobcenter.digital", sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
+  "anlage-ek":          { agency: "Jobcenter",                                                      onlineUrl: "https://jobcenter.digital", sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
+  "anlage-eks":         { agency: "Jobcenter",                                                      onlineUrl: "https://jobcenter.digital", sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
+  "anlage-vm":          { agency: "Jobcenter",                                                      onlineUrl: "https://jobcenter.digital", sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
+  "anlage-wep":         { agency: "Jobcenter",                                                      onlineUrl: "https://jobcenter.digital", sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
+  "anlage-ki":          { agency: "Jobcenter",                                                      onlineUrl: "https://jobcenter.digital", sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
+  "anlage-uh1":         { agency: "Jobcenter",                                                      onlineUrl: "https://jobcenter.digital", sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
+  "anlage-uh2":         { agency: "Jobcenter",                                                      onlineUrl: "https://jobcenter.digital", sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
+  "anlage-uh3":         { agency: "Jobcenter",                                                      onlineUrl: "https://jobcenter.digital", sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
+  "nichterreichbarkeit":{ agency: "Jobcenter",                                                      onlineUrl: "https://jobcenter.digital", sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
   "arbeitsbescheinigung":{ agency: "Agentur für Arbeit",           musterSlug: "arbeitsbescheinigung", sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
   "antragsruecknahme":  { agency: "Jobcenter",                    musterSlug: "antragsruecknahme",  sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
 };
@@ -142,6 +143,21 @@ export default function FormRightPanel({ activeSlug, formLabel, formDesc }: Prop
           </button>
         )}
 
+        {!meta.musterSlug && meta.onlineUrl && (
+          <a
+            href={meta.onlineUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              gap: 8, width: '100%', padding: '11px 14px', marginBottom: 12,
+              background: '#1E293B', color: 'white', borderRadius: 9,
+              fontSize: 13, fontWeight: 700, textDecoration: 'none',
+            }}
+          >
+            🌐 Online zahtjev →
+          </a>
+        )}
         <div style={{ borderTop: '1px solid #F0EAD8', paddingTop: 12 }}>
           <p style={{ fontSize: 11, fontWeight: 600, color: GOLD, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 8 }}>Zvanični izvor</p>
           <a href={meta.sourceUrl} target="_blank" rel="noopener noreferrer"
