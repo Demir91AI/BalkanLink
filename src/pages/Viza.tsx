@@ -63,9 +63,9 @@ export default function Viza() {
         </div>
 
         {/* 3-col layout: Sidebar | Main | Right Panel */}
-        <div className="flex gap-6">
+        <div className="flex flex-col md:flex-row gap-6">
           {/* LEFT SIDEBAR — Country list */}
-          <div className="w-[220px] flex-shrink-0">
+          <div className="hidden md:block w-[220px] flex-shrink-0">
             <div className="sticky top-6">
               <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-3" style={{ color: GOLD }}>
                 EU države
