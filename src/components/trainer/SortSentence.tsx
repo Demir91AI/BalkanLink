@@ -35,7 +35,7 @@ export default function SortSentence({ exercise, onAnswer }: Props) {
   return (
     <div className="flex flex-col gap-4">
       {/* Placed words */}
-      <div className="min-h-[56px] flex flex-wrap gap-2 rounded-xl border-2 border-dashed border-border bg-muted/30 p-3">
+      <div className="min-h-[56px] flex flex-wrap gap-2 rounded-xl border-2 border-dashed border-white/25 bg-white/[0.06] p-3">
         {placed.length === 0 && <span className="text-sm text-muted-foreground">Tippe auf die Wörter…</span>}
         {placed.map((wordIdx, pos) => (
           <button
