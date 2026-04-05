@@ -97,7 +97,7 @@ export function useTTS() {
 
     const u = new SpeechSynthesisUtterance(text);
     u.lang = "de-DE";
-    u.rate = 1.25;
+    u.rate = rate;
     u.pitch = 0.95;
     u.volume = 1;
 
