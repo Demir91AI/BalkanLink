@@ -27,19 +27,20 @@ const RATE_LABELS: Record<number, string> = {
   1.5: "1.5×",
 };
 
-export default function SprachassistentSection({
-  lesson,
-  isPremium,
-  freePhraseLimit,
-  totalPhrases,
-  toggle,
-  activeId,
-  playState,
-  onUpgrade,
-  rate,
-  setRate,
-  rateOptions,
-}: Props) {
+const SprachassistentSection = React.forwardRef<HTMLDivElement, Props>(
+  function SprachassistentSection({
+    lesson,
+    isPremium,
+    freePhraseLimit,
+    totalPhrases,
+    toggle,
+    activeId,
+    playState,
+    onUpgrade,
+    rate,
+    setRate,
+    rateOptions,
+  }, ref) {
   if (lesson.importantPhrases.length === 0) return null;
 
   const visiblePhrases = isPremium
