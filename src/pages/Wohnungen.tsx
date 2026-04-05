@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { Building, ChevronLeft, ExternalLink, Home, Info } from "lucide-react";
+import { Building, ExternalLink, Info } from "lucide-react";
 import { navigateBackOrHome } from "@/lib/navigation";
+import PageNavBar from "@/components/navigation/PageNavBar";
 
 const portals = [
   { name: "ImmobilienScout24", url: "https://www.immobilienscout24.de", desc: "Najveći njemački portal za stanove i kuće." },
