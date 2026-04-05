@@ -68,8 +68,8 @@ export function useTTS() {
     const processed = preprocessGerman(text);
     const utterance = new SpeechSynthesisUtterance(processed);
     utterance.lang = "de-DE";
-    utterance.rate = 0.88;   // Slower = more natural, easier to follow
-    utterance.pitch = 0.95;  // Slightly lower = less robotic
+    utterance.rate = 1.0;
+    utterance.pitch = 0.92;
     utterance.volume = 1;
 
     const voice = cachedVoice.current ?? getBestGermanVoice();
