@@ -6,7 +6,7 @@
 
 @layer base {
   html, body {
-    min-width: 1200px;
+    min-width: 0;
   }
 
   :root {
