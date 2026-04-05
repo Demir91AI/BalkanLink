@@ -311,54 +311,88 @@ export default function DokumentenCheck() {
               <div>
                 <label className="mb-3 block text-sm font-bold">{st("docCheck.uploadLabel")}</label>
                 {!file ? (
-                  <div className="space-y-3">
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                      {/* Camera - mobile only (label+input pattern for reliable mobile taps) */}
-                      <label style={{ display: 'block', cursor: 'pointer', width: '100%' }} className="sm:hidden">
-                        <input
-                          type="file"
-                          accept="image/*"
-                          capture="environment"
-                          style={{ display: 'none' }}
-                          onChange={handleFileSelect}
-                        />
-                        <div className="flex flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-border/60 p-6 transition-colors hover:border-primary/40 hover:bg-muted/30">
-                          <span className="text-2xl">📷</span>
-                          <span className="text-sm font-semibold text-foreground">Kamera</span>
-                          <span className="text-xs text-muted-foreground">Fotografiši dokument</span>
-                        </div>
-                      </label>
+                  <div style={{display:'flex', flexDirection:'column', gap:'12px', width:'100%'}}>
 
-                      {/* Gallery / Files - mobile only (label+input pattern) */}
-                      <label style={{ display: 'block', cursor: 'pointer', width: '100%' }} className="sm:hidden">
-                        <input
-                          type="file"
-                          accept=".pdf,.jpg,.jpeg,.png"
-                          style={{ display: 'none' }}
-                          onChange={handleFileSelect}
-                        />
-                        <div className="flex flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-border/60 p-6 transition-colors hover:border-primary/40 hover:bg-muted/30">
-                          <span className="text-2xl">📁</span>
-                          <span className="text-sm font-semibold text-foreground">Fajl sa uređaja</span>
-                          <span className="text-xs text-muted-foreground">PDF, JPG, PNG</span>
-                        </div>
-                      </label>
+                    <label style={{
+                      display:'flex', flexDirection:'column', alignItems:'center',
+                      justifyContent:'center', minHeight:'130px', width:'100%',
+                      border:'2px dashed #EAB308', borderRadius:'12px',
+                      cursor:'pointer', padding:'20px', boxSizing:'border-box' as const,
+                      backgroundColor:'#fefce8'
+                    }}>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        capture="environment"
+                        style={{
+                          position:'absolute' as const, width:'1px', height:'1px',
+                          opacity:0, overflow:'hidden'
+                        }}
+                        onChange={(e) => {
+                          const f = e.target.files?.[0];
+                          if (f) {
+                            setSelectedFile(f);
+                            setPreviewName(f.name);
+                            handleFileSelect(e);
+                          }
+                        }}
+                      />
+                      <span style={{fontSize:'40px'}}>📷</span>
+                      <strong style={{marginTop:'8px', fontSize:'16px'}}>Kamera</strong>
+                      <span style={{color:'#6b7280', fontSize:'13px', marginTop:'4px'}}>
+                        Fotografiši dokument
+                      </span>
+                    </label>
 
-                      {/* Desktop: single drop zone (label+input pattern) */}
-                      <label style={{ display: 'block', cursor: 'pointer', width: '100%' }} className="hidden sm:block col-span-3">
-                        <input
-                          type="file"
-                          accept=".pdf,.jpg,.jpeg,.png"
-                          style={{ display: 'none' }}
-                          onChange={handleFileSelect}
-                        />
-                        <div className="flex flex-col items-center justify-center gap-4 rounded-xl border-2 border-dashed border-border/60 p-12 transition-colors hover:border-primary/40 hover:bg-muted/30">
-                          <Upload className="h-10 w-10 text-muted-foreground/40" />
-                          <p className="text-sm font-medium text-muted-foreground">{st("docCheck.dropHere")}</p>
-                          <p className="text-xs text-muted-foreground/60">Max. 10 MB · PDF, JPG, PNG</p>
-                        </div>
-                      </label>
-                    </div>
+                    <label style={{
+                      display:'flex', flexDirection:'column', alignItems:'center',
+                      justifyContent:'center', minHeight:'130px', width:'100%',
+                      border:'2px dashed #9ca3af', borderRadius:'12px',
+                      cursor:'pointer', padding:'20px', boxSizing:'border-box' as const,
+                      backgroundColor:'#f9fafb'
+                    }}>
+                      <input
+                        type="file"
+                        accept=".pdf,.jpg,.jpeg,.png,image/*"
+                        style={{
+                          position:'absolute' as const, width:'1px', height:'1px',
+                          opacity:0, overflow:'hidden'
+                        }}
+                        onChange={(e) => {
+                          const f = e.target.files?.[0];
+                          if (f) {
+                            setSelectedFile(f);
+                            setPreviewName(f.name);
+                            handleFileSelect(e);
+                          }
+                        }}
+                      />
+                      <span style={{fontSize:'40px'}}>📁</span>
+                      <strong style={{marginTop:'8px', fontSize:'16px'}}>Fajl sa uređaja</strong>
+                      <span style={{color:'#6b7280', fontSize:'13px', marginTop:'4px'}}>
+                        PDF, JPG, PNG
+                      </span>
+                    </label>
+
+                    {previewName !== '' && (
+                      <div style={{
+                        padding:'12px 16px', backgroundColor:'#f0fdf4',
+                        border:'1px solid #86efac', borderRadius:'10px',
+                        display:'flex', alignItems:'center', justifyContent:'space-between'
+                      }}>
+                        <span style={{fontSize:'14px', color:'#166534'}}>
+                          ✅ {previewName}
+                        </span>
+                        <button
+                          onClick={() => { setSelectedFile(null); setPreviewName(''); clearFile(); }}
+                          style={{
+                            background:'none', border:'none', color:'#6b7280',
+                            fontSize:'18px', cursor:'pointer', padding:'0 4px'
+                          }}
+                        >×</button>
+                      </div>
+                    )}
+
                   </div>
                 ) : (
                   <div className="rounded-xl border bg-muted/30 p-5">
@@ -368,7 +402,7 @@ export default function DokumentenCheck() {
                         <span className="text-sm font-medium">{file.name}</span>
                         <span className="text-xs text-muted-foreground">({(file.size / 1024).toFixed(0)} KB)</span>
                       </div>
-                      <Button variant="ghost" size="sm" onClick={clearFile} className="h-8 w-8 p-0"><X className="h-4 w-4" /></Button>
+                      <Button variant="ghost" size="sm" onClick={() => { clearFile(); setSelectedFile(null); setPreviewName(''); }} className="h-8 w-8 p-0"><X className="h-4 w-4" /></Button>
                     </div>
                     {filePreviewUrl && <img src={filePreviewUrl} alt="Vorschau" className="mt-4 max-h-64 rounded-lg border object-contain" />}
                   </div>
