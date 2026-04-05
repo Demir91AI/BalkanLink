@@ -409,26 +409,22 @@ const externalTools = [
   {
     title: "Wohngeld Rechner",
     desc: "Provjeri da li imaš pravo na stambenu pomoć od države",
-    primaryUrl: "https://www.bmwsb.bund.de/Webs/BMWSB/DE/themen/stadt-wohnen/wohnraumfoerderung/wohngeld/wohngeld-rechner/wohngeld-rechner.html",
-    fallbackUrl: "https://www.wohngeld.org/wohngeld-rechner/",
+    url: "https://www.bundesregierung.de/breg-de/themen/wohngeld/wohngeldrechner",
   },
   {
     title: "Kfz Steuer Rechner",
     desc: "Izračunaj godišnji porez na vozilo — zvanični alat",
-    primaryUrl: "https://www.bmf-steuerrechner.de/kfzsteuer/kfzsteuer.xhtml",
-    fallbackUrl: "https://www.adac.de/rund-ums-fahrzeug/auto-kaufen-verkaufen/kfz-steuer/kfz-steuer-rechner/",
+    url: "https://www.bmf-steuerrechner.de/kfzst/",
   },
   {
     title: "Renten Rechner",
     desc: "Procijeni svoju buduću penziju — zvanični DRV alat",
-    primaryUrl: "https://www.rvrecht.de/rentenrechner",
-    fallbackUrl: "https://www.rentenrechner.de",
+    url: "https://www.rvrentenrechner.de/",
   },
   {
     title: "ALG 1 Rechner",
     desc: "Izračunaj visinu naknade za nezaposlenost (Arbeitslosengeld I) — zvanični alat Bundesagentur für Arbeit",
-    primaryUrl: "https://www.pub.arbeitsagentur.de/start.html",
-    fallbackUrl: "https://www.arbeitsagentur.de/arbeitslosengeld-rechner",
+    url: "https://con.arbeitsagentur.de/prod/self-service/anspruch-berechnen.html",
   },
 ];
 
