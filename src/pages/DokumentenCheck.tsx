@@ -339,11 +339,40 @@ export default function DokumentenCheck() {
               <div>
                 <label className="mb-3 block text-sm font-bold">{st("docCheck.uploadLabel")}</label>
                 {!file ? (
-                  <div onClick={() => fileInputRef.current?.click()}
-                    className="flex cursor-pointer flex-col items-center justify-center gap-4 rounded-xl border-2 border-dashed border-border/60 p-12 transition-colors hover:border-primary/40 hover:bg-muted/30">
-                    <Upload className="h-10 w-10 text-muted-foreground/40" />
-                    <p className="text-sm font-medium text-muted-foreground">{st("docCheck.dropHere")}</p>
-                    <p className="text-xs text-muted-foreground/60">Max. 10 MB · PDF, JPG, PNG</p>
+                  <div className="space-y-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                      {/* Camera - mobile only */}
+                      <button
+                        type="button"
+                        onClick={() => cameraInputRef.current?.click()}
+                        className="flex flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-border/60 p-6 transition-colors hover:border-primary/40 hover:bg-muted/30 sm:hidden"
+                      >
+                        <span className="text-2xl">📷</span>
+                        <span className="text-sm font-semibold text-foreground">Kamera</span>
+                        <span className="text-xs text-muted-foreground">Fotografiši dokument</span>
+                      </button>
+
+                      {/* Gallery / Files - mobile only */}
+                      <button
+                        type="button"
+                        onClick={() => fileInputRef.current?.click()}
+                        className="flex flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-border/60 p-6 transition-colors hover:border-primary/40 hover:bg-muted/30 sm:hidden"
+                      >
+                        <span className="text-2xl">📁</span>
+                        <span className="text-sm font-semibold text-foreground">Fajl sa uređaja</span>
+                        <span className="text-xs text-muted-foreground">PDF, JPG, PNG</span>
+                      </button>
+
+                      {/* Desktop: single drop zone */}
+                      <div
+                        onClick={() => fileInputRef.current?.click()}
+                        className="hidden sm:flex cursor-pointer flex-col items-center justify-center gap-4 rounded-xl border-2 border-dashed border-border/60 p-12 transition-colors hover:border-primary/40 hover:bg-muted/30 col-span-3"
+                      >
+                        <Upload className="h-10 w-10 text-muted-foreground/40" />
+                        <p className="text-sm font-medium text-muted-foreground">{st("docCheck.dropHere")}</p>
+                        <p className="text-xs text-muted-foreground/60">Max. 10 MB · PDF, JPG, PNG</p>
+                      </div>
+                    </div>
                   </div>
                 ) : (
                   <div className="rounded-xl border bg-muted/30 p-5">
