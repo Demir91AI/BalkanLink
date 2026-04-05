@@ -122,34 +122,65 @@ export default function NudimTrazim() {
   return (
     <div className="min-h-screen bg-background">
       {/* ── Hero ── */}
-      <section className="bg-gradient-to-br from-[#0f1f3d] to-[#1a3a6b] text-white">
-        <div className="mx-auto max-w-6xl px-4 py-12 md:py-16 space-y-5">
-          <PageNavBar onBack={handleBack} />
-          <div className="text-center space-y-5">
-            <div className="flex justify-center">
-              <Megaphone className="h-12 w-12 text-[hsl(var(--gold))]" />
+      <section className="relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0a1628 0%, #0f1f3d 40%, #1a2a50 100%)' }}>
+        {/* Background glow */}
+        <div className="pointer-events-none absolute inset-0" style={{
+          backgroundImage: 'radial-gradient(ellipse 60% 50% at 30% 50%, rgba(201,168,76,0.08) 0%, transparent 60%), radial-gradient(ellipse 40% 60% at 80% 30%, rgba(59,130,246,0.06) 0%, transparent 60%)'
+        }} />
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8 py-14 md:py-20">
+          <div className="flex items-center gap-3 mb-8">
+            <button onClick={handleBack} className="flex items-center gap-1.5 text-[13px] font-medium text-white/50 hover:text-white transition-colors">
+              <ChevronLeft className="h-4 w-4" /> Nazad
+            </button>
+            <button onClick={() => navigate("/")} className="flex items-center gap-1.5 text-[13px] font-medium text-white/50 hover:text-white transition-colors">
+              <Home className="h-4 w-4" /> Početna
+            </button>
+          </div>
+          <div className="max-w-3xl">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#C9A84C]/30 bg-[#C9A84C]/10 px-4 py-1.5 mb-5">
+              <Megaphone className="h-3.5 w-3.5 text-[#C9A84C]" />
+              <span className="text-[11px] font-bold uppercase tracking-widest text-[#C9A84C]">Balkanska zajednica</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">{t("index.nav.offerSeek")}</h1>
-            <p className="text-white/60 max-w-[500px] mx-auto text-base sm:text-lg leading-relaxed">
-              {st("nt.heroDesc")}
+            {/* Heading */}
+            <h1 className="text-4xl sm:text-5xl font-black text-white leading-tight mb-4">
+              Nudi, traži,<br />
+              <span style={{ background: 'linear-gradient(90deg, #C9A84C, #F0D080)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                poveži se.
+              </span>
+            </h1>
+            <p className="text-white/60 text-base sm:text-lg leading-relaxed mb-8 max-w-xl">
+              Balkanska oglasna platforma u Njemačkoj — posao, stanovanje, usluge, prevoz i sve ostalo. Besplatno, brzo, na tvom jeziku.
             </p>
-            <div className="flex justify-center gap-4 flex-wrap">
+            {/* CTA buttons */}
+            <div className="flex flex-wrap gap-3 mb-10">
               <button
                 onClick={openForm}
-                className="bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold-light))] text-black font-bold px-8 py-3 rounded-full transition-colors"
+                className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold text-[#0f1f3d] transition-all hover:opacity-90 hover:scale-[1.02]"
+                style={{ background: 'linear-gradient(135deg, #C9A84C, #F0D080)' }}
               >
-                {st("nt.offer")}
+                <PlusCircle className="h-4 w-4" /> Objavi oglas besplatno
               </button>
               <button
                 onClick={openForm}
-                className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full hover:bg-white/10 transition-colors font-semibold flex items-center gap-2"
+                className="inline-flex items-center gap-2 rounded-full border-2 border-white/20 bg-white/5 px-7 py-3.5 text-sm font-bold text-white backdrop-blur transition-all hover:bg-white/10 hover:border-white/40"
               >
-                <SearchIcon className="h-4 w-4" /> {st("nt.seek")}
+                <SearchIcon className="h-4 w-4" /> Pretražuj oglase
               </button>
             </div>
-            <p className="text-white/50 text-sm">
-              {st("nt.freeNote")}
-            </p>
+            {/* Stats */}
+            <div className="flex flex-wrap gap-6">
+              {[
+                { value: "100%", label: "Besplatna objava" },
+                { value: "7", label: "Kategorija" },
+                { value: "🇩🇪", label: "Cijela Njemačka" },
+              ].map(s => (
+                <div key={s.label} className="flex items-center gap-2">
+                  <span className="text-lg font-black text-white">{s.value}</span>
+                  <span className="text-[12px] text-white/40">{s.label}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
