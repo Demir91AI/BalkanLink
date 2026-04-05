@@ -66,6 +66,25 @@ export default function SprachassistentSection({
         )}
       </div>
 
+      {/* Speed control */}
+      <div className="mb-3 flex items-center gap-1.5">
+        <span className="text-[10px] text-muted-foreground font-medium mr-1">Tempo:</span>
+        {rateOptions.map((r) => (
+          <button
+            key={r}
+            onClick={() => setRate(r)}
+            className={cn(
+              "rounded-full px-2.5 py-1 text-[10px] font-bold transition-all",
+              r === rate
+                ? "bg-primary text-primary-foreground shadow-sm"
+                : "bg-muted text-muted-foreground hover:bg-muted/80"
+            )}
+          >
+            {RATE_LABELS[r]}
+          </button>
+        ))}
+      </div>
+
       <div className="flex flex-col gap-2">
         {visiblePhrases.map((phrase, i) => {
           const audioId = `phrase-${lesson.id}-${i}`;
