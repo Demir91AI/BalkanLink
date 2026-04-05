@@ -225,23 +225,11 @@ export default function DokumentenCheck() {
     try {
       let payload: { text?: string; imageBase64?: string; mimeType?: string } = {};
 
-      if (mode === "text") {
-        payload = { text: textInput.trim() };
-      } else if (file) {
-        if (file.type.startsWith("image/")) {
-          const buffer = await file.arrayBuffer();
-          const base64 = btoa(new Uint8Array(buffer).reduce((data, byte) => data + String.fromCharCode(byte), ""));
-          payload = { imageBase64: base64, mimeType: file.type };
-        } else {
-          const textContent = await file.text();
-          if (textContent.trim().length > 50 && !textContent.includes("\x00")) {
-            payload = { text: textContent.trim().slice(0, 8000) };
-          } else {
-            const buffer = await file.arrayBuffer();
-            const base64 = btoa(new Uint8Array(buffer).reduce((data, byte) => data + String.fromCharCode(byte), ""));
-            payload = { imageBase64: base64, mimeType: "application/pdf" };
-          }
-        }
+      if (file) {
+        const buffer = await file.arrayBuffer();
+        const base64 = btoa(new Uint8Array(buffer).reduce((data, byte) => data + String.fromCharCode(byte), ""));
+        const mimeType = file.type || (file.name.toLowerCase().endsWith(".pdf") ? "application/pdf" : "image/jpeg");
+        payload = { imageBase64: base64, mimeType };
       }
 
       const { data, error: fnError } = await supabase.functions.invoke("document-check", { body: payload });
