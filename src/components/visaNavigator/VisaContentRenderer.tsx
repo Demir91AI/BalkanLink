@@ -338,7 +338,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
               <p style={{ fontSize: 13, color: '#94A3B8', margin: 0 }}>Interaktivne kopije originalnih formulara. Bez državnih obilježja — samo za učenje i vježbu.</p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 12 }} className="sm:!grid-cols-2" data-muster-grid>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {route.musterformulare.map((form, i) => (
                 <div key={i} style={{ background: '#0F172A', borderRadius: 10, padding: 16, border: openFormKey === form.formKey ? `1.5px solid ${GOLD}` : '1.5px solid #334155' }}>
                   <p style={{ fontSize: 14, fontWeight: 600, color: 'white', margin: '0 0 4px' }}>{form.title}</p>
