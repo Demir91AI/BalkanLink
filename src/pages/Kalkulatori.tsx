@@ -524,7 +524,7 @@ export default function Kalkulatori() {
       
 
       {/* Header */}
-      <div className="container pt-6 pb-2">
+      <div className="container pt-6 pb-2 px-4">
         <PageNavBar />
         <h1 className="text-2xl font-bold text-white md:text-3xl">Kalkulatori</h1>
         <p className="mt-2 text-sm text-white/50">Korisni alati za finansijsko planiranje u Njemačkoj</p>

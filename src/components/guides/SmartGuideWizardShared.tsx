@@ -62,7 +62,7 @@ export default function SmartGuideWizardShared({ steps }: Props) {
           </div>
 
           {/* Info cards */}
-          <div className="grid gap-2.5 sm:grid-cols-2">
+          <div className="grid gap-2.5 grid-cols-1 sm:grid-cols-2">
             {cardConfig.map(({ key, label, icon, color }) => {
               const value = step[key];
               if (!value) return null;
