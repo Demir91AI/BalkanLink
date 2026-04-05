@@ -140,14 +140,15 @@ export default function FlowBanner() {
             const isPremium = item.badge === "premium";
             const absOffset = Math.abs(offset);
 
+            const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
             const scale = isCenter ? 1.2 : Math.max(0.6, 1 - absOffset * 0.18);
-            const translateX = offset * (isCenter ? 0 : 320);
+            const translateX = offset * (isCenter ? 0 : (isMobile ? 400 : 320));
             const zIndex = 20 - absOffset;
             const opacity = isCenter ? 1 : Math.max(0.25, 1 - absOffset * 0.35);
             const blur = isCenter ? 0 : absOffset * 2;
 
-            const cardW = isCenter ? 420 : 340;
-            const cardH = isCenter ? 440 : 340;
+            const cardW = isCenter ? (isMobile ? Math.min(window.innerWidth - 32, 340) : 420) : (isMobile ? 0 : 340);
+            const cardH = isCenter ? (isMobile ? 380 : 440) : (isMobile ? 340 : 340);
 
             return (
               <motion.div
