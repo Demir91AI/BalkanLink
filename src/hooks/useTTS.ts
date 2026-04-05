@@ -1,183 +1,170 @@
 import { useCallback, useRef, useEffect, useState } from "react";
 import { toast } from "sonner";
 
-function getSpeechSynthesis(): SpeechSynthesis | null {
-  if (typeof window === "undefined") return null;
-  try {
-    return window.speechSynthesis ?? null;
-  } catch {
-    return null;
-  }
+/* ── helpers ── */
+
+function getSynth(): SpeechSynthesis | null {
+  try { return window.speechSynthesis ?? null; } catch { return null; }
 }
 
 function getBestGermanVoice(synth: SpeechSynthesis): SpeechSynthesisVoice | null {
   const voices = synth.getVoices();
-  const german = voices.filter((v) => v.lang.startsWith("de"));
-  if (german.length === 0) return null;
-
-  const priority = [
-    (v: SpeechSynthesisVoice) => /neural|wavenet/i.test(v.name),
-    (v: SpeechSynthesisVoice) => /enhanced|premium/i.test(v.name),
-    (v: SpeechSynthesisVoice) => /natural/i.test(v.name),
-    (v: SpeechSynthesisVoice) => v.name === "Anna" || v.name === "Markus" || v.name === "Petra",
-    (v: SpeechSynthesisVoice) => /google/i.test(v.name),
-    (v: SpeechSynthesisVoice) => v.localService === true,
+  const de = voices.filter((v) => v.lang.startsWith("de"));
+  if (!de.length) return null;
+  const tests: ((v: SpeechSynthesisVoice) => boolean)[] = [
+    (v) => /neural|wavenet/i.test(v.name),
+    (v) => /enhanced|premium/i.test(v.name),
+    (v) => /natural/i.test(v.name),
+    (v) => /google/i.test(v.name),
+    (v) => v.localService,
   ];
-
-  for (const fn of priority) {
-    const match = german.find(fn);
-    if (match) return match;
-  }
-  return german[0];
+  for (const fn of tests) { const m = de.find(fn); if (m) return m; }
+  return de[0];
 }
 
 type PlayState = "idle" | "playing" | "paused";
 
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL as string;
+const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY as string;
+
 export function useTTS() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [playState, setPlayState] = useState<PlayState>("idle");
+  const audioRef = useRef<HTMLAudioElement | null>(null);
   const cachedVoice = useRef<SpeechSynthesisVoice | null>(null);
-  const synthRef = useRef<SpeechSynthesis | null>(null);
-  const voicesReady = useRef(false);
-  const initDone = useRef(false);
 
-  // Initialize once in effect (safe for SSR & iframes)
+  // Cache voices
   useEffect(() => {
-    const synth = getSpeechSynthesis();
-    synthRef.current = synth;
+    const synth = getSynth();
     if (!synth) return;
-
-    const loadVoices = () => {
-      const v = getBestGermanVoice(synth);
-      cachedVoice.current = v;
-      voicesReady.current = synth.getVoices().length > 0;
-    };
-
-    loadVoices();
-    synth.addEventListener?.("voiceschanged", loadVoices);
-    return () => {
-      synth.removeEventListener?.("voiceschanged", loadVoices);
-    };
+    const load = () => { cachedVoice.current = getBestGermanVoice(synth); };
+    load();
+    synth.addEventListener?.("voiceschanged", load);
+    return () => synth.removeEventListener?.("voiceschanged", load);
   }, []);
 
-  // Chrome requires the very first speechSynthesis.speak() to happen in a
-  // trusted user-gesture context. We "prime" it on the first click anywhere.
+  // Stop any playing audio on unmount
   useEffect(() => {
-    if (initDone.current) return;
-    const prime = () => {
-      const synth = synthRef.current;
-      if (!synth) return;
-      try {
-        const u = new SpeechSynthesisUtterance("");
-        u.volume = 0;
-        u.rate = 10;
-        synth.speak(u);
-        synth.cancel();
-      } catch { /* ignore */ }
-      initDone.current = true;
-      document.removeEventListener("click", prime, true);
+    return () => {
+      audioRef.current?.pause();
+      getSynth()?.cancel();
     };
-    document.addEventListener("click", prime, true);
-    return () => document.removeEventListener("click", prime, true);
   }, []);
 
-  const playNew = useCallback((id: string, text: string) => {
-    const synth = synthRef.current;
-    if (!synth) {
-      toast.error("Dein Browser unterstützt keine Sprachausgabe.");
-      return;
-    }
-
+  /* ── Method 1: Edge function (reliable, works everywhere) ── */
+  const playViaEdge = useCallback(async (id: string, text: string): Promise<boolean> => {
     try {
-      synth.cancel();
-    } catch { /* ignore */ }
+      const res = await fetch(`${SUPABASE_URL}/functions/v1/tts-speak`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          apikey: SUPABASE_KEY,
+          Authorization: `Bearer ${SUPABASE_KEY}`,
+        },
+        body: JSON.stringify({ text: text.slice(0, 200), lang: "de" }),
+      });
 
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = "de-DE";
-    utterance.rate = 1.0;
-    utterance.pitch = 0.95;
-    utterance.volume = 1;
+      if (!res.ok) return false;
 
-    // Try to use cached voice, otherwise let browser pick
-    const voice = cachedVoice.current ?? getBestGermanVoice(synth);
-    if (voice) {
-      utterance.voice = voice;
-      utterance.lang = voice.lang;
+      const blob = await res.blob();
+      if (blob.size < 100) return false;
+
+      const url = URL.createObjectURL(blob);
+      const audio = new Audio(url);
+      audioRef.current = audio;
+
+      audio.onplay = () => { setActiveId(id); setPlayState("playing"); };
+      audio.onended = () => { setActiveId(null); setPlayState("idle"); URL.revokeObjectURL(url); };
+      audio.onerror = () => { setActiveId(null); setPlayState("idle"); URL.revokeObjectURL(url); };
+
+      await audio.play();
+      return true;
+    } catch {
+      return false;
     }
+  }, []);
 
-    // Timeout fallback: if onstart doesn't fire within 2s, something is wrong
-    let startFired = false;
+  /* ── Method 2: Web Speech API fallback ── */
+  const playViaSpeechSynth = useCallback((id: string, text: string): boolean => {
+    const synth = getSynth();
+    if (!synth) return false;
+
+    try { synth.cancel(); } catch { /* */ }
+
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = "de-DE";
+    u.rate = 1.0;
+    u.pitch = 0.95;
+    u.volume = 1;
+
+    const voice = cachedVoice.current;
+    if (voice) { u.voice = voice; u.lang = voice.lang; }
+
+    let started = false;
     const timeout = setTimeout(() => {
-      if (!startFired) {
-        console.warn("[TTS] onstart did not fire within 2s — speech likely blocked");
-        setActiveId(null);
-        setPlayState("idle");
-        toast.error("Audio konnte nicht gestartet werden. Versuche es erneut.");
-      }
+      if (!started) { setActiveId(null); setPlayState("idle"); }
     }, 2000);
 
-    utterance.onstart = () => {
-      startFired = true;
-      clearTimeout(timeout);
-      setActiveId(id);
-      setPlayState("playing");
-    };
-
-    utterance.onend = () => {
-      clearTimeout(timeout);
-      setActiveId(null);
-      setPlayState("idle");
-    };
-
-    utterance.onerror = (e) => {
+    u.onstart = () => { started = true; clearTimeout(timeout); setActiveId(id); setPlayState("playing"); };
+    u.onend = () => { clearTimeout(timeout); setActiveId(null); setPlayState("idle"); };
+    u.onerror = (e) => {
       clearTimeout(timeout);
       if (e.error === "interrupted" || e.error === "canceled") return;
-      console.error("[TTS] error:", e.error);
-      setActiveId(null);
-      setPlayState("idle");
-      toast.error("Sprachausgabe fehlgeschlagen.");
+      setActiveId(null); setPlayState("idle");
     };
 
-    // Optimistically show playing state
+    try {
+      synth.speak(u);
+      return true;
+    } catch {
+      return false;
+    }
+  }, []);
+
+  /* ── Play: try edge first, fallback to browser ── */
+  const playNew = useCallback(async (id: string, text: string) => {
+    // Stop anything playing
+    audioRef.current?.pause();
+    try { getSynth()?.cancel(); } catch { /* */ }
+
     setActiveId(id);
     setPlayState("playing");
 
-    // Android Chrome fix: needs small delay after cancel()
-    const isAndroid = /android/i.test(navigator.userAgent);
-    if (isAndroid) {
-      setTimeout(() => {
-        try { synth.speak(utterance); } catch {
-          setActiveId(null);
-          setPlayState("idle");
-        }
-      }, 150);
-    } else {
-      try {
-        synth.speak(utterance);
-      } catch {
-        setActiveId(null);
-        setPlayState("idle");
-        toast.error("Sprachausgabe nicht verfügbar.");
-      }
-    }
-  }, []);
+    // Try edge function first
+    const edgeOk = await playViaEdge(id, text);
+    if (edgeOk) return;
+
+    // Fallback to Web Speech API
+    const synthOk = playViaSpeechSynth(id, text);
+    if (synthOk) return;
+
+    // Both failed
+    setActiveId(null);
+    setPlayState("idle");
+    toast.error("Audio konnte nicht abgespielt werden.");
+  }, [playViaEdge, playViaSpeechSynth]);
 
   const toggle = useCallback(
     (id: string, text: string) => {
-      const synth = synthRef.current;
-      if (!synth) {
-        toast.error("Dein Browser unterstützt keine Sprachausgabe.");
-        return;
-      }
-
+      // If same id is playing via Audio element, pause/resume it
       if (activeId === id && playState === "playing") {
-        try { synth.pause(); } catch { /* ignore */ }
+        if (audioRef.current && !audioRef.current.paused) {
+          audioRef.current.pause();
+          setPlayState("paused");
+          return;
+        }
+        try { getSynth()?.pause(); } catch { /* */ }
         setPlayState("paused");
         return;
       }
 
       if (activeId === id && playState === "paused") {
-        try { synth.resume(); } catch { /* ignore */ }
+        if (audioRef.current?.paused && audioRef.current.currentTime > 0) {
+          audioRef.current.play();
+          setPlayState("playing");
+          return;
+        }
+        try { getSynth()?.resume(); } catch { /* */ }
         setPlayState("playing");
         return;
       }
@@ -188,10 +175,8 @@ export function useTTS() {
   );
 
   const stop = useCallback(() => {
-    const synth = synthRef.current;
-    if (synth) {
-      try { synth.cancel(); } catch { /* ignore */ }
-    }
+    audioRef.current?.pause();
+    try { getSynth()?.cancel(); } catch { /* */ }
     setActiveId(null);
     setPlayState("idle");
   }, []);
