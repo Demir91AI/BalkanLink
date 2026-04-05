@@ -503,15 +503,7 @@ export default function Kalkulatori() {
 
   const djecaIspod25Error = inputs.hasDjeca && inputs.brojDjeceIspod25 != null && inputs.brojDjece != null && inputs.brojDjeceIspod25 > inputs.brojDjece;
 
-  const handleExternalLink = (primaryUrl: string, fallbackUrl: string, index: number) => {
-    const newWindow = window.open(primaryUrl, "_blank", "noopener,noreferrer");
-    if (!newWindow || newWindow.closed) {
-      const fallback = window.open(fallbackUrl, "_blank", "noopener,noreferrer");
-      if (!fallback || fallback.closed) {
-        setLinkErrors(prev => ({ ...prev, [index]: true }));
-      }
-    }
-  };
+  // External links now use direct <a> tags, no handler needed
 
   const I = (id: string) => <InfoTooltip id={id} activeId={activeInfo} setActiveId={setActiveInfo} />;
 
