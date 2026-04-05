@@ -198,6 +198,9 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
               activeId={activeId}
               playState={playState}
               onUpgrade={() => navigate("/deutsch-trainer/preise")}
+              rate={rate}
+              setRate={setRate}
+              rateOptions={RATE_OPTIONS}
             />
           </div>
 
