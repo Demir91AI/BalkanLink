@@ -154,7 +154,7 @@ export default function NudimTrazim() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-[900px] px-4">
+      <div className="mx-auto max-w-7xl px-4">
         {/* Filter card overlapping hero */}
         <div className="-mt-6 relative z-10 rounded-2xl bg-white shadow-md border border-border p-4 mb-8">
           <NtFilters filters={filters} onChange={updateFilters} />
