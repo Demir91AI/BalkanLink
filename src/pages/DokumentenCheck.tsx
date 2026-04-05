@@ -314,15 +314,7 @@ export default function DokumentenCheck() {
             </div>
           </motion.div>
 
-          {/* ── Mode switcher ── */}
-          <div className="flex gap-3">
-            <Button variant={mode === "text" ? "default" : "outline"} size="sm" onClick={() => { setMode("text"); clearFile(); setAnalysis(null); setError(null); }} className="gap-2 rounded-xl">
-              <Type className="h-4 w-4" /> {st("docCheck.textMode")}
-            </Button>
-            <Button variant={mode === "upload" ? "default" : "outline"} size="sm" onClick={() => { setMode("upload"); setTextInput(""); setAnalysis(null); setError(null); }} className="gap-2 rounded-xl">
-              <Upload className="h-4 w-4" /> {st("docCheck.uploadMode")}
-            </Button>
-          </div>
+          {/* ── Upload mode only — text mode removed ── */}
 
           {/* ── Input area ── */}
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
