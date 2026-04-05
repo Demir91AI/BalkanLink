@@ -1,3 +1,4 @@
+import MusterformularCTA from "@/components/guides/MusterformularCTA";
 import GuideInfoHeader from "./GuideInfoHeader";
 import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
 
@@ -68,6 +69,11 @@ export default function AnlageMEBGuideContent() {
         </p>
       </div>
       <SmartGuideWizardShared steps={STEPS} />
+      <MusterformularCTA
+        musterSlug="anlage-meb"
+        pdfUrl="https://www.arbeitsagentur.de/buergergeld/antrag"
+        pdfLabel="Anlage MEB — Bürgergeld (BA)"
+      />
     </div>
   );
 }
