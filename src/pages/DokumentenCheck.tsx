@@ -14,7 +14,7 @@ import { navigateBackOrHome } from "@/lib/navigation";
 import { IS_ADMIN_PREVIEW } from "@/lib/config";
 import { toast } from "sonner";
 
-type InputMode = "upload" | "text";
+type InputMode = "upload";
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
 const ALLOWED_TYPES = ["application/pdf", "image/jpeg", "image/png"];
