@@ -195,7 +195,7 @@ export default function NudimTrazim() {
 
           {/* Ad cards */}
           {filtered.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
               {filtered.map((ad) => (
                 <div key={ad.id} className="rounded-xl border border-border bg-white shadow-sm p-4">
                   <div className="mb-2">
