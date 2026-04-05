@@ -1,3 +1,4 @@
+import React from "react";
 import { Volume2, Lock, Crown } from "lucide-react";
 import AudioButton from "./AudioButton";
 import { Button } from "@/components/ui/button";
@@ -26,19 +27,20 @@ const RATE_LABELS: Record<number, string> = {
   1.5: "1.5×",
 };
 
-export default function SprachassistentSection({
-  lesson,
-  isPremium,
-  freePhraseLimit,
-  totalPhrases,
-  toggle,
-  activeId,
-  playState,
-  onUpgrade,
-  rate,
-  setRate,
-  rateOptions,
-}: Props) {
+const SprachassistentSection = React.forwardRef<HTMLDivElement, Props>(
+  function SprachassistentSection({
+    lesson,
+    isPremium,
+    freePhraseLimit,
+    totalPhrases,
+    toggle,
+    activeId,
+    playState,
+    onUpgrade,
+    rate,
+    setRate,
+    rateOptions,
+  }, ref) {
   if (lesson.importantPhrases.length === 0) return null;
 
   const visiblePhrases = isPremium
@@ -52,7 +54,7 @@ export default function SprachassistentSection({
     : [];
 
   return (
-    <div className="mb-4 rounded-xl border bg-card p-4">
+    <div ref={ref} className="mb-4 rounded-xl border bg-card p-4">
       <div className="mb-2 flex items-center gap-2">
         <Volume2 className="h-4 w-4 text-primary" />
         <h3 className="text-xs font-bold">Sprachassistent</h3>
@@ -140,4 +142,7 @@ export default function SprachassistentSection({
       )}
     </div>
   );
-}
+});
+SprachassistentSection.displayName = "SprachassistentSection";
+
+export default SprachassistentSection;
