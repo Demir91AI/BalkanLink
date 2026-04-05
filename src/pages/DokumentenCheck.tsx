@@ -215,8 +215,7 @@ export default function DokumentenCheck() {
     if (submittingRef.current || loading) return;
     if (!confirmed) { setError("Molimo potvrdite checkbox prije analize."); return; }
     if (!isPremium) { setShowPaywall(true); return; }
-    if (mode === "text" && !textInput.trim()) { setError("Nije odabran dokument niti unešen tekst."); return; }
-    if (mode === "upload" && !file) { setError("Nije odabran dokument niti unešen tekst."); return; }
+    if (!file) { setError("Nije odabran dokument niti unešen tekst."); return; }
 
     submittingRef.current = true;
     setLoading(true);
