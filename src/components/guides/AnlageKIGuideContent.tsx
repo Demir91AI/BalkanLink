@@ -1,3 +1,4 @@
+import MusterformularCTA from "@/components/guides/MusterformularCTA";
 import GuideInfoHeader from "./GuideInfoHeader";
 import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
 
@@ -65,6 +66,11 @@ export default function AnlageKIGuideContent() {
         ]}
       />
       <SmartGuideWizardShared steps={STEPS} />
+      <MusterformularCTA
+        musterSlug="anlage-ki"
+        pdfUrl="https://www.arbeitsagentur.de/buergergeld/antrag"
+        pdfLabel="Anlage KI — Bürgergeld (BA)"
+      />
     </div>
   );
 }
