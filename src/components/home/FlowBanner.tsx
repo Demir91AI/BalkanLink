@@ -134,7 +134,9 @@ export default function FlowBanner() {
         <div className="relative w-full flex items-center justify-center" style={{ perspective: 1400 }}>
           {flowItems.map((item, i) => {
             const offset = getOffset(i);
-            if (Math.abs(offset) > visibleRange) return null;
+            const isMob = typeof window !== 'undefined' && window.innerWidth < 640;
+            if (isMob && Math.abs(offset) > 0) return null;
+            if (!isMob && Math.abs(offset) > visibleRange) return null;
 
             const isCenter = offset === 0;
             const isPremium = item.badge === "premium";
