@@ -60,7 +60,7 @@ export default function SortSentence({ exercise, onAnswer }: Props) {
           <button
             key={idx}
             onClick={() => addWord(idx)}
-            className="rounded-lg border border-border bg-card px-3 py-2 text-sm font-medium transition-all hover:border-primary/40 hover:bg-primary/5"
+            className="rounded-lg border border-white/20 bg-white/[0.08] text-white px-3 py-2 text-sm font-medium transition-all hover:border-blue-400/60 hover:bg-white/[0.15]"
           >
             {exercise.options[idx]}
           </button>
