@@ -75,6 +75,7 @@ export function useTTS() {
 
       const url = URL.createObjectURL(blob);
       const audio = new Audio(url);
+      audio.playbackRate = rate;
       audioRef.current = audio;
 
       audio.onplay = () => { setActiveId(id); setPlayState("playing"); };
