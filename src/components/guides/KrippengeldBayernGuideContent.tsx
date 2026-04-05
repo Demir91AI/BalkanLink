@@ -1,4 +1,4 @@
-import { ExternalLink, Search, FileText, Info, AlertTriangle } from "lucide-react";
+import { AlertTriangle } from "lucide-react";
 import GuideInfoHeader from "./GuideInfoHeader";
 import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
 
