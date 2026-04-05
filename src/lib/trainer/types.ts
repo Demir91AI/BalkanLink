@@ -54,6 +54,6 @@ export const STAGE_LABELS = ["Grundlagen", "Anwendung", "Realität"] as const;
 export const XP_PER_LESSON = 20;
 /** +1 XP per correct answer */
 export const XP_PER_CORRECT = 1;
-export const FREE_LESSONS_PER_LEVEL = 5;
+export const FREE_LESSONS_PER_LEVEL = 2;
 /** Max level = 15 */
 export const MAX_LEVEL = 15;
