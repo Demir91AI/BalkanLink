@@ -111,7 +111,7 @@ export default function NudimTrazim() {
   if (showForm) {
     return (
       <div className="min-h-screen bg-background">
-        <div className="mx-auto max-w-3xl px-4 py-10">
+        <div className="mx-auto max-w-7xl px-4 py-10">
           <NtSubmitForm onClose={closeCurrentView} onProClick={openProModal} />
           <NtProModal open={showProModal} onClose={closeCurrentView} />
         </div>
