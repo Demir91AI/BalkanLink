@@ -314,7 +314,8 @@ export default function DokumentenCheck() {
                   <div style={{display:'flex', flexDirection:'column', gap:'12px', width:'100%'}}>
 
                     <label style={{
-                      display:'flex', flexDirection:'column', alignItems:'center',
+                      position:'relative' as const,
+                      display:'flex', flexDirection:'column' as const, alignItems:'center',
                       justifyContent:'center', minHeight:'130px', width:'100%',
                       border:'2px dashed #EAB308', borderRadius:'12px',
                       cursor:'pointer', padding:'20px', boxSizing:'border-box' as const,
@@ -325,8 +326,9 @@ export default function DokumentenCheck() {
                         accept="image/*"
                         capture="environment"
                         style={{
-                          position:'absolute' as const, width:'1px', height:'1px',
-                          opacity:0, overflow:'hidden'
+                          position:'absolute' as const, inset:0,
+                          width:'100%', height:'100%',
+                          opacity:0, cursor:'pointer', zIndex:10
                         }}
                         onChange={(e) => {
                           const f = e.target.files?.[0];
@@ -345,7 +347,8 @@ export default function DokumentenCheck() {
                     </label>
 
                     <label style={{
-                      display:'flex', flexDirection:'column', alignItems:'center',
+                      position:'relative' as const,
+                      display:'flex', flexDirection:'column' as const, alignItems:'center',
                       justifyContent:'center', minHeight:'130px', width:'100%',
                       border:'2px dashed #9ca3af', borderRadius:'12px',
                       cursor:'pointer', padding:'20px', boxSizing:'border-box' as const,
@@ -355,8 +358,9 @@ export default function DokumentenCheck() {
                         type="file"
                         accept=".pdf,.jpg,.jpeg,.png,image/*"
                         style={{
-                          position:'absolute' as const, width:'1px', height:'1px',
-                          opacity:0, overflow:'hidden'
+                          position:'absolute' as const, inset:0,
+                          width:'100%', height:'100%',
+                          opacity:0, cursor:'pointer', zIndex:10
                         }}
                         onChange={(e) => {
                           const f = e.target.files?.[0];
