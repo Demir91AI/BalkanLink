@@ -408,7 +408,7 @@ export default function Index() {
         </div>
 
         {/* Flags strip — 80% width, 9 flags, Germany center */}
-        <div className="absolute bottom-14 left-1/2 z-10 -translate-x-1/2 flex flex-row flex-nowrap items-center justify-between" style={{ width: "80%", padding: "0 24px" }}>
+        <div className="absolute bottom-14 left-1/2 z-10 -translate-x-1/2 w-[90%] px-2 sm:px-6" style={{ display: 'flex', flexDirection: 'row', flexWrap: 'nowrap', alignItems: 'center', justifyContent: 'space-between' }}>
           {[
             "https://flagcdn.com/h40/ba.png",
             "https://flagcdn.com/h40/rs.png",
@@ -420,7 +420,7 @@ export default function Index() {
             "https://flagcdn.com/h40/al.png",
             "https://flagcdn.com/h40/xk.png",
           ].map((src) => (
-            <img key={src} src={src} alt="" className="select-none transition-transform duration-200 hover:scale-110" style={{ height: 34, width: "auto", objectFit: "contain", display: "block" }} loading="eager" />
+            <img key={src} src={src} alt="" className="select-none transition-transform duration-200 hover:scale-110" style={{ height: 'clamp(20px, 4vw, 34px)', width: "auto", objectFit: "contain", display: "block" }} loading="eager" />
           ))}
         </div>
 

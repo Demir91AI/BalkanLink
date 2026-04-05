@@ -77,7 +77,7 @@ export default function FlowBanner() {
     <section
       className="relative overflow-hidden"
       style={{
-        minHeight: "clamp(640px, 90vh, 960px)",
+        minHeight: "clamp(520px, 90vh, 960px)",
         background: "radial-gradient(ellipse 130% 90% at 50% 35%, hsl(220 50% 11%) 0%, hsl(220 55% 5%) 65%, hsl(220 60% 3%) 100%)",
       }}
       onTouchStart={onTouchStart}
