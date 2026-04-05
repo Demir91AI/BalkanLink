@@ -88,9 +88,9 @@ function detectGuideSlugFromText(text: string): string | null {
 // Quick starters
 const STARTER_QUESTIONS = [
   { emoji: "📋", label: "Trebam Kindergeld", message: "Trebam Kindergeld" },
-  { emoji: "🏠", label: "Kako prijaviti adresu?", message: "Kako prijaviti adresu u Njemačkoj?" },
-  { emoji: "💼", label: "Izgubio sam posao", message: "Izgubio sam posao, šta da radim?" },
-  { emoji: "📄", label: "Šta je Steuer-ID?", message: "Šta je Steuer-ID i kako ga dobiti?" },
+  { emoji: "✈️", label: "Viza za Bosnu", message: "Trebam vizu za Njemačku, državljanin sam Bosne i Hercegovine" },
+  { emoji: "📄", label: "Šta je Anmeldung?", message: "Šta je Anmeldung i kako se prijaviti?" },
+  { emoji: "💰", label: "Koliko košta Premium?", message: "Koliko košta Premium i šta dobijem?" },
 ];
 
 const DEFAULT_WELCOME = "Zdravo! 👋 Ja sam BalkanLink Asistent. Pomažem Balkancima u Njemačkoj da se snađu — od formulara do svakodnevnog života. Šta te muči?";
