@@ -1,139 +1,185 @@
 import { useCallback, useRef, useEffect, useState } from "react";
+import { toast } from "sonner";
 
-function getBestGermanVoice(): SpeechSynthesisVoice | null {
-  if (typeof speechSynthesis === "undefined") return null;
-  const voices = speechSynthesis.getVoices();
-  const german = voices.filter((v) => v.lang.startsWith("de"));
-  if (german.length === 0) return null;
+/* ── helpers ── */
 
-  // Priority order: neural/wavenet > enhanced/premium > natural > local > any German
-  const priority = [
-    (v: SpeechSynthesisVoice) => /neural|wavenet/i.test(v.name),
-    (v: SpeechSynthesisVoice) => /enhanced|premium/i.test(v.name),
-    (v: SpeechSynthesisVoice) => /natural/i.test(v.name),
-    // Prefer specific known good voices
-    (v: SpeechSynthesisVoice) => v.name === "Anna" || v.name === "Markus" || v.name === "Petra",
-    (v: SpeechSynthesisVoice) => /google/i.test(v.name),
-    (v: SpeechSynthesisVoice) => v.localService === true,
-  ];
-
-  for (const fn of priority) {
-    const match = german.find(fn);
-    if (match) return match;
-  }
-
-  return german[0];
+function getSynth(): SpeechSynthesis | null {
+  try { return window.speechSynthesis ?? null; } catch { return null; }
 }
 
-// Preprocess text for more natural German TTS pronunciation
-function preprocessGerman(text: string): string {
-  return text
-    // Add slight pause after comma and semicolon via SSML-like approach (not supported, but spacing helps)
-    .replace(/,/g, ", ")
-    .replace(/;/g, "; ")
-    // Common German abbreviations that TTS mispronounces
-    .replace(/\bz\.B\./g, "zum Beispiel")
-    .replace(/\bca\./g, "circa")
-    .replace(/\bggf\./g, "gegebenenfalls")
-    .replace(/\bbzw\./g, "beziehungsweise")
-    .replace(/\bu\.a\./g, "unter anderem")
-    .replace(/\bd\.h\./g, "das heißt")
-    .replace(/\busw\./g, "und so weiter")
-    .replace(/\binkl\./g, "inklusive")
-    .replace(/\bExkl\./g, "exklusive")
-    // Numbers with units
-    .replace(/(\d+)€/g, "$1 Euro")
-    .replace(/(\d+)%/g, "$1 Prozent");
+function getBestGermanVoice(synth: SpeechSynthesis): SpeechSynthesisVoice | null {
+  const voices = synth.getVoices();
+  const de = voices.filter((v) => v.lang.startsWith("de"));
+  if (!de.length) return null;
+  const tests: ((v: SpeechSynthesisVoice) => boolean)[] = [
+    (v) => /neural|wavenet/i.test(v.name),
+    (v) => /enhanced|premium/i.test(v.name),
+    (v) => /natural/i.test(v.name),
+    (v) => /google/i.test(v.name),
+    (v) => v.localService,
+  ];
+  for (const fn of tests) { const m = de.find(fn); if (m) return m; }
+  return de[0];
 }
 
 type PlayState = "idle" | "playing" | "paused";
 
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL as string;
+const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY as string;
+
 export function useTTS() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [playState, setPlayState] = useState<PlayState>("idle");
+  const audioRef = useRef<HTMLAudioElement | null>(null);
   const cachedVoice = useRef<SpeechSynthesisVoice | null>(null);
 
-  const hasTTS = typeof speechSynthesis !== "undefined";
-
+  // Cache voices
   useEffect(() => {
-    if (!hasTTS) return;
-    const load = () => {
-      cachedVoice.current = getBestGermanVoice();
-    };
+    const synth = getSynth();
+    if (!synth) return;
+    const load = () => { cachedVoice.current = getBestGermanVoice(synth); };
     load();
-    if (speechSynthesis.onvoiceschanged !== undefined) {
-      speechSynthesis.onvoiceschanged = load;
-    }
-  }, [hasTTS]);
+    synth.addEventListener?.("voiceschanged", load);
+    return () => synth.removeEventListener?.("voiceschanged", load);
+  }, []);
 
-  const playNew = useCallback((id: string, text: string) => {
-    if (!hasTTS) return;
-    speechSynthesis.cancel();
-
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = "de-DE";
-    utterance.rate = 1.0;
-    utterance.pitch = 0.95;
-    utterance.volume = 1;
-
-    const voice = cachedVoice.current ?? getBestGermanVoice();
-    if (voice) {
-      utterance.voice = voice;
-      utterance.lang = voice.lang;
-    }
-
-    utterance.onstart = () => {
-      setActiveId(id);
-      setPlayState("playing");
+  // Stop any playing audio on unmount
+  useEffect(() => {
+    return () => {
+      audioRef.current?.pause();
+      getSynth()?.cancel();
     };
-    utterance.onend = () => {
-      setActiveId(null);
-      setPlayState("idle");
-    };
-    utterance.onerror = (e) => {
-      // Ignore 'interrupted' errors (normal when switching)
-      if (e.error === "interrupted") return;
-      setActiveId(null);
-      setPlayState("idle");
+  }, []);
+
+  /* ── Method 1: Edge function (reliable, works everywhere) ── */
+  const playViaEdge = useCallback(async (id: string, text: string): Promise<boolean> => {
+    try {
+      const res = await fetch(`${SUPABASE_URL}/functions/v1/tts-speak`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          apikey: SUPABASE_KEY,
+          Authorization: `Bearer ${SUPABASE_KEY}`,
+        },
+        body: JSON.stringify({ text: text.slice(0, 200), lang: "de" }),
+      });
+
+      if (!res.ok) return false;
+
+      const blob = await res.blob();
+      if (blob.size < 100) return false;
+
+      const url = URL.createObjectURL(blob);
+      const audio = new Audio(url);
+      audioRef.current = audio;
+
+      audio.onplay = () => { setActiveId(id); setPlayState("playing"); };
+      audio.onended = () => { setActiveId(null); setPlayState("idle"); URL.revokeObjectURL(url); };
+      audio.onerror = () => { setActiveId(null); setPlayState("idle"); URL.revokeObjectURL(url); };
+
+      await audio.play();
+      return true;
+    } catch {
+      return false;
+    }
+  }, []);
+
+  /* ── Method 2: Web Speech API fallback ── */
+  const playViaSpeechSynth = useCallback((id: string, text: string): boolean => {
+    const synth = getSynth();
+    if (!synth) return false;
+
+    try { synth.cancel(); } catch { /* */ }
+
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = "de-DE";
+    u.rate = 1.0;
+    u.pitch = 0.95;
+    u.volume = 1;
+
+    const voice = cachedVoice.current;
+    if (voice) { u.voice = voice; u.lang = voice.lang; }
+
+    let started = false;
+    const timeout = setTimeout(() => {
+      if (!started) { setActiveId(null); setPlayState("idle"); }
+    }, 2000);
+
+    u.onstart = () => { started = true; clearTimeout(timeout); setActiveId(id); setPlayState("playing"); };
+    u.onend = () => { clearTimeout(timeout); setActiveId(null); setPlayState("idle"); };
+    u.onerror = (e) => {
+      clearTimeout(timeout);
+      if (e.error === "interrupted" || e.error === "canceled") return;
+      setActiveId(null); setPlayState("idle");
     };
 
-    // Android Chrome fix: needs small delay after cancel()
-    const isAndroid = /android/i.test(navigator.userAgent);
-    if (isAndroid) {
-      setTimeout(() => {
-        try { speechSynthesis.speak(utterance); } catch {}
-      }, 120);
-    } else {
-      speechSynthesis.speak(utterance);
+    try {
+      synth.speak(u);
+      return true;
+    } catch {
+      return false;
     }
-  }, [hasTTS]);
+  }, []);
+
+  /* ── Play: try edge first, fallback to browser ── */
+  const playNew = useCallback(async (id: string, text: string) => {
+    // Stop anything playing
+    audioRef.current?.pause();
+    try { getSynth()?.cancel(); } catch { /* */ }
+
+    setActiveId(id);
+    setPlayState("playing");
+
+    // Try edge function first
+    const edgeOk = await playViaEdge(id, text);
+    if (edgeOk) return;
+
+    // Fallback to Web Speech API
+    const synthOk = playViaSpeechSynth(id, text);
+    if (synthOk) return;
+
+    // Both failed
+    setActiveId(null);
+    setPlayState("idle");
+    toast.error("Audio konnte nicht abgespielt werden.");
+  }, [playViaEdge, playViaSpeechSynth]);
 
   const toggle = useCallback(
     (id: string, text: string) => {
-      if (!hasTTS) return;
+      // If same id is playing via Audio element, pause/resume it
       if (activeId === id && playState === "playing") {
-        speechSynthesis.pause();
+        if (audioRef.current && !audioRef.current.paused) {
+          audioRef.current.pause();
+          setPlayState("paused");
+          return;
+        }
+        try { getSynth()?.pause(); } catch { /* */ }
         setPlayState("paused");
         return;
       }
 
       if (activeId === id && playState === "paused") {
-        speechSynthesis.resume();
+        if (audioRef.current?.paused && audioRef.current.currentTime > 0) {
+          audioRef.current.play();
+          setPlayState("playing");
+          return;
+        }
+        try { getSynth()?.resume(); } catch { /* */ }
         setPlayState("playing");
         return;
       }
 
       playNew(id, text);
     },
-    [activeId, playState, playNew, hasTTS]
+    [activeId, playState, playNew]
   );
 
   const stop = useCallback(() => {
-    if (!hasTTS) return;
-    speechSynthesis.cancel();
+    audioRef.current?.pause();
+    try { getSynth()?.cancel(); } catch { /* */ }
     setActiveId(null);
     setPlayState("idle");
-  }, [hasTTS]);
+  }, []);
 
   return { toggle, stop, activeId, playState };
 }
