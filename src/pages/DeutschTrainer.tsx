@@ -74,18 +74,124 @@ export default function DeutschTrainer() {
 
   return (
     <>
-      {/* Header */}
-      <section className="relative border-b border-white/[0.06] py-8" style={{ background: "linear-gradient(135deg, #0f172a 0%, #020617 100%)" }}>
-        <div className="px-5 sm:px-10 lg:px-20">
-          <PageNavBar onBack={() => navigateBackOrHome(navigate)} />
-          <div className="flex items-center gap-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-gold/20 to-gold/5 backdrop-blur-sm">
-              <GraduationCap className="h-7 w-7 text-gold" />
-            </div>
-            <div>
-              <h1 className="text-xl font-black text-white sm:text-2xl tracking-tight">BalkanLink Deutsch</h1>
-              <p className="text-xs text-white/50">Effektives Deutschlernen für das echte Leben</p>
-            </div>
+      {/* Hero Banner */}
+      <section
+        className="relative overflow-hidden border-b border-white/[0.06] pb-12 pt-6 sm:pb-16 sm:pt-8"
+        style={{ background: "linear-gradient(145deg, #0f172a 0%, #020617 50%, #0c1a3d 100%)" }}
+      >
+        {/* Animated background dots */}
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.08) 1px, transparent 1px)",
+            backgroundSize: "32px 32px",
+          }}
+        />
+        {/* Radial glow behind hero */}
+        <div
+          className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2"
+          style={{
+            width: "120%",
+            height: "100%",
+            background: "radial-gradient(ellipse 60% 70% at 50% 20%, rgba(59,130,246,0.18) 0%, rgba(6,182,212,0.06) 40%, transparent 80%)",
+          }}
+        />
+
+        <div className="relative z-10 px-5 sm:px-10 lg:px-20">
+          {/* Nav */}
+          <div className="mb-8 flex items-center gap-4">
+            <button
+              onClick={() => navigateBackOrHome(navigate)}
+              className="flex items-center gap-1.5 text-[13px] font-medium text-white/50 hover:text-white transition-colors"
+            >
+              <ArrowLeft className="h-4 w-4" /> Nazad
+            </button>
+            <button
+              onClick={() => navigate("/")}
+              className="flex items-center gap-1.5 text-[13px] font-medium text-white/50 hover:text-white transition-colors"
+            >
+              <Home className="h-4 w-4" /> Početna
+            </button>
+          </div>
+
+          {/* Hero content */}
+          <div className="max-w-2xl">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="mb-3 inline-flex items-center gap-2 rounded-full border border-gold/20 bg-gold/[0.08] px-4 py-1.5"
+            >
+              <GraduationCap className="h-4 w-4 text-gold" />
+              <span className="text-xs font-bold text-gold">Premium Deutschkurs</span>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.08 }}
+              className="text-3xl font-black leading-[1.1] tracking-tight text-white sm:text-4xl lg:text-5xl"
+            >
+              Deutsch für das{" "}
+              <span
+                className="bg-clip-text text-transparent"
+                style={{ backgroundImage: "linear-gradient(135deg, #3b82f6, #06b6d4)" }}
+              >
+                echte Leben
+              </span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.16 }}
+              className="mt-4 max-w-lg text-sm leading-relaxed text-white/50 sm:text-base"
+            >
+              Pažljivo odabrane situacije iz svakodnevnog života Balkanca u Njemačkoj — od Jobcentra do Arzttermin-a.
+            </motion.p>
+
+            {/* Stats row */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.24 }}
+              className="mt-6 flex gap-6 sm:gap-8"
+            >
+              {[
+                { value: "120", label: "Lekcija" },
+                { value: "10.800+", label: "Vježbi" },
+                { value: "6 mj.", label: "Sadržaja" },
+              ].map(s => (
+                <div key={s.label} className="text-center">
+                  <p className="text-xl font-black text-white sm:text-2xl">{s.value}</p>
+                  <p className="text-[10px] font-medium uppercase tracking-wider text-white/35">{s.label}</p>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* Feature pills */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.35 }}
+              className="mt-6 flex flex-wrap gap-2"
+            >
+              {[
+                "🏥 Beim Arzt",
+                "🏛️ Behörden",
+                "💼 Jobcenter",
+                "📋 Bürgergeld",
+                "🗣️ Sprachassistent",
+                "🏆 A1 → C2",
+              ].map(tag => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-white/[0.08] bg-white/[0.04] px-3 py-1 text-[11px] font-semibold text-white/60"
+                >
+                  {tag}
+                </span>
+              ))}
+            </motion.div>
           </div>
         </div>
       </section>
