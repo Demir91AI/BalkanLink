@@ -54,7 +54,7 @@ const SprachassistentSection = React.forwardRef<HTMLDivElement, Props>(
     : [];
 
   return (
-    <div className="mb-4 rounded-xl border bg-card p-4">
+    <div ref={ref} className="mb-4 rounded-xl border bg-card p-4">
       <div className="mb-2 flex items-center gap-2">
         <Volume2 className="h-4 w-4 text-primary" />
         <h3 className="text-xs font-bold">Sprachassistent</h3>
