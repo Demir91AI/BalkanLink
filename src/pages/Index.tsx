@@ -420,7 +420,7 @@ export default function Index() {
             "https://flagcdn.com/h40/al.png",
             "https://flagcdn.com/h40/xk.png",
           ].map((src) => (
-            <img key={src} src={src} alt="" className="select-none transition-transform duration-200 hover:scale-110" style={{ height: 'clamp(20px, 4vw, 34px)', width: "auto", objectFit: "contain", display: "block" }} loading="eager" />
+            <img key={src} src={src} alt="" className="w-10 h-6 object-cover rounded-sm select-none transition-transform duration-200 hover:scale-110" loading="eager" />
           ))}
         </div>
 

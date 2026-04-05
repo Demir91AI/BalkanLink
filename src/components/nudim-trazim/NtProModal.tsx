@@ -81,7 +81,7 @@ export default function NtProModal({ open, onClose }: Props) {
               </div>
             </div>
             <ul className="space-y-1">
-              {["Vrh liste", "Iznad free oglasa", "Badge + glow", "Više pregleda", "Do 5 slika"].map(t => (
+              {["Vrh liste", "Iznad free oglasa", "Badge + glow", "Više pregleda", "Istaknuta pozicija 7 dana"].map(t => (
                 <li key={t} className="flex items-center gap-1.5 text-xs text-muted-foreground">
                   <Check className="h-3 w-3 text-orange-400 shrink-0" /> {t}
                 </li>

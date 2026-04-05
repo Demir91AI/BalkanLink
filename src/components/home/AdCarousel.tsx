@@ -66,10 +66,10 @@ export function AdCarousel() {
             </h2>
           </div>
 
-          <div className="overflow-hidden w-full">
-            <div className="flex w-fit gap-5 sm:gap-6 animate-carousel-scroll hover:[animation-play-state:paused] active:[animation-play-state:paused]">
+          <div className="overflow-x-auto w-full scrollbar-hide" style={{ WebkitOverflowScrolling: 'touch', scrollSnapType: 'x mandatory' }}>
+            <div className="flex w-fit gap-5 sm:gap-6">
               {doubled.map((item, index) => (
-                <div key={index} className="w-[75vw] sm:w-[350px] shrink-0">
+                <div key={index} className="w-[75vw] sm:w-[350px] shrink-0" style={{ scrollSnapAlign: 'start' }}>
                   {item.type === "firm" ? (
                     <PremiumShowcaseCard firm={item.firm} priority={index === 0} />
                   ) : (

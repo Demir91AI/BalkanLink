@@ -919,22 +919,21 @@ export default function Kalkulatori() {
       <section className="container pb-16">
         <h3 className="text-lg font-semibold text-gray-600 mb-4 mt-2">Dodatni alati</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {externalTools.map((tool, i) => (
+          {externalTools.map((tool) => (
             <div
               key={tool.title}
               className="bg-white border-2 border-gray-200 rounded-xl p-5 shadow-sm hover:border-[#0f1f3d] hover:shadow-md transition-all"
             >
               <h4 className="text-[#0f1f3d] font-bold text-base">{tool.title}</h4>
               <p className="text-gray-600 text-sm mt-1 mb-4">{tool.desc}</p>
-              <button
-                onClick={() => handleExternalLink(tool.primaryUrl, tool.fallbackUrl, i)}
+              <a
+                href={tool.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full bg-[#0f1f3d] text-white font-bold rounded-full px-5 py-2.5 text-sm hover:bg-[#1a3a6b] transition-colors cursor-pointer flex items-center justify-center gap-2"
               >
                 Otvori kalkulator <ExternalLink className="h-3.5 w-3.5" />
-              </button>
-              {linkErrors[i] && (
-                <p className="text-xs text-red-500 mt-2 text-center">Trenutno nedostupno — pokušajte kasnije</p>
-              )}
+              </a>
             </div>
           ))}
         </div>

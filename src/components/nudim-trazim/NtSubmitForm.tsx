@@ -108,10 +108,14 @@ export default function NtSubmitForm({ onClose, onProClick }: Props) {
             <Label>{st("nt.description")} *</Label>
             <Textarea
               value={form.description}
-              onChange={(e) => set("description", e.target.value)}
+              onChange={(e) => {
+                if (e.target.value.length <= 300) set("description", e.target.value);
+              }}
               placeholder={st("nt.descPlaceholder")}
               rows={4}
+              maxLength={300}
             />
+            <p className="text-xs text-muted-foreground text-right">{form.description.length}/300</p>
           </div>
 
           <div className="grid sm:grid-cols-2 gap-4">
