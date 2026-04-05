@@ -103,7 +103,7 @@ export default function FlowBanner() {
         transition={{ duration: 0.6 }}
         className="relative z-10 pt-16 sm:pt-24 pb-8 sm:pb-12 text-center px-4"
       >
-        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
+        <h2 className="text-2xl sm:text-4xl lg:text-6xl font-black text-white tracking-tight leading-tight px-2">
           {t("flowBanner.headline")}
         </h2>
         <p className="text-base sm:text-lg lg:text-xl text-white/45 mt-4 leading-relaxed max-w-xl mx-auto">
