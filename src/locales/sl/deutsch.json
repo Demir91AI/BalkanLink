@@ -29,5 +29,10 @@
   "reward_condition_full": "Nakon A1–C2",
   "certificate": "Certifikat",
   "daily_goal": "Dnevni cilj",
-  "streak": "{{days}}-dnevni niz"
+  "streak": "{{days}}-dnevni niz",
+  "stage_grundlagen": "Osnove",
+  "stage_anwendung": "Uporaba",
+  "stage_realitaet": "Realnost",
+  "typical_mistakes": "Tipične napake",
+  "generating_tasks": "Naloge se generirajo…"
 }

@@ -29,5 +29,10 @@
   "reward_condition_full": "Nakon A1–C2",
   "certificate": "Certifikat",
   "daily_goal": "Dnevni cilj",
-  "streak": "{{days}}-dnevni niz"
+  "streak": "{{days}}-dnevni niz",
+  "stage_grundlagen": "Bazat",
+  "stage_anwendung": "Zbatimi",
+  "stage_realitaet": "Realiteti",
+  "typical_mistakes": "Gabimet tipike",
+  "generating_tasks": "Detyrat po gjenerohen…"
 }
