@@ -97,7 +97,7 @@ export default function NudimTrazim() {
   if (selectedAd) {
     return (
       <div className="min-h-screen bg-background">
-        <div className="mx-auto max-w-5xl px-4 py-10">
+        <div className="mx-auto max-w-7xl px-4 py-10">
           <NtAdDetail
             ad={selectedAd}
             onBack={closeCurrentView}
