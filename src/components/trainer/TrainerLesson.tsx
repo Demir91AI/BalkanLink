@@ -132,8 +132,8 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
   };
 
   // Build breadcrumbs based on current depth
-  const buildBreadcrumbs = () => {
-    const crumbs = [
+  const buildBreadcrumbs = (): BreadcrumbItem[] => {
+    const crumbs: BreadcrumbItem[] = [
       { label: t("home"), onClick: () => navigate("/") },
       { label: t("title"), onClick: () => { onBack(); } },
       { label: lesson.level, onClick: () => { onBack(); } },
