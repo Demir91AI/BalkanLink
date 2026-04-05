@@ -9,7 +9,7 @@ import MobileBottomNav from "./MobileBottomNav";
 
 export default function Layout() {
   return (
-    <div className="relative min-h-screen w-full">
+    <div className="relative min-h-screen w-full overflow-x-hidden">
       <AppSidebar />
       <div className="flex flex-col min-h-screen w-full">
         {DEV_MODE && (
