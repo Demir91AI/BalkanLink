@@ -1,6 +1,7 @@
 import { useCallback, useRef, useEffect, useState } from "react";
 
 function getBestGermanVoice(): SpeechSynthesisVoice | null {
+  if (typeof speechSynthesis === "undefined") return null;
   const voices = speechSynthesis.getVoices();
   const german = voices.filter((v) => v.lang.startsWith("de"));
   if (german.length === 0) return null;
