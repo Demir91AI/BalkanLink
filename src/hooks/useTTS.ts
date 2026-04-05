@@ -1,17 +1,24 @@
 import { useCallback, useRef, useEffect, useState } from "react";
+import { toast } from "sonner";
 
-function getBestGermanVoice(): SpeechSynthesisVoice | null {
-  if (typeof speechSynthesis === "undefined") return null;
-  const voices = speechSynthesis.getVoices();
+function getSpeechSynthesis(): SpeechSynthesis | null {
+  if (typeof window === "undefined") return null;
+  try {
+    return window.speechSynthesis ?? null;
+  } catch {
+    return null;
+  }
+}
+
+function getBestGermanVoice(synth: SpeechSynthesis): SpeechSynthesisVoice | null {
+  const voices = synth.getVoices();
   const german = voices.filter((v) => v.lang.startsWith("de"));
   if (german.length === 0) return null;
 
-  // Priority order: neural/wavenet > enhanced/premium > natural > local > any German
   const priority = [
     (v: SpeechSynthesisVoice) => /neural|wavenet/i.test(v.name),
     (v: SpeechSynthesisVoice) => /enhanced|premium/i.test(v.name),
     (v: SpeechSynthesisVoice) => /natural/i.test(v.name),
-    // Prefer specific known good voices
     (v: SpeechSynthesisVoice) => v.name === "Anna" || v.name === "Markus" || v.name === "Petra",
     (v: SpeechSynthesisVoice) => /google/i.test(v.name),
     (v: SpeechSynthesisVoice) => v.localService === true,
@@ -21,29 +28,7 @@ function getBestGermanVoice(): SpeechSynthesisVoice | null {
     const match = german.find(fn);
     if (match) return match;
   }
-
   return german[0];
-}
-
-// Preprocess text for more natural German TTS pronunciation
-function preprocessGerman(text: string): string {
-  return text
-    // Add slight pause after comma and semicolon via SSML-like approach (not supported, but spacing helps)
-    .replace(/,/g, ", ")
-    .replace(/;/g, "; ")
-    // Common German abbreviations that TTS mispronounces
-    .replace(/\bz\.B\./g, "zum Beispiel")
-    .replace(/\bca\./g, "circa")
-    .replace(/\bggf\./g, "gegebenenfalls")
-    .replace(/\bbzw\./g, "beziehungsweise")
-    .replace(/\bu\.a\./g, "unter anderem")
-    .replace(/\bd\.h\./g, "das heißt")
-    .replace(/\busw\./g, "und so weiter")
-    .replace(/\binkl\./g, "inklusive")
-    .replace(/\bExkl\./g, "exklusive")
-    // Numbers with units
-    .replace(/(\d+)€/g, "$1 Euro")
-    .replace(/(\d+)%/g, "$1 Prozent");
 }
 
 type PlayState = "idle" | "playing" | "paused";
@@ -52,23 +37,60 @@ export function useTTS() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [playState, setPlayState] = useState<PlayState>("idle");
   const cachedVoice = useRef<SpeechSynthesisVoice | null>(null);
+  const synthRef = useRef<SpeechSynthesis | null>(null);
+  const voicesReady = useRef(false);
+  const initDone = useRef(false);
 
-  const hasTTS = typeof speechSynthesis !== "undefined";
-
+  // Initialize once in effect (safe for SSR & iframes)
   useEffect(() => {
-    if (!hasTTS) return;
-    const load = () => {
-      cachedVoice.current = getBestGermanVoice();
+    const synth = getSpeechSynthesis();
+    synthRef.current = synth;
+    if (!synth) return;
+
+    const loadVoices = () => {
+      const v = getBestGermanVoice(synth);
+      cachedVoice.current = v;
+      voicesReady.current = synth.getVoices().length > 0;
     };
-    load();
-    if (speechSynthesis.onvoiceschanged !== undefined) {
-      speechSynthesis.onvoiceschanged = load;
-    }
-  }, [hasTTS]);
+
+    loadVoices();
+    synth.addEventListener?.("voiceschanged", loadVoices);
+    return () => {
+      synth.removeEventListener?.("voiceschanged", loadVoices);
+    };
+  }, []);
+
+  // Chrome requires the very first speechSynthesis.speak() to happen in a
+  // trusted user-gesture context. We "prime" it on the first click anywhere.
+  useEffect(() => {
+    if (initDone.current) return;
+    const prime = () => {
+      const synth = synthRef.current;
+      if (!synth) return;
+      try {
+        const u = new SpeechSynthesisUtterance("");
+        u.volume = 0;
+        u.rate = 10;
+        synth.speak(u);
+        synth.cancel();
+      } catch { /* ignore */ }
+      initDone.current = true;
+      document.removeEventListener("click", prime, true);
+    };
+    document.addEventListener("click", prime, true);
+    return () => document.removeEventListener("click", prime, true);
+  }, []);
 
   const playNew = useCallback((id: string, text: string) => {
-    if (!hasTTS) return;
-    speechSynthesis.cancel();
+    const synth = synthRef.current;
+    if (!synth) {
+      toast.error("Dein Browser unterstützt keine Sprachausgabe.");
+      return;
+    }
+
+    try {
+      synth.cancel();
+    } catch { /* ignore */ }
 
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = "de-DE";
@@ -76,64 +98,103 @@ export function useTTS() {
     utterance.pitch = 0.95;
     utterance.volume = 1;
 
-    const voice = cachedVoice.current ?? getBestGermanVoice();
+    // Try to use cached voice, otherwise let browser pick
+    const voice = cachedVoice.current ?? getBestGermanVoice(synth);
     if (voice) {
       utterance.voice = voice;
       utterance.lang = voice.lang;
     }
 
+    // Timeout fallback: if onstart doesn't fire within 2s, something is wrong
+    let startFired = false;
+    const timeout = setTimeout(() => {
+      if (!startFired) {
+        console.warn("[TTS] onstart did not fire within 2s — speech likely blocked");
+        setActiveId(null);
+        setPlayState("idle");
+        toast.error("Audio konnte nicht gestartet werden. Versuche es erneut.");
+      }
+    }, 2000);
+
     utterance.onstart = () => {
+      startFired = true;
+      clearTimeout(timeout);
       setActiveId(id);
       setPlayState("playing");
     };
+
     utterance.onend = () => {
+      clearTimeout(timeout);
       setActiveId(null);
       setPlayState("idle");
     };
+
     utterance.onerror = (e) => {
-      // Ignore 'interrupted' errors (normal when switching)
-      if (e.error === "interrupted") return;
+      clearTimeout(timeout);
+      if (e.error === "interrupted" || e.error === "canceled") return;
+      console.error("[TTS] error:", e.error);
       setActiveId(null);
       setPlayState("idle");
+      toast.error("Sprachausgabe fehlgeschlagen.");
     };
+
+    // Optimistically show playing state
+    setActiveId(id);
+    setPlayState("playing");
 
     // Android Chrome fix: needs small delay after cancel()
     const isAndroid = /android/i.test(navigator.userAgent);
     if (isAndroid) {
       setTimeout(() => {
-        try { speechSynthesis.speak(utterance); } catch {}
-      }, 120);
+        try { synth.speak(utterance); } catch {
+          setActiveId(null);
+          setPlayState("idle");
+        }
+      }, 150);
     } else {
-      speechSynthesis.speak(utterance);
+      try {
+        synth.speak(utterance);
+      } catch {
+        setActiveId(null);
+        setPlayState("idle");
+        toast.error("Sprachausgabe nicht verfügbar.");
+      }
     }
-  }, [hasTTS]);
+  }, []);
 
   const toggle = useCallback(
     (id: string, text: string) => {
-      if (!hasTTS) return;
+      const synth = synthRef.current;
+      if (!synth) {
+        toast.error("Dein Browser unterstützt keine Sprachausgabe.");
+        return;
+      }
+
       if (activeId === id && playState === "playing") {
-        speechSynthesis.pause();
+        try { synth.pause(); } catch { /* ignore */ }
         setPlayState("paused");
         return;
       }
 
       if (activeId === id && playState === "paused") {
-        speechSynthesis.resume();
+        try { synth.resume(); } catch { /* ignore */ }
         setPlayState("playing");
         return;
       }
 
       playNew(id, text);
     },
-    [activeId, playState, playNew, hasTTS]
+    [activeId, playState, playNew]
   );
 
   const stop = useCallback(() => {
-    if (!hasTTS) return;
-    speechSynthesis.cancel();
+    const synth = synthRef.current;
+    if (synth) {
+      try { synth.cancel(); } catch { /* ignore */ }
+    }
     setActiveId(null);
     setPlayState("idle");
-  }, [hasTTS]);
+  }, []);
 
   return { toggle, stop, activeId, playState };
 }
