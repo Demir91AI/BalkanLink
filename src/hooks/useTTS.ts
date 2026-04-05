@@ -75,6 +75,7 @@ export function useTTS() {
 
       const url = URL.createObjectURL(blob);
       const audio = new Audio(url);
+      audio.playbackRate = rate;
       audioRef.current = audio;
 
       audio.onplay = () => { setActiveId(id); setPlayState("playing"); };
@@ -86,7 +87,7 @@ export function useTTS() {
     } catch {
       return false;
     }
-  }, []);
+  }, [rate]);
 
   /* ── Method 2: Web Speech API fallback ── */
   const playViaSpeechSynth = useCallback((id: string, text: string): boolean => {
@@ -123,7 +124,7 @@ export function useTTS() {
     } catch {
       return false;
     }
-  }, []);
+  }, [rate]);
 
   /* ── Play: try edge first, fallback to browser ── */
   const playNew = useCallback(async (id: string, text: string) => {
