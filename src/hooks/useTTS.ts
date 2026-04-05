@@ -53,7 +53,10 @@ export function useTTS() {
   const [playState, setPlayState] = useState<PlayState>("idle");
   const cachedVoice = useRef<SpeechSynthesisVoice | null>(null);
 
+  const hasTTS = typeof speechSynthesis !== "undefined";
+
   useEffect(() => {
+    if (!hasTTS) return;
     const load = () => {
       cachedVoice.current = getBestGermanVoice();
     };
@@ -61,9 +64,10 @@ export function useTTS() {
     if (speechSynthesis.onvoiceschanged !== undefined) {
       speechSynthesis.onvoiceschanged = load;
     }
-  }, []);
+  }, [hasTTS]);
 
   const playNew = useCallback((id: string, text: string) => {
+    if (!hasTTS) return;
     speechSynthesis.cancel();
 
     const processed = preprocessGerman(text);
@@ -93,10 +97,11 @@ export function useTTS() {
     };
 
     speechSynthesis.speak(utterance);
-  }, []);
+  }, [hasTTS]);
 
   const toggle = useCallback(
     (id: string, text: string) => {
+      if (!hasTTS) return;
       if (activeId === id && playState === "playing") {
         speechSynthesis.pause();
         setPlayState("paused");
@@ -111,14 +116,15 @@ export function useTTS() {
 
       playNew(id, text);
     },
-    [activeId, playState, playNew]
+    [activeId, playState, playNew, hasTTS]
   );
 
   const stop = useCallback(() => {
+    if (!hasTTS) return;
     speechSynthesis.cancel();
     setActiveId(null);
     setPlayState("idle");
-  }, []);
+  }, [hasTTS]);
 
   return { toggle, stop, activeId, playState };
 }
