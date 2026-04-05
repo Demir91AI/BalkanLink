@@ -578,7 +578,8 @@ export default function ChatAssistant() {
 
       await streamResponse(resp, text);
     } catch {
-      setMessages(prev => [...prev, { role: "assistant", content: "Ups, nešto je pošlo po krivu. Pokušaj ponovo." }]);
+      setMessages(prev => [...prev, { role: "assistant", content: "⚠️ Greška pri povezivanju. Pokušaj ponovo za nekoliko sekundi.", _retry: true } as any]);
+      lastFailedMsgRef.current = text;
     } finally {
       setLoading(false);
     }
