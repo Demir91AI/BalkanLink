@@ -46,7 +46,7 @@ export default function SortSentence({ exercise, onAnswer }: Props) {
                 ? wordIdx === correctOrder[pos]
                   ? "border-[hsl(var(--success))] bg-[hsl(var(--success)/0.1)] text-[hsl(var(--success))]"
                   : "border-destructive bg-destructive/5 text-destructive"
-                : "border-primary/30 bg-primary/5"
+                : "border-blue-400/50 bg-blue-500/10 text-white"
             }`}
           >
             {exercise.options[wordIdx]}
