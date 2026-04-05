@@ -284,7 +284,7 @@ export default function DokumentenCheck() {
     <>
       {/* ── HEADER ── */}
       <section className="border-b bg-primary py-10 sm:py-14">
-        <div className="container max-w-4xl">
+        <div className="container max-w-4xl px-4">
           <PageNavBar onBack={handleBack} />
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl lg:text-4xl">
             {t("index.nav.docCheck")}
@@ -302,7 +302,7 @@ export default function DokumentenCheck() {
       </section>
 
       <section className="py-10 sm:py-14">
-        <div className="container max-w-4xl space-y-8">
+        <div className="container max-w-4xl px-4 space-y-8">
           {/* ── Privacy notice ── */}
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
             className="flex items-start gap-4 rounded-2xl border border-[hsl(var(--gold))]/20 bg-[hsl(var(--gold))]/5 p-5 sm:p-6">
