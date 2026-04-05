@@ -11,7 +11,7 @@ import { usePremiumAccess } from "@/hooks/usePremiumAccess";
 import TrainerLesson from "@/components/trainer/TrainerLesson";
 import { navigateBackOrHome } from "@/lib/navigation";
 
-const LESSONS_PER_PAGE = 5;
+const LESSONS_PER_PAGE = 9;
 
 const INDIVIDUAL_PRICES: Record<string, string> = {
   "A1": "9,99 €", "A2": "14,99 €",
@@ -70,188 +70,242 @@ export default function DeutschTrainer() {
     return <TrainerLesson lesson={activeLesson} onBack={() => setActiveLesson(null)} />;
   }
 
-  // Current content: 3 stages × 100 = 300 exercises per lesson
-  // Target: 3 × 500 = 1500 (scalable). Show actual current numbers.
   const totalExercises = 300;
   const freeExercises = 150;
 
   return (
     <>
       {/* Header */}
-      <section className="border-b bg-primary py-6">
-        <div className="container max-w-2xl">
+      <section className="relative border-b border-white/[0.06] py-8" style={{ background: "linear-gradient(135deg, #0f172a 0%, #020617 100%)" }}>
+        <div className="px-5 sm:px-10 lg:px-20">
           <PageNavBar onBack={() => navigateBackOrHome(navigate)} />
-          <div className="flex items-center gap-3">
-            <GraduationCap className="h-7 w-7 text-gold" />
+          <div className="flex items-center gap-4">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-gold/20 to-gold/5 backdrop-blur-sm">
+              <GraduationCap className="h-7 w-7 text-gold" />
+            </div>
             <div>
-              <h1 className="text-lg font-black text-primary-foreground sm:text-xl">BalkanLink Deutsch</h1>
-              <p className="text-xs text-primary-foreground/70">Effektives Deutschlernen für das echte Leben</p>
+              <h1 className="text-xl font-black text-white sm:text-2xl tracking-tight">BalkanLink Deutsch</h1>
+              <p className="text-xs text-white/50">Effektives Deutschlernen für das echte Leben</p>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="container max-w-2xl py-5">
-        {/* Stats */}
-        <div className="mb-4 grid grid-cols-3 gap-2">
-          {[
-            { icon: <Trophy className="h-5 w-5 text-gold" />, value: progress.xp, label: "XP" },
-            { icon: <Flame className="h-5 w-5 text-destructive" />, value: progress.streak, label: "Streak" },
-            { icon: <Star className="h-5 w-5 text-primary" />, value: `Lvl ${progress.level}`, label: `Level (max ${MAX_LEVEL})` },
-          ].map((s) => (
-            <div key={s.label} className="flex flex-col items-center gap-0.5 rounded-xl border bg-card px-3 py-3">
-              {s.icon}
-              <span className="text-base font-black">{s.value}</span>
-              <span className="text-[10px] text-muted-foreground">{s.label}</span>
+      {/* Main course area */}
+      <div
+        className="relative min-h-screen"
+        style={{
+          background: "linear-gradient(180deg, #0f172a 0%, #020617 100%)",
+        }}
+      >
+        {/* Subtle radial glow */}
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(59,130,246,0.12) 0%, transparent 70%)",
+          }}
+        />
+
+        <div className="relative z-10 px-5 sm:px-10 lg:px-20 py-10">
+
+          {/* ── STATS ROW ── */}
+          <div className="mb-8 grid grid-cols-3 gap-3 sm:gap-4 max-w-3xl">
+            {[
+              { icon: <Trophy className="h-6 w-6 text-gold" />, value: progress.xp, label: "XP" },
+              { icon: <Flame className="h-6 w-6 text-orange-400" />, value: progress.streak, label: "Streak" },
+              { icon: <Star className="h-6 w-6 text-blue-400" />, value: `Lvl ${progress.level}`, label: `Level (max ${MAX_LEVEL})` },
+            ].map((s, i) => (
+              <motion.div
+                key={s.label}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.08 }}
+                className="group flex flex-col items-center gap-1 rounded-2xl border border-white/[0.06] bg-white/[0.03] px-4 py-4 backdrop-blur-sm transition-all duration-200 hover:scale-[1.02] hover:border-white/[0.12] hover:shadow-[0_8px_30px_rgba(59,130,246,0.08)]"
+              >
+                {s.icon}
+                <span className="text-lg font-black text-white sm:text-xl">{s.value}</span>
+                <span className="text-[10px] font-medium text-white/40">{s.label}</span>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* ── XP PROGRESS BAR ── */}
+          <div className="mb-10 max-w-3xl">
+            <div className="mb-2 flex justify-between text-xs text-white/40">
+              <span className="font-semibold">Level {progress.level}{progress.level >= MAX_LEVEL ? " (Max)" : ""}</span>
+              <span>{progress.level >= MAX_LEVEL ? "Max erreicht" : `${xpInLevel}/${xpForNextLevel} XP`}</span>
             </div>
-          ))}
-        </div>
-
-        {/* XP bar */}
-        <div className="mb-5">
-          <div className="mb-1 flex justify-between text-[11px] text-muted-foreground">
-            <span>Level {progress.level}{progress.level >= MAX_LEVEL ? " (Max)" : ""}</span>
-            <span>{progress.level >= MAX_LEVEL ? "Max erreicht" : `${xpInLevel}/${xpForNextLevel} XP`}</span>
+            <div className="h-2.5 w-full overflow-hidden rounded-full bg-white/[0.06]">
+              <motion.div
+                className="h-full rounded-full"
+                style={{ background: "linear-gradient(90deg, #3b82f6, #06b6d4)" }}
+                initial={{ width: 0 }}
+                animate={{ width: `${progress.level >= MAX_LEVEL ? 100 : (xpInLevel / xpForNextLevel) * 100}%` }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              />
+            </div>
           </div>
-          <Progress value={progress.level >= MAX_LEVEL ? 100 : (xpInLevel / xpForNextLevel) * 100} className="h-2.5 rounded-full" />
-        </div>
 
-        {/* Level tabs */}
-        <div className="mb-3 flex gap-1.5 overflow-x-auto pb-1">
-          {LEVELS.map((lvl) => (
-            <button
-              key={lvl}
-              onClick={() => handleLevelChange(lvl)}
-              className={`shrink-0 rounded-full px-4 py-1.5 text-xs font-bold transition-all ${
-                selectedLevel === lvl
-                  ? "text-primary-foreground shadow-md"
-                  : "border border-border bg-card text-muted-foreground hover:bg-muted"
-              }`}
-              style={selectedLevel === lvl ? { backgroundColor: LEVEL_COLORS[lvl] } : undefined}
-            >
-              {lvl}
-            </button>
-          ))}
-        </div>
-
-        {/* Level progress */}
-        <div className="mb-5 rounded-xl border bg-card px-4 py-3">
-          <div className="flex items-center justify-between mb-1.5">
-            <span className="text-xs font-bold">{selectedLevel} Fortschritt</span>
-            <span className="text-[11px] text-muted-foreground">
-              {completedInLevel}/{levelLessons.length} Lektionen
-            </span>
-          </div>
-          <Progress
-            value={levelLessons.length > 0 ? (completedInLevel / levelLessons.length) * 100 : 0}
-            className="h-2 rounded-full"
-          />
-        </div>
-
-        {/* ── PAGINATED LESSONS ── */}
-        <div className="mb-4">
-          <div className="flex flex-col gap-2">
-            {paginatedLessons.map((lesson, idx) => {
-              const globalIdx = currentPage * LESSONS_PER_PAGE + idx;
-              const isFree = globalIdx < FREE_LESSONS_PER_LEVEL;
-              const isLocked = !isFree && !isPremium;
-              const completed = progress.completedLessons.includes(lesson.id);
-
+          {/* ── LEVEL PILLS ── */}
+          <div className="mb-4 flex flex-wrap gap-2.5 sm:gap-3">
+            {LEVELS.map((lvl) => {
+              const active = selectedLevel === lvl;
               return (
                 <motion.button
-                  key={lesson.id}
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: Math.min(idx * 0.03, 0.15) }}
-                  onClick={() => handleLessonClick(lesson, isLocked)}
-                  className={`group flex items-center gap-3 rounded-xl border px-4 py-3 text-left transition-all ${
-                    isLocked
-                      ? "border-border/50 bg-muted/40 opacity-60 hover:opacity-80"
-                      : completed
-                        ? "border-[hsl(var(--success)/0.3)] bg-[hsl(var(--success)/0.03)] hover:shadow-sm"
-                        : "border-border bg-card hover:border-primary/30 hover:shadow-sm"
+                  key={lvl}
+                  whileHover={{ scale: 1.06 }}
+                  whileTap={{ scale: 0.97 }}
+                  onClick={() => handleLevelChange(lvl)}
+                  className={`shrink-0 rounded-full px-5 py-2 text-xs font-bold transition-all duration-200 ${
+                    active
+                      ? "text-white shadow-[0_0_20px_rgba(59,130,246,0.3)]"
+                      : "border border-white/[0.08] text-white/50 hover:border-white/[0.18] hover:bg-white/[0.04] hover:text-white/70"
                   }`}
+                  style={active ? { background: "linear-gradient(135deg, #3b82f6, #06b6d4)" } : undefined}
                 >
-                  <span className={`text-2xl leading-none ${isLocked ? "grayscale" : ""}`}>
-                    {lesson.icon}
-                  </span>
-                  <div className="min-w-0 flex-1">
-                    <div className="flex items-center gap-1.5">
-                      <h3 className={`text-xs font-bold leading-tight ${isLocked ? "text-muted-foreground" : ""}`}>
-                        {lesson.titleDe}
-                      </h3>
-                      {completed && <CheckCircle2 className="h-3.5 w-3.5 text-[hsl(var(--success))]" />}
-                      {isLocked && <Lock className="h-3 w-3 text-muted-foreground/60" />}
-                    </div>
-                    <p className={`mt-0.5 text-[11px] ${isLocked ? "text-muted-foreground/60" : "text-muted-foreground"}`}>
-                      {lesson.title} · {totalExercises} Aufgaben{!isPremium && ` · ${freeExercises} frei verfügbar`}
-                    </p>
-                  </div>
-                  {isFree && !completed && (
-                    <span className="shrink-0 rounded-full bg-[hsl(var(--success)/0.1)] px-2 py-0.5 text-[9px] font-bold text-[hsl(var(--success))]">
-                      Free
-                    </span>
-                  )}
+                  {lvl}
                 </motion.button>
               );
             })}
           </div>
-        </div>
 
-        {/* Pagination */}
-        {totalPages > 1 && (
-          <div className="mb-6 flex items-center justify-center gap-2">
-            <button
-              onClick={() => setCurrentPage((p) => Math.max(0, p - 1))}
-              disabled={currentPage === 0}
-              className="flex h-8 w-8 items-center justify-center rounded-lg border bg-card text-muted-foreground transition-colors hover:bg-muted disabled:opacity-30 disabled:cursor-not-allowed"
-            >
-              <ChevronLeft className="h-4 w-4" />
-            </button>
-            {Array.from({ length: totalPages }, (_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrentPage(i)}
-                className={`flex h-8 w-8 items-center justify-center rounded-lg text-xs font-bold transition-all ${
-                  currentPage === i
-                    ? "bg-primary text-primary-foreground shadow-sm"
-                    : "border bg-card text-muted-foreground hover:bg-muted"
-                }`}
-              >
-                {i + 1}
-              </button>
-            ))}
-            <button
-              onClick={() => setCurrentPage((p) => Math.min(totalPages - 1, p + 1))}
-              disabled={currentPage === totalPages - 1}
-              className="flex h-8 w-8 items-center justify-center rounded-lg border bg-card text-muted-foreground transition-colors hover:bg-muted disabled:opacity-30 disabled:cursor-not-allowed"
-            >
-              <ChevronRight className="h-4 w-4" />
-            </button>
-          </div>
-        )}
-
-        {/* ── UPGRADE CTA ── */}
-        {!isPremium && (
-          <div className="mb-6 rounded-2xl border-2 border-gold/30 bg-gradient-to-b from-gold/5 to-gold/10 p-6 text-center">
-            <Crown className="mx-auto mb-2 h-7 w-7 text-gold" />
-            <h3 className="text-base font-black">Weiter lernen</h3>
-            <p className="mt-1 text-xs text-muted-foreground">
-              Schalte alle Lektionen & den vollen Sprachassistent frei
-            </p>
-            <Button
-              onClick={() => navigate("/deutsch-trainer/preise")}
-              className="mt-4 h-11 w-full rounded-xl bg-gold text-sm font-bold text-gold-foreground shadow-[0_4px_20px_rgba(255,204,0,0.3)] hover:bg-gold-light"
-            >
-              Alle Lektionen freischalten
-            </Button>
-            <div className="mt-3 flex items-center justify-center gap-3 text-[10px] text-muted-foreground">
-              <span>✓ Kein Abo</span>
-              <span>✓ Einmal zahlen</span>
-              <span>✓ Wertgutschein für Premium</span>
+          {/* ── LEVEL PROGRESS ── */}
+          <div className="mb-10 max-w-3xl rounded-2xl border border-white/[0.06] bg-white/[0.02] px-5 py-4">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-sm font-bold text-white/80">{selectedLevel} Fortschritt</span>
+              <span className="text-xs text-white/40">
+                {completedInLevel}/{levelLessons.length} Lektionen
+              </span>
+            </div>
+            <div className="h-2 w-full overflow-hidden rounded-full bg-white/[0.06]">
+              <motion.div
+                className="h-full rounded-full"
+                style={{ background: "linear-gradient(90deg, #3b82f6, #06b6d4)" }}
+                initial={{ width: 0 }}
+                animate={{ width: `${levelLessons.length > 0 ? (completedInLevel / levelLessons.length) * 100 : 0}%` }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              />
             </div>
           </div>
-        )}
+
+          {/* ── LESSON GRID ── */}
+          <div className="mb-6">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {paginatedLessons.map((lesson, idx) => {
+                const globalIdx = currentPage * LESSONS_PER_PAGE + idx;
+                const isFree = globalIdx < FREE_LESSONS_PER_LEVEL;
+                const isLocked = !isFree && !isPremium;
+                const completed = progress.completedLessons.includes(lesson.id);
+
+                return (
+                  <motion.button
+                    key={lesson.id}
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: Math.min(idx * 0.05, 0.3), duration: 0.4 }}
+                    whileHover={!isLocked ? { y: -4, transition: { duration: 0.2 } } : undefined}
+                    onClick={() => handleLessonClick(lesson, isLocked)}
+                    className={`relative flex flex-col items-start gap-3 rounded-[18px] border p-5 text-left transition-all duration-200 ${
+                      isLocked
+                        ? "border-white/[0.04] bg-white/[0.015] opacity-50 cursor-default"
+                        : completed
+                          ? "border-[hsl(var(--success)/0.2)] bg-[hsl(var(--success)/0.03)] hover:shadow-[0_8px_30px_rgba(34,197,94,0.1)] hover:border-[hsl(var(--success)/0.3)]"
+                          : "border-white/[0.06] bg-white/[0.03] hover:shadow-[0_8px_30px_rgba(59,130,246,0.1)] hover:border-white/[0.12]"
+                    }`}
+                  >
+                    {/* Free badge */}
+                    {isFree && !completed && (
+                      <span className="absolute right-4 top-4 rounded-full bg-[hsl(var(--success)/0.12)] px-2.5 py-0.5 text-[10px] font-bold text-[hsl(var(--success))]">
+                        Free
+                      </span>
+                    )}
+
+                    {/* Icon */}
+                    <span className={`text-3xl leading-none ${isLocked ? "grayscale" : ""}`}>
+                      {lesson.icon}
+                    </span>
+
+                    {/* Text */}
+                    <div className="min-w-0 w-full">
+                      <div className="flex items-center gap-2">
+                        <h3 className={`text-sm font-bold leading-tight ${isLocked ? "text-white/30" : "text-white/90"}`}>
+                          {lesson.titleDe}
+                        </h3>
+                        {completed && <CheckCircle2 className="h-4 w-4 shrink-0 text-[hsl(var(--success))]" />}
+                        {isLocked && <Lock className="h-3.5 w-3.5 shrink-0 text-white/20" />}
+                      </div>
+                      <p className={`mt-1 text-xs leading-relaxed ${isLocked ? "text-white/15" : "text-white/40"}`}>
+                        {lesson.title} · {totalExercises} Aufgaben{!isPremium && ` · ${freeExercises} frei verfügbar`}
+                      </p>
+                    </div>
+                  </motion.button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* ── PAGINATION ── */}
+          {totalPages > 1 && (
+            <div className="mb-12 flex items-center justify-center gap-2">
+              <button
+                onClick={() => setCurrentPage((p) => Math.max(0, p - 1))}
+                disabled={currentPage === 0}
+                className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.03] text-white/40 transition-colors hover:bg-white/[0.06] disabled:opacity-30 disabled:cursor-not-allowed"
+              >
+                <ChevronLeft className="h-4 w-4" />
+              </button>
+              {Array.from({ length: totalPages }, (_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrentPage(i)}
+                  className={`flex h-9 w-9 items-center justify-center rounded-xl text-xs font-bold transition-all ${
+                    currentPage === i
+                      ? "text-white shadow-[0_0_16px_rgba(59,130,246,0.25)]"
+                      : "border border-white/[0.08] bg-white/[0.03] text-white/40 hover:bg-white/[0.06]"
+                  }`}
+                  style={currentPage === i ? { background: "linear-gradient(135deg, #3b82f6, #06b6d4)" } : undefined}
+                >
+                  {i + 1}
+                </button>
+              ))}
+              <button
+                onClick={() => setCurrentPage((p) => Math.min(totalPages - 1, p + 1))}
+                disabled={currentPage === totalPages - 1}
+                className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.03] text-white/40 transition-colors hover:bg-white/[0.06] disabled:opacity-30 disabled:cursor-not-allowed"
+              >
+                <ChevronRight className="h-4 w-4" />
+              </button>
+            </div>
+          )}
+
+          {/* ── UPGRADE CTA ── */}
+          {!isPremium && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="mb-12 max-w-2xl rounded-2xl border-2 border-gold/20 p-8 text-center"
+              style={{ background: "linear-gradient(135deg, rgba(255,204,0,0.06) 0%, rgba(255,204,0,0.02) 100%)" }}
+            >
+              <Crown className="mx-auto mb-3 h-8 w-8 text-gold" />
+              <h3 className="text-lg font-black text-white">Weiter lernen</h3>
+              <p className="mt-2 text-sm text-white/50">
+                Schalte alle Lektionen & den vollen Sprachassistent frei
+              </p>
+              <Button
+                onClick={() => navigate("/deutsch-trainer/preise")}
+                className="mt-5 h-12 w-full max-w-xs rounded-xl bg-gold text-sm font-bold text-gold-foreground shadow-[0_4px_20px_rgba(255,204,0,0.3)] hover:bg-gold-light"
+              >
+                Alle Lektionen freischalten
+              </Button>
+              <div className="mt-4 flex items-center justify-center gap-4 text-[11px] text-white/35">
+                <span>✓ Kein Abo</span>
+                <span>✓ Einmal zahlen</span>
+                <span>✓ Wertgutschein für Premium</span>
+              </div>
+            </motion.div>
+          )}
+        </div>
       </div>
 
       {/* Paywall Modal */}
@@ -261,7 +315,7 @@ export default function DeutschTrainer() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
             onClick={() => setShowPaywall(false)}
           >
             <motion.div
