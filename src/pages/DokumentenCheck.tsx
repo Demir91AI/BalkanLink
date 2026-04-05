@@ -319,15 +319,7 @@ export default function DokumentenCheck() {
           {/* ── Input area ── */}
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
             className="rounded-2xl border bg-card p-6 sm:p-8 shadow-sm">
-            {mode === "text" ? (
-              <div>
-                <label className="mb-3 block text-sm font-bold">{st("docCheck.textLabel")}</label>
-                <Textarea value={textInput} onChange={(e) => setTextInput(e.target.value)}
-                  placeholder={st("docCheck.textPlaceholder")}
-                  className="min-h-[180px] resize-y text-sm" maxLength={8000} />
-                <p className="mt-2 text-xs text-muted-foreground">{textInput.length} / 8.000 {st("docCheck.chars")}</p>
-              </div>
-            ) : (
+            {(
               <div>
                 <label className="mb-3 block text-sm font-bold">{st("docCheck.uploadLabel")}</label>
                 {!file ? (
