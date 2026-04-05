@@ -142,4 +142,7 @@ const SprachassistentSection = React.forwardRef<HTMLDivElement, Props>(
       )}
     </div>
   );
-}
+});
+SprachassistentSection.displayName = "SprachassistentSection";
+
+export default SprachassistentSection;
