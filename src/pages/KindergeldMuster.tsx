@@ -101,8 +101,14 @@ export default function KindergeldMusterPDF() {
   return (
     <div id="kg1-root" style={S.page}>
       <style>{printCSS}</style>
-      <div style={{ padding: "12px 16px 0" }}>
-        <PageNavBar />
+      <div style={{ background: '#F5F0E8', padding: '10px 32px', borderBottom: '1px solid #F0EAD8', display: 'flex', alignItems: 'center', gap: 16 }}>
+        <div style={{ display: 'contents' }}><PageNavBar inline /></div>
+        <span style={{ color: '#E8D9B0', margin: '0 4px' }}>|</span>
+        <span style={{ fontSize: 12, color: '#9CA3AF', cursor: 'pointer' }} onClick={() => navigate('/formulari')}>Formulari</span>
+        <span style={{ fontSize: 12, color: '#9CA3AF' }}>›</span>
+        <span style={{ fontSize: 12, color: '#9CA3AF', cursor: 'pointer' }} onClick={() => navigate('/formulari')}>Musterformulari</span>
+        <span style={{ fontSize: 12, color: '#9CA3AF' }}>›</span>
+        <span style={{ fontSize: 12, color: '#2D2D2D', fontWeight: 500 }}>Kindergeld (KG1)</span>
       </div>
 
       <div style={{ padding: "0 16px" }}>
