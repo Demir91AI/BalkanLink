@@ -170,7 +170,7 @@ export default function DokumentenCheck() {
   const { t } = useLanguage();
   const st = useSectionT();
   const navigate = useNavigate();
-  const [mode, setMode] = useState<InputMode>("text");
+  const [mode, setMode] = useState<InputMode>("upload");
   const [textInput, setTextInput] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const [filePreviewUrl, setFilePreviewUrl] = useState<string | null>(null);
