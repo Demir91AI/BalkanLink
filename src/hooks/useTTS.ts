@@ -185,5 +185,5 @@ export function useTTS() {
     setPlayState("idle");
   }, []);
 
-  return { toggle, stop, activeId, playState };
+  return { toggle, stop, activeId, playState, rate, setRate, RATE_OPTIONS };
 }
