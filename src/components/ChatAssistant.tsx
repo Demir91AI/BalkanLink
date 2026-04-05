@@ -88,9 +88,9 @@ function detectGuideSlugFromText(text: string): string | null {
 // Quick starters
 const STARTER_QUESTIONS = [
   { emoji: "📋", label: "Trebam Kindergeld", message: "Trebam Kindergeld" },
-  { emoji: "🏠", label: "Kako prijaviti adresu?", message: "Kako prijaviti adresu u Njemačkoj?" },
-  { emoji: "💼", label: "Izgubio sam posao", message: "Izgubio sam posao, šta da radim?" },
-  { emoji: "📄", label: "Šta je Steuer-ID?", message: "Šta je Steuer-ID i kako ga dobiti?" },
+  { emoji: "✈️", label: "Viza za Bosnu", message: "Trebam vizu za Njemačku, državljanin sam Bosne i Hercegovine" },
+  { emoji: "📄", label: "Šta je Anmeldung?", message: "Šta je Anmeldung i kako se prijaviti?" },
+  { emoji: "💰", label: "Koliko košta Premium?", message: "Koliko košta Premium i šta dobijem?" },
 ];
 
 const DEFAULT_WELCOME = "Zdravo! 👋 Ja sam BalkanLink Asistent. Pomažem Balkancima u Njemačkoj da se snađu — od formulara do svakodnevnog života. Šta te muči?";
@@ -263,6 +263,7 @@ export default function ChatAssistant() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const lastFailedMsgRef = useRef<string | null>(null);
 
   // Persist messages to localStorage whenever they change — but never overwrite with empty before restore
   useEffect(() => {
@@ -578,7 +579,8 @@ export default function ChatAssistant() {
 
       await streamResponse(resp, text);
     } catch {
-      setMessages(prev => [...prev, { role: "assistant", content: "Ups, nešto je pošlo po krivu. Pokušaj ponovo." }]);
+      setMessages(prev => [...prev, { role: "assistant", content: "⚠️ Greška pri povezivanju. Pokušaj ponovo za nekoliko sekundi.", _retry: true } as any]);
+      lastFailedMsgRef.current = text;
     } finally {
       setLoading(false);
     }
@@ -770,7 +772,20 @@ export default function ChatAssistant() {
                             {msg.role === "assistant" ? (
                               <>
                                 <ChatMarkdown content={msg.content} />
-                                {msg.content.length > 200 && (
+                                {(msg as any)._retry && lastFailedMsgRef.current && (
+                                  <button
+                                    onClick={() => {
+                                      const retryText = lastFailedMsgRef.current;
+                                      lastFailedMsgRef.current = null;
+                                      setMessages(prev => prev.filter((_, idx) => idx !== i));
+                                      if (retryText) sendMessageWithText(retryText);
+                                    }}
+                                    className="mt-2 inline-flex items-center gap-1 rounded-lg bg-white/10 px-3 py-1.5 text-[11px] font-medium text-white/70 hover:bg-white/20 transition-all"
+                                  >
+                                    🔄 Pokušaj ponovo
+                                  </button>
+                                )}
+                                {msg.content.length > 200 && !(msg as any)._retry && (
                                   <button onClick={() => copyToClipboard(msg.content, i)} className="mt-2 flex items-center gap-1 text-[10px] text-white/30 hover:text-white/60 transition">
                                     <Copy className="h-3 w-3" />
                                     {copied === i ? "✓ Kopirano" : "Kopiraj"}
