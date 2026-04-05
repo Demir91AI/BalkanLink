@@ -379,8 +379,7 @@ export default function Index() {
               </h1>
 
               <p className="mx-auto mt-4 max-w-xl text-base text-white/85 drop-shadow sm:text-lg leading-relaxed">
-                Formulari, vize, socijalna prava i svakodnevni život — 
-                sve objašnjeno jasno, na tvom jeziku, bez stresa.
+                Tvoj vodič kroz njemački sistem — jednostavno i pouzdano.
               </p>
 
               <div className="mt-8 flex flex-col items-center gap-4">
