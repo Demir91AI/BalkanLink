@@ -2,6 +2,8 @@ import { Volume2, Lock, Crown } from "lucide-react";
 import AudioButton from "./AudioButton";
 import { Button } from "@/components/ui/button";
 import type { Lesson } from "@/lib/deutsch-trainer-data";
+import type { SpeechRate } from "@/hooks/useTTS";
+import { cn } from "@/lib/utils";
 
 interface Props {
   lesson: Lesson;
@@ -12,6 +14,9 @@ interface Props {
   activeId: string | null;
   playState: "playing" | "paused" | "idle";
   onUpgrade: () => void;
+  rate: SpeechRate;
+  setRate: (r: SpeechRate) => void;
+  rateOptions: readonly SpeechRate[];
 }
 
 export default function SprachassistentSection({
