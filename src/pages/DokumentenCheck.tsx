@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback, useMemo } from "react";
+import React, { useState, useRef, useCallback, useMemo } from "react";
 import { FileText, Upload, Type, Shield, AlertTriangle, Loader2, X, CheckCircle2, Lock, Eye, BookOpen, Search, AlertCircle, Clock, DollarSign, Wrench, XCircle, ShieldAlert, Globe, Scale, FileWarning, CalendarClock, Banknote, CheckSquare } from "lucide-react";
 import PageNavBar from "@/components/navigation/PageNavBar";
 import { motion } from "framer-motion";
