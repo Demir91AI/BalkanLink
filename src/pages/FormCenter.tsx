@@ -464,11 +464,11 @@ export default function FormCenter() {
             </div>
           )}
         </main>
-        {!isMobile && (
+        {activeSlug && !isMobile && (
           <FormRightPanel
-            activeSlug={activeSlug || null}
-            formLabel={allEntries.find(e => e.slug === activeSlug)?.label}
-            formDesc={allEntries.find(e => e.slug === activeSlug)?.desc}
+            activeSlug={activeSlug}
+            formLabel={activeEntry?.label}
+            formDesc={activeEntry?.desc}
           />
         )}
       </div>
