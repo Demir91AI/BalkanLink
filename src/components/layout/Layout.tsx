@@ -5,6 +5,7 @@ import CookieConsent from "@/components/CookieConsent";
 import PWAInstallBanner from "@/components/PWAInstallBanner";
 import { AppSidebar } from "./AppSidebar";
 import { DEV_MODE } from "@/lib/dev-mode";
+import MobileBottomNav from "./MobileBottomNav";
 
 export default function Layout() {
   return (
@@ -17,10 +18,11 @@ export default function Layout() {
           </div>
         )}
         <Header />
-        <main className="flex-1">
+        <main className="flex-1 pb-16 md:pb-0">
           <Outlet />
         </main>
         <Footer />
+        <MobileBottomNav />
         <CookieConsent />
         <PWAInstallBanner />
       </div>

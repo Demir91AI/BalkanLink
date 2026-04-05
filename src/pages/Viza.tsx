@@ -25,7 +25,7 @@ export default function Viza() {
 
   return (
     <div className="min-h-screen" style={{ background: "#F5F0E8" }}>
-      <div className="max-w-[1280px] mx-auto px-12 py-8">
+      <div className="max-w-[1280px] mx-auto px-4 md:px-12 py-8">
         {/* Nav */}
         <PageNavBar />
 
@@ -36,7 +36,7 @@ export default function Viza() {
         </div>
 
         {/* Breadcrumb */}
-        <div className="flex items-center gap-1.5 mb-8">
+        <div className="flex items-center gap-1.5 mb-8 overflow-x-auto whitespace-nowrap">
           <button onClick={() => { setSelectedCountry(null); setSelectedRoute(null); }}
             className="text-[13px] transition-colors hover:underline"
             style={{ color: selectedCountry ? '#9CA3AF' : '#2D2D2D', fontWeight: selectedCountry ? 400 : 500 }}>
@@ -63,9 +63,9 @@ export default function Viza() {
         </div>
 
         {/* 3-col layout: Sidebar | Main | Right Panel */}
-        <div className="flex gap-6">
+        <div className="flex flex-col md:flex-row gap-6">
           {/* LEFT SIDEBAR — Country list */}
-          <div className="w-[220px] flex-shrink-0">
+          <div className="hidden md:block w-[220px] flex-shrink-0">
             <div className="sticky top-6">
               <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-3" style={{ color: GOLD }}>
                 EU države
@@ -148,6 +148,49 @@ export default function Viza() {
             </div>
           </div>
 
+          {/* MOBILE COUNTRY SELECTOR */}
+          <div className="md:hidden">
+            <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+              {COUNTRY_CONTENT.map(c => {
+                const active = selectedCountry === c.code;
+                return (
+                  <button
+                    key={c.code}
+                    onClick={() => handleSelectCountry(c.code)}
+                    className={`shrink-0 flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium border transition-all ${
+                      active
+                        ? "border-[#C9A84C] bg-[#FFF8EC] text-[#C9A84C] font-bold"
+                        : "border-border/40 text-[#2D2D2D] hover:bg-[#FFF8EC]"
+                    }`}
+                  >
+                    <img src={c.flag} alt="" className="h-4 rounded-sm" />
+                    {c.name}
+                  </button>
+                );
+              })}
+            </div>
+            {country && !country.isEU && (
+              <div className="flex gap-2 overflow-x-auto pb-2 mt-2 scrollbar-hide">
+                {country.routes.map(r => {
+                  const active = selectedRoute === r.id;
+                  return (
+                    <button
+                      key={r.id}
+                      onClick={() => setSelectedRoute(r.id)}
+                      className={`shrink-0 rounded-full px-3 py-1.5 text-[11px] font-medium border transition-all ${
+                        active
+                          ? "border-[#C9A84C] bg-[#FFF8EC] text-[#C9A84C] font-bold"
+                          : "border-border/40 text-[#6B6B6B] hover:bg-[#FFF8EC]"
+                      }`}
+                    >
+                      {r.title}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+
           {/* CENTER — Main content */}
           <div className="flex-1 min-w-0">
             <div className="transition-all duration-200" style={{ animation: "fadeSlideIn 200ms ease" }}
@@ -162,7 +205,9 @@ export default function Viza() {
           </div>
 
           {/* RIGHT PANEL */}
-          <VisaRightPanel selectedCountry={selectedCountry} selectedRoute={selectedRoute} onSelectRoute={setSelectedRoute} />
+          <div className="hidden md:block">
+            <VisaRightPanel selectedCountry={selectedCountry} selectedRoute={selectedRoute} onSelectRoute={setSelectedRoute} />
+          </div>
         </div>
       </div>
 
