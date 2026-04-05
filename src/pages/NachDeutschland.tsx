@@ -1,6 +1,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { getMigrationCountries, type CategoryKey } from "@/lib/migration-data";
-import { Briefcase, GraduationCap, BookOpen, Heart, Award, ExternalLink, ShieldAlert, CheckCircle2, ChevronRight, Globe, ChevronLeft, Info } from "lucide-react";
+import { Briefcase, GraduationCap, BookOpen, Heart, Award, ExternalLink, ShieldAlert, CheckCircle2, ChevronRight, Globe, Info } from "lucide-react";
+import PageNavBar from "@/components/navigation/PageNavBar";
 import { useParams, useNavigate } from "react-router-dom";
 import { navigateBackOrHome } from "@/lib/navigation";
 import GdjePocetiTimeline from "@/components/migration/GdjePocetiTimeline";
