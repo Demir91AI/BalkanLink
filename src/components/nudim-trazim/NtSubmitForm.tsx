@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Send, Star } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
@@ -32,7 +33,7 @@ export default function NtSubmitForm({ onClose, onProClick }: Props) {
   const set = (key: string, value: string | boolean) =>
     setForm((prev) => ({ ...prev, [key]: value }));
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.type || !form.title || !form.category || !form.city || !form.description || !form.contact_type || !form.contact_value) {
       toast.error(st("nt.fillAll"));
@@ -42,6 +43,21 @@ export default function NtSubmitForm({ onClose, onProClick }: Props) {
       toast.error(st("nt.acceptTerms"));
       return;
     }
+
+    // Try to persist to Supabase (non-blocking — table may not exist yet)
+    try {
+      await supabase.from("nt_ads" as any).insert({
+        type: form.type,
+        title: form.title.trim(),
+        category: form.category,
+        city: form.city.trim(),
+        description: form.description.trim(),
+        contact_type: form.contact_type,
+        contact_value: form.contact_value.trim(),
+        is_pro: false,
+      });
+    } catch {}
+
     toast.success(st("nt.submitSuccess"));
     onClose();
   };

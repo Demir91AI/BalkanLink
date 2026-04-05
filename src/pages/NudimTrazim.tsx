@@ -97,7 +97,7 @@ export default function NudimTrazim() {
   if (selectedAd) {
     return (
       <div className="min-h-screen bg-background">
-        <div className="mx-auto max-w-5xl px-4 py-10">
+        <div className="mx-auto max-w-7xl px-4 py-10">
           <NtAdDetail
             ad={selectedAd}
             onBack={closeCurrentView}
@@ -111,7 +111,7 @@ export default function NudimTrazim() {
   if (showForm) {
     return (
       <div className="min-h-screen bg-background">
-        <div className="mx-auto max-w-3xl px-4 py-10">
+        <div className="mx-auto max-w-7xl px-4 py-10">
           <NtSubmitForm onClose={closeCurrentView} onProClick={openProModal} />
           <NtProModal open={showProModal} onClose={closeCurrentView} />
         </div>
@@ -154,7 +154,7 @@ export default function NudimTrazim() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-[900px] px-4">
+      <div className="mx-auto max-w-7xl px-4">
         {/* Filter card overlapping hero */}
         <div className="-mt-6 relative z-10 rounded-2xl bg-white shadow-md border border-border p-4 mb-8">
           <NtFilters filters={filters} onChange={updateFilters} />
@@ -195,7 +195,7 @@ export default function NudimTrazim() {
 
           {/* Ad cards */}
           {filtered.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
               {filtered.map((ad) => (
                 <div key={ad.id} className="rounded-xl border border-border bg-white shadow-sm p-4">
                   <div className="mb-2">
