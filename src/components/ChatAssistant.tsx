@@ -772,7 +772,20 @@ export default function ChatAssistant() {
                             {msg.role === "assistant" ? (
                               <>
                                 <ChatMarkdown content={msg.content} />
-                                {msg.content.length > 200 && (
+                                {(msg as any)._retry && lastFailedMsgRef.current && (
+                                  <button
+                                    onClick={() => {
+                                      const retryText = lastFailedMsgRef.current;
+                                      lastFailedMsgRef.current = null;
+                                      setMessages(prev => prev.filter((_, idx) => idx !== i));
+                                      if (retryText) sendMessageWithText(retryText);
+                                    }}
+                                    className="mt-2 inline-flex items-center gap-1 rounded-lg bg-white/10 px-3 py-1.5 text-[11px] font-medium text-white/70 hover:bg-white/20 transition-all"
+                                  >
+                                    🔄 Pokušaj ponovo
+                                  </button>
+                                )}
+                                {msg.content.length > 200 && !(msg as any)._retry && (
                                   <button onClick={() => copyToClipboard(msg.content, i)} className="mt-2 flex items-center gap-1 text-[10px] text-white/30 hover:text-white/60 transition">
                                     <Copy className="h-3 w-3" />
                                     {copied === i ? "✓ Kopirano" : "Kopiraj"}
