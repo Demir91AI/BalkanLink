@@ -374,7 +374,7 @@ export default function DokumentenCheck() {
 
           {/* ── Actions ── */}
           <div className="flex gap-3">
-            <Button onClick={handleAnalyze} disabled={loading || !confirmed || (mode === "text" ? !textInput.trim() : !file)} className="gap-2 rounded-xl px-6">
+            <Button onClick={handleAnalyze} disabled={loading || !confirmed || !file} className="gap-2 rounded-xl px-6">
               {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <CheckCircle2 className="h-4 w-4" />}
               {loading ? st("docCheck.analyzing") : st("docCheck.analyzeBtn")}
             </Button>
