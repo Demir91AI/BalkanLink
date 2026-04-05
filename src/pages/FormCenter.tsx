@@ -95,41 +95,89 @@ function GuideContent({ slug }: { slug: string }) {
   const guide = getGuideBySlug(slug);
   const { t, language } = useLanguage();
   const lang = getLangKey(language);
+  const navigate = useNavigate();
+
+  const MUSTER_MAP: Record<string, string> = {
+    "kindergeld": "kindergeld",
+    "elterngeld": "elterngeld",
+    "anmeldung": "anmeldung",
+    "hauptantrag": "buergergeld",
+    "weiterbewilligung": "buergergeld",
+    "wohngeld": "wohngeld",
+    "bafoeg": "bafoeg",
+    "schueler-bafoeg": "schueler-bafoeg",
+    "fuehrungszeugnis": "fuehrungszeugnis",
+    "kirchenaustritt": "kirchenaustritt",
+    "integrationskurs": "integrationskurs",
+    "kinderzuschlag": "kinderzuschlag",
+    "steuerklassenwechsel": "steuerklasse",
+    "arbeitslosengeld": "arbeitslosengeld",
+    "grundsicherung": "grundsicherung",
+    "anlage-bb": "anlage-bb",
+    "anlage-sv": "anlage-sv",
+    "anlage-ve": "anlage-ve",
+    "anlage-hg": "anlage-hg",
+    "anlage-meb": "anlage-meb",
+    "anlage-uf": "anlage-uf",
+    "anlage-se": "anlage-se",
+    "arbeitsbescheinigung": "arbeitsbescheinigung",
+    "antragsruecknahme": "antragsruecknahme",
+  };
+
+  const musterSlug = MUSTER_MAP[slug];
+
+  const MusterButton = musterSlug ? (
+    <div className="mt-8 rounded-2xl p-6 text-center"
+      style={{ background: 'linear-gradient(135deg, #1e293b, #0f1f3d)', border: '1px solid rgba(201,168,76,0.2)' }}>
+      <div className="text-3xl mb-2">📋</div>
+      <h3 className="text-white font-bold text-base mb-1">Vježbaj na Musterformularu</h3>
+      <p className="text-white/50 text-xs mb-4">
+        Popuni kao original — pa znaš tačno šta ide gdje
+      </p>
+      <button
+        onClick={() => navigate(`/musterformular/${musterSlug}`)}
+        className="w-full rounded-xl py-3 text-sm font-bold text-white mb-2 transition-all hover:opacity-90"
+        style={{ background: 'linear-gradient(135deg, #2563eb, #1d4ed8)' }}
+      >
+        📋 Otvori Musterformular →
+      </button>
+    </div>
+  ) : null;
 
   /* Custom pages */
-  if (slug === "kindergeld") return <KindergeldGuideContent />;
-  if (slug === "anmeldung") return <AnmeldungGuideContent />;
-  if (slug === "steuer-id") return <SteuerIdGuideContent />;
-  if (slug === "krankenkasse") return <KrankenkasseGuideContent />;
-  if (slug === "elterngeld") return <ElterngeldGuideContent />;
-  if (slug === "burgergeld" || slug === "buergergeld") return <BurgergeldGuideContent />;
-  if (slug === "wohngeld") return <WohngeldGuideContent />;
-  if (slug === "mutterschaftsgeld") return <MutterschaftsgeldGuideContent />;
-  if (slug === "kinderzuschlag") return <KinderzuschlagGuideContent />;
-  if (slug === "krippengeld-bayern") return <KrippengeldBayernGuideContent />;
-  if (slug === "anlage-bb") return <AnlageBBGuideContent />;
-  if (slug === "anlage-sv") return <AnlageSVGuideContent />;
-  if (slug === "anlage-ve") return <AnlageVEGuideContent />;
-  if (slug === "anlage-hg") return <AnlageHGGuideContent />;
-  if (slug === "anlage-meb") return <AnlageMEBGuideContent />;
-  if (slug === "anlage-uf") return <AnlageUFGuideContent />;
-  if (slug === "anlage-se") return <AnlageSEGuideContent />;
-  if (slug === "arbeitsbescheinigung") return <ArbeitsbescheinigungGuideContent />;
-  if (slug === "antragsruecknahme") return <AntragsruecknahmeGuideContent />;
-  if (slug === "hauptantrag") return <HauptantragGuideContent />;
-  if (slug === "weiterbewilligung") return <WeiterbewilligungGuideContent />;
-  if (slug === "anlage-kdu") return <AnlageKDUGuideContent />;
-  if (slug === "anlage-ek") return <AnlageEKGuideContent />;
-  if (slug === "anlage-eks") return <AnlageEKSGuideContent />;
-  if (slug === "anlage-vm") return <AnlageVMGuideContent />;
-  if (slug === "anlage-wep") return <AnlageWEPGuideContent />;
-  if (slug === "anlage-ki") return <AnlageKIGuideContent />;
-  if (slug === "anlage-uh1") return <AnlageUH1GuideContent />;
-  if (slug === "anlage-uh2") return <AnlageUH2GuideContent />;
-  if (slug === "anlage-uh3") return <AnlageUH3GuideContent />;
-  if (slug === "nichterreichbarkeit") return <AnfrageNichterreichbarkeitGuideContent />;
-  if (slug === "fuehrerschein") return <FuehrerscheinGuideContent />;
-  if (slug === "fahrzeugzulassung") return <FahrzeugzulassungGuide />;
+  if (slug === "kindergeld") return <><KindergeldGuideContent />{MusterButton}</>;
+  if (slug === "anmeldung") return <><AnmeldungGuideContent />{MusterButton}</>;
+  if (slug === "steuer-id") return <><SteuerIdGuideContent />{MusterButton}</>;
+  if (slug === "krankenkasse") return <><KrankenkasseGuideContent />{MusterButton}</>;
+  if (slug === "elterngeld") return <><ElterngeldGuideContent />{MusterButton}</>;
+  if (slug === "burgergeld" || slug === "buergergeld") return <><BurgergeldGuideContent />{MusterButton}</>;
+  if (slug === "wohngeld") return <><WohngeldGuideContent />{MusterButton}</>;
+  if (slug === "mutterschaftsgeld") return <><MutterschaftsgeldGuideContent />{MusterButton}</>;
+  if (slug === "kinderzuschlag") return <><KinderzuschlagGuideContent />{MusterButton}</>;
+  if (slug === "krippengeld-bayern") return <><KrippengeldBayernGuideContent />{MusterButton}</>;
+  if (slug === "anlage-bb") return <><AnlageBBGuideContent />{MusterButton}</>;
+  if (slug === "anlage-sv") return <><AnlageSVGuideContent />{MusterButton}</>;
+  if (slug === "anlage-ve") return <><AnlageVEGuideContent />{MusterButton}</>;
+  if (slug === "anlage-hg") return <><AnlageHGGuideContent />{MusterButton}</>;
+  if (slug === "anlage-meb") return <><AnlageMEBGuideContent />{MusterButton}</>;
+  if (slug === "anlage-uf") return <><AnlageUFGuideContent />{MusterButton}</>;
+  if (slug === "anlage-se") return <><AnlageSEGuideContent />{MusterButton}</>;
+  if (slug === "arbeitsbescheinigung") return <><ArbeitsbescheinigungGuideContent />{MusterButton}</>;
+  if (slug === "antragsruecknahme") return <><AntragsruecknahmeGuideContent />{MusterButton}</>;
+  if (slug === "hauptantrag") return <><HauptantragGuideContent />{MusterButton}</>;
+  if (slug === "weiterbewilligung") return <><WeiterbewilligungGuideContent />{MusterButton}</>;
+  if (slug === "anlage-kdu") return <><AnlageKDUGuideContent />{MusterButton}</>;
+  if (slug === "anlage-ek") return <><AnlageEKGuideContent />{MusterButton}</>;
+  if (slug === "anlage-eks") return <><AnlageEKSGuideContent />{MusterButton}</>;
+  if (slug === "anlage-vm") return <><AnlageVMGuideContent />{MusterButton}</>;
+  if (slug === "anlage-wep") return <><AnlageWEPGuideContent />{MusterButton}</>;
+  if (slug === "anlage-ki") return <><AnlageKIGuideContent />{MusterButton}</>;
+  if (slug === "anlage-uh1") return <><AnlageUH1GuideContent />{MusterButton}</>;
+  if (slug === "anlage-uh2") return <><AnlageUH2GuideContent />{MusterButton}</>;
+  if (slug === "anlage-uh3") return <><AnlageUH3GuideContent />{MusterButton}</>;
+  if (slug === "nichterreichbarkeit") return <><AnfrageNichterreichbarkeitGuideContent />{MusterButton}</>;
+  if (slug === "fuehrerschein") return <><FuehrerscheinGuideContent />{MusterButton}</>;
+  if (slug === "fahrzeugzulassung") return <><FahrzeugzulassungGuide />{MusterButton}</>;
 
   if (!guide) return null;
 
@@ -147,6 +195,7 @@ function GuideContent({ slug }: { slug: string }) {
         </div>
       </div>
       <FormSmartGuide guide={guide} lang={lang} />
+      {MusterButton}
     </div>
   );
 }
