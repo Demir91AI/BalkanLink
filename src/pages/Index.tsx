@@ -373,12 +373,14 @@ export default function Index() {
         <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-5 py-16 lg:py-20">
           <div className="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }} className="flex flex-col items-center text-center">
-              <h1 className="mx-auto max-w-[700px] font-heading font-black leading-[1.15] tracking-tight text-white whitespace-nowrap" style={{ fontSize: "clamp(1.6rem, 3.5vw, 3.2rem)", textShadow: "0 4px 30px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.4)" }}>
-                {t("hero.title")}
+              <h1 className="font-heading text-4xl font-black leading-tight text-white drop-shadow-lg sm:text-5xl md:text-6xl">
+                Tvoja Njemačka,<br />
+                <span className="text-[#F5C842]">tvoj jezik.</span>
               </h1>
 
-              <p className="mx-auto mt-5 max-w-[640px] font-medium leading-relaxed text-white/90" style={{ fontSize: "clamp(0.8rem, 1.6vw, 1.1rem)", textShadow: "0 2px 12px rgba(0,0,0,0.5)", whiteSpace: "nowrap" }}>
-                {t("hero.subtitle")}
+              <p className="mx-auto mt-4 max-w-xl text-base text-white/85 drop-shadow sm:text-lg leading-relaxed">
+                Formulari, vize, socijalna prava i svakodnevni život — 
+                sve objašnjeno jasno, na tvom jeziku, bez stresa.
               </p>
 
               <div className="mt-8 flex flex-col items-center gap-4">
