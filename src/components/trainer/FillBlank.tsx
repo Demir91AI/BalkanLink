@@ -22,10 +22,14 @@ export default function FillBlank({ exercise, onAnswer }: Props) {
 
   return (
     <div className="flex flex-col gap-4">
-      <p className="text-base font-medium leading-relaxed">
+      <p className="text-base font-semibold leading-relaxed text-white/90">
         {parts[0]}
         <span className={`inline-block min-w-[80px] border-b-2 px-1 text-center font-bold ${
-          !answered ? "border-primary/40" : correct ? "border-[hsl(var(--success))] text-[hsl(var(--success))]" : "border-destructive text-destructive"
+          !answered
+            ? "border-white/60 text-white/30 bg-white/5"
+            : correct
+            ? "border-[hsl(var(--success))] text-[hsl(var(--success))] bg-[hsl(var(--success)/0.1)]"
+            : "border-destructive text-destructive bg-destructive/10"
         }`}>
           {selected ?? "___"}
         </span>
