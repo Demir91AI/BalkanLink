@@ -40,7 +40,7 @@ export default function StageCard({ label, index, freeCount, lockedCount, isPrem
         <div className="flex-1">
           <h3 className="text-sm font-bold">{label}</h3>
           <p className="text-[11px] text-muted-foreground">
-            {totalCount} Aufgaben{!isPremium && ` · ${freeCount} frei`}
+            {totalCount} {t("trainer.tasks")}{!isPremium && ` · ${freeCount} ${t("trainer.free")}`}
           </p>
         </div>
         <ArrowRight className="h-4 w-4 text-muted-foreground" />
