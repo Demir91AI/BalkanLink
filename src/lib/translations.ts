@@ -1943,6 +1943,19 @@ const navBackKeys: Record<string, Record<string, string>> = {
   en: { "nav.back": "Back" },
 };
 
+const trainerKeys: Record<string, Record<string, string>> = {
+  bs: { "trainer.tasks": "zadataka", "trainer.free": "besplatno", "trainer.moreTasks": "dodatnih zadataka", "trainer.unlock": "Otključaj" },
+  hr: { "trainer.tasks": "zadataka", "trainer.free": "besplatno", "trainer.moreTasks": "dodatnih zadataka", "trainer.unlock": "Otključaj" },
+  sr: { "trainer.tasks": "zadataka", "trainer.free": "besplatno", "trainer.moreTasks": "dodatnih zadataka", "trainer.unlock": "Otključaj" },
+  me: { "trainer.tasks": "zadataka", "trainer.free": "besplatno", "trainer.moreTasks": "dodatnih zadataka", "trainer.unlock": "Otključaj" },
+  sq: { "trainer.tasks": "detyra", "trainer.free": "falas", "trainer.moreTasks": "detyra shtesë", "trainer.unlock": "Zhblloko" },
+  xk: { "trainer.tasks": "detyra", "trainer.free": "falas", "trainer.moreTasks": "detyra shtesë", "trainer.unlock": "Zhblloko" },
+  mk: { "trainer.tasks": "задачи", "trainer.free": "бесплатно", "trainer.moreTasks": "дополнителни задачи", "trainer.unlock": "Отклучи" },
+  sl: { "trainer.tasks": "nalog", "trainer.free": "brezplačno", "trainer.moreTasks": "dodatnih nalog", "trainer.unlock": "Odkleni" },
+  de: { "trainer.tasks": "Aufgaben", "trainer.free": "frei", "trainer.moreTasks": "weitere Aufgaben", "trainer.unlock": "Freischalten" },
+  en: { "trainer.tasks": "tasks", "trainer.free": "free", "trainer.moreTasks": "more tasks", "trainer.unlock": "Unlock" },
+};
+
 const flowBannerKeys: Record<string, Record<string, string>> = {
   bs: { "flowBanner.headline": "Šta želiš riješiti danas?", "flowBanner.subheadline": "Riješi papirologiju bez stresa — sve na jednom mjestu", "flowBanner.hint": "Ne znaš odakle početi?", "flowBanner.cta": "Vodi me korak po korak", "flowBanner.ctaNote": "Počni od formulara i vodiča koji ti najviše trebaju", "flowBanner.start": "Započni", "flowBanner.open": "Otvori" },
   hr: { "flowBanner.headline": "Što želiš riješiti danas?", "flowBanner.subheadline": "Riješi papirologiju bez stresa — sve na jednom mjestu", "flowBanner.hint": "Ne znaš odakle početi?", "flowBanner.cta": "Vodi me korak po korak", "flowBanner.ctaNote": "Počni od formulara i vodiča koji ti najviše trebaju", "flowBanner.start": "Započni", "flowBanner.open": "Otvori" },
