@@ -352,7 +352,7 @@ export default function FormCenter() {
         </aside>
 
         {/* ─── Main content ─── */}
-        <main className="min-w-0 flex-1">
+        <main className="min-w-0 flex-1 overflow-hidden">
           {activeSlug && !isRemovedFormSlug ? (
             <>
               <div className="flex items-center gap-2 mb-4 text-sm">
