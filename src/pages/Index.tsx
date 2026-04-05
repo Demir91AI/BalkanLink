@@ -297,8 +297,8 @@ function AdFlowSection() {
           <span className="text-[10px] font-bold uppercase tracking-widest text-[hsl(var(--gold))]">{t("home.adLabel")}</span>
         </div>
       </div>
-      <div className="overflow-hidden w-full">
-        <div className="flex w-fit gap-4 animate-carousel-scroll hover:[animation-play-state:paused] active:[animation-play-state:paused]">
+      <div className="overflow-x-auto w-full scrollbar-hide" style={{ WebkitOverflowScrolling: 'touch', scrollSnapType: 'x mandatory' }}>
+        <div className="flex w-fit gap-4">
           {doubled.map((ad, i) => (
             <a
               key={i}
@@ -306,6 +306,7 @@ function AdFlowSection() {
               target={ad.href ? "_blank" : undefined}
               rel={ad.href ? "noopener noreferrer" : undefined}
               className="group flex w-[340px] h-[160px] shrink-0 rounded-xl overflow-hidden border border-[#E8E0D0] bg-white shadow-sm transition-all duration-300 hover:border-[hsl(var(--gold))]/40 hover:shadow-md hover:-translate-y-0.5"
+              style={{ scrollSnapAlign: 'start' }}
             >
               {/* LEFT — Image (50%) */}
               <div className="w-1/2 h-full overflow-hidden bg-[hsl(var(--warm-cream))]">
@@ -420,7 +421,7 @@ export default function Index() {
             "https://flagcdn.com/h40/al.png",
             "https://flagcdn.com/h40/xk.png",
           ].map((src) => (
-            <img key={src} src={src} alt="" className="select-none transition-transform duration-200 hover:scale-110" style={{ height: 'clamp(20px, 4vw, 34px)', width: "auto", objectFit: "contain", display: "block" }} loading="eager" />
+            <img key={src} src={src} alt="" className="w-10 h-6 object-cover rounded-sm select-none transition-transform duration-200 hover:scale-110" loading="eager" />
           ))}
         </div>
 
@@ -445,6 +446,109 @@ export default function Index() {
       {/* ─── FLOW BANNER CAROUSEL ─── */}
       <FlowBanner />
 
+      {/* ─── PREMIUM SECTION — full pricing + comparison ─── */}
+      <section className="py-16 bg-white border-t border-[#E8E0D0]">
+        <div className="container max-w-[1200px] mx-auto">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <div className="text-center mb-10">
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[hsl(var(--gold))]/20 bg-[hsl(var(--gold))]/[0.08] px-3 py-1">
+                <Star className="h-3 w-3 text-[hsl(var(--gold))]" />
+                <span className="text-[10px] font-bold uppercase tracking-widest text-[hsl(var(--gold))]">Premium</span>
+              </div>
+              <h2 className="font-heading text-3xl font-extrabold text-[#2D2D2D] sm:text-4xl">
+                Riješi papire bez grešaka
+              </h2>
+              <p className="mt-3 text-base text-[#6B6B6B] max-w-xl mx-auto">
+                Izaberi plan koji ti odgovara — besplatno počni, nadogradi kad trebaš više.
+              </p>
+            </div>
+
+            {/* ── Pricing Cards ── */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
+              {/* Free */}
+              <div className="rounded-2xl border-2 border-[#E8E0D0] bg-[hsl(var(--warm-cream))] p-6 flex flex-col">
+                <p className="text-sm font-bold text-[#6B6B6B] uppercase tracking-wider mb-2">Besplatno</p>
+                <p className="text-3xl font-black text-[#2D2D2D] mb-1">0€</p>
+                <p className="text-xs text-[#6B6B6B] mb-6">Zauvijek besplatno</p>
+                <ul className="space-y-2 text-sm text-[#6B6B6B] flex-1">
+                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Osnovni vodič</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Pregled formulara</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Brutto-Netto kalkulator</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Oglasi (besplatno)</li>
+                </ul>
+                <Button variant="outline" className="mt-6 w-full rounded-full border-[#E8E0D0] text-[#2D2D2D] font-semibold" onClick={() => navigate("/formulari")}>
+                  Počni besplatno
+                </Button>
+              </div>
+
+              {/* Premium — highlighted */}
+              <div className="relative rounded-2xl border-2 border-[hsl(var(--gold))] bg-white p-6 flex flex-col shadow-[0_8px_32px_rgba(201,168,76,0.15)]">
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[hsl(var(--gold))] px-4 py-1 text-[10px] font-bold uppercase tracking-wider text-white">Preporučeno</span>
+                <p className="text-sm font-bold text-[hsl(var(--gold))] uppercase tracking-wider mb-2">Premium</p>
+                <p className="text-3xl font-black text-[#2D2D2D] mb-1">9,99€<span className="text-base font-normal text-[#6B6B6B]">/mj.</span></p>
+                <p className="text-xs text-[#6B6B6B] mb-6">ili 99,90€/godišnje (uštedi 17%)</p>
+                <ul className="space-y-2 text-sm text-[#2D2D2D] flex-1">
+                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Svi Musterformulari</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Smart Guides (svi koraci)</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Viza Navigator</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> 1x Dokumenten-Check/dan</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Šabloni (PDF download)</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> AI Asistent neograničeno</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> 2 Pro oglasa/mjesečno</li>
+                </ul>
+                <Button className="mt-6 w-full rounded-full bg-[hsl(var(--gold))] text-white font-bold hover:bg-[hsl(var(--gold-dark))] shadow-[0_4px_20px_rgba(201,168,76,0.35)]" onClick={() => navigate("/premium")}>
+                  Postani Premium →
+                </Button>
+              </div>
+
+              {/* Dokumenten-Check */}
+              <div className="rounded-2xl border-2 border-[#E8E0D0] bg-[hsl(var(--warm-cream))] p-6 flex flex-col">
+                <p className="text-sm font-bold text-[#6B6B6B] uppercase tracking-wider mb-2">Dokumenten-Check</p>
+                <p className="text-3xl font-black text-[#2D2D2D] mb-1">2,99€</p>
+                <p className="text-xs text-[#6B6B6B] mb-6">Po dokumentu (bez pretplate)</p>
+                <ul className="space-y-2 text-sm text-[#6B6B6B] flex-1">
+                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Detaljna analiza dokumenta</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> 11 sekcija objašnjenja</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Rokovi i finansijski uticaj</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> PDF, JPG, PNG do 10 MB</li>
+                </ul>
+                <Button variant="outline" className="mt-6 w-full rounded-full border-[#E8E0D0] text-[#2D2D2D] font-semibold" onClick={() => navigate("/dokumenten-check")}>
+                  Provjeri dokument
+                </Button>
+              </div>
+            </div>
+
+            {/* ── Comparison Table ── */}
+            <div className="max-w-3xl mx-auto rounded-2xl border border-[#E8E0D0] overflow-hidden">
+              <div className="bg-[hsl(var(--warm-cream))] px-6 py-4 border-b border-[#E8E0D0]">
+                <h3 className="font-bold text-[#2D2D2D] text-lg">Besplatno vs. Premium</h3>
+              </div>
+              <div className="divide-y divide-[#E8E0D0]">
+                {[
+                  { feature: "Musterformulare", free: "Zaključano", premium: "✅ Potpuni pristup" },
+                  { feature: "Smart Guides", free: "Samo uvod", premium: "✅ Svi koraci" },
+                  { feature: "Dokumenten-Check", free: "2,99€/kom", premium: "✅ 1x gratis dnevno" },
+                  { feature: "Šabloni / Vorlagen", free: "Samo pregled", premium: "✅ Download PDF" },
+                  { feature: "AI Asistent", free: "Ograničeno", premium: "✅ Neograničeno" },
+                  { feature: "Viza Navigator", free: "Osnovni", premium: "✅ Puni pristup" },
+                  { feature: "Pro oglasi", free: "2,99€/oglas", premium: "✅ 2 uključena/mj." },
+                ].map((row) => (
+                  <div key={row.feature} className="grid grid-cols-3 px-6 py-3 text-sm">
+                    <span className="font-medium text-[#2D2D2D]">{row.feature}</span>
+                    <span className="text-center text-[#999]">{row.free}</span>
+                    <span className="text-center font-semibold text-[hsl(var(--gold))]">{row.premium}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-8 text-center">
+              <p className="text-xs text-[#8A8A8A]">Sve cijene bez PDV-a · §19 UStG · Otkaži kad hoćeš · Bez ugovora</p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       <section className="py-16 bg-white border-t border-[#E8E0D0]">
         <div className="container max-w-[1200px] mx-auto mb-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
@@ -458,38 +562,6 @@ export default function Index() {
       </section>
 
       <AdFlowSection />
-      
-
-      {/* ─── PREMIUM CTA ─── */}
-      <section className="py-16 bg-white border-t border-[#E8E0D0]">
-        <div className="container max-w-[1200px] mx-auto">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mx-auto max-w-xl text-center">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[hsl(var(--gold))]/20 bg-[hsl(var(--gold))]/[0.08] px-3 py-1">
-              <Star className="h-3 w-3 text-[hsl(var(--gold))]" />
-              <span className="text-[10px] font-bold uppercase tracking-widest text-[hsl(var(--gold))]">Premium</span>
-            </div>
-            <h2 className="font-heading text-2xl font-extrabold text-[#2D2D2D]">
-              {t("home.unlockAll")}
-            </h2>
-            <p className="mt-3 text-sm text-[#6B6B6B]">
-              {t("home.unlockDesc")}
-            </p>
-            <div className="mt-8 flex items-center gap-3 justify-center">
-              <Button onClick={() => navigate("/premium")} className="h-12 rounded-full bg-[hsl(var(--gold))] px-8 text-base font-bold text-white shadow-[0_4px_24px_rgba(201,168,76,0.35)] hover:bg-[hsl(var(--gold-dark))] hover:shadow-[0_8px_36px_rgba(201,168,76,0.5)] hover:scale-[1.03] transition-all duration-300">
-                {t("home.premiumCta")}
-              </Button>
-              <Button variant="outline" onClick={() => navigate("/mitgliedschaft")} className="h-12 rounded-full border-[#E8E0D0] px-8 text-sm font-semibold text-[#2D2D2D] hover:bg-[hsl(var(--warm-cream))] transition-all">
-                {t("home.comparePlans")}
-              </Button>
-            </div>
-            <div className="mt-5 flex items-center justify-center gap-4 text-[12px] text-[#8A8A8A]">
-              <span>✔ {t("home.unlockBenefit1")}</span>
-              <span>✔ {t("home.unlockBenefit2")}</span>
-              <span>✔ {t("home.unlockBenefit3")}</span>
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
 
     </div>

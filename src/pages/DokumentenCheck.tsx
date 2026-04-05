@@ -14,7 +14,7 @@ import { navigateBackOrHome } from "@/lib/navigation";
 import { IS_ADMIN_PREVIEW } from "@/lib/config";
 import { toast } from "sonner";
 
-type InputMode = "upload" | "text";
+type InputMode = "upload";
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
 const ALLOWED_TYPES = ["application/pdf", "image/jpeg", "image/png"];
@@ -170,7 +170,7 @@ export default function DokumentenCheck() {
   const { t } = useLanguage();
   const st = useSectionT();
   const navigate = useNavigate();
-  const [mode, setMode] = useState<InputMode>("text");
+  const [mode, setMode] = useState<InputMode>("upload");
   const [textInput, setTextInput] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const [filePreviewUrl, setFilePreviewUrl] = useState<string | null>(null);
@@ -215,8 +215,7 @@ export default function DokumentenCheck() {
     if (submittingRef.current || loading) return;
     if (!confirmed) { setError("Molimo potvrdite checkbox prije analize."); return; }
     if (!isPremium) { setShowPaywall(true); return; }
-    if (mode === "text" && !textInput.trim()) { setError("Nije odabran dokument niti unešen tekst."); return; }
-    if (mode === "upload" && !file) { setError("Nije odabran dokument niti unešen tekst."); return; }
+    if (!file) { setError("Nije odabran dokument niti unešen tekst."); return; }
 
     submittingRef.current = true;
     setLoading(true);
@@ -226,23 +225,11 @@ export default function DokumentenCheck() {
     try {
       let payload: { text?: string; imageBase64?: string; mimeType?: string } = {};
 
-      if (mode === "text") {
-        payload = { text: textInput.trim() };
-      } else if (file) {
-        if (file.type.startsWith("image/")) {
-          const buffer = await file.arrayBuffer();
-          const base64 = btoa(new Uint8Array(buffer).reduce((data, byte) => data + String.fromCharCode(byte), ""));
-          payload = { imageBase64: base64, mimeType: file.type };
-        } else {
-          const textContent = await file.text();
-          if (textContent.trim().length > 50 && !textContent.includes("\x00")) {
-            payload = { text: textContent.trim().slice(0, 8000) };
-          } else {
-            const buffer = await file.arrayBuffer();
-            const base64 = btoa(new Uint8Array(buffer).reduce((data, byte) => data + String.fromCharCode(byte), ""));
-            payload = { imageBase64: base64, mimeType: "application/pdf" };
-          }
-        }
+      if (file) {
+        const buffer = await file.arrayBuffer();
+        const base64 = btoa(new Uint8Array(buffer).reduce((data, byte) => data + String.fromCharCode(byte), ""));
+        const mimeType = file.type || (file.name.toLowerCase().endsWith(".pdf") ? "application/pdf" : "image/jpeg");
+        payload = { imageBase64: base64, mimeType };
       }
 
       const { data, error: fnError } = await supabase.functions.invoke("document-check", { body: payload });
@@ -314,28 +301,12 @@ export default function DokumentenCheck() {
             </div>
           </motion.div>
 
-          {/* ── Mode switcher ── */}
-          <div className="flex gap-3">
-            <Button variant={mode === "text" ? "default" : "outline"} size="sm" onClick={() => { setMode("text"); clearFile(); setAnalysis(null); setError(null); }} className="gap-2 rounded-xl">
-              <Type className="h-4 w-4" /> {st("docCheck.textMode")}
-            </Button>
-            <Button variant={mode === "upload" ? "default" : "outline"} size="sm" onClick={() => { setMode("upload"); setTextInput(""); setAnalysis(null); setError(null); }} className="gap-2 rounded-xl">
-              <Upload className="h-4 w-4" /> {st("docCheck.uploadMode")}
-            </Button>
-          </div>
+          {/* ── Upload mode only — text mode removed ── */}
 
           {/* ── Input area ── */}
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
             className="rounded-2xl border bg-card p-6 sm:p-8 shadow-sm">
-            {mode === "text" ? (
-              <div>
-                <label className="mb-3 block text-sm font-bold">{st("docCheck.textLabel")}</label>
-                <Textarea value={textInput} onChange={(e) => setTextInput(e.target.value)}
-                  placeholder={st("docCheck.textPlaceholder")}
-                  className="min-h-[180px] resize-y text-sm" maxLength={8000} />
-                <p className="mt-2 text-xs text-muted-foreground">{textInput.length} / 8.000 {st("docCheck.chars")}</p>
-              </div>
-            ) : (
+            {(
               <div>
                 <label className="mb-3 block text-sm font-bold">{st("docCheck.uploadLabel")}</label>
                 {!file ? (
@@ -403,7 +374,7 @@ export default function DokumentenCheck() {
 
           {/* ── Actions ── */}
           <div className="flex gap-3">
-            <Button onClick={handleAnalyze} disabled={loading || !confirmed || (mode === "text" ? !textInput.trim() : !file)} className="gap-2 rounded-xl px-6">
+            <Button onClick={handleAnalyze} disabled={loading || !confirmed || !file} className="gap-2 rounded-xl px-6">
               {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <CheckCircle2 className="h-4 w-4" />}
               {loading ? st("docCheck.analyzing") : st("docCheck.analyzeBtn")}
             </Button>
