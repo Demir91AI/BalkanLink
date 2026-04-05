@@ -373,7 +373,7 @@ export default function Index() {
         <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-5 py-16 lg:py-20">
           <div className="mx-auto flex w-full max-w-6xl flex-col items-center text-center">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }} className="flex flex-col items-center text-center">
-              <h1 className="font-heading text-4xl font-black leading-tight text-white drop-shadow-lg sm:text-5xl md:text-6xl whitespace-nowrap">
+              <h1 className="font-heading text-4xl font-black leading-tight text-white drop-shadow-lg sm:text-5xl md:text-6xl">
                 Tvoj vodič kroz{" "}
                 <span className="text-[#F5C842]">njemački sistem.</span>
               </h1>
@@ -408,7 +408,7 @@ export default function Index() {
         </div>
 
         {/* Flags strip — 80% width, 9 flags, Germany center */}
-        <div className="absolute bottom-14 left-1/2 z-10 -translate-x-1/2 flex flex-row flex-nowrap items-center justify-between" style={{ width: "80%", padding: "0 24px" }}>
+        <div className="absolute bottom-14 left-1/2 z-10 -translate-x-1/2 w-[90%] px-2 sm:px-6" style={{ display: 'flex', flexDirection: 'row', flexWrap: 'nowrap', alignItems: 'center', justifyContent: 'space-between' }}>
           {[
             "https://flagcdn.com/h40/ba.png",
             "https://flagcdn.com/h40/rs.png",
@@ -420,7 +420,7 @@ export default function Index() {
             "https://flagcdn.com/h40/al.png",
             "https://flagcdn.com/h40/xk.png",
           ].map((src) => (
-            <img key={src} src={src} alt="" className="select-none transition-transform duration-200 hover:scale-110" style={{ height: 34, width: "auto", objectFit: "contain", display: "block" }} loading="eager" />
+            <img key={src} src={src} alt="" className="select-none transition-transform duration-200 hover:scale-110" style={{ height: 'clamp(20px, 4vw, 34px)', width: "auto", objectFit: "contain", display: "block" }} loading="eager" />
           ))}
         </div>
 

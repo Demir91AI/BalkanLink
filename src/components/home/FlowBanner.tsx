@@ -77,7 +77,7 @@ export default function FlowBanner() {
     <section
       className="relative overflow-hidden"
       style={{
-        minHeight: "clamp(640px, 90vh, 960px)",
+        minHeight: "clamp(520px, 90vh, 960px)",
         background: "radial-gradient(ellipse 130% 90% at 50% 35%, hsl(220 50% 11%) 0%, hsl(220 55% 5%) 65%, hsl(220 60% 3%) 100%)",
       }}
       onTouchStart={onTouchStart}
@@ -103,7 +103,7 @@ export default function FlowBanner() {
         transition={{ duration: 0.6 }}
         className="relative z-10 pt-16 sm:pt-24 pb-8 sm:pb-12 text-center px-4"
       >
-        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
+        <h2 className="text-2xl sm:text-4xl lg:text-6xl font-black text-white tracking-tight leading-tight px-2">
           {t("flowBanner.headline")}
         </h2>
         <p className="text-base sm:text-lg lg:text-xl text-white/45 mt-4 leading-relaxed max-w-xl mx-auto">
@@ -134,20 +134,23 @@ export default function FlowBanner() {
         <div className="relative w-full flex items-center justify-center" style={{ perspective: 1400 }}>
           {flowItems.map((item, i) => {
             const offset = getOffset(i);
-            if (Math.abs(offset) > visibleRange) return null;
+            const isMob = typeof window !== 'undefined' && window.innerWidth < 640;
+            if (isMob && Math.abs(offset) > 0) return null;
+            if (!isMob && Math.abs(offset) > visibleRange) return null;
 
             const isCenter = offset === 0;
             const isPremium = item.badge === "premium";
             const absOffset = Math.abs(offset);
 
+            const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
             const scale = isCenter ? 1.2 : Math.max(0.6, 1 - absOffset * 0.18);
-            const translateX = offset * (isCenter ? 0 : 320);
+            const translateX = offset * (isCenter ? 0 : (isMobile ? 400 : 320));
             const zIndex = 20 - absOffset;
             const opacity = isCenter ? 1 : Math.max(0.25, 1 - absOffset * 0.35);
             const blur = isCenter ? 0 : absOffset * 2;
 
-            const cardW = isCenter ? 420 : 340;
-            const cardH = isCenter ? 440 : 340;
+            const cardW = isCenter ? (isMobile ? Math.min(window.innerWidth - 32, 340) : 420) : (isMobile ? 0 : 340);
+            const cardH = isCenter ? (isMobile ? 380 : 440) : (isMobile ? 340 : 340);
 
             return (
               <motion.div
@@ -160,7 +163,7 @@ export default function FlowBanner() {
                 }}
                 transition={{ type: "spring", stiffness: 240, damping: 26 }}
                 className="absolute cursor-pointer"
-                style={{ zIndex, width: cardW }}
+                style={{ zIndex, width: cardW, maxWidth: '100vw' }}
                 onClick={() => {
                   if (!isCenter) { goTo(i); resetAutoplay(); }
                 }}
@@ -230,7 +233,7 @@ export default function FlowBanner() {
                   )}
 
                   {/* Content — bottom-left */}
-                  <div className="relative z-10 p-7 sm:p-8">
+                  <div className="relative z-10 p-5 sm:p-8">
                     <span className={`block mb-2 ${isCenter ? "text-[44px]" : "text-[32px]"}`}>
                       {item.icon}
                     </span>
