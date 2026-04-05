@@ -25,7 +25,7 @@ export default function Viza() {
 
   return (
     <div className="min-h-screen" style={{ background: "#F5F0E8" }}>
-      <div className="max-w-[1280px] mx-auto px-12 py-8">
+      <div className="max-w-[1280px] mx-auto px-4 md:px-12 py-8">
         {/* Nav */}
         <PageNavBar />
 
