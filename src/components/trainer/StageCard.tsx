@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Lock } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface Props {
   label: string;
@@ -18,6 +19,7 @@ const STAGE_COLORS = [
 ];
 
 export default function StageCard({ label, index, freeCount, lockedCount, isPremium, onSelect, onUpgrade }: Props) {
+  const { t } = useLanguage();
   const totalCount = freeCount + lockedCount;
 
   return (
@@ -38,7 +40,7 @@ export default function StageCard({ label, index, freeCount, lockedCount, isPrem
         <div className="flex-1">
           <h3 className="text-sm font-bold">{label}</h3>
           <p className="text-[11px] text-muted-foreground">
-            {totalCount} Aufgaben{!isPremium && ` · ${freeCount} frei`}
+            {totalCount} {t("trainer.tasks")}{!isPremium && ` · ${freeCount} ${t("trainer.free")}`}
           </p>
         </div>
         <ArrowRight className="h-4 w-4 text-muted-foreground" />
@@ -50,13 +52,13 @@ export default function StageCard({ label, index, freeCount, lockedCount, isPrem
           <div className="flex items-center gap-2">
             <Lock className="h-3.5 w-3.5 text-gold" />
             <span className="text-[11px] font-semibold text-muted-foreground">
-              🔒 +{lockedCount} weitere Aufgaben
+              🔒 +{lockedCount} {t("trainer.moreTasks")}
             </span>
             <button
               onClick={onUpgrade}
               className="ml-auto text-[10px] font-bold text-gold hover:text-gold-dark transition-colors"
             >
-              Freischalten →
+              {t("trainer.unlock")} →
             </button>
           </div>
         </div>

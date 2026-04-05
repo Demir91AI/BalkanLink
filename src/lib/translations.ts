@@ -1943,6 +1943,19 @@ const navBackKeys: Record<string, Record<string, string>> = {
   en: { "nav.back": "Back" },
 };
 
+const trainerKeys: Record<string, Record<string, string>> = {
+  bs: { "trainer.tasks": "zadataka", "trainer.free": "besplatno", "trainer.moreTasks": "dodatnih zadataka", "trainer.unlock": "Otključaj" },
+  hr: { "trainer.tasks": "zadataka", "trainer.free": "besplatno", "trainer.moreTasks": "dodatnih zadataka", "trainer.unlock": "Otključaj" },
+  sr: { "trainer.tasks": "zadataka", "trainer.free": "besplatno", "trainer.moreTasks": "dodatnih zadataka", "trainer.unlock": "Otključaj" },
+  me: { "trainer.tasks": "zadataka", "trainer.free": "besplatno", "trainer.moreTasks": "dodatnih zadataka", "trainer.unlock": "Otključaj" },
+  sq: { "trainer.tasks": "detyra", "trainer.free": "falas", "trainer.moreTasks": "detyra shtesë", "trainer.unlock": "Zhblloko" },
+  xk: { "trainer.tasks": "detyra", "trainer.free": "falas", "trainer.moreTasks": "detyra shtesë", "trainer.unlock": "Zhblloko" },
+  mk: { "trainer.tasks": "задачи", "trainer.free": "бесплатно", "trainer.moreTasks": "дополнителни задачи", "trainer.unlock": "Отклучи" },
+  sl: { "trainer.tasks": "nalog", "trainer.free": "brezplačno", "trainer.moreTasks": "dodatnih nalog", "trainer.unlock": "Odkleni" },
+  de: { "trainer.tasks": "Aufgaben", "trainer.free": "frei", "trainer.moreTasks": "weitere Aufgaben", "trainer.unlock": "Freischalten" },
+  en: { "trainer.tasks": "tasks", "trainer.free": "free", "trainer.moreTasks": "more tasks", "trainer.unlock": "Unlock" },
+};
+
 const flowBannerKeys: Record<string, Record<string, string>> = {
   bs: { "flowBanner.headline": "Šta želiš riješiti danas?", "flowBanner.subheadline": "Riješi papirologiju bez stresa — sve na jednom mjestu", "flowBanner.hint": "Ne znaš odakle početi?", "flowBanner.cta": "Vodi me korak po korak", "flowBanner.ctaNote": "Počni od formulara i vodiča koji ti najviše trebaju", "flowBanner.start": "Započni", "flowBanner.open": "Otvori" },
   hr: { "flowBanner.headline": "Što želiš riješiti danas?", "flowBanner.subheadline": "Riješi papirologiju bez stresa — sve na jednom mjestu", "flowBanner.hint": "Ne znaš odakle početi?", "flowBanner.cta": "Vodi me korak po korak", "flowBanner.ctaNote": "Počni od formulara i vodiča koji ti najviše trebaju", "flowBanner.start": "Započni", "flowBanner.open": "Otvori" },
@@ -1964,6 +1977,7 @@ for (const lang of Object.keys(translations) as Language[]) {
   if (communityKeys[lang]) Object.assign(translations[lang], communityKeys[lang]);
   if (navBackKeys[lang]) Object.assign(translations[lang], navBackKeys[lang]);
   if (flowBannerKeys[lang]) Object.assign(translations[lang], flowBannerKeys[lang]);
+  if (trainerKeys[lang]) Object.assign(translations[lang], trainerKeys[lang]);
   // Calc keys: bs-based languages fall back to calcBs, de to calcDe, en to calcEn
   const calcMap: Record<string, Record<string, string>> = { de: calcDe, en: calcEn };
   Object.assign(translations[lang], calcMap[lang] ?? calcBs);
