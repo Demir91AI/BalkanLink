@@ -288,10 +288,15 @@ export default function DeutschTrainer() {
               style={{ background: "linear-gradient(135deg, rgba(255,204,0,0.06) 0%, rgba(255,204,0,0.02) 100%)" }}
             >
               <Crown className="mx-auto mb-3 h-8 w-8 text-gold" />
-              <h3 className="text-lg font-black text-white">Weiter lernen</h3>
-              <p className="mt-2 text-sm text-white/50">
-                Schalte alle Lektionen & den vollen Sprachassistent frei
+              <h3 className="text-base font-black text-white">6 Monate aktiver Deutschkurs</h3>
+              <p className="mt-1 text-xs text-muted-foreground">
+                108 Lektionen · 16.000+ Übungen · Sprachassistent · A1 bis C2
               </p>
+              <div className="mt-2 flex flex-wrap justify-center gap-2">
+                <span className="rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold text-white/70">✓ Täglich 30 Min.</span>
+                <span className="rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold text-white/70">✓ Behörden-Deutsch</span>
+                <span className="rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold text-white/70">✓ Kein Abo nötig</span>
+              </div>
               <Button
                 onClick={() => navigate("/deutsch-trainer/preise")}
                 className="mt-5 h-12 w-full max-w-xs rounded-xl bg-gold text-sm font-bold text-gold-foreground shadow-[0_4px_20px_rgba(255,204,0,0.3)] hover:bg-gold-light"
