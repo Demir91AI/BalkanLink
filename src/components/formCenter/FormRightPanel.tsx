@@ -6,6 +6,7 @@ const GOLD = '#C9A84C';
 interface FormMeta {
   agency: string;
   musterSlug?: string;
+  onlineUrl?: string;
   sourceLabel: string;
   sourceUrl: string;
 }
