@@ -33,7 +33,7 @@ export type SpeechRate = (typeof RATE_OPTIONS)[number];
 export function useTTS() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [playState, setPlayState] = useState<PlayState>("idle");
-  const [rate, setRate] = useState<SpeechRate>(1.25);
+  const [rate, setRate] = useState<SpeechRate>(1.0);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const cachedVoice = useRef<SpeechSynthesisVoice | null>(null);
 
