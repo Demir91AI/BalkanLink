@@ -374,7 +374,8 @@ export default function Index() {
           <div className="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }} className="flex flex-col items-center text-center">
               <h1 className="font-heading text-4xl font-black leading-tight text-white drop-shadow-lg sm:text-5xl md:text-6xl">
-                Tvoj vodič kroz njemački sistem — jednostavno i pouzdano.
+                Tvoj vodič kroz njemački sistem —<br />
+                <span className="text-[#F5C842]">jednostavno i pouzdano.</span>
               </h1>
 
               <p className="mx-auto mt-4 max-w-xl text-base text-white/85 drop-shadow sm:text-lg leading-relaxed">
