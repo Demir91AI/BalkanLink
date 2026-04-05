@@ -1,6 +1,5 @@
 import { useState, useMemo } from "react";
-import { PlusCircle, Megaphone, Search as SearchIcon, Star, Check } from "lucide-react";
-import PageNavBar from "@/components/navigation/PageNavBar";
+import { PlusCircle, Megaphone, Search as SearchIcon, Star, Check, ChevronLeft, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import NtFilters from "@/components/nudim-trazim/NtFilters";
 import NtCategoryChips from "@/components/nudim-trazim/NtCategoryChips";
