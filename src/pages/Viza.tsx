@@ -148,6 +148,49 @@ export default function Viza() {
             </div>
           </div>
 
+          {/* MOBILE COUNTRY SELECTOR */}
+          <div className="md:hidden">
+            <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+              {COUNTRY_CONTENT.map(c => {
+                const active = selectedCountry === c.code;
+                return (
+                  <button
+                    key={c.code}
+                    onClick={() => handleSelectCountry(c.code)}
+                    className={`shrink-0 flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium border transition-all ${
+                      active
+                        ? "border-[#C9A84C] bg-[#FFF8EC] text-[#C9A84C] font-bold"
+                        : "border-border/40 text-[#2D2D2D] hover:bg-[#FFF8EC]"
+                    }`}
+                  >
+                    <img src={c.flag} alt="" className="h-4 rounded-sm" />
+                    {c.name}
+                  </button>
+                );
+              })}
+            </div>
+            {country && !country.isEU && (
+              <div className="flex gap-2 overflow-x-auto pb-2 mt-2 scrollbar-hide">
+                {country.routes.map(r => {
+                  const active = selectedRoute === r.id;
+                  return (
+                    <button
+                      key={r.id}
+                      onClick={() => setSelectedRoute(r.id)}
+                      className={`shrink-0 rounded-full px-3 py-1.5 text-[11px] font-medium border transition-all ${
+                        active
+                          ? "border-[#C9A84C] bg-[#FFF8EC] text-[#C9A84C] font-bold"
+                          : "border-border/40 text-[#6B6B6B] hover:bg-[#FFF8EC]"
+                      }`}
+                    >
+                      {r.title}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+
           {/* CENTER — Main content */}
           <div className="flex-1 min-w-0">
             <div className="transition-all duration-200" style={{ animation: "fadeSlideIn 200ms ease" }}
