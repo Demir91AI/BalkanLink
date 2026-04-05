@@ -297,8 +297,8 @@ function AdFlowSection() {
           <span className="text-[10px] font-bold uppercase tracking-widest text-[hsl(var(--gold))]">{t("home.adLabel")}</span>
         </div>
       </div>
-      <div className="overflow-hidden w-full">
-        <div className="flex w-fit gap-4 animate-carousel-scroll hover:[animation-play-state:paused] active:[animation-play-state:paused]">
+      <div className="overflow-x-auto w-full scrollbar-hide" style={{ WebkitOverflowScrolling: 'touch', scrollSnapType: 'x mandatory' }}>
+        <div className="flex w-fit gap-4">
           {doubled.map((ad, i) => (
             <a
               key={i}
@@ -306,6 +306,7 @@ function AdFlowSection() {
               target={ad.href ? "_blank" : undefined}
               rel={ad.href ? "noopener noreferrer" : undefined}
               className="group flex w-[340px] h-[160px] shrink-0 rounded-xl overflow-hidden border border-[#E8E0D0] bg-white shadow-sm transition-all duration-300 hover:border-[hsl(var(--gold))]/40 hover:shadow-md hover:-translate-y-0.5"
+              style={{ scrollSnapAlign: 'start' }}
             >
               {/* LEFT — Image (50%) */}
               <div className="w-1/2 h-full overflow-hidden bg-[hsl(var(--warm-cream))]">
