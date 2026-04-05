@@ -174,6 +174,8 @@ export default function DokumentenCheck() {
   const [textInput, setTextInput] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const [filePreviewUrl, setFilePreviewUrl] = useState<string | null>(null);
+  const [selectedFile, setSelectedFile] = React.useState<File | null>(null);
+  const [previewName, setPreviewName] = React.useState<string>('');
   const [confirmed, setConfirmed] = useState(false);
   const [analysis, setAnalysis] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
