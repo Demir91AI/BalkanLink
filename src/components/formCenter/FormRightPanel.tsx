@@ -49,8 +49,8 @@ const FORM_META: Record<string, FormMeta> = {
   "anlage-uh2":         { agency: "Jobcenter",                                                      sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
   "anlage-uh3":         { agency: "Jobcenter",                                                      sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
   "nichterreichbarkeit":{ agency: "Jobcenter",                                                      sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
-  "arbeitsbescheinigung":{ agency: "Agentur für Arbeit",                                            sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
-  "antragsruecknahme":  { agency: "Jobcenter",                                                      sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
+  "arbeitsbescheinigung":{ agency: "Agentur für Arbeit",           musterSlug: "arbeitsbescheinigung", sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
+  "antragsruecknahme":  { agency: "Jobcenter",                    musterSlug: "antragsruecknahme",  sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
 };
 
 interface Props {
