@@ -35,8 +35,8 @@ export default function SortSentence({ exercise, onAnswer }: Props) {
   return (
     <div className="flex flex-col gap-4">
       {/* Placed words */}
-      <div className="min-h-[56px] flex flex-wrap gap-2 rounded-xl border-2 border-dashed border-border bg-muted/30 p-3">
-        {placed.length === 0 && <span className="text-sm text-muted-foreground">Tippe auf die Wörter…</span>}
+      <div className="min-h-[56px] flex flex-wrap gap-2 rounded-xl border-2 border-dashed border-white/25 bg-white/[0.06] p-3">
+        {placed.length === 0 && <span className="text-sm text-white/40">Tippe auf die Wörter…</span>}
         {placed.map((wordIdx, pos) => (
           <button
             key={pos}
@@ -46,7 +46,7 @@ export default function SortSentence({ exercise, onAnswer }: Props) {
                 ? wordIdx === correctOrder[pos]
                   ? "border-[hsl(var(--success))] bg-[hsl(var(--success)/0.1)] text-[hsl(var(--success))]"
                   : "border-destructive bg-destructive/5 text-destructive"
-                : "border-primary/30 bg-primary/5"
+                : "border-blue-400/50 bg-blue-500/10 text-white"
             }`}
           >
             {exercise.options[wordIdx]}
@@ -60,7 +60,7 @@ export default function SortSentence({ exercise, onAnswer }: Props) {
           <button
             key={idx}
             onClick={() => addWord(idx)}
-            className="rounded-lg border border-border bg-card px-3 py-2 text-sm font-medium transition-all hover:border-primary/40 hover:bg-primary/5"
+            className="rounded-lg border border-white/20 bg-white/[0.08] text-white px-3 py-2 text-sm font-medium transition-all hover:border-blue-400/60 hover:bg-white/[0.15]"
           >
             {exercise.options[idx]}
           </button>
@@ -70,7 +70,7 @@ export default function SortSentence({ exercise, onAnswer }: Props) {
       {!checked && placed.length === exercise.options.length && (
         <button
           onClick={handleCheck}
-          className="mt-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground"
+          className="mt-2 rounded-xl px-6 py-3 text-sm font-bold text-white" style={{ background: "linear-gradient(135deg, #3b82f6, #06b6d4)" }}
         >
           Prüfen
         </button>

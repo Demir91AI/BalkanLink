@@ -22,10 +22,14 @@ export default function FillBlank({ exercise, onAnswer }: Props) {
 
   return (
     <div className="flex flex-col gap-4">
-      <p className="text-base font-medium leading-relaxed">
+      <p className="text-base font-semibold leading-relaxed text-white/90">
         {parts[0]}
         <span className={`inline-block min-w-[80px] border-b-2 px-1 text-center font-bold ${
-          !answered ? "border-primary/40" : correct ? "border-[hsl(var(--success))] text-[hsl(var(--success))]" : "border-destructive text-destructive"
+          !answered
+            ? "border-white/60 text-white/30 bg-white/5"
+            : correct
+            ? "border-[hsl(var(--success))] text-[hsl(var(--success))] bg-[hsl(var(--success)/0.1)]"
+            : "border-destructive text-destructive bg-destructive/10"
         }`}>
           {selected ?? "___"}
         </span>
@@ -34,9 +38,9 @@ export default function FillBlank({ exercise, onAnswer }: Props) {
 
       <div className="flex flex-wrap gap-2">
         {exercise.options.map((opt) => {
-          let cls = "border-border bg-card hover:border-primary/40";
-          if (answered && opt === exercise.answer) cls = "border-[hsl(var(--success))] bg-[hsl(var(--success)/0.08)]";
-          else if (answered && opt === selected) cls = "border-destructive bg-destructive/5";
+          let cls = "border-white/20 bg-white/[0.07] text-white hover:border-blue-400/60 hover:bg-white/[0.12]";
+          if (answered && opt === exercise.answer) cls = "border-emerald-400 bg-emerald-500/15 text-emerald-300";
+          else if (answered && opt === selected) cls = "border-red-400 bg-red-500/10 text-red-300";
 
           return (
             <button
