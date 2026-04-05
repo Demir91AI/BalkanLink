@@ -228,7 +228,7 @@ export default function NudimTrazim() {
           {filtered.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
               {filtered.map((ad) => (
-                <div key={ad.id} className="rounded-xl border border-border bg-white shadow-sm p-4">
+                <div key={ad.id} className="rounded-2xl bg-white p-4 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg" style={{ border: '1px solid #F0EAD8', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
                   <div className="mb-2">
                     <span className={`inline-block rounded-full px-2.5 py-0.5 text-xs font-bold ${
                       ad.type === "nudim"
