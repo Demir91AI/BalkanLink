@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, Trophy, Flame, Star, Lock, GraduationCap, CheckCircle2, X, Crown, ChevronLeft, ChevronRight, Home } from "lucide-react";
+import { Trophy, Flame, Star, Lock, GraduationCap, CheckCircle2, X, Crown, ChevronLeft, ChevronRight } from "lucide-react";
+import PageNavBar from "@/components/navigation/PageNavBar";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import { LEVELS, LEVEL_COLORS, getLessonsForLevel, FREE_LESSONS_PER_LEVEL, MAX_LEVEL, type Level, type Lesson } from "@/lib/deutsch-trainer-data";
@@ -79,14 +80,7 @@ export default function DeutschTrainer() {
       {/* Header */}
       <section className="border-b bg-primary py-6">
         <div className="container max-w-2xl">
-          <div className="flex items-center gap-3 mb-3">
-            <button onClick={() => navigateBackOrHome(navigate)} className="flex items-center gap-1.5 text-sm text-primary-foreground/60 hover:text-primary-foreground">
-              <ArrowLeft className="h-4 w-4" /> Nazad
-            </button>
-            <button onClick={() => navigate("/")} className="flex items-center gap-1.5 text-sm text-primary-foreground/60 hover:text-primary-foreground">
-              <Home className="h-4 w-4" /> Početna
-            </button>
-          </div>
+          <PageNavBar onBack={() => navigateBackOrHome(navigate)} />
           <div className="flex items-center gap-3">
             <GraduationCap className="h-7 w-7 text-gold" />
             <div>

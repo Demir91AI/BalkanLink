@@ -1,3 +1,4 @@
+import PageNavBar from "@/components/navigation/PageNavBar";
 import { useState, useRef, useCallback, type ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -86,8 +87,7 @@ export default function MusterFormBase({ rootId, title, subtitle, pdfUrl, pdfLab
   return (
     <div id={rootId} style={S.page}>
       <div style={{ background: '#F5F0E8', padding: '10px 32px', borderBottom: '1px solid #F0EAD8', display: 'flex', alignItems: 'center', gap: 16 }}>
-        <button onClick={() => navigate(-1)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#6B6B6B', fontSize: 13, fontWeight: 500, display: 'flex', alignItems: 'center', gap: 4, padding: 0 }}>← Nazad</button>
-        <button onClick={() => navigate('/')} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#6B6B6B', fontSize: 13, fontWeight: 500, display: 'flex', alignItems: 'center', gap: 4, padding: 0 }}>🏠 Početna</button>
+        <div style={{ display: 'contents' }}><PageNavBar inline /></div>
         <span style={{ color: '#E8D9B0', margin: '0 4px' }}>|</span>
         <span style={{ fontSize: 12, color: '#9CA3AF', cursor: 'pointer' }} onClick={() => navigate('/formulari')}>Formulari</span>
         <span style={{ fontSize: 12, color: '#9CA3AF' }}>›</span>

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Search, ChevronLeft, FileText, ChevronDown, ChevronRight, Info, X } from "lucide-react";
+import PageNavBar from "@/components/navigation/PageNavBar";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
@@ -239,9 +240,7 @@ export default function FormCenter() {
   if (isMobile && activeSlug && !isRemovedFormSlug) {
     return (
       <div className="px-4 py-6">
-        <button onClick={handleBack} className="back-button">
-          <ChevronLeft className="h-4 w-4" /> {t("common.back")}
-        </button>
+        <PageNavBar onBack={handleBack} />
         <GuideContent key={activeSlug} slug={activeSlug} />
       </div>
     );
@@ -257,9 +256,7 @@ export default function FormCenter() {
 
       {/* Page title */}
       <div className="mb-6">
-        <button onClick={handleBack} className="back-button">
-          <ChevronLeft className="h-4 w-4" /> {t("common.back")}
-        </button>
+        <PageNavBar onBack={handleBack} />
         <h1 className="font-heading text-2xl font-extrabold sm:text-3xl">
           {t("formCenter.title")}
         </h1>

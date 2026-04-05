@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { Briefcase, ChevronLeft, ExternalLink, Home, Info } from "lucide-react";
+import { Briefcase, ExternalLink, Info } from "lucide-react";
 import { navigateBackOrHome } from "@/lib/navigation";
+import PageNavBar from "@/components/navigation/PageNavBar";
 
 const portals = [
   { name: "Indeed Deutschland", url: "https://de.indeed.com", desc: "Globalni job portal sa tisućama oglasa." },
@@ -17,14 +18,7 @@ export default function Stellenangebote() {
   return (
     <div className="min-h-screen" style={{ background: '#F5F0E8' }}>
       <div style={{ background: '#F5F0E8' }} className="px-4 pt-8 pb-6 max-w-3xl mx-auto">
-        <div className="flex items-center gap-3 mb-6">
-          <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
-            <ChevronLeft className="h-4 w-4" /> Nazad
-          </button>
-          <button onClick={() => navigate("/")} className="flex items-center gap-1.5 text-[13px] font-medium text-[#6B6B6B] hover:text-[#2D2D2D] transition-colors px-3 py-1.5 rounded-lg hover:bg-[#F0EAD8]">
-            <Home className="h-4 w-4" /> Početna
-          </button>
-        </div>
+        <PageNavBar onBack={() => navigateBackOrHome(navigate)} />
         <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-[#C9A84C]/20 bg-[#C9A84C]/10 px-3 py-1">
           <Briefcase className="h-3.5 w-3.5 text-[#C9A84C]" />
           <span className="text-[11px] font-bold uppercase tracking-wider text-[#C9A84C]">Pretraga poslova</span>
