@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import { PlusCircle, Megaphone, Search as SearchIcon, Star, Check, ChevronLeft, Home } from "lucide-react";
+// PageNavBar removed — nav is now inline in the hero
 import { Button } from "@/components/ui/button";
 import NtFilters from "@/components/nudim-trazim/NtFilters";
 import NtCategoryChips from "@/components/nudim-trazim/NtCategoryChips";
