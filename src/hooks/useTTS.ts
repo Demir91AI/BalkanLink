@@ -87,7 +87,7 @@ export function useTTS() {
     } catch {
       return false;
     }
-  }, []);
+  }, [rate]);
 
   /* ── Method 2: Web Speech API fallback ── */
   const playViaSpeechSynth = useCallback((id: string, text: string): boolean => {
