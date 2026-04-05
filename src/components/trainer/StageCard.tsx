@@ -52,7 +52,7 @@ export default function StageCard({ label, index, freeCount, lockedCount, isPrem
           <div className="flex items-center gap-2">
             <Lock className="h-3.5 w-3.5 text-gold" />
             <span className="text-[11px] font-semibold text-muted-foreground">
-              🔒 +{lockedCount} weitere Aufgaben
+              🔒 +{lockedCount} {t("trainer.moreTasks")}
             </span>
             <button
               onClick={onUpgrade}
