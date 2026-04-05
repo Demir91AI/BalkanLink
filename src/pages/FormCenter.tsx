@@ -165,10 +165,6 @@ export default function FormCenter() {
   const [showBgInfo, setShowBgInfo] = useState(false);
 
   const activeSlug = slug || "";
-  const activeEntry = useMemo(
-    () => allEntries.find((e) => e.slug === activeSlug) || null,
-    [allEntries, activeSlug]
-  );
   const isRemovedFormSlug = activeSlug === "aufenthaltstitel";
   const handleBack = () => navigateBackOrHome(navigate);
 
@@ -179,6 +175,10 @@ export default function FormCenter() {
   }, [isRemovedFormSlug, navigate]);
 
   const allEntries = useMemo(() => getAllFormEntries(), []);
+  const activeEntry = useMemo(
+    () => allEntries.find((e) => e.slug === activeSlug) || null,
+    [allEntries, activeSlug]
+  );
   const isSearching = search.trim().length > 0;
   const searchResults = useMemo(() => {
     if (!isSearching) return [];
