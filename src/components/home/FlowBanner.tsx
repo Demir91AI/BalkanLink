@@ -163,7 +163,7 @@ export default function FlowBanner() {
                 }}
                 transition={{ type: "spring", stiffness: 240, damping: 26 }}
                 className="absolute cursor-pointer"
-                style={{ zIndex, width: cardW }}
+                style={{ zIndex, width: cardW, maxWidth: '100vw' }}
                 onClick={() => {
                   if (!isCenter) { goTo(i); resetAutoplay(); }
                 }}
