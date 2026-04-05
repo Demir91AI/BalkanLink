@@ -263,6 +263,7 @@ export default function ChatAssistant() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const lastFailedMsgRef = useRef<string | null>(null);
 
   // Persist messages to localStorage whenever they change — but never overwrite with empty before restore
   useEffect(() => {
