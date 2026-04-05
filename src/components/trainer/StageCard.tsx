@@ -58,7 +58,7 @@ export default function StageCard({ label, index, freeCount, lockedCount, isPrem
               onClick={onUpgrade}
               className="ml-auto text-[10px] font-bold text-gold hover:text-gold-dark transition-colors"
             >
-              Freischalten →
+              {t("trainer.unlock")} →
             </button>
           </div>
         </div>
