@@ -101,10 +101,8 @@ export default function KindergeldMusterPDF() {
   return (
     <div id="kg1-root" style={S.page}>
       <style>{printCSS}</style>
-      <div style={S.nav}>
-        <button style={S.navBtn} onClick={() => navigate(-1)}>← Nazad</button>
-        <span style={{ color: "#EAB308", fontWeight: 700, fontSize: 15 }}>BL BalkanLink</span>
-        <button style={S.navBtn} onClick={() => navigate("/")}>🏠</button>
+      <div style={{ padding: "12px 16px 0" }}>
+        <PageNavBar />
       </div>
 
       <div style={{ padding: "0 16px" }}>
