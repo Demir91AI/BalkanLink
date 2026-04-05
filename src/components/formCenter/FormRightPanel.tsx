@@ -143,6 +143,21 @@ export default function FormRightPanel({ activeSlug, formLabel, formDesc }: Prop
           </button>
         )}
 
+        {!meta.musterSlug && meta.onlineUrl && (
+          <a
+            href={meta.onlineUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              gap: 8, width: '100%', padding: '11px 14px', marginBottom: 12,
+              background: '#1E293B', color: 'white', borderRadius: 9,
+              fontSize: 13, fontWeight: 700, textDecoration: 'none',
+            }}
+          >
+            🌐 Online zahtjev →
+          </a>
+        )}
         <div style={{ borderTop: '1px solid #F0EAD8', paddingTop: 12 }}>
           <p style={{ fontSize: 11, fontWeight: 600, color: GOLD, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 8 }}>Zvanični izvor</p>
           <a href={meta.sourceUrl} target="_blank" rel="noopener noreferrer"
