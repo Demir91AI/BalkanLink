@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { Briefcase, ChevronLeft, ExternalLink, Home, Info } from "lucide-react";
+import { Briefcase, ExternalLink, Info } from "lucide-react";
 import { navigateBackOrHome } from "@/lib/navigation";
+import PageNavBar from "@/components/navigation/PageNavBar";
 
 const portals = [
   { name: "Indeed Deutschland", url: "https://de.indeed.com", desc: "Globalni job portal sa tisućama oglasa." },
