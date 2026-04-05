@@ -1,3 +1,4 @@
+import React from "react";
 import { Volume2, Lock, Crown } from "lucide-react";
 import AudioButton from "./AudioButton";
 import { Button } from "@/components/ui/button";
