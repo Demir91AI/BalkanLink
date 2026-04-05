@@ -19,6 +19,13 @@ interface Props {
   rateOptions: readonly SpeechRate[];
 }
 
+const RATE_LABELS: Record<number, string> = {
+  0.75: "0.75×",
+  1: "1×",
+  1.25: "1.25×",
+  1.5: "1.5×",
+};
+
 export default function SprachassistentSection({
   lesson,
   isPremium,
@@ -28,6 +35,9 @@ export default function SprachassistentSection({
   activeId,
   playState,
   onUpgrade,
+  rate,
+  setRate,
+  rateOptions,
 }: Props) {
   if (lesson.importantPhrases.length === 0) return null;
 
