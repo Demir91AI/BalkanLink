@@ -70,7 +70,7 @@ export default function SortSentence({ exercise, onAnswer }: Props) {
       {!checked && placed.length === exercise.options.length && (
         <button
           onClick={handleCheck}
-          className="mt-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground"
+          className="mt-2 rounded-xl px-6 py-3 text-sm font-bold text-white" style={{ background: "linear-gradient(135deg, #3b82f6, #06b6d4)" }}
         >
           Prüfen
         </button>

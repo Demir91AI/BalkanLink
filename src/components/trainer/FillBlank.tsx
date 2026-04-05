@@ -38,9 +38,9 @@ export default function FillBlank({ exercise, onAnswer }: Props) {
 
       <div className="flex flex-wrap gap-2">
         {exercise.options.map((opt) => {
-          let cls = "border-border bg-card hover:border-primary/40";
-          if (answered && opt === exercise.answer) cls = "border-[hsl(var(--success))] bg-[hsl(var(--success)/0.08)]";
-          else if (answered && opt === selected) cls = "border-destructive bg-destructive/5";
+          let cls = "border-white/20 bg-white/[0.07] text-white hover:border-blue-400/60 hover:bg-white/[0.12]";
+          if (answered && opt === exercise.answer) cls = "border-emerald-400 bg-emerald-500/15 text-emerald-300";
+          else if (answered && opt === selected) cls = "border-red-400 bg-red-500/10 text-red-300";
 
           return (
             <button
