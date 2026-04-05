@@ -5,20 +5,44 @@ function getBestGermanVoice(): SpeechSynthesisVoice | null {
   const german = voices.filter((v) => v.lang.startsWith("de"));
   if (german.length === 0) return null;
 
-  const preferred = german.find(
-    (v) =>
-      v.name.toLowerCase().includes("enhanced") ||
-      v.name.toLowerCase().includes("premium") ||
-      v.name.toLowerCase().includes("natural") ||
-      v.name.toLowerCase().includes("neural") ||
-      v.name.toLowerCase().includes("wavenet")
-  );
-  if (preferred) return preferred;
+  // Priority order: neural/wavenet > enhanced/premium > natural > local > any German
+  const priority = [
+    (v: SpeechSynthesisVoice) => /neural|wavenet/i.test(v.name),
+    (v: SpeechSynthesisVoice) => /enhanced|premium/i.test(v.name),
+    (v: SpeechSynthesisVoice) => /natural/i.test(v.name),
+    // Prefer specific known good voices
+    (v: SpeechSynthesisVoice) => v.name === "Anna" || v.name === "Markus" || v.name === "Petra",
+    (v: SpeechSynthesisVoice) => /google/i.test(v.name),
+    (v: SpeechSynthesisVoice) => v.localService === true,
+  ];
 
-  const local = german.find((v) => v.localService);
-  if (local) return local;
+  for (const fn of priority) {
+    const match = german.find(fn);
+    if (match) return match;
+  }
 
   return german[0];
+}
+
+// Preprocess text for more natural German TTS pronunciation
+function preprocessGerman(text: string): string {
+  return text
+    // Add slight pause after comma and semicolon via SSML-like approach (not supported, but spacing helps)
+    .replace(/,/g, ", ")
+    .replace(/;/g, "; ")
+    // Common German abbreviations that TTS mispronounces
+    .replace(/\bz\.B\./g, "zum Beispiel")
+    .replace(/\bca\./g, "circa")
+    .replace(/\bggf\./g, "gegebenenfalls")
+    .replace(/\bbzw\./g, "beziehungsweise")
+    .replace(/\bu\.a\./g, "unter anderem")
+    .replace(/\bd\.h\./g, "das heißt")
+    .replace(/\busw\./g, "und so weiter")
+    .replace(/\binkl\./g, "inklusive")
+    .replace(/\bExkl\./g, "exklusive")
+    // Numbers with units
+    .replace(/(\d+)€/g, "$1 Euro")
+    .replace(/(\d+)%/g, "$1 Prozent");
 }
 
 type PlayState = "idle" | "playing" | "paused";
@@ -41,10 +65,11 @@ export function useTTS() {
   const playNew = useCallback((id: string, text: string) => {
     speechSynthesis.cancel();
 
-    const utterance = new SpeechSynthesisUtterance(text);
+    const processed = preprocessGerman(text);
+    const utterance = new SpeechSynthesisUtterance(processed);
     utterance.lang = "de-DE";
-    utterance.rate = 1.25;
-    utterance.pitch = 1.0;
+    utterance.rate = 0.88;   // Slower = more natural, easier to follow
+    utterance.pitch = 0.95;  // Slightly lower = less robotic
     utterance.volume = 1;
 
     const voice = cachedVoice.current ?? getBestGermanVoice();
@@ -71,21 +96,18 @@ export function useTTS() {
 
   const toggle = useCallback(
     (id: string, text: string) => {
-      // Same sentence playing → pause
       if (activeId === id && playState === "playing") {
         speechSynthesis.pause();
         setPlayState("paused");
         return;
       }
 
-      // Same sentence paused → resume
       if (activeId === id && playState === "paused") {
         speechSynthesis.resume();
         setPlayState("playing");
         return;
       }
 
-      // Different sentence or idle → play new
       playNew(id, text);
     },
     [activeId, playState, playNew]
