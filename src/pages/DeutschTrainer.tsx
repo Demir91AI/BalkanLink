@@ -252,7 +252,7 @@ export default function DeutschTrainer() {
           </div>
 
           {/* ── LEVEL PILLS ── */}
-          <div className="mb-4 flex flex-wrap gap-2.5 sm:gap-3">
+          <div className="mb-4 flex flex-nowrap gap-2.5 sm:gap-3 overflow-x-auto pb-1 scrollbar-hide">
             {LEVELS.map((lvl) => {
               const active = selectedLevel === lvl;
               return (

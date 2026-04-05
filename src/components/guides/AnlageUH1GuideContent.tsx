@@ -38,6 +38,14 @@ const STEPS: StepData[] = [
 export default function AnlageUH1GuideContent() {
   return (
     <div className="space-y-8">
+      <div className="mb-4 rounded-xl border border-blue-500/30 bg-blue-500/[0.08] p-4 flex items-start gap-3">
+        <span className="text-xl shrink-0">💻</span>
+        <div>
+          <p className="text-sm font-bold text-blue-700 dark:text-blue-400 mb-1">Ovaj prilog se popunjava online</p>
+          <p className="text-xs text-muted-foreground mb-2">Bürgergeld anlagen se podnose isključivo putem Jobcenter Digital portala. Papirna verzija se više ne prihvata u većini jobcentara.</p>
+          <a href="https://jobcenter.digital" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-lg bg-blue-600 px-3 py-1.5 text-xs font-bold text-white hover:bg-blue-700 transition-colors">🌐 Otvori Jobcenter Digital →</a>
+        </div>
+      </div>
       <GuideInfoHeader
         title="Anlage UH1 — Trennungsunterhalt"
         source="Jobcenter (SGB II)"
