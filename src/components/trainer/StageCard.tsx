@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Lock } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface Props {
   label: string;
