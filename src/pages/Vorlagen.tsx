@@ -1,4 +1,4 @@
-import { FileCheck, Clock, Briefcase, Home, Wifi, Star, Heart, File } from "lucide-react";
+import { FileCheck, Clock, Briefcase, Wifi, Star, Heart, File } from "lucide-react";
 import PageNavBar from "@/components/navigation/PageNavBar";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -35,14 +35,7 @@ export default function Vorlagen() {
     if (!tpl) {
       return (
         <div className="container max-w-3xl py-8 px-4">
-          <div className="flex items-center gap-3 mb-6">
-            <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
-              <ChevronLeft className="h-4 w-4" /> Nazad
-            </button>
-            <button onClick={() => navigate("/")} className="flex items-center gap-1.5 text-[13px] font-medium text-[#6B6B6B] hover:text-[#2D2D2D] transition-colors px-3 py-1.5 rounded-lg hover:bg-[#F0EAD8]">
-              <Home className="h-4 w-4" /> Početna
-            </button>
-          </div>
+          <PageNavBar onBack={() => navigateBackOrHome(navigate)} />
           <p className="text-muted-foreground">Vorlage nicht gefunden.</p>
         </div>
       );
@@ -52,14 +45,7 @@ export default function Vorlagen() {
 
     return (
       <div className="container max-w-3xl py-8 px-4">
-        <div className="flex items-center gap-3 mb-6">
-          <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
-            <ChevronLeft className="h-4 w-4" /> Nazad
-          </button>
-          <button onClick={() => navigate("/")} className="flex items-center gap-1.5 text-[13px] font-medium text-[#6B6B6B] hover:text-[#2D2D2D] transition-colors px-3 py-1.5 rounded-lg hover:bg-[#F0EAD8]">
-            <Home className="h-4 w-4" /> Početna
-          </button>
-        </div>
+          <PageNavBar onBack={() => navigateBackOrHome(navigate)} />
 
         <div className="flex items-center gap-3 mb-6">
           <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10">
@@ -82,14 +68,7 @@ export default function Vorlagen() {
   /* ── Overview listing ── */
   return (
     <div className="container max-w-3xl py-8 px-4">
-      <div className="flex items-center gap-3 mb-6">
-        <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
-          <ChevronLeft className="h-4 w-4" /> Nazad
-        </button>
-        <button onClick={() => navigate("/")} className="flex items-center gap-1.5 text-[13px] font-medium text-[#6B6B6B] hover:text-[#2D2D2D] transition-colors px-3 py-1.5 rounded-lg hover:bg-[#F0EAD8]">
-          <Home className="h-4 w-4" /> Početna
-        </button>
-      </div>
+          <PageNavBar onBack={() => navigateBackOrHome(navigate)} />
       <h1 className="text-2xl font-bold mb-1">Šabloni / Vorlagen</h1>
       <p className="text-sm text-muted-foreground mb-8">
         Kreiraj profesionalne dokumente za Njemačku — besplatno i bez registracije.

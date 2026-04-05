@@ -285,14 +285,7 @@ export default function DokumentenCheck() {
       {/* ── HEADER ── */}
       <section className="border-b bg-primary py-10 sm:py-14">
         <div className="container max-w-4xl">
-          <div className="flex items-center gap-3 mb-4">
-            <button onClick={handleBack} className="back-button">
-              <ChevronLeft className="h-4 w-4" /> {st("guide.back")}
-            </button>
-            <button onClick={() => navigate("/")} className="flex items-center gap-1.5 text-[13px] font-medium text-primary-foreground/70 hover:text-primary-foreground transition-colors px-3 py-1.5 rounded-lg hover:bg-white/10">
-              <Home className="h-4 w-4" /> Početna
-            </button>
-          </div>
+          <PageNavBar onBack={handleBack} />
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl lg:text-4xl">
             {t("index.nav.docCheck")}
           </h1>

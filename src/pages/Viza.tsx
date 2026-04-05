@@ -27,16 +27,7 @@ export default function Viza() {
     <div className="min-h-screen" style={{ background: "#F5F0E8" }}>
       <div className="max-w-[1280px] mx-auto px-12 py-8">
         {/* Nav */}
-        <div className="flex items-center gap-3 mb-6">
-          <button onClick={() => navigate(-1)} className="back-button flex items-center gap-1">
-            <ChevronLeft size={16} />
-            Nazad
-          </button>
-          <button onClick={() => navigate("/")} className="back-button flex items-center gap-1">
-            <HomeIcon size={16} />
-            Početna
-          </button>
-        </div>
+        <PageNavBar />
 
         {/* Title */}
         <div className="mb-4">

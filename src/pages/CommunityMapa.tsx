@@ -205,18 +205,7 @@ export default function CommunityMapa() {
       {/* Hero */}
       <section className="border-b border-[#E8E0D0] bg-white py-10">
         <div className="container max-w-4xl">
-          <div className="flex items-center gap-2 mb-3">
-            <button onClick={handleBack} className="back-button">
-              <ChevronLeft className="h-4 w-4" /> Nazad
-            </button>
-            <Link
-              to="/"
-              className="inline-flex items-center gap-1.5 rounded-lg border border-[#E8E0D0] bg-white px-3 py-2 text-sm text-[#6B6B6B] transition-colors hover:bg-[hsl(var(--warm-cream))] hover:text-[hsl(var(--gold))] hover:shadow-sm"
-              aria-label="Početna"
-            >
-              <Home className="h-4 w-4" />
-            </Link>
-          </div>
+          <PageNavBar onBack={handleBack} />
           <div className="flex items-center gap-3 mb-3">
             <MapPin className="h-7 w-7 text-[hsl(var(--gold))]" />
             <h1 className="text-xl font-bold text-[#2D2D2D] sm:text-2xl">

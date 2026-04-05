@@ -525,20 +525,7 @@ export default function Kalkulatori() {
 
       {/* Header */}
       <div className="container pt-6 pb-2">
-        <div className="flex items-center gap-3 mb-6">
-          <button
-            onClick={() => navigate(-1)}
-            className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white shadow backdrop-blur hover:bg-white/20 transition-colors"
-          >
-            <ArrowLeft className="h-4 w-4" /> Nazad
-          </button>
-          <button
-            onClick={() => navigate("/")}
-            className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white shadow backdrop-blur hover:bg-white/20 transition-colors"
-          >
-            <Home className="h-4 w-4" /> Početna
-          </button>
-        </div>
+        <PageNavBar />
         <h1 className="text-2xl font-bold text-white md:text-3xl">Kalkulatori</h1>
         <p className="mt-2 text-sm text-white/50">Korisni alati za finansijsko planiranje u Njemačkoj</p>
       </div>
