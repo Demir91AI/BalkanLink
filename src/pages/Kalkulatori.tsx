@@ -444,7 +444,7 @@ export default function Kalkulatori() {
   const [inputs, setInputs] = useState<CalcInputs>({ ...DEFAULTS });
   const [isYearly, setIsYearly] = useState(false);
   const [detailsOpen, setDetailsOpen] = useState(false);
-  const [linkErrors, setLinkErrors] = useState<Record<number, boolean>>({});
+  const [_linkErrors, _setLinkErrors] = useState<Record<number, boolean>>({});
   const [activeInfo, setActiveInfo] = useState<string | null>(null);
   const [editStr, setEditStr] = useState<EditStrings>({});
 
