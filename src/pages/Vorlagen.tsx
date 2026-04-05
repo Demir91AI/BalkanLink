@@ -1,4 +1,5 @@
-import { ChevronLeft, FileCheck, Clock, Briefcase, Home, Wifi, Star, Heart, File } from "lucide-react";
+import { FileCheck, Clock, Briefcase, Home, Wifi, Star, Heart, File } from "lucide-react";
+import PageNavBar from "@/components/navigation/PageNavBar";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { navigateBackOrHome } from "@/lib/navigation";
