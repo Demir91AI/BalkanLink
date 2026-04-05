@@ -29,5 +29,10 @@
   "reward_condition_full": "Nach A1–C2",
   "certificate": "Zertifikat",
   "daily_goal": "Tagesziel",
-  "streak": "{{days}}-Tage-Serie"
+  "streak": "{{days}}-Tage-Serie",
+  "stage_grundlagen": "Grundlagen",
+  "stage_anwendung": "Anwendung",
+  "stage_realitaet": "Realität",
+  "typical_mistakes": "Typische Fehler",
+  "generating_tasks": "Aufgaben werden generiert…"
 }
