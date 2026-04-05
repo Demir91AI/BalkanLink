@@ -233,7 +233,7 @@ export default function FlowBanner() {
                   )}
 
                   {/* Content — bottom-left */}
-                  <div className="relative z-10 p-7 sm:p-8">
+                  <div className="relative z-10 p-5 sm:p-8">
                     <span className={`block mb-2 ${isCenter ? "text-[44px]" : "text-[32px]"}`}>
                       {item.icon}
                     </span>
