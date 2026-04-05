@@ -175,6 +175,10 @@ export default function FormCenter() {
   }, [isRemovedFormSlug, navigate]);
 
   const allEntries = useMemo(() => getAllFormEntries(), []);
+  const activeEntry = useMemo(
+    () => allEntries.find((e) => e.slug === activeSlug) || null,
+    [allEntries, activeSlug]
+  );
   const isSearching = search.trim().length > 0;
   const searchResults = useMemo(() => {
     if (!isSearching) return [];
@@ -348,7 +352,7 @@ export default function FormCenter() {
         </aside>
 
         {/* ─── Main content ─── */}
-        <main className="min-w-0 flex-1">
+        <main className="min-w-0 flex-1 overflow-hidden">
           {activeSlug && !isRemovedFormSlug ? (
             <>
               <div className="flex items-center gap-2 mb-4 text-sm">
@@ -460,11 +464,11 @@ export default function FormCenter() {
             </div>
           )}
         </main>
-        {!isMobile && (
+        {activeSlug && !isMobile && (
           <FormRightPanel
-            activeSlug={activeSlug || null}
-            formLabel={allEntries.find(e => e.slug === activeSlug)?.label}
-            formDesc={allEntries.find(e => e.slug === activeSlug)?.desc}
+            activeSlug={activeSlug}
+            formLabel={activeEntry?.label}
+            formDesc={activeEntry?.desc}
           />
         )}
       </div>
