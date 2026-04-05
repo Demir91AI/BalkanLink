@@ -388,6 +388,7 @@ export default function DokumentenCheck() {
                   </div>
                 )}
                 <input ref={fileInputRef} type="file" accept=".pdf,.jpg,.jpeg,.png" onChange={handleFileSelect} className="hidden" />
+                <input ref={cameraInputRef} type="file" accept="image/*" capture="environment" onChange={handleFileSelect} className="hidden" />
               </div>
             )}
           </motion.div>
