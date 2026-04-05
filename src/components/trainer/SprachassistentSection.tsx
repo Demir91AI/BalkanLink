@@ -2,6 +2,8 @@ import { Volume2, Lock, Crown } from "lucide-react";
 import AudioButton from "./AudioButton";
 import { Button } from "@/components/ui/button";
 import type { Lesson } from "@/lib/deutsch-trainer-data";
+import type { SpeechRate } from "@/hooks/useTTS";
+import { cn } from "@/lib/utils";
 
 interface Props {
   lesson: Lesson;
@@ -12,7 +14,17 @@ interface Props {
   activeId: string | null;
   playState: "playing" | "paused" | "idle";
   onUpgrade: () => void;
+  rate: SpeechRate;
+  setRate: (r: SpeechRate) => void;
+  rateOptions: readonly SpeechRate[];
 }
+
+const RATE_LABELS: Record<number, string> = {
+  0.75: "0.75×",
+  1: "1×",
+  1.25: "1.25×",
+  1.5: "1.5×",
+};
 
 export default function SprachassistentSection({
   lesson,
@@ -23,6 +35,9 @@ export default function SprachassistentSection({
   activeId,
   playState,
   onUpgrade,
+  rate,
+  setRate,
+  rateOptions,
 }: Props) {
   if (lesson.importantPhrases.length === 0) return null;
 
@@ -49,6 +64,25 @@ export default function SprachassistentSection({
             Vorschau
           </span>
         )}
+      </div>
+
+      {/* Speed control */}
+      <div className="mb-3 flex items-center gap-1.5">
+        <span className="text-[10px] text-muted-foreground font-medium mr-1">Tempo:</span>
+        {rateOptions.map((r) => (
+          <button
+            key={r}
+            onClick={() => setRate(r)}
+            className={cn(
+              "rounded-full px-2.5 py-1 text-[10px] font-bold transition-all",
+              r === rate
+                ? "bg-primary text-primary-foreground shadow-sm"
+                : "bg-muted text-muted-foreground hover:bg-muted/80"
+            )}
+          >
+            {RATE_LABELS[r]}
+          </button>
+        ))}
       </div>
 
       <div className="flex flex-col gap-2">

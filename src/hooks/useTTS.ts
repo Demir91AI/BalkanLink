@@ -27,9 +27,13 @@ type PlayState = "idle" | "playing" | "paused";
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL as string;
 const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY as string;
 
+const RATE_OPTIONS = [0.75, 1.0, 1.25, 1.5] as const;
+export type SpeechRate = (typeof RATE_OPTIONS)[number];
+
 export function useTTS() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [playState, setPlayState] = useState<PlayState>("idle");
+  const [rate, setRate] = useState<SpeechRate>(1.25);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const cachedVoice = useRef<SpeechSynthesisVoice | null>(null);
 
@@ -93,7 +97,7 @@ export function useTTS() {
 
     const u = new SpeechSynthesisUtterance(text);
     u.lang = "de-DE";
-    u.rate = 1.25;
+    u.rate = rate;
     u.pitch = 0.95;
     u.volume = 1;
 
@@ -181,5 +185,5 @@ export function useTTS() {
     setPlayState("idle");
   }, []);
 
-  return { toggle, stop, activeId, playState };
+  return { toggle, stop, activeId, playState, rate, setRate, RATE_OPTIONS };
 }
