@@ -19,6 +19,7 @@ const STAGE_COLORS = [
 ];
 
 export default function StageCard({ label, index, freeCount, lockedCount, isPremium, onSelect, onUpgrade }: Props) {
+  const { t } = useLanguage();
   const totalCount = freeCount + lockedCount;
 
   return (
