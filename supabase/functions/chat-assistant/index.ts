@@ -618,6 +618,383 @@ ZDRAVSTVO:
 - Hausarzt uvijek prvi, ne direktno bolnica
 - Hitna pomoć: 112
 
+═══ OSIGURANJA (VERSICHERUNGEN) ═══
+
+HAFTPFLICHTVERSICHERUNG (Osiguranje od odgovornosti):
+- Najvažnije privatno osiguranje u Njemačkoj — skoro obavezno kulturno
+- Pokriva: štetu koju TI naneseš drugima (osobi, imovini)
+- Primjer: Slomiš nekome telefon, poplavaš komšiji stan — Haftpflicht plaća
+- Cijena: 40–80€ godišnje (jeftino za zaštitu)
+- NE pokriva: štetu na tvojoj imovini, namjerne štete
+- Preporuka: uzmi odmah po dolasku u Njemačku
+- Porodični paket pokriva i partnera i djecu
+
+RECHTSSCHUTZVERSICHERUNG (Pravna zaštita):
+- Plaća advokata i sudske troškove ako imaš pravni spor
+- Moduli: Arbeitsrecht (posao), Mietrecht (stanovanje), Verkehrsrecht (saobraćaj), Privatrecht
+- Cijena: 150–350€ godišnje ovisno o modulima
+- VAŽNO: obično 3 mj karencija — ne možeš uzeti kad već imaš problem
+- Preporuka: Arbeitsrecht + Mietrecht modul kao minimum za Balkanca u Njemačkoj
+- Bez toga advokatski sat = 200–400€ iz džepa
+
+LEBENSVERSICHERUNG (Životno osiguranje):
+- Dvije vrste: Risikolebensversicherung (čista zaštita) i Kapitallebensversicherung (štednja)
+- Risikoleben: isplata porodici ako umreš — od 10€/mj za 300.000€ pokriće
+- Kapitallebensversicherung: staro, skupo, niska prinosa — stručnjaci NE preporučuju
+- Kome treba: porodičnim osobama s kreditom ili djecom
+- Kome ne treba: samcima bez obaveza
+
+BERUFSUNFÄHIGKEITSVERSICHERUNG (BU) — Osiguranje od radne nesposobnosti:
+- Najvažnije osiguranje koje Nijemci zaboravljaju objasniti strancima
+- Ako zbog bolesti/nesreće više ne možeš raditi → prima se BU-Rente (privatna penzija)
+- Državna invalidska penzija = otprilike 800€/mj — premalo za život
+- Cijena: 50–200€/mj ovisno o zanimanju i starosti
+- VAŽNO: uzmi mlad — cijena raste sa godinama i zdravstvenim stanjem
+- Fizički radnici plaćaju više od uredskih
+
+HAUSRATVERSICHERUNG (Osiguranje kućnog sadržaja):
+- Pokriva: namještaj, elektroniku, odjeću, bicikl — sve u stanu
+- Slučajevi: provala, požar, poplava, oluja
+- Cijena: 50–150€ godišnje ovisno o veličini stana
+- Bicikl: posebno prijaviti u polisu (Fahrradklausel)
+- NIJE pokriveno: namjerna šteta, normalno trošenje
+
+KFZVERSICHERUNG (Auto osiguranje):
+- Haftpflicht (obavezno): pokriva štetu na TUĐem autu/osobi — od 200€/god
+- Teilkasko: dodaje požar, krađa, divljač, staklo — preporučeno
+- Vollkasko: pokriva i tvoj auto u nezgodi — skuplje, za nove aute
+- Schadenfreiheitsklasse (SF): svaka godina bez štete = niža cijena
+- Ako imaš međunarodnu vozačku historiju bez šteta → pitaj za Einstufung
+- Vozačka iz BiH/Srbije: vrijedi 6 mj, zatim samo praktični ispit u Njemačkoj
+
+REISEVERSICHERUNG (Putno osiguranje):
+- Krankenversicherung u EU: Europska kartica (EHIC) pokriva hitne slučajeve
+- Za Balkan ili van EU: privatno putno osiguranje obavezno
+- Storno osiguranje: ako otkaže let/putovanje → povrat novca
+- Cijena: 10–30€ po putovanju ili godišnji paket ~80€
+
+ZAHNZUSATZVERSICHERUNG (Dopunsko zubno osiguranje):
+- Gesetzliche Krankenkasse pokriva samo osnovne zahvate
+- Krunica/most/implantat = skupo iz džepa bez dopunskog
+- Preporuka: uzmi ako planuješ dugo ostati u Njemačkoj
+- Cijena: 10–30€/mj, karencija 3–8 mj
+
+PFLEGEVERSICHERUNG (Njega):
+- Automatski se odbija od plaće (obavezno)
+- Pokriva troškove njege u starosti ili bolesti
+- Iznos: oko 3.4% od bruto plaće (dijeli se s poslodavcem)
+
+═══ BANKE & FINANSIJE ═══
+
+BANKOVNI RAČUN (Girokonto):
+- Treba: Anmeldung + pasoš
+- Besplatne online banke: N26, DKB, ING — bez naknade
+- Traditionalne: Sparkasse, Deutsche Bank — naknade 5–10€/mj
+- Nekim bankama treba i Steuer-ID ili Arbeitsvertrag
+- IBAN dobijen → možeš primati plaću, Kindergeld, sve
+
+SCHUFA:
+- Centralni kredit registar Njemačke — ocjenjuje tvoju kreditnu sposobnost
+- Novi u Njemačkoj = nema Schufa historije = "nevidljiv" za stanodavce
+- Kako graditi Schufa: otvori račun, uzmi prepaid karticu, plaćaj na vrijeme
+- Schufa izvještaj: jednom godišnje BESPLATNO na schufa.de (Datenkopie)
+- Loša Schufa: kasna plaćanja, neplaćene fakture → problem za stan i kredit
+
+KREDIT (Ratenkredit):
+- Moguć nakon 6+ mj u Njemačkoj s Arbeitsvertrag
+- Efektivni kamatnjak (effektiver Jahreszins) — uvijek gledaj ovaj broj
+- Vorzeitige Rückzahlung: pravo da vratiš kredit ranije (max 1% kazne)
+- Beware: "Sofortkredit" reklame online često imaju skrivene naknade
+
+INVESTIRANJE / ETF:
+- Nemci štede uglavnom kroz ETF (indeksni fondovi)
+- Popularne platforme: Trade Republic, Scalable Capital, ING
+- Sparplan: automatski uplaćuješ 25–100€ mj u ETF
+- Freibetrag (Sparerpauschbetrag): 1.000€ godišnje bez poreza na prinos
+- VAŽNO: ovo nije finansijski savjet — konsultuj Finanzberater za detalje
+
+ÜBERWEISUNG & DAUERAUFTRAG:
+- Überweisung: jednokratna uplata
+- Dauerauftrag: automatska trajna narudžba (kirija, pretplate)
+- Lastschriftmandat: firma skida novac automatski (pazi na Widerruf pravo)
+
+═══ STANOVANJE (WOHNEN & MIETRECHT) ═══
+
+IZNAJMLJIVANJE STANA:
+- Kaution: max 3 hladne kirije, čuva se na odvojenom računu
+- Nebenkosten (Betriebskosten): struja/grijanje često NISU uključeni — provjeri
+- Nebenkostenabrechnung: jednom godišnje obračun — možeš dobiti nazad ili platiti razliku
+- WBS (Wohnberechtigungsschein): za socijalne stanove (Sozialwohnung) — aplikacija u Rathaus
+
+MIETERHÖHUNG (Povećanje kirije):
+- Stanodavac mora pismeno obavijestiti min 3 mj unaprijed
+- Max povećanje: Mietspiegel + max 20% u 3 godine (Kappungsgrenze)
+- Pravo: možeš odbiti neosnovano povećanje pisanim prigovorom
+
+KÜNDIGUNG MIETVERHÄLTNIS:
+- Stanodavac mora imati opravdani razlog (Eigenbedarf, Vertragsverletzung)
+- Otkazni rok za stanara: 3 mj ako si duže od 5 god, 6 mj duže od 8 god
+- Schönheitsreparaturen: obnova stana pri izlasku — pazi šta piše u ugovoru
+- Mieterverein: udruženje stanara — preporučeno, godišnja članarina ~80€
+
+NEBENKOSTEN TIPOVI:
+- Grundsteuer: porez na imovinu (dijeli se)
+- Hausmeister: domar
+- Müllabfuhr: odvoz smeća
+- Wasser/Abwasser: voda
+- Aufzug: lift
+- Versicherung des Hauses: ne tvoja privatna
+
+═══ RENTE & STAROST ═══
+
+RENTENVERSICHERUNG:
+- Automatski se uplaćuje: 18.6% od bruto plaće (pola ti, pola firma)
+- Rentenpunkte: svake godine rada na prosječnoj plati = 1 poen
+- Trenutna vrijednost: ~39€ po poenu godišnje
+- Online provjera: rentenkonto.de ili pismo od DRV
+- Ako radiš 45 god.: puna penzija bez odbitka
+
+RENTENEINTRITT (Odlazak u penziju):
+- Standardni: 67 god. (za godišta od 1964+)
+- Früh: od 63 god. uz 45 god. staža (bez odbitka)
+- Svaka godina ranijeg odlaska = 3.6% trajni odbitak
+
+ZUSATZRENTE (Dopunska penzija):
+- Betriebliche Altersvorsorge (bAV): firma doprinosi — obavezno pitati HR
+- Riester-Rente: državna subvencija, ali kompleksna — za porodične osobe
+- Rürup-Rente: za samozaposlene
+- Privatna penzija: ETF Sparplan kao alternativa — fleksibilnije
+
+═══ POSAO — DETALJI ═══
+
+ARBEITSVERTRAG (Ugovor o radu):
+- Unbefristet (neodređeno): bolji, teže za otkaz od strane firme
+- Befristet (određeno): pazi na broj produženja — max 3x isti sadržaj
+- Probezeit: obično 6 mj, otkazni rok samo 2 sedmice (obje strane!)
+
+ÜBERSTUNDEN (Prekovremeni rad):
+- Moraju biti dogovoreni u ugovoru ili Tarifvertrag
+- Kompenzacija: slobodni dani ili novac — firma bira (ako nije drukčije dogovoreno)
+- Aufzeichnungspflicht: firma mora voditi evidenciju sati (po EU presudi)
+
+KÜNDIGUNG VOM ARBEITGEBER:
+- Ordentliche Kündigung: s otkaznim rokom
+- Fristlose Kündigung: samo uz TEŠKI razlog (krađa, uvrede...)
+- Kündigungsschutz: vrijedi nakon 6 mj u firmi s 10+ zaposlenih
+- Abfindung: nisi zakonski entitled — ali često se dogovara
+- ODMAH: prijavi se Arbeitsagentur kao arbeitsuchend — ne čekaj!
+
+KURZARBEIT:
+- Firma smanji radne sate u krizi → Agentur plaća 60-67% razlike
+- Zaposleniku ne pada Sozialversicherung
+
+AUSBILDUNG (Šegrtovanje):
+- Dualni sistem: 2-3 god., plaćeno učenje (700–1.100€/mj)
+- Po završetku: priznat Berufsabschluss = ulaznica za tržište rada
+- Pristupačno strancima bez mature — samo dobra Deutschkenntnisse
+- Popularne za Balkan: Pflegefachkraft, Elektroniker, Mechatroniker, Koch, Kaufmann
+
+MINDESTLOHN & LOHNABRECHNUNG:
+- Mindestlohn 2025: 12.82€/sat
+- Lohnabrechnung svaki mj: provjeri Brutto, Steuerklasse, SV-Abzüge
+- Wenn Fehler: odmah u pisanom obliku firmi
+
+═══ ZDRAVSTVO — DETALJI ═══
+
+KRANKENKASSE IZBOR:
+- Gesetzliche (GKV): TK, AOK, Barmer, DAK — obavezna za radnike do ~69.000€/god
+- Private (PKV): za visoko zarađene, samozaposlene — bolja usluga, rizičnija u starosti
+- Gesetzliche preporuka za Balkance: TK (Techniker Krankenkasse) ili Barmer — dobra app i engleski podrška
+- Wechsel: možeš promijeniti svake godine uz 2 mj otkaznog roka
+
+FACHARZT (Specijalista):
+- Uvijek prvo Hausarzt → Überweisung (uputnica) za specijalista
+- Bez uputnice: možeš ići direktno ali možeš platiti Praxisgebühr kod nekih
+- Wartezeit (čekanje): Kassenarzt čeka 3–12 tjedana, privat brže
+
+PSYCHOTHERAPIE:
+- Čekanje na terapijsko mjesto: 3–12 mj (veliki problem u Njemačkoj)
+- Opcije: Gruppentherapie brže, Online-Therapie (Selfapy, Instahelp)
+- Kosten: pokriva Krankenkasse ako dobiješ Kassensitz terapeuta
+- Krisentelefon: 0800 111 0 111 (besplatno, 24h)
+
+KRANKENTAGEGELD:
+- Firma plaća Entgeltfortzahlung 6 tjedana pune plaće
+- Nakon 6 tjedana: Krankengeld od Krankenkasse = ~70% neto, max 78 tjedana
+- Privatno Krankentagegeld osiguranje: dopuna za razliku
+
+NOTAUFNAHME vs HAUSARZT:
+- Notaufnahme (hitna): SAMO pravi hitni slučajevi — inače dugo čekanje i možda naknada
+- KV-Notdienst: vikend/noć za nežurne ali akutne slučajeve — 116 117
+- Hitna pomoć: uvijek 112
+
+═══ DJECA & ŠKOLA ═══
+
+KITA (Vrtić):
+- Od 1. god. pravo na Kitaplatz (Rechtsanspruch)
+- Cijena: 0–400€/mj ovisno o gradu i prihodu (provjeri Sozialstaffel)
+- Prijava: što ranije — liste čekanja 6–18 mj unaprijed
+- Kita-Gutschein: u Berlinu besplatno, u Münchenu uz naknadu
+
+ŠKOLA:
+- Schulpflicht: obavezno od 6. god.
+- Grundschule (1–4), dann Gymnasium/Realschule/Hauptschule
+- Schulempfehlung: učiteljica preporučuje koji nivo — ali nije obavezujuće u svim pokrajinama
+- Integrationskurs za djecu: moguć paralelno uz školu
+- Hausaufgabenbetreuung: Nachhilfe (privatne instrukcije) ili besplatna podrška u školi
+
+KINDERGELDPLUS & KINDERZUSCHLAG:
+- Kinderzuschlag: do 292€/mj po djetetu za roditelje s niskim primanjima
+- Aplicira se kod Familienkasse odvojeno od Kindergeld
+- Berechtigungsrechner: familienportal.de
+
+UNTERHALT (Alimentacija):
+- Düsseldorfer Tabelle: fiksna ljestvica iznosa prema prihodu roditelja
+- Beistandschaft: Jugendamt besplatno pomaže u utjerivanju alimentacije
+- Unterhaltsvorschuss: ako drugi roditelj ne plaća → država isplaćuje do 18. god.
+
+═══ POREZI — DETALJI ═══
+
+STEUERERKLÄRUNG (Porezna prijava):
+- Rok: 31. juli tekuće godine za prošlu godinu
+- S Steuerberaterom: rok do kraja februara sljedeće godine
+- Prosječni povrat za Balkanca s Werbungskosten: 800–1.500€
+- ELSTER (besplatno) ili Wundertax/Taxfix/SteuerGo (aplikacije, 30–40€)
+
+WERBUNGSKOSTEN (Poslovni troškovi):
+- Fahrtkosten (pendler): 0.30€/km od kuće do posla (jedan smjer)
+- Arbeitsmittel: alat, laptop, odjeća isključivo za posao
+- Fortbildung: kursevi vezani za posao
+- Homeoffice: 6€/dan, max 210 dana (Homeoffice-Pauschale)
+- Arbeitszimmer: posebna soba za rad — uz dokaz
+
+STEUERKLASSEN PROMJENA:
+- Možeš mijenjati jednom godišnje
+- Para: Klasse III/V (jedan zarađuje više) vs IV/IV (jednaki prihodi)
+- Klasse III: manje odbitka svaki mj — ali na kraju možda dugovanje
+- Faktorverfahren: precizno, preporučeno za ravnomjerne prihode
+
+KIRCHENSTEUER:
+- Automatski se odbija ako si prijavljen kao član crkve
+- Iznos: 8–9% od Lohnsteuer
+- Kirchenaustritt: moguće u Standesamt/Amtsgericht — jednokratna naknada 30–50€
+- Formular dostupan na BalkanLinku: 👉 [Kirchenaustritt formular](/formulari/kirchenaustritt)
+
+═══ AUTO & MOBILNOST ═══
+
+FAHRZEUGKAUF (Kupovina auta):
+- Neu: cijena + MwSt, garancija 2 god.
+- Gebraucht od privatnog: bez garancije (Gekauft wie gesehen — pazi!)
+- Gebraucht od dilera: garancija 1 god. minimalno
+- HU (Hauptuntersuchung / TÜV): svake 2 god., bez toga ne možeš registrirati
+- Fahrzeugbrief (Zulassungsbescheinigung Teil II): čuvaj kao zlato
+
+LEASING vs KAUF:
+- Leasing: plaćaš korišćenje, vrati na kraju — dobro za nove aute, nema Restwert rizika
+- Kauf: tvoje je, trošak popravke tvoj, možeš prodati
+- Für Balkance: Kauf često bolje — jasniji troškovi
+
+DEUTSCHES KENNZEICHEN (Registracija):
+- Zulassungsstelle: treba Personalausweis/Reisepass, Meldebescheinigung, eVB-Nummer od osiguranja, HU-Plakette
+- Umkennzeichen: ako se seliš u drugi Kreis
+
+FÜHRERSCHEIN UMTAUSCH:
+- BiH, Srbija, Kosovo, Makedonija, Albanija, Crna Gora: teorija položena, samo praktični ispit
+- EU (HR, SI): direktan umtausch bez ispita
+- Rok za umtausch: 6 mj od Anmeldung
+
+ÖPNV (Javni prijevoz):
+- Deutschlandticket: 58€/mj za cijelu Njemačku regionalnim vlakom — ogromna vrijednost
+- Wochenkarte/Monatskarte: za grad ili regiju
+- Jobticket: poslodavac često subvencionira
+
+═══ SVAKODNEVNI ŽIVOT ═══
+
+MÜLL TRENNEN (Odvajanje otpada):
+- Gelber Sack/Tonne (žuta): plastika, metal, kartonska ambalaža
+- Papiertonne (plava): papir, karton
+- Biotonne (smeđa): hrana, organski otpad
+- Restmüll (siva/crna): sve ostalo
+- Sperrmüll: krupni otpad — zakaži termin ili ostavi na ulici na određeni dan
+- Sondermüll: baterije (kod Drogerie), elektronika (Wertstoffhof)
+
+RUNDFUNKBEITRAG (GEZ):
+- 18.36€/mj po kućanstvu (ne po osobi!)
+- Obavezno čak i bez televizora
+- Oslobođenje: Bürgergeld primatelji, studenti s BAföG → formulari na beitragsservice.de
+- Formular na BalkanLinku: 👉 [Rundfunkbeitrag Befreiung](/formulari/rundfunkbeitrag)
+
+NACHBARSCHAFTSRECHT (Pravo komšiluka):
+- Ruhezeiten (tišina): 22:00–07:00 svaki dan, 13:00–15:00 (Siesta) u nekim pokrajinama
+- Sonntag (nedjelja): cijeli dan tišina — nema bušenja, kosilice, glasne muzike
+- Spor s komšijom: prvo pisani razgovor, zatim Mieterverein ili Rechtsschutz
+
+PAKETE & POST (Paketi i pošta):
+- Packstation (DHL): 24h preuzimanje paketa — besplatna registracija
+- Postbank, Hermes, DPD: alternativni kuriri
+- Nachsendeauftrag: pri promjeni adrese — preusmjeravanje pošte 6–24 mj
+
+VOLLMACHT (Punomoć):
+- Generalvollmacht: sve ovlasti
+- Vorsorgevollmacht: za medicinsku/pravnu zaštitu ako se onesvijestis
+- Notarielle Beglaubigung: za nekretnine i teže pravne radnje obavezno
+
+DIGITALNI ŽIVOT:
+- ELSTER-Konto: za porezne prijave online
+- BundID: digitalni identitet za e-uprave
+- Personalausweis mit eID: čip za online prijave — aktiviraj u Bürgeramt
+- De-Mail: sigurna elektronska pošta za zvanična dopisivanja
+
+═══ OBRAZOVANJE & KARIJERA ═══
+
+DIPLOMAANERKENNUNG (Nostrifikacija):
+- anabin.kmk.org: provjera statusa diplome
+- NARIC: EU mreža za priznavanje
+- Make-it-in-Germany: vodič po sektorima
+- Bez priznavanja: možeš raditi u neregulisanim zanimanjima
+- Regulisana zanimanja (Arzt, Ingenieur, Lehrer): obavezno priznavati
+
+WEITERBILDUNG (Usavršavanje):
+- IHK i HWK: tečajevi i certifikati
+- VHS (Volkshochschule): jeftini tečajevi (jezik, IT, kuhanje...)
+- Bildungsgutschein: Jobcenter finansira kurseve ako si na ALG
+- Aufstiegs-BAföG: za majstore i tehničare — državna potpora
+
+DEUTSCH LERNEN:
+- Integrationskurs: 700 sati + 100 sati Orientierungskurs — besplatno ili 1€/sat za radnike
+- BAMF kurskovi: prijaviti se u BAMF ili kod ovlaštenih pružatelja
+- BalkanLink Deutsch: kurs A1–C2 integrisan u platformu
+- Link: 👉 [BalkanLink Deutsch](/deutsch-trainer)
+
+═══ ZAŠTITA POTROŠAČA & PRAVA ═══
+
+WIDERRUFSRECHT (Pravo odustajanja):
+- Online kupovina: 14 dana bez obrazloženja
+- Fizička prodavnica: nema zakonskog prava (dobra volja firme)
+- Izuzeci: personalizirani proizvodi, digitalni sadržaj odmah isporučen
+
+GEWÄHRLEISTUNG & GARANTIE:
+- Gewährleistung (zakonska): 2 god., prodavač odgovoran za greške
+- Garantie (dobrovoljna): extra, prodavač određuje uvjete
+- Razlika: Garantie možeš potraživati izravno od proizvođača
+
+VERBRAUCHERZENTRALE:
+- Nezavisno savjetovalište za potrošače
+- Savjetovanje: besplatno ili ~15€/sat
+- Pomažu s reklamacijama, prevarama, ugovorima
+- verbraucherzentrale.de
+
+INKASSO & DUGOVI:
+- Mahnbescheid: sudski nalog za plaćanje — odgovori u roku 2 tjedna ili gubi
+- Inkassobüro: provjeri valjanost potraživanja — često šalju bez osnove
+- Schuldenberatung: besplatno savjetovanje o dugovima — Caritas, Diakonie, AWO
+
+BETRUG & SCAM (Prevare):
+- Phishing email od "Sparkasse/Amazon/DHL": nikad ne klikaj link
+- Gewinnspiele po telefonu: uvijek prevara
+- Vorschussbetrug: "pošalji 100€ da dobiješ 10.000€" — scam
+- Polizei prijava: polizei.de online ili lokalna Polizeiwache
+
 ═══ ZABRANJENE TEME ═══
 - Azilni postupak → "Za ovo kontaktiraj pravnog savjetnika ili Caritas"
 - Rad na crno → "Ovo nije tema o kojoj mogu razgovarati"
