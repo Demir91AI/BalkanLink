@@ -48,7 +48,7 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
   const [results, setResults] = useState<boolean[]>([]);
   const [answered, setAnswered] = useState(false);
   const { progress, addXp, completeLesson } = useTrainerProgress();
-  const { toggle, activeId, playState } = useTTS();
+  const { toggle, activeId, playState, rate, setRate, RATE_OPTIONS } = useTTS();
   const { isPremium } = usePremiumAccess();
   const { generate, loading: aiLoading } = useGeneratedExercises();
 
