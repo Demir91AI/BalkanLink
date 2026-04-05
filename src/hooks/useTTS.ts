@@ -70,11 +70,10 @@ export function useTTS() {
     if (!hasTTS) return;
     speechSynthesis.cancel();
 
-    const processed = preprocessGerman(text);
-    const utterance = new SpeechSynthesisUtterance(processed);
+    const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = "de-DE";
     utterance.rate = 1.0;
-    utterance.pitch = 0.92;
+    utterance.pitch = 0.95;
     utterance.volume = 1;
 
     const voice = cachedVoice.current ?? getBestGermanVoice();
@@ -91,12 +90,22 @@ export function useTTS() {
       setActiveId(null);
       setPlayState("idle");
     };
-    utterance.onerror = () => {
+    utterance.onerror = (e) => {
+      // Ignore 'interrupted' errors (normal when switching)
+      if (e.error === "interrupted") return;
       setActiveId(null);
       setPlayState("idle");
     };
 
-    speechSynthesis.speak(utterance);
+    // Android Chrome fix: needs small delay after cancel()
+    const isAndroid = /android/i.test(navigator.userAgent);
+    if (isAndroid) {
+      setTimeout(() => {
+        try { speechSynthesis.speak(utterance); } catch {}
+      }, 120);
+    } else {
+      speechSynthesis.speak(utterance);
+    }
   }, [hasTTS]);
 
   const toggle = useCallback(
