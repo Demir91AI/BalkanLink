@@ -25,6 +25,7 @@ export const formCatalog: FormGroup[] = [
     id: "dolazak",
     icon: "🏠",
     title: "Dolazak i prijava",
+    titleKey: "catalog.dolazak",
     items: [
       { slug: "anmeldung", label: "Anmeldung / Ummeldung", desc: "Prijava ili promjena adrese stanovanja u Njemačkoj." },
       { slug: "steuer-id", label: "Steuer-ID", desc: "Poreski identifikacijski broj koji ti treba za posao i prijavu." },

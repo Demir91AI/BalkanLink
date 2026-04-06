@@ -5,6 +5,7 @@ import i18n from "@/i18n";
 export const setGlobalLanguage = (lang: string) => {
   i18n.changeLanguage(lang);
   localStorage.setItem("app_language", lang);
+  localStorage.setItem("balkanlink-lang", lang);
 };
 
 const ALL_NS = [
