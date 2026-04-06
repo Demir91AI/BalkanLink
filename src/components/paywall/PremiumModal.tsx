@@ -1,0 +1,142 @@
+import { useState } from "react";
+import { Lock, Crown, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useAuth } from "@/contexts/AuthContext";
+import { initiateCheckout, STRIPE_PRICE_IDS } from "@/lib/stripe";
+import AuthModal from "@/components/auth/AuthModal";
+import { useNavigate } from "react-router-dom";
+
+type Trigger = "formular" | "guide" | "ai" | "kurs" | "viza";
+
+const TRIGGER_TEXT: Record<Trigger, { title: string; subtitle: string }> = {
+  formular: {
+    title: "Otključaj sve formulare uz Premium",
+    subtitle: "Pristup svim Musterformularima, korak-po-korak vodičima i AI asistentu.",
+  },
+  guide: {
+    title: "Nastavi korak po korak uz Premium",
+    subtitle: "Kompletni vodiči sa detaljnim uputstvima za svaki korak.",
+  },
+  ai: {
+    title: "Neograničen pristup AI Asistentu",
+    subtitle: "Premium korisnici imaju neograničenu AI pomoć i Dokumenten-Check.",
+  },
+  kurs: {
+    title: "Nastavi učiti uz Premium",
+    subtitle: "Otključaj sve lekcije i modula Deutsch kursa.",
+  },
+  viza: {
+    title: "Detaljni Viza Navigator uz Premium",
+    subtitle: "Kompletni vodič sa svim dokumentima, koracima i rokovima.",
+  },
+};
+
+interface PremiumModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  trigger: Trigger;
+  /** If trigger is "formular", pass formularId for single purchase */
+  formularId?: string;
+}
+
+export default function PremiumModal({ isOpen, onClose, trigger, formularId }: PremiumModalProps) {
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  const [authOpen, setAuthOpen] = useState(false);
+  const content = TRIGGER_TEXT[trigger];
+
+  if (!isOpen) return null;
+
+  const handlePremium = () => {
+    if (!user) {
+      setAuthOpen(true);
+      return;
+    }
+    initiateCheckout(STRIPE_PRICE_IDS.PREMIUM_MONTHLY, user.id);
+  };
+
+  const handleSingle = () => {
+    if (!user) {
+      setAuthOpen(true);
+      return;
+    }
+    initiateCheckout(STRIPE_PRICE_IDS.SINGLE_FORMULAR, user.id);
+  };
+
+  const handlePricing = () => {
+    onClose();
+    navigate("/paketi");
+  };
+
+  return (
+    <>
+      <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+        <div className="relative w-full max-w-md rounded-2xl border border-border bg-background p-6 shadow-2xl">
+          {/* Close button */}
+          <button
+            onClick={onClose}
+            className="absolute right-3 top-3 rounded-lg p-1 text-muted-foreground hover:bg-muted transition-colors"
+          >
+            <X className="h-4 w-4" />
+          </button>
+
+          {/* Icon */}
+          <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[hsl(var(--gold))]/10 ring-1 ring-[hsl(var(--gold))]/20">
+            <Lock className="h-6 w-6 text-[hsl(var(--gold))]" />
+          </div>
+
+          {/* Text */}
+          <h3 className="mb-1 text-center text-base font-bold">{content.title}</h3>
+          <p className="mb-6 text-center text-sm text-muted-foreground">{content.subtitle}</p>
+
+          {/* CTAs */}
+          <div className="flex flex-col gap-3">
+            {/* Premium CTA */}
+            <Button
+              onClick={handlePremium}
+              className="h-12 w-full rounded-xl bg-[hsl(var(--gold))] text-sm font-bold text-white shadow-lg hover:bg-[hsl(var(--gold-light))]"
+            >
+              <Crown className="mr-2 h-4 w-4" />
+              Otključaj Premium — 9.99€/mjes.
+            </Button>
+
+            {/* Single formular CTA (only for formular trigger) */}
+            {trigger === "formular" && formularId && (
+              <div className="text-center">
+                <Button
+                  onClick={handleSingle}
+                  variant="outline"
+                  className="h-10 w-full rounded-xl text-sm"
+                >
+                  Otključaj ovaj formular — 3.99€
+                </Button>
+                <p className="mt-1 text-[10px] text-muted-foreground">
+                  Jednokratni pristup, zauvijek
+                </p>
+              </div>
+            )}
+
+            {/* View pricing */}
+            <button
+              onClick={handlePricing}
+              className="text-xs text-muted-foreground underline hover:text-foreground transition-colors"
+            >
+              Pogledaj sve planove i cijene
+            </button>
+
+            {/* Login CTA */}
+            {!user && (
+              <button
+                onClick={() => setAuthOpen(true)}
+                className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Već imam Premium — Prijavi se
+              </button>
+            )}
+          </div>
+        </div>
+      </div>
+      <AuthModal open={authOpen} onClose={() => setAuthOpen(false)} />
+    </>
+  );
+}
