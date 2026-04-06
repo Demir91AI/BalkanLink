@@ -453,7 +453,7 @@ export default function CommunityMapa() {
             <div className="flex gap-3">
               <Button
                 onClick={handleAddMember}
-                disabled={!city.trim() || ((contactType === "email" || contactType === "phone") && (!contactConsent || !contactValue.trim()))}
+                disabled={!city.trim() || (contactType === "phone" && (!contactConsent || !contactValue.trim()))}
                 className="flex-1 font-bold"
                 style={{ background: '#C9A84C', color: 'white' }}
               >
