@@ -4,9 +4,11 @@ import PageNavBar from "@/components/navigation/PageNavBar";
 import { COUNTRY_CONTENT } from "@/data/vizaNavigatorContent";
 import { VisaContentRenderer } from "@/components/visaNavigator/VisaContentRenderer";
 import VisaRightPanel from "@/components/visaNavigator/VisaRightPanel";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Viza() {
   const navigate = useNavigate();
+  const { t } = useLanguage();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const selectedCountry = searchParams.get("country") || null;
@@ -48,8 +50,8 @@ export default function Viza() {
 
         {/* Title */}
         <div className="mb-4">
-          <h1 className="text-[28px] font-bold text-[#2D2D2D]">Viza Navigator</h1>
-          <p className="text-[16px] text-[#6B6B6B] mt-1">Sve o vizama, boravišnim dozvolama i stalnom boravku — po državama</p>
+          <h1 className="text-[28px] font-bold text-[#2D2D2D]">{t("visaNavigator.title")}</h1>
+          <p className="text-[16px] text-[#6B6B6B] mt-1">{t("visaNavigator.subtitle")}</p>
         </div>
 
         {/* Breadcrumb */}
@@ -57,7 +59,7 @@ export default function Viza() {
           <button onClick={handleClearAll}
             className="text-[13px] transition-colors hover:underline"
             style={{ color: selectedCountry ? '#9CA3AF' : '#2D2D2D', fontWeight: selectedCountry ? 400 : 500 }}>
-            Viza Navigator
+            {t("visaNavigator.title")}
           </button>
           {selectedCountry && country && (
             <>
@@ -85,7 +87,7 @@ export default function Viza() {
           <div className="hidden md:block w-[220px] flex-shrink-0">
             <div className="sticky top-6">
               <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-3" style={{ color: GOLD }}>
-                EU države
+                {t("visaNavigator.sidebar_eu")}
               </p>
               <div className="flex flex-col gap-1 mb-5">
                 {euCountries.map(c => {
@@ -109,7 +111,7 @@ export default function Viza() {
               </div>
 
               <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-3" style={{ color: GOLD }}>
-                Zapadni Balkan
+                {t("visaNavigator.sidebar_balkan")}
               </p>
               <div className="flex flex-col gap-1">
                 {nonEuCountries.map(c => {
@@ -137,7 +139,7 @@ export default function Viza() {
                 <>
                   <div className="h-px my-4" style={{ background: '#F0EAD8' }} />
                   <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-3" style={{ color: GOLD }}>
-                    Putevi dolaska i boravka
+                    {t("visaNavigator.sidebar_routes")}
                   </p>
                   <div className="flex flex-col gap-1">
                     {country.routes.map(r => {

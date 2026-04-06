@@ -34,5 +34,18 @@
   "stage_anwendung": "Primjena",
   "stage_realitaet": "Realnost",
   "typical_mistakes": "Tipične greške",
-  "generating_tasks": "Zadaci se generišu…"
+  "generating_tasks": "Zadaci se generišu…",
+  "hero_stats_lessons": "Lekcija",
+  "hero_stats_exercises": "Vježbi",
+  "hero_stats_content": "Sadržaja",
+  "stats_streak": "Niz",
+  "stats_level_max": "Level (maks {{max}})",
+  "level_display": "Lvl {{level}}",
+  "level_max_reached": "Maks",
+  "paywall_title": "Otključaj dodatne lekcije",
+  "paywall_desc": "Otključaj sve sadržaje i uči njemački za stvarne situacije.",
+  "paywall_price": "od {{price}}",
+  "paywall_price_suffix": "/ jednokratno",
+  "paywall_cta": "Otključaj odmah",
+  "paywall_dismiss": "Ne hvala"
 }
