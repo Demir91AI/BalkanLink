@@ -21,6 +21,9 @@ interface MapMember {
   displayName: string;
   note: string;
   phone: string;
+  facebook: string;
+  instagram: string;
+  tiktok: string;
   createdAt: string;
 }
 
@@ -38,6 +41,9 @@ function loadMembers(): MapMember[] {
       displayName: m.displayName,
       note: m.note || "",
       phone: m.phone || m.contactValue || "",
+      facebook: m.facebook || "",
+      instagram: m.instagram || "",
+      tiktok: m.tiktok || "",
       createdAt: m.createdAt,
     }));
   } catch { return []; }
@@ -76,6 +82,9 @@ export default function CommunityMapa() {
   const [displayName, setDisplayName] = useState("");
   const [note, setNote] = useState("");
   const [phone, setPhone] = useState("");
+  const [facebook, setFacebook] = useState("");
+  const [instagram, setInstagram] = useState("");
+  const [tiktok, setTiktok] = useState("");
   const [selfId, setSelfId] = useState(() => localStorage.getItem(LS_SELF_KEY) || "");
   const [showSuggestions, setShowSuggestions] = useState(false);
 
@@ -117,6 +126,9 @@ export default function CommunityMapa() {
       displayName: displayName.trim() || `Korisnik iz ${city.trim()}`,
       note: note.trim().slice(0, 100),
       phone: phone.trim(),
+      facebook: facebook.trim(),
+      instagram: instagram.trim(),
+      tiktok: tiktok.trim(),
       createdAt: new Date().toISOString(),
     };
     const updated = [...members, member];
@@ -126,6 +138,7 @@ export default function CommunityMapa() {
     localStorage.setItem(LS_SELF_KEY, member.id);
     setStep("idle");
     setCity(""); setDisplayName(""); setNote(""); setPhone("");
+    setFacebook(""); setInstagram(""); setTiktok("");
     toast.success("Dodan/a si na mapu!");
   };
 
@@ -250,15 +263,47 @@ export default function CommunityMapa() {
                             <span className="h-1.5 w-1.5 rounded-full bg-[hsl(var(--gold))] shrink-0" />
                             <span className="font-medium text-[#2D2D2D] truncate">{m.displayName}</span>
                           </div>
-                          {m.phone && (
-                            <a
-                              href={`tel:${encodeURIComponent(m.phone)}`}
-                              className="inline-flex items-center gap-1 rounded-lg px-2 py-1 text-[10px] font-bold text-white transition-colors"
-                              style={{ background: '#2563EB' }}
-                            >
-                              <Phone className="h-2.5 w-2.5" /> {m.phone}
-                            </a>
-                          )}
+                          <div className="flex items-center gap-1 shrink-0 flex-wrap">
+                            {m.phone && (
+                              <a
+                                href={`tel:${encodeURIComponent(m.phone)}`}
+                                className="inline-flex items-center gap-1 rounded-lg px-2 py-1 text-[10px] font-bold text-white transition-colors"
+                                style={{ background: '#2563EB' }}
+                              >
+                                <Phone className="h-2.5 w-2.5" /> {m.phone}
+                              </a>
+                            )}
+                            {m.facebook && (
+                              <a
+                                href={`https://facebook.com/${encodeURIComponent(m.facebook)}`}
+                                target="_blank" rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 rounded-lg px-2 py-1 text-[10px] font-bold text-white transition-colors"
+                                style={{ background: '#1877F2' }}
+                              >
+                                FB
+                              </a>
+                            )}
+                            {m.instagram && (
+                              <a
+                                href={`https://instagram.com/${encodeURIComponent(m.instagram)}`}
+                                target="_blank" rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 rounded-lg px-2 py-1 text-[10px] font-bold text-white transition-colors"
+                                style={{ background: '#E4405F' }}
+                              >
+                                IG
+                              </a>
+                            )}
+                            {m.tiktok && (
+                              <a
+                                href={`https://tiktok.com/@${encodeURIComponent(m.tiktok)}`}
+                                target="_blank" rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 rounded-lg px-2 py-1 text-[10px] font-bold text-white transition-colors"
+                                style={{ background: '#000000' }}
+                              >
+                                TT
+                              </a>
+                            )}
+                          </div>
                         </div>
                         {m.note && (
                           <p className="text-[11px] text-[#9CA3AF] pl-4">{m.note}</p>
@@ -375,6 +420,25 @@ export default function CommunityMapa() {
                 className="border-[#E8D9B0]"
               />
               <p className="text-[10px] text-[#9CA3AF]">Broj će biti javno vidljiv ako ga upišeš</p>
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="text-sm font-medium text-[#2D2D2D]">Socijalne mreže (opcionalno)</label>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-bold text-[#1877F2] w-6">FB</span>
+                  <Input value={facebook} onChange={e => setFacebook(e.target.value)} placeholder="Facebook korisničko ime" className="border-[#E8D9B0]" />
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-bold text-[#E4405F] w-6">IG</span>
+                  <Input value={instagram} onChange={e => setInstagram(e.target.value)} placeholder="Instagram korisničko ime" className="border-[#E8D9B0]" />
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-bold text-[#000] w-6">TT</span>
+                  <Input value={tiktok} onChange={e => setTiktok(e.target.value)} placeholder="TikTok korisničko ime" className="border-[#E8D9B0]" />
+                </div>
+              </div>
+              <p className="text-[10px] text-[#9CA3AF]">Upiši samo korisničko ime, bez linkova</p>
             </div>
 
             <div className="flex gap-3">
