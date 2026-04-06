@@ -534,5 +534,19 @@
   "visa_permanent_form1_title": "Musterformular 1: Niederlassungserlaubnis §9",
   "visa_permanent_form1_sub": "Popunjen primjer za zahtjev za Niederlassungserlaubnis (AUFENTHG-009)",
   "visa_permanent_form2_title": "Musterformular 2: Daueraufenthalt-EU §9a",
-  "visa_permanent_form2_sub": "Popunjen primjer za zahtjev za Daueraufenthalt-EU (AUFENTHG-014)"
+  "visa_permanent_form2_sub": "Popunjen primjer za zahtjev za Daueraufenthalt-EU (AUFENTHG-014)",
+  "fieldTooltips": {
+    "Steuernummer": "Tvoj porezni broj koji dobijaš od Finanzamt-a. Nije isto što i Steuer-ID.",
+    "Steuer-ID": "Identifikacijski broj od 11 cifara — dobijaš ga poštom pri prvoj prijavi prebivališta.",
+    "IBAN": "Međunarodni broj bankovnog računa — 22 znaka, počinje sa DE za njemačke račune.",
+    "Steuerklasse": "Porezna klasa koja određuje koliko poreza se odbija od plate. Zavisi od bračnog statusa.",
+    "Kindergeldnummer": "Broj zahtjeva za dječiji doplatak — dobijaš ga od Familienkasse nakon prvog zahtjeva.",
+    "Bedarfsgemeinschaft": "Zajednica osoba u domaćinstvu koje se zajednički razmatraju za socijalnu pomoć (Bürgergeld).",
+    "Familienstand": "Bračni status: ledig (neoženjen), verheiratet (u braku), geschieden (razveden/a).",
+    "Geburtsdatum": "Datum rođenja u formatu DD.MM.GGGG (npr. 15.03.1990).",
+    "Staatsangehörigkeit": "Državljanstvo — upiši puni naziv na njemačkom (npr. Bosnien und Herzegowina).",
+    "Aufenthaltstitel": "Boravišna dozvola — tip dozvole boravka u Njemačkoj.",
+    "Arbeitgeber": "Poslodavac — ime firme kod koje radiš.",
+    "Meldebescheinigung": "Potvrda o prijavi prebivališta — dobijaš je u Rathaus/Bürgeramt nakon Anmeldung-a."
+  }
 }
