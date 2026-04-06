@@ -10,6 +10,7 @@ export interface FormGroup {
   id: string;
   icon: string; // emoji
   title: string;
+  titleKey?: string; // i18n key
   items: FormEntry[];
   /** Sub-groups within a group (e.g. Bürgergeld Anlagen) */
   subGroups?: {
