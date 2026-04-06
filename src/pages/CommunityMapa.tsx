@@ -41,6 +41,9 @@ function loadMembers(): MapMember[] {
       displayName: m.displayName,
       note: m.note || "",
       phone: m.phone || m.contactValue || "",
+      facebook: m.facebook || "",
+      instagram: m.instagram || "",
+      tiktok: m.tiktok || "",
       createdAt: m.createdAt,
     }));
   } catch { return []; }
