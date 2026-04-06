@@ -45,6 +45,13 @@ export default function Register() {
       return;
     }
     setLoading(true);
+    const valid = await verifyTurnstileToken(turnstileToken);
+    if (!valid) {
+      toast({ title: "Verifikacija nije uspjela. Pokušaj ponovo.", variant: "destructive" });
+      setTurnstileToken("");
+      setLoading(false);
+      return;
+    }
     const { error } = await supabase.auth.signUp({
       email,
       password,
