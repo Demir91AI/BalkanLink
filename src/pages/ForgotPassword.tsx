@@ -8,6 +8,8 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
 import PageNav from "@/components/navigation/PageNav";
+import TurnstileWidget from "@/components/TurnstileWidget";
+import { verifyTurnstileToken } from "@/lib/turnstile";
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState("");
