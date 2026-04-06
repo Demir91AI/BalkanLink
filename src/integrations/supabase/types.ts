@@ -83,45 +83,6 @@ export type Database = {
         }
         Relationships: []
       }
-      balkan_rides: {
-        Row: {
-          available_seats: number
-          contact_info: string
-          created_at: string
-          departure_city: string
-          destination_city: string
-          fuel_contribution: string | null
-          id: string
-          is_active: boolean
-          ride_date: string
-          user_id: string
-        }
-        Insert: {
-          available_seats?: number
-          contact_info: string
-          created_at?: string
-          departure_city: string
-          destination_city: string
-          fuel_contribution?: string | null
-          id?: string
-          is_active?: boolean
-          ride_date: string
-          user_id: string
-        }
-        Update: {
-          available_seats?: number
-          contact_info?: string
-          created_at?: string
-          departure_city?: string
-          destination_city?: string
-          fuel_contribution?: string | null
-          id?: string
-          is_active?: boolean
-          ride_date?: string
-          user_id?: string
-        }
-        Relationships: []
-      }
       chat_usage: {
         Row: {
           id: string
@@ -771,75 +732,6 @@ export type Database = {
           rating?: number
           user_id?: string | null
           username?: string
-        }
-        Relationships: []
-      }
-      rides: {
-        Row: {
-          contact_phone: string | null
-          contact_whatsapp: string | null
-          created_at: string
-          depart_at: string
-          from_city: string | null
-          from_lat: number | null
-          from_lng: number | null
-          from_text: string
-          id: string
-          notes: string | null
-          price_eur: number | null
-          price_type: string
-          seats_available: number
-          seats_total: number
-          status: string
-          to_city: string | null
-          to_lat: number | null
-          to_lng: number | null
-          to_text: string
-          user_id: string | null
-        }
-        Insert: {
-          contact_phone?: string | null
-          contact_whatsapp?: string | null
-          created_at?: string
-          depart_at: string
-          from_city?: string | null
-          from_lat?: number | null
-          from_lng?: number | null
-          from_text: string
-          id?: string
-          notes?: string | null
-          price_eur?: number | null
-          price_type?: string
-          seats_available: number
-          seats_total: number
-          status?: string
-          to_city?: string | null
-          to_lat?: number | null
-          to_lng?: number | null
-          to_text: string
-          user_id?: string | null
-        }
-        Update: {
-          contact_phone?: string | null
-          contact_whatsapp?: string | null
-          created_at?: string
-          depart_at?: string
-          from_city?: string | null
-          from_lat?: number | null
-          from_lng?: number | null
-          from_text?: string
-          id?: string
-          notes?: string | null
-          price_eur?: number | null
-          price_type?: string
-          seats_available?: number
-          seats_total?: number
-          status?: string
-          to_city?: string | null
-          to_lat?: number | null
-          to_lng?: number | null
-          to_text?: string
-          user_id?: string | null
         }
         Relationships: []
       }
