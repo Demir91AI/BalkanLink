@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { ExternalLink, CheckCircle, AlertTriangle, FileText, Clock, MapPin, Zap, Info, Printer, Euro, ChevronRight } from 'lucide-react';
+import { ExternalLink, CheckCircle, AlertTriangle, FileText, Clock, MapPin, Zap, Info, Printer, Euro, ChevronRight, Lock } from 'lucide-react';
+import { useSubscription } from '@/hooks/useSubscription';
+import PremiumModal from '@/components/paywall/PremiumModal';
 import { COUNTRY_CONTENT } from '../../data/vizaNavigatorContent';
 import { useTranslation } from '@/i18n/useTranslation';
 
