@@ -27,6 +27,15 @@ export default function Login() {
       return;
     }
     setLoading(true);
+    if (turnstileToken) {
+      const valid = await verifyTurnstileToken(turnstileToken);
+      if (!valid) {
+        toast({ title: "Verifikacija nije uspjela. Pokušaj ponovo.", variant: "destructive" });
+        setTurnstileToken("");
+        setLoading(false);
+        return;
+      }
+    }
     const { error } = await supabase.auth.signInWithPassword({ email, password });
     setLoading(false);
 
