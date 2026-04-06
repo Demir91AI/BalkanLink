@@ -1,5 +1,5 @@
-import { useState, useCallback } from "react";
-import { X, Loader2, Eye, EyeOff } from "lucide-react";
+import { useState, useCallback, useMemo } from "react";
+import { X, Loader2, Eye, EyeOff, Check } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -59,11 +59,19 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
     }
   };
 
+  const pwRules = useMemo(() => [
+    { label: "Minimum 8 znakova", pass: password.length >= 8 },
+    { label: "Jedno veliko slovo (A-Z)", pass: /[A-Z]/.test(password) },
+    { label: "Jedan broj (0-9)", pass: /[0-9]/.test(password) },
+    { label: "Jedan poseban znak (!@#$%...)", pass: /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?`~]/.test(password) },
+  ], [password]);
+  const allPwRulesPass = pwRules.every(r => r.pass);
+
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
     if (!email || !password) { setError(t("header.auth.registerError")); return; }
-    if (password.length < 6) { setError(t("header.auth.passwordTooShort")); return; }
+    if (!allPwRulesPass) { setError("Lozinka ne ispunjava sigurnosne zahtjeve."); return; }
     if (password !== confirmPassword) { setError(t("header.auth.passwordMismatch")); return; }
     setLoading(true);
     const { error: err } = await supabase.auth.signUp({ email, password });
@@ -170,7 +178,24 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
                     {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                   </button>
                 </div>
-              </div>
+                </div>
+                {/* Password requirements (register only, shown when password has value) */}
+                {tab === "register" && password.length > 0 && (
+                  <div className="mt-2 space-y-1 rounded-lg border border-[#E8E0D0] bg-[#FAFAF8] p-2.5">
+                    {pwRules.map((r, i) => (
+                      <div key={i} className="flex items-center gap-2 text-[11px]">
+                        {r.pass ? (
+                          <Check className="h-3 w-3 text-green-500 shrink-0" />
+                        ) : (
+                          <span className="h-3 w-3 flex items-center justify-center shrink-0">
+                            <span className="block h-1.5 w-1.5 rounded-full bg-[#B0B0B0]" />
+                          </span>
+                        )}
+                        <span className={r.pass ? "text-green-600" : "text-[#6B6B6B]"}>{r.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
 
               {/* Confirm password (register only) */}
               {tab === "register" && (
