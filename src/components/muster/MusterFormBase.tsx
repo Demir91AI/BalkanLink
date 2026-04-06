@@ -24,7 +24,10 @@ export const S = {
 
 export const Field = ({ label, flex, width, type, value, onChange, disabled }: { label: string; flex?: number; width?: string | number; type?: string; value?: string; onChange?: (v: string) => void; disabled?: boolean }) => (
   <div style={{ flex: flex ?? 1, minWidth: width ?? 0 }}>
-    <div style={S.lbl}>{label}</div>
+    <div style={S.lbl} className="flex items-center">
+      {label}
+      <FieldTooltip label={label} />
+    </div>
     <input style={{ ...S.inp, width: width ?? "100%" }} type={type ?? "text"} value={value ?? ""} onChange={e => onChange?.(e.target.value)} disabled={disabled} />
   </div>
 );
