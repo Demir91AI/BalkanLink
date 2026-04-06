@@ -36,7 +36,7 @@ export default function Register() {
   const ruleResults = useMemo(() => PW_RULES.map(r => ({ ...r, pass: r.test(password) })), [password]);
   const allRulesPass = ruleResults.every(r => r.pass);
   const passwordsMatch = password === confirmPassword;
-  const canSubmit = allRulesPass && passwordsMatch && confirmPassword.length > 0 && acceptedTerms;
+  const canSubmit = allRulesPass && passwordsMatch && confirmPassword.length > 0 && acceptedTerms && turnstileToken.length > 0;
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
