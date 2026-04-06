@@ -1,5 +1,5 @@
 import { useState, useMemo, useCallback } from "react";
-import { MapPin, Search, Shield, X, Users, Phone, AlertTriangle, ExternalLink } from "lucide-react";
+import { MapPin, Search, Shield, X, Users, Phone, ExternalLink } from "lucide-react";
 import PageNavBar from "@/components/navigation/PageNavBar";
 import balkanSarajevo from "@/assets/balkan-sarajevo.jpg";
 import balkanBeograd from "@/assets/balkan-beograd.jpg";
@@ -20,8 +20,7 @@ interface MapMember {
   city: string;
   displayName: string;
   note: string;
-  contactType: "none" | "phone";
-  contactValue: string;
+  phone: string;
   createdAt: string;
 }
 
@@ -33,10 +32,13 @@ function loadMembers(): MapMember[] {
     const raw = localStorage.getItem(LS_KEY);
     if (!raw) return [];
     const parsed = JSON.parse(raw) as any[];
-    return parsed.map(m => ({
-      ...m,
-      contactType: m.contactType === "phone" ? "phone" : "none",
-      contactValue: m.contactType === "phone" ? m.contactValue || "" : "",
+    return parsed.map((m: any) => ({
+      id: m.id,
+      city: m.city,
+      displayName: m.displayName,
+      note: m.note || "",
+      phone: m.phone || m.contactValue || "",
+      createdAt: m.createdAt,
     }));
   } catch { return []; }
 }
@@ -73,9 +75,7 @@ export default function CommunityMapa() {
   const [city, setCity] = useState("");
   const [displayName, setDisplayName] = useState("");
   const [note, setNote] = useState("");
-  const [contactType, setContactType] = useState<"none" | "phone">("none");
-  const [contactValue, setContactValue] = useState("");
-  const [contactConsent, setContactConsent] = useState(false);
+  const [phone, setPhone] = useState("");
   const [selfId, setSelfId] = useState(() => localStorage.getItem(LS_SELF_KEY) || "");
   const [showSuggestions, setShowSuggestions] = useState(false);
 
@@ -110,15 +110,13 @@ export default function CommunityMapa() {
 
   const handleAddMember = () => {
     if (!city.trim()) return;
-    if (contactType === "phone" && !contactConsent) return;
 
     const member: MapMember = {
       id: crypto.randomUUID(),
       city: city.trim(),
       displayName: displayName.trim() || `Korisnik iz ${city.trim()}`,
       note: note.trim().slice(0, 100),
-      contactType,
-      contactValue: contactType === "none" ? "" : contactValue.trim(),
+      phone: phone.trim(),
       createdAt: new Date().toISOString(),
     };
     const updated = [...members, member];
@@ -127,8 +125,7 @@ export default function CommunityMapa() {
     setSelfId(member.id);
     localStorage.setItem(LS_SELF_KEY, member.id);
     setStep("idle");
-    setCity(""); setDisplayName(""); setNote(""); setContactValue("");
-    setContactType("none"); setContactConsent(false);
+    setCity(""); setDisplayName(""); setNote(""); setPhone("");
     toast.success("Dodan/a si na mapu!");
   };
 
@@ -253,20 +250,15 @@ export default function CommunityMapa() {
                             <span className="h-1.5 w-1.5 rounded-full bg-[hsl(var(--gold))] shrink-0" />
                             <span className="font-medium text-[#2D2D2D] truncate">{m.displayName}</span>
                           </div>
-                          <div className="flex items-center gap-1 shrink-0">
-                            {m.contactType === "phone" && m.contactValue && (
-                              <a
-                                href={`tel:${encodeURIComponent(m.contactValue)}`}
-                                className="inline-flex items-center gap-1 rounded-lg px-2 py-1 text-[10px] font-bold text-white transition-colors"
-                                style={{ background: '#2563EB' }}
-                              >
-                                <Phone className="h-2.5 w-2.5" /> Pozovi
-                              </a>
-                            )}
-                            {m.contactType === "none" && (
-                              <span className="text-[10px] text-[#9CA3AF]">Bez kontakta</span>
-                            )}
-                          </div>
+                          {m.phone && (
+                            <a
+                              href={`tel:${encodeURIComponent(m.phone)}`}
+                              className="inline-flex items-center gap-1 rounded-lg px-2 py-1 text-[10px] font-bold text-white transition-colors"
+                              style={{ background: '#2563EB' }}
+                            >
+                              <Phone className="h-2.5 w-2.5" /> {m.phone}
+                            </a>
+                          )}
                         </div>
                         {m.note && (
                           <p className="text-[11px] text-[#9CA3AF] pl-4">{m.note}</p>
@@ -374,59 +366,21 @@ export default function CommunityMapa() {
               <p className="text-[10px] text-[#9CA3AF]">{note.length}/100 — NE upisuj broj telefona ovdje</p>
             </div>
 
-            {/* Contact type selection */}
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-[#2D2D2D]">Kako te drugi mogu kontaktirati?</label>
-              <div className="grid grid-cols-2 gap-2">
-                {[
-                  { value: "none" as const, label: "🚫 Bez kontakta", desc: "Samo prisutnost na mapi" },
-                  { value: "phone" as const, label: "📞 Telefon (javno)", desc: "Broj vidljiv svima" },
-                ].map(opt => (
-                  <button
-                    key={opt.value}
-                    type="button"
-                    onClick={() => { setContactType(opt.value); setContactValue(""); setContactConsent(false); }}
-                    className="rounded-xl p-3 text-left transition-all border-2 text-sm"
-                    style={{
-                      borderColor: contactType === opt.value ? '#C9A84C' : '#F0EAD8',
-                      background: contactType === opt.value ? '#FFF8EC' : '#fff',
-                    }}
-                  >
-                    <p className="font-bold text-[#2D2D2D] text-[13px]">{opt.label}</p>
-                    <p className="text-[11px] text-[#9CA3AF] mt-0.5">{opt.desc}</p>
-                  </button>
-                ))}
-              </div>
+            <div className="space-y-1.5">
+              <label className="text-sm font-medium text-[#2D2D2D]">Telefon za kontakt (opcionalno)</label>
+              <Input
+                value={phone}
+                onChange={e => setPhone(e.target.value)}
+                placeholder="+49 123 456789"
+                className="border-[#E8D9B0]"
+              />
+              <p className="text-[10px] text-[#9CA3AF]">Broj će biti javno vidljiv ako ga upišeš</p>
             </div>
-
-            {/* Email/Phone input + extra consent */}
-            {contactType === "phone" && (
-              <div className="space-y-3 rounded-xl border border-amber-300/50 bg-amber-50 p-4">
-                <div className="flex items-start gap-2">
-                  <AlertTriangle className="h-4 w-4 shrink-0 text-amber-600 mt-0.5" />
-                  <p className="text-xs text-amber-800 leading-relaxed">
-                    Pažnja: Broj telefona bit će JAVNO vidljiv svim posjetiteljima stranice. BalkanLink ne odgovara za zloupotrebe.
-                  </p>
-                </div>
-                <Input
-                  value={contactValue}
-                  onChange={e => setContactValue(e.target.value)}
-                  placeholder="+49 123 456789"
-                  className="border-amber-300 bg-white"
-                />
-                <label className="flex items-start gap-3 cursor-pointer">
-                  <Checkbox checked={contactConsent} onCheckedChange={v => setContactConsent(v === true)} className="mt-0.5" />
-                  <span className="text-xs text-[#6B6B6B]">
-                    Razumijem da će moj broj telefona biti javno prikazan. Dajem eksplicitnu saglasnost za javno objavljivanje u skladu s Datenschutz pravilima.
-                  </span>
-                </label>
-              </div>
-            )}
 
             <div className="flex gap-3">
               <Button
                 onClick={handleAddMember}
-                disabled={!city.trim() || (contactType === "phone" && (!contactConsent || !contactValue.trim()))}
+                disabled={!city.trim()}
                 className="flex-1 font-bold"
                 style={{ background: '#C9A84C', color: 'white' }}
               >
