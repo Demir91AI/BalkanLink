@@ -62,7 +62,7 @@ export default function Viza() {
           {selectedCountry && country && (
             <>
               <span className="text-[13px] text-[#9CA3AF]">›</span>
-              <button onClick={() => setSelectedRoute(null)}
+              <button onClick={handleClearRoute}
                 className="text-[13px] transition-colors hover:underline"
                 style={{ color: selectedRoute ? '#9CA3AF' : '#2D2D2D', fontWeight: selectedRoute ? 400 : 500 }}>
                 {country.name}
