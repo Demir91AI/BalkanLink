@@ -1,6 +1,7 @@
-import { createContext, useContext, useEffect, useState, ReactNode } from "react";
+import { createContext, useContext, useEffect, useState, useCallback, ReactNode } from "react";
 import { Session, User } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
+import { checkSubscriptionStatus } from "@/lib/stripe";
 
 interface AuthContextType {
   session: Session | null;
@@ -8,7 +9,9 @@ interface AuthContextType {
   loading: boolean;
   isPremium: boolean;
   isAdmin: boolean;
+  subscriptionEnd: string | null;
   signOut: () => Promise<void>;
+  refreshSubscription: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType>({
@@ -17,7 +20,9 @@ const AuthContext = createContext<AuthContextType>({
   loading: true,
   isPremium: false,
   isAdmin: false,
+  subscriptionEnd: null,
   signOut: async () => {},
+  refreshSubscription: async () => {},
 });
 
 export function AuthProvider({ children }: { children: ReactNode }) {
@@ -25,6 +30,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
   const [isPremium, setIsPremium] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [subscriptionEnd, setSubscriptionEnd] = useState<string | null>(null);
 
   const fetchUserMeta = async (userId: string) => {
     const [profileRes, roleRes] = await Promise.all([
@@ -35,16 +41,27 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setIsAdmin(roleRes.data?.some((r) => r.role === "admin") ?? false);
   };
 
+  const refreshSubscription = useCallback(async () => {
+    try {
+      const result = await checkSubscriptionStatus();
+      setIsPremium(result.subscribed);
+      setSubscriptionEnd(result.subscription_end ?? null);
+    } catch {
+      // silently fail
+    }
+  }, []);
+
   useEffect(() => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (_event, session) => {
         setSession(session);
         if (session?.user) {
-          // Use setTimeout to avoid Supabase deadlock on auth state change
           setTimeout(() => fetchUserMeta(session.user.id), 0);
+          setTimeout(() => refreshSubscription(), 100);
         } else {
           setIsPremium(false);
           setIsAdmin(false);
+          setSubscriptionEnd(null);
         }
         setLoading(false);
       }
@@ -54,6 +71,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setSession(session);
       if (session?.user) {
         fetchUserMeta(session.user.id);
+        refreshSubscription();
       }
       setLoading(false);
     });
@@ -61,12 +79,28 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return () => subscription.unsubscribe();
   }, []);
 
+  // Auto-refresh subscription every 60 seconds
+  useEffect(() => {
+    if (!session?.user) return;
+    const interval = setInterval(refreshSubscription, 60_000);
+    return () => clearInterval(interval);
+  }, [session?.user, refreshSubscription]);
+
   const signOut = async () => {
     await supabase.auth.signOut();
   };
 
   return (
-    <AuthContext.Provider value={{ session, user: session?.user ?? null, loading, isPremium, isAdmin, signOut }}>
+    <AuthContext.Provider value={{
+      session,
+      user: session?.user ?? null,
+      loading,
+      isPremium,
+      isAdmin,
+      subscriptionEnd,
+      signOut,
+      refreshSubscription,
+    }}>
       {children}
     </AuthContext.Provider>
   );

@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { Check, X, Crown, Tag, Building2, Megaphone } from "lucide-react";
+import { Check, X, Crown, Tag, Building2, Megaphone, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
-import { initiateCheckout, STRIPE_PRICE_IDS } from "@/lib/stripe";
+import { initiateCheckout, STRIPE_PRICE_IDS, openCustomerPortal } from "@/lib/stripe";
 import { useNavigate } from "react-router-dom";
 import PageNav from "@/components/navigation/PageNav";
 
 export default function Pricing() {
   const [yearly, setYearly] = useState(false);
-  const { user } = useAuth();
+  const { user, isPremium } = useAuth();
   const navigate = useNavigate();
 
   const handleCheckout = (priceId: string) => {
@@ -29,6 +29,22 @@ export default function Pricing() {
           <p className="mt-2 text-muted-foreground">
             Bez skrivenih troškova. Otkaži u bilo kojem trenutku.
           </p>
+
+          {isPremium && (
+            <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-[hsl(var(--gold))]/10 px-4 py-2 text-sm font-medium text-[hsl(var(--gold))]">
+              <Crown className="h-4 w-4" />
+              Trenutno ste Premium korisnik
+              <Button
+                variant="ghost"
+                size="sm"
+                className="ml-2 h-7 text-xs"
+                onClick={openCustomerPortal}
+              >
+                <Settings className="mr-1 h-3 w-3" />
+                Upravljaj pretplatom
+              </Button>
+            </div>
+          )}
 
           {/* Monthly/Yearly toggle */}
           <div className="mt-6 inline-flex items-center gap-3 rounded-full border border-border bg-muted/50 p-1">
@@ -115,7 +131,7 @@ export default function Pricing() {
               }
             >
               <Crown className="mr-2 h-4 w-4" />
-              Počni Premium
+              {isPremium ? "Promijeni plan" : "Počni Premium"}
             </Button>
             <p className="mt-2 text-center text-[10px] text-muted-foreground">
               §19 UStG — bez PDV-a
