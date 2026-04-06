@@ -87,7 +87,7 @@ export default function Viza() {
           <div className="hidden md:block w-[220px] flex-shrink-0">
             <div className="sticky top-6">
               <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-3" style={{ color: GOLD }}>
-                EU države
+                {t("visaNavigator.sidebar_eu")}
               </p>
               <div className="flex flex-col gap-1 mb-5">
                 {euCountries.map(c => {
