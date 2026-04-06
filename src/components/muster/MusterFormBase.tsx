@@ -74,15 +74,19 @@ interface MusterFormBaseProps {
   pdfLabel: string;
   footerNote: string;
   lsKey: string;
+  formularId?: string;
   data: Record<string, any>;
   onSave: () => void;
   onReset: () => void;
   children: ReactNode;
 }
 
-export default function MusterFormBase({ rootId, title, subtitle, pdfUrl, pdfLabel, footerNote, lsKey, data, onSave, onReset, children }: MusterFormBaseProps) {
+export default function MusterFormBase({ rootId, title, subtitle, pdfUrl, pdfLabel, footerNote, lsKey, formularId, data, onSave, onReset, children }: MusterFormBaseProps) {
   const navigate = useNavigate();
   const [saved, setSaved] = useState(false);
+  const { hasSingleAccess, isPremium } = useSubscription();
+  const fId = formularId || lsKey;
+  const locked = !isPremium && !hasSingleAccess(fId);
 
   const handleSave = () => {
     onSave();
