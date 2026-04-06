@@ -139,7 +139,7 @@ export default function Viza() {
                 <>
                   <div className="h-px my-4" style={{ background: '#F0EAD8' }} />
                   <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-3" style={{ color: GOLD }}>
-                    Putevi dolaska i boravka
+                    {t("visaNavigator.sidebar_routes")}
                   </p>
                   <div className="flex flex-col gap-1">
                     {country.routes.map(r => {
