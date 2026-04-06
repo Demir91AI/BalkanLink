@@ -54,7 +54,7 @@ export default function Viza() {
 
         {/* Breadcrumb */}
         <div className="flex items-center gap-1.5 mb-8 overflow-x-auto whitespace-nowrap">
-          <button onClick={() => { setSelectedCountry(null); setSelectedRoute(null); }}
+          <button onClick={handleClearAll}
             className="text-[13px] transition-colors hover:underline"
             style={{ color: selectedCountry ? '#9CA3AF' : '#2D2D2D', fontWeight: selectedCountry ? 400 : 500 }}>
             Viza Navigator
