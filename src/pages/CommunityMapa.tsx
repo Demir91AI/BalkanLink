@@ -263,15 +263,47 @@ export default function CommunityMapa() {
                             <span className="h-1.5 w-1.5 rounded-full bg-[hsl(var(--gold))] shrink-0" />
                             <span className="font-medium text-[#2D2D2D] truncate">{m.displayName}</span>
                           </div>
-                          {m.phone && (
-                            <a
-                              href={`tel:${encodeURIComponent(m.phone)}`}
-                              className="inline-flex items-center gap-1 rounded-lg px-2 py-1 text-[10px] font-bold text-white transition-colors"
-                              style={{ background: '#2563EB' }}
-                            >
-                              <Phone className="h-2.5 w-2.5" /> {m.phone}
-                            </a>
-                          )}
+                          <div className="flex items-center gap-1 shrink-0 flex-wrap">
+                            {m.phone && (
+                              <a
+                                href={`tel:${encodeURIComponent(m.phone)}`}
+                                className="inline-flex items-center gap-1 rounded-lg px-2 py-1 text-[10px] font-bold text-white transition-colors"
+                                style={{ background: '#2563EB' }}
+                              >
+                                <Phone className="h-2.5 w-2.5" /> {m.phone}
+                              </a>
+                            )}
+                            {m.facebook && (
+                              <a
+                                href={`https://facebook.com/${encodeURIComponent(m.facebook)}`}
+                                target="_blank" rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 rounded-lg px-2 py-1 text-[10px] font-bold text-white transition-colors"
+                                style={{ background: '#1877F2' }}
+                              >
+                                FB
+                              </a>
+                            )}
+                            {m.instagram && (
+                              <a
+                                href={`https://instagram.com/${encodeURIComponent(m.instagram)}`}
+                                target="_blank" rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 rounded-lg px-2 py-1 text-[10px] font-bold text-white transition-colors"
+                                style={{ background: '#E4405F' }}
+                              >
+                                IG
+                              </a>
+                            )}
+                            {m.tiktok && (
+                              <a
+                                href={`https://tiktok.com/@${encodeURIComponent(m.tiktok)}`}
+                                target="_blank" rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 rounded-lg px-2 py-1 text-[10px] font-bold text-white transition-colors"
+                                style={{ background: '#000000' }}
+                              >
+                                TT
+                              </a>
+                            )}
+                          </div>
                         </div>
                         {m.note && (
                           <p className="text-[11px] text-[#9CA3AF] pl-4">{m.note}</p>
