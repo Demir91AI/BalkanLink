@@ -75,9 +75,7 @@ export default function CommunityMapa() {
   const [city, setCity] = useState("");
   const [displayName, setDisplayName] = useState("");
   const [note, setNote] = useState("");
-  const [contactType, setContactType] = useState<"none" | "phone">("none");
-  const [contactValue, setContactValue] = useState("");
-  const [contactConsent, setContactConsent] = useState(false);
+  const [phone, setPhone] = useState("");
   const [selfId, setSelfId] = useState(() => localStorage.getItem(LS_SELF_KEY) || "");
   const [showSuggestions, setShowSuggestions] = useState(false);
 
