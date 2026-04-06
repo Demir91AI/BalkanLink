@@ -167,7 +167,14 @@
       "whatToWrite": "Šta upisati?",
       "whenToLeaveEmpty": "Kada ostaviti prazno?",
       "whereToFind": "Gdje pronaći?"
-    }
+    },
+    "practiceTitle": "Vježbaj na Musterformularu",
+    "practiceSubtitle": "Popuni kao original — pa znaš tačno šta ide gdje",
+    "practiceButton": "📋 Otvori Musterformular →",
+    "showOnPdf": "Prikaži na PDF-u",
+    "mappingInProgress": "Mapiranje u toku",
+    "mappingHint": "PDF highlight će biti dostupan uskoro.",
+    "switchToPdfTab": "Prebaci se na \"PDF Smart Click\" tab za interaktivni prikaz."
   },
   "sg": {
     "clickFieldHint": "Klikni na polje za objašnjenje.",

@@ -33,7 +33,18 @@
     "shareSuccess": "Link kopiran!",
     "taxClass": "Porezna klasa",
     "taxClassTip": "Izaberi poreznu klasu.",
-    "yearly": "Godišnje"
+    "yearly": "Godišnje",
+    "steuerklasse1": "Slobodan/a",
+    "steuerklasse2": "Samohrani roditelj",
+    "steuerklasse3": "Bračni par (veća plata)",
+    "steuerklasse4": "Bračni par (jednake plate)",
+    "steuerklasse5": "Bračni par (manja plata)",
+    "steuerklasse6": "Drugi posao",
+    "showDetails": "Prikaži detalje",
+    "sectionTax": "Porezi",
+    "sectionContrib": "Doprinosi",
+    "sectionEmployer": "Troškovi poslodavca",
+    "employerTotal": "Ukupni trošak za poslodavca"
   },
   "tools": {
     "bruttoNetto": "Bruto-Neto kalkulator",
