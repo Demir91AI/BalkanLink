@@ -126,23 +126,7 @@ function GuideContent({ slug }: { slug: string }) {
 
   const musterSlug = MUSTER_MAP[slug];
 
-  const MusterButton = musterSlug ? (
-    <div className="mt-8 rounded-2xl p-6 text-center"
-      style={{ background: 'linear-gradient(135deg, #1e293b, #0f1f3d)', border: '1px solid rgba(201,168,76,0.2)' }}>
-      <div className="text-3xl mb-2">📋</div>
-      <h3 className="text-white font-bold text-base mb-1">{t("formulare.guide.practiceTitle")}</h3>
-      <p className="text-white/50 text-xs mb-4">
-        {t("formulare.guide.practiceSubtitle")}
-      </p>
-      <button
-        onClick={() => navigate(`/musterformular/${musterSlug}`)}
-        className="w-full rounded-xl py-3 text-sm font-bold text-white mb-2 transition-all hover:opacity-90"
-        style={{ background: 'linear-gradient(135deg, #2563eb, #1d4ed8)' }}
-      >
-        {t("formulare.guide.practiceButton")}
-      </button>
-    </div>
-  ) : null;
+  const MusterButton = null;
 
   /* Custom pages */
   if (slug === "kindergeld") return <><KindergeldGuideContent />{MusterButton}</>;
