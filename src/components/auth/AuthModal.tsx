@@ -178,7 +178,24 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
                     {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                   </button>
                 </div>
-              </div>
+                </div>
+                {/* Password requirements (register only, shown when password has value) */}
+                {tab === "register" && password.length > 0 && (
+                  <div className="mt-2 space-y-1 rounded-lg border border-[#E8E0D0] bg-[#FAFAF8] p-2.5">
+                    {pwRules.map((r, i) => (
+                      <div key={i} className="flex items-center gap-2 text-[11px]">
+                        {r.pass ? (
+                          <Check className="h-3 w-3 text-green-500 shrink-0" />
+                        ) : (
+                          <span className="h-3 w-3 flex items-center justify-center shrink-0">
+                            <span className="block h-1.5 w-1.5 rounded-full bg-[#B0B0B0]" />
+                          </span>
+                        )}
+                        <span className={r.pass ? "text-green-600" : "text-[#6B6B6B]"}>{r.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
 
               {/* Confirm password (register only) */}
               {tab === "register" && (
