@@ -232,7 +232,7 @@ export default function Viza() {
                   <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-card/80 backdrop-blur-sm z-10">
                     <Lock className="h-7 w-7 text-primary" />
                     <p className="text-sm font-semibold text-foreground text-center px-4">
-                      Detalji boravišnih dozvola su dostupni Premium korisnicima
+                      {t("paywall.stepLocked")}
                     </p>
                     <button
                       onClick={() => setShowPremiumModal(true)}
