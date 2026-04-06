@@ -24,6 +24,11 @@ export function useTranslation(ns?: string | string[]) {
     const direct = typeof raw === 'string' ? raw : String(raw);
     if (typeof raw === 'string' && isValid(direct, key)) return direct;
 
+    // Dev warning for missing keys
+    if (import.meta.env.DEV) {
+      console.warn(`[i18n] Missing translation: "${key}" for language: "${instance.language}"`);
+    }
+
     // Search all namespaces for the key (skip object results)
     for (const namespace of ALL_NS) {
       const nsKey = `${namespace}:${key}`;
