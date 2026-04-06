@@ -50,7 +50,7 @@ import Generatoren from "./pages/Generatoren";
 import Wohnungen from "./pages/Wohnungen";
 import Stellenangebote from "./pages/Stellenangebote";
 import Premium from "./pages/Premium";
-import GuideDetail from "./pages/GuideDetail";
+
 import DokumentenCheck from "./pages/DokumentenCheck";
 import AdminForms from "./pages/AdminForms";
 import AdminFormMapper from "./pages/AdminFormMapper";
