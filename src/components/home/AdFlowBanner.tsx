@@ -1,5 +1,6 @@
 import { Megaphone, Mail, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useInfiniteScroll } from "@/hooks/useInfiniteScroll";
 import flowPlaceholder from "@/assets/flow-ad-placeholder.png";
 import realcoreLogo from "@/assets/realcore-digital.png";
 
@@ -83,6 +84,7 @@ function PlaceholderCard({ title, subtitle }: { title: string; subtitle: string 
 
 export function AdFlowBanner() {
   const { t } = useLanguage();
+  const { ref, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.7, 3500);
 
   const ITEMS_PER_SET = 1 + PLACEHOLDER_VARIATIONS.length;
   const totalItems = ITEMS_PER_SET * 2;
@@ -108,8 +110,18 @@ export function AdFlowBanner() {
         <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 bg-gradient-to-r from-[hsl(215,55%,5%)] to-transparent" />
         <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 bg-gradient-to-l from-[hsl(215,55%,7%)] to-transparent" />
 
-        <div className="overflow-hidden w-full">
-          <div className="flex w-fit gap-4 px-4 animate-flow-scroll hover:[animation-play-state:paused] active:[animation-play-state:paused]">
+        <div
+          ref={ref}
+          className="overflow-hidden w-full cursor-grab select-none"
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+          onMouseDown={onMouseDown}
+          onMouseMove={onMouseMove}
+          onMouseUp={onMouseUp}
+          onMouseLeave={onMouseLeave}
+        >
+          <div className="flex w-fit gap-4 px-4">
             {Array.from({ length: totalItems }).map((_, i) => {
               const posInSet = i % ITEMS_PER_SET;
               if (posInSet === 0) return <RealCoreCard key={i} />;
