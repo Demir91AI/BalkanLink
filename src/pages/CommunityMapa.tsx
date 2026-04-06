@@ -250,20 +250,15 @@ export default function CommunityMapa() {
                             <span className="h-1.5 w-1.5 rounded-full bg-[hsl(var(--gold))] shrink-0" />
                             <span className="font-medium text-[#2D2D2D] truncate">{m.displayName}</span>
                           </div>
-                          <div className="flex items-center gap-1 shrink-0">
-                            {m.contactType === "phone" && m.contactValue && (
-                              <a
-                                href={`tel:${encodeURIComponent(m.contactValue)}`}
-                                className="inline-flex items-center gap-1 rounded-lg px-2 py-1 text-[10px] font-bold text-white transition-colors"
-                                style={{ background: '#2563EB' }}
-                              >
-                                <Phone className="h-2.5 w-2.5" /> Pozovi
-                              </a>
-                            )}
-                            {m.contactType === "none" && (
-                              <span className="text-[10px] text-[#9CA3AF]">Bez kontakta</span>
-                            )}
-                          </div>
+                          {m.phone && (
+                            <a
+                              href={`tel:${encodeURIComponent(m.phone)}`}
+                              className="inline-flex items-center gap-1 rounded-lg px-2 py-1 text-[10px] font-bold text-white transition-colors"
+                              style={{ background: '#2563EB' }}
+                            >
+                              <Phone className="h-2.5 w-2.5" /> {m.phone}
+                            </a>
+                          )}
                         </div>
                         {m.note && (
                           <p className="text-[11px] text-[#9CA3AF] pl-4">{m.note}</p>
