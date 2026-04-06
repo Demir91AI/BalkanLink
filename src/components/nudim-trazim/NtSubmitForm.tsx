@@ -31,6 +31,7 @@ export default function NtSubmitForm({ onClose, onProClick }: Props) {
     contact_value: "",
     agreed: false,
   });
+  const [turnstileToken, setTurnstileToken] = useState("");
 
   const set = (key: string, value: string | boolean) =>
     setForm((prev) => ({ ...prev, [key]: value }));
