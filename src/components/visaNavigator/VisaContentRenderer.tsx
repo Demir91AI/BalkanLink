@@ -57,6 +57,17 @@ const InlineFormPlaceholder = ({ title, onClose }: { title: string; onClose: () 
 export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selectedRoute, onSelectRoute, onBack }) => {
   const [openFormKey, setOpenFormKey] = useState<string | null>(null);
   const [LoadedForm, setLoadedForm] = useState<React.FC | null>(null);
+  const openFormRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (openFormKey && openFormRef.current) {
+      const t = setTimeout(() => {
+        openFormRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 150);
+      return () => clearTimeout(t);
+    }
+  }, [openFormKey, LoadedForm]);
+  const [LoadedForm, setLoadedForm] = useState<React.FC | null>(null);
 
   const handleOpenForm = async (formKey: string) => {
     if (openFormKey === formKey) {
