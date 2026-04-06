@@ -7,13 +7,30 @@ import VisaRightPanel from "@/components/visaNavigator/VisaRightPanel";
 
 export default function Viza() {
   const navigate = useNavigate();
-  const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
-  const [selectedRoute, setSelectedRoute] = useState<string | null>(null);
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const handleSelectCountry = (code: string) => {
-    setSelectedCountry(code);
-    setSelectedRoute(null);
-  };
+  const selectedCountry = searchParams.get("country") || null;
+  const selectedRoute = searchParams.get("route") || null;
+
+  const handleSelectCountry = useCallback((code: string) => {
+    setSearchParams({ country: code }, { replace: false });
+  }, [setSearchParams]);
+
+  const handleSelectRoute = useCallback((routeId: string) => {
+    if (selectedCountry) {
+      setSearchParams({ country: selectedCountry, route: routeId }, { replace: false });
+    }
+  }, [selectedCountry, setSearchParams]);
+
+  const handleClearAll = useCallback(() => {
+    setSearchParams({}, { replace: false });
+  }, [setSearchParams]);
+
+  const handleClearRoute = useCallback(() => {
+    if (selectedCountry) {
+      setSearchParams({ country: selectedCountry }, { replace: false });
+    }
+  }, [selectedCountry, setSearchParams]);
 
   const country = COUNTRY_CONTENT.find(c => c.code === selectedCountry);
 
