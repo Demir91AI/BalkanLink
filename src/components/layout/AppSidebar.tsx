@@ -2,16 +2,20 @@ import { useState, useRef, useCallback, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
   FileText, Shield, BookOpen, Camera, Megaphone, Map, Plane,
-  Briefcase, Building, Calculator, FileCheck, X,
+  Briefcase, Building, Calculator, FileCheck, X, LogIn, LogOut, User,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useAuth } from "@/contexts/AuthContext";
+import AuthModal from "@/components/auth/AuthModal";
 
 export function AppSidebar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [authOpen, setAuthOpen] = useState(false);
   const debounceRef = useRef(0);
   const navigate = useNavigate();
   const location = useLocation();
   const { t } = useLanguage();
+  const { user, signOut } = useAuth();
 
   const mainItems = [
     { titleKey: "sidebar.smartGuide", url: "/formulari", icon: FileText, premium: true },
@@ -51,6 +55,16 @@ export function AppSidebar() {
     navigate(url);
   }, [close, navigate]);
 
+  const handleAuthClick = () => {
+    close();
+    setAuthOpen(true);
+  };
+
+  const handleSignOut = async () => {
+    await signOut();
+    close();
+  };
+
   return (
     <>
       <div
@@ -61,7 +75,7 @@ export function AppSidebar() {
       />
 
       <aside
-        className="fixed left-0 top-0 z-[999] h-screen bg-white shadow-2xl overflow-y-auto transition-transform duration-300 ease-in-out"
+        className="fixed left-0 top-0 z-[999] h-screen bg-white shadow-2xl overflow-y-auto transition-transform duration-300 ease-in-out flex flex-col"
         style={{
           width: "300px",
           minWidth: "280px",
@@ -129,7 +143,36 @@ export function AppSidebar() {
             })}
           </nav>
         </div>
+
+        {/* Auth section at bottom */}
+        <div className="mt-auto px-3 pb-6 border-t border-[#E8E0D0] pt-4">
+          {user ? (
+            <div className="flex flex-col gap-2 px-3">
+              <div className="flex items-center gap-2 text-[#2D2D2D]">
+                <User className="h-4 w-4 shrink-0 text-[#6B6B6B]" />
+                <span className="text-[13px] font-medium truncate">{user.email}</span>
+              </div>
+              <button
+                onClick={handleSignOut}
+                className="flex items-center gap-2 text-[13px] text-[#6B6B6B] hover:text-red-500 transition-colors"
+              >
+                <LogOut className="h-4 w-4 shrink-0" />
+                {t("header.logout")}
+              </button>
+            </div>
+          ) : (
+            <button
+              onClick={handleAuthClick}
+              className="flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-left text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D] transition-all duration-200"
+            >
+              <LogIn className="h-[18px] w-[18px] shrink-0" />
+              <span className="text-[14px] font-medium">{t("header.login")} / {t("header.register")}</span>
+            </button>
+          )}
+        </div>
       </aside>
+
+      <AuthModal open={authOpen} onClose={() => setAuthOpen(false)} />
     </>
   );
 }
