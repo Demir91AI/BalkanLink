@@ -120,6 +120,8 @@ export default function Register() {
               )}
             </div>
 
+            <TurnstileWidget onVerify={setTurnstileToken} onExpire={() => setTurnstileToken("")} className="flex justify-center" />
+
             {/* AGB / Datenschutz Checkbox */}
             <div className="flex items-start gap-3 rounded-xl border bg-muted/20 p-4">
               <Checkbox

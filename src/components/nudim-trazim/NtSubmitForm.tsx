@@ -152,6 +152,8 @@ export default function NtSubmitForm({ onClose, onProClick }: Props) {
             </div>
           </div>
 
+          <TurnstileWidget onVerify={setTurnstileToken} onExpire={() => setTurnstileToken("")} className="flex justify-center" />
+
           <div className="flex items-start gap-2">
             <Checkbox
               id="nt-agree"

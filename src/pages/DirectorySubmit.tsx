@@ -223,6 +223,8 @@ export default function DirectorySubmit() {
             )}
           />
 
+          <TurnstileWidget onVerify={setTurnstileToken} onExpire={() => setTurnstileToken("")} className="flex justify-center" />
+
           <Button type="submit" size="lg" className="w-full" disabled={submitting}>
             <Send className="mr-2 h-4 w-4" />
             {submitting ? t("dir.submitting") : t("dir.submit")}

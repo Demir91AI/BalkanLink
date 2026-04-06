@@ -135,6 +135,8 @@ export default function Login() {
               </label>
             </div>
 
+            <TurnstileWidget onVerify={setTurnstileToken} onExpire={() => setTurnstileToken("")} className="flex justify-center" />
+
             {/* Submit */}
             <Button
               type="submit"
