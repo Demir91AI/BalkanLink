@@ -8,6 +8,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Viza() {
   const navigate = useNavigate();
+  const { t } = useLanguage();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const selectedCountry = searchParams.get("country") || null;
