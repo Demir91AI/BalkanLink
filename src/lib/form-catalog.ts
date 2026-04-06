@@ -50,6 +50,7 @@ export const formCatalog: FormGroup[] = [
     id: "buergergeld",
     icon: "💰",
     title: "Bürgergeld",
+    titleKey: "catalog.buergergeld",
     items: [
       { slug: "hauptantrag", label: "Bürgergeld Hauptantrag (HA)", desc: "Centralni formular za podnošenje zahtjeva za Bürgergeld." },
       { slug: "weiterbewilligung", label: "Weiterbewilligungsantrag (WBA)", desc: "Produženje Bürgergelda nakon isteka odobrenja." },
