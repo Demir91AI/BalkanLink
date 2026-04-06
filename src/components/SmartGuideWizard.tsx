@@ -562,7 +562,7 @@ export default function SmartGuideWizard({ fields, pdfUrl }: Props) {
             </div>
           </div>
         )}
-      </StepLockOverlay>
+      </SmartGuideLock>
 
       {/* Navigation */}
       <div className="flex items-center justify-between">
