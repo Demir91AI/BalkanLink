@@ -190,7 +190,7 @@ export default function SmartGuide() {
               )}
             </div>
           )}
-        </StepLockOverlay>
+        </SmartGuideLock>
 
         {/* Navigation */}
         <div className="flex items-center justify-between">
