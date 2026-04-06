@@ -118,7 +118,7 @@ const App = () => (
               </Route>
               <Route element={<Layout />}>
                 <Route path="/dolazak" element={<PocniOvdje />} />
-                <Route path="/pocni-ovdje" element={<PocniOvdje />} />
+                
                 <Route path="/dolazak/prijava-prebivalista" element={<PrijavaPrebijalista />} />
                 <Route path="/dolazak/boravisna-dozvola" element={<BoravisnaDozvola />} />
                 <Route path="/dolazak/steuer-id-i-porezna-klasa" element={<SteuerIdPoreznaKlasa />} />
