@@ -11,6 +11,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { NT_CATEGORIES } from "@/lib/nudim-trazim-constants";
 import { useSectionT } from "@/hooks/useSectionT";
 import { toast } from "sonner";
+import TurnstileWidget from "@/components/TurnstileWidget";
+import { verifyTurnstileToken } from "@/lib/turnstile";
 
 interface Props {
   onClose: () => void;
