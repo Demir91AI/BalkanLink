@@ -193,7 +193,7 @@ export default function Viza() {
                   return (
                     <button
                       key={r.id}
-                      onClick={() => setSelectedRoute(r.id)}
+                      onClick={() => handleSelectRoute(r.id)}
                       className={`shrink-0 rounded-full px-3 py-1.5 text-[11px] font-medium border transition-all ${
                         active
                           ? "border-[#C9A84C] bg-[#FFF8EC] text-[#C9A84C] font-bold"
