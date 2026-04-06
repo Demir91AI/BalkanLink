@@ -1,5 +1,5 @@
 import { FileDown } from "lucide-react";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "@/i18n/useTranslation";
 
 export default function PrintFormButton() {
   const { t } = useTranslation("visaNavigator");

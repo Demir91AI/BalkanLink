@@ -1,4 +1,4 @@
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "@/i18n/useTranslation";
 import { ExternalLink } from "lucide-react";
 import type { VisaSource } from "@/data/visaNavigatorData";
 
