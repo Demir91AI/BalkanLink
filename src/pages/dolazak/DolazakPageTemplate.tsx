@@ -74,7 +74,7 @@ export default function DolazakPageTemplate({ title, subtitle, sections, links }
                         onClick={() => setShowPremiumModal(true)}
                         className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
                       >
-                        Otključaj Premium — 9.99€/mjes.
+                        {t("paywall.unlockPremium")}
                       </button>
                       <button
                         onClick={() => {}}
