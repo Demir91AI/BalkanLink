@@ -215,8 +215,8 @@ export default function Viza() {
               <VisaContentRenderer
                 selectedCountry={selectedCountry}
                 selectedRoute={selectedRoute}
-                onSelectRoute={(routeId) => setSelectedRoute(routeId)}
-                onBack={() => setSelectedRoute(null)}
+                onSelectRoute={handleSelectRoute}
+                onBack={handleClearRoute}
               />
             </div>
           </div>
