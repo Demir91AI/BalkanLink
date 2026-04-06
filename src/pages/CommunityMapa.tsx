@@ -422,6 +422,25 @@ export default function CommunityMapa() {
               <p className="text-[10px] text-[#9CA3AF]">Broj će biti javno vidljiv ako ga upišeš</p>
             </div>
 
+            <div className="space-y-1.5">
+              <label className="text-sm font-medium text-[#2D2D2D]">Socijalne mreže (opcionalno)</label>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-bold text-[#1877F2] w-6">FB</span>
+                  <Input value={facebook} onChange={e => setFacebook(e.target.value)} placeholder="Facebook korisničko ime" className="border-[#E8D9B0]" />
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-bold text-[#E4405F] w-6">IG</span>
+                  <Input value={instagram} onChange={e => setInstagram(e.target.value)} placeholder="Instagram korisničko ime" className="border-[#E8D9B0]" />
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-bold text-[#000] w-6">TT</span>
+                  <Input value={tiktok} onChange={e => setTiktok(e.target.value)} placeholder="TikTok korisničko ime" className="border-[#E8D9B0]" />
+                </div>
+              </div>
+              <p className="text-[10px] text-[#9CA3AF]">Upiši samo korisničko ime, bez linkova</p>
+            </div>
+
             <div className="flex gap-3">
               <Button
                 onClick={handleAddMember}
