@@ -202,23 +202,6 @@ export default function AnmeldungGuideContent() {
         </div>
       </div>
 
-      {/* ─── DIO 3: Vježbaj na Musterformlaru ─── */}
-      <div className="rounded-2xl border-2 border-blue-400 bg-card p-5">
-        <h3 className="font-bold text-sm flex items-center gap-2 mb-2">
-          <FileCheck className="h-4 w-4 text-blue-500" /> Vježbaj na Musterformlaru
-        </h3>
-        <p className="text-xs text-muted-foreground mb-3">
-          Interaktivni formular koji izgleda kao pravi Meldeschein — popuni polja i vidi kako izgleda pravilno popunjen obrazac.
-        </p>
-        <Button
-          size="sm"
-          className="font-bold"
-          style={{ backgroundColor: "#3B82F6", color: "#fff" }}
-          onClick={() => window.location.href = "/formulari/anmeldung/muster"}
-        >
-          📋 Otvori Musterformular →
-        </Button>
-      </div>
 
       {/* ─── DIO 4: Link na original ─── */}
       <div className="rounded-lg p-4 text-center" style={{ backgroundColor: "#1F2937" }}>
