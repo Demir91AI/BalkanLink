@@ -3,7 +3,7 @@
  * Set to `true` for admin preview (all content unlocked).
  * Set to `false` before public deploy (real premium logic applies).
  */
-export const IS_ADMIN_PREVIEW = true;
+export const IS_ADMIN_PREVIEW = false;
 
 /**
  * Correct pricing constants for the entire platform.
