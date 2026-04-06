@@ -114,7 +114,7 @@ export default function DolazakPageTemplate({ title, subtitle, sections, links }
               ))}
             </div>
             <p className="mt-3 text-[11px] text-muted-foreground/70">
-              Svi podaci dolaze iz službenih državnih izvora.
+              {t("common.officialDisclaimer")}
             </p>
           </div>
         </section>
