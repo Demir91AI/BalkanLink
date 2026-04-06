@@ -336,7 +336,7 @@ export default function FormCenter() {
                   >
                     <CollapsibleTrigger className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-xs font-bold uppercase tracking-wide hover:text-foreground transition-colors" style={{ color: '#C9A84C' }}>
                       <span>{group.icon}</span>
-                      <span className="flex-1 text-left">{group.title}</span>
+                      <span className="flex-1 text-left">{group.titleKey ? t(group.titleKey) : group.title}</span>
                       <ChevronDown
                         className={cn(
                           "h-3.5 w-3.5 transition-transform",
