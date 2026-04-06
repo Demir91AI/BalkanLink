@@ -386,6 +386,89 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           { title: 'Musterformular 2: Daueraufenthalt-EU §9a', subtitle: 'Popunjen primjer — AUFENTHG-014 za BiH', formKey: 'VisaPermanentForm2', downloadUrl: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/DauerhafterAufenthalt/dauerhafter-aufenthalt-node.html' }
         ]
       }
+,
+      {
+        id: 'ausbildung',
+        title: 'Ausbildung viza §16a AufenthG',
+        legalBasis: '§ 16a AufenthG',
+        subtitle: 'Aufenthaltserlaubnis zur Berufsausbildung — Dozvola boravka za stručno osposobljavanje (Ausbildung) u Njemačkoj.',
+        ausbildungHighlight: [
+          '✅ Možeš aplicirati direktno iz domovine',
+          '✅ Nije potrebna nostrifikacija školskih diploma za aplikaciju',
+          '✅ Firma mora prijaviti Ausbildungsvertrag kod Kammer (IHK/HWK)',
+          '✅ Bundesagentur für Arbeit daje saglasnost (automatski kroz proceduru)',
+          '✅ Nakon završetka: mogućnost ostanka 18 mjeseci za traženje posla (§20 AufenthG)',
+          '⚠️ Važno: Ausbildung ≠ Studij — ne miješati sa §16b AufenthG (Studium)'
+        ],
+        countryNotes: [
+          '💰 Taksa: 150 KM (NE 75€ — plaća se u KM, preferira se bezgotovinska uplata, Visa/Mastercard prihvataju se)',
+          '📅 Termin: Zakaži putem VisaMetric ili Auslandsportal (ovisno o kategoriji vize) — sarajewo.diplo.de',
+          '📄 Dokumenti: Original + 1 crno-bijela kopija — NE tackerisar, NE spajati spajalicama',
+          '🎓 Diplome/svjedočanstva: moraju imati Apostille + ovjereni prijevod na njemački',
+          '🗣️ Jezički certifikat: max. 1 godina star — Goethe-Institut, ÖSD, ECL, telc. ⚠️ TELC se prihvata SAMO ako je polagano VAN BiH! Sve 4 komponente ispita moraju biti položene.',
+          '🏦 Sperrkonto: ako je finansijsko pokriće kroz Sperrkonto — mora biti otvoreno PRIJE termina'
+        ],
+        countryBadge: '150 KM taksa — KM gotovina / kartica',
+        steps: [
+          'Pronađi Ausbildung mjesto — Moraš imati potpisan Ausbildungsvertrag PRIJE podnošenja zahtjeva za vizu. Koristi: bundesagentur.de, ausbildung.de, make-it-in-germany.com',
+          'Provjeri jezičke uslove — Minimalno B1 GER. Preporučeno B2 za tehničke i zdravstvene profesije. Certifikati: Goethe-Institut, telc, ÖSD, TestDaF',
+          'Pripremi dokumentaciju — Pripremi svu dokumentaciju. Ambasada Sarajevo traži original + 1 crno-bijelu kopiju. NE tackerisar!',
+          'Zakaži termin u ambasadi Sarajevo — Na sarajewo.diplo.de ili putem VisaMetric. Rokovi: 4–12 sedmica — apliciraj rano!',
+          'Podnesi zahtjev za D-vizu — Lično u ambasadi. Donesite originale i kopije svih dokumenata. Taksa: 150 KM (gotovina ili kartica).',
+          'Čekanje i odluka — Obrada traje 4–12 sedmica. D-viza važi 3–6 mjeseci za ulazak.',
+          'Dolazak u Njemačku — Obavezno uradi Anmeldung (prijava adrese) u roku 14 dana od doseljenja.',
+          'Podnošenje zahtjeva za Aufenthaltstitel — Posjeti Ausländerbehörde i podnesi zahtjev za Aufenthaltserlaubnis §16a AufenthG. Izdaje se na 1 godinu, obnavlja se godišnje. Taksa: 100–110 €.'
+        ],
+        documents: [
+          'Važeći pasoš (min. 12–18 mj. važnosti od datuma aplikacije)',
+          'Potpisan Ausbildungsvertrag (original + crno-bijela kopija)',
+          'Potvrda IHK/HWK registracije Ausbildungsvertrag (ako postoji)',
+          'Lebenslauf / CV (na njemačkom jeziku)',
+          'Diploma / svjedočanstvo (sa Apostille + ovjerenim prijevodom na njemački)',
+          'Dokaz o znanju njemačkog jezika (min. B1, max. 1 god. star — Goethe, ÖSD, ECL, telc VAN BiH)',
+          'Dokaz o smještaju u Njemačkoj (Wohnungsangebot ili Bestätigung)',
+          'Zdravstveno osiguranje (do početka Ausbildunga)',
+          'Finansijski dokaz: platna lista iz ugovora ILI Sperrkonto (otvoreno PRIJE termina!) ILI Verpflichtungserklärung',
+          'VIDEX — online viza formular (popunjen, potpisan)',
+          'Biometrijska fotografija (45x35mm, bijela pozadina)',
+          'Potpisani merkblatt ambasade',
+          'Taksa: 150 KM gotovina ili kartica'
+        ],
+        costs: [
+          'D-Viza taksa (Ambasada Sarajevo): 150 KM (ne 75€!)',
+          'Aufenthaltstitel taksa (Ausländerbehörde): 100–110 €',
+          'Obrada ambasade: 4–12 sedmica',
+          'Obrada Ausländerbehörde: 4–8 sedmica',
+          'Sperrkonto (ako treba): min. 1.091 €/mj. (Stand 2026)',
+          'D-viza važnost: 3–6 mjeseci',
+          'Aufenthaltserlaubnis: 1 god. (obnavlja se)',
+          'Jobsuche nakon Ausbildung: 18 mjeseci (§20 AufenthG)'
+        ],
+        errors: [
+          'Nema Ausbildungsvertrag → automatsko odbijanje',
+          'Jezik ispod B1 → odbijanje ili zamolba za dokaz',
+          'TELC polagano u BiH → NE prihvata se! Samo VAN BiH',
+          'Nepotpuni ili neprevedeni dokumenti',
+          'Pogrešan tip vize (§16b Studium umjesto §16a Ausbildung)',
+          'Kasno apliciranje — ambasada Sarajevo ima duge čekaonice',
+          'Nema dokaza o smještaju',
+          'Dokumenti tackerisani ili spojeni spajalicama — ODBIJANJE!',
+          'Kasno podnošenje Anmeldung po dolasku (rok 14 dana)',
+          'Početak Ausbildunga bez Aufenthaltstitel — radi samo sa D-vizom max. 90 dana'
+        ],
+        sources: [
+          { label: 'Ambasada Sarajevo — termini', url: 'https://sarajewo.diplo.de' },
+          { label: 'Make it in Germany — Berufsausbildung', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/berufsausbildung' },
+          { label: 'BAMF — §16a AufenthG', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Bildung/Berufsausbildung/berufsausbildung-node.html' },
+          { label: 'Bundesagentur für Arbeit — Ausbildung', url: 'https://www.arbeitsagentur.de/bildung/ausbildung' },
+          { label: 'Gesetze im Internet — §16a AufenthG', url: 'https://www.gesetze-im-internet.de/aufenthg_2004/__16a.html' }
+        ],
+        musterformulare: [
+          { title: 'VIDEX — Viza aplikacioni formular (Ausbildung)', subtitle: 'Isti formular za sve zemlje — popunjava se online na digital.diplo.de', formKey: 'VisaWorkForm1', downloadUrl: 'https://digital.diplo.de' },
+          { title: 'Antrag auf Aufenthaltstitel §16a AufenthG', subtitle: 'Podnosi se u Njemačkoj pri Ausländerbehörde — demo/preview', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.bamf.de' },
+          { title: 'Lebenslauf (CV) — Template za Ausbildung', subtitle: 'Editable predložak životopisa na njemačkom jeziku', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.make-it-in-germany.com' }
+        ]
+      }
     ]
   },
   {
@@ -532,6 +615,91 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           { title: 'Musterformular 2: Daueraufenthalt-EU', subtitle: 'AUFENTHG-014 primer Srbija', formKey: 'VisaPermanentForm2', downloadUrl: 'https://www.bamf.de' }
         ]
       }
+,
+      {
+        id: 'ausbildung',
+        title: 'Ausbildung viza §16a AufenthG',
+        legalBasis: '§ 16a AufenthG',
+        subtitle: 'Aufenthaltserlaubnis zur Berufsausbildung — Dozvola boravka za stručno osposobljavanje (Ausbildung) u Nemačkoj.',
+        ausbildungHighlight: [
+          '✅ Možeš aplicirati direktno iz Srbije',
+          '✅ Nije potrebna nostrifikacija školskih diploma za aplikaciju',
+          '✅ Firma mora prijaviti Ausbildungsvertrag kod Kammer (IHK/HWK)',
+          '✅ Bundesagentur für Arbeit daje saglasnost (automatski kroz proceduru)',
+          '✅ Nakon završetka: mogućnost ostanka 18 meseci za traženje posla (§20 AufenthG)',
+          '⚠️ Važno: Ausbildung ≠ Studij — ne mešati sa §16b AufenthG (Studium)'
+        ],
+        countryNotes: [
+          '💰 Taksa: 75€ — plaća se u RSD, gotovina (kurs ambasade)',
+          '📋 Formular: VIDEX (ne standardni Schengen) — online popunjava se, štampa, potpisuje rukom',
+          '📄 Dokumenti: Original + 1 kopija (A4) — NIJE tackerisati, NIJE spajati, sortirati redosledom s merkblata',
+          '📷 3 biometrične fotografije (ne 2!) — max. 6 mes. stare, prikačiti za VIDEX formular spajalicama',
+          '🎓 Diplome/svjedočanstva: Apostille + prevod od sudskog tumača priznatog u SRBIJI ili NEMAČKOJ. ⚠️ Međunarodne srpske matične isprave (rodni list, venčani list) NE trebaju Apostille — CIEC konvencija',
+          '🗣️ Jezički certifikat: Goethe, ÖSD, ECL ili telc. ⚠️ TELC prihvata se SAMO ako je polagano VAN SRBIJE',
+          '⚠️ Nepotpuni zahtevi se ODBIJAJU uz naplatu takse',
+          '🔄 Vorabzustimmung (preporučeno): Poslodavac može unapred dobiti saglasnost BA — ubrzava postupak'
+        ],
+        countryBadge: 'VIDEX + 3 foto + RSD gotovina',
+        steps: [
+          'Pronađi Ausbildung mesto — Moraš imati potpisan Ausbildungsvertrag PRE podnošenja zahteva za vizu. Koristi: bundesagentur.de, ausbildung.de, make-it-in-germany.com',
+          'Proveri jezičke uslove — Minimalno B1 GER. Preporučeno B2 za tehničke i zdravstvene profesije. Certifikati: Goethe-Institut, telc (VAN Srbije!), ÖSD, TestDaF',
+          'Pripremi dokumentaciju — Original + 1 kopija (A4), sortirani prema merkblatu ambasade. 3 biometrične fotografije!',
+          'Zakaži termin u ambasadi Beograd — Na belgrad.diplo.de. Rokovi: 4–12 nedelja — apliciraj rano!',
+          'Podnesi zahtev za D-vizu — Lično u ambasadi Beograd. Taksa: 75€ (u RSD, gotovina).',
+          'Čekanje i odluka — Obrada traje 4–12 nedelja. D-viza važi 3–6 meseci za ulazak.',
+          'Dolazak u Nemačku — Obavezno uradi Anmeldung u roku 14 dana od doseljenja.',
+          'Podnošenje zahteva za Aufenthaltstitel — Ausländerbehörde, zahtev za §16a AufenthG. Izdaje se na 1 godinu, obnavlja se. Taksa: 100–110 €.'
+        ],
+        documents: [
+          'Važeći pasoš (min. 12–18 mes. važnosti)',
+          'Potpisan Ausbildungsvertrag (original + kopija)',
+          'Potvrda IHK/HWK registracije Ausbildungsvertrag',
+          'Lebenslauf / CV (na nemačkom jeziku)',
+          'Diploma / svedočanstvo (sa Apostille + overenim prevodom na nemački — CIEC isprave bez Apostille)',
+          'Dokaz o znanju nemačkog jezika (min. B1 — Goethe, ÖSD, ECL, telc VAN Srbije)',
+          'Dokaz o smeštaju u Nemačkoj',
+          'Zdravstveno osiguranje',
+          'Finansijski dokaz: platna lista ILI Sperrkonto ILI Verpflichtungserklärung',
+          'VIDEX formular (online popunjen, odštampan, potpisan)',
+          '3 biometrijske fotografije (45x35mm, max. 6 mes. stare)',
+          'Potpisani merkblatt ambasade',
+          'Taksa: 75€ u RSD gotovinom'
+        ],
+        costs: [
+          'D-Viza taksa: 75€ (u RSD, gotovina)',
+          'Aufenthaltstitel taksa: 100–110 €',
+          'Obrada ambasade: 4–12 nedelja',
+          'Obrada Ausländerbehörde: 4–8 nedelja',
+          'Sperrkonto (ako treba): min. 1.091 €/mes. (Stand 2026)',
+          'D-viza važnost: 3–6 meseci',
+          'Aufenthaltserlaubnis: 1 god. (obnavlja se)',
+          'Jobsuche nakon Ausbildung: 18 meseci (§20 AufenthG)'
+        ],
+        errors: [
+          'Nema Ausbildungsvertrag → automatsko odbijanje',
+          'Jezik ispod B1 → odbijanje',
+          'TELC polagano u Srbiji → NE prihvata se!',
+          'Nepotpuni ili neprevedeni dokumenti — zahtev se ODBIJA uz naplatu takse!',
+          'Pogrešan tip vize (§16b Studium umjesto §16a Ausbildung)',
+          'Kasno apliciranje — ambasada Beograd ima duge čekaonice',
+          'Manje od 3 fotografije — ODBIJANJE!',
+          'Dokumenti nisu sortirani po merkblatu',
+          'Kasno podnošenje Anmeldung po dolasku (rok 14 dana)',
+          'Početak Ausbildunga bez Aufenthaltstitel'
+        ],
+        sources: [
+          { label: 'Ambasada Beograd — termini', url: 'https://belgrad.diplo.de' },
+          { label: 'Make it in Germany — Berufsausbildung', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/berufsausbildung' },
+          { label: 'BAMF — §16a AufenthG', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Bildung/Berufsausbildung/berufsausbildung-node.html' },
+          { label: 'Bundesagentur für Arbeit — Ausbildung', url: 'https://www.arbeitsagentur.de/bildung/ausbildung' },
+          { label: 'Gesetze im Internet — §16a AufenthG', url: 'https://www.gesetze-im-internet.de/aufenthg_2004/__16a.html' }
+        ],
+        musterformulare: [
+          { title: 'VIDEX — Viza aplikacioni formular (Ausbildung)', subtitle: 'Online popuniti, odštampati, potpisati — OBAVEZNO za Srbiju', formKey: 'VisaWorkForm1', downloadUrl: 'https://digital.diplo.de' },
+          { title: 'Antrag auf Aufenthaltstitel §16a AufenthG', subtitle: 'Podnosi se u Nemačkoj pri Ausländerbehörde — demo/preview', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.bamf.de' },
+          { title: 'Lebenslauf (CV) — Template za Ausbildung', subtitle: 'Editable predložak životopisa na nemačkom jeziku', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.make-it-in-germany.com' }
+        ]
+      }
     ]
   },
   {
@@ -605,6 +773,83 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           { title: 'Musterformular 2: Daueraufenthalt-EU', subtitle: 'AUFENTHG-014', formKey: 'VisaPermanentForm2', downloadUrl: 'https://www.bamf.de' }
         ]
       }
+,
+      {
+        id: 'ausbildung',
+        title: 'Ausbildung viza §16a AufenthG',
+        legalBasis: '§ 16a AufenthG',
+        subtitle: 'Aufenthaltserlaubnis zur Berufsausbildung — Dozvola boravka za stručno osposobljavanje (Ausbildung) u Njemačkoj.',
+        ausbildungHighlight: [
+          '✅ Možeš aplicirati direktno iz Crne Gore',
+          '✅ Nije potrebna nostrifikacija školskih diploma za aplikaciju',
+          '✅ Firma mora prijaviti Ausbildungsvertrag kod Kammer (IHK/HWK)',
+          '✅ Bundesagentur für Arbeit daje saglasnost (automatski kroz proceduru)',
+          '✅ Nakon završetka: mogućnost ostanka 18 mjeseci za traženje posla (§20 AufenthG)',
+          '⚠️ Važno: Ausbildung ≠ Studij — ne miješati sa §16b AufenthG (Studium)'
+        ],
+        countryNotes: [
+          '💰 Taksa: 75€',
+          '📅 Termin: podgorica.diplo.de',
+          '📄 Dokumenti: Apostille + ovjereni prijevod — Crna Gora je Haška konvencija potpisnica, Apostille se dobija pri nadležnom sudu u CG',
+          '🗣️ Jezički certifikat: max. 1 godina star, ALTE-certificirani provajderi (Goethe, ÖSD, ECL, telc)'
+        ],
+        countryBadge: '75€ — Haška konvencija Apostille',
+        steps: [
+          'Pronađi Ausbildung mjesto — Potpisan Ausbildungsvertrag PRIJE zahtjeva za vizu. Koristi: bundesagentur.de, ausbildung.de, make-it-in-germany.com',
+          'Provjeri jezičke uslove — Minimalno B1 GER. Preporučeno B2 za tehničke profesije. Certifikati: Goethe, telc, ÖSD, TestDaF (max. 1 god. star)',
+          'Pripremi dokumentaciju — Apostille pri nadležnom sudu u CG + ovjereni prijevod na njemački.',
+          'Zakaži termin u ambasadi Podgorica — podgorica.diplo.de. Rokovi: 4–12 sedmica.',
+          'Podnesi zahtjev za D-vizu — Lično u ambasadi. Taksa: 75 €.',
+          'Čekanje i odluka — 4–12 sedmica. D-viza važi 3–6 mjeseci.',
+          'Dolazak u Njemačku — Anmeldung u roku 14 dana.',
+          'Aufenthaltstitel — Ausländerbehörde, §16a AufenthG. 1 godina, obnavlja se. Taksa: 100–110 €.'
+        ],
+        documents: [
+          'Važeći pasoš (min. 12–18 mj. važnosti)',
+          'Potpisan Ausbildungsvertrag (original + kopija)',
+          'Potvrda IHK/HWK registracije',
+          'Lebenslauf / CV (na njemačkom)',
+          'Diploma / svjedočanstvo (Apostille pri sudu CG + ovjereni prijevod)',
+          'Dokaz o znanju njemačkog (min. B1, max. 1 god. star — ALTE provajderi)',
+          'Dokaz o smještaju u Njemačkoj',
+          'Zdravstveno osiguranje',
+          'Finansijski dokaz: platna lista ILI Sperrkonto ILI Verpflichtungserklärung',
+          'Viza formulari (popunjeni, potpisani)',
+          'Biometrijska fotografija (45x35mm)',
+          'Taksa: 75 €'
+        ],
+        costs: [
+          'D-Viza taksa: 75 €',
+          'Aufenthaltstitel: 100–110 €',
+          'Obrada ambasade: 4–12 sedmica',
+          'Obrada Ausländerbehörde: 4–8 sedmica',
+          'Sperrkonto (ako treba): min. 1.091 €/mj. (2026)',
+          'D-viza važnost: 3–6 mjeseci',
+          'Aufenthaltserlaubnis: 1 god. (obnavlja se)',
+          'Jobsuche: 18 mjeseci (§20 AufenthG)'
+        ],
+        errors: [
+          'Nema Ausbildungsvertrag → automatsko odbijanje',
+          'Jezik ispod B1 → odbijanje',
+          'Nepotpuni ili neprevedeni dokumenti',
+          'Pogrešan tip vize (§16b umjesto §16a)',
+          'Kasno apliciranje',
+          'Nema dokaza o smještaju',
+          'Kasno podnošenje Anmeldung (rok 14 dana)',
+          'Početak Ausbildunga bez Aufenthaltstitel'
+        ],
+        sources: [
+          { label: 'Ambasada Podgorica', url: 'https://podgorica.diplo.de' },
+          { label: 'Make it in Germany — Berufsausbildung', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/berufsausbildung' },
+          { label: 'BAMF — §16a AufenthG', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Bildung/Berufsausbildung/berufsausbildung-node.html' },
+          { label: 'Gesetze im Internet — §16a', url: 'https://www.gesetze-im-internet.de/aufenthg_2004/__16a.html' }
+        ],
+        musterformulare: [
+          { title: 'VIDEX — Viza aplikacioni formular (Ausbildung)', subtitle: 'Universal formular — popunjava se online', formKey: 'VisaWorkForm1', downloadUrl: 'https://digital.diplo.de' },
+          { title: 'Antrag auf Aufenthaltstitel §16a', subtitle: 'Demo/preview — podnosi se u Njemačkoj', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.bamf.de' },
+          { title: 'Lebenslauf (CV) — Template', subtitle: 'Predložak životopisa za Ausbildung', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.make-it-in-germany.com' }
+        ]
+      }
     ]
   },
   {
@@ -675,6 +920,83 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         musterformulare: [
           { title: 'Musterformular 1: Niederlassungserlaubnis', subtitle: 'AUFENTHG-009 пример МК', formKey: 'VisaPermanentForm1', downloadUrl: 'https://www.bamf.de' },
           { title: 'Musterformular 2: Daueraufenthalt-EU', subtitle: 'AUFENTHG-014 пример МК', formKey: 'VisaPermanentForm2', downloadUrl: 'https://www.bamf.de' }
+        ]
+      }
+,
+      {
+        id: 'ausbildung',
+        title: 'Ausbildung виза §16a AufenthG',
+        legalBasis: '§ 16a AufenthG',
+        subtitle: 'Aufenthaltserlaubnis zur Berufsausbildung — Дозвола за престој за стручно оспособување (Ausbildung) во Германија.',
+        ausbildungHighlight: [
+          '✅ Можеш да аплицираш директно од Македонија',
+          '✅ Не е потребна нострификација на школски дипломи',
+          '✅ Фирмата мора да го пријави Ausbildungsvertrag кај Kammer (IHK/HWK)',
+          '✅ Bundesagentur für Arbeit дава согласност (автоматски)',
+          '✅ По завршување: можност за останување 18 месеци за барање работа (§20 AufenthG)',
+          '⚠️ Важно: Ausbildung ≠ Студии — не мешај со §16b AufenthG (Studium)'
+        ],
+        countryNotes: [
+          '💰 Такса: 75€',
+          '📅 Термин: skopje.diplo.de',
+          '📄 Документи: Апостил + овластен превод на германски — Апостил при надлежни судови / Министерство за правда',
+          '🗣️ Јазички сертификат: ALTE-сертифицирани провајдери'
+        ],
+        countryBadge: '75€ — Апостил МК',
+        steps: [
+          'Најди Ausbildung место — Потпишан Ausbildungsvertrag ПРЕД аплицирање. Користи: bundesagentur.de, ausbildung.de, make-it-in-germany.com',
+          'Провери јазички услови — Минимално B1 GER. Препорачано B2 за технички професии. Сертификати: Goethe, telc, ÖSD, TestDaF',
+          'Подготви документација — Апостил при суд/Министерство за правда + овластен превод.',
+          'Закажи термин кај амбасадата Скопје — skopje.diplo.de. Рокови: 4–12 недели.',
+          'Поднеси барање за Д-виза — Лично. Такса: 75 €.',
+          'Чекање и одлука — 4–12 недели. Д-виза важи 3–6 месеци.',
+          'Доаѓање во Германија — Anmeldung во рок 14 дена.',
+          'Aufenthaltstitel — Ausländerbehörde, §16a AufenthG. 1 година, се обновува. Такса: 100–110 €.'
+        ],
+        documents: [
+          'Важечки пасош (мин. 12–18 мес. важност)',
+          'Потпишан Ausbildungsvertrag (оригинал + копија)',
+          'Потврда IHK/HWK регистрација',
+          'Lebenslauf / CV (на германски)',
+          'Диплома / свидетелство (Апостил + овластен превод)',
+          'Доказ за германски јазик (мин. B1 — ALTE провајдери)',
+          'Доказ за сместување во Германија',
+          'Здравствено осигурување',
+          'Финансиски доказ: плата ИЛИ Sperrkonto ИЛИ Verpflichtungserklärung',
+          'Виза формулари (пополнети, потпишани)',
+          'Биометриска фотографија (45x35mm)',
+          'Такса: 75 €'
+        ],
+        costs: [
+          'Д-Виза такса: 75 €',
+          'Aufenthaltstitel: 100–110 €',
+          'Обработка амбасада: 4–12 недели',
+          'Обработка Ausländerbehörde: 4–8 недели',
+          'Sperrkonto (ако треба): мин. 1.091 €/мес. (2026)',
+          'Д-виза важност: 3–6 месеци',
+          'Aufenthaltserlaubnis: 1 год. (се обновува)',
+          'Jobsuche: 18 месеци (§20 AufenthG)'
+        ],
+        errors: [
+          'Нема Ausbildungsvertrag → автоматско одбивање',
+          'Јазик под B1 → одбивање',
+          'Непотполни или непреведени документи',
+          'Погрешен тип виза (§16b наместо §16a)',
+          'Доцна аплицирање',
+          'Нема доказ за сместување',
+          'Доцно Anmeldung (рок 14 дена)',
+          'Почеток на Ausbildung без Aufenthaltstitel'
+        ],
+        sources: [
+          { label: 'Амбасада Скопје', url: 'https://skopje.diplo.de' },
+          { label: 'Make it in Germany — Berufsausbildung', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/berufsausbildung' },
+          { label: 'BAMF — §16a AufenthG', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Bildung/Berufsausbildung/berufsausbildung-node.html' },
+          { label: 'Gesetze im Internet — §16a', url: 'https://www.gesetze-im-internet.de/aufenthg_2004/__16a.html' }
+        ],
+        musterformulare: [
+          { title: 'VIDEX — Виза формулар (Ausbildung)', subtitle: 'Универзален формулар — пополнува се онлајн', formKey: 'VisaWorkForm1', downloadUrl: 'https://digital.diplo.de' },
+          { title: 'Antrag auf Aufenthaltstitel §16a', subtitle: 'Демо/преглед — поднесува се во Германија', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.bamf.de' },
+          { title: 'Lebenslauf (CV) — Template', subtitle: 'Предлошка за животопис за Ausbildung', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.make-it-in-germany.com' }
         ]
       }
     ]
@@ -750,6 +1072,83 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         musterformulare: [
           { title: 'Musterformular 1: Niederlassungserlaubnis', subtitle: 'AUFENTHG-009 Shqipëria', formKey: 'VisaPermanentForm1', downloadUrl: 'https://www.bamf.de' },
           { title: 'Musterformular 2: Daueraufenthalt-EU', subtitle: 'AUFENTHG-014 Shqipëria', formKey: 'VisaPermanentForm2', downloadUrl: 'https://www.bamf.de' }
+        ]
+      }
+,
+      {
+        id: 'ausbildung',
+        title: 'Viza Ausbildung §16a AufenthG',
+        legalBasis: '§ 16a AufenthG',
+        subtitle: 'Aufenthaltserlaubnis zur Berufsausbildung — Leja e qëndrimit për aftësim profesional (Ausbildung) në Gjermani.',
+        ausbildungHighlight: [
+          '✅ Mund të aplikosh drejtpërdrejt nga Shqipëria',
+          '✅ Nuk nevojitet njohja e diplomës së shkollës për aplikim',
+          '✅ Firma duhet të regjistrojë Ausbildungsvertrag tek Kammer (IHK/HWK)',
+          '✅ Bundesagentur für Arbeit jep pëlqimin (automatikisht)',
+          '✅ Pas përfundimit: mundësi qëndrimi 18 muaj për kërkim pune (§20 AufenthG)',
+          '⚠️ E rëndësishme: Ausbildung ≠ Studim — mos e ngatërro me §16b AufenthG (Studium)'
+        ],
+        countryNotes: [
+          '💰 Tarifa: 75€',
+          '📅 Termin: tirana.diplo.de',
+          '📄 Dokumente: Apostilë + përkthim i betuar — Shqipëria është nënshkruese e Konventës së Hagës',
+          '🗣️ Certifikatë gjuhësore: ALTE e certifikuar, max. 1 vit'
+        ],
+        countryBadge: '75€ — Apostilë Hagjë',
+        steps: [
+          'Gjej vend Ausbildung — Ausbildungsvertrag i nënshkruar PARA aplikimit. Përdor: bundesagentur.de, ausbildung.de, make-it-in-germany.com',
+          'Kontrollo kushtet gjuhësore — Min. B1 gjermanisht. Rekomandohet B2. Certifikata: Goethe, telc, ÖSD, TestDaF (max. 1 vit)',
+          'Përgatit dokumentacionin — Apostilë + përkthim i betuar.',
+          'Cakto termin në ambasadën Tiranë — tirana.diplo.de. Afate: 4–12 javë.',
+          'Dorëzo kërkesën për vizë D — Personalisht. Tarifa: 75 €.',
+          'Pritja dhe vendimi — 4–12 javë. Viza D vlen 3–6 muaj.',
+          'Ardhja në Gjermani — Anmeldung brenda 14 ditëve.',
+          'Aufenthaltstitel — Ausländerbehörde, §16a AufenthG. 1 vit, rinovohet. Tarifa: 100–110 €.'
+        ],
+        documents: [
+          'Pasaportë e vlefshme (min. 12–18 muaj)',
+          'Ausbildungsvertrag i nënshkruar (origjinal + kopje)',
+          'Vërtetim IHK/HWK regjistrimi',
+          'Lebenslauf / CV (në gjermanisht)',
+          'Diplomë / dëftesë (Apostilë + përkthim i betuar)',
+          'Dëshmi gjuhe gjermane (min. B1 — ALTE, max. 1 vit)',
+          'Dëshmi strehimi në Gjermani',
+          'Sigurim shëndetësor',
+          'Dëshmi financiare: pagë ILI Sperrkonto ILI Verpflichtungserklärung',
+          'Formularë vize (plotësuar, nënshkruar)',
+          'Foto biometrike (45x35mm)',
+          'Tarifa: 75 €'
+        ],
+        costs: [
+          'Vizë D: 75 €',
+          'Aufenthaltstitel: 100–110 €',
+          'Përpunimi ambasadë: 4–12 javë',
+          'Përpunimi Ausländerbehörde: 4–8 javë',
+          'Sperrkonto (nëse duhet): min. 1.091 €/muaj (2026)',
+          'Viza D vlefshmëria: 3–6 muaj',
+          'Aufenthaltserlaubnis: 1 vit (rinovohet)',
+          'Jobsuche: 18 muaj (§20 AufenthG)'
+        ],
+        errors: [
+          'Pa Ausbildungsvertrag → refuzim automatik',
+          'Gjuhë nën B1 → refuzim',
+          'Dokumente jo të plota ose pa përkthim',
+          'Tip i gabuar vize (§16b në vend të §16a)',
+          'Aplikim i vonuar',
+          'Pa dëshmi strehimi',
+          'Anmeldung e vonuar (afati 14 ditë)',
+          'Fillim Ausbildung pa Aufenthaltstitel'
+        ],
+        sources: [
+          { label: 'Ambasada Tiranë', url: 'https://tirana.diplo.de' },
+          { label: 'Make it in Germany — Berufsausbildung', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/berufsausbildung' },
+          { label: 'BAMF — §16a AufenthG', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Bildung/Berufsausbildung/berufsausbildung-node.html' },
+          { label: 'Gesetze im Internet — §16a', url: 'https://www.gesetze-im-internet.de/aufenthg_2004/__16a.html' }
+        ],
+        musterformulare: [
+          { title: 'VIDEX — Formular vize (Ausbildung)', subtitle: 'Formular universal — plotësohet online', formKey: 'VisaWorkForm1', downloadUrl: 'https://digital.diplo.de' },
+          { title: 'Antrag auf Aufenthaltstitel §16a', subtitle: 'Demo/parapamje — dorëzohet në Gjermani', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.bamf.de' },
+          { title: 'Lebenslauf (CV) — Template', subtitle: 'Shabllon CV për Ausbildung', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.make-it-in-germany.com' }
         ]
       }
     ]
@@ -880,6 +1279,87 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         musterformulare: [
           { title: 'Musterformular 1: Niederlassungserlaubnis', subtitle: 'AUFENTHG-009 Kosovo', formKey: 'VisaPermanentForm1', downloadUrl: 'https://www.bamf.de' },
           { title: 'Musterformular 2: Daueraufenthalt-EU', subtitle: 'AUFENTHG-014 Kosovo', formKey: 'VisaPermanentForm2', downloadUrl: 'https://www.bamf.de' }
+        ]
+      }
+,
+      {
+        id: 'ausbildung',
+        title: 'Ausbildung viza §16a AufenthG',
+        legalBasis: '§ 16a AufenthG',
+        subtitle: 'Aufenthaltserlaubnis zur Berufsausbildung — Dozvola boravka za stručno osposobljavanje (Ausbildung) u Njemačkoj.',
+        ausbildungHighlight: [
+          '✅ Možeš aplicirati direktno iz Kosova',
+          '✅ Nije potrebna nostrifikacija školskih diploma za aplikaciju',
+          '✅ Firma mora prijaviti Ausbildungsvertrag kod Kammer (IHK/HWK)',
+          '✅ Bundesagentur für Arbeit daje saglasnost (automatski)',
+          '✅ Nakon završetka: mogućnost ostanka 18 mjeseci za traženje posla (§20 AufenthG)',
+          '⚠️ Važno: Ausbildung ≠ Studij — ne miješati sa §16b AufenthG (Studium)'
+        ],
+        kosovoNote: 'POSEBNO ZA KOSOVO: Sve vize ISKLJUČIVO kroz Auslandsportal ili VisaMetric. Botschaft sarađuje s DHL za povrat pasoša — kupi DHL koverat na dan termina!',
+        countryNotes: [
+          '💰 Taksa: 75€',
+          '📅 Termin: Auslandsportal Auswärtiges Amt — pristina.diplo.de',
+          '📄 Dokumenti: Prijevod + Apostille za sve dokumente koji nisu na njemačkom/engleskom',
+          '📦 Dostava pasoša: Botschaft sarađuje s DHL — kupi DHL koverat na dan termina!',
+          '🔄 Vorabzustimmung (preporučeno za ubrzanje postupka)'
+        ],
+        countryBadge: 'DHL koverat — donesi na termin',
+        steps: [
+          'Pronađi Ausbildung mjesto — Potpisan Ausbildungsvertrag PRIJE zahtjeva za vizu. Koristi: bundesagentur.de, ausbildung.de, make-it-in-germany.com',
+          'Provjeri jezičke uslove — Minimalno B1 GER. Preporučeno B2. Certifikati: Goethe, telc, ÖSD, TestDaF',
+          'Pripremi dokumentaciju — Prijevod + Apostille za sve dokumente. Pripremi DHL koverat za povrat pasoša.',
+          'Zakaži termin — Auslandsportal ili VisaMetric (pristina.diplo.de). Rokovi: 4–12 sedmica.',
+          'Podnesi zahtjev za D-vizu — Lično. Donesi DHL koverat! Taksa: 75 €.',
+          'Čekanje i odluka — 4–12 sedmica. D-viza važi 3–6 mjeseci.',
+          'Dolazak u Njemačku — Anmeldung u roku 14 dana.',
+          'Aufenthaltstitel — Ausländerbehörde, §16a AufenthG. 1 godina, obnavlja se. Taksa: 100–110 €.'
+        ],
+        documents: [
+          'Biometrijski pasoš Kosovo (min. 12–18 mj. važnosti)',
+          'Potpisan Ausbildungsvertrag (original + kopija)',
+          'Potvrda IHK/HWK registracije',
+          'Lebenslauf / CV (na njemačkom)',
+          'Diploma / svjedočanstvo (Apostille + ovjereni prijevod)',
+          'Dokaz o znanju njemačkog (min. B1)',
+          'Dokaz o smještaju u Njemačkoj',
+          'Zdravstveno osiguranje',
+          'Finansijski dokaz: platna lista ILI Sperrkonto ILI Verpflichtungserklärung',
+          'Viza formulari (popunjeni, potpisani)',
+          'Biometrijska fotografija (45x35mm)',
+          'DHL koverat za povrat pasoša',
+          'Taksa: 75 €'
+        ],
+        costs: [
+          'D-Viza taksa: 75 €',
+          'DHL koverat: cca. 5–10 €',
+          'Aufenthaltstitel: 100–110 €',
+          'Obrada: 4–12 sedmica',
+          'Sperrkonto (ako treba): min. 1.091 €/mj. (2026)',
+          'D-viza važnost: 3–6 mjeseci',
+          'Aufenthaltserlaubnis: 1 god. (obnavlja se)',
+          'Jobsuche: 18 mjeseci (§20 AufenthG)'
+        ],
+        errors: [
+          'Nema Ausbildungsvertrag → automatsko odbijanje',
+          'Jezik ispod B1 → odbijanje',
+          'Nepotpuni ili neprevedeni dokumenti',
+          'Pogrešan tip vize (§16b umjesto §16a)',
+          'Bez DHL koverta — odgoda povrata pasoša!',
+          'Kasno apliciranje',
+          'Kasno Anmeldung (rok 14 dana)',
+          'Početak Ausbildunga bez Aufenthaltstitel'
+        ],
+        sources: [
+          { label: 'Ambasada Priština', url: 'https://pristina.diplo.de' },
+          { label: 'VisaMetric Kosovo', url: 'https://www.visametric.com/Kosovo/Germany/de' },
+          { label: 'Make it in Germany — Berufsausbildung', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/berufsausbildung' },
+          { label: 'BAMF — §16a AufenthG', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Bildung/Berufsausbildung/berufsausbildung-node.html' },
+          { label: 'Gesetze im Internet — §16a', url: 'https://www.gesetze-im-internet.de/aufenthg_2004/__16a.html' }
+        ],
+        musterformulare: [
+          { title: 'VIDEX — Viza formular (Ausbildung)', subtitle: 'Universal formular — online ili VisaMetric', formKey: 'VisaWorkForm1', downloadUrl: 'https://digital.diplo.de' },
+          { title: 'Antrag auf Aufenthaltstitel §16a', subtitle: 'Demo/preview — podnosi se u Njemačkoj', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.bamf.de' },
+          { title: 'Lebenslauf (CV) — Template', subtitle: 'Predložak životopisa za Ausbildung', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.make-it-in-germany.com' }
         ]
       }
     ]
