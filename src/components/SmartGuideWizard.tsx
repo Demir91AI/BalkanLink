@@ -429,9 +429,17 @@ interface Props {
 }
 
 export default function SmartGuideWizard({ fields, pdfUrl }: Props) {
-  const [step, setStep] = useState(0);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const urlStep = parseInt(searchParams.get("step") || "1", 10);
+  const step = Math.max(0, Math.min(steps.length - 1, urlStep - 1));
   const current = steps[step];
   const { canAccessStep } = usePremiumAccess();
+
+  const setStep = useCallback((i: number) => {
+    const newParams = new URLSearchParams(searchParams);
+    newParams.set("step", String(i + 1));
+    setSearchParams(newParams, { replace: false });
+  }, [searchParams, setSearchParams]);
 
   const sectionFields = fields.filter((f) => f.section === current.key);
   const hasMappedFields = sectionFields.length > 0;
