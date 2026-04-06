@@ -60,8 +60,10 @@ const InlineFormPlaceholder = ({ title, onClose, closeLabel }: { title: string; 
 export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selectedRoute, onSelectRoute, onBack }) => {
   const [openFormKey, setOpenFormKey] = useState<string | null>(null);
   const [LoadedForm, setLoadedForm] = useState<React.FC | null>(null);
+  const [premiumModalOpen, setPremiumModalOpen] = useState(false);
   const openFormRef = useRef<HTMLDivElement>(null);
   const { t } = useTranslation('visaNavigator');
+  const { isPremium } = useSubscription();
 
   useEffect(() => {
     if (openFormKey && openFormRef.current) {
