@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
-import { DEV_MODE } from "@/lib/dev-mode";
+
 
 interface SubscriptionState {
   isPremium: boolean;
