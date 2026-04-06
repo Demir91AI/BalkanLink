@@ -61,7 +61,7 @@ export function useSubscription(): SubscriptionState {
     fetchSubscription();
   }, [fetchSubscription]);
 
-  const effectivePremium = DEV_MODE || isAdmin || authPremium || subscriptionTier === "premium";
+  const effectivePremium = isAdmin || authPremium || subscriptionTier === "premium";
 
   const hasSingleAccess = useCallback(
     (formularId: string) => effectivePremium || singleFormularAccess.includes(formularId),
