@@ -112,7 +112,7 @@ export default function CommunityMapa() {
       displayName: displayName.trim() || `Korisnik iz ${city.trim()}`,
       note: note.trim().slice(0, 100),
       contactType,
-      contactValue: (contactType === "none" || contactType === "message") ? "" : contactValue.trim(),
+      contactValue: contactType === "none" ? "" : contactValue.trim(),
       createdAt: new Date().toISOString(),
     };
     const updated = [...members, member];
