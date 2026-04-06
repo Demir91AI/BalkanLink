@@ -67,7 +67,7 @@ import FirmDetail from "./pages/FirmDetail";
 import BussgeldAssistent from "./pages/BussgeldAssistent";
 import KindergeldMuster from "./pages/KindergeldMuster";
 import AnmeldungMuster from "./pages/muster/AnmeldungMuster";
-import Paketi from "./pages/Paketi";
+
 import Pricing from "./pages/Pricing";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import Kalkulatori from "./pages/Kalkulatori";
