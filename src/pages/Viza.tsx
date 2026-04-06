@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect, useCallback } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import PageNavBar from "@/components/navigation/PageNavBar";
 import { COUNTRY_CONTENT } from "@/data/vizaNavigatorContent";
 import { VisaContentRenderer } from "@/components/visaNavigator/VisaContentRenderer";
@@ -7,13 +7,30 @@ import VisaRightPanel from "@/components/visaNavigator/VisaRightPanel";
 
 export default function Viza() {
   const navigate = useNavigate();
-  const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
-  const [selectedRoute, setSelectedRoute] = useState<string | null>(null);
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const handleSelectCountry = (code: string) => {
-    setSelectedCountry(code);
-    setSelectedRoute(null);
-  };
+  const selectedCountry = searchParams.get("country") || null;
+  const selectedRoute = searchParams.get("route") || null;
+
+  const handleSelectCountry = useCallback((code: string) => {
+    setSearchParams({ country: code }, { replace: false });
+  }, [setSearchParams]);
+
+  const handleSelectRoute = useCallback((routeId: string) => {
+    if (selectedCountry) {
+      setSearchParams({ country: selectedCountry, route: routeId }, { replace: false });
+    }
+  }, [selectedCountry, setSearchParams]);
+
+  const handleClearAll = useCallback(() => {
+    setSearchParams({}, { replace: false });
+  }, [setSearchParams]);
+
+  const handleClearRoute = useCallback(() => {
+    if (selectedCountry) {
+      setSearchParams({ country: selectedCountry }, { replace: false });
+    }
+  }, [selectedCountry, setSearchParams]);
 
   const country = COUNTRY_CONTENT.find(c => c.code === selectedCountry);
 
@@ -37,7 +54,7 @@ export default function Viza() {
 
         {/* Breadcrumb */}
         <div className="flex items-center gap-1.5 mb-8 overflow-x-auto whitespace-nowrap">
-          <button onClick={() => { setSelectedCountry(null); setSelectedRoute(null); }}
+          <button onClick={handleClearAll}
             className="text-[13px] transition-colors hover:underline"
             style={{ color: selectedCountry ? '#9CA3AF' : '#2D2D2D', fontWeight: selectedCountry ? 400 : 500 }}>
             Viza Navigator
@@ -45,7 +62,7 @@ export default function Viza() {
           {selectedCountry && country && (
             <>
               <span className="text-[13px] text-[#9CA3AF]">›</span>
-              <button onClick={() => setSelectedRoute(null)}
+              <button onClick={handleClearRoute}
                 className="text-[13px] transition-colors hover:underline"
                 style={{ color: selectedRoute ? '#9CA3AF' : '#2D2D2D', fontWeight: selectedRoute ? 400 : 500 }}>
                 {country.name}
@@ -126,7 +143,7 @@ export default function Viza() {
                     {country.routes.map(r => {
                       const active = selectedRoute === r.id;
                       return (
-                        <button key={r.id} onClick={() => setSelectedRoute(r.id)}
+                        <button key={r.id} onClick={() => handleSelectRoute(r.id)}
                           className="text-left px-3 py-2 transition-all duration-150 hover:bg-[#FFF8EC]"
                           style={{
                             background: active ? '#FFF8EC' : 'transparent',
@@ -176,7 +193,7 @@ export default function Viza() {
                   return (
                     <button
                       key={r.id}
-                      onClick={() => setSelectedRoute(r.id)}
+                      onClick={() => handleSelectRoute(r.id)}
                       className={`shrink-0 rounded-full px-3 py-1.5 text-[11px] font-medium border transition-all ${
                         active
                           ? "border-[#C9A84C] bg-[#FFF8EC] text-[#C9A84C] font-bold"
@@ -198,15 +215,15 @@ export default function Viza() {
               <VisaContentRenderer
                 selectedCountry={selectedCountry}
                 selectedRoute={selectedRoute}
-                onSelectRoute={(routeId) => setSelectedRoute(routeId)}
-                onBack={() => setSelectedRoute(null)}
+                onSelectRoute={handleSelectRoute}
+                onBack={handleClearRoute}
               />
             </div>
           </div>
 
           {/* RIGHT PANEL */}
           <div className="hidden md:block">
-            <VisaRightPanel selectedCountry={selectedCountry} selectedRoute={selectedRoute} onSelectRoute={setSelectedRoute} />
+            <VisaRightPanel selectedCountry={selectedCountry} selectedRoute={selectedRoute} onSelectRoute={handleSelectRoute} />
           </div>
         </div>
       </div>
