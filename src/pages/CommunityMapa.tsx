@@ -281,24 +281,6 @@ export default function CommunityMapa() {
                             <span className="font-medium text-[#2D2D2D] truncate">{m.displayName}</span>
                           </div>
                           <div className="flex items-center gap-1 shrink-0">
-                            {m.contactType === "message" && (
-                              <button
-                                onClick={() => openMessage(m)}
-                                className="inline-flex items-center gap-1 rounded-lg px-2 py-1 text-[10px] font-bold text-white transition-colors"
-                                style={{ background: '#C9A84C' }}
-                              >
-                                <MessageSquare className="h-2.5 w-2.5" /> Poruka
-                              </button>
-                            )}
-                            {m.contactType === "email" && m.contactValue && (
-                              <a
-                                href={`mailto:${encodeURIComponent(m.contactValue)}`}
-                                className="inline-flex items-center gap-1 rounded-lg px-2 py-1 text-[10px] font-bold text-white transition-colors"
-                                style={{ background: '#059669' }}
-                              >
-                                <Mail className="h-2.5 w-2.5" /> Email
-                              </a>
-                            )}
                             {m.contactType === "phone" && m.contactValue && (
                               <a
                                 href={`tel:${encodeURIComponent(m.contactValue)}`}
