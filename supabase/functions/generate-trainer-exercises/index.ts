@@ -15,6 +15,13 @@ const EXERCISE_TYPES = [
 
 const MAX_PER_REQUEST = 15;
 
+function jsonResponse(body: unknown, status = 200): Response {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: { ...corsHeaders, "Content-Type": "application/json" },
+  });
+}
+
 function extractJsonArray(raw: string): unknown[] {
   let cleaned = raw
     .replace(/```json\s*/gi, "")
@@ -28,34 +35,26 @@ function extractJsonArray(raw: string): unknown[] {
 
   cleaned = cleaned.substring(start);
 
-  // Fix common issues before parsing
   cleaned = cleaned
     .replace(/,\s*}/g, "}")
     .replace(/,\s*]/g, "]")
-    .replace(/[\x00-\x1F\x7F]/g, (ch) => ch === "\n" || ch === "\t" ? ch : "");
+    .replace(/[\x00-\x1F\x7F]/g, (ch) => (ch === "\n" || ch === "\t" ? ch : ""));
 
-  // Try direct parse first
   try {
     const parsed = JSON.parse(cleaned);
     return Array.isArray(parsed) ? parsed : [];
   } catch {
-    // Response likely truncated - try to repair
+    // Response likely truncated - try to repair.
   }
 
-  // Attempt to repair truncated JSON by closing open structures
-  // Find the last complete object (ends with })
   const lastCompleteObj = cleaned.lastIndexOf("}");
   if (lastCompleteObj === -1) {
     throw new Error("No complete JSON object found");
   }
 
-  // Take everything up to and including the last complete }
   let repaired = cleaned.substring(0, lastCompleteObj + 1);
-
-  // Remove any trailing comma after last object
   repaired = repaired.replace(/,\s*$/, "");
 
-  // Close the array
   if (!repaired.endsWith("]")) {
     repaired += "]";
   }
@@ -64,17 +63,18 @@ function extractJsonArray(raw: string): unknown[] {
     const parsed = JSON.parse(repaired);
     return Array.isArray(parsed) ? parsed : [];
   } catch {
-    // Last resort: extract individual objects with regex
     const objects: unknown[] = [];
     const objRegex = /\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}/g;
     let match;
+
     while ((match = objRegex.exec(cleaned)) !== null) {
       try {
         objects.push(JSON.parse(match[0]));
       } catch {
-        // skip malformed object
+        // Skip malformed object.
       }
     }
+
     if (objects.length > 0) return objects;
     throw new Error("Could not extract any valid exercises from response");
   }
@@ -123,6 +123,55 @@ Regeln:
 WICHTIG: Antworte NUR mit einem JSON-Array. Kein erklarender Text, keine Kommentare, nur das Array.`;
 }
 
+function buildFallbackExercises(topic: string, stageType: string, count: number) {
+  const safeTopic = typeof topic === "string" && topic.trim() ? topic.trim() : "Alltag";
+  const safeStage = typeof stageType === "string" && stageType.trim() ? stageType.trim() : "Grundlagen";
+
+  return Array.from({ length: count }, (_, index) => {
+    const taskNumber = index + 1;
+    const baseSituation = `Thema ${safeTopic}. Aufgabe ${taskNumber}. Stufe ${safeStage}.`;
+
+    switch (index % 4) {
+      case 0:
+        return {
+          type: "multiple_choice",
+          situation: `${baseSituation} Sie sprechen in einer alltaeglichen Situation ueber ${safeTopic}.`,
+          question: "Welche Antwort passt am besten?",
+          options: ["Guten Tag.", "Bis spaeter.", "Keine Ahnung."],
+          answer: 0,
+          explanation: "Eine einfache und passende Antwort ist 'Guten Tag.'.",
+        };
+      case 1:
+        return {
+          type: "sort_sentence",
+          situation: `${baseSituation} Sie brauchen Hilfe in einer Situation zu ${safeTopic}.`,
+          question: "Ordnen Sie die Woerter zu einem Satz:",
+          options: ["Ich", "brauche", "heute", "Hilfe"],
+          answer: [0, 1, 2, 3],
+          explanation: "Der korrekte Satz ist 'Ich brauche heute Hilfe'.",
+        };
+      case 2:
+        return {
+          type: "fill_blank",
+          situation: `${baseSituation} Sie antworten kurz und klar.`,
+          question: "Ich brauche ____. ",
+          options: ["Hilfe", "Schnee", "Ferien"],
+          answer: "Hilfe",
+          explanation: "In dieser Situation passt 'Hilfe' am besten.",
+        };
+      default:
+        return {
+          type: "quick_reaction",
+          situation: `${baseSituation} Jemand stellt Ihnen eine einfache Frage.`,
+          question: "Wie reagieren Sie passend?",
+          options: ["Danke.", "Vielleicht spaeter.", "Ich weiss nicht."],
+          answer: 0,
+          explanation: "'Danke.' ist eine kurze und passende Reaktion.",
+        };
+    }
+  });
+}
+
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -132,21 +181,17 @@ serve(async (req) => {
     const { level, topic, stageType, count = 10 } = await req.json();
 
     if (!level || !topic || !stageType) {
-      return new Response(
-        JSON.stringify({ error: "level, topic, and stageType are required" }),
-        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
-    }
-
-    const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
-    if (!LOVABLE_API_KEY) {
-      return new Response(
-        JSON.stringify({ error: "LOVABLE_API_KEY is not configured" }),
-        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
+      return jsonResponse({ error: "level, topic, and stageType are required" }, 400);
     }
 
     const actualCount = Math.min(count, MAX_PER_REQUEST);
+    const fallbackExercises = buildFallbackExercises(topic, stageType, actualCount);
+
+    const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
+    if (!LOVABLE_API_KEY) {
+      console.error("LOVABLE_API_KEY missing, returning fallback exercises");
+      return jsonResponse({ exercises: fallbackExercises, fallback: true });
+    }
 
     const userPrompt = `Generiere genau ${actualCount} Uebungen zum Thema "${topic}" fuer Niveau ${level}, Stufe "${stageType}".
 Mische die Typen: multiple_choice, sort_sentence, fill_blank, quick_reaction.
@@ -164,61 +209,45 @@ Antworte NUR mit einem JSON-Array, KEIN anderer Text.`;
     for (const model of models) {
       for (let attempt = 0; attempt < 2; attempt++) {
         try {
-          response = await fetch(
-            "https://ai.gateway.lovable.dev/v1/chat/completions",
-            {
-              method: "POST",
-              headers: {
-                Authorization: `Bearer ${LOVABLE_API_KEY}`,
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                model,
-                messages: [
-                  { role: "system", content: buildSystemPrompt(level, stageType) },
-                  { role: "user", content: userPrompt },
-                ],
-              }),
-            }
-          );
+          response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${LOVABLE_API_KEY}`,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              model,
+              messages: [
+                { role: "system", content: buildSystemPrompt(level, stageType) },
+                { role: "user", content: userPrompt },
+              ],
+            }),
+          });
+
           if (response.ok) break;
+
           lastError = `${response.status} from ${model}`;
           console.error(`AI attempt failed: ${lastError}`);
-          // Consume body to avoid leak
           await response.text();
           response = null;
-          // Wait before retry
-          if (attempt === 0) await new Promise(r => setTimeout(r, 1500));
+
+          if (attempt === 0) {
+            await new Promise((resolve) => setTimeout(resolve, 1500));
+          }
         } catch (err) {
           lastError = `fetch error for ${model}: ${err}`;
           console.error(lastError);
           response = null;
         }
       }
+
       if (response?.ok) break;
     }
 
     if (!response || !response.ok) {
-      const status = response?.status;
-      if (status === 429) {
-        return new Response(
-          JSON.stringify({ error: "Rate limit exceeded. Please try again later." }),
-          { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-        );
-      }
-      if (status === 402) {
-        return new Response(
-          JSON.stringify({ error: "Payment required. Please add credits." }),
-          { status: 402, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-        );
-      }
-      console.error("All AI models failed. Last error:", lastError);
-      return new Response(
-        JSON.stringify({ error: "AI generation temporarily unavailable. Please try again." }),
-        { status: 503, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
+      console.error("All AI models failed. Returning fallback exercises. Last error:", lastError);
+      return jsonResponse({ exercises: fallbackExercises, fallback: true });
     }
-
 
     const data = await response.json();
     const content = data.choices?.[0]?.message?.content || "[]";
@@ -226,12 +255,9 @@ Antworte NUR mit einem JSON-Array, KEIN anderer Text.`;
     let exercises;
     try {
       exercises = extractJsonArray(content);
-    } catch (e) {
-      console.error("Failed to parse exercises JSON:", content.substring(0, 300));
-      return new Response(
-        JSON.stringify({ error: "Failed to parse generated exercises" }),
-        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
+    } catch {
+      console.error("Failed to parse exercises JSON. Returning fallback exercises.");
+      return jsonResponse({ exercises: fallbackExercises, fallback: true });
     }
 
     const validated = (Array.isArray(exercises) ? exercises : []).filter(
@@ -245,14 +271,17 @@ Antworte NUR mit einem JSON-Array, KEIN anderer Text.`;
         typeof ex.explanation === "string"
     );
 
-    return new Response(JSON.stringify({ exercises: validated }), {
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-    });
+    if (validated.length === 0) {
+      console.error("AI returned no valid exercises. Returning fallback exercises.");
+      return jsonResponse({ exercises: fallbackExercises, fallback: true });
+    }
+
+    return jsonResponse({ exercises: validated });
   } catch (e) {
-    console.error("generate-trainer-exercises error:", e);
-    return new Response(
-      JSON.stringify({ error: e instanceof Error ? e.message : "Unknown error" }),
-      { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-    );
+    console.error("generate-trainer-exercises error, returning fallback exercises:", e);
+    return jsonResponse({
+      exercises: buildFallbackExercises("Alltag", "Grundlagen", Math.min(10, MAX_PER_REQUEST)),
+      fallback: true,
+    });
   }
 });

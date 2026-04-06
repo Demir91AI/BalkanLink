@@ -50,7 +50,7 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
   const { progress, addXp, completeLesson } = useTrainerProgress();
   const { toggle, activeId, playState, rate, setRate, RATE_OPTIONS } = useTTS();
   const { isPremium } = useSubscription();
-  const { generate, loading: aiLoading } = useGeneratedExercises();
+  const { generate, loading: aiLoading, error: aiError } = useGeneratedExercises();
 
   const [aiExercises, setAiExercises] = useState<Exercise[]>([]);
   const [useAi, setUseAi] = useState(false);
@@ -237,6 +237,44 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
         <div className="flex flex-col items-center">
           <Loader2 className="mb-3 h-8 w-8 animate-spin text-blue-400" />
           <p className="text-sm font-medium text-white/50">{t("generating_tasks")}</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!aiLoading && total === 0) {
+    return (
+      <div
+        className="relative min-h-screen"
+        style={{ background: "linear-gradient(180deg, #0f172a 0%, #020617 100%)" }}
+      >
+        <div className="relative z-10 px-5 sm:px-10 lg:px-20 py-8">
+          <SectionHeader
+            onBack={handleBack}
+            breadcrumbs={buildBreadcrumbs()}
+            title={lesson.titleDe}
+            subtitle={stageLabels[selectedStage]}
+            icon={<span className="text-2xl">{lesson.icon}</span>}
+          />
+          <div className="mx-auto max-w-lg rounded-2xl border border-white/[0.06] bg-white/[0.03] p-6 text-center">
+            <AlertTriangle className="mx-auto mb-3 h-7 w-7 text-orange-400" />
+            <h3 className="text-base font-bold text-white">Vježbe trenutno nisu dostupne</h3>
+            <p className="mt-2 text-sm text-white/60">
+              {aiError || "Došlo je do privremenog problema pri generisanju zadataka. Pokušaj ponovo za nekoliko sekundi."}
+            </p>
+            <Button
+              onClick={() => {
+                setSelectedStage(null);
+                setStep(0);
+                setResults([]);
+                setAnswered(false);
+              }}
+              className="mt-4 h-11 rounded-xl font-bold text-white"
+              style={{ background: "linear-gradient(135deg, #3b82f6, #06b6d4)" }}
+            >
+              Nazad na faze
+            </Button>
+          </div>
         </div>
       </div>
     );
