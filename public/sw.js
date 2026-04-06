@@ -61,14 +61,14 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Network-first for HTML/navigation
+  // Network-first for HTML/navigation — add security headers
   event.respondWith(
     fetch(event.request)
       .then((resp) => {
         const clone = resp.clone();
         caches.open(CACHE_NAME).then((c) => c.put(event.request, clone));
-        return resp;
+        return addSecurityHeaders(resp);
       })
-      .catch(() => caches.match(event.request).then((r) => r || caches.match("/")))
+      .catch(() => caches.match(event.request).then((r) => r ? addSecurityHeaders(r) : caches.match("/")))
   );
 });
