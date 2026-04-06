@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "@/hooks/use-toast";
 import type { Tables } from "@/integrations/supabase/types";
-import { usePremiumAccess } from "@/hooks/usePremiumAccess";
-import { StepLockOverlay } from "@/components/PremiumPaywall";
+import { useSubscription } from "@/hooks/useSubscription";
+import SmartGuideLock from "@/components/paywall/SmartGuideLock";
 
 type FormField = Tables<"form_fields">;
 
