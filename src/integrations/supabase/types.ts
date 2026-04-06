@@ -989,7 +989,6 @@ export type Database = {
           isSetofReturn: true
         }
       }
-      unaccent: { Args: { "": string }; Returns: string }
     }
     Enums: {
       ad_contact_type: "PHONE" | "EMAIL"
