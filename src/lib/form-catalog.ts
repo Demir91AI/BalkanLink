@@ -37,6 +37,7 @@ export const formCatalog: FormGroup[] = [
     id: "porodica",
     icon: "👨‍👩‍👧",
     title: "Porodica i djeca",
+    titleKey: "catalog.porodica",
     items: [
       { slug: "kindergeld", label: "Kindergeld", desc: "Mjesečna novčana pomoć države za djecu." },
       { slug: "elterngeld", label: "Elterngeld", desc: "Naknada za roditelje nakon rođenja djeteta kao zamjena dijela prihoda." },
