@@ -35,7 +35,7 @@ export default function DeutschTrainer() {
   const [currentPage, setCurrentPage] = useState(0);
 
   const { progress } = useTrainerProgress();
-  const { isPremium } = usePremiumAccess();
+  const { isPremium } = useSubscription();
 
   const levelLessons = getLessonsForLevel(selectedLevel);
   const maxXpForLevel = MAX_LEVEL * 100;

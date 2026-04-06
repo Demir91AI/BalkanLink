@@ -27,7 +27,7 @@ export default function SmartGuide() {
   const { language } = useLanguage();
   const st = useSectionT();
   const lang = getLangKey(language);
-  const { canAccessStep, isPremium } = usePremiumAccess();
+  const { canAccessStep, isPremium } = useSubscription();
 
   const cardConfig: { key: keyof GuideStepCard; label: string; icon: React.ReactNode; color: string }[] = [
     { key: "whatToWrite", label: st("guide.card.whatToWrite"), icon: <Pencil className="h-3.5 w-3.5" />, color: "border-blue-200 bg-blue-50 dark:border-blue-900/40 dark:bg-blue-950/20" },
