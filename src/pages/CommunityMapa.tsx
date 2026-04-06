@@ -412,17 +412,6 @@ export default function CommunityMapa() {
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-sm font-medium text-[#2D2D2D]">Telefon za kontakt (opcionalno)</label>
-              <Input
-                value={phone}
-                onChange={e => setPhone(e.target.value)}
-                placeholder="+49 123 456789"
-                className="border-[#E8D9B0]"
-              />
-              <p className="text-[10px] text-[#9CA3AF]">Broj će biti javno vidljiv ako ga upišeš</p>
-            </div>
-
-            <div className="space-y-1.5">
               <label className="text-sm font-medium text-[#2D2D2D]">Socijalne mreže (opcionalno)</label>
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
