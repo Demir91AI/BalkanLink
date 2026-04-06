@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
-import { DEV_MODE } from "@/lib/dev-mode";
+
 
 interface SubscriptionState {
   isPremium: boolean;
@@ -61,7 +61,7 @@ export function useSubscription(): SubscriptionState {
     fetchSubscription();
   }, [fetchSubscription]);
 
-  const effectivePremium = DEV_MODE || isAdmin || authPremium || subscriptionTier === "premium";
+  const effectivePremium = isAdmin || authPremium || subscriptionTier === "premium";
 
   const hasSingleAccess = useCallback(
     (formularId: string) => effectivePremium || singleFormularAccess.includes(formularId),
