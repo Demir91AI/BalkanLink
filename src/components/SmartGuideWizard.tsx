@@ -433,7 +433,7 @@ export default function SmartGuideWizard({ fields, pdfUrl }: Props) {
   const urlStep = parseInt(searchParams.get("step") || "1", 10);
   const step = Math.max(0, Math.min(steps.length - 1, urlStep - 1));
   const current = steps[step];
-  const { canAccessStep } = usePremiumAccess();
+  const { canAccessStep } = useSubscription();
 
   const setStep = useCallback((i: number) => {
     const newParams = new URLSearchParams(searchParams);
