@@ -35,6 +35,7 @@ export type Database = {
           status: Database["public"]["Enums"]["ad_status"]
           title: string
           type: Database["public"]["Enums"]["ad_type"]
+          user_id: string | null
         }
         Insert: {
           activated_at?: string | null
@@ -56,6 +57,7 @@ export type Database = {
           status?: Database["public"]["Enums"]["ad_status"]
           title: string
           type: Database["public"]["Enums"]["ad_type"]
+          user_id?: string | null
         }
         Update: {
           activated_at?: string | null
@@ -77,6 +79,7 @@ export type Database = {
           status?: Database["public"]["Enums"]["ad_status"]
           title?: string
           type?: Database["public"]["Enums"]["ad_type"]
+          user_id?: string | null
         }
         Relationships: []
       }
