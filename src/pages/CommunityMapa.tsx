@@ -133,39 +133,6 @@ export default function CommunityMapa() {
     toast.success("Uklonjen/a si s mape.");
   };
 
-  const openMessage = (member: MapMember) => {
-    const today = new Date().toISOString().slice(0, 10);
-    const raw = localStorage.getItem(LS_MSG_KEY);
-    const sent: Record<string, number> = raw ? JSON.parse(raw) : {};
-    if ((sent[today] || 0) >= 3) {
-      toast.error("Možeš poslati maksimalno 3 poruke dnevno.");
-      return;
-    }
-    setMsgRecipient(member);
-    setMsgText(""); setMsgAgbChecked(false);
-    setMsgOpen(true);
-  };
-
-  const handleSendMessage = async () => {
-    if (!msgText.trim() || !msgRecipient || !msgAgbChecked) return;
-
-    const today = new Date().toISOString().slice(0, 10);
-    const raw = localStorage.getItem(LS_MSG_KEY);
-    const sent: Record<string, number> = raw ? JSON.parse(raw) : {};
-    sent[today] = (sent[today] || 0) + 1;
-    localStorage.setItem(LS_MSG_KEY, JSON.stringify(sent));
-
-    const { error } = await supabase.from("messages").insert({
-      sender_name: "Anonimno",
-      recipient_name: msgRecipient.displayName,
-      recipient_city: msgRecipient.city,
-      content: msgText.trim(),
-    });
-
-    if (error) { toast.error("Greška pri slanju."); return; }
-    toast.success("Poruka poslana!");
-    setMsgOpen(false);
-  };
 
   const isSelfOnMap = selfId && members.some(m => m.id === selfId);
 
