@@ -110,15 +110,13 @@ export default function CommunityMapa() {
 
   const handleAddMember = () => {
     if (!city.trim()) return;
-    if (contactType === "phone" && !contactConsent) return;
 
     const member: MapMember = {
       id: crypto.randomUUID(),
       city: city.trim(),
       displayName: displayName.trim() || `Korisnik iz ${city.trim()}`,
       note: note.trim().slice(0, 100),
-      contactType,
-      contactValue: contactType === "none" ? "" : contactValue.trim(),
+      phone: phone.trim(),
       createdAt: new Date().toISOString(),
     };
     const updated = [...members, member];
@@ -127,8 +125,7 @@ export default function CommunityMapa() {
     setSelfId(member.id);
     localStorage.setItem(LS_SELF_KEY, member.id);
     setStep("idle");
-    setCity(""); setDisplayName(""); setNote(""); setContactValue("");
-    setContactType("none"); setContactConsent(false);
+    setCity(""); setDisplayName(""); setNote(""); setPhone("");
     toast.success("Dodan/a si na mapu!");
   };
 
