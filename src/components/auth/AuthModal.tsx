@@ -59,11 +59,19 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
     }
   };
 
+  const pwRules = useMemo(() => [
+    { label: "Minimum 8 znakova", pass: password.length >= 8 },
+    { label: "Jedno veliko slovo (A-Z)", pass: /[A-Z]/.test(password) },
+    { label: "Jedan broj (0-9)", pass: /[0-9]/.test(password) },
+    { label: "Jedan poseban znak (!@#$%...)", pass: /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?`~]/.test(password) },
+  ], [password]);
+  const allPwRulesPass = pwRules.every(r => r.pass);
+
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
     if (!email || !password) { setError(t("header.auth.registerError")); return; }
-    if (password.length < 6) { setError(t("header.auth.passwordTooShort")); return; }
+    if (!allPwRulesPass) { setError("Lozinka ne ispunjava sigurnosne zahtjeve."); return; }
     if (password !== confirmPassword) { setError(t("header.auth.passwordMismatch")); return; }
     setLoading(true);
     const { error: err } = await supabase.auth.signUp({ email, password });
