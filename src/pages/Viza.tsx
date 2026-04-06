@@ -111,7 +111,7 @@ export default function Viza() {
               </div>
 
               <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-3" style={{ color: GOLD }}>
-                Zapadni Balkan
+                {t("visaNavigator.sidebar_balkan")}
               </p>
               <div className="flex flex-col gap-1">
                 {nonEuCountries.map(c => {
