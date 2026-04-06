@@ -1,5 +1,5 @@
-import { useState, useCallback } from "react";
-import { X, Loader2, Eye, EyeOff } from "lucide-react";
+import { useState, useCallback, useMemo } from "react";
+import { X, Loader2, Eye, EyeOff, Check } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useLanguage } from "@/contexts/LanguageContext";
 
