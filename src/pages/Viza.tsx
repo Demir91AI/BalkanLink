@@ -223,7 +223,7 @@ export default function Viza() {
 
           {/* RIGHT PANEL */}
           <div className="hidden md:block">
-            <VisaRightPanel selectedCountry={selectedCountry} selectedRoute={selectedRoute} onSelectRoute={setSelectedRoute} />
+            <VisaRightPanel selectedCountry={selectedCountry} selectedRoute={selectedRoute} onSelectRoute={handleSelectRoute} />
           </div>
         </div>
       </div>
