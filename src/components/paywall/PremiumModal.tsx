@@ -5,6 +5,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { initiateCheckout, STRIPE_PRICE_IDS } from "@/lib/stripe";
 import AuthModal from "@/components/auth/AuthModal";
 import { useNavigate } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 type Trigger = "formular" | "guide" | "ai" | "kurs" | "viza";
 
