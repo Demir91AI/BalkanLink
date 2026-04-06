@@ -32,6 +32,7 @@ export function AppSidebar() {
     { titleKey: "sidebar.housing", url: "/wohnungen", icon: Building },
     { titleKey: "sidebar.kalkulator", url: "/kalkulatori", icon: Calculator },
     { titleKey: "sidebar.templates", url: "/vorlagen", icon: FileCheck },
+    { titleKey: "sidebar.cijene", url: "/paketi", icon: Calculator },
   ];
 
   const toggle = useCallback(() => {

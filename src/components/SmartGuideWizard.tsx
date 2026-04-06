@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "@/hooks/use-toast";
 import type { Tables } from "@/integrations/supabase/types";
-import { usePremiumAccess } from "@/hooks/usePremiumAccess";
-import { StepLockOverlay } from "@/components/PremiumPaywall";
+import { useSubscription } from "@/hooks/useSubscription";
+import SmartGuideLock from "@/components/paywall/SmartGuideLock";
 
 type FormField = Tables<"form_fields">;
 
@@ -433,7 +433,7 @@ export default function SmartGuideWizard({ fields, pdfUrl }: Props) {
   const urlStep = parseInt(searchParams.get("step") || "1", 10);
   const step = Math.max(0, Math.min(steps.length - 1, urlStep - 1));
   const current = steps[step];
-  const { canAccessStep } = usePremiumAccess();
+  const { canAccessStep } = useSubscription();
 
   const setStep = useCallback((i: number) => {
     const newParams = new URLSearchParams(searchParams);
@@ -470,7 +470,7 @@ export default function SmartGuideWizard({ fields, pdfUrl }: Props) {
         ))}
       </div>
 
-      <StepLockOverlay locked={!canAccessStep(step)}>
+      <SmartGuideLock locked={!canAccessStep(step)}>
         {/* Step header */}
         <div className="rounded-2xl border bg-card p-5">
           <div className="flex items-start justify-between gap-2">
@@ -562,7 +562,7 @@ export default function SmartGuideWizard({ fields, pdfUrl }: Props) {
             </div>
           </div>
         )}
-      </StepLockOverlay>
+      </SmartGuideLock>
 
       {/* Navigation */}
       <div className="flex items-center justify-between">

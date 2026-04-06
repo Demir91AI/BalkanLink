@@ -12,7 +12,7 @@ import QuickReaction from "./QuickReaction";
 import LessonComplete from "./LessonComplete";
 import { useTrainerProgress } from "@/hooks/useTrainerProgress";
 import { useTTS } from "@/hooks/useTTS";
-import { usePremiumAccess } from "@/hooks/usePremiumAccess";
+import { useSubscription } from "@/hooks/useSubscription";
 import AudioButton from "./AudioButton";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
@@ -49,7 +49,7 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
   const [answered, setAnswered] = useState(false);
   const { progress, addXp, completeLesson } = useTrainerProgress();
   const { toggle, activeId, playState, rate, setRate, RATE_OPTIONS } = useTTS();
-  const { isPremium } = usePremiumAccess();
+  const { isPremium } = useSubscription();
   const { generate, loading: aiLoading } = useGeneratedExercises();
 
   const [aiExercises, setAiExercises] = useState<Exercise[]>([]);

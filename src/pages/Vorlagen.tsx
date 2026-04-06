@@ -5,7 +5,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { navigateBackOrHome } from "@/lib/navigation";
 import { VORLAGEN_TEMPLATES, getTemplate } from "@/lib/vorlagen-templates";
 import VorlagenGenerator from "@/components/vorlagen/VorlagenGenerator";
-import { usePremiumAccess } from "@/hooks/usePremiumAccess";
+import { useSubscription } from "@/hooks/useSubscription";
 import PremiumPaywall from "@/components/PremiumPaywall";
 
 const ICON_MAP: Record<string, React.ElementType> = {
@@ -26,7 +26,7 @@ export default function Vorlagen() {
   const navigate = useNavigate();
   const { slug } = useParams();
   const { t } = useLanguage();
-  const { canUseDocGenerator } = usePremiumAccess();
+  const { isPremium: canUseDocGenerator } = useSubscription();
 
   /* ── Individual template detail/generator view ── */
   if (slug) {

@@ -6,7 +6,7 @@ import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import { LEVELS, LEVEL_COLORS, getLessonsForLevel, FREE_LESSONS_PER_LEVEL, MAX_LEVEL, type Level, type Lesson } from "@/lib/deutsch-trainer-data";
 import { useTrainerProgress } from "@/hooks/useTrainerProgress";
-import { usePremiumAccess } from "@/hooks/usePremiumAccess";
+import { useSubscription } from "@/hooks/useSubscription";
 import TrainerLesson from "@/components/trainer/TrainerLesson";
 import { navigateBackOrHome } from "@/lib/navigation";
 
@@ -35,7 +35,7 @@ export default function DeutschTrainer() {
   const [currentPage, setCurrentPage] = useState(0);
 
   const { progress } = useTrainerProgress();
-  const { isPremium } = usePremiumAccess();
+  const { isPremium } = useSubscription();
 
   const levelLessons = getLessonsForLevel(selectedLevel);
   const maxXpForLevel = MAX_LEVEL * 100;

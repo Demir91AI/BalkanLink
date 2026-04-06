@@ -2,6 +2,8 @@ import PageNavBar from "@/components/navigation/PageNavBar";
 import { useState, useRef, useCallback, type ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 import FieldTooltip from "@/components/muster/FieldTooltip";
+import FormularLock from "@/components/paywall/FormularLock";
+import { useSubscription } from "@/hooks/useSubscription";
 
 export const S = {
   page: { minHeight: "100vh", background: "#F5F0E8", fontFamily: "Arial, sans-serif", fontSize: 11, color: "#111" } as React.CSSProperties,
@@ -72,15 +74,19 @@ interface MusterFormBaseProps {
   pdfLabel: string;
   footerNote: string;
   lsKey: string;
+  formularId?: string;
   data: Record<string, any>;
   onSave: () => void;
   onReset: () => void;
   children: ReactNode;
 }
 
-export default function MusterFormBase({ rootId, title, subtitle, pdfUrl, pdfLabel, footerNote, lsKey, data, onSave, onReset, children }: MusterFormBaseProps) {
+export default function MusterFormBase({ rootId, title, subtitle, pdfUrl, pdfLabel, footerNote, lsKey, formularId, data, onSave, onReset, children }: MusterFormBaseProps) {
   const navigate = useNavigate();
   const [saved, setSaved] = useState(false);
+  const { hasSingleAccess, isPremium } = useSubscription();
+  const fId = formularId || lsKey;
+  const locked = !isPremium && !hasSingleAccess(fId);
 
   const handleSave = () => {
     onSave();
@@ -120,7 +126,9 @@ export default function MusterFormBase({ rootId, title, subtitle, pdfUrl, pdfLab
             </div>
           </div>
 
-          {children}
+          <FormularLock locked={locked} formularId={fId}>
+            {children}
+          </FormularLock>
 
           <div style={S.footer}>
             {footerNote}

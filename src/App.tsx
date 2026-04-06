@@ -68,6 +68,7 @@ import BussgeldAssistent from "./pages/BussgeldAssistent";
 import KindergeldMuster from "./pages/KindergeldMuster";
 import AnmeldungMuster from "./pages/muster/AnmeldungMuster";
 import Paketi from "./pages/Paketi";
+import Pricing from "./pages/Pricing";
 import Kalkulatori from "./pages/Kalkulatori";
 import CommunityMapa from "./pages/CommunityMapa";
 
@@ -208,6 +209,7 @@ const App = () => (
                 <Route path="/firma/:slug" element={<FirmDetail />} />
                 <Route path="/bussgeld" element={<BussgeldAssistent />} />
                 <Route path="/paketi" element={<Paketi />} />
+                <Route path="/pricing" element={<Pricing />} />
                 <Route path="/kalkulatori" element={<Kalkulatori />} />
                 <Route path="/mapa" element={<CommunityMapa />} />
                 <Route path="/zivot-u-njemackoj" element={<ZivotUNjemackoj />} />

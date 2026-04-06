@@ -1,5 +1,5 @@
 import { useNavigate, useLocation } from "react-router-dom";
-import { FileText, Map, Sparkles, User } from "lucide-react";
+import { FileText, Map, Sparkles, User, Tag } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import AuthModal from "@/components/auth/AuthModal";
@@ -16,6 +16,7 @@ export default function MobileBottomNav() {
     { icon: FileText, label: t("homepage.mobileNav.dokumenti"), path: "/formulari" },
     { icon: Map, label: t("homepage.mobileNav.vodici"), path: "/dolazak" },
     { icon: Sparkles, label: t("homepage.mobileNav.ai"), path: "/dokumenten-check" },
+    { icon: Tag, label: "Cijene", path: "/paketi" },
     { icon: User, label: t("homepage.mobileNav.profil"), path: "__auth__" },
   ];
 

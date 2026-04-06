@@ -6,8 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { getGuideBySlug, getOfficialUrl, type GuideStepCard } from "@/lib/guide-data";
-import { usePremiumAccess } from "@/hooks/usePremiumAccess";
-import { StepLockOverlay } from "@/components/PremiumPaywall";
+import { useSubscription } from "@/hooks/useSubscription";
+import SmartGuideLock from "@/components/paywall/SmartGuideLock";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useSectionT } from "@/hooks/useSectionT";
 
@@ -27,7 +27,7 @@ export default function SmartGuide() {
   const { language } = useLanguage();
   const st = useSectionT();
   const lang = getLangKey(language);
-  const { canAccessStep, isPremium } = usePremiumAccess();
+  const { canAccessStep, isPremium } = useSubscription();
 
   const cardConfig: { key: keyof GuideStepCard; label: string; icon: React.ReactNode; color: string }[] = [
     { key: "whatToWrite", label: st("guide.card.whatToWrite"), icon: <Pencil className="h-3.5 w-3.5" />, color: "border-blue-200 bg-blue-50 dark:border-blue-900/40 dark:bg-blue-950/20" },
@@ -159,7 +159,7 @@ export default function SmartGuide() {
           ))}
         </div>
 
-        <StepLockOverlay locked={!canAccessStep(step)}>
+        <SmartGuideLock locked={!canAccessStep(step)}>
           {/* Step header */}
           <div className="rounded-2xl border bg-card p-5">
             <div className="mb-1 flex items-center gap-2">
@@ -190,7 +190,7 @@ export default function SmartGuide() {
               )}
             </div>
           )}
-        </StepLockOverlay>
+        </SmartGuideLock>
 
         {/* Navigation */}
         <div className="flex items-center justify-between">

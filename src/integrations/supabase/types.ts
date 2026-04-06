@@ -700,6 +700,9 @@ export type Database = {
           id: string
           is_premium: boolean
           last_login_at: string | null
+          single_formular_access: string[]
+          subscription_expires_at: string | null
+          subscription_tier: string
         }
         Insert: {
           created_at?: string
@@ -707,6 +710,9 @@ export type Database = {
           id: string
           is_premium?: boolean
           last_login_at?: string | null
+          single_formular_access?: string[]
+          subscription_expires_at?: string | null
+          subscription_tier?: string
         }
         Update: {
           created_at?: string
@@ -714,6 +720,9 @@ export type Database = {
           id?: string
           is_premium?: boolean
           last_login_at?: string | null
+          single_formular_access?: string[]
+          subscription_expires_at?: string | null
+          subscription_tier?: string
         }
         Relationships: []
       }
