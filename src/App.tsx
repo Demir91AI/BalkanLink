@@ -211,6 +211,7 @@ const App = () => (
                 <Route path="/bussgeld" element={<BussgeldAssistent />} />
                 <Route path="/paketi" element={<Paketi />} />
                 <Route path="/pricing" element={<Pricing />} />
+                <Route path="/payment-success" element={<PaymentSuccess />} />
                 <Route path="/kalkulatori" element={<Kalkulatori />} />
                 <Route path="/mapa" element={<CommunityMapa />} />
                 <Route path="/zivot-u-njemackoj" element={<ZivotUNjemackoj />} />
