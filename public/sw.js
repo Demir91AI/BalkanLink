@@ -1,6 +1,20 @@
 const CACHE_NAME = "bl-cache-v1";
 const STATIC_ASSETS = ["/", "/manifest.json", "/icons/icon-192x192.png", "/icons/icon-512x512.png"];
 
+const PERMISSIONS_POLICY = "camera=(), microphone=(), geolocation=(), payment=(self), usb=(), magnetometer=(), gyroscope=(), accelerometer=()";
+
+function addSecurityHeaders(response) {
+  const headers = new Headers(response.headers);
+  headers.set("Permissions-Policy", PERMISSIONS_POLICY);
+  headers.set("X-Content-Type-Options", "nosniff");
+  headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
+
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => cache.addAll(STATIC_ASSETS))
