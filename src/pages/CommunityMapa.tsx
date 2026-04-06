@@ -104,7 +104,7 @@ export default function CommunityMapa() {
 
   const handleAddMember = () => {
     if (!city.trim()) return;
-    if ((contactType === "email" || contactType === "phone") && !contactConsent) return;
+    if (contactType === "phone" && !contactConsent) return;
 
     const member: MapMember = {
       id: crypto.randomUUID(),
