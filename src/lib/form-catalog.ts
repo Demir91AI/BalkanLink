@@ -10,6 +10,7 @@ export interface FormGroup {
   id: string;
   icon: string; // emoji
   title: string;
+  titleKey?: string; // i18n key
   items: FormEntry[];
   /** Sub-groups within a group (e.g. Bürgergeld Anlagen) */
   subGroups?: {
@@ -24,6 +25,7 @@ export const formCatalog: FormGroup[] = [
     id: "dolazak",
     icon: "🏠",
     title: "Dolazak i prijava",
+    titleKey: "catalog.dolazak",
     items: [
       { slug: "anmeldung", label: "Anmeldung / Ummeldung", desc: "Prijava ili promjena adrese stanovanja u Njemačkoj." },
       { slug: "steuer-id", label: "Steuer-ID", desc: "Poreski identifikacijski broj koji ti treba za posao i prijavu." },
@@ -35,6 +37,7 @@ export const formCatalog: FormGroup[] = [
     id: "porodica",
     icon: "👨‍👩‍👧",
     title: "Porodica i djeca",
+    titleKey: "catalog.porodica",
     items: [
       { slug: "kindergeld", label: "Kindergeld", desc: "Mjesečna novčana pomoć države za djecu." },
       { slug: "elterngeld", label: "Elterngeld", desc: "Naknada za roditelje nakon rođenja djeteta kao zamjena dijela prihoda." },
@@ -47,6 +50,7 @@ export const formCatalog: FormGroup[] = [
     id: "buergergeld",
     icon: "💰",
     title: "Bürgergeld",
+    titleKey: "catalog.buergergeld",
     items: [
       { slug: "hauptantrag", label: "Bürgergeld Hauptantrag (HA)", desc: "Centralni formular za podnošenje zahtjeva za Bürgergeld." },
       { slug: "weiterbewilligung", label: "Weiterbewilligungsantrag (WBA)", desc: "Produženje Bürgergelda nakon isteka odobrenja." },
@@ -83,6 +87,7 @@ export const formCatalog: FormGroup[] = [
     id: "wohngeld",
     icon: "🏡",
     title: "Wohngeld",
+    titleKey: "catalog.wohngeld",
     items: [
       { slug: "wohngeld", label: "Wohngeld", desc: "Finansijska pomoć za troškove stanovanja." },
     ],
@@ -91,6 +96,7 @@ export const formCatalog: FormGroup[] = [
     id: "posao",
     icon: "💼",
     title: "Posao i prihodi",
+    titleKey: "catalog.posao",
     items: [
       { slug: "krankenkasse", label: "Krankenkasse Anmeldung", desc: "Prijava u zdravstveno osiguranje u Njemačkoj." },
       { slug: "steuerklassenwechsel", label: "Steuerklassenwechsel", desc: "Promjena poreske klase, npr. nakon braka." },
@@ -101,6 +107,7 @@ export const formCatalog: FormGroup[] = [
     id: "obrazovanje",
     icon: "🎓",
     title: "Škola i obrazovanje",
+    titleKey: "catalog.obrazovanje",
     items: [
       { slug: "bafoeg", label: "BAföG", desc: "Finansijska pomoć za školovanje ili studij (studenti, učenici, strukovno usavršavanje)." },
       { slug: "schueler-bafoeg", label: "Schüler-BAföG", desc: "Učenički BAföG — finansijska pomoć za učenike koji žive odvojeno od roditelja." },
@@ -112,6 +119,7 @@ export const formCatalog: FormGroup[] = [
     id: "dokumenti",
     icon: "📋",
     title: "Dokumenti i administracija",
+    titleKey: "catalog.dokumenti",
     items: [
       { slug: "fuehrungszeugnis", label: "Führungszeugnis", desc: "Potvrda o nekažnjavanju." },
       { slug: "kirchenaustritt", label: "Kirchenaustritt", desc: "Odjava iz crkve radi prestanka crkvenog poreza." },

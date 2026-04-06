@@ -20,16 +20,20 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguageState] = useState<Language>(() => {
-    const saved = localStorage.getItem("balkanlink-lang");
-    return (saved as Language) || "bs";
+    const saved =
+      localStorage.getItem("balkanlink-lang") ||
+      localStorage.getItem("app_language");
+    const lang = (saved as Language) || "bs";
+    // Sync react-i18next on init
+    setTimeout(() => i18n.changeLanguage(lang), 0);
+    return lang;
   });
 
   const setLanguage = useCallback((lang: Language) => {
     setLanguageState(lang);
     localStorage.setItem("balkanlink-lang", lang);
-    // Sync i18next so both systems stay in lock-step
-    i18n.changeLanguage(lang);
     localStorage.setItem("app_language", lang);
+    i18n.changeLanguage(lang);
   }, []);
 
   const t = useCallback(
