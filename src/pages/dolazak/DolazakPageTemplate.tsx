@@ -121,8 +121,8 @@ export default function DolazakPageTemplate({ title, subtitle, sections, links }
       )}
 
       <PremiumModal
-        open={showPremiumModal}
-        onOpenChange={() => setShowPremiumModal(false)}
+        isOpen={showPremiumModal}
+        onClose={() => setShowPremiumModal(false)}
         trigger="guide"
       />
     </>

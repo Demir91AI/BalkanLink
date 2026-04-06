@@ -262,9 +262,9 @@ export default function Viza() {
       </div>
 
       <PremiumModal
-        open={showPremiumModal}
-        onOpenChange={() => setShowPremiumModal(false)}
-        trigger="visa"
+        isOpen={showPremiumModal}
+        onClose={() => setShowPremiumModal(false)}
+        trigger="viza"
       />
 
       <style>{`
