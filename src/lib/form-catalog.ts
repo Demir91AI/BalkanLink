@@ -119,6 +119,7 @@ export const formCatalog: FormGroup[] = [
     id: "dokumenti",
     icon: "📋",
     title: "Dokumenti i administracija",
+    titleKey: "catalog.dokumenti",
     items: [
       { slug: "fuehrungszeugnis", label: "Führungszeugnis", desc: "Potvrda o nekažnjavanju." },
       { slug: "kirchenaustritt", label: "Kirchenaustritt", desc: "Odjava iz crkve radi prestanka crkvenog poreza." },
