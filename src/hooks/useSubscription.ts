@@ -46,7 +46,11 @@ export function useSubscription(): SubscriptionState {
         ? new Date(data.subscription_expires_at) < new Date()
         : false;
 
-      setSubscriptionTier(expired ? "free" : tier);
+      const isPremiumField = data.is_premium ?? false;
+      const tierPremium = !expired && tier === "premium";
+      const effectiveTier = isPremiumField || tierPremium ? "premium" : "free";
+
+      setSubscriptionTier(effectiveTier);
       setExpiresAt(data.subscription_expires_at ? new Date(data.subscription_expires_at) : null);
       setSingleFormularAccess((data.single_formular_access as string[]) || []);
     }
