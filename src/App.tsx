@@ -189,7 +189,7 @@ const App = () => (
                 <Route path="/impressum" element={<Impressum />} />
                 <Route path="/datenschutz" element={<Datenschutz />} />
                 <Route path="/disclaimer" element={<Disclaimer />} />
-                <Route path="/haftungsausschluss" element={<Disclaimer />} />
+                
                 <Route path="/ki-hinweis" element={<KiHinweis />} />
                 <Route path="/mitgliedschaft" element={<Mitgliedschaft />} />
                 <Route path="/agb" element={<Nutzungsbedingungen />} />
