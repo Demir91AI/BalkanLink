@@ -121,59 +121,33 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
 
         <p style={{ fontSize: 15, color: '#4A4A4A', lineHeight: 1.7, marginBottom: 24 }}>{r.subtitle}</p>
 
-        <Card>
-          <CardHeader icon={CheckCircle} color="#22C55E" title={t('ui_quick_start')} />
-          {r.steps.map((step, i) => (
-            <div key={i} style={{ display: 'flex', gap: 12, marginBottom: 14, alignItems: 'flex-start' }}>
-              <StepCircle n={i + 1} />
-              <p style={{ fontSize: 14, color: '#2D2D2D', lineHeight: 1.6, margin: 0, paddingTop: 6 }}>{step}</p>
-            </div>
-          ))}
-        </Card>
-
-        <Card>
-          <CardHeader icon={FileText} title={t('docs_title')} />
-          {r.documents.map((doc, i) => (
-            <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8 }}>
-              <CheckCircle size={14} color="#22C55E" style={{ flexShrink: 0, marginTop: 3 }} />
-              <p style={{ fontSize: 14, color: '#2D2D2D', margin: 0 }}>{doc}</p>
-            </div>
-          ))}
-        </Card>
-
-        {r.costs.length > 0 && (
-          <Card>
-            <CardHeader icon={Euro} title={t('costs_title')} />
-            {r.costs.map((c, i) => (
-              <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 6 }}>
-                <span style={{ color: GOLD, fontWeight: 700, flexShrink: 0 }}>•</span>
-                <p style={{ fontSize: 14, color: '#2D2D2D', margin: 0 }}>{c}</p>
+        {!isPremium && (
+          <>
+            <div className="relative">
+              <div className="pointer-events-none select-none max-h-72 overflow-hidden" style={{ filter: 'blur(4px)' }} aria-hidden="true">
+                <VisaDetailCards route={r} t={t} GOLD={GOLD} CHARCOAL={CHARCOAL} />
               </div>
-            ))}
-          </Card>
+              <div className="absolute inset-0 z-10 flex items-center justify-center rounded-2xl bg-background/60 backdrop-blur-[2px]">
+                <div className="flex flex-col items-center gap-3 px-6 text-center">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[hsl(var(--gold))]/10 ring-1 ring-[hsl(var(--gold))]/20">
+                    <Lock className="h-5 w-5 text-[hsl(var(--gold))]" />
+                  </div>
+                  <p className="text-sm font-bold">Detaljne informacije su dostupne Premium korisnicima</p>
+                  <button
+                    onClick={() => setPremiumModalOpen(true)}
+                    className="h-9 rounded-xl px-5 text-xs font-bold text-white"
+                    style={{ background: 'hsl(var(--gold))' }}
+                  >
+                    Otključaj Premium — 9.99€/mjes.
+                  </button>
+                </div>
+              </div>
+            </div>
+            <PremiumModal isOpen={premiumModalOpen} onClose={() => setPremiumModalOpen(false)} trigger="guide" />
+          </>
         )}
 
-        {r.errors.length > 0 && (
-          <Card bg="#FEF2F2" border="#FECACA">
-            <CardHeader icon={AlertTriangle} color="#EF4444" title={t('errors_title')} />
-            {r.errors.map((err, i) => (
-              <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8 }}>
-                <span style={{ color: '#EF4444', fontWeight: 700, flexShrink: 0 }}>✕</span>
-                <p style={{ fontSize: 14, color: '#7F1D1D', margin: 0 }}>{err}</p>
-              </div>
-            ))}
-          </Card>
-        )}
-
-        <Card>
-          <CardHeader icon={ExternalLink} title={t('ui_useful_links')} />
-          {r.sources.map((s, i) => (
-            <a key={i} href={s.url} target="_blank" rel="noopener noreferrer"
-              style={{ display: 'flex', alignItems: 'center', gap: 8, color: GOLD, fontSize: 13, textDecoration: 'none', marginBottom: 8 }}>
-              <ExternalLink size={14} />{s.label}
-            </a>
-          ))}
-        </Card>
+        {isPremium && <VisaDetailCards route={r} t={t} GOLD={GOLD} CHARCOAL={CHARCOAL} />}
 
         <div style={{ background: '#F9F6F0', borderRadius: 10, padding: '14px 18px', fontSize: 12, color: '#9CA3AF' }}>
           <Info size={13} style={{ marginRight: 6, verticalAlign: 'middle' }} />
