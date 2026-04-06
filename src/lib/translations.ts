@@ -19,7 +19,6 @@ export const LANGUAGES: LanguageInfo[] = [
   { code: "mk", name: "Македонски", country: "Македонија", flag: "🇲🇰" },
   { code: "sl", name: "Slovenščina", country: "Slovenija", flag: "🇸🇮" },
   { code: "de", name: "Deutsch", country: "Deutschland", flag: "🇩🇪" },
-  { code: "en", name: "English", country: "United Kingdom", flag: "🇬🇧" },
 ];
 
 type TranslationKeys = {
