@@ -232,14 +232,14 @@ export default function Viza() {
                   <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-card/80 backdrop-blur-sm z-10">
                     <Lock className="h-7 w-7 text-primary" />
                     <p className="text-sm font-semibold text-foreground text-center px-4">
-                      Detalji boravišnih dozvola su dostupni Premium korisnicima
+                      {t("paywall.stepLocked")}
                     </p>
                     <button
                       onClick={() => setShowPremiumModal(true)}
                       className="rounded-lg px-5 py-2.5 text-sm font-bold text-white transition-colors hover:opacity-90"
                       style={{ background: GOLD }}
                     >
-                      Otključaj Premium — 9.99€/mjes.
+                      {t("paywall.unlockPremium")}
                     </button>
                   </div>
                 </div>
