@@ -5,6 +5,12 @@ export interface RouteContent {
   subtitle: string;
   westbalkanNote?: string;
   kosovoNote?: string;
+  /** Highlight box shown below subtitle for ausbildung routes */
+  ausbildungHighlight?: string[];
+  /** Country-specific embassy notes for ausbildung */
+  countryNotes?: string[];
+  /** Country-specific badge label */
+  countryBadge?: string;
   steps: string[];
   documents: string[];
   costs: string[];
