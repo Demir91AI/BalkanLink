@@ -427,24 +427,24 @@ export default function CommunityMapa() {
             </div>
 
             {/* Email/Phone input + extra consent */}
-            {(contactType === "email" || contactType === "phone") && (
+            {contactType === "phone" && (
               <div className="space-y-3 rounded-xl border border-amber-300/50 bg-amber-50 p-4">
                 <div className="flex items-start gap-2">
                   <AlertTriangle className="h-4 w-4 shrink-0 text-amber-600 mt-0.5" />
                   <p className="text-xs text-amber-800 leading-relaxed">
-                    Pažnja: {contactType === "email" ? "Email adresa" : "Broj telefona"} bit će JAVNO vidljiv/a svim posjetiteljima stranice. BalkanLink ne odgovara za zloupotrebe.
+                    Pažnja: Broj telefona bit će JAVNO vidljiv svim posjetiteljima stranice. BalkanLink ne odgovara za zloupotrebe.
                   </p>
                 </div>
                 <Input
                   value={contactValue}
                   onChange={e => setContactValue(e.target.value)}
-                  placeholder={contactType === "email" ? "tvoj@email.com" : "+49 123 456789"}
+                  placeholder="+49 123 456789"
                   className="border-amber-300 bg-white"
                 />
                 <label className="flex items-start gap-3 cursor-pointer">
                   <Checkbox checked={contactConsent} onCheckedChange={v => setContactConsent(v === true)} className="mt-0.5" />
                   <span className="text-xs text-[#6B6B6B]">
-                    Razumijem da će moj {contactType === "email" ? "email" : "broj telefona"} biti javno prikazan. Dajem eksplicitnu saglasnost za javno objavljivanje u skladu s Datenschutz pravilima.
+                    Razumijem da će moj broj telefona biti javno prikazan. Dajem eksplicitnu saglasnost za javno objavljivanje u skladu s Datenschutz pravilima.
                   </span>
                 </label>
               </div>
