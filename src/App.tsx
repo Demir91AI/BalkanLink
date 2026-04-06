@@ -64,7 +64,7 @@ import TrainerBonusbedingungen from "./pages/TrainerBonusbedingungen";
 import NotFound from "./pages/NotFound";
 import FirmDetail from "./pages/FirmDetail";
 import BussgeldAssistent from "./pages/BussgeldAssistent";
-import KindergeldMuster from "./pages/KindergeldMuster";
+import KindergeldMuster from "./pages/muster/KindergeldMuster";
 import AnmeldungMuster from "./pages/muster/AnmeldungMuster";
 
 import Pricing from "./pages/Pricing";
