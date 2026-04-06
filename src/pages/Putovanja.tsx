@@ -1,0 +1,1019 @@
+import { useState, useMemo } from "react";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/contexts/AuthContext";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { format } from "date-fns";
+import {
+  ExternalLink, Bus, Plus, AlertTriangle, MapPin, Calendar,
+  Users, Phone, MessageCircle, ArrowRight, Search, X, Filter,
+  ChevronDown,
+} from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
+} from "@/components/ui/select";
+import {
+  Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription,
+} from "@/components/ui/dialog";
+import { Calendar as CalendarPicker } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { toast } from "@/hooks/use-toast";
+import { cn } from "@/lib/utils";
+import PageNav from "@/components/navigation/PageNav";
+
+/* ── Bus Transport Directory ── */
+type TransportBadge = "Direktlinie" | "Umstieg" | "Kleinbus / Tür-zu-Tür";
+
+interface Carrier {
+  name: string;
+  url?: string;
+  phone?: string;
+  type: TransportBadge;
+  trusted?: boolean;
+}
+
+interface CountryRoute {
+  country: string;
+  flag: string;
+  carriers: Carrier[];
+}
+
+const busDirectory: CountryRoute[] = [
+  {
+    country: "Bosna i Hercegovina",
+    flag: "🇧🇦",
+    carriers: [
+      { name: "Centrotrans Eurolines", url: "https://www.centrotrans.com", type: "Direktlinie", trusted: true },
+      { name: "Globtour / Međugorje Bus", url: "https://www.globtour.com", type: "Direktlinie", trusted: true },
+      { name: "Autoprevoz Brčko", url: "https://www.autoprevoz.ba", type: "Direktlinie" },
+      { name: "Halilović Bus", phone: "+387 35 369 800", type: "Direktlinie" },
+      { name: "Kantić Reisen", url: "https://www.kantic-reisen.de", type: "Direktlinie", trusted: true },
+      { name: "Biss-Tours", url: "https://www.biss-tours.ba", type: "Direktlinie" },
+      { name: "Euro Bus BiH", phone: "+387 33 205 045", type: "Direktlinie" },
+      { name: "Kondor Bus", phone: "+387 37 682 222", type: "Direktlinie" },
+      { name: "Salinea", phone: "+387 35 250 222", type: "Direktlinie" },
+      { name: "Usora Tours", phone: "+387 32 893 100", type: "Direktlinie" },
+      { name: "Jelinak Reisen", url: "https://www.jelinak-reisen.de", type: "Direktlinie" },
+      { name: "Neobas", phone: "+387 35 300 601", type: "Direktlinie" },
+      { name: "Croatia Bus (BiH linije)", url: "https://www.croatiabus.hr", type: "Direktlinie" },
+      { name: "FlixBus", url: "https://www.flixbus.de", type: "Umstieg" },
+      { name: "Atlas Reisen", url: "https://www.atlas-reisen.de", type: "Kleinbus / Tür-zu-Tür", trusted: true },
+      { name: "Saraj Tours", url: "https://www.sarajtours.de", type: "Kleinbus / Tür-zu-Tür", trusted: true },
+      { name: "Mina Tours", url: "https://www.minatours.de", type: "Kleinbus / Tür-zu-Tür" },
+      { name: "Dani Tours", url: "https://www.danitours.de", type: "Kleinbus / Tür-zu-Tür" },
+      { name: "Euro Bosna Tours", url: "https://www.eurobosnatours.de", type: "Kleinbus / Tür-zu-Tür" },
+      { name: "Balkan Express Kombi", phone: "+49 176 12345678", type: "Kleinbus / Tür-zu-Tür" },
+    ],
+  },
+  {
+    country: "Srbija",
+    flag: "🇷🇸",
+    carriers: [
+      { name: "Lasta Beograd", url: "https://www.lasta.rs", type: "Direktlinie", trusted: true },
+      { name: "Niš-Ekspres", url: "https://www.nis-ekspres.rs", type: "Direktlinie", trusted: true },
+      { name: "Severtrans", url: "https://www.severtrans.rs", type: "Direktlinie" },
+      { name: "Fudeks", url: "https://www.fudeks.rs", type: "Direktlinie" },
+      { name: "Terra Travel", url: "https://www.terratravel.rs", type: "Direktlinie" },
+      { name: "Kanis", phone: "+381 18 255 970", type: "Direktlinie" },
+      { name: "Banbus", url: "https://www.banbus.rs", type: "Direktlinie" },
+      { name: "Feniks GiZ", phone: "+381 11 334 6699", type: "Direktlinie" },
+      { name: "Joe Travel", phone: "+381 63 333 222", type: "Direktlinie" },
+      { name: "FlixBus", url: "https://www.flixbus.de", type: "Umstieg" },
+      { name: "Pink Bus", phone: "+381 11 700 1122", type: "Kleinbus / Tür-zu-Tür" },
+      { name: "Royal Travel", url: "https://www.royaltravel.rs", type: "Kleinbus / Tür-zu-Tür" },
+      { name: "Srbija Express Kombi", phone: "+49 170 9876543", type: "Kleinbus / Tür-zu-Tür" },
+    ],
+  },
+  {
+    country: "Hrvatska",
+    flag: "🇭🇷",
+    carriers: [
+      { name: "Čazmatrans / Arriva", url: "https://www.arriva.com.hr", type: "Direktlinie", trusted: true },
+      { name: "Croatia Bus", url: "https://www.croatiabus.hr", type: "Direktlinie", trusted: true },
+      { name: "Panturist", url: "https://www.panturist.hr", type: "Direktlinie" },
+      { name: "Brioni Pula", url: "https://www.brioni.hr", type: "Direktlinie" },
+      { name: "Samoborček", url: "https://www.samoborcek.hr", type: "Direktlinie" },
+      { name: "FlixBus", url: "https://www.flixbus.de", type: "Direktlinie", trusted: true },
+    ],
+  },
+  {
+    country: "Crna Gora",
+    flag: "🇲🇪",
+    carriers: [
+      { name: "Božur Podgorica", phone: "+382 20 620 262", type: "Direktlinie" },
+      { name: "Glušica", phone: "+382 51 231 532", type: "Direktlinie" },
+      { name: "Croatia Bus (CG linije)", url: "https://www.croatiabus.hr", type: "Direktlinie" },
+      { name: "FlixBus", url: "https://www.flixbus.de", type: "Umstieg" },
+      { name: "Royal Travel Montenegro", phone: "+382 67 123 456", type: "Kleinbus / Tür-zu-Tür" },
+    ],
+  },
+  {
+    country: "Sjeverna Makedonija",
+    flag: "🇲🇰",
+    carriers: [
+      { name: "Rule Turs", phone: "+389 46 264 333", type: "Direktlinie" },
+      { name: "Besa Trans", url: "https://www.besatrans.com.mk", type: "Direktlinie" },
+      { name: "Galeb Ohrid", url: "https://www.galeb.com.mk", type: "Direktlinie" },
+      { name: "Hisar Turizm", phone: "+389 33 412 220", type: "Direktlinie" },
+      { name: "Domino Line", phone: "+389 2 2401 555", type: "Direktlinie" },
+      { name: "FlixBus", url: "https://www.flixbus.de", type: "Umstieg" },
+    ],
+  },
+  {
+    country: "Kosovo",
+    flag: "🇽🇰",
+    carriers: [
+      { name: "Barileva Turist", phone: "+383 49 111 222", type: "Direktlinie" },
+      { name: "Arditi Tours", phone: "+383 44 333 444", type: "Direktlinie" },
+      { name: "Eurolines Kosovo", phone: "+383 38 222 333", type: "Direktlinie" },
+      { name: "Drita Travel", phone: "+383 44 555 666", type: "Direktlinie" },
+      { name: "Sharr Travel", phone: "+383 44 777 888", type: "Direktlinie" },
+      { name: "FlixBus", url: "https://www.flixbus.de", type: "Umstieg" },
+    ],
+  },
+  {
+    country: "Albanija",
+    flag: "🇦🇱",
+    carriers: [
+      { name: "Arjani Travel", phone: "+355 69 111 2222", type: "Direktlinie" },
+      { name: "Arkleand Bus", phone: "+355 69 333 4444", type: "Direktlinie" },
+      { name: "Albani Reisen", phone: "+49 176 55566677", type: "Direktlinie" },
+      { name: "Eagle Travel", phone: "+355 69 555 6666", type: "Direktlinie" },
+      { name: "Besa Bus Albania", phone: "+355 69 777 8888", type: "Direktlinie" },
+      { name: "FlixBus", url: "https://www.flixbus.de", type: "Umstieg" },
+    ],
+  },
+];
+
+/* ── Types ── */
+interface Ride {
+  id: string;
+  from_text: string;
+  to_text: string;
+  from_city: string | null;
+  to_city: string | null;
+  depart_at: string;
+  seats_total: number;
+  seats_available: number;
+  price_eur: number | null;
+  price_type: string;
+  notes: string | null;
+  contact_phone: string | null;
+  contact_whatsapp: string | null;
+  status: string;
+  created_at: string;
+}
+
+interface RideForm {
+  from_text: string;
+  to_text: string;
+  depart_date: Date | undefined;
+  depart_time: string;
+  seats_total: string;
+  price_eur: string;
+  price_type: string;
+  notes: string;
+  contact_phone: string;
+  contact_whatsapp: string;
+  disclaimer: boolean;
+}
+
+const emptyForm: RideForm = {
+  from_text: "",
+  to_text: "",
+  depart_date: undefined,
+  depart_time: "08:00",
+  seats_total: "3",
+  price_eur: "",
+  price_type: "per_person",
+  notes: "",
+  contact_phone: "",
+  contact_whatsapp: "",
+  disclaimer: false,
+};
+
+interface Filters {
+  from: string;
+  to: string;
+  date: Date | undefined;
+}
+
+export default function Putovanja() {
+  const { t } = useLanguage();
+  const { user } = useAuth();
+  const queryClient = useQueryClient();
+  const [showForm, setShowForm] = useState(false);
+  const [form, setForm] = useState<RideForm>({ ...emptyForm });
+  const [filters, setFilters] = useState<Filters>({ from: "", to: "", date: undefined });
+  const [showFilters, setShowFilters] = useState(false);
+
+  const set = (key: keyof RideForm, val: any) => setForm((f) => ({ ...f, [key]: val }));
+
+  /* ── Fetch rides ── */
+  const { data: rides = [], isLoading } = useQuery<Ride[]>({
+    queryKey: ["rides"],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("rides")
+        .select("*")
+        .eq("status", "active")
+        .gte("depart_at", new Date().toISOString())
+        .order("depart_at", { ascending: true });
+      if (error) throw error;
+      return (data || []) as unknown as Ride[];
+    },
+  });
+
+  /* ── Client-side filter ── */
+  const filteredRides = useMemo(() => {
+    let result = rides;
+    const fromQ = filters.from.toLowerCase().trim();
+    const toQ = filters.to.toLowerCase().trim();
+    if (fromQ) {
+      result = result.filter(
+        (r) =>
+          r.from_text.toLowerCase().includes(fromQ) ||
+          (r.from_city && r.from_city.toLowerCase().includes(fromQ))
+      );
+    }
+    if (toQ) {
+      result = result.filter(
+        (r) =>
+          r.to_text.toLowerCase().includes(toQ) ||
+          (r.to_city && r.to_city.toLowerCase().includes(toQ))
+      );
+    }
+    if (filters.date) {
+      const dateStr = format(filters.date, "yyyy-MM-dd");
+      result = result.filter((r) => r.depart_at.startsWith(dateStr));
+    }
+    return result;
+  }, [rides, filters]);
+
+  /* ── Create ride mutation ── */
+  const createRide = useMutation({
+    mutationFn: async () => {
+      if (!user) throw new Error("Login required");
+      if (!form.disclaimer) throw new Error("Disclaimer required");
+      if (!form.from_text || !form.to_text || !form.depart_date) throw new Error("Missing fields");
+      if (!form.contact_phone && !form.contact_whatsapp) throw new Error("Contact required");
+
+      const seats = Math.min(9, Math.max(1, parseInt(form.seats_total) || 3));
+      const [hours, minutes] = form.depart_time.split(":").map(Number);
+      const departAt = new Date(form.depart_date);
+      departAt.setHours(hours || 8, minutes || 0, 0, 0);
+
+      const { error } = await supabase.from("rides").insert({
+        user_id: user.id,
+        from_text: form.from_text.trim(),
+        to_text: form.to_text.trim(),
+        from_city: form.from_text.trim(),
+        to_city: form.to_text.trim(),
+        depart_at: departAt.toISOString(),
+        seats_total: seats,
+        seats_available: seats,
+        price_eur: form.price_eur ? parseFloat(form.price_eur) : null,
+        price_type: form.price_type,
+        notes: form.notes.trim() || null,
+        contact_phone: form.contact_phone.trim() || null,
+        contact_whatsapp: form.contact_whatsapp.trim() || null,
+      });
+      if (error) throw error;
+    },
+    onSuccess: () => {
+      toast({ title: "✅ Vožnja objavljena!" });
+      setShowForm(false);
+      setForm({ ...emptyForm });
+      queryClient.invalidateQueries({ queryKey: ["rides"] });
+    },
+    onError: (e: any) =>
+      toast({ title: "Greška", description: e.message, variant: "destructive" }),
+  });
+
+  const canSubmit =
+    form.from_text &&
+    form.to_text &&
+    form.depart_date &&
+    (form.contact_phone || form.contact_whatsapp) &&
+    form.disclaimer &&
+    !createRide.isPending;
+
+  const hasActiveFilters = filters.from || filters.to || filters.date;
+
+  return (
+    <>
+      <PageNav />
+      {/* ── Hero ── */}
+      <section className="relative overflow-hidden" style={{ background: "#0F1B2D" }}>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#E3B341]/5 via-transparent to-[#E3B341]/3" />
+        <div className="container relative max-w-5xl py-14 text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-2xl font-bold text-white md:text-4xl"
+          >
+            🚗 Balkan Ride
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="mx-auto mt-3 max-w-xl text-sm text-white/50 md:text-base"
+          >
+            Nudim prijevoz • Tražim prijevoz • Putujem na Balkan
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="mt-6"
+          >
+            <Button
+              size="lg"
+              onClick={() => {
+                if (!user) {
+                  toast({
+                    title: "Prijava potrebna",
+                    description: "Prijavi se da objaviš svoju vožnju.",
+                    variant: "destructive",
+                  });
+                  return;
+                }
+                setShowForm(true);
+              }}
+              className="gap-2 bg-[#E3B341] text-[#0F1B2D] hover:bg-[#E3B341]/90 font-bold text-base px-8"
+            >
+              <Plus className="h-5 w-5" /> Objavi vožnju
+            </Button>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-10" style={{ background: "#0F1B2D" }}>
+        <div className="container max-w-4xl space-y-8">
+          {/* ── Disclaimer ── */}
+          <div
+            className="flex items-start gap-2.5 rounded-xl p-4"
+            style={{
+              background: "rgba(227,179,65,0.08)",
+              border: "1px solid rgba(227,179,65,0.2)",
+            }}
+          >
+            <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-[#E3B341]" />
+            <p className="text-xs text-white/50">
+              BalkanLink je oglasnik; nije prijevoznik. Korištenje na vlastitu
+              odgovornost. Ne preuzimamo odgovornost za dogovorene vožnje.
+            </p>
+          </div>
+
+          {/* ── Filters ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="rounded-xl p-5"
+            style={{
+              background:
+                "linear-gradient(135deg, rgba(22,38,63,0.95), rgba(22,38,63,0.75))",
+              border: "1px solid rgba(227,179,65,0.15)",
+            }}
+          >
+            <button
+              onClick={() => setShowFilters(!showFilters)}
+              className="flex w-full items-center justify-between"
+            >
+              <div className="flex items-center gap-2">
+                <Filter className="h-4 w-4 text-[#E3B341]" />
+                <span className="text-sm font-semibold text-white">
+                  Pretraži vožnje
+                </span>
+                {hasActiveFilters && (
+                  <span className="rounded-full bg-[#E3B341] px-2 py-0.5 text-[10px] font-bold text-[#0F1B2D]">
+                    Filtrirano
+                  </span>
+                )}
+              </div>
+              <span className="text-xs text-white/30">
+                {showFilters ? "Sakrij" : "Prikaži"}
+              </span>
+            </button>
+
+            <AnimatePresence>
+              {showFilters && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  className="overflow-hidden"
+                >
+                  <div className="mt-4 grid gap-3 sm:grid-cols-3">
+                    <div>
+                      <Label className="text-xs text-white/50">Odakle</Label>
+                      <div className="relative mt-1">
+                        <span className="absolute left-2 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full bg-gold">
+                          <Search className="h-3.5 w-3.5 text-primary" />
+                        </span>
+                        <Input
+                          value={filters.from}
+                          onChange={(e) =>
+                            setFilters((f) => ({ ...f, from: e.target.value }))
+                          }
+                          placeholder="npr. München"
+                          className="border-white/10 pl-10 text-white text-sm"
+                          style={{ background: "#16263F" }}
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <Label className="text-xs text-white/50">Kuda</Label>
+                      <div className="relative mt-1">
+                        <span className="absolute left-2 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full bg-gold">
+                          <Search className="h-3.5 w-3.5 text-primary" />
+                        </span>
+                        <Input
+                          value={filters.to}
+                          onChange={(e) =>
+                            setFilters((f) => ({ ...f, to: e.target.value }))
+                          }
+                          placeholder="npr. Sarajevo"
+                          className="border-white/10 pl-10 text-white text-sm"
+                          style={{ background: "#16263F" }}
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <Label className="text-xs text-white/50">Datum</Label>
+                      <Popover>
+                        <PopoverTrigger asChild>
+                          <Button
+                            variant="outline"
+                            className={cn(
+                              "mt-1 w-full justify-start text-left text-sm font-normal border-white/10 text-white",
+                              !filters.date && "text-white/40"
+                            )}
+                            style={{ background: "#16263F" }}
+                          >
+                            <Calendar className="mr-2 h-3.5 w-3.5" />
+                            {filters.date
+                              ? format(filters.date, "dd.MM.yyyy")
+                              : "Odaberi datum"}
+                          </Button>
+                        </PopoverTrigger>
+                        <PopoverContent className="w-auto p-0" align="start">
+                          <CalendarPicker
+                            mode="single"
+                            selected={filters.date}
+                            onSelect={(d) =>
+                              setFilters((f) => ({ ...f, date: d }))
+                            }
+                            disabled={(d) => d < new Date(new Date().setHours(0,0,0,0))}
+                            initialFocus
+                            className={cn("p-3 pointer-events-auto")}
+                          />
+                        </PopoverContent>
+                      </Popover>
+                    </div>
+                  </div>
+                  {hasActiveFilters && (
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() =>
+                        setFilters({ from: "", to: "", date: undefined })
+                      }
+                      className="mt-3 gap-1 text-xs text-white/40 hover:text-white"
+                    >
+                      <X className="h-3 w-3" /> Očisti filtere
+                    </Button>
+                  )}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
+
+          {/* ── Rides List ── */}
+          <div>
+            <div className="mb-3 flex items-center justify-between">
+              <h2 className="text-sm font-semibold text-white/60">
+                {filteredRides.length}{" "}
+                {filteredRides.length === 1 ? "vožnja" : "vožnji"}
+              </h2>
+            </div>
+
+            {isLoading && (
+              <div className="py-12 text-center">
+                <div className="mx-auto h-6 w-6 animate-spin rounded-full border-2 border-[#E3B341] border-t-transparent" />
+              </div>
+            )}
+
+            {!isLoading && filteredRides.length === 0 && (
+              <div className="py-12 text-center">
+                <p className="text-sm text-white/30">
+                  {hasActiveFilters
+                    ? "Nema vožnji za tražene kriterije."
+                    : "Trenutno nema objavljenih vožnji. Budi prvi!"}
+                </p>
+              </div>
+            )}
+
+            <div className="space-y-3">
+              {filteredRides.map((ride) => (
+                <RideCard key={ride.id} ride={ride} />
+              ))}
+            </div>
+          </div>
+
+          {/* ── Bus Prevoznici ── */}
+          <BusTransportSection />
+        </div>
+      </section>
+
+      {/* ── Post Ride Dialog ── */}
+      <Dialog open={showForm} onOpenChange={setShowForm}>
+        <DialogContent
+          className="max-h-[90vh] overflow-y-auto sm:max-w-lg"
+          style={{ background: "#0F1B2D", border: "1px solid rgba(227,179,65,0.2)" }}
+        >
+          <DialogHeader>
+            <DialogTitle className="text-white text-lg">
+              Objavi vožnju
+            </DialogTitle>
+            <DialogDescription className="text-white/40 text-sm">
+              Popuni detalje o svojoj vožnji.
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="space-y-4 mt-2">
+            {/* From / To */}
+            <div className="grid gap-3 sm:grid-cols-2">
+              <div>
+                <Label className="text-xs text-white/50">
+                  <MapPin className="mr-1 inline h-3 w-3" />
+                  Polazište *
+                </Label>
+                <Input
+                  value={form.from_text}
+                  onChange={(e) => set("from_text", e.target.value)}
+                  placeholder="npr. München"
+                  className="mt-1 border-white/10 text-white text-sm"
+                  style={{ background: "#16263F" }}
+                  maxLength={100}
+                />
+              </div>
+              <div>
+                <Label className="text-xs text-white/50">
+                  <MapPin className="mr-1 inline h-3 w-3" />
+                  Odredište *
+                </Label>
+                <Input
+                  value={form.to_text}
+                  onChange={(e) => set("to_text", e.target.value)}
+                  placeholder="npr. Sarajevo"
+                  className="mt-1 border-white/10 text-white text-sm"
+                  style={{ background: "#16263F" }}
+                  maxLength={100}
+                />
+              </div>
+            </div>
+
+            {/* Date / Time */}
+            <div className="grid gap-3 sm:grid-cols-2">
+              <div>
+                <Label className="text-xs text-white/50">
+                  <Calendar className="mr-1 inline h-3 w-3" />
+                  Datum polaska *
+                </Label>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant="outline"
+                      className={cn(
+                        "mt-1 w-full justify-start text-left text-sm font-normal border-white/10 text-white",
+                        !form.depart_date && "text-white/40"
+                      )}
+                      style={{ background: "#16263F" }}
+                    >
+                      <Calendar className="mr-2 h-3.5 w-3.5" />
+                      {form.depart_date
+                        ? format(form.depart_date, "dd.MM.yyyy")
+                        : "Odaberi datum"}
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0" align="start">
+                    <CalendarPicker
+                      mode="single"
+                      selected={form.depart_date}
+                      onSelect={(d) => set("depart_date", d)}
+                      disabled={(d) => d < new Date(new Date().setHours(0,0,0,0))}
+                      initialFocus
+                      className={cn("p-3 pointer-events-auto")}
+                    />
+                  </PopoverContent>
+                </Popover>
+              </div>
+              <div>
+                <Label className="text-xs text-white/50">Vrijeme polaska</Label>
+                <Input
+                  type="time"
+                  value={form.depart_time}
+                  onChange={(e) => set("depart_time", e.target.value)}
+                  className="mt-1 border-white/10 text-white text-sm"
+                  style={{ background: "#16263F" }}
+                />
+              </div>
+            </div>
+
+            {/* Seats / Price */}
+            <div className="grid gap-3 sm:grid-cols-3">
+              <div>
+                <Label className="text-xs text-white/50">
+                  <Users className="mr-1 inline h-3 w-3" />
+                  Mjesta *
+                </Label>
+                <Input
+                  type="number"
+                  min="1"
+                  max="9"
+                  value={form.seats_total}
+                  onChange={(e) => set("seats_total", e.target.value)}
+                  className="mt-1 border-white/10 text-white text-sm"
+                  style={{ background: "#16263F" }}
+                />
+              </div>
+              <div>
+                <Label className="text-xs text-white/50">Cijena (€)</Label>
+                <Input
+                  type="number"
+                  min="0"
+                  step="5"
+                  value={form.price_eur}
+                  onChange={(e) => set("price_eur", e.target.value)}
+                  placeholder="30"
+                  className="mt-1 border-white/10 text-white text-sm"
+                  style={{ background: "#16263F" }}
+                />
+              </div>
+              <div>
+                <Label className="text-xs text-white/50">Tip cijene</Label>
+                <Select
+                  value={form.price_type}
+                  onValueChange={(v) => set("price_type", v)}
+                >
+                  <SelectTrigger
+                    className="mt-1 border-white/10 text-white text-sm"
+                    style={{ background: "#16263F" }}
+                  >
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="per_person">Po osobi</SelectItem>
+                    <SelectItem value="total">Ukupno</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+
+            {/* Contact */}
+            <div className="grid gap-3 sm:grid-cols-2">
+              <div>
+                <Label className="text-xs text-white/50">
+                  <Phone className="mr-1 inline h-3 w-3" />
+                  Telefon
+                </Label>
+                <Input
+                  value={form.contact_phone}
+                  onChange={(e) => set("contact_phone", e.target.value)}
+                  placeholder="+49..."
+                  className="mt-1 border-white/10 text-white text-sm"
+                  style={{ background: "#16263F" }}
+                  maxLength={20}
+                />
+              </div>
+              <div>
+                <Label className="text-xs text-white/50">
+                  <MessageCircle className="mr-1 inline h-3 w-3" />
+                  WhatsApp
+                </Label>
+                <Input
+                  value={form.contact_whatsapp}
+                  onChange={(e) => set("contact_whatsapp", e.target.value)}
+                  placeholder="+49..."
+                  className="mt-1 border-white/10 text-white text-sm"
+                  style={{ background: "#16263F" }}
+                  maxLength={20}
+                />
+              </div>
+            </div>
+
+            {/* Notes */}
+            <div>
+              <Label className="text-xs text-white/50">Napomena</Label>
+              <Textarea
+                value={form.notes}
+                onChange={(e) => set("notes", e.target.value)}
+                placeholder="Dodatne informacije o vožnji..."
+                className="mt-1 min-h-[60px] border-white/10 text-white text-sm"
+                style={{ background: "#16263F" }}
+                maxLength={500}
+              />
+            </div>
+
+            {/* Disclaimer checkbox */}
+            <div
+              className="flex items-start gap-3 rounded-lg p-3"
+              style={{
+                background: "rgba(227,179,65,0.08)",
+                border: "1px solid rgba(227,179,65,0.2)",
+              }}
+            >
+              <Checkbox
+                id="disclaimer"
+                checked={form.disclaimer}
+                onCheckedChange={(v) => set("disclaimer", !!v)}
+                className="mt-0.5 border-[#E3B341]/50 data-[state=checked]:bg-[#E3B341] data-[state=checked]:text-[#0F1B2D]"
+              />
+              <label htmlFor="disclaimer" className="text-xs text-white/50 cursor-pointer">
+                Potvrđujem da BalkanLink nije prijevoznik i ne preuzima
+                odgovornost za dogovorene vožnje. Korištenje na vlastitu
+                odgovornost. *
+              </label>
+            </div>
+
+            <Button
+              onClick={() => createRide.mutate()}
+              disabled={!canSubmit}
+              className="w-full bg-[#E3B341] text-[#0F1B2D] hover:bg-[#E3B341]/90 font-bold"
+            >
+              {createRide.isPending ? "Objavljuje se…" : "Objavi vožnju"}
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
+    </>
+  );
+}
+
+/* ── Ride Card Component ── */
+function RideCard({ ride }: { ride: Ride }) {
+  const departDate = new Date(ride.depart_at);
+  const dateStr = format(departDate, "dd.MM.yyyy");
+  const timeStr = format(departDate, "HH:mm");
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="rounded-xl p-4"
+      style={{
+        background:
+          "linear-gradient(135deg, rgba(22,38,63,0.95), rgba(22,38,63,0.75))",
+        border: "1px solid rgba(255,255,255,0.08)",
+      }}
+    >
+      {/* Route */}
+      <div className="flex items-center gap-2 text-base font-bold text-white">
+        <MapPin className="h-4 w-4 text-[#E3B341] shrink-0" />
+        <span className="truncate">{ride.from_text}</span>
+        <ArrowRight className="h-4 w-4 text-[#E3B341] shrink-0" />
+        <span className="truncate">{ride.to_text}</span>
+      </div>
+
+      {/* Details row */}
+      <div className="mt-2.5 flex flex-wrap gap-x-4 gap-y-1.5 text-xs text-white/50">
+        <span className="flex items-center gap-1">
+          <Calendar className="h-3 w-3" />
+          {dateStr} • {timeStr}h
+        </span>
+        <span className="flex items-center gap-1">
+          <Users className="h-3 w-3" />
+          {ride.seats_available}/{ride.seats_total} mjesta
+        </span>
+        {ride.price_eur !== null && (
+          <span className="text-[#E3B341] font-semibold">
+            {ride.price_eur}€{" "}
+            <span className="font-normal text-white/30">
+              {ride.price_type === "per_person" ? "/ os." : "ukupno"}
+            </span>
+          </span>
+        )}
+      </div>
+
+      {/* Notes */}
+      {ride.notes && (
+        <p className="mt-2 text-xs text-white/35 line-clamp-2">{ride.notes}</p>
+      )}
+
+      {/* Contact */}
+      <div className="mt-3 flex flex-wrap gap-2">
+        {ride.contact_phone && (
+          <a
+            href={`tel:${ride.contact_phone}`}
+            className="inline-flex items-center gap-1 rounded-md px-3 py-1.5 text-xs font-medium text-white/70 transition hover:text-[#E3B341]"
+            style={{
+              background: "rgba(15,27,45,0.6)",
+              border: "1px solid rgba(255,255,255,0.08)",
+            }}
+          >
+            <Phone className="h-3 w-3" />
+            {ride.contact_phone}
+          </a>
+        )}
+        {ride.contact_whatsapp && (
+          <a
+            href={`https://wa.me/${ride.contact_whatsapp.replace(/[^0-9]/g, "")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 rounded-md px-3 py-1.5 text-xs font-medium text-white/70 transition hover:text-green-400"
+            style={{
+              background: "rgba(15,27,45,0.6)",
+              border: "1px solid rgba(255,255,255,0.08)",
+            }}
+          >
+            <MessageCircle className="h-3 w-3" />
+            WhatsApp
+          </a>
+        )}
+      </div>
+    </motion.div>
+  );
+}
+
+/* ── Bus Transport Section with Filters ── */
+function BusTransportSection() {
+  const [typeFilter, setTypeFilter] = useState<TransportBadge | "">("");
+  const [open, setOpen] = useState<Record<string, boolean>>({});
+
+  const filteredDirectory = useMemo(() => {
+    if (!typeFilter) return busDirectory;
+    return busDirectory
+      .map((route) => ({
+        ...route,
+        carriers: route.carriers.filter((c) => c.type === typeFilter),
+      }))
+      .filter((route) => route.carriers.length > 0);
+  }, [typeFilter]);
+
+  const totalProviders = busDirectory.reduce((s, r) => s + r.carriers.length, 0);
+
+  const typeFilters: { key: TransportBadge | ""; label: string; color: string }[] = [
+    { key: "", label: "Alle", color: "white" },
+    { key: "Direktlinie", label: "🟢 Direktlinie", color: "green" },
+    { key: "Kleinbus / Tür-zu-Tür", label: "🟡 Tür-zu-Tür", color: "yellow" },
+    { key: "Umstieg", label: "🔵 Umstieg", color: "blue" },
+  ];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="rounded-xl p-6"
+      style={{
+        background: "linear-gradient(135deg, rgba(22,38,63,0.95), rgba(22,38,63,0.75))",
+        border: "1px solid rgba(227,179,65,0.15)",
+      }}
+    >
+      <div className="flex items-center gap-2 mb-1">
+        <Bus className="h-5 w-5 text-[#E3B341]" />
+        <h2 className="text-lg font-bold text-white">Bus Transport Verzeichnis</h2>
+        <span className="ml-auto text-xs text-white/30">{totalProviders} Anbieter</span>
+      </div>
+      <p className="text-sm text-white/40 mb-4">
+        Verifizierte Busverbindungen Deutschland ↔ Balkan
+      </p>
+
+      {/* Filter chips */}
+      <div className="flex flex-wrap gap-2 mb-5">
+        {typeFilters.map((f) => (
+          <button
+            key={f.key || "all"}
+            onClick={() => setTypeFilter(f.key)}
+            className="whitespace-nowrap rounded-full px-3 py-1.5 text-xs font-semibold transition-all"
+            style={{
+              background: typeFilter === f.key ? "rgba(227,179,65,0.2)" : "rgba(255,255,255,0.04)",
+              color: typeFilter === f.key ? "#E3B341" : "rgba(255,255,255,0.5)",
+              border: typeFilter === f.key ? "1px solid rgba(227,179,65,0.3)" : "1px solid rgba(255,255,255,0.08)",
+            }}
+          >
+            {f.label}
+          </button>
+        ))}
+      </div>
+
+      <div className="space-y-2">
+        {filteredDirectory.map((route) => (
+          <BusCountryGroup
+            key={route.country}
+            route={route}
+            isOpen={open[route.country] ?? false}
+            onToggle={() => setOpen((p) => ({ ...p, [route.country]: !p[route.country] }))}
+          />
+        ))}
+      </div>
+
+      <p className="mt-5 text-[11px] text-white/25 text-center">
+        BalkanLink ne daje preporuke niti ocjenjuje objekte. Informacije bez garancije.
+      </p>
+    </motion.div>
+  );
+}
+
+/* ── Bus Country Group (expandable) ── */
+function BusCountryGroup({ route, isOpen, onToggle }: { route: CountryRoute; isOpen: boolean; onToggle: () => void }) {
+  const typeBadge = (type: TransportBadge) => {
+    if (type === "Direktlinie")
+      return "bg-green-500/15 text-green-400 border-green-500/20";
+    if (type === "Kleinbus / Tür-zu-Tür")
+      return "bg-[#E3B341]/15 text-[#E3B341] border-[#E3B341]/20";
+    return "bg-blue-500/15 text-blue-400 border-blue-500/20";
+  };
+
+  return (
+    <div
+      className="rounded-lg overflow-hidden"
+      style={{ background: "rgba(15,27,45,0.5)", border: "1px solid rgba(255,255,255,0.06)" }}
+    >
+      <button
+        onClick={onToggle}
+        className="flex w-full items-center justify-between px-4 py-3 transition-colors hover:bg-white/[0.03]"
+      >
+        <div className="flex items-center gap-2.5">
+          <span className="text-lg">{route.flag}</span>
+          <span className="text-sm font-semibold text-white">Deutschland ↔ {route.country}</span>
+          <span className="text-[11px] text-white/30">{route.carriers.length}</span>
+        </div>
+        <ChevronDown
+          className={cn(
+            "h-4 w-4 text-white/30 transition-transform duration-200",
+            isOpen && "rotate-180"
+          )}
+        />
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="overflow-hidden"
+          >
+            <div className="space-y-1 px-3 pb-3">
+              {route.carriers.map((c) => (
+                <div
+                  key={c.name}
+                  className="flex items-center justify-between gap-2 rounded-lg px-3 py-2"
+                  style={{ background: "rgba(22,38,63,0.6)", border: "1px solid rgba(255,255,255,0.04)" }}
+                >
+                  <div className="flex items-center gap-2 min-w-0">
+                    {c.url ? (
+                      <a
+                        href={c.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-sm font-medium text-white/80 transition hover:text-[#E3B341] truncate"
+                      >
+                        {c.name}
+                        <ExternalLink className="h-3 w-3 shrink-0 text-white/25" />
+                      </a>
+                    ) : (
+                      <span className="text-sm font-medium text-white/80 truncate">{c.name}</span>
+                    )}
+                    {c.trusted && (
+                      <span className="shrink-0 rounded-full bg-[#E3B341]/10 px-1.5 py-0.5 text-[9px] font-bold text-[#E3B341]">
+                        ⭐ Dijaspora
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex items-center gap-2 shrink-0">
+                    {c.phone && !c.url && (
+                      <a
+                        href={`tel:${c.phone}`}
+                        className="inline-flex items-center gap-1 text-[10px] text-white/40 hover:text-[#E3B341]"
+                      >
+                        <Phone className="h-3 w-3" />
+                        {c.phone}
+                      </a>
+                    )}
+                    <span
+                      className={cn(
+                        "inline-flex rounded-full border px-2 py-0.5 text-[10px] font-medium",
+                        typeBadge(c.type)
+                      )}
+                    >
+                      {c.type}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
