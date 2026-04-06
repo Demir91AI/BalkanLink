@@ -1,7 +1,7 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
-  FileText, Shield, BookOpen, Camera, Megaphone, Map,
+  FileText, Shield, BookOpen, Camera, Megaphone, Map, Plane,
   Briefcase, Building, Calculator, FileCheck, X,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -15,6 +15,7 @@ export function AppSidebar() {
 
   const mainItems = [
     { titleKey: "sidebar.smartGuide", url: "/formulari", icon: FileText, premium: true },
+    { titleKey: "sidebar.zivotUNjemackoj", url: "/zivot-u-njemackoj", icon: Plane, premium: false },
     { titleKey: "sidebar.visaNavigator", url: "/viza", icon: Shield, premium: true },
     { titleKey: "sidebar.deutsch", url: "/deutsch-trainer", icon: BookOpen, premium: true },
     { titleKey: "sidebar.dokumentenCheck", url: "/dokumenten-check", icon: Camera, premium: true },

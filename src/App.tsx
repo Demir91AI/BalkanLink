@@ -94,6 +94,7 @@ import AnlageSEMuster from "./pages/muster/AnlageSEMuster";
 import ArbeitsbescheinigungMuster from "./pages/muster/ArbeitsbescheinigungMuster";
 import AntragsruecknahmeMuster from "./pages/muster/AntragsruecknahmeMuster";
 import Viza from "./pages/Viza";
+import ZivotUNjemackoj from "./pages/ZivotUNjemackoj";
 
 const queryClient = new QueryClient();
 
@@ -209,6 +210,7 @@ const App = () => (
                 <Route path="/paketi" element={<Paketi />} />
                 <Route path="/kalkulatori" element={<Kalkulatori />} />
                 <Route path="/mapa" element={<CommunityMapa />} />
+                <Route path="/zivot-u-njemackoj" element={<ZivotUNjemackoj />} />
                 <Route path="/viza" element={<Viza />} />
               </Route>
               <Route path="*" element={<NotFound />} />
