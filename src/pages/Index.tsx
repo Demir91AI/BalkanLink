@@ -375,7 +375,7 @@ export default function Index() {
           <div className="mx-auto flex w-full max-w-6xl flex-col items-center text-center">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }} className="flex flex-col items-center text-center">
               <h1 className="font-heading text-4xl font-black leading-tight text-white drop-shadow-lg sm:text-5xl md:text-6xl">
-                {t("hero.title").replace(t("hero.title_highlight"), "").trim()}{" "}
+                {t("hero.title")}{" "}
                 <span className="text-[#F5C842]">{t("hero.title_highlight")}</span>
               </h1>
 
