@@ -64,6 +64,7 @@ import TrainerBonusbedingungen from "./pages/TrainerBonusbedingungen";
 import NotFound from "./pages/NotFound";
 import FirmDetail from "./pages/FirmDetail";
 import BussgeldAssistent from "./pages/BussgeldAssistent";
+import ChatAssistant from "./components/ChatAssistant";
 import KindergeldMuster from "./pages/muster/KindergeldMuster";
 import AnmeldungMuster from "./pages/muster/AnmeldungMuster";
 
@@ -208,6 +209,7 @@ const App = () => (
                 <Route path="/deutsch-trainer/bonusbedingungen" element={<TrainerBonusbedingungen />} />
                 <Route path="/firma/:slug" element={<FirmDetail />} />
                 <Route path="/bussgeld" element={<BussgeldAssistent />} />
+                <Route path="/ai-asistent" element={<ChatAssistant />} />
                 <Route path="/paketi" element={<Navigate to="/pricing" replace />} />
                 <Route path="/pricing" element={<Pricing />} />
                 <Route path="/payment-success" element={<PaymentSuccess />} />
