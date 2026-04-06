@@ -4,7 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
-import DevPreviewSwitcher from "@/components/DevPreviewSwitcher";
+
 import { AuthProvider } from "@/contexts/AuthContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { CountryProvider } from "@/contexts/CountryContext";
@@ -41,7 +41,7 @@ import Fuehrerschein from "./pages/dolazak/Fuehrerschein";
 import AutoAnmelden from "./pages/dolazak/AutoAnmelden";
 import ZivotSavjeti from "./pages/ZivotSavjeti";
 import TrebamPomoc from "./pages/TrebamPomoc";
-import Formulare from "./pages/Formulare";
+
 import FormCenter from "./pages/FormCenter";
 import LegacyGuideRedirect from "./pages/LegacyGuideRedirect";
 import Familie from "./pages/Familie";
@@ -67,7 +67,7 @@ import FirmDetail from "./pages/FirmDetail";
 import BussgeldAssistent from "./pages/BussgeldAssistent";
 import KindergeldMuster from "./pages/KindergeldMuster";
 import AnmeldungMuster from "./pages/muster/AnmeldungMuster";
-import Paketi from "./pages/Paketi";
+
 import Pricing from "./pages/Pricing";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import Kalkulatori from "./pages/Kalkulatori";
@@ -118,7 +118,7 @@ const App = () => (
               </Route>
               <Route element={<Layout />}>
                 <Route path="/dolazak" element={<PocniOvdje />} />
-                <Route path="/pocni-ovdje" element={<PocniOvdje />} />
+                
                 <Route path="/dolazak/prijava-prebivalista" element={<PrijavaPrebijalista />} />
                 <Route path="/dolazak/boravisna-dozvola" element={<BoravisnaDozvola />} />
                 <Route path="/dolazak/steuer-id-i-porezna-klasa" element={<SteuerIdPoreznaKlasa />} />
@@ -130,9 +130,9 @@ const App = () => (
                 <Route path="/dolazak/fuehrerschein" element={<Fuehrerschein />} />
                 <Route path="/dolazak/auto-anmelden" element={<AutoAnmelden />} />
                 <Route path="/zivot" element={<ZivotSavjeti />} />
-                <Route path="/zivot-savjeti" element={<ZivotSavjeti />} />
+                
                 <Route path="/probleme" element={<TrebamPomoc />} />
-                <Route path="/trebam-pomoc" element={<TrebamPomoc />} />
+                
                 <Route path="/formulare" element={<Navigate to="/formulari" replace />} />
                 <Route path="/formulari" element={<FormCenter />} />
                 
@@ -181,7 +181,7 @@ const App = () => (
                 <Route path="/directory" element={<Directory />} />
                 <Route path="/directory/submit" element={<DirectorySubmit />} />
                 <Route path="/ambasade-konzulati" element={<Missions />} />
-                <Route path="/ambasade" element={<Missions />} />
+                
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
@@ -189,13 +189,13 @@ const App = () => (
                 <Route path="/impressum" element={<Impressum />} />
                 <Route path="/datenschutz" element={<Datenschutz />} />
                 <Route path="/disclaimer" element={<Disclaimer />} />
-                <Route path="/haftungsausschluss" element={<Disclaimer />} />
+                
                 <Route path="/ki-hinweis" element={<KiHinweis />} />
                 <Route path="/mitgliedschaft" element={<Mitgliedschaft />} />
                 <Route path="/agb" element={<Nutzungsbedingungen />} />
-                <Route path="/nutzungsbedingungen" element={<Nutzungsbedingungen />} />
+                
                 <Route path="/dsa" element={<DSA />} />
-                <Route path="/inhalte-melden" element={<DSA />} />
+                
                 <Route path="/cookie-richtlinie" element={<CookieRichtlinie />} />
                 <Route path="/nudim-trazim" element={<NudimTrazim />} />
                 <Route path="/nach-deutschland" element={<NachDeutschland />} />
@@ -209,7 +209,7 @@ const App = () => (
                 <Route path="/deutsch-trainer/bonusbedingungen" element={<TrainerBonusbedingungen />} />
                 <Route path="/firma/:slug" element={<FirmDetail />} />
                 <Route path="/bussgeld" element={<BussgeldAssistent />} />
-                <Route path="/paketi" element={<Paketi />} />
+                <Route path="/paketi" element={<Navigate to="/pricing" replace />} />
                 <Route path="/pricing" element={<Pricing />} />
                 <Route path="/payment-success" element={<PaymentSuccess />} />
                 <Route path="/kalkulatori" element={<Kalkulatori />} />
