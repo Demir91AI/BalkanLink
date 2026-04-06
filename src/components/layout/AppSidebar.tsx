@@ -106,6 +106,33 @@ export function AppSidebar() {
           </button>
         </div>
 
+        {/* Auth section at top */}
+        <div className="px-3 pt-4 pb-3 border-b border-[#E8E0D0]">
+          {user ? (
+            <div className="flex flex-col gap-2 px-3">
+              <div className="flex items-center gap-2 text-[#2D2D2D]">
+                <User className="h-4 w-4 shrink-0 text-[#6B6B6B]" />
+                <span className="text-[13px] font-medium truncate">{user.email}</span>
+              </div>
+              <button
+                onClick={handleSignOut}
+                className="flex items-center gap-2 text-[13px] text-[#6B6B6B] hover:text-red-500 transition-colors"
+              >
+                <LogOut className="h-4 w-4 shrink-0" />
+                {t("header.logout")}
+              </button>
+            </div>
+          ) : (
+            <button
+              onClick={handleAuthClick}
+              className="flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-left text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D] transition-all duration-200"
+            >
+              <LogIn className="h-[18px] w-[18px] shrink-0" />
+              <span className="text-[14px] font-medium">{t("header.login")} / {t("header.register")}</span>
+            </button>
+          )}
+        </div>
+
         <div className="px-3 pt-4">
           <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">{t("sidebar.mainFunctions")}</p>
           <nav className="flex flex-col gap-0.5">
