@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect, useCallback } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import PageNavBar from "@/components/navigation/PageNavBar";
 import { COUNTRY_CONTENT } from "@/data/vizaNavigatorContent";
 import { VisaContentRenderer } from "@/components/visaNavigator/VisaContentRenderer";
