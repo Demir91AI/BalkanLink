@@ -181,7 +181,7 @@ const App = () => (
                 <Route path="/directory" element={<Directory />} />
                 <Route path="/directory/submit" element={<DirectorySubmit />} />
                 <Route path="/ambasade-konzulati" element={<Missions />} />
-                <Route path="/ambasade" element={<Missions />} />
+                
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
