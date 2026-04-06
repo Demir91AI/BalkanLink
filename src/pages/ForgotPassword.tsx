@@ -22,6 +22,15 @@ export default function ForgotPassword() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    if (turnstileToken) {
+      const valid = await verifyTurnstileToken(turnstileToken);
+      if (!valid) {
+        toast({ title: "Verifikacija nije uspjela.", variant: "destructive" });
+        setTurnstileToken("");
+        setLoading(false);
+        return;
+      }
+    }
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
       redirectTo: `${window.location.origin}/reset-password`,
     });
