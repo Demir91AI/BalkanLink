@@ -366,10 +366,6 @@ export default function Index() {
         {/* Overlay */}
         <div className="absolute inset-0 z-[2]" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.30) 85%, rgba(0,0,0,0.45) 100%)" }} />
 
-        {/* Language Selector — top right */}
-        <div className="absolute top-5 right-8 z-20">
-          <LanguageSelector />
-        </div>
 
         <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-5 py-16 lg:py-20">
           <div className="mx-auto flex w-full max-w-6xl flex-col items-center text-center">
