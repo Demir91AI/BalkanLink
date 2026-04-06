@@ -82,6 +82,9 @@ export default function CommunityMapa() {
   const [displayName, setDisplayName] = useState("");
   const [note, setNote] = useState("");
   const [phone, setPhone] = useState("");
+  const [facebook, setFacebook] = useState("");
+  const [instagram, setInstagram] = useState("");
+  const [tiktok, setTiktok] = useState("");
   const [selfId, setSelfId] = useState(() => localStorage.getItem(LS_SELF_KEY) || "");
   const [showSuggestions, setShowSuggestions] = useState(false);
 
