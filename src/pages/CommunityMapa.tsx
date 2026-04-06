@@ -1,5 +1,5 @@
 import { useState, useMemo, useCallback } from "react";
-import { MapPin, Search, Shield, X, Users, Phone, ExternalLink } from "lucide-react";
+import { MapPin, Search, Shield, X, Users, ExternalLink } from "lucide-react";
 import PageNavBar from "@/components/navigation/PageNavBar";
 import balkanSarajevo from "@/assets/balkan-sarajevo.jpg";
 import balkanBeograd from "@/assets/balkan-beograd.jpg";
@@ -264,15 +264,6 @@ export default function CommunityMapa() {
                             <span className="font-medium text-[#2D2D2D] truncate">{m.displayName}</span>
                           </div>
                           <div className="flex items-center gap-1 shrink-0 flex-wrap">
-                            {m.phone && (
-                              <a
-                                href={`tel:${encodeURIComponent(m.phone)}`}
-                                className="inline-flex items-center gap-1 rounded-lg px-2 py-1 text-[10px] font-bold text-white transition-colors"
-                                style={{ background: '#2563EB' }}
-                              >
-                                <Phone className="h-2.5 w-2.5" /> {m.phone}
-                              </a>
-                            )}
                             {m.facebook && (
                               <a
                                 href={`https://facebook.com/${encodeURIComponent(m.facebook)}`}
@@ -409,17 +400,6 @@ export default function CommunityMapa() {
               <label className="text-sm font-medium text-[#2D2D2D]">Kratka napomena (maks 100 znakova)</label>
               <Input value={note} onChange={e => setNote(e.target.value.slice(0, 100))} placeholder="npr. Iz Sarajeva, radim u IT-u..." className="border-[#E8D9B0]" />
               <p className="text-[10px] text-[#9CA3AF]">{note.length}/100 — NE upisuj broj telefona ovdje</p>
-            </div>
-
-            <div className="space-y-1.5">
-              <label className="text-sm font-medium text-[#2D2D2D]">Telefon za kontakt (opcionalno)</label>
-              <Input
-                value={phone}
-                onChange={e => setPhone(e.target.value)}
-                placeholder="+49 123 456789"
-                className="border-[#E8D9B0]"
-              />
-              <p className="text-[10px] text-[#9CA3AF]">Broj će biti javno vidljiv ako ga upišeš</p>
             </div>
 
             <div className="space-y-1.5">
