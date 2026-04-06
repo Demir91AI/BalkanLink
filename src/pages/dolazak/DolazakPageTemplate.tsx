@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ChevronLeft, ExternalLink, FileText, Info } from "lucide-react";
+import { ChevronLeft, ExternalLink, FileText, Info, Lock } from "lucide-react";
 import { navigateBackOrHome } from "@/lib/navigation";
 import { motion } from "framer-motion";
 import { type ReactNode } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useSubscription } from "@/hooks/useSubscription";
+import PremiumModal from "@/components/paywall/PremiumModal";
 
 interface OfficialLink {
   type: "portal" | "pdf" | "info";
@@ -27,6 +30,8 @@ const fade = (i: number) => ({ initial: { opacity: 0, y: 14 }, animate: { opacit
 export default function DolazakPageTemplate({ title, subtitle, sections, links }: DolazakPageProps) {
   const navigate = useNavigate();
   const { t } = useLanguage();
+  const { isPremium } = useSubscription();
+  const [showPremiumModal, setShowPremiumModal] = useState(false);
 
   const handleBack = () => {
     navigateBackOrHome(navigate);
@@ -46,15 +51,44 @@ export default function DolazakPageTemplate({ title, subtitle, sections, links }
 
       <section className="pt-10 pb-10">
         <div className="container max-w-3xl space-y-6">
-          {sections.map((s, i) => (
-            <motion.div key={i} {...fade(i)} className="rounded-xl border bg-card p-6 shadow-sm">
-              <div className="mb-3 flex items-center gap-2 text-sm font-bold">
-                {s.icon}
-                {s.title}
-              </div>
-              <div className="text-sm leading-relaxed text-muted-foreground">{s.content}</div>
-            </motion.div>
-          ))}
+          {sections.map((s, i) => {
+            const isLocked = i > 0 && !isPremium;
+            return (
+              <motion.div key={i} {...fade(i)} className="rounded-xl border bg-card shadow-sm overflow-hidden relative">
+                <div className={`p-6 ${isLocked ? "blur-sm select-none pointer-events-none" : ""}`}>
+                  <div className="mb-3 flex items-center gap-2 text-sm font-bold">
+                    {s.icon}
+                    {s.title}
+                  </div>
+                  <div className="text-sm leading-relaxed text-muted-foreground">{s.content}</div>
+                </div>
+
+                {isLocked && (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-card/80 backdrop-blur-sm z-10">
+                    <Lock className="h-6 w-6 text-primary" />
+                    <p className="text-sm font-semibold text-foreground text-center px-4">
+                      Ovaj korak je dostupan Premium korisnicima
+                    </p>
+                    <div className="flex flex-col items-center gap-2">
+                      <button
+                        onClick={() => setShowPremiumModal(true)}
+                        className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
+                      >
+                        Otključaj Premium — 9.99€/mjes.
+                      </button>
+                      <button
+                        onClick={() => {}}
+                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                        title="Besplatni korisnici imaju pristup samo prvom koraku svakog vodiča"
+                      >
+                        Nastavi bez Premium →
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </motion.div>
+            );
+          })}
         </div>
       </section>
 
@@ -85,6 +119,12 @@ export default function DolazakPageTemplate({ title, subtitle, sections, links }
           </div>
         </section>
       )}
+
+      <PremiumModal
+        open={showPremiumModal}
+        onOpenChange={() => setShowPremiumModal(false)}
+        trigger="guide"
+      />
     </>
   );
 }
