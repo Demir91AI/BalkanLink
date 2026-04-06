@@ -406,9 +406,7 @@ export default function CommunityMapa() {
               <label className="text-sm font-medium text-[#2D2D2D]">Kako te drugi mogu kontaktirati?</label>
               <div className="grid grid-cols-2 gap-2">
                 {[
-                  { value: "message" as const, label: "📨 Poruka (anonimno)", desc: "Poruka ostaje u BalkanLink" },
                   { value: "none" as const, label: "🚫 Bez kontakta", desc: "Samo prisutnost na mapi" },
-                  { value: "email" as const, label: "📧 Email (javno)", desc: "Email vidljiv svima" },
                   { value: "phone" as const, label: "📞 Telefon (javno)", desc: "Broj vidljiv svima" },
                 ].map(opt => (
                   <button
