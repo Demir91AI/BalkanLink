@@ -112,7 +112,7 @@ export function AdFlowBanner() {
 
         <div
           ref={ref}
-          className="overflow-hidden w-full cursor-grab select-none"
+          className="overflow-x-scroll scrollbar-hide w-full cursor-grab select-none"
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
