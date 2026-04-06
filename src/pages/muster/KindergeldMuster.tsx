@@ -211,7 +211,10 @@ export default function KindergeldMuster() {
           <Field label="Ort" value={f.ort} onChange={v => set("ort", v)} />
           <Field label="Datum" type="date" value={f.datum} onChange={v => set("datum", v)} />
         </div>
-        <Signature labels={["Unterschrift antragstellende Person", "Unterschrift Ehepartner/Lebenspartner"]} />
+        <div style={{ display: "flex", gap: 24, marginTop: 12 }}>
+          <Signature label="Unterschrift antragstellende Person" />
+          <Signature label="Unterschrift Ehepartner/Lebenspartner" />
+        </div>
       </div>
     </MusterFormBase>
   );
