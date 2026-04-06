@@ -11,6 +11,9 @@ const loadForm = (formKey: string) => {
     VisaStudyForm: () => import('../formulare/muster/VisaStudyForm').catch(() => ({ default: () => null as any })),
     VisaPermanentForm1: () => import('../formulare/muster/VisaPermanentForm1').catch(() => ({ default: () => null as any })),
     VisaPermanentForm2: () => import('../formulare/muster/VisaPermanentForm2').catch(() => ({ default: () => null as any })),
+    VisaAusbildungVidex: () => import('../formulare/muster/VisaWorkForm1').catch(() => ({ default: () => null as any })),
+    VisaAusbildungAufenthalt: () => import('../formulare/muster/VisaWorkForm1').catch(() => ({ default: () => null as any })),
+    VisaAusbildungCV: () => import('../formulare/muster/VisaWorkForm1').catch(() => ({ default: () => null as any })),
   };
   return formMap[formKey];
 };

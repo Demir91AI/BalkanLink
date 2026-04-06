@@ -464,9 +464,9 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           { label: 'Gesetze im Internet — §16a AufenthG', url: 'https://www.gesetze-im-internet.de/aufenthg_2004/__16a.html' }
         ],
         musterformulare: [
-          { title: 'VIDEX — Viza aplikacioni formular (Ausbildung)', subtitle: 'Isti formular za sve zemlje — popunjava se online na digital.diplo.de', formKey: 'VisaWorkForm1', downloadUrl: 'https://digital.diplo.de' },
-          { title: 'Antrag auf Aufenthaltstitel §16a AufenthG', subtitle: 'Podnosi se u Njemačkoj pri Ausländerbehörde — demo/preview', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.bamf.de' },
-          { title: 'Lebenslauf (CV) — Template za Ausbildung', subtitle: 'Editable predložak životopisa na njemačkom jeziku', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.make-it-in-germany.com' }
+          { title: 'VIDEX — Viza aplikacioni formular (Ausbildung)', subtitle: 'Isti formular za sve zemlje — popunjava se online na digital.diplo.de', formKey: 'VisaAusbildungVidex', downloadUrl: 'https://digital.diplo.de' },
+          { title: 'Antrag auf Aufenthaltstitel §16a AufenthG', subtitle: 'Podnosi se u Njemačkoj pri Ausländerbehörde — demo/preview', formKey: 'VisaAusbildungAufenthalt', downloadUrl: 'https://www.bamf.de' },
+          { title: 'Lebenslauf (CV) — Template za Ausbildung', subtitle: 'Editable predložak životopisa na njemačkom jeziku', formKey: 'VisaAusbildungCV', downloadUrl: 'https://www.make-it-in-germany.com' }
         ]
       }
     ]
@@ -695,9 +695,9 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           { label: 'Gesetze im Internet — §16a AufenthG', url: 'https://www.gesetze-im-internet.de/aufenthg_2004/__16a.html' }
         ],
         musterformulare: [
-          { title: 'VIDEX — Viza aplikacioni formular (Ausbildung)', subtitle: 'Online popuniti, odštampati, potpisati — OBAVEZNO za Srbiju', formKey: 'VisaWorkForm1', downloadUrl: 'https://digital.diplo.de' },
-          { title: 'Antrag auf Aufenthaltstitel §16a AufenthG', subtitle: 'Podnosi se u Nemačkoj pri Ausländerbehörde — demo/preview', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.bamf.de' },
-          { title: 'Lebenslauf (CV) — Template za Ausbildung', subtitle: 'Editable predložak životopisa na nemačkom jeziku', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.make-it-in-germany.com' }
+          { title: 'VIDEX — Viza aplikacioni formular (Ausbildung)', subtitle: 'Online popuniti, odštampati, potpisati — OBAVEZNO za Srbiju', formKey: 'VisaAusbildungVidex', downloadUrl: 'https://digital.diplo.de' },
+          { title: 'Antrag auf Aufenthaltstitel §16a AufenthG', subtitle: 'Podnosi se u Nemačkoj pri Ausländerbehörde — demo/preview', formKey: 'VisaAusbildungAufenthalt', downloadUrl: 'https://www.bamf.de' },
+          { title: 'Lebenslauf (CV) — Template za Ausbildung', subtitle: 'Editable predložak životopisa na nemačkom jeziku', formKey: 'VisaAusbildungCV', downloadUrl: 'https://www.make-it-in-germany.com' }
         ]
       }
     ]
@@ -845,9 +845,9 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           { label: 'Gesetze im Internet — §16a', url: 'https://www.gesetze-im-internet.de/aufenthg_2004/__16a.html' }
         ],
         musterformulare: [
-          { title: 'VIDEX — Viza aplikacioni formular (Ausbildung)', subtitle: 'Universal formular — popunjava se online', formKey: 'VisaWorkForm1', downloadUrl: 'https://digital.diplo.de' },
-          { title: 'Antrag auf Aufenthaltstitel §16a', subtitle: 'Demo/preview — podnosi se u Njemačkoj', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.bamf.de' },
-          { title: 'Lebenslauf (CV) — Template', subtitle: 'Predložak životopisa za Ausbildung', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.make-it-in-germany.com' }
+          { title: 'VIDEX — Viza aplikacioni formular (Ausbildung)', subtitle: 'Universal formular — popunjava se online', formKey: 'VisaAusbildungVidex', downloadUrl: 'https://digital.diplo.de' },
+          { title: 'Antrag auf Aufenthaltstitel §16a', subtitle: 'Demo/preview — podnosi se u Njemačkoj', formKey: 'VisaAusbildungAufenthalt', downloadUrl: 'https://www.bamf.de' },
+          { title: 'Lebenslauf (CV) — Template', subtitle: 'Predložak životopisa za Ausbildung', formKey: 'VisaAusbildungCV', downloadUrl: 'https://www.make-it-in-germany.com' }
         ]
       }
     ]
@@ -994,9 +994,9 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           { label: 'Gesetze im Internet — §16a', url: 'https://www.gesetze-im-internet.de/aufenthg_2004/__16a.html' }
         ],
         musterformulare: [
-          { title: 'VIDEX — Виза формулар (Ausbildung)', subtitle: 'Универзален формулар — пополнува се онлајн', formKey: 'VisaWorkForm1', downloadUrl: 'https://digital.diplo.de' },
-          { title: 'Antrag auf Aufenthaltstitel §16a', subtitle: 'Демо/преглед — поднесува се во Германија', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.bamf.de' },
-          { title: 'Lebenslauf (CV) — Template', subtitle: 'Предлошка за животопис за Ausbildung', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.make-it-in-germany.com' }
+          { title: 'VIDEX — Виза формулар (Ausbildung)', subtitle: 'Универзален формулар — пополнува се онлајн', formKey: 'VisaAusbildungVidex', downloadUrl: 'https://digital.diplo.de' },
+          { title: 'Antrag auf Aufenthaltstitel §16a', subtitle: 'Демо/преглед — поднесува се во Германија', formKey: 'VisaAusbildungAufenthalt', downloadUrl: 'https://www.bamf.de' },
+          { title: 'Lebenslauf (CV) — Template', subtitle: 'Предлошка за животопис за Ausbildung', formKey: 'VisaAusbildungCV', downloadUrl: 'https://www.make-it-in-germany.com' }
         ]
       }
     ]
@@ -1146,9 +1146,9 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           { label: 'Gesetze im Internet — §16a', url: 'https://www.gesetze-im-internet.de/aufenthg_2004/__16a.html' }
         ],
         musterformulare: [
-          { title: 'VIDEX — Formular vize (Ausbildung)', subtitle: 'Formular universal — plotësohet online', formKey: 'VisaWorkForm1', downloadUrl: 'https://digital.diplo.de' },
-          { title: 'Antrag auf Aufenthaltstitel §16a', subtitle: 'Demo/parapamje — dorëzohet në Gjermani', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.bamf.de' },
-          { title: 'Lebenslauf (CV) — Template', subtitle: 'Shabllon CV për Ausbildung', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.make-it-in-germany.com' }
+          { title: 'VIDEX — Formular vize (Ausbildung)', subtitle: 'Formular universal — plotësohet online', formKey: 'VisaAusbildungVidex', downloadUrl: 'https://digital.diplo.de' },
+          { title: 'Antrag auf Aufenthaltstitel §16a', subtitle: 'Demo/parapamje — dorëzohet në Gjermani', formKey: 'VisaAusbildungAufenthalt', downloadUrl: 'https://www.bamf.de' },
+          { title: 'Lebenslauf (CV) — Template', subtitle: 'Shabllon CV për Ausbildung', formKey: 'VisaAusbildungCV', downloadUrl: 'https://www.make-it-in-germany.com' }
         ]
       }
     ]
@@ -1357,9 +1357,9 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           { label: 'Gesetze im Internet — §16a', url: 'https://www.gesetze-im-internet.de/aufenthg_2004/__16a.html' }
         ],
         musterformulare: [
-          { title: 'VIDEX — Viza formular (Ausbildung)', subtitle: 'Universal formular — online ili VisaMetric', formKey: 'VisaWorkForm1', downloadUrl: 'https://digital.diplo.de' },
-          { title: 'Antrag auf Aufenthaltstitel §16a', subtitle: 'Demo/preview — podnosi se u Njemačkoj', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.bamf.de' },
-          { title: 'Lebenslauf (CV) — Template', subtitle: 'Predložak životopisa za Ausbildung', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.make-it-in-germany.com' }
+          { title: 'VIDEX — Viza formular (Ausbildung)', subtitle: 'Universal formular — online ili VisaMetric', formKey: 'VisaAusbildungVidex', downloadUrl: 'https://digital.diplo.de' },
+          { title: 'Antrag auf Aufenthaltstitel §16a', subtitle: 'Demo/preview — podnosi se u Njemačkoj', formKey: 'VisaAusbildungAufenthalt', downloadUrl: 'https://www.bamf.de' },
+          { title: 'Lebenslauf (CV) — Template', subtitle: 'Predložak životopisa za Ausbildung', formKey: 'VisaAusbildungCV', downloadUrl: 'https://www.make-it-in-germany.com' }
         ]
       }
     ]
