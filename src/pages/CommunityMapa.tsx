@@ -122,7 +122,7 @@ export default function CommunityMapa() {
     localStorage.setItem(LS_SELF_KEY, member.id);
     setStep("idle");
     setCity(""); setDisplayName(""); setNote(""); setContactValue("");
-    setContactType("message"); setContactConsent(false);
+    setContactType("none"); setContactConsent(false);
     toast.success("Dodan/a si na mapu!");
   };
 
