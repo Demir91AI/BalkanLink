@@ -67,7 +67,7 @@ export default function DolazakPageTemplate({ title, subtitle, sections, links }
                   <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-card/80 backdrop-blur-sm z-10">
                     <Lock className="h-6 w-6 text-primary" />
                     <p className="text-sm font-semibold text-foreground text-center px-4">
-                      Ovaj korak je dostupan Premium korisnicima
+                      {t("paywall.stepLocked")}
                     </p>
                     <div className="flex flex-col items-center gap-2">
                       <button
