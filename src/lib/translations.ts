@@ -1,4 +1,4 @@
-import { indexChatBs, indexChatHr, indexChatSr, indexChatMe, indexChatSq, indexChatXk, indexChatMk, indexChatDe, indexChatEn, indexChatSl, newKeysSq, newKeysXk, newKeysMk, newKeysMe } from "./i18n-extra";
+import { indexChatBs, indexChatHr, indexChatSr, indexChatMe, indexChatSq, indexChatXk, indexChatMk, indexChatDe, indexChatSl, newKeysSq, newKeysXk, newKeysMk, newKeysMe } from "./i18n-extra";
 
 export type Language = "bs" | "hr" | "sr" | "me" | "sq" | "mk" | "xk" | "de" | "en" | "sl";
 
