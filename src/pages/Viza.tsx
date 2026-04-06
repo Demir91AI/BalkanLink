@@ -143,7 +143,7 @@ export default function Viza() {
                     {country.routes.map(r => {
                       const active = selectedRoute === r.id;
                       return (
-                        <button key={r.id} onClick={() => setSelectedRoute(r.id)}
+                        <button key={r.id} onClick={() => handleSelectRoute(r.id)}
                           className="text-left px-3 py-2 transition-all duration-150 hover:bg-[#FFF8EC]"
                           style={{
                             background: active ? '#FFF8EC' : 'transparent',
