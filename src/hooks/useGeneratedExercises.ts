@@ -42,18 +42,39 @@ export function useGeneratedExercises() {
 
           const batchCount = Math.min(BATCH_SIZE, remaining - i * BATCH_SIZE);
 
-          const { data, error: fnError } = await supabase.functions.invoke(
-            "generate-trainer-exercises",
-            { body: { level, topic, stageType, count: batchCount } }
-          );
+          let lastErr: string | null = null;
+          let batchExercises: Exercise[] = [];
 
-          if (fnError) throw new Error(fnError.message);
-          if (data?.error) throw new Error(data.error);
+          // Retry up to 3 times with increasing delay for transient 503s
+          for (let attempt = 0; attempt < 3; attempt++) {
+            const { data, error: fnError } = await supabase.functions.invoke(
+              "generate-trainer-exercises",
+              { body: { level, topic, stageType, count: batchCount } }
+            );
 
-          const exercises: Exercise[] = data?.exercises ?? [];
-          allExercises.push(...exercises);
+            if (fnError) {
+              lastErr = fnError.message;
+              // Retry on 503/network errors
+              if (attempt < 2) {
+                await new Promise(r => setTimeout(r, 2000 * (attempt + 1)));
+                continue;
+              }
+              throw new Error(lastErr);
+            }
+            if (data?.error) {
+              lastErr = data.error;
+              if (attempt < 2 && (data.error.includes("unavailable") || data.error.includes("try again"))) {
+                await new Promise(r => setTimeout(r, 2000 * (attempt + 1)));
+                continue;
+              }
+              throw new Error(lastErr);
+            }
 
-          // Cache incrementally
+            batchExercises = data?.exercises ?? [];
+            break; // Success
+          }
+
+          allExercises.push(...batchExercises);
           cache.set(key, [...allExercises]);
         }
 
