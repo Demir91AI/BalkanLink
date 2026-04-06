@@ -465,50 +465,6 @@ export default function CommunityMapa() {
         </DialogContent>
       </Dialog>
 
-      {/* MESSAGE DIALOG */}
-      <Dialog open={msgOpen} onOpenChange={setMsgOpen}>
-        <DialogContent className="sm:max-w-md">
-          <DialogHeader>
-            <DialogTitle className="text-[#2D2D2D]">Pošalji poruku</DialogTitle>
-          </DialogHeader>
-          {msgRecipient && (
-            <div className="space-y-4">
-              <div className="rounded-xl bg-[#F5F0E8] p-4">
-                <p className="text-sm text-[#2D2D2D]">
-                  Primaoc: <span className="font-bold">{msgRecipient.displayName}</span> iz {msgRecipient.city}
-                </p>
-                <p className="text-[11px] text-[#9CA3AF] mt-1">Poruka se šalje anonimno i pohranjuje u BalkanLink sistem. Max 3 poruke/dan.</p>
-              </div>
-              <Textarea
-                value={msgText}
-                onChange={e => setMsgText(e.target.value.slice(0, 500))}
-                placeholder="Napiši poruku... (max 500 znakova)"
-                className="min-h-[100px] border-[#E8D9B0]"
-              />
-              <p className="text-[10px] text-[#9CA3AF]">{msgText.length}/500</p>
-              <label className="flex items-start gap-3 cursor-pointer">
-                <Checkbox checked={msgAgbChecked} onCheckedChange={v => setMsgAgbChecked(v === true)} className="mt-0.5" />
-                <span className="text-xs text-[#6B6B6B]">
-                  Potvrđujem da poruka ne sadrži uvredljiv sadržaj i prihvatam{" "}
-                  <Link to="/agb" className="text-[hsl(var(--gold))] underline" target="_blank">AGB</Link>{" "}
-                  BalkanLink platforme.
-                </span>
-              </label>
-              <div className="flex gap-3">
-                <Button
-                  onClick={handleSendMessage}
-                  disabled={!msgText.trim() || !msgAgbChecked}
-                  className="flex-1 gap-2 font-bold"
-                  style={{ background: '#C9A84C', color: 'white' }}
-                >
-                  <Send className="h-4 w-4" /> Pošalji
-                </Button>
-                <Button onClick={() => setMsgOpen(false)} variant="outline" className="flex-1">Odustani</Button>
-              </div>
-            </div>
-          )}
-        </DialogContent>
-      </Dialog>
     </div>
   );
 }
