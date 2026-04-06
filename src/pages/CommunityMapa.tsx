@@ -13,7 +13,7 @@ import { motion } from "framer-motion";
 import { useNavigate, Link } from "react-router-dom";
 import { navigateBackOrHome } from "@/lib/navigation";
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
+
 
 interface MapMember {
   id: string;
