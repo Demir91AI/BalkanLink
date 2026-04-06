@@ -239,7 +239,7 @@ export default function Viza() {
                       className="rounded-lg px-5 py-2.5 text-sm font-bold text-white transition-colors hover:opacity-90"
                       style={{ background: GOLD }}
                     >
-                      Otključaj Premium — 9.99€/mjes.
+                      {t("paywall.unlockPremium")}
                     </button>
                   </div>
                 </div>
