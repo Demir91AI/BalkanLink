@@ -232,7 +232,9 @@ function ShowcaseCarousel() {
 /* ─── Ad Flow Section ─── */
 function AdFlowSection() {
   const { t } = useLanguage();
-  const doubled = [...placeholderAds, ...placeholderAds];
+  const doubled = [...placeholderAds, ...placeholderAds, ...placeholderAds, ...placeholderAds];
+  const { ref, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.7, 3500);
+
   return (
     <section className="py-10 border-t border-[#E8E0D0] bg-[hsl(var(--warm-cream))] overflow-hidden">
       <div className="container mb-5">
@@ -241,7 +243,17 @@ function AdFlowSection() {
           <span className="text-[10px] font-bold uppercase tracking-widest text-[hsl(var(--gold))]">{t("home.adLabel")}</span>
         </div>
       </div>
-      <div className="overflow-x-auto w-full scrollbar-hide" style={{ WebkitOverflowScrolling: 'touch', scrollSnapType: 'x mandatory' }}>
+      <div
+        ref={ref}
+        className="overflow-x-scroll scrollbar-hide w-full cursor-grab select-none"
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+        onMouseDown={onMouseDown}
+        onMouseMove={onMouseMove}
+        onMouseUp={onMouseUp}
+        onMouseLeave={onMouseLeave}
+      >
         <div className="flex w-fit gap-4">
           {doubled.map((ad, i) => (
             <a
@@ -250,7 +262,6 @@ function AdFlowSection() {
               target={ad.href ? "_blank" : undefined}
               rel={ad.href ? "noopener noreferrer" : undefined}
               className="group flex w-[340px] h-[160px] shrink-0 rounded-xl overflow-hidden border border-[#E8E0D0] bg-white shadow-sm transition-all duration-300 hover:border-[hsl(var(--gold))]/40 hover:shadow-md hover:-translate-y-0.5"
-              style={{ scrollSnapAlign: 'start' }}
             >
               {/* LEFT — Image (50%) */}
               <div className="w-1/2 h-full overflow-hidden bg-[hsl(var(--warm-cream))]">

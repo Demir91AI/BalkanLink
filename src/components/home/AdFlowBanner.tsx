@@ -87,7 +87,7 @@ export function AdFlowBanner() {
   const { ref, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.7, 3500);
 
   const ITEMS_PER_SET = 1 + PLACEHOLDER_VARIATIONS.length;
-  const totalItems = ITEMS_PER_SET * 2;
+  const totalItems = ITEMS_PER_SET * 4;
 
   return (
     <section className="relative overflow-hidden border-y border-white/[0.06] bg-gradient-to-b from-[hsl(215,55%,5%)] to-[hsl(215,55%,7%)]">
