@@ -21,6 +21,9 @@ interface MapMember {
   displayName: string;
   note: string;
   phone: string;
+  facebook: string;
+  instagram: string;
+  tiktok: string;
   createdAt: string;
 }
 
