@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { ExternalLink, CheckCircle, AlertTriangle, FileText, Clock, MapPin, Zap, Info, Printer, Euro, ChevronRight } from 'lucide-react';
 import { COUNTRY_CONTENT } from '../../data/vizaNavigatorContent';
 
@@ -57,6 +57,16 @@ const InlineFormPlaceholder = ({ title, onClose }: { title: string; onClose: () 
 export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selectedRoute, onSelectRoute, onBack }) => {
   const [openFormKey, setOpenFormKey] = useState<string | null>(null);
   const [LoadedForm, setLoadedForm] = useState<React.FC | null>(null);
+  const openFormRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (openFormKey && openFormRef.current) {
+      const t = setTimeout(() => {
+        openFormRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 150);
+      return () => clearTimeout(t);
+    }
+  }, [openFormKey, LoadedForm]);
 
   const handleOpenForm = async (formKey: string) => {
     if (openFormKey === formKey) {
@@ -398,7 +408,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
 
           {/* Render open form */}
           {openFormKey && (
-            <div style={{ marginTop: 16 }}>
+            <div ref={openFormRef} style={{ marginTop: 16, transition: 'border-color 0.3s ease', borderRadius: 14, border: `2px solid ${GOLD}`, padding: 2 }}>
               {LoadedForm
                 ? <div style={{ position: 'relative' }}>
                     <button onClick={() => { setOpenFormKey(null); setLoadedForm(null); }}
