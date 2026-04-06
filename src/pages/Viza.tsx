@@ -50,8 +50,8 @@ export default function Viza() {
 
         {/* Title */}
         <div className="mb-4">
-          <h1 className="text-[28px] font-bold text-[#2D2D2D]">Viza Navigator</h1>
-          <p className="text-[16px] text-[#6B6B6B] mt-1">Sve o vizama, boravišnim dozvolama i stalnom boravku — po državama</p>
+          <h1 className="text-[28px] font-bold text-[#2D2D2D]">{t("visaNavigator.title")}</h1>
+          <p className="text-[16px] text-[#6B6B6B] mt-1">{t("visaNavigator.subtitle")}</p>
         </div>
 
         {/* Breadcrumb */}
