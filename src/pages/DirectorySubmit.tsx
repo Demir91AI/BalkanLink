@@ -37,6 +37,7 @@ export default function DirectorySubmit() {
   const { user } = useAuth();
   const navigate = useNavigate();
   const [submitting, setSubmitting] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState("");
 
   const form = useForm<FormValues>({
     resolver: zodResolver(schema),
