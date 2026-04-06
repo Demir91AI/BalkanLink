@@ -209,7 +209,7 @@ const App = () => (
                 <Route path="/deutsch-trainer/bonusbedingungen" element={<TrainerBonusbedingungen />} />
                 <Route path="/firma/:slug" element={<FirmDetail />} />
                 <Route path="/bussgeld" element={<BussgeldAssistent />} />
-                <Route path="/paketi" element={<Paketi />} />
+                <Route path="/paketi" element={<Navigate to="/pricing" replace />} />
                 <Route path="/pricing" element={<Pricing />} />
                 <Route path="/payment-success" element={<PaymentSuccess />} />
                 <Route path="/kalkulatori" element={<Kalkulatori />} />
