@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
+import { useInfiniteScroll } from "@/hooks/useInfiniteScroll";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
