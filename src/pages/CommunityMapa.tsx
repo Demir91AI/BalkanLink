@@ -27,7 +27,6 @@ interface MapMember {
 
 const LS_KEY = "bl_mapa_members_v2";
 const LS_SELF_KEY = "bl_mapa_self_id_v2";
-const LS_MSG_KEY = "bl_mapa_msg_sent";
 
 function loadMembers(): MapMember[] {
   try {
