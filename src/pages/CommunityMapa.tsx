@@ -126,6 +126,9 @@ export default function CommunityMapa() {
       displayName: displayName.trim() || `Korisnik iz ${city.trim()}`,
       note: note.trim().slice(0, 100),
       phone: phone.trim(),
+      facebook: facebook.trim(),
+      instagram: instagram.trim(),
+      tiktok: tiktok.trim(),
       createdAt: new Date().toISOString(),
     };
     const updated = [...members, member];
