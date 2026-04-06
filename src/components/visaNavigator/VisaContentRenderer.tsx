@@ -271,6 +271,41 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
         </div>
       )}
 
+      {/* Ausbildung highlight */}
+      {route.ausbildungHighlight && route.ausbildungHighlight.length > 0 && (
+        <div style={{ background: '#FFF8EC', border: '1px solid #E8D9B0', borderRadius: 12, padding: '16px 20px', marginBottom: 16 }}>
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
+            <Zap size={18} color={GOLD} style={{ flexShrink: 0, marginTop: 2 }} />
+            <div>
+              <p style={{ fontSize: 13, fontWeight: 700, color: '#92400E', margin: '0 0 10px' }}>⚡ Ausbildung viza dostupna za Balkanske državljane!</p>
+              {route.ausbildungHighlight.map((item, i) => (
+                <p key={i} style={{ fontSize: 13, color: '#4A4A4A', margin: '0 0 4px', lineHeight: 1.6 }}>{item}</p>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Country-specific notes */}
+      {route.countryNotes && route.countryNotes.length > 0 && (
+        <div style={{ background: '#EFF6FF', border: '1px solid #BFDBFE', borderRadius: 12, padding: '16px 20px', marginBottom: 16 }}>
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
+            <Info size={18} color="#3B82F6" style={{ flexShrink: 0, marginTop: 2 }} />
+            <div>
+              <p style={{ fontSize: 13, fontWeight: 700, color: '#1E40AF', margin: '0 0 10px' }}>
+                ⚠️ Posebne napomene za tvoju ambasadu
+                {route.countryBadge && (
+                  <span style={{ marginLeft: 8, background: '#DBEAFE', color: '#1E40AF', borderRadius: 20, padding: '2px 10px', fontSize: 11, fontWeight: 600 }}>{route.countryBadge}</span>
+                )}
+              </p>
+              {route.countryNotes.map((note, i) => (
+                <p key={i} style={{ fontSize: 13, color: '#1E3A5F', margin: '0 0 6px', lineHeight: 1.6 }}>{note}</p>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Steps */}
       <Card>
         <CardHeader icon={CheckCircle} color="#22C55E" title="Korak-po-korak vodič" />
