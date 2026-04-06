@@ -219,27 +219,6 @@ Antworte NUR mit einem JSON-Array, KEIN anderer Text.`;
       );
     }
 
-    if (!response.ok) {
-      const status = response.status;
-      if (status === 429) {
-        return new Response(
-          JSON.stringify({ error: "Rate limit exceeded. Please try again later." }),
-          { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-        );
-      }
-      if (status === 402) {
-        return new Response(
-          JSON.stringify({ error: "Payment required. Please add credits." }),
-          { status: 402, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-        );
-      }
-      const errText = await response.text();
-      console.error("AI gateway error:", status, errText);
-      return new Response(
-        JSON.stringify({ error: "AI generation failed" }),
-        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
-    }
 
     const data = await response.json();
     const content = data.choices?.[0]?.message?.content || "[]";
