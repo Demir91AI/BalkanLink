@@ -126,7 +126,9 @@ export default function MusterFormBase({ rootId, title, subtitle, pdfUrl, pdfLab
             </div>
           </div>
 
-          {children}
+          <FormularLock locked={locked} formularId={fId}>
+            {children}
+          </FormularLock>
 
           <div style={S.footer}>
             {footerNote}
