@@ -19,7 +19,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useSectionT } from "@/hooks/useSectionT";
 import { useHistorySearchState } from "@/hooks/useHistorySearchState";
 import { cn } from "@/lib/utils";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "@/i18n/useTranslation";
 import FormSmartGuide from "@/components/FormSmartGuide";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
 

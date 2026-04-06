@@ -1,4 +1,4 @@
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "@/i18n/useTranslation";
 import {
   Briefcase, CreditCard, Users, GraduationCap, RefreshCw, Home,
   ExternalLink, Info, Zap, Clock, CheckCircle, Scale, FileText,

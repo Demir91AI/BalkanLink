@@ -1,4 +1,4 @@
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "@/i18n/useTranslation";
 import { Link } from "react-router-dom";
 import { MapPin, Heart, Building2, Briefcase, Shield, ExternalLink } from "lucide-react";
 import TrustSystem from "./TrustSystem";
