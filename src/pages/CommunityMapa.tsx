@@ -32,10 +32,13 @@ function loadMembers(): MapMember[] {
     const raw = localStorage.getItem(LS_KEY);
     if (!raw) return [];
     const parsed = JSON.parse(raw) as any[];
-    return parsed.map(m => ({
-      ...m,
-      contactType: m.contactType === "phone" ? "phone" : "none",
-      contactValue: m.contactType === "phone" ? m.contactValue || "" : "",
+    return parsed.map((m: any) => ({
+      id: m.id,
+      city: m.city,
+      displayName: m.displayName,
+      note: m.note || "",
+      phone: m.phone || m.contactValue || "",
+      createdAt: m.createdAt,
     }));
   } catch { return []; }
 }
