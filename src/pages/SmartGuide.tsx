@@ -159,7 +159,7 @@ export default function SmartGuide() {
           ))}
         </div>
 
-        <StepLockOverlay locked={!canAccessStep(step)}>
+        <SmartGuideLock locked={!canAccessStep(step)}>
           {/* Step header */}
           <div className="rounded-2xl border bg-card p-5">
             <div className="mb-1 flex items-center gap-2">
