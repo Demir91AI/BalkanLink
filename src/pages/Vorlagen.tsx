@@ -26,7 +26,7 @@ export default function Vorlagen() {
   const navigate = useNavigate();
   const { slug } = useParams();
   const { t } = useLanguage();
-  const { canUseDocGenerator } = usePremiumAccess();
+  const { isPremium: canUseDocGenerator } = useSubscription();
 
   /* ── Individual template detail/generator view ── */
   if (slug) {
