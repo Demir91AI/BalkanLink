@@ -442,7 +442,7 @@ export default function FormCenter() {
                     formCatalog.map((group) => (
                       <div key={group.id}>
                         <div className="px-4 py-3 text-[11px] font-bold uppercase tracking-widest text-[hsl(var(--gold))] bg-[hsl(220,50%,8%)] rounded-lg mt-3 mb-1.5">
-                          {group.icon} {group.title}
+                          {group.icon} {group.titleKey ? t(group.titleKey) : group.title}
                         </div>
                         <div className="space-y-2">
                           {group.items.map((item) => (
