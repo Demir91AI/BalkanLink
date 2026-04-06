@@ -189,8 +189,8 @@ i18n
       mk: buildLang(mk_common,mk_header,mk_hero,mk_homepage,mk_footer,mk_sideMenu,mk_rightPanel,mk_formulare,mk_visaNavigator,mk_dokumentencheck,mk_deutsch,mk_chatbot,mk_calculators,mk_cookies,mk_validation,mk_status,mk_premium,mk_ads,mk_nudimTrazim),
       sq: buildLang(sq_common,sq_header,sq_hero,sq_homepage,sq_footer,sq_sideMenu,sq_rightPanel,sq_formulare,sq_visaNavigator,sq_dokumentencheck,sq_deutsch,sq_chatbot,sq_calculators,sq_cookies,sq_validation,sq_status,sq_premium,sq_ads,sq_nudimTrazim),
     },
-    lng: localStorage.getItem("app_language") || "de",
-    fallbackLng: "de",
+    lng: localStorage.getItem("app_language") || localStorage.getItem("balkanlink-lang") || "bs",
+    fallbackLng: "bs",
     defaultNS: "common",
     ns: [...NS_LIST],
     detection: {

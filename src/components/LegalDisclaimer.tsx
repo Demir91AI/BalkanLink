@@ -10,7 +10,6 @@ const disclaimers: Record<Language, string> = {
   xk: "Këto informacione shërbejnë vetëm për orientim dhe nuk përbëjnë këshillë juridike.",
   mk: "Овие информации служат само за ориентација и не претставуваат правен совет.",
   de: "Diese Informationen dienen nur zur Orientierung und stellen keine Rechtsberatung dar.",
-  en: "This information is for orientation only and does not constitute legal advice.",
   sl: "Te informacije so namenjene zgolj orientaciji in ne predstavljajo pravnega nasveta.",
 };
 

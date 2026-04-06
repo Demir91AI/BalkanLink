@@ -1,6 +1,6 @@
-import { indexChatBs, indexChatHr, indexChatSr, indexChatMe, indexChatSq, indexChatXk, indexChatMk, indexChatDe, indexChatEn, indexChatSl, newKeysSq, newKeysXk, newKeysMk, newKeysMe } from "./i18n-extra";
+import { indexChatBs, indexChatHr, indexChatSr, indexChatMe, indexChatSq, indexChatXk, indexChatMk, indexChatDe, indexChatSl, newKeysSq, newKeysXk, newKeysMk, newKeysMe } from "./i18n-extra";
 
-export type Language = "bs" | "hr" | "sr" | "me" | "sq" | "mk" | "xk" | "de" | "en" | "sl";
+export type Language = "bs" | "hr" | "sr" | "me" | "sq" | "mk" | "xk" | "de" | "sl";
 
 export interface LanguageInfo {
   code: Language;
@@ -19,7 +19,6 @@ export const LANGUAGES: LanguageInfo[] = [
   { code: "mk", name: "Македонски", country: "Македонија", flag: "🇲🇰" },
   { code: "sl", name: "Slovenščina", country: "Slovenija", flag: "🇸🇮" },
   { code: "de", name: "Deutsch", country: "Deutschland", flag: "🇩🇪" },
-  { code: "en", name: "English", country: "United Kingdom", flag: "🇬🇧" },
 ];
 
 type TranslationKeys = {
@@ -1662,42 +1661,6 @@ const translations: Record<Language, TranslationKeys> = {
     "dir.loginRequired": "Du musst angemeldet sein, um ein Geschäft hinzuzufügen.",
     ...missionsDe as any, ...portalDe as any, ...miscDe as any, ...homeDe as any, ...premiumDe as any, ...newKeysDe as any, ...indexChatDe as any,
   },
-  en: {
-    "nav.home": "Home", "nav.qa": "Q&A", "nav.directory": "Directory",
-    "nav.login": "Sign in", "nav.register": "Sign up", "nav.logout": "Sign out",
-    "hero.slide1.title": "Your guide to life in Germany",
-    "hero.slide1.subtitle": "Verified information, step by step — in your language.",
-    "hero.slide2.title": "Cities that become home",
-    "hero.slide2.subtitle": "Munich, Berlin, Frankfurt — find your way.",
-    "hero.slide3.title": "Career without borders",
-    "hero.slide3.subtitle": "Jobs, CV, interview and work rights — all in one place.",
-    "cta.new.title": "Start here", "cta.new.desc": "Documents, registration, first steps.",
-    "cta.daily.title": "Life & tips", "cta.daily.desc": "Housing, work, taxes, healthcare.",
-    "cta.help.title": "Need help", "cta.help.desc": "Quick solutions for problems.",
-    "countries.title": "For the entire Balkans",
-    "categories.title": "Categories", "categories.subtitle": "Pick a topic and find the answer in seconds.",
-    "business.title": "Have a business?", "business.subtitle": "Add your business to our directory and become visible to the community.",
-    "business.search": "Browse directory", "business.add": "Add your business",
-    "qa.title": "Questions & Answers", "qa.subtitle": "Find the answer to your question — fast and in your language.",
-    "qa.search": "Search...", "qa.all": "All topics", "qa.results": "results",
-    "qa.empty": "No results. Try a different term.",
-    "dir.title": "Business Directory", "dir.subtitle": "Find Balkan businesses in Germany.",
-    "dir.add": "Add business", "dir.searchPlaceholder": "Search by name, city...",
-    "dir.filterCity": "City", "dir.filterCategory": "Category", "dir.filterOrigin": "Country of origin",
-    "dir.allCities": "All cities", "dir.allCategories": "All categories", "dir.allOrigins": "All countries",
-    "dir.results": "results", "dir.clearFilters": "Clear filters", "dir.empty": "No businesses to display.",
-    "dir.submitTitle": "Add your business",
-    "dir.submitSubtitle": "Fill out the form and your business will be visible after review.",
-    "dir.backToDirectory": "Back to directory",
-    "dir.fieldName": "Business name", "dir.fieldCategory": "Category", "dir.fieldCity": "City",
-    "dir.fieldOrigin": "Country of origin", "dir.fieldAddress": "Address", "dir.fieldPhone": "Phone",
-    "dir.fieldWebsite": "Website", "dir.fieldDescription": "Description",
-    "dir.submit": "Submit", "dir.submitting": "Submitting...",
-    "dir.submitSuccess": "Business added! It will be visible after review.",
-    "dir.submitError": "Error. Please try again.",
-    "dir.loginRequired": "You must be signed in to add a business.",
-    ...missionsEn as any, ...portalEn as any, ...miscEn as any, ...homeEn as any, ...premiumEn as any, ...newKeysEn as any, ...indexChatEn as any,
-  },
   sl: {
     "nav.home": "Domov", "nav.qa": "Vprašanja in odgovori", "nav.directory": "Imenik",
     "nav.login": "Prijava", "nav.register": "Registracija", "nav.logout": "Odjava",
@@ -1732,7 +1695,6 @@ const vorlagenKeys: Record<string, Record<string, string>> = {
   mk: { "vorlagen.sidebarTitle": "Шаблони / Vorlagen", "vorlagen.subtitle": "Шаблони за најважни писма.", "vorlagen.comingSoon": "Наскоро", "vorlagen.sectionWork": "Работно право & Кариера", "vorlagen.sectionService": "Услуги / Договори", "vorlagen.bewerbung": "Аплицирање за работа (Bewerbung)", "vorlagen.lebenslauf": "Биографија (Lebenslauf)", "vorlagen.anschreiben": "Придружно писмо (Anschreiben)", "vorlagen.kuendigung": "Отказ (Kündigung)", "vorlagen.fristlose": "Вонреден отказ (Fristlose Kündigung)", "vorlagen.probezeit": "Отказ во пробен рок", "vorlagen.widerruf": "Повлекување (Widerruf)", "vorlagen.vertragKuendigung": "Раскинување на договор", "vorlagen.reklamation": "Рекламација (Reklamation)" },
   de: { "vorlagen.sidebarTitle": "Vorlagen", "vorlagen.subtitle": "Vorlagen für die wichtigsten Schreiben im Alltag.", "vorlagen.comingSoon": "Demnächst verfügbar", "vorlagen.sectionWork": "Arbeitsrecht & Karriere", "vorlagen.sectionService": "Kundenservice / Verträge", "vorlagen.bewerbung": "Bewerbung", "vorlagen.lebenslauf": "Lebenslauf", "vorlagen.anschreiben": "Anschreiben", "vorlagen.kuendigung": "Kündigungsschreiben", "vorlagen.fristlose": "Fristlose Kündigung", "vorlagen.probezeit": "Kündigung in der Probezeit", "vorlagen.widerruf": "Widerruf", "vorlagen.vertragKuendigung": "Kündigung von Verträgen", "vorlagen.reklamation": "Reklamation" },
   sl: { "vorlagen.sidebarTitle": "Predloge / Vorlagen", "vorlagen.subtitle": "Predloge za najpomembnejša pisma v vsakdanjem življenju.", "vorlagen.comingSoon": "Kmalu na voljo", "vorlagen.sectionWork": "Delovno pravo & Kariera", "vorlagen.sectionService": "Storitve / Pogodbe", "vorlagen.bewerbung": "Prijava za delo (Bewerbung)", "vorlagen.lebenslauf": "Življenjepis (Lebenslauf)", "vorlagen.anschreiben": "Spremno pismo (Anschreiben)", "vorlagen.kuendigung": "Odpoved (Kündigung)", "vorlagen.fristlose": "Izredna odpoved (Fristlose Kündigung)", "vorlagen.probezeit": "Odpoved v poskusni dobi", "vorlagen.widerruf": "Preklic (Widerruf)", "vorlagen.vertragKuendigung": "Prekinitev pogodbe", "vorlagen.reklamation": "Reklamacija (Reklamation)" },
-  en: { "vorlagen.sidebarTitle": "Templates / Vorlagen", "vorlagen.subtitle": "Templates for the most important letters in everyday life.", "vorlagen.comingSoon": "Coming soon", "vorlagen.sectionWork": "Employment Law & Career", "vorlagen.sectionService": "Customer Service / Contracts", "vorlagen.bewerbung": "Job Application (Bewerbung)", "vorlagen.lebenslauf": "CV / Resume (Lebenslauf)", "vorlagen.anschreiben": "Cover Letter (Anschreiben)", "vorlagen.kuendigung": "Resignation Letter (Kündigung)", "vorlagen.fristlose": "Immediate Termination (Fristlose Kündigung)", "vorlagen.probezeit": "Probation Termination", "vorlagen.widerruf": "Revocation (Widerruf)", "vorlagen.vertragKuendigung": "Contract Cancellation", "vorlagen.reklamation": "Complaint (Reklamation)" },
 };
 
 // Country name translations injected into each language
@@ -1746,7 +1708,6 @@ const countryNames: Record<string, Record<string, string>> = {
   mk: { "country.BIH": "Босна и Херцеговина", "country.SRB": "Србија", "country.HR": "Хрватска", "country.ME": "Црна Гора", "country.MK": "Северна Македонија", "country.XK": "Косово", "country.AL": "Албанија", "country.SI": "Словенија", "restorani.searchCity": "Барај град…", "prodavnice.searchCity": "Барај град…" },
   sl: { "country.BIH": "Bosna in Hercegovina", "country.SRB": "Srbija", "country.HR": "Hrvaška", "country.ME": "Črna gora", "country.MK": "Severna Makedonija", "country.XK": "Kosovo", "country.AL": "Albanija", "country.SI": "Slovenija", "restorani.searchCity": "Išči mesto…", "prodavnice.searchCity": "Išči mesto…" },
   de: { "country.BIH": "Bosnien und Herzegowina", "country.SRB": "Serbien", "country.HR": "Kroatien", "country.ME": "Montenegro", "country.MK": "Nordmazedonien", "country.XK": "Kosovo", "country.AL": "Albanien", "country.SI": "Slowenien", "restorani.searchCity": "Stadt suchen…", "prodavnice.searchCity": "Stadt suchen…" },
-  en: { "country.BIH": "Bosnia and Herzegovina", "country.SRB": "Serbia", "country.HR": "Croatia", "country.ME": "Montenegro", "country.MK": "North Macedonia", "country.XK": "Kosovo", "country.AL": "Albania", "country.SI": "Slovenia", "restorani.searchCity": "Search city…", "prodavnice.searchCity": "Search city…" },
 };
 
 // UI extra keys: contact form, firm detail, header menu
@@ -1831,46 +1792,6 @@ const calcDe: Record<string, string> = {
   "calc.disclaimerFull": "Dieser Brutto-Netto-Rechner dient nur zur unverbindlichen Orientierung. Alle Angaben ohne Gewähr. Es können Abweichungen zur tatsächlichen Gehaltsabrechnung auftreten.",
   "calc.disclaimerAdvice": "Für verbindliche Auskünfte wende dich an Steuerberater/in oder Finanzamt.",
 };
-const calcEn: Record<string, string> = {
-  "calc.breadcrumbTools": "Tools", "calc.breadcrumbCalc": "Gross-Net Calculator",
-  "calc.pageTitle": "Gross-Net Calculator Germany", "calc.pageSubtitle": "Calculate your net salary quickly – all information without guarantee.",
-  "calc.pageNote": "Result is an estimate. Deviations from actual payroll possible.",
-  "calc.inputsTitle": "Inputs", "calc.sectionSalary": "Salary", "calc.grossSalary": "Gross salary (€)",
-  "calc.grossSalaryTip": "Your monthly or annual gross salary before all deductions.",
-  "calc.period": "Period", "calc.monthly": "Monthly", "calc.yearly": "Yearly",
-  "calc.sectionTax": "Tax", "calc.taxClass": "Tax class",
-  "calc.taxClassTip": "Tax class determines your income tax. 1=single, 2=single parent, 3=married (sole earner), 4=married (both earn), 5=partner of cl.3, 6=second job.",
-  "calc.federalState": "Federal state", "calc.federalStateTip": "Your state determines the church tax rate (8% in BW/BY, 9% elsewhere).",
-  "calc.taxYear": "Tax year", "calc.churchTax": "Church tax",
-  "calc.churchTaxTip": "Church tax is calculated from income tax: 8% in BW/BY, 9% in other states.",
-  "calc.sectionPersonal": "Personal", "calc.age": "Age",
-  "calc.ageTip": "From age 23 without children: surcharge for nursing care insurance.",
-  "calc.childAllowance": "Child allowance", "calc.childAllowanceTip": "0.5 per child, 1.0 for sole claim.",
-  "calc.childrenUnder25": "Children <25", "calc.childrenUnder25Tip": "Number of children under 25: reduces nursing care contribution from 2nd child.",
-  "calc.childless": "Childless",
-  "calc.sectionHealth": "Health insurance", "calc.statutory": "Statutory (GKV)", "calc.private": "Private (PKV)",
-  "calc.additionalContribution": "Additional contribution (%)", "calc.additionalContributionTip": "Individual additional contribution. Employee pays half. Average 2025: ~2.5%.",
-  "calc.pkvAmount": "PKV contribution (€/month)", "calc.pkvAmountTip": "Your monthly PKV contribution as a direct deduction.",
-  "calc.socialDetails": "Social insurance (details)",
-  "calc.pension": "Pension insurance", "calc.unemployment": "Unemployment insurance",
-  "calc.nursingCare": "Nursing care insurance", "calc.healthInsurance": "Health insurance",
-  "calc.advanced": "Advanced", "calc.allowance": "Tax allowance (€/year)",
-  "calc.allowanceTip": "Annual tax allowance, e.g. work-related expenses above flat rate.",
-  "calc.oneTimePayment": "One-time payment (€)", "calc.oneTimePaymentTip": "One-time bonus payment per year.",
-  "calc.churchTaxOverride": "Church tax rate (%) override", "calc.churchTaxOverrideTip": "Manual override of the church tax rate.",
-  "calc.reset": "Reset", "calc.share": "Share",
-  "calc.resetSuccess": "Inputs reset", "calc.shareSuccess": "Link copied!",
-  "calc.resultTitle": "Your result", "calc.netPerMonth": "Net / month", "calc.netPerYear": "Net / year", "calc.grossPerMonth": "Gross / month",
-  "calc.legendTax": "Taxes", "calc.legendSocial": "Social contributions", "calc.legendNet": "Net",
-  "calc.incomeTax": "Income tax", "calc.soliSurcharge": "Solidarity surcharge", "calc.totalTax": "Total taxes",
-  "calc.socialAN": "Social contributions (employee)", "calc.inclZB": "incl. add. contr.", "calc.pkvLabel": "PKV contribution",
-  "calc.inclSurcharge": "incl. surcharge", "calc.totalSocial": "Total social contributions",
-  "calc.infoNote": "Net salary estimate for Germany. Result may vary depending on health insurance, bonuses and additional deductions.",
-  "calc.employerTitle": "Employer costs", "calc.totalEmployer": "Total employer costs", "calc.employerNote": "Gross + employer social insurance shares",
-  "calc.disclaimerShort": "The result is an approximation and may differ from your payslip.",
-  "calc.disclaimerFull": "This gross-net calculator is for non-binding orientation only. All information without guarantee. Deviations from actual payroll may occur.",
-  "calc.disclaimerAdvice": "For binding information, consult a tax advisor or tax office.",
-};
 
 // --- Community translations ---
 const communityKeys: Record<string, Record<string, string>> = {
@@ -1883,7 +1804,6 @@ const communityKeys: Record<string, Record<string, string>> = {
   mk: { "community.title": "Заедница", "community.subtitle": "Балканска дијаспора во Германија — верски заедници, културни здруженија и спортски клубови." },
   sl: { "community.title": "Skupnost", "community.subtitle": "Balkanska diaspora v Nemčiji — verske skupnosti, kulturna društva in športni klubi." },
   de: { "community.title": "Community", "community.subtitle": "Balkan-Diaspora in Deutschland — Religiöse Gemeinden, Kulturvereine & Sportklubs." },
-  en: { "community.title": "Community", "community.subtitle": "Balkan diaspora in Germany — religious communities, cultural associations & sports clubs." },
 };
 
 const uiExtraKeys: Record<string, Record<string, string>> = {
@@ -1919,10 +1839,6 @@ const uiExtraKeys: Record<string, Record<string, string>> = {
     "hero.title": "Deutsche Bürokratie", "hero.titleHighlight": "ohne Stress.", "hero.subtitle": "Fülle alle wichtigen Formulare mit klaren Erklärungen aus — Schritt für Schritt, in deiner Sprache.", "hero.ctaPrimary": "Leitfaden starten", "hero.ctaSecondary": "Oder frag den BalkanLink Assistenten", "hero.bullet.simple": "Ohne Komplikationen", "hero.bullet.language": "In deiner Sprache", "hero.bullet.verified": "Geprüfte Informationen",
     "chatbot.trigger": "Problem lösen →", "chatbot.triggerSub": "Frag den BalkanLink Assistenten", "chatbot.welcome": "Wie kann ich dir helfen?", "chatbot.welcomeSub": "Stelle eine Frage und erhalte eine klare Antwort und den nächsten Schritt.", "chatbot.placeholder": "Z.B. Kindergeld, Wohnung, Arbeit, AGB...",
     "formCenter.smartGuideLabel": "Smart Guide – Schritt für Schritt", "formCenter.searchPlaceholder": "Formular suchen…", "formCenter.noResults": "Keine Ergebnisse.", "formCenter.selectForm": "Formular auswählen", "formCenter.selectFormDesc": "Klicke auf ein Formular links, um die detaillierte Ausfüllanleitung zu sehen." },
-  en: { "contact.title": "Contact", "contact.subtitle": "Send us a message.", "contact.firstName": "First name", "contact.lastName": "Last name", "contact.email": "Email", "contact.message": "Your message", "contact.send": "Send message", "header.pricelist": "Paketi i opcije", "firm.notFound": "Firm not found", "firm.back": "Back to home", "firm.recommended": "Recommended", "firm.visitWebsite": "Visit website", "firm.contact": "Contact",
-    "hero.title": "German bureaucracy", "hero.titleHighlight": "without stress.", "hero.subtitle": "Fill in all important forms with clear explanations — step by step, in your language.", "hero.ctaPrimary": "Start guide", "hero.ctaSecondary": "Or ask the BalkanLink assistant", "hero.bullet.simple": "No complications", "hero.bullet.language": "In your language", "hero.bullet.verified": "Verified information",
-    "chatbot.trigger": "Solve a problem →", "chatbot.triggerSub": "Ask the BalkanLink assistant", "chatbot.welcome": "How can I help you?", "chatbot.welcomeSub": "Ask a question and get a clear answer and the next step.", "chatbot.placeholder": "E.g. Kindergeld, housing, job, AGB...",
-    "formCenter.smartGuideLabel": "Smart Guide – step by step", "formCenter.searchPlaceholder": "Search form…", "formCenter.noResults": "No results.", "formCenter.selectForm": "Select a form", "formCenter.selectFormDesc": "Click on any form on the left to see detailed filling instructions." },
   sl: { "contact.title": "Kontakt", "contact.subtitle": "Pošljite nam sporočilo.", "contact.firstName": "Ime", "contact.lastName": "Priimek", "contact.email": "E-pošta", "contact.message": "Vaše sporočilo", "contact.send": "Pošlji sporočilo", "header.pricelist": "Paketi in možnosti", "firm.notFound": "Podjetje ni najdeno", "firm.back": "Nazaj na domov", "firm.recommended": "Priporočeno", "firm.visitWebsite": "Obiščite spletno stran", "firm.contact": "Kontakt",
     "hero.title": "Nemška birokracija", "hero.titleHighlight": "brez stresa.", "hero.subtitle": "Izpolnite vse pomembne obrazce z jasnimi razlagami — korak za korakom, v vašem jeziku.", "hero.ctaPrimary": "Začni vodič", "hero.ctaSecondary": "Ali vprašaj BalkanLink asistenta", "hero.bullet.simple": "Brez zapletov", "hero.bullet.language": "V vašem jeziku", "hero.bullet.verified": "Preverjene informacije",
     "chatbot.trigger": "Reši problem →", "chatbot.triggerSub": "Vprašaj BalkanLink asistenta", "chatbot.welcome": "Kako vam lahko pomagam?", "chatbot.welcomeSub": "Zastavite vprašanje in dobili boste jasen odgovor in naslednji korak.", "chatbot.placeholder": "Npr. Kindergeld, stanovanje, delo, AGB...",
@@ -1940,7 +1856,6 @@ const navBackKeys: Record<string, Record<string, string>> = {
   mk: { "nav.back": "Назад" },
   sl: { "nav.back": "Nazaj" },
   de: { "nav.back": "Zurück" },
-  en: { "nav.back": "Back" },
 };
 
 const trainerKeys: Record<string, Record<string, string>> = {
@@ -1953,7 +1868,6 @@ const trainerKeys: Record<string, Record<string, string>> = {
   mk: { "trainer.tasks": "задачи", "trainer.free": "бесплатно", "trainer.moreTasks": "дополнителни задачи", "trainer.unlock": "Отклучи" },
   sl: { "trainer.tasks": "nalog", "trainer.free": "brezplačno", "trainer.moreTasks": "dodatnih nalog", "trainer.unlock": "Odkleni" },
   de: { "trainer.tasks": "Aufgaben", "trainer.free": "frei", "trainer.moreTasks": "weitere Aufgaben", "trainer.unlock": "Freischalten" },
-  en: { "trainer.tasks": "tasks", "trainer.free": "free", "trainer.moreTasks": "more tasks", "trainer.unlock": "Unlock" },
 };
 
 const flowBannerKeys: Record<string, Record<string, string>> = {
@@ -1966,7 +1880,6 @@ const flowBannerKeys: Record<string, Record<string, string>> = {
   mk: { "flowBanner.headline": "Што сакаш да решиш денес?", "flowBanner.subheadline": "Реши ја бирократијата без стрес — сè на едно место", "flowBanner.hint": "Не знаеш од каде да почнеш?", "flowBanner.cta": "Води ме чекор по чекор", "flowBanner.ctaNote": "Почни од формуларите и водичите кои ти се најпотребни", "flowBanner.start": "Започни", "flowBanner.open": "Отвори" },
   sl: { "flowBanner.headline": "Kaj želiš urediti danes?", "flowBanner.subheadline": "Uredi birokracijo brez stresa — vse na enem mestu", "flowBanner.hint": "Ne veš, kje začeti?", "flowBanner.cta": "Vodi me korak za korakom", "flowBanner.ctaNote": "Začni z obrazci in vodniki, ki jih najbolj potrebuješ", "flowBanner.start": "Začni", "flowBanner.open": "Odpri" },
   de: { "flowBanner.headline": "Was möchtest du heute erledigen?", "flowBanner.subheadline": "Papierkram ohne Stress — alles an einem Ort", "flowBanner.hint": "Weißt du nicht, wo du anfangen sollst?", "flowBanner.cta": "Schritt für Schritt führen", "flowBanner.ctaNote": "Starte mit den Formularen und Guides, die du brauchst", "flowBanner.start": "Starten", "flowBanner.open": "Öffnen" },
-  en: { "flowBanner.headline": "What do you want to sort out today?", "flowBanner.subheadline": "Handle bureaucracy without stress — all in one place", "flowBanner.hint": "Not sure where to start?", "flowBanner.cta": "Guide me step by step", "flowBanner.ctaNote": "Start with the forms and guides you need most", "flowBanner.start": "Start", "flowBanner.open": "Open" },
 };
 
 // New i18n keys: paywall, viza, sidebar extras, common extras, catalog
@@ -1980,7 +1893,6 @@ const catalogKeys: Record<string, Record<string, string>> = {
   mk: { "catalog.dolazak": "Доаѓање и пријава", "catalog.porodica": "Семејство и деца", "catalog.buergergeld": "Bürgergeld", "catalog.wohngeld": "Wohngeld (станбен додаток)", "catalog.sozialhilfe": "Sozialhilfe (социјална помош)", "catalog.heizkosten": "Heizkostenzuschuss (додаток за греење)", "catalog.posao": "Работа и приходи", "catalog.obrazovanje": "Училиште и образование", "catalog.dokumenti": "Документи и администрација" },
   sl: { "catalog.dolazak": "Prihod in prijava", "catalog.porodica": "Družina in otroci", "catalog.buergergeld": "Bürgergeld", "catalog.wohngeld": "Wohngeld (stanovanjski dodatek)", "catalog.sozialhilfe": "Sozialhilfe (socialna pomoč)", "catalog.heizkosten": "Heizkostenzuschuss (dodatek za ogrevanje)", "catalog.posao": "Delo in prihodki", "catalog.obrazovanje": "Šola in izobraževanje", "catalog.dokumenti": "Dokumenti in administracija" },
   de: { "catalog.dolazak": "Ankunft & Anmeldung", "catalog.porodica": "Familie & Kinder", "catalog.buergergeld": "Bürgergeld", "catalog.wohngeld": "Wohngeld", "catalog.sozialhilfe": "Sozialhilfe", "catalog.heizkosten": "Heizkostenzuschuss", "catalog.posao": "Arbeit & Einkommen", "catalog.obrazovanje": "Schule & Ausbildung", "catalog.dokumenti": "Dokumente & Verwaltung" },
-  en: { "catalog.dolazak": "Arrival & Registration", "catalog.porodica": "Family & Children", "catalog.buergergeld": "Bürgergeld (Social Benefits)", "catalog.wohngeld": "Wohngeld (Housing Benefit)", "catalog.sozialhilfe": "Sozialhilfe (Social Assistance)", "catalog.heizkosten": "Heizkostenzuschuss (Heating Allowance)", "catalog.posao": "Work & Income", "catalog.obrazovanje": "School & Education", "catalog.dokumenti": "Documents & Administration" },
 };
 
 const paywallKeys: Record<string, Record<string, string>> = {
@@ -1993,7 +1905,6 @@ const paywallKeys: Record<string, Record<string, string>> = {
   mk: { "paywall.unlockPremium": "Отклучи Premium — 9,99 €/мес.", "paywall.stepLocked": "Овој чекор е достапен за Premium корисници", "common.officialDisclaimer": "Сите податоци доаѓаат од официјални државни извори.", "sidebar.dolazak": "Пристигнување", "sidebar.formulari": "Формулари", "sidebar.viza": "Виза Навигатор", "sidebar.paketi": "Пакети и цени", "sidebar.kontakt": "Контакт", "sidebar.prijava": "Најава / Регистрација", "sidebar.odjava": "Одјава", "viza.euCountries": "EU земји", "viza.westernBalkan": "Западен Балкан", "viza.routes": "Начини на доаѓање и престој", "viza.title": "Виза Навигатор", "viza.subtitle": "Сè за визи, дозволи за престој и постојан престој — по земји" },
   sl: { "paywall.unlockPremium": "Odkleni Premium — 9,99 €/mes.", "paywall.stepLocked": "Ta korak je na voljo Premium uporabnikom", "common.officialDisclaimer": "Vsi podatki prihajajo iz uradnih državnih virov.", "sidebar.dolazak": "Prihod", "sidebar.formulari": "Formulari", "sidebar.viza": "Viza Navigator", "sidebar.paketi": "Paketi in cene", "sidebar.kontakt": "Kontakt", "sidebar.prijava": "Prijava / Registracija", "sidebar.odjava": "Odjava", "viza.euCountries": "EU države", "viza.westernBalkan": "Zahodni Balkan", "viza.routes": "Načini prihoda in bivanja", "viza.title": "Viza Navigator", "viza.subtitle": "Vse o vizumih, dovoljenjih za bivanje in stalnem bivanju — po državah" },
   de: { "paywall.unlockPremium": "Premium freischalten — 9,99 €/Monat", "paywall.stepLocked": "Dieser Schritt ist für Premium-Nutzer verfügbar", "common.officialDisclaimer": "Alle Daten stammen aus offiziellen staatlichen Quellen.", "sidebar.dolazak": "Ankunft", "sidebar.formulari": "Formulare", "sidebar.viza": "Visa Navigator", "sidebar.paketi": "Pakete & Preise", "sidebar.kontakt": "Kontakt", "sidebar.prijava": "Anmelden / Registrieren", "sidebar.odjava": "Abmelden", "viza.euCountries": "EU-Länder", "viza.westernBalkan": "Westbalkan", "viza.routes": "Einreise- und Aufenthaltswege", "viza.title": "Visa Navigator", "viza.subtitle": "Alles über Visa, Aufenthaltstitel und dauerhaften Aufenthalt — nach Ländern" },
-  en: { "paywall.unlockPremium": "Unlock Premium — €9.99/month", "paywall.stepLocked": "This step is available to Premium users", "common.officialDisclaimer": "All data comes from official government sources.", "sidebar.dolazak": "Arrival", "sidebar.formulari": "Forms", "sidebar.viza": "Visa Navigator", "sidebar.paketi": "Plans & Pricing", "sidebar.kontakt": "Contact", "sidebar.prijava": "Sign In / Register", "sidebar.odjava": "Sign Out", "viza.euCountries": "EU countries", "viza.westernBalkan": "Western Balkans", "viza.routes": "Entry and residence routes", "viza.title": "Visa Navigator", "viza.subtitle": "Everything about visas, residence permits and permanent residence — by country" },
 };
 
 // Merge country names, vorlagen, UI extras, calc, community, and nav.back into translations
@@ -2007,8 +1918,8 @@ for (const lang of Object.keys(translations) as Language[]) {
   if (trainerKeys[lang]) Object.assign(translations[lang], trainerKeys[lang]);
   if (paywallKeys[lang]) Object.assign(translations[lang], paywallKeys[lang]);
   if (catalogKeys[lang]) Object.assign(translations[lang], catalogKeys[lang]);
-  // Calc keys: bs-based languages fall back to calcBs, de to calcDe, en to calcEn
-  const calcMap: Record<string, Record<string, string>> = { de: calcDe, en: calcEn };
+  // Calc keys: bs-based languages fall back to calcBs, de to calcDe
+  const calcMap: Record<string, Record<string, string>> = { de: calcDe };
   Object.assign(translations[lang], calcMap[lang] ?? calcBs);
 }
 

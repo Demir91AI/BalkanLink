@@ -1,8 +1,8 @@
 {
-  "title": "Nemačka birokratija bez stresa.",
-  "subtitle": "Popuni sve važne formulare uz jasna objašnjenja — korak po korak, na tvom jeziku.",
+  "title": "Tvoj vodič kroz nemački sistem.",
+  "subtitle": "Jedina platforma koja govori tvoj jezik i razume tvoj sistem.",
   "cta": {
-    "primary": "Započni vodič",
+    "primary": "Počni vodič",
     "secondary": "Pitaj asistenta"
   },
   "disclaimer": "BalkanLink je edukativna platforma i nije pravni savetnik.",
@@ -16,6 +16,6 @@
     "verified": "Proverene informacije"
   },
   "title_highlight": "bez stresa.",
-  "ctaPrimary": "Započni vodič",
+  "ctaPrimary": "Počni vodič",
   "ctaSecondary": "Ili pitaj BalkanLink asistenta"
 }

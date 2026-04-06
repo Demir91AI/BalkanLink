@@ -1,11 +1,11 @@
 {
-  "title": "Nemška birokracija brez stresa.",
-  "subtitle": "Izpolni vse pomembne obrazce z jasnimi razlagami — korak za korakom, v tvojem jeziku.",
+  "title": "Tvoj vodnik po nemškem sistemu.",
+  "subtitle": "Edina platforma, ki govori tvoj jezik in razume tvoj sistem.",
   "cta": {
-    "primary": "Začni vodič",
+    "primary": "Začni vodnik",
     "secondary": "Vprašaj asistenta"
   },
-  "disclaimer": "BalkanLink je izobraževalna platforma in ne pravni svetovalec.",
+  "disclaimer": "BalkanLink je izobraževalna platforma in ni pravni svetovalec.",
   "language_label": "Slovenščina",
   "badge": "Za balkansko diasporo v Nemčiji",
   "scroll_hint": "Pomakni se navzdol",
@@ -16,6 +16,6 @@
     "verified": "Preverjene informacije"
   },
   "title_highlight": "brez stresa.",
-  "ctaPrimary": "Začni vodič",
+  "ctaPrimary": "Začni vodnik",
   "ctaSecondary": "Ali vprašaj BalkanLink asistenta"
 }

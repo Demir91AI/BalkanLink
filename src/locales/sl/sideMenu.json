@@ -2,11 +2,11 @@
   "smartGuide": "Smart Guide – Obrazci",
   "visaNavigator": "Vizum Navigator",
   "deutsch": "BalkanLink Deutsch",
-  "dokumentenCheck": "Pregled dokumentov",
+  "dokumentenCheck": "Preverjanje dokumentov",
   "calculators": "Kalkulatorji",
   "nudim": "Ponujam",
   "trazim": "Iščem",
-  "nudimTrazim": "Nudim / Tražim",
+  "nudimTrazim": "Ponujam / Iščem",
   "balkanci": "Balkanci v Nemčiji",
   "assistant": "BalkanLink Asistent",
   "paketi": "Paketi",
@@ -24,10 +24,12 @@
   "mainFunctions": "Glavne funkcije",
   "menu": "Meni",
   "other": "Drugo",
-  "jobs": "Zaposlitveni oglasi",
+  "jobs": "Oglasi za delo",
   "housing": "Oglasi za stanovanja",
   "kalkulator": "Kalkulatorji",
   "templates": "Predloge",
   "zivotUNjemackoj": "Življenje in prihod v Nemčijo",
-  "cijene": "Paketi in cene"
+  "cijene": "Paketi in cene",
+  "prijava": "Prijava / Registracija",
+  "odjava": "Odjava"
 }
