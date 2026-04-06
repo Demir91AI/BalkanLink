@@ -1,5 +1,5 @@
 import { useState, useMemo, useCallback } from "react";
-import { MapPin, Search, Shield, X, Users, MessageSquare, Send, Phone, Mail, AlertTriangle, ExternalLink } from "lucide-react";
+import { MapPin, Search, Shield, X, Users, Phone, AlertTriangle, ExternalLink } from "lucide-react";
 import PageNavBar from "@/components/navigation/PageNavBar";
 import balkanSarajevo from "@/assets/balkan-sarajevo.jpg";
 import balkanBeograd from "@/assets/balkan-beograd.jpg";
