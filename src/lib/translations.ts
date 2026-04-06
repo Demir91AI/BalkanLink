@@ -1921,8 +1921,8 @@ for (const lang of Object.keys(translations) as Language[]) {
   if (trainerKeys[lang]) Object.assign(translations[lang], trainerKeys[lang]);
   if (paywallKeys[lang]) Object.assign(translations[lang], paywallKeys[lang]);
   if (catalogKeys[lang]) Object.assign(translations[lang], catalogKeys[lang]);
-  // Calc keys: bs-based languages fall back to calcBs, de to calcDe, en to calcEn
-  const calcMap: Record<string, Record<string, string>> = { de: calcDe, en: calcEn };
+  // Calc keys: bs-based languages fall back to calcBs, de to calcDe
+  const calcMap: Record<string, Record<string, string>> = { de: calcDe };
   Object.assign(translations[lang], calcMap[lang] ?? calcBs);
 }
 
