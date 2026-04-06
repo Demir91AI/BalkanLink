@@ -18,12 +18,12 @@ export function AppSidebar() {
     { titleKey: "sidebar.visaNavigator", url: "/viza", icon: Shield, premium: true },
     { titleKey: "sidebar.deutsch", url: "/deutsch-trainer", icon: BookOpen, premium: true },
     { titleKey: "sidebar.dokumentenCheck", url: "/dokumenten-check", icon: Camera, premium: true },
-    { titleKey: "sidebar.nudim", url: "/nudim-trazim", icon: Megaphone, premium: false },
-    { titleKey: "sidebar.balkanci", url: "/mapa", icon: Map, premium: false },
   ];
 
   const secondaryItems = [
     { titleKey: "sidebar.zivotUNjemackoj", url: "/zivot-u-njemackoj", icon: Plane },
+    { titleKey: "sidebar.nudim", url: "/nudim-trazim", icon: Megaphone },
+    { titleKey: "sidebar.balkanci", url: "/mapa", icon: Map },
     { titleKey: "sidebar.jobs", url: "/stellenangebote", icon: Briefcase },
     { titleKey: "sidebar.housing", url: "/wohnungen", icon: Building },
     { titleKey: "sidebar.kalkulator", url: "/kalkulatori", icon: Calculator },
