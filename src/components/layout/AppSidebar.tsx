@@ -15,7 +15,7 @@ export function AppSidebar() {
 
   const mainItems = [
     { titleKey: "sidebar.smartGuide", url: "/formulari", icon: FileText, premium: true },
-    { titleKey: "sidebar.zivotUNjemackoj", url: "/zivot-u-njemackoj", icon: Map, premium: false },
+    { titleKey: "sidebar.zivotUNjemackoj", url: "/zivot-u-njemackoj", icon: Plane, premium: false },
     { titleKey: "sidebar.visaNavigator", url: "/viza", icon: Shield, premium: true },
     { titleKey: "sidebar.deutsch", url: "/deutsch-trainer", icon: BookOpen, premium: true },
     { titleKey: "sidebar.dokumentenCheck", url: "/dokumenten-check", icon: Camera, premium: true },
