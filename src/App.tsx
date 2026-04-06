@@ -195,7 +195,7 @@ const App = () => (
                 <Route path="/agb" element={<Nutzungsbedingungen />} />
                 
                 <Route path="/dsa" element={<DSA />} />
-                <Route path="/inhalte-melden" element={<DSA />} />
+                
                 <Route path="/cookie-richtlinie" element={<CookieRichtlinie />} />
                 <Route path="/nudim-trazim" element={<NudimTrazim />} />
                 <Route path="/nach-deutschland" element={<NachDeutschland />} />
