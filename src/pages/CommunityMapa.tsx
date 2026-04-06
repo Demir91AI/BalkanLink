@@ -264,15 +264,6 @@ export default function CommunityMapa() {
                             <span className="font-medium text-[#2D2D2D] truncate">{m.displayName}</span>
                           </div>
                           <div className="flex items-center gap-1 shrink-0 flex-wrap">
-                            {m.phone && (
-                              <a
-                                href={`tel:${encodeURIComponent(m.phone)}`}
-                                className="inline-flex items-center gap-1 rounded-lg px-2 py-1 text-[10px] font-bold text-white transition-colors"
-                                style={{ background: '#2563EB' }}
-                              >
-                                <Phone className="h-2.5 w-2.5" /> {m.phone}
-                              </a>
-                            )}
                             {m.facebook && (
                               <a
                                 href={`https://facebook.com/${encodeURIComponent(m.facebook)}`}
