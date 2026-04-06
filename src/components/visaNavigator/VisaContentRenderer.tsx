@@ -409,7 +409,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
 
           {/* Render open form */}
           {openFormKey && (
-            <div style={{ marginTop: 16 }}>
+            <div ref={openFormRef} style={{ marginTop: 16, transition: 'border-color 0.3s ease', borderRadius: 14, border: `2px solid ${GOLD}`, padding: 2 }}>
               {LoadedForm
                 ? <div style={{ position: 'relative' }}>
                     <button onClick={() => { setOpenFormKey(null); setLoadedForm(null); }}
