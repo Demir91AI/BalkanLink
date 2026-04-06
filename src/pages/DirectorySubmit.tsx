@@ -61,6 +61,15 @@ export default function DirectorySubmit() {
     }
 
     setSubmitting(true);
+    if (turnstileToken) {
+      const valid = await verifyTurnstileToken(turnstileToken);
+      if (!valid) {
+        toast.error("Verifikacija nije uspjela. Pokušaj ponovo.");
+        setTurnstileToken("");
+        setSubmitting(false);
+        return;
+      }
+    }
     const { error } = await supabase.from("directory_listings").insert({
       name: values.name,
       category: values.category,
