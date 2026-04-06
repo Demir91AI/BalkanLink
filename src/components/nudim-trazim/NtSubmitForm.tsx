@@ -47,6 +47,15 @@ export default function NtSubmitForm({ onClose, onProClick }: Props) {
       return;
     }
 
+    if (turnstileToken) {
+      const valid = await verifyTurnstileToken(turnstileToken);
+      if (!valid) {
+        toast.error("Verifikacija nije uspjela. Pokušaj ponovo.");
+        setTurnstileToken("");
+        return;
+      }
+    }
+
     // Try to persist to Supabase (non-blocking — table may not exist yet)
     try {
       await supabase.from("nt_ads" as any).insert({
