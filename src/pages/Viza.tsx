@@ -1,15 +1,20 @@
 import { useState, useEffect, useCallback } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import { Lock } from "lucide-react";
 import PageNavBar from "@/components/navigation/PageNavBar";
 import { COUNTRY_CONTENT } from "@/data/vizaNavigatorContent";
 import { VisaContentRenderer } from "@/components/visaNavigator/VisaContentRenderer";
 import VisaRightPanel from "@/components/visaNavigator/VisaRightPanel";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useSubscription } from "@/hooks/useSubscription";
+import PremiumModal from "@/components/paywall/PremiumModal";
 
 export default function Viza() {
   const navigate = useNavigate();
   const { t } = useLanguage();
   const [searchParams, setSearchParams] = useSearchParams();
+  const { isPremium } = useSubscription();
+  const [showPremiumModal, setShowPremiumModal] = useState(false);
 
   const selectedCountry = searchParams.get("country") || null;
   const selectedRoute = searchParams.get("route") || null;
@@ -214,12 +219,38 @@ export default function Viza() {
           <div className="flex-1 min-w-0">
             <div className="transition-all duration-200" style={{ animation: "fadeSlideIn 200ms ease" }}
               key={`${selectedCountry}-${selectedRoute}`}>
-              <VisaContentRenderer
-                selectedCountry={selectedCountry}
-                selectedRoute={selectedRoute}
-                onSelectRoute={handleSelectRoute}
-                onBack={handleClearRoute}
-              />
+              {selectedRoute && !isPremium ? (
+                <div className="relative overflow-hidden rounded-xl border bg-card shadow-sm">
+                  <div className="blur-sm select-none pointer-events-none">
+                    <VisaContentRenderer
+                      selectedCountry={selectedCountry}
+                      selectedRoute={selectedRoute}
+                      onSelectRoute={handleSelectRoute}
+                      onBack={handleClearRoute}
+                    />
+                  </div>
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-card/80 backdrop-blur-sm z-10">
+                    <Lock className="h-7 w-7 text-primary" />
+                    <p className="text-sm font-semibold text-foreground text-center px-4">
+                      Detalji boravišnih dozvola su dostupni Premium korisnicima
+                    </p>
+                    <button
+                      onClick={() => setShowPremiumModal(true)}
+                      className="rounded-lg px-5 py-2.5 text-sm font-bold text-white transition-colors hover:opacity-90"
+                      style={{ background: GOLD }}
+                    >
+                      Otključaj Premium — 9.99€/mjes.
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <VisaContentRenderer
+                  selectedCountry={selectedCountry}
+                  selectedRoute={selectedRoute}
+                  onSelectRoute={handleSelectRoute}
+                  onBack={handleClearRoute}
+                />
+              )}
             </div>
           </div>
 
@@ -229,6 +260,12 @@ export default function Viza() {
           </div>
         </div>
       </div>
+
+      <PremiumModal
+        isOpen={showPremiumModal}
+        onClose={() => setShowPremiumModal(false)}
+        trigger="viza"
+      />
 
       <style>{`
         @keyframes fadeSlideIn {
