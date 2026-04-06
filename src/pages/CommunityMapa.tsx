@@ -1,5 +1,5 @@
 import { useState, useMemo, useCallback } from "react";
-import { MapPin, Search, Shield, X, Users, MessageSquare, Send, Phone, Mail, AlertTriangle, ExternalLink } from "lucide-react";
+import { MapPin, Search, Shield, X, Users, Phone, AlertTriangle, ExternalLink } from "lucide-react";
 import PageNavBar from "@/components/navigation/PageNavBar";
 import balkanSarajevo from "@/assets/balkan-sarajevo.jpg";
 import balkanBeograd from "@/assets/balkan-beograd.jpg";
@@ -8,32 +8,36 @@ import balkanMostar from "@/assets/balkan-mostar.jpg";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Textarea } from "@/components/ui/textarea";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { motion } from "framer-motion";
 import { useNavigate, Link } from "react-router-dom";
 import { navigateBackOrHome } from "@/lib/navigation";
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
+
 
 interface MapMember {
   id: string;
   city: string;
   displayName: string;
   note: string;
-  contactType: "none" | "message" | "email" | "phone";
+  contactType: "none" | "phone";
   contactValue: string;
   createdAt: string;
 }
 
 const LS_KEY = "bl_mapa_members_v2";
 const LS_SELF_KEY = "bl_mapa_self_id_v2";
-const LS_MSG_KEY = "bl_mapa_msg_sent";
 
 function loadMembers(): MapMember[] {
   try {
     const raw = localStorage.getItem(LS_KEY);
-    return raw ? JSON.parse(raw) : [];
+    if (!raw) return [];
+    const parsed = JSON.parse(raw) as any[];
+    return parsed.map(m => ({
+      ...m,
+      contactType: m.contactType === "phone" ? "phone" : "none",
+      contactValue: m.contactType === "phone" ? m.contactValue || "" : "",
+    }));
   } catch { return []; }
 }
 function saveMembers(m: MapMember[]) {
@@ -69,7 +73,7 @@ export default function CommunityMapa() {
   const [city, setCity] = useState("");
   const [displayName, setDisplayName] = useState("");
   const [note, setNote] = useState("");
-  const [contactType, setContactType] = useState<"none" | "message" | "email" | "phone">("message");
+  const [contactType, setContactType] = useState<"none" | "phone">("none");
   const [contactValue, setContactValue] = useState("");
   const [contactConsent, setContactConsent] = useState(false);
   const [selfId, setSelfId] = useState(() => localStorage.getItem(LS_SELF_KEY) || "");
@@ -106,7 +110,7 @@ export default function CommunityMapa() {
 
   const handleAddMember = () => {
     if (!city.trim()) return;
-    if ((contactType === "email" || contactType === "phone") && !contactConsent) return;
+    if (contactType === "phone" && !contactConsent) return;
 
     const member: MapMember = {
       id: crypto.randomUUID(),
@@ -114,7 +118,7 @@ export default function CommunityMapa() {
       displayName: displayName.trim() || `Korisnik iz ${city.trim()}`,
       note: note.trim().slice(0, 100),
       contactType,
-      contactValue: (contactType === "none" || contactType === "message") ? "" : contactValue.trim(),
+      contactValue: contactType === "none" ? "" : contactValue.trim(),
       createdAt: new Date().toISOString(),
     };
     const updated = [...members, member];
@@ -124,7 +128,7 @@ export default function CommunityMapa() {
     localStorage.setItem(LS_SELF_KEY, member.id);
     setStep("idle");
     setCity(""); setDisplayName(""); setNote(""); setContactValue("");
-    setContactType("message"); setContactConsent(false);
+    setContactType("none"); setContactConsent(false);
     toast.success("Dodan/a si na mapu!");
   };
 
@@ -135,39 +139,6 @@ export default function CommunityMapa() {
     toast.success("Uklonjen/a si s mape.");
   };
 
-  const openMessage = (member: MapMember) => {
-    const today = new Date().toISOString().slice(0, 10);
-    const raw = localStorage.getItem(LS_MSG_KEY);
-    const sent: Record<string, number> = raw ? JSON.parse(raw) : {};
-    if ((sent[today] || 0) >= 3) {
-      toast.error("Možeš poslati maksimalno 3 poruke dnevno.");
-      return;
-    }
-    setMsgRecipient(member);
-    setMsgText(""); setMsgAgbChecked(false);
-    setMsgOpen(true);
-  };
-
-  const handleSendMessage = async () => {
-    if (!msgText.trim() || !msgRecipient || !msgAgbChecked) return;
-
-    const today = new Date().toISOString().slice(0, 10);
-    const raw = localStorage.getItem(LS_MSG_KEY);
-    const sent: Record<string, number> = raw ? JSON.parse(raw) : {};
-    sent[today] = (sent[today] || 0) + 1;
-    localStorage.setItem(LS_MSG_KEY, JSON.stringify(sent));
-
-    const { error } = await supabase.from("messages").insert({
-      sender_name: "Anonimno",
-      recipient_name: msgRecipient.displayName,
-      recipient_city: msgRecipient.city,
-      content: msgText.trim(),
-    });
-
-    if (error) { toast.error("Greška pri slanju."); return; }
-    toast.success("Poruka poslana!");
-    setMsgOpen(false);
-  };
 
   const isSelfOnMap = selfId && members.some(m => m.id === selfId);
 
@@ -234,7 +205,7 @@ export default function CommunityMapa() {
         <div className="flex items-start gap-3 rounded-xl border border-[hsl(var(--gold))]/20 bg-[hsl(var(--gold))]/5 p-4">
           <Shield className="mt-0.5 h-5 w-5 shrink-0 text-[hsl(var(--gold))]" />
           <p className="text-xs text-[#6B6B6B] leading-relaxed">
-            BalkanLink ne odgovara za tačnost podataka. Sve angabe su freiwillig i na vlastitu odgovornost korisnika. Lokacija = samo grad. Kontaktni podaci se prikazuju SAMO ako to korisnik eksplicitno odabere i da saglasnost. Poruke su ograničene na 3/dan.
+            BalkanLink ne odgovara za tačnost podataka. Sve angabe su freiwillig i na vlastitu odgovornost korisnika. Lokacija = samo grad. Kontaktni podaci se prikazuju SAMO ako to korisnik eksplicitno odabere i da saglasnost.
           </p>
         </div>
 
@@ -283,24 +254,6 @@ export default function CommunityMapa() {
                             <span className="font-medium text-[#2D2D2D] truncate">{m.displayName}</span>
                           </div>
                           <div className="flex items-center gap-1 shrink-0">
-                            {m.contactType === "message" && (
-                              <button
-                                onClick={() => openMessage(m)}
-                                className="inline-flex items-center gap-1 rounded-lg px-2 py-1 text-[10px] font-bold text-white transition-colors"
-                                style={{ background: '#C9A84C' }}
-                              >
-                                <MessageSquare className="h-2.5 w-2.5" /> Poruka
-                              </button>
-                            )}
-                            {m.contactType === "email" && m.contactValue && (
-                              <a
-                                href={`mailto:${encodeURIComponent(m.contactValue)}`}
-                                className="inline-flex items-center gap-1 rounded-lg px-2 py-1 text-[10px] font-bold text-white transition-colors"
-                                style={{ background: '#059669' }}
-                              >
-                                <Mail className="h-2.5 w-2.5" /> Email
-                              </a>
-                            )}
                             {m.contactType === "phone" && m.contactValue && (
                               <a
                                 href={`tel:${encodeURIComponent(m.contactValue)}`}
@@ -426,9 +379,7 @@ export default function CommunityMapa() {
               <label className="text-sm font-medium text-[#2D2D2D]">Kako te drugi mogu kontaktirati?</label>
               <div className="grid grid-cols-2 gap-2">
                 {[
-                  { value: "message" as const, label: "📨 Poruka (anonimno)", desc: "Poruka ostaje u BalkanLink" },
                   { value: "none" as const, label: "🚫 Bez kontakta", desc: "Samo prisutnost na mapi" },
-                  { value: "email" as const, label: "📧 Email (javno)", desc: "Email vidljiv svima" },
                   { value: "phone" as const, label: "📞 Telefon (javno)", desc: "Broj vidljiv svima" },
                 ].map(opt => (
                   <button
@@ -449,24 +400,24 @@ export default function CommunityMapa() {
             </div>
 
             {/* Email/Phone input + extra consent */}
-            {(contactType === "email" || contactType === "phone") && (
+            {contactType === "phone" && (
               <div className="space-y-3 rounded-xl border border-amber-300/50 bg-amber-50 p-4">
                 <div className="flex items-start gap-2">
                   <AlertTriangle className="h-4 w-4 shrink-0 text-amber-600 mt-0.5" />
                   <p className="text-xs text-amber-800 leading-relaxed">
-                    Pažnja: {contactType === "email" ? "Email adresa" : "Broj telefona"} bit će JAVNO vidljiv/a svim posjetiteljima stranice. BalkanLink ne odgovara za zloupotrebe.
+                    Pažnja: Broj telefona bit će JAVNO vidljiv svim posjetiteljima stranice. BalkanLink ne odgovara za zloupotrebe.
                   </p>
                 </div>
                 <Input
                   value={contactValue}
                   onChange={e => setContactValue(e.target.value)}
-                  placeholder={contactType === "email" ? "tvoj@email.com" : "+49 123 456789"}
+                  placeholder="+49 123 456789"
                   className="border-amber-300 bg-white"
                 />
                 <label className="flex items-start gap-3 cursor-pointer">
                   <Checkbox checked={contactConsent} onCheckedChange={v => setContactConsent(v === true)} className="mt-0.5" />
                   <span className="text-xs text-[#6B6B6B]">
-                    Razumijem da će moj {contactType === "email" ? "email" : "broj telefona"} biti javno prikazan. Dajem eksplicitnu saglasnost za javno objavljivanje u skladu s Datenschutz pravilima.
+                    Razumijem da će moj broj telefona biti javno prikazan. Dajem eksplicitnu saglasnost za javno objavljivanje u skladu s Datenschutz pravilima.
                   </span>
                 </label>
               </div>
@@ -475,7 +426,7 @@ export default function CommunityMapa() {
             <div className="flex gap-3">
               <Button
                 onClick={handleAddMember}
-                disabled={!city.trim() || ((contactType === "email" || contactType === "phone") && (!contactConsent || !contactValue.trim()))}
+                disabled={!city.trim() || (contactType === "phone" && (!contactConsent || !contactValue.trim()))}
                 className="flex-1 font-bold"
                 style={{ background: '#C9A84C', color: 'white' }}
               >
@@ -487,50 +438,6 @@ export default function CommunityMapa() {
         </DialogContent>
       </Dialog>
 
-      {/* MESSAGE DIALOG */}
-      <Dialog open={msgOpen} onOpenChange={setMsgOpen}>
-        <DialogContent className="sm:max-w-md">
-          <DialogHeader>
-            <DialogTitle className="text-[#2D2D2D]">Pošalji poruku</DialogTitle>
-          </DialogHeader>
-          {msgRecipient && (
-            <div className="space-y-4">
-              <div className="rounded-xl bg-[#F5F0E8] p-4">
-                <p className="text-sm text-[#2D2D2D]">
-                  Primaoc: <span className="font-bold">{msgRecipient.displayName}</span> iz {msgRecipient.city}
-                </p>
-                <p className="text-[11px] text-[#9CA3AF] mt-1">Poruka se šalje anonimno i pohranjuje u BalkanLink sistem. Max 3 poruke/dan.</p>
-              </div>
-              <Textarea
-                value={msgText}
-                onChange={e => setMsgText(e.target.value.slice(0, 500))}
-                placeholder="Napiši poruku... (max 500 znakova)"
-                className="min-h-[100px] border-[#E8D9B0]"
-              />
-              <p className="text-[10px] text-[#9CA3AF]">{msgText.length}/500</p>
-              <label className="flex items-start gap-3 cursor-pointer">
-                <Checkbox checked={msgAgbChecked} onCheckedChange={v => setMsgAgbChecked(v === true)} className="mt-0.5" />
-                <span className="text-xs text-[#6B6B6B]">
-                  Potvrđujem da poruka ne sadrži uvredljiv sadržaj i prihvatam{" "}
-                  <Link to="/agb" className="text-[hsl(var(--gold))] underline" target="_blank">AGB</Link>{" "}
-                  BalkanLink platforme.
-                </span>
-              </label>
-              <div className="flex gap-3">
-                <Button
-                  onClick={handleSendMessage}
-                  disabled={!msgText.trim() || !msgAgbChecked}
-                  className="flex-1 gap-2 font-bold"
-                  style={{ background: '#C9A84C', color: 'white' }}
-                >
-                  <Send className="h-4 w-4" /> Pošalji
-                </Button>
-                <Button onClick={() => setMsgOpen(false)} variant="outline" className="flex-1">Odustani</Button>
-              </div>
-            </div>
-          )}
-        </DialogContent>
-      </Dialog>
     </div>
   );
 }
