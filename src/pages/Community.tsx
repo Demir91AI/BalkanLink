@@ -4,22 +4,14 @@ import { motion } from "framer-motion";
 import { navigateBackOrHome } from "@/lib/navigation";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-import flagBIH from "@/assets/flags/ba.png";
-import flagHR from "@/assets/flags/hr.png";
-import flagSRB from "@/assets/flags/rs.png";
-import flagME from "@/assets/flags/me.png";
-import flagMK from "@/assets/flags/mk.png";
-import flagXK from "@/assets/flags/xk.png";
-import flagAL from "@/assets/flags/al.png";
-
 const COUNTRY_CARDS = [
-  { code: "bih", nameKey: "country.BIH", flag: flagBIH },
-  { code: "srb", nameKey: "country.SRB", flag: flagSRB },
-  { code: "hr",  nameKey: "country.HR",  flag: flagHR },
-  { code: "me",  nameKey: "country.ME",  flag: flagME },
-  { code: "mk",  nameKey: "country.MK",  flag: flagMK },
-  { code: "xk",  nameKey: "country.XK",  flag: flagXK },
-  { code: "al",  nameKey: "country.AL",  flag: flagAL },
+  { code: "bih", nameKey: "country.BIH", flag: "https://flagcdn.com/h80/ba.png" },
+  { code: "srb", nameKey: "country.SRB", flag: "https://flagcdn.com/h80/rs.png" },
+  { code: "hr",  nameKey: "country.HR",  flag: "https://flagcdn.com/h80/hr.png" },
+  { code: "me",  nameKey: "country.ME",  flag: "https://flagcdn.com/h80/me.png" },
+  { code: "mk",  nameKey: "country.MK",  flag: "https://flagcdn.com/h80/mk.png" },
+  { code: "xk",  nameKey: "country.XK",  flag: "https://flagcdn.com/h80/xk.png" },
+  { code: "al",  nameKey: "country.AL",  flag: "https://flagcdn.com/h80/al.png" },
 ];
 
 export default function Community() {
