@@ -67,7 +67,6 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
       return () => clearTimeout(t);
     }
   }, [openFormKey, LoadedForm]);
-  const [LoadedForm, setLoadedForm] = useState<React.FC | null>(null);
 
   const handleOpenForm = async (formKey: string) => {
     if (openFormKey === formKey) {
