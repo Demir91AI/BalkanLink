@@ -99,7 +99,7 @@ export default function PremiumModal({ isOpen, onClose, trigger, formularId }: P
               className="h-12 w-full rounded-xl bg-[hsl(var(--gold))] text-sm font-bold text-white shadow-lg hover:bg-[hsl(var(--gold-light))]"
             >
               <Crown className="mr-2 h-4 w-4" />
-              Otključaj Premium — 9.99€/mjes.
+              {t("paywall.unlockPremium")}
             </Button>
 
             {/* Single formular CTA (only for formular trigger) */}
