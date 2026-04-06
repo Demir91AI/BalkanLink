@@ -292,6 +292,7 @@ export type Database = {
           name: string
           origin_country: string
           phone: string | null
+          user_id: string | null
           verified: boolean
           website: string | null
         }
@@ -305,6 +306,7 @@ export type Database = {
           name: string
           origin_country: string
           phone?: string | null
+          user_id?: string | null
           verified?: boolean
           website?: string | null
         }
@@ -318,6 +320,7 @@ export type Database = {
           name?: string
           origin_country?: string
           phone?: string | null
+          user_id?: string | null
           verified?: boolean
           website?: string | null
         }
@@ -657,6 +660,7 @@ export type Database = {
           started_at: string | null
           status: Database["public"]["Enums"]["pro_status"]
           updated_at: string
+          user_id: string | null
           website: string | null
           whatsapp: string | null
         }
@@ -677,6 +681,7 @@ export type Database = {
           started_at?: string | null
           status?: Database["public"]["Enums"]["pro_status"]
           updated_at?: string
+          user_id?: string | null
           website?: string | null
           whatsapp?: string | null
         }
@@ -697,6 +702,7 @@ export type Database = {
           started_at?: string | null
           status?: Database["public"]["Enums"]["pro_status"]
           updated_at?: string
+          user_id?: string | null
           website?: string | null
           whatsapp?: string | null
         }
