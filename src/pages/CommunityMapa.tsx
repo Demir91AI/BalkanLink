@@ -138,6 +138,7 @@ export default function CommunityMapa() {
     localStorage.setItem(LS_SELF_KEY, member.id);
     setStep("idle");
     setCity(""); setDisplayName(""); setNote(""); setPhone("");
+    setFacebook(""); setInstagram(""); setTiktok("");
     toast.success("Dodan/a si na mapu!");
   };
 
