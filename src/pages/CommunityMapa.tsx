@@ -31,7 +31,13 @@ const LS_SELF_KEY = "bl_mapa_self_id_v2";
 function loadMembers(): MapMember[] {
   try {
     const raw = localStorage.getItem(LS_KEY);
-    return raw ? JSON.parse(raw) : [];
+    if (!raw) return [];
+    const parsed = JSON.parse(raw) as any[];
+    return parsed.map(m => ({
+      ...m,
+      contactType: m.contactType === "phone" ? "phone" : "none",
+      contactValue: m.contactType === "phone" ? m.contactValue || "" : "",
+    }));
   } catch { return []; }
 }
 function saveMembers(m: MapMember[]) {
