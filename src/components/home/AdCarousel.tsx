@@ -2,6 +2,7 @@ import { Mail, ArrowRight } from "lucide-react";
 import { PremiumShowcaseCard } from "./PremiumShowcaseCard";
 import { premiumShowcaseFirms } from "./premium-showcase-data";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useInfiniteScroll } from "@/hooks/useInfiniteScroll";
 
 const MAILTO_AD = `mailto:kontakt@balkanlink.de?subject=${encodeURIComponent("Oglašavanje na BalkanLink")}&body=${encodeURIComponent(
   "Pozdrav,\n\nZanima me oglašavanje na BalkanLink platformi.\n\nNaziv firme:\nVrsta usluge:\nGrad:\nBudžet:\n"
@@ -40,6 +41,7 @@ function EmptyShowcaseCard({ title, subtitle }: { title: string; subtitle: strin
 
 export function AdCarousel() {
   const { t } = useLanguage();
+  const { ref, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.6, 3500);
 
   // Interleave real firms with empty slots
   const items: Array<{ type: "firm"; firm: typeof premiumShowcaseFirms[0] } | { type: "empty"; title: string; subtitle: string }> = [];
@@ -66,10 +68,20 @@ export function AdCarousel() {
             </h2>
           </div>
 
-          <div className="overflow-x-auto w-full scrollbar-hide" style={{ WebkitOverflowScrolling: 'touch', scrollSnapType: 'x mandatory' }}>
+          <div
+            ref={ref}
+            className="overflow-hidden w-full cursor-grab select-none"
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
+            onMouseDown={onMouseDown}
+            onMouseMove={onMouseMove}
+            onMouseUp={onMouseUp}
+            onMouseLeave={onMouseLeave}
+          >
             <div className="flex w-fit gap-5 sm:gap-6">
               {doubled.map((item, index) => (
-                <div key={index} className="w-[75vw] sm:w-[350px] shrink-0" style={{ scrollSnapAlign: 'start' }}>
+                <div key={index} className="w-[75vw] sm:w-[350px] shrink-0">
                   {item.type === "firm" ? (
                     <PremiumShowcaseCard firm={item.firm} priority={index === 0} />
                   ) : (
