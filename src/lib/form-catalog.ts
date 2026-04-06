@@ -96,6 +96,7 @@ export const formCatalog: FormGroup[] = [
     id: "posao",
     icon: "💼",
     title: "Posao i prihodi",
+    titleKey: "catalog.posao",
     items: [
       { slug: "krankenkasse", label: "Krankenkasse Anmeldung", desc: "Prijava u zdravstveno osiguranje u Njemačkoj." },
       { slug: "steuerklassenwechsel", label: "Steuerklassenwechsel", desc: "Promjena poreske klase, npr. nakon braka." },
