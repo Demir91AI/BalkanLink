@@ -87,6 +87,7 @@ export const formCatalog: FormGroup[] = [
     id: "wohngeld",
     icon: "🏡",
     title: "Wohngeld",
+    titleKey: "catalog.wohngeld",
     items: [
       { slug: "wohngeld", label: "Wohngeld", desc: "Finansijska pomoć za troškove stanovanja." },
     ],
