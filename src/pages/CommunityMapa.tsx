@@ -366,54 +366,16 @@ export default function CommunityMapa() {
               <p className="text-[10px] text-[#9CA3AF]">{note.length}/100 — NE upisuj broj telefona ovdje</p>
             </div>
 
-            {/* Contact type selection */}
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-[#2D2D2D]">Kako te drugi mogu kontaktirati?</label>
-              <div className="grid grid-cols-2 gap-2">
-                {[
-                  { value: "none" as const, label: "🚫 Bez kontakta", desc: "Samo prisutnost na mapi" },
-                  { value: "phone" as const, label: "📞 Telefon (javno)", desc: "Broj vidljiv svima" },
-                ].map(opt => (
-                  <button
-                    key={opt.value}
-                    type="button"
-                    onClick={() => { setContactType(opt.value); setContactValue(""); setContactConsent(false); }}
-                    className="rounded-xl p-3 text-left transition-all border-2 text-sm"
-                    style={{
-                      borderColor: contactType === opt.value ? '#C9A84C' : '#F0EAD8',
-                      background: contactType === opt.value ? '#FFF8EC' : '#fff',
-                    }}
-                  >
-                    <p className="font-bold text-[#2D2D2D] text-[13px]">{opt.label}</p>
-                    <p className="text-[11px] text-[#9CA3AF] mt-0.5">{opt.desc}</p>
-                  </button>
-                ))}
-              </div>
+            <div className="space-y-1.5">
+              <label className="text-sm font-medium text-[#2D2D2D]">Telefon za kontakt (opcionalno)</label>
+              <Input
+                value={phone}
+                onChange={e => setPhone(e.target.value)}
+                placeholder="+49 123 456789"
+                className="border-[#E8D9B0]"
+              />
+              <p className="text-[10px] text-[#9CA3AF]">Broj će biti javno vidljiv ako ga upišeš</p>
             </div>
-
-            {/* Email/Phone input + extra consent */}
-            {contactType === "phone" && (
-              <div className="space-y-3 rounded-xl border border-amber-300/50 bg-amber-50 p-4">
-                <div className="flex items-start gap-2">
-                  <AlertTriangle className="h-4 w-4 shrink-0 text-amber-600 mt-0.5" />
-                  <p className="text-xs text-amber-800 leading-relaxed">
-                    Pažnja: Broj telefona bit će JAVNO vidljiv svim posjetiteljima stranice. BalkanLink ne odgovara za zloupotrebe.
-                  </p>
-                </div>
-                <Input
-                  value={contactValue}
-                  onChange={e => setContactValue(e.target.value)}
-                  placeholder="+49 123 456789"
-                  className="border-amber-300 bg-white"
-                />
-                <label className="flex items-start gap-3 cursor-pointer">
-                  <Checkbox checked={contactConsent} onCheckedChange={v => setContactConsent(v === true)} className="mt-0.5" />
-                  <span className="text-xs text-[#6B6B6B]">
-                    Razumijem da će moj broj telefona biti javno prikazan. Dajem eksplicitnu saglasnost za javno objavljivanje u skladu s Datenschutz pravilima.
-                  </span>
-                </label>
-              </div>
-            )}
 
             <div className="flex gap-3">
               <Button
