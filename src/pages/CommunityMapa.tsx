@@ -20,7 +20,7 @@ interface MapMember {
   city: string;
   displayName: string;
   note: string;
-  contactType: "none" | "message" | "email" | "phone";
+  contactType: "none" | "phone";
   contactValue: string;
   createdAt: string;
 }
