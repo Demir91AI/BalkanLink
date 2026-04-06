@@ -470,7 +470,7 @@ export default function SmartGuideWizard({ fields, pdfUrl }: Props) {
         ))}
       </div>
 
-      <StepLockOverlay locked={!canAccessStep(step)}>
+      <SmartGuideLock locked={!canAccessStep(step)}>
         {/* Step header */}
         <div className="rounded-2xl border bg-card p-5">
           <div className="flex items-start justify-between gap-2">
