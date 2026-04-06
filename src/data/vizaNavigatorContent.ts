@@ -130,7 +130,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
     flag: 'https://flagcdn.com/h24/ba.png',
     isEU: false,
     embassyName: 'Njemacka ambasada Sarajevo',
-    embassyUrl: 'https://www.sarajevo.diplo.de',
+    embassyUrl: 'https://sarajevo.diplo.de',
     embassyNote: 'Termini TAGESAKTUELL — svaki dan objavljuju nove termine. Provjeri svako jutro na sarajevo.diplo.de!',
     schengenFree: true,
     schengenNote: 'Državljani BiH s biometrijskim pasošem mogu bez vize u Schengen do 90 dana (turizam, poslovni posjeti). Za rad i duži boravak OBAVEZNA viza!',
@@ -175,7 +175,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           'Prekasno apliciranje za produženje — uvijek 6–8 sedmica PRIJE isteka'
         ],
         sources: [
-          { label: 'Ambasada Sarajevo — Westbalkan termini', url: 'https://www.sarajevo.diplo.de' },
+          { label: 'Ambasada Sarajevo — Westbalkan termini', url: 'https://sarajevo.diplo.de' },
           { label: 'Bundesagentur für Arbeit — Westbalkanregelung', url: 'https://www.arbeitsagentur.de/unternehmen/fachkraefte-ausland/westbalkanregelung' },
           { label: 'Make it in Germany — Westbalkan', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/arbeit/westbalkan-regelung' },
           { label: 'BAMF — Arbeit §18', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Arbeit/arbeit-node.html' },
@@ -225,7 +225,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           'Brkanje s Westbalkan-Regelung — ta vrijedi za §18, NE za Blue Card §18g'
         ],
         sources: [
-          { label: 'Ambasada Sarajevo', url: 'https://www.sarajevo.diplo.de' },
+          { label: 'Ambasada Sarajevo', url: 'https://sarajevo.diplo.de' },
           { label: 'BAMF — Blaue Karte EU', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Arbeit/BlaueKarte/blaue-karte-node.html' },
           { label: 'Make it in Germany — Blue Card', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/blaue-karte-eu' },
           { label: 'anabin — provjera diploma', url: 'https://anabin.kmk.org' }
@@ -276,7 +276,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           'Termini tagesaktuell — provjeri sarajevo.diplo.de svako jutro!'
         ],
         sources: [
-          { label: 'Ambasada Sarajevo', url: 'https://www.sarajevo.diplo.de' },
+          { label: 'Ambasada Sarajevo', url: 'https://sarajevo.diplo.de' },
           { label: 'BAMF — Familiennachzug', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Familie/familie-node.html' },
           { label: 'Goethe-Institut Sarajevo', url: 'https://www.goethe.de/ins/ba/bs/index.html' },
           { label: 'Make it in Germany — Familiennachzug', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/familiennachzug' }
@@ -329,7 +329,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           { label: 'BAMF — Studium §16b', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Studium/studium-node.html' },
           { label: 'DAAD — Stipendije', url: 'https://www.daad.de/de/studieren-und-forschen-in-deutschland/stipendien/daad-stipendien/' },
           { label: 'Fintiba Sperrkonto', url: 'https://www.fintiba.com' },
-          { label: 'Ambasada Sarajevo', url: 'https://www.sarajevo.diplo.de' }
+          { label: 'Ambasada Sarajevo', url: 'https://sarajevo.diplo.de' }
         ],
         musterformulare: [
           { title: 'Musterformular: Antrag auf Aufenthaltserlaubnis (Studij)', subtitle: 'Popunjen primjer za studentsku vizu §16b za BiH', formKey: 'VisaStudyForm', downloadUrl: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Studium/studium-node.html' }
@@ -477,7 +477,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
     flag: 'https://flagcdn.com/h24/rs.png',
     isEU: false,
     embassyName: 'Nemačka ambasada Beograd',
-    embassyUrl: 'https://www.belgrad.diplo.de',
+    embassyUrl: 'https://belgrad.diplo.de',
     embassyNote: 'Poslednje ažuriranje termina: 23.01.2026. Redovno proveravajte belgrad.diplo.de.',
     schengenFree: true,
     schengenNote: 'Srpski državljani s biometrijskim pasošem mogu bez vize u Schengen do 90 dana — samo turizam. Za rad obavezna viza!',
@@ -510,7 +510,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         costs: ['D-Viza: 75 €', 'Aufenthaltserlaubnis: 100–110 €', 'Rok obrade: 4–8 nedelja'],
         errors: ['EzB nije potpisana od poslodavca', 'Nedigitalne fotografije!', 'Rad pre izdavanja Aufenthaltserlaubnis — krivično delo'],
         sources: [
-          { label: 'Ambasada Beograd', url: 'https://www.belgrad.diplo.de' },
+          { label: 'Ambasada Beograd', url: 'https://belgrad.diplo.de' },
           { label: 'Bundesagentur für Arbeit — Westbalkan', url: 'https://www.arbeitsagentur.de/unternehmen/fachkraefte-ausland/westbalkanregelung' },
           { label: 'Make it in Germany', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/arbeit/westbalkan-regelung' }
         ],
@@ -535,7 +535,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         costs: ['D-Viza: 75 €', 'EU Plava karta: 100–110 €', 'Rok obrade: 4–8 nedelja'],
         errors: ['Diploma nije proverena na anabin pre aplikacije!', 'Plata ispod minimuma — zahtev odbijen'],
         sources: [
-          { label: 'Ambasada Beograd', url: 'https://www.belgrad.diplo.de' },
+          { label: 'Ambasada Beograd', url: 'https://belgrad.diplo.de' },
           { label: 'BAMF — Blue Card', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Arbeit/BlaueKarte/blaue-karte-node.html' },
           { label: 'anabin', url: 'https://anabin.kmk.org' }
         ],
@@ -567,7 +567,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         costs: ['D-Viza: 75 € (deca: 37,50 €)', 'A1 kurs + ispit: 150–400 €', 'Apostille: varijabilno', 'Overen prevod: 50–120 € po doc.'],
         errors: ['Bez A1 viza odbijena!', 'Apostille obavezna za srpska dokumenta!', 'Min. 12 m² po osobi u stanu'],
         sources: [
-          { label: 'Ambasada Beograd', url: 'https://www.belgrad.diplo.de' },
+          { label: 'Ambasada Beograd', url: 'https://belgrad.diplo.de' },
           { label: 'Goethe-Institut Serbien', url: 'https://www.goethe.de/ins/rs/sr/index.html' },
           { label: 'BAMF — Familiennachzug', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Familie/familie-node.html' }
         ],
@@ -708,7 +708,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
     flag: 'https://flagcdn.com/h24/me.png',
     isEU: false,
     embassyName: 'Njemacka ambasada Podgorica',
-    embassyUrl: 'https://www.podgorica.diplo.de',
+    embassyUrl: 'https://podgorica.diplo.de',
     embassyNote: 'Termini TAGESAKTUELL — provjeri svako jutro na podgorica.diplo.de.',
     schengenFree: true,
     schengenNote: 'Crnogorski državljani s biometrijskim pasošem mogu bez vize u Schengen do 90 dana. Za rad obavezna viza!',
@@ -731,7 +731,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         costs: ['D-Viza: 75 €', 'Aufenthaltserlaubnis: 100–110 €'],
         errors: ['EzB nepotpuna ili bez potpisa', 'Termini tagesaktuell — provjeri svako jutro!'],
         sources: [
-          { label: 'Ambasada Podgorica', url: 'https://www.podgorica.diplo.de' },
+          { label: 'Ambasada Podgorica', url: 'https://podgorica.diplo.de' },
           { label: 'Westbalkan-Regelung', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/arbeit/westbalkan-regelung' }
         ],
         musterformulare: [
@@ -753,7 +753,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         documents: ['Pasoš', '2 digitalne biometrijske fotografije', 'Vjenčani list s Apostille + prijevod', 'Goethe A1 ili ÖSD A1', 'Platne liste (3 mj.) osobe u Njemačkoj', 'Ugovor o najmu'],
         costs: ['D-Viza: 75 €', 'A1 kurs + ispit: 150–400 €'],
         errors: ['Bez A1 viza odbijena!', 'Apostille obavezna za MNE isprave!'],
-        sources: [{ label: 'Ambasada Podgorica', url: 'https://www.podgorica.diplo.de' }],
+        sources: [{ label: 'Ambasada Podgorica', url: 'https://podgorica.diplo.de' }],
         musterformulare: [
           { title: 'Musterformular: Antrag Aufenthaltserlaubnis (Spajanje)', subtitle: '§§27-36 primjer Crna Gora', formKey: 'VisaFamilyForm', downloadUrl: 'https://www.bamf.de' }
         ]
@@ -858,7 +858,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
     flag: 'https://flagcdn.com/h24/mk.png',
     isEU: false,
     embassyName: 'Германска амбасада Скопје',
-    embassyUrl: 'https://www.skopje.diplo.de',
+    embassyUrl: 'https://skopje.diplo.de',
     embassyNote: 'Термини TAGESAKTUELL — проверувај секое утро на skopje.diplo.de. Амбасадата го нарекува §19c AufenthG + §26 Abs. 2 BeschV.',
     schengenFree: true,
     schengenNote: 'Македонски државјани со биометриски пасош може без виза во Шенген до 90 дена. За работа обавезна виза!',
@@ -880,7 +880,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         costs: ['Д-Виза: 75 €', 'Aufenthaltserlaubnis: 100–110 €'],
         errors: ['EzB непотполна или без потпис', 'Недигитални фотографии!'],
         sources: [
-          { label: 'Амбасада Скопје', url: 'https://www.skopje.diplo.de' },
+          { label: 'Амбасада Скопје', url: 'https://skopje.diplo.de' },
           { label: 'Westbalkan-Regelung', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/arbeit/westbalkan-regelung' }
         ],
         musterformulare: [
@@ -902,7 +902,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         documents: ['Пасош', '2 дигитални биометриски фотографии', 'Венчаница со Апостил + превод', 'Гете А1 или ÖSD А1', 'Платни листови (3 мес.) на лицето во Германија', 'Договор за кирија'],
         costs: ['Д-Виза: 75 €', 'А1 курс + испит: 150–400 €'],
         errors: ['Без А1 виза одбиена!', 'Апостил задолжителен за МК документи!'],
-        sources: [{ label: 'Амбасада Скопје', url: 'https://www.skopje.diplo.de' }],
+        sources: [{ label: 'Амбасада Скопје', url: 'https://skopje.diplo.de' }],
         musterformulare: [
           { title: 'Musterformular: Antrag Aufenthaltserlaubnis (Спојување)', subtitle: '§§27-36 пример за Македонија', formKey: 'VisaFamilyForm', downloadUrl: 'https://www.bamf.de' }
         ]
@@ -1007,7 +1007,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
     flag: 'https://flagcdn.com/h24/al.png',
     isEU: false,
     embassyName: 'Ambasada gjermane Tiranë',
-    embassyUrl: 'https://www.tirana.diplo.de',
+    embassyUrl: 'https://tirana.diplo.de',
     embassyNote: 'Terminet TAGESAKTUELL — kontrolloni çdo ditë faqen tirana.diplo.de.',
     schengenFree: true,
     schengenNote: 'Shtetasit shqiptarë me pasaportë biometrike mund të hyjnë pa vizë në zonën Shengen deri 90 ditë. Për punë nevojitet viza!',
@@ -1029,7 +1029,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         costs: ['Vizë D: 75 €', 'Aufenthaltserlaubnis: 100–110 €'],
         errors: ['EzB jo e plotë ose pa nënshkrim', 'Foto jo dixhitale!'],
         sources: [
-          { label: 'Ambasada Tiranë', url: 'https://www.tirana.diplo.de' },
+          { label: 'Ambasada Tiranë', url: 'https://tirana.diplo.de' },
           { label: 'Westbalkan-Regelung', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/arbeit/westbalkan-regelung' }
         ],
         musterformulare: [
@@ -1052,7 +1052,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         costs: ['Vizë D: 75 €', 'Kurs + provim A1: 150–400 €'],
         errors: ['Pa A1 viza refuzohet!', 'Apostilë e detyrueshme!'],
         sources: [
-          { label: 'Ambasada Tiranë', url: 'https://www.tirana.diplo.de' },
+          { label: 'Ambasada Tiranë', url: 'https://tirana.diplo.de' },
           { label: 'Goethe-Institut Shqipëri', url: 'https://www.goethe.de/ins/al/sq/index.html' }
         ],
         musterformulare: [
