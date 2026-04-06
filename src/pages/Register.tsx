@@ -11,6 +11,8 @@ import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Check, X } from "lucide-react";
 import PageNav from "@/components/navigation/PageNav";
+import TurnstileWidget from "@/components/TurnstileWidget";
+import { verifyTurnstileToken } from "@/lib/turnstile";
 
 const PW_RULES = [
   { key: "auth.pwRule.length" as const, test: (pw: string) => pw.length >= 8 },
