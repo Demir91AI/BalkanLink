@@ -43,6 +43,7 @@ interface PremiumModalProps {
 export default function PremiumModal({ isOpen, onClose, trigger, formularId }: PremiumModalProps) {
   const { user } = useAuth();
   const navigate = useNavigate();
+  const { t } = useLanguage();
   const [authOpen, setAuthOpen] = useState(false);
   const content = TRIGGER_TEXT[trigger];
 
