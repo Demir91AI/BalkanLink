@@ -122,24 +122,22 @@ export function useTTS() {
 
       const url = URL.createObjectURL(blob);
       const audio = new Audio(url);
-      applyAudioTuning(audio);
+      applyAudioTuning(audio, rate);
       audioRef.current = audio;
 
       audio.onplay = () => { setActiveId(id); setPlayState("playing"); };
       audio.onended = () => {
-        // Small silence at end to prevent cut-off feeling
         setTimeout(() => { setActiveId(null); setPlayState("idle"); URL.revokeObjectURL(url); }, 100);
       };
       audio.onerror = () => { setActiveId(null); setPlayState("idle"); URL.revokeObjectURL(url); };
 
-      // 120ms delay before playback to prevent harsh start
       await new Promise((r) => setTimeout(r, 120));
       await audio.play();
       return true;
     } catch {
       return false;
     }
-  }, []);
+  }, [rate]);
 
   /* ── Method 2: Web Speech API fallback ── */
   const playViaSpeechSynth = useCallback((id: string, text: string): boolean => {
@@ -158,7 +156,7 @@ export function useTTS() {
     const applyVoiceAndSpeak = () => {
       const voice = cachedVoice.current ?? getBestGermanVoice(synth);
       if (voice) { u.voice = voice; u.lang = voice.lang; cachedVoice.current = voice; }
-      u.rate = UNIFIED_RATE;
+      u.rate = rate;
       u.pitch = UNIFIED_PITCH;
       u.volume = 1.0;
 
