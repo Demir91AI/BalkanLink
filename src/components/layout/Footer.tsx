@@ -143,7 +143,7 @@ export default function Footer() {
               key={icon.alt}
               src={icon.src}
               alt={icon.alt}
-              style={{ height: 28, width: "auto", opacity: 0.85, transition: "opacity 0.2s", filter: "brightness(0) invert(1)" }}
+              style={{ height: 28, width: "auto", opacity: 0.85, transition: "opacity 0.2s" }}
               onMouseEnter={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = "1"; }}
               onMouseLeave={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = "0.85"; }}
             />
