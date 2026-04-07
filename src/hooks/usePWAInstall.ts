@@ -7,6 +7,7 @@ interface BeforeInstallPromptEvent extends Event {
 
 const LS_DISMISS_KEY = "bl_pwa_dismiss";
 const LS_IOS_DISMISS_KEY = "bl_pwa_ios_dismiss";
+const LS_INSTALLED_KEY = "bl_pwa_installed";
 const DISMISS_DAYS = 7;
 
 function isDismissed(key: string): boolean {
@@ -16,6 +17,14 @@ function isDismissed(key: string): boolean {
     const ts = parseInt(raw, 10);
     if (isNaN(ts)) return false;
     return Date.now() - ts < DISMISS_DAYS * 24 * 60 * 60 * 1000;
+  } catch {
+    return false;
+  }
+}
+
+function isInstalled(): boolean {
+  try {
+    return localStorage.getItem(LS_INSTALLED_KEY) === "true";
   } catch {
     return false;
   }
@@ -42,8 +51,7 @@ export function usePWAInstall() {
   const [showIOSBanner, setShowIOSBanner] = useState(false);
 
   useEffect(() => {
-    if (isStandalone()) return;
-    // Only show on mobile
+    if (isStandalone() || isInstalled()) return;
     const isMobileWidth = window.innerWidth < 768;
     if (!isMobileWidth) return;
 
@@ -71,8 +79,9 @@ export function usePWAInstall() {
     await deferredPrompt.prompt();
     const { outcome } = await deferredPrompt.userChoice;
     if (outcome === "accepted") {
-      setShowAndroidBanner(false);
+      localStorage.setItem(LS_INSTALLED_KEY, "true");
     }
+    setShowAndroidBanner(false);
     setDeferredPrompt(null);
   }, [deferredPrompt]);
 
