@@ -30,8 +30,7 @@ function LangPill() {
             : "text-white/50 hover:text-white/80"
         }`}
       >
-        <span style={{ marginRight: "4px" }}>🇩🇪</span>
-        <span>DE</span>
+        <span>🇩🇪 DE</span>
       </button>
     </div>
   );
