@@ -155,7 +155,7 @@ export default function TrainerPreise() {
                   🎉 Promo cijena — prvih 6 mjeseci
                 </p>
                 <Button
-                  onClick={() => navigate("/premium")}
+                  onClick={() => navigate("/pricing")}
                   variant="outline"
                   className="mt-3 h-8 w-full rounded-lg text-[11px] font-bold"
                 >
