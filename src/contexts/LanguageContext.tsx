@@ -1,43 +1,48 @@
-import { createContext, useContext, useCallback, type ReactNode } from "react";
-import { type Language, getTranslation, LANGUAGES } from "@/lib/translations";
-import { lookup } from "@/i18n";
+import React, { createContext, useContext, useState, useCallback } from "react";
+import { translations, type Language, LANGUAGES, getTranslation } from "@/lib/translations";
+import { lookup as i18nLookup } from "@/i18n";
 
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
   t: (key: string) => string;
   languages: typeof LANGUAGES;
-  currentFlag: string;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const language: Language = "bs";
+export function LanguageProvider({ children }: { children: React.ReactNode }) {
+  const saved = typeof window !== "undefined" ? localStorage.getItem("balkanlink-lang") as Language : null;
+  const validLangs: Language[] = ["bhs", "de"];
+  const initial: Language = saved && validLangs.includes(saved) ? saved : "bhs";
 
-  const setLanguage = useCallback((_lang: Language) => {
-    // No-op: BHS only
+  const [language, setLang] = useState<Language>(initial);
+
+  const setLanguage = useCallback((lang: Language) => {
+    setLang(lang);
+    localStorage.setItem("balkanlink-lang", lang);
   }, []);
 
   const t = useCallback(
-    (key: string) => {
-      // 1. Try the local translations map first
-      const local = getTranslation(language, key as any);
-      if (local !== key) return local;
+    (key: string): string => {
+      // 1. Check main translations dict
+      const entry = translations[key];
+      if (entry) {
+        return entry[language] ?? entry["bhs"] ?? key;
+      }
 
-      // 2. Fallback: search i18n namespaces (BS JSONs)
-      const result = lookup(key);
+      // 2. Fallback: namespace-based JSON lookup (for legacy keys in src/locales/bs/*.json)
+      // Map "bhs" → "bs" for JSON compatibility
+      const result = i18nLookup(key);
       if (result !== key) return result;
 
-      return local;
+      return key;
     },
-    []
+    [language],
   );
 
-  const currentFlag = LANGUAGES.find((l) => l.code === language)?.flag || "🇧🇦";
-
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t, languages: LANGUAGES, currentFlag }}>
+    <LanguageContext.Provider value={{ language, setLanguage, t, languages: LANGUAGES }}>
       {children}
     </LanguageContext.Provider>
   );
