@@ -345,5 +345,4 @@ export const translations: Record<string, T> = {
   // MISC
   "back":  { bhs: "← Nazad", de: "← Zurück" },
   "home":  { bhs: "Početna", de: "Startseite" },
-  "sidebar.menu": { bhs: "Meni", de: "Menü" },
 };
