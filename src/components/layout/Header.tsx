@@ -4,12 +4,15 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Menu, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const menuBtnClass =
   "h-10 w-10 rounded-lg text-white/70 hover:text-white hover:bg-white/8 active:scale-[0.93] transition-transform duration-150";
 
 function LangPill() {
   const { language, setLanguage } = useLanguage();
+  const isMobile = useIsMobile();
+
   return (
     <div className="flex h-9 items-center rounded-full border border-white/20 bg-white/5 backdrop-blur-sm p-[3px] gap-0">
       <button
@@ -20,7 +23,11 @@ function LangPill() {
             : "text-white/50 hover:text-white/80"
         }`}
       >
-        <span>🇧🇦 BS / 🇭🇷 HR / 🇷🇸 SR</span>
+        {isMobile ? (
+          <span>🇧🇦🇭🇷🇷🇸 BHS</span>
+        ) : (
+          <span>🇧🇦 BS / 🇭🇷 HR / 🇷🇸 SR</span>
+        )}
       </button>
       <button
         onClick={() => setLanguage("de")}
@@ -52,6 +59,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-white/8 bg-[#0f1f3d]/95 backdrop-blur-xl shadow-lg shadow-black/20">
       <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[hsl(var(--gold))] to-transparent opacity-60" />
 
+      {/* Top row: hamburger + logo */}
       <div className="relative flex h-14 items-center justify-between px-4">
         <Button variant="ghost" size="icon" onClick={handleToggleSidebar} className={menuBtnClass} aria-label={t("sidebar.menu")}>
           <Menu className="h-5 w-5" />
@@ -78,6 +86,16 @@ export default function Header() {
           )}
         </div>
 
+        {/* Desktop: lang pill in header row */}
+        <div className="hidden md:block">
+          <LangPill />
+        </div>
+        {/* Mobile: invisible spacer to balance hamburger */}
+        <div className="block md:hidden w-10" />
+      </div>
+
+      {/* Mobile: lang pill on second row */}
+      <div className="flex md:hidden justify-center pb-2 -mt-1">
         <LangPill />
       </div>
     </header>
