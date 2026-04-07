@@ -14,25 +14,25 @@ function LangPill() {
     <div className="flex h-9 items-center rounded-full border border-white/20 bg-white/5 backdrop-blur-sm p-[3px] gap-0">
       <button
         onClick={() => setLanguage("bhs")}
-        className={`flex items-center gap-1.5 h-[30px] min-w-[44px] px-2.5 rounded-full text-[12px] font-semibold transition-all duration-200 ${
+        className={`flex items-center h-[30px] min-w-[44px] px-2.5 rounded-full text-[12px] font-semibold transition-all duration-200 ${
           language === "bhs"
             ? "bg-[hsl(var(--gold))] text-white shadow-md"
             : "text-white/50 hover:text-white/80"
         }`}
       >
-        <span style={{ fontSize: "0.55em", letterSpacing: "-2px", lineHeight: "1", display: "inline-block" }}>🇧🇦🇭🇷🇷🇸</span>
-        <span className="hidden sm:inline">BS/HR/SR</span>
+        <span style={{ fontSize: "0.6em", letterSpacing: "-3px", marginRight: "6px", lineHeight: "1", display: "inline-block" }}>🇧🇦🇭🇷🇷🇸</span>
+        <span>BS/HR/SR</span>
       </button>
       <button
         onClick={() => setLanguage("de")}
-        className={`flex items-center gap-1.5 h-[30px] min-w-[44px] px-2.5 rounded-full text-[12px] font-semibold transition-all duration-200 ${
+        className={`flex items-center h-[30px] min-w-[44px] px-2.5 rounded-full text-[12px] font-semibold transition-all duration-200 ${
           language === "de"
             ? "bg-[hsl(var(--gold))] text-white shadow-md"
             : "text-white/50 hover:text-white/80"
         }`}
       >
-        🇩🇪
-        <span className="hidden sm:inline">DE</span>
+        <span style={{ marginRight: "4px" }}>🇩🇪</span>
+        <span>DE</span>
       </button>
     </div>
   );
