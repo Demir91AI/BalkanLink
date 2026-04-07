@@ -3,21 +3,15 @@ import { useLocation, useNavigate } from "react-router-dom";
 import {
   FileText, Shield, BookOpen, Camera, Megaphone, Map, Plane,
   Briefcase, Building, Calculator, FileCheck, X, LogIn, LogOut, User,
-  Mail, Send, CreditCard,
+  CreditCard,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import AuthModal from "@/components/auth/AuthModal";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
 
 export function AppSidebar() {
   const [isOpen, setIsOpen] = useState(false);
   const [authOpen, setAuthOpen] = useState(false);
-  const [contactOpen, setContactOpen] = useState(false);
-  const [contactForm, setContactForm] = useState({ firstName: "", lastName: "", email: "", message: "" });
   const debounceRef = useRef(0);
   const navigate = useNavigate();
   const location = useLocation();
@@ -72,15 +66,6 @@ export function AppSidebar() {
     close();
   };
 
-  const handleContactSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const subject = encodeURIComponent(`${t("contact.title")} – ${contactForm.firstName} ${contactForm.lastName}`);
-    const body = encodeURIComponent(`${t("contact.firstName")}: ${contactForm.firstName}\n${t("contact.lastName")}: ${contactForm.lastName}\n${t("contact.email")}: ${contactForm.email}\n\n${t("contact.message")}:\n${contactForm.message}`);
-    window.location.href = `mailto:kontakt@balkanlink.de?subject=${subject}&body=${body}`;
-    setContactOpen(false);
-    setContactForm({ firstName: "", lastName: "", email: "", message: "" });
-  };
-
   return (
     <>
       <div
@@ -105,7 +90,7 @@ export function AppSidebar() {
           </button>
         </div>
 
-        {/* Auth section at top */}
+        {/* Auth section */}
         <div className="px-3 pt-4 pb-3 border-b border-[#E8E0D0]">
           {user ? (
             <div className="flex flex-col gap-2 px-3">
@@ -132,7 +117,7 @@ export function AppSidebar() {
           )}
         </div>
 
-        {/* Paketi & Kontakt right below auth */}
+        {/* Paketi */}
         <div className="px-3 pt-2 pb-1 border-b border-[#E8E0D0]">
           <nav className="flex flex-col gap-0.5">
             <button
@@ -145,13 +130,6 @@ export function AppSidebar() {
             >
               <CreditCard className={`h-[18px] w-[18px] shrink-0 ${location.pathname === "/paketi" ? "text-[hsl(var(--gold))]" : ""}`} />
               <span className="text-[14px] font-medium">{t("sidebar.cijene")}</span>
-            </button>
-            <button
-              onClick={() => { close(); setContactOpen(true); }}
-              className="flex items-center gap-3 w-full px-3 py-2 rounded-lg text-left text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D] transition-all duration-200"
-            >
-              <Mail className="h-[18px] w-[18px] shrink-0" />
-              <span className="text-[14px] font-medium">{t("sidebar.kontakt")}</span>
             </button>
           </nav>
         </div>
@@ -214,40 +192,6 @@ export function AppSidebar() {
       </aside>
 
       <AuthModal open={authOpen} onClose={() => setAuthOpen(false)} />
-
-      {/* Contact dialog */}
-      <Dialog open={contactOpen} onOpenChange={setContactOpen}>
-        <DialogContent className="sm:max-w-md">
-          <DialogHeader>
-            <DialogTitle>{t("contact.title")}</DialogTitle>
-            <DialogDescription>{t("contact.subtitle")}</DialogDescription>
-          </DialogHeader>
-          <form onSubmit={handleContactSubmit} className="space-y-4">
-            <div className="grid grid-cols-2 gap-3">
-              <div>
-                <label className="text-sm font-medium">{t("contact.firstName")}</label>
-                <Input value={contactForm.firstName} onChange={(e) => setContactForm(p => ({ ...p, firstName: e.target.value }))} required />
-              </div>
-              <div>
-                <label className="text-sm font-medium">{t("contact.lastName")}</label>
-                <Input value={contactForm.lastName} onChange={(e) => setContactForm(p => ({ ...p, lastName: e.target.value }))} required />
-              </div>
-            </div>
-            <div>
-              <label className="text-sm font-medium">{t("contact.email")}</label>
-              <Input type="email" value={contactForm.email} onChange={(e) => setContactForm(p => ({ ...p, email: e.target.value }))} required />
-            </div>
-            <div>
-              <label className="text-sm font-medium">{t("contact.message")}</label>
-              <Textarea value={contactForm.message} onChange={(e) => setContactForm(p => ({ ...p, message: e.target.value }))} required className="min-h-[120px]" />
-            </div>
-            <Button type="submit" className="w-full gap-2 bg-[hsl(var(--gold))] text-white hover:bg-[hsl(var(--gold-dark))]">
-              <Send className="h-4 w-4" />
-              {t("contact.send")}
-            </Button>
-          </form>
-        </DialogContent>
-      </Dialog>
     </>
   );
 }
