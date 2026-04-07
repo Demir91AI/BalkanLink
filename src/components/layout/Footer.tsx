@@ -18,7 +18,7 @@ const LEGAL_LINKS = [
   { label: "Cookie-Richtlinie", to: "/cookie-richtlinie" },
 ];
 
-const PAYMENT_BADGES = ["STRIPE", "PAYPAL", "VISA", "MASTERCARD"];
+
 
 const colTitleStyle: React.CSSProperties = {
   fontSize: 11,
@@ -118,46 +118,32 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* SECTION 2 — Trust strip */}
+      {/* SECTION 2 — Payment icons */}
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
         <div style={{ height: 1, background: "rgba(255,255,255,0.08)" }} />
       </div>
-      <div
-        style={{
-          maxWidth: 1200,
-          margin: "0 auto",
-          padding: "16px 24px",
-          display: "flex",
-          flexWrap: "wrap",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: 12,
-          fontSize: 11,
-          color: "rgba(255,255,255,0.5)",
-        }}
-      >
-        <span>🔒 Sichere Plattform</span>
-        <span>🛡️ SSL verschlüsselt</span>
-        <span style={{ color: "rgba(255,255,255,0.2)" }}>|</span>
-        <span>Zahlungsarten:</span>
-        {PAYMENT_BADGES.map((b) => (
-          <span
-            key={b}
-            style={{
-              border: "1px solid rgba(255,255,255,0.2)",
-              borderRadius: 4,
-              padding: "2px 8px",
-              fontSize: 11,
-              color: "rgba(255,255,255,0.6)",
-              opacity: 0.7,
-              height: 22,
-              display: "inline-flex",
-              alignItems: "center",
-            }}
-          >
-            {b}
-          </span>
-        ))}
+      <div style={{ padding: "20px 24px 16px", textAlign: "center" }}>
+        <p style={{ fontSize: 10, color: "rgba(255,255,255,0.4)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 10 }}>
+          Sigurna plaćanja
+        </p>
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 18, flexWrap: "wrap" }}>
+          {[
+            { src: "https://cdn.simpleicons.org/visa/ffffff", alt: "Visa" },
+            { src: "https://cdn.simpleicons.org/mastercard/ffffff", alt: "Mastercard" },
+            { src: "https://cdn.simpleicons.org/paypal/ffffff", alt: "PayPal" },
+            { src: "https://cdn.simpleicons.org/applepay/ffffff", alt: "Apple Pay" },
+            { src: "https://cdn.simpleicons.org/googlepay/ffffff", alt: "Google Pay" },
+          ].map((icon) => (
+            <img
+              key={icon.alt}
+              src={icon.src}
+              alt={icon.alt}
+              style={{ height: 22, width: "auto", opacity: 0.7, transition: "opacity 0.2s" }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = "1"; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = "0.7"; }}
+            />
+          ))}
+        </div>
       </div>
 
       {/* SECTION 3 — Bottom line */}
