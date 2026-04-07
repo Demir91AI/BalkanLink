@@ -55,8 +55,11 @@ const serviceCardKeys = [
   { icon: Calculator, titleKey: "service.calc.title", descKey: "service.calc.desc", ctaKey: "service.calc.cta", to: "/kalkulatori", premium: false },
 ];
 
-const placeholderAds = [
+const placeholderAds: Array<{ name: string; slogan: string; desc?: string; logo?: string; href?: string; isReal?: boolean; isPlaceholder?: boolean }> = [
   { name: "RealCore Digital", slogan: "Webdesign · KI · Lösungen", desc: "Professionelle digitale Lösungen.", logo: realcoreDigitalLogo, href: "https://realcore.digital", isReal: true },
+  { name: "Vaša firma ovdje", slogan: "od 9,99€/mjes.", isPlaceholder: true },
+  { name: "Vaša firma ovdje", slogan: "od 9,99€/mjes.", isPlaceholder: true },
+  { name: "Vaša firma ovdje", slogan: "od 9,99€/mjes.", isPlaceholder: true },
 ];
 
 /* useInfiniteScroll moved to @/hooks/useInfiniteScroll */
