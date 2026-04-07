@@ -190,26 +190,7 @@ function ShowcaseCarousel() {
               </article>
             );
           }
-          // Empty placeholder card — same design
-          return (
-            <a key={`empty-${i}`} href={MAILTO_AD} className="min-w-[340px] max-w-[380px] shrink-0 rounded-2xl bg-white border border-[#E8E0D0] overflow-hidden flex flex-col shadow-[0_4px_24px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,0,0,0.14)]">
-              <div className="relative h-[180px] w-full overflow-hidden">
-                <img src={placeholderPartnerImg} alt="Oglasni prostor" className="h-full w-full object-cover" style={{ filter: "brightness(0.92) saturate(1.1)" }} loading="lazy" />
-                <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
-              </div>
-              <div className="flex flex-1 flex-col gap-3 p-5 border-t-[3px] border-[#E8E0D0]">
-                <div>
-                  <h3 className="text-base font-bold text-[#2D2D2D]">{item.title}</h3>
-                  <p className="mt-1 text-xs leading-relaxed text-[#6B6B6B]">{item.desc}</p>
-                </div>
-                <div className="mt-auto flex gap-2 pt-2">
-                  <Button size="sm" className="h-8 rounded-lg bg-[hsl(var(--gold))] px-4 text-xs font-bold text-white hover:bg-[hsl(var(--gold-dark))]">
-                    Kontakt
-                  </Button>
-                </div>
-              </div>
-            </a>
-          );
+          return null;
         })}
       </div>
     </div>
