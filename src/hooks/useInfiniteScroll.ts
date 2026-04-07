@@ -9,22 +9,45 @@ export function useInfiniteScroll(speed = 0.5, resumeDelay = 3000) {
   const isDragging = useRef(false);
   const dragStartX = useRef(0);
   const dragScrollLeft = useRef(0);
+  // Cache layout values to avoid forced reflows every frame
+  const cachedHalf = useRef(0);
+  const cachedCardStep = useRef(0);
+
+  const updateCache = useCallback(() => {
+    const el = ref.current;
+    if (!el) return;
+    cachedHalf.current = el.scrollWidth / 2;
+    if (el.children.length) {
+      const firstCard = el.children[0] as HTMLElement;
+      const gap = parseInt(getComputedStyle(el).gap) || 20;
+      cachedCardStep.current = firstCard.offsetWidth + gap;
+    }
+  }, []);
 
   const animate = useCallback(() => {
     const el = ref.current;
     if (el && !pausedRef.current) {
       el.scrollLeft += speed;
-      const half = el.scrollWidth / 2;
-      if (el.scrollLeft >= half) el.scrollLeft -= half;
-      if (el.scrollLeft <= 0) el.scrollLeft += half;
+      const half = cachedHalf.current;
+      if (half > 0) {
+        if (el.scrollLeft >= half) el.scrollLeft -= half;
+        else if (el.scrollLeft <= 0) el.scrollLeft += half;
+      }
     }
     rafRef.current = requestAnimationFrame(animate);
   }, [speed]);
 
   useEffect(() => {
+    // Measure once after mount & on resize
+    const measure = () => requestAnimationFrame(updateCache);
+    measure();
+    window.addEventListener("resize", measure);
     rafRef.current = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(rafRef.current);
-  }, [animate]);
+    return () => {
+      cancelAnimationFrame(rafRef.current);
+      window.removeEventListener("resize", measure);
+    };
+  }, [animate, updateCache]);
 
   const pause = useCallback(() => {
     pausedRef.current = true;
@@ -38,11 +61,9 @@ export function useInfiniteScroll(speed = 0.5, resumeDelay = 3000) {
 
   const scrollByCard = useCallback((direction: "left" | "right") => {
     const el = ref.current;
-    if (!el || !el.children.length) return;
-    const firstCard = el.children[0] as HTMLElement;
-    const cardWidth = firstCard.offsetWidth;
-    const gap = parseInt(getComputedStyle(el).gap) || 20;
-    const amount = (cardWidth + gap) * (direction === "right" ? 1 : -1);
+    if (!el) return;
+    const amount = cachedCardStep.current * (direction === "right" ? 1 : -1);
+    if (amount === 0) return;
     el.scrollBy({ left: amount, behavior: "smooth" });
     pause();
     scheduleResume();
