@@ -57,13 +57,30 @@ type PlayState = "idle" | "playing" | "paused";
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL as string;
 const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY as string;
 
-const RATE_OPTIONS = [0.75, 1.0, 1.25, 1.5] as const;
+const UNIFIED_RATE = 1.15 as const;
+const UNIFIED_PITCH = 0.95;
+
+const RATE_OPTIONS = [UNIFIED_RATE] as const;
 export type SpeechRate = (typeof RATE_OPTIONS)[number];
+
+function applyAudioTuning(audio: HTMLAudioElement) {
+  audio.playbackRate = UNIFIED_RATE;
+
+  const tunedAudio = audio as HTMLAudioElement & {
+    mozPreservesPitch?: boolean;
+    preservesPitch?: boolean;
+    webkitPreservesPitch?: boolean;
+  };
+
+  tunedAudio.preservesPitch = true;
+  tunedAudio.mozPreservesPitch = true;
+  tunedAudio.webkitPreservesPitch = true;
+}
 
 export function useTTS() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [playState, setPlayState] = useState<PlayState>("idle");
-  const [rate, setRate] = useState<SpeechRate>(1.0);
+  const [rate, setRate] = useState<SpeechRate>(UNIFIED_RATE);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const cachedVoice = useRef<SpeechSynthesisVoice | null>(null);
 
@@ -105,7 +122,7 @@ export function useTTS() {
 
       const url = URL.createObjectURL(blob);
       const audio = new Audio(url);
-      audio.playbackRate = rate;
+      applyAudioTuning(audio);
       audioRef.current = audio;
 
       audio.onplay = () => { setActiveId(id); setPlayState("playing"); };
@@ -122,7 +139,7 @@ export function useTTS() {
     } catch {
       return false;
     }
-  }, [rate]);
+  }, []);
 
   /* ── Method 2: Web Speech API fallback ── */
   const playViaSpeechSynth = useCallback((id: string, text: string): boolean => {
@@ -141,8 +158,8 @@ export function useTTS() {
     const applyVoiceAndSpeak = () => {
       const voice = cachedVoice.current ?? getBestGermanVoice(synth);
       if (voice) { u.voice = voice; u.lang = voice.lang; cachedVoice.current = voice; }
-      u.rate = 1.2;
-      u.pitch = 0.92;
+      u.rate = UNIFIED_RATE;
+      u.pitch = UNIFIED_PITCH;
       u.volume = 1.0;
 
       let started = false;
@@ -173,7 +190,7 @@ export function useTTS() {
     return true;
   }, []);
 
-  /* ── Play: try edge first, fallback to browser ── */
+  /* ── Play: try browser first so rate/pitch stay identical on desktop and mobile ── */
   const playNew = useCallback(async (id: string, text: string) => {
     // Stop anything playing
     audioRef.current?.pause();
@@ -182,13 +199,13 @@ export function useTTS() {
     setActiveId(id);
     setPlayState("playing");
 
-    // Try edge function first
-    const edgeOk = await playViaEdge(id, text);
-    if (edgeOk) return;
-
-    // Fallback to Web Speech API
+    // Use Web Speech first because it supports explicit pitch tuning
     const synthOk = playViaSpeechSynth(id, text);
     if (synthOk) return;
+
+    // Fallback to edge audio if browser speech is unavailable
+    const edgeOk = await playViaEdge(id, text);
+    if (edgeOk) return;
 
     // Both failed
     setActiveId(null);
