@@ -9,6 +9,17 @@ import { useIsMobile } from "@/hooks/use-mobile";
 const menuBtnClass =
   "h-10 w-10 rounded-lg text-white/70 hover:text-white hover:bg-white/8 active:scale-[0.93] transition-transform duration-150";
 
+const Flag = ({ code, size = 16 }: { code: string; size?: number }) => (
+  <img
+    src={`https://flagcdn.com/w40/${code}.png`}
+    alt=""
+    width={size}
+    height={Math.round(size * 0.75)}
+    className="inline-block rounded-[2px]"
+    style={{ verticalAlign: "middle" }}
+  />
+);
+
 function LangPill() {
   const { language, setLanguage } = useLanguage();
   const isMobile = useIsMobile();
@@ -17,27 +28,32 @@ function LangPill() {
     <div className="flex h-9 items-center rounded-full border border-white/20 bg-white/5 backdrop-blur-sm p-[3px] gap-0">
       <button
         onClick={() => setLanguage("bhs")}
-        className={`flex items-center h-[30px] min-w-[44px] px-2.5 rounded-full text-[12px] font-semibold transition-all duration-200 ${
+        className={`flex items-center gap-1.5 h-[30px] min-w-[44px] px-2.5 rounded-full text-[12px] font-semibold transition-all duration-200 ${
           language === "bhs"
             ? "bg-[hsl(var(--gold))] text-white shadow-md"
             : "text-white/50 hover:text-white/80"
         }`}
       >
         {isMobile ? (
-          <span>🇧🇦🇭🇷🇷🇸 BHS</span>
+          <>
+            <span className="flex items-center gap-0.5"><Flag code="ba" size={14} /><Flag code="hr" size={14} /><Flag code="rs" size={14} /></span>
+            <span>BHS</span>
+          </>
         ) : (
-          <span>🇧🇦 BS / 🇭🇷 HR / 🇷🇸 SR</span>
+          <>
+            <Flag code="ba" /> BS / <Flag code="hr" /> HR / <Flag code="rs" /> SR
+          </>
         )}
       </button>
       <button
         onClick={() => setLanguage("de")}
-        className={`flex items-center h-[30px] min-w-[44px] px-2.5 rounded-full text-[12px] font-semibold transition-all duration-200 ${
+        className={`flex items-center gap-1.5 h-[30px] min-w-[44px] px-2.5 rounded-full text-[12px] font-semibold transition-all duration-200 ${
           language === "de"
             ? "bg-[hsl(var(--gold))] text-white shadow-md"
             : "text-white/50 hover:text-white/80"
         }`}
       >
-        <span>🇩🇪 DE</span>
+        <Flag code="de" /> DE
       </button>
     </div>
   );
