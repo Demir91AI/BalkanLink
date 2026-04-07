@@ -59,7 +59,7 @@ function LangPill() {
                 : "text-white/50 hover:text-white/80"
             }`}
           >
-            <Flag code={pill.flag} size={14} />
+            <span className="text-[13px] leading-none">{pill.emoji}</span>
             <span>{pill.id.toUpperCase()}</span>
           </button>
         );
