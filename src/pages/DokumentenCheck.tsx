@@ -316,47 +316,15 @@ export default function DokumentenCheck() {
                     <label style={{
                       position:'relative' as const,
                       display:'flex', flexDirection:'column' as const, alignItems:'center',
-                      justifyContent:'center', minHeight:'130px', width:'100%',
-                      border:'2px dashed #EAB308', borderRadius:'12px',
-                      cursor:'pointer', padding:'20px', boxSizing:'border-box' as const,
+                      justifyContent:'center', minHeight:'160px', width:'100%',
+                      border:'2px dashed #C9A84C', borderRadius:'12px',
+                      cursor:'pointer', padding:'24px', boxSizing:'border-box' as const,
                       backgroundColor:'#fefce8'
                     }}>
                       <input
                         type="file"
-                        accept="image/*"
-                        capture="environment"
-                        style={{
-                          position:'absolute' as const, inset:0,
-                          width:'100%', height:'100%',
-                          opacity:0, cursor:'pointer', zIndex:10
-                        }}
-                        onChange={(e) => {
-                          const f = e.target.files?.[0];
-                          if (f) {
-                            setSelectedFile(f);
-                            setPreviewName(f.name);
-                            handleFileSelect(e);
-                          }
-                        }}
-                      />
-                      <span style={{fontSize:'40px'}}>📷</span>
-                      <strong style={{marginTop:'8px', fontSize:'16px'}}>Kamera</strong>
-                      <span style={{color:'#6b7280', fontSize:'13px', marginTop:'4px'}}>
-                        Fotografiši dokument
-                      </span>
-                    </label>
-
-                    <label style={{
-                      position:'relative' as const,
-                      display:'flex', flexDirection:'column' as const, alignItems:'center',
-                      justifyContent:'center', minHeight:'130px', width:'100%',
-                      border:'2px dashed #9ca3af', borderRadius:'12px',
-                      cursor:'pointer', padding:'20px', boxSizing:'border-box' as const,
-                      backgroundColor:'#f9fafb'
-                    }}>
-                      <input
-                        type="file"
                         accept=".pdf,.jpg,.jpeg,.png,image/*"
+                        ref={fileInputRef}
                         style={{
                           position:'absolute' as const, inset:0,
                           width:'100%', height:'100%',
@@ -371,10 +339,10 @@ export default function DokumentenCheck() {
                           }
                         }}
                       />
-                      <span style={{fontSize:'40px'}}>📁</span>
-                      <strong style={{marginTop:'8px', fontSize:'16px'}}>Fajl sa uređaja</strong>
+                      <Upload className="h-10 w-10 text-[#C9A84C] mb-2" />
+                      <strong style={{fontSize:'16px'}}>Učitaj dokument</strong>
                       <span style={{color:'#6b7280', fontSize:'13px', marginTop:'4px'}}>
-                        PDF, JPG, PNG
+                        PDF, JPG, PNG — maks. 10 MB
                       </span>
                     </label>
 
