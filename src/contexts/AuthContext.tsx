@@ -2,6 +2,9 @@ import { createContext, useContext, useEffect, useState, useCallback, ReactNode 
 import { Session, User } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
 import { checkSubscriptionStatus } from "@/lib/stripe";
+import { useSessionTimeout, consumeSessionExpiredFlag } from "@/hooks/useSessionTimeout";
+import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface AuthContextType {
   session: Session | null;
@@ -31,6 +34,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [isPremium, setIsPremium] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [subscriptionEnd, setSubscriptionEnd] = useState<string | null>(null);
+  const { toast } = useToast();
+  const { t } = useLanguage();
 
   const fetchUserMeta = async (userId: string) => {
     const [profileRes, roleRes] = await Promise.all([
@@ -54,6 +59,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (_event, session) => {
+        const prevSession = session;
         setSession(session);
         if (session?.user) {
           setTimeout(() => fetchUserMeta(session.user.id), 0);
@@ -62,6 +68,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           setIsPremium(false);
           setIsAdmin(false);
           setSubscriptionEnd(null);
+
+          // Show expired-session toast if the flag was set by timeout logic
+          if (consumeSessionExpiredFlag()) {
+            toast({
+              title: t("auth.sessionExpired"),
+              duration: 5000,
+            });
+          }
         }
         setLoading(false);
       }
@@ -90,6 +104,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     await supabase.auth.signOut();
   };
 
+  // Session timeout — runs globally
+  useSessionTimeout(!!session?.user);
+
   return (
     <AuthContext.Provider value={{
       session,
@@ -105,5 +122,4 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     </AuthContext.Provider>
   );
 }
-
 export const useAuth = () => useContext(AuthContext);
