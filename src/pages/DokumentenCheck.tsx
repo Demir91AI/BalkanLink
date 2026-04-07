@@ -11,7 +11,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useSectionT } from "@/hooks/useSectionT";
 import { useNavigate } from "react-router-dom";
 import { navigateBackOrHome } from "@/lib/navigation";
-import { IS_ADMIN_PREVIEW } from "@/lib/config";
+
 import { toast } from "sonner";
 
 type InputMode = "upload";
@@ -184,7 +184,7 @@ export default function DokumentenCheck() {
   const [showPaywall, setShowPaywall] = useState(false);
   const submittingRef = useRef(false);
 
-  const isPremium = IS_ADMIN_PREVIEW;
+  const isPremium = false;
 
   const clearFile = useCallback(() => {
     setFile(null);

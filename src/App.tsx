@@ -217,6 +217,10 @@ const App = () => (
                 <Route path="/mapa" element={<CommunityMapa />} />
                 <Route path="/zivot-u-njemackoj" element={<ZivotUNjemackoj />} />
                 <Route path="/viza" element={<Viza />} />
+                <Route path="/oglasi" element={<Navigate to="/nudim-trazim" replace />} />
+                <Route path="/deutsch" element={<Navigate to="/deutsch-trainer" replace />} />
+                <Route path="/sabloni" element={<Navigate to="/vorlagen" replace />} />
+                <Route path="/pitanja" element={<Navigate to="/qa" replace />} />
               </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>
