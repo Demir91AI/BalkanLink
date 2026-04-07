@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import type { NtAd } from "@/lib/nudim-trazim-constants";
-import { NT_CATEGORIES, DEMO_ADS } from "@/lib/nudim-trazim-constants";
+import { NT_CATEGORIES } from "@/lib/nudim-trazim-constants";
 import { useSectionT } from "@/hooks/useSectionT";
 import NtAdCard from "./NtAdCard";
 
@@ -24,7 +24,7 @@ export default function NtAdDetail({ ad, onBack, onOpen }: Props) {
     year: "numeric",
   });
 
-  const similar = DEMO_ADS.filter((a) => a.id !== ad.id && a.category === ad.category).slice(0, 3);
+  const similar: NtAd[] = [];
 
   return (
     <div className="space-y-8">
