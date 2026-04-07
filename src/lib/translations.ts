@@ -62,6 +62,7 @@ export const translations: Record<string, T> = {
   "auth.noAccount":          { bhs: "Nemaš nalog?",                 de: "Kein Konto?" },
   "auth.hasAccount":         { bhs: "Već imaš nalog?",              de: "Schon ein Konto?" },
   "auth.resetPassword":      { bhs: "Resetuj lozinku",              de: "Passwort zurücksetzen" },
+  "auth.sessionExpired":     { bhs: "Sesija je istekla. Prijavite se ponovo.", de: "Sitzung abgelaufen. Bitte melden Sie sich erneut an." },
 
   // HERO
   "hero.titleWhite":    { bhs: "Tvoj vodič kroz",                        de: "Dein Wegweiser durch" },
