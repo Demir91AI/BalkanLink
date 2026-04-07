@@ -1,4 +1,4 @@
-import { useTranslation } from "@/i18n/useTranslation";
+import { useLanguage } from "@/contexts/LanguageContext";
 import {
   ExternalLink,
   AlertTriangle,
@@ -25,7 +25,7 @@ function BoldDash({ text }: { text: string }) {
 }
 
 export default function FahrzeugzulassungGuide() {
-  const { t } = useTranslation("formulare");
+  const { t } = useLanguage();
 
   const types = ["fz_type1", "fz_type2", "fz_type3", "fz_type4", "fz_type5", "fz_type6"];
   const whos = ["fz_who1", "fz_who2", "fz_who3", "fz_who4", "fz_who5", "fz_who6"];

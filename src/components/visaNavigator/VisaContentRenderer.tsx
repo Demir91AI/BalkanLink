@@ -3,7 +3,7 @@ import { ExternalLink, CheckCircle, AlertTriangle, FileText, Clock, MapPin, Zap,
 import { useSubscription } from '@/hooks/useSubscription';
 import PremiumModal from '@/components/paywall/PremiumModal';
 import { COUNTRY_CONTENT } from '../../data/vizaNavigatorContent';
-import { useTranslation } from '@/i18n/useTranslation';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const loadForm = (formKey: string) => {
   const formMap: Record<string, () => Promise<{ default: React.FC }>> = {
@@ -62,7 +62,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
   const [LoadedForm, setLoadedForm] = useState<React.FC | null>(null);
   const [premiumModalOpen, setPremiumModalOpen] = useState(false);
   const openFormRef = useRef<HTMLDivElement>(null);
-  const { t } = useTranslation('visaNavigator');
+  const { t } = useLanguage();
   const { isPremium } = useSubscription();
 
   useEffect(() => {

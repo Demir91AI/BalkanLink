@@ -1,4 +1,4 @@
-import { useTranslation } from "@/i18n/useTranslation";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { Info, AlertTriangle, ExternalLink } from "lucide-react";
 
 const SOURCES = [
@@ -14,7 +14,7 @@ interface Props {
 }
 
 const TrustSystem = ({ variant, showSources = true }: Props) => {
-  const { t } = useTranslation("visaNavigator");
+  const { t } = useLanguage();
 
   if (variant === "compact") {
     return (

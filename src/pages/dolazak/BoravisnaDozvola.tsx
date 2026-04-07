@@ -19,7 +19,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useSectionT } from "@/hooks/useSectionT";
 import { useHistorySearchState } from "@/hooks/useHistorySearchState";
 import { cn } from "@/lib/utils";
-import { useTranslation } from "@/i18n/useTranslation";
+
 import FormSmartGuide from "@/components/FormSmartGuide";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
 
@@ -251,7 +251,7 @@ function SidebarGroup({
 export default function BoravisnaDozvola() {
   const navigate = useNavigate();
   const { t } = useLanguage();
-  const { t: vt } = useTranslation("visaNavigator");
+  const { t: vt } = useLanguage();
   const st = useSectionT();
   const [search, setSearch] = useState("");
   const { searchParams, setSearchState } = useHistorySearchState();
