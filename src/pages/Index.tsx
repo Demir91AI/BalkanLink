@@ -228,34 +228,48 @@ function AdFlowSection() {
         onMouseLeave={onMouseLeave}
       >
         <div className="flex w-fit gap-4">
-          {doubled.map((ad, i) => (
-            <a
-              key={i}
-              href={ad.href || MAILTO_AD}
-              target={ad.href ? "_blank" : undefined}
-              rel={ad.href ? "noopener noreferrer" : undefined}
-              className="group flex w-[340px] h-[160px] shrink-0 rounded-xl overflow-hidden border border-[#E8E0D0] bg-white shadow-sm transition-all duration-300 hover:border-[hsl(var(--gold))]/40 hover:shadow-md hover:-translate-y-0.5"
-            >
-              {/* LEFT — Image (50%) */}
-              <div className="w-1/2 h-full overflow-hidden bg-[hsl(var(--warm-cream))]">
-                <img
-                  src={ad.logo}
-                  alt={ad.name}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-              </div>
-              {/* RIGHT — Content (50%) */}
-              <div className="flex w-1/2 flex-col justify-center gap-1.5 p-4">
-                <p className="text-sm font-bold text-[#2D2D2D] leading-tight">{ad.name}</p>
-                <p className="text-[11px] text-[#6B6B6B] leading-snug">{ad.slogan}</p>
-                {ad.desc && <p className="text-[10px] text-[#999] leading-snug">{ad.desc}</p>}
-                <span className="mt-1.5 inline-flex w-fit items-center rounded-md border border-[hsl(var(--gold))]/30 bg-[hsl(var(--gold))]/[0.06] px-3 py-1 text-[11px] font-semibold text-[hsl(var(--gold))] transition-colors group-hover:bg-[hsl(var(--gold))]/[0.12]">
-                  Kontakt
+          {doubled.map((ad, i) =>
+            ad.isPlaceholder ? (
+              <div
+                key={i}
+                onClick={() => window.location.href = "/pricing"}
+                className="flex w-[340px] h-[160px] shrink-0 flex-col items-center justify-center gap-2 cursor-pointer transition-all duration-300 hover:-translate-y-0.5"
+                style={{ background: "#fff", border: "2px dashed #EAB308", borderRadius: 12 }}
+              >
+                <span style={{ fontSize: 28 }}>📢</span>
+                <p className="text-sm font-bold text-[#2D2D2D]">Vaša firma ovdje</p>
+                <p className="text-[11px] text-[#6B6B6B]">od 9,99€/mjes.</p>
+                <span className="inline-flex items-center rounded-md border border-[#EAB308]/40 px-3 py-1 text-[11px] font-semibold text-[#EAB308] hover:bg-[#EAB308]/10 transition-colors">
+                  Saznaj više →
                 </span>
               </div>
-            </a>
-          ))}
+            ) : (
+              <a
+                key={i}
+                href={ad.href || MAILTO_AD}
+                target={ad.href ? "_blank" : undefined}
+                rel={ad.href ? "noopener noreferrer" : undefined}
+                className="group flex w-[340px] h-[160px] shrink-0 rounded-xl overflow-hidden border border-[#E8E0D0] bg-white shadow-sm transition-all duration-300 hover:border-[hsl(var(--gold))]/40 hover:shadow-md hover:-translate-y-0.5"
+              >
+                <div className="w-1/2 h-full overflow-hidden bg-[hsl(var(--warm-cream))]">
+                  <img
+                    src={ad.logo}
+                    alt={ad.name}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="flex w-1/2 flex-col justify-center gap-1.5 p-4">
+                  <p className="text-sm font-bold text-[#2D2D2D] leading-tight">{ad.name}</p>
+                  <p className="text-[11px] text-[#6B6B6B] leading-snug">{ad.slogan}</p>
+                  {ad.desc && <p className="text-[10px] text-[#999] leading-snug">{ad.desc}</p>}
+                  <span className="mt-1.5 inline-flex w-fit items-center rounded-md border border-[hsl(var(--gold))]/30 bg-[hsl(var(--gold))]/[0.06] px-3 py-1 text-[11px] font-semibold text-[hsl(var(--gold))] transition-colors group-hover:bg-[hsl(var(--gold))]/[0.12]">
+                    Kontakt
+                  </span>
+                </div>
+              </a>
+            )
+          )}
         </div>
       </div>
     </section>
