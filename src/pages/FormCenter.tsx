@@ -191,9 +191,8 @@ export default function FormCenter() {
   const isMobile = useIsMobile();
   const { t } = useLanguage();
   const [search, setSearch] = useState("");
-  const [openGroups, setOpenGroups] = useState<Set<string>>(
-    () => new Set(formCatalog.map((g) => g.id))
-  );
+  const [openGroups, setOpenGroups] = useState<Set<string>>(new Set());
+  const [openMobileGroups, setOpenMobileGroups] = useState<Set<string>>(new Set());
   const [openSubGroups, setOpenSubGroups] = useState<Set<string>>(new Set());
   const [showBgInfo, setShowBgInfo] = useState(false);
 
