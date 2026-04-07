@@ -184,7 +184,7 @@ export default function DokumentenCheck() {
   const [showPaywall, setShowPaywall] = useState(false);
   const submittingRef = useRef(false);
 
-  const isPremium = IS_ADMIN_PREVIEW;
+  const isPremium = false;
 
   const clearFile = useCallback(() => {
     setFile(null);
