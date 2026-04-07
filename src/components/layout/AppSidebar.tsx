@@ -9,6 +9,31 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import AuthModal from "@/components/auth/AuthModal";
 
+type SidebarAuthUser = {
+  email?: string | null;
+  user_metadata?: {
+    full_name?: string;
+    name?: string;
+  } | null;
+};
+
+function getDisplayName(user: SidebarAuthUser | null) {
+  const fullName = typeof user?.user_metadata?.full_name === "string" ? user.user_metadata.full_name.trim() : "";
+  const name = typeof user?.user_metadata?.name === "string" ? user.user_metadata.name.trim() : "";
+  const emailFallback = user?.email?.split("@")[0]?.trim() ?? "";
+
+  return fullName || name || emailFallback || "prijatelju";
+}
+
+function getFirstName(user: SidebarAuthUser | null) {
+  return getDisplayName(user).split(/\s+/).filter(Boolean)[0] || "prijatelju";
+}
+
+function getInitials(user: SidebarAuthUser | null) {
+  const parts = getDisplayName(user).split(/\s+/).filter(Boolean);
+  return parts.slice(0, 2).map((part) => part.charAt(0).toUpperCase()).join("") || "?";
+}
+
 export function AppSidebar() {
   const [isOpen, setIsOpen] = useState(false);
   const [authOpen, setAuthOpen] = useState(false);
@@ -17,6 +42,8 @@ export function AppSidebar() {
   const location = useLocation();
   const { t } = useLanguage();
   const { user, signOut } = useAuth();
+  const firstName = getFirstName(user);
+  const initials = getInitials(user);
 
   const mainItems = [
     { titleKey: "sidebar.formulari", url: "/formulari", icon: FileText, premium: true },
@@ -91,20 +118,21 @@ export function AppSidebar() {
         </div>
 
         {/* Auth section */}
-        <div className="px-3 pt-4 pb-3 border-b border-[#E8E0D0]">
+        <div className="px-3 pt-4 pb-3">
           {user ? (
-            <div className="flex flex-col gap-2 px-3">
-              <div className="flex items-center gap-2 text-[#2D2D2D]">
-                <User className="h-4 w-4 shrink-0 text-[#6B6B6B]" />
-                <span className="text-[13px] font-medium truncate">{user.email}</span>
+            <div className="px-3">
+              <div className="flex items-center gap-3">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[hsl(var(--gold))] text-sm font-bold text-[hsl(var(--primary))] shadow-[0_10px_28px_hsl(var(--gold)/0.22)]">
+                  {initials}
+                </div>
+                <div className="min-w-0">
+                  <p className="text-sm font-semibold text-[#2D2D2D]">
+                    Dobro došao/la, {firstName}!
+                  </p>
+                  <p className="mt-0.5 truncate text-sm text-muted-foreground">{user.email}</p>
+                </div>
               </div>
-              <button
-                onClick={handleSignOut}
-                className="flex items-center gap-2 text-[13px] text-[#6B6B6B] hover:text-red-500 transition-colors"
-              >
-                <LogOut className="h-4 w-4 shrink-0" />
-                {t("header.logout")}
-              </button>
+              <div className="mt-4 h-px bg-border/80" />
             </div>
           ) : (
             <button
@@ -131,6 +159,15 @@ export function AppSidebar() {
               <CreditCard className={`h-[18px] w-[18px] shrink-0 ${location.pathname === "/paketi" ? "text-[hsl(var(--gold))]" : ""}`} />
               <span className="text-[14px] font-medium">{t("sidebar.cijene")}</span>
             </button>
+            {user && (
+              <button
+                onClick={handleSignOut}
+                className="flex items-center gap-3 w-full px-3 py-2 rounded-lg text-left text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D] transition-all duration-200"
+              >
+                <LogOut className="h-[18px] w-[18px] shrink-0" />
+                <span className="text-[14px] font-medium">{t("header.logout")}</span>
+              </button>
+            )}
           </nav>
         </div>
 

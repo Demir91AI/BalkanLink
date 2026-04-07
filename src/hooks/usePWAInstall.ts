@@ -5,9 +5,8 @@ interface BeforeInstallPromptEvent extends Event {
   userChoice: Promise<{ outcome: "accepted" | "dismissed" }>;
 }
 
-const LS_DISMISS_KEY = "bl_pwa_dismiss";
-const LS_IOS_DISMISS_KEY = "bl_pwa_ios_dismiss";
-const LS_INSTALLED_KEY = "bl_pwa_installed";
+const LS_DISMISS_KEY = "pwa-dismissed-at";
+const LS_INSTALLED_KEY = "pwa-installed";
 const DISMISS_DAYS = 7;
 
 function isDismissed(key: string): boolean {
@@ -54,24 +53,40 @@ export function usePWAInstall() {
     if (isStandalone() || isInstalled()) return;
     const isMobileWidth = window.innerWidth < 768;
     if (!isMobileWidth) return;
+    const timeouts: number[] = [];
+    const queueBanner = (setter: (value: boolean) => void) => {
+      timeouts.push(window.setTimeout(() => setter(true), 3000));
+    };
 
     const handler = (e: Event) => {
       e.preventDefault();
       setDeferredPrompt(e as BeforeInstallPromptEvent);
       if (!isDismissed(LS_DISMISS_KEY)) {
-        setTimeout(() => setShowAndroidBanner(true), 3000);
+        queueBanner(setShowAndroidBanner);
       }
     };
-    window.addEventListener("beforeinstallprompt", handler);
+    const handleInstalled = () => {
+      localStorage.setItem(LS_INSTALLED_KEY, "true");
+      setShowAndroidBanner(false);
+      setShowIOSBanner(false);
+      setDeferredPrompt(null);
+    };
 
-    if (isIOS() && !isDismissed(LS_IOS_DISMISS_KEY)) {
+    window.addEventListener("beforeinstallprompt", handler);
+    window.addEventListener("appinstalled", handleInstalled);
+
+    if (isIOS() && !isDismissed(LS_DISMISS_KEY)) {
       const isSafari = /Safari/.test(navigator.userAgent) && !/CriOS|FxiOS|OPiOS/.test(navigator.userAgent);
       if (isSafari) {
-        setTimeout(() => setShowIOSBanner(true), 3000);
+        queueBanner(setShowIOSBanner);
       }
     }
 
-    return () => window.removeEventListener("beforeinstallprompt", handler);
+    return () => {
+      window.removeEventListener("beforeinstallprompt", handler);
+      window.removeEventListener("appinstalled", handleInstalled);
+      timeouts.forEach((timeoutId) => window.clearTimeout(timeoutId));
+    };
   }, []);
 
   const installAndroid = useCallback(async () => {
@@ -85,15 +100,14 @@ export function usePWAInstall() {
     setDeferredPrompt(null);
   }, [deferredPrompt]);
 
-  const dismissAndroid = useCallback(() => {
+  const dismissBanner = useCallback(() => {
     setShowAndroidBanner(false);
+    setShowIOSBanner(false);
     localStorage.setItem(LS_DISMISS_KEY, Date.now().toString());
   }, []);
 
-  const dismissIOS = useCallback(() => {
-    setShowIOSBanner(false);
-    localStorage.setItem(LS_IOS_DISMISS_KEY, Date.now().toString());
-  }, []);
+  const dismissAndroid = dismissBanner;
+  const dismissIOS = dismissBanner;
 
   const canShow = showAndroidBanner || showIOSBanner;
   const platform: "android" | "ios" | null = showAndroidBanner ? "android" : showIOSBanner ? "ios" : null;
@@ -104,6 +118,7 @@ export function usePWAInstall() {
     showAndroidBanner,
     showIOSBanner,
     installAndroid,
+    dismissBanner,
     dismissAndroid,
     dismissIOS,
   };

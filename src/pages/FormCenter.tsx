@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { getGuideBySlug } from "@/lib/guide-data";
-import { formCatalog, getAllFormEntries, type FormEntry } from "@/lib/form-catalog";
+import { formCatalog, getAllFormEntries, type FormEntry, type FormGroup } from "@/lib/form-catalog";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { cn } from "@/lib/utils";
@@ -252,6 +252,12 @@ export default function FormCenter() {
     });
   };
 
+  const getGroupTitle = (group: FormGroup) => {
+    if (!group.titleKey) return group.title;
+    const translatedTitle = t(group.titleKey);
+    return translatedTitle === group.titleKey ? group.title : translatedTitle;
+  };
+
   const renderItem = (item: FormEntry) => {
     const isActive = item.slug === activeSlug;
     return (
@@ -344,7 +350,7 @@ export default function FormCenter() {
                   >
                     <CollapsibleTrigger className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-xs font-bold uppercase tracking-wide hover:text-foreground transition-colors" style={{ color: '#C9A84C' }}>
                       <span>{group.icon}</span>
-                      <span className="flex-1 text-left">{group.titleKey ? t(group.titleKey) : group.title}</span>
+                      <span className="flex-1 text-left">{getGroupTitle(group)}</span>
                       <ChevronDown
                         className={cn(
                           "h-3.5 w-3.5 transition-transform",
@@ -454,7 +460,7 @@ export default function FormCenter() {
                         onOpenChange={() => toggleMobileGroup(group.id)}
                       >
                         <CollapsibleTrigger className="w-full flex items-center justify-between px-4 py-3 text-[11px] font-bold uppercase tracking-widest text-[hsl(var(--gold))] bg-[hsl(220,50%,8%)] rounded-lg mt-3 mb-1.5">
-                          <span>{group.icon} {group.titleKey ? t(group.titleKey) : group.title}</span>
+                           <span>{group.icon} {getGroupTitle(group)}</span>
                           <ChevronDown className={cn("h-4 w-4 transition-transform", openMobileGroups.has(group.id) && "rotate-180")} />
                         </CollapsibleTrigger>
                         <CollapsibleContent className="space-y-2">

@@ -1,16 +1,15 @@
 import { X, Download, Share2, Smartphone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePWAInstall } from "@/hooks/usePWAInstall";
+import { Button } from "@/components/ui/button";
 
 export default function PWAInstallBanner() {
-  const { canShow, platform, installAndroid, dismissAndroid, dismissIOS } = usePWAInstall();
+  const { canShow, platform, installAndroid, dismissBanner } = usePWAInstall();
 
   if (!canShow || !platform) return null;
 
-  const dismiss = platform === "android" ? dismissAndroid : dismissIOS;
-
   return (
-    <div className="fixed bottom-20 md:bottom-4 left-0 right-0 z-[60] flex justify-center px-4 pointer-events-none">
+    <div className="fixed bottom-20 left-0 right-0 z-[60] flex justify-center px-4 pointer-events-none md:bottom-4">
       <div className="pointer-events-auto w-full max-w-2xl">
         <AnimatePresence>
           <motion.div
@@ -19,37 +18,39 @@ export default function PWAInstallBanner() {
             exit={{ opacity: 0, y: 12 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
           >
-            <div className="relative rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-md p-5 shadow-lg">
+            <div className="relative rounded-2xl border border-border/70 bg-card/95 p-5 shadow-2xl backdrop-blur-md">
               <button
-                onClick={dismiss}
-                className="absolute top-3 right-3 text-white/30 hover:text-white/60 transition-colors"
+                type="button"
+                onClick={dismissBanner}
+                className="absolute right-3 top-3 inline-flex h-8 w-8 items-center justify-center rounded-full border border-border/80 bg-background/90 text-muted-foreground transition-colors hover:text-foreground"
                 aria-label="Zatvori"
               >
                 <X className="h-4 w-4" />
               </button>
 
-              <div className="flex items-center gap-4">
-                <div className="shrink-0 flex items-center justify-center h-12 w-12 rounded-xl bg-gradient-to-br from-[hsl(45,93%,49%)] to-[hsl(30,90%,50%)] shadow-md">
-                  <Smartphone className="h-6 w-6 text-black" />
+              <div className="flex items-start gap-4 pr-8">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[hsl(var(--gold))] text-[hsl(var(--primary))] shadow-[0_12px_32px_hsl(var(--gold)/0.24)]">
+                  <Smartphone className="h-6 w-6" />
                 </div>
 
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-semibold text-white">
+                  <p className="text-sm font-semibold text-foreground">
                     BalkanLink kao aplikacija 📱
                   </p>
-                  <p className="text-xs text-white/50 mt-0.5 leading-relaxed">
+                  <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">
                     Brži pristup vodičima, formularima i asistentu — instaliraj na telefon.
                   </p>
                 </div>
 
                 {platform === "android" && (
-                  <button
+                  <Button
                     onClick={installAndroid}
-                    className="shrink-0 flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-bold text-black transition-all hover:-translate-y-0.5 hover:shadow-[0_4px_16px_rgba(255,184,0,0.3)] bg-gradient-to-r from-[hsl(45,93%,49%)] to-[hsl(35,93%,52%)]"
+                    size="sm"
+                    className="shrink-0 rounded-full bg-[hsl(var(--gold))] px-4 text-xs font-bold text-[hsl(var(--primary))] transition-colors hover:bg-[hsl(var(--gold-light))]"
                   >
                     <Download className="h-3.5 w-3.5" />
                     Preuzmi app
-                  </button>
+                  </Button>
                 )}
               </div>
 
@@ -68,14 +69,27 @@ export default function PWAInstallBanner() {
                     { step: "3", text: 'Izaberi "Dodaj na početni ekran"' },
                   ].map((item) => (
                     <div key={item.step} className="flex items-center gap-2.5">
-                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white/10 text-[10px] font-bold text-white">
+                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent text-[10px] font-bold text-foreground">
                         {item.step}
                       </span>
-                      <span className="text-xs text-white/60">{item.text}</span>
+                      <span className="text-xs text-muted-foreground">{item.text}</span>
                     </div>
                   ))}
                 </div>
               )}
+
+              <div className="mt-4 flex items-center justify-between gap-3 border-t border-border/70 pt-4">
+                <p className="text-[11px] text-muted-foreground">
+                  Ako zatvoriš popup, sakrit će se 7 dana.
+                </p>
+                <button
+                  type="button"
+                  onClick={dismissBanner}
+                  className="text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  Ne hvala
+                </button>
+              </div>
             </div>
           </motion.div>
         </AnimatePresence>
