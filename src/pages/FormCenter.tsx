@@ -234,6 +234,15 @@ export default function FormCenter() {
     });
   };
 
+  const toggleMobileGroup = (id: string) => {
+    setOpenMobileGroups((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
+
   const toggleSubGroup = (id: string) => {
     setOpenSubGroups((prev) => {
       const next = new Set(prev);
