@@ -546,10 +546,6 @@ const TRANSLATIONS: Record<"bs" | "hr" | "sr" | "me" | "sq" | "mk", Record<strin
 function translateText(language: Language, text: string) {
   const alias = LANGUAGE_ALIASES[language];
 
-  if (alias === "de") {
-    return text;
-  }
-
   return TRANSLATIONS[alias][text] ?? text;
 }
 
