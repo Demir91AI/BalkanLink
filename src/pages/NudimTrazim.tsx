@@ -1,6 +1,5 @@
 import { useState, useMemo } from "react";
-import { PlusCircle, Megaphone, Search as SearchIcon, Star, Check, ChevronLeft, Home } from "lucide-react";
-// PageNavBar removed — nav is now inline in the hero
+import { PlusCircle, Megaphone, Search as SearchIcon, Star, Check, ChevronLeft, Home, ClipboardList } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import NtFilters from "@/components/nudim-trazim/NtFilters";
 import NtCategoryChips from "@/components/nudim-trazim/NtCategoryChips";
@@ -9,12 +8,13 @@ import NtAdDetail from "@/components/nudim-trazim/NtAdDetail";
 import NtSubmitForm from "@/components/nudim-trazim/NtSubmitForm";
 import NtProModal from "@/components/nudim-trazim/NtProModal";
 import type { NtAd } from "@/lib/nudim-trazim-constants";
-import { DEMO_ADS } from "@/lib/nudim-trazim-constants";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useHistorySearchState } from "@/hooks/useHistorySearchState";
 import { useSectionT } from "@/hooks/useSectionT";
 import { useNavigate } from "react-router-dom";
 import { navigateBackOrHome } from "@/lib/navigation";
+import { useQuery } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
 
 export default function NudimTrazim() {
   const { t } = useLanguage();
@@ -31,11 +31,36 @@ export default function NudimTrazim() {
   });
   const handleBack = () => navigateBackOrHome(navigate);
 
+  // Fetch real ads from DB
+  const { data: dbAds = [] } = useQuery({
+    queryKey: ["nt-ads"],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("ads")
+        .select("*")
+        .eq("status", "ACTIVE")
+        .order("created_at", { ascending: false });
+      if (error) throw error;
+      return (data ?? []).map((row): NtAd => ({
+        id: row.id,
+        type: row.type === "OFFERING" ? "nudim" : "trazim",
+        title: row.title,
+        category: row.category ?? "ostalo",
+        city: row.city,
+        description: row.description,
+        contact_type: row.contact_type === "PHONE" ? "phone" : "email",
+        contact_value: row.contact_value,
+        created_at: row.created_at,
+        is_pro: false,
+      }));
+    },
+  });
+
   const view = searchParams.get("view");
   const selectedAdId = searchParams.get("ad");
   const selectedAd = useMemo(
-    () => DEMO_ADS.find((ad) => ad.id === selectedAdId) ?? null,
-    [selectedAdId]
+    () => dbAds.find((ad) => ad.id === selectedAdId) ?? null,
+    [selectedAdId, dbAds]
   );
   const showForm = view === "form";
   const showProModal = searchParams.get("modal") === "pro";
@@ -70,7 +95,7 @@ export default function NudimTrazim() {
   const handleCategoryChip = (cat: string) => updateFilters({ category: cat });
 
   const filtered = useMemo(() => {
-    let ads = [...DEMO_ADS];
+    let ads = [...dbAds];
     if (filters.type !== "sve") ads = ads.filter((a) => a.type === filters.type);
     if (filters.category !== "sve") ads = ads.filter((a) => a.category === filters.category);
     if (filters.city) {
@@ -92,7 +117,7 @@ export default function NudimTrazim() {
       return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
     });
     return ads;
-  }, [filters]);
+  }, [filters, dbAds]);
 
   if (selectedAd) {
     return (
@@ -243,10 +268,16 @@ export default function NudimTrazim() {
               ))}
             </div>
           ) : (
-            <div className="text-center py-16 space-y-4">
-              <p className="text-muted-foreground text-lg">{st("nt.empty")}</p>
-              <Button onClick={openForm} className="gap-2">
-                <PlusCircle className="h-4 w-4" /> {st("nt.postFirst")}
+            <div className="text-center py-20 space-y-4">
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-muted">
+                <ClipboardList className="h-8 w-8 text-muted-foreground" />
+              </div>
+              <h3 className="text-xl font-bold text-foreground">Još nema oglasa</h3>
+              <p className="text-muted-foreground max-w-md mx-auto">
+                Budi prvi koji objavljuje oglas u svojoj zajednici!
+              </p>
+              <Button onClick={openForm} size="lg" className="gap-2 mt-2">
+                <PlusCircle className="h-4 w-4" /> Objavi oglas →
               </Button>
             </div>
           )}
