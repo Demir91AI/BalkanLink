@@ -10,7 +10,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 
 import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
-import PWAInstallBanner from "@/components/PWAInstallBanner";
+
 import FlowBanner from "@/components/home/FlowBanner";
 
 import realcoreDigitalLogo from "@/assets/realcore-digital-logo.png";
