@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useCallback } from "react";
+import React, { createContext, useContext, useCallback } from "react";
 import { translations, type Language, LANGUAGES } from "@/lib/translations";
 
 interface LanguageContextType {
@@ -11,24 +11,19 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const saved = typeof window !== "undefined" ? localStorage.getItem("balkanlink-lang") as Language : null;
-  const validLangs: Language[] = ["bhs", "de"];
-  const initial: Language = saved && validLangs.includes(saved) ? saved : "bhs";
+  const language: Language = "bhs";
 
-  const [language, setLang] = useState<Language>(initial);
-
-  const setLanguage = useCallback((lang: Language) => {
-    setLang(lang);
-    localStorage.setItem("balkanlink-lang", lang);
+  const setLanguage = useCallback((_lang: Language) => {
+    // Language is fixed to Bosnian — no-op
   }, []);
 
   const t = useCallback(
     (key: string): string => {
       const entry = translations[key];
       if (!entry) return key;
-      return entry[language] ?? entry["bhs"] ?? key;
+      return entry["bhs"] ?? key;
     },
-    [language],
+    [],
   );
 
   return (
