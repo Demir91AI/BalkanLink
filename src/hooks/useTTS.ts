@@ -11,6 +11,16 @@ function getBestGermanVoice(synth: SpeechSynthesis): SpeechSynthesisVoice | null
   const voices = synth.getVoices();
   const de = voices.filter((v) => v.lang.startsWith("de"));
   if (!de.length) return null;
+  // Prefer known high-quality German voices by name
+  const preferred = [
+    'Google Deutsch', 'Microsoft Conrad', 'Microsoft Hedda',
+    'Anna', 'Helena', 'Markus', 'Google German',
+  ];
+  for (const name of preferred) {
+    const v = de.find((voice) => voice.name.includes(name));
+    if (v) return v;
+  }
+  // Fallback tiers
   const tests: ((v: SpeechSynthesisVoice) => boolean)[] = [
     (v) => /neural|wavenet/i.test(v.name),
     (v) => /enhanced|premium/i.test(v.name),
@@ -20,6 +30,26 @@ function getBestGermanVoice(synth: SpeechSynthesis): SpeechSynthesisVoice | null
   ];
   for (const fn of tests) { const m = de.find(fn); if (m) return m; }
   return de[0];
+}
+
+/** Preprocess German text for better TTS pronunciation */
+function preprocessGerman(text: string): string {
+  return text
+    .replace(/z\.B\./gi, 'zum Beispiel')
+    .replace(/bzw\./gi, 'beziehungsweise')
+    .replace(/ca\./gi, 'circa')
+    .replace(/d\.h\./gi, 'das heißt')
+    .replace(/u\.a\./gi, 'unter anderem')
+    .replace(/usw\./gi, 'und so weiter')
+    .replace(/ggf\./gi, 'gegebenenfalls')
+    .replace(/inkl\./gi, 'inklusive')
+    .replace(/Nr\./gi, 'Nummer')
+    .replace(/Dr\./gi, 'Doktor')
+    .replace(/Prof\./gi, 'Professor')
+    .replace(/€/g, ' Euro ')
+    .replace(/%/g, ' Prozent ')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 type PlayState = "idle" | "playing" | "paused";
