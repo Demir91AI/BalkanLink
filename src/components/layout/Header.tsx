@@ -8,6 +8,36 @@ import { Link } from "react-router-dom";
 const menuBtnClass =
   "h-10 w-10 rounded-lg text-white/70 hover:text-white hover:bg-white/8 active:scale-[0.93] transition-transform duration-150";
 
+function LangPill() {
+  const { language, setLanguage } = useLanguage();
+  return (
+    <div className="flex h-9 items-center rounded-full border border-white/20 bg-white/5 backdrop-blur-sm p-[3px] gap-0">
+      <button
+        onClick={() => setLanguage("bhs")}
+        className={`flex items-center gap-1.5 h-[30px] min-w-[44px] px-2.5 rounded-full text-[12px] font-semibold transition-all duration-200 ${
+          language === "bhs"
+            ? "bg-[hsl(var(--gold))] text-white shadow-md"
+            : "text-white/50 hover:text-white/80"
+        }`}
+      >
+        <span style={{ fontSize: "0.55em", letterSpacing: "-2px", lineHeight: "1", display: "inline-block" }}>🇧🇦🇭🇷🇷🇸</span>
+        <span className="hidden sm:inline">BS/HR/SR</span>
+      </button>
+      <button
+        onClick={() => setLanguage("de")}
+        className={`flex items-center gap-1.5 h-[30px] min-w-[44px] px-2.5 rounded-full text-[12px] font-semibold transition-all duration-200 ${
+          language === "de"
+            ? "bg-[hsl(var(--gold))] text-white shadow-md"
+            : "text-white/50 hover:text-white/80"
+        }`}
+      >
+        🇩🇪
+        <span className="hidden sm:inline">DE</span>
+      </button>
+    </div>
+  );
+}
+
 export default function Header() {
   const { loading, isAdmin } = useAuth();
   const { t } = useLanguage();
@@ -24,7 +54,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-white/8 bg-[#0f1f3d]/95 backdrop-blur-xl shadow-lg shadow-black/20">
       <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[hsl(var(--gold))] to-transparent opacity-60" />
 
-      <div className="relative flex h-14 items-center px-4">
+      <div className="relative flex h-14 items-center justify-between px-4">
         <Button variant="ghost" size="icon" onClick={handleToggleSidebar} className={menuBtnClass} aria-label={t("sidebar.menu")}>
           <Menu className="h-5 w-5" />
         </Button>
@@ -49,6 +79,8 @@ export default function Header() {
             </span>
           )}
         </div>
+
+        <LangPill />
       </div>
     </header>
   );
