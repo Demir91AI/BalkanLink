@@ -186,7 +186,7 @@ export function useTTS() {
     }
 
     return true;
-  }, []);
+  }, [rate]);
 
   /* ── Play: try browser first so rate/pitch stay identical on desktop and mobile ── */
   const playNew = useCallback(async (id: string, text: string) => {
