@@ -191,9 +191,8 @@ export default function FormCenter() {
   const isMobile = useIsMobile();
   const { t } = useLanguage();
   const [search, setSearch] = useState("");
-  const [openGroups, setOpenGroups] = useState<Set<string>>(
-    () => new Set(formCatalog.map((g) => g.id))
-  );
+  const [openGroups, setOpenGroups] = useState<Set<string>>(new Set());
+  const [openMobileGroups, setOpenMobileGroups] = useState<Set<string>>(new Set());
   const [openSubGroups, setOpenSubGroups] = useState<Set<string>>(new Set());
   const [showBgInfo, setShowBgInfo] = useState(false);
 
@@ -228,6 +227,15 @@ export default function FormCenter() {
 
   const toggleGroup = (id: string) => {
     setOpenGroups((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
+
+  const toggleMobileGroup = (id: string) => {
+    setOpenMobileGroups((prev) => {
       const next = new Set(prev);
       if (next.has(id)) next.delete(id);
       else next.add(id);
@@ -440,11 +448,16 @@ export default function FormCenter() {
                     )
                   ) : (
                     formCatalog.map((group) => (
-                      <div key={group.id}>
-                        <div className="px-4 py-3 text-[11px] font-bold uppercase tracking-widest text-[hsl(var(--gold))] bg-[hsl(220,50%,8%)] rounded-lg mt-3 mb-1.5">
-                          {group.icon} {group.titleKey ? t(group.titleKey) : group.title}
-                        </div>
-                        <div className="space-y-2">
+                      <Collapsible
+                        key={group.id}
+                        open={openMobileGroups.has(group.id)}
+                        onOpenChange={() => toggleMobileGroup(group.id)}
+                      >
+                        <CollapsibleTrigger className="w-full flex items-center justify-between px-4 py-3 text-[11px] font-bold uppercase tracking-widest text-[hsl(var(--gold))] bg-[hsl(220,50%,8%)] rounded-lg mt-3 mb-1.5">
+                          <span>{group.icon} {group.titleKey ? t(group.titleKey) : group.title}</span>
+                          <ChevronDown className={cn("h-4 w-4 transition-transform", openMobileGroups.has(group.id) && "rotate-180")} />
+                        </CollapsibleTrigger>
+                        <CollapsibleContent className="space-y-2">
                           {group.items.map((item) => (
                             <button
                               key={item.slug}
@@ -478,8 +491,8 @@ export default function FormCenter() {
                               ))}
                             </div>
                           ))}
-                        </div>
-                      </div>
+                        </CollapsibleContent>
+                      </Collapsible>
                     ))
                   )}
                 </div>
