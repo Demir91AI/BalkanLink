@@ -18,7 +18,7 @@ const LEGAL_LINKS = [
   { label: "Cookie-Richtlinie", to: "/cookie-richtlinie" },
 ];
 
-const PAYMENT_BADGES = ["STRIPE", "PAYPAL", "VISA", "MASTERCARD"];
+
 
 const colTitleStyle: React.CSSProperties = {
   fontSize: 11,
