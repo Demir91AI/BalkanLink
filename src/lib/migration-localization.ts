@@ -1,15 +1,10 @@
 import type { Language } from "./translations";
 import type { CountryMigrationData } from "./migration-data";
 
+// Map new Language type to internal localization aliases
 const LANGUAGE_ALIASES: Record<Language, "bs" | "hr" | "sr" | "me" | "sq" | "mk"> = {
-  bs: "bs",
-  hr: "hr",
-  sr: "sr",
-  me: "me",
-  sq: "sq",
-  xk: "sq",
-  mk: "mk",
-  sl: "hr",
+  bhs: "bs",
+  de: "bs", // fallback to bs for German users viewing migration data
 };
 
 const TRANSLATIONS: Record<"bs" | "hr" | "sr" | "me" | "sq" | "mk", Record<string, string>> = {
@@ -534,7 +529,7 @@ const TRANSLATIONS: Record<"bs" | "hr" | "sr" | "me" | "sq" | "mk", Record<strin
     "Visum zur Anerkennung möglich (§ 16d AufenthG)": "Можно е да се добие виза за признавање (§ 16d AufenthG)",
     "Bei Westbalkanregelung: keine Anerkennung zwingend nötig": "Во рамки на правилото за Западен Балкан признавањето не е задолжително",
     "Zuständige Stelle über anerkennung-in-deutschland.de ermitteln": "Утврдете ја надлежната служба преку anerkennung-in-deutschland.de",
-    "Unterlagen zusammenstellen und übersetzen lassen": "Подгответе ги документите и дајте ги на превод",
+    "Unterlagen zusammenstellen und übersetzen lassen": "Подгответе ги документите и daјте ги на превод",
     "Antrag auf Anerkennung stellen (auch vom Ausland möglich)": "Поднесете барање за признавање (можно и од странство)",
     "Bescheid abwarten": "Почекајте решение",
     "Bei teilweiser Anerkennung: Anpassungsqualifizierung in Deutschland": "При делумно признавање: дополнителна квалификација во Германија",
