@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import { X, Send, Copy, ShieldCheck, ExternalLink, BookOpen, ThumbsUp, ThumbsDown, Camera, Save, MessageCircle, Clock, User } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ReactMarkdown from "react-markdown";
@@ -148,7 +148,7 @@ function autoLinkKeywords(text: string): string {
 }
 
 // ── Markdown renderer ──
-function ChatMarkdown({ content }: { content: string }) {
+const ChatMarkdown = React.memo(function ChatMarkdown({ content }: { content: string }) {
   const linkedContent = autoLinkKeywords(content);
   return (
     <ReactMarkdown
@@ -174,7 +174,7 @@ function ChatMarkdown({ content }: { content: string }) {
       {linkedContent}
     </ReactMarkdown>
   );
-}
+});
 
 // ── Action buttons ──
 function ResponseActions({ msg }: { msg: Msg }) {
@@ -435,9 +435,10 @@ export default function ChatAssistant() {
   const streamResponse = async (resp: Response, userText: string) => {
     let assistantSoFar = "";
     const detectedSlug = detectGuideSlugFromText(userText);
+    let flushPending = false;
 
-    const upsertAssistant = (chunk: string) => {
-      assistantSoFar += chunk;
+    const flushToState = () => {
+      flushPending = false;
       const { cleanText: rawClean, formSlugs } = extractFormMarkers(assistantSoFar);
       const { cleanText, suggestions } = extractSuggestions(rawClean);
       setMessages(prev => {
@@ -447,6 +448,13 @@ export default function ChatAssistant() {
         }
         return [...prev, { role: "assistant", content: cleanText, guideSlug: detectedSlug, formSlugs, suggestions }];
       });
+    };
+
+    const scheduleFlush = () => {
+      if (!flushPending) {
+        flushPending = true;
+        requestAnimationFrame(flushToState);
+      }
     };
 
     const headerSlug = resp.headers.get("X-Guide-Slug");
@@ -474,13 +482,19 @@ export default function ChatAssistant() {
         try {
           const parsed = JSON.parse(jsonStr);
           const c = parsed.choices?.[0]?.delta?.content as string | undefined;
-          if (c) upsertAssistant(c);
+          if (c) {
+            assistantSoFar += c;
+            scheduleFlush();
+          }
         } catch {
           textBuffer = line + "\n" + textBuffer;
           break;
         }
       }
     }
+
+    // Final flush to ensure all content is rendered
+    flushToState();
 
     if (headerSlug || headerFormSlug || headerSiteTopics.length > 0) {
       setMessages(prev => {
