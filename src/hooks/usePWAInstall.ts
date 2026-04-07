@@ -43,12 +43,15 @@ export function usePWAInstall() {
 
   useEffect(() => {
     if (isStandalone()) return;
+    // Only show on mobile
+    const isMobileWidth = window.innerWidth < 768;
+    if (!isMobileWidth) return;
 
     const handler = (e: Event) => {
       e.preventDefault();
       setDeferredPrompt(e as BeforeInstallPromptEvent);
       if (!isDismissed(LS_DISMISS_KEY)) {
-        setShowAndroidBanner(true);
+        setTimeout(() => setShowAndroidBanner(true), 3000);
       }
     };
     window.addEventListener("beforeinstallprompt", handler);
@@ -56,7 +59,7 @@ export function usePWAInstall() {
     if (isIOS() && !isDismissed(LS_IOS_DISMISS_KEY)) {
       const isSafari = /Safari/.test(navigator.userAgent) && !/CriOS|FxiOS|OPiOS/.test(navigator.userAgent);
       if (isSafari) {
-        setShowIOSBanner(true);
+        setTimeout(() => setShowIOSBanner(true), 3000);
       }
     }
 
