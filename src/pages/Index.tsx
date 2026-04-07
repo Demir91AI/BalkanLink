@@ -331,7 +331,14 @@ export default function Index() {
                 {t("hero.subtitle")}
               </p>
 
-              <div className="mt-8 flex flex-col items-center gap-4">
+              {/* Language selector — mobile only, centered */}
+              <div className="mt-5 flex md:hidden justify-center">
+                <div className="rounded-full bg-black/30 backdrop-blur-md border border-white/15 px-1 py-1">
+                  <LanguageSelector />
+                </div>
+              </div>
+
+              <div className="mt-8 md:mt-8 flex flex-col items-center gap-4">
                 <button
                   onClick={() => navigate("/formulari")}
                   className="transition-all duration-200"
