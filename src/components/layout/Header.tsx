@@ -21,10 +21,10 @@ const Flag = ({ code, size = 16 }: { code: string; size?: number }) => (
 );
 
 const LANG_PILLS = [
-  { id: "bs", flag: "ba", lang: "bhs" as const },
-  { id: "hr", flag: "hr", lang: "bhs" as const },
-  { id: "sr", flag: "rs", lang: "bhs" as const },
-  { id: "de", flag: "de", lang: "de" as const },
+  { id: "bs", emoji: "🇧🇦", lang: "bhs" as const },
+  { id: "hr", emoji: "🇭🇷", lang: "bhs" as const },
+  { id: "sr", emoji: "🇷🇸", lang: "bhs" as const },
+  { id: "de", emoji: "🇩🇪", lang: "de" as const },
 ];
 
 const LS_VARIANT_KEY = "balkanlink-variant";
