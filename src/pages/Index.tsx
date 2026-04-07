@@ -200,7 +200,9 @@ function ShowcaseCarousel() {
 /* ─── Ad Flow Section ─── */
 function AdFlowSection() {
   const { t } = useLanguage();
-  const doubled = [...placeholderAds, ...placeholderAds, ...placeholderAds, ...placeholderAds];
+  // Duplicate enough copies for seamless infinite scroll (hook resets at scrollWidth/2)
+  const minCopies = Math.max(8, Math.ceil((typeof window !== 'undefined' ? window.innerWidth : 1920) / 344) * 2 + 2);
+  const doubled = Array.from({ length: minCopies }, () => placeholderAds).flat();
   const { ref, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.7, 3500);
 
   return (
