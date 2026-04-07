@@ -552,7 +552,7 @@ export default function DokumentenCheck() {
                         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-background/80 backdrop-blur-sm rounded-b-2xl">
                           <Lock className="h-7 w-7 text-[hsl(var(--gold))] mb-3" />
                           <p className="text-sm font-bold text-foreground mb-3">{st("docCheck.lockText")}</p>
-                          <button onClick={() => navigate("/premium")}
+                          <button onClick={() => navigate("/pricing")}
                             className="rounded-full bg-[hsl(var(--gold))] px-5 py-2.5 text-xs font-bold text-[#0f1f3d] transition-all hover:opacity-90">
                             {st("docCheck.premiumCta")}
                           </button>

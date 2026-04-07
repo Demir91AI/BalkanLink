@@ -226,7 +226,7 @@ export default function TrainerPreise() {
                   </div>
 
                   <Button
-                    onClick={() => navigate("/premium")}
+                    onClick={() => navigate("/pricing")}
                     className={`mt-5 h-11 w-full rounded-xl text-[13px] font-bold ${pkg.popular ? "bg-gold text-gold-foreground shadow-[0_4px_20px_rgba(255,204,0,0.3)] hover:bg-gold-light" : "bg-primary text-primary-foreground hover:bg-primary/90"}`}
                   >
                     <Star className="mr-1.5 h-3.5 w-3.5" /> Paket freischalten

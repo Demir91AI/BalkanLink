@@ -221,6 +221,9 @@ const App = () => (
                 <Route path="/deutsch" element={<Navigate to="/deutsch-trainer" replace />} />
                 <Route path="/sabloni" element={<Navigate to="/vorlagen" replace />} />
                 <Route path="/pitanja" element={<Navigate to="/qa" replace />} />
+                <Route path="/zivot-savjeti" element={<Navigate to="/zivot" replace />} />
+                <Route path="/trebam-pomoc" element={<Navigate to="/probleme" replace />} />
+                <Route path="/pocni-ovdje" element={<Navigate to="/dolazak" replace />} />
               </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>
