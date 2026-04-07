@@ -8,7 +8,7 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { CountryProvider } from "@/contexts/CountryContext";
 import Layout from "@/components/layout/Layout";
-import PWAInstallBanner from "@/components/PWAInstallBanner";
+
 import HomeLayout from "@/components/layout/HomeLayout";
 import Index from "./pages/Index";
 import Login from "./pages/Login";
@@ -228,7 +228,7 @@ const App = () => (
               </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>
-            <PWAInstallBanner />
+            
           </AuthProvider>
           </CountryProvider>
         </LanguageProvider>

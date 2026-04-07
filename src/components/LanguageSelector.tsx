@@ -8,7 +8,7 @@ const LANG_OPTIONS: { code: Language; label: string; flag: string; flagStyle?: R
     code: "bhs",
     label: "BS / HR / SR",
     flag: "🇧🇦🇭🇷🇷🇸",
-    flagStyle: { fontSize: "0.55em", letterSpacing: "-2px", lineHeight: "1", display: "inline-block" },
+    flagStyle: { fontSize: "0.75em", letterSpacing: "-1px", lineHeight: "1", display: "inline-block" },
   },
   {
     code: "de",

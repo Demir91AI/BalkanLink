@@ -20,10 +20,10 @@ import TurnstileWidget from "@/components/TurnstileWidget";
 import { verifyTurnstileToken } from "@/lib/turnstile";
 
 const schema = z.object({
-  name: z.string().trim().min(2, "Min 2 characters").max(100),
-  category: z.string().min(1, "Required"),
-  city: z.string().min(1, "Required"),
-  origin_country: z.string().min(1, "Required"),
+  name: z.string().trim().min(2, "Minimalno 2 karaktera").max(100),
+  category: z.string().min(1, "Obavezno polje"),
+  city: z.string().min(1, "Obavezno polje"),
+  origin_country: z.string().min(1, "Obavezno polje"),
   address: z.string().trim().max(200).optional().or(z.literal("")),
   phone: z.string().trim().max(30).optional().or(z.literal("")),
   website: z.string().trim().max(200).optional().or(z.literal("")),

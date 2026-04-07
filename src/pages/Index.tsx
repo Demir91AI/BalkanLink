@@ -10,7 +10,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 
 import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
-import PWAInstallBanner from "@/components/PWAInstallBanner";
+
 import FlowBanner from "@/components/home/FlowBanner";
 
 import realcoreDigitalLogo from "@/assets/realcore-digital-logo.png";
@@ -389,10 +389,6 @@ export default function Index() {
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(var(--gold))]/40 to-transparent" />
       </div>
 
-      {/* ─── PWA INSTALL CARD ─── */}
-      <div className="bg-[hsl(var(--warm-cream))] pt-6">
-        <PWAInstallBanner />
-      </div>
 
       {/* ─── FLOW BANNER CAROUSEL ─── */}
       <FlowBanner />
