@@ -31,11 +31,36 @@ export default function NudimTrazim() {
   });
   const handleBack = () => navigateBackOrHome(navigate);
 
+  // Fetch real ads from DB
+  const { data: dbAds = [] } = useQuery({
+    queryKey: ["nt-ads"],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("ads")
+        .select("*")
+        .eq("status", "ACTIVE")
+        .order("created_at", { ascending: false });
+      if (error) throw error;
+      return (data ?? []).map((row): NtAd => ({
+        id: row.id,
+        type: row.type === "OFFERING" ? "nudim" : "trazim",
+        title: row.title,
+        category: row.category ?? "ostalo",
+        city: row.city,
+        description: row.description,
+        contact_type: row.contact_type === "PHONE" ? "phone" : "email",
+        contact_value: row.contact_value,
+        created_at: row.created_at,
+        is_pro: false,
+      }));
+    },
+  });
+
   const view = searchParams.get("view");
   const selectedAdId = searchParams.get("ad");
   const selectedAd = useMemo(
-    () => DEMO_ADS.find((ad) => ad.id === selectedAdId) ?? null,
-    [selectedAdId]
+    () => dbAds.find((ad) => ad.id === selectedAdId) ?? null,
+    [selectedAdId, dbAds]
   );
   const showForm = view === "form";
   const showProModal = searchParams.get("modal") === "pro";
