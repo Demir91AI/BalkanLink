@@ -1,6 +1,6 @@
-import { indexChatBs, indexChatHr, indexChatSr, indexChatMe, indexChatSq, indexChatXk, indexChatMk, indexChatDe, indexChatSl, newKeysSq, newKeysXk, newKeysMk, newKeysMe } from "./i18n-extra";
+import { indexChatBs, indexChatHr, indexChatSr, indexChatMe, indexChatSq, indexChatXk, indexChatMk, indexChatSl, newKeysSq, newKeysXk, newKeysMk, newKeysMe } from "./i18n-extra";
 
-export type Language = "bs" | "hr" | "sr" | "me" | "sq" | "mk" | "xk" | "de" | "sl";
+export type Language = "bs" | "hr" | "sr" | "me" | "sq" | "mk" | "xk" | "sl";
 
 export interface LanguageInfo {
   code: Language;
@@ -18,7 +18,6 @@ export const LANGUAGES: LanguageInfo[] = [
   { code: "xk", name: "Shqip (Kosovo)", country: "Kosova", flag: "🇽🇰" },
   { code: "mk", name: "Македонски", country: "Македонија", flag: "🇲🇰" },
   { code: "sl", name: "Slovenščina", country: "Slovenija", flag: "🇸🇮" },
-  { code: "de", name: "Deutsch", country: "Deutschland", flag: "🇩🇪" },
 ];
 
 type TranslationKeys = {
@@ -298,15 +297,7 @@ const missionsMk: Partial<TranslationKeys> = {
   "missions.results": "резултати", "missions.clearFilters": "Избриши филтри", "missions.empty": "Нема резултати.",
 };
 
-const missionsDe: Partial<TranslationKeys> = {
-  "nav.missions": "Botschaften",
-  "missions.title": "Balkan-Botschaften und Konsulate in Deutschland",
-  "missions.subtitle": "Finde diplomatische Vertretungen der Balkanländer in Deutschland.",
-  "missions.filterCountry": "Land", "missions.filterCity": "Stadt", "missions.filterType": "Typ",
-  "missions.allCountries": "Alle Länder", "missions.allCities": "Alle Städte", "missions.allTypes": "Alle Typen",
-  "missions.embassy": "Botschaft", "missions.consulate": "Generalkonsulat",
-  "missions.results": "Ergebnisse", "missions.clearFilters": "Filter löschen", "missions.empty": "Keine Ergebnisse.",
-};
+
 
 const missionsEn: Partial<TranslationKeys> = {
   "nav.missions": "Embassies",
@@ -356,43 +347,7 @@ const portalBs: Partial<TranslationKeys> = {
   "vertrag.minijob": "Minijob", "vertrag.ausbildung": "Obrazovanje", "vertrag.praktikum": "Praktikum",
 };
 
-const portalDe: Partial<TranslationKeys> = {
-  "portal.dolazak": "Ankunft", "portal.dolazak.desc": "Dokumente, Anmeldung, erste Schritte in Deutschland.",
-  "portal.stan": "Wohnung & Anmeldung", "portal.stan.desc": "Wohnung finden und Adresse anmelden.",
-  "portal.jobs": "Arbeit", "portal.jobs.desc": "Arbeit in Deutschland finden.",
-  "portal.familie": "Familie", "portal.familie.desc": "Kindergeld, Schule, Familienrechte.",
-  "portal.foerderungen": "Förderungen", "portal.foerderungen.desc": "Sozialleistungen, Wohngeld, BAföG.",
-  "portal.formulare": "Formulare", "portal.formulare.desc": "Alle wichtigen Formulare an einem Ort.",
-  "portal.tools": "Werkzeuge", "portal.tools.desc": "Generatoren, Rechner, Prüfungen.",
-  "portal.ambasade": "Botschaften", "portal.ambasade.desc": "Diplomatische Vertretungen in Deutschland.",
-  "portal.community": "Community", "portal.community.desc": "Restaurants, Shops, Vereine und Events der Balkan-Community.",
-  "footer.imprint": "Impressum", "footer.privacy": "Datenschutz", "footer.contact": "Kontakt",
-  "footer.copyright": "Alle Rechte vorbehalten.", "footer.disclaimer": "Disclaimer",
-  "cta.register": "Jetzt kostenlos registrieren",
-  "wohnungen.title": "Wohnungssuche", "wohnungen.subtitle": "Finde eine Wohnung in ganz Deutschland.",
-  "wohnungen.city": "Stadt", "wohnungen.bundesland": "Bundesland", "wohnungen.radius": "Umkreis",
-  "wohnungen.allGermany": "Ganz Deutschland", "wohnungen.maxRent": "Max. Kaltmiete",
-  "wohnungen.rooms": "Zimmeranzahl", "wohnungen.wg": "WG", "wohnungen.furnished": "Möbliert",
-  "wohnungen.shortTerm": "Kurzzeit", "wohnungen.longTerm": "Langzeit",
-  "wohnungen.search": "Wohnungen suchen", "wohnungen.showMore": "Mehr anzeigen", "wohnungen.showLess": "Weniger anzeigen",
-  "wohnungen.portals": "Wohnungsportale",
-  "wohnungen.portalBig": "Große Portale", "wohnungen.portalWg": "WG & Studenten",
-  "wohnungen.portalSocial": "Sozial & Genossenschaften", "wohnungen.portalShort": "Kurzzeit",
-  "jobs.title": "Jobsuche", "jobs.subtitle": "Finde einen Job in ganz Deutschland.",
-  "jobs.city": "Stadt", "jobs.bundesland": "Bundesland", "jobs.radius": "Umkreis",
-  "jobs.allGermany": "Ganz Deutschland", "jobs.branche": "Branche", "jobs.vertragsart": "Vertragsart",
-  "jobs.noDeutsch": "Ohne Deutschkenntnisse", "jobs.mitUnterkunft": "Mit Unterkunft",
-  "jobs.quereinsteiger": "Quereinsteiger möglich", "jobs.schnellerEinstieg": "Schneller Einstieg",
-  "jobs.search": "Jobs suchen", "jobs.showMore": "Mehr anzeigen", "jobs.showLess": "Weniger anzeigen",
-  "jobs.portals": "Jobportale",
-  "jobs.portalStaatlich": "Staatlich", "jobs.portalGross": "Große Portale", "jobs.portalSpezial": "Spezialportale",
-  "jobs.allBranchen": "Alle Branchen",
-  "branche.pflege": "Pflege", "branche.bau": "Bau", "branche.logistik": "Logistik & Lager",
-  "branche.produktion": "Produktion", "branche.reinigung": "Reinigung", "branche.gastro": "Gastronomie",
-  "branche.it": "IT", "branche.handwerk": "Handwerk", "branche.buero": "Büro", "branche.ausbildung": "Ausbildung",
-  "vertrag.vollzeit": "Vollzeit", "vertrag.teilzeit": "Teilzeit",
-  "vertrag.minijob": "Minijob", "vertrag.ausbildung": "Ausbildung", "vertrag.praktikum": "Praktikum",
-};
+
 
 const portalEn: Partial<TranslationKeys> = {
   "portal.dolazak": "Arrival", "portal.dolazak.desc": "Documents, registration, first steps in Germany.",
@@ -683,88 +638,7 @@ const newKeysSr: Partial<TranslationKeys> = {
   "sg.guideModeDesc": "Mapiranje klikabilnih polja je u toku. Ovaj korak možeš popuniti uz vodič ispod.",
 };
 
-const newKeysDe: Partial<TranslationKeys> = {
-  "auth.pwRule.title": "Passwort muss enthalten:",
-  "auth.pwRule.length": "Mindestens 8 Zeichen",
-  "auth.pwRule.upper": "Mindestens 1 Großbuchstabe (A-Z)",
-  "auth.pwRule.lower": "Mindestens 1 Kleinbuchstabe (a-z)",
-  "auth.pwRule.number": "Mindestens 1 Zahl (0-9)",
-  "auth.pwRule.special": "Mindestens 1 Sonderzeichen (!@#$%^&*)",
-  "formCenter.title": "Formulare — Smart Guide",
-  "formCenter.subtitle": "Interaktive Hilfe beim Ausfüllen deutscher Formulare.",
-  "formCenter.openGuide": "Smart Guide öffnen",
-  "formCenter.pdfUnavailable": "PDF derzeit nicht verfügbar",
-  "formCenter.comingSoon": "Demnächst verfügbar",
-  "paywall.title": "Premium Formularhilfe",
-  "paywall.desc": "Schalte den kompletten Smart Guide frei.",
-  "paywall.oneTime": "einmalig",
-  "paywall.simulate": "Zahlung simulieren (7€)",
-  "paywall.processing": "Verarbeite…",
-  "paywall.loginRequired": "Anmelden für Zugang",
-  "paywall.feature1": "Erklärung jedes Feldes",
-  "paywall.feature2": "Häufige Fehler und wie man sie vermeidet",
-  "paywall.feature3": "Interaktive PDF-Vorschau mit klickbaren Feldern",
-  "paywall.feature4": "Schritt-für-Schritt Anleitung",
-  "paywall.devNote": "DEV MODE: Zahlung wird lokal simuliert.",
-  "sg.wizard": "Schritt-für-Schritt",
-  "sg.pdfClick": "PDF Smart Click",
-  "sg.showOnPdf": "Im PDF zeigen",
-  "sg.mappingToast": "Mapping läuft — PDF-Highlight kommt bald.",
-  "sg.guideMode": "Guide-Modus",
-  "sg.guideModeDesc": "Das Mapping der klickbaren Felder läuft noch. Nutze den Leitfaden unten.",
-  "sg.source": "Quelle",
-  "sg.checked": "Geprüft",
-  "sg.pdfBlocked": "PDF derzeit nicht verfügbar.",
-  "sg.pdfBlockedDesc": "PDF nicht verfügbar oder geändert.",
-  "sg.openOfficial": "Offiziellen Link öffnen",
-  "sg.loading": "Lade…",
-  "sg.notFound": "Formular nicht gefunden.",
-  "sg.backToForms": "← Zurück",
-  "sg.devReset": "DEV: Zugang zurücksetzen",
-  "sg.back": "Zurück",
-  "sg.next": "Weiter",
-  "sg.rejectionTitle": "Häufigste Ablehnungsgründe",
-  "sg.docsTitle": "Dokumente die du vorbereiten solltest",
-  "sg.signTitle": "Wer muss unterschreiben?",
-  "sg.pdfPreview": "PDF Vorschau",
-  "sg.openNewTab": "In neuem Tab öffnen",
-  "sg.clickFieldHint": "Klicke auf ein Feld rechts → Erklärung erscheint hier.",
-  "sg.fieldsOnForm": "Felder im Formular",
-  "sg.clickToExplain": "Klicke auf ein Feld oben für die Erklärung.",
-  "admin.mapper.title": "Admin Mapper",
-  "admin.mapper.coverage": "Mapping-Abdeckung",
-  "admin.mapper.unmapped": "Nicht gemappte Felder",
-  "admin.mapper.search": "Felder suchen…",
-  "admin.mapper.selectField": "Feld aus der Liste wählen",
-  "admin.mapper.saved": "Mapping gespeichert!",
-  "admin.mapper.export": "JSON exportieren",
-  "admin.mapper.import": "JSON importieren",
-  "tools.pageTitle": "Rechner & Werkzeuge",
-  "tools.pageSubtitle": "Kalkulatoren und nützliche Werkzeuge an einem Ort.",
-  "tools.bruttoNetto": "Brutto–Netto Rechner",
-  "tools.bruttoNetto.desc": "Berechne dein ungefähres Nettogehalt aus dem Bruttobetrag.",
-  "tools.bruttoSalary": "Bruttogehalt (€/Monat)",
-  "tools.steuerklasse": "Steuerklasse",
-  "tools.kirchensteuer": "Kirchensteuer",
-  "tools.kinder": "Kinder (ja/nein)",
-  "tools.calculate": "Berechnen",
-  "tools.estimatedNetto": "Geschätztes Netto",
-  "tools.incomeTax": "Einkommensteuer",
-  "tools.officialTitle": "Offizielle Rechner",
-  "tools.officialDesc": "Links führen zu offiziellen Seiten deutscher Institutionen.",
-  "tools.openOfficial": "Offiziellen Rechner öffnen",
-  "tools.disclaimer": "Alle Berechnungen sind unverbindlich. BalkanLink übernimmt keine Haftung für die Richtigkeit.",
-  "tools.kindergeld": "Kindergeld-Rechner",
-  "tools.kindergeld.desc": "Berechne die Höhe des Kindergeldes.",
-  "tools.kinderzuschlag": "KiZ-Lotse",
-  "tools.kinderzuschlag.desc": "Prüfe deinen Anspruch auf Kinderzuschlag.",
-  "tools.buergergeld": "Bürgergeld-Rechner",
-  "tools.buergergeld.desc": "Berechne die Höhe des Bürgergeldes.",
-  "tools.elterngeld": "Elterngeld-Rechner",
-  "tools.elterngeld.desc": "Berechne die Höhe des Elterngeldes.",
-  "tools.rente": "Renten-Rechner",
-  "tools.rente.desc": "Schätze deine künftige Rente.",
-};
+
 
 const newKeysEn: Partial<TranslationKeys> = {
   "auth.pwRule.title": "Password must contain:",
@@ -904,45 +778,7 @@ const miscHr: Partial<TranslationKeys> = {
   "notfound.back": "Natrag na početnu",
 };
 
-const miscDe: Partial<TranslationKeys> = {
-  "auth.loginTitle": "Anmelden", "auth.loginDesc": "E-Mail und Passwort eingeben.",
-  "auth.email": "E-Mail", "auth.password": "Passwort",
-  "auth.loginButton": "Anmelden", "auth.loginLoading": "Anmeldung...",
-  "auth.loginError": "Anmeldefehler", "auth.loginSuccess": "Erfolgreich angemeldet!",
-  "auth.registerTitle": "Registrieren", "auth.registerDesc": "Neues Konto mit E-Mail erstellen.",
-  "auth.confirmPassword": "Passwort bestätigen", "auth.registerButton": "Registrieren",
-  "auth.registerLoading": "Registrierung...",
-  "auth.passwordMismatch": "Passwörter stimmen nicht überein",
-  "auth.passwordTooShort": "Passwort erfüllt nicht alle Anforderungen",
-  "auth.registerError": "Registrierungsfehler",
-  "auth.registerSuccess": "Registrierung erfolgreich!",
-  "auth.registerCheckEmail": "Überprüfen Sie Ihre E-Mail zur Bestätigung.",
-  "auth.haveAccount": "Bereits ein Konto?", "auth.forgotPassword": "Passwort vergessen?",
-  "auth.noAccount": "Noch kein Konto?",
-  "auth.forgotTitle": "Passwort vergessen", "auth.forgotDesc": "E-Mail eingeben zum Zurücksetzen.",
-  "auth.sendLink": "Link senden", "auth.sending": "Wird gesendet...",
-  "auth.checkEmail": "E-Mail prüfen",
-  "auth.checkEmailDesc": "Falls ein Konto existiert, senden wir einen Reset-Link.",
-  "auth.backToLogin": "Zurück zur Anmeldung",
-  "auth.resetTitle": "Neues Passwort", "auth.resetDesc": "Neues Passwort für Ihr Konto eingeben.",
-  "auth.newPassword": "Neues Passwort", "auth.saveButton": "Passwort speichern",
-  "auth.saving": "Wird gespeichert...",
-  "auth.resetWaiting": "Passwort zurücksetzen",
-  "auth.resetWaitingDesc": "Öffnen Sie den Link in der E-Mail.",
-  "auth.passwordChanged": "Passwort erfolgreich geändert!",
-  "auth.minChars": "Mindestens 8 Zeichen",
-  "auth.termsLabel": "Ich habe die", "auth.termsAGB": "AGB",
-  "auth.termsAnd": "und die", "auth.termsPrivacy": "Datenschutzbestimmungen",
-  "auth.termsAccept": "gelesen und akzeptiere sie.", "auth.termsRequired": "Bitte akzeptieren Sie die AGB und Datenschutzbestimmungen.",
-  "footer.legal": "Rechtliches", "footer.haftung": "Haftungsausschluss",
-  "footer.mitgliedschaft": "Mitgliedschaft", "footer.kiHinweis": "KI-Hinweis",
-  "hero.cta.register": "Kostenlos registrieren", "hero.cta.firstSteps": "Erste Schritte ansehen",
-  "notfound.title": "Seite nicht gefunden", "notfound.desc": "Die gesuchte Seite existiert nicht.",
-  "notfound.back": "Zurück zur Startseite",
-  "common.error": "Fehler", "common.legalBasis": "Gesetzliche Grundlage",
-  "common.officialSource": "Offizielle Quelle", "common.moreSource": "Weitere Quelle",
-  "common.all": "Alle", "common.back": "Zurück",
-};
+
 
 const miscEn: Partial<TranslationKeys> = {
   "auth.loginTitle": "Sign In", "auth.loginDesc": "Enter your email and password.",
@@ -1065,57 +901,7 @@ const miscMk: Partial<TranslationKeys> = {
 };
 
 // --- Home / Footer / Premium page keys ---
-const homeDe: Partial<TranslationKeys> = {
-  "nav.plus": "Plus",
-  "home.hero.title": "Dein Guide für das Leben", "home.hero.highlight": "in Deutschland.",
-  "home.hero.subtitle": "Alles was du brauchst — an einem Ort.",
-  "home.hero.cta": "Kostenlos starten", "home.hero.howItWorks": "So funktioniert BalkanLink →",
-  "home.card.majstor": "Handwerker finden", "home.card.posao": "Job suchen", "home.card.stan": "Wohnung suchen",
-  "home.card.papiri": "Hilfe mit Dokumenten", "home.card.restorani": "Balkan Restaurants",
-  "home.card.prodavnice": "Balkan Geschäfte", "home.card.prevoz": "Reisen & Transport", "home.card.pitanje": "Frage stellen",
-  "home.card.kultura": "Kultur & Gemeinschaft", "home.card.sport": "Sport & Vereine",
-  "home.trust.title": "Über 10.000 Nutzer vertrauen", "home.trust.subtitle": "Die Balkan Community in Deutschland nutzt BalkanLink für den Alltag.",
-  "home.trust.community": "Menschen aus Südosteuropa — vereint in Deutschland",
-  "home.example.1": "Kind in der Schule anmelden", "home.example.2": "Umzug in eine neue Stadt",
-  "home.example.3": "Inkasso-Brief erhalten", "home.example.4": "Jobwechsel", "home.example.5": "Auto kaufen",
-  "home.testimonials.title": "Unsere Community sagt",
-  "home.testimonials.cities": "Berlin · München · Frankfurt · Stuttgart · Köln",
-  "home.review1.text": "Ohne BalkanLink hätte ich Tage mit der Informationssuche verloren. Jetzt habe ich alles an einem Ort.",
-  "home.review2.text": "Den Kindergeld-Antrag habe ich in 15 Minuten mit der Schritt-für-Schritt-Anleitung erledigt. Empfehlung!",
-  "home.review3.text": "Endlich eine Plattform, die uns versteht. Professionell, schnell und in unserer Sprache.",
-  "home.review4.text": "Alle Infos an einem Ort — von Wohnung bis Job. Die Balkan Community in Deutschland hat endlich ihre Plattform.",
-  "home.premium.title": "BalkanLink", "home.premium.subtitle": "Alles was du brauchst — ohne Umwege.",
-  "home.premium.step1": "Formulare Schritt-für-Schritt", "home.premium.step2": "Direktlinks zu offiziellen Behörden",
-  "home.premium.step3": "Geprüfte Kontakte", "home.premium.step4": "Priorisierte Antworten",
-  "home.premium.step5": "Partner Vorteile",
-  "home.premium.cta": "Plus aktivieren", "home.premium.cancel": "Jederzeit kündbar.",
-  "footer.tagline": "Alles was du für das Leben in Deutschland brauchst — an einem Ort.",
-  "footer.navSection": "Navigation", "footer.legalSection": "Rechtliches",
-  "footer.trustSection": "Vertrauen",
-  "footer.navHome": "Startseite", "footer.navHow": "Wie es funktioniert", "footer.navPremium": "Premium",
-  "footer.trustRating": "Nutzerzufriedenheit", "footer.trustUsers": "Nutzer verwenden BalkanLink",
-  "footer.navFormulari": "Formulare",
-  "home.section.title": "Hilfe in Deutschland", "home.section.subtitle": "Arbeit • Wohnung • Formulare • Gesundheit • Förderungen",
-  "home.item.posao": "Arbeit", "home.item.stan": "Wohnung", "home.item.formulari": "Formulare & Anträge",
-  "home.item.rechner": "Rechner & Kalkulatoren", "home.item.prijava": "Anmeldung",
-  "home.item.zdravstvo": "Gesundheit & Versicherung", "home.item.banka": "Bank & Konto",
-  "home.item.auto": "Auto & Zulassung", "home.item.foerderungen": "Förderungen & Staatshilfe",
-  "home.item.dokumentenCheck": "Dokumenten-Check",
-  "home.hero.ctaButton": "Formulare finden",
-  "home.formulare.title": "Formulare — Hilfe beim Ausfüllen", "home.formulare.subtitle": "Schritt-für-Schritt Anleitungen für die wichtigsten deutschen Formulare.",
-  "home.tools.title": "Tools & Rechner", "home.tools.subtitle": "Nützliche Werkzeuge für den Alltag.",
-  "home.cat.familie": "Familie & Kinder", "home.cat.finanzen": "Finanzen & Steuern", "home.cat.wohnen": "Wohnen",
-  "home.cat.arbeit": "Arbeit", "home.cat.dokumente": "Dokumente", "home.cat.fahrzeuge": "Fahrzeuge",
-  "home.cat.gesundheit": "Gesundheit",
-  "home.search.placeholder": "Suche (z.B. Kindergeld, Wohngeld, Anmeldung...)",
-  "home.schnellzugriff.title": "Schnellzugriff", "home.schnellzugriff.subtitle": "Direktlinks zu den wichtigsten Bereichen.",
-  "home.schnellzugriff.wohnung": "Wohnung finden", "home.schnellzugriff.job": "Jobsuche",
-  "home.schnellzugriff.biete": "Biete / Suche",
-  "home.dokcheck.title": "Dokumenten-Check", "home.dokcheck.subtitle": "Prüfe ob du alle Unterlagen hast.", "home.dokcheck.cta": "Jetzt prüfen",
-  "home.aufenthalt.title": "Aufenthalt & Aufenthaltstitel", "home.aufenthalt.subtitle": "Informationen zu Aufenthaltsgenehmigung und Visum.",
-  "home.aufenthalt.boravak": "Aufenthaltserlaubnis", "home.aufenthalt.koraci": "Erste Schritte", "home.aufenthalt.dozvola": "Führerschein",
-  "home.ad.placeholder": "Werbeplatz",
-};
+
 
 const homeBs: Partial<TranslationKeys> = {
   "nav.plus": "Plus",
@@ -1221,28 +1007,7 @@ const homeEn: Partial<TranslationKeys> = {
   "home.ad.placeholder": "Ad space",
 };
 
-const premiumDe: Partial<TranslationKeys> = {
-  "premium.badge": "Premium", "premium.title": "BalkanLink Premium",
-  "premium.subtitle": "Voller Zugang zu allem, was du für dein Leben in Deutschland brauchst.",
-  "premium.price": "Ab 9 €/Monat · Jederzeit kündbar",
-  "premium.heroCta": "Premium aktivieren", "premium.heroFree": "Weiter mit Free",
-  "premium.compareTitle": "Free vs. Premium",
-  "premium.compareSubtitle": "Vergleiche die Zugangsstufen und finde die richtige für dich.",
-  "premium.row.categories": "Zugriff auf alle Kategorien", "premium.row.community": "Orte & Community entdecken",
-  "premium.row.ai": "Einfache KI-Antworten", "premium.row.search": "Suche nutzen",
-  "premium.row.forms": "Schritt-für-Schritt Formularhilfe", "premium.row.assistant": "Persönlicher Assistent",
-  "premium.row.templates": "Vorlagen & Generatoren", "premium.row.priority": "Priorisierte Informationen",
-  "premium.row.badge": "Premium Badge im Profil",
-  "premium.pricingTitle": "Wähle deinen Plan", "premium.pricingSubtitle": "Kein Risiko. Jederzeit kündbar.",
-  "premium.monthly": "Monatlich", "premium.yearly": "Jährlich",
-  "premium.perMonth": "/ Monat", "premium.perYear": "/ Jahr",
-  "premium.flexible": "Flexibel, ohne Bindung.", "premium.bestOffer": "Bestes Angebot",
-  "premium.save": "Spare 59 € pro Jahr", "premium.active": "Aktiv ✓",
-  "premium.soon": "Bald verfügbar", "premium.free": "Free",
-  "premium.noContract": "Keine Vertragsbindung", "premium.cancelAnytime": "Jederzeit kündbar",
-  "premium.forCommunity": "Für die Balkan-Community in Deutschland",
-  "premium.function": "Funktion",
-};
+
 
 const premiumBs: Partial<TranslationKeys> = {
   "premium.badge": "Premium", "premium.title": "BalkanLink Premium",
@@ -1625,42 +1390,6 @@ const translations: Record<Language, TranslationKeys> = {
     "dir.loginRequired": "Мора да бидеш најавен за да додадеш бизнис.",
     ...missionsMk as any, ...portalMk as any, ...miscMk as any, ...homeMk as any, ...premiumMk as any, ...newKeysMk as any, ...indexChatMk as any,
   },
-  de: {
-    "nav.home": "Startseite", "nav.qa": "Fragen & Antworten", "nav.directory": "Verzeichnis",
-    "nav.login": "Anmelden", "nav.register": "Registrieren", "nav.logout": "Abmelden",
-    "hero.slide1.title": "Dein Guide für das Leben in Deutschland",
-    "hero.slide1.subtitle": "Geprüfte Informationen, Schritt für Schritt — in deiner Sprache.",
-    "hero.slide2.title": "Städte, die zur Heimat werden",
-    "hero.slide2.subtitle": "München, Berlin, Frankfurt — finde deinen Weg.",
-    "hero.slide3.title": "Karriere ohne Grenzen",
-    "hero.slide3.subtitle": "Job, Lebenslauf, Vorstellungsgespräch und Arbeitsrecht — alles an einem Ort.",
-    "cta.new.title": "Starte hier", "cta.new.desc": "Dokumente, Anmeldung, erste Schritte.",
-    "cta.daily.title": "Leben & Tipps", "cta.daily.desc": "Wohnung, Arbeit, Steuern, Gesundheit.",
-    "cta.help.title": "Hilfe nötig", "cta.help.desc": "Schnelle Lösungen für Probleme.",
-    "countries.title": "Für den gesamten Balkan",
-    "categories.title": "Kategorien", "categories.subtitle": "Wähle ein Thema und finde die Antwort in Sekunden.",
-    "business.title": "Hast du ein Geschäft?", "business.subtitle": "Füge dein Unternehmen in unser Verzeichnis ein und werde sichtbar.",
-    "business.search": "Verzeichnis durchsuchen", "business.add": "Geschäft hinzufügen",
-    "qa.title": "Fragen & Antworten", "qa.subtitle": "Finde die Antwort auf deine Frage — schnell und in deiner Sprache.",
-    "qa.search": "Suchen...", "qa.all": "Alle Themen", "qa.results": "Ergebnisse",
-    "qa.empty": "Keine Ergebnisse. Versuche einen anderen Suchbegriff.",
-    "dir.title": "Branchenverzeichnis", "dir.subtitle": "Finde Balkan-Unternehmen in Deutschland.",
-    "dir.add": "Geschäft hinzufügen", "dir.searchPlaceholder": "Nach Name, Stadt suchen...",
-    "dir.filterCity": "Stadt", "dir.filterCategory": "Kategorie", "dir.filterOrigin": "Herkunftsland",
-    "dir.allCities": "Alle Städte", "dir.allCategories": "Alle Kategorien", "dir.allOrigins": "Alle Länder",
-    "dir.results": "Ergebnisse", "dir.clearFilters": "Filter löschen", "dir.empty": "Keine Unternehmen zum Anzeigen.",
-    "dir.submitTitle": "Füge dein Geschäft hinzu",
-    "dir.submitSubtitle": "Fülle das Formular aus und dein Geschäft wird nach Prüfung sichtbar.",
-    "dir.backToDirectory": "Zurück zum Verzeichnis",
-    "dir.fieldName": "Geschäftsname", "dir.fieldCategory": "Kategorie", "dir.fieldCity": "Stadt",
-    "dir.fieldOrigin": "Herkunftsland", "dir.fieldAddress": "Adresse", "dir.fieldPhone": "Telefon",
-    "dir.fieldWebsite": "Webseite", "dir.fieldDescription": "Beschreibung",
-    "dir.submit": "Absenden", "dir.submitting": "Wird gesendet...",
-    "dir.submitSuccess": "Geschäft hinzugefügt! Wird nach Prüfung sichtbar.",
-    "dir.submitError": "Fehler. Versuche es erneut.",
-    "dir.loginRequired": "Du musst angemeldet sein, um ein Geschäft hinzuzufügen.",
-    ...missionsDe as any, ...portalDe as any, ...miscDe as any, ...homeDe as any, ...premiumDe as any, ...newKeysDe as any, ...indexChatDe as any,
-  },
   sl: {
     "nav.home": "Domov", "nav.qa": "Vprašanja in odgovori", "nav.directory": "Imenik",
     "nav.login": "Prijava", "nav.register": "Registracija", "nav.logout": "Odjava",
@@ -1693,7 +1422,6 @@ const vorlagenKeys: Record<string, Record<string, string>> = {
   sq: { "vorlagen.sidebarTitle": "Shabllone / Vorlagen", "vorlagen.subtitle": "Shabllone për shkresa më të rëndësishme.", "vorlagen.comingSoon": "Së shpejti", "vorlagen.sectionWork": "E drejta e punës & Karriera", "vorlagen.sectionService": "Shërbime / Kontrata", "vorlagen.bewerbung": "Aplikim për punë (Bewerbung)", "vorlagen.lebenslauf": "CV (Lebenslauf)", "vorlagen.anschreiben": "Letër motivimi (Anschreiben)", "vorlagen.kuendigung": "Dorëheqje (Kündigung)", "vorlagen.fristlose": "Dorëheqje e menjëhershme (Fristlose Kündigung)", "vorlagen.probezeit": "Dorëheqje në periudhën provuese", "vorlagen.widerruf": "Revokacion (Widerruf)", "vorlagen.vertragKuendigung": "Anulim kontrate", "vorlagen.reklamation": "Ankesë (Reklamation)" },
   xk: { "vorlagen.sidebarTitle": "Shabllone / Vorlagen", "vorlagen.subtitle": "Shabllone për shkresa më të rëndësishme.", "vorlagen.comingSoon": "Së shpejti", "vorlagen.sectionWork": "E drejta e punës & Karriera", "vorlagen.sectionService": "Shërbime / Kontrata", "vorlagen.bewerbung": "Aplikim për punë (Bewerbung)", "vorlagen.lebenslauf": "CV (Lebenslauf)", "vorlagen.anschreiben": "Letër motivimi (Anschreiben)", "vorlagen.kuendigung": "Dorëheqje (Kündigung)", "vorlagen.fristlose": "Dorëheqje e menjëhershme (Fristlose Kündigung)", "vorlagen.probezeit": "Dorëheqje në periudhën provuese", "vorlagen.widerruf": "Revokacion (Widerruf)", "vorlagen.vertragKuendigung": "Anulim kontrate", "vorlagen.reklamation": "Ankesë (Reklamation)" },
   mk: { "vorlagen.sidebarTitle": "Шаблони / Vorlagen", "vorlagen.subtitle": "Шаблони за најважни писма.", "vorlagen.comingSoon": "Наскоро", "vorlagen.sectionWork": "Работно право & Кариера", "vorlagen.sectionService": "Услуги / Договори", "vorlagen.bewerbung": "Аплицирање за работа (Bewerbung)", "vorlagen.lebenslauf": "Биографија (Lebenslauf)", "vorlagen.anschreiben": "Придружно писмо (Anschreiben)", "vorlagen.kuendigung": "Отказ (Kündigung)", "vorlagen.fristlose": "Вонреден отказ (Fristlose Kündigung)", "vorlagen.probezeit": "Отказ во пробен рок", "vorlagen.widerruf": "Повлекување (Widerruf)", "vorlagen.vertragKuendigung": "Раскинување на договор", "vorlagen.reklamation": "Рекламација (Reklamation)" },
-  de: { "vorlagen.sidebarTitle": "Vorlagen", "vorlagen.subtitle": "Vorlagen für die wichtigsten Schreiben im Alltag.", "vorlagen.comingSoon": "Demnächst verfügbar", "vorlagen.sectionWork": "Arbeitsrecht & Karriere", "vorlagen.sectionService": "Kundenservice / Verträge", "vorlagen.bewerbung": "Bewerbung", "vorlagen.lebenslauf": "Lebenslauf", "vorlagen.anschreiben": "Anschreiben", "vorlagen.kuendigung": "Kündigungsschreiben", "vorlagen.fristlose": "Fristlose Kündigung", "vorlagen.probezeit": "Kündigung in der Probezeit", "vorlagen.widerruf": "Widerruf", "vorlagen.vertragKuendigung": "Kündigung von Verträgen", "vorlagen.reklamation": "Reklamation" },
   sl: { "vorlagen.sidebarTitle": "Predloge / Vorlagen", "vorlagen.subtitle": "Predloge za najpomembnejša pisma v vsakdanjem življenju.", "vorlagen.comingSoon": "Kmalu na voljo", "vorlagen.sectionWork": "Delovno pravo & Kariera", "vorlagen.sectionService": "Storitve / Pogodbe", "vorlagen.bewerbung": "Prijava za delo (Bewerbung)", "vorlagen.lebenslauf": "Življenjepis (Lebenslauf)", "vorlagen.anschreiben": "Spremno pismo (Anschreiben)", "vorlagen.kuendigung": "Odpoved (Kündigung)", "vorlagen.fristlose": "Izredna odpoved (Fristlose Kündigung)", "vorlagen.probezeit": "Odpoved v poskusni dobi", "vorlagen.widerruf": "Preklic (Widerruf)", "vorlagen.vertragKuendigung": "Prekinitev pogodbe", "vorlagen.reklamation": "Reklamacija (Reklamation)" },
 };
 
@@ -1707,7 +1435,6 @@ const countryNames: Record<string, Record<string, string>> = {
   xk: { "country.BIH": "Bosna dhe Hercegovina", "country.SRB": "Serbia", "country.HR": "Kroacia", "country.ME": "Mali i Zi", "country.MK": "Maqedonia e Veriut", "country.XK": "Kosova", "country.AL": "Shqipëria", "country.SI": "Sllovenia", "restorani.searchCity": "Kërko qytetin…", "prodavnice.searchCity": "Kërko qytetin…" },
   mk: { "country.BIH": "Босна и Херцеговина", "country.SRB": "Србија", "country.HR": "Хрватска", "country.ME": "Црна Гора", "country.MK": "Северна Македонија", "country.XK": "Косово", "country.AL": "Албанија", "country.SI": "Словенија", "restorani.searchCity": "Барај град…", "prodavnice.searchCity": "Барај град…" },
   sl: { "country.BIH": "Bosna in Hercegovina", "country.SRB": "Srbija", "country.HR": "Hrvaška", "country.ME": "Črna gora", "country.MK": "Severna Makedonija", "country.XK": "Kosovo", "country.AL": "Albanija", "country.SI": "Slovenija", "restorani.searchCity": "Išči mesto…", "prodavnice.searchCity": "Išči mesto…" },
-  de: { "country.BIH": "Bosnien und Herzegowina", "country.SRB": "Serbien", "country.HR": "Kroatien", "country.ME": "Montenegro", "country.MK": "Nordmazedonien", "country.XK": "Kosovo", "country.AL": "Albanien", "country.SI": "Slowenien", "restorani.searchCity": "Stadt suchen…", "prodavnice.searchCity": "Stadt suchen…" },
 };
 
 // UI extra keys: contact form, firm detail, header menu
@@ -1752,46 +1479,7 @@ const calcBs: Record<string, string> = {
   "calc.disclaimerFull": "Ovaj Brutto-Netto-Rechner služi samo za neobavezujuću orijentaciju. Sve informacije bez garancije. Moguća su odstupanja od stvarnog obračuna plate.",
   "calc.disclaimerAdvice": "Za obavezujuće informacije obrati se poreznom savjetniku ili Finanzamtu.",
 };
-const calcDe: Record<string, string> = {
-  "calc.breadcrumbTools": "Tools", "calc.breadcrumbCalc": "Brutto-Netto Rechner",
-  "calc.pageTitle": "Brutto-Netto Rechner Deutschland", "calc.pageSubtitle": "Berechne dein Netto-Gehalt schnell – alle Angaben ohne Gewähr.",
-  "calc.pageNote": "Ergebnis ist eine Orientierung. Abweichungen zur echten Abrechnung möglich.",
-  "calc.inputsTitle": "Eingaben", "calc.sectionSalary": "Gehalt", "calc.grossSalary": "Bruttogehalt (€)",
-  "calc.grossSalaryTip": "Dein monatliches oder jährliches Bruttogehalt vor allen Abzügen.",
-  "calc.period": "Zeitraum", "calc.monthly": "Monatlich", "calc.yearly": "Jährlich",
-  "calc.sectionTax": "Steuer", "calc.taxClass": "Steuerklasse",
-  "calc.taxClassTip": "Steuerklasse bestimmt deine Lohnsteuer. 1=ledig, 2=alleinerziehend, 3=verheiratet (Alleinverdiener), 4=verheiratet (beide verdienen), 5=Partner von Kl.3, 6=Zweitjob.",
-  "calc.federalState": "Bundesland", "calc.federalStateTip": "Dein Bundesland bestimmt den Kirchensteuersatz (8% in BW/BY, 9% sonst).",
-  "calc.taxYear": "Steuerjahr", "calc.churchTax": "Kirchensteuer",
-  "calc.churchTaxTip": "Kirchensteuer wird von der Lohnsteuer berechnet: 8% in BW/BY, 9% in anderen Bundesländern.",
-  "calc.sectionPersonal": "Persönlich", "calc.age": "Alter",
-  "calc.ageTip": "Ab 23 Jahren ohne Kinder: Zuschlag zur Pflegeversicherung.",
-  "calc.childAllowance": "Kinderfreibetrag", "calc.childAllowanceTip": "0.5 pro Kind, 1.0 bei alleinigem Anspruch. Wird bei der Steuer berücksichtigt.",
-  "calc.childrenUnder25": "Kinder <25", "calc.childrenUnder25Tip": "Anzahl leiblicher Kinder unter 25: reduziert den PV-Beitrag ab dem 2. Kind.",
-  "calc.childless": "Kinderlos",
-  "calc.sectionHealth": "Krankenversicherung", "calc.statutory": "Gesetzlich (GKV)", "calc.private": "Privat (PKV)",
-  "calc.additionalContribution": "Zusatzbeitrag (%)", "calc.additionalContributionTip": "Kassenindividueller Zusatzbeitrag (Gesamtsatz). AN zahlt die Hälfte. Durchschnitt 2025: ca. 2,5%.",
-  "calc.pkvAmount": "PKV-Beitrag (€/Monat)", "calc.pkvAmountTip": "Dein monatlicher PKV-Beitrag wird als direkte Abzugsposition behandelt.",
-  "calc.socialDetails": "Sozialversicherung (Details)",
-  "calc.pension": "Rentenversicherung", "calc.unemployment": "Arbeitslosenversicherung",
-  "calc.nursingCare": "Pflegeversicherung", "calc.healthInsurance": "Krankenversicherung",
-  "calc.advanced": "Erweitert", "calc.allowance": "Freibetrag (€/Jahr)",
-  "calc.allowanceTip": "Jährlicher Steuerfreibetrag, z.B. Werbungskosten über Pauschbetrag, Sonderausgaben.",
-  "calc.oneTimePayment": "Einmalzahlung (€)", "calc.oneTimePaymentTip": "Einmalige Sonderzahlung/Bonus im Jahr.",
-  "calc.churchTaxOverride": "Kirchensteuersatz (%) Override", "calc.churchTaxOverrideTip": "Manuelle Überschreibung des Kirchensteuersatzes.",
-  "calc.reset": "Zurücksetzen", "calc.share": "Teilen",
-  "calc.resetSuccess": "Eingaben zurückgesetzt", "calc.shareSuccess": "Link kopiert!",
-  "calc.resultTitle": "Dein Ergebnis", "calc.netPerMonth": "Netto / Monat", "calc.netPerYear": "Netto / Jahr", "calc.grossPerMonth": "Brutto / Monat",
-  "calc.legendTax": "Steuern", "calc.legendSocial": "Sozialabgaben", "calc.legendNet": "Netto",
-  "calc.incomeTax": "Lohnsteuer", "calc.soliSurcharge": "Solidaritätszuschlag", "calc.totalTax": "Steuern gesamt",
-  "calc.socialAN": "Sozialabgaben (AN)", "calc.inclZB": "inkl. ZB", "calc.pkvLabel": "PKV-Beitrag",
-  "calc.inclSurcharge": "inkl. Zuschlag", "calc.totalSocial": "Sozialabgaben gesamt",
-  "calc.infoNote": "Schätzung des Nettogehalts in Deutschland. Ergebnis kann je nach Krankenversicherung, Boni und weiteren Abzügen variieren.",
-  "calc.employerTitle": "Arbeitgeberkosten", "calc.totalEmployer": "Gesamt AG-Kosten", "calc.employerNote": "Brutto + AG-Anteile Sozialversicherung",
-  "calc.disclaimerShort": "Das Ergebnis ist eine Näherung und kann von deiner Lohnabrechnung abweichen.",
-  "calc.disclaimerFull": "Dieser Brutto-Netto-Rechner dient nur zur unverbindlichen Orientierung. Alle Angaben ohne Gewähr. Es können Abweichungen zur tatsächlichen Gehaltsabrechnung auftreten.",
-  "calc.disclaimerAdvice": "Für verbindliche Auskünfte wende dich an Steuerberater/in oder Finanzamt.",
-};
+
 
 // --- Community translations ---
 const communityKeys: Record<string, Record<string, string>> = {
@@ -1803,7 +1491,6 @@ const communityKeys: Record<string, Record<string, string>> = {
   xk: { "community.title": "Komuniteti", "community.subtitle": "Diaspora ballkanike në Gjermani — bashkësi fetare, shoqata kulturore dhe klube sportive." },
   mk: { "community.title": "Заедница", "community.subtitle": "Балканска дијаспора во Германија — верски заедници, културни здруженија и спортски клубови." },
   sl: { "community.title": "Skupnost", "community.subtitle": "Balkanska diaspora v Nemčiji — verske skupnosti, kulturna društva in športni klubi." },
-  de: { "community.title": "Community", "community.subtitle": "Balkan-Diaspora in Deutschland — Religiöse Gemeinden, Kulturvereine & Sportklubs." },
 };
 
 const uiExtraKeys: Record<string, Record<string, string>> = {
@@ -1835,10 +1522,6 @@ const uiExtraKeys: Record<string, Record<string, string>> = {
     "hero.title": "Твојот водич низ", "hero.titleHighlight": "германскиот систем.", "hero.title_highlight": "германскиот систем.", "hero.subtitle": "Пополни ги сите важни формулари со јасни објаснувања — чекор по чекор, на твој јазик.", "hero.ctaPrimary": "Започни водич", "hero.ctaSecondary": "Или прашај го BalkanLink асистентот", "hero.bullet.simple": "Без компликации", "hero.bullet.language": "На твој јазик", "hero.bullet.verified": "Проверени информации",
     "chatbot.trigger": "Реши проблем →", "chatbot.triggerSub": "Прашај го BalkanLink асистентот", "chatbot.welcome": "Како можам да ти помогнам?", "chatbot.welcomeSub": "Постави прашање и ќе добиеш јасен одговор и следен чекор.", "chatbot.placeholder": "Напр. Kindergeld, стан, работа, AGB...",
     "formCenter.smartGuideLabel": "Smart Guide – чекор по чекор", "formCenter.searchPlaceholder": "Пребарај формулар…", "formCenter.noResults": "Нема резултати.", "formCenter.selectForm": "Избери формулар", "formCenter.selectFormDesc": "Кликни на било кој формулар од левата страна за детални упатства за пополнување." },
-  de: { "contact.title": "Kontakt", "contact.subtitle": "Senden Sie uns eine Nachricht.", "contact.firstName": "Vorname", "contact.lastName": "Nachname", "contact.email": "E-Mail", "contact.message": "Ihre Nachricht", "contact.send": "Nachricht senden", "header.pricelist": "Paketi i opcije", "firm.notFound": "Firma nicht gefunden", "firm.back": "Zurück zur Startseite", "firm.recommended": "Empfohlen", "firm.visitWebsite": "Webseite besuchen", "firm.contact": "Kontakt",
-    "hero.title": "Dein Wegweiser durch das", "hero.titleHighlight": "deutsche System.", "hero.title_highlight": "deutsche System.", "hero.subtitle": "Fülle alle wichtigen Formulare mit klaren Erklärungen aus — Schritt für Schritt, in deiner Sprache.", "hero.ctaPrimary": "Leitfaden starten", "hero.ctaSecondary": "Oder frag den BalkanLink Assistenten", "hero.bullet.simple": "Ohne Komplikationen", "hero.bullet.language": "In deiner Sprache", "hero.bullet.verified": "Geprüfte Informationen",
-    "chatbot.trigger": "Problem lösen →", "chatbot.triggerSub": "Frag den BalkanLink Assistenten", "chatbot.welcome": "Wie kann ich dir helfen?", "chatbot.welcomeSub": "Stelle eine Frage und erhalte eine klare Antwort und den nächsten Schritt.", "chatbot.placeholder": "Z.B. Kindergeld, Wohnung, Arbeit, AGB...",
-    "formCenter.smartGuideLabel": "Smart Guide – Schritt für Schritt", "formCenter.searchPlaceholder": "Formular suchen…", "formCenter.noResults": "Keine Ergebnisse.", "formCenter.selectForm": "Formular auswählen", "formCenter.selectFormDesc": "Klicke auf ein Formular links, um die detaillierte Ausfüllanleitung zu sehen." },
   sl: { "contact.title": "Kontakt", "contact.subtitle": "Pošljite nam sporočilo.", "contact.firstName": "Ime", "contact.lastName": "Priimek", "contact.email": "E-pošta", "contact.message": "Vaše sporočilo", "contact.send": "Pošlji sporočilo", "header.pricelist": "Paketi in možnosti", "firm.notFound": "Podjetje ni najdeno", "firm.back": "Nazaj na domov", "firm.recommended": "Priporočeno", "firm.visitWebsite": "Obiščite spletno stran", "firm.contact": "Kontakt",
     "hero.title": "Tvoj vodnik po", "hero.titleHighlight": "nemškem sistemu.", "hero.title_highlight": "nemškem sistemu.", "hero.subtitle": "Izpolnite vse pomembne obrazce z jasnimi razlagami — korak za korakom, v vašem jeziku.", "hero.ctaPrimary": "Začni vodič", "hero.ctaSecondary": "Ali vprašaj BalkanLink asistenta", "hero.bullet.simple": "Brez zapletov", "hero.bullet.language": "V vašem jeziku", "hero.bullet.verified": "Preverjene informacije",
     "chatbot.trigger": "Reši problem →", "chatbot.triggerSub": "Vprašaj BalkanLink asistenta", "chatbot.welcome": "Kako vam lahko pomagam?", "chatbot.welcomeSub": "Zastavite vprašanje in dobili boste jasen odgovor in naslednji korak.", "chatbot.placeholder": "Npr. Kindergeld, stanovanje, delo, AGB...",
@@ -1855,7 +1538,6 @@ const navBackKeys: Record<string, Record<string, string>> = {
   xk: { "nav.back": "Prapa" },
   mk: { "nav.back": "Назад" },
   sl: { "nav.back": "Nazaj" },
-  de: { "nav.back": "Zurück" },
 };
 
 const trainerKeys: Record<string, Record<string, string>> = {
@@ -1867,7 +1549,6 @@ const trainerKeys: Record<string, Record<string, string>> = {
   xk: { "trainer.tasks": "detyra", "trainer.free": "falas", "trainer.moreTasks": "detyra shtesë", "trainer.unlock": "Zhblloko" },
   mk: { "trainer.tasks": "задачи", "trainer.free": "бесплатно", "trainer.moreTasks": "дополнителни задачи", "trainer.unlock": "Отклучи" },
   sl: { "trainer.tasks": "nalog", "trainer.free": "brezplačno", "trainer.moreTasks": "dodatnih nalog", "trainer.unlock": "Odkleni" },
-  de: { "trainer.tasks": "Aufgaben", "trainer.free": "frei", "trainer.moreTasks": "weitere Aufgaben", "trainer.unlock": "Freischalten" },
 };
 
 const flowBannerKeys: Record<string, Record<string, string>> = {
@@ -1879,7 +1560,6 @@ const flowBannerKeys: Record<string, Record<string, string>> = {
   xk: { "flowBanner.headline": "Çfarë dëshiron të zgjidhësh sot?", "flowBanner.subheadline": "Zgjidh burokracinë pa stres — gjithçka në një vend", "flowBanner.hint": "Nuk di ku të fillosh?", "flowBanner.cta": "Më udhëzo hap pas hapi", "flowBanner.ctaNote": "Fillo me formularët dhe udhëzuesit që të duhen më shumë", "flowBanner.start": "Fillo", "flowBanner.open": "Hap" },
   mk: { "flowBanner.headline": "Што сакаш да решиш денес?", "flowBanner.subheadline": "Реши ја бирократијата без стрес — сè на едно место", "flowBanner.hint": "Не знаеш од каде да почнеш?", "flowBanner.cta": "Води ме чекор по чекор", "flowBanner.ctaNote": "Почни од формуларите и водичите кои ти се најпотребни", "flowBanner.start": "Започни", "flowBanner.open": "Отвори" },
   sl: { "flowBanner.headline": "Kaj želiš urediti danes?", "flowBanner.subheadline": "Uredi birokracijo brez stresa — vse na enem mestu", "flowBanner.hint": "Ne veš, kje začeti?", "flowBanner.cta": "Vodi me korak za korakom", "flowBanner.ctaNote": "Začni z obrazci in vodniki, ki jih najbolj potrebuješ", "flowBanner.start": "Začni", "flowBanner.open": "Odpri" },
-  de: { "flowBanner.headline": "Was möchtest du heute erledigen?", "flowBanner.subheadline": "Papierkram ohne Stress — alles an einem Ort", "flowBanner.hint": "Weißt du nicht, wo du anfangen sollst?", "flowBanner.cta": "Schritt für Schritt führen", "flowBanner.ctaNote": "Starte mit den Formularen und Guides, die du brauchst", "flowBanner.start": "Starten", "flowBanner.open": "Öffnen" },
 };
 
 // New i18n keys: paywall, viza, sidebar extras, common extras, catalog
@@ -1892,7 +1572,6 @@ const catalogKeys: Record<string, Record<string, string>> = {
   xk: { "catalog.dolazak": "Mbërritja dhe regjistrimi", "catalog.porodica": "Familja dhe fëmijët", "catalog.buergergeld": "Bürgergeld", "catalog.wohngeld": "Wohngeld (ndihmë strehimi)", "catalog.sozialhilfe": "Sozialhilfe (ndihmë sociale)", "catalog.heizkosten": "Heizkostenzuschuss (ndihmë ngrohjeje)", "catalog.posao": "Puna dhe të ardhurat", "catalog.obrazovanje": "Shkolla dhe arsimi", "catalog.dokumenti": "Dokumentet dhe administrata" },
   mk: { "catalog.dolazak": "Доаѓање и пријава", "catalog.porodica": "Семејство и деца", "catalog.buergergeld": "Bürgergeld", "catalog.wohngeld": "Wohngeld (станбен додаток)", "catalog.sozialhilfe": "Sozialhilfe (социјална помош)", "catalog.heizkosten": "Heizkostenzuschuss (додаток за греење)", "catalog.posao": "Работа и приходи", "catalog.obrazovanje": "Училиште и образование", "catalog.dokumenti": "Документи и администрација" },
   sl: { "catalog.dolazak": "Prihod in prijava", "catalog.porodica": "Družina in otroci", "catalog.buergergeld": "Bürgergeld", "catalog.wohngeld": "Wohngeld (stanovanjski dodatek)", "catalog.sozialhilfe": "Sozialhilfe (socialna pomoč)", "catalog.heizkosten": "Heizkostenzuschuss (dodatek za ogrevanje)", "catalog.posao": "Delo in prihodki", "catalog.obrazovanje": "Šola in izobraževanje", "catalog.dokumenti": "Dokumenti in administracija" },
-  de: { "catalog.dolazak": "Ankunft & Anmeldung", "catalog.porodica": "Familie & Kinder", "catalog.buergergeld": "Bürgergeld", "catalog.wohngeld": "Wohngeld", "catalog.sozialhilfe": "Sozialhilfe", "catalog.heizkosten": "Heizkostenzuschuss", "catalog.posao": "Arbeit & Einkommen", "catalog.obrazovanje": "Schule & Ausbildung", "catalog.dokumenti": "Dokumente & Verwaltung" },
 };
 
 const paywallKeys: Record<string, Record<string, string>> = {
@@ -1904,7 +1583,6 @@ const paywallKeys: Record<string, Record<string, string>> = {
   xk: { "paywall.unlockPremium": "Zhblloko Premium — 9,99 €/muj.", "paywall.stepLocked": "Ky hap është i disponueshëm për përdoruesit Premium", "common.officialDisclaimer": "Të gjitha të dhënat vijnë nga burime zyrtare shtetërore.", "sidebar.dolazak": "Mbërritja", "sidebar.formulari": "Formularët", "sidebar.viza": "Navigatori i Vizave", "sidebar.paketi": "Paketat dhe çmimet", "sidebar.kontakt": "Kontakti", "sidebar.prijava": "Hyrje / Regjistrohu", "sidebar.odjava": "Dil", "viza.euCountries": "Shtetet BE", "viza.westernBalkan": "Ballkani Perëndimor", "viza.routes": "Mënyrat e hyrjes dhe qëndrimit", "viza.title": "Navigatori i Vizave", "viza.subtitle": "Gjithçka për vizat, lejet e qëndrimit dhe qëndrimin e përhershëm — sipas shteteve" },
   mk: { "paywall.unlockPremium": "Отклучи Premium — 9,99 €/мес.", "paywall.stepLocked": "Овој чекор е достапен за Premium корисници", "common.officialDisclaimer": "Сите податоци доаѓаат од официјални државни извори.", "sidebar.dolazak": "Пристигнување", "sidebar.formulari": "Формулари", "sidebar.viza": "Виза Навигатор", "sidebar.paketi": "Пакети и цени", "sidebar.kontakt": "Контакт", "sidebar.prijava": "Најава / Регистрација", "sidebar.odjava": "Одјава", "viza.euCountries": "EU земји", "viza.westernBalkan": "Западен Балкан", "viza.routes": "Начини на доаѓање и престој", "viza.title": "Виза Навигатор", "viza.subtitle": "Сè за визи, дозволи за престој и постојан престој — по земји" },
   sl: { "paywall.unlockPremium": "Odkleni Premium — 9,99 €/mes.", "paywall.stepLocked": "Ta korak je na voljo Premium uporabnikom", "common.officialDisclaimer": "Vsi podatki prihajajo iz uradnih državnih virov.", "sidebar.dolazak": "Prihod", "sidebar.formulari": "Formulari", "sidebar.viza": "Viza Navigator", "sidebar.paketi": "Paketi in cene", "sidebar.kontakt": "Kontakt", "sidebar.prijava": "Prijava / Registracija", "sidebar.odjava": "Odjava", "viza.euCountries": "EU države", "viza.westernBalkan": "Zahodni Balkan", "viza.routes": "Načini prihoda in bivanja", "viza.title": "Viza Navigator", "viza.subtitle": "Vse o vizumih, dovoljenjih za bivanje in stalnem bivanju — po državah" },
-  de: { "paywall.unlockPremium": "Premium freischalten — 9,99 €/Monat", "paywall.stepLocked": "Dieser Schritt ist für Premium-Nutzer verfügbar", "common.officialDisclaimer": "Alle Daten stammen aus offiziellen staatlichen Quellen.", "sidebar.dolazak": "Ankunft", "sidebar.formulari": "Formulare", "sidebar.viza": "Visa Navigator", "sidebar.paketi": "Pakete & Preise", "sidebar.kontakt": "Kontakt", "sidebar.prijava": "Anmelden / Registrieren", "sidebar.odjava": "Abmelden", "viza.euCountries": "EU-Länder", "viza.westernBalkan": "Westbalkan", "viza.routes": "Einreise- und Aufenthaltswege", "viza.title": "Visa Navigator", "viza.subtitle": "Alles über Visa, Aufenthaltstitel und dauerhaften Aufenthalt — nach Ländern" },
 };
 
 // Merge country names, vorlagen, UI extras, calc, community, and nav.back into translations
@@ -1919,10 +1597,9 @@ for (const lang of Object.keys(translations) as Language[]) {
   if (paywallKeys[lang]) Object.assign(translations[lang], paywallKeys[lang]);
   if (catalogKeys[lang]) Object.assign(translations[lang], catalogKeys[lang]);
   // Calc keys: bs-based languages fall back to calcBs, de to calcDe
-  const calcMap: Record<string, Record<string, string>> = { de: calcDe };
-  Object.assign(translations[lang], calcMap[lang] ?? calcBs);
+  Object.assign(translations[lang], calcBs);
 }
 
 export function getTranslation(lang: Language, key: keyof TranslationKeys): string {
-  return translations[lang]?.[key] ?? translations.de[key] ?? key;
+  return translations[lang]?.[key] ?? translations.bs[key] ?? key;
 }
