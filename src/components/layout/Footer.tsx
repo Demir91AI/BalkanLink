@@ -128,19 +128,19 @@ export default function Footer() {
         </p>
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 18, flexWrap: "wrap" }}>
           {[
-            { src: "https://cdn.simpleicons.org/visa/ffffff", alt: "Visa" },
-            { src: "https://cdn.simpleicons.org/mastercard/ffffff", alt: "Mastercard" },
-            { src: "https://cdn.simpleicons.org/paypal/ffffff", alt: "PayPal" },
-            { src: "https://cdn.simpleicons.org/applepay/ffffff", alt: "Apple Pay" },
-            { src: "https://cdn.simpleicons.org/googlepay/ffffff", alt: "Google Pay" },
+            { src: "https://img.icons8.com/color/96/visa.png", alt: "Visa" },
+            { src: "https://img.icons8.com/color/96/mastercard-logo.png", alt: "Mastercard" },
+            { src: "https://img.icons8.com/color/96/paypal.png", alt: "PayPal" },
+            { src: "https://img.icons8.com/color/96/apple-pay.png", alt: "Apple Pay" },
+            { src: "https://img.icons8.com/color/96/google-pay.png", alt: "Google Pay" },
           ].map((icon) => (
             <img
               key={icon.alt}
               src={icon.src}
               alt={icon.alt}
-              style={{ height: 22, width: "auto", opacity: 0.7, transition: "opacity 0.2s" }}
+              style={{ height: 28, width: "auto", opacity: 0.85, transition: "opacity 0.2s", filter: "brightness(0) invert(1)" }}
               onMouseEnter={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = "1"; }}
-              onMouseLeave={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = "0.7"; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = "0.85"; }}
             />
           ))}
         </div>
