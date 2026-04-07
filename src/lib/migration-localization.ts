@@ -1,7 +1,7 @@
 import type { Language } from "./translations";
 import type { CountryMigrationData } from "./migration-data";
 
-const LANGUAGE_ALIASES: Record<Language, "bs" | "hr" | "sr" | "me" | "sq" | "mk" | "de"> = {
+const LANGUAGE_ALIASES: Record<Language, "bs" | "hr" | "sr" | "me" | "sq" | "mk"> = {
   bs: "bs",
   hr: "hr",
   sr: "sr",
@@ -10,7 +10,6 @@ const LANGUAGE_ALIASES: Record<Language, "bs" | "hr" | "sr" | "me" | "sq" | "mk"
   xk: "sq",
   mk: "mk",
   sl: "hr",
-  de: "de",
 };
 
 const TRANSLATIONS: Record<"bs" | "hr" | "sr" | "me" | "sq" | "mk", Record<string, string>> = {
@@ -546,10 +545,6 @@ const TRANSLATIONS: Record<"bs" | "hr" | "sr" | "me" | "sq" | "mk", Record<strin
 
 function translateText(language: Language, text: string) {
   const alias = LANGUAGE_ALIASES[language];
-
-  if (alias === "de") {
-    return text;
-  }
 
   return TRANSLATIONS[alias][text] ?? text;
 }

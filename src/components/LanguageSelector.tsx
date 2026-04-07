@@ -4,7 +4,6 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { type Language } from "@/lib/translations";
 
 const LANG_OPTIONS: { code: string; label: string; flag: string }[] = [
-  { code: "de", label: "Deutsch", flag: "https://flagcdn.com/h40/de.png" },
   { code: "bs", label: "Bosanski", flag: "https://flagcdn.com/h40/ba.png" },
   { code: "hr", label: "Hrvatski", flag: "https://flagcdn.com/h40/hr.png" },
   { code: "sr", label: "Srpski", flag: "https://flagcdn.com/h40/rs.png" },
