@@ -411,6 +411,9 @@ export default function DeutschTrainer() {
               >
                 Alle Lektionen freischalten
               </Button>
+              <p style={{ fontSize: 11, fontWeight: 700, color: "#EAB308", marginTop: 6 }}>
+                🎉 Promo cijena — prvih 6 mjeseci
+              </p>
               <div className="mt-4 flex items-center justify-center gap-4 text-[11px] text-white/35">
                 <span>✓ Kein Abo</span>
                 <span>✓ Einmal zahlen</span>

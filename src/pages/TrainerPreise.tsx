@@ -213,6 +213,9 @@ export default function TrainerPreise() {
                   <p className="mt-0.5 text-[11px] font-bold text-[hsl(var(--success))]">
                     {pkg.saving}
                   </p>
+                  <p style={{ fontSize: 11, fontWeight: 700, color: "#EAB308", marginTop: 4, marginBottom: 4 }}>
+                    🎉 Promo cijena — prvih 6 mjeseci
+                  </p>
 
                   {/* Reward highlight */}
                   <div className="mt-3 flex items-center gap-2 rounded-lg bg-gold/10 border border-gold/20 px-3 py-2">
