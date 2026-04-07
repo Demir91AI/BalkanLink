@@ -863,21 +863,6 @@ export default function ChatAssistant() {
                         rows={1}
                         className="flex-1 resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-[13px] text-white outline-none transition-all placeholder:text-white/25 focus:border-[hsl(45,93%,49%)]/40 focus:ring-1 focus:ring-[hsl(45,93%,49%)]/20"
                       />
-                      {/* Document scanner */}
-                      <button
-                        onClick={() => fileInputRef.current?.click()}
-                        className="flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white/40 hover:text-white/70 hover:bg-white/10 transition-all"
-                        title="📷 Slikaj pismo koje ne razumiješ"
-                      >
-                        <Camera className="h-4.5 w-4.5" />
-                      </button>
-                      <input
-                        ref={fileInputRef}
-                        type="file"
-                        accept="image/jpeg,image/png,image/webp,application/pdf"
-                        onChange={handleFileUpload}
-                        className="hidden"
-                      />
                       {/* Send */}
                       <button
                         onClick={sendMessage}
