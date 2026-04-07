@@ -19,8 +19,25 @@ export const STRIPE_PRODUCT_IDS = {
 /**
  * Initiate Stripe checkout via edge function.
  */
-export function initiateCheckout(_priceId: string, _userId: string, _formSlug?: string) {
-  window.location.href = "mailto:kontakt@balkanlink.de?subject=Premium%20pretplata&body=Zdravo%2C%20zanima%20me%20Premium%20pretplata.";
+export async function initiateCheckout(priceId: string, _userId: string, _formSlug?: string) {
+  try {
+    const { data, error } = await supabase.functions.invoke("create-checkout", {
+      body: { priceId },
+    });
+    if (error) throw error;
+    if (data?.url) {
+      window.open(data.url, "_blank");
+    } else {
+      throw new Error("No checkout URL returned");
+    }
+  } catch (err) {
+    console.error("Checkout error:", err);
+    toast({
+      title: "Greška",
+      description: "Nije moguće pokrenuti plaćanje. Pokušajte ponovo.",
+      variant: "destructive",
+    });
+  }
 }
 
 /**
