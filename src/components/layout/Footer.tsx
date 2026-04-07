@@ -108,11 +108,8 @@ export default function Footer() {
             style={linkStyle}
             className="footer-link"
           >
-            📧 kontakt@balkanlink.de
+            kontakt@balkanlink.de
           </a>
-          <p style={{ fontSize: 13, color: "rgba(255,255,255,0.55)", marginTop: 8, lineHeight: 1.6 }}>
-            Reklamierung: kontakt@balkanlink.de
-          </p>
         </div>
       </div>
 
