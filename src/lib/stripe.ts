@@ -17,19 +17,6 @@ export const STRIPE_PRODUCT_IDS = {
 } as const;
 
 /**
- * Determine checkout mode based on price ID
- */
-function getCheckoutMode(priceId: string): "subscription" | "payment" {
-  if (
-    priceId === STRIPE_PRICE_IDS.PREMIUM_MONTHLY ||
-    priceId === STRIPE_PRICE_IDS.PREMIUM_YEARLY
-  ) {
-    return "subscription";
-  }
-  return "payment";
-}
-
-/**
  * Initiate Stripe checkout via edge function.
  */
 export function initiateCheckout(_priceId: string, _userId: string, _formSlug?: string) {
