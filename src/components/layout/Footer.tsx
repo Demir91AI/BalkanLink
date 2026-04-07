@@ -133,11 +133,11 @@ export default function Footer() {
         </p>
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 18, flexWrap: "wrap" }}>
           {[
-            { src: "https://img.icons8.com/color/96/visa.png", alt: "Visa" },
-            { src: "https://img.icons8.com/color/96/mastercard-logo.png", alt: "Mastercard" },
-            { src: "https://img.icons8.com/color/96/paypal.png", alt: "PayPal" },
-            { src: "https://img.icons8.com/color/96/apple-pay.png", alt: "Apple Pay" },
-            { src: "https://img.icons8.com/color/96/google-pay.png", alt: "Google Pay" },
+            { src: visaIcon, alt: "Visa" },
+            { src: mastercardIcon, alt: "Mastercard" },
+            { src: paypalIcon, alt: "PayPal" },
+            { src: applepayIcon, alt: "Apple Pay" },
+            { src: googlepayIcon, alt: "Google Pay" },
           ].map((icon) => (
             <img
               key={icon.alt}
