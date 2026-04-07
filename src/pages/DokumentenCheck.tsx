@@ -450,7 +450,7 @@ export default function DokumentenCheck() {
               <p className="text-lg font-bold text-white mb-2">Dokumenten-Check</p>
               <p className="text-sm text-white/60 mb-6 max-w-sm">2.99€ po dokumentu bez pretplate · Premium uključuje 1 provjeru dnevno</p>
               <div className="flex flex-col gap-3 w-full max-w-xs">
-                <button onClick={() => navigate("/premium")}
+                <button onClick={() => navigate("/pricing")}
                   className="rounded-full bg-[hsl(var(--gold))] px-6 py-3.5 text-[#0f1f3d] font-bold transition-all hover:opacity-90">
                   BalkanLink Premium — 9.99€/mj.
                 </button>
