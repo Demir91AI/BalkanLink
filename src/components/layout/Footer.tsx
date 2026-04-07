@@ -123,8 +123,11 @@ export default function Footer() {
         <div style={{ height: 1, background: "rgba(255,255,255,0.08)" }} />
       </div>
       <div style={{ padding: "20px 24px 16px", textAlign: "center" }}>
-        <p style={{ fontSize: 11, color: "rgba(255,255,255,0.5)", letterSpacing: 1, marginBottom: 6 }}>
-          Sigurna plaćanja: Visa · Mastercard · PayPal · Apple Pay · Google Pay
+        <p style={{ fontSize: 10, color: "rgba(255,255,255,0.4)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 8, textAlign: "center" }}>
+          Sigurna plaćanja
+        </p>
+        <p style={{ fontSize: 12, color: "rgba(255,255,255,0.55)", letterSpacing: 0.5, textAlign: "center", marginBottom: 4 }}>
+          Visa · Mastercard · PayPal · Apple Pay · Google Pay
         </p>
         {/* Trust badges */}
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 16, flexWrap: "wrap", marginTop: 14 }}>
