@@ -57,10 +57,6 @@ const serviceCardKeys = [
 
 const placeholderAds = [
   { name: "RealCore Digital", slogan: "Webdesign · KI · Lösungen", desc: "Professionelle digitale Lösungen.", logo: realcoreDigitalLogo, href: "https://realcore.digital", isReal: true },
-  { name: "Oglasni prostor", slogan: "Vaša firma ovdje", desc: "", logo: "/icons/icon-192x192.png", isReal: false },
-  { name: "Slobodno mjesto", slogan: "Vaša firma ovdje", desc: "", logo: "/icons/icon-192x192.png", isReal: false },
-  { name: "Oglasni prostor", slogan: "Vaša firma ovdje", desc: "", logo: "/icons/icon-192x192.png", isReal: false },
-  { name: "Slobodno mjesto", slogan: "Vaša firma ovdje", desc: "", logo: "/icons/icon-192x192.png", isReal: false },
 ];
 
 /* useInfiniteScroll moved to @/hooks/useInfiniteScroll */
@@ -139,17 +135,8 @@ function ShowcaseCarousel() {
   const { t } = useLanguage();
   const { ref, pause, scheduleResume, scrollByCard, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.7, 3000);
 
-  const emptySlots = [
-    { title: "Vaša firma ovdje", desc: "Premium mjesto za vašu reklamu." },
-    { title: "Vaša firma ovdje", desc: "Premium mjesto za vašu reklamu." },
-    { title: "Vaša firma ovdje", desc: "Premium mjesto za vašu reklamu." },
-  ];
-
-  type CardItem = { type: "firm"; firm: typeof premiumShowcaseFirms[0] } | { type: "empty"; title: string; desc: string };
-  const items: CardItem[] = [
-    ...premiumShowcaseFirms.map((firm) => ({ type: "firm" as const, firm })),
-    ...emptySlots.map((s) => ({ type: "empty" as const, ...s })),
-  ];
+  type CardItem = { type: "firm"; firm: typeof premiumShowcaseFirms[0] };
+  const items: CardItem[] = premiumShowcaseFirms.map((firm) => ({ type: "firm" as const, firm }));
   const doubled = [...items, ...items];
 
   return (
@@ -203,26 +190,7 @@ function ShowcaseCarousel() {
               </article>
             );
           }
-          // Empty placeholder card — same design
-          return (
-            <a key={`empty-${i}`} href={MAILTO_AD} className="min-w-[340px] max-w-[380px] shrink-0 rounded-2xl bg-white border border-[#E8E0D0] overflow-hidden flex flex-col shadow-[0_4px_24px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,0,0,0.14)]">
-              <div className="relative h-[180px] w-full overflow-hidden">
-                <img src={placeholderPartnerImg} alt="Oglasni prostor" className="h-full w-full object-cover" style={{ filter: "brightness(0.92) saturate(1.1)" }} loading="lazy" />
-                <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
-              </div>
-              <div className="flex flex-1 flex-col gap-3 p-5 border-t-[3px] border-[#E8E0D0]">
-                <div>
-                  <h3 className="text-base font-bold text-[#2D2D2D]">{item.title}</h3>
-                  <p className="mt-1 text-xs leading-relaxed text-[#6B6B6B]">{item.desc}</p>
-                </div>
-                <div className="mt-auto flex gap-2 pt-2">
-                  <Button size="sm" className="h-8 rounded-lg bg-[hsl(var(--gold))] px-4 text-xs font-bold text-white hover:bg-[hsl(var(--gold-dark))]">
-                    Kontakt
-                  </Button>
-                </div>
-              </div>
-            </a>
-          );
+          return null;
         })}
       </div>
     </div>
@@ -421,6 +389,7 @@ export default function Index() {
                 <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[hsl(var(--gold))] px-4 py-1 text-[10px] font-bold uppercase tracking-wider text-white">Preporučeno</span>
                 <p className="text-sm font-bold text-[hsl(var(--gold))] uppercase tracking-wider mb-2">Premium</p>
                 <p className="text-3xl font-black text-[#2D2D2D] mb-1">9,99€<span className="text-base font-normal text-[#6B6B6B]">/mj.</span></p>
+                <p style={{ fontSize: 11, fontWeight: 700, color: "#EAB308", marginTop: 4, textAlign: "center" as const }}>🎉 Promo cijena — prvih 6 mjeseci</p>
                 <p className="text-xs text-[#6B6B6B] mb-6">ili 99,90€/godišnje (uštedi 17%)</p>
                 <ul className="space-y-2 text-sm text-[#2D2D2D] flex-1">
                   <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Svi Musterformulari</li>
