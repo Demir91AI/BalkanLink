@@ -77,7 +77,7 @@ const T: Record<string, Record<string, string>> = {
 };
 
 function pt(lang: string, key: string): string {
-  const g = ["bs", "hr", "sr", "me"].includes(lang) ? "bs" : ["sq", "xk"].includes(lang) ? "sq" : lang === "mk" ? "mk" : lang === "de" ? "de" : "en";
+  const g = ["bs", "hr", "sr", "me", "bhs"].includes(lang) ? "bs" : ["sq", "xk"].includes(lang) ? "sq" : lang === "mk" ? "mk" : lang === "de" ? "de" : "en";
   return T[g]?.[key] ?? T.en[key] ?? key;
 }
 

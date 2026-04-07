@@ -725,4 +725,13 @@ export const translations: Record<string, T> = {
   "wow.feat3.title": { bhs: "Nudim / Tražim",                          de: "Angebot / Gesuch" },
   "wow.feat3.desc":  { bhs: "Poveži se direktno sa ljudima",           de: "Verbinde dich direkt mit Menschen" },
   "wow.cta":         { bhs: "Započni odmah",                            de: "Jetzt starten" },
+
+  // CATALOG (FormCenter categories)
+  "catalog.dolazak":      { bhs: "Dolazak u Njemačku",       de: "Ankunft in Deutschland" },
+  "catalog.porodica":     { bhs: "Porodica i djeca",         de: "Familie & Kinder" },
+  "catalog.buergergeld":  { bhs: "Bürgergeld",               de: "Bürgergeld" },
+  "catalog.wohngeld":     { bhs: "Wohngeld — stambena pomoć", de: "Wohngeld" },
+  "catalog.posao":        { bhs: "Posao i karijera",         de: "Arbeit & Karriere" },
+  "catalog.obrazovanje":  { bhs: "Obrazovanje",              de: "Bildung" },
+  "catalog.dokumenti":    { bhs: "Dokumenti i potvrde",      de: "Dokumente & Nachweise" },
 };
