@@ -297,7 +297,7 @@ export const translations: Record<string, T> = {
   "service.visa.desc":        { bhs: "Koji status trebaš za Njemačku?", de: "Welchen Status brauchst du?" },
   "service.visa.cta":         { bhs: "Provjeri status",                 de: "Status prüfen" },
   "service.deutsch.title":    { bhs: "Deutsch kurs A1–C2",              de: "Deutschkurs A1–C2" },
-  "service.deutsch.desc":     { bhs: "Nauči njemački za stvarni život", de: "Deutsch für den Alltag lernen" },
+  
   "service.deutsch.cta":      { bhs: "Počni učiti",                     de: "Lernen starten" },
   "service.docCheck.title":   { bhs: "Provjera dokumenata",             de: "Dokumentenprüfung" },
   "service.docCheck.desc":    { bhs: "Provjeri jesi li pripremio sve",  de: "Prüfe ob alles vollständig ist" },
