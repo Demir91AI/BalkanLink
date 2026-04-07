@@ -123,27 +123,9 @@ export default function Footer() {
         <div style={{ height: 1, background: "rgba(255,255,255,0.08)" }} />
       </div>
       <div style={{ padding: "20px 24px 16px", textAlign: "center" }}>
-        <p style={{ fontSize: 10, color: "rgba(255,255,255,0.4)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 10 }}>
-          Sigurna plaćanja
+        <p style={{ fontSize: 11, color: "rgba(255,255,255,0.5)", letterSpacing: 1, marginBottom: 6 }}>
+          Sigurna plaćanja: Visa · Mastercard · PayPal · Apple Pay · Google Pay
         </p>
-        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 18, flexWrap: "wrap" }}>
-          {[
-            { src: visaIcon, alt: "Visa" },
-            { src: mastercardIcon, alt: "Mastercard" },
-            { src: paypalIcon, alt: "PayPal" },
-            { src: applepayIcon, alt: "Apple Pay" },
-            { src: googlepayIcon, alt: "Google Pay" },
-          ].map((icon) => (
-            <img
-              key={icon.alt}
-              src={icon.src}
-              alt={icon.alt}
-              style={{ height: 28, width: "auto", opacity: 0.85, transition: "opacity 0.2s" }}
-              onMouseEnter={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = "1"; }}
-              onMouseLeave={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = "0.85"; }}
-            />
-          ))}
-        </div>
         {/* Trust badges */}
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 16, flexWrap: "wrap", marginTop: 14 }}>
           {[
