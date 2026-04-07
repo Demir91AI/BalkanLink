@@ -151,6 +151,9 @@ export default function TrainerPreise() {
                 </span>
                 <p className="mt-2 text-lg font-black">{lvl.price}</p>
                 <p className="mt-0.5 text-[10px] text-muted-foreground">{lvl.desc}</p>
+                <p style={{ fontSize: 11, fontWeight: 700, color: "#EAB308", marginTop: 4, marginBottom: 4 }}>
+                  🎉 Promo cijena — prvih 6 mjeseci
+                </p>
                 <Button
                   onClick={() => navigate("/premium")}
                   variant="outline"
