@@ -1,9 +1,4 @@
 import { Link } from "react-router-dom";
-import visaIcon from "@/assets/payment/visa.svg";
-import mastercardIcon from "@/assets/payment/mastercard.svg";
-import paypalIcon from "@/assets/payment/paypal.svg";
-import applepayIcon from "@/assets/payment/applepay.svg";
-import googlepayIcon from "@/assets/payment/googlepay.svg";
 
 const NAV_LINKS = [
   { label: "Formulari", to: "/formulari" },
