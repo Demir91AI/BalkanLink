@@ -208,17 +208,6 @@ export function AppSidebar() {
                 </button>
               );
             })}
-
-            {/* Contact button */}
-            <button
-              onClick={() => { close(); setContactOpen(true); }}
-              className="flex items-center gap-3 w-full px-3 py-2 rounded-lg text-left text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D] transition-all duration-200"
-            >
-              <Mail className="h-[18px] w-[18px] shrink-0" />
-              <span className="text-[14px] font-medium whitespace-nowrap overflow-visible">
-                {t("sidebar.kontakt")}
-              </span>
-            </button>
           </nav>
         </div>
 
