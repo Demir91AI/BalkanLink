@@ -21,10 +21,7 @@ interface Props {
 }
 
 const RATE_LABELS: Record<number, string> = {
-  0.75: "0.75×",
-  1: "1×",
-  1.25: "1.25×",
-  1.5: "1.5×",
+  1.15: "1.15×",
 };
 
 const SprachassistentSection = React.forwardRef<HTMLDivElement, Props>(
