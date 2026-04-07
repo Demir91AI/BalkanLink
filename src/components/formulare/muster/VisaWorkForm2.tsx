@@ -50,7 +50,7 @@ function CheckRow({ options, selected }: { options: string[]; selected: number }
 }
 
 export default function VisaWorkForm2() {
-  const { t } = useTranslation("formulare");
+  const { t } = useLanguage();
 
   return (
     <div className="mx-auto max-w-[800px] rounded-lg bg-white p-8 space-y-4" style={{ border: "1px solid #D0C8B0" }}>

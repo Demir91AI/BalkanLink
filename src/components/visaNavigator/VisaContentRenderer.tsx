@@ -62,7 +62,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
   const [LoadedForm, setLoadedForm] = useState<React.FC | null>(null);
   const [premiumModalOpen, setPremiumModalOpen] = useState(false);
   const openFormRef = useRef<HTMLDivElement>(null);
-  const { t } = useTranslation('visaNavigator');
+  const { t } = useLanguage();
   const { isPremium } = useSubscription();
 
   useEffect(() => {

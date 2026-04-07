@@ -2,7 +2,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { ExternalLink, AlertTriangle, MapPin, Clock, FileText, CheckCircle2, Users } from "lucide-react";
 
 export default function FuehrerscheinGuideContent() {
-  const { t } = useTranslation("formulare");
+  const { t } = useLanguage();
 
   const statusItems = [
     { key: "fs_1_eu", emoji: "🇪🇺" },

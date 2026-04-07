@@ -251,7 +251,7 @@ function SidebarGroup({
 export default function BoravisnaDozvola() {
   const navigate = useNavigate();
   const { t } = useLanguage();
-  const { t: vt } = useTranslation("visaNavigator");
+  const { t: vt } = useLanguage();
   const st = useSectionT();
   const [search, setSearch] = useState("");
   const { searchParams, setSearchState } = useHistorySearchState();

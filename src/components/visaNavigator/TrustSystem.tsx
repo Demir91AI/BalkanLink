@@ -14,7 +14,7 @@ interface Props {
 }
 
 const TrustSystem = ({ variant, showSources = true }: Props) => {
-  const { t } = useTranslation("visaNavigator");
+  const { t } = useLanguage();
 
   if (variant === "compact") {
     return (
