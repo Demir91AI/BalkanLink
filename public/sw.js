@@ -1,5 +1,6 @@
-const CACHE_NAME = "bl-cache-v1";
+const CACHE_NAME = "bl-cache-v2";
 const STATIC_ASSETS = ["/", "/manifest.json", "/icons/icon-192x192.png", "/icons/icon-512x512.png"];
+const HASHED_ASSET_RE = /\/assets\/[^/]+-[A-Za-z0-9_-]{6,}\.(js|css|jpg|jpeg|png|svg|woff2?|ttf)$/;
 
 const PERMISSIONS_POLICY = "camera=(), microphone=(), geolocation=(), payment=(self), usb=(), magnetometer=(), gyroscope=(), accelerometer=()";
 
