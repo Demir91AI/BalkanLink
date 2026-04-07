@@ -109,9 +109,14 @@ export function useTTS() {
       audioRef.current = audio;
 
       audio.onplay = () => { setActiveId(id); setPlayState("playing"); };
-      audio.onended = () => { setActiveId(null); setPlayState("idle"); URL.revokeObjectURL(url); };
+      audio.onended = () => {
+        // Small silence at end to prevent cut-off feeling
+        setTimeout(() => { setActiveId(null); setPlayState("idle"); URL.revokeObjectURL(url); }, 100);
+      };
       audio.onerror = () => { setActiveId(null); setPlayState("idle"); URL.revokeObjectURL(url); };
 
+      // 120ms delay before playback to prevent harsh start
+      await new Promise((r) => setTimeout(r, 120));
       await audio.play();
       return true;
     } catch {
@@ -136,8 +141,8 @@ export function useTTS() {
     const applyVoiceAndSpeak = () => {
       const voice = cachedVoice.current ?? getBestGermanVoice(synth);
       if (voice) { u.voice = voice; u.lang = voice.lang; cachedVoice.current = voice; }
-      u.rate = 0.92;
-      u.pitch = 1.05;
+      u.rate = 1.2;
+      u.pitch = 0.92;
       u.volume = 1.0;
 
       let started = false;
@@ -146,7 +151,7 @@ export function useTTS() {
       }, 2000);
 
       u.onstart = () => { started = true; clearTimeout(timeout); setActiveId(id); setPlayState("playing"); };
-      u.onend = () => { clearTimeout(timeout); setActiveId(null); setPlayState("idle"); };
+      u.onend = () => { clearTimeout(timeout); setTimeout(() => { setActiveId(null); setPlayState("idle"); }, 100); };
       u.onerror = (e) => {
         clearTimeout(timeout);
         if (e.error === "interrupted" || e.error === "canceled") return;
