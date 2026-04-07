@@ -154,6 +154,7 @@ export function AppSidebar() {
               <span className="text-[14px] font-medium">{t("sidebar.kontakt")}</span>
             </button>
           </nav>
+        </div>
 
         <div className="px-3 pt-4">
           <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">{t("sidebar.mainFunctions")}</p>
