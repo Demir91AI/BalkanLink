@@ -315,8 +315,8 @@ export default function Index() {
                 className="font-heading font-[800] text-white"
                 style={{ fontSize: "clamp(2.4rem, 5vw, 4rem)", lineHeight: 1.15, textShadow: "0 2px 12px rgba(0,0,0,0.4)" }}
               >
-                Tvoj vodič kroz{" "}
-                <span style={{ color: "#C9A84C" }}>njemački sistem.</span>
+                {t("hero.titleWhite")}{" "}
+                <span style={{ color: "#C9A84C" }}>{t("hero.titleGold")}</span>
               </h1>
 
               <p className="mx-auto mt-4 text-white" style={{ maxWidth: 560, fontSize: "1.1rem", opacity: 0.88, lineHeight: 1.6 }}>
