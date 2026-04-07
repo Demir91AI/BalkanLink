@@ -48,7 +48,7 @@ import Foerderungen from "./pages/Foerderungen";
 import Generatoren from "./pages/Generatoren";
 import Wohnungen from "./pages/Wohnungen";
 import Stellenangebote from "./pages/Stellenangebote";
-import Premium from "./pages/Premium";
+
 
 import DokumentenCheck from "./pages/DokumentenCheck";
 import AdminForms from "./pages/AdminForms";
