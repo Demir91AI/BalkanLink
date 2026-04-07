@@ -170,7 +170,7 @@ const App = () => (
                 <Route path="/brutto-netto-rechner" element={<BruttoNettoRechner />} />
                 <Route path="/wohnungen" element={<Wohnungen />} />
                 <Route path="/stellenangebote" element={<Stellenangebote />} />
-                <Route path="/premium" element={<Premium />} />
+                <Route path="/premium" element={<Navigate to="/pricing" replace />} />
                 <Route path="/guide/:slug" element={<LegacyGuideRedirect />} />
                 <Route path="/smart-guide/:slug" element={<LegacyGuideRedirect />} />
                 <Route path="/dokumenten-check" element={<DokumentenCheck />} />
