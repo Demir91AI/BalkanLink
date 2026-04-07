@@ -10,9 +10,10 @@ export default function PaymentSuccess() {
   const { refreshSubscription } = useAuth();
 
   useEffect(() => {
-    // Refresh subscription status after successful payment
     refreshSubscription();
-  }, [refreshSubscription]);
+    const timer = setTimeout(() => navigate("/"), 3000);
+    return () => clearTimeout(timer);
+  }, [refreshSubscription, navigate]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -22,8 +23,11 @@ export default function PaymentSuccess() {
           <Check className="h-8 w-8 text-[hsl(var(--success))]" />
         </div>
         <h1 className="text-2xl font-bold mb-2">Plaćanje uspješno!</h1>
-        <p className="text-muted-foreground mb-8">
+        <p className="text-muted-foreground mb-2">
           Hvala vam na povjerenju. Vaš pristup je sada aktiviran.
+        </p>
+        <p className="text-xs text-muted-foreground mb-8">
+          Preusmjeravamo vas za 3 sekunde…
         </p>
         <div className="flex flex-col gap-3">
           <Button
@@ -33,7 +37,7 @@ export default function PaymentSuccess() {
             <Crown className="mr-2 h-4 w-4" />
             Nastavi na BalkanLink
           </Button>
-          <Button variant="outline" className="rounded-xl" onClick={() => navigate("/paketi")}>
+          <Button variant="outline" className="rounded-xl" onClick={() => navigate("/pricing")}>
             Pogledaj svoj plan
           </Button>
         </div>

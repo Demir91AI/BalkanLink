@@ -11,12 +11,12 @@ export default function Pricing() {
   const { user, isPremium } = useAuth();
   const navigate = useNavigate();
 
-  const handleCheckout = (priceId: string) => {
+  const handleCheckout = (priceId: string, mode: "subscription" | "payment" = "payment") => {
     if (!user) {
       navigate("/login");
       return;
     }
-    initiateCheckout(priceId, user.id);
+    initiateCheckout(priceId, user.id, mode);
   };
 
   return (
@@ -90,10 +90,10 @@ export default function Pricing() {
 
             <Button
               variant="outline"
-              className="mt-6 w-full rounded-xl"
+              className="mt-6 w-full rounded-xl border-[hsl(var(--success))] text-[hsl(var(--success))] hover:bg-[hsl(var(--success))]/10"
               onClick={() => navigate("/register")}
             >
-              Počni besplatno
+              Počni besplatno →
             </Button>
           </div>
 
@@ -126,14 +126,33 @@ export default function Pricing() {
             </ul>
 
             <Button
-              className="mt-6 w-full rounded-xl bg-[hsl(var(--gold))] text-sm font-bold text-white hover:bg-[hsl(var(--gold-light))]"
+              className="mt-6 w-full rounded-xl bg-[hsl(var(--gold))] text-sm font-bold text-white hover:bg-[hsl(var(--gold-light))] h-11 text-base"
               onClick={() =>
-                handleCheckout(yearly ? STRIPE_PRICE_IDS.PREMIUM_YEARLY : STRIPE_PRICE_IDS.PREMIUM_MONTHLY)
+                handleCheckout(
+                  yearly ? STRIPE_PRICE_IDS.PREMIUM_YEARLY : STRIPE_PRICE_IDS.PREMIUM_MONTHLY,
+                  "subscription"
+                )
               }
             >
               <Crown className="mr-2 h-4 w-4" />
-              {isPremium ? "Promijeni plan" : "Počni Premium"}
+              {isPremium ? "Promijeni plan" : "Kupi Premium →"}
             </Button>
+
+            {!yearly && (
+              <>
+                <p className="mt-2 text-center text-[11px] text-muted-foreground">
+                  ili 99.90€/godišnje — uštedi 2 mjeseca
+                </p>
+                <Button
+                  variant="outline"
+                  className="mt-1.5 w-full rounded-xl border-[hsl(var(--gold))]/30 text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/10 text-xs h-9"
+                  onClick={() => handleCheckout(STRIPE_PRICE_IDS.PREMIUM_YEARLY, "subscription")}
+                >
+                  Godišnji plan →
+                </Button>
+              </>
+            )}
+
             <p className="mt-2 text-center text-[10px] text-muted-foreground">
               §19 UStG — bez PDV-a
             </p>
@@ -158,11 +177,11 @@ export default function Pricing() {
 
             <Button
               variant="outline"
-              className="mt-6 w-full rounded-xl"
+              className="mt-6 w-full rounded-xl border-[hsl(var(--gold))]/30 text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/10"
               onClick={() => navigate("/formulari")}
             >
               <Tag className="mr-2 h-4 w-4" />
-              Odaberi formular
+              Odaberi formular →
             </Button>
           </div>
         </div>
@@ -180,6 +199,15 @@ export default function Pricing() {
               <p className="text-2xl font-bold mt-1">9.99€<span className="text-sm font-normal text-muted-foreground">/mjes.</span></p>
               <p style={{ fontSize: 11, fontWeight: 700, color: "#EAB308", marginTop: 4 }}>🎉 Promo cijena — prvih 6 mjeseci</p>
               <p className="text-xs text-muted-foreground mt-1">Flow banner na unutarnjim stranicama</p>
+              <Button
+                variant="outline"
+                className="mt-4 w-full rounded-xl text-sm"
+                asChild
+              >
+                <a href="mailto:kontakt@balkanlink.de?subject=Basic%20Firma%20Paket">
+                  Zatraži Basic →
+                </a>
+              </Button>
             </div>
             <div className="rounded-2xl border-2 border-[hsl(var(--gold))] bg-card p-5">
               <h3 className="font-bold">Featured</h3>
@@ -187,12 +215,15 @@ export default function Pricing() {
               <p className="text-2xl font-bold mt-1">19.99€<span className="text-sm font-normal text-muted-foreground">/mjes.</span></p>
               <p style={{ fontSize: 11, fontWeight: 700, color: "#EAB308", marginTop: 4 }}>🎉 Promo cijena — prvih 6 mjeseci</p>
               <p className="text-xs text-muted-foreground mt-1">Istaknuta kartica + flow banner</p>
+              <Button
+                className="mt-4 w-full rounded-xl bg-[hsl(var(--gold))] text-white hover:bg-[hsl(var(--gold-light))] text-sm"
+                asChild
+              >
+                <a href="mailto:kontakt@balkanlink.de?subject=Featured%20Firma%20Paket">
+                  Zatraži Featured →
+                </a>
+              </Button>
             </div>
-          </div>
-          <div className="text-center mt-4">
-            <Button className="rounded-xl bg-[hsl(var(--gold))] text-[hsl(var(--gold-foreground))] hover:bg-[hsl(var(--gold))]/90 font-bold" asChild>
-              <a href="mailto:info@balkanlink.de">Zatraži reklamni prostor →</a>
-            </Button>
           </div>
         </div>
 
@@ -215,7 +246,7 @@ export default function Pricing() {
         </div>
 
         <p className="mt-10 text-center text-[10px] text-muted-foreground">
-          Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.
+          Sve cijene bez PDV-a. §19 UStG Kleinunternehmerregelung.
         </p>
       </div>
     </div>
