@@ -4,7 +4,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Menu, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { useIsMobile } from "@/hooks/use-mobile";
+
 
 const menuBtnClass =
   "h-10 w-10 rounded-lg text-white/70 hover:text-white hover:bg-white/8 active:scale-[0.93] transition-transform duration-150";
@@ -20,41 +20,50 @@ const Flag = ({ code, size = 16 }: { code: string; size?: number }) => (
   />
 );
 
+const LANG_PILLS = [
+  { id: "bs", flag: "ba", lang: "bhs" as const },
+  { id: "hr", flag: "hr", lang: "bhs" as const },
+  { id: "sr", flag: "rs", lang: "bhs" as const },
+  { id: "de", flag: "de", lang: "de" as const },
+];
+
+const LS_VARIANT_KEY = "balkanlink-variant";
+
+function getVariant(): string {
+  try { return localStorage.getItem(LS_VARIANT_KEY) || "bs"; } catch { return "bs"; }
+}
+
 function LangPill() {
   const { language, setLanguage } = useLanguage();
-  const isMobile = useIsMobile();
+
+  const activeId = language === "de" ? "de" : getVariant();
+
+  const handleClick = (pill: typeof LANG_PILLS[0]) => {
+    if (pill.lang === "bhs") {
+      try { localStorage.setItem(LS_VARIANT_KEY, pill.id); } catch {}
+    }
+    setLanguage(pill.lang);
+  };
 
   return (
-    <div className="flex h-9 items-center rounded-full border border-white/20 bg-white/5 backdrop-blur-sm p-[3px] gap-0">
-      <button
-        onClick={() => setLanguage("bhs")}
-        className={`flex items-center gap-1.5 h-[30px] min-w-[44px] px-2.5 rounded-full text-[12px] font-semibold transition-all duration-200 ${
-          language === "bhs"
-            ? "bg-[hsl(var(--gold))] text-white shadow-md"
-            : "text-white/50 hover:text-white/80"
-        }`}
-      >
-        {isMobile ? (
-          <>
-            <span className="flex items-center gap-0.5"><Flag code="ba" size={14} /><Flag code="hr" size={14} /><Flag code="rs" size={14} /></span>
-            <span>BHS</span>
-          </>
-        ) : (
-          <>
-            <Flag code="ba" /> BS / <Flag code="hr" /> HR / <Flag code="rs" /> SR
-          </>
-        )}
-      </button>
-      <button
-        onClick={() => setLanguage("de")}
-        className={`flex items-center gap-1.5 h-[30px] min-w-[44px] px-2.5 rounded-full text-[12px] font-semibold transition-all duration-200 ${
-          language === "de"
-            ? "bg-[hsl(var(--gold))] text-white shadow-md"
-            : "text-white/50 hover:text-white/80"
-        }`}
-      >
-        <Flag code="de" /> DE
-      </button>
+    <div className="flex h-9 items-center rounded-full border border-white/20 bg-white/5 backdrop-blur-sm p-[3px] gap-[2px]">
+      {LANG_PILLS.map((pill) => {
+        const isActive = pill.id === activeId;
+        return (
+          <button
+            key={pill.id}
+            onClick={() => handleClick(pill)}
+            className={`flex items-center gap-1 h-[30px] px-2 rounded-full text-[12px] font-semibold transition-all duration-200 ${
+              isActive
+                ? "bg-[hsl(var(--gold))] text-white shadow-md"
+                : "text-white/50 hover:text-white/80"
+            }`}
+          >
+            <Flag code={pill.flag} size={14} />
+            <span>{pill.id.toUpperCase()}</span>
+          </button>
+        );
+      })}
     </div>
   );
 }
