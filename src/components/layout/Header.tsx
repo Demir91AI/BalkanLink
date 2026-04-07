@@ -20,8 +20,7 @@ function LangPill() {
             : "text-white/50 hover:text-white/80"
         }`}
       >
-        <span style={{ fontSize: "0.6em", letterSpacing: "-3px", marginRight: "6px", lineHeight: "1", display: "inline-block" }}>🇧🇦🇭🇷🇷🇸</span>
-        <span>BS/HR/SR</span>
+        <span>🇧🇦 BS / 🇭🇷 HR / 🇷🇸 SR</span>
       </button>
       <button
         onClick={() => setLanguage("de")}
