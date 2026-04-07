@@ -176,18 +176,22 @@ export default function Pricing() {
           <div className="grid gap-4 md:grid-cols-2 max-w-2xl mx-auto">
             <div className="rounded-2xl border border-border bg-card p-5">
               <h3 className="font-bold">Basic</h3>
+              <p className="text-[13px] text-muted-foreground mt-0.5">Vaša firma vidljiva na svim stranicama platforme</p>
               <p className="text-2xl font-bold mt-1">9.99€<span className="text-sm font-normal text-muted-foreground">/mjes.</span></p>
-              <p className="text-xs text-muted-foreground mt-1">Sidebar banner</p>
+              <p style={{ fontSize: 11, fontWeight: 700, color: "#EAB308", marginTop: 4 }}>🎉 Promo cijena — prvih 6 mjeseci</p>
+              <p className="text-xs text-muted-foreground mt-1">Flow banner na unutarnjim stranicama</p>
             </div>
             <div className="rounded-2xl border-2 border-[hsl(var(--gold))] bg-card p-5">
               <h3 className="font-bold">Featured</h3>
+              <p className="text-[13px] text-muted-foreground mt-0.5">Istaknuta pozicija + prikazano na naslovnoj stranici</p>
               <p className="text-2xl font-bold mt-1">19.99€<span className="text-sm font-normal text-muted-foreground">/mjes.</span></p>
-              <p className="text-xs text-muted-foreground mt-1">Homepage banner + sidebar</p>
+              <p style={{ fontSize: 11, fontWeight: 700, color: "#EAB308", marginTop: 4 }}>🎉 Promo cijena — prvih 6 mjeseci</p>
+              <p className="text-xs text-muted-foreground mt-1">Istaknuta kartica + flow banner</p>
             </div>
           </div>
           <div className="text-center mt-4">
-            <Button variant="outline" className="rounded-xl" asChild>
-              <a href="mailto:info@balkanlink.de">Kontaktirajte nas</a>
+            <Button className="rounded-xl bg-[hsl(var(--gold))] text-[hsl(var(--gold-foreground))] hover:bg-[hsl(var(--gold))]/90 font-bold" asChild>
+              <a href="mailto:info@balkanlink.de">Zatraži reklamni prostor →</a>
             </Button>
           </div>
         </div>
