@@ -144,6 +144,32 @@ export default function Footer() {
             />
           ))}
         </div>
+        {/* Trust badges */}
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 16, flexWrap: "wrap", marginTop: 14 }}>
+          {[
+            { icon: "🔒", text: "SSL šifrirano" },
+            { icon: "🛡️", text: "DSGVO konform" },
+            { icon: "✅", text: "Stripe Verified" },
+          ].map((badge) => (
+            <span
+              key={badge.text}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 5,
+                fontSize: 10,
+                color: "rgba(255,255,255,0.45)",
+                border: "1px solid rgba(255,255,255,0.1)",
+                borderRadius: 20,
+                padding: "4px 10px",
+                letterSpacing: 0.5,
+              }}
+            >
+              <span style={{ fontSize: 12 }}>{badge.icon}</span>
+              {badge.text}
+            </span>
+          ))}
+        </div>
       </div>
 
       {/* SECTION 3 — Bottom line */}
