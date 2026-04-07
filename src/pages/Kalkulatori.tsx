@@ -409,22 +409,22 @@ const externalTools = [
   {
     title: "Wohngeld Rechner",
     desc: "Provjeri da li imaš pravo na stambenu pomoć od države",
-    url: "https://www.bundesregierung.de/breg-de/themen/wohngeld/wohngeldrechner",
+    url: "https://www.bmwsb.bund.de/DE/wohnen/wohngeld/wohngeldrechner/wohngeldrechner-2025_node.html",
   },
   {
     title: "Kfz Steuer Rechner",
     desc: "Izračunaj godišnji porez na vozilo — zvanični alat",
-    url: "https://www.bmf-steuerrechner.de/kfzst/",
+    url: "https://www.bundesfinanzministerium.de/Web/DE/Service/Apps_Rechner/KfzRechner/KfzRechner.html",
   },
   {
     title: "Renten Rechner",
     desc: "Procijeni svoju buduću penziju — zvanični DRV alat",
-    url: "https://www.rvrentenrechner.de/",
+    url: "https://www.deutsche-rentenversicherung.de/DRV/DE/Online-Services/Online-Rechner/RentenbeginnUndHoehenRechner/rentenbeginnrechner_node.html",
   },
   {
     title: "ALG 1 Rechner",
     desc: "Izračunaj visinu naknade za nezaposlenost (Arbeitslosengeld I) — zvanični alat Bundesagentur für Arbeit",
-    url: "https://con.arbeitsagentur.de/prod/self-service/anspruch-berechnen.html",
+    url: "https://www.arbeitsagentur.de/arbeitslos-arbeit-finden/arbeitslosengeld/finanzielle-hilfen/arbeitslosengeld-anspruch-hoehe-dauer",
   },
 ];
 
