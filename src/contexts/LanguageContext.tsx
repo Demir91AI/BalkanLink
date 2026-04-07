@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useCallback } from "react";
-import { translations, type Language, LANGUAGES, getTranslation } from "@/lib/translations";
+import { translations, type Language, LANGUAGES } from "@/lib/translations";
 import { lookup as i18nLookup } from "@/i18n";
 
 interface LanguageContextType {
