@@ -148,7 +148,7 @@ function autoLinkKeywords(text: string): string {
 }
 
 // ── Markdown renderer ──
-function ChatMarkdown({ content }: { content: string }) {
+const ChatMarkdown = React.memo(function ChatMarkdown({ content }: { content: string }) {
   const linkedContent = autoLinkKeywords(content);
   return (
     <ReactMarkdown
@@ -174,7 +174,7 @@ function ChatMarkdown({ content }: { content: string }) {
       {linkedContent}
     </ReactMarkdown>
   );
-}
+});
 
 // ── Action buttons ──
 function ResponseActions({ msg }: { msg: Msg }) {
