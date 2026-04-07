@@ -319,7 +319,7 @@ export default function BruttoNettoRechner() {
                   />
                 </div>
 
-                <div className="grid grid-cols-3 gap-2 text-center">
+                <div className="grid grid-cols-3 gap-2 text-center text-[10px] sm:text-sm">
                   <div>
                     <div className="flex items-center justify-center gap-1.5 mb-1">
                       <span className="h-2.5 w-2.5 rounded-full bg-[hsl(var(--success))]" />
