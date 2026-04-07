@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
+import LanguageSelector from "@/components/LanguageSelector";
 
 import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
 
