@@ -448,7 +448,7 @@ export default function Index() {
                   <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> AI Asistent neograničeno</li>
                   <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> 2 Pro oglasa/mjesečno</li>
                 </ul>
-                <Button className="mt-6 w-full rounded-full bg-[hsl(var(--gold))] text-white font-bold hover:bg-[hsl(var(--gold-dark))] shadow-[0_4px_20px_rgba(201,168,76,0.35)]" onClick={() => navigate("/premium")}>
+                <Button className="mt-6 w-full rounded-full bg-[hsl(var(--gold))] text-white font-bold hover:bg-[hsl(var(--gold-dark))] shadow-[0_4px_20px_rgba(201,168,76,0.35)]" onClick={() => navigate("/pricing")}>
                   Postani Premium →
                 </Button>
               </div>

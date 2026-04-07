@@ -48,7 +48,7 @@ import Foerderungen from "./pages/Foerderungen";
 import Generatoren from "./pages/Generatoren";
 import Wohnungen from "./pages/Wohnungen";
 import Stellenangebote from "./pages/Stellenangebote";
-import Premium from "./pages/Premium";
+
 
 import DokumentenCheck from "./pages/DokumentenCheck";
 import AdminForms from "./pages/AdminForms";
@@ -170,7 +170,7 @@ const App = () => (
                 <Route path="/brutto-netto-rechner" element={<BruttoNettoRechner />} />
                 <Route path="/wohnungen" element={<Wohnungen />} />
                 <Route path="/stellenangebote" element={<Stellenangebote />} />
-                <Route path="/premium" element={<Premium />} />
+                <Route path="/premium" element={<Navigate to="/pricing" replace />} />
                 <Route path="/guide/:slug" element={<LegacyGuideRedirect />} />
                 <Route path="/smart-guide/:slug" element={<LegacyGuideRedirect />} />
                 <Route path="/dokumenten-check" element={<DokumentenCheck />} />
@@ -221,6 +221,9 @@ const App = () => (
                 <Route path="/deutsch" element={<Navigate to="/deutsch-trainer" replace />} />
                 <Route path="/sabloni" element={<Navigate to="/vorlagen" replace />} />
                 <Route path="/pitanja" element={<Navigate to="/qa" replace />} />
+                <Route path="/zivot-savjeti" element={<Navigate to="/zivot" replace />} />
+                <Route path="/trebam-pomoc" element={<Navigate to="/probleme" replace />} />
+                <Route path="/pocni-ovdje" element={<Navigate to="/dolazak" replace />} />
               </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>
