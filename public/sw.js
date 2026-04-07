@@ -1,5 +1,6 @@
-const CACHE_NAME = "bl-cache-v1";
+const CACHE_NAME = "bl-cache-v2";
 const STATIC_ASSETS = ["/", "/manifest.json", "/icons/icon-192x192.png", "/icons/icon-512x512.png"];
+const HASHED_ASSET_RE = /\/assets\/[^/]+-[A-Za-z0-9_-]{6,}\.(js|css|jpg|jpeg|png|svg|woff2?|ttf)$/;
 
 const PERMISSIONS_POLICY = "camera=(), microphone=(), geolocation=(), payment=(self), usb=(), magnetometer=(), gyroscope=(), accelerometer=()";
 
@@ -46,7 +47,22 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Cache-first for static assets
+  // Cache-first for hashed assets (immutable, safe to cache forever)
+  if (HASHED_ASSET_RE.test(url.pathname)) {
+    event.respondWith(
+      caches.match(event.request).then((cached) => {
+        if (cached) return cached;
+        return fetch(event.request).then((resp) => {
+          const clone = resp.clone();
+          caches.open(CACHE_NAME).then((c) => c.put(event.request, clone));
+          return resp;
+        });
+      })
+    );
+    return;
+  }
+
+  // Cache-first for other static assets
   if (url.pathname.match(/\.(js|css|png|jpg|jpeg|svg|woff2?|ttf|ico)$/)) {
     event.respondWith(
       caches.match(event.request).then((cached) => {
