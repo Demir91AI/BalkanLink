@@ -734,4 +734,11 @@ export const translations: Record<string, T> = {
   "catalog.posao":        { bhs: "Posao i karijera",         de: "Arbeit & Karriere" },
   "catalog.obrazovanje":  { bhs: "Obrazovanje",              de: "Bildung" },
   "catalog.dokumenti":    { bhs: "Dokumenti i potvrde",      de: "Dokumente & Nachweise" },
+  "catalog.viza":         { bhs: "Viza i boravak",            de: "Visum & Aufenthalt" },
+
+  // Deutsch Trainer
+  "deutschTrainer.title":   { bhs: "BalkanLink Deutsch",  de: "BalkanLink Deutsch" },
+  "stage_grundlagen":       { bhs: "Osnove",              de: "Grundlagen" },
+  "stage_anwendung":        { bhs: "Primjena",            de: "Anwendung" },
+  "stage_realitaet":        { bhs: "Stvarnost",           de: "Realität" },
 };
