@@ -39,7 +39,7 @@ const slides = [
   { image: heroLeipzig, city: "LEIPZIG" },
 ];
 
-const trustBadgeKeys = ["hero.bullet.simple", "hero.bullet.language", "hero.bullet.verified"];
+const trustBadgeKeys = ["hero.badge1", "hero.badge2", "hero.badge3"];
 
 const MAILTO_AD = `mailto:kontakt@balkanlink.de?subject=${encodeURIComponent("Oglašavanje na BalkanLink")}&body=${encodeURIComponent("Pozdrav,\n\nZanima me oglašavanje na BalkanLink platformi.\n\nNaziv firme:\nVrsta usluge:\nGrad:\nBudžet:\n")}`;
 
