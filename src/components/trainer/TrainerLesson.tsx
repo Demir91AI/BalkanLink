@@ -135,7 +135,7 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
   const buildBreadcrumbs = (): BreadcrumbItem[] => {
     const crumbs: BreadcrumbItem[] = [
       { label: t("home"), onClick: () => navigate("/") },
-      { label: t("title"), onClick: () => { onBack(); } },
+      { label: t("deutschTrainer.title"), onClick: () => { onBack(); } },
       { label: lesson.level, onClick: () => { onBack(); } },
     ];
 
