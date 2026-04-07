@@ -103,14 +103,14 @@ export default function Footer() {
         <div>
           <p style={colTitleStyle}>Kontakt</p>
           <a
-            href="mailto:contact@balkanlink.de"
+            href="mailto:kontakt@balkanlink.de"
             style={linkStyle}
             className="footer-link"
           >
-            📧 contact@balkanlink.de
+            📧 kontakt@balkanlink.de
           </a>
           <p style={{ fontSize: 13, color: "rgba(255,255,255,0.55)", marginTop: 8, lineHeight: 1.6 }}>
-            Reklamiranje: contact@balkanlink.de
+            Reklamiranje: kontakt@balkanlink.de
           </p>
           <p style={{ fontSize: 12, color: "rgba(255,255,255,0.4)", marginTop: 8 }}>
             Dostupni radnim danima
