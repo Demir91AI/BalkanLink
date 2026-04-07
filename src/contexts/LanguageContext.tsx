@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useState, useCallback } from "react";
 import { translations, type Language, LANGUAGES } from "@/lib/translations";
-import { lookup as i18nLookup } from "@/i18n";
 
 interface LanguageContextType {
   language: Language;
@@ -25,18 +24,9 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   const t = useCallback(
     (key: string): string => {
-      // 1. Check main translations dict
       const entry = translations[key];
-      if (entry) {
-        return entry[language] ?? entry["bhs"] ?? key;
-      }
-
-      // 2. Fallback: namespace-based JSON lookup (for legacy keys in src/locales/bs/*.json)
-      // Map "bhs" → "bs" for JSON compatibility
-      const result = i18nLookup(key);
-      if (result !== key) return result;
-
-      return key;
+      if (!entry) return key;
+      return entry[language] ?? entry["bhs"] ?? key;
     },
     [language],
   );
@@ -50,6 +40,6 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
 export function useLanguage() {
   const ctx = useContext(LanguageContext);
-  if (!ctx) throw new Error("useLanguage must be used within LanguageProvider");
+  if (!ctx) throw new Error("useLanguage must be inside LanguageProvider");
   return ctx;
 }

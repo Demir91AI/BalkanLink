@@ -1,4 +1,4 @@
-import { useTranslation } from "@/i18n/useTranslation";
+import { useLanguage } from "@/contexts/LanguageContext";
 import {
   ExternalLink,
   AlertTriangle,

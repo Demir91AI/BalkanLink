@@ -1,4 +1,4 @@
-import { useTranslation } from "@/i18n/useTranslation";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { Info, ExternalLink } from "lucide-react";
 
 const gold = "#C9A84C";
