@@ -11,6 +11,16 @@ function getBestGermanVoice(synth: SpeechSynthesis): SpeechSynthesisVoice | null
   const voices = synth.getVoices();
   const de = voices.filter((v) => v.lang.startsWith("de"));
   if (!de.length) return null;
+  // Prefer known high-quality German voices by name
+  const preferred = [
+    'Google Deutsch', 'Microsoft Conrad', 'Microsoft Hedda',
+    'Anna', 'Helena', 'Markus', 'Google German',
+  ];
+  for (const name of preferred) {
+    const v = de.find((voice) => voice.name.includes(name));
+    if (v) return v;
+  }
+  // Fallback tiers
   const tests: ((v: SpeechSynthesisVoice) => boolean)[] = [
     (v) => /neural|wavenet/i.test(v.name),
     (v) => /enhanced|premium/i.test(v.name),
@@ -20,6 +30,26 @@ function getBestGermanVoice(synth: SpeechSynthesis): SpeechSynthesisVoice | null
   ];
   for (const fn of tests) { const m = de.find(fn); if (m) return m; }
   return de[0];
+}
+
+/** Preprocess German text for better TTS pronunciation */
+function preprocessGerman(text: string): string {
+  return text
+    .replace(/z\.B\./gi, 'zum Beispiel')
+    .replace(/bzw\./gi, 'beziehungsweise')
+    .replace(/ca\./gi, 'circa')
+    .replace(/d\.h\./gi, 'das heißt')
+    .replace(/u\.a\./gi, 'unter anderem')
+    .replace(/usw\./gi, 'und so weiter')
+    .replace(/ggf\./gi, 'gegebenenfalls')
+    .replace(/inkl\./gi, 'inklusive')
+    .replace(/Nr\./gi, 'Nummer')
+    .replace(/Dr\./gi, 'Doktor')
+    .replace(/Prof\./gi, 'Professor')
+    .replace(/€/g, ' Euro ')
+    .replace(/%/g, ' Prozent ')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 type PlayState = "idle" | "playing" | "paused";
@@ -65,7 +95,7 @@ export function useTTS() {
           apikey: SUPABASE_KEY,
           Authorization: `Bearer ${SUPABASE_KEY}`,
         },
-        body: JSON.stringify({ text: text.slice(0, 200), lang: "de" }),
+        body: JSON.stringify({ text: preprocessGerman(text).slice(0, 200), lang: "de" }),
       });
 
       if (!res.ok) return false;
@@ -96,35 +126,46 @@ export function useTTS() {
 
     try { synth.cancel(); } catch { /* */ }
 
-    const u = new SpeechSynthesisUtterance(text);
+    // Android Chrome fix: small delay after cancel() for stability
+    const isAndroid = /android/i.test(navigator.userAgent);
+
+    const processedText = preprocessGerman(text);
+    const u = new SpeechSynthesisUtterance(processedText);
     u.lang = "de-DE";
-    u.rate = rate;
-    u.pitch = 0.95;
-    u.volume = 1;
 
-    const voice = cachedVoice.current;
-    if (voice) { u.voice = voice; u.lang = voice.lang; }
+    const applyVoiceAndSpeak = () => {
+      const voice = cachedVoice.current ?? getBestGermanVoice(synth);
+      if (voice) { u.voice = voice; u.lang = voice.lang; cachedVoice.current = voice; }
+      u.rate = 0.92;
+      u.pitch = 1.05;
+      u.volume = 1.0;
 
-    let started = false;
-    const timeout = setTimeout(() => {
-      if (!started) { setActiveId(null); setPlayState("idle"); }
-    }, 2000);
+      let started = false;
+      const timeout = setTimeout(() => {
+        if (!started) { setActiveId(null); setPlayState("idle"); }
+      }, 2000);
 
-    u.onstart = () => { started = true; clearTimeout(timeout); setActiveId(id); setPlayState("playing"); };
-    u.onend = () => { clearTimeout(timeout); setActiveId(null); setPlayState("idle"); };
-    u.onerror = (e) => {
-      clearTimeout(timeout);
-      if (e.error === "interrupted" || e.error === "canceled") return;
-      setActiveId(null); setPlayState("idle");
+      u.onstart = () => { started = true; clearTimeout(timeout); setActiveId(id); setPlayState("playing"); };
+      u.onend = () => { clearTimeout(timeout); setActiveId(null); setPlayState("idle"); };
+      u.onerror = (e) => {
+        clearTimeout(timeout);
+        if (e.error === "interrupted" || e.error === "canceled") return;
+        setActiveId(null); setPlayState("idle");
+      };
+
+      const doSpeak = () => { try { synth.speak(u); } catch { /* */ } };
+      if (isAndroid) { setTimeout(doSpeak, 120); } else { doSpeak(); }
     };
 
-    try {
-      synth.speak(u);
-      return true;
-    } catch {
-      return false;
+    // Fix mobile voice loading: voices load async on iOS/Android
+    if (synth.getVoices().length === 0) {
+      synth.addEventListener("voiceschanged", applyVoiceAndSpeak, { once: true });
+    } else {
+      applyVoiceAndSpeak();
     }
-  }, [rate]);
+
+    return true;
+  }, []);
 
   /* ── Play: try edge first, fallback to browser ── */
   const playNew = useCallback(async (id: string, text: string) => {
