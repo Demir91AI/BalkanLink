@@ -57,10 +57,6 @@ const serviceCardKeys = [
 
 const placeholderAds = [
   { name: "RealCore Digital", slogan: "Webdesign · KI · Lösungen", desc: "Professionelle digitale Lösungen.", logo: realcoreDigitalLogo, href: "https://realcore.digital", isReal: true },
-  { name: "Oglasni prostor", slogan: "Vaša firma ovdje", desc: "", logo: "/icons/icon-192x192.png", isReal: false },
-  { name: "Slobodno mjesto", slogan: "Vaša firma ovdje", desc: "", logo: "/icons/icon-192x192.png", isReal: false },
-  { name: "Oglasni prostor", slogan: "Vaša firma ovdje", desc: "", logo: "/icons/icon-192x192.png", isReal: false },
-  { name: "Slobodno mjesto", slogan: "Vaša firma ovdje", desc: "", logo: "/icons/icon-192x192.png", isReal: false },
 ];
 
 /* useInfiniteScroll moved to @/hooks/useInfiniteScroll */
