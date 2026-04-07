@@ -135,17 +135,8 @@ function ShowcaseCarousel() {
   const { t } = useLanguage();
   const { ref, pause, scheduleResume, scrollByCard, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.7, 3000);
 
-  const emptySlots = [
-    { title: "Vaša firma ovdje", desc: "Premium mjesto za vašu reklamu." },
-    { title: "Vaša firma ovdje", desc: "Premium mjesto za vašu reklamu." },
-    { title: "Vaša firma ovdje", desc: "Premium mjesto za vašu reklamu." },
-  ];
-
-  type CardItem = { type: "firm"; firm: typeof premiumShowcaseFirms[0] } | { type: "empty"; title: string; desc: string };
-  const items: CardItem[] = [
-    ...premiumShowcaseFirms.map((firm) => ({ type: "firm" as const, firm })),
-    ...emptySlots.map((s) => ({ type: "empty" as const, ...s })),
-  ];
+  type CardItem = { type: "firm"; firm: typeof premiumShowcaseFirms[0] };
+  const items: CardItem[] = premiumShowcaseFirms.map((firm) => ({ type: "firm" as const, firm }));
   const doubled = [...items, ...items];
 
   return (
