@@ -306,38 +306,67 @@ export default function Index() {
         ))}
 
         {/* Overlay */}
-        <div className="absolute inset-0 z-[2]" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.30) 85%, rgba(0,0,0,0.45) 100%)" }} />
-
+        <div className="absolute inset-0 z-[2]" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 50%, rgba(0,0,0,0.65) 100%)" }} />
 
         <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-5 py-16 lg:py-20">
           <div className="mx-auto flex w-full max-w-6xl flex-col items-center text-center">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }} className="flex flex-col items-center text-center">
-              <h1 className="font-heading text-4xl font-black leading-tight text-white drop-shadow-lg sm:text-5xl md:text-6xl">
-                {t("hero.title")}{" "}
-                <span className="text-[#F5C842]">{t("hero.title_highlight")}</span>
+              <h1
+                className="font-heading font-[800] text-white"
+                style={{ fontSize: "clamp(2.4rem, 5vw, 4rem)", lineHeight: 1.15, textShadow: "0 2px 12px rgba(0,0,0,0.4)" }}
+              >
+                Tvoj vodič kroz{" "}
+                <span style={{ color: "#C9A84C" }}>njemački sistem.</span>
               </h1>
 
-              <p className="mx-auto mt-4 max-w-xl text-base text-white/85 drop-shadow sm:text-lg leading-relaxed">
+              <p className="mx-auto mt-4 text-white" style={{ maxWidth: 560, fontSize: "1.1rem", opacity: 0.88, lineHeight: 1.6 }}>
                 {t("hero.subtitle")}
               </p>
 
               <div className="mt-8 flex flex-col items-center gap-4">
-                <Button onClick={() => navigate("/formulari")} className="h-12 rounded-lg bg-[hsl(var(--gold))] px-8 text-base font-bold text-white shadow-[0_4px_24px_rgba(201,168,76,0.4)] hover:bg-[hsl(var(--gold-dark))] hover:shadow-[0_8px_36px_rgba(201,168,76,0.55)] hover:scale-[1.03] transition-all duration-300 h-14 px-10 text-lg text-center">
+                <button
+                  onClick={() => navigate("/formulari")}
+                  className="transition-all duration-200"
+                  style={{
+                    background: "#C9A84C",
+                    color: "#000",
+                    fontWeight: 700,
+                    padding: "14px 40px",
+                    borderRadius: 8,
+                    boxShadow: "0 4px 24px rgba(201,168,76,0.45)",
+                    fontSize: "1rem",
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.filter = "brightness(1.1)"; e.currentTarget.style.transform = "scale(1.02)"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.filter = ""; e.currentTarget.style.transform = ""; }}
+                >
                   {t("hero.cta.primary")}
-                </Button>
-                <Button variant="outline" onClick={() => window.dispatchEvent(new CustomEvent("open-assistant"))} className="h-11 rounded-lg border border-white/40 bg-transparent px-6 text-sm font-semibold text-white hover:bg-white/10 hover:border-white/60 transition-all duration-300">
+                </button>
+                <button
+                  onClick={() => navigate("/paketi")}
+                  className="transition-all duration-200"
+                  style={{
+                    background: "transparent",
+                    border: "2px solid rgba(255,255,255,0.45)",
+                    color: "white",
+                    fontWeight: 600,
+                    padding: "14px 40px",
+                    borderRadius: 8,
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.1)"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; }}
+                >
                   {t("hero.cta.secondary")}
-                </Button>
+                </button>
               </div>
 
-              <p className="mx-auto mt-6 max-w-sm text-center text-[11px] leading-relaxed text-white font-medium" style={{ textShadow: "0 1px 4px rgba(0,0,0,0.85)" }}>
+              <p className="mx-auto mt-6 max-w-sm text-center text-white" style={{ fontSize: "0.72rem", opacity: 0.55 }}>
                 {t("hero.disclaimer")}
               </p>
 
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.7 }} className="mt-6 flex flex-row flex-wrap items-center justify-center gap-x-6 gap-y-2">
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.7 }} className="mt-6 flex flex-row flex-wrap items-center justify-center" style={{ gap: 28 }}>
                 {trustBadgeKeys.map((key) => (
-                  <span key={key} className="flex items-center gap-1.5 text-sm font-medium text-white/70" style={{ textShadow: "0 1px 3px rgba(0,0,0,0.6)" }}>
-                    <CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))]" />
+                  <span key={key} className="flex items-center gap-1.5 font-medium text-white" style={{ fontSize: "0.85rem", opacity: 0.82, textShadow: "0 1px 3px rgba(0,0,0,0.6)" }}>
+                    <CheckCircle2 className="h-4 w-4" style={{ color: "#C9A84C" }} />
                     {t(key)}
                   </span>
                 ))}
