@@ -1,4 +1,9 @@
 import { Link } from "react-router-dom";
+import visaIcon from "@/assets/payment/visa.svg";
+import mastercardIcon from "@/assets/payment/mastercard.svg";
+import paypalIcon from "@/assets/payment/paypal.svg";
+import applepayIcon from "@/assets/payment/applepay.svg";
+import googlepayIcon from "@/assets/payment/googlepay.svg";
 
 const NAV_LINKS = [
   { label: "Formulari", to: "/formulari" },
@@ -128,17 +133,17 @@ export default function Footer() {
         </p>
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 18, flexWrap: "wrap" }}>
           {[
-            { src: "https://img.icons8.com/color/96/visa.png", alt: "Visa" },
-            { src: "https://img.icons8.com/color/96/mastercard-logo.png", alt: "Mastercard" },
-            { src: "https://img.icons8.com/color/96/paypal.png", alt: "PayPal" },
-            { src: "https://img.icons8.com/color/96/apple-pay.png", alt: "Apple Pay" },
-            { src: "https://img.icons8.com/color/96/google-pay.png", alt: "Google Pay" },
+            { src: visaIcon, alt: "Visa" },
+            { src: mastercardIcon, alt: "Mastercard" },
+            { src: paypalIcon, alt: "PayPal" },
+            { src: applepayIcon, alt: "Apple Pay" },
+            { src: googlepayIcon, alt: "Google Pay" },
           ].map((icon) => (
             <img
               key={icon.alt}
               src={icon.src}
               alt={icon.alt}
-              style={{ height: 28, width: "auto", opacity: 0.85, transition: "opacity 0.2s", filter: "brightness(0) invert(1)" }}
+              style={{ height: 28, width: "auto", opacity: 0.85, transition: "opacity 0.2s" }}
               onMouseEnter={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = "1"; }}
               onMouseLeave={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = "0.85"; }}
             />
