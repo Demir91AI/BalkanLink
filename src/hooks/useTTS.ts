@@ -95,7 +95,7 @@ export function useTTS() {
           apikey: SUPABASE_KEY,
           Authorization: `Bearer ${SUPABASE_KEY}`,
         },
-        body: JSON.stringify({ text: text.slice(0, 200), lang: "de" }),
+        body: JSON.stringify({ text: preprocessGerman(text).slice(0, 200), lang: "de" }),
       });
 
       if (!res.ok) return false;
