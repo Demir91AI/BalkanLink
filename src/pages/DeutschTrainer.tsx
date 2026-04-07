@@ -394,6 +394,9 @@ export default function DeutschTrainer() {
             >
               <Crown className="mx-auto mb-3 h-8 w-8 text-gold" />
               <h3 className="text-base font-black text-white">6 Monate aktiver Deutschkurs</h3>
+              <p style={{ fontSize: 13, color: "#9CA3AF", marginBottom: 8 }}>
+                Ab 19,99€ einmalig · Kein Abo
+              </p>
               <p className="mt-1 text-xs text-muted-foreground">
                 108 Lektionen · 16.000+ Übungen · Sprachassistent · A1 bis C2
               </p>
