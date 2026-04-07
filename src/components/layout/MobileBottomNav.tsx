@@ -16,7 +16,7 @@ export default function MobileBottomNav() {
     { icon: FileText, label: t("homepage.mobileNav.dokumenti"), path: "/formulari" },
     { icon: Map, label: t("homepage.mobileNav.vodici"), path: "/dolazak" },
     { icon: Sparkles, label: t("homepage.mobileNav.ai"), path: "/dokumenten-check" },
-    { icon: Tag, label: "Cijene", path: "/paketi" },
+    { icon: Tag, label: t("homepage.mobileNav.cijene"), path: "/paketi" },
     { icon: User, label: t("homepage.mobileNav.profil"), path: "__auth__" },
   ];
 
