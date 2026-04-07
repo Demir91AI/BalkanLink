@@ -5,68 +5,8 @@ import { Menu, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
-
 const menuBtnClass =
   "h-10 w-10 rounded-lg text-white/70 hover:text-white hover:bg-white/8 active:scale-[0.93] transition-transform duration-150";
-
-const Flag = ({ code, size = 16 }: { code: string; size?: number }) => (
-  <img
-    src={`https://flagcdn.com/w40/${code}.png`}
-    alt=""
-    width={size}
-    height={Math.round(size * 0.75)}
-    className="inline-block rounded-[2px]"
-    style={{ verticalAlign: "middle" }}
-  />
-);
-
-const LANG_PILLS = [
-  { id: "bs", emoji: "🇧🇦", lang: "bhs" as const },
-  { id: "hr", emoji: "🇭🇷", lang: "bhs" as const },
-  { id: "sr", emoji: "🇷🇸", lang: "bhs" as const },
-  { id: "de", emoji: "🇩🇪", lang: "de" as const },
-];
-
-const LS_VARIANT_KEY = "balkanlink-variant";
-
-function getVariant(): string {
-  try { return localStorage.getItem(LS_VARIANT_KEY) || "bs"; } catch { return "bs"; }
-}
-
-function LangPill() {
-  const { language, setLanguage } = useLanguage();
-
-  const activeId = language === "de" ? "de" : getVariant();
-
-  const handleClick = (pill: typeof LANG_PILLS[0]) => {
-    if (pill.lang === "bhs") {
-      try { localStorage.setItem(LS_VARIANT_KEY, pill.id); } catch {}
-    }
-    setLanguage(pill.lang);
-  };
-
-  return (
-    <div className="flex h-9 items-center rounded-full border border-white/20 bg-white/5 backdrop-blur-sm p-[3px] gap-[2px]">
-      {LANG_PILLS.map((pill) => {
-        const isActive = pill.id === activeId;
-        return (
-          <button
-            key={pill.id}
-            onClick={() => handleClick(pill)}
-            className={`flex items-center gap-1 h-[30px] px-2 rounded-full text-[12px] font-semibold transition-all duration-200 ${
-              isActive
-                ? "bg-[hsl(var(--gold))] text-white shadow-md"
-                : "text-white/50 hover:text-white/80"
-            }`}
-          >
-            <span className="text-[13px] leading-none">{pill.emoji}</span>
-            <span>{pill.id.toUpperCase()}</span>
-          </button>
-        );
-      })}
-    </div>
-  );
-}
 
 export default function Header() {
   const { loading, isAdmin } = useAuth();
@@ -84,7 +24,6 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-white/8 bg-[#0f1f3d]/95 backdrop-blur-xl shadow-lg shadow-black/20">
       <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[hsl(var(--gold))] to-transparent opacity-60" />
 
-      {/* Top row: hamburger + logo */}
       <div className="relative flex h-14 items-center justify-between px-4">
         <Button variant="ghost" size="icon" onClick={handleToggleSidebar} className={menuBtnClass} aria-label={t("sidebar.menu")}>
           <Menu className="h-5 w-5" />
@@ -111,17 +50,8 @@ export default function Header() {
           )}
         </div>
 
-        {/* Desktop: lang pill in header row */}
-        <div className="hidden md:block">
-          <LangPill />
-        </div>
-        {/* Mobile: invisible spacer to balance hamburger */}
-        <div className="block md:hidden w-10" />
-      </div>
-
-      {/* Mobile: lang pill on second row */}
-      <div className="flex md:hidden justify-center pb-2 -mt-1">
-        <LangPill />
+        {/* Spacer to balance hamburger */}
+        <div className="w-10" />
       </div>
     </header>
   );

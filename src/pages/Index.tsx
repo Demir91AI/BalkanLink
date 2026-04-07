@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
+import LanguageSelector from "@/components/LanguageSelector";
 
 import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
 
@@ -309,6 +310,13 @@ export default function Index() {
         <div className="absolute inset-0 z-[2]" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 50%, rgba(0,0,0,0.65) 100%)" }} />
 
         <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-5 py-16 lg:py-20">
+          {/* Language selector — top-right on desktop, centered on mobile */}
+          <div className="absolute top-4 right-4 z-20 hidden md:block">
+            <div className="rounded-full bg-black/30 backdrop-blur-md border border-white/15 px-1 py-1">
+              <LanguageSelector />
+            </div>
+          </div>
+
           <div className="mx-auto flex w-full max-w-6xl flex-col items-center text-center">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }} className="flex flex-col items-center text-center">
               <h1
@@ -323,7 +331,14 @@ export default function Index() {
                 {t("hero.subtitle")}
               </p>
 
-              <div className="mt-8 flex flex-col items-center gap-4">
+              {/* Language selector — mobile only, centered */}
+              <div className="mt-5 flex md:hidden justify-center">
+                <div className="rounded-full bg-black/30 backdrop-blur-md border border-white/15 px-1 py-1">
+                  <LanguageSelector />
+                </div>
+              </div>
+
+              <div className="mt-8 md:mt-8 flex flex-col items-center gap-4">
                 <button
                   onClick={() => navigate("/formulari")}
                   className="transition-all duration-200"
