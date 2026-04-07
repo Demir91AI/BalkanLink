@@ -47,7 +47,7 @@ serve(async (req) => {
       line_items: [{ price: priceId, quantity: 1 }],
       mode: checkoutMode,
       success_url: `${origin}/payment-success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${origin}/paketi`,
+      cancel_url: `${origin}/placanje-otkazano`,
       metadata: {
         user_id: user.id,
         ...(formSlug ? { form_slug: formSlug } : {}),
