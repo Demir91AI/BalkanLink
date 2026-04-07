@@ -16,7 +16,7 @@ type LangKey = "de" | "bs" | "en";
 function getLangKey(lang: string): LangKey {
   if (lang === "de") return "de";
   if (lang === "en") return "en";
-  return "bs";
+  return "bs"; // "bhs" maps to "bs" for guide data
 }
 
 export default function SmartGuide() {

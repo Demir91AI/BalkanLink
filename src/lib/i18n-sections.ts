@@ -1938,8 +1938,11 @@ const guideTranslations: Record<Lang, Record<string, string>> = {
 };
 
 /** Get a section translation. Falls back: language → bs → key */
-export function getSectionT(lang: Lang, key: string): string {
-  const all = { ...docCheckTranslations[lang], ...vizaTranslations[lang], ...ntTranslations[lang], ...pricingTranslations[lang], ...guideTranslations[lang] };
+export function getSectionT(lang: Lang | string, key: string): string {
+  // Map new "bhs" language code to "bs" for backward compatibility
+  const mappedLang: Lang = lang === "bhs" ? "bs" : (lang as Lang);
+  const validLang = mappedLang in docCheckTranslations ? mappedLang : "bs";
+  const all = { ...docCheckTranslations[validLang], ...vizaTranslations[validLang], ...ntTranslations[validLang], ...pricingTranslations[validLang], ...guideTranslations[validLang] };
   if (all[key]) return all[key];
   // fallback to bs
   const bsAll = { ...docCheckTranslations.bs, ...vizaTranslations.bs, ...ntTranslations.bs, ...pricingTranslations.bs, ...guideTranslations.bs };
