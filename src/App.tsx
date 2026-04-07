@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -8,96 +9,91 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { CountryProvider } from "@/contexts/CountryContext";
 import Layout from "@/components/layout/Layout";
-
 import HomeLayout from "@/components/layout/HomeLayout";
 import Index from "./pages/Index";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import ForgotPassword from "./pages/ForgotPassword";
-import ResetPassword from "./pages/ResetPassword";
-import Impressum from "./pages/Impressum";
-import Datenschutz from "./pages/Datenschutz";
-import Disclaimer from "./pages/Disclaimer";
-import KiHinweis from "./pages/KiHinweis";
-import Mitgliedschaft from "./pages/Mitgliedschaft";
-import Nutzungsbedingungen from "./pages/Nutzungsbedingungen";
-import DSA from "./pages/DSA";
-import CookieRichtlinie from "./pages/CookieRichtlinie";
-import QA from "./pages/QA";
-import QADetail from "./pages/QADetail";
-import Directory from "./pages/Directory";
-import DirectorySubmit from "./pages/DirectorySubmit";
-import Missions from "./pages/Missions";
-import PocniOvdje from "./pages/PocniOvdje";
-import PrijavaPrebijalista from "./pages/dolazak/PrijavaPrebijalista";
-import BoravisnaDozvola from "./pages/dolazak/BoravisnaDozvola";
-import SteuerIdPoreznaKlasa from "./pages/dolazak/SteuerIdPoreznaKlasa";
-import ZdravstvenoOsiguranje from "./pages/dolazak/ZdravstvenoOsiguranje";
-import BankovniRacun from "./pages/dolazak/BankovniRacun";
-import PrviKoraci from "./pages/dolazak/PrviKoraci";
-import Sozialversicherung from "./pages/dolazak/Sozialversicherung";
-import Rundfunkbeitrag from "./pages/dolazak/Rundfunkbeitrag";
-import Fuehrerschein from "./pages/dolazak/Fuehrerschein";
-import AutoAnmelden from "./pages/dolazak/AutoAnmelden";
-import ZivotSavjeti from "./pages/ZivotSavjeti";
-import TrebamPomoc from "./pages/TrebamPomoc";
 
-import FormCenter from "./pages/FormCenter";
-import LegacyGuideRedirect from "./pages/LegacyGuideRedirect";
-import Familie from "./pages/Familie";
-import Foerderungen from "./pages/Foerderungen";
-import Generatoren from "./pages/Generatoren";
-import Wohnungen from "./pages/Wohnungen";
-import Stellenangebote from "./pages/Stellenangebote";
-
-
-import DokumentenCheck from "./pages/DokumentenCheck";
-import AdminForms from "./pages/AdminForms";
-import AdminFormMapper from "./pages/AdminFormMapper";
-import BruttoNettoRechner from "./pages/BruttoNettoRechner";
-import NudimTrazim from "./pages/NudimTrazim";
-import NachDeutschland from "./pages/NachDeutschland";
-import Vorlagen from "./pages/Vorlagen";
-import DeutschTrainer from "./pages/DeutschTrainer";
-import TrainerPreise from "./pages/TrainerPreise";
-import TrainerFaq from "./pages/TrainerFaq";
-import TrainerBonusbedingungen from "./pages/TrainerBonusbedingungen";
-import NotFound from "./pages/NotFound";
-import FirmDetail from "./pages/FirmDetail";
-import BussgeldAssistent from "./pages/BussgeldAssistent";
-import ChatAssistant from "./components/ChatAssistant";
-import KindergeldMuster from "./pages/muster/KindergeldMuster";
-import AnmeldungMuster from "./pages/muster/AnmeldungMuster";
-
-import Pricing from "./pages/Pricing";
-import PaymentSuccess from "./pages/PaymentSuccess";
-import Kalkulatori from "./pages/Kalkulatori";
-import CommunityMapa from "./pages/CommunityMapa";
-
-// Musterformulare
-import ElterngeldMuster from "./pages/muster/ElterngeldMuster";
-import BuergergeldMuster from "./pages/muster/BuergergeldMuster";
-import WohngeldMuster from "./pages/muster/WohngeldMuster";
-import SteuerklasseMuster from "./pages/muster/SteuerklasseMuster";
-import ArbeitslosengeldMuster from "./pages/muster/ArbeitslosengeldMuster";
-import BafoegMuster from "./pages/muster/BafoegMuster";
-import FuehrungszeugnisMuster from "./pages/muster/FuehrungszeugnisMuster";
-import KirchenaustrittMuster from "./pages/muster/KirchenaustrittMuster";
-import IntegrationskursMuster from "./pages/muster/IntegrationskursMuster";
-import KinderzuschlagMuster from "./pages/muster/KinderzuschlagMuster";
-import SchuelerBafoegMuster from "./pages/muster/SchuelerBafoegMuster";
-import GrundsicherungMuster from "./pages/muster/GrundsicherungMuster";
-import AnlageBBMuster from "./pages/muster/AnlageBBMuster";
-import AnlageSVMuster from "./pages/muster/AnlageSVMuster";
-import AnlageVEMuster from "./pages/muster/AnlageVEMuster";
-import AnlageHGMuster from "./pages/muster/AnlageHGMuster";
-import AnlageMEBMuster from "./pages/muster/AnlageMEBMuster";
-import AnlageUFMuster from "./pages/muster/AnlageUFMuster";
-import AnlageSEMuster from "./pages/muster/AnlageSEMuster";
-import ArbeitsbescheinigungMuster from "./pages/muster/ArbeitsbescheinigungMuster";
-import AntragsruecknahmeMuster from "./pages/muster/AntragsruecknahmeMuster";
-import Viza from "./pages/Viza";
-import ZivotUNjemackoj from "./pages/ZivotUNjemackoj";
+// Lazy-loaded pages
+const Login = lazy(() => import("./pages/Login"));
+const Register = lazy(() => import("./pages/Register"));
+const ForgotPassword = lazy(() => import("./pages/ForgotPassword"));
+const ResetPassword = lazy(() => import("./pages/ResetPassword"));
+const Impressum = lazy(() => import("./pages/Impressum"));
+const Datenschutz = lazy(() => import("./pages/Datenschutz"));
+const Disclaimer = lazy(() => import("./pages/Disclaimer"));
+const KiHinweis = lazy(() => import("./pages/KiHinweis"));
+const Mitgliedschaft = lazy(() => import("./pages/Mitgliedschaft"));
+const Nutzungsbedingungen = lazy(() => import("./pages/Nutzungsbedingungen"));
+const DSA = lazy(() => import("./pages/DSA"));
+const CookieRichtlinie = lazy(() => import("./pages/CookieRichtlinie"));
+const QA = lazy(() => import("./pages/QA"));
+const QADetail = lazy(() => import("./pages/QADetail"));
+const Directory = lazy(() => import("./pages/Directory"));
+const DirectorySubmit = lazy(() => import("./pages/DirectorySubmit"));
+const Missions = lazy(() => import("./pages/Missions"));
+const PocniOvdje = lazy(() => import("./pages/PocniOvdje"));
+const PrijavaPrebijalista = lazy(() => import("./pages/dolazak/PrijavaPrebijalista"));
+const BoravisnaDozvola = lazy(() => import("./pages/dolazak/BoravisnaDozvola"));
+const SteuerIdPoreznaKlasa = lazy(() => import("./pages/dolazak/SteuerIdPoreznaKlasa"));
+const ZdravstvenoOsiguranje = lazy(() => import("./pages/dolazak/ZdravstvenoOsiguranje"));
+const BankovniRacun = lazy(() => import("./pages/dolazak/BankovniRacun"));
+const PrviKoraci = lazy(() => import("./pages/dolazak/PrviKoraci"));
+const Sozialversicherung = lazy(() => import("./pages/dolazak/Sozialversicherung"));
+const Rundfunkbeitrag = lazy(() => import("./pages/dolazak/Rundfunkbeitrag"));
+const Fuehrerschein = lazy(() => import("./pages/dolazak/Fuehrerschein"));
+const AutoAnmelden = lazy(() => import("./pages/dolazak/AutoAnmelden"));
+const ZivotSavjeti = lazy(() => import("./pages/ZivotSavjeti"));
+const TrebamPomoc = lazy(() => import("./pages/TrebamPomoc"));
+const FormCenter = lazy(() => import("./pages/FormCenter"));
+const LegacyGuideRedirect = lazy(() => import("./pages/LegacyGuideRedirect"));
+const Familie = lazy(() => import("./pages/Familie"));
+const Foerderungen = lazy(() => import("./pages/Foerderungen"));
+const Generatoren = lazy(() => import("./pages/Generatoren"));
+const Wohnungen = lazy(() => import("./pages/Wohnungen"));
+const Stellenangebote = lazy(() => import("./pages/Stellenangebote"));
+const DokumentenCheck = lazy(() => import("./pages/DokumentenCheck"));
+const AdminForms = lazy(() => import("./pages/AdminForms"));
+const AdminFormMapper = lazy(() => import("./pages/AdminFormMapper"));
+const BruttoNettoRechner = lazy(() => import("./pages/BruttoNettoRechner"));
+const NudimTrazim = lazy(() => import("./pages/NudimTrazim"));
+const NachDeutschland = lazy(() => import("./pages/NachDeutschland"));
+const Vorlagen = lazy(() => import("./pages/Vorlagen"));
+const DeutschTrainer = lazy(() => import("./pages/DeutschTrainer"));
+const TrainerPreise = lazy(() => import("./pages/TrainerPreise"));
+const TrainerFaq = lazy(() => import("./pages/TrainerFaq"));
+const TrainerBonusbedingungen = lazy(() => import("./pages/TrainerBonusbedingungen"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const FirmDetail = lazy(() => import("./pages/FirmDetail"));
+const BussgeldAssistent = lazy(() => import("./pages/BussgeldAssistent"));
+const ChatAssistant = lazy(() => import("./components/ChatAssistant"));
+const KindergeldMuster = lazy(() => import("./pages/muster/KindergeldMuster"));
+const AnmeldungMuster = lazy(() => import("./pages/muster/AnmeldungMuster"));
+const Pricing = lazy(() => import("./pages/Pricing"));
+const PaymentSuccess = lazy(() => import("./pages/PaymentSuccess"));
+const Kalkulatori = lazy(() => import("./pages/Kalkulatori"));
+const CommunityMapa = lazy(() => import("./pages/CommunityMapa"));
+const ElterngeldMuster = lazy(() => import("./pages/muster/ElterngeldMuster"));
+const BuergergeldMuster = lazy(() => import("./pages/muster/BuergergeldMuster"));
+const WohngeldMuster = lazy(() => import("./pages/muster/WohngeldMuster"));
+const SteuerklasseMuster = lazy(() => import("./pages/muster/SteuerklasseMuster"));
+const ArbeitslosengeldMuster = lazy(() => import("./pages/muster/ArbeitslosengeldMuster"));
+const BafoegMuster = lazy(() => import("./pages/muster/BafoegMuster"));
+const FuehrungszeugnisMuster = lazy(() => import("./pages/muster/FuehrungszeugnisMuster"));
+const KirchenaustrittMuster = lazy(() => import("./pages/muster/KirchenaustrittMuster"));
+const IntegrationskursMuster = lazy(() => import("./pages/muster/IntegrationskursMuster"));
+const KinderzuschlagMuster = lazy(() => import("./pages/muster/KinderzuschlagMuster"));
+const SchuelerBafoegMuster = lazy(() => import("./pages/muster/SchuelerBafoegMuster"));
+const GrundsicherungMuster = lazy(() => import("./pages/muster/GrundsicherungMuster"));
+const AnlageBBMuster = lazy(() => import("./pages/muster/AnlageBBMuster"));
+const AnlageSVMuster = lazy(() => import("./pages/muster/AnlageSVMuster"));
+const AnlageVEMuster = lazy(() => import("./pages/muster/AnlageVEMuster"));
+const AnlageHGMuster = lazy(() => import("./pages/muster/AnlageHGMuster"));
+const AnlageMEBMuster = lazy(() => import("./pages/muster/AnlageMEBMuster"));
+const AnlageUFMuster = lazy(() => import("./pages/muster/AnlageUFMuster"));
+const AnlageSEMuster = lazy(() => import("./pages/muster/AnlageSEMuster"));
+const ArbeitsbescheinigungMuster = lazy(() => import("./pages/muster/ArbeitsbescheinigungMuster"));
+const AntragsruecknahmeMuster = lazy(() => import("./pages/muster/AntragsruecknahmeMuster"));
+const Viza = lazy(() => import("./pages/Viza"));
+const ZivotUNjemackoj = lazy(() => import("./pages/ZivotUNjemackoj"));
 
 const queryClient = new QueryClient();
 
@@ -113,6 +109,7 @@ const App = () => (
         
           <CountryProvider>
           <AuthProvider>
+            <Suspense fallback={null}>
             <Routes>
               <Route element={<HomeLayout />}>
                 <Route path="/" element={<Index />} />
@@ -228,6 +225,7 @@ const App = () => (
               </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>
+            </Suspense>
             
           </AuthProvider>
           </CountryProvider>
