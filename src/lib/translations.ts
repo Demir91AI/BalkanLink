@@ -1,1605 +1,552 @@
-import { indexChatBs, indexChatHr, indexChatSr, indexChatMe, indexChatSq, indexChatXk, indexChatMk, indexChatSl, newKeysSq, newKeysXk, newKeysMk, newKeysMe } from "./i18n-extra";
-
-export type Language = "bs" | "hr" | "sr" | "me" | "sq" | "mk" | "xk" | "sl";
+export type Language = "bhs" | "de";
 
 export interface LanguageInfo {
   code: Language;
   name: string;
-  country: string;
   flag: string;
 }
 
 export const LANGUAGES: LanguageInfo[] = [
-  { code: "bs", name: "Bosanski", country: "Bosna i Hercegovina", flag: "🇧🇦" },
-  { code: "hr", name: "Hrvatski", country: "Hrvatska", flag: "🇭🇷" },
-  { code: "sr", name: "Srpski", country: "Srbija", flag: "🇷🇸" },
-  { code: "me", name: "Crnogorski", country: "Crna Gora", flag: "🇲🇪" },
-  { code: "sq", name: "Shqip", country: "Shqipëria", flag: "🇦🇱" },
-  { code: "xk", name: "Shqip (Kosovo)", country: "Kosova", flag: "🇽🇰" },
-  { code: "mk", name: "Македонски", country: "Македонија", flag: "🇲🇰" },
-  { code: "sl", name: "Slovenščina", country: "Slovenija", flag: "🇸🇮" },
+  { code: "bhs", name: "BS / HR / SR", flag: "🇧🇦🇭🇷🇷🇸" },
+  { code: "de",  name: "Deutsch",      flag: "🇩🇪" },
 ];
 
-type TranslationKeys = {
-  "nav.home": string; "nav.qa": string; "nav.directory": string; "nav.missions": string;
-  "nav.login": string; "nav.register": string; "nav.logout": string; "nav.plus": string;
-  "hero.slide1.title": string; "hero.slide1.subtitle": string;
-  "hero.slide2.title": string; "hero.slide2.subtitle": string;
-  "hero.slide3.title": string; "hero.slide3.subtitle": string;
-  "cta.new.title": string; "cta.new.desc": string;
-  "cta.daily.title": string; "cta.daily.desc": string;
-  "cta.help.title": string; "cta.help.desc": string;
-  "countries.title": string;
-  "categories.title": string; "categories.subtitle": string;
-  "business.title": string; "business.subtitle": string;
-  "business.search": string; "business.add": string;
-  "qa.title": string; "qa.subtitle": string; "qa.search": string;
-  "qa.all": string; "qa.results": string; "qa.empty": string;
-  "dir.title": string; "dir.subtitle": string; "dir.add": string;
-  "dir.searchPlaceholder": string;
-  "dir.filterCity": string; "dir.filterCategory": string; "dir.filterOrigin": string;
-  "dir.allCities": string; "dir.allCategories": string; "dir.allOrigins": string;
-  "dir.results": string; "dir.clearFilters": string; "dir.empty": string;
-  "dir.submitTitle": string; "dir.submitSubtitle": string; "dir.backToDirectory": string;
-  "dir.fieldName": string; "dir.fieldCategory": string; "dir.fieldCity": string;
-  "dir.fieldOrigin": string; "dir.fieldAddress": string; "dir.fieldPhone": string;
-  "dir.fieldWebsite": string; "dir.fieldDescription": string;
-  "dir.submit": string; "dir.submitting": string;
-  "dir.submitSuccess": string; "dir.submitError": string; "dir.loginRequired": string;
-  "missions.title": string; "missions.subtitle": string;
-  "missions.filterCountry": string; "missions.filterCity": string; "missions.filterType": string;
-  "missions.allCountries": string; "missions.allCities": string; "missions.allTypes": string;
-  "missions.embassy": string; "missions.consulate": string;
-  "missions.results": string; "missions.clearFilters": string; "missions.empty": string;
-  "portal.dolazak": string; "portal.dolazak.desc": string;
-  "portal.stan": string; "portal.stan.desc": string;
-  "portal.jobs": string; "portal.jobs.desc": string;
-  "portal.familie": string; "portal.familie.desc": string;
-  "portal.foerderungen": string; "portal.foerderungen.desc": string;
-  "portal.formulare": string; "portal.formulare.desc": string;
-  "portal.tools": string; "portal.tools.desc": string;
-  "portal.ambasade": string; "portal.ambasade.desc": string;
-  "portal.community": string; "portal.community.desc": string;
-  "footer.imprint": string; "footer.privacy": string; "footer.contact": string;
-  "footer.copyright": string; "footer.disclaimer": string;
-  "footer.tagline": string; "footer.navSection": string; "footer.legalSection": string;
-  "footer.trustSection": string; "footer.navHome": string; "footer.navHow": string;
-  "footer.navPremium": string; "footer.trustRating": string; "footer.trustUsers": string;
-  "wohnungen.title": string; "wohnungen.subtitle": string;
-  "wohnungen.city": string; "wohnungen.bundesland": string; "wohnungen.radius": string;
-  "wohnungen.allGermany": string; "wohnungen.maxRent": string; "wohnungen.rooms": string;
-  "wohnungen.wg": string; "wohnungen.furnished": string; "wohnungen.shortTerm": string;
-  "wohnungen.longTerm": string; "wohnungen.search": string; "wohnungen.showMore": string;
-  "wohnungen.showLess": string; "wohnungen.portals": string;
-  "wohnungen.portalBig": string; "wohnungen.portalWg": string; "wohnungen.portalSocial": string; "wohnungen.portalShort": string;
-  "jobs.title": string; "jobs.subtitle": string;
-  "jobs.city": string; "jobs.bundesland": string; "jobs.radius": string;
-  "jobs.allGermany": string; "jobs.branche": string; "jobs.vertragsart": string;
-  "jobs.noDeutsch": string; "jobs.mitUnterkunft": string; "jobs.quereinsteiger": string;
-  "jobs.schnellerEinstieg": string; "jobs.search": string; "jobs.showMore": string;
-  "jobs.showLess": string; "jobs.portals": string;
-  "jobs.portalStaatlich": string; "jobs.portalGross": string; "jobs.portalSpezial": string;
-  "jobs.allBranchen": string;
-  "branche.pflege": string; "branche.bau": string; "branche.logistik": string;
-  "branche.produktion": string; "branche.reinigung": string; "branche.gastro": string;
-  "branche.it": string; "branche.handwerk": string; "branche.buero": string; "branche.ausbildung": string;
-  "vertrag.vollzeit": string; "vertrag.teilzeit": string;
-  "vertrag.ausbildung": string; "vertrag.praktikum": string; "vertrag.minijob": string;
-  "cta.register": string;
-  "auth.loginTitle": string; "auth.loginDesc": string; "auth.email": string; "auth.password": string;
-  "auth.loginButton": string; "auth.loginLoading": string; "auth.loginError": string; "auth.loginSuccess": string;
-  "auth.registerTitle": string; "auth.registerDesc": string; "auth.confirmPassword": string;
-  "auth.registerButton": string; "auth.registerLoading": string;
-  "auth.passwordMismatch": string; "auth.passwordTooShort": string;
-  "auth.registerError": string; "auth.registerSuccess": string; "auth.registerCheckEmail": string;
-  "auth.haveAccount": string; "auth.forgotPassword": string; "auth.noAccount": string;
-  "auth.forgotTitle": string; "auth.forgotDesc": string;
-  "auth.sendLink": string; "auth.sending": string;
-  "auth.checkEmail": string; "auth.checkEmailDesc": string; "auth.backToLogin": string;
-  "auth.resetTitle": string; "auth.resetDesc": string; "auth.newPassword": string;
-  "auth.saveButton": string; "auth.saving": string;
-  "auth.resetWaiting": string; "auth.resetWaitingDesc": string; "auth.passwordChanged": string;
-  "auth.minChars": string;
-  "auth.termsLabel": string; "auth.termsAGB": string; "auth.termsAnd": string;
-  "auth.termsPrivacy": string; "auth.termsAccept": string; "auth.termsRequired": string;
-  "footer.legal": string; "footer.haftung": string; "footer.mitgliedschaft": string; "footer.kiHinweis": string;
-  "hero.cta.register": string; "hero.cta.firstSteps": string;
-  "notfound.title": string; "notfound.desc": string; "notfound.back": string;
-  "common.error": string; "common.legalBasis": string; "common.officialSource": string; "common.moreSource": string;
-  "common.all": string; "common.back": string;
-  // Home page
-  "home.hero.title": string; "home.hero.highlight": string; "home.hero.subtitle": string;
-  "home.hero.cta": string; "home.hero.howItWorks": string;
-  "home.card.majstor": string; "home.card.posao": string; "home.card.stan": string;
-  "home.card.papiri": string; "home.card.restorani": string; "home.card.prodavnice": string;
-  "home.card.prevoz": string; "home.card.pitanje": string; "home.card.kultura": string; "home.card.sport": string;
-  "home.trust.title": string; "home.trust.subtitle": string; "home.trust.community": string;
-  "home.example.1": string; "home.example.2": string; "home.example.3": string;
-  "home.example.4": string; "home.example.5": string;
-  "home.testimonials.title": string; "home.testimonials.cities": string;
-  "home.review1.text": string; "home.review2.text": string;
-  "home.review3.text": string; "home.review4.text": string;
-  "home.premium.title": string; "home.premium.subtitle": string;
-  "home.premium.step1": string; "home.premium.step2": string; "home.premium.step3": string;
-  "home.premium.step4": string; "home.premium.step5": string;
-  "home.premium.cta": string; "home.premium.cancel": string;
-  // Premium page
-  "premium.badge": string; "premium.title": string; "premium.subtitle": string;
-  "premium.price": string; "premium.heroCta": string; "premium.heroFree": string;
-  "premium.compareTitle": string; "premium.compareSubtitle": string;
-  "premium.row.categories": string; "premium.row.community": string;
-  "premium.row.ai": string; "premium.row.search": string;
-  "premium.row.forms": string; "premium.row.assistant": string;
-  "premium.row.templates": string; "premium.row.priority": string; "premium.row.badge": string;
-  "premium.pricingTitle": string; "premium.pricingSubtitle": string;
-  "premium.monthly": string; "premium.yearly": string;
-  "premium.perMonth": string; "premium.perYear": string;
-  "premium.flexible": string; "premium.bestOffer": string; "premium.save": string;
-  "premium.active": string; "premium.soon": string;
-  "premium.noContract": string; "premium.cancelAnytime": string; "premium.forCommunity": string;
-  "premium.free": string; "premium.function": string;
-  // Password strength rules
-  "auth.pwRule.length": string; "auth.pwRule.upper": string; "auth.pwRule.lower": string;
-  "auth.pwRule.number": string; "auth.pwRule.special": string; "auth.pwRule.title": string;
-  // FormCenter + Smart Guide + Paywall
-  "formCenter.title": string; "formCenter.subtitle": string;
-  "formCenter.openGuide": string; "formCenter.pdfUnavailable": string; "formCenter.comingSoon": string;
-  "paywall.title": string; "paywall.desc": string; "paywall.oneTime": string;
-  "paywall.simulate": string; "paywall.processing": string; "paywall.loginRequired": string;
-  "paywall.feature1": string; "paywall.feature2": string; "paywall.feature3": string; "paywall.feature4": string;
-  "paywall.devNote": string;
-  "sg.wizard": string; "sg.pdfClick": string; "sg.showOnPdf": string;
-  "sg.mappingToast": string; "sg.guideMode": string; "sg.guideModeDesc": string;
-  "sg.source": string; "sg.checked": string; "sg.pdfBlocked": string; "sg.pdfBlockedDesc": string;
-  "sg.openOfficial": string; "sg.loading": string; "sg.notFound": string; "sg.backToForms": string;
-  "sg.devReset": string; "sg.back": string; "sg.next": string;
-  "sg.rejectionTitle": string; "sg.docsTitle": string; "sg.signTitle": string;
-  "sg.pdfPreview": string; "sg.openNewTab": string; "sg.clickFieldHint": string; "sg.fieldsOnForm": string;
-  "sg.clickToExplain": string;
-  // Homepage section
-  "home.section.title": string; "home.section.subtitle": string;
-  "home.item.posao": string; "home.item.stan": string; "home.item.formulari": string;
-  "home.item.rechner": string; "home.item.prijava": string; "home.item.zdravstvo": string;
-  "home.item.banka": string; "home.item.auto": string; "home.item.foerderungen": string;
-  "home.item.dokumentenCheck": string;
-  "home.hero.ctaButton": string;
-  "home.formulare.title": string; "home.formulare.subtitle": string;
-  "home.tools.title": string; "home.tools.subtitle": string;
-  "home.cat.familie": string; "home.cat.finanzen": string; "home.cat.wohnen": string;
-  "home.cat.arbeit": string; "home.cat.dokumente": string; "home.cat.fahrzeuge": string;
-  "home.cat.gesundheit": string;
-  "home.search.placeholder": string;
-  "home.schnellzugriff.title": string; "home.schnellzugriff.subtitle": string;
-  "home.schnellzugriff.wohnung": string; "home.schnellzugriff.job": string;
-  "home.schnellzugriff.biete": string;
-  "home.dokcheck.title": string; "home.dokcheck.subtitle": string; "home.dokcheck.cta": string;
-  "home.aufenthalt.title": string; "home.aufenthalt.subtitle": string;
-  "home.aufenthalt.boravak": string; "home.aufenthalt.koraci": string; "home.aufenthalt.dozvola": string;
-  "home.ad.placeholder": string;
-  "footer.navFormulari": string;
-  // Admin mapper
-  "admin.mapper.title": string; "admin.mapper.coverage": string; "admin.mapper.unmapped": string;
-  "admin.mapper.search": string; "admin.mapper.selectField": string; "admin.mapper.saved": string;
-  "admin.mapper.export": string; "admin.mapper.import": string;
-  // Tools / Rechner
-  "tools.pageTitle": string; "tools.pageSubtitle": string;
-  "tools.bruttoNetto": string; "tools.bruttoNetto.desc": string;
-  "tools.bruttoSalary": string; "tools.steuerklasse": string;
-  "tools.kirchensteuer": string; "tools.kinder": string;
-  "tools.calculate": string; "tools.estimatedNetto": string; "tools.incomeTax": string;
-  "tools.officialTitle": string; "tools.officialDesc": string; "tools.openOfficial": string;
-  "tools.disclaimer": string;
-  "tools.kindergeld": string; "tools.kindergeld.desc": string;
-  "tools.kinderzuschlag": string; "tools.kinderzuschlag.desc": string;
-  "tools.buergergeld": string; "tools.buergergeld.desc": string;
-  "tools.elterngeld": string; "tools.elterngeld.desc": string;
-  "tools.rente": string; "tools.rente.desc": string;
-  // Index page
-  "index.navLabel": string; "index.nav.firstSteps": string; "index.nav.forms": string;
-  "index.nav.jobSearch": string; "index.nav.housingSearch": string; "index.nav.offerSeek": string;
-  "index.nav.tools": string; "index.nav.docCheck": string; "index.nav.visaNav": string;
-  "index.heroTitle": string; "index.heroHighlight": string;
-  "index.heroSubtitle": string; "index.heroSubtitle2": string;
-  "index.searchPlaceholder": string;
-  "index.slogan1": string; "index.slogan2": string;
-  "index.quickStart": string; "index.quickDocs": string;
-  "index.quickResidence": string; "index.quickCalc": string;
-  // Chat
-  "chat.floatingTitle": string; "chat.floatingSubtitle": string;
-  "chat.headerTitle": string; "chat.headerSubtitle": string;
-  "chat.greeting": string; "chat.greetingDesc": string;
-  "chat.placeholder": string; "chat.error": string;
-  "chat.disclaimer": string; "chat.noSensitiveData": string;
-  "chat.copy": string; "chat.minimize": string; "chat.close": string;
-  "chat.msgLabel": string;
-  "chat.openGuide": string; "chat.openForm": string; "chat.openPage": string;
-  // Footer extras
-  "footer.agb": string; "footer.reportContent": string;
-  "footer.paymentMethods": string; "footer.creditCard": string; "footer.bankTransfer": string;
-  // Vorlagen
-  "vorlagen.sidebarTitle": string; "vorlagen.subtitle": string; "vorlagen.comingSoon": string;
-  "vorlagen.sectionWork": string; "vorlagen.sectionService": string;
-  "vorlagen.bewerbung": string; "vorlagen.lebenslauf": string; "vorlagen.anschreiben": string;
-  "vorlagen.kuendigung": string; "vorlagen.fristlose": string; "vorlagen.probezeit": string;
-  "vorlagen.widerruf": string; "vorlagen.vertragKuendigung": string; "vorlagen.reklamation": string;
-  "flowBanner.headline": string; "flowBanner.subheadline": string; "flowBanner.hint": string;
-  "flowBanner.cta": string; "flowBanner.ctaNote": string; "flowBanner.start": string; "flowBanner.open": string;
+type T = Record<Language, string>;
+export const translations: Record<string, T> = {
+
+  // ── NAVIGATION ─────────────────────────────────────────────
+  "nav.home":            { bhs: "Početna",                    de: "Startseite" },
+  "nav.back":            { bhs: "Nazad",                      de: "Zurück" },
+  "nav.next":            { bhs: "Dalje",                      de: "Weiter" },
+  "nav.prev":            { bhs: "Prethodni",                  de: "Vorherige" },
+  "nav.login":           { bhs: "Prijava",                    de: "Anmelden" },
+  "nav.logout":          { bhs: "Odjava",                     de: "Abmelden" },
+  "nav.packages":        { bhs: "Paketi i opcije",            de: "Pakete & Optionen" },
+
+  // ── SIDEBAR ────────────────────────────────────────────────
+  "sidebar.zivot":            { bhs: "Život i dolazak u Njemačku",  de: "Leben & Ankunft" },
+  "sidebar.formulari":        { bhs: "Formulari",                    de: "Formulare" },
+  "sidebar.viza":             { bhs: "Viza Navigator",               de: "Visa Navigator" },
+  "sidebar.dokumentencheck":  { bhs: "Provjera dokumenata",          de: "Dokumentenprüfung" },
+  "sidebar.asistent":         { bhs: "AI Asistent",                  de: "KI-Assistent" },
+  "sidebar.deutsch":          { bhs: "Deutsch kurs",                 de: "Deutschkurs" },
+  "sidebar.nudim":            { bhs: "Nudim / Tražim",               de: "Angebote / Gesuche" },
+  "sidebar.balkanci":         { bhs: "Balkanci u Njemačkoj",         de: "Balkaner in Deutschland" },
+  "sidebar.kalkulatori":      { bhs: "Kalkulatori",                  de: "Rechner" },
+  "sidebar.predloski":        { bhs: "Šabloni / Vorlagen",           de: "Vorlagen" },
+  "sidebar.paketi":           { bhs: "Paketi i cijene",              de: "Pakete & Preise" },
+  "sidebar.kontakt":          { bhs: "Kontakt",                      de: "Kontakt" },
+  "sidebar.prijava":          { bhs: "Prijava / Registracija",       de: "Anmelden / Registrieren" },
+  "sidebar.odjava":           { bhs: "Odjava",                       de: "Abmelden" },
+  "sidebar.mapa":             { bhs: "Balkanci na mapi",             de: "Balkaner auf der Karte" },
+  "sidebar.jobs":             { bhs: "Oglasi za posao",              de: "Stellenangebote" },
+  "sidebar.stanovi":          { bhs: "Oglasi za stanove",            de: "Wohnungsangebote" },
+  // Legacy sidebar keys used by existing components
+  "sidebar.smartGuide":       { bhs: "Smart Guide – Formulari",     de: "Smart Guide – Formulare" },
+  "sidebar.visaNavigator":    { bhs: "Viza Navigator",               de: "Visa Navigator" },
+  "sidebar.dokumentenCheck":  { bhs: "Provjera dokumenata",          de: "Dokumentenprüfung" },
+  "sidebar.kalkulator":       { bhs: "Kalkulatori",                  de: "Rechner" },
+  "sidebar.templates":        { bhs: "Šabloni",                      de: "Vorlagen" },
+  "sidebar.housing":          { bhs: "Pretraga stanova",             de: "Wohnungssuche" },
+  "sidebar.mainFunctions":    { bhs: "Glavne funkcije",              de: "Hauptfunktionen" },
+  "sidebar.other":            { bhs: "Ostalo",                       de: "Sonstiges" },
+  "sidebar.menu":             { bhs: "Meni",                         de: "Menü" },
+  "sidebar.cijene":           { bhs: "Paketi i cijene",              de: "Pakete & Preise" },
+  "sidebar.zivotUNjemackoj":  { bhs: "Život u Njemačkoj",            de: "Leben in Deutschland" },
+
+  // ── HEADER ─────────────────────────────────────────────────
+  "header.login":        { bhs: "Prijavi se",                 de: "Anmelden" },
+  "header.register":     { bhs: "Registruj se",               de: "Registrieren" },
+  "header.premium":      { bhs: "Premium",                    de: "Premium" },
+  "header.profile":      { bhs: "Moj profil",                 de: "Mein Profil" },
+  "header.logout":       { bhs: "Odjava",                     de: "Abmelden" },
+
+  // ── AUTH ───────────────────────────────────────────────────
+  "auth.email":               { bhs: "Email adresa",                  de: "E-Mail-Adresse" },
+  "auth.password":            { bhs: "Lozinka",                       de: "Passwort" },
+  "auth.confirmPassword":     { bhs: "Potvrdi lozinku",               de: "Passwort bestätigen" },
+  "auth.forgotPassword":      { bhs: "Zaboravili ste lozinku?",       de: "Passwort vergessen?" },
+  "auth.loginTab":            { bhs: "Prijavi se",                    de: "Anmelden" },
+  "auth.registerTab":         { bhs: "Registruj se",                  de: "Registrieren" },
+  "auth.loginButton":         { bhs: "Prijavi se",                    de: "Anmelden" },
+  "auth.registerButton":      { bhs: "Registruj se",                  de: "Registrieren" },
+  "auth.loginError":          { bhs: "Pogrešan email ili lozinka.",   de: "Falsche E-Mail oder Passwort." },
+  "auth.emailNotConfirmed":   { bhs: "Potvrdi email adresu prije prijave.", de: "Bitte E-Mail zuerst bestätigen." },
+  "auth.emailSent":           { bhs: "Email za potvrdu je poslan.",   de: "Bestätigungs-E-Mail wurde gesendet." },
+  "auth.resetPassword":       { bhs: "Resetuj lozinku",              de: "Passwort zurücksetzen" },
+  "auth.noAccount":           { bhs: "Nemaš nalog?",                  de: "Kein Konto?" },
+  "auth.hasAccount":          { bhs: "Već imaš nalog?",               de: "Schon ein Konto?" },
+  "auth.loginTitle":          { bhs: "Prijavi se",                    de: "Anmelden" },
+  "auth.loginDesc":           { bhs: "Unesite email i lozinku",      de: "E-Mail und Passwort eingeben" },
+  "auth.loginLoading":        { bhs: "Prijavljivanje...",             de: "Anmeldung..." },
+  "auth.loginSuccess":        { bhs: "Uspješno prijavljeni!",         de: "Erfolgreich angemeldet!" },
+  "auth.registerTitle":       { bhs: "Registruj se",                  de: "Registrieren" },
+  "auth.registerDesc":        { bhs: "Kreiraj besplatni nalog.",      de: "Kostenloses Konto erstellen." },
+  "auth.registerLoading":     { bhs: "Registracija...",               de: "Registrierung..." },
+  "auth.registerError":       { bhs: "Registracija nije uspjela.",    de: "Registrierung fehlgeschlagen." },
+  "auth.registerSuccess":     { bhs: "Registracija uspješna!",        de: "Registrierung erfolgreich!" },
+  "auth.registerCheckEmail":  { bhs: "Potvrdi svoju email adresu.",   de: "Bitte E-Mail bestätigen." },
+  "auth.passwordMismatch":    { bhs: "Lozinke se ne podudaraju.",     de: "Passwörter stimmen nicht überein." },
+  "auth.passwordTooShort":    { bhs: "Lozinka je prekratka.",         de: "Passwort zu kurz." },
+  "auth.forgotTitle":         { bhs: "Zaboravljena lozinka",          de: "Passwort vergessen" },
+  "auth.forgotDesc":          { bhs: "Unesi email i poslaćemo ti link.", de: "E-Mail eingeben, wir senden einen Link." },
+  "auth.sendLink":            { bhs: "Pošalji link",                  de: "Link senden" },
+  "auth.sending":             { bhs: "Šalje se...",                   de: "Wird gesendet..." },
+  "auth.checkEmail":          { bhs: "Provjeri email",                de: "E-Mail prüfen" },
+  "auth.checkEmailDesc":      { bhs: "Poslali smo ti email sa linkom.", de: "Wir haben dir eine E-Mail gesendet." },
+  "auth.backToLogin":         { bhs: "Nazad na prijavu",              de: "Zurück zur Anmeldung" },
+  "auth.resetTitle":          { bhs: "Resetuj lozinku",               de: "Passwort zurücksetzen" },
+  "auth.resetDesc":           { bhs: "Unesi novu lozinku.",           de: "Neues Passwort eingeben." },
+  "auth.newPassword":         { bhs: "Nova lozinka",                  de: "Neues Passwort" },
+  "auth.saveButton":          { bhs: "Spremi",                        de: "Speichern" },
+  "auth.saving":              { bhs: "Spremanje...",                   de: "Speichern..." },
+  "auth.resetWaiting":        { bhs: "Molimo sačekaj...",              de: "Bitte warten..." },
+  "auth.resetWaitingDesc":    { bhs: "Tvoj link se obrađuje.",        de: "Dein Link wird verarbeitet." },
+  "auth.passwordChanged":     { bhs: "Lozinka uspješno promijenjena!", de: "Passwort erfolgreich geändert!" },
+  "auth.minChars":            { bhs: "Minimalno {{count}} znakova",    de: "Mindestens {{count}} Zeichen" },
+  "auth.termsLabel":          { bhs: "Uvjeti korištenja",              de: "Nutzungsbedingungen" },
+  "auth.termsAGB":            { bhs: "Uvjeti korištenja",              de: "AGB" },
+  "auth.termsAnd":            { bhs: "i",                              de: "und" },
+  "auth.termsPrivacy":        { bhs: "Zaštita podataka",               de: "Datenschutz" },
+  "auth.termsAccept":         { bhs: "Prihvatam",                      de: "Ich akzeptiere" },
+  "auth.termsRequired":       { bhs: "Prihvati uvjete korištenja.",    de: "Bitte Nutzungsbedingungen akzeptieren." },
+  "auth.pwRule.length":       { bhs: "Minimalno 8 znakova",            de: "Mindestens 8 Zeichen" },
+  "auth.pwRule.upper":        { bhs: "Jedno veliko slovo",             de: "Ein Großbuchstabe" },
+  "auth.pwRule.lower":        { bhs: "Jedno malo slovo",               de: "Ein Kleinbuchstabe" },
+  "auth.pwRule.number":       { bhs: "Jedan broj",                     de: "Eine Zahl" },
+  "auth.pwRule.special":      { bhs: "Jedan poseban znak",             de: "Ein Sonderzeichen" },
+  "auth.pwRule.title":        { bhs: "Pravila za lozinku",             de: "Passwortregeln" },
+
+  // ── HERO ───────────────────────────────────────────────────
+  "hero.title":          { bhs: "Tvoj vodič kroz njemački sistem.",          de: "Dein Wegweiser durch das deutsche System." },
+  "hero.subtitle":       { bhs: "Jedina platforma koja govori tvoj jezik i razumije tvoje papire.", de: "Die einzige Plattform, die deine Sprache spricht." },
+  "hero.cta.primary":    { bhs: "Počni besplatno",                           de: "Kostenlos starten" },
+  "hero.cta.secondary":  { bhs: "Pogledaj pakete",                          de: "Pakete ansehen" },
+  "hero.disclaimer":     { bhs: "BalkanLink je edukativna platforma i nije pravni savjetnik.", de: "BalkanLink ist eine Bildungsplattform und kein Rechtsberater." },
+  "hero.bullet.simple":  { bhs: "Jednostavno objašnjeno",                   de: "Einfach erklärt" },
+  "hero.bullet.language": { bhs: "Na tvom jeziku",                          de: "In deiner Sprache" },
+  "hero.bullet.verified": { bhs: "Provjereni sadržaji",                     de: "Geprüfte Inhalte" },
+
+  // ── HOMEPAGE SECTIONS ──────────────────────────────────────
+  "home.services.title":       { bhs: "Šta želiš riješiti danas?",          de: "Was möchtest du heute erledigen?" },
+  "home.howItWorks.title":     { bhs: "Kako funkcioniše?",                  de: "Wie funktioniert es?" },
+  "home.howItWorks.step1":     { bhs: "Odaberi temu",                       de: "Thema wählen" },
+  "home.howItWorks.step2":     { bhs: "Popuni formular",                    de: "Formular ausfüllen" },
+  "home.howItWorks.step3":     { bhs: "Preuzmi ili pošalji",                de: "Herunterladen oder absenden" },
+  "home.features.title":       { bhs: "Sve na jednom mjestu",               de: "Alles an einem Ort" },
+  "home.testimonials.title":   { bhs: "Šta kažu naši korisnici",            de: "Was unsere Nutzer sagen" },
+  "home.premium.title":        { bhs: "Riješi papire bez grešaka",          de: "Formulare fehlerfrei erledigen" },
+  "home.premium.subtitle":     { bhs: "Premium pristup svemu što trebaš",   de: "Premium-Zugang zu allem, was du brauchst" },
+  // Legacy home keys
+  "home.servicesTitle":        { bhs: "Šta želiš riješiti danas?",          de: "Was möchtest du heute erledigen?" },
+  "home.servicesSubtitle":     { bhs: "Izaberi temu i kreni odmah — bez lutanja.", de: "Wähle ein Thema und starte sofort — ohne Umwege." },
+  "home.premiumTitle":         { bhs: "Premium alati",                      de: "Premium Tools" },
+  "home.premiumSubtitle":      { bhs: "Sve što ti treba, na jednom mjestu.", de: "Alles was du brauchst, an einem Ort." },
+  "home.showcaseTitle":        { bhs: "Izdvojene firme na BalkanLink",      de: "Ausgewählte Firmen auf BalkanLink" },
+  "home.showcaseLabel":        { bhs: "PREMIUM SHOWCASE",                   de: "PREMIUM SHOWCASE" },
+  "home.adLabel":              { bhs: "OGLAŠAVANJE",                         de: "WERBUNG" },
+  "home.premiumCta":           { bhs: "Pogledaj Premium",                   de: "Premium ansehen" },
+  "home.comparePlans":         { bhs: "Uporedi planove",                    de: "Pläne vergleichen" },
+  "home.unlockAll":            { bhs: "Otključaj sve mogućnosti",           de: "Alle Möglichkeiten freischalten" },
+  "home.unlockDesc":           { bhs: "Premium pristup svim formularima, kursu njemačkog i ekskluzivnim alatima.", de: "Premium-Zugang zu allen Formularen, Deutschkursen und exklusiven Tools." },
+  "home.viewMore":             { bhs: "Pogledaj više",                      de: "Mehr erfahren" },
+  "home.contact":              { bhs: "Kontakt",                            de: "Kontakt" },
+  "home.recommended":          { bhs: "Preporučeno",                        de: "Empfohlen" },
+
+  // ── SERVICE CARDS (homepage) ───────────────────────────────
+  "service.formulare":         { bhs: "Musterformulare",                    de: "Musterformulare" },
+  "service.formulare.desc":    { bhs: "Popuni formulare bez grešaka",       de: "Formulare fehlerfrei ausfüllen" },
+  "service.viza":              { bhs: "Viza Navigator",                     de: "Visa Navigator" },
+  "service.viza.desc":         { bhs: "Koji status trebaš za Njemačku?",    de: "Welchen Status brauchst du?" },
+  "service.asistent":          { bhs: "AI Asistent",                        de: "KI-Assistent" },
+  "service.asistent.desc":     { bhs: "Pitaj sve o birokratiji",            de: "Alles zur Bürokratie fragen" },
+  "service.dokumenti":         { bhs: "Provjera dokumenata",                de: "Dokumentenprüfung" },
+  "service.dokumenti.desc":    { bhs: "Provjeri jesi li pripremio sve",     de: "Prüfe ob alles vollständig ist" },
+  "service.deutsch":           { bhs: "Deutsch kurs A1–C2",                 de: "Deutschkurs A1–C2" },
+  "service.deutsch.desc":      { bhs: "Nauči njemački za stvarni život",    de: "Deutsch für den Alltag lernen" },
+  "service.kalkulatori":       { bhs: "Kalkulatori",                        de: "Rechner" },
+  "service.kalkulatori.desc":  { bhs: "Izračunaj svoje naknade",            de: "Leistungen berechnen" },
+  "service.oglasi":            { bhs: "Nudim / Tražim",                     de: "Angebote / Gesuche" },
+  "service.oglasi.desc":       { bhs: "Oglasi balkanske zajednice",         de: "Anzeigen der Balkan-Community" },
+  "service.dolazak":           { bhs: "Dolazak u Njemačku",                 de: "Ankunft in Deutschland" },
+  "service.dolazak.desc":      { bhs: "Korak po korak od prvog dana",       de: "Schritt für Schritt ab dem ersten Tag" },
+  // Legacy service keys used by Index.tsx
+  "service.smartGuide.title":  { bhs: "Smart Guide — Formulari",            de: "Smart Guide — Formulare" },
+  "service.smartGuide.desc":   { bhs: "Popuni svaki njemački formular korak po korak.", de: "Fülle jedes deutsche Formular Schritt für Schritt aus." },
+  "service.smartGuide.cta":    { bhs: "Otvori Smart Guide",                 de: "Smart Guide öffnen" },
+  "service.visa.title":        { bhs: "Visa Navigator",                     de: "Visa Navigator" },
+  "service.visa.desc":         { bhs: "Pronađi pravu vizu ili boravišnu dozvolu.", de: "Finde das richtige Visum oder die Aufenthaltserlaubnis." },
+  "service.visa.cta":          { bhs: "Otvori Navigator",                   de: "Navigator öffnen" },
+  "service.deutsch.title":     { bhs: "BalkanLink Deutsch",                 de: "BalkanLink Deutsch" },
+  "service.deutsch.desc2":     { bhs: "Nauči njemački za stvarni život.",    de: "Deutsch für den Alltag lernen." },
+  "service.deutsch.cta":       { bhs: "Počni učiti",                        de: "Lernen starten" },
+  "service.docCheck.title":    { bhs: "Dokumenten-Check",                   de: "Dokumenten-Check" },
+  "service.docCheck.desc":     { bhs: "Razumij svaki dokument odmah.",      de: "Jedes Dokument sofort verstehen." },
+  "service.docCheck.cta":      { bhs: "Provjeri dokument",                  de: "Dokument prüfen" },
+  "service.nudim.title":       { bhs: "Nudim / Tražim",                     de: "Angebote / Gesuche" },
+  "service.nudim.desc":        { bhs: "Ponudi ili pronađi uslugu.",         de: "Biete oder finde eine Dienstleistung." },
+  "service.nudim.cta":         { bhs: "Pregledaj",                          de: "Durchsuchen" },
+  "service.balkanci.title":    { bhs: "Balkanci u DE",                      de: "Balkaner in DE" },
+  "service.balkanci.desc":     { bhs: "Vidi gdje smo svi na mapi.",         de: "Sieh, wo wir alle auf der Karte sind." },
+  "service.balkanci.cta":      { bhs: "Otvori mapu",                        de: "Karte öffnen" },
+  "service.jobs.title":        { bhs: "Pretraga poslova",                   de: "Jobsuche" },
+  "service.jobs.desc":         { bhs: "Korisni linkovi za posao.",           de: "Nützliche Links für die Jobsuche." },
+  "service.jobs.cta":          { bhs: "Traži",                              de: "Suchen" },
+  "service.housing.title":     { bhs: "Pretraga stanova",                   de: "Wohnungssuche" },
+  "service.housing.desc":      { bhs: "Korisni linkovi za stan.",            de: "Nützliche Links für die Wohnungssuche." },
+  "service.housing.cta":       { bhs: "Traži",                              de: "Suchen" },
+  "service.calc.title":        { bhs: "Kalkulatori",                         de: "Rechner" },
+  "service.calc.desc":         { bhs: "Brutto-netto i drugi alati.",         de: "Brutto-Netto und andere Tools." },
+  "service.calc.cta":          { bhs: "Izračunaj",                           de: "Berechnen" },
+
+  // ── BUTTONS (global) ───────────────────────────────────────
+  "btn.save":            { bhs: "Spremi",             de: "Speichern" },
+  "btn.cancel":          { bhs: "Odustani",           de: "Abbrechen" },
+  "btn.close":           { bhs: "Zatvori",            de: "Schließen" },
+  "btn.send":            { bhs: "Pošalji",            de: "Senden" },
+  "btn.download":        { bhs: "Preuzmi PDF",        de: "PDF herunterladen" },
+  "btn.unlock":          { bhs: "Otključaj",          de: "Freischalten" },
+  "btn.continue":        { bhs: "Nastavi",            de: "Weiter" },
+  "btn.back":            { bhs: "Nazad",              de: "Zurück" },
+  "btn.search":          { bhs: "Pretraži",           de: "Suchen" },
+  "btn.openGuide":       { bhs: "Otvori vodič",       de: "Leitfaden öffnen" },
+  "btn.openForm":        { bhs: "Otvori formular",    de: "Formular öffnen" },
+  "btn.showMore":        { bhs: "Prikaži više",       de: "Mehr anzeigen" },
+  "btn.showLess":        { bhs: "Prikaži manje",      de: "Weniger anzeigen" },
+  "btn.copy":            { bhs: "Kopiraj",            de: "Kopieren" },
+  "btn.copied":          { bhs: "Kopirano!",          de: "Kopiert!" },
+  "btn.reset":           { bhs: "Resetuj",            de: "Zurücksetzen" },
+  "btn.calculate":       { bhs: "Izračunaj",          de: "Berechnen" },
+  "btn.submit":          { bhs: "Pošalji zahtjev",    de: "Antrag absenden" },
+  "btn.login":           { bhs: "Prijavi se",         de: "Anmelden" },
+  "btn.register":        { bhs: "Registruj se",       de: "Registrieren" },
+  "btn.upgrade":         { bhs: "Uzmi Premium",       de: "Upgrade auf Premium" },
+
+  // ── FOOTER ─────────────────────────────────────────────────
+  "footer.rights":       { bhs: "Sva prava zadržana.",              de: "Alle Rechte vorbehalten." },
+  "footer.disclaimer":   { bhs: "BalkanLink pruža informativne smjernice i ne predstavlja pravni savjet.", de: "BalkanLink bietet informative Hinweise, keine Rechtsberatung." },
+  "footer.impressum":    { bhs: "Impressum",                        de: "Impressum" },
+  "footer.datenschutz":  { bhs: "Zaštita podataka",                 de: "Datenschutz" },
+  "footer.agb":          { bhs: "Uslovi korištenja",                de: "AGB" },
+  "footer.haftung":      { bhs: "Izjava o odgovornosti",            de: "Haftungsausschluss" },
+  "footer.ki":           { bhs: "Napomena o AI",                    de: "KI-Hinweis" },
+  "footer.contact":      { bhs: "Kontakt",                          de: "Kontakt" },
+  "footer.about":        { bhs: "O platformi",                      de: "Über uns" },
+  // Legacy footer keys
+  "footer.tagline":      { bhs: "Platforma za Balkance u Njemačkoj — formulari, birokratija, jezik i zajednica.", de: "Die Plattform für Balkaner in Deutschland — Formulare, Behördengänge, Sprache und Gemeinschaft." },
+  "footer.navSection":   { bhs: "Navigacija",                       de: "Navigation" },
+  "footer.navHome":      { bhs: "Početna",                          de: "Startseite" },
+  "footer.navHow":       { bhs: "Dolazak",                          de: "Ankunft" },
+  "footer.navFormulari": { bhs: "Formulari",                        de: "Formulare" },
+  "footer.navPaketi":    { bhs: "Paketi i opcije",                  de: "Pakete & Optionen" },
+  "footer.legalSection": { bhs: "Pravne informacije",               de: "Rechtliches" },
+  "footer.imprint":      { bhs: "Impressum",                        de: "Impressum" },
+  "footer.privacy":      { bhs: "Zaštita podataka",                 de: "Datenschutz" },
+  "footer.kiHinweis":    { bhs: "KI napomena",                      de: "KI-Hinweis" },
+  "footer.reportContent":{ bhs: "Prijavi sadržaj",                  de: "Inhalte melden" },
+  "footer.paymentMethods": { bhs: "Metode plaćanja",                de: "Zahlungsmethoden" },
+  "footer.creditCard":   { bhs: "Kreditna kartica",                 de: "Kreditkarte" },
+  "footer.bankTransfer": { bhs: "Bankovna uplata",                  de: "Überweisung" },
+  "footer.copyright":    { bhs: "Sva prava zadržana.",               de: "Alle Rechte vorbehalten." },
+  "footer.trust":        { bhs: "Povjerenje",                        de: "Vertrauen" },
+
+  // ── AI ASISTENT ────────────────────────────────────────────
+  "chat.title":          { bhs: "BalkanLink Asistent",              de: "BalkanLink Assistent" },
+  "chat.placeholder":    { bhs: "Postavi pitanje...",               de: "Frage stellen..." },
+  "chat.send":           { bhs: "Pošalji",                          de: "Senden" },
+  "chat.welcome":        { bhs: "Zdravo! 👋 Ja sam BalkanLink Asistent. Kako ti mogu pomoći?", de: "Hallo! 👋 Ich bin der BalkanLink Assistent. Wie kann ich dir helfen?" },
+  "chat.error":          { bhs: "Greška pri slanju. Pokušaj ponovo.", de: "Fehler beim Senden. Bitte erneut versuchen." },
+  "chat.disclaimer":     { bhs: "BalkanLink Asistent daje orijentacione informacije, ne pravni savjet.", de: "BalkanLink Assistent gibt orientierende Informationen, keine Rechtsberatung." },
+  "chat.thinking":       { bhs: "Razmišljam...",                    de: "Ich denke nach..." },
+  "chat.quick1":         { bhs: "📋 Trebam Kindergeld",             de: "📋 Kindergeld beantragen" },
+  "chat.quick2":         { bhs: "🏠 Kako prijaviti adresu?",        de: "🏠 Wie Adresse anmelden?" },
+  "chat.quick3":         { bhs: "💼 Izgubio sam posao",             de: "💼 Ich habe meinen Job verloren" },
+  "chat.quick4":         { bhs: "📄 Šta je Steuer-ID?",             de: "📄 Was ist die Steuer-ID?" },
+  // Legacy chat keys
+  "chat.floatingTitle":  { bhs: "Pitaj BalkanLink",                 de: "BalkanLink fragen" },
+  "chat.floatingSubtitle": { bhs: "Asistent za Njemačku",           de: "Assistent für Deutschland" },
+  "chat.headerTitle":    { bhs: "BalkanLink Asistent",              de: "BalkanLink Assistent" },
+  "chat.headerSubtitle": { bhs: "Postavi pitanje (npr. Kindergeld, stan, posao...)", de: "Frage stellen (z.B. Kindergeld, Wohnung, Job...)" },
+  "chat.greeting":       { bhs: "Kako ti mogu pomoći?",             de: "Wie kann ich dir helfen?" },
+  "chat.greetingDesc":   { bhs: "Postavi pitanje i dobit ćeš jasan odgovor i sljedeći korak.", de: "Stelle eine Frage und erhalte eine klare Antwort und den nächsten Schritt." },
+  "chat.copy":           { bhs: "Kopiraj",                          de: "Kopieren" },
+  "chat.minimize":       { bhs: "Minimiziraj",                      de: "Minimieren" },
+  "chat.close":          { bhs: "Zatvori",                          de: "Schließen" },
+  "chat.msgLabel":       { bhs: "Poruka",                           de: "Nachricht" },
+  "chat.openGuide":      { bhs: "Otvori vodič",                     de: "Leitfaden öffnen" },
+  "chat.openForm":       { bhs: "Otvori formular",                  de: "Formular öffnen" },
+  "chat.openPage":       { bhs: "Otvori stranicu",                  de: "Seite öffnen" },
+  "chat.noSensitiveData": { bhs: "Ne dijeli osjetljive podatke.",   de: "Keine sensiblen Daten teilen." },
+
+  // ── FORMULARE ──────────────────────────────────────────────
+  "forms.title":         { bhs: "Musterformulare",                  de: "Musterformulare" },
+  "forms.subtitle":      { bhs: "Popuni formulare ispravno, bez grešaka", de: "Formulare korrekt und fehlerfrei ausfüllen" },
+  "forms.search":        { bhs: "Pretraži formulare...",            de: "Formulare durchsuchen..." },
+  "forms.allGroups":     { bhs: "Sve kategorije",                   de: "Alle Kategorien" },
+  "forms.preview":       { bhs: "Pregled",                          de: "Vorschau" },
+  "forms.download":      { bhs: "Preuzmi PDF",                      de: "PDF herunterladen" },
+  "forms.locked":        { bhs: "Premium sadržaj — otključaj pristup", de: "Premium-Inhalt — Zugang freischalten" },
+  "forms.requiredDocs":  { bhs: "Potrebni dokumenti",               de: "Benötigte Dokumente" },
+  "forms.commonErrors":  { bhs: "Najčešće greške",                  de: "Häufige Fehler" },
+  "forms.officialLink":  { bhs: "Službena stranica",                de: "Offizielle Seite" },
+  "forms.fillGuide":     { bhs: "Upute za popunjavanje",            de: "Ausfüllanleitung" },
+
+  // ── VIZA NAVIGATOR ─────────────────────────────────────────
+  "viza.title":          { bhs: "Viza Navigator",                   de: "Visa Navigator" },
+  "viza.subtitle":       { bhs: "Pronađi pravi status za tvoju situaciju", de: "Finde den richtigen Status für deine Situation" },
+  "viza.selectCountry":  { bhs: "Odaberi svoju zemlju",             de: "Wähle dein Herkunftsland" },
+  "viza.selectType":     { bhs: "Odaberi tip vize",                 de: "Visatyp auswählen" },
+  "viza.requirements":   { bhs: "Potrebni dokumenti",               de: "Erforderliche Dokumente" },
+  "viza.processing":     { bhs: "Rok obrade",                       de: "Bearbeitungszeit" },
+  "viza.fee":            { bhs: "Taksa",                            de: "Gebühr" },
+  "viza.embassy":        { bhs: "Ambasada / Konzulat",              de: "Botschaft / Konsulat" },
+  "viza.applyOnline":    { bhs: "Online zahtjev",                   de: "Online-Antrag" },
+
+  // ── DOKUMENTEN-CHECK ───────────────────────────────────────
+  "dokcheck.title":      { bhs: "Provjera dokumenata",              de: "Dokumentenprüfung" },
+  "dokcheck.subtitle":   { bhs: "Provjeri jesi li pripremio sve potrebne dokumente", de: "Prüfe ob alle nötigen Dokumente vollständig sind" },
+  "dokcheck.upload":     { bhs: "Učitaj dokument",                  de: "Dokument hochladen" },
+  "dokcheck.analyze":    { bhs: "Analiziraj",                       de: "Analysieren" },
+  "dokcheck.result":     { bhs: "Rezultat provjere",                de: "Prüfergebnis" },
+  "dokcheck.ok":         { bhs: "✅ Dokument je uredan",            de: "✅ Dokument ist in Ordnung" },
+  "dokcheck.issues":     { bhs: "⚠️ Pronađeni problemi",            de: "⚠️ Probleme gefunden" },
+  "dokcheck.price":      { bhs: "2,99€ po dokumentu",               de: "2,99€ pro Dokument" },
+  "dokcheck.premiumFree":{ bhs: "Premium: 1x dnevno besplatno",     de: "Premium: 1x täglich kostenlos" },
+
+  // ── PAKETI / PREMIUM ───────────────────────────────────────
+  "premium.title":           { bhs: "Paketi i cijene",                  de: "Pakete & Preise" },
+  "premium.free":            { bhs: "Besplatno",                        de: "Kostenlos" },
+  "premium.freePrice":       { bhs: "0€",                              de: "0€" },
+  "premium.premiumLabel":    { bhs: "Premium",                          de: "Premium" },
+  "premium.monthly":         { bhs: "9,99€ / mjesec",                  de: "9,99€ / Monat" },
+  "premium.yearly":          { bhs: "99,90€ / godišnje",               de: "99,90€ / Jahr" },
+  "premium.popular":         { bhs: "POPULARNO",                       de: "BELIEBT" },
+  "premium.cta":             { bhs: "Uzmi Premium",                    de: "Premium holen" },
+  "premium.ctaYearly":       { bhs: "Uzmi godišnji",                   de: "Jahresabo holen" },
+  "premium.locked":          { bhs: "Otključaj ovaj sadržaj",          de: "Inhalte freischalten" },
+  "premium.lockedForm":      { bhs: "Otključaj ovaj formular — 3,99€", de: "Formular freischalten — 3,99€" },
+  "premium.includes":        { bhs: "Šta uključuje Premium:",          de: "Premium beinhaltet:" },
+  "premium.voucherTitle":    { bhs: "Wertgutschein",                   de: "Wertgutschein" },
+  "premium.voucherDesc":     { bhs: "Završi kurs i osvoji Amazon vaučer", de: "Kurs abschließen und Amazon-Gutschein gewinnen" },
+  // Legacy premium keys
+  "premium.unlock":          { bhs: "Otključaj Premium",               de: "Premium freischalten" },
+  "premium.badge":           { bhs: "⭐ Premium",                      de: "⭐ Premium" },
+  "premium.teaser":          { bhs: "Dalji koraci dostupni u BalkanLink Premium", de: "Weitere Schritte verfügbar in BalkanLink Premium" },
+  "premium.price":           { bhs: "9,99€ / mjesec",                  de: "9,99€ / Monat" },
+  "premium.subtitle":        { bhs: "Sve što ti treba",                de: "Alles was du brauchst" },
+
+  // ── DEUTSCH KURS ───────────────────────────────────────────
+  "deutsch.title":       { bhs: "Deutsch kurs",                     de: "Deutschkurs" },
+  "deutsch.subtitle":    { bhs: "Nauči njemački za stvarni život u Njemačkoj", de: "Deutsch für den Alltag in Deutschland lernen" },
+  "deutsch.levels":      { bhs: "Nivoi",                            de: "Niveaus" },
+  "deutsch.startLesson": { bhs: "Počni lekciju",                    de: "Lektion starten" },
+  "deutsch.continue":    { bhs: "Nastavi gdje si stao",             de: "Weiter wo du aufgehört hast" },
+  "deutsch.progress":    { bhs: "Tvoj napredak",                    de: "Dein Fortschritt" },
+  "deutsch.completed":   { bhs: "Završeno",                         de: "Abgeschlossen" },
+  "deutsch.locked":      { bhs: "Zaključano",                       de: "Gesperrt" },
+  "deutsch.exercise":    { bhs: "Vježba",                           de: "Übung" },
+  "deutsch.score":       { bhs: "Rezultat",                         de: "Ergebnis" },
+  "deutsch.nextLesson":  { bhs: "Sljedeća lekcija",                 de: "Nächste Lektion" },
+
+  // ── KALKULATORI ────────────────────────────────────────────
+  "calc.title":          { bhs: "Kalkulatori",                      de: "Rechner" },
+  "calc.subtitle":       { bhs: "Izračunaj svoje naknade i prava",  de: "Berechne deine Leistungen und Rechte" },
+  "calc.result":         { bhs: "Rezultat",                         de: "Ergebnis" },
+  "calc.monthly":        { bhs: "Mjesečno",                         de: "Monatlich" },
+  "calc.perYear":        { bhs: "Godišnje",                         de: "Jährlich" },
+  "calc.disclaimer":     { bhs: "Ovo je procjena. Za tačan iznos kontaktiraj nadležnu službu.", de: "Dies ist eine Schätzung. Für genaue Beträge zuständige Stelle kontaktieren." },
+
+  // ── OGLASI / NUDIM-TRAŽIM ──────────────────────────────────
+  "oglasi.title":        { bhs: "Nudim / Tražim",                   de: "Angebote / Gesuche" },
+  "oglasi.post":         { bhs: "Objavi oglas",                     de: "Anzeige aufgeben" },
+  "oglasi.search":       { bhs: "Pretraži oglase...",               de: "Anzeigen durchsuchen..." },
+  "oglasi.nudim":        { bhs: "Nudim",                            de: "Ich biete" },
+  "oglasi.trazim":       { bhs: "Tražim",                           de: "Ich suche" },
+  "oglasi.category":     { bhs: "Kategorija",                       de: "Kategorie" },
+  "oglasi.city":         { bhs: "Grad",                             de: "Stadt" },
+  "oglasi.contact":      { bhs: "Kontakt",                          de: "Kontakt" },
+  "oglasi.pro":          { bhs: "Pro oglas — 2,99€/7 dana",         de: "Pro-Anzeige — 2,99€/7 Tage" },
+  "oglasi.noResults":    { bhs: "Nema oglasa u ovoj kategoriji",    de: "Keine Anzeigen in dieser Kategorie" },
+
+  // ── DOLAZAK U NJEMAČKU ─────────────────────────────────────
+  "dolazak.title":       { bhs: "Dolazak u Njemačku",               de: "Ankunft in Deutschland" },
+  "dolazak.subtitle":    { bhs: "Sve što trebaš znati od prvog dana", de: "Alles was du vom ersten Tag wissen musst" },
+  "dolazak.steps":       { bhs: "Koraci",                           de: "Schritte" },
+  "dolazak.openGuide":   { bhs: "Otvori vodič",                     de: "Leitfaden öffnen" },
+  "dolazak.required":    { bhs: "Što trebaš pripremiti",            de: "Was du vorbereiten musst" },
+  "dolazak.tips":        { bhs: "Korisni savjeti",                  de: "Nützliche Tipps" },
+  "dolazak.warnings":    { bhs: "Česte greške",                     de: "Häufige Fehler" },
+
+  // ── MAPA ───────────────────────────────────────────────────
+  "mapa.title":          { bhs: "Balkanci u Njemačkoj",             de: "Balkaner in Deutschland" },
+  "mapa.subtitle":       { bhs: "Pronađi Balkance u svom gradu",    de: "Finde Balkaner in deiner Stadt" },
+  "mapa.addMe":          { bhs: "Dodaj se na mapu",                 de: "Zur Karte hinzufügen" },
+  "mapa.consent":        { bhs: "Suglasan/na sam s anonimnim prikazom mog grada na mapi", de: "Ich stimme der anonymen Anzeige meiner Stadt auf der Karte zu" },
+  "mapa.members":        { bhs: "članova",                          de: "Mitglieder" },
+
+  // ── KONTAKT ────────────────────────────────────────────────
+  "kontakt.title":       { bhs: "Kontakt",                          de: "Kontakt" },
+  "kontakt.subtitle":    { bhs: "Javi nam se — tu smo!",            de: "Melde dich — wir sind für dich da!" },
+  "kontakt.name":        { bhs: "Ime i prezime",                    de: "Vor- und Nachname" },
+  "kontakt.email":       { bhs: "Email adresa",                     de: "E-Mail-Adresse" },
+  "kontakt.message":     { bhs: "Poruka",                           de: "Nachricht" },
+  "kontakt.send":        { bhs: "Pošalji poruku",                   de: "Nachricht senden" },
+  "kontakt.success":     { bhs: "Poruka je uspješno poslana!",      de: "Nachricht erfolgreich gesendet!" },
+  // Legacy contact keys used by AppSidebar
+  "contact.title":       { bhs: "Kontakt",                          de: "Kontakt" },
+  "contact.subtitle":    { bhs: "Pošalji nam poruku",               de: "Schreib uns eine Nachricht" },
+  "contact.firstName":   { bhs: "Ime",                              de: "Vorname" },
+  "contact.lastName":    { bhs: "Prezime",                          de: "Nachname" },
+  "contact.email":       { bhs: "Email",                            de: "E-Mail" },
+  "contact.message":     { bhs: "Poruka",                           de: "Nachricht" },
+  "contact.send":        { bhs: "Pošalji",                          de: "Senden" },
+
+  // ── STATUS / LOADING ───────────────────────────────────────
+  "status.loading":      { bhs: "Učitavanje...",                    de: "Wird geladen..." },
+  "status.error":        { bhs: "Došlo je do greške",               de: "Ein Fehler ist aufgetreten" },
+  "status.success":      { bhs: "Uspješno!",                        de: "Erfolgreich!" },
+  "status.empty":        { bhs: "Nema rezultata",                   de: "Keine Ergebnisse" },
+  "status.noData":       { bhs: "Nema podataka",                    de: "Keine Daten" },
+
+  // ── COOKIES ────────────────────────────────────────────────
+  "cookie.title":        { bhs: "Koristimo kolačiće",               de: "Wir verwenden Cookies" },
+  "cookie.desc":         { bhs: "Koristimo kolačiće za poboljšanje iskustva na platformi.", de: "Wir verwenden Cookies zur Verbesserung der Plattform." },
+  "cookie.accept":       { bhs: "Prihvati sve",                     de: "Alle akzeptieren" },
+  "cookie.reject":       { bhs: "Odbij",                            de: "Ablehnen" },
+  "cookie.settings":     { bhs: "Postavke",                         de: "Einstellungen" },
+  "cookie.acceptAll":    { bhs: "Prihvati sve",                     de: "Alle akzeptieren" },
+  "cookie.necessaryOnly":{ bhs: "Samo neophodni",                   de: "Nur notwendige" },
+  "cookie.settingsTitle":{ bhs: "Postavke kolačića",                de: "Cookie-Einstellungen" },
+  "cookie.settingsDesc": { bhs: "Upravljaj svojim postavkama kolačića.", de: "Verwalte deine Cookie-Einstellungen." },
+  "cookie.saveSettings": { bhs: "Spremi postavke",                  de: "Einstellungen speichern" },
+  "cookie.footerLink":   { bhs: "Postavke kolačića",                de: "Cookie-Einstellungen" },
+  "cookie.cat.necessary":      { bhs: "Neophodni",                  de: "Notwendig" },
+  "cookie.cat.necessary.desc": { bhs: "Potrebni za rad platforme.", de: "Erforderlich für den Betrieb." },
+  "cookie.cat.functional":     { bhs: "Funkcionalni",               de: "Funktional" },
+  "cookie.cat.functional.desc":{ bhs: "Poboljšavaju iskustvo.",     de: "Verbessern die Nutzererfahrung." },
+  "cookie.cat.statistics":     { bhs: "Statistički",                de: "Statistik" },
+  "cookie.cat.statistics.desc":{ bhs: "Pomažu nam razumjeti korištenje.", de: "Helfen uns die Nutzung zu verstehen." },
+  "cookie.cat.marketing":      { bhs: "Marketing",                  de: "Marketing" },
+  "cookie.cat.marketing.desc": { bhs: "Za personalizirane ponude.", de: "Für personalisierte Angebote." },
+
+  // ── PAGE NAVBARS ──────────────────────────────────────
+  "page.smartGuide":     { bhs: "Smart Guide",                      de: "Smart Guide" },
+  "page.musterform":     { bhs: "Musterformular",                   de: "Musterformular" },
+  "page.backToForms":    { bhs: "Nazad na formulare",               de: "Zurück zu Formularen" },
+  "page.backToGuides":   { bhs: "Nazad na vodiče",                  de: "Zurück zu Leitfäden" },
+  "page.step":           { bhs: "Korak",                            de: "Schritt" },
+  "page.of":             { bhs: "od",                               de: "von" },
+
+  // ── COMMON ─────────────────────────────────────────────────
+  "common.back":         { bhs: "Nazad",                            de: "Zurück" },
+  "common.all":          { bhs: "Sve",                              de: "Alle" },
+  "common.error":        { bhs: "Greška",                           de: "Fehler" },
+  "common.legalBasis":   { bhs: "Pravna osnova",                    de: "Rechtsgrundlage" },
+  "common.officialSource": { bhs: "Službeni izvor",                 de: "Offizielle Quelle" },
+  "common.moreSource":   { bhs: "Više izvora",                      de: "Weitere Quellen" },
+  "common.directLinks":  { bhs: "Službene informacije",             de: "Offizielle Informationen" },
+  "common.officialDisclaimer": { bhs: "Informacije preuzete sa službenih izvora. Za tačnost kontaktirajte nadležne organe.", de: "Informationen aus offiziellen Quellen. Für Genauigkeit zuständige Behörde kontaktieren." },
+
+  // ── REVIEWS ────────────────────────────────────────────────
+  "reviews.title":       { bhs: "Povjerenje",                       de: "Vertrauen" },
+  "reviews.submit":      { bhs: "Pošalji recenziju",                de: "Bewertung senden" },
+  "reviews.comment":     { bhs: "Napiši komentar...",               de: "Kommentar schreiben..." },
+  "reviews.name":        { bhs: "Tvoje ime (opcionalno)",           de: "Dein Name (optional)" },
+  "reviews.anonymous":   { bhs: "Anonimno",                         de: "Anonym" },
+  "reviews.viewAll":     { bhs: "Pogledaj sve recenzije",           de: "Alle Bewertungen ansehen" },
+  "reviews.noReviews":   { bhs: "Još nema recenzija. Budi prvi!",   de: "Noch keine Bewertungen. Sei der Erste!" },
+  "reviews.average":     { bhs: "recenzija",                         de: "Bewertungen" },
+  "reviews.leaveReview": { bhs: "Ostavi recenziju",                  de: "Bewertung abgeben" },
+  "reviews.thanks":      { bhs: "✅ Hvala na recenziji!",            de: "✅ Danke für deine Bewertung!" },
+  "reviews.errorRating": { bhs: "Odaberi ocjenu (1–5 zvjezdica)",   de: "Wähle eine Bewertung (1–5 Sterne)" },
+  "reviews.errorComment":{ bhs: "Komentar mora imati barem 3 znaka", de: "Der Kommentar muss mindestens 3 Zeichen haben" },
+  "reviews.errorSend":   { bhs: "Greška pri slanju recenzije",       de: "Fehler beim Senden der Bewertung" },
+  "reviews.successSend": { bhs: "Hvala na recenziji!",               de: "Danke für deine Bewertung!" },
+  "reviews.showMore":    { bhs: "Prikaži više",                      de: "Mehr anzeigen" },
+  "reviews.loading":     { bhs: "Učitavanje...",                     de: "Laden..." },
+  "reviews.allTitle":    { bhs: "Sve recenzije",                     de: "Alle Bewertungen" },
+
+  // ── ASSISTANT ──────────────────────────────────────────────
+  "assistant.title":     { bhs: "Šta želiš riješiti?",              de: "Was möchtest du lösen?" },
+  "assistant.subtitle":  { bhs: "Postavi pitanje ili izaberi problem — vodićemo te korak po korak.", de: "Stelle eine Frage oder wähle ein Thema — wir führen dich Schritt für Schritt." },
+  "assistant.placeholder": { bhs: "Npr. Kako da prijavim stan? Kako da otvorim račun?", de: "z.B. Wie melde ich mich an? Wie eröffne ich ein Konto?" },
+  "assistant.trending":  { bhs: "Najtraženije danas",               de: "Heute am meisten gesucht" },
+
+  // ── BALKANCI ───────────────────────────────────────────────
+  "balkanci.search":     { bhs: "Pretraži grad...",                 de: "Stadt suchen..." },
+  "balkanci.noResults":  { bhs: "Nema rezultata za",                de: "Keine Ergebnisse für" },
+  "balkanci.message":    { bhs: "Pošalji poruku",                   de: "Nachricht senden" },
+
+  // ── GUIDE ──────────────────────────────────────────────────
+  "guide.title":         { bhs: "Smart Guide",                      de: "Smart Guide" },
+  "guide.subtitle":      { bhs: "Polje po polje objašnjeno",        de: "Feld für Feld erklärt" },
+  "guide.step":          { bhs: "Korak",                             de: "Schritt" },
+  "guide.back":          { bhs: "Nazad",                             de: "Zurück" },
+  "guide.next":          { bhs: "Dalje",                             de: "Weiter" },
+  "guide.done":          { bhs: "Gotovo",                            de: "Fertig" },
+  "guide.note":          { bhs: "Napomena",                          de: "Hinweis" },
+  "guide.card.whatToWrite":     { bhs: "Šta upisati",               de: "Was eintragen" },
+  "guide.card.whereToFind":    { bhs: "Gdje pronaći",               de: "Wo zu finden" },
+  "guide.card.format":         { bhs: "Format",                     de: "Format" },
+  "guide.card.commonMistakes": { bhs: "Česte greške",               de: "Häufige Fehler" },
+  "guide.card.whenToLeaveEmpty": { bhs: "Kada ostaviti prazno",     de: "Wann leer lassen" },
+  "guide.card.example":        { bhs: "Primjer",                    de: "Beispiel" },
+
+  // ── PAYWALL ────────────────────────────────────────────────
+  "paywall.title":       { bhs: "Premium sadržaj",                  de: "Premium-Inhalt" },
+  "paywall.desc":        { bhs: "Otključaj pristup",                de: "Zugang freischalten" },
+  "paywall.stepLocked":  { bhs: "Ovaj korak je zaključan",          de: "Dieser Schritt ist gesperrt" },
+  "paywall.unlockPremium": { bhs: "Otključaj Premium",              de: "Premium freischalten" },
+
+  // ── VORLAGEN ───────────────────────────────────────────────
+  "vorlagen.sidebarTitle": { bhs: "Šabloni / Vorlagen",             de: "Vorlagen" },
+  "vorlagen.subtitle":     { bhs: "Šabloni za pisma i zahtjeve",    de: "Vorlagen für Briefe und Anträge" },
+
+  // ── INDEX PAGE ─────────────────────────────────────────────
+  "index.heroTitle":       { bhs: "BalkanLink – Tvoj put do uspjeha u", de: "BalkanLink – Dein Weg zum Erfolg in" },
+  "index.heroHighlight":   { bhs: "Njemačkoj",                          de: "Deutschland" },
+  "index.heroSubtitle":    { bhs: "Sve što ti treba za uspješan start na jednom, provjerenom mjestu.", de: "Alles was du für einen erfolgreichen Start brauchst, an einem geprüften Ort." },
+  "index.heroSubtitle2":   { bhs: "Dokumenti, stanovi i poslovi – na tvom jeziku i bez suvišne birokratije.", de: "Dokumente, Wohnungen und Jobs – in deiner Sprache und ohne unnötige Bürokratie." },
+  "index.searchPlaceholder": { bhs: "Pretraži: Kindergeld, Anmeldung, posao, stan...", de: "Suche: Kindergeld, Anmeldung, Job, Wohnung..." },
+  "index.slogan1":        { bhs: "Jedna platforma za sve tvoje potrebe.", de: "Eine Plattform für all deine Bedürfnisse." },
+  "index.slogan2":        { bhs: "Rješavaj stvari pametnije, a ne teže.", de: "Erledige Dinge smarter, nicht schwerer." },
+
+  // ── MOBILE NAV ─────────────────────────────────────────────
+  "homepage.mobileNav.dokumenti": { bhs: "Dokumenti",               de: "Dokumente" },
+  "homepage.mobileNav.vodici":    { bhs: "Vodiči",                  de: "Leitfäden" },
+  "homepage.mobileNav.ai":        { bhs: "AI",                      de: "KI" },
+  "homepage.mobileNav.profil":    { bhs: "Profil",                  de: "Profil" },
+  "homepage.mobileNav.cijene":    { bhs: "Cijene",                  de: "Preise" },
+
+  // ── NOTFOUND ───────────────────────────────────────────────
+  "notfound.title":      { bhs: "Stranica nije pronađena",          de: "Seite nicht gefunden" },
+  "notfound.desc":       { bhs: "Ova stranica ne postoji.",         de: "Diese Seite existiert nicht." },
+  "notfound.back":       { bhs: "Nazad na početnu",                 de: "Zurück zur Startseite" },
+
+  // ── FLOWBANNER ─────────────────────────────────────────────
+  "flowBanner.headline":     { bhs: "Tvoj vodič za sve formulare",   de: "Dein Leitfaden für alle Formulare" },
+  "flowBanner.subheadline":  { bhs: "Korak po korak, na tvom jeziku", de: "Schritt für Schritt, in deiner Sprache" },
+  "flowBanner.hint":         { bhs: "Počni odmah",                    de: "Jetzt starten" },
+  "flowBanner.cta":          { bhs: "Otvori formulare",               de: "Formulare öffnen" },
+  "flowBanner.ctaNote":      { bhs: "Besplatno za prvi formular",     de: "Erstes Formular kostenlos" },
+  "flowBanner.start":        { bhs: "Započni",                        de: "Starten" },
+  "flowBanner.open":         { bhs: "Otvori",                         de: "Öffnen" },
+
+  // ── LANG ───────────────────────────────────────────────────
+  "lang.label":          { bhs: "BS / HR / SR",                     de: "Deutsch" },
+
+  // ── RESULT ─────────────────────────────────────────────────
+  "result.steps":        { bhs: "Koraci",                           de: "Schritte" },
+  "result.needs":        { bhs: "Šta ti treba",                     de: "Was du brauchst" },
+  "result.warnings":     { bhs: "Na šta paziš",                     de: "Worauf du achtest" },
 };
 
-// --- Shared partial blocks ---
-const dirBs: Partial<TranslationKeys> = {
-  "dir.title": "Poslovni imenik",
-  "dir.subtitle": "Pronađi balkanske biznise u Njemačkoj.",
-  "dir.add": "Dodaj biznis",
-  "dir.searchPlaceholder": "Pretraži po imenu, gradu...",
-  "dir.filterCity": "Grad", "dir.filterCategory": "Kategorija", "dir.filterOrigin": "Zemlja porijekla",
-  "dir.allCities": "Svi gradovi", "dir.allCategories": "Sve kategorije", "dir.allOrigins": "Sve zemlje",
-  "dir.results": "rezultata", "dir.clearFilters": "Obriši filtere", "dir.empty": "Nema biznisa za prikaz.",
-  "dir.submitTitle": "Dodaj svoj biznis",
-  "dir.submitSubtitle": "Popuni formu i tvoj biznis će biti vidljiv nakon provjere.",
-  "dir.backToDirectory": "Nazad na imenik",
-  "dir.fieldName": "Naziv biznisa", "dir.fieldCategory": "Kategorija", "dir.fieldCity": "Grad",
-  "dir.fieldOrigin": "Zemlja porijekla", "dir.fieldAddress": "Adresa", "dir.fieldPhone": "Telefon",
-  "dir.fieldWebsite": "Web stranica", "dir.fieldDescription": "Opis",
-  "dir.submit": "Pošalji", "dir.submitting": "Šalje se...",
-  "dir.submitSuccess": "Biznis je dodan! Bit će vidljiv nakon provjere.",
-  "dir.submitError": "Greška. Pokušaj ponovo.",
-  "dir.loginRequired": "Moraš biti prijavljen da dodaš biznis.",
-};
-
-const dirSq: Partial<TranslationKeys> = {
-  "dir.title": "Drejtoria e bizneseve",
-  "dir.subtitle": "Gjej bizneset ballkanike në Gjermani.",
-  "dir.add": "Shto biznes",
-  "dir.searchPlaceholder": "Kërko sipas emrit, qytetit...",
-  "dir.filterCity": "Qyteti", "dir.filterCategory": "Kategoria", "dir.filterOrigin": "Vendi i origjinës",
-  "dir.allCities": "Të gjitha qytetet", "dir.allCategories": "Të gjitha kategoritë", "dir.allOrigins": "Të gjitha vendet",
-  "dir.results": "rezultate", "dir.clearFilters": "Pastro filtrat", "dir.empty": "Nuk ka biznese për të shfaqur.",
-  "dir.submitTitle": "Shto biznesin tënd",
-  "dir.submitSubtitle": "Plotëso formularin dhe biznesi yt do të jetë i dukshëm pas verifikimit.",
-  "dir.backToDirectory": "Kthehu në drejtori",
-  "dir.fieldName": "Emri i biznesit", "dir.fieldCategory": "Kategoria", "dir.fieldCity": "Qyteti",
-  "dir.fieldOrigin": "Vendi i origjinës", "dir.fieldAddress": "Adresa", "dir.fieldPhone": "Telefoni",
-  "dir.fieldWebsite": "Faqja web", "dir.fieldDescription": "Përshkrimi",
-  "dir.submit": "Dërgo", "dir.submitting": "Duke dërguar...",
-  "dir.submitSuccess": "Biznesi u shtua! Do të jetë i dukshëm pas verifikimit.",
-  "dir.submitError": "Gabim. Provo përsëri.",
-  "dir.loginRequired": "Duhet të jesh i kyçur për të shtuar biznes.",
-};
-
-const missionsBs: Partial<TranslationKeys> = {
-  "nav.missions": "Ambasade",
-  "missions.title": "Balkanske ambasade i konzulati u Njemačkoj",
-  "missions.subtitle": "Pronađi diplomatska predstavništva balkanskih zemalja u Njemačkoj.",
-  "missions.filterCountry": "Zemlja", "missions.filterCity": "Grad", "missions.filterType": "Tip",
-  "missions.allCountries": "Sve zemlje", "missions.allCities": "Svi gradovi", "missions.allTypes": "Svi tipovi",
-  "missions.embassy": "Ambasada", "missions.consulate": "Generalni konzulat",
-  "missions.results": "rezultata", "missions.clearFilters": "Obriši filtere", "missions.empty": "Nema rezultata.",
-};
-
-const missionsSq: Partial<TranslationKeys> = {
-  "nav.missions": "Ambasadat",
-  "missions.title": "Ambasadat dhe konsullatat ballkanike në Gjermani",
-  "missions.subtitle": "Gjej përfaqësitë diplomatike të vendeve ballkanike në Gjermani.",
-  "missions.filterCountry": "Vendi", "missions.filterCity": "Qyteti", "missions.filterType": "Lloji",
-  "missions.allCountries": "Të gjitha vendet", "missions.allCities": "Të gjitha qytetet", "missions.allTypes": "Të gjitha llojet",
-  "missions.embassy": "Ambasadë", "missions.consulate": "Konsullatë e përgjithshme",
-  "missions.results": "rezultate", "missions.clearFilters": "Pastro filtrat", "missions.empty": "Nuk ka rezultate.",
-};
-
-const missionsMk: Partial<TranslationKeys> = {
-  "nav.missions": "Амбасади",
-  "missions.title": "Балкански амбасади и конзулати во Германија",
-  "missions.subtitle": "Пронајди дипломатски претставништва на балканските земји во Германија.",
-  "missions.filterCountry": "Земја", "missions.filterCity": "Град", "missions.filterType": "Тип",
-  "missions.allCountries": "Сите земји", "missions.allCities": "Сите градови", "missions.allTypes": "Сите типови",
-  "missions.embassy": "Амбасада", "missions.consulate": "Генерален конзулат",
-  "missions.results": "резултати", "missions.clearFilters": "Избриши филтри", "missions.empty": "Нема резултати.",
-};
-
-
-
-const missionsEn: Partial<TranslationKeys> = {
-  "nav.missions": "Embassies",
-  "missions.title": "Balkan Embassies and Consulates in Germany",
-  "missions.subtitle": "Find diplomatic missions of Balkan countries in Germany.",
-  "missions.filterCountry": "Country", "missions.filterCity": "City", "missions.filterType": "Type",
-  "missions.allCountries": "All countries", "missions.allCities": "All cities", "missions.allTypes": "All types",
-  "missions.embassy": "Embassy", "missions.consulate": "Consulate General",
-  "missions.results": "results", "missions.clearFilters": "Clear filters", "missions.empty": "No results.",
-};
-
-const portalBs: Partial<TranslationKeys> = {
-  "portal.dolazak": "Dolazak", "portal.dolazak.desc": "Dokumenti, prijava, prvi koraci u Njemačkoj.",
-  "portal.stan": "Stan & prijava", "portal.stan.desc": "Pronađi stan i prijavi adresu.",
-  "portal.jobs": "Posao", "portal.jobs.desc": "Pronađi posao u Njemačkoj.",
-  "portal.familie": "Porodica", "portal.familie.desc": "Kindergeld, škola, porodična prava.",
-  "portal.foerderungen": "Pomoći", "portal.foerderungen.desc": "Socijalna pomoć, stambeni dodatak, BAföG.",
-  "portal.formulare": "Formulari", "portal.formulare.desc": "Svi važni obrasci na jednom mjestu.",
-  "portal.tools": "Alati", "portal.tools.desc": "Generatori, kalkulatori, provjere.",
-  "portal.ambasade": "Ambasade", "portal.ambasade.desc": "Diplomatska predstavništva u Njemačkoj.",
-  "portal.community": "Zajednica", "portal.community.desc": "Restorani, trgovine, udruženja i događaji balkanske zajednice.",
-  "footer.imprint": "Impressum", "footer.privacy": "Zaštita podataka", "footer.contact": "Kontakt",
-  "footer.copyright": "Sva prava zadržana.", "footer.disclaimer": "Disclaimer",
-  "cta.register": "Registruj se besplatno",
-  "wohnungen.title": "Pretraga stanova", "wohnungen.subtitle": "Pronađi stan u cijeloj Njemačkoj.",
-  "wohnungen.city": "Grad", "wohnungen.bundesland": "Savezna država", "wohnungen.radius": "Udaljenost",
-  "wohnungen.allGermany": "Cijela Njemačka", "wohnungen.maxRent": "Maks. hladna kirija",
-  "wohnungen.rooms": "Broj soba", "wohnungen.wg": "WG", "wohnungen.furnished": "Namješteno",
-  "wohnungen.shortTerm": "Kratkoročno", "wohnungen.longTerm": "Dugoročno",
-  "wohnungen.search": "Traži stanove", "wohnungen.showMore": "Prikaži više", "wohnungen.showLess": "Prikaži manje",
-  "wohnungen.portals": "Portali za stanove",
-  "wohnungen.portalBig": "Veliki portali", "wohnungen.portalWg": "WG & studenti",
-  "wohnungen.portalSocial": "Socijalno & zadruge", "wohnungen.portalShort": "Kratkoročno",
-  "jobs.title": "Pretraga poslova", "jobs.subtitle": "Pronađi posao u cijeloj Njemačkoj.",
-  "jobs.city": "Grad", "jobs.bundesland": "Savezna država", "jobs.radius": "Udaljenost",
-  "jobs.allGermany": "Cijela Njemačka", "jobs.branche": "Branša", "jobs.vertragsart": "Vrsta ugovora",
-  "jobs.noDeutsch": "Bez znanja njemačkog", "jobs.mitUnterkunft": "Sa smještajem",
-  "jobs.quereinsteiger": "Mogući prekvalifikanti", "jobs.schnellerEinstieg": "Brzi početak",
-  "jobs.search": "Traži poslove", "jobs.showMore": "Prikaži više", "jobs.showLess": "Prikaži manje",
-  "jobs.portals": "Portali za poslove",
-  "jobs.portalStaatlich": "Državni", "jobs.portalGross": "Veliki portali", "jobs.portalSpezial": "Specijalizirani",
-  "jobs.allBranchen": "Sve branše",
-  "branche.pflege": "Njega", "branche.bau": "Građevina", "branche.logistik": "Logistika",
-  "branche.produktion": "Proizvodnja", "branche.reinigung": "Čišćenje", "branche.gastro": "Gastronomija",
-  "branche.it": "IT", "branche.handwerk": "Zanat", "branche.buero": "Kancelarija", "branche.ausbildung": "Obrazovanje",
-  "vertrag.vollzeit": "Puno radno vrijeme", "vertrag.teilzeit": "Pola radnog vremena",
-  "vertrag.minijob": "Minijob", "vertrag.ausbildung": "Obrazovanje", "vertrag.praktikum": "Praktikum",
-};
-
-
-
-const portalEn: Partial<TranslationKeys> = {
-  "portal.dolazak": "Arrival", "portal.dolazak.desc": "Documents, registration, first steps in Germany.",
-  "portal.stan": "Housing & Registration", "portal.stan.desc": "Find housing and register your address.",
-  "portal.jobs": "Jobs", "portal.jobs.desc": "Find work in Germany.",
-  "portal.familie": "Family", "portal.familie.desc": "Child benefit, schools, family rights.",
-  "portal.foerderungen": "Benefits", "portal.foerderungen.desc": "Social benefits, housing benefit, BAföG.",
-  "portal.formulare": "Forms", "portal.formulare.desc": "All important forms in one place.",
-  "portal.tools": "Tools", "portal.tools.desc": "Generators, calculators, checks.",
-  "portal.ambasade": "Embassies", "portal.ambasade.desc": "Diplomatic missions in Germany.",
-  "portal.community": "Community", "portal.community.desc": "Restaurants, shops, associations and events of the Balkan community.",
-  "footer.imprint": "Imprint", "footer.privacy": "Privacy Policy", "footer.contact": "Contact",
-  "footer.copyright": "All rights reserved.", "footer.disclaimer": "Disclaimer",
-  "cta.register": "Register for free",
-  "wohnungen.title": "Housing Search", "wohnungen.subtitle": "Find an apartment across Germany.",
-  "wohnungen.city": "City", "wohnungen.bundesland": "State", "wohnungen.radius": "Radius",
-  "wohnungen.allGermany": "All of Germany", "wohnungen.maxRent": "Max. cold rent",
-  "wohnungen.rooms": "Rooms", "wohnungen.wg": "Shared flat", "wohnungen.furnished": "Furnished",
-  "wohnungen.shortTerm": "Short-term", "wohnungen.longTerm": "Long-term",
-  "wohnungen.search": "Search apartments", "wohnungen.showMore": "Show more", "wohnungen.showLess": "Show less",
-  "wohnungen.portals": "Housing portals",
-  "wohnungen.portalBig": "Major portals", "wohnungen.portalWg": "Shared flats & students",
-  "wohnungen.portalSocial": "Social & cooperatives", "wohnungen.portalShort": "Short-term",
-  "jobs.title": "Job Search", "jobs.subtitle": "Find a job across Germany.",
-  "jobs.city": "City", "jobs.bundesland": "State", "jobs.radius": "Radius",
-  "jobs.allGermany": "All of Germany", "jobs.branche": "Industry", "jobs.vertragsart": "Contract type",
-  "jobs.noDeutsch": "No German required", "jobs.mitUnterkunft": "With accommodation",
-  "jobs.quereinsteiger": "Career changers welcome", "jobs.schnellerEinstieg": "Quick start",
-  "jobs.search": "Search jobs", "jobs.showMore": "Show more", "jobs.showLess": "Show less",
-  "jobs.portals": "Job portals",
-  "jobs.portalStaatlich": "Government", "jobs.portalGross": "Major portals", "jobs.portalSpezial": "Specialized",
-  "jobs.allBranchen": "All industries",
-  "branche.pflege": "Healthcare", "branche.bau": "Construction", "branche.logistik": "Logistics",
-  "branche.produktion": "Manufacturing", "branche.reinigung": "Cleaning", "branche.gastro": "Hospitality",
-  "branche.it": "IT", "branche.handwerk": "Trades", "branche.buero": "Office", "branche.ausbildung": "Training",
-  "vertrag.vollzeit": "Full-time", "vertrag.teilzeit": "Part-time",
-  "vertrag.minijob": "Mini job", "vertrag.ausbildung": "Apprenticeship", "vertrag.praktikum": "Internship",
-};
-
-const portalSq: Partial<TranslationKeys> = {
-  "portal.dolazak": "Mbërritja", "portal.dolazak.desc": "Dokumentet, regjistrimi, hapat e parë në Gjermani.",
-  "portal.stan": "Banesa & regjistrimi", "portal.stan.desc": "Gjej banesë dhe regjistro adresën.",
-  "portal.jobs": "Punë", "portal.jobs.desc": "Gjej punë në Gjermani.",
-  "portal.familie": "Familja", "portal.familie.desc": "Kindergeld, shkolla, të drejtat familjare.",
-  "portal.foerderungen": "Ndihma", "portal.foerderungen.desc": "Ndihma sociale, strehimi, BAföG.",
-  "portal.formulare": "Formularët", "portal.formulare.desc": "Të gjitha formularët e rëndësishëm.",
-  "portal.tools": "Mjetet", "portal.tools.desc": "Gjeneratorë, kalkulatorë, kontrolle.",
-  "portal.ambasade": "Ambasadat", "portal.ambasade.desc": "Përfaqësitë diplomatike në Gjermani.",
-  "portal.community": "Komuniteti", "portal.community.desc": "Restorante, dyqane, shoqata dhe ngjarje të komunitetit ballkanik.",
-  "footer.imprint": "Impressum", "footer.privacy": "Mbrojtja e të dhënave", "footer.contact": "Kontakti",
-  "footer.copyright": "Të gjitha të drejtat e rezervuara.", "footer.disclaimer": "Disclaimer",
-  "cta.register": "Regjistrohu falas",
-  "wohnungen.title": "Kërkimi i banesës", "wohnungen.subtitle": "Gjej banesë në gjithë Gjermaninë.",
-  "wohnungen.city": "Qyteti", "wohnungen.bundesland": "Landi", "wohnungen.radius": "Rrethi",
-  "wohnungen.allGermany": "E gjithë Gjermania", "wohnungen.maxRent": "Qiraja max.",
-  "wohnungen.rooms": "Dhomat", "wohnungen.wg": "WG", "wohnungen.furnished": "E mobiluar",
-  "wohnungen.shortTerm": "Afatshkurtër", "wohnungen.longTerm": "Afatgjatë",
-  "wohnungen.search": "Kërko banesa", "wohnungen.showMore": "Shfaq më shumë", "wohnungen.showLess": "Shfaq më pak",
-  "wohnungen.portals": "Portalet e banesave",
-  "wohnungen.portalBig": "Portalet kryesore", "wohnungen.portalWg": "WG & studentë",
-  "wohnungen.portalSocial": "Sociale & kooperativa", "wohnungen.portalShort": "Afatshkurtër",
-  "jobs.title": "Kërkimi i punës", "jobs.subtitle": "Gjej punë në gjithë Gjermaninë.",
-  "jobs.city": "Qyteti", "jobs.bundesland": "Landi", "jobs.radius": "Rrethi",
-  "jobs.allGermany": "E gjithë Gjermania", "jobs.branche": "Sektori", "jobs.vertragsart": "Lloji i kontratës",
-  "jobs.noDeutsch": "Pa gjermanisht", "jobs.mitUnterkunft": "Me strehim",
-  "jobs.quereinsteiger": "Ndërrim profesioni", "jobs.schnellerEinstieg": "Fillim i shpejtë",
-  "jobs.search": "Kërko punë", "jobs.showMore": "Shfaq më shumë", "jobs.showLess": "Shfaq më pak",
-  "jobs.portals": "Portalet e punës",
-  "jobs.portalStaatlich": "Shtetëror", "jobs.portalGross": "Portalet kryesore", "jobs.portalSpezial": "Të specializuar",
-  "jobs.allBranchen": "Të gjitha sektorët",
-  "branche.pflege": "Kujdesi", "branche.bau": "Ndërtimtaria", "branche.logistik": "Logjistika",
-  "branche.produktion": "Prodhimi", "branche.reinigung": "Pastrimi", "branche.gastro": "Gastronomia",
-  "branche.it": "IT", "branche.handwerk": "Zejtaria", "branche.buero": "Zyra", "branche.ausbildung": "Formimi",
-  "vertrag.vollzeit": "Kohë e plotë", "vertrag.teilzeit": "Gjysmë kohe",
-  "vertrag.minijob": "Minijob", "vertrag.ausbildung": "Formim", "vertrag.praktikum": "Praktikë",
-};
-
-const portalMk: Partial<TranslationKeys> = {
-  "portal.dolazak": "Пристигнување", "portal.dolazak.desc": "Документи, пријава, први чекори во Германија.",
-  "portal.stan": "Стан & пријава", "portal.stan.desc": "Пронајди стан и пријави адреса.",
-  "portal.jobs": "Работа", "portal.jobs.desc": "Пронајди работа во Германија.",
-  "portal.familie": "Семејство", "portal.familie.desc": "Kindergeld, училиште, семејни права.",
-  "portal.foerderungen": "Помош", "portal.foerderungen.desc": "Социјална помош, станбен додаток, BAföG.",
-  "portal.formulare": "Формулари", "portal.formulare.desc": "Сите важни обрасци на едно место.",
-  "portal.tools": "Алатки", "portal.tools.desc": "Генератори, калкулатори, проверки.",
-  "portal.ambasade": "Амбасади", "portal.ambasade.desc": "Дипломатски претставништва во Германија.",
-  "portal.community": "Заедница", "portal.community.desc": "Ресторани, продавници, здруженија и настани на балканската заедница.",
-  "footer.imprint": "Impressum", "footer.privacy": "Заштита на податоци", "footer.contact": "Контакт",
-  "footer.copyright": "Сите права задржани.", "footer.disclaimer": "Disclaimer",
-  "cta.register": "Регистрирај се бесплатно",
-  "wohnungen.title": "Пребарување станови", "wohnungen.subtitle": "Пронајди стан во цела Германија.",
-  "wohnungen.city": "Град", "wohnungen.bundesland": "Сојузна држава", "wohnungen.radius": "Растојание",
-  "wohnungen.allGermany": "Цела Германија", "wohnungen.maxRent": "Макс. ладна кирија",
-  "wohnungen.rooms": "Број на соби", "wohnungen.wg": "WG", "wohnungen.furnished": "Наместен",
-  "wohnungen.shortTerm": "Краткорочно", "wohnungen.longTerm": "Долгорочно",
-  "wohnungen.search": "Барај станови", "wohnungen.showMore": "Прикажи повеќе", "wohnungen.showLess": "Прикажи помалку",
-  "wohnungen.portals": "Портали за станови",
-  "wohnungen.portalBig": "Големи портали", "wohnungen.portalWg": "WG & студенти",
-  "wohnungen.portalSocial": "Социјално & задруги", "wohnungen.portalShort": "Краткорочно",
-  "jobs.title": "Пребарување работа", "jobs.subtitle": "Пронајди работа во цела Германија.",
-  "jobs.city": "Град", "jobs.bundesland": "Сојузна држава", "jobs.radius": "Растојание",
-  "jobs.allGermany": "Цела Германија", "jobs.branche": "Бранша", "jobs.vertragsart": "Вид на договор",
-  "jobs.noDeutsch": "Без знаење германски", "jobs.mitUnterkunft": "Со сместување",
-  "jobs.quereinsteiger": "Преквалификанти", "jobs.schnellerEinstieg": "Брз почеток",
-  "jobs.search": "Барај работа", "jobs.showMore": "Прикажи повеќе", "jobs.showLess": "Прикажи помалку",
-  "jobs.portals": "Портали за работа",
-  "jobs.portalStaatlich": "Државни", "jobs.portalGross": "Големи портали", "jobs.portalSpezial": "Специјализирани",
-  "jobs.allBranchen": "Сите бранши",
-  "branche.pflege": "Нега", "branche.bau": "Градежништво", "branche.logistik": "Логистика",
-  "branche.produktion": "Производство", "branche.reinigung": "Чистење", "branche.gastro": "Гастрономија",
-  "branche.it": "IT", "branche.handwerk": "Занает", "branche.buero": "Канцеларија", "branche.ausbildung": "Образование",
-  "vertrag.vollzeit": "Полно работно време", "vertrag.teilzeit": "Половина работно време",
-  "vertrag.minijob": "Minijob", "vertrag.ausbildung": "Образование", "vertrag.praktikum": "Практика",
-};
-
-// --- New i18n blocks for password, FormCenter, SmartGuide, paywall ---
-const newKeysBs: Partial<TranslationKeys> = {
-  "auth.pwRule.title": "Lozinka mora sadržavati:",
-  "auth.pwRule.length": "Najmanje 8 znakova",
-  "auth.pwRule.upper": "Najmanje 1 veliko slovo (A-Z)",
-  "auth.pwRule.lower": "Najmanje 1 malo slovo (a-z)",
-  "auth.pwRule.number": "Najmanje 1 broj (0-9)",
-  "auth.pwRule.special": "Najmanje 1 specijalni znak (!@#$%^&*)",
-  "formCenter.title": "Formulari — Smart Guide",
-  "formCenter.subtitle": "Interaktivna pomoć za popunjavanje njemačkih formulara. Svako polje objašnjeno na tvom jeziku.",
-  "formCenter.openGuide": "Otvori Smart Guide",
-  "formCenter.pdfUnavailable": "PDF trenutno nije dostupan",
-  "formCenter.comingSoon": "Uskoro dostupno",
-  "paywall.title": "Premium Formular Pomoć",
-  "paywall.desc": "Otključaj kompletni Smart Guide za ovaj formular.",
-  "paywall.oneTime": "jednokratno",
-  "paywall.simulate": "Simuliraj uplatu (7€)",
-  "paywall.processing": "Obrađujem…",
-  "paywall.loginRequired": "Prijavi se za pristup",
-  "paywall.feature1": "Objašnjenje svakog polja na tvom jeziku",
-  "paywall.feature2": "Najčešće greške i kako ih izbjeći",
-  "paywall.feature3": "Interaktivni PDF pregled s klikabilnim poljima",
-  "paywall.feature4": "Step-by-step vodič",
-  "paywall.devNote": "DEV MODE: Uplata se simulira lokalno.",
-  "sg.wizard": "Step-by-Step Vodič",
-  "sg.pdfClick": "PDF Smart Click",
-  "sg.showOnPdf": "Prikaži na PDF-u",
-  "sg.mappingToast": "Mapiranje u toku — PDF highlight će biti dostupan uskoro.",
-  "sg.guideMode": "Guide mode",
-  "sg.guideModeDesc": "Mapiranje klikabilnih polja je u toku. Ovaj korak možeš popuniti uz vodič ispod.",
-  "sg.source": "Izvor",
-  "sg.checked": "Provjereno",
-  "sg.pdfBlocked": "PDF trenutno nije dostupan.",
-  "sg.pdfBlockedDesc": "PDF trenutno nije dostupan ili je promijenjen.",
-  "sg.openOfficial": "Otvori službeni link",
-  "sg.loading": "Učitavam…",
-  "sg.notFound": "Formular nije pronađen.",
-  "sg.backToForms": "← Nazad",
-  "sg.devReset": "DEV: Reset pristup",
-  "sg.back": "Nazad",
-  "sg.next": "Dalje",
-  "sg.rejectionTitle": "Najčešće greške koje dovode do odbijanja",
-  "sg.docsTitle": "Dokumenti koje trebaš pripremiti",
-  "sg.signTitle": "Ko treba potpisati?",
-  "sg.pdfPreview": "PDF Pregled",
-  "sg.openNewTab": "Otvori u novom tabu",
-  "sg.clickFieldHint": "Klikni na polje u listi desno → objašnjenje se pojavi ovdje.",
-  "sg.fieldsOnForm": "Polja na formularu",
-  "sg.clickToExplain": "Klikni na polje iznad da vidiš objašnjenje.",
-  "admin.mapper.title": "Admin Mapper",
-  "admin.mapper.coverage": "Pokrivenost mapiranja",
-  "admin.mapper.unmapped": "Nemapirana polja",
-  "admin.mapper.search": "Pretraži polja…",
-  "admin.mapper.selectField": "Odaberi polje iz liste",
-  "admin.mapper.saved": "Mapiranje sačuvano!",
-  "admin.mapper.export": "Izvezi JSON",
-  "admin.mapper.import": "Uvezi JSON",
-  "tools.pageTitle": "Rechner & Alati",
-  "tools.pageSubtitle": "Kalkulatori i korisni alati na jednom mjestu.",
-  "tools.bruttoNetto": "Brutto–Netto Rechner",
-  "tools.bruttoNetto.desc": "Izračunaj približnu neto platu na osnovu bruto iznosa.",
-  "tools.bruttoSalary": "Bruto plata (€/mjesec)",
-  "tools.steuerklasse": "Steuerklasse",
-  "tools.kirchensteuer": "Kirchensteuer",
-  "tools.kinder": "Djeca (da/ne)",
-  "tools.calculate": "Izračunaj",
-  "tools.estimatedNetto": "Procijenjeni neto",
-  "tools.incomeTax": "Porez na dohodak",
-  "tools.officialTitle": "Offizielle Rechner",
-  "tools.officialDesc": "Linkovi vode na zvanične stranice njemačkih institucija.",
-  "tools.openOfficial": "Otvori službeni link",
-  "tools.disclaimer": "Sve kalkulacije su neobavezujuće. BalkanLink ne preuzima odgovornost za tačnost podataka.",
-  "tools.kindergeld": "Kindergeld-Rechner",
-  "tools.kindergeld.desc": "Izračunaj visinu dječijeg dodatka.",
-  "tools.kinderzuschlag": "KiZ-Lotse",
-  "tools.kinderzuschlag.desc": "Provjeri pravo na Kinderzuschlag.",
-  "tools.buergergeld": "Bürgergeld-Rechner",
-  "tools.buergergeld.desc": "Izračunaj visinu Bürgergeld-a.",
-  "tools.elterngeld": "Elterngeld-Rechner",
-  "tools.elterngeld.desc": "Izračunaj koliki roditeljski dodatak ti pripada.",
-  "tools.rente": "Renten-Rechner",
-  "tools.rente.desc": "Procijeni svoju buduću penziju.",
-};
-
-const newKeysHr: Partial<TranslationKeys> = {
-  "auth.pwRule.title": "Lozinka mora sadržavati:",
-  "auth.pwRule.length": "Najmanje 8 znakova",
-  "auth.pwRule.upper": "Najmanje 1 veliko slovo (A-Z)",
-  "auth.pwRule.lower": "Najmanje 1 malo slovo (a-z)",
-  "auth.pwRule.number": "Najmanje 1 broj (0-9)",
-  "auth.pwRule.special": "Najmanje 1 specijalni znak (!@#$%^&*)",
-  "formCenter.title": "Formulari — Smart Guide",
-  "formCenter.subtitle": "Interaktivna pomoć za popunjavanje njemačkih formulara. Svako polje objašnjeno na hrvatskom.",
-  "formCenter.openGuide": "Otvori Smart Guide",
-  "formCenter.pdfUnavailable": "PDF trenutno nije dostupan",
-  "formCenter.comingSoon": "Uskoro dostupno",
-  "paywall.title": "Premium Formular Pomoć",
-  "paywall.desc": "Otključaj kompletni Smart Guide za ovaj formular.",
-  "paywall.oneTime": "jednokratno",
-  "paywall.simulate": "Simuliraj uplatu (7€)",
-  "paywall.processing": "Obrađujem…",
-  "paywall.loginRequired": "Prijavi se za pristup",
-  "paywall.feature1": "Objašnjenje svakog polja na hrvatskom",
-  "paywall.feature2": "Najčešće pogreške i kako ih izbjeći",
-  "paywall.feature3": "Interaktivni PDF pregled s klikabilnim poljima",
-  "paywall.feature4": "Korak-po-korak vodič",
-  "paywall.devNote": "DEV MODE: Uplata se simulira lokalno.",
-  "sg.wizard": "Korak-po-korak vodič",
-  "sg.pdfClick": "PDF Smart Click",
-  "sg.showOnPdf": "Prikaži na PDF-u",
-  "sg.mappingToast": "Mapiranje u tijeku — PDF highlight će biti dostupan uskoro.",
-  "sg.guideMode": "Guide mode",
-  "sg.guideModeDesc": "Mapiranje klikabilnih polja je u tijeku. Ovaj korak možeš popuniti uz vodič ispod.",
-  "sg.source": "Izvor",
-  "sg.checked": "Provjereno",
-  "sg.pdfBlocked": "PDF trenutno nije dostupan.",
-  "sg.pdfBlockedDesc": "PDF trenutno nije dostupan ili je promijenjen.",
-  "sg.openOfficial": "Otvori službeni link",
-  "sg.loading": "Učitavam…",
-  "sg.notFound": "Formular nije pronađen.",
-  "sg.backToForms": "← Natrag",
-  "sg.devReset": "DEV: Reset pristup",
-  "sg.back": "Natrag",
-  "sg.next": "Dalje",
-  "sg.rejectionTitle": "Najčešći razlozi odbijanja",
-  "sg.docsTitle": "Dokumenti koje trebaš pripremiti",
-  "sg.signTitle": "Tko treba potpisati?",
-  "sg.pdfPreview": "PDF Pregled",
-  "sg.openNewTab": "Otvori u novom tabu",
-  "sg.clickFieldHint": "Klikni na polje u popisu desno → objašnjenje se pojavi ovdje.",
-  "sg.fieldsOnForm": "Polja na formularu",
-  "sg.clickToExplain": "Klikni na polje iznad da vidiš objašnjenje.",
-  "admin.mapper.title": "Admin Mapper",
-  "admin.mapper.coverage": "Pokrivenost mapiranja",
-  "admin.mapper.unmapped": "Nemapirana polja",
-  "admin.mapper.search": "Pretraži polja…",
-  "admin.mapper.selectField": "Odaberi polje iz popisa",
-  "admin.mapper.saved": "Mapiranje spremljeno!",
-  "admin.mapper.export": "Izvezi JSON",
-  "admin.mapper.import": "Uvezi JSON",
-  "tools.pageTitle": "Rechner & Alati",
-  "tools.pageSubtitle": "Kalkulatori i korisni alati na jednom mjestu.",
-  "tools.bruttoNetto": "Brutto–Netto Rechner",
-  "tools.bruttoNetto.desc": "Izračunaj približnu neto plaću na osnovu bruto iznosa.",
-  "tools.bruttoSalary": "Bruto plaća (€/mjesec)",
-  "tools.steuerklasse": "Steuerklasse",
-  "tools.kirchensteuer": "Kirchensteuer",
-  "tools.kinder": "Djeca (da/ne)",
-  "tools.calculate": "Izračunaj",
-  "tools.estimatedNetto": "Procijenjeni neto",
-  "tools.incomeTax": "Porez na dohodak",
-  "tools.officialTitle": "Offizielle Rechner",
-  "tools.officialDesc": "Linkovi vode na službene stranice njemačkih institucija.",
-  "tools.openOfficial": "Otvori službeni link",
-  "tools.disclaimer": "Sve kalkulacije su neobvezujuće. BalkanLink ne preuzima odgovornost za točnost podataka.",
-  "tools.kindergeld": "Kindergeld-Rechner",
-  "tools.kindergeld.desc": "Izračunaj visinu dječjeg dodatka.",
-  "tools.kinderzuschlag": "KiZ-Lotse",
-  "tools.kinderzuschlag.desc": "Provjeri pravo na Kinderzuschlag.",
-  "tools.buergergeld": "Bürgergeld-Rechner",
-  "tools.buergergeld.desc": "Izračunaj visinu Bürgergeld-a.",
-  "tools.elterngeld": "Elterngeld-Rechner",
-  "tools.elterngeld.desc": "Izračunaj koliki roditeljski dodatak ti pripada.",
-  "tools.rente": "Renten-Rechner",
-  "tools.rente.desc": "Procijeni svoju buduću mirovinu.",
-};
-
-const newKeysSr: Partial<TranslationKeys> = {
-  ...newKeysBs,
-  "formCenter.subtitle": "Interaktivna pomoć za popunjavanje nemačkih formulara. Svako polje objašnjeno na srpskom.",
-  "paywall.feature1": "Objašnjenje svakog polja na srpskom",
-  "sg.backToForms": "← Nazad",
-  "sg.guideModeDesc": "Mapiranje klikabilnih polja je u toku. Ovaj korak možeš popuniti uz vodič ispod.",
-};
-
-
-
-const newKeysEn: Partial<TranslationKeys> = {
-  "auth.pwRule.title": "Password must contain:",
-  "auth.pwRule.length": "At least 8 characters",
-  "auth.pwRule.upper": "At least 1 uppercase letter (A-Z)",
-  "auth.pwRule.lower": "At least 1 lowercase letter (a-z)",
-  "auth.pwRule.number": "At least 1 number (0-9)",
-  "auth.pwRule.special": "At least 1 special character (!@#$%^&*)",
-  "formCenter.title": "Forms — Smart Guide",
-  "formCenter.subtitle": "Interactive help for filling out German forms.",
-  "formCenter.openGuide": "Open Smart Guide",
-  "formCenter.pdfUnavailable": "PDF currently unavailable",
-  "formCenter.comingSoon": "Coming soon",
-  "paywall.title": "Premium Form Help",
-  "paywall.desc": "Unlock the complete Smart Guide for this form.",
-  "paywall.oneTime": "one-time",
-  "paywall.simulate": "Simulate payment (€7)",
-  "paywall.processing": "Processing…",
-  "paywall.loginRequired": "Sign in for access",
-  "paywall.feature1": "Explanation of every field",
-  "paywall.feature2": "Common mistakes and how to avoid them",
-  "paywall.feature3": "Interactive PDF preview with clickable fields",
-  "paywall.feature4": "Step-by-step guide",
-  "paywall.devNote": "DEV MODE: Payment is simulated locally.",
-  "sg.wizard": "Step-by-Step Guide",
-  "sg.pdfClick": "PDF Smart Click",
-  "sg.showOnPdf": "Show on PDF",
-  "sg.mappingToast": "Mapping in progress — PDF highlight coming soon.",
-  "sg.guideMode": "Guide mode",
-  "sg.guideModeDesc": "Clickable field mapping is in progress. Use the guide below to fill out this step.",
-  "sg.source": "Source",
-  "sg.checked": "Checked",
-  "sg.pdfBlocked": "PDF currently unavailable.",
-  "sg.pdfBlockedDesc": "PDF unavailable or changed.",
-  "sg.openOfficial": "Open official link",
-  "sg.loading": "Loading…",
-  "sg.notFound": "Form not found.",
-  "sg.backToForms": "← Back",
-  "sg.devReset": "DEV: Reset access",
-  "sg.back": "Back",
-  "sg.next": "Next",
-  "sg.rejectionTitle": "Most common reasons for rejection",
-  "sg.docsTitle": "Documents you should prepare",
-  "sg.signTitle": "Who needs to sign?",
-  "sg.pdfPreview": "PDF Preview",
-  "sg.openNewTab": "Open in new tab",
-  "sg.clickFieldHint": "Click a field in the list on the right → explanation appears here.",
-  "sg.fieldsOnForm": "Fields on the form",
-  "sg.clickToExplain": "Click a field above to see the explanation.",
-  "admin.mapper.title": "Admin Mapper",
-  "admin.mapper.coverage": "Mapping coverage",
-  "admin.mapper.unmapped": "Unmapped fields",
-  "admin.mapper.search": "Search fields…",
-  "admin.mapper.selectField": "Select a field from the list",
-  "admin.mapper.saved": "Mapping saved!",
-  "admin.mapper.export": "Export JSON",
-  "admin.mapper.import": "Import JSON",
-  "tools.pageTitle": "Calculators & Tools",
-  "tools.pageSubtitle": "Calculators and useful tools in one place.",
-  "tools.bruttoNetto": "Gross–Net Calculator",
-  "tools.bruttoNetto.desc": "Calculate your approximate net salary from gross income.",
-  "tools.bruttoSalary": "Gross salary (€/month)",
-  "tools.steuerklasse": "Tax class",
-  "tools.kirchensteuer": "Church tax",
-  "tools.kinder": "Children (yes/no)",
-  "tools.calculate": "Calculate",
-  "tools.estimatedNetto": "Estimated net",
-  "tools.incomeTax": "Income tax",
-  "tools.officialTitle": "Official Calculators",
-  "tools.officialDesc": "Links lead to official German government websites.",
-  "tools.openOfficial": "Open official calculator",
-  "tools.disclaimer": "All calculations are non-binding. BalkanLink assumes no liability for accuracy.",
-  "tools.kindergeld": "Child Benefit Calculator",
-  "tools.kindergeld.desc": "Calculate child benefit amounts.",
-  "tools.kinderzuschlag": "KiZ-Lotse",
-  "tools.kinderzuschlag.desc": "Check your eligibility for Kinderzuschlag.",
-  "tools.buergergeld": "Bürgergeld Calculator",
-  "tools.buergergeld.desc": "Calculate Bürgergeld amounts.",
-  "tools.elterngeld": "Parental Allowance Calculator",
-  "tools.elterngeld.desc": "Calculate your parental allowance.",
-  "tools.rente": "Pension Calculator",
-  "tools.rente.desc": "Estimate your future pension.",
-};
-
-// --- Auth/misc blocks ---
-const miscBs: Partial<TranslationKeys> = {
-  "auth.loginTitle": "Prijava", "auth.loginDesc": "Unesite email i lozinku za pristup.",
-  "auth.email": "Email", "auth.password": "Lozinka",
-  "auth.loginButton": "Prijavi se", "auth.loginLoading": "Prijavljivanje...",
-  "auth.loginError": "Greška pri prijavi", "auth.loginSuccess": "Uspješna prijava!",
-  "auth.registerTitle": "Registracija", "auth.registerDesc": "Kreirajte novi nalog sa email adresom.",
-  "auth.confirmPassword": "Potvrdite lozinku", "auth.registerButton": "Registruj se",
-  "auth.registerLoading": "Registracija...",
-  "auth.passwordMismatch": "Lozinke se ne poklapaju",
-  "auth.passwordTooShort": "Lozinka ne ispunjava sve zahtjeve",
-  "auth.registerError": "Greška pri registraciji",
-  "auth.registerSuccess": "Registracija uspješna!",
-  "auth.registerCheckEmail": "Provjerite email za potvrdu.",
-  "auth.haveAccount": "Već imate nalog?", "auth.forgotPassword": "Zaboravljena lozinka?",
-  "auth.noAccount": "Nemate nalog?",
-  "auth.forgotTitle": "Zaboravljena lozinka", "auth.forgotDesc": "Unesite email za resetovanje lozinke.",
-  "auth.sendLink": "Pošalji link", "auth.sending": "Slanje...",
-  "auth.checkEmail": "Provjerite email",
-  "auth.checkEmailDesc": "Ako nalog postoji, poslaćemo vam link za resetovanje lozinke.",
-  "auth.backToLogin": "Nazad na prijavu",
-  "auth.resetTitle": "Nova lozinka", "auth.resetDesc": "Unesite novu lozinku za vaš nalog.",
-  "auth.newPassword": "Nova lozinka", "auth.saveButton": "Sačuvaj novu lozinku",
-  "auth.saving": "Čuvanje...",
-  "auth.resetWaiting": "Resetovanje lozinke",
-  "auth.resetWaitingDesc": "Otvorite link iz emaila da biste resetovali lozinku.",
-  "auth.passwordChanged": "Lozinka uspješno promijenjena!",
-  "auth.minChars": "Najmanje 8 znakova",
-  "auth.termsLabel": "Pročitao/la sam", "auth.termsAGB": "Uslove korištenja (AGB)",
-  "auth.termsAnd": "i", "auth.termsPrivacy": "Pravila privatnosti",
-  "auth.termsAccept": "i prihvatam ih.", "auth.termsRequired": "Morate prihvatiti uslove korištenja i pravila privatnosti.",
-  "footer.legal": "Pravne informacije", "footer.haftung": "Odricanje od odgovornosti",
-  "footer.mitgliedschaft": "Članstvo", "footer.kiHinweis": "KI napomena",
-  "hero.cta.register": "Registruj se besplatno", "hero.cta.firstSteps": "Pogledaj prve korake",
-  "notfound.title": "Stranica nije pronađena", "notfound.desc": "Stranica koju tražite ne postoji.",
-  "notfound.back": "Nazad na početnu",
-  "common.error": "Greška", "common.legalBasis": "Zakonska osnova",
-  "common.officialSource": "Zvanični izvor", "common.moreSource": "Dodatni izvor",
-  "common.all": "Sve", "common.back": "Nazad",
-};
-
-const miscHr: Partial<TranslationKeys> = {
-  ...miscBs,
-  "auth.loginTitle": "Prijava", "auth.loginDesc": "Unesite email i lozinku za pristup.",
-  "auth.password": "Lozinka",
-  "auth.confirmPassword": "Potvrdite lozinku",
-  "auth.passwordMismatch": "Lozinke se ne podudaraju",
-  "auth.passwordTooShort": "Lozinka ne ispunjava sve zahtjeve",
-  "auth.registerCheckEmail": "Provjerite email za potvrdu.",
-  "auth.backToLogin": "Natrag na prijavu",
-  "auth.minChars": "Najmanje 8 znakova",
-  "hero.cta.register": "Registriraj se besplatno", "hero.cta.firstSteps": "Pogledaj prve korake",
-  "notfound.back": "Natrag na početnu",
-};
-
-
-
-const miscEn: Partial<TranslationKeys> = {
-  "auth.loginTitle": "Sign In", "auth.loginDesc": "Enter your email and password.",
-  "auth.email": "Email", "auth.password": "Password",
-  "auth.loginButton": "Sign in", "auth.loginLoading": "Signing in...",
-  "auth.loginError": "Sign in error", "auth.loginSuccess": "Signed in successfully!",
-  "auth.registerTitle": "Sign Up", "auth.registerDesc": "Create a new account with your email.",
-  "auth.confirmPassword": "Confirm password", "auth.registerButton": "Sign up",
-  "auth.registerLoading": "Signing up...",
-  "auth.passwordMismatch": "Passwords do not match",
-  "auth.passwordTooShort": "Password does not meet all requirements",
-  "auth.registerError": "Sign up error",
-  "auth.registerSuccess": "Sign up successful!",
-  "auth.registerCheckEmail": "Check your email for confirmation.",
-  "auth.haveAccount": "Already have an account?", "auth.forgotPassword": "Forgot password?",
-  "auth.noAccount": "Don't have an account?",
-  "auth.forgotTitle": "Forgot Password", "auth.forgotDesc": "Enter your email to reset your password.",
-  "auth.sendLink": "Send link", "auth.sending": "Sending...",
-  "auth.checkEmail": "Check your email",
-  "auth.checkEmailDesc": "If an account exists, we'll send a reset link.",
-  "auth.backToLogin": "Back to sign in",
-  "auth.resetTitle": "New Password", "auth.resetDesc": "Enter a new password for your account.",
-  "auth.newPassword": "New password", "auth.saveButton": "Save new password",
-  "auth.saving": "Saving...",
-  "auth.resetWaiting": "Password reset",
-  "auth.resetWaitingDesc": "Open the link in the email to reset your password.",
-  "auth.passwordChanged": "Password changed successfully!",
-  "auth.minChars": "At least 8 characters",
-  "auth.termsLabel": "I have read the", "auth.termsAGB": "Terms of Service",
-  "auth.termsAnd": "and the", "auth.termsPrivacy": "Privacy Policy",
-  "auth.termsAccept": "and I accept them.", "auth.termsRequired": "You must accept the Terms of Service and Privacy Policy.",
-  "footer.legal": "Legal", "footer.haftung": "Disclaimer",
-  "footer.mitgliedschaft": "Membership", "footer.kiHinweis": "AI Notice",
-  "hero.cta.register": "Register for free", "hero.cta.firstSteps": "See first steps",
-  "notfound.title": "Page not found", "notfound.desc": "The page you're looking for doesn't exist.",
-  "notfound.back": "Back to home",
-  "common.error": "Error", "common.legalBasis": "Legal basis",
-  "common.officialSource": "Official source", "common.moreSource": "Additional source",
-  "common.all": "All", "common.back": "Back",
-};
-
-const miscSq: Partial<TranslationKeys> = {
-  "auth.loginTitle": "Hyrje", "auth.loginDesc": "Vendos emailin dhe fjalëkalimin.",
-  "auth.email": "Email", "auth.password": "Fjalëkalimi",
-  "auth.loginButton": "Hyr", "auth.loginLoading": "Duke hyrë...",
-  "auth.loginError": "Gabim gjatë hyrjes", "auth.loginSuccess": "Hyrje e suksesshme!",
-  "auth.registerTitle": "Regjistrohu", "auth.registerDesc": "Krijo llogari të re me email.",
-  "auth.confirmPassword": "Konfirmo fjalëkalimin", "auth.registerButton": "Regjistrohu",
-  "auth.registerLoading": "Duke u regjistruar...",
-  "auth.passwordMismatch": "Fjalëkalimet nuk përputhen",
-  "auth.passwordTooShort": "Fjalëkalimi nuk i plotëson të gjitha kërkesat",
-  "auth.registerError": "Gabim gjatë regjistrimit",
-  "auth.registerSuccess": "Regjistrim i suksesshëm!",
-  "auth.registerCheckEmail": "Kontrollo emailin për konfirmim.",
-  "auth.haveAccount": "Ke tashmë llogari?", "auth.forgotPassword": "Harrove fjalëkalimin?",
-  "auth.noAccount": "Nuk ke llogari?",
-  "auth.forgotTitle": "Harrova fjalëkalimin", "auth.forgotDesc": "Vendos emailin për rivendosje.",
-  "auth.sendLink": "Dërgo linkun", "auth.sending": "Duke dërguar...",
-  "auth.checkEmail": "Kontrollo emailin",
-  "auth.checkEmailDesc": "Nëse llogaria ekziston, do të dërgojmë link rivendosjeje.",
-  "auth.backToLogin": "Kthehu te hyrja",
-  "auth.resetTitle": "Fjalëkalim i ri", "auth.resetDesc": "Vendos fjalëkalimin e ri.",
-  "auth.newPassword": "Fjalëkalim i ri", "auth.saveButton": "Ruaj fjalëkalimin",
-  "auth.saving": "Duke ruajtur...",
-  "auth.resetWaiting": "Rivendosja e fjalëkalimit",
-  "auth.resetWaitingDesc": "Hap linkun në email.",
-  "auth.passwordChanged": "Fjalëkalimi u ndryshua me sukses!",
-  "auth.minChars": "Së paku 8 karaktere",
-  "auth.termsLabel": "I kam lexuar", "auth.termsAGB": "Kushtet e përdorimit",
-  "auth.termsAnd": "dhe", "auth.termsPrivacy": "Politikën e privatësisë",
-  "auth.termsAccept": "dhe i pranoj ato.", "auth.termsRequired": "Duhet të pranoni kushtet e përdorimit dhe politikën e privatësisë.",
-  "footer.legal": "Ligjore", "footer.haftung": "Mohim përgjegjësie",
-  "footer.mitgliedschaft": "Anëtarësia", "footer.kiHinweis": "Njoftim AI",
-  "hero.cta.register": "Regjistrohu falas", "hero.cta.firstSteps": "Shiko hapat e parë",
-  "notfound.title": "Faqja nuk u gjet", "notfound.desc": "Faqja që kërkoni nuk ekziston.",
-  "notfound.back": "Kthehu në fillim",
-  "common.error": "Gabim", "common.legalBasis": "Baza ligjore",
-  "common.officialSource": "Burimi zyrtar", "common.moreSource": "Burim shtesë",
-  "common.all": "Të gjitha", "common.back": "Kthehu",
-};
-
-const miscMk: Partial<TranslationKeys> = {
-  "auth.loginTitle": "Најава", "auth.loginDesc": "Внесете email и лозинка.",
-  "auth.email": "Email", "auth.password": "Лозинка",
-  "auth.loginButton": "Најави се", "auth.loginLoading": "Најавување...",
-  "auth.loginError": "Грешка при најава", "auth.loginSuccess": "Успешна најава!",
-  "auth.registerTitle": "Регистрација", "auth.registerDesc": "Создади нов профил.",
-  "auth.confirmPassword": "Потврди лозинка", "auth.registerButton": "Регистрирај се",
-  "auth.registerLoading": "Регистрација...",
-  "auth.passwordMismatch": "Лозинките не се совпаѓаат",
-  "auth.passwordTooShort": "Лозинката не ги исполнува сите барања",
-  "auth.registerError": "Грешка при регистрација",
-  "auth.registerSuccess": "Регистрација успешна!",
-  "auth.registerCheckEmail": "Проверете го вашиот email.",
-  "auth.haveAccount": "Веќе имаш профил?", "auth.forgotPassword": "Заборавена лозинка?",
-  "auth.noAccount": "Немаш профил?",
-  "auth.forgotTitle": "Заборавена лозинка", "auth.forgotDesc": "Внесете email за ресетирање.",
-  "auth.sendLink": "Испрати линк", "auth.sending": "Се испраќа...",
-  "auth.checkEmail": "Проверете email",
-  "auth.checkEmailDesc": "Ако профилот постои, ќе испратиме линк.",
-  "auth.backToLogin": "Назад на најава",
-  "auth.resetTitle": "Нова лозинка", "auth.resetDesc": "Внесете нова лозинка.",
-  "auth.newPassword": "Нова лозинка", "auth.saveButton": "Зачувај лозинка",
-  "auth.saving": "Се зачувува...",
-  "auth.resetWaiting": "Ресетирање лозинка",
-  "auth.resetWaitingDesc": "Отворете го линкот од emailот.",
-  "auth.passwordChanged": "Лозинката е успешно променета!",
-  "auth.minChars": "Најмалку 8 знаци",
-  "auth.termsLabel": "Ги прочитав", "auth.termsAGB": "Условите за користење",
-  "auth.termsAnd": "и", "auth.termsPrivacy": "Политиката на приватност",
-  "auth.termsAccept": "и ги прифаќам.", "auth.termsRequired": "Мора да ги прифатите условите за користење и политиката на приватност.",
-  "footer.legal": "Правни информации", "footer.haftung": "Одрекување од одговорност",
-  "footer.mitgliedschaft": "Членство", "footer.kiHinweis": "AI напомена",
-  "hero.cta.register": "Регистрирај се бесплатно", "hero.cta.firstSteps": "Прегледај први чекори",
-  "notfound.title": "Страницата не е пронајдена", "notfound.desc": "Страницата не постои.",
-  "notfound.back": "Назад на почетна",
-  "common.error": "Грешка", "common.legalBasis": "Законска основа",
-  "common.officialSource": "Официјален извор", "common.moreSource": "Дополнителен извор",
-  "common.all": "Сите", "common.back": "Назад",
-};
-
-// --- Home / Footer / Premium page keys ---
-
-
-const homeBs: Partial<TranslationKeys> = {
-  "nav.plus": "Plus",
-  "home.hero.title": "Tvoj vodič za život", "home.hero.highlight": "u Njemačkoj.",
-  "home.hero.subtitle": "Sve što ti treba — na jednom mjestu.",
-  "home.hero.cta": "Započni besplatno", "home.hero.howItWorks": "Kako radi BalkanLink →",
-  "home.card.majstor": "Trebam majstora", "home.card.posao": "Tražim posao", "home.card.stan": "Tražim stan",
-  "home.card.papiri": "Pomoć s papirima", "home.card.restorani": "Balkan restorani",
-  "home.card.prodavnice": "Prodavnice", "home.card.prevoz": "Putovanja & prevoz", "home.card.pitanje": "Imam pitanje",
-  "home.card.kultura": "Kultura & Zajednice", "home.card.sport": "Sport & Klubovi",
-  "home.trust.title": "Preko 10.000 korisnika koristi", "home.trust.subtitle": "Balkan zajednica u Njemačkoj koristi BalkanLink za svakodnevne situacije.",
-  "home.trust.community": "Ljudi iz jugoistočne Evrope — zajedno u Njemačkoj",
-  "home.example.1": "Prijava djeteta u školu", "home.example.2": "Selidba u novi grad",
-  "home.example.3": "Inkasso pismo", "home.example.4": "Promjena posla", "home.example.5": "Kupovina auta",
-  "home.testimonials.title": "Naša zajednica kaže",
-  "home.testimonials.cities": "Berlin · München · Frankfurt · Stuttgart · Köln",
-  "home.review1.text": "Bez BalkanLinka bih izgubila dane na traženje informacija. Sad sve imam na jednom mjestu.",
-  "home.review2.text": "Kindergeld zahtjev sam riješio za 15 minuta uz korak-po-korak vodič. Preporuka!",
-  "home.review3.text": "Konačno platforma koja razumije nas. Profesionalno, brzo i na našem jeziku.",
-  "home.review4.text": "Sve informacije na jednom mjestu — od stana do posla. Balkan zajednica u Njemačkoj konačno ima svoju platformu.",
-  "home.premium.title": "BalkanLink", "home.premium.subtitle": "Sve što ti treba — bez zaobilaznih puteva.",
-  "home.premium.step1": "Formulari korak po korak", "home.premium.step2": "Direktni linkovi na zvanične institucije",
-  "home.premium.step3": "Provjereni kontakti", "home.premium.step4": "Prioritetni odgovori",
-  "home.premium.step5": "Partnerske pogodnosti",
-  "home.premium.cta": "Aktiviraj Plus", "home.premium.cancel": "Otkaži u bilo kojem trenutku.",
-  "footer.tagline": "Sve što ti treba za život u Njemačkoj — na jednom mjestu.",
-  "footer.navSection": "Navigacija", "footer.legalSection": "Pravne informacije",
-  "footer.trustSection": "Povjerenje",
-  "footer.navHome": "Početna", "footer.navHow": "Kako radi", "footer.navPremium": "Premium",
-  "footer.trustRating": "zadovoljstvo korisnika", "footer.trustUsers": "ljudi koristi BalkanLink",
-  "footer.navFormulari": "Formulari",
-  "home.section.title": "Pomoć u Njemačkoj", "home.section.subtitle": "Posao • Stan • Formulari • Zdravstvo • Förderungen",
-  "home.item.posao": "Posao", "home.item.stan": "Stan", "home.item.formulari": "Formulari & Zahtjevi",
-  "home.item.rechner": "Rechner & Kalkulatori", "home.item.prijava": "Prijava boravka",
-  "home.item.zdravstvo": "Zdravstvo & Osiguranje", "home.item.banka": "Banka & Konto",
-  "home.item.auto": "Auto & Registracija", "home.item.foerderungen": "Förderungen & Pomoć države",
-  "home.item.dokumentenCheck": "Dokumenten-Check",
-  "home.hero.ctaButton": "Pronađi formulare",
-  "home.formulare.title": "Formulari — Pomoć pri popunjavanju", "home.formulare.subtitle": "Korak-po-korak vodič za najvažnije njemačke formulare.",
-  "home.tools.title": "Alati & Kalkulatori", "home.tools.subtitle": "Korisni alati za svakodnevicu.",
-  "home.cat.familie": "Porodica i djeca", "home.cat.finanzen": "Finansije i porezi", "home.cat.wohnen": "Stanovanje",
-  "home.cat.arbeit": "Posao", "home.cat.dokumente": "Dokumenti", "home.cat.fahrzeuge": "Vozila",
-  "home.cat.gesundheit": "Zdravstvo",
-  "home.search.placeholder": "Pretraži (npr. Kindergeld, Wohngeld, Anmeldung...)",
-  "home.schnellzugriff.title": "Brzi pristup", "home.schnellzugriff.subtitle": "Direktni linkovi na najvažnije oblasti.",
-  "home.schnellzugriff.wohnung": "Pronađi stan", "home.schnellzugriff.job": "Pretraga posla",
-  "home.schnellzugriff.biete": "Ponuda / Potražnja",
-  "home.dokcheck.title": "Dokumenten-Check", "home.dokcheck.subtitle": "Provjeri da li imaš sva potrebna dokumenta.", "home.dokcheck.cta": "Provjeri sada",
-  "home.aufenthalt.title": "Boravak & Boravišna dozvola", "home.aufenthalt.subtitle": "Informacije o boravišnoj dozvoli i vizi.",
-  "home.aufenthalt.boravak": "Boravišna dozvola", "home.aufenthalt.koraci": "Prvi koraci", "home.aufenthalt.dozvola": "Vozačka dozvola",
-  "home.ad.placeholder": "Reklamni prostor",
-};
-
-const homeEn: Partial<TranslationKeys> = {
-  "nav.plus": "Plus",
-  "home.hero.title": "Your guide to life", "home.hero.highlight": "in Germany.",
-  "home.hero.subtitle": "Everything you need — in one place.",
-  "home.hero.cta": "Get started free", "home.hero.howItWorks": "How BalkanLink works →",
-  "home.card.majstor": "Find a tradesperson", "home.card.posao": "Find a job", "home.card.stan": "Find housing",
-  "home.card.papiri": "Help with documents", "home.card.restorani": "Balkan restaurants",
-  "home.card.prodavnice": "Balkan shops", "home.card.prevoz": "Travel & transport", "home.card.pitanje": "Ask a question",
-  "home.card.kultura": "Culture & Communities", "home.card.sport": "Sports & Clubs",
-  "home.trust.title": "Over 10,000 users trust", "home.trust.subtitle": "The Balkan community in Germany uses BalkanLink for everyday life.",
-  "home.trust.community": "People from Southeast Europe — united in Germany",
-  "home.example.1": "Enrolling a child in school", "home.example.2": "Moving to a new city",
-  "home.example.3": "Debt collection letter", "home.example.4": "Changing jobs", "home.example.5": "Buying a car",
-  "home.testimonials.title": "Our community says",
-  "home.testimonials.cities": "Berlin · Munich · Frankfurt · Stuttgart · Cologne",
-  "home.review1.text": "Without BalkanLink I would have lost days searching for information. Now I have everything in one place.",
-  "home.review2.text": "I completed the child benefit application in 15 minutes with the step-by-step guide. Highly recommended!",
-  "home.review3.text": "Finally a platform that understands us. Professional, fast and in our language.",
-  "home.review4.text": "All info in one place — from housing to jobs. The Balkan community in Germany finally has its own platform.",
-  "home.premium.title": "BalkanLink", "home.premium.subtitle": "Everything you need — no detours.",
-  "home.premium.step1": "Forms step-by-step", "home.premium.step2": "Direct links to official authorities",
-  "home.premium.step3": "Verified contacts", "home.premium.step4": "Prioritised answers",
-  "home.premium.step5": "Partner benefits",
-  "home.premium.cta": "Activate Plus", "home.premium.cancel": "Cancel anytime.",
-  "footer.tagline": "Everything you need for life in Germany — in one place.",
-  "footer.navSection": "Navigation", "footer.legalSection": "Legal",
-  "footer.trustSection": "Trust",
-  "footer.navHome": "Home", "footer.navHow": "How it works", "footer.navPremium": "Premium",
-  "footer.trustRating": "user satisfaction", "footer.trustUsers": "people use BalkanLink",
-  "footer.navFormulari": "Forms",
-  "home.section.title": "Help in Germany", "home.section.subtitle": "Jobs • Housing • Forms • Health • Subsidies",
-  "home.item.posao": "Jobs", "home.item.stan": "Housing", "home.item.formulari": "Forms & Applications",
-  "home.item.rechner": "Calculators", "home.item.prijava": "Registration",
-  "home.item.zdravstvo": "Health & Insurance", "home.item.banka": "Bank & Account",
-  "home.item.auto": "Car & Registration", "home.item.foerderungen": "Subsidies & State Aid",
-  "home.item.dokumentenCheck": "Document Check",
-  "home.hero.ctaButton": "Find forms",
-  "home.formulare.title": "Forms — Filling Guide", "home.formulare.subtitle": "Step-by-step instructions for the most important German forms.",
-  "home.tools.title": "Tools & Calculators", "home.tools.subtitle": "Useful tools for everyday life.",
-  "home.cat.familie": "Family & Children", "home.cat.finanzen": "Finance & Taxes", "home.cat.wohnen": "Housing",
-  "home.cat.arbeit": "Work", "home.cat.dokumente": "Documents", "home.cat.fahrzeuge": "Vehicles",
-  "home.cat.gesundheit": "Health",
-  "home.search.placeholder": "Search (e.g. Kindergeld, Wohngeld, Registration...)",
-  "home.schnellzugriff.title": "Quick Access", "home.schnellzugriff.subtitle": "Direct links to the most important areas.",
-  "home.schnellzugriff.wohnung": "Find housing", "home.schnellzugriff.job": "Job search",
-  "home.schnellzugriff.biete": "Offer / Seek",
-  "home.dokcheck.title": "Document Check", "home.dokcheck.subtitle": "Check if you have all required documents.", "home.dokcheck.cta": "Check now",
-  "home.aufenthalt.title": "Residence & Permits", "home.aufenthalt.subtitle": "Information about residence permits and visas.",
-  "home.aufenthalt.boravak": "Residence permit", "home.aufenthalt.koraci": "First steps", "home.aufenthalt.dozvola": "Driving licence",
-  "home.ad.placeholder": "Ad space",
-};
-
-
-
-const premiumBs: Partial<TranslationKeys> = {
-  "premium.badge": "Premium", "premium.title": "BalkanLink Premium",
-  "premium.subtitle": "Potpuni pristup svemu što ti treba za život u Njemačkoj.",
-  "premium.price": "Od 9 €/mjesečno · Otkaži kad hoćeš",
-  "premium.heroCta": "Aktiviraj Premium", "premium.heroFree": "Nastavi s Free",
-  "premium.compareTitle": "Free vs. Premium",
-  "premium.compareSubtitle": "Uporedi nivoe pristupa i pronađi pravi za sebe.",
-  "premium.row.categories": "Pristup svim kategorijama", "premium.row.community": "Otkrij mjesta i zajednicu",
-  "premium.row.ai": "Jednostavni AI odgovori", "premium.row.search": "Koristi pretragu",
-  "premium.row.forms": "Formulari korak po korak", "premium.row.assistant": "Lični asistent",
-  "premium.row.templates": "Predlošci i generatori", "premium.row.priority": "Prioritetne informacije",
-  "premium.row.badge": "Premium oznaka u profilu",
-  "premium.pricingTitle": "Izaberi svoj plan", "premium.pricingSubtitle": "Bez rizika. Otkaži kad hoćeš.",
-  "premium.monthly": "Mjesečno", "premium.yearly": "Godišnje",
-  "premium.perMonth": "/ mjesec", "premium.perYear": "/ godina",
-  "premium.flexible": "Fleksibilno, bez obaveze.", "premium.bestOffer": "Najbolja ponuda",
-  "premium.save": "Uštedi 59 € godišnje", "premium.active": "Aktivno ✓",
-  "premium.soon": "Uskoro dostupno", "premium.free": "Free",
-  "premium.noContract": "Bez ugovornog vezivanja", "premium.cancelAnytime": "Otkaži kad hoćeš",
-  "premium.forCommunity": "Za Balkan zajednicu u Njemačkoj",
-  "premium.function": "Funkcija",
-};
-
-const premiumEn: Partial<TranslationKeys> = {
-  "premium.badge": "Premium", "premium.title": "BalkanLink Premium",
-  "premium.subtitle": "Full access to everything you need for life in Germany.",
-  "premium.price": "From €9/month · Cancel anytime",
-  "premium.heroCta": "Activate Premium", "premium.heroFree": "Continue with Free",
-  "premium.compareTitle": "Free vs. Premium",
-  "premium.compareSubtitle": "Compare access levels and find the right one for you.",
-  "premium.row.categories": "Access all categories", "premium.row.community": "Discover places & community",
-  "premium.row.ai": "Simple AI answers", "premium.row.search": "Use search",
-  "premium.row.forms": "Step-by-step form help", "premium.row.assistant": "Personal assistant",
-  "premium.row.templates": "Templates & generators", "premium.row.priority": "Prioritised information",
-  "premium.row.badge": "Premium badge on profile",
-  "premium.pricingTitle": "Choose your plan", "premium.pricingSubtitle": "No risk. Cancel anytime.",
-  "premium.monthly": "Monthly", "premium.yearly": "Yearly",
-  "premium.perMonth": "/ month", "premium.perYear": "/ year",
-  "premium.flexible": "Flexible, no commitment.", "premium.bestOffer": "Best offer",
-  "premium.save": "Save €59 per year", "premium.active": "Active ✓",
-  "premium.soon": "Coming soon", "premium.free": "Free",
-  "premium.noContract": "No contract", "premium.cancelAnytime": "Cancel anytime",
-  "premium.forCommunity": "For the Balkan community in Germany",
-  "premium.function": "Feature",
-};
-
-// Albanian home/premium/footer
-const homeSq: Partial<TranslationKeys> = {
-  "nav.plus": "Plus",
-  "home.hero.title": "Udhëzuesi yt për jetën", "home.hero.highlight": "në Gjermani.",
-  "home.hero.subtitle": "Gjithçka që të nevojitet — në një vend.",
-  "home.hero.cta": "Fillo falas", "home.hero.howItWorks": "Si funksionon BalkanLink →",
-  "home.card.majstor": "Gjej mjeshtër", "home.card.posao": "Gjej punë", "home.card.stan": "Gjej banesë",
-  "home.card.papiri": "Ndihmë me dokumente", "home.card.restorani": "Restorante ballkanike",
-  "home.card.prodavnice": "Dyqane ballkanike", "home.card.prevoz": "Udhëtime & transport", "home.card.pitanje": "Bëj një pyetje",
-  "home.trust.title": "Mbi 10.000 përdorues i besojnë", "home.trust.subtitle": "Komuniteti ballkanik në Gjermani përdor BalkanLink për jetën e përditshme.",
-  "home.trust.community": "Njerëz nga Evropa Juglindore — të bashkuar në Gjermani",
-  "home.example.1": "Regjistrimi i fëmijës në shkollë", "home.example.2": "Shpërngulja në qytet të ri",
-  "home.example.3": "Letër inkaso", "home.example.4": "Ndryshimi i punës", "home.example.5": "Blerja e makinës",
-  "home.testimonials.title": "Komuniteti ynë thotë",
-  "home.testimonials.cities": "Berlin · Mynih · Frankfurt · Stuttgart · Këln",
-  "home.review1.text": "Pa BalkanLink do të kisha humbur ditë duke kërkuar informacione. Tani kam gjithçka në një vend.",
-  "home.review2.text": "Aplikimin për Kindergeld e përfundova në 15 minuta me udhëzuesin hap pas hapi. Rekomandim!",
-  "home.review3.text": "Më në fund një platformë që na kupton. Profesionale, e shpejtë dhe në gjuhën tonë.",
-  "home.review4.text": "Të gjitha informacionet në një vend — nga banesa deri te puna. Komuniteti ballkanik në Gjermani më në fund ka platformën e vet.",
-  "home.premium.title": "BalkanLink", "home.premium.subtitle": "Gjithçka që të nevojitet — pa rrugë të gjata.",
-  "home.premium.step1": "Formularë hap pas hapi", "home.premium.step2": "Lidhje direkte me autoritetet zyrtare",
-  "home.premium.step3": "Kontakte të verifikuara", "home.premium.step4": "Përgjigje të prioritizuara",
-  "home.premium.step5": "Përfitime partnerësh",
-  "home.premium.cta": "Aktivizo Plus", "home.premium.cancel": "Anulo në çdo kohë.",
-  "footer.tagline": "Gjithçka që të nevojitet për jetën në Gjermani — në një vend.",
-  "footer.navSection": "Navigimi", "footer.legalSection": "Ligjore",
-  "footer.trustSection": "Besimi",
-  "footer.navHome": "Ballina", "footer.navHow": "Si funksionon", "footer.navPremium": "Premium",
-  "footer.trustRating": "kënaqësia e përdoruesve", "footer.trustUsers": "njerëz përdorin BalkanLink",
-  "footer.navFormulari": "Formularë",
-  "home.section.title": "Ndihmë në Gjermani", "home.section.subtitle": "Punë • Banesë • Formularë • Shëndetësi • Subvencione",
-  "home.item.posao": "Punë", "home.item.stan": "Banesë", "home.item.formulari": "Formularë & Aplikime",
-  "home.item.rechner": "Kalkulatorë", "home.item.prijava": "Regjistrimi",
-  "home.item.zdravstvo": "Shëndetësi & Sigurim", "home.item.banka": "Bankë & Llogari",
-  "home.item.auto": "Makinë & Regjistrim", "home.item.foerderungen": "Subvencione & Ndihmë shtetërore",
-  "home.item.dokumentenCheck": "Kontroll dokumentesh",
-  "home.hero.ctaButton": "Gjej formularë",
-  "home.formulare.title": "Formularë — Ndihmë për plotësim", "home.formulare.subtitle": "Udhëzime hap pas hapi për formularët më të rëndësishëm gjermanë.",
-  "home.tools.title": "Mjete & Kalkulatorë", "home.tools.subtitle": "Mjete të dobishme për jetën e përditshme.",
-  "home.cat.familie": "Familja & Fëmijët", "home.cat.finanzen": "Financa & Taksa", "home.cat.wohnen": "Banimi",
-  "home.cat.arbeit": "Punë", "home.cat.dokumente": "Dokumente", "home.cat.fahrzeuge": "Automjete",
-  "home.cat.gesundheit": "Shëndetësi",
-};
-
-const premiumSq: Partial<TranslationKeys> = {
-  "premium.badge": "Premium", "premium.title": "BalkanLink Premium",
-  "premium.subtitle": "Qasje e plotë në gjithçka që të nevojitet për jetën në Gjermani.",
-  "premium.price": "Nga 9 €/muaj · Anulo kur të duash",
-  "premium.heroCta": "Aktivizo Premium", "premium.heroFree": "Vazhdo me Free",
-  "premium.compareTitle": "Free vs. Premium",
-  "premium.compareSubtitle": "Krahaso nivelet e qasjes dhe gjej atë të duhurën.",
-  "premium.row.categories": "Qasje në të gjitha kategoritë", "premium.row.community": "Zbulo vendet & komunitetin",
-  "premium.row.ai": "Përgjigje të thjeshta AI", "premium.row.search": "Përdor kërkimin",
-  "premium.row.forms": "Ndihmë me formularë hap pas hapi", "premium.row.assistant": "Asistent personal",
-  "premium.row.templates": "Shabllone & gjeneratorë", "premium.row.priority": "Informacione të prioritizuara",
-  "premium.row.badge": "Distinktiv Premium në profil",
-  "premium.pricingTitle": "Zgjidh planin tënd", "premium.pricingSubtitle": "Pa rrezik. Anulo kur të duash.",
-  "premium.monthly": "Mujor", "premium.yearly": "Vjetor",
-  "premium.perMonth": "/ muaj", "premium.perYear": "/ vit",
-  "premium.flexible": "Fleksibël, pa detyrim.", "premium.bestOffer": "Oferta më e mirë",
-  "premium.save": "Kurse 59 € në vit", "premium.active": "Aktiv ✓",
-  "premium.soon": "Së shpejti", "premium.free": "Free",
-  "premium.noContract": "Pa kontratë", "premium.cancelAnytime": "Anulo kur të duash",
-  "premium.forCommunity": "Për komunitetin ballkanik në Gjermani",
-  "premium.function": "Funksioni",
-};
-
-// Macedonian home/premium/footer
-const homeMk: Partial<TranslationKeys> = {
-  "nav.plus": "Plus",
-  "home.hero.title": "Твој водич за животот", "home.hero.highlight": "во Германија.",
-  "home.hero.subtitle": "Сè што ти треба — на едно место.",
-  "home.hero.cta": "Започни бесплатно", "home.hero.howItWorks": "Како работи BalkanLink →",
-  "home.card.majstor": "Најди мајстор", "home.card.posao": "Барај работа", "home.card.stan": "Барај стан",
-  "home.card.papiri": "Помош со документи", "home.card.restorani": "Балкански ресторани",
-  "home.card.prodavnice": "Балкански продавници", "home.card.prevoz": "Патувања и превоз", "home.card.pitanje": "Постави прашање",
-  "home.trust.title": "Преку 10.000 корисници веруваат во", "home.trust.subtitle": "Балканската заедница во Германија го користи BalkanLink за секојдневни ситуации.",
-  "home.trust.community": "Луѓе од Југоисточна Европа — заедно во Германија",
-  "home.example.1": "Запишување дете во училиште", "home.example.2": "Селидба во нов град",
-  "home.example.3": "Инкасо писмо", "home.example.4": "Промена на работа", "home.example.5": "Купување автомобил",
-  "home.testimonials.title": "Нашата заедница вели",
-  "home.testimonials.cities": "Берлин · Минхен · Франкфурт · Штутгарт · Келн",
-  "home.review1.text": "Без BalkanLink ќе изгубев денови барајќи информации. Сега сè имам на едно место.",
-  "home.review2.text": "Апликацијата за Kindergeld ја завршив за 15 минути со чекор-по-чекор водичот. Препорака!",
-  "home.review3.text": "Конечно платформа која нè разбира. Професионално, брзо и на нашиот јазик.",
-  "home.review4.text": "Сите информации на едно место — од стан до работа. Балканската заедница во Германија конечно има своја платформа.",
-  "home.premium.title": "BalkanLink", "home.premium.subtitle": "Сè што ти треба — без заобиколни патишта.",
-  "home.premium.step1": "Формулари чекор по чекор", "home.premium.step2": "Директни линкови до официјални институции",
-  "home.premium.step3": "Проверени контакти", "home.premium.step4": "Приоритетни одговори",
-  "home.premium.step5": "Партнерски поволности",
-  "home.premium.cta": "Активирај Plus", "home.premium.cancel": "Откажи во секое време.",
-  "footer.tagline": "Сè што ти треба за живот во Германија — на едно место.",
-  "footer.navSection": "Навигација", "footer.legalSection": "Правни информации",
-  "footer.trustSection": "Доверба",
-  "footer.navHome": "Почетна", "footer.navHow": "Како работи", "footer.navPremium": "Premium",
-  "footer.trustRating": "задоволство на корисници", "footer.trustUsers": "луѓе го користат BalkanLink",
-  "footer.navFormulari": "Формулари",
-  "home.section.title": "Помош во Германија", "home.section.subtitle": "Работа • Стан • Формулари • Здравство • Субвенции",
-  "home.item.posao": "Работа", "home.item.stan": "Стан", "home.item.formulari": "Формулари & Барања",
-  "home.item.rechner": "Калкулатори", "home.item.prijava": "Пријава на адреса",
-  "home.item.zdravstvo": "Здравство & Осигурување", "home.item.banka": "Банка & Сметка",
-  "home.item.auto": "Автомобил & Регистрација", "home.item.foerderungen": "Субвенции & Државна помош",
-  "home.item.dokumentenCheck": "Проверка на документи",
-  "home.hero.ctaButton": "Најди формулари",
-  "home.formulare.title": "Формулари — Помош при пополнување", "home.formulare.subtitle": "Чекор-по-чекор упатства за најважните германски формулари.",
-  "home.tools.title": "Алатки & Калкулатори", "home.tools.subtitle": "Корисни алатки за секојдневието.",
-  "home.cat.familie": "Семејство & Деца", "home.cat.finanzen": "Финансии & Даноци", "home.cat.wohnen": "Домување",
-  "home.cat.arbeit": "Работа", "home.cat.dokumente": "Документи", "home.cat.fahrzeuge": "Возила",
-  "home.cat.gesundheit": "Здравство",
-};
-
-const premiumMk: Partial<TranslationKeys> = {
-  "premium.badge": "Premium", "premium.title": "BalkanLink Premium",
-  "premium.subtitle": "Целосен пристап до сè што ти треба за живот во Германија.",
-  "premium.price": "Од 9 €/месечно · Откажи кога сакаш",
-  "premium.heroCta": "Активирај Premium", "premium.heroFree": "Продолжи со Free",
-  "premium.compareTitle": "Free vs. Premium",
-  "premium.compareSubtitle": "Спореди ги нивоата на пристап и пронајди го вистинскиот за тебе.",
-  "premium.row.categories": "Пристап до сите категории", "premium.row.community": "Откријте места и заедница",
-  "premium.row.ai": "Едноставни AI одговори", "premium.row.search": "Користи пребарување",
-  "premium.row.forms": "Формулари чекор по чекор", "premium.row.assistant": "Личен асистент",
-  "premium.row.templates": "Шаблони и генератори", "premium.row.priority": "Приоритетни информации",
-  "premium.row.badge": "Premium ознака во профил",
-  "premium.pricingTitle": "Избери го твојот план", "premium.pricingSubtitle": "Без ризик. Откажи кога сакаш.",
-  "premium.monthly": "Месечно", "premium.yearly": "Годишно",
-  "premium.perMonth": "/ месец", "premium.perYear": "/ година",
-  "premium.flexible": "Флексибилно, без обврска.", "premium.bestOffer": "Најдобра понуда",
-  "premium.save": "Заштеди 59 € годишно", "premium.active": "Активно ✓",
-  "premium.soon": "Наскоро", "premium.free": "Free",
-  "premium.noContract": "Без договорно врзување", "premium.cancelAnytime": "Откажи кога сакаш",
-  "premium.forCommunity": "За балканската заедница во Германија",
-  "premium.function": "Функција",
-};
-
-// Serbian home/premium
-const homeSr: Partial<TranslationKeys> = {
-  ...homeBs,
-  "home.hero.title": "Tvoj vodič za život", "home.hero.highlight": "u Nemačkoj.",
-  "home.hero.subtitle": "Sve što ti treba — na jednom mestu.",
-  "home.hero.howItWorks": "Kako radi BalkanLink →",
-  "home.trust.title": "Preko 10.000 korisnika koristi", "home.trust.subtitle": "Balkanska zajednica u Nemačkoj koristi BalkanLink za svakodnevne situacije.",
-  "home.trust.community": "Ljudi iz jugoistočne Evrope — zajedno u Nemačkoj",
-  "home.example.2": "Selidba u novi grad",
-  "home.review1.text": "Bez BalkanLinka bih izgubila dane na traženje informacija. Sad sve imam na jednom mestu.",
-  "home.review4.text": "Sve informacije na jednom mestu — od stana do posla. Balkanska zajednica u Nemačkoj konačno ima svoju platformu.",
-  "home.premium.subtitle": "Sve što ti treba — bez zaobilaznih puteva.",
-  "footer.tagline": "Sve što ti treba za život u Nemačkoj — na jednom mestu.",
-  "home.section.title": "Pomoć u Nemačkoj", "home.section.subtitle": "Posao • Stan • Formulari • Zdravstvo • Förderungen",
-  "home.item.posao": "Posao", "home.item.stan": "Stan", "home.item.formulari": "Formulari & Zahtevi",
-  "home.item.rechner": "Rechner & Kalkulatori", "home.item.prijava": "Prijava boravka",
-  "home.item.zdravstvo": "Zdravstvo & Osiguranje", "home.item.banka": "Banka & Konto",
-  "home.item.auto": "Auto & Registracija", "home.item.foerderungen": "Förderungen & Pomoć države",
-  "home.item.dokumentenCheck": "Dokumenten-Check",
-  "home.hero.ctaButton": "Pronađi formulare",
-  "home.formulare.title": "Formulari — Pomoć pri popunjavanju", "home.formulare.subtitle": "Korak-po-korak vodič za najvažnije nemačke formulare.",
-  "home.tools.title": "Alati & Kalkulatori", "home.tools.subtitle": "Korisni alati za svakodnevicu.",
-  "home.cat.familie": "Porodica i deca", "home.cat.finanzen": "Finansije i porezi", "home.cat.wohnen": "Stanovanje",
-  "home.cat.arbeit": "Posao", "home.cat.dokumente": "Dokumenti", "home.cat.fahrzeuge": "Vozila",
-  "home.cat.gesundheit": "Zdravstvo",
-  "footer.navFormulari": "Formulari",
-};
-
-// --- Language definitions ---
-const translations: Record<Language, TranslationKeys> = {
-  bs: {
-    "nav.home": "Početna", "nav.qa": "Pitanja i odgovori", "nav.directory": "Imenik",
-    "nav.login": "Prijava", "nav.register": "Registracija", "nav.logout": "Odjava",
-    "hero.slide1.title": "Tvoj vodič za život u Njemačkoj",
-    "hero.slide1.subtitle": "Provjerene informacije, korak po korak — na tvom jeziku.",
-    "hero.slide2.title": "Gradovi koji postaju dom",
-    "hero.slide2.subtitle": "München, Berlin, Frankfurt — pronađi svoj put.",
-    "hero.slide3.title": "Karijera bez granica",
-    "hero.slide3.subtitle": "Posao, CV, intervju i radna prava — sve na jednom mjestu.",
-    "cta.new.title": "Počni ovdje", "cta.new.desc": "Dokumenti, prijava, prvi koraci.",
-    "cta.daily.title": "Život & savjeti", "cta.daily.desc": "Stan, posao, porezi, zdravstvo.",
-    "cta.help.title": "Trebam pomoć", "cta.help.desc": "Brza rješenja za probleme.",
-    "countries.title": "Za cijeli Balkan",
-    "categories.title": "Kategorije", "categories.subtitle": "Izaberi temu i pronađi odgovor za par sekundi.",
-    "business.title": "Imaš biznis?", "business.subtitle": "Dodaj svoj biznis u naš imenik i budi vidljiv za cijelu zajednicu.",
-    "business.search": "Pretraži imenik", "business.add": "Dodaj svoj biznis",
-    "qa.title": "Pitanja i odgovori", "qa.subtitle": "Pronađi odgovor na svoje pitanje — brzo i na našem jeziku.",
-    "qa.search": "Pretraži...", "qa.all": "Sve teme", "qa.results": "rezultata",
-    "qa.empty": "Nema rezultata. Pokušaj sa drugim pojmom.",
-    ...dirBs as any, ...missionsBs as any, ...portalBs as any, ...miscBs as any, ...homeBs as any, ...premiumBs as any, ...newKeysBs as any, ...indexChatBs as any,
-  },
-  hr: {
-    "nav.home": "Početna", "nav.qa": "Pitanja i odgovori", "nav.directory": "Imenik",
-    "nav.login": "Prijava", "nav.register": "Registracija", "nav.logout": "Odjava",
-    "hero.slide1.title": "Tvoj vodič za život u Njemačkoj",
-    "hero.slide1.subtitle": "Provjerene informacije, korak po korak — na tvom jeziku.",
-    "hero.slide2.title": "Gradovi koji postaju dom",
-    "hero.slide2.subtitle": "München, Berlin, Frankfurt — pronađi svoj put.",
-    "hero.slide3.title": "Karijera bez granica",
-    "hero.slide3.subtitle": "Posao, životopis, intervju i radna prava — sve na jednom mjestu.",
-    "cta.new.title": "Počni ovdje", "cta.new.desc": "Dokumenti, prijava, prvi koraci.",
-    "cta.daily.title": "Život & savjeti", "cta.daily.desc": "Stan, posao, porezi, zdravstvo.",
-    "cta.help.title": "Trebam pomoć", "cta.help.desc": "Brza rješenja za probleme.",
-    "countries.title": "Za cijeli Balkan",
-    "categories.title": "Kategorije", "categories.subtitle": "Izaberi temu i pronađi odgovor za par sekundi.",
-    "business.title": "Imaš biznis?", "business.subtitle": "Dodaj svoj biznis u naš imenik i budi vidljiv za cijelu zajednicu.",
-    "business.search": "Pretraži imenik", "business.add": "Dodaj svoj biznis",
-    "qa.title": "Pitanja i odgovori", "qa.subtitle": "Pronađi odgovor na svoje pitanje — brzo i na tvom jeziku.",
-    "qa.search": "Pretraži...", "qa.all": "Sve teme", "qa.results": "rezultata",
-    "qa.empty": "Nema rezultata. Pokušaj s drugim pojmom.",
-    ...dirBs as any, ...missionsBs as any, ...portalBs as any, ...miscHr as any, ...homeBs as any, ...premiumBs as any, ...newKeysHr as any, ...indexChatHr as any,
-    "home.hero.title": "Tvoj vodič za život", "home.hero.highlight": "u Njemačkoj.",
-    "dir.filterOrigin": "Zemlja podrijetla", "dir.fieldOrigin": "Zemlja podrijetla",
-    "dir.backToDirectory": "Natrag na imenik",
-  },
-  sr: {
-    "nav.home": "Početna", "nav.qa": "Pitanja i odgovori", "nav.directory": "Imenik",
-    "nav.login": "Prijava", "nav.register": "Registracija", "nav.logout": "Odjava",
-    "hero.slide1.title": "Tvoj vodič za život u Nemačkoj",
-    "hero.slide1.subtitle": "Proverene informacije, korak po korak — na tvom jeziku.",
-    "hero.slide2.title": "Gradovi koji postaju dom",
-    "hero.slide2.subtitle": "Minhen, Berlin, Frankfurt — pronađi svoj put.",
-    "hero.slide3.title": "Karijera bez granica",
-    "hero.slide3.subtitle": "Posao, CV, intervju i radna prava — sve na jednom mestu.",
-    "cta.new.title": "Počni ovde", "cta.new.desc": "Dokumenta, prijava, prvi koraci.",
-    "cta.daily.title": "Život & saveti", "cta.daily.desc": "Stan, posao, porezi, zdravstvo.",
-    "cta.help.title": "Treba mi pomoć", "cta.help.desc": "Brza rešenja za probleme.",
-    "countries.title": "Za ceo Balkan",
-    "categories.title": "Kategorije", "categories.subtitle": "Izaberi temu i pronađi odgovor za par sekundi.",
-    "business.title": "Imaš biznis?", "business.subtitle": "Dodaj svoj biznis u naš imenik i budi vidljiv za celu zajednicu.",
-    "business.search": "Pretraži imenik", "business.add": "Dodaj svoj biznis",
-    "qa.title": "Pitanja i odgovori", "qa.subtitle": "Pronađi odgovor na svoje pitanje — brzo i na tvom jeziku.",
-    "qa.search": "Pretraži...", "qa.all": "Sve teme", "qa.results": "rezultata",
-    "qa.empty": "Nema rezultata. Pokušaj sa drugim pojmom.",
-    ...dirBs as any, ...missionsBs as any, ...portalBs as any, ...miscBs as any, ...homeSr as any, ...premiumBs as any, ...newKeysSr as any, ...indexChatSr as any,
-    "dir.subtitle": "Pronađi balkanske biznise u Nemačkoj.",
-    "dir.filterOrigin": "Zemlja porekla", "dir.fieldOrigin": "Zemlja porekla",
-    "dir.submitSubtitle": "Popuni formu i tvoj biznis će biti vidljiv nakon provere.",
-    "dir.submitSuccess": "Biznis je dodat! Biće vidljiv nakon provere.",
-    "missions.title": "Balkanske ambasade i konzulati u Nemačkoj",
-    "missions.subtitle": "Pronađi diplomatska predstavništva balkanskih zemalja u Nemačkoj.",
-  },
-  me: {
-    "nav.home": "Početna", "nav.qa": "Pitanja i odgovori", "nav.directory": "Imenik",
-    "nav.login": "Prijava", "nav.register": "Registracija", "nav.logout": "Odjava",
-    "hero.slide1.title": "Tvoj vodič za život u Njemačkoj",
-    "hero.slide1.subtitle": "Provjerene informacije, korak po korak — na tvom jeziku.",
-    "hero.slide2.title": "Gradovi koji postaju dom",
-    "hero.slide2.subtitle": "Minhen, Berlin, Frankfurt — pronađi svoj put.",
-    "hero.slide3.title": "Karijera bez granica",
-    "hero.slide3.subtitle": "Posao, CV, intervju i radna prava — sve na jednom mjestu.",
-    "cta.new.title": "Počni ovđe", "cta.new.desc": "Dokumenta, prijava, prvi koraci.",
-    "cta.daily.title": "Život & savjeti", "cta.daily.desc": "Stan, posao, porezi, zdravstvo.",
-    "cta.help.title": "Trebam pomoć", "cta.help.desc": "Brza rješenja za probleme.",
-    "countries.title": "Za cijeli Balkan",
-    "categories.title": "Kategorije", "categories.subtitle": "Izaberi temu i pronađi odgovor za par sekundi.",
-    "business.title": "Imaš biznis?", "business.subtitle": "Dodaj svoj biznis u naš imenik i budi vidljiv za cijelu zajednicu.",
-    "business.search": "Pretraži imenik", "business.add": "Dodaj svoj biznis",
-    "qa.title": "Pitanja i odgovori", "qa.subtitle": "Pronađi odgovor na svoje pitanje — brzo i na tvom jeziku.",
-    "qa.search": "Pretraži...", "qa.all": "Sve teme", "qa.results": "rezultata",
-    "qa.empty": "Nema rezultata. Pokušaj sa drugim pojmom.",
-    ...dirBs as any, ...missionsBs as any, ...portalBs as any, ...miscBs as any, ...homeBs as any, ...premiumBs as any, ...newKeysMe as any, ...indexChatMe as any,
-  },
-  sq: {
-    "nav.home": "Ballina", "nav.qa": "Pyetje dhe përgjigje", "nav.directory": "Drejtoria",
-    "nav.login": "Hyrje", "nav.register": "Regjistrohu", "nav.logout": "Dilni",
-    "hero.slide1.title": "Udhëzuesi yt për jetën në Gjermani",
-    "hero.slide1.subtitle": "Informacione të verifikuara, hap pas hapi — në gjuhën tënde.",
-    "hero.slide2.title": "Qytete që bëhen shtëpi",
-    "hero.slide2.subtitle": "Mynih, Berlin, Frankfurt — gjej rrugën tënde.",
-    "hero.slide3.title": "Karrierë pa kufij",
-    "hero.slide3.subtitle": "Punë, CV, intervistë dhe të drejtat e punës — gjithçka në një vend.",
-    "cta.new.title": "Fillo këtu", "cta.new.desc": "Dokumentet, regjistrimi, hapat e parë.",
-    "cta.daily.title": "Jeta & këshilla", "cta.daily.desc": "Banesë, punë, taksa, shëndetësi.",
-    "cta.help.title": "Kam nevojë ndihmë", "cta.help.desc": "Zgjidhje të shpejta për probleme.",
-    "countries.title": "Për gjithë Ballkanin",
-    "categories.title": "Kategoritë", "categories.subtitle": "Zgjidh temën dhe gjej përgjigjen për disa sekonda.",
-    "business.title": "Ke biznes?", "business.subtitle": "Shto biznesin tënd në drejtorinë tonë dhe bëhu i dukshëm.",
-    "business.search": "Kërko drejtorinë", "business.add": "Shto biznesin tënd",
-    "qa.title": "Pyetje dhe përgjigje", "qa.subtitle": "Gjej përgjigjen e pyetjes tënde — shpejt dhe në gjuhën tënde.",
-    "qa.search": "Kërko...", "qa.all": "Të gjitha temat", "qa.results": "rezultate",
-    "qa.empty": "Nuk ka rezultate. Provo me një term tjetër.",
-    ...dirSq as any, ...missionsSq as any, ...portalSq as any, ...miscSq as any, ...homeSq as any, ...premiumSq as any, ...newKeysSq as any, ...indexChatSq as any,
-  },
-  xk: {
-    "nav.home": "Ballina", "nav.qa": "Pyetje dhe përgjigje", "nav.directory": "Drejtoria",
-    "nav.login": "Hyrje", "nav.register": "Regjistrohu", "nav.logout": "Dilni",
-    "hero.slide1.title": "Udhëzuesi yt për jetën në Gjermani",
-    "hero.slide1.subtitle": "Informacione të verifikuara, hap pas hapi — në gjuhën tënde.",
-    "hero.slide2.title": "Qytete që bëhen shtëpi",
-    "hero.slide2.subtitle": "Mynih, Berlin, Frankfurt — gjej rrugën tënde.",
-    "hero.slide3.title": "Karrierë pa kufij",
-    "hero.slide3.subtitle": "Punë, CV, intervistë dhe të drejtat e punës — gjithçka në një vend.",
-    "cta.new.title": "Fillo këtu", "cta.new.desc": "Dokumentet, regjistrimi, hapat e parë.",
-    "cta.daily.title": "Jeta & këshilla", "cta.daily.desc": "Banesë, punë, taksa, shëndetësi.",
-    "cta.help.title": "Kam nevojë ndihmë", "cta.help.desc": "Zgjidhje të shpejta për probleme.",
-    "countries.title": "Për gjithë Ballkanin",
-    "categories.title": "Kategoritë", "categories.subtitle": "Zgjidh temën dhe gjej përgjigjen për disa sekonda.",
-    "business.title": "Ke biznes?", "business.subtitle": "Shto biznesin tënd në drejtorinë tonë dhe bëhu i dukshëm.",
-    "business.search": "Kërko drejtorinë", "business.add": "Shto biznesin tënd",
-    "qa.title": "Pyetje dhe përgjigje", "qa.subtitle": "Gjej përgjigjen e pyetjes tënde — shpejt dhe në gjuhën tënde.",
-    "qa.search": "Kërko...", "qa.all": "Të gjitha temat", "qa.results": "rezultate",
-    "qa.empty": "Nuk ka rezultate. Provo me një term tjetër.",
-    ...dirSq as any, ...missionsSq as any, ...portalSq as any, ...miscSq as any, ...homeSq as any, ...premiumSq as any, ...newKeysXk as any, ...indexChatXk as any,
-  },
-  mk: {
-    "nav.home": "Почетна", "nav.qa": "Прашања и одговори", "nav.directory": "Именик",
-    "nav.login": "Најава", "nav.register": "Регистрација", "nav.logout": "Одјава",
-    "hero.slide1.title": "Твој водич за живот во Германија",
-    "hero.slide1.subtitle": "Проверени информации, чекор по чекор — на твој јазик.",
-    "hero.slide2.title": "Градови кои стануваат дом",
-    "hero.slide2.subtitle": "Минхен, Берлин, Франкфурт — пронајди го твојот пат.",
-    "hero.slide3.title": "Кариера без граници",
-    "hero.slide3.subtitle": "Работа, CV, интервју и работнички права — сè на едно место.",
-    "cta.new.title": "Почни тука", "cta.new.desc": "Документи, пријава, први чекори.",
-    "cta.daily.title": "Живот & совети", "cta.daily.desc": "Стан, работа, даноци, здравство.",
-    "cta.help.title": "Ми треба помош", "cta.help.desc": "Брзи решенија за проблеми.",
-    "countries.title": "За цел Балкан",
-    "categories.title": "Категории", "categories.subtitle": "Избери тема и пронајди одговор за неколку секунди.",
-    "business.title": "Имаш бизнис?", "business.subtitle": "Додај го твојот бизнис во нашиот именик и биди видлив за целата заедница.",
-    "business.search": "Пребарај именик", "business.add": "Додај го твојот бизнис",
-    "qa.title": "Прашања и одговори", "qa.subtitle": "Пронајди одговор на твоето прашање — брзо и на твој јазик.",
-    "qa.search": "Пребарај...", "qa.all": "Сите теми", "qa.results": "резултати",
-    "qa.empty": "Нема резултати. Обиди се со друг поим.",
-    "dir.title": "Деловен именик", "dir.subtitle": "Пронајди балкански бизниси во Германија.",
-    "dir.add": "Додај бизнис", "dir.searchPlaceholder": "Пребарај по име, град...",
-    "dir.filterCity": "Град", "dir.filterCategory": "Категорија", "dir.filterOrigin": "Земја на потекло",
-    "dir.allCities": "Сите градови", "dir.allCategories": "Сите категории", "dir.allOrigins": "Сите земји",
-    "dir.results": "резултати", "dir.clearFilters": "Избриши филтри", "dir.empty": "Нема бизниси за прикажување.",
-    "dir.submitTitle": "Додај го твојот бизнис",
-    "dir.submitSubtitle": "Пополни ја формата и твојот бизнис ќе биде видлив по проверка.",
-    "dir.backToDirectory": "Назад на именик",
-    "dir.fieldName": "Име на бизнис", "dir.fieldCategory": "Категорија", "dir.fieldCity": "Град",
-    "dir.fieldOrigin": "Земја на потекло", "dir.fieldAddress": "Адреса", "dir.fieldPhone": "Телефон",
-    "dir.fieldWebsite": "Веб страница", "dir.fieldDescription": "Опис",
-    "dir.submit": "Испрати", "dir.submitting": "Се испраќа...",
-    "dir.submitSuccess": "Бизнисот е додаден! Ќе биде видлив по проверка.",
-    "dir.submitError": "Грешка. Обиди се повторно.",
-    "dir.loginRequired": "Мора да бидеш најавен за да додадеш бизнис.",
-    ...missionsMk as any, ...portalMk as any, ...miscMk as any, ...homeMk as any, ...premiumMk as any, ...newKeysMk as any, ...indexChatMk as any,
-  },
-  sl: {
-    "nav.home": "Domov", "nav.qa": "Vprašanja in odgovori", "nav.directory": "Imenik",
-    "nav.login": "Prijava", "nav.register": "Registracija", "nav.logout": "Odjava",
-    "hero.slide1.title": "Vaš vodič za življenje v Nemčiji",
-    "hero.slide1.subtitle": "Preverjene informacije, korak za korakom — v vašem jeziku.",
-    "hero.slide2.title": "Mesta, ki postanejo dom",
-    "hero.slide2.subtitle": "München, Berlin, Frankfurt — poiščite svojo pot.",
-    "hero.slide3.title": "Kariera brez meja",
-    "hero.slide3.subtitle": "Delo, CV, razgovor in delavske pravice — vse na enem mestu.",
-    "cta.new.title": "Začnite tukaj", "cta.new.desc": "Dokumenti, prijava, prvi koraki.",
-    "cta.daily.title": "Življenje & nasveti", "cta.daily.desc": "Stanovanje, delo, davki, zdravstvo.",
-    "cta.help.title": "Potrebujem pomoč", "cta.help.desc": "Hitre rešitve za probleme.",
-    "countries.title": "Za ves Balkan",
-    "categories.title": "Kategorije", "categories.subtitle": "Izberite temo in poiščite odgovor v nekaj sekundah.",
-    "business.title": "Imate posel?", "business.subtitle": "Dodajte svoj posel v naš imenik in postanite vidni za celotno skupnost.",
-    "business.search": "Prebrskaj imenik", "business.add": "Dodaj svoj posel",
-    "qa.title": "Vprašanja in odgovori", "qa.subtitle": "Poiščite odgovor na vaše vprašanje — hitro in v vašem jeziku.",
-    "qa.search": "Iščite...", "qa.all": "Vse teme", "qa.results": "rezultatov",
-    "qa.empty": "Ni rezultatov. Poskusite z drugim izrazom.",
-    ...dirBs as any, ...missionsBs as any, ...portalBs as any, ...miscBs as any, ...homeBs as any, ...premiumBs as any, ...newKeysBs as any, ...indexChatSl as any,
-  },
-};
-
-// Vorlagen translations
-const vorlagenKeys: Record<string, Record<string, string>> = {
-  bs: { "vorlagen.sidebarTitle": "Šabloni / Vorlagen", "vorlagen.subtitle": "Vorlagen za najvažnija pisma u svakodnevnici.", "vorlagen.comingSoon": "Uskoro dostupno", "vorlagen.sectionWork": "Radno pravo & Karijera", "vorlagen.sectionService": "Usluge / Ugovori", "vorlagen.bewerbung": "Prijava za posao (Bewerbung)", "vorlagen.lebenslauf": "Biografija (Lebenslauf)", "vorlagen.anschreiben": "Propratno pismo (Anschreiben)", "vorlagen.kuendigung": "Otkaz (Kündigung)", "vorlagen.fristlose": "Vanredni otkaz (Fristlose Kündigung)", "vorlagen.probezeit": "Otkaz u probnom roku", "vorlagen.widerruf": "Opoziv (Widerruf)", "vorlagen.vertragKuendigung": "Raskid ugovora", "vorlagen.reklamation": "Reklamacija (Reklamation)" },
-  hr: { "vorlagen.sidebarTitle": "Predlošci / Vorlagen", "vorlagen.subtitle": "Predlošci za najvažnija pisma u svakodnevnici.", "vorlagen.comingSoon": "Uskoro dostupno", "vorlagen.sectionWork": "Radno pravo & Karijera", "vorlagen.sectionService": "Usluge / Ugovori", "vorlagen.bewerbung": "Prijava za posao (Bewerbung)", "vorlagen.lebenslauf": "Životopis (Lebenslauf)", "vorlagen.anschreiben": "Popratno pismo (Anschreiben)", "vorlagen.kuendigung": "Otkaz (Kündigung)", "vorlagen.fristlose": "Izvanredni otkaz (Fristlose Kündigung)", "vorlagen.probezeit": "Otkaz u probnom roku", "vorlagen.widerruf": "Opoziv (Widerruf)", "vorlagen.vertragKuendigung": "Raskid ugovora", "vorlagen.reklamation": "Reklamacija (Reklamation)" },
-  sr: { "vorlagen.sidebarTitle": "Šabloni / Vorlagen", "vorlagen.subtitle": "Šabloni za najvažnija pisma u svakodnevnici.", "vorlagen.comingSoon": "Uskoro dostupno", "vorlagen.sectionWork": "Radno pravo & Karijera", "vorlagen.sectionService": "Usluge / Ugovori", "vorlagen.bewerbung": "Prijava za posao (Bewerbung)", "vorlagen.lebenslauf": "Biografija (Lebenslauf)", "vorlagen.anschreiben": "Propratno pismo (Anschreiben)", "vorlagen.kuendigung": "Otkaz (Kündigung)", "vorlagen.fristlose": "Vanredni otkaz (Fristlose Kündigung)", "vorlagen.probezeit": "Otkaz u probnom roku", "vorlagen.widerruf": "Opoziv (Widerruf)", "vorlagen.vertragKuendigung": "Raskid ugovora", "vorlagen.reklamation": "Reklamacija (Reklamation)" },
-  me: { "vorlagen.sidebarTitle": "Šabloni / Vorlagen", "vorlagen.subtitle": "Šabloni za najvažnija pisma u svakodnevnici.", "vorlagen.comingSoon": "Uskoro dostupno", "vorlagen.sectionWork": "Radno pravo & Karijera", "vorlagen.sectionService": "Usluge / Ugovori", "vorlagen.bewerbung": "Prijava za posao (Bewerbung)", "vorlagen.lebenslauf": "Biografija (Lebenslauf)", "vorlagen.anschreiben": "Propratno pismo (Anschreiben)", "vorlagen.kuendigung": "Otkaz (Kündigung)", "vorlagen.fristlose": "Vanredni otkaz (Fristlose Kündigung)", "vorlagen.probezeit": "Otkaz u probnom roku", "vorlagen.widerruf": "Opoziv (Widerruf)", "vorlagen.vertragKuendigung": "Raskid ugovora", "vorlagen.reklamation": "Reklamacija (Reklamation)" },
-  sq: { "vorlagen.sidebarTitle": "Shabllone / Vorlagen", "vorlagen.subtitle": "Shabllone për shkresa më të rëndësishme.", "vorlagen.comingSoon": "Së shpejti", "vorlagen.sectionWork": "E drejta e punës & Karriera", "vorlagen.sectionService": "Shërbime / Kontrata", "vorlagen.bewerbung": "Aplikim për punë (Bewerbung)", "vorlagen.lebenslauf": "CV (Lebenslauf)", "vorlagen.anschreiben": "Letër motivimi (Anschreiben)", "vorlagen.kuendigung": "Dorëheqje (Kündigung)", "vorlagen.fristlose": "Dorëheqje e menjëhershme (Fristlose Kündigung)", "vorlagen.probezeit": "Dorëheqje në periudhën provuese", "vorlagen.widerruf": "Revokacion (Widerruf)", "vorlagen.vertragKuendigung": "Anulim kontrate", "vorlagen.reklamation": "Ankesë (Reklamation)" },
-  xk: { "vorlagen.sidebarTitle": "Shabllone / Vorlagen", "vorlagen.subtitle": "Shabllone për shkresa më të rëndësishme.", "vorlagen.comingSoon": "Së shpejti", "vorlagen.sectionWork": "E drejta e punës & Karriera", "vorlagen.sectionService": "Shërbime / Kontrata", "vorlagen.bewerbung": "Aplikim për punë (Bewerbung)", "vorlagen.lebenslauf": "CV (Lebenslauf)", "vorlagen.anschreiben": "Letër motivimi (Anschreiben)", "vorlagen.kuendigung": "Dorëheqje (Kündigung)", "vorlagen.fristlose": "Dorëheqje e menjëhershme (Fristlose Kündigung)", "vorlagen.probezeit": "Dorëheqje në periudhën provuese", "vorlagen.widerruf": "Revokacion (Widerruf)", "vorlagen.vertragKuendigung": "Anulim kontrate", "vorlagen.reklamation": "Ankesë (Reklamation)" },
-  mk: { "vorlagen.sidebarTitle": "Шаблони / Vorlagen", "vorlagen.subtitle": "Шаблони за најважни писма.", "vorlagen.comingSoon": "Наскоро", "vorlagen.sectionWork": "Работно право & Кариера", "vorlagen.sectionService": "Услуги / Договори", "vorlagen.bewerbung": "Аплицирање за работа (Bewerbung)", "vorlagen.lebenslauf": "Биографија (Lebenslauf)", "vorlagen.anschreiben": "Придружно писмо (Anschreiben)", "vorlagen.kuendigung": "Отказ (Kündigung)", "vorlagen.fristlose": "Вонреден отказ (Fristlose Kündigung)", "vorlagen.probezeit": "Отказ во пробен рок", "vorlagen.widerruf": "Повлекување (Widerruf)", "vorlagen.vertragKuendigung": "Раскинување на договор", "vorlagen.reklamation": "Рекламација (Reklamation)" },
-  sl: { "vorlagen.sidebarTitle": "Predloge / Vorlagen", "vorlagen.subtitle": "Predloge za najpomembnejša pisma v vsakdanjem življenju.", "vorlagen.comingSoon": "Kmalu na voljo", "vorlagen.sectionWork": "Delovno pravo & Kariera", "vorlagen.sectionService": "Storitve / Pogodbe", "vorlagen.bewerbung": "Prijava za delo (Bewerbung)", "vorlagen.lebenslauf": "Življenjepis (Lebenslauf)", "vorlagen.anschreiben": "Spremno pismo (Anschreiben)", "vorlagen.kuendigung": "Odpoved (Kündigung)", "vorlagen.fristlose": "Izredna odpoved (Fristlose Kündigung)", "vorlagen.probezeit": "Odpoved v poskusni dobi", "vorlagen.widerruf": "Preklic (Widerruf)", "vorlagen.vertragKuendigung": "Prekinitev pogodbe", "vorlagen.reklamation": "Reklamacija (Reklamation)" },
-};
-
-// Country name translations injected into each language
-const countryNames: Record<string, Record<string, string>> = {
-  bs: { "country.BIH": "Bosna i Hercegovina", "country.SRB": "Srbija", "country.HR": "Hrvatska", "country.ME": "Crna Gora", "country.MK": "Sjeverna Makedonija", "country.XK": "Kosovo", "country.AL": "Albanija", "country.SI": "Slovenija", "restorani.searchCity": "Traži grad…", "prodavnice.searchCity": "Traži grad…" },
-  hr: { "country.BIH": "Bosna i Hercegovina", "country.SRB": "Srbija", "country.HR": "Hrvatska", "country.ME": "Crna Gora", "country.MK": "Sjeverna Makedonija", "country.XK": "Kosovo", "country.AL": "Albanija", "country.SI": "Slovenija", "restorani.searchCity": "Traži grad…", "prodavnice.searchCity": "Traži grad…" },
-  sr: { "country.BIH": "Bosna i Hercegovina", "country.SRB": "Srbija", "country.HR": "Hrvatska", "country.ME": "Crna Gora", "country.MK": "Severna Makedonija", "country.XK": "Kosovo", "country.AL": "Albanija", "country.SI": "Slovenija", "restorani.searchCity": "Traži grad…", "prodavnice.searchCity": "Traži grad…" },
-  me: { "country.BIH": "Bosna i Hercegovina", "country.SRB": "Srbija", "country.HR": "Hrvatska", "country.ME": "Crna Gora", "country.MK": "Sjeverna Makedonija", "country.XK": "Kosovo", "country.AL": "Albanija", "country.SI": "Slovenija", "restorani.searchCity": "Traži grad…", "prodavnice.searchCity": "Traži grad…" },
-  sq: { "country.BIH": "Bosna dhe Hercegovina", "country.SRB": "Serbia", "country.HR": "Kroacia", "country.ME": "Mali i Zi", "country.MK": "Maqedonia e Veriut", "country.XK": "Kosova", "country.AL": "Shqipëria", "country.SI": "Sllovenia", "restorani.searchCity": "Kërko qytetin…", "prodavnice.searchCity": "Kërko qytetin…" },
-  xk: { "country.BIH": "Bosna dhe Hercegovina", "country.SRB": "Serbia", "country.HR": "Kroacia", "country.ME": "Mali i Zi", "country.MK": "Maqedonia e Veriut", "country.XK": "Kosova", "country.AL": "Shqipëria", "country.SI": "Sllovenia", "restorani.searchCity": "Kërko qytetin…", "prodavnice.searchCity": "Kërko qytetin…" },
-  mk: { "country.BIH": "Босна и Херцеговина", "country.SRB": "Србија", "country.HR": "Хрватска", "country.ME": "Црна Гора", "country.MK": "Северна Македонија", "country.XK": "Косово", "country.AL": "Албанија", "country.SI": "Словенија", "restorani.searchCity": "Барај град…", "prodavnice.searchCity": "Барај град…" },
-  sl: { "country.BIH": "Bosna in Hercegovina", "country.SRB": "Srbija", "country.HR": "Hrvaška", "country.ME": "Črna gora", "country.MK": "Severna Makedonija", "country.XK": "Kosovo", "country.AL": "Albanija", "country.SI": "Slovenija", "restorani.searchCity": "Išči mesto…", "prodavnice.searchCity": "Išči mesto…" },
-};
-
-// UI extra keys: contact form, firm detail, header menu
-// --- Calculator translations ---
-const calcBs: Record<string, string> = {
-  "calc.breadcrumbTools": "Alati", "calc.breadcrumbCalc": "Brutto-Netto Rechner",
-  "calc.pageTitle": "Brutto-Netto Rechner Njemačka", "calc.pageSubtitle": "Izračunaj svoju neto platu brzo — sve informacije bez garancije.",
-  "calc.pageNote": "Rezultat je orijentacioni. Moguća su odstupanja od stvarnog obračuna.",
-  "calc.inputsTitle": "Unos podataka", "calc.sectionSalary": "Plata", "calc.grossSalary": "Bruto plata (€)",
-  "calc.grossSalaryTip": "Tvoja mjesečna ili godišnja bruto plata prije svih odbitaka.",
-  "calc.period": "Period", "calc.monthly": "Mjesečno", "calc.yearly": "Godišnje",
-  "calc.sectionTax": "Porez", "calc.taxClass": "Steuerklasse",
-  "calc.taxClassTip": "Steuerklasse određuje tvoj porez. 1=samac, 2=samohrani roditelj, 3=u braku (jedini primanja), 4=u braku (oba rade), 5=partner kl.3, 6=drugi posao.",
-  "calc.federalState": "Bundesland", "calc.federalStateTip": "Tvoj Bundesland određuje stopu crkvenog poreza (8% u BW/BY, 9% ostali).",
-  "calc.taxYear": "Poreska godina", "calc.churchTax": "Kirchensteuer",
-  "calc.churchTaxTip": "Crkveni porez se računa od poreza na dohodak: 8% u BW/BY, 9% u ostalim saveznim državama.",
-  "calc.sectionPersonal": "Lični podaci", "calc.age": "Starost",
-  "calc.ageTip": "Od 23 godine bez djece: dodatak na osiguranje njege.",
-  "calc.childAllowance": "Kinderfreibetrag", "calc.childAllowanceTip": "0.5 po djetetu, 1.0 za jedini zahtjev.",
-  "calc.childrenUnder25": "Djeca <25", "calc.childrenUnder25Tip": "Broj djece mlađe od 25: smanjuje doprinos za njegu od 2. djeteta.",
-  "calc.childless": "Bez djece",
-  "calc.sectionHealth": "Zdravstveno osiguranje", "calc.statutory": "Zakonsko (GKV)", "calc.private": "Privatno (PKV)",
-  "calc.additionalContribution": "Dodatni doprinos (%)", "calc.additionalContributionTip": "Individualni dodatni doprinos kase. AN plaća polovinu. Prosjek 2025: ca. 2,5%.",
-  "calc.pkvAmount": "PKV doprinos (€/mjesec)", "calc.pkvAmountTip": "Tvoj mjesečni PKV doprinos kao direktni odbitak.",
-  "calc.socialDetails": "Socijalno osiguranje (detalji)",
-  "calc.pension": "Rentenversicherung", "calc.unemployment": "Arbeitslosenversicherung",
-  "calc.nursingCare": "Pflegeversicherung", "calc.healthInsurance": "Krankenversicherung",
-  "calc.advanced": "Napredno", "calc.allowance": "Freibetrag (€/god.)",
-  "calc.allowanceTip": "Godišnji porezni freibetrag, npr. troškovi iznad paušala.",
-  "calc.oneTimePayment": "Jednokratna isplata (€)", "calc.oneTimePaymentTip": "Jednokratni bonus u godini.",
-  "calc.churchTaxOverride": "Kirchensteuersatz (%) Override", "calc.churchTaxOverrideTip": "Ručno postavljanje stope crkvenog poreza.",
-  "calc.reset": "Resetuj", "calc.share": "Podijeli",
-  "calc.resetSuccess": "Podaci resetovani", "calc.shareSuccess": "Link kopiran!",
-  "calc.resultTitle": "Tvoj rezultat", "calc.netPerMonth": "Neto / mjesec", "calc.netPerYear": "Neto / godina", "calc.grossPerMonth": "Bruto / mjesec",
-  "calc.legendTax": "Porezi", "calc.legendSocial": "Socijalni doprinosi", "calc.legendNet": "Neto",
-  "calc.incomeTax": "Lohnsteuer", "calc.soliSurcharge": "Solidaritätszuschlag", "calc.totalTax": "Porezi ukupno",
-  "calc.socialAN": "Socijalni doprinosi (AN)", "calc.inclZB": "inkl. ZB", "calc.pkvLabel": "PKV doprinos",
-  "calc.inclSurcharge": "inkl. dodatak", "calc.totalSocial": "Socijalni doprinosi ukupno",
-  "calc.infoNote": "Procjena neto plate u Njemačkoj. Rezultat može varirati ovisno o zdravstvenom osiguranju, bonusima i dodatnim odbicima.",
-  "calc.employerTitle": "Troškovi poslodavca", "calc.totalEmployer": "Ukupni troškovi AG", "calc.employerNote": "Bruto + AG udjeli socijalnog osiguranja",
-  "calc.disclaimerShort": "Rezultat je približan i može se razlikovati od tvog obračuna plate.",
-  "calc.disclaimerFull": "Ovaj Brutto-Netto-Rechner služi samo za neobavezujuću orijentaciju. Sve informacije bez garancije. Moguća su odstupanja od stvarnog obračuna plate.",
-  "calc.disclaimerAdvice": "Za obavezujuće informacije obrati se poreznom savjetniku ili Finanzamtu.",
-};
-
-
-// --- Community translations ---
-const communityKeys: Record<string, Record<string, string>> = {
-  bs: { "community.title": "Zajednica", "community.subtitle": "Balkanska dijaspora u Njemačkoj — religiozne zajednice, kulturna udruženja i sportski klubovi." },
-  hr: { "community.title": "Zajednica", "community.subtitle": "Balkanska dijaspora u Njemačkoj — vjerske zajednice, kulturna udruženja i sportski klubovi." },
-  sr: { "community.title": "Zajednica", "community.subtitle": "Balkanska dijaspora u Nemačkoj — verske zajednice, kulturna udruženja i sportski klubovi." },
-  me: { "community.title": "Zajednica", "community.subtitle": "Balkanska dijaspora u Njemačkoj — vjerske zajednice, kulturna udruženja i sportski klubovi." },
-  sq: { "community.title": "Komuniteti", "community.subtitle": "Diaspora ballkanike në Gjermani — bashkësi fetare, shoqata kulturore dhe klube sportive." },
-  xk: { "community.title": "Komuniteti", "community.subtitle": "Diaspora ballkanike në Gjermani — bashkësi fetare, shoqata kulturore dhe klube sportive." },
-  mk: { "community.title": "Заедница", "community.subtitle": "Балканска дијаспора во Германија — верски заедници, културни здруженија и спортски клубови." },
-  sl: { "community.title": "Skupnost", "community.subtitle": "Balkanska diaspora v Nemčiji — verske skupnosti, kulturna društva in športni klubi." },
-};
-
-const uiExtraKeys: Record<string, Record<string, string>> = {
-  bs: { "contact.title": "Kontakt", "contact.subtitle": "Pošaljite nam poruku.", "contact.firstName": "Ime", "contact.lastName": "Prezime", "contact.email": "E-Mail", "contact.message": "Vaša poruka", "contact.send": "Pošalji poruku", "header.pricelist": "Paketi i opcije", "firm.notFound": "Firma nije pronađena", "firm.back": "Nazad na početnu", "firm.recommended": "Preporučeno", "firm.visitWebsite": "Posjeti web stranicu", "firm.contact": "Kontakt",
-    "hero.title": "Tvoj vodič kroz", "hero.titleHighlight": "njemački sistem.", "hero.title_highlight": "njemački sistem.", "hero.subtitle": "Popuni sve važne formulare uz jasna objašnjenja — korak po korak, na tvom jeziku.", "hero.ctaPrimary": "Započni vodič", "hero.ctaSecondary": "Ili pitaj BalkanLink asistenta", "hero.bullet.simple": "Bez komplikacija", "hero.bullet.language": "Na tvom jeziku", "hero.bullet.verified": "Provjerene informacije",
-    "chatbot.trigger": "Riješi problem →", "chatbot.triggerSub": "Pitaj BalkanLink asistenta", "chatbot.welcome": "Kako ti mogu pomoći?", "chatbot.welcomeSub": "Postavi pitanje i dobit ćeš jasan odgovor i sljedeći korak.", "chatbot.placeholder": "Npr. Kindergeld, stan, posao, AGB...",
-    "formCenter.smartGuideLabel": "Smart Guide – korak po korak", "formCenter.searchPlaceholder": "Pretraži formular…", "formCenter.noResults": "Nema rezultata.", "formCenter.selectForm": "Odaberi formular", "formCenter.selectFormDesc": "Klikni na bilo koji formular s lijeve strane da vidiš detaljne upute za popunjavanje." },
-  hr: { "contact.title": "Kontakt", "contact.subtitle": "Pošaljite nam poruku.", "contact.firstName": "Ime", "contact.lastName": "Prezime", "contact.email": "E-Mail", "contact.message": "Vaša poruka", "contact.send": "Pošalji poruku", "header.pricelist": "Paketi i opcije", "firm.notFound": "Tvrtka nije pronađena", "firm.back": "Natrag na početnu", "firm.recommended": "Preporučeno", "firm.visitWebsite": "Posjeti web stranicu", "firm.contact": "Kontakt",
-    "hero.title": "Tvoj vodič kroz", "hero.titleHighlight": "njemački sistem.", "hero.title_highlight": "njemački sistem.", "hero.subtitle": "Ispuni sve važne formulare uz jasna objašnjenja — korak po korak, na tvom jeziku.", "hero.ctaPrimary": "Započni vodič", "hero.ctaSecondary": "Ili pitaj BalkanLink asistenta", "hero.bullet.simple": "Bez komplikacija", "hero.bullet.language": "Na tvom jeziku", "hero.bullet.verified": "Provjerene informacije",
-    "chatbot.trigger": "Riješi problem →", "chatbot.triggerSub": "Pitaj BalkanLink asistenta", "chatbot.welcome": "Kako ti mogu pomoći?", "chatbot.welcomeSub": "Postavi pitanje i dobit ćeš jasan odgovor i sljedeći korak.", "chatbot.placeholder": "Npr. Kindergeld, stan, posao, AGB...",
-    "formCenter.smartGuideLabel": "Smart Guide – korak po korak", "formCenter.searchPlaceholder": "Pretraži formular…", "formCenter.noResults": "Nema rezultata.", "formCenter.selectForm": "Odaberi formular", "formCenter.selectFormDesc": "Klikni na bilo koji formular s lijeve strane da vidiš detaljne upute za popunjavanje." },
-  sr: { "contact.title": "Kontakt", "contact.subtitle": "Pošaljite nam poruku.", "contact.firstName": "Ime", "contact.lastName": "Prezime", "contact.email": "E-Mail", "contact.message": "Vaša poruka", "contact.send": "Pošalji poruku", "header.pricelist": "Paketi i opcije", "firm.notFound": "Firma nije pronađena", "firm.back": "Nazad na početnu", "firm.recommended": "Preporučeno", "firm.visitWebsite": "Poseti web stranicu", "firm.contact": "Kontakt",
-    "hero.title": "Tvoj vodič kroz", "hero.titleHighlight": "nemački sistem.", "hero.title_highlight": "nemački sistem.", "hero.subtitle": "Popuni sve važne formulare uz jasna objašnjenja — korak po korak, na tvom jeziku.", "hero.ctaPrimary": "Započni vodič", "hero.ctaSecondary": "Ili pitaj BalkanLink asistenta", "hero.bullet.simple": "Bez komplikacija", "hero.bullet.language": "Na tvom jeziku", "hero.bullet.verified": "Proverene informacije",
-    "chatbot.trigger": "Reši problem →", "chatbot.triggerSub": "Pitaj BalkanLink asistenta", "chatbot.welcome": "Kako ti mogu pomoći?", "chatbot.welcomeSub": "Postavi pitanje i dobićeš jasan odgovor i sledeći korak.", "chatbot.placeholder": "Npr. Kindergeld, stan, posao, AGB...",
-    "formCenter.smartGuideLabel": "Smart Guide – korak po korak", "formCenter.searchPlaceholder": "Pretraži formular…", "formCenter.noResults": "Nema rezultata.", "formCenter.selectForm": "Odaberi formular", "formCenter.selectFormDesc": "Klikni na bilo koji formular sa leve strane da vidiš detaljna uputstva za popunjavanje." },
-  me: { "contact.title": "Kontakt", "contact.subtitle": "Pošaljite nam poruku.", "contact.firstName": "Ime", "contact.lastName": "Prezime", "contact.email": "E-Mail", "contact.message": "Vaša poruka", "contact.send": "Pošalji poruku", "header.pricelist": "Paketi i opcije", "firm.notFound": "Firma nije pronađena", "firm.back": "Nazad na početnu", "firm.recommended": "Preporučeno", "firm.visitWebsite": "Posjeti web stranicu", "firm.contact": "Kontakt",
-    "hero.title": "Tvoj vodič kroz", "hero.titleHighlight": "njemački sistem.", "hero.title_highlight": "njemački sistem.", "hero.subtitle": "Popuni sve važne formulare uz jasna objašnjenja — korak po korak, na tvom jeziku.", "hero.ctaPrimary": "Započni vodič", "hero.ctaSecondary": "Ili pitaj BalkanLink asistenta", "hero.bullet.simple": "Bez komplikacija", "hero.bullet.language": "Na tvom jeziku", "hero.bullet.verified": "Provjerene informacije",
-    "chatbot.trigger": "Riješi problem →", "chatbot.triggerSub": "Pitaj BalkanLink asistenta", "chatbot.welcome": "Kako ti mogu pomoći?", "chatbot.welcomeSub": "Postavi pitanje i dobićeš jasan odgovor i sljedeći korak.", "chatbot.placeholder": "Npr. Kindergeld, stan, posao, AGB...",
-    "formCenter.smartGuideLabel": "Smart Guide – korak po korak", "formCenter.searchPlaceholder": "Pretraži formular…", "formCenter.noResults": "Nema rezultata.", "formCenter.selectForm": "Odaberi formular", "formCenter.selectFormDesc": "Klikni na bilo koji formular s lijeve strane da vidiš detaljne upute za popunjavanje." },
-  sq: { "contact.title": "Kontakti", "contact.subtitle": "Na dërgoni një mesazh.", "contact.firstName": "Emri", "contact.lastName": "Mbiemri", "contact.email": "E-Mail", "contact.message": "Mesazhi juaj", "contact.send": "Dërgo mesazhin", "header.pricelist": "Paketi i opcije", "firm.notFound": "Biznesi nuk u gjet", "firm.back": "Kthehu në fillim", "firm.recommended": "E rekomanduar", "firm.visitWebsite": "Vizito faqen web", "firm.contact": "Kontakti",
-    "hero.title": "Udhëzuesi yt nëpër", "hero.titleHighlight": "sistemin gjerman.", "hero.title_highlight": "sistemin gjerman.", "hero.subtitle": "Plotëso të gjitha formularët me shpjegime të qarta — hap pas hapi, në gjuhën tënde.", "hero.ctaPrimary": "Fillo udhëzuesin", "hero.ctaSecondary": "Ose pyet asistentin BalkanLink", "hero.bullet.simple": "Pa komplikime", "hero.bullet.language": "Në gjuhën tënde", "hero.bullet.verified": "Informacione të verifikuara",
-    "chatbot.trigger": "Zgjidh problemin →", "chatbot.triggerSub": "Pyet asistentin BalkanLink", "chatbot.welcome": "Si mund t'ju ndihmoj?", "chatbot.welcomeSub": "Bëni një pyetje dhe do të merrni përgjigje të qartë dhe hapin tjetër.", "chatbot.placeholder": "P.sh. Kindergeld, banesë, punë, AGB...",
-    "formCenter.smartGuideLabel": "Smart Guide – hap pas hapi", "formCenter.searchPlaceholder": "Kërko formular…", "formCenter.noResults": "Nuk ka rezultate.", "formCenter.selectForm": "Zgjidh formularin", "formCenter.selectFormDesc": "Kliko mbi një formular nga ana e majtë për të parë udhëzimet e detajuara." },
-  xk: { "contact.title": "Kontakti", "contact.subtitle": "Na dërgoni një mesazh.", "contact.firstName": "Emri", "contact.lastName": "Mbiemri", "contact.email": "E-Mail", "contact.message": "Mesazhi juaj", "contact.send": "Dërgo mesazhin", "header.pricelist": "Paketi i opcije", "firm.notFound": "Biznesi nuk u gjet", "firm.back": "Kthehu në fillim", "firm.recommended": "E rekomanduar", "firm.visitWebsite": "Vizito faqen web", "firm.contact": "Kontakti",
-    "hero.title": "Udhëzuesi yt nëpër", "hero.titleHighlight": "sistemin gjerman.", "hero.title_highlight": "sistemin gjerman.", "hero.subtitle": "Plotëso të gjitha formularët me shpjegime të qarta — hap pas hapi, në gjuhën tënde.", "hero.ctaPrimary": "Fillo udhëzuesin", "hero.ctaSecondary": "Ose pyet asistentin BalkanLink", "hero.bullet.simple": "Pa komplikime", "hero.bullet.language": "Në gjuhën tënde", "hero.bullet.verified": "Informacione të verifikuara",
-    "chatbot.trigger": "Zgjidh problemin →", "chatbot.triggerSub": "Pyet asistentin BalkanLink", "chatbot.welcome": "Si mund t'ju ndihmoj?", "chatbot.welcomeSub": "Bëni një pyetje dhe do të merrni përgjigje të qartë dhe hapin tjetër.", "chatbot.placeholder": "P.sh. Kindergeld, banesë, punë, AGB...",
-    "formCenter.smartGuideLabel": "Smart Guide – hap pas hapi", "formCenter.searchPlaceholder": "Kërko formular…", "formCenter.noResults": "Nuk ka rezultate.", "formCenter.selectForm": "Zgjidh formularin", "formCenter.selectFormDesc": "Kliko mbi një formular nga ana e majtë për të parë udhëzimet e detajuara." },
-  mk: { "contact.title": "Контакт", "contact.subtitle": "Испратете ни порака.", "contact.firstName": "Име", "contact.lastName": "Презиме", "contact.email": "E-Mail", "contact.message": "Вашата порака", "contact.send": "Испрати порака", "header.pricelist": "Paketi i opcije", "firm.notFound": "Фирмата не е пронајдена", "firm.back": "Назад на почетна", "firm.recommended": "Препорачано", "firm.visitWebsite": "Посети веб страница", "firm.contact": "Контакт",
-    "hero.title": "Твојот водич низ", "hero.titleHighlight": "германскиот систем.", "hero.title_highlight": "германскиот систем.", "hero.subtitle": "Пополни ги сите важни формулари со јасни објаснувања — чекор по чекор, на твој јазик.", "hero.ctaPrimary": "Започни водич", "hero.ctaSecondary": "Или прашај го BalkanLink асистентот", "hero.bullet.simple": "Без компликации", "hero.bullet.language": "На твој јазик", "hero.bullet.verified": "Проверени информации",
-    "chatbot.trigger": "Реши проблем →", "chatbot.triggerSub": "Прашај го BalkanLink асистентот", "chatbot.welcome": "Како можам да ти помогнам?", "chatbot.welcomeSub": "Постави прашање и ќе добиеш јасен одговор и следен чекор.", "chatbot.placeholder": "Напр. Kindergeld, стан, работа, AGB...",
-    "formCenter.smartGuideLabel": "Smart Guide – чекор по чекор", "formCenter.searchPlaceholder": "Пребарај формулар…", "formCenter.noResults": "Нема резултати.", "formCenter.selectForm": "Избери формулар", "formCenter.selectFormDesc": "Кликни на било кој формулар од левата страна за детални упатства за пополнување." },
-  sl: { "contact.title": "Kontakt", "contact.subtitle": "Pošljite nam sporočilo.", "contact.firstName": "Ime", "contact.lastName": "Priimek", "contact.email": "E-pošta", "contact.message": "Vaše sporočilo", "contact.send": "Pošlji sporočilo", "header.pricelist": "Paketi in možnosti", "firm.notFound": "Podjetje ni najdeno", "firm.back": "Nazaj na domov", "firm.recommended": "Priporočeno", "firm.visitWebsite": "Obiščite spletno stran", "firm.contact": "Kontakt",
-    "hero.title": "Tvoj vodnik po", "hero.titleHighlight": "nemškem sistemu.", "hero.title_highlight": "nemškem sistemu.", "hero.subtitle": "Izpolnite vse pomembne obrazce z jasnimi razlagami — korak za korakom, v vašem jeziku.", "hero.ctaPrimary": "Začni vodič", "hero.ctaSecondary": "Ali vprašaj BalkanLink asistenta", "hero.bullet.simple": "Brez zapletov", "hero.bullet.language": "V vašem jeziku", "hero.bullet.verified": "Preverjene informacije",
-    "chatbot.trigger": "Reši problem →", "chatbot.triggerSub": "Vprašaj BalkanLink asistenta", "chatbot.welcome": "Kako vam lahko pomagam?", "chatbot.welcomeSub": "Zastavite vprašanje in dobili boste jasen odgovor in naslednji korak.", "chatbot.placeholder": "Npr. Kindergeld, stanovanje, delo, AGB...",
-    "formCenter.smartGuideLabel": "Smart Guide – korak za korakom", "formCenter.searchPlaceholder": "Išči obrazec…", "formCenter.noResults": "Ni rezultatov.", "formCenter.selectForm": "Izberi obrazec", "formCenter.selectFormDesc": "Kliknite na obrazec na levi strani za podrobna navodila za izpolnjevanje." },
-};
-
-// nav.back per language
-const navBackKeys: Record<string, Record<string, string>> = {
-  bs: { "nav.back": "Nazad" },
-  hr: { "nav.back": "Natrag" },
-  sr: { "nav.back": "Nazad" },
-  me: { "nav.back": "Nazad" },
-  sq: { "nav.back": "Prapa" },
-  xk: { "nav.back": "Prapa" },
-  mk: { "nav.back": "Назад" },
-  sl: { "nav.back": "Nazaj" },
-};
-
-const trainerKeys: Record<string, Record<string, string>> = {
-  bs: { "trainer.tasks": "zadataka", "trainer.free": "besplatno", "trainer.moreTasks": "dodatnih zadataka", "trainer.unlock": "Otključaj" },
-  hr: { "trainer.tasks": "zadataka", "trainer.free": "besplatno", "trainer.moreTasks": "dodatnih zadataka", "trainer.unlock": "Otključaj" },
-  sr: { "trainer.tasks": "zadataka", "trainer.free": "besplatno", "trainer.moreTasks": "dodatnih zadataka", "trainer.unlock": "Otključaj" },
-  me: { "trainer.tasks": "zadataka", "trainer.free": "besplatno", "trainer.moreTasks": "dodatnih zadataka", "trainer.unlock": "Otključaj" },
-  sq: { "trainer.tasks": "detyra", "trainer.free": "falas", "trainer.moreTasks": "detyra shtesë", "trainer.unlock": "Zhblloko" },
-  xk: { "trainer.tasks": "detyra", "trainer.free": "falas", "trainer.moreTasks": "detyra shtesë", "trainer.unlock": "Zhblloko" },
-  mk: { "trainer.tasks": "задачи", "trainer.free": "бесплатно", "trainer.moreTasks": "дополнителни задачи", "trainer.unlock": "Отклучи" },
-  sl: { "trainer.tasks": "nalog", "trainer.free": "brezplačno", "trainer.moreTasks": "dodatnih nalog", "trainer.unlock": "Odkleni" },
-};
-
-const flowBannerKeys: Record<string, Record<string, string>> = {
-  bs: { "flowBanner.headline": "Šta želiš riješiti danas?", "flowBanner.subheadline": "Riješi papirologiju bez stresa — sve na jednom mjestu", "flowBanner.hint": "Ne znaš odakle početi?", "flowBanner.cta": "Vodi me korak po korak", "flowBanner.ctaNote": "Počni od formulara i vodiča koji ti najviše trebaju", "flowBanner.start": "Započni", "flowBanner.open": "Otvori" },
-  hr: { "flowBanner.headline": "Što želiš riješiti danas?", "flowBanner.subheadline": "Riješi papirologiju bez stresa — sve na jednom mjestu", "flowBanner.hint": "Ne znaš odakle početi?", "flowBanner.cta": "Vodi me korak po korak", "flowBanner.ctaNote": "Počni od formulara i vodiča koji ti najviše trebaju", "flowBanner.start": "Započni", "flowBanner.open": "Otvori" },
-  sr: { "flowBanner.headline": "Šta želiš da rešiš danas?", "flowBanner.subheadline": "Reši papirologiju bez stresa — sve na jednom mestu", "flowBanner.hint": "Ne znaš odakle da počneš?", "flowBanner.cta": "Vodi me korak po korak", "flowBanner.ctaNote": "Počni od formulara i vodiča koji ti najviše trebaju", "flowBanner.start": "Započni", "flowBanner.open": "Otvori" },
-  me: { "flowBanner.headline": "Šta želiš riješiti danas?", "flowBanner.subheadline": "Riješi papirologiju bez stresa — sve na jednom mjestu", "flowBanner.hint": "Ne znaš odakle početi?", "flowBanner.cta": "Vodi me korak po korak", "flowBanner.ctaNote": "Počni od formulara i vodiča koji ti najviše trebaju", "flowBanner.start": "Započni", "flowBanner.open": "Otvori" },
-  sq: { "flowBanner.headline": "Çfarë dëshiron të zgjidhësh sot?", "flowBanner.subheadline": "Zgjidh burokracinë pa stres — gjithçka në një vend", "flowBanner.hint": "Nuk di ku të fillosh?", "flowBanner.cta": "Më udhëzo hap pas hapi", "flowBanner.ctaNote": "Fillo me formularët dhe udhëzuesit që të duhen më shumë", "flowBanner.start": "Fillo", "flowBanner.open": "Hap" },
-  xk: { "flowBanner.headline": "Çfarë dëshiron të zgjidhësh sot?", "flowBanner.subheadline": "Zgjidh burokracinë pa stres — gjithçka në një vend", "flowBanner.hint": "Nuk di ku të fillosh?", "flowBanner.cta": "Më udhëzo hap pas hapi", "flowBanner.ctaNote": "Fillo me formularët dhe udhëzuesit që të duhen më shumë", "flowBanner.start": "Fillo", "flowBanner.open": "Hap" },
-  mk: { "flowBanner.headline": "Што сакаш да решиш денес?", "flowBanner.subheadline": "Реши ја бирократијата без стрес — сè на едно место", "flowBanner.hint": "Не знаеш од каде да почнеш?", "flowBanner.cta": "Води ме чекор по чекор", "flowBanner.ctaNote": "Почни од формуларите и водичите кои ти се најпотребни", "flowBanner.start": "Започни", "flowBanner.open": "Отвори" },
-  sl: { "flowBanner.headline": "Kaj želiš urediti danes?", "flowBanner.subheadline": "Uredi birokracijo brez stresa — vse na enem mestu", "flowBanner.hint": "Ne veš, kje začeti?", "flowBanner.cta": "Vodi me korak za korakom", "flowBanner.ctaNote": "Začni z obrazci in vodniki, ki jih najbolj potrebuješ", "flowBanner.start": "Začni", "flowBanner.open": "Odpri" },
-};
-
-// New i18n keys: paywall, viza, sidebar extras, common extras, catalog
-const catalogKeys: Record<string, Record<string, string>> = {
-  bs: { "catalog.dolazak": "Dolazak i prijava", "catalog.porodica": "Porodica i djeca", "catalog.buergergeld": "Bürgergeld", "catalog.wohngeld": "Wohngeld (stambeni dodatak)", "catalog.sozialhilfe": "Sozialhilfe (socijalna pomoć)", "catalog.heizkosten": "Heizkostenzuschuss (dodatak za grijanje)", "catalog.posao": "Posao i prihodi", "catalog.obrazovanje": "Škola i obrazovanje", "catalog.dokumenti": "Dokumenti i administracija" },
-  hr: { "catalog.dolazak": "Dolazak i prijava", "catalog.porodica": "Porodica i djeca", "catalog.buergergeld": "Bürgergeld", "catalog.wohngeld": "Wohngeld (stambeni dodatak)", "catalog.sozialhilfe": "Sozialhilfe (socijalna pomoć)", "catalog.heizkosten": "Heizkostenzuschuss (dodatak za grijanje)", "catalog.posao": "Posao i prihodi", "catalog.obrazovanje": "Škola i obrazovanje", "catalog.dokumenti": "Dokumenti i administracija" },
-  sr: { "catalog.dolazak": "Dolazak i prijava", "catalog.porodica": "Porodica i djeca", "catalog.buergergeld": "Bürgergeld", "catalog.wohngeld": "Wohngeld (stambeni dodatak)", "catalog.sozialhilfe": "Sozialhilfe (socijalna pomoć)", "catalog.heizkosten": "Heizkostenzuschuss (dodatak za grejanje)", "catalog.posao": "Posao i prihodi", "catalog.obrazovanje": "Škola i obrazovanje", "catalog.dokumenti": "Dokumenti i administracija" },
-  me: { "catalog.dolazak": "Dolazak i prijava", "catalog.porodica": "Porodica i djeca", "catalog.buergergeld": "Bürgergeld", "catalog.wohngeld": "Wohngeld (stambeni dodatak)", "catalog.sozialhilfe": "Sozialhilfe (socijalna pomoć)", "catalog.heizkosten": "Heizkostenzuschuss (dodatak za grijanje)", "catalog.posao": "Posao i prihodi", "catalog.obrazovanje": "Škola i obrazovanje", "catalog.dokumenti": "Dokumenti i administracija" },
-  sq: { "catalog.dolazak": "Mbërritja dhe regjistrimi", "catalog.porodica": "Familja dhe fëmijët", "catalog.buergergeld": "Bürgergeld", "catalog.wohngeld": "Wohngeld (ndihmë strehimi)", "catalog.sozialhilfe": "Sozialhilfe (ndihmë sociale)", "catalog.heizkosten": "Heizkostenzuschuss (ndihmë ngrohjeje)", "catalog.posao": "Puna dhe të ardhurat", "catalog.obrazovanje": "Shkolla dhe arsimi", "catalog.dokumenti": "Dokumentet dhe administrata" },
-  xk: { "catalog.dolazak": "Mbërritja dhe regjistrimi", "catalog.porodica": "Familja dhe fëmijët", "catalog.buergergeld": "Bürgergeld", "catalog.wohngeld": "Wohngeld (ndihmë strehimi)", "catalog.sozialhilfe": "Sozialhilfe (ndihmë sociale)", "catalog.heizkosten": "Heizkostenzuschuss (ndihmë ngrohjeje)", "catalog.posao": "Puna dhe të ardhurat", "catalog.obrazovanje": "Shkolla dhe arsimi", "catalog.dokumenti": "Dokumentet dhe administrata" },
-  mk: { "catalog.dolazak": "Доаѓање и пријава", "catalog.porodica": "Семејство и деца", "catalog.buergergeld": "Bürgergeld", "catalog.wohngeld": "Wohngeld (станбен додаток)", "catalog.sozialhilfe": "Sozialhilfe (социјална помош)", "catalog.heizkosten": "Heizkostenzuschuss (додаток за греење)", "catalog.posao": "Работа и приходи", "catalog.obrazovanje": "Училиште и образование", "catalog.dokumenti": "Документи и администрација" },
-  sl: { "catalog.dolazak": "Prihod in prijava", "catalog.porodica": "Družina in otroci", "catalog.buergergeld": "Bürgergeld", "catalog.wohngeld": "Wohngeld (stanovanjski dodatek)", "catalog.sozialhilfe": "Sozialhilfe (socialna pomoč)", "catalog.heizkosten": "Heizkostenzuschuss (dodatek za ogrevanje)", "catalog.posao": "Delo in prihodki", "catalog.obrazovanje": "Šola in izobraževanje", "catalog.dokumenti": "Dokumenti in administracija" },
-};
-
-const paywallKeys: Record<string, Record<string, string>> = {
-  bs: { "paywall.unlockPremium": "Otključaj Premium — 9,99 €/mjes.", "paywall.stepLocked": "Ovaj korak je dostupan Premium korisnicima", "common.officialDisclaimer": "Svi podaci dolaze iz službenih državnih izvora.", "sidebar.dolazak": "Dolazak", "sidebar.formulari": "Formulari", "sidebar.viza": "Viza Navigator", "sidebar.paketi": "Paketi i cijene", "sidebar.kontakt": "Kontakt", "sidebar.prijava": "Prijava / Registracija", "sidebar.odjava": "Odjava", "viza.euCountries": "EU države", "viza.westernBalkan": "Zapadni Balkan", "viza.routes": "Načini dolaska i boravka", "viza.title": "Viza Navigator", "viza.subtitle": "Sve o vizama, boravišnim dozvolama i stalnom boravku — po državama" },
-  hr: { "paywall.unlockPremium": "Otključaj Premium — 9,99 €/mjes.", "paywall.stepLocked": "Ovaj korak je dostupan Premium korisnicima", "common.officialDisclaimer": "Svi podaci dolaze iz službenih državnih izvora.", "sidebar.dolazak": "Dolazak", "sidebar.formulari": "Formulari", "sidebar.viza": "Viza Navigator", "sidebar.paketi": "Paketi i cijene", "sidebar.kontakt": "Kontakt", "sidebar.prijava": "Prijava / Registracija", "sidebar.odjava": "Odjava", "viza.euCountries": "EU države", "viza.westernBalkan": "Zapadni Balkan", "viza.routes": "Načini dolaska i boravka", "viza.title": "Viza Navigator", "viza.subtitle": "Sve o vizama, boravišnim dozvolama i stalnom boravku — po državama" },
-  sr: { "paywall.unlockPremium": "Otključaj Premium — 9,99 €/mjes.", "paywall.stepLocked": "Ovaj korak je dostupan Premium korisnicima", "common.officialDisclaimer": "Svi podaci dolaze iz službenih državnih izvora.", "sidebar.dolazak": "Dolazak", "sidebar.formulari": "Formulari", "sidebar.viza": "Viza Navigator", "sidebar.paketi": "Paketi i cene", "sidebar.kontakt": "Kontakt", "sidebar.prijava": "Prijava / Registracija", "sidebar.odjava": "Odjava", "viza.euCountries": "EU države", "viza.westernBalkan": "Zapadni Balkan", "viza.routes": "Načini dolaska i boravka", "viza.title": "Viza Navigator", "viza.subtitle": "Sve o vizama, boravišnim dozvolama i stalnom boravku — po državama" },
-  me: { "paywall.unlockPremium": "Otključaj Premium — 9,99 €/mjes.", "paywall.stepLocked": "Ovaj korak je dostupan Premium korisnicima", "common.officialDisclaimer": "Svi podaci dolaze iz službenih državnih izvora.", "sidebar.dolazak": "Dolazak", "sidebar.formulari": "Formulari", "sidebar.viza": "Viza Navigator", "sidebar.paketi": "Paketi i cijene", "sidebar.kontakt": "Kontakt", "sidebar.prijava": "Prijava / Registracija", "sidebar.odjava": "Odjava", "viza.euCountries": "EU države", "viza.westernBalkan": "Zapadni Balkan", "viza.routes": "Načini dolaska i boravka", "viza.title": "Viza Navigator", "viza.subtitle": "Sve o vizama, boravišnim dozvolama i stalnom boravku — po državama" },
-  sq: { "paywall.unlockPremium": "Zhblloko Premium — 9,99 €/muj.", "paywall.stepLocked": "Ky hap është i disponueshëm për përdoruesit Premium", "common.officialDisclaimer": "Të gjitha të dhënat vijnë nga burime zyrtare shtetërore.", "sidebar.dolazak": "Mbërritja", "sidebar.formulari": "Formularët", "sidebar.viza": "Navigatori i Vizave", "sidebar.paketi": "Paketat dhe çmimet", "sidebar.kontakt": "Kontakti", "sidebar.prijava": "Hyrje / Regjistrohu", "sidebar.odjava": "Dil", "viza.euCountries": "Shtetet BE", "viza.westernBalkan": "Ballkani Perëndimor", "viza.routes": "Mënyrat e hyrjes dhe qëndrimit", "viza.title": "Navigatori i Vizave", "viza.subtitle": "Gjithçka për vizat, lejet e qëndrimit dhe qëndrimin e përhershëm — sipas shteteve" },
-  xk: { "paywall.unlockPremium": "Zhblloko Premium — 9,99 €/muj.", "paywall.stepLocked": "Ky hap është i disponueshëm për përdoruesit Premium", "common.officialDisclaimer": "Të gjitha të dhënat vijnë nga burime zyrtare shtetërore.", "sidebar.dolazak": "Mbërritja", "sidebar.formulari": "Formularët", "sidebar.viza": "Navigatori i Vizave", "sidebar.paketi": "Paketat dhe çmimet", "sidebar.kontakt": "Kontakti", "sidebar.prijava": "Hyrje / Regjistrohu", "sidebar.odjava": "Dil", "viza.euCountries": "Shtetet BE", "viza.westernBalkan": "Ballkani Perëndimor", "viza.routes": "Mënyrat e hyrjes dhe qëndrimit", "viza.title": "Navigatori i Vizave", "viza.subtitle": "Gjithçka për vizat, lejet e qëndrimit dhe qëndrimin e përhershëm — sipas shteteve" },
-  mk: { "paywall.unlockPremium": "Отклучи Premium — 9,99 €/мес.", "paywall.stepLocked": "Овој чекор е достапен за Premium корисници", "common.officialDisclaimer": "Сите податоци доаѓаат од официјални државни извори.", "sidebar.dolazak": "Пристигнување", "sidebar.formulari": "Формулари", "sidebar.viza": "Виза Навигатор", "sidebar.paketi": "Пакети и цени", "sidebar.kontakt": "Контакт", "sidebar.prijava": "Најава / Регистрација", "sidebar.odjava": "Одјава", "viza.euCountries": "EU земји", "viza.westernBalkan": "Западен Балкан", "viza.routes": "Начини на доаѓање и престој", "viza.title": "Виза Навигатор", "viza.subtitle": "Сè за визи, дозволи за престој и постојан престој — по земји" },
-  sl: { "paywall.unlockPremium": "Odkleni Premium — 9,99 €/mes.", "paywall.stepLocked": "Ta korak je na voljo Premium uporabnikom", "common.officialDisclaimer": "Vsi podatki prihajajo iz uradnih državnih virov.", "sidebar.dolazak": "Prihod", "sidebar.formulari": "Formulari", "sidebar.viza": "Viza Navigator", "sidebar.paketi": "Paketi in cene", "sidebar.kontakt": "Kontakt", "sidebar.prijava": "Prijava / Registracija", "sidebar.odjava": "Odjava", "viza.euCountries": "EU države", "viza.westernBalkan": "Zahodni Balkan", "viza.routes": "Načini prihoda in bivanja", "viza.title": "Viza Navigator", "viza.subtitle": "Vse o vizumih, dovoljenjih za bivanje in stalnem bivanju — po državah" },
-};
-
-// Merge country names, vorlagen, UI extras, calc, community, and nav.back into translations
-for (const lang of Object.keys(translations) as Language[]) {
-  if (countryNames[lang]) Object.assign(translations[lang], countryNames[lang]);
-  if (vorlagenKeys[lang]) Object.assign(translations[lang], vorlagenKeys[lang]);
-  if (uiExtraKeys[lang]) Object.assign(translations[lang], uiExtraKeys[lang]);
-  if (communityKeys[lang]) Object.assign(translations[lang], communityKeys[lang]);
-  if (navBackKeys[lang]) Object.assign(translations[lang], navBackKeys[lang]);
-  if (flowBannerKeys[lang]) Object.assign(translations[lang], flowBannerKeys[lang]);
-  if (trainerKeys[lang]) Object.assign(translations[lang], trainerKeys[lang]);
-  if (paywallKeys[lang]) Object.assign(translations[lang], paywallKeys[lang]);
-  if (catalogKeys[lang]) Object.assign(translations[lang], catalogKeys[lang]);
-  // Calc keys: bs-based languages fall back to calcBs, de to calcDe
-  Object.assign(translations[lang], calcBs);
-}
-
-export function getTranslation(lang: Language, key: keyof TranslationKeys): string {
-  return translations[lang]?.[key] ?? translations.bs[key] ?? key;
+/**
+ * Get a translation by key and language.
+ * Falls back to bhs if the key exists but language doesn't, or returns the key itself.
+ */
+export function getTranslation(lang: Language, key: string): string {
+  const entry = translations[key];
+  if (!entry) return key;
+  return entry[lang] ?? entry["bhs"] ?? key;
 }

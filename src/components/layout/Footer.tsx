@@ -1,25 +1,23 @@
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-
-const NAV_LINKS = [
-  { label: "Formulari", to: "/formulari" },
-  { label: "Viza Navigator", to: "/viza" },
-  { label: "Deutsch Kurs", to: "/deutsch-trainer" },
-  { label: "Dokumenten-Check", to: "/dokumenten-check" },
-  { label: "AI Asistent", to: "/ai-asistent" },
-  { label: "Nudim / Tražim", to: "/nudim-trazim" },
+const NAV_LINKS_KEYS = [
+  { labelKey: "sidebar.formulari", to: "/formulari" },
+  { labelKey: "sidebar.viza", to: "/viza" },
+  { labelKey: "sidebar.deutsch", to: "/deutsch-trainer" },
+  { labelKey: "sidebar.dokumentencheck", to: "/dokumenten-check" },
+  { labelKey: "sidebar.asistent", to: "/ai-asistent" },
+  { labelKey: "sidebar.nudim", to: "/nudim-trazim" },
 ];
 
-const LEGAL_LINKS = [
-  { label: "Impressum", to: "/impressum" },
-  { label: "Datenschutz", to: "/datenschutz" },
-  { label: "AGB", to: "/agb" },
-  { label: "Disclaimer", to: "/disclaimer" },
-  { label: "KI-Hinweis", to: "/ki-hinweis" },
+const LEGAL_LINKS_KEYS = [
+  { labelKey: "footer.impressum", to: "/impressum" },
+  { labelKey: "footer.datenschutz", to: "/datenschutz" },
+  { labelKey: "footer.agb", to: "/agb" },
+  { labelKey: "footer.haftung", to: "/disclaimer" },
+  { labelKey: "footer.ki", to: "/ki-hinweis" },
   { label: "Cookie-Richtlinie", to: "/cookie-richtlinie" },
 ];
-
-
 
 const colTitleStyle: React.CSSProperties = {
   fontSize: 11,
@@ -41,6 +39,8 @@ const linkStyle: React.CSSProperties = {
 };
 
 export default function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer style={{ background: "#0d1526" }}>
       {/* SECTION 1 — Main grid */}
@@ -63,46 +63,46 @@ export default function Footer() {
             </span>
           </Link>
           <p style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", marginTop: 14, lineHeight: 1.6 }}>
-            Tvoj vodič kroz njemački sistem. Formulari, viza, jezik i svakodnevni život — na tvom jeziku.
+            {t("footer.tagline")}
           </p>
           <p style={{ fontSize: 11, color: "rgba(255,255,255,0.35)", marginTop: 12, lineHeight: 1.5 }}>
-            BalkanLink je edukativna platforma i nije pravni savjetnik.
+            {t("footer.disclaimer")}
           </p>
         </div>
 
         {/* Column 2 — Navigacija */}
         <div>
-          <p style={colTitleStyle}>Navigacija</p>
-          {NAV_LINKS.map((l) => (
+          <p style={colTitleStyle}>{t("footer.navSection")}</p>
+          {NAV_LINKS_KEYS.map((l) => (
             <Link
               key={l.to}
               to={l.to}
               style={linkStyle}
               className="footer-link"
             >
-              {l.label}
+              {t(l.labelKey)}
             </Link>
           ))}
         </div>
 
         {/* Column 3 — Pravno */}
         <div>
-          <p style={colTitleStyle}>Pravno</p>
-          {LEGAL_LINKS.map((l) => (
+          <p style={colTitleStyle}>{t("footer.legalSection")}</p>
+          {LEGAL_LINKS_KEYS.map((l) => (
             <Link
               key={l.to}
               to={l.to}
               style={linkStyle}
               className="footer-link"
             >
-              {l.label}
+              {"labelKey" in l ? t(l.labelKey) : l.label}
             </Link>
           ))}
         </div>
 
         {/* Column 4 — Kontakt */}
         <div>
-          <p style={colTitleStyle}>Kontakt</p>
+          <p style={colTitleStyle}>{t("footer.contact")}</p>
           <a
             href="mailto:kontakt@balkanlink.de"
             style={linkStyle}
@@ -111,10 +111,7 @@ export default function Footer() {
             📧 kontakt@balkanlink.de
           </a>
           <p style={{ fontSize: 13, color: "rgba(255,255,255,0.55)", marginTop: 8, lineHeight: 1.6 }}>
-            Reklamiranje: kontakt@balkanlink.de
-          </p>
-          <p style={{ fontSize: 12, color: "rgba(255,255,255,0.4)", marginTop: 8 }}>
-            Dostupni radnim danima
+            Reklamierung: kontakt@balkanlink.de
           </p>
         </div>
       </div>
@@ -125,7 +122,7 @@ export default function Footer() {
       </div>
       <div style={{ padding: "20px 24px 16px", textAlign: "center" }}>
         <p style={{ fontSize: 10, color: "rgba(255,255,255,0.4)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 8, textAlign: "center" }}>
-          Sigurna plaćanja
+          {t("footer.paymentMethods")}
         </p>
         <p style={{ fontSize: 12, color: "rgba(255,255,255,0.55)", letterSpacing: 0.5, textAlign: "center", marginBottom: 4 }}>
           Visa · Mastercard · PayPal · Apple Pay · Google Pay
@@ -133,8 +130,8 @@ export default function Footer() {
         {/* Trust badges */}
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 16, flexWrap: "wrap", marginTop: 14 }}>
           {[
-            { icon: "🔒", text: "SSL šifrirano" },
-            { icon: "🛡️", text: "DSGVO konform" },
+            { icon: "🔒", text: "SSL" },
+            { icon: "🛡️", text: "DSGVO" },
             { icon: "✅", text: "Stripe Verified" },
           ].map((badge) => (
             <span
@@ -167,7 +164,7 @@ export default function Footer() {
           Powered by <span style={{ color: "#EAB308", fontWeight: 700 }}>RealCore Digital</span> · Klar denken. Digital umsetzen.
         </p>
         <p style={{ fontSize: 11, color: "rgba(255,255,255,0.4)" }}>
-          © 2026 BalkanLink · Alle Rechte vorbehalten
+          © 2026 BalkanLink · {t("footer.rights")}
         </p>
       </div>
 

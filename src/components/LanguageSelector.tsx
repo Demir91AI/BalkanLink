@@ -3,14 +3,18 @@ import { ChevronDown } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { type Language } from "@/lib/translations";
 
-const LANG_OPTIONS: { code: string; label: string; flag: string }[] = [
-  { code: "bs", label: "Bosanski", flag: "https://flagcdn.com/h40/ba.png" },
-  { code: "hr", label: "Hrvatski", flag: "https://flagcdn.com/h40/hr.png" },
-  { code: "sr", label: "Srpski", flag: "https://flagcdn.com/h40/rs.png" },
-  { code: "me", label: "Crnogorski", flag: "https://flagcdn.com/h40/me.png" },
-  { code: "sl", label: "Slovenščina", flag: "https://flagcdn.com/h40/si.png" },
-  { code: "mk", label: "Македонски", flag: "https://flagcdn.com/h40/mk.png" },
-  { code: "sq", label: "Shqip", flag: "https://flagcdn.com/h40/al.png" },
+const LANG_OPTIONS: { code: Language; label: string; flag: string; flagStyle?: React.CSSProperties }[] = [
+  {
+    code: "bhs",
+    label: "BS / HR / SR",
+    flag: "🇧🇦🇭🇷🇷🇸",
+    flagStyle: { fontSize: "0.55em", letterSpacing: "-2px", lineHeight: "1", display: "inline-block" },
+  },
+  {
+    code: "de",
+    label: "Deutsch",
+    flag: "🇩🇪",
+  },
 ];
 
 export default function LanguageSelector() {
@@ -20,8 +24,8 @@ export default function LanguageSelector() {
 
   const current = LANG_OPTIONS.find((l) => l.code === language) || LANG_OPTIONS[0];
 
-  const handleChange = (code: string) => {
-    setLanguage(code as Language);
+  const handleChange = (code: Language) => {
+    setLanguage(code);
     setOpen(false);
   };
 
@@ -45,7 +49,7 @@ export default function LanguageSelector() {
         onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.25)")}
         onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.15)")}
       >
-        <img src={current.flag} alt="" className="h-[20px] w-auto" style={{ imageRendering: "auto" }} />
+        <span style={current.flagStyle}>{current.flag}</span>
         <span className="text-[13px] font-medium text-white">{current.label}</span>
         <ChevronDown className="h-[14px] w-[14px] text-white" />
       </button>
@@ -65,7 +69,7 @@ export default function LanguageSelector() {
                 fontWeight: opt.code === language ? 700 : 400,
               }}
             >
-              <img src={opt.flag} alt="" className="h-[20px] w-auto" />
+              <span style={opt.flagStyle}>{opt.flag}</span>
               <span className="text-[14px] text-[#2D2D2D]">{opt.label}</span>
             </button>
           ))}

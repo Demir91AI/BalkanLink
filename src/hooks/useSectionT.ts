@@ -9,7 +9,7 @@ import { getSectionT } from "@/lib/i18n-sections";
 export function useSectionT() {
   const { language } = useLanguage();
   const st = useCallback(
-    (key: string) => getSectionT(language as any, key),
+    (key: string) => getSectionT(language, key),
     [language]
   );
   return st;

@@ -1,6 +1,7 @@
 /**
- * Simplified i18n — BHS (Bosnian) only, no react-i18next.
- * All translations come from src/locales/bs/*.json
+ * i18n namespace-based lookup — backward compatibility layer.
+ * All translations come from src/locales/bs/*.json for legacy keys.
+ * New keys should be added to src/lib/translations.ts instead.
  */
 
 import bs_common from "./locales/bs/common.json";
@@ -47,13 +48,6 @@ const namespaces: Record<string, Record<string, any>> = {
 
 export const NS_LIST = Object.keys(namespaces);
 
-/**
- * Look up a translation key. Supports:
- * - "key" → search all namespaces
- * - "namespace:key" → search specific namespace
- * - Nested keys with dots: "cta.primary"
- * - Simple interpolation: {{count}}, {{current}}, {{total}}, {{percent}}
- */
 function getNestedValue(obj: any, path: string): string | undefined {
   const parts = path.split(".");
   let current = obj;
@@ -66,7 +60,6 @@ function getNestedValue(obj: any, path: string): string | undefined {
 }
 
 export function lookup(key: string, opts?: Record<string, unknown>): string {
-  // Check for "namespace:key" format
   const colonIdx = key.indexOf(":");
   if (colonIdx > 0) {
     const ns = key.substring(0, colonIdx);
@@ -78,13 +71,11 @@ export function lookup(key: string, opts?: Record<string, unknown>): string {
     }
   }
 
-  // Direct lookup across all namespaces
   for (const ns of NS_LIST) {
     const val = getNestedValue(namespaces[ns], key);
     if (val) return interpolate(val, opts);
   }
 
-  // Try removing dot prefix: "sidebar.smartGuide" → search for "smartGuide"
   const dotIdx = key.indexOf(".");
   if (dotIdx > 0) {
     const subKey = key.substring(dotIdx + 1);
@@ -94,7 +85,7 @@ export function lookup(key: string, opts?: Record<string, unknown>): string {
     }
   }
 
-  return key; // fallback: return key itself
+  return key;
 }
 
 function interpolate(text: string, opts?: Record<string, unknown>): string {
@@ -104,7 +95,6 @@ function interpolate(text: string, opts?: Record<string, unknown>): string {
   });
 }
 
-/** Namespace-scoped lookup helper */
 export function namespaceLookup(ns: string | string[], key: string, opts?: Record<string, unknown>): string {
   const nsList = Array.isArray(ns) ? ns : [ns];
   for (const n of nsList) {
@@ -114,14 +104,12 @@ export function namespaceLookup(ns: string | string[], key: string, opts?: Recor
       if (val) return interpolate(val, opts);
     }
   }
-  // Fallback to global lookup
   return lookup(key, opts);
 }
 
-// Backward-compat: some code imports `i18n` as default and calls i18n.changeLanguage()
-// We make that a no-op since we're BHS-only now
+// Backward-compat default export
 const i18nCompat = {
-  language: "bs",
+  language: "bhs",
   changeLanguage: (_lang: string) => {},
   t: (key: string, opts?: any) => lookup(key, opts),
 };
