@@ -673,10 +673,6 @@ export default function ChatAssistant() {
                     </div>
                   </div>
                   <div className="flex items-center gap-1">
-                    {/* Lang switcher */}
-                    <button onClick={toggleChatLang} className="rounded-lg px-2 py-1 text-[10px] font-bold text-white/50 hover:text-white/80 hover:bg-white/5 transition-all" title="Promijeni jezik">
-                      {chatLang === "bs" ? "🇧🇦 BHS" : "🇩🇪 DE"}
-                    </button>
                     {/* Save */}
                     {messages.length > 0 && (
                       <button onClick={saveConversation} className="rounded-lg p-1.5 text-white/30 hover:text-white/60 hover:bg-white/5 transition-all" title="Spremi razgovor">
