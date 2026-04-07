@@ -25,20 +25,20 @@ export function AppSidebar() {
   const { user, signOut } = useAuth();
 
   const mainItems = [
-    { titleKey: "sidebar.smartGuide", url: "/formulari", icon: FileText, premium: true },
-    { titleKey: "sidebar.visaNavigator", url: "/viza", icon: Shield, premium: true },
+    { titleKey: "sidebar.formulari", url: "/formulari", icon: FileText, premium: true },
+    { titleKey: "sidebar.viza", url: "/viza", icon: Shield, premium: true },
     { titleKey: "sidebar.deutsch", url: "/deutsch-trainer", icon: BookOpen, premium: true },
-    { titleKey: "sidebar.dokumentenCheck", url: "/dokumenten-check", icon: Camera, premium: true },
+    { titleKey: "sidebar.dokumentencheck", url: "/dokumenten-check", icon: Camera, premium: true },
   ];
 
   const secondaryItems = [
-    { titleKey: "sidebar.zivotUNjemackoj", url: "/zivot-u-njemackoj", icon: Plane },
+    { titleKey: "sidebar.zivot", url: "/zivot-u-njemackoj", icon: Plane },
     { titleKey: "sidebar.nudim", url: "/nudim-trazim", icon: Megaphone },
-    { titleKey: "sidebar.balkanci", url: "/mapa", icon: Map },
+    { titleKey: "sidebar.mapa", url: "/mapa", icon: Map },
     { titleKey: "sidebar.jobs", url: "/stellenangebote", icon: Briefcase },
-    { titleKey: "sidebar.housing", url: "/wohnungen", icon: Building },
-    { titleKey: "sidebar.kalkulator", url: "/kalkulatori", icon: Calculator },
-    { titleKey: "sidebar.templates", url: "/vorlagen", icon: FileCheck },
+    { titleKey: "sidebar.stanovi", url: "/wohnungen", icon: Building },
+    { titleKey: "sidebar.kalkulatori", url: "/kalkulatori", icon: Calculator },
+    { titleKey: "sidebar.predloski", url: "/vorlagen", icon: FileCheck },
   ];
 
   const toggle = useCallback(() => {
