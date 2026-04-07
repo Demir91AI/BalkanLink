@@ -301,7 +301,7 @@ export default function Index() {
       <section className="relative min-h-[92vh] overflow-hidden">
         {slides.map((slide, idx) => (
           <div key={idx} className="absolute inset-0 transition-opacity duration-[1500ms] ease-in-out" style={{ opacity: idx === currentSlide ? 1 : 0, zIndex: idx === currentSlide ? 1 : 0 }}>
-            <img src={slide.image} alt={slide.city} className="h-full w-full object-cover transition-transform duration-[5000ms] ease-out" style={{ filter: "brightness(0.85) saturate(1.1) contrast(1.02)", transform: idx === currentSlide ? "scale(1.04)" : "scale(1)" }} loading="eager" />
+            <img src={slide.image} alt={slide.city} className="h-full w-full object-cover transition-transform duration-[5000ms] ease-out" style={{ filter: "brightness(0.85) saturate(1.1) contrast(1.02)", transform: idx === currentSlide ? "scale(1.04)" : "scale(1)" }} loading="eager" fetchPriority={idx === 0 ? "high" : "auto"} />
           </div>
         ))}
 
