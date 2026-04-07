@@ -159,7 +159,8 @@ export function useTTS() {
       };
 
       const doSpeak = () => { try { synth.speak(u); } catch { /* */ } };
-      if (isAndroid) { setTimeout(doSpeak, 120); } else { doSpeak(); }
+      // 120ms delay before playback to prevent harsh start
+      setTimeout(doSpeak, 120);
     };
 
     // Fix mobile voice loading: voices load async on iOS/Android
