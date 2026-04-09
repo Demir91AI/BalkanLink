@@ -3,7 +3,7 @@ import { useInfiniteScroll } from "@/hooks/useInfiniteScroll";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
-  Megaphone, CheckCircle2, Star, ExternalLink,
+  Megaphone, CheckCircle2, Star,
   ChevronLeft, ChevronRight, FileText, Shield, GraduationCap, Search, Home, Calculator, Map, Camera,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 
 
 
-import realcoreDigitalLogo from "@/assets/realcore-digital-logo.png";
+
 import heroBerlin from "@/assets/hero-berlin.jpg";
 import heroMuenchen from "@/assets/hero-muenchen.jpg";
 import heroFrankfurt from "@/assets/hero-frankfurt.jpg";
@@ -39,7 +39,7 @@ const slides = [
 
 const trustBadgeKeys = ["hero.badge1", "hero.badge2", "hero.badge3"];
 
-const MAILTO_AD = `mailto:kontakt@balkanlink.de?subject=${encodeURIComponent("Oglašavanje na BalkanLink")}&body=${encodeURIComponent("Pozdrav,\n\nZanima me oglašavanje na BalkanLink platformi.\n\nNaziv firme:\nVrsta usluge:\nGrad:\nBudžet:\n")}`;
+
 
 const serviceCardKeys = [
   { icon: FileText, titleKey: "service.smartGuide.title", descKey: "service.smartGuide.desc", ctaKey: "service.smartGuide.cta", to: "/formulari", premium: true },
