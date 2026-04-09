@@ -1,4 +1,5 @@
-import { useState } from "react"; 
+import { useState } from "react";
+import { SEO } from "@/components/SEO";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Trophy, Flame, Star, Lock, GraduationCap, CheckCircle2, X, Crown, ChevronLeft, ChevronRight, ArrowLeft, Home } from "lucide-react";
@@ -74,6 +75,7 @@ export default function DeutschTrainer() {
 
   return (
     <>
+      <SEO title="Deutsch Trainer — Uči Njemački A1 do C2" description="Online kurs njemačkog jezika za Balkance — 48 lekcija, vježbe, TTS izgovor." path="/deutsch-trainer" />
       {/* Hero Banner */}
       <section
         className="relative overflow-hidden border-b border-white/[0.06] pb-12 pt-6 sm:pb-16 sm:pt-8"

@@ -1,4 +1,5 @@
 import { useState, useMemo, useCallback } from "react";
+import { SEO } from "@/components/SEO";
 import { MapPin, Search, Shield, X, Users, ExternalLink } from "lucide-react";
 import PageNavBar from "@/components/navigation/PageNavBar";
 import balkanSarajevo from "@/assets/balkan-sarajevo.jpg";
@@ -154,6 +155,7 @@ export default function CommunityMapa() {
 
   return (
     <div className="min-h-screen bg-[hsl(var(--warm-cream))]">
+      <SEO title="Balkanci u Njemačkoj — Community Mapa" description="Pronađi Balkance u svom gradu — community mapa balkanske dijaspore u Njemačkoj." path="/mapa" />
       {/* HERO */}
       <section className="relative overflow-hidden border-b border-[#E8E0D0]">
         <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f3460]" />

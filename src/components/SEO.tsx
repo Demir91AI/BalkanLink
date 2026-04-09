@@ -1,0 +1,35 @@
+import { Helmet } from 'react-helmet-async';
+
+interface SEOProps {
+  title?: string;
+  description?: string;
+  path?: string;
+}
+
+const BASE_URL = 'https://www.balkanlink.de';
+const DEFAULT_TITLE = 'BalkanLink — Formulari, Viza i Savjeti za Balkance u Njemačkoj';
+const DEFAULT_DESC = 'Sve što ti treba za život u Njemačkoj — musterformulari, viza navigator, AI asistent, deutsch kurs. Na bosanskom, hrvatskom i srpskom.';
+
+export const SEO = ({ title, description, path = '' }: SEOProps) => {
+  const fullTitle = title ? `${title} | BalkanLink` : DEFAULT_TITLE;
+  const desc = description || DEFAULT_DESC;
+  const url = `${BASE_URL}${path}`;
+
+  return (
+    <Helmet>
+      <title>{fullTitle}</title>
+      <meta name="description" content={desc} />
+      <meta name="robots" content="index, follow" />
+      <link rel="canonical" href={url} />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content={fullTitle} />
+      <meta property="og:description" content={desc} />
+      <meta property="og:url" content={url} />
+      <meta property="og:site_name" content="BalkanLink" />
+      <meta property="og:locale" content="bs_BA" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:description" content={desc} />
+    </Helmet>
+  );
+};

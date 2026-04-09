@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { SEO } from "@/components/SEO";
 import { useParams, useNavigate } from "react-router-dom";
 import { Search, ChevronLeft, FileText, ChevronDown, ChevronRight, Info, X } from "lucide-react";
 import PageNavBar from "@/components/navigation/PageNavBar";
@@ -299,6 +300,7 @@ export default function FormCenter() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-6 min-h-screen" style={{ background: "#F5F0E8" }}>
+      <SEO title="Musterformulari — Njemački Obrasci" description="Popuni njemačke formulare na svom jeziku — Kindergeld, Bürgergeld, Wohngeld, BAföG i još 15+ obrazaca." path="/formulari" />
       <BuergergeldInfoModal
         open={showBgInfo}
         onClose={() => setShowBgInfo(false)}

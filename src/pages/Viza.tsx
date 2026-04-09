@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { SEO } from "@/components/SEO";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { Lock } from "lucide-react";
 import PageNavBar from "@/components/navigation/PageNavBar";
@@ -49,6 +50,7 @@ export default function Viza() {
 
   return (
     <div className="min-h-screen" style={{ background: "#F5F0E8" }}>
+      <SEO title="Viza Navigator — Boravišna Dozvola u Njemačkoj" description="Saznaj koje dokumente trebaš za vizu ili boravišnu dozvolu, ovisno o državljanstvu." path="/viza" />
       <div className="max-w-[1280px] mx-auto px-4 md:px-12 py-8">
         {/* Nav */}
         <PageNavBar />
