@@ -25,7 +25,7 @@ interface Props {
 
 const GOLD = '#C9A84C';
 
-export default function SmartGuideWizardShared({ steps }: Props) {
+export default function SmartGuideWizardShared({ steps, free = false }: Props) {
   const st = useSectionT();
   const { canAccessStep } = useSubscription();
 
@@ -56,7 +56,7 @@ export default function SmartGuideWizardShared({ steps }: Props) {
 
       {/* Steps 2+ gated */}
       {steps.length > 1 && (
-        <SmartGuideLock locked={!canAccessStep(1)}>
+        <SmartGuideLock locked={!free && !canAccessStep(1)}>
           {steps.slice(1).map((step, i) => (
             <StepCard key={i + 1} step={step} index={i + 1} cardConfig={cardConfig} st={st} />
           ))}
