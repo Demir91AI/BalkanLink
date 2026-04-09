@@ -14,7 +14,7 @@ import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
 
 import FlowBanner from "@/components/home/FlowBanner";
 
-import realcoreDigitalLogo from "@/assets/realcore-digital-logo.png";
+
 import heroBerlin from "@/assets/hero-berlin.jpg";
 import heroMuenchen from "@/assets/hero-muenchen.jpg";
 import heroFrankfurt from "@/assets/hero-frankfurt.jpg";
@@ -25,7 +25,7 @@ import heroDuesseldorf from "@/assets/hero-duesseldorf.jpg";
 import heroNuernberg from "@/assets/hero-nuernberg.jpg";
 import heroLeipzig from "@/assets/hero-leipzig.jpg";
 import heroFreilassing from "@/assets/hero-freilassing-real.jpg";
-import placeholderPartnerImg from "@/assets/placeholder-partner.jpg";
+
 
 const slides = [
   { image: heroFrankfurt, city: "FRANKFURT" },
@@ -42,7 +42,7 @@ const slides = [
 
 const trustBadgeKeys = ["hero.badge1", "hero.badge2", "hero.badge3"];
 
-const MAILTO_AD = `mailto:kontakt@balkanlink.de?subject=${encodeURIComponent("Oglašavanje na BalkanLink")}&body=${encodeURIComponent("Pozdrav,\n\nZanima me oglašavanje na BalkanLink platformi.\n\nNaziv firme:\nVrsta usluge:\nGrad:\nBudžet:\n")}`;
+
 
 const serviceCardKeys = [
   { icon: FileText, titleKey: "service.smartGuide.title", descKey: "service.smartGuide.desc", ctaKey: "service.smartGuide.cta", to: "/formulari", premium: true },
@@ -56,12 +56,6 @@ const serviceCardKeys = [
   { icon: Calculator, titleKey: "service.calc.title", descKey: "service.calc.desc", ctaKey: "service.calc.cta", to: "/kalkulatori", premium: false },
 ];
 
-const placeholderAds: Array<{ name: string; slogan: string; desc?: string; logo?: string; href?: string; isReal?: boolean; isPlaceholder?: boolean }> = [
-  { name: "RealCore Digital", slogan: "Webdesign · KI · Lösungen", desc: "Professionelle digitale Lösungen.", logo: realcoreDigitalLogo, href: "https://www.realcore.digital", isReal: true },
-  { name: "Vaša firma ovdje", slogan: "od 9,99€/mjes.", isPlaceholder: true },
-  { name: "Vaša firma ovdje", slogan: "od 9,99€/mjes.", isPlaceholder: true },
-  { name: "Vaša firma ovdje", slogan: "od 9,99€/mjes.", isPlaceholder: true },
-];
 
 /* useInfiniteScroll moved to @/hooks/useInfiniteScroll */
 
@@ -201,81 +195,6 @@ function ShowcaseCarousel() {
   );
 }
 
-/* ─── Ad Flow Section ─── */
-function AdFlowSection() {
-  const { t } = useLanguage();
-  // Duplicate enough copies for seamless infinite scroll (hook resets at scrollWidth/2)
-  const minCopies = Math.max(8, Math.ceil((typeof window !== 'undefined' ? window.innerWidth : 1920) / 344) * 2 + 2);
-  const doubled = Array.from({ length: minCopies }, () => placeholderAds).flat();
-  const { ref, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.7, 3500);
-
-  return (
-    <section className="py-10 border-t border-[#E8E0D0] bg-[hsl(var(--warm-cream))] overflow-hidden">
-      <div className="container mb-5">
-        <div className="inline-flex items-center gap-2 rounded-full border border-[hsl(var(--gold))]/20 bg-[hsl(var(--gold))]/[0.08] px-3 py-1">
-          <Megaphone className="h-3 w-3 text-[hsl(var(--gold))]" />
-          <span className="text-[10px] font-bold uppercase tracking-widest text-[hsl(var(--gold))]">{t("home.adLabel")}</span>
-        </div>
-      </div>
-      <div
-        ref={ref}
-        className="overflow-x-scroll scrollbar-hide w-full cursor-grab select-none"
-        onTouchStart={onTouchStart}
-        onTouchMove={onTouchMove}
-        onTouchEnd={onTouchEnd}
-        onMouseDown={onMouseDown}
-        onMouseMove={onMouseMove}
-        onMouseUp={onMouseUp}
-        onMouseLeave={onMouseLeave}
-      >
-        <div className="flex w-fit gap-4">
-          {doubled.map((ad, i) =>
-            ad.isPlaceholder ? (
-              <div
-                key={i}
-                onClick={() => window.location.href = "/pricing"}
-                className="flex w-[340px] h-[160px] shrink-0 flex-col items-center justify-center gap-2 cursor-pointer transition-all duration-300 hover:-translate-y-0.5"
-                style={{ background: "#fff", border: "2px dashed #EAB308", borderRadius: 12 }}
-              >
-                <span style={{ fontSize: 28 }}>📢</span>
-                <p className="text-sm font-bold text-[#2D2D2D]">Vaša firma ovdje</p>
-                <p className="text-[11px] text-[#6B6B6B]">od 9,99€/mjes.</p>
-                <span className="inline-flex items-center rounded-md border border-[#EAB308]/40 px-3 py-1 text-[11px] font-semibold text-[#EAB308] hover:bg-[#EAB308]/10 transition-colors">
-                  Saznaj više →
-                </span>
-              </div>
-            ) : (
-              <a
-                key={i}
-                href={ad.href || MAILTO_AD}
-                target={ad.href ? "_blank" : undefined}
-                rel={ad.href ? "noopener noreferrer" : undefined}
-                className="group flex w-[340px] h-[160px] shrink-0 rounded-xl overflow-hidden border border-[#E8E0D0] bg-white shadow-sm transition-all duration-300 hover:border-[hsl(var(--gold))]/40 hover:shadow-md hover:-translate-y-0.5"
-              >
-                <div className="w-1/2 h-full overflow-hidden bg-[hsl(var(--warm-cream))]">
-                  <img
-                    src={ad.logo}
-                    alt={ad.name}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="flex w-1/2 flex-col justify-center gap-1.5 p-4">
-                  <p className="text-sm font-bold text-[#2D2D2D] leading-tight">{ad.name}</p>
-                  <p className="text-[11px] text-[#6B6B6B] leading-snug">{ad.slogan}</p>
-                  {ad.desc && <p className="text-[10px] text-[#999] leading-snug">{ad.desc}</p>}
-                  <span className="mt-1.5 inline-flex w-fit items-center rounded-md border border-[hsl(var(--gold))]/30 bg-[hsl(var(--gold))]/[0.06] px-3 py-1 text-[11px] font-semibold text-[hsl(var(--gold))] transition-colors group-hover:bg-[hsl(var(--gold))]/[0.12]">
-                    Kontakt
-                  </span>
-                </div>
-              </a>
-            )
-          )}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* ─── Main Page ─── */
 export default function Index() {
@@ -512,7 +431,7 @@ export default function Index() {
         <ShowcaseCarousel />
       </section>
 
-      <AdFlowSection />
+      
 
 
     </div>
