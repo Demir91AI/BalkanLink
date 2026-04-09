@@ -323,6 +323,9 @@ export const translations: Record<string, T> = {
   "home.recommended":    { bhs: "Preporučeno",          de: "Empfohlen" },
   "home.viewMore":       { bhs: "Pogledaj",             de: "Ansehen" },
   "home.contact":        { bhs: "Kontakt",              de: "Kontakt" },
+  "home.adLabel":        { bhs: "PARTNERI",             de: "PARTNER" },
+  "home.showcaseLabel":  { bhs: "NAŠI PARTNERI",        de: "UNSERE PARTNER" },
+  "home.showcaseTitle":  { bhs: "Preporučene usluge",   de: "Empfohlene Dienste" },
 
   // COOKIE EXTRAS
   "cookie.acceptAll":          { bhs: "Prihvati sve",                     de: "Alle akzeptieren" },
@@ -498,6 +501,14 @@ export const translations: Record<string, T> = {
   "firm.recommended":   { bhs: "Preporučeno",          de: "Empfohlen" },
   "firm.visitWebsite":  { bhs: "Posjeti stranicu",     de: "Webseite besuchen" },
 
+  // FLOW BANNER
+  "flowBanner.headline":    { bhs: "Popuni formulare bez grešaka",  de: "Formulare fehlerfrei ausfüllen" },
+  "flowBanner.subheadline": { bhs: "Korak po korak na tvom jeziku", de: "Schritt für Schritt in deiner Sprache" },
+  "flowBanner.cta":         { bhs: "Počni sad",                     de: "Jetzt starten" },
+  "flowBanner.ctaNote":     { bhs: "Besplatno za osnovne formulare", de: "Kostenlos für Basisformulare" },
+  "flowBanner.hint":        { bhs: "Bez registracije",              de: "Ohne Registrierung" },
+  "flowBanner.open":        { bhs: "Otvori",                        de: "Öffnen" },
+  "flowBanner.start":       { bhs: "Započni",                       de: "Starten" },
 
   // FOOTER EXTRA
   "footer.legalSection":   { bhs: "Pravne informacije",  de: "Rechtliches" },
