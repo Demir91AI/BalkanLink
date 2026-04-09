@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { SEO } from "@/components/SEO";
 import { PlusCircle, Megaphone, Search as SearchIcon, Star, Check, ChevronLeft, Home, ClipboardList } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import NtFilters from "@/components/nudim-trazim/NtFilters";
@@ -146,6 +147,7 @@ export default function NudimTrazim() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO title="Oglasi — Nudim i Tražim" description="Oglasi balkanske dijaspore u Njemačkoj — posao, stanovi, usluge." path="/nudim-trazim" />
       {/* ── Hero ── */}
       <section className="relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0a1628 0%, #0f1f3d 40%, #1a2a50 100%)' }}>
         {/* Background glow */}

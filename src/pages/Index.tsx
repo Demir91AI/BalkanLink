@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
+import { SEO } from "@/components/SEO";
 import { useInfiniteScroll } from "@/hooks/useInfiniteScroll";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -217,6 +218,7 @@ export default function Index() {
 
   return (
     <div className="relative bg-[hsl(var(--warm-cream))]">
+      <SEO path="/" />
       {/* ─── HERO ─── */}
       <section className="relative min-h-[92vh] overflow-hidden">
         {slides.map((slide, idx) => (

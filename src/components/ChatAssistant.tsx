@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
+import { SEO } from "@/components/SEO";
 import { X, Send, Copy, ShieldCheck, ExternalLink, BookOpen, ThumbsUp, ThumbsDown, Camera, Save, MessageCircle, Clock, User } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ReactMarkdown from "react-markdown";
@@ -631,6 +632,7 @@ export default function ChatAssistant() {
 
   return (
     <>
+      <SEO title="AI Asistent — Pitaj na Svom Jeziku" description="Postavi pitanje o životu u Njemačkoj na bosanskom, hrvatskom ili srpskom i dobij odgovor odmah." path="/ai-asistent" />
       {/* ── Floating Trigger ── */}
       <AnimatePresence>
         {!open && (
