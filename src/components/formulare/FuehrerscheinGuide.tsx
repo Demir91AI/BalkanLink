@@ -8,7 +8,6 @@ export default function FuehrerscheinGuideContent() {
     { key: "fs_1_eu", emoji: "🇪🇺" },
     { key: "fs_1_balkan", emoji: "🇧🇦" },
     { key: "fs_1_kosovo", emoji: "🇽🇰" },
-    { key: "fs_1_turkey", emoji: "🇹🇷" },
   ];
 
   const steps = ["fs_step1", "fs_step2", "fs_step3", "fs_step4", "fs_step5", "fs_step6"];
