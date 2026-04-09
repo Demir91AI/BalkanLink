@@ -3,7 +3,7 @@ import { useInfiniteScroll } from "@/hooks/useInfiniteScroll";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
-  CheckCircle2, Star, ExternalLink,
+  Megaphone, CheckCircle2, Star, ExternalLink,
   ChevronLeft, ChevronRight, FileText, Shield, GraduationCap, Search, Home, Calculator, Map, Camera,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -431,7 +431,7 @@ export default function Index() {
         <ShowcaseCarousel />
       </section>
 
-      <AdFlowSection />
+      
 
 
     </div>
