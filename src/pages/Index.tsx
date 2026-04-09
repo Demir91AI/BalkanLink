@@ -10,9 +10,6 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 
 
-import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
-
-import FlowBanner from "@/components/home/FlowBanner";
 
 import realcoreDigitalLogo from "@/assets/realcore-digital-logo.png";
 import heroBerlin from "@/assets/hero-berlin.jpg";
@@ -25,7 +22,7 @@ import heroDuesseldorf from "@/assets/hero-duesseldorf.jpg";
 import heroNuernberg from "@/assets/hero-nuernberg.jpg";
 import heroLeipzig from "@/assets/hero-leipzig.jpg";
 import heroFreilassing from "@/assets/hero-freilassing-real.jpg";
-import placeholderPartnerImg from "@/assets/placeholder-partner.jpg";
+
 
 const slides = [
   { image: heroFrankfurt, city: "FRANKFURT" },
@@ -56,12 +53,6 @@ const serviceCardKeys = [
   { icon: Calculator, titleKey: "service.calc.title", descKey: "service.calc.desc", ctaKey: "service.calc.cta", to: "/kalkulatori", premium: false },
 ];
 
-const placeholderAds: Array<{ name: string; slogan: string; desc?: string; logo?: string; href?: string; isReal?: boolean; isPlaceholder?: boolean }> = [
-  { name: "RealCore Digital", slogan: "Webdesign · KI · Lösungen", desc: "Professionelle digitale Lösungen.", logo: realcoreDigitalLogo, href: "https://www.realcore.digital", isReal: true },
-  { name: "Vaša firma ovdje", slogan: "od 9,99€/mjes.", isPlaceholder: true },
-  { name: "Vaša firma ovdje", slogan: "od 9,99€/mjes.", isPlaceholder: true },
-  { name: "Vaša firma ovdje", slogan: "od 9,99€/mjes.", isPlaceholder: true },
-];
 
 /* useInfiniteScroll moved to @/hooks/useInfiniteScroll */
 
@@ -393,8 +384,6 @@ export default function Index() {
       </div>
 
 
-      {/* ─── FLOW BANNER CAROUSEL ─── */}
-      <FlowBanner />
 
       {/* ─── PREMIUM SECTION — full pricing + comparison ─── */}
       <section className="py-16 bg-white border-t border-[#E8E0D0]">
@@ -500,19 +489,6 @@ export default function Index() {
         </div>
       </section>
 
-      <section className="py-16 bg-white border-t border-[#E8E0D0]">
-        <div className="container max-w-[1200px] mx-auto mb-8">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-            <p className="text-xs font-bold uppercase tracking-[0.26em] text-[hsl(var(--gold))]">{t("home.showcaseLabel")}</p>
-            <h2 className="mt-2 font-heading text-2xl font-extrabold text-[#2D2D2D]">
-              {t("home.showcaseTitle")}
-            </h2>
-          </motion.div>
-        </div>
-        <ShowcaseCarousel />
-      </section>
-
-      <AdFlowSection />
 
 
     </div>
