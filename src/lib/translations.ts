@@ -793,11 +793,10 @@ export const translations: Record<string, T> = {
 
   "fs_s2":        { bhs: "Koraci za zamjenu dozvole",         de: "Schritte zur Umschreibung" },
   "fs_step1":     { bhs: "Prijava boravišta (Anmeldung) — obavezni prvi korak, bez toga nema zamjene", de: "Wohnsitzanmeldung (Anmeldung) — Pflichtschritt, ohne den keine Umschreibung möglich ist" },
-  "fs_step2":     { bhs: "Test vida (Sehtest) — radi se kod optičara, košta oko 7 €", de: "Sehtest — wird beim Optiker durchgeführt, kostet ca. 7 €" },
-  "fs_step3":     { bhs: "Kurs prve pomoći — jednodnevni kurs, obavezan za sve, oko 30–50 €", de: "Erste-Hilfe-Kurs — Tageskurs, für alle Pflicht, ca. 30–50 €" },
-  "fs_step4":     { bhs: "Ovjereni prijevod dozvole — sudski tumač (beeidigte Übersetzung), oko 30–80 €", de: "Beglaubigte Übersetzung des Führerscheins — durch vereidigten Übersetzer, ca. 30–80 €" },
+  "fs_step4":     { bhs: "Ovjereni prijevod dozvole — ako je potreban (beeidigte Übersetzung), oko 30–80 €", de: "Beglaubigte Übersetzung des Führerscheins — falls erforderlich, ca. 30–80 €" },
   "fs_step5":     { bhs: "Biometrijska fotografija — sa automata ili kod fotografa, oko 5–15 €", de: "Biometrisches Passfoto — vom Automaten oder Fotografen, ca. 5–15 €" },
   "fs_step6":     { bhs: "Zahtjev u Führerscheinstelle — predaj sve dokumente i plati upravnu pristojbu", de: "Antrag bei der Führerscheinstelle — alle Unterlagen einreichen und Verwaltungsgebühr bezahlen" },
+  "fs_step_note": { bhs: "Za priznate dozvole nije potreban kurs prve pomoći niti ponovno polaganje.", de: "Für anerkannte Führerscheine ist weder ein Erste-Hilfe-Kurs noch eine erneute Prüfung erforderlich." },
 
   "fs_s3":        { bhs: "Potrebni dokumenti",                de: "Benötigte Unterlagen" },
   "fs_doc1":      { bhs: "Pasoš ili lična karta (original + kopija)", de: "Reisepass oder Personalausweis (Original + Kopie)" },
