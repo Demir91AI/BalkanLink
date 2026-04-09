@@ -186,6 +186,46 @@ export default function Pricing() {
           </div>
         </div>
 
+        {/* Firma oglasi */}
+        <div className="mt-16">
+          <h2 className="text-xl font-bold text-center mb-6">
+            <Building2 className="inline mr-2 h-5 w-5" />
+            Reklamirajte svoju firmu
+          </h2>
+          <div className="grid gap-4 md:grid-cols-2 max-w-2xl mx-auto">
+            <div className="rounded-2xl border border-border bg-card p-5">
+              <h3 className="font-bold">Basic</h3>
+              <p className="text-[13px] text-muted-foreground mt-0.5">Vaša firma vidljiva na svim stranicama platforme</p>
+              <p className="text-2xl font-bold mt-1">9.99€<span className="text-sm font-normal text-muted-foreground">/mjes.</span></p>
+              <p style={{ fontSize: 11, fontWeight: 700, color: "#EAB308", marginTop: 4 }}>🎉 Promo cijena — prvih 6 mjeseci</p>
+              <p className="text-xs text-muted-foreground mt-1">Flow banner na unutarnjim stranicama</p>
+              <Button
+                variant="outline"
+                className="mt-4 w-full rounded-xl text-sm"
+                asChild
+              >
+                <a href="mailto:kontakt@balkanlink.de?subject=Basic%20Firma%20Paket">
+                  Zatraži Basic →
+                </a>
+              </Button>
+            </div>
+            <div className="rounded-2xl border-2 border-[hsl(var(--gold))] bg-card p-5">
+              <h3 className="font-bold">Featured</h3>
+              <p className="text-[13px] text-muted-foreground mt-0.5">Istaknuta pozicija + prikazano na naslovnoj stranici</p>
+              <p className="text-2xl font-bold mt-1">19.99€<span className="text-sm font-normal text-muted-foreground">/mjes.</span></p>
+              <p style={{ fontSize: 11, fontWeight: 700, color: "#EAB308", marginTop: 4 }}>🎉 Promo cijena — prvih 6 mjeseci</p>
+              <p className="text-xs text-muted-foreground mt-1">Istaknuta kartica + flow banner</p>
+              <Button
+                className="mt-4 w-full rounded-xl bg-[hsl(var(--gold))] text-white hover:bg-[hsl(var(--gold-light))] text-sm"
+                asChild
+              >
+                <a href="mailto:kontakt@balkanlink.de?subject=Featured%20Firma%20Paket">
+                  Zatraži Featured →
+                </a>
+              </Button>
+            </div>
+          </div>
+        </div>
 
         {/* Classifieds PRO */}
         <div className="mt-12 max-w-md mx-auto">
