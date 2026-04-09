@@ -11,8 +11,8 @@ export default function FuehrerscheinGuideContent() {
   ];
 
   const steps = ["fs_step1", "fs_step4", "fs_step5", "fs_step6"];
-  const docs = ["fs_doc1", "fs_doc2", "fs_doc3", "fs_doc4", "fs_doc5", "fs_doc6", "fs_doc7"];
-  const costs = ["fs_cost1", "fs_cost2", "fs_cost3", "fs_cost4", "fs_cost5", "fs_cost6"];
+  const docs = ["fs_doc1", "fs_doc2", "fs_doc3", "fs_doc4", "fs_doc5"];
+  const costs = ["fs_cost1", "fs_cost2", "fs_cost3", "fs_cost4"];
   const errors = ["fs_err1", "fs_err2", "fs_err3", "fs_err4", "fs_err5"];
 
   return (
