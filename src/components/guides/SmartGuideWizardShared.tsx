@@ -17,6 +17,8 @@ export interface StepData {
 
 interface Props {
   steps: StepData[];
+  /** When true, all steps are shown without paywall */
+  free?: boolean;
   finishLabel?: string;
   onFinish?: () => void;
 }
