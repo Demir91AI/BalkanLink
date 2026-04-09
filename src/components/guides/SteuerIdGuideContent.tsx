@@ -56,7 +56,7 @@ export default function SteuerIdGuideContent() {
           "Tražiti ga na pogrešnom mjestu — ne tražiti u ELSTER-u, to je za Steuernummer",
         ]}
       />
-      <SmartGuideWizardShared steps={STEPS} />
+      <SmartGuideWizardShared steps={STEPS} free />
       <div className="rounded-lg p-4 text-center" style={{ backgroundColor: "#1F2937" }}>
         <p className="text-[13px] text-gray-400">Korisni linkovi</p>
         <div className="flex flex-col items-center gap-2 mt-2">
