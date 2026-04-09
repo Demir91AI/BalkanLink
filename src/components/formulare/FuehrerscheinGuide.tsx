@@ -85,6 +85,7 @@ export default function FuehrerscheinGuideContent() {
             );
           })}
         </ul>
+        <p className="text-xs text-muted-foreground italic mt-2">{t("fs_doc_note")}</p>
       </section>
 
       {/* Section 4 — Where */}
