@@ -1,4 +1,5 @@
 import { useLanguage } from "@/contexts/LanguageContext";
+import { SEO } from "@/components/SEO";
 import { getMigrationCountries, type CategoryKey } from "@/lib/migration-data";
 import { Briefcase, GraduationCap, BookOpen, Heart, Award, ExternalLink, ShieldAlert, CheckCircle2, ChevronRight, Globe, Info } from "lucide-react";
 import PageNavBar from "@/components/navigation/PageNavBar";
@@ -31,6 +32,7 @@ export default function NachDeutschland() {
   if (!selectedCountry) {
     return (
       <div className="container max-w-4xl py-8 px-4">
+        <SEO title="Nach Deutschland — Vodič za Dolazak" description="Sve informacije za dolazak u Njemačku — viza, posao, studij, spajanje porodice. Po zemljama." path="/nach-deutschland" />
         <PageNavBar onBack={handleBack} />
         <h1 className="text-2xl font-bold text-foreground mb-2">{t("migration.title")}</h1>
         <p className="text-sm text-muted-foreground mb-6">{t("migration.subtitle")}</p>

@@ -1,4 +1,5 @@
 import { useState, useMemo, useCallback, useRef, useEffect } from "react";
+import { SEO } from "@/components/SEO";
 import { useNavigate } from "react-router-dom";
 import { ChevronDown, ChevronUp, ExternalLink, X } from "lucide-react";
 import PageNavBar from "@/components/navigation/PageNavBar";
@@ -509,6 +510,7 @@ export default function Kalkulatori() {
 
   return (
     <div className="min-h-screen bg-[#0B0F1A]">
+      <SEO title="Brutto-Netto Kalkulator" description="Izračunaj svoju neto platu u Njemačkoj — porezi, doprinosi, steuerklasse i Kindergeld uključeni." path="/kalkulatori" />
       
 
       {/* Header */}
