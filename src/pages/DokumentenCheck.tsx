@@ -428,16 +428,13 @@ export default function DokumentenCheck() {
               className="flex flex-col items-center rounded-2xl border border-[hsl(var(--gold))]/20 bg-[#0f1f3d] p-10 text-center">
               <Lock className="h-10 w-10 text-[hsl(var(--gold))] mb-4" />
               <p className="text-lg font-bold text-white mb-2">Dokumenten-Check</p>
-              <p className="text-sm text-white/60 mb-6 max-w-sm">2.99€ po dokumentu bez pretplate · Premium uključuje 1 provjeru dnevno</p>
-              <div className="flex flex-col gap-3 w-full max-w-xs">
-                <button onClick={() => navigate("/pricing")}
+              <p className="text-sm text-white/60 mb-6 max-w-sm">Premium uključuje 1 provjeru dnevno</p>
+              <div className="flex flex-col gap-3 w-full max-w-xs items-center">
+                <button onClick={() => navigate("/premium")}
                   className="rounded-full bg-[hsl(var(--gold))] px-6 py-3.5 text-[#0f1f3d] font-bold transition-all hover:opacity-90">
                   BalkanLink Premium — 9.99€/mj.
                 </button>
-                <button onClick={() => { toast.info("Einzelkauf wird bald verfügbar sein"); setShowPaywall(false); }}
-                  className="rounded-full bg-[#0f1f3d] px-6 py-3.5 text-sm font-bold text-white border border-white/20 transition-all hover:bg-[#0f1f3d]/80">
-                  Einzelprüfung — 2.99€
-                </button>
+                <p className="text-xs text-white/40 mt-1">Einzeldokument-Kauf (2.99€) kommt bald</p>
               </div>
             </motion.div>
           )}
