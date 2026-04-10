@@ -971,4 +971,16 @@ export const translations: Record<string, T> = {
   "trainer.paywall.later":  { bs: "Odlučit ću kasnije", hr: "Odlučit ću kasnije", sr: "Odlučiću kasnije", de: "Später entscheiden" },
   "trainer.exercises":      { bs: "zadataka", hr: "zadataka", sr: "zadataka", de: "Aufgaben" },
   "trainer.freeAvailable":  { bs: "slobodnih", hr: "slobodnih", sr: "slobodnih", de: "frei verfügbar" },
+
+  // PROFILE & GENERAL
+  "nav.profil":       { bs: "Profil", hr: "Profil", sr: "Profil", de: "Profil" },
+  "nav.logout":       { bs: "Odjava", hr: "Odjava", sr: "Odjava", de: "Abmelden" },
+  "nav.login":        { bs: "Prijava", hr: "Prijava", sr: "Prijava", de: "Anmelden" },
+  "nav.register":     { bs: "Registracija", hr: "Registracija", sr: "Registracija", de: "Registrieren" },
+  "nav.premium":      { bs: "Premium", hr: "Premium", sr: "Premium", de: "Premium" },
+  "general.loading":  { bs: "Učitavanje...", hr: "Učitavanje...", sr: "Učitavanje...", de: "Wird geladen..." },
+  "general.error":    { bs: "Greška", hr: "Greška", sr: "Greška", de: "Fehler" },
+  "general.back":     { bs: "Nazad", hr: "Natrag", sr: "Nazad", de: "Zurück" },
+  "general.close":    { bs: "Zatvori", hr: "Zatvori", sr: "Zatvori", de: "Schließen" },
+  "general.validUntil": { bs: "Vrijedi do", hr: "Vrijedi do", sr: "Važi do", de: "Gültig bis" },
 };
