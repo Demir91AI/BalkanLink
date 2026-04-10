@@ -296,7 +296,27 @@ export default function FormCenter() {
     return (
       <div className="px-4 py-6">
         <PageNavBar onBack={handleBack} />
-        <GuideContent key={activeSlug} slug={activeSlug} />
+        {isPremium ? (
+          <GuideContent key={activeSlug} slug={activeSlug} />
+        ) : (
+          <div className="flex flex-col items-center justify-center py-20 text-center gap-6">
+            <div className="h-16 w-16 rounded-full bg-[hsl(var(--gold))]/10 flex items-center justify-center">
+              <Lock className="h-8 w-8 text-[hsl(var(--gold))]" />
+            </div>
+            <div>
+              <h2 className="text-xl font-bold">{t("formCenter.premiumRequired")}</h2>
+              <p className="mt-2 text-sm text-muted-foreground max-w-sm mx-auto">
+                {t("formCenter.premiumRequiredDesc")}
+              </p>
+            </div>
+            <button
+              onClick={() => navigate("/paketi")}
+              className="rounded-full bg-[hsl(var(--gold))] px-8 py-3 font-bold text-[hsl(225,45%,6%)] hover:opacity-90 transition-opacity"
+            >
+              BalkanLink Premium — 9.99€/mj.
+            </button>
+          </div>
+        )}
       </div>
     );
   }
