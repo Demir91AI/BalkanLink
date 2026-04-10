@@ -99,6 +99,7 @@ function GuideContent({ slug }: { slug: string }) {
   const guide = getGuideBySlug(slug);
   const { t, language } = useLanguage();
   const lang = getLangKey(language);
+  const freeLang = (lang === "hr" || lang === "sr" ? "bs" : lang) as "de" | "bs" | "en";
   const navigate = useNavigate();
 
   const MUSTER_MAP: Record<string, string> = {
@@ -171,7 +172,7 @@ function GuideContent({ slug }: { slug: string }) {
 
   return (
     <div className="space-y-8">
-      <FormFreeContent guide={guide} lang={lang} />
+      <FormFreeContent guide={guide} lang={freeLang} />
       <div className="relative py-2">
         <div className="absolute inset-0 flex items-center">
           <div className="w-full border-t border-border/60" />
@@ -182,7 +183,7 @@ function GuideContent({ slug }: { slug: string }) {
           </span>
         </div>
       </div>
-      <FormSmartGuide guide={guide} lang={lang} />
+      <FormSmartGuide guide={guide} lang={freeLang} />
       {MusterButton}
     </div>
   );
