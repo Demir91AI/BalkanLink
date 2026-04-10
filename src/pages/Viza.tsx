@@ -88,6 +88,27 @@ export default function Viza() {
           )}
         </div>
 
+        {/* Premium banner */}
+        {!isPremium && (
+          <div className="mb-6 flex flex-col sm:flex-row items-center gap-4 rounded-xl border-2 border-[hsl(var(--gold))]/30 bg-[#FFF8EC] px-5 py-4">
+            <Lock className="h-5 w-5 text-[hsl(var(--gold))] shrink-0" />
+            <p className="text-sm text-[#2D2D2D] flex-1">
+              <strong>Viza Navigator je Premium funkcija.</strong>{" "}
+              Pregled zemalja je besplatan — detaljni vodiči za vize zahtijevaju Premium pristup.
+            </p>
+            <div className="flex gap-2 shrink-0">
+              <button onClick={() => navigate("/premium")}
+                className="rounded-full bg-[hsl(var(--gold))] px-4 py-2 text-xs font-bold text-[#0f1f3d] hover:opacity-90 transition-opacity">
+                Premium — 9.99€/mj.
+              </button>
+              <button onClick={() => navigate("/paketi")}
+                className="rounded-full border border-border px-4 py-2 text-xs font-semibold hover:bg-muted transition-colors">
+                Saznaj više
+              </button>
+            </div>
+          </div>
+        )}
+
         {/* 3-col layout: Sidebar | Main | Right Panel */}
         <div className="flex flex-col md:flex-row gap-6">
           {/* LEFT SIDEBAR — Country list */}
