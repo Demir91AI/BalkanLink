@@ -920,7 +920,6 @@ export const translations: Record<string, T> = {
   "fz_link2_label": { bs: "ADAC — savjeti za registraciju",  de: "ADAC — Tipps zur Zulassung" },
   "fz_link2_url":   { bs: "https://www.adac.de/rund-ums-fahrzeug/auto-kaufen-verkaufen/kfz-zulassung/", de: "https://www.adac.de/rund-ums-fahrzeug/auto-kaufen-verkaufen/kfz-zulassung/" },
   "fz_source":      { bs: "Izvor: KBA, ADAC, Zoll.de",      de: "Quelle: KBA, ADAC, Zoll.de" },
-};
 
   // TRAINER (Block 3 additions)
   "trainer.home":              { bs: "Početna",              de: "Startseite" },
