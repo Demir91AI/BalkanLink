@@ -37,7 +37,7 @@ export default function PaymentSuccess() {
             <Crown className="mr-2 h-4 w-4" />
             Nastavi na BalkanLink
           </Button>
-          <Button variant="outline" className="rounded-xl" onClick={() => navigate("/pricing")}>
+          <Button variant="outline" className="rounded-xl" onClick={() => navigate("/paketi")}>
             Pogledaj svoj plan
           </Button>
         </div>
