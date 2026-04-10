@@ -691,6 +691,7 @@ export const translations: Record<string, T> = {
   "trainer.free":      { bs: "Besplatno",              de: "Kostenlos" },
   "trainer.moreTasks": { bs: "Još zadataka",           de: "Mehr Aufgaben" },
   "trainer.tasks":     { bs: "zadataka",               de: "Aufgaben" },
+  "trainer.unlock":    { bs: "Otključaj s Premium",    de: "Mit Premium freischalten" },
 
   // VISA NAVIGATOR (used via t())
   "visaNavigator.title":         { bs: "Viza Navigator",                   de: "Visa Navigator" },
