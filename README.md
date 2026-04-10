@@ -1,23 +1,25 @@
 # BalkanLink
 
-Platforma za Balkance u Njemačkoj — formulari, viza navigator, AI asistent, deutsch kurs.
+BalkanLink (balkanlink.de) je sveobuhvatna web platforma za balkansku dijasporu u Njemačkoj.
 
-**Live:** https://www.balkanlink.de
+## Funkcionalnosti
+
+- Musterformulare — prefilled German forms in BHS languages
+- Viza Navigator — visa and residence permit guides for all Balkan countries
+- Dokumenten-Check — AI-powered document analysis
+- BalkanLink Deutsch — German language course A1-C2
+- AI Asistent — AI assistant for German bureaucracy questions
+- Nudim/Tražim — classified ads for the diaspora community
+- Community Mapa — map of Balkan diaspora in Germany
 
 ## Tech Stack
-- React 18 + TypeScript 5.8
-- Vite 5 + Tailwind CSS + shadcn-ui
-- Supabase (auth + baza podataka)
-- Anthropic AI (claude-sonnet-4-20250514)
-- react-helmet-async (SEO)
 
-## Razvoj
-```bash
-bun install
-bun run dev
-```
+React · TypeScript · Tailwind CSS · shadcn-ui · Supabase · Anthropic Claude API
 
-## Build
-```bash
-bun run build
-```
+## Development
+
+Built with Lovable. Changes committed automatically via Lovable or directly to main branch.
+
+## Legal
+
+Operated by RealCore under §19 UStG (Kleinunternehmer). No VAT charged.
