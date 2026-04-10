@@ -32,7 +32,6 @@ const LOCKED_STAGE_COUNTS = FREE_STAGE_COUNTS.map(
   (free) => EXERCISES_PER_STAGE - free
 ) as unknown as readonly [number, number, number];
 
-const STAGE_KEYS = ["stage_grundlagen", "stage_anwendung", "stage_realitaet"] as const;
 const STAGE_TYPES = ["Grundlagen", "Anwendung", "Realitaet"] as const;
 
 interface Props {
@@ -58,7 +57,11 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
   const exerciseCount = EXERCISES_PER_STAGE;
 
   // Translated stage labels
-  const stageLabels = STAGE_KEYS.map((key) => t(key));
+  const stageLabels = [
+    t("trainer.stage.grundlagen"),
+    t("trainer.stage.anwendung"),
+    t("trainer.stage.realitaet"),
+  ];
 
   useEffect(() => {
     if (selectedStage === null) {
