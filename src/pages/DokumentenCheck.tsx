@@ -336,6 +336,7 @@ export default function DokumentenCheck() {
                       <input
                         type="file"
                         accept=".pdf,.jpg,.jpeg,.png,image/*"
+                        capture="environment"
                         ref={fileInputRef}
                         style={{
                           position:'absolute' as const, inset:0,
