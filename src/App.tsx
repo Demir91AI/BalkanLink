@@ -224,6 +224,10 @@ function AppRoutes() {
         <Route path="/zivot-savjeti" element={<Navigate to="/zivot" replace />} />
         <Route path="/trebam-pomoc" element={<Navigate to="/probleme" replace />} />
         <Route path="/pocni-ovdje" element={<Navigate to="/dolazak" replace />} />
+        <Route path="/ambasade" element={<Navigate to="/ambasade-konzulati" replace />} />
+        <Route path="/nutzungsbedingungen" element={<Navigate to="/agb" replace />} />
+        <Route path="/haftungsausschluss" element={<Navigate to="/disclaimer" replace />} />
+        <Route path="/inhalte-melden" element={<Navigate to="/dsa" replace />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>
