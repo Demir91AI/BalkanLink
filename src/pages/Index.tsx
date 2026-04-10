@@ -342,7 +342,7 @@ export default function Index() {
                 <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[hsl(var(--gold))] px-4 py-1 text-[10px] font-bold uppercase tracking-wider text-white">Preporučeno</span>
                 <p className="text-sm font-bold text-[hsl(var(--gold))] uppercase tracking-wider mb-2">Premium</p>
                 <p className="text-3xl font-black text-[#2D2D2D] mb-1">9,99€<span className="text-base font-normal text-[#6B6B6B]">/mj.</span></p>
-                <p style={{ fontSize: 11, fontWeight: 700, color: "#EAB308", marginTop: 4, textAlign: "center" as const }}>🎉 Promo cijena — prvih 6 mjeseci</p>
+                
                 <p className="text-xs text-[#6B6B6B] mb-6">ili 99,90€/godišnje (uštedi 17%)</p>
                 <ul className="space-y-2 text-sm text-[#2D2D2D] flex-1">
                   <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Svi Musterformulari</li>
@@ -353,7 +353,7 @@ export default function Index() {
                   <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> AI Asistent neograničeno</li>
                   <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> 2 Pro oglasa/mjesečno</li>
                 </ul>
-                <Button className="mt-6 w-full rounded-full bg-[hsl(var(--gold))] text-white font-bold hover:bg-[hsl(var(--gold-dark))] shadow-[0_4px_20px_rgba(201,168,76,0.35)]" onClick={() => navigate("/pricing")}>
+                <Button className="mt-6 w-full rounded-full bg-[hsl(var(--gold))] text-white font-bold hover:bg-[hsl(var(--gold-dark))] shadow-[0_4px_20px_rgba(201,168,76,0.35)]" onClick={() => navigate("/paketi")}>
                   Postani Premium →
                 </Button>
               </div>

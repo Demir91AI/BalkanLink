@@ -19,7 +19,7 @@ export default function PaymentCancel() {
         </p>
         <div className="flex flex-col gap-3">
           <Button
-            onClick={() => navigate("/pricing")}
+            onClick={() => navigate("/paketi")}
             className="rounded-xl bg-[hsl(var(--gold))] text-white hover:bg-[hsl(var(--gold-light))]"
           >
             Pokušaj ponovo

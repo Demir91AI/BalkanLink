@@ -10,6 +10,7 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import { CountryProvider } from "@/contexts/CountryContext";
 import Layout from "@/components/layout/Layout";
 import HomeLayout from "@/components/layout/HomeLayout";
+import AdminGuard from "@/components/AdminGuard";
 import Index from "./pages/Index";
 
 // Lazy-loaded pages
@@ -67,7 +68,7 @@ const BussgeldAssistent = lazy(() => import("./pages/BussgeldAssistent"));
 const ChatAssistant = lazy(() => import("./components/ChatAssistant"));
 const KindergeldMuster = lazy(() => import("./pages/muster/KindergeldMuster"));
 const AnmeldungMuster = lazy(() => import("./pages/muster/AnmeldungMuster"));
-const Pricing = lazy(() => import("./pages/Pricing"));
+
 const PaymentSuccess = lazy(() => import("./pages/PaymentSuccess"));
 const PaymentCancel = lazy(() => import("./pages/PaymentCancel"));
 const Kalkulatori = lazy(() => import("./pages/Kalkulatori"));
@@ -109,7 +110,6 @@ const queryClient = new QueryClient({
 });
 
 function AppRoutes() {
-  const { isAdmin } = useAuth();
   return (
     <Routes>
       <Route element={<HomeLayout />}>
@@ -174,8 +174,10 @@ function AppRoutes() {
         <Route path="/guide/:slug" element={<LegacyGuideRedirect />} />
         <Route path="/smart-guide/:slug" element={<LegacyGuideRedirect />} />
         <Route path="/dokumenten-check" element={<DokumentenCheck />} />
-        <Route path="/admin/forms" element={isAdmin ? <AdminForms /> : <Navigate to="/" replace />} />
-        <Route path="/admin/forms/:slug/mapper" element={isAdmin ? <AdminFormMapper /> : <Navigate to="/" replace />} />
+        <Route element={<AdminGuard />}>
+          <Route path="/admin/forms" element={<AdminForms />} />
+          <Route path="/admin/forms/:slug/mapper" element={<AdminFormMapper />} />
+        </Route>
         <Route path="/qa" element={<QA />} />
         <Route path="/qa/:id" element={<QADetail />} />
         <Route path="/directory" element={<Directory />} />
@@ -211,7 +213,7 @@ function AppRoutes() {
         <Route path="/bussgeld" element={<BussgeldAssistent />} />
         <Route path="/ai-asistent" element={<ChatAssistant />} />
         <Route path="/paketi" element={<Paketi />} />
-        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/pricing" element={<Navigate to="/paketi" replace />} />
         <Route path="/payment-success" element={<PaymentSuccess />} />
         <Route path="/placanje-uspjesno" element={<PaymentSuccess />} />
         <Route path="/placanje-otkazano" element={<PaymentCancel />} />

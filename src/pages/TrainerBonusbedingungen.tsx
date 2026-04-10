@@ -49,18 +49,18 @@ export default function TrainerBonusbedingungen() {
 
           <h2 className="text-base font-black text-foreground">3. Staffelung</h2>
           <ul className="list-disc pl-5 space-y-1">
-            <li>Paket A (A1+A2): 5 € Wertgutschein</li>
-            <li>Paket B (B1+B2): 10 € Wertgutschein</li>
-            <li>Paket C (C1+C2): 15 € Wertgutschein</li>
-            <li>Alle Pakete (A1–C2): 30 € Wertgutschein</li>
+            <li>Paket A (A1+A2): 1 Monat Premium gratis</li>
+            <li>Paket B (B1+B2): 2 Monate Premium gratis</li>
+            <li>Paket C (C1+C2): 3 Monate Premium gratis</li>
+            <li>Alle Pakete (A1–C2) + Godišnji Premium: 30 € Amazon.de Gutschein</li>
           </ul>
 
           <h2 className="text-base font-black text-foreground">4. Einlösung</h2>
           <ul className="list-disc pl-5 space-y-1">
-            <li>Nur 1 Gutschein pro Paket pro Nutzer</li>
+            <li>Nur 1 Bonus pro Paket pro Nutzer</li>
             <li>Kein mehrfacher Bezug für dasselbe Paket</li>
-            <li>Nutzer kann mehrere Gutscheine sammeln (Paket A, B, C)</li>
-            <li>Gesamtbonus (30 €) nur einmal möglich</li>
+            <li>Nutzer kann mehrere Freimonate sammeln (Paket A, B, C)</li>
+            <li>Amazon-Gutschein (30 €) nur bei vollständigem Abschluss aller Pakete + Godišnji Premium — einmal möglich</li>
           </ul>
 
           <h2 className="text-base font-black text-foreground">5. Prüfung & Freigabe</h2>
