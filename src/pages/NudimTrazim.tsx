@@ -157,7 +157,7 @@ export default function NudimTrazim() {
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8 py-14 md:py-20">
           <div className="flex items-center gap-3 mb-8">
             <button onClick={handleBack} className="flex items-center gap-1.5 text-[13px] font-medium text-white/50 hover:text-white transition-colors">
-              <ChevronLeft className="h-4 w-4" /> Nazad
+              <ChevronLeft className="h-4 w-4" /> {t("nav.back")}
             </button>
             <button onClick={() => navigate("/")} className="flex items-center gap-1.5 text-[13px] font-medium text-white/50 hover:text-white transition-colors">
               <Home className="h-4 w-4" /> Početna
@@ -262,7 +262,7 @@ export default function NudimTrazim() {
                         ? "bg-[hsl(var(--success))]/10 text-[hsl(var(--success))]"
                         : "bg-primary/10 text-primary"
                     }`}>
-                      {ad.type === "nudim" ? "NUDIM" : "TRAŽIM"}
+                      {ad.type === "nudim" ? t("nt.typeOffer").toUpperCase() : t("nt.typeSeek").toUpperCase()}
                     </span>
                   </div>
                   <NtAdCard ad={ad} onOpen={openAd} />

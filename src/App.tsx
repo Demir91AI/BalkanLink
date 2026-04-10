@@ -95,6 +95,8 @@ const ArbeitsbescheinigungMuster = lazy(() => import("./pages/muster/Arbeitsbesc
 const AntragsruecknahmeMuster = lazy(() => import("./pages/muster/AntragsruecknahmeMuster"));
 const Viza = lazy(() => import("./pages/Viza"));
 const ZivotUNjemackoj = lazy(() => import("./pages/ZivotUNjemackoj"));
+const Premium = lazy(() => import("./pages/Premium"));
+const Paketi = lazy(() => import("./pages/Paketi"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -166,7 +168,7 @@ function AppRoutes() {
         <Route path="/brutto-netto-rechner" element={<BruttoNettoRechner />} />
         <Route path="/wohnungen" element={<Wohnungen />} />
         <Route path="/stellenangebote" element={<Stellenangebote />} />
-        <Route path="/premium" element={<Navigate to="/pricing" replace />} />
+        <Route path="/premium" element={<Premium />} />
         <Route path="/guide/:slug" element={<LegacyGuideRedirect />} />
         <Route path="/smart-guide/:slug" element={<LegacyGuideRedirect />} />
         <Route path="/dokumenten-check" element={<DokumentenCheck />} />
@@ -206,7 +208,7 @@ function AppRoutes() {
         <Route path="/firma/:slug" element={<FirmDetail />} />
         <Route path="/bussgeld" element={<BussgeldAssistent />} />
         <Route path="/ai-asistent" element={<ChatAssistant />} />
-        <Route path="/paketi" element={<Navigate to="/pricing" replace />} />
+        <Route path="/paketi" element={<Paketi />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/payment-success" element={<PaymentSuccess />} />
         <Route path="/placanje-uspjesno" element={<PaymentSuccess />} />
