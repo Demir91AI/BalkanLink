@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { SEO } from "@/components/SEO";
 import { Link, useSearchParams, useNavigate } from "react-router-dom";
 import { Search, Lock, Crown, ChevronRight, ChevronLeft } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -37,6 +38,7 @@ export default function QA() {
 
   return (
     <div className="container py-8 md:py-12">
+      <SEO title="Pitanja i Odgovori" description="Najčešća pitanja o životu u Njemačkoj — administracija, porezi, zdravstvo, stanovanje. Na bosanskom, hrvatskom i srpskom." path="/qa" />
       <div className="mb-8 max-w-2xl">
         <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
           <ChevronLeft className="h-4 w-4" /> Nazad

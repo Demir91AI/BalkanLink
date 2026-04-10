@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { SEO } from "@/components/SEO";
 import { Car, Smartphone, TrafficCone, ParkingSquare, Wine, AlertTriangle, ChevronRight } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -60,6 +61,7 @@ export default function BussgeldAssistent() {
 
   return (
     <div className="min-h-screen pb-16">
+      <SEO title="Bußgeld Asistent — Kazne u Saobraćaju" description="Provjeri kolika je kazna za saobraćajne prekršaje u Njemačkoj — brzina, alkohol, parking, mobitel." path="/bussgeld" />
       <PageNav />
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-muted/40 py-10 px-4">

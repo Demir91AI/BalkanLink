@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import { SEO } from "@/components/SEO";
 import { Briefcase, Receipt, Home, Heart, Users, HandCoins, ArrowRight, ChevronLeft } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -140,6 +141,7 @@ export default function ZivotSavjeti() {
 
   return (
     <>
+      <SEO title="Život u Njemačkoj — Savjeti i Prava" description="Radna prava, porezi, stanovanje, zdravstvo i sve što trebaš znati za svakodnevni život u Njemačkoj." path="/zivot" />
       <section className="border-b bg-primary py-12">
         <div className="container">
           <button onClick={() => navigateBackOrHome(navigate)} className="back-button">

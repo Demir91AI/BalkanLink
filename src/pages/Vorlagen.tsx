@@ -1,4 +1,5 @@
 import { FileCheck, Clock, Briefcase, Home, Wifi, Star, Heart, File } from "lucide-react";
+import { SEO } from "@/components/SEO";
 import PageNavBar from "@/components/navigation/PageNavBar";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -68,6 +69,7 @@ export default function Vorlagen() {
   /* ── Overview listing ── */
   return (
     <div className="container max-w-3xl py-8 px-4">
+      <SEO title="Vorlagen — Pisma i Dopisi" description="Gotovi šabloni za njemačka pisma — otkaz ugovora, zahtjevi, molbe. Na bosanskom i njemačkom." path="/vorlagen" />
           <PageNavBar onBack={() => navigateBackOrHome(navigate)} />
       <h1 className="text-2xl font-bold mb-1">Šabloni / Vorlagen</h1>
       <p className="text-sm text-muted-foreground mb-8">

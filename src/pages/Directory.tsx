@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { SEO } from "@/components/SEO";
 import { Link, useNavigate } from "react-router-dom";
 import { Search, MapPin, Phone, Globe, Plus, Building2, Filter, ChevronLeft } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -30,6 +31,7 @@ export default function Directory() {
 
   return (
     <div className="container py-8">
+      <SEO title="Balkanski Imenik u Njemačkoj" description="Pronađi balkanske firme i usluge u Njemačkoj — restorani, majstori, prevodioci i više." path="/directory" />
       {/* Header */}
       <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>

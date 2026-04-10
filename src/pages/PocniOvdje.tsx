@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import { SEO } from "@/components/SEO";
 import { ArrowRight, ChevronLeft, Home, FileText, CreditCard, Heart, Landmark, ClipboardList, Shield, Radio, Car, KeyRound } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { navigateBackOrHome } from "@/lib/navigation";
@@ -100,6 +101,7 @@ export default function PocniOvdje() {
 
   return (
     <>
+      <SEO title="Počni Ovdje — Prvi Koraci u Njemačkoj" description="Najvažniji koraci za tvoj početak u Njemačkoj — prijava, dozvola, osiguranje, banka i više." path="/dolazak" />
       <section className="border-b bg-primary py-10">
         <div className="container max-w-3xl">
           <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
