@@ -97,6 +97,7 @@ const Viza = lazy(() => import("./pages/Viza"));
 const ZivotUNjemackoj = lazy(() => import("./pages/ZivotUNjemackoj"));
 const Premium = lazy(() => import("./pages/Premium"));
 const Paketi = lazy(() => import("./pages/Paketi"));
+const Profil = lazy(() => import("./pages/Profil"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -169,6 +170,7 @@ function AppRoutes() {
         <Route path="/wohnungen" element={<Wohnungen />} />
         <Route path="/stellenangebote" element={<Stellenangebote />} />
         <Route path="/premium" element={<Premium />} />
+        <Route path="/profil" element={<Profil />} />
         <Route path="/guide/:slug" element={<LegacyGuideRedirect />} />
         <Route path="/smart-guide/:slug" element={<LegacyGuideRedirect />} />
         <Route path="/dokumenten-check" element={<DokumentenCheck />} />
