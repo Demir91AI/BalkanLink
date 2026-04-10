@@ -643,48 +643,6 @@ Mit freundlichen Grüßen
     ],
     checklist: ["Name und Position korrekt", "Qualifiziertes Zeugnis angefordert"],
   },
-
-  /* ── KRANKMELDUNG ── */
-  {
-    slug: "krankmeldung",
-    titleDe: "Krankmeldung an Arbeitgeber",
-    titleBs: "Prijava bolovanja",
-    section: "work",
-    icon: "heart",
-    fields: [
-      { key: "NAME", label: "Ihr vollständiger Name", labelBs: "Vaše puno ime", placeholder: "Max Mustermann" },
-      { key: "FIRMA", label: "Name des Arbeitgebers", labelBs: "Ime poslodavca", placeholder: "Musterfirma GmbH" },
-      { key: "DATUM", label: "Datum", labelBs: "Datum", type: "date" },
-    ],
-    variants: [
-      {
-        id: "standard",
-        label: "Standard (professionell)",
-        body: `{{ORT}}, den {{DATUM}}
-
-Sehr geehrte Damen und Herren,
-
-hiermit informiere ich Sie darüber, dass ich krankheitsbedingt arbeitsunfähig bin.
-
-Eine ärztliche Bescheinigung werde ich Ihnen schnellstmöglich nachreichen.
-
-Mit freundlichen Grüßen
-
-{{NAME}}`,
-      },
-    ],
-    hints: [
-      {
-        title: "Wichtig zu wissen",
-        items: [
-          "Arbeitgeber muss unverzüglich informiert werden.",
-          "Ab dem 4. Krankheitstag ist eine ärztliche Bescheinigung (AU) Pflicht.",
-          "Seit 2023: elektronische AU wird direkt an die Krankenkasse übermittelt.",
-        ],
-      },
-    ],
-    checklist: ["Arbeitgeber rechtzeitig informiert", "AU beim Arzt angefordert"],
-  },
 ];
 
 /* ── Lookup helper ── */
