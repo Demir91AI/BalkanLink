@@ -93,7 +93,7 @@ export default function Viza() {
           {/* LEFT SIDEBAR — Country list */}
           <div className="hidden md:block w-[220px] flex-shrink-0">
             <div className="sticky top-6">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-3" className="text-[hsl(var(--gold))]">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-3 text-[hsl(var(--gold))]">
                 {t("visaNavigator.sidebar_eu")}
               </p>
               <div className="flex flex-col gap-1 mb-5">
@@ -117,7 +117,7 @@ export default function Viza() {
                 })}
               </div>
 
-              <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-3" className="text-[hsl(var(--gold))]">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-3 text-[hsl(var(--gold))]">
                 {t("visaNavigator.sidebar_balkan")}
               </p>
               <div className="flex flex-col gap-1">
@@ -145,7 +145,7 @@ export default function Viza() {
               {country && !country.isEU && (
                 <>
                   <div className="h-px my-4" style={{ background: '#F0EAD8' }} />
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-3" className="text-[hsl(var(--gold))]">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-3 text-[hsl(var(--gold))]">
                     {t("visaNavigator.sidebar_routes")}
                   </p>
                   <div className="flex flex-col gap-1">
