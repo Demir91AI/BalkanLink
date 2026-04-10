@@ -7,11 +7,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { LogOut, Crown, User } from "lucide-react";
-import SEO from "@/components/SEO";
 
 export default function Profil() {
   const { user, isPremium, subscriptionEnd, signOut, profileLoading } = useAuth();
-  const { tier } = useSubscription();
+  const { subscriptionTier } = useSubscription();
   const navigate = useNavigate();
   const { t } = useTranslation();
 
@@ -27,7 +26,6 @@ export default function Profil() {
 
   return (
     <>
-      <SEO title="Profil – BalkanLink" description="Upravljaj svojim BalkanLink profilom." />
       <PageNav />
       <div className="container max-w-lg py-12">
         <Card className="border-border/60 bg-card/80 backdrop-blur">
@@ -55,7 +53,7 @@ export default function Profil() {
                     <Badge className="bg-[hsl(var(--gold))] text-[#0f1f3d] hover:bg-[hsl(var(--gold))]">
                       <Crown className="h-3 w-3 mr-1" /> Premium
                     </Badge>
-                    <span className="text-xs text-muted-foreground capitalize">{tier}</span>
+                    <span className="text-xs text-muted-foreground capitalize">{subscriptionTier}</span>
                   </>
                 ) : (
                   <Badge variant="secondary">Free</Badge>
