@@ -691,7 +691,6 @@ export const translations: Record<string, T> = {
   "trainer.free":      { bs: "Besplatno",              de: "Kostenlos" },
   "trainer.moreTasks": { bs: "Još zadataka",           de: "Mehr Aufgaben" },
   "trainer.tasks":     { bs: "zadataka",               de: "Aufgaben" },
-  "trainer.unlock":    { bs: "Otključaj s Premium",    de: "Mit Premium freischalten" },
 
   // VISA NAVIGATOR (used via t())
   "visaNavigator.title":         { bs: "Viza Navigator",                   de: "Visa Navigator" },
@@ -930,7 +929,7 @@ export const translations: Record<string, T> = {
   "trainer.typical_mistakes":  { bs: "Tipične greške",        de: "Typische Fehler", hr: "Tipične pogreške" },
   "trainer.generating_tasks":  { bs: "Generišem zadatke...", de: "Aufgaben werden generiert...", hr: "Generiram zadatke..." },
   "trainer.next":              { bs: "Dalje",                 de: "Weiter" },
-  "trainer.back":              { bs: "Nazad",                 de: "Zurück", hr: "Natrag" },
+  "trainer.back":              { bs: "Nazad",                 de: "Zurück", hr: "Natrag", sr: "Nazad" },
   "trainer.lesson_complete":   { bs: "Lekcija završena!",    de: "Lektion abgeschlossen!" },
   "formCenter.premiumRequired":     { bs: "Smart Guide dostupan uz Premium", de: "Smart Guide mit Premium verfügbar" },
   "formCenter.premiumRequiredDesc": { bs: "Otključaj kompletni vodič za popunjavanje svih formulara.", de: "Schalte den vollständigen Leitfaden für alle Formulare frei." },
@@ -955,8 +954,7 @@ export const translations: Record<string, T> = {
   "deutsch.maxReached":        { bs: "Maks. dostignut",       de: "Max erreicht" },
   "deutsch.free":              { bs: "Besplatno",             de: "Free" },
 
-  // TRAINER i18n
-  "trainer.back":           { bs: "Nazad", hr: "Natrag", sr: "Nazad", de: "Zurück" },
+  // TRAINER i18n (extended)
   "trainer.subtitle":       { bs: "Efikasno učenje njemačkog za svakodnevni život", hr: "Učinkovito učenje njemačkog za svakodnevni život", sr: "Efikasno učenje nemačkog za svakodnevni život", de: "Effektives Deutschlernen für das echte Leben" },
   "trainer.unlock.title":   { bs: "Nastavi učiti", hr: "Nastavi učiti", sr: "Nastavi da učiš", de: "Weiter lernen" },
   "trainer.unlock.desc":    { bs: "Otključaj sve lekcije i puni jezični asistent", hr: "Otključaj sve lekcije i puni jezični asistent", sr: "Otključaj sve lekcije i puni jezički asistent", de: "Schalte alle Lektionen & den vollen Sprachassistent frei" },
