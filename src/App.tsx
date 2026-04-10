@@ -110,7 +110,6 @@ const queryClient = new QueryClient({
 });
 
 function AppRoutes() {
-  const { isAdmin } = useAuth();
   return (
     <Routes>
       <Route element={<HomeLayout />}>
