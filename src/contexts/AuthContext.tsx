@@ -38,12 +38,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const { t } = useLanguage();
 
   const fetchUserMeta = async (userId: string) => {
-    const [profileRes, roleRes] = await Promise.all([
-      supabase.from("profiles").select("is_premium").eq("id", userId).single(),
-      supabase.from("user_roles").select("role").eq("user_id", userId),
-    ]);
-    setIsPremium(profileRes.data?.is_premium ?? false);
-    setIsAdmin(roleRes.data?.some((r) => r.role === "admin") ?? false);
+    try {
+      const [profileRes, roleRes] = await Promise.all([
+        supabase.from("profiles").select("is_premium").eq("id", userId).single(),
+        supabase.from("user_roles").select("role").eq("user_id", userId),
+      ]);
+      setIsPremium(profileRes.data?.is_premium ?? false);
+      setIsAdmin(roleRes.data?.some((r) => r.role === "admin") ?? false);
+    } catch (err) {
+      console.error("fetchUserMeta failed:", err);
+      setIsPremium(false);
+      setIsAdmin(false);
+    }
   };
 
   const refreshSubscription = useCallback(async () => {
@@ -87,7 +93,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         fetchUserMeta(session.user.id);
         refreshSubscription();
       }
-      setLoading(false);
     });
 
     return () => subscription.unsubscribe();

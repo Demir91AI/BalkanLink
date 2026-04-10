@@ -5,7 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
-import { AuthProvider } from "@/contexts/AuthContext";
+import { AuthProvider, useAuth } from "@/contexts/AuthContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { CountryProvider } from "@/contexts/CountryContext";
 import Layout from "@/components/layout/Layout";
@@ -96,7 +96,137 @@ const AntragsruecknahmeMuster = lazy(() => import("./pages/muster/Antragsrueckna
 const Viza = lazy(() => import("./pages/Viza"));
 const ZivotUNjemackoj = lazy(() => import("./pages/ZivotUNjemackoj"));
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 1,
+      staleTime: 5 * 60 * 1000,
+    },
+  },
+});
+
+function AppRoutes() {
+  const { isAdmin } = useAuth();
+  return (
+    <Routes>
+      <Route element={<HomeLayout />}>
+        <Route path="/" element={<Index />} />
+      </Route>
+      <Route element={<Layout />}>
+        <Route path="/dolazak" element={<PocniOvdje />} />
+        
+        <Route path="/dolazak/prijava-prebivalista" element={<PrijavaPrebijalista />} />
+        <Route path="/dolazak/boravisna-dozvola" element={<BoravisnaDozvola />} />
+        <Route path="/dolazak/steuer-id-i-porezna-klasa" element={<SteuerIdPoreznaKlasa />} />
+        <Route path="/dolazak/zdravstveno-osiguranje" element={<ZdravstvenoOsiguranje />} />
+        <Route path="/dolazak/bankovni-racun" element={<BankovniRacun />} />
+        <Route path="/dolazak/prvi-koraci" element={<PrviKoraci />} />
+        <Route path="/dolazak/sozialversicherung" element={<Sozialversicherung />} />
+        <Route path="/dolazak/rundfunkbeitrag" element={<Rundfunkbeitrag />} />
+        <Route path="/dolazak/fuehrerschein" element={<Fuehrerschein />} />
+        <Route path="/dolazak/auto-anmelden" element={<AutoAnmelden />} />
+        <Route path="/zivot" element={<ZivotSavjeti />} />
+        
+        <Route path="/probleme" element={<TrebamPomoc />} />
+        
+        <Route path="/formulare" element={<Navigate to="/formulari" replace />} />
+        <Route path="/formulari" element={<FormCenter />} />
+        
+        <Route path="/formulari/kindergeld/muster" element={<Navigate to="/musterformular/kindergeld" replace />} />
+        <Route path="/formulari/anmeldung/muster" element={<Navigate to="/musterformular/anmeldung" replace />} />
+        
+        <Route path="/musterformular/elterngeld" element={<ElterngeldMuster />} />
+        <Route path="/musterformular/anmeldung" element={<AnmeldungMuster />} />
+        <Route path="/musterformular/buergergeld" element={<BuergergeldMuster />} />
+        <Route path="/musterformular/wohngeld" element={<WohngeldMuster />} />
+        <Route path="/musterformular/steuerklasse" element={<SteuerklasseMuster />} />
+        <Route path="/musterformular/arbeitslosengeld" element={<ArbeitslosengeldMuster />} />
+        <Route path="/musterformular/bafoeg" element={<BafoegMuster />} />
+        <Route path="/musterformular/fuehrungszeugnis" element={<FuehrungszeugnisMuster />} />
+        <Route path="/musterformular/kirchenaustritt" element={<KirchenaustrittMuster />} />
+        <Route path="/musterformular/integrationskurs" element={<IntegrationskursMuster />} />
+        <Route path="/musterformular/kinderzuschlag" element={<KinderzuschlagMuster />} />
+        <Route path="/musterformular/schueler-bafoeg" element={<SchuelerBafoegMuster />} />
+        <Route path="/musterformular/grundsicherung" element={<GrundsicherungMuster />} />
+        <Route path="/musterformular/anlage-bb" element={<AnlageBBMuster />} />
+        <Route path="/musterformular/anlage-sv" element={<AnlageSVMuster />} />
+        <Route path="/musterformular/anlage-ve" element={<AnlageVEMuster />} />
+        <Route path="/musterformular/anlage-hg" element={<AnlageHGMuster />} />
+        <Route path="/musterformular/anlage-meb" element={<AnlageMEBMuster />} />
+        <Route path="/musterformular/anlage-uf" element={<AnlageUFMuster />} />
+        <Route path="/musterformular/anlage-se" element={<AnlageSEMuster />} />
+        <Route path="/musterformular/arbeitsbescheinigung" element={<ArbeitsbescheinigungMuster />} />
+        <Route path="/musterformular/kindergeld" element={<KindergeldMuster />} />
+        <Route path="/musterformular/antragsruecknahme" element={<AntragsruecknahmeMuster />} />
+        
+        <Route path="/formulari/:slug" element={<FormCenter />} />
+        <Route path="/familie" element={<Familie />} />
+        <Route path="/foerderungen" element={<Foerderungen />} />
+        <Route path="/tools" element={<Generatoren />} />
+        <Route path="/brutto-netto-rechner" element={<BruttoNettoRechner />} />
+        <Route path="/wohnungen" element={<Wohnungen />} />
+        <Route path="/stellenangebote" element={<Stellenangebote />} />
+        <Route path="/premium" element={<Navigate to="/pricing" replace />} />
+        <Route path="/guide/:slug" element={<LegacyGuideRedirect />} />
+        <Route path="/smart-guide/:slug" element={<LegacyGuideRedirect />} />
+        <Route path="/dokumenten-check" element={<DokumentenCheck />} />
+        <Route path="/admin/forms" element={isAdmin ? <AdminForms /> : <Navigate to="/" replace />} />
+        <Route path="/admin/forms/:slug/mapper" element={isAdmin ? <AdminFormMapper /> : <Navigate to="/" replace />} />
+        <Route path="/qa" element={<QA />} />
+        <Route path="/qa/:id" element={<QADetail />} />
+        <Route path="/directory" element={<Directory />} />
+        <Route path="/directory/submit" element={<DirectorySubmit />} />
+        <Route path="/ambasade-konzulati" element={<Missions />} />
+        
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/impressum" element={<Impressum />} />
+        <Route path="/datenschutz" element={<Datenschutz />} />
+        <Route path="/disclaimer" element={<Disclaimer />} />
+        
+        <Route path="/ki-hinweis" element={<KiHinweis />} />
+        <Route path="/mitgliedschaft" element={<Mitgliedschaft />} />
+        <Route path="/agb" element={<Nutzungsbedingungen />} />
+        
+        <Route path="/dsa" element={<DSA />} />
+        
+        <Route path="/cookie-richtlinie" element={<CookieRichtlinie />} />
+        <Route path="/nudim-trazim" element={<NudimTrazim />} />
+        <Route path="/nach-deutschland" element={<NachDeutschland />} />
+        <Route path="/nach-deutschland/:countryCode" element={<NachDeutschland />} />
+        <Route path="/nach-deutschland/:countryCode/:categoryKey" element={<NachDeutschland />} />
+        <Route path="/vorlagen" element={<Vorlagen />} />
+        <Route path="/vorlagen/:slug" element={<Vorlagen />} />
+        <Route path="/deutsch-trainer" element={<DeutschTrainer />} />
+        <Route path="/deutsch-trainer/preise" element={<TrainerPreise />} />
+        <Route path="/deutsch-trainer/faq" element={<TrainerFaq />} />
+        <Route path="/deutsch-trainer/bonusbedingungen" element={<TrainerBonusbedingungen />} />
+        <Route path="/firma/:slug" element={<FirmDetail />} />
+        <Route path="/bussgeld" element={<BussgeldAssistent />} />
+        <Route path="/ai-asistent" element={<ChatAssistant />} />
+        <Route path="/paketi" element={<Navigate to="/pricing" replace />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/payment-success" element={<PaymentSuccess />} />
+        <Route path="/placanje-uspjesno" element={<PaymentSuccess />} />
+        <Route path="/placanje-otkazano" element={<PaymentCancel />} />
+        <Route path="/kalkulatori" element={<Kalkulatori />} />
+        <Route path="/mapa" element={<CommunityMapa />} />
+        <Route path="/zivot-u-njemackoj" element={<ZivotUNjemackoj />} />
+        <Route path="/viza" element={<Viza />} />
+        <Route path="/oglasi" element={<Navigate to="/nudim-trazim" replace />} />
+        <Route path="/deutsch" element={<Navigate to="/deutsch-trainer" replace />} />
+        <Route path="/sabloni" element={<Navigate to="/vorlagen" replace />} />
+        <Route path="/pitanja" element={<Navigate to="/qa" replace />} />
+        <Route path="/zivot-savjeti" element={<Navigate to="/zivot" replace />} />
+        <Route path="/trebam-pomoc" element={<Navigate to="/probleme" replace />} />
+        <Route path="/pocni-ovdje" element={<Navigate to="/dolazak" replace />} />
+      </Route>
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  );
+}
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -111,123 +241,7 @@ const App = () => (
           <CountryProvider>
           <AuthProvider>
             <Suspense fallback={null}>
-            <Routes>
-              <Route element={<HomeLayout />}>
-                <Route path="/" element={<Index />} />
-              </Route>
-              <Route element={<Layout />}>
-                <Route path="/dolazak" element={<PocniOvdje />} />
-                
-                <Route path="/dolazak/prijava-prebivalista" element={<PrijavaPrebijalista />} />
-                <Route path="/dolazak/boravisna-dozvola" element={<BoravisnaDozvola />} />
-                <Route path="/dolazak/steuer-id-i-porezna-klasa" element={<SteuerIdPoreznaKlasa />} />
-                <Route path="/dolazak/zdravstveno-osiguranje" element={<ZdravstvenoOsiguranje />} />
-                <Route path="/dolazak/bankovni-racun" element={<BankovniRacun />} />
-                <Route path="/dolazak/prvi-koraci" element={<PrviKoraci />} />
-                <Route path="/dolazak/sozialversicherung" element={<Sozialversicherung />} />
-                <Route path="/dolazak/rundfunkbeitrag" element={<Rundfunkbeitrag />} />
-                <Route path="/dolazak/fuehrerschein" element={<Fuehrerschein />} />
-                <Route path="/dolazak/auto-anmelden" element={<AutoAnmelden />} />
-                <Route path="/zivot" element={<ZivotSavjeti />} />
-                
-                <Route path="/probleme" element={<TrebamPomoc />} />
-                
-                <Route path="/formulare" element={<Navigate to="/formulari" replace />} />
-                <Route path="/formulari" element={<FormCenter />} />
-                
-                <Route path="/formulari/kindergeld/muster" element={<Navigate to="/musterformular/kindergeld" replace />} />
-                <Route path="/formulari/anmeldung/muster" element={<Navigate to="/musterformular/anmeldung" replace />} />
-                
-                <Route path="/musterformular/elterngeld" element={<ElterngeldMuster />} />
-                <Route path="/musterformular/anmeldung" element={<AnmeldungMuster />} />
-                <Route path="/musterformular/buergergeld" element={<BuergergeldMuster />} />
-                <Route path="/musterformular/wohngeld" element={<WohngeldMuster />} />
-                <Route path="/musterformular/steuerklasse" element={<SteuerklasseMuster />} />
-                <Route path="/musterformular/arbeitslosengeld" element={<ArbeitslosengeldMuster />} />
-                <Route path="/musterformular/bafoeg" element={<BafoegMuster />} />
-                <Route path="/musterformular/fuehrungszeugnis" element={<FuehrungszeugnisMuster />} />
-                <Route path="/musterformular/kirchenaustritt" element={<KirchenaustrittMuster />} />
-                <Route path="/musterformular/integrationskurs" element={<IntegrationskursMuster />} />
-                <Route path="/musterformular/kinderzuschlag" element={<KinderzuschlagMuster />} />
-                <Route path="/musterformular/schueler-bafoeg" element={<SchuelerBafoegMuster />} />
-                <Route path="/musterformular/grundsicherung" element={<GrundsicherungMuster />} />
-                <Route path="/musterformular/anlage-bb" element={<AnlageBBMuster />} />
-                <Route path="/musterformular/anlage-sv" element={<AnlageSVMuster />} />
-                <Route path="/musterformular/anlage-ve" element={<AnlageVEMuster />} />
-                <Route path="/musterformular/anlage-hg" element={<AnlageHGMuster />} />
-                <Route path="/musterformular/anlage-meb" element={<AnlageMEBMuster />} />
-                <Route path="/musterformular/anlage-uf" element={<AnlageUFMuster />} />
-                <Route path="/musterformular/anlage-se" element={<AnlageSEMuster />} />
-                <Route path="/musterformular/arbeitsbescheinigung" element={<ArbeitsbescheinigungMuster />} />
-                <Route path="/musterformular/kindergeld" element={<KindergeldMuster />} />
-                <Route path="/musterformular/antragsruecknahme" element={<AntragsruecknahmeMuster />} />
-                
-                <Route path="/formulari/:slug" element={<FormCenter />} />
-                <Route path="/familie" element={<Familie />} />
-                <Route path="/foerderungen" element={<Foerderungen />} />
-                <Route path="/tools" element={<Generatoren />} />
-                <Route path="/brutto-netto-rechner" element={<BruttoNettoRechner />} />
-                <Route path="/wohnungen" element={<Wohnungen />} />
-                <Route path="/stellenangebote" element={<Stellenangebote />} />
-                <Route path="/premium" element={<Navigate to="/pricing" replace />} />
-                <Route path="/guide/:slug" element={<LegacyGuideRedirect />} />
-                <Route path="/smart-guide/:slug" element={<LegacyGuideRedirect />} />
-                <Route path="/dokumenten-check" element={<DokumentenCheck />} />
-                <Route path="/admin/forms" element={<AdminForms />} />
-                <Route path="/admin/forms/:slug/mapper" element={<AdminFormMapper />} />
-                <Route path="/qa" element={<QA />} />
-                <Route path="/qa/:id" element={<QADetail />} />
-                <Route path="/directory" element={<Directory />} />
-                <Route path="/directory/submit" element={<DirectorySubmit />} />
-                <Route path="/ambasade-konzulati" element={<Missions />} />
-                
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/forgot-password" element={<ForgotPassword />} />
-                <Route path="/reset-password" element={<ResetPassword />} />
-                <Route path="/impressum" element={<Impressum />} />
-                <Route path="/datenschutz" element={<Datenschutz />} />
-                <Route path="/disclaimer" element={<Disclaimer />} />
-                
-                <Route path="/ki-hinweis" element={<KiHinweis />} />
-                <Route path="/mitgliedschaft" element={<Mitgliedschaft />} />
-                <Route path="/agb" element={<Nutzungsbedingungen />} />
-                
-                <Route path="/dsa" element={<DSA />} />
-                
-                <Route path="/cookie-richtlinie" element={<CookieRichtlinie />} />
-                <Route path="/nudim-trazim" element={<NudimTrazim />} />
-                <Route path="/nach-deutschland" element={<NachDeutschland />} />
-                <Route path="/nach-deutschland/:countryCode" element={<NachDeutschland />} />
-                <Route path="/nach-deutschland/:countryCode/:categoryKey" element={<NachDeutschland />} />
-                <Route path="/vorlagen" element={<Vorlagen />} />
-                <Route path="/vorlagen/:slug" element={<Vorlagen />} />
-                <Route path="/deutsch-trainer" element={<DeutschTrainer />} />
-                <Route path="/deutsch-trainer/preise" element={<TrainerPreise />} />
-                <Route path="/deutsch-trainer/faq" element={<TrainerFaq />} />
-                <Route path="/deutsch-trainer/bonusbedingungen" element={<TrainerBonusbedingungen />} />
-                <Route path="/firma/:slug" element={<FirmDetail />} />
-                <Route path="/bussgeld" element={<BussgeldAssistent />} />
-                <Route path="/ai-asistent" element={<ChatAssistant />} />
-                <Route path="/paketi" element={<Navigate to="/pricing" replace />} />
-                <Route path="/pricing" element={<Pricing />} />
-                <Route path="/payment-success" element={<PaymentSuccess />} />
-                <Route path="/placanje-uspjesno" element={<PaymentSuccess />} />
-                <Route path="/placanje-otkazano" element={<PaymentCancel />} />
-                <Route path="/kalkulatori" element={<Kalkulatori />} />
-                <Route path="/mapa" element={<CommunityMapa />} />
-                <Route path="/zivot-u-njemackoj" element={<ZivotUNjemackoj />} />
-                <Route path="/viza" element={<Viza />} />
-                <Route path="/oglasi" element={<Navigate to="/nudim-trazim" replace />} />
-                <Route path="/deutsch" element={<Navigate to="/deutsch-trainer" replace />} />
-                <Route path="/sabloni" element={<Navigate to="/vorlagen" replace />} />
-                <Route path="/pitanja" element={<Navigate to="/qa" replace />} />
-                <Route path="/zivot-savjeti" element={<Navigate to="/zivot" replace />} />
-                <Route path="/trebam-pomoc" element={<Navigate to="/probleme" replace />} />
-                <Route path="/pocni-ovdje" element={<Navigate to="/dolazak" replace />} />
-              </Route>
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+              <AppRoutes />
             </Suspense>
             
           </AuthProvider>

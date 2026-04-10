@@ -4,7 +4,7 @@
   "description": "BalkanLink – pametna platforma za svakodnevni život, informacije, vodiče, formularska objašnjenja, posao, stanovanje i podršku za ljude sa Balkana u Njemačkoj",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0B0F1A",
+  "background_color": "#faf8f3",
   "theme_color": "#C9A84C",
   "orientation": "portrait-primary",
   "icons": [
