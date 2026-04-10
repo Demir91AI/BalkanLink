@@ -1,4 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
+import { useSubscription } from "@/hooks/useSubscription";
+import { Lock } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { useParams, useNavigate } from "react-router-dom";
 import { Search, ChevronLeft, FileText, ChevronDown, ChevronRight, Info, X } from "lucide-react";
