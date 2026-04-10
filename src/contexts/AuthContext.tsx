@@ -10,6 +10,7 @@ interface AuthContextType {
   session: Session | null;
   user: User | null;
   loading: boolean;
+  profileLoading: boolean;
   isPremium: boolean;
   isAdmin: boolean;
   subscriptionEnd: string | null;
@@ -21,6 +22,7 @@ const AuthContext = createContext<AuthContextType>({
   session: null,
   user: null,
   loading: true,
+  profileLoading: true,
   isPremium: false,
   isAdmin: false,
   subscriptionEnd: null,
@@ -31,6 +33,7 @@ const AuthContext = createContext<AuthContextType>({
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
+  const [profileLoading, setProfileLoading] = useState(true);
   const [isPremium, setIsPremium] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [subscriptionEnd, setSubscriptionEnd] = useState<string | null>(null);
@@ -38,6 +41,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const { t } = useLanguage();
 
   const fetchUserMeta = async (userId: string) => {
+    setProfileLoading(true);
     try {
       const [profileRes, roleRes] = await Promise.all([
         supabase.from("profiles").select("is_premium").eq("id", userId).single(),
@@ -49,6 +53,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       console.error("fetchUserMeta failed:", err);
       setIsPremium(false);
       setIsAdmin(false);
+    } finally {
+      setProfileLoading(false);
     }
   };
 
@@ -73,6 +79,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           setIsPremium(false);
           setIsAdmin(false);
           setSubscriptionEnd(null);
+          setProfileLoading(false);
 
           if (consumeSessionExpiredFlag()) {
             toast({
@@ -107,6 +114,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       session,
       user: session?.user ?? null,
       loading,
+      profileLoading,
       isPremium,
       isAdmin,
       subscriptionEnd,
