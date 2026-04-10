@@ -7,11 +7,13 @@ export interface LanguageInfo {
 }
 
 export const LANGUAGES: LanguageInfo[] = [
-  { code: "bs", name: "BS / HR / SR", flag: "🇧🇦🇭🇷🇷🇸" },
-  { code: "de",  name: "Deutsch",      flag: "🇩🇪" },
+  { code: "bs", name: "Bosanski", flag: "🇧🇦" },
+  { code: "hr", name: "Hrvatski", flag: "🇭🇷" },
+  { code: "sr", name: "Srpski", flag: "🇷🇸" },
+  { code: "de", name: "Deutsch", flag: "🇩🇪" },
 ];
 
-type T = Record<Language, string>;
+type T = { bs: string; de: string; hr?: string; sr?: string };
 export const translations: Record<string, T> = {
 
   // NAVIGATION
