@@ -954,4 +954,22 @@ export const translations: Record<string, T> = {
   "deutsch.tasksFree":         { bs: "besplatno dostupno",    de: "frei verfügbar" },
   "deutsch.maxReached":        { bs: "Maks. dostignut",       de: "Max erreicht" },
   "deutsch.free":              { bs: "Besplatno",             de: "Free" },
+
+  // TRAINER i18n
+  "trainer.back":           { bs: "Nazad", hr: "Natrag", sr: "Nazad", de: "Zurück" },
+  "trainer.subtitle":       { bs: "Efikasno učenje njemačkog za svakodnevni život", hr: "Učinkovito učenje njemačkog za svakodnevni život", sr: "Efikasno učenje nemačkog za svakodnevni život", de: "Effektives Deutschlernen für das echte Leben" },
+  "trainer.unlock.title":   { bs: "Nastavi učiti", hr: "Nastavi učiti", sr: "Nastavi da učiš", de: "Weiter lernen" },
+  "trainer.unlock.desc":    { bs: "Otključaj sve lekcije i puni jezični asistent", hr: "Otključaj sve lekcije i puni jezični asistent", sr: "Otključaj sve lekcije i puni jezički asistent", de: "Schalte alle Lektionen & den vollen Sprachassistent frei" },
+  "trainer.unlock.cta":     { bs: "Otključaj sve lekcije", hr: "Otključaj sve lekcije", sr: "Otključaj sve lekcije", de: "Alle Lektionen freischalten" },
+  "trainer.unlock.noSub":   { bs: "Bez pretplate", hr: "Bez pretplate", sr: "Bez pretplate", de: "Kein Abo" },
+  "trainer.unlock.oneTime": { bs: "Jednokratna uplata", hr: "Jednokratno plaćanje", sr: "Jednokratna uplata", de: "Einmal zahlen" },
+  "trainer.unlock.voucher": { bs: "Wertgutschein za Premium", hr: "Wertgutschein za Premium", sr: "Wertgutschein za Premium", de: "Wertgutschein für Premium" },
+  "trainer.paywall.title":  { bs: "Otključaj više lekcija", hr: "Otključaj više lekcija", sr: "Otključaj više lekcija", de: "Weitere Lektionen freischalten" },
+  "trainer.paywall.desc":   { bs: "Otključaj sve sadržaje i vježbaj njemački za realne situacije.", hr: "Otključaj sve sadržaje i vježbaj njemački za realne situacije.", sr: "Otključaj sve sadržaje i vježbaj nemački za realne situacije.", de: "Schalte jetzt alle Inhalte frei und trainiere Deutsch für echte Situationen." },
+  "trainer.paywall.from":   { bs: "od", hr: "od", sr: "od", de: "ab" },
+  "trainer.paywall.oneTime":{ bs: "/ jednokratno", hr: "/ jednokratno", sr: "/ jednokratno", de: "/ einmalig" },
+  "trainer.paywall.unlock": { bs: "Otključaj odmah", hr: "Otključaj odmah", sr: "Otključaj odmah", de: "Jetzt freischalten" },
+  "trainer.paywall.later":  { bs: "Odlučit ću kasnije", hr: "Odlučit ću kasnije", sr: "Odlučiću kasnije", de: "Später entscheiden" },
+  "trainer.exercises":      { bs: "zadataka", hr: "zadataka", sr: "zadataka", de: "Aufgaben" },
+  "trainer.freeAvailable":  { bs: "slobodnih", hr: "slobodnih", sr: "slobodnih", de: "frei verfügbar" },
 };

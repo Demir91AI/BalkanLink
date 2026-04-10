@@ -10,6 +10,7 @@ import { useTrainerProgress } from "@/hooks/useTrainerProgress";
 import { useSubscription } from "@/hooks/useSubscription";
 import TrainerLesson from "@/components/trainer/TrainerLesson";
 import { navigateBackOrHome } from "@/lib/navigation";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const LESSONS_PER_PAGE = 9;
 
@@ -21,6 +22,7 @@ const INDIVIDUAL_PRICES: Record<string, string> = {
 
 export default function DeutschTrainer() {
   const navigate = useNavigate();
+  const { t } = useLanguage();
   const [params] = useSearchParams();
   const demo = params.get("demo") === "1";
 
@@ -70,9 +72,6 @@ export default function DeutschTrainer() {
     return <TrainerLesson lesson={activeLesson} onBack={() => setActiveLesson(null)} />;
   }
 
-  const totalExercises = 300;
-  const freeExercises = 150;
-
   return (
     <>
       <SEO title="Deutsch Trainer — Uči Njemački A1 do C2" description="Online kurs njemačkog jezika za Balkance — 48 lekcija, vježbe, TTS izgovor." path="/deutsch-trainer" />
@@ -106,13 +105,13 @@ export default function DeutschTrainer() {
               onClick={() => navigateBackOrHome(navigate)}
               className="flex items-center gap-1.5 text-[13px] font-medium text-white/50 hover:text-white transition-colors"
             >
-              <ArrowLeft className="h-4 w-4" /> Nazad
+              <ArrowLeft className="h-4 w-4" /> {t("trainer.back")}
             </button>
             <button
               onClick={() => navigate("/")}
               className="flex items-center gap-1.5 text-[13px] font-medium text-white/50 hover:text-white transition-colors"
             >
-              <Home className="h-4 w-4" /> Početna
+              <Home className="h-4 w-4" /> {t("nav.home")}
             </button>
           </div>
 
@@ -149,7 +148,7 @@ export default function DeutschTrainer() {
               transition={{ duration: 0.5, delay: 0.16 }}
               className="mt-4 max-w-lg text-sm leading-relaxed text-white/50 sm:text-base"
             >
-              Pažljivo odabrane situacije iz svakodnevnog života Balkanca u Njemačkoj — od Jobcentra do Arzttermin-a.
+              {t("trainer.subtitle")}
             </motion.p>
 
             {/* Stats row */}
@@ -239,8 +238,8 @@ export default function DeutschTrainer() {
           {/* ── XP PROGRESS BAR ── */}
           <div className="mb-10 max-w-3xl">
             <div className="mb-2 flex justify-between text-xs text-white/40">
-              <span className="font-semibold">Level {progress.level}{progress.level >= MAX_LEVEL ? " (Max)" : ""}</span>
-              <span>{progress.level >= MAX_LEVEL ? "Max erreicht" : `${xpInLevel}/${xpForNextLevel} XP`}</span>
+              <span className="font-semibold">Level {progress.level}{progress.level >= MAX_LEVEL ? ` (${t("deutsch.maxReached") || "Max"})` : ""}</span>
+              <span>{progress.level >= MAX_LEVEL ? (t("deutsch.maxReached") || "Max erreicht") : `${xpInLevel}/${xpForNextLevel} XP`}</span>
             </div>
             <div className="h-2.5 w-full overflow-hidden rounded-full bg-white/[0.06]">
               <motion.div
@@ -323,7 +322,7 @@ export default function DeutschTrainer() {
                     {/* Free badge */}
                     {isFree && !completed && (
                       <span className="absolute right-4 top-4 rounded-full bg-[hsl(var(--success)/0.12)] px-2.5 py-0.5 text-[10px] font-bold text-[hsl(var(--success))]">
-                        Free
+                        {t("deutsch.free")}
                       </span>
                     )}
 
@@ -342,7 +341,7 @@ export default function DeutschTrainer() {
                         {isLocked && <Lock className="h-3.5 w-3.5 shrink-0 text-white/20" />}
                       </div>
                       <p className={`mt-1 text-xs leading-relaxed ${isLocked ? "text-white/15" : "text-white/40"}`}>
-                        {lesson.title} · {totalExercises} Aufgaben{!isPremium && ` · ${freeExercises} frei verfügbar`}
+                        {lesson.title}{!isPremium && ` · ${t("trainer.freeAvailable")}`}
                       </p>
                     </div>
                   </motion.button>
@@ -395,31 +394,31 @@ export default function DeutschTrainer() {
               style={{ background: "linear-gradient(135deg, rgba(255,204,0,0.06) 0%, rgba(255,204,0,0.02) 100%)" }}
             >
               <Crown className="mx-auto mb-3 h-8 w-8 text-gold" />
-              <h3 className="text-base font-black text-white">6 Monate aktiver Deutschkurs</h3>
+              <h3 className="text-base font-black text-white">{t("trainer.unlock.title")}</h3>
               <p style={{ fontSize: 13, color: "#9CA3AF", marginBottom: 8 }}>
-                Ab 19,99€ einmalig · Kein Abo
+                {t("trainer.unlock.desc")}
               </p>
               <p className="mt-1 text-xs text-muted-foreground">
                 108 Lektionen · 16.000+ Übungen · Sprachassistent · A1 bis C2
               </p>
               <div className="mt-2 flex flex-wrap justify-center gap-2">
-                <span className="rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold text-white/70">✓ Täglich 30 Min.</span>
-                <span className="rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold text-white/70">✓ Behörden-Deutsch</span>
-                <span className="rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold text-white/70">✓ Kein Abo nötig</span>
+                <span className="rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold text-white/70">✓ {t("trainer.unlock.noSub")}</span>
+                <span className="rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold text-white/70">✓ {t("trainer.unlock.oneTime")}</span>
+                <span className="rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold text-white/70">✓ {t("trainer.unlock.voucher")}</span>
               </div>
               <Button
                 onClick={() => navigate("/deutsch-trainer/preise")}
                 className="mt-5 h-12 w-full max-w-xs rounded-xl bg-gold text-sm font-bold text-gold-foreground shadow-[0_4px_20px_rgba(255,204,0,0.3)] hover:bg-gold-light"
               >
-                Alle Lektionen freischalten
+                {t("trainer.unlock.cta")}
               </Button>
               <p style={{ fontSize: 11, fontWeight: 700, color: "#EAB308", marginTop: 6 }}>
                 🎉 Promo cijena — prvih 6 mjeseci
               </p>
               <div className="mt-4 flex items-center justify-center gap-4 text-[11px] text-white/35">
-                <span>✓ Kein Abo</span>
-                <span>✓ Einmal zahlen</span>
-                <span>✓ Wertgutschein für Premium</span>
+                <span>✓ {t("trainer.unlock.noSub")}</span>
+                <span>✓ {t("trainer.unlock.oneTime")}</span>
+                <span>✓ {t("trainer.unlock.voucher")}</span>
               </div>
             </motion.div>
           )}
@@ -451,25 +450,25 @@ export default function DeutschTrainer() {
               </button>
               <div className="text-center">
                 <Crown className="mx-auto mb-3 h-10 w-10 text-gold" />
-                <h2 className="text-base font-black">Weitere Lektionen freischalten</h2>
+                <h2 className="text-base font-black">{t("trainer.paywall.title")}</h2>
                 <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">
-                  Schalte jetzt alle Inhalte frei und trainiere Deutsch für echte Situationen.
+                  {t("trainer.paywall.desc")}
                 </p>
                 <p className="mt-3 text-2xl font-black text-gold-dark">
-                  ab {INDIVIDUAL_PRICES[selectedLevel]}
-                  <span className="ml-1 text-xs font-normal text-muted-foreground">/ einmalig</span>
+                  {t("trainer.paywall.from")} {INDIVIDUAL_PRICES[selectedLevel]}
+                  <span className="ml-1 text-xs font-normal text-muted-foreground">{t("trainer.paywall.oneTime")}</span>
                 </p>
                 <Button
                   onClick={() => { setShowPaywall(false); navigate("/deutsch-trainer/preise"); }}
                   className="mt-4 h-11 w-full rounded-xl bg-gold text-sm font-bold text-gold-foreground shadow-[0_4px_20px_rgba(255,204,0,0.3)] hover:bg-gold-light"
                 >
-                  Jetzt freischalten
+                  {t("trainer.paywall.unlock")}
                 </Button>
                 <button
                   onClick={() => setShowPaywall(false)}
                   className="mt-2 text-xs text-muted-foreground hover:underline"
                 >
-                  Später entscheiden
+                  {t("trainer.paywall.later")}
                 </button>
               </div>
             </motion.div>
