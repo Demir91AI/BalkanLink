@@ -3,7 +3,9 @@ import type { CountryMigrationData } from "./migration-data";
 
 // Map new Language type to internal localization aliases
 const LANGUAGE_ALIASES: Record<Language, "bs" | "hr" | "sr" | "me" | "sq" | "mk"> = {
-  bhs: "bs",
+  bs: "bs",
+  hr: "hr",
+  sr: "sr",
   de: "bs", // fallback to bs for German users viewing migration data
 };
 
