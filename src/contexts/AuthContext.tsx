@@ -65,7 +65,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (_event, session) => {
-        const prevSession = session;
         setSession(session);
         if (session?.user) {
           setTimeout(() => fetchUserMeta(session.user.id), 0);
@@ -75,7 +74,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           setIsAdmin(false);
           setSubscriptionEnd(null);
 
-          // Show expired-session toast if the flag was set by timeout logic
           if (consumeSessionExpiredFlag()) {
             toast({
               title: t("auth.sessionExpired"),
@@ -86,14 +84,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         setLoading(false);
       }
     );
-
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      if (session?.user) {
-        fetchUserMeta(session.user.id);
-        refreshSubscription();
-      }
-    });
 
     return () => subscription.unsubscribe();
   }, []);

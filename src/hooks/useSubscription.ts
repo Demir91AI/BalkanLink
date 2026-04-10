@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
+import { FREE_LESSONS_PER_LEVEL } from "@/lib/trainer/types";
 
 
 interface SubscriptionState {
@@ -75,7 +76,7 @@ export function useSubscription(): SubscriptionState {
   );
 
   const canAccessLesson = useCallback(
-    (lessonIndex: number) => effectivePremium || lessonIndex < 3,
+    (lessonIndex: number) => effectivePremium || lessonIndex < FREE_LESSONS_PER_LEVEL,
     [effectivePremium]
   );
 

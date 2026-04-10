@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { useAuth } from "@/contexts/AuthContext";
-import { DEV_MODE } from "@/lib/dev-mode";
+import { DEV_MODE, FREE_STEPS_PER_GUIDE } from "@/lib/dev-mode";
 import { supabase } from "@/integrations/supabase/client";
 
 const FREE_DAILY_LIMIT = 3;
@@ -15,7 +15,7 @@ export function usePremiumAccess() {
     isAdmin,
     isLoggedIn: !!user,
     /** Free users see first N steps; rest locked */
-    canAccessStep: (stepIndex: number) => isPremium || stepIndex < 1,
+    canAccessStep: (stepIndex: number) => isPremium || stepIndex < FREE_STEPS_PER_GUIDE,
     /** Free users can't use doc generator */
     canUseDocGenerator: isPremium,
   };
