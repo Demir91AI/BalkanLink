@@ -435,7 +435,7 @@ export default function DokumentenCheck() {
                   className="rounded-full bg-[hsl(var(--gold))] px-6 py-3.5 text-[#0f1f3d] font-bold transition-all hover:opacity-90">
                   BalkanLink Premium — 9.99€/mj.
                 </button>
-                <p className="text-xs text-white/40 mt-1">Einzeldokument-Kauf (2.99€) kommt bald</p>
+                <p className="text-xs text-white/40 mt-2">Einzelkauf (2.99€) kommt bald — kontakt@balkanlink.de</p>
               </div>
             </motion.div>
           )}
@@ -530,7 +530,7 @@ export default function DokumentenCheck() {
                         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-background/80 backdrop-blur-sm rounded-b-2xl">
                           <Lock className="h-7 w-7 text-[hsl(var(--gold))] mb-3" />
                           <p className="text-sm font-bold text-foreground mb-3">{st("docCheck.lockText")}</p>
-                          <button onClick={() => navigate("/pricing")}
+                          <button onClick={() => navigate("/paketi")}
                             className="rounded-full bg-[hsl(var(--gold))] px-5 py-2.5 text-xs font-bold text-[#0f1f3d] transition-all hover:opacity-90">
                             {st("docCheck.premiumCta")}
                           </button>

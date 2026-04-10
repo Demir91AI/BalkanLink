@@ -16,8 +16,8 @@ const LESSONS_PER_PAGE = 9;
 
 const INDIVIDUAL_PRICES: Record<string, string> = {
   "A1": "9,99 €", "A2": "14,99 €",
-  "B1": "16,99 €", "B2": "22,99 €",
-  "C1": "26,99 €", "C2": "32,99 €",
+  "B1": "14,99 €", "B2": "19,99 €",
+  "C1": "19,99 €", "C2": "24,99 €",
 };
 
 export default function DeutschTrainer() {

@@ -6,10 +6,10 @@ import { navigateBackOrHome } from "@/lib/navigation";
 const individualLevels = [
   { level: "A1", price: "9,99 €", desc: "Grundlagen – erste Schritte" },
   { level: "A2", price: "14,99 €", desc: "Alltag – einfache Gespräche" },
-  { level: "B1", price: "16,99 €", desc: "Selbstständig kommunizieren" },
-  { level: "B2", price: "22,99 €", desc: "Komplexere Situationen" },
-  { level: "C1", price: "26,99 €", desc: "Anspruchsvoll & beruflich" },
-  { level: "C2", price: "32,99 €", desc: "Professionelles Niveau" },
+  { level: "B1", price: "14,99 €", desc: "Selbstständig kommunizieren" },
+  { level: "B2", price: "19,99 €", desc: "Komplexere Situationen" },
+  { level: "C1", price: "19,99 €", desc: "Anspruchsvoll & beruflich" },
+  { level: "C2", price: "24,99 €", desc: "Professionelles Niveau" },
 ];
 
 const packages = [
@@ -52,18 +52,18 @@ const packages = [
 ];
 
 const freeFeatures = [
-  { text: "5 Lektionen pro Niveau", included: true },
-  { text: "150 Aufgaben pro Lektion", included: true },
+  { text: "3 Lektionen pro Niveau (kostenlos)", included: true },
+  { text: "Erste 3 Lektionen komplett", included: true },
   { text: "5 Sprachassistent-Sätze", included: true },
   { text: "Alle Lektionen", included: false },
-  { text: "Bis zu 1500 Aufgaben pro Lektion", included: false },
+  { text: "300 Aufgaben pro Lektion (laufend erweitert)", included: false },
   { text: "Sprachassistent (500 Sätze)", included: false },
   { text: "Wertgutschein-Programm", included: false },
 ];
 
 const ultimateFeatures = [
   "Alle Lektionen freischalten",
-  "Bis zu 1500 Aufgaben pro Lektion",
+  "300 Aufgaben pro Lektion (laufend erweitert)",
   "Sprachassistent mit 500 Sätzen",
   "Alle Szenarien aus dem echten Leben",
   "Dynamische Aufgaben (immer neu)",
@@ -151,9 +151,6 @@ export default function TrainerPreise() {
                 </span>
                 <p className="mt-2 text-lg font-black">{lvl.price}</p>
                 <p className="mt-0.5 text-[10px] text-muted-foreground">{lvl.desc}</p>
-                <p style={{ fontSize: 11, fontWeight: 700, color: "#EAB308", marginTop: 4, marginBottom: 4 }}>
-                  🎉 Promo cijena — prvih 6 mjeseci
-                </p>
                 <Button
                     onClick={() => navigate("/paketi")}
                   variant="outline"
@@ -212,9 +209,6 @@ export default function TrainerPreise() {
                   </p>
                   <p className="mt-0.5 text-[11px] font-bold text-[hsl(var(--success))]">
                     {pkg.saving}
-                  </p>
-                  <p style={{ fontSize: 11, fontWeight: 700, color: "#EAB308", marginTop: 4, marginBottom: 4 }}>
-                    🎉 Promo cijena — prvih 6 mjeseci
                   </p>
 
                   {/* Reward highlight */}
