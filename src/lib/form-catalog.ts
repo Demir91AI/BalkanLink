@@ -120,6 +120,7 @@ export const formCatalog: FormGroup[] = [
     title: "Dokumenti i administracija",
     titleKey: "catalog.dokumenti",
     items: [
+      { slug: "grundsicherung", label: "Grundsicherung im Alter", desc: "Osnovna pomoć za starije osobe i osobe s invaliditetom." },
       { slug: "fuehrungszeugnis", label: "Führungszeugnis — potvrda o nekažnjavanju", desc: "Potvrda o nekažnjavanju." },
       { slug: "kirchenaustritt", label: "Kirchenaustritt — odjava iz crkve", desc: "Odjava iz crkve radi prestanka crkvenog poreza." },
     ],
