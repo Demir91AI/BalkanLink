@@ -46,12 +46,12 @@ export default function Viza() {
   const euCountries = COUNTRY_CONTENT.filter(c => c.isEU);
   const nonEuCountries = COUNTRY_CONTENT.filter(c => !c.isEU);
 
-  const GOLD = '#C9A84C';
+  
 
   return (
     <div className="min-h-screen" style={{ background: "#F5F0E8" }}>
       <SEO title="Viza Navigator — Boravišna Dozvola u Njemačkoj" description="Saznaj koje dokumente trebaš za vizu ili boravišnu dozvolu, ovisno o državljanstvu." path="/viza" />
-      <div className="max-w-[1280px] mx-auto px-4 md:px-12 py-8">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-12 py-6 lg:py-8">
         {/* Nav */}
         <PageNavBar />
 
@@ -93,7 +93,7 @@ export default function Viza() {
           {/* LEFT SIDEBAR — Country list */}
           <div className="hidden md:block w-[220px] flex-shrink-0">
             <div className="sticky top-6">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-3" style={{ color: GOLD }}>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-3 text-[hsl(var(--gold))]">
                 {t("visaNavigator.sidebar_eu")}
               </p>
               <div className="flex flex-col gap-1 mb-5">
@@ -104,11 +104,11 @@ export default function Viza() {
                       className="flex items-center gap-2.5 px-3 py-2 text-left transition-all duration-150 hover:bg-[#FFF8EC]"
                       style={{
                         background: active ? '#FFF8EC' : 'transparent',
-                        borderLeft: active ? `3px solid ${GOLD}` : '3px solid transparent',
+                        borderLeft: active ? '3px solid hsl(var(--gold))' : '3px solid transparent',
                         borderRadius: 6,
                       }}>
                       <img src={c.flag} alt="" className="h-5 rounded-sm" />
-                      <span className="text-[14px]" style={{ fontWeight: active ? 700 : 500, color: active ? GOLD : '#2D2D2D' }}>
+                      <span className="text-[14px]" style={{ fontWeight: active ? 700 : 500, color: active ? 'hsl(var(--gold))' : '#2D2D2D' }}>
                         {c.name}
                       </span>
                       <span className="ml-auto text-[10px] font-semibold px-2 py-0.5 rounded-full" style={{ background: '#DCFCE7', color: '#166534' }}>EU</span>
@@ -117,7 +117,7 @@ export default function Viza() {
                 })}
               </div>
 
-              <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-3" style={{ color: GOLD }}>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-3 text-[hsl(var(--gold))]">
                 {t("visaNavigator.sidebar_balkan")}
               </p>
               <div className="flex flex-col gap-1">
@@ -128,11 +128,11 @@ export default function Viza() {
                       className="flex items-center gap-2.5 px-3 py-2 text-left transition-all duration-150 hover:bg-[#FFF8EC]"
                       style={{
                         background: active ? '#FFF8EC' : 'transparent',
-                        borderLeft: active ? `3px solid ${GOLD}` : '3px solid transparent',
+                        borderLeft: active ? '3px solid hsl(var(--gold))' : '3px solid transparent',
                         borderRadius: 6,
                       }}>
                       <img src={c.flag} alt="" className="h-5 rounded-sm" />
-                      <span className="text-[14px]" style={{ fontWeight: active ? 700 : 500, color: active ? GOLD : '#2D2D2D' }}>
+                      <span className="text-[14px]" style={{ fontWeight: active ? 700 : 500, color: active ? 'hsl(var(--gold))' : '#2D2D2D' }}>
                         {c.name}
                       </span>
                       <span className="ml-auto text-[10px] font-semibold px-2 py-0.5 rounded-full" style={{ background: '#FEF9C3', color: '#854D0E' }}>WB</span>
@@ -145,7 +145,7 @@ export default function Viza() {
               {country && !country.isEU && (
                 <>
                   <div className="h-px my-4" style={{ background: '#F0EAD8' }} />
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-3" style={{ color: GOLD }}>
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-3 text-[hsl(var(--gold))]">
                     {t("visaNavigator.sidebar_routes")}
                   </p>
                   <div className="flex flex-col gap-1">
@@ -156,10 +156,10 @@ export default function Viza() {
                           className="text-left px-3 py-2 transition-all duration-150 hover:bg-[#FFF8EC]"
                           style={{
                             background: active ? '#FFF8EC' : 'transparent',
-                            borderLeft: active ? `3px solid ${GOLD}` : '3px solid transparent',
+                            borderLeft: active ? '3px solid hsl(var(--gold))' : '3px solid transparent',
                             borderRadius: 6,
                           }}>
-                          <span className="text-[13px] block" style={{ fontWeight: active ? 700 : 500, color: active ? GOLD : '#2D2D2D' }}>
+                          <span className="text-[13px] block" style={{ fontWeight: active ? 700 : 500, color: active ? 'hsl(var(--gold))' : '#2D2D2D' }}>
                             {r.title}
                           </span>
                           <span className="text-[11px] block" style={{ color: '#9CA3AF', fontFamily: 'monospace' }}>
@@ -239,7 +239,7 @@ export default function Viza() {
                     <button
                       onClick={() => setShowPremiumModal(true)}
                       className="rounded-lg px-5 py-2.5 text-sm font-bold text-white transition-colors hover:opacity-90"
-                      style={{ background: GOLD }}
+                       style={{ background: "hsl(var(--gold))" }}
                     >
                       {t("paywall.unlockPremium")}
                     </button>
