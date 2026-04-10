@@ -167,6 +167,18 @@ function extractSummaryFromSections(sections: AnalysisSection[]): {
   return { docType, action, financial, deadline };
 }
 
+async function fileToBase64(file: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const result = reader.result as string;
+      resolve(result.split(',')[1]);
+    };
+    reader.onerror = () => reject(new Error('Greška pri čitanju fajla'));
+    reader.readAsDataURL(file);
+  });
+}
+
 export default function DokumentenCheck() {
   const { t } = useLanguage();
   const st = useSectionT();

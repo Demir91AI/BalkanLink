@@ -69,6 +69,8 @@ export function AppSidebar() {
     setIsOpen((prev) => !prev);
   }, []);
 
+  const close = useCallback(() => setIsOpen(false), []);
+
   useEffect(() => {
     const handler = () => toggle();
     const onEscape = (e: KeyboardEvent) => {
@@ -82,7 +84,6 @@ export function AppSidebar() {
     };
   }, [toggle, close]);
 
-  const close = useCallback(() => setIsOpen(false), []);
   useEffect(() => { close(); }, [location.pathname, close]);
 
   const handleNav = useCallback((url: string) => {
