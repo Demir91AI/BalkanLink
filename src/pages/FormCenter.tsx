@@ -193,6 +193,7 @@ export default function FormCenter() {
   const navigate = useNavigate();
   const isMobile = useIsMobile();
   const { t } = useLanguage();
+  const { isPremium } = useSubscription();
   const [search, setSearch] = useState("");
   const [openGroups, setOpenGroups] = useState<Set<string>>(new Set());
   const [openMobileGroups, setOpenMobileGroups] = useState<Set<string>>(new Set());
