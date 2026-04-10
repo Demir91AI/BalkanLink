@@ -16,29 +16,17 @@ import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
 import FlowBanner from "@/components/home/FlowBanner";
 
 
-import heroBerlin from "@/assets/hero-berlin.jpg";
-import heroMuenchen from "@/assets/hero-muenchen.jpg";
-import heroFrankfurt from "@/assets/hero-frankfurt.jpg";
-import heroHamburg from "@/assets/hero-hamburg.jpg";
-import heroKoeln from "@/assets/hero-koeln.jpg";
-import heroStuttgart from "@/assets/hero-stuttgart.jpg";
-import heroDuesseldorf from "@/assets/hero-duesseldorf.jpg";
-import heroNuernberg from "@/assets/hero-nuernberg.jpg";
-import heroLeipzig from "@/assets/hero-leipzig.jpg";
-import heroFreilassing from "@/assets/hero-freilassing-real.jpg";
-
-
 const slides = [
-  { image: heroFrankfurt, city: "FRANKFURT" },
-  { image: heroBerlin, city: "BERLIN" },
-  { image: heroMuenchen, city: "MÜNCHEN" },
-  { image: heroHamburg, city: "HAMBURG" },
-  { image: heroKoeln, city: "KÖLN" },
-  { image: heroFreilassing, city: "FREILASSING" },
-  { image: heroStuttgart, city: "STUTTGART" },
-  { image: heroDuesseldorf, city: "DÜSSELDORF" },
-  { image: heroNuernberg, city: "NÜRNBERG" },
-  { image: heroLeipzig, city: "LEIPZIG" },
+  { image: "/assets/hero-frankfurt.jpg", city: "FRANKFURT" },
+  { image: "/assets/hero-berlin.jpg", city: "BERLIN" },
+  { image: "/assets/hero-muenchen.jpg", city: "MÜNCHEN" },
+  { image: "/assets/hero-hamburg.jpg", city: "HAMBURG" },
+  { image: "/assets/hero-koeln.jpg", city: "KÖLN" },
+  { image: "/assets/hero-freilassing-real.jpg", city: "FREILASSING" },
+  { image: "/assets/hero-stuttgart.jpg", city: "STUTTGART" },
+  { image: "/assets/hero-duesseldorf.jpg", city: "DÜSSELDORF" },
+  { image: "/assets/hero-nuernberg.jpg", city: "NÜRNBERG" },
+  { image: "/assets/hero-leipzig.jpg", city: "LEIPZIG" },
 ];
 
 const trustBadgeKeys = ["hero.badge1", "hero.badge2", "hero.badge3"];
@@ -212,9 +200,6 @@ export default function Index() {
     return () => clearInterval(timer);
   }, [nextSlide]);
 
-  useEffect(() => {
-    slides.forEach((s) => { const img = new Image(); img.src = s.image; });
-  }, []);
 
   return (
     <div className="relative bg-[hsl(var(--warm-cream))]">
