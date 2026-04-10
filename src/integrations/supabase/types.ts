@@ -287,6 +287,27 @@ export type Database = {
         }
         Relationships: []
       }
+      doc_check_usage: {
+        Row: {
+          count: number
+          id: string
+          used_at: string
+          user_id: string
+        }
+        Insert: {
+          count?: number
+          id?: string
+          used_at?: string
+          user_id: string
+        }
+        Update: {
+          count?: number
+          id?: string
+          used_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       email_jobs: {
         Row: {
           id: string
@@ -713,6 +734,7 @@ export type Database = {
           comment: string
           created_at: string
           id: string
+          is_approved: boolean
           rating: number
           user_id: string | null
           username: string
@@ -721,6 +743,7 @@ export type Database = {
           comment?: string
           created_at?: string
           id?: string
+          is_approved?: boolean
           rating?: number
           user_id?: string | null
           username?: string
@@ -729,9 +752,40 @@ export type Database = {
           comment?: string
           created_at?: string
           id?: string
+          is_approved?: boolean
           rating?: number
           user_id?: string | null
           username?: string
+        }
+        Relationships: []
+      }
+      trainer_progress: {
+        Row: {
+          completed_lessons: string[]
+          id: string
+          level: number
+          streak: number
+          updated_at: string
+          user_id: string
+          xp: number
+        }
+        Insert: {
+          completed_lessons?: string[]
+          id?: string
+          level?: number
+          streak?: number
+          updated_at?: string
+          user_id: string
+          xp?: number
+        }
+        Update: {
+          completed_lessons?: string[]
+          id?: string
+          level?: number
+          streak?: number
+          updated_at?: string
+          user_id?: string
+          xp?: number
         }
         Relationships: []
       }
@@ -790,7 +844,19 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      consume_doc_check: {
+        Args: { daily_limit?: number; uid: string }
+        Returns: boolean
+      }
       get_daily_chat_count: { Args: { _user_id: string }; Returns: number }
+      grant_premium_access: {
+        Args: {
+          new_expires_at?: string
+          new_tier?: string
+          target_user_id: string
+        }
+        Returns: undefined
+      }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
