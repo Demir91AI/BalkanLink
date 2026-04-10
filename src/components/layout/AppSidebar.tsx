@@ -71,9 +71,16 @@ export function AppSidebar() {
 
   useEffect(() => {
     const handler = () => toggle();
+    const onEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") close();
+    };
     window.addEventListener("toggle-sidebar", handler);
-    return () => window.removeEventListener("toggle-sidebar", handler);
-  }, [toggle]);
+    document.addEventListener("keydown", onEscape);
+    return () => {
+      window.removeEventListener("toggle-sidebar", handler);
+      document.removeEventListener("keydown", onEscape);
+    };
+  }, [toggle, close]);
 
   const close = useCallback(() => setIsOpen(false), []);
   useEffect(() => { close(); }, [location.pathname, close]);
@@ -104,6 +111,9 @@ export function AppSidebar() {
 
       <aside
         className="fixed left-0 top-0 z-[999] h-screen bg-white shadow-2xl overflow-y-auto transition-transform duration-300 ease-in-out flex flex-col"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Navigacioni meni"
         style={{
           width: "300px",
           minWidth: "280px",

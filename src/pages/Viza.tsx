@@ -46,12 +46,12 @@ export default function Viza() {
   const euCountries = COUNTRY_CONTENT.filter(c => c.isEU);
   const nonEuCountries = COUNTRY_CONTENT.filter(c => !c.isEU);
 
-  const GOLD = '#C9A84C';
+  
 
   return (
     <div className="min-h-screen" style={{ background: "#F5F0E8" }}>
       <SEO title="Viza Navigator — Boravišna Dozvola u Njemačkoj" description="Saznaj koje dokumente trebaš za vizu ili boravišnu dozvolu, ovisno o državljanstvu." path="/viza" />
-      <div className="max-w-[1280px] mx-auto px-4 md:px-12 py-8">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-12 py-6 lg:py-8">
         {/* Nav */}
         <PageNavBar />
 

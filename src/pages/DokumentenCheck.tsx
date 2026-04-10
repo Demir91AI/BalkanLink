@@ -11,6 +11,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useSectionT } from "@/hooks/useSectionT";
 import { useNavigate } from "react-router-dom";
 import { navigateBackOrHome } from "@/lib/navigation";
+import { useSubscription } from "@/hooks/useSubscription";
 
 import { toast } from "sonner";
 
@@ -184,7 +185,7 @@ export default function DokumentenCheck() {
   const [showPaywall, setShowPaywall] = useState(false);
   const submittingRef = useRef(false);
 
-  const isPremium = false;
+  const { isPremium } = useSubscription();
 
   const clearFile = useCallback(() => {
     setFile(null);
@@ -227,8 +228,7 @@ export default function DokumentenCheck() {
       let payload: { text?: string; imageBase64?: string; mimeType?: string } = {};
 
       if (file) {
-        const buffer = await file.arrayBuffer();
-        const base64 = btoa(new Uint8Array(buffer).reduce((data, byte) => data + String.fromCharCode(byte), ""));
+        const base64 = await fileToBase64(file);
         const mimeType = file.type || (file.name.toLowerCase().endsWith(".pdf") ? "application/pdf" : "image/jpeg");
         payload = { imageBase64: base64, mimeType };
       }
