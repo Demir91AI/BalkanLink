@@ -938,7 +938,7 @@ export const translations: Record<string, T> = {
   "nt.typeOffer":              { bs: "Nudim",                 de: "Anbieten" },
   "nt.typeSeek":               { bs: "Tražim",                de: "Suchen" },
   "deutsch.trainer.subtitle":  { bs: "Efikasno učenje njemačkog za svakodnevni život", de: "Effektives Deutschlernen für das echte Leben", hr: "Učinkovito učenje njemačkog za svakodnevni život" },
-  "deutsch.progress":          { bs: "Napredak",              de: "Fortschritt" },
+  
   "deutsch.lessons":           { bs: "lekcija",               de: "Lektionen" },
   "deutsch.cta.title":         { bs: "Nastavi učiti",         de: "Weiter lernen" },
   "deutsch.cta.desc":          { bs: "Otključaj sve lekcije i AI jezičnog asistenta", de: "Schalte alle Lektionen & den vollen Sprachassistent frei" },
