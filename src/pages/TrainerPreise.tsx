@@ -6,10 +6,10 @@ import { navigateBackOrHome } from "@/lib/navigation";
 const individualLevels = [
   { level: "A1", price: "9,99 €", desc: "Grundlagen – erste Schritte" },
   { level: "A2", price: "14,99 €", desc: "Alltag – einfache Gespräche" },
-  { level: "B1", price: "14,99 €", desc: "Selbstständig kommunizieren" },
-  { level: "B2", price: "19,99 €", desc: "Komplexere Situationen" },
-  { level: "C1", price: "19,99 €", desc: "Anspruchsvoll & beruflich" },
-  { level: "C2", price: "24,99 €", desc: "Professionelles Niveau" },
+  { level: "B1", price: "16,99 €", desc: "Selbstständig kommunizieren" },
+  { level: "B2", price: "22,99 €", desc: "Komplexere Situationen" },
+  { level: "C1", price: "26,99 €", desc: "Anspruchsvoll & beruflich" },
+  { level: "C2", price: "32,99 €", desc: "Professionelles Niveau" },
 ];
 
 const packages = [
@@ -155,7 +155,7 @@ export default function TrainerPreise() {
                   🎉 Promo cijena — prvih 6 mjeseci
                 </p>
                 <Button
-                  onClick={() => navigate("/pricing")}
+                    onClick={() => navigate("/paketi")}
                   variant="outline"
                   className="mt-3 h-8 w-full rounded-lg text-[11px] font-bold"
                 >

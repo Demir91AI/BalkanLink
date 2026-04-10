@@ -51,11 +51,12 @@ import FahrzeugzulassungGuide from "@/components/formulare/FahrzeugzulassungGuid
 import { navigateBackOrHome } from "@/lib/navigation";
 import FormRightPanel from "@/components/formCenter/FormRightPanel";
 
-type LangKey = "de" | "bs" | "en";
+type LangKey = "de" | "bs" | "hr" | "sr";
 
 function getLangKey(lang: string): LangKey {
   if (lang === "de") return "de";
-  if (lang === "en") return "en";
+  if (lang === "hr") return "hr";
+  if (lang === "sr") return "sr";
   return "bs";
 }
 
