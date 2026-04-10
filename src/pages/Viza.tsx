@@ -239,7 +239,7 @@ export default function Viza() {
                     <button
                       onClick={() => setShowPremiumModal(true)}
                       className="rounded-lg px-5 py-2.5 text-sm font-bold text-white transition-colors hover:opacity-90"
-                      className="bg-[hsl(var(--gold))]" style={{}}
+                       style={{ background: "hsl(var(--gold))" }}
                     >
                       {t("paywall.unlockPremium")}
                     </button>
