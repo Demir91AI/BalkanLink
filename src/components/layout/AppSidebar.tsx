@@ -21,9 +21,9 @@ export function AppSidebar() {
   const navigate = useNavigate();
   const location = useLocation();
   const { t } = useLanguage();
-  const { user, signOut } = useAuth();
-  const firstName = getFirstName(user);
-  const initials = getInitials(user);
+  const { user, signOut, displayName } = useAuth();
+  const firstName = displayName.split(/\s+/).filter(Boolean)[0] || "Korisniče";
+  const initials = getInitials(displayName);
 
   const mainItems = [
     { titleKey: "sidebar.formulari", url: "/formulari", icon: FileText, premium: true },
