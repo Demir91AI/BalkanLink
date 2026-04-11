@@ -35,7 +35,7 @@ export type Database = {
           status: Database["public"]["Enums"]["ad_status"]
           title: string
           type: Database["public"]["Enums"]["ad_type"]
-          user_id: string | null
+          user_id: string
         }
         Insert: {
           activated_at?: string | null
@@ -57,7 +57,7 @@ export type Database = {
           status?: Database["public"]["Enums"]["ad_status"]
           title: string
           type: Database["public"]["Enums"]["ad_type"]
-          user_id?: string | null
+          user_id: string
         }
         Update: {
           activated_at?: string | null
@@ -79,7 +79,7 @@ export type Database = {
           status?: Database["public"]["Enums"]["ad_status"]
           title?: string
           type?: Database["public"]["Enums"]["ad_type"]
-          user_id?: string | null
+          user_id?: string
         }
         Relationships: []
       }
@@ -844,7 +844,66 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      ads_public: {
+        Row: {
+          activated_at: string | null
+          bundesland: string | null
+          category: string | null
+          city: string | null
+          city_lat: number | null
+          city_lng: number | null
+          contact_type: Database["public"]["Enums"]["ad_contact_type"] | null
+          contact_value: string | null
+          created_at: string | null
+          description: string | null
+          domain: Database["public"]["Enums"]["ad_domain"] | null
+          expires_at: string | null
+          id: string | null
+          status: Database["public"]["Enums"]["ad_status"] | null
+          title: string | null
+          type: Database["public"]["Enums"]["ad_type"] | null
+          user_id: string | null
+        }
+        Insert: {
+          activated_at?: string | null
+          bundesland?: string | null
+          category?: string | null
+          city?: string | null
+          city_lat?: number | null
+          city_lng?: number | null
+          contact_type?: Database["public"]["Enums"]["ad_contact_type"] | null
+          contact_value?: string | null
+          created_at?: string | null
+          description?: string | null
+          domain?: Database["public"]["Enums"]["ad_domain"] | null
+          expires_at?: string | null
+          id?: string | null
+          status?: Database["public"]["Enums"]["ad_status"] | null
+          title?: string | null
+          type?: Database["public"]["Enums"]["ad_type"] | null
+          user_id?: string | null
+        }
+        Update: {
+          activated_at?: string | null
+          bundesland?: string | null
+          category?: string | null
+          city?: string | null
+          city_lat?: number | null
+          city_lng?: number | null
+          contact_type?: Database["public"]["Enums"]["ad_contact_type"] | null
+          contact_value?: string | null
+          created_at?: string | null
+          description?: string | null
+          domain?: Database["public"]["Enums"]["ad_domain"] | null
+          expires_at?: string | null
+          id?: string | null
+          status?: Database["public"]["Enums"]["ad_status"] | null
+          title?: string | null
+          type?: Database["public"]["Enums"]["ad_type"] | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       consume_doc_check: {
