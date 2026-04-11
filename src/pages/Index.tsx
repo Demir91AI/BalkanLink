@@ -222,12 +222,12 @@ export default function Index() {
                 className="font-heading font-[800] text-white"
                 style={{ fontSize: "clamp(2.4rem, 5vw, 4rem)", lineHeight: 1.15, textShadow: "0 2px 12px rgba(0,0,0,0.4)" }}
               >
-                {"Dein Wegweiser durch"}{" "}
-                <span style={{ color: "#C9A84C" }}>{"das deutsche System."}</span>
+                {t("hero.titleWhite")}{" "}
+                <span style={{ color: "#C9A84C" }}>{t("hero.titleGold")}</span>
               </h1>
 
               <p className="mx-auto mt-4 text-white" style={{ maxWidth: 560, fontSize: "1.1rem", opacity: 0.88, lineHeight: 1.6 }}>
-                {"Die einzige Plattform, die deine Sprache spricht."}
+                {t("hero.subtitle")}
               </p>
 
 
@@ -247,7 +247,7 @@ export default function Index() {
                   onMouseEnter={(e) => { e.currentTarget.style.filter = "brightness(1.1)"; e.currentTarget.style.transform = "scale(1.02)"; }}
                   onMouseLeave={(e) => { e.currentTarget.style.filter = ""; e.currentTarget.style.transform = ""; }}
                 >
-                  {"Kostenlos starten"}
+                  {t("hero.cta.primary")}
                 </button>
                 <button
                   onClick={() => navigate("/paketi")}
@@ -263,12 +263,12 @@ export default function Index() {
                   onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.1)"; }}
                   onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; }}
                 >
-                  {"Pakete ansehen"}
+                  {t("hero.cta.secondary")}
                 </button>
               </div>
 
               <p className="mx-auto mt-6 max-w-sm text-center text-white" style={{ fontSize: "0.72rem", opacity: 0.55 }}>
-                {"BalkanLink ist eine Bildungsplattform und kein Rechtsberater."}
+                {t("hero.disclaimer")}
               </p>
 
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.7 }} className="mt-6 flex flex-row flex-wrap items-center justify-center" style={{ gap: 28 }}>
