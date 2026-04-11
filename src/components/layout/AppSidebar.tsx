@@ -102,7 +102,7 @@ export function AppSidebar() {
         }}
       >
         <div className="flex items-center justify-between px-5 py-4 border-b border-[#E8E0D0]">
-          <span className="text-sm font-bold text-[#2D2D2D] tracking-wide uppercase">{"Menü"}</span>
+          <span className="text-sm font-bold text-[#2D2D2D] tracking-wide uppercase">{t("sidebar.menu")}</span>
           <button onClick={close} className="h-8 w-8 rounded-lg flex items-center justify-center hover:bg-[#F0EDE6] transition-colors">
             <X className="h-4 w-4 text-[#6B6B6B]" />
           </button>
@@ -131,7 +131,7 @@ export function AppSidebar() {
               className="flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-left text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D] transition-all duration-200"
             >
               <LogIn className="h-[18px] w-[18px] shrink-0" />
-              <span className="text-[14px] font-medium">{"Anmelden"} / {"Registrieren"}</span>
+              <span className="text-[14px] font-medium">{t("sidebar.prijava")}</span>
             </button>
           )}
         </div>
@@ -148,7 +148,7 @@ export function AppSidebar() {
               }`}
             >
               <CreditCard className={`h-[18px] w-[18px] shrink-0 ${location.pathname === "/paketi" ? "text-[hsl(var(--gold))]" : ""}`} />
-              <span className="text-[14px] font-medium">{"Pakete & Preise"}</span>
+              <span className="text-[14px] font-medium">{t("sidebar.paketi")}</span>
             </button>
             {user && (
               <button
@@ -156,14 +156,14 @@ export function AppSidebar() {
                 className="flex items-center gap-3 w-full px-3 py-2 rounded-lg text-left text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D] transition-all duration-200"
               >
                 <LogOut className="h-[18px] w-[18px] shrink-0" />
-                <span className="text-[14px] font-medium">{"Abmelden"}</span>
+                <span className="text-[14px] font-medium">{t("sidebar.odjava")}</span>
               </button>
             )}
           </nav>
         </div>
 
         <div className="px-3 pt-4">
-          <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">{"Hauptfunktionen"}</p>
+          <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">{t("sidebar.mainFunctions")}</p>
           <nav className="flex flex-col gap-0.5">
             {mainItems.map((item) => {
               const active = location.pathname === item.url || location.pathname.startsWith(item.url + "/");
@@ -193,7 +193,7 @@ export function AppSidebar() {
         </div>
 
         <div className="px-3 pt-5">
-          <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">{"Sonstiges"}</p>
+          <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">{t("sidebar.other")}</p>
           <nav className="flex flex-col gap-0.5">
             {secondaryItems.map((item) => {
               const active = location.pathname === item.url || location.pathname.startsWith(item.url + "/");
