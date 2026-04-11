@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useSubscription } from "@/hooks/useSubscription";
 import { useNavigate } from "react-router-dom";
-import { useTranslation } from "@/i18n/useTranslation";
+import { useLanguage } from "@/contexts/LanguageContext";
 import PageNav from "@/components/navigation/PageNav";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -16,7 +16,7 @@ export default function Profil() {
   const { user, isPremium, subscriptionEnd, signOut, profileLoading, displayName } = useAuth();
   const { subscriptionTier } = useSubscription();
   const navigate = useNavigate();
-  const { t } = useTranslation();
+  const { t } = useLanguage();
   const [editName, setEditName] = useState(displayName);
   const [saving, setSaving] = useState(false);
 
