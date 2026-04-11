@@ -22,14 +22,14 @@ export default function PageNavBar({ onBack, inline }: Props) {
         className="flex items-center gap-1.5 text-[13px] font-medium text-[#6B6B6B] hover:text-[#2D2D2D] transition-colors px-3 py-1.5 rounded-lg hover:bg-[#F0EAD8]"
       >
         <ChevronLeft className="h-4 w-4" />
-        {"Zurück"}
+        Nazad
       </button>
       <button
         onClick={() => navigate("/")}
         className="flex items-center gap-1.5 text-[13px] font-medium text-[#6B6B6B] hover:text-[#2D2D2D] transition-colors px-3 py-1.5 rounded-lg hover:bg-[#F0EAD8]"
       >
         <Home className="h-4 w-4" />
-        {"Startseite"}
+        Početna
       </button>
     </div>
   );
