@@ -24,14 +24,14 @@ export default function SectionHeader({ onBack, breadcrumbs, title, subtitle, ic
           className="flex items-center gap-1.5 text-[13px] font-medium text-white/50 hover:text-white/80 transition-colors px-3 py-1.5 rounded-lg hover:bg-white/[0.06]"
         >
           <ChevronLeft className="h-4 w-4" />
-          {"← Zurück".replace("← ", "")}
+          Nazad
         </button>
         <button
           onClick={() => navigate("/")}
           className="flex items-center gap-1.5 text-[13px] font-medium text-white/50 hover:text-white/80 transition-colors px-3 py-1.5 rounded-lg hover:bg-white/[0.06]"
         >
           <Home className="h-4 w-4" />
-          {"Startseite"}
+          Početna
         </button>
       </div>
 

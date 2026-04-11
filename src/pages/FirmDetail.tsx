@@ -10,9 +10,9 @@ export default function FirmDetail() {
   if (!firm) {
     return (
       <div className="flex min-h-[60vh] flex-col items-center justify-center gap-4">
-        <h1 className="text-2xl font-bold text-foreground">{"Firma nicht gefunden"}</h1>
+        <h1 className="text-2xl font-bold text-foreground">Firma nije pronađena</h1>
         <Button asChild variant="outline">
-          <Link to="/"><ArrowLeft className="mr-2 h-4 w-4" /> {"Zurück"}</Link>
+          <Link to="/"><ArrowLeft className="mr-2 h-4 w-4" /> Nazad</Link>
         </Button>
       </div>
     );
@@ -22,7 +22,7 @@ export default function FirmDetail() {
     <div className="mx-auto max-w-4xl px-4 py-8">
       {/* Back */}
       <Link to="/" className="mb-6 inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-        <ChevronLeft className="h-4 w-4" /> {"Zurück"}
+        <ChevronLeft className="h-4 w-4" /> Nazad
       </Link>
 
       {/* Hero image */}
