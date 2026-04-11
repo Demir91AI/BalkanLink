@@ -1,5 +1,5 @@
 import { useNavigate, useLocation } from "react-router-dom";
-import { Home, FileText, CreditCard, User, LogIn, type LucideIcon } from "lucide-react";
+import { Home, CreditCard, User, LogIn, type LucideIcon } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 
 interface NavItem {
@@ -15,8 +15,7 @@ export default function MobileBottomNav() {
 
   const items: NavItem[] = [
     { icon: Home, label: "Start", path: "/" },
-    { icon: FileText, label: "Formulare", path: "/formulare" },
-    { icon: CreditCard, label: "Preise", path: "/preise" },
+    { icon: CreditCard, label: "Preise", path: "/paketi" },
     user
       ? { icon: User, label: "Profil", path: "/profil" }
       : { icon: LogIn, label: "Login", path: "/login" },

@@ -8,8 +8,8 @@ interface SEOProps {
 
 const BASE_URL = 'https://www.balkanlink.de';
 const OG_IMAGE = BASE_URL + '/og-image.png';
-const DEFAULT_TITLE = 'BalkanLink — Dein Wegweiser durch das deutsche System';
-const DEFAULT_DESC = 'Formulare, Visa-Navigator, KI-Assistent, Deutschkurs und Community für das Leben in Deutschland.';
+const DEFAULT_TITLE = 'BalkanLink — Formulari, Viza i Savjeti za Balkance u Njemačkoj';
+const DEFAULT_DESC = 'Sve što ti treba za život u Njemačkoj — musterformulari, viza navigator, AI asistent, deutsch kurs. Na bosanskom, hrvatskom i srpskom.';
 
 export const SEO = ({ title, description, path = '' }: SEOProps) => {
   const fullTitle = title ? `${title} | BalkanLink` : DEFAULT_TITLE;
@@ -30,7 +30,7 @@ export const SEO = ({ title, description, path = '' }: SEOProps) => {
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:site_name" content="BalkanLink" />
-      <meta property="og:locale" content="de_DE" />
+      <meta property="og:locale" content="bs_BA" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={desc} />

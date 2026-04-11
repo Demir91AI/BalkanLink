@@ -2,12 +2,9 @@ import { Link } from "react-router-dom";
 
 const platformLinks = [
   { label: "Startseite", to: "/" },
-  { label: "Formulare", to: "/formulare" },
-  { label: "Visa-Navigator", to: "/visa-navigator" },
-  { label: "Rechner", to: "/rechner" },
-  { label: "Deutschkurs", to: "/deutsch-kurs" },
-  { label: "Kleinanzeigen", to: "/kleinanzeigen" },
-  { label: "Preise", to: "/preise" },
+  { label: "Pakete & Preise", to: "/paketi" },
+  { label: "Anmelden", to: "/login" },
+  { label: "Registrieren", to: "/register" },
 ];
 
 const legalLinks = [
@@ -29,7 +26,7 @@ export default function Footer() {
             <span>BalkanLink</span>
           </Link>
           <p className="max-w-md text-sm text-muted-foreground">
-            Dein Wegweiser durch das deutsche System — Formulare, Visa, Rechner, Deutschkurs und mehr.
+            Dein Wegweiser durch das deutsche System. Sichtbar bleiben nur Bereiche, die vollständig deutschsprachig bereinigt sind.
           </p>
           <p className="text-xs text-muted-foreground">
             BalkanLink bietet informative Hinweise und keine Rechtsberatung.
@@ -67,7 +64,7 @@ export default function Footer() {
 
       <div className="border-t border-border">
         <div className="container flex flex-col gap-2 py-4 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
-          <p>&copy; 2026 BalkanLink &middot; Alle Rechte vorbehalten.</p>
+          <p>© 2026 BalkanLink · Alle Rechte vorbehalten.</p>
           <p>Entwickelt von RealCore Digital.</p>
         </div>
       </div>
