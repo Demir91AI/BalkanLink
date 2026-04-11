@@ -307,7 +307,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           'Antrag auf Aufenthaltserlaubnis',
           'Zulassungsbescheid njemackog sveučilišta (potvrda o prijemu)',
           'TestDaF/DSH (B2/C1) ILI IELTS/TOEFL potvrda',
-          'Sperrkonto potvrda — min. 11.208 €/god. (934 €/mj.), Stand 2025',
+          'Sperrkonto potvrda — min. 11.208 €/god. (934 €/mj.), Stand 2026',
           'Matura ili ekvivalent + ovjereni prijevod',
           'Zdravstveno osiguranje za Njemačku'
         ],
