@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
 
 import FlowBanner from "@/components/home/FlowBanner";
-import { label } from "@/lib/de-labels";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 
 const slides = [
