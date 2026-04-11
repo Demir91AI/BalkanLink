@@ -64,6 +64,7 @@ function CarouselArrows({ onLeft, onRight }: { onLeft: () => void; onRight: () =
 /* ─── Services Carousel ─── */
 function ServicesCarousel() {
   const doubled = [...serviceCardKeys, ...serviceCardKeys];
+  const { t } = useLanguage();
   const { ref, pause, scheduleResume, scrollByCard, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.6, 3000);
 
   return (
@@ -187,6 +188,7 @@ function ShowcaseCarousel() {
 export default function Index() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
