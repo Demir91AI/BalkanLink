@@ -82,9 +82,9 @@ export default function Pricing() {
               <Feature yes>Uvod u sve Smart Guides</Feature>
               <Feature yes>Brutto-Netto kalkulator</Feature>
               <Feature yes>Pregled oglasa (Classifieds)</Feature>
-              <Feature yes>3 besplatne AI poruke</Feature>
+              <Feature yes>3 besplatne poruke</Feature>
               <Feature no>Kompletni formulari</Feature>
-              <Feature no>Puni AI Asistent</Feature>
+              <Feature no>Puni Asistent</Feature>
               <Feature no>Deutsch kurs</Feature>
             </ul>
 
@@ -118,8 +118,8 @@ export default function Pricing() {
               <Feature yes>Sve iz Besplatnog plana</Feature>
               <Feature yes>Svi Musterformulare (15+ formulara)</Feature>
               <Feature yes>Kompletni Smart Guides (korak po korak)</Feature>
-              <Feature yes>Neograničen AI Asistent</Feature>
-              <Feature yes>Dokumenten-Check AI</Feature>
+              <Feature yes>Neograničen BalkanLink Asistent</Feature>
+              <Feature yes>Dokumenten-Check</Feature>
               <Feature yes>Kompletan Deutsch kurs</Feature>
               <Feature yes>Detaljni Viza Navigator</Feature>
               <Feature yes>Prioritetna podrška</Feature>
@@ -172,7 +172,7 @@ export default function Pricing() {
               <Feature yes>Zauvijek, bez pretplate</Feature>
               <Feature no>Ostali formulari</Feature>
               <Feature no>Smart Guides</Feature>
-              <Feature no>AI Asistent</Feature>
+              <Feature no>BalkanLink Asistent</Feature>
             </ul>
 
             <Button
