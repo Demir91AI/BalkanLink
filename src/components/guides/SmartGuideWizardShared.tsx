@@ -30,12 +30,10 @@ interface Props {
   finishLabel?: string;
   onFinish?: () => void;
 }
-  onFinish?: () => void;
-}
 
 const FREE_STEPS = 2;
 
-export default function SmartGuideWizardShared({ steps, finishLabel, onFinish }: Props) {
+export default function SmartGuideWizardShared({ steps, free = false, finishLabel, onFinish }: Props) {
   const [step, setStep] = useState(0);
   const st = useSectionT();
   const navigate = useNavigate();
