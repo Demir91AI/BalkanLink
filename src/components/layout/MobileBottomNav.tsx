@@ -1,6 +1,7 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { FileText, Map, Sparkles, User, Tag } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 import AuthModal from "@/components/auth/AuthModal";
 import { useState } from "react";
 
