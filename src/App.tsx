@@ -245,13 +245,15 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
-        <CountryProvider>
-          <AuthProvider>
-            <Suspense fallback={null}>
-              <AppRoutes />
-            </Suspense>
-          </AuthProvider>
-        </CountryProvider>
+        <LanguageProvider>
+          <CountryProvider>
+            <AuthProvider>
+              <Suspense fallback={null}>
+                <AppRoutes />
+              </Suspense>
+            </AuthProvider>
+          </CountryProvider>
+        </LanguageProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

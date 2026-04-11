@@ -150,7 +150,6 @@ const BS: Record<string, string> = {
   "service.dokumenti": "Provjera dokumenata",
   "service.dokumenti.desc": "Provjeri da li je sve potpuno",
   "service.deutsch": "Kurs njemačkog A1–C2",
-  "service.deutsch.desc": "Uči njemački za svakodnevni život",
   "service.kalkulatori": "Kalkulator",
   "service.kalkulatori.desc": "Izračunaj primanja",
   "service.oglasi": "Nudim / Tražim",
