@@ -37,12 +37,12 @@ export default function NudimTrazim() {
     queryKey: ["nt-ads"],
     queryFn: async () => {
       const { data, error } = await supabase
-        .from("ads")
+        .from("ads_public" as any)
         .select("id, type, title, category, city, description, contact_type, contact_value, created_at, bundesland, city_lat, city_lng, domain, user_id")
         .eq("status", "ACTIVE")
         .order("created_at", { ascending: false });
       if (error) throw error;
-      return (data ?? []).map((row): NtAd => ({
+      return ((data ?? []) as any[]).map((row: any): NtAd => ({
         id: row.id,
         type: row.type === "OFFERING" ? "nudim" : "trazim",
         title: row.title,
