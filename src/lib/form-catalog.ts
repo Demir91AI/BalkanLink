@@ -4,12 +4,16 @@ export interface FormEntry {
   slug: string;
   label: string;
   desc: string;
+  /** Short summary of included content (shown on premium cards) */
+  includes?: string;
 }
 
 export interface FormGroup {
   id: string;
   icon: string; // emoji
   title: string;
+  /** If true, this entire category is free (no login or premium required) */
+  isFree?: boolean;
   items: FormEntry[];
   /** Sub-groups within a group (e.g. Bürgergeld Anlagen) */
   subGroups?: {
@@ -19,11 +23,24 @@ export interface FormGroup {
   }[];
 }
 
+/** Slugs in this set are fully free — no auth gate, no premium */
+export const FREE_FORM_SLUGS = new Set([
+  "anmeldung",
+  "steuer-id",
+  "fuehrerschein",
+  "fahrzeugzulassung",
+]);
+
+export function isFormFree(slug: string): boolean {
+  return FREE_FORM_SLUGS.has(slug);
+}
+
 export const formCatalog: FormGroup[] = [
   {
     id: "dolazak",
     icon: "🏠",
     title: "Dolazak u Njemačku",
+    isFree: true,
     items: [
       { slug: "anmeldung", label: "Anmeldung / Ummeldung", desc: "Prijava ili promjena adrese stanovanja u Njemačkoj." },
       { slug: "steuer-id", label: "Steuer-ID", desc: "Poreski identifikacioni broj za rad i prijavu." },
@@ -36,11 +53,11 @@ export const formCatalog: FormGroup[] = [
     icon: "👨‍👩‍👧",
     title: "Porodica i djeca",
     items: [
-      { slug: "kindergeld", label: "Kindergeld", desc: "Mjesečna državna naknada za djecu." },
-      { slug: "elterngeld", label: "Elterngeld", desc: "Naknada za roditelje nakon rođenja djeteta." },
-      { slug: "mutterschaftsgeld", label: "Mutterschaftsgeld", desc: "Naknada tokom zaštitnog perioda prije i poslije poroda." },
-      { slug: "kinderzuschlag", label: "Kinderzuschlag", desc: "Dodatna podrška za porodice s niskim primanjima." },
-      { slug: "krippengeld-bayern", label: "Krippengeld (Bayern)", desc: "Subvencija za troškove vrtića u Bavarskoj za djecu do 3 godine." },
+      { slug: "kindergeld", label: "Kindergeld", desc: "Mjesečna državna naknada za djecu.", includes: "Smart Guide + KG1 + Anlage Kind" },
+      { slug: "elterngeld", label: "Elterngeld", desc: "Naknada za roditelje nakon rođenja djeteta.", includes: "Smart Guide + Antrag + Anlage EG+" },
+      { slug: "mutterschaftsgeld", label: "Mutterschaftsgeld", desc: "Naknada tokom zaštitnog perioda prije i poslije poroda.", includes: "Smart Guide + Antrag Mutterschaftsgeld" },
+      { slug: "kinderzuschlag", label: "Kinderzuschlag", desc: "Dodatna podrška za porodice s niskim primanjima.", includes: "Smart Guide + Antrag Kinderzuschlag" },
+      { slug: "krippengeld-bayern", label: "Krippengeld (Bayern)", desc: "Subvencija za troškove vrtića u Bavarskoj za djecu do 3 godine.", includes: "Vodič + Antrag Krippengeld" },
     ],
   },
   {
@@ -48,8 +65,8 @@ export const formCatalog: FormGroup[] = [
     icon: "💰",
     title: "Bürgergeld",
     items: [
-      { slug: "hauptantrag", label: "Bürgergeld Hauptantrag", desc: "Centralni formular za podnošenje zahtjeva za Bürgergeld." },
-      { slug: "weiterbewilligung", label: "Weiterbewilligungsantrag", desc: "Produženje Bürgergeld-a nakon isteka perioda odobravanja." },
+      { slug: "hauptantrag", label: "Bürgergeld Hauptantrag", desc: "Centralni formular za podnošenje zahtjeva za Bürgergeld.", includes: "Smart Guide + HA + EK + KDU + VM" },
+      { slug: "weiterbewilligung", label: "Weiterbewilligungsantrag", desc: "Produženje Bürgergeld-a nakon isteka perioda odobravanja.", includes: "Smart Guide + WBA formular" },
     ],
     subGroups: [
       {
@@ -84,7 +101,7 @@ export const formCatalog: FormGroup[] = [
     icon: "🏡",
     title: "Wohngeld",
     items: [
-      { slug: "wohngeld", label: "Wohngeld", desc: "Finansijska podrška za troškove stanovanja." },
+      { slug: "wohngeld", label: "Wohngeld", desc: "Finansijska podrška za troškove stanovanja.", includes: "Vodič + Antrag Wohngeld + izračun" },
     ],
   },
   {
@@ -92,9 +109,9 @@ export const formCatalog: FormGroup[] = [
     icon: "💼",
     title: "Rad i karijera",
     items: [
-      { slug: "krankenkasse", label: "Krankenkasse", desc: "Prijava na zdravstveno osiguranje u Njemačkoj." },
-      { slug: "steuerklassenwechsel", label: "Steuerklassenwechsel", desc: "Promjena porezne klase, npr. nakon vjenčanja." },
-      { slug: "arbeitslosengeld", label: "Arbeitslosengeld I", desc: "Naknada za nezaposlenost uz ispunjene uslove." },
+      { slug: "krankenkasse", label: "Krankenkasse", desc: "Prijava na zdravstveno osiguranje u Njemačkoj.", includes: "Smart Guide + Anmeldeformular" },
+      { slug: "steuerklassenwechsel", label: "Steuerklassenwechsel", desc: "Promjena porezne klase, npr. nakon vjenčanja.", includes: "Smart Guide + Antrag" },
+      { slug: "arbeitslosengeld", label: "Arbeitslosengeld I", desc: "Naknada za nezaposlenost uz ispunjene uslove.", includes: "Smart Guide + ALG1 Antrag" },
     ],
   },
   {
@@ -102,9 +119,9 @@ export const formCatalog: FormGroup[] = [
     icon: "🎓",
     title: "Obrazovanje",
     items: [
-      { slug: "bafoeg", label: "BAföG", desc: "Finansijska podrška za studij ili školu." },
-      { slug: "schueler-bafoeg", label: "Schüler-BAföG", desc: "Finansijska podrška za učenike koji žive odvojeno od roditelja." },
-      { slug: "integrationskurs", label: "Integrationskurs", desc: "Kurs jezika i orijentacije." },
+      { slug: "bafoeg", label: "BAföG", desc: "Finansijska podrška za studij ili školu.", includes: "Smart Guide + Antrag BAföG + Schüler-BAföG" },
+      { slug: "schueler-bafoeg", label: "Schüler-BAföG", desc: "Finansijska podrška za učenike koji žive odvojeno od roditelja.", includes: "Smart Guide + Antrag Schüler-BAföG" },
+      { slug: "integrationskurs", label: "Integrationskurs", desc: "Kurs jezika i orijentacije.", includes: "Smart Guide + Antrag Integrationskurs" },
     ],
   },
   {
@@ -112,12 +129,13 @@ export const formCatalog: FormGroup[] = [
     icon: "📋",
     title: "Dokumenti i potvrde",
     items: [
-      { slug: "grundsicherung", label: "Grundsicherung im Alter", desc: "Osnovna pomoć za starije osobe i osobe s invaliditetom." },
-      { slug: "fuehrungszeugnis", label: "Führungszeugnis", desc: "Potvrda o nekažnjavanju." },
-      { slug: "kirchenaustritt", label: "Kirchenaustritt", desc: "Istupanje iz crkve radi ukidanja crkvenog poreza." },
+      { slug: "grundsicherung", label: "Grundsicherung im Alter", desc: "Osnovna pomoć za starije osobe i osobe s invaliditetom.", includes: "Smart Guide + Antrag Grundsicherung" },
+      { slug: "fuehrungszeugnis", label: "Führungszeugnis", desc: "Potvrda o nekažnjavanju.", includes: "Smart Guide + Online Antrag vodič" },
+      { slug: "kirchenaustritt", label: "Kirchenaustritt", desc: "Istupanje iz crkve radi ukidanja crkvenog poreza.", includes: "Vodič + Antrag Kirchenaustritt" },
     ],
   },
 ];
+
 /** Flat list of all unique slugs for search */
 export function getAllFormEntries(): FormEntry[] {
   const seen = new Set<string>();
