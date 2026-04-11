@@ -167,9 +167,9 @@ export default function NudimTrazim() {
             </div>
             {/* Heading */}
             <h1 className="text-4xl sm:text-5xl font-black text-white leading-tight mb-4">
-              Anbieten, suchen,<br />
-              <span style={{ background: 'linear-gradient(90deg, #C9A84C, #F0D080)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                vernetzen.
+              Ponudi, traži,<br />
+            <span style={{ background: 'linear-gradient(90deg, #C9A84C, #F0D080)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                poveži se.
               </span>
             </h1>
             <p className="text-white/60 text-base sm:text-lg leading-relaxed mb-8 max-w-xl">
