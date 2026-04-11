@@ -1,6 +1,7 @@
 import { useRef, useCallback } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { Menu, ShieldCheck } from "lucide-react";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -48,7 +49,7 @@ export default function Header() {
           )}
         </div>
 
-        <div className="w-10" />
+        <LanguageSwitcher />
       </div>
     </header>
   );

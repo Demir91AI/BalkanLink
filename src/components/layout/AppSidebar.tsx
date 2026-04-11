@@ -7,7 +7,7 @@ import {
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import AuthModal from "@/components/auth/AuthModal";
-import { label } from "@/lib/de-labels";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 function getInitials(name: string) {
   const parts = name.split(/\s+/).filter(Boolean);
@@ -21,7 +21,8 @@ export function AppSidebar() {
   const navigate = useNavigate();
   const location = useLocation();
   const { user, signOut, displayName } = useAuth();
-  const firstName = displayName.split(/\s+/).filter(Boolean)[0] || "Korisniče";
+  const { t, lang } = useLanguage();
+  const firstName = displayName.split(/\s+/).filter(Boolean)[0] || (lang === "bs" ? "Korisniče" : "Nutzer");
   const initials = getInitials(displayName);
 
   const mainItems = [
@@ -117,7 +118,7 @@ export function AppSidebar() {
                 </div>
                 <div className="min-w-0">
                   <p className="text-sm font-semibold text-[#2D2D2D]">
-                    Dobro došao/la, {firstName}!
+                    {lang === "bs" ? "Dobro došao/la" : "Willkommen"}, {firstName}!
                   </p>
                   <p className="mt-0.5 truncate text-sm text-muted-foreground">{user.email}</p>
                 </div>
@@ -178,7 +179,7 @@ export function AppSidebar() {
                 >
                   <item.icon className={`h-[18px] w-[18px] shrink-0 ${active ? "text-[hsl(var(--gold))]" : "text-[#6B6B6B]"}`} />
                   <span className={`text-[14px] font-semibold whitespace-nowrap overflow-visible ${active ? "text-[hsl(var(--gold))]" : "text-[#2D2D2D]"}`}>
-                    {label(item.titleKey)}
+                    {t(item.titleKey)}
                   </span>
                   {item.premium && (
                     <span className="ml-auto shrink-0 rounded-full bg-[hsl(var(--gold))] px-1.5 py-0.5 text-[8px] font-bold leading-none text-white">
@@ -208,7 +209,7 @@ export function AppSidebar() {
                 >
                   <item.icon className={`h-[18px] w-[18px] shrink-0 ${active ? "text-[hsl(var(--gold))]" : ""}`} />
                   <span className="text-[14px] font-medium whitespace-nowrap overflow-visible">
-                    {label(item.titleKey)}
+                    {t(item.titleKey)}
                   </span>
                 </button>
               );

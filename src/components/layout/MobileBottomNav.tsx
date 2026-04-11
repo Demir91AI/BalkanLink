@@ -1,6 +1,7 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { FileText, Map, Sparkles, User, Tag } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 import AuthModal from "@/components/auth/AuthModal";
 import { useState } from "react";
 
@@ -8,14 +9,15 @@ export default function MobileBottomNav() {
   const navigate = useNavigate();
   const location = useLocation();
   const { user } = useAuth();
+  const { t } = useLanguage();
   const [authOpen, setAuthOpen] = useState(false);
 
   const items = [
-    { icon: FileText, label: "Dokumente", path: "/formulari" },
-    { icon: Map, label: "Leitfäden", path: "/dolazak" },
-    { icon: Sparkles, label: "KI", path: "/dokumenten-check" },
-    { icon: Tag, label: "Preise", path: "/paketi" },
-    { icon: User, label: "Profil", path: "__auth__" },
+    { icon: FileText, label: t("homepage.mobileNav.dokumenti"), path: "/formulari" },
+    { icon: Map, label: t("homepage.mobileNav.vodici"), path: "/dolazak" },
+    { icon: Sparkles, label: t("homepage.mobileNav.ai"), path: "/dokumenten-check" },
+    { icon: Tag, label: t("homepage.mobileNav.cijene"), path: "/paketi" },
+    { icon: User, label: t("homepage.mobileNav.profil"), path: "__auth__" },
   ];
 
   const handleClick = (path: string) => {

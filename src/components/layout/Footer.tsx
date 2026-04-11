@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { label } from "@/lib/de-labels";
+import { useLanguage } from "@/contexts/LanguageContext";
+
 const NAV_LINKS_KEYS = [
   { labelKey: "sidebar.formulari", to: "/formulari" },
   { labelKey: "sidebar.viza", to: "/viza" },
@@ -15,7 +16,7 @@ const LEGAL_LINKS_KEYS = [
   { labelKey: "footer.agb", to: "/agb" },
   { labelKey: "footer.haftung", to: "/disclaimer" },
   { labelKey: "footer.ki", to: "/ki-hinweis" },
-  { label: "Cookie-Richtlinie", to: "/cookie-richtlinie" },
+  { labelKey: "cookie.footerLink", to: "/cookie-richtlinie" },
 ];
 
 const colTitleStyle: React.CSSProperties = {
@@ -38,9 +39,9 @@ const linkStyle: React.CSSProperties = {
 };
 
 export default function Footer() {
+  const { t } = useLanguage();
   return (
     <footer style={{ background: "#0d1526" }}>
-      {/* SECTION 1 — Main grid */}
       <div
         style={{
           maxWidth: 1200,
@@ -52,7 +53,6 @@ export default function Footer() {
         }}
         className="footer-grid"
       >
-        {/* Column 1 — Brand */}
         <div>
           <Link to="/" style={{ textDecoration: "none" }}>
             <span style={{ fontSize: 20, fontWeight: 900, color: "#fff", letterSpacing: -0.5 }}>
@@ -60,68 +60,49 @@ export default function Footer() {
             </span>
           </Link>
           <p style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", marginTop: 14, lineHeight: 1.6 }}>
-            {"Dein Wegweiser durch das deutsche System."}
+            {t("footer.tagline")}
           </p>
           <p style={{ fontSize: 11, color: "rgba(255,255,255,0.35)", marginTop: 12, lineHeight: 1.5 }}>
-            {"BalkanLink bietet informative Hinweise, keine Rechtsberatung."}
+            {t("footer.disclaimer")}
           </p>
         </div>
 
-        {/* Column 2 — Navigacija */}
         <div>
-          <p style={colTitleStyle}>{"Navigation"}</p>
+          <p style={colTitleStyle}>{t("footer.navSection")}</p>
           {NAV_LINKS_KEYS.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to}
-              style={linkStyle}
-              className="footer-link"
-            >
-              {label(l.labelKey)}
+            <Link key={l.to} to={l.to} style={linkStyle} className="footer-link">
+              {t(l.labelKey)}
             </Link>
           ))}
         </div>
 
-        {/* Column 3 — Pravno */}
         <div>
-          <p style={colTitleStyle}>{"Rechtliches"}</p>
+          <p style={colTitleStyle}>{t("footer.legalSection")}</p>
           {LEGAL_LINKS_KEYS.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to}
-              style={linkStyle}
-              className="footer-link"
-            >
-              {"labelKey" in l ? label(l.labelKey) : l.label}
+            <Link key={l.to} to={l.to} style={linkStyle} className="footer-link">
+              {t(l.labelKey)}
             </Link>
           ))}
         </div>
 
-        {/* Column 4 — Kontakt */}
         <div>
-          <p style={colTitleStyle}>{"Kontakt"}</p>
-          <a
-            href="mailto:kontakt@balkanlink.de"
-            style={linkStyle}
-            className="footer-link"
-          >
+          <p style={colTitleStyle}>{t("footer.contact")}</p>
+          <a href="mailto:kontakt@balkanlink.de" style={linkStyle} className="footer-link">
             kontakt@balkanlink.de
           </a>
         </div>
       </div>
 
-      {/* SECTION 2 — Payment icons */}
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
         <div style={{ height: 1, background: "rgba(255,255,255,0.08)" }} />
       </div>
       <div style={{ padding: "20px 24px 16px", textAlign: "center" }}>
         <p style={{ fontSize: 10, color: "rgba(255,255,255,0.4)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 8, textAlign: "center" }}>
-          {"Zahlungsmethoden"}
+          {t("footer.paymentMethods")}
         </p>
         <p style={{ fontSize: 12, color: "rgba(255,255,255,0.55)", letterSpacing: 0.5, textAlign: "center", marginBottom: 4 }}>
           Visa · Mastercard · PayPal · Apple Pay · Google Pay
         </p>
-        {/* Trust badges */}
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 16, flexWrap: "wrap", marginTop: 14 }}>
           {[
             { icon: "🔒", text: "SSL" },
@@ -149,7 +130,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* SECTION 3 — Bottom line */}
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
         <div style={{ height: 1, background: "rgba(255,255,255,0.08)" }} />
       </div>
@@ -158,11 +138,10 @@ export default function Footer() {
           Powered by <span style={{ color: "#EAB308", fontWeight: 700 }}>RealCore Digital</span> · Klar denken. Digital umsetzen.
         </p>
         <p style={{ fontSize: 11, color: "rgba(255,255,255,0.4)" }}>
-          © 2026 BalkanLink · {"Alle Rechte vorbehalten."}
+          © 2026 BalkanLink · {t("footer.rights")}
         </p>
       </div>
 
-      {/* Responsive CSS */}
       <style>{`
         .footer-link:hover { color: #EAB308 !important; }
         @media (max-width: 1023px) {

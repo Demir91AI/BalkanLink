@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
 import { AuthProvider, useAuth } from "@/contexts/AuthContext";
 import { CountryProvider } from "@/contexts/CountryContext";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 import Layout from "@/components/layout/Layout";
 import HomeLayout from "@/components/layout/HomeLayout";
 import AdminGuard from "@/components/AdminGuard";
@@ -244,13 +245,15 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
-        <CountryProvider>
-          <AuthProvider>
-            <Suspense fallback={null}>
-              <AppRoutes />
-            </Suspense>
-          </AuthProvider>
-        </CountryProvider>
+        <LanguageProvider>
+          <CountryProvider>
+            <AuthProvider>
+              <Suspense fallback={null}>
+                <AppRoutes />
+              </Suspense>
+            </AuthProvider>
+          </CountryProvider>
+        </LanguageProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
