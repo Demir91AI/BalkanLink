@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Scale, ChevronRight, Info } from "lucide-react";
+import { ChevronRight, Info } from "lucide-react";
 import { RADNO_PRAVO_CATEGORIES, getGuidesByCategory, type RadnoPravoGuide } from "@/lib/radno-pravo-data";
 import { SEO } from "@/components/SEO";
 import PageNavBar from "@/components/navigation/PageNavBar";
@@ -13,29 +13,15 @@ export default function RadnoPravo() {
     <>
       <SEO
         title="Radno pravo u Njemačkoj | BalkanLink"
-        description="Sve o radnom pravu u Njemačkoj: ugovor, plata, odmor, otkaz, Minijob i više. Aktuelno za 2025/2026. godinu."
+        description="Sve o radnom pravu u Njemačkoj: ugovor, plata, odmor, otkaz, Minijob i više. Aktuelno za 2026. godinu."
       />
 
       <div className="mx-auto max-w-3xl px-4 py-6 pb-28">
         <PageNavBar />
-        {/* Hero */}
-        <div className="mb-8">
-          <div className="flex items-center gap-3 mb-3">
-            <div
-              className="flex h-11 w-11 items-center justify-center rounded-xl shadow-md"
-              style={{ background: `linear-gradient(135deg, ${GOLD}, hsl(var(--gold-dark)))` }}
-            >
-              <Scale className="h-5 w-5 text-white" />
-            </div>
-            <div>
-              <h1 className="text-xl font-extrabold text-foreground sm:text-2xl">Radno pravo</h1>
-              <p className="text-xs text-muted-foreground">Stand 2025/2026 · Njemačka</p>
-            </div>
-          </div>
-          <p className="text-sm text-muted-foreground leading-relaxed">
-            Profesionalni vodič kroz najvažnije teme radnog prava u Njemačkoj. Svaki vodič sadrži konkretna pravila, praktične primjere i upozorenja — na bosanskom jeziku.
-          </p>
-        </div>
+
+        {/* Header */}
+        <h1 className="text-xl font-extrabold text-foreground sm:text-2xl">Radno pravo</h1>
+        <p className="text-sm text-muted-foreground mt-1 mb-6">Prava i obaveze na radnom mjestu u Njemačkoj · Stand 2026</p>
 
         {/* Disclaimer */}
         <div className="mb-8 rounded-xl border border-blue-200 bg-blue-50 p-4 flex items-start gap-3">
