@@ -13,7 +13,7 @@ export default function RadnoPravo() {
     <>
       <SEO
         title="Radno pravo u Njemačkoj | BalkanLink"
-        description="Sve o radnom pravu u Njemačkoj: ugovor, plata, odmor, otkaz, Minijob i više. Aktuelno za 2025/2026. godinu."
+        description="Sve o radnom pravu u Njemačkoj: ugovor, plata, odmor, otkaz, Minijob i više. Aktuelno za 2026. godinu."
       />
 
       <div className="mx-auto max-w-3xl px-4 py-6 pb-28">
