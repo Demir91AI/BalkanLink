@@ -39,7 +39,7 @@ const ROUTE_ITEMS = [
 ];
 
 /* ─── Visual Paywall (non-blocking) ─── */
-function VisaPaywall({ visaLabel, st }: { visaLabel: string; st: (k: string) => string }) {
+function VisaPaywall({ visaLabel }: { visaLabel: string }) {
   const { user } = useAuth();
   const included = ["Radna viza", "Spajanje porodice", "Produženje boravka", "EU Blue Card"];
 
@@ -176,7 +176,7 @@ function VisaDetail({ visa }: { visa: VisaType }) {
             </div>
           </div>
           <FormSmartGuide guide={guide} lang="bs" />
-          {!isPremium && <VisaPaywall visaLabel={visa.title} st={st} />}
+          {!isPremium && <VisaPaywall visaLabel={visa.title} />}
         </>
       )}
 
@@ -200,7 +200,7 @@ function VisaDetail({ visa }: { visa: VisaType }) {
               {"Der Smart Guide für \\".replace("\"VISA_NAME\"", `„${visa.title}"`)}
             </p>
           </div>
-          {!isPremium && <VisaPaywall visaLabel={visa.title} st={st} />}
+          {!isPremium && <VisaPaywall visaLabel={visa.title} />}
         </>
       )}
 

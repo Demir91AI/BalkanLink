@@ -1,6 +1,6 @@
 import { HelpCircle } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
-import { label } from "@/lib/de-labels";
+import { label as deLabel } from "@/lib/de-labels";
 const TOOLTIP_FIELDS: Record<string, string> = {
   "Steuernummer": "fieldTooltips.Steuernummer",
   "Steuer-ID": "fieldTooltips.Steuer-ID",
@@ -30,7 +30,7 @@ export default function FieldTooltip({ label }: FieldTooltipProps) {
   if (!matchedKey) return null;
 
   const translationKey = TOOLTIP_FIELDS[matchedKey];
-  const tooltip = String(label(translationKey));
+  const tooltip = deLabel(translationKey);
 
   // If translation returns the key itself, no translation found
   if (tooltip === translationKey) return null;
