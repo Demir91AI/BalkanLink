@@ -501,7 +501,7 @@ function NonEURouteDetails({ route, GOLD, CHARCOAL, openFormKey, handleOpenForm,
                 ? <div style={{ position: 'relative' }}>
                     <button onClick={() => handleOpenForm(openFormKey)}
                       style={{ position: 'absolute', top: 12, right: 12, zIndex: 10, background: '#EF4444', color: 'white', border: 'none', borderRadius: 6, padding: '6px 14px', fontSize: 12, cursor: 'pointer', fontWeight: 600 }}>
-                      {"Schließen"}
+                      Zatvori
                     </button>
                     <LoadedForm />
                   </div>

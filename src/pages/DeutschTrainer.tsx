@@ -108,13 +108,13 @@ export default function DeutschTrainer() {
               onClick={() => navigateBackOrHome(navigate)}
               className="flex items-center gap-1.5 text-[13px] font-medium text-white/50 hover:text-white transition-colors"
             >
-              <ArrowLeft className="h-4 w-4" /> {"Zurück"}
+              <ArrowLeft className="h-4 w-4" /> Nazad
             </button>
             <button
               onClick={() => navigate("/")}
               className="flex items-center gap-1.5 text-[13px] font-medium text-white/50 hover:text-white transition-colors"
             >
-              <Home className="h-4 w-4" /> {"Startseite"}
+              <Home className="h-4 w-4" /> Početna
             </button>
           </div>
 

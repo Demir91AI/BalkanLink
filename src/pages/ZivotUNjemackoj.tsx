@@ -662,9 +662,9 @@ const SOURCES = [
 
 export default function ZivotUNjemackoj() {
   const navigate = useNavigate();
-  const lang = "de" as const;
+  const lang = "bs" as const;
   const t = (key: string) => T[lang]?.[key] ?? T.bs[key] ?? key;
-  const countries = COUNTRIES_I18N["de"] ?? COUNTRIES_I18N.bs;
+  const countries = COUNTRIES_I18N["bs"] ?? COUNTRIES_I18N.bs;
 
   const ways = [
     { tagKey: "way1Tag", titleKey: "way1Title", descKey: "way1Desc", forKey: "way1For" },

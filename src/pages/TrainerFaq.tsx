@@ -26,16 +26,16 @@ export default function TrainerFaq() {
             onClick={() => navigateBackOrHome(navigate)}
             className="mb-3 flex items-center gap-1.5 text-sm text-primary-foreground/60 hover:text-primary-foreground"
           >
-            <ArrowLeft className="h-4 w-4" /> {"Zurück"}
+            <ArrowLeft className="h-4 w-4" /> Nazad
           </button>
           <div className="flex items-center gap-3">
             <GraduationCap className="h-7 w-7 text-gold" />
             <div>
               <h1 className="text-lg font-black text-primary-foreground sm:text-xl">
-                {"Häufige Fragen — BalkanLink Deutsch"}
+                Česta pitanja — BalkanLink Deutsch
               </h1>
               <p className="text-xs text-primary-foreground/70">
-                {"Alles Wichtige auf einen Blick"}
+                Sve važno na jednom mjestu
               </p>
             </div>
           </div>
@@ -66,13 +66,13 @@ export default function TrainerFaq() {
             onClick={() => navigate("/deutsch-trainer")}
             className="h-10 rounded-xl font-bold"
           >
-            {"Zurück zum Trainer"}
+            Nazad na Trainer
           </Button>
           <Button
             onClick={() => navigate("/deutsch-trainer/preise")}
             className="h-10 rounded-xl bg-gold font-bold text-gold-foreground hover:bg-gold-light"
           >
-            {"Pakete ansehen"}
+            Pogledaj pakete
           </Button>
         </div>
       </div>

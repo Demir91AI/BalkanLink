@@ -33,8 +33,8 @@ export default function NachDeutschland() {
       <div className="container max-w-4xl py-8 px-4">
         <SEO title="Nach Deutschland — Vodič za Dolazak" description="Sve informacije za dolazak u Njemačku — viza, posao, studij, spajanje porodice. Po zemljama." path="/nach-deutschland" />
         <PageNavBar onBack={handleBack} />
-        <h1 className="text-2xl font-bold text-foreground mb-2">{"Ankunft in Deutschland"}</h1>
-        <p className="text-sm text-muted-foreground mb-6">{"Wähle dein Land und erfahre wie du nach Deutschland kommst."}</p>
+        <h1 className="text-2xl font-bold text-foreground mb-2">Dolazak u Njemačku</h1>
+        <p className="text-sm text-muted-foreground mb-6">Izaberi svoju zemlju i saznaj kako doći u Njemačku.</p>
 
         <div className="rounded-lg border border-[hsl(var(--brand-orange))]/30 bg-[hsl(var(--brand-orange))]/5 p-3 mb-6 flex items-start gap-2">
           <ShieldAlert className="h-4 w-4 text-[hsl(var(--brand-orange))] mt-0.5 shrink-0" />

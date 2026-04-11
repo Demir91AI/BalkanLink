@@ -17,7 +17,7 @@ function MissionDetail({ id, onBack }: { id: string; onBack: () => void }) {
   if (isLoading) return <div className="container py-8"><div className="h-48 animate-pulse rounded-xl border bg-muted" /></div>;
   if (!mission) return (
     <div className="container py-8 text-center">
-      <p className="text-muted-foreground">{"Keine Ergebnisse"}</p>
+      <p className="text-muted-foreground">Nema rezultata</p>
       <button onClick={onBack} className="back-button"><ChevronLeft className="h-4 w-4" />Nazad</button>
     </div>
   );
@@ -215,7 +215,7 @@ export default function Missions() {
       ) : (
         <div className="flex flex-col items-center gap-3 py-16 text-center">
           <Landmark className="h-12 w-12 text-muted-foreground/40" />
-          <p className="text-muted-foreground">{"Keine Ergebnisse"}</p>
+          <p className="text-muted-foreground">Nema rezultata</p>
         </div>
       )}
     </div>

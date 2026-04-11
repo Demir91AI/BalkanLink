@@ -55,13 +55,13 @@ export default function SmartGuideWizardShared({
   const cardConfig = [
     {
       key: "whatToWrite" as const,
-      label: "Was genau eintragen",
+      label: "Šta tačno upisati",
       icon: <Pencil className="h-3.5 w-3.5" />,
       color: "border-blue-200 bg-blue-50 dark:border-blue-900/40 dark:bg-blue-950/20",
     },
     {
       key: "whereToFind" as const,
-      label: "Wo zu finden",
+      label: "Gdje pronaći",
       icon: <MapPin className="h-3.5 w-3.5" />,
       color: "border-emerald-200 bg-emerald-50 dark:border-emerald-900/40 dark:bg-emerald-950/20",
     },
@@ -73,19 +73,19 @@ export default function SmartGuideWizardShared({
     },
     {
       key: "commonMistake" as const,
-      label: "Häufige Fehler",
+      label: "Česte greške",
       icon: <XCircle className="h-3.5 w-3.5" />,
       color: "border-red-200 bg-red-50 dark:border-red-900/40 dark:bg-red-950/20",
     },
     {
       key: "whenToLeaveEmpty" as const,
-      label: "Wann leer lassen",
+      label: "Kada ostaviti prazno",
       icon: <MinusCircle className="h-3.5 w-3.5" />,
       color: "border-amber-200 bg-amber-50 dark:border-amber-900/40 dark:bg-amber-950/20",
     },
     {
       key: "example" as const,
-      label: "Ausgefülltes Beispiel",
+      label: "Popunjeni primjer",
       icon: <FileCheck className="h-3.5 w-3.5" />,
       color: "border-cyan-200 bg-cyan-50 dark:border-cyan-900/40 dark:bg-cyan-950/20",
     },
@@ -115,10 +115,10 @@ export default function SmartGuideWizardShared({
     <div className="space-y-4">
       <div className="text-center">
         <h2 className="text-lg font-bold text-foreground">
-          {"Smart Guide — Schritt für Schritt"}
+          Smart Guide — korak po korak
         </h2>
         <p className="text-sm text-muted-foreground mt-1">
-          {"Jedes Feld erklärt — was eintragen, wo finden, Format und häufige Fehler"}
+          Svako polje objašnjeno — šta upisati, gdje pronaći, format i česte greške
         </p>
       </div>
 
@@ -126,7 +126,7 @@ export default function SmartGuideWizardShared({
       <div className="flex items-center gap-3">
         <Progress value={progress} className="h-2 flex-1" />
         <span className="text-xs font-medium text-muted-foreground whitespace-nowrap">
-          {"Schritt"} {step + 1} / {steps.length}
+          Korak {step + 1} / {steps.length}
         </span>
       </div>
 
@@ -161,15 +161,15 @@ export default function SmartGuideWizardShared({
         >
           <Lock className="mx-auto mb-4 h-10 w-10 text-[hsl(var(--gold))]" />
           <h3 className="text-base font-black text-foreground">
-            {"Smart Guide nur mit Premium"}
+            Smart Guide samo uz Premium
           </h3>
           <p className="mt-2 text-sm text-muted-foreground max-w-xs mx-auto">
-            {"Schalte den kompletten Formular-Guide frei."}
+            Otključaj kompletni vodič za sve formulare.
           </p>
           <p className="mt-1 text-xs text-muted-foreground">
-            {"Schritt"} 1–{FREE_STEPS} {"sind kostenlos"}
+            Korak 1–{FREE_STEPS} besplatno
             {" · "}
-            {"Schritt"} {step + 1} {"erfordert Premium"}
+            Korak {step + 1} zahtijeva Premium
           </p>
           <button
             onClick={() => navigate("/paketi")}
@@ -181,7 +181,7 @@ export default function SmartGuideWizardShared({
               color: "hsl(var(--gold-foreground))",
             }}
           >
-            {"BalkanLink Premium — 9,99€/Monat"}
+            BalkanLink Premium — 9,99€/mj.
           </button>
         </div>
       ) : (
@@ -189,7 +189,7 @@ export default function SmartGuideWizardShared({
           {/* Step field card */}
           <div className="rounded-2xl border border-border/60 bg-card p-5">
             <p className="text-[10px] font-medium text-muted-foreground mb-1">
-              {"Schritt"} {step + 1}
+              Korak {step + 1}
             </p>
             <h3 className="font-bold text-sm">{current.deField}</h3>
             <p className="text-xs text-muted-foreground mt-0.5">
@@ -217,7 +217,7 @@ export default function SmartGuideWizardShared({
               <div className="rounded-xl border p-4 border-gray-200 bg-gray-50
                               dark:border-gray-800 dark:bg-gray-900/30 sm:col-span-2">
                 <h4 className="mb-1.5 flex items-center gap-1.5 text-[11px] font-bold">
-                  <Info className="h-3.5 w-3.5" /> {"Hinweis"}
+                  <Info className="h-3.5 w-3.5" /> Napomena
                 </h4>
                 <p className="text-xs leading-relaxed text-foreground/80">
                   {current.note}
@@ -237,7 +237,7 @@ export default function SmartGuideWizardShared({
           onClick={handlePrev}
         >
           <ChevronLeft className="mr-1 h-4 w-4" />
-          {"Zurück"}
+          Nazad
         </Button>
 
         {!isStepLocked && (
@@ -251,7 +251,7 @@ export default function SmartGuideWizardShared({
               }}
               onClick={onFinish}
             >
-              {finishLabel || "✅ Fertig"}
+              {finishLabel || "✅ Završeno"}
             </Button>
           ) : (
             <Button
@@ -263,7 +263,7 @@ export default function SmartGuideWizardShared({
               }}
               onClick={handleNext}
             >
-              {"Weiter"}
+              Dalje
               <ChevronRight className="ml-1 h-4 w-4" />
             </Button>
           )
