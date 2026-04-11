@@ -74,7 +74,7 @@ export function useSubscription(): SubscriptionState {
   );
 
   const canAccessStep = useCallback(
-    (stepIndex: number) => effectivePremium || stepIndex < 1,
+    (stepIndex: number) => effectivePremium || stepIndex < 2,
     [effectivePremium]
   );
 
