@@ -148,7 +148,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
 
         <div style={{ background: '#F9F6F0', borderRadius: 10, padding: '14px 18px', fontSize: 12, color: '#9CA3AF' }}>
           <Info size={13} style={{ marginRight: 6, verticalAlign: 'middle' }} />
-          {"BalkanLink bietet informative Hinweise. Dies ist keine Rechtsberatung. Stand 2026."}
+          {"BalkanLink pruža informativne smjernice. Ovo nije pravno savjetovanje. Stanje 2026."}
         </div>
       </div>
     );
@@ -295,10 +295,10 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
       {/* Disclaimer */}
       <div style={{ background: '#F9F6F0', borderRadius: 10, padding: '14px 18px', fontSize: 12, color: '#9CA3AF' }}>
         <Info size={13} style={{ marginRight: 6, verticalAlign: 'middle' }} />
-        {"BalkanLink bietet informative Hinweise. Dies ist keine Rechtsberatung. Stand 2026."}
+        {"BalkanLink pruža informativne smjernice. Ovo nije pravno savjetovanje. Stanje 2026."}
         <br />
         <AlertTriangle size={12} style={{ marginRight: 4, verticalAlign: 'middle', marginTop: 4 }} />
-        {"Prüfe die Informationen immer direkt bei der zuständigen Behörde."}
+        {"Uvijek provjeri informacije direktno kod nadležnog organa."}
       </div>
     </div>
   );
@@ -378,7 +378,7 @@ function NonEURouteDetails({ route, GOLD, CHARCOAL, openFormKey, handleOpenForm,
           <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
             <Zap size={18} color={GOLD} style={{ flexShrink: 0, marginTop: 2 }} />
             <div>
-              <p style={{ fontSize: 13, fontWeight: 700, color: '#92400E', margin: '0 0 10px' }}>{"Ausbildung — wichtige Hinweise"}</p>
+              <p style={{ fontSize: 13, fontWeight: 700, color: '#92400E', margin: '0 0 10px' }}>{"Stručno obrazovanje — važne napomene"}</p>
               {route.ausbildungHighlight.map((item: string, i: number) => (
                 <p key={i} style={{ fontSize: 13, color: '#4A4A4A', margin: '0 0 4px', lineHeight: 1.6 }}>{item}</p>
               ))}
@@ -394,7 +394,7 @@ function NonEURouteDetails({ route, GOLD, CHARCOAL, openFormKey, handleOpenForm,
             <Info size={18} color="#3B82F6" style={{ flexShrink: 0, marginTop: 2 }} />
             <div>
               <p style={{ fontSize: 13, fontWeight: 700, color: '#1E40AF', margin: '0 0 10px' }}>
-                {"Hinweise für dein Land"}
+                {"Napomene za tvoju zemlju"}
                 {route.countryBadge && (
                   <span style={{ marginLeft: 8, background: '#DBEAFE', color: '#1E40AF', borderRadius: 20, padding: '2px 10px', fontSize: 11, fontWeight: 600 }}>{route.countryBadge}</span>
                 )}

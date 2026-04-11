@@ -24,7 +24,7 @@ export default function NtCategoryChips({ active, onSelect }: Props) {
             : "bg-secondary text-secondary-foreground hover:bg-accent"
         }`}
       >
-        {"Alle"}
+        {"Sve"}
       </button>
       {NT_CATEGORIES.map((c) => {
         const Icon = ICONS[c.icon];

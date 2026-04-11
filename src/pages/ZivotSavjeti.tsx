@@ -7,7 +7,7 @@ import { navigateBackOrHome } from "@/lib/navigation";
 const categories = [
   {
     icon: Briefcase,
-    title: "Arbeit & Kündigungsschutz",
+    title: "Rad i zaštita od otkaza",
     description: "Radna prava, ugovori, otkaz, zaštita na radu.",
     content: [
       "Radni ugovor mora biti u pisanoj formi prema Nachweisgesetz.",
@@ -20,8 +20,8 @@ const categories = [
   },
   {
     icon: Receipt,
-    title: "Steuern & Finanzen",
-    description: "Porezne klase, porezna prijava, financijska pitanja.",
+    title: "Porezi i finansije",
+    description: "Porezne klase, porezna prijava, finansijska pitanja.",
     content: [
       "Steuerklasse I-VI: klasa zavisi od bračnog statusa i broja poslova.",
       "Steuererklärung (porezna prijava) se podnosi do 31. jula naredne godine.",
@@ -34,7 +34,7 @@ const categories = [
   },
   {
     icon: Home,
-    title: "Wohnen & Mietrecht",
+    title: "Stanovanje i pravo najma",
     description: "Pravo najma, ugovor o najmu, prava stanara.",
     content: [
       "Ugovor o najmu mora jasno definisati cijenu, površinu i uslove.",
@@ -47,7 +47,7 @@ const categories = [
   },
   {
     icon: Heart,
-    title: "Gesundheit & Krankenversicherung",
+    title: "Zdravlje i zdravstveno osiguranje",
     description: "Zdravstveno osiguranje, liječnik, bolovanje.",
     content: [
       "Zdravstveno osiguranje je obavezno za sve stanovnike Njemačke.",
@@ -61,13 +61,13 @@ const categories = [
   },
   {
     icon: Users,
-    title: "Familie & Kinder",
+    title: "Porodica i djeca",
     description: "Kindergeld, Elterngeld, vrtić, škola.",
     to: "/familie",
   },
   {
     icon: HandCoins,
-    title: "Sozialleistungen",
+    title: "Socijalne naknade",
     description: "Wohngeld, Bürgergeld, socijalna pomoć.",
     to: "/foerderungen",
   },
