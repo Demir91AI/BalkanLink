@@ -40,8 +40,8 @@ export default function QA() {
         <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
           <ChevronLeft className="h-4 w-4" /> Nazad
         </button>
-        <h1 className="text-3xl font-bold md:text-4xl">{"Fragen & Antworten"}</h1>
-        <p className="mt-2 text-muted-foreground">{"Häufig gestellte Fragen"}</p>
+        <h1 className="text-3xl font-bold md:text-4xl">{"Pitanja i odgovori"}</h1>
+        <p className="mt-2 text-muted-foreground">{"Najčešće postavljana pitanja"}</p>
       </div>
 
       <div className="flex flex-col gap-8 lg:flex-row">
@@ -49,7 +49,7 @@ export default function QA() {
           <div className="relative mb-4">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
-              placeholder={"Fragen suchen..."}
+              placeholder={"Pretraži pitanja..."}
               className="pl-10 bg-card"
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}

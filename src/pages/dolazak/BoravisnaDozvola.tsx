@@ -55,14 +55,14 @@ function VisaPaywall({ visaLabel }: { visaLabel: string }) {
       <div className="grid w-full max-w-md mx-auto gap-3 sm:grid-cols-2">
         <div className="rounded-xl border border-border/60 bg-card p-4 text-left">
           <p className="text-lg font-extrabold text-foreground">3.99€</p>
-          <p className="mt-1 text-xs text-muted-foreground">{"Zugang nur zu diesem Visum"}</p>
+          <p className="mt-1 text-xs text-muted-foreground">{"Pristup samo ovoj vizi"}</p>
         </div>
         <div className="rounded-xl border-2 border-gold/40 bg-gold/5 p-4 text-left relative">
           <span className="absolute -top-2.5 right-3 rounded-full bg-gold px-2.5 py-0.5 text-[10px] font-bold text-gold-foreground">
-            {"BELIEBT"}
+            {"POPULARNO"}
           </span>
           <p className="text-lg font-extrabold text-foreground">9.99€</p>
-          <p className="mt-1 text-xs text-muted-foreground">{"Zugang zu allen Formularen und Visa (30 Tage)"}</p>
+          <p className="mt-1 text-xs text-muted-foreground">{"Pristup svim formularima i vizama (30 dana)"}</p>
           <ul className="mt-3 space-y-1">
             {included.map((f) => (
               <li key={f} className="flex items-center gap-1.5 text-[11px] text-muted-foreground">

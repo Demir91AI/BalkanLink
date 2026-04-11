@@ -13,9 +13,9 @@ const cardVariants = {
 
 export function WowSection() {
   const features = [
-    { icon: FileCheck, title: "Formulare", desc: "Schritt-für-Schritt-Erklärungen ohne Fehler", to: "/formulari" },
-    { icon: Landmark, title: "Job & Wohnung", desc: "Schneller zu den Chancen die du suchst", to: "/stellenangebote" },
-    { icon: RefreshCcw, title: "Angebot / Gesuch", desc: "Verbinde dich direkt mit Menschen", to: "/nudim-trazim" },
+    { icon: FileCheck, title: "Formulari", desc: "Korak po korak objašnjenja bez grešaka", to: "/formulari" },
+    { icon: Landmark, title: "Posao & Stan", desc: "Brže do prilika koje tražiš", to: "/stellenangebote" },
+    { icon: RefreshCcw, title: "Nudim / Tražim", desc: "Poveži se direktno sa ljudima", to: "/nudim-trazim" },
   ];
 
   return (

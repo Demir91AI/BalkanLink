@@ -37,7 +37,7 @@ export default function Generatoren() {
           <div className="mb-4">
             <h2 className="flex items-center gap-2 text-base font-semibold">
               <Euro className="h-4 w-4 text-primary" />
-              {"Brutto-Netto-Rechner"}
+              {"Bruto-Neto kalkulator"}
             </h2>
             <p className="mt-1 text-xs text-muted-foreground">{"Izračunaj svoju neto platu"}</p>
           </div>

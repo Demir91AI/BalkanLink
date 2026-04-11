@@ -142,7 +142,7 @@ export default function BruttoNettoRechner() {
         <div className="container text-center">
           <Euro className="mx-auto h-6 w-6 text-[hsl(var(--gold))] mb-3" />
           <h1 className="text-xl font-bold text-primary-foreground md:text-2xl">
-            {"Brutto-Netto-Rechner"}
+            {"Bruto-Neto kalkulator"}
           </h1>
           <p className="mt-2 text-sm text-primary-foreground/80">
             {"Izračunaj svoju neto platu"}
@@ -159,14 +159,14 @@ export default function BruttoNettoRechner() {
             <div className="space-y-5">
               <div className="rounded-xl border bg-card p-5 shadow-sm space-y-5">
                 <h2 className="flex items-center gap-2 text-sm font-bold">
-                  <Euro className="h-4 w-4 text-primary" /> {"Daten eingeben"}
+                  <Euro className="h-4 w-4 text-primary" /> {"Unesi podatke"}
                 </h2>
 
                 {/* Brutto */}
                 <div className="space-y-1.5">
                   <Label className="text-xs">
                     Bruto plata (€)
-                    <InfoTip text={"Brutto-Monatsgehalt eingeben"} />
+                    <InfoTip text={"Unesi bruto mjesečnu platu"} />
                   </Label>
                   <div className="relative">
                     <Input
@@ -191,7 +191,7 @@ export default function BruttoNettoRechner() {
                             : "bg-card text-muted-foreground hover:bg-muted"
                         }`}
                       >
-                        {p === "monatlich" ? "Monatlich" : "Jährlich"}
+                        {p === "monatlich" ? "Mjesečno" : "Godišnje"}
                       </button>
                     ))}
                   </div>
@@ -200,15 +200,15 @@ export default function BruttoNettoRechner() {
                 {/* Steuerklasse with descriptions */}
                 <div className="space-y-1.5">
                   <Label className="text-xs">
-                    {"Steuerklasse"}
-                    <InfoTip text={"Steuerklasse wählen"} />
+                    {"Porezna klasa"}
+                    <InfoTip text={"Odaberi poreznu klasu"} />
                   </Label>
                   <Select value={String(inputs.steuerklasse)} onValueChange={v => update({ steuerklasse: Number(v) })}>
                     <SelectTrigger className="text-xs"><SelectValue /></SelectTrigger>
                     <SelectContent>
                       {[1, 2, 3, 4, 5, 6].map(k => (
                         <SelectItem key={k} value={String(k)} className="text-xs">
-                          Klasse {k} — {STEUERKLASSE_DESC[k]}
+                          Klasa {k} — {STEUERKLASSE_DESC[k]}
                         </SelectItem>
                       ))}
                     </SelectContent>
@@ -218,8 +218,8 @@ export default function BruttoNettoRechner() {
                 {/* Bundesland */}
                 <div className="space-y-1.5">
                   <Label className="text-xs">
-                    {"Bundesland"}
-                    <InfoTip text={"Bundesland wählen"} />
+                    {"Savezna pokrajina"}
+                    <InfoTip text={"Odaberi saveznu pokrajinu"} />
                   </Label>
                   <Select value={inputs.bundesland} onValueChange={v => update({ bundesland: v })}>
                     <SelectTrigger className="text-xs"><SelectValue /></SelectTrigger>
@@ -236,7 +236,7 @@ export default function BruttoNettoRechner() {
                   <Switch checked={inputs.kirchensteuer} onCheckedChange={v => update({ kirchensteuer: v })} />
                   <Label className="text-xs">
                     Crkveni porez ({kirchensteuerSatz}%)
-                    <InfoTip text={"Kirchensteuer (falls Kirchenmitglied)"} />
+                    <InfoTip text={"Crkveni porez (ako si član crkve)"} />
                   </Label>
                 </div>
 
@@ -361,18 +361,18 @@ export default function BruttoNettoRechner() {
                 <CollapsibleContent>
                   <div className="mt-2 rounded-xl border bg-card p-5 shadow-sm space-y-3">
                     <h3 className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Porezi</h3>
-                    <DetailRow label="Lohnsteuer" amount={result.lohnsteuerMonat * mult} />
-                    <DetailRow label="Solidaritätszuschlag" amount={result.soliMonat * mult} />
+                    <DetailRow label="Porez na platu" amount={result.lohnsteuerMonat * mult} />
+                    <DetailRow label="Solidaritetski doprinos" amount={result.soliMonat * mult} />
                     {inputs.kirchensteuer && (
-                      <DetailRow label="Kirchensteuer" amount={result.kirchensteuerMonat * mult} />
+                      <DetailRow label="Crkveni porez" amount={result.kirchensteuerMonat * mult} />
                     )}
 
                     <div className="border-t my-2" />
                     <h3 className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Doprinosi</h3>
-                    <DetailRow label="Krankenversicherung" amount={result.kvAN * mult} />
-                    <DetailRow label="Rentenversicherung" amount={result.rvAN * mult} />
-                    <DetailRow label="Arbeitslosenversicherung" amount={result.avAN * mult} />
-                    <DetailRow label="Pflegeversicherung" amount={result.pvAN * mult} />
+                    <DetailRow label="Zdravstveno osiguranje" amount={result.kvAN * mult} />
+                    <DetailRow label="Penzijsko osiguranje" amount={result.rvAN * mult} />
+                    <DetailRow label="Osiguranje za nezaposlenost" amount={result.avAN * mult} />
+                    <DetailRow label="Osiguranje njege" amount={result.pvAN * mult} />
 
                     <div className="border-t my-2" />
                     <h3 className="text-xs font-bold text-muted-foreground uppercase tracking-wider flex items-center gap-2">
@@ -387,7 +387,7 @@ export default function BruttoNettoRechner() {
               <div className="flex items-start gap-2 px-1 py-2">
                 <Info className="h-3.5 w-3.5 text-muted-foreground/60 mt-0.5 shrink-0" />
                 <p className="text-xs text-muted-foreground/60 leading-relaxed">
-                  {"Informative Schätzung — keine Rechtsberatung."}
+                  {"Informativna procjena — ne predstavlja pravni savjet."}
                 </p>
               </div>
             </div>
@@ -409,7 +409,7 @@ export default function BruttoNettoRechner() {
               <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" />
               <div className="space-y-2">
                 <p className="text-xs text-muted-foreground">
-                  {"Dies ist eine Schätzung. Zuständige Stelle kontaktieren."}
+                  {"Ovo je procjena. Kontaktirajte nadležnu instituciju za tačne iznose."}
                 </p>
               </div>
             </div>

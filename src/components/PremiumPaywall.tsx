@@ -19,26 +19,26 @@ const CONTENT: Record<PaywallVariant, { icon: typeof Lock; title: string; subtit
     icon: Lock,
     title: "Popuni zahtjev korektno i bez grešaka.",
     subtitle: "Otključaj Premium i dobij kompletno uputstvo korak po korak.",
-    cta: "Premium aktivieren",
-    previewCta: "Beispiel ansehen",
+    cta: "Aktiviraj Premium",
+    previewCta: "Pogledaj primjer",
   },
   "doc-generator": {
     icon: FileText,
     title: "Kreiraj gotove dokumente u sekundama.",
     subtitle: "Profesionalni DIN 5008 dokumenti za Njemačku — samo sa Premium.",
-    cta: "Premium aktivieren",
+    cta: "Aktiviraj Premium",
   },
   "ai-limit": {
     icon: Zap,
     title: "Dostigao/la si dnevni limit.",
     subtitle: "Sa Premium dobijaš neograničenu AI pomoć i personalizirane odgovore.",
-    cta: "Premium aktivieren",
+    cta: "Aktiviraj Premium",
   },
   generic: {
     icon: Crown,
     title: "Ovaj sadržaj je dio BalkanLink Premium.",
     subtitle: "Otključaj kompletne upute, formulare i ličnu podršku.",
-    cta: "Premium freischalten",
+    cta: "Otključaj Premium",
   },
 };
 
