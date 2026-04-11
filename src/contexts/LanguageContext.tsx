@@ -13,8 +13,14 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 const VALID_LANGS: Language[] = ["bs", "hr", "sr", "de"];
 
 function getInitialLanguage(): Language {
-  const saved = localStorage.getItem("balkanlink-lang");
-  if (saved && VALID_LANGS.includes(saved as Language)) return saved as Language;
+  const saved = localStorage.getItem("balkanlink-lang") ||
+                localStorage.getItem("app_language");
+  if (saved && VALID_LANGS.includes(saved as Language)) {
+    // Ensure both keys are in sync
+    localStorage.setItem("balkanlink-lang", saved);
+    localStorage.setItem("app_language", saved);
+    return saved as Language;
+  }
   const browserLang = navigator.language?.slice(0, 2).toLowerCase();
   if (browserLang === "bs" || browserLang === "hr" || browserLang === "sr")
     return browserLang as Language;
@@ -27,6 +33,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const setLanguage = useCallback((lang: Language) => {
     setLanguageState(lang);
     localStorage.setItem("balkanlink-lang", lang);
+    localStorage.setItem("app_language", lang);
   }, []);
 
   // Listen for storage events from other tabs
