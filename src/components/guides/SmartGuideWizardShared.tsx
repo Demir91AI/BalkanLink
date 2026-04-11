@@ -99,7 +99,7 @@ export default function SmartGuideWizardShared({ steps, free = false, finishLabe
                 : "bg-muted text-muted-foreground hover:bg-muted/80")
             }
           >
-            {!isPremium && i >= FREE_STEPS ? "🔒" : i + 1}
+            {!free && !isPremium && i >= FREE_STEPS ? "🔒" : i + 1}
           </button>
         ))}
       </div>
