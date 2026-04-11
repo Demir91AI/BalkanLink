@@ -218,7 +218,7 @@ export default function DeutschTrainer() {
           <div className="mb-10 max-w-3xl">
             <div className="mb-2 flex justify-between text-xs text-white/40">
               <span className="font-semibold">{"Level"} {progress.level}{progress.level >= MAX_LEVEL ? ` (${"Max. Level"})` : ""}</span>
-              <span>{progress.level >= MAX_LEVEL ? "Maximales Level erreicht" : `${xpInLevel}/${xpForNextLevel} XP`}</span>
+              <span>{progress.level >= MAX_LEVEL ? "Maksimalni level dostignut" : `${xpInLevel}/${xpForNextLevel} XP`}</span>
             </div>
             <div className="h-2.5 w-full overflow-hidden rounded-full bg-white/[0.06]">
               <motion.div
@@ -301,7 +301,7 @@ export default function DeutschTrainer() {
                     {/* Free badge */}
                     {isFree && !completed && (
                       <span className="absolute right-4 top-4 rounded-full bg-[hsl(var(--success)/0.12)] px-2.5 py-0.5 text-[10px] font-bold text-[hsl(var(--success))]">
-                        {"Kostenlos"}
+                        {"Besplatno"}
                       </span>
                     )}
 

@@ -68,33 +68,33 @@ export default function NtSubmitForm({ onClose, onProClick }: Props) {
       });
     } catch {}
 
-    toast.success("Anzeige erfolgreich gesendet! Sie wird nach Prüfung sichtbar.");
+    toast.success("Oglas uspješno poslan! Biće vidljiv nakon provjere.");
     onClose();
   };
 
   return (
     <Card className="border-border/60">
       <CardHeader>
-        <CardTitle className="text-xl">{"Anzeige kostenlos aufgeben"}</CardTitle>
-        <p className="text-sm text-muted-foreground">{"Die Veröffentlichung ist kostenlos. Danach kannst du die Anzeige als PRO hervorheben."}</p>
+        <CardTitle className="text-xl">{"Objavi oglas besplatno"}</CardTitle>
+        <p className="text-sm text-muted-foreground">{"Objavljivanje je besplatno. Nakon toga možeš istaknuti oglas kao PRO."}</p>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-5">
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label>{"Anzeigentyp"} *</Label>
+              <Label>{"Tip oglasa"} *</Label>
               <Select value={form.type} onValueChange={(v) => set("type", v)}>
-                <SelectTrigger><SelectValue placeholder={"Auswählen..."} /></SelectTrigger>
+                <SelectTrigger><SelectValue placeholder={"Odaberi..."} /></SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="nudim">{"Ich biete"}</SelectItem>
-                  <SelectItem value="trazim">{"Ich suche"}</SelectItem>
+                  <SelectItem value="nudim">{"Nudim"}</SelectItem>
+                  <SelectItem value="trazim">{"Tražim"}</SelectItem>
                 </SelectContent>
               </Select>
             </div>
             <div className="space-y-2">
-              <Label>{"Kategorie"} *</Label>
+              <Label>{"Kategorija"} *</Label>
               <Select value={form.category} onValueChange={(v) => set("category", v)}>
-                <SelectTrigger><SelectValue placeholder={"Auswählen..."} /></SelectTrigger>
+                <SelectTrigger><SelectValue placeholder={"Odaberi..."} /></SelectTrigger>
                 <SelectContent>
                   {NT_CATEGORIES.map((c) => (
                     <SelectItem key={c.value} value={c.value}>{c.label}</SelectItem>
@@ -105,23 +105,23 @@ export default function NtSubmitForm({ onClose, onProClick }: Props) {
           </div>
 
           <div className="space-y-2">
-            <Label>{"Anzeigentitel"} *</Label>
-            <Input value={form.title} onChange={(e) => set("title", e.target.value)} placeholder={"Z.B. Biete Umzugshilfe"} />
+            <Label>{"Naslov oglasa"} *</Label>
+            <Input value={form.title} onChange={(e) => set("title", e.target.value)} placeholder={"Npr. Nudim pomoć pri selidbi"} />
           </div>
 
           <div className="space-y-2">
-            <Label>{"Stadt / Ort"} *</Label>
-            <Input value={form.city} onChange={(e) => set("city", e.target.value)} placeholder={"Z.B. München"} />
+            <Label>{"Grad / Mjesto"} *</Label>
+            <Input value={form.city} onChange={(e) => set("city", e.target.value)} placeholder={"Npr. München"} />
           </div>
 
           <div className="space-y-2">
-            <Label>{"Beschreibung"} *</Label>
+            <Label>{"Opis"} *</Label>
             <Textarea
               value={form.description}
               onChange={(e) => {
                 if (e.target.value.length <= 300) set("description", e.target.value);
               }}
-              placeholder={"Beschreiben Sie detailliert, was Sie anbieten oder suchen..."}
+              placeholder={"Detaljno opišite šta nudite ili tražite..."}
               rows={4}
               maxLength={300}
             />
@@ -130,22 +130,22 @@ export default function NtSubmitForm({ onClose, onProClick }: Props) {
 
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label>{"Kontakt über"} *</Label>
+              <Label>{"Kontakt putem"} *</Label>
               <Select value={form.contact_type} onValueChange={(v) => set("contact_type", v)}>
-                <SelectTrigger><SelectValue placeholder={"Auswählen..."} /></SelectTrigger>
+                <SelectTrigger><SelectValue placeholder={"Odaberi..."} /></SelectTrigger>
                 <SelectContent>
                   <SelectItem value="phone">{"Telefon"}</SelectItem>
                   <SelectItem value="email">{"E-Mail"}</SelectItem>
-                  <SelectItem value="message">{"Nachricht über Plattform"}</SelectItem>
+                  <SelectItem value="message">{"Poruka preko platforme"}</SelectItem>
                 </SelectContent>
               </Select>
             </div>
             <div className="space-y-2">
-              <Label>{"Kontaktdaten"} *</Label>
+              <Label>{"Kontakt podaci"} *</Label>
               <Input
                 value={form.contact_value}
                 onChange={(e) => set("contact_value", e.target.value)}
-                placeholder={"Telefon, E-Mail..."}
+                placeholder={"Telefon, e-mail..."}
               />
             </div>
           </div>
@@ -160,13 +160,13 @@ export default function NtSubmitForm({ onClose, onProClick }: Props) {
               className="mt-0.5"
             />
             <label htmlFor="nt-agree" className="text-sm text-muted-foreground leading-relaxed">
-              {"Ich akzeptiere die Nutzungsbedingungen und bestätige die Richtigkeit der Angaben. Anzeige ist 30 Tage aktiv."}
+              {"Prihvatam uslove korištenja i potvrđujem tačnost podataka. Oglas je aktivan 30 dana."}
             </label>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 pt-2">
             <Button type="submit" className="gap-2">
-              <Send className="h-4 w-4" /> {"Anzeige kostenlos aufgeben"}
+              <Send className="h-4 w-4" /> {"Objavi oglas besplatno"}
             </Button>
             {onProClick && (
               <Button
@@ -175,11 +175,11 @@ export default function NtSubmitForm({ onClose, onProClick }: Props) {
                 className="gap-2 border-[hsl(var(--gold))]/40 text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/10"
                 onClick={onProClick}
               >
-                <Star className="h-4 w-4" /> {"Als PRO hervorheben"}
+                <Star className="h-4 w-4" /> {"Istakni kao PRO"}
               </Button>
             )}
             <Button type="button" variant="ghost" onClick={onClose}>
-              {"Abbrechen"}
+              {"Otkaži"}
             </Button>
           </div>
         </form>

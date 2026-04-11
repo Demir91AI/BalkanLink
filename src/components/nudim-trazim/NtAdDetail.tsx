@@ -63,21 +63,21 @@ export default function NtAdDetail({ ad, onBack, onOpen }: Props) {
           <div className="pt-4 border-t border-border">
             <Button onClick={() => setShowContact((v) => !v)} className="gap-2">
               <Eye className="h-4 w-4" />
-              {showContact ? ad.contact_value : "Kontakt anzeigen"}
+              {showContact ? ad.contact_value : "Prikaži kontakt"}
             </Button>
           </div>
 
           {/* Safety hint */}
           <div className="flex items-start gap-3 rounded-lg bg-muted/50 p-4 text-sm text-muted-foreground">
             <Shield className="h-5 w-5 mt-0.5 shrink-0" />
-            <p>{"Seien Sie vorsichtig bei der Kontaktaufnahme. BalkanLink überprüft nicht die Identität der Inserenten und haftet nicht für vereinbarte Leistungen."}</p>
+            <p>{"Budite oprezni pri kontaktu. BalkanLink ne provjerava identitet oglašivača i ne odgovara za dogovorene usluge."}</p>
           </div>
         </CardContent>
       </Card>
 
       {similar.length > 0 && (
         <div className="space-y-4">
-          <h2 className="text-lg font-semibold text-foreground">{"Ähnliche Anzeigen"}</h2>
+          <h2 className="text-lg font-semibold text-foreground">{"Slični oglasi"}</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {similar.map((a) => (
               <NtAdCard key={a.id} ad={a} onOpen={onOpen} />

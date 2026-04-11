@@ -118,7 +118,7 @@ export default function DirectorySubmit() {
               name="category"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{"Kategorie"} *</FormLabel>
+                  <FormLabel>{"Kategorija"} *</FormLabel>
                   <Select onValueChange={field.onChange} value={field.value}>
                     <FormControl><SelectTrigger><SelectValue /></SelectTrigger></FormControl>
                     <SelectContent>
@@ -136,7 +136,7 @@ export default function DirectorySubmit() {
               name="city"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{"Stadt"} *</FormLabel>
+                  <FormLabel>{"Grad"} *</FormLabel>
                   <Select onValueChange={field.onChange} value={field.value}>
                     <FormControl><SelectTrigger><SelectValue /></SelectTrigger></FormControl>
                     <SelectContent>
@@ -156,7 +156,7 @@ export default function DirectorySubmit() {
             name="origin_country"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{"Herkunftsland"} *</FormLabel>
+                <FormLabel>{"Zemlja porijekla"} *</FormLabel>
                 <Select onValueChange={field.onChange} value={field.value}>
                   <FormControl><SelectTrigger><SelectValue /></SelectTrigger></FormControl>
                   <SelectContent>
@@ -177,7 +177,7 @@ export default function DirectorySubmit() {
             name="address"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{"Adresse"}</FormLabel>
+                <FormLabel>{"Adresa"}</FormLabel>
                 <FormControl><Input {...field} maxLength={200} /></FormControl>
                 <FormMessage />
               </FormItem>
@@ -201,7 +201,7 @@ export default function DirectorySubmit() {
               name="website"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{"Webseite"}</FormLabel>
+                  <FormLabel>{"Web stranica"}</FormLabel>
                   <FormControl><Input {...field} maxLength={200} placeholder="https://" /></FormControl>
                   <FormMessage />
                 </FormItem>
@@ -214,7 +214,7 @@ export default function DirectorySubmit() {
             name="description"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{"Beschreibung"}</FormLabel>
+                <FormLabel>{"Opis"}</FormLabel>
                 <FormControl><Textarea {...field} maxLength={500} rows={3} /></FormControl>
                 <FormMessage />
               </FormItem>
@@ -225,7 +225,7 @@ export default function DirectorySubmit() {
 
           <Button type="submit" size="lg" className="w-full" disabled={submitting}>
             <Send className="mr-2 h-4 w-4" />
-            {submitting ? "Sende..." : "Absenden"}
+            {submitting ? "Šaljem..." : "Pošalji"}
           </Button>
         </form>
       </Form>

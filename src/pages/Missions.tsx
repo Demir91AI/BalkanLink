@@ -118,32 +118,32 @@ export default function Missions() {
         <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
           <ChevronLeft className="h-4 w-4" /> Nazad
         </button>
-        <h1 className="text-2xl font-bold md:text-3xl">{"Botschaften und Konsulate"}</h1>
-        <p className="mt-1 text-muted-foreground">{"Diplomatische Vertretungen finden"}</p>
+        <h1 className="text-2xl font-bold md:text-3xl">{"Ambasade i konzulati"}</h1>
+        <p className="mt-1 text-muted-foreground">{"Pronađi diplomatska predstavništva"}</p>
       </div>
 
       {/* Filters */}
       <div className="mb-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
         <Select value={country} onValueChange={(v) => setCountry(v === "all" ? "" : v)}>
-          <SelectTrigger><SelectValue placeholder={"Land"} /></SelectTrigger>
+          <SelectTrigger><SelectValue placeholder={"Država"} /></SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">{"Alle Länder"}</SelectItem>
+            <SelectItem value="all">{"Sve države"}</SelectItem>
             {ORIGIN_COUNTRIES.map((c) => (
               <SelectItem key={c.code} value={c.code}><span className="mr-2">{c.flag}</span>{c.label}</SelectItem>
             ))}
           </SelectContent>
         </Select>
         <Select value={city} onValueChange={(v) => setCity(v === "all" ? "" : v)}>
-          <SelectTrigger><SelectValue placeholder={"Stadt"} /></SelectTrigger>
+          <SelectTrigger><SelectValue placeholder={"Grad"} /></SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">{"Alle Städte"}</SelectItem>
+            <SelectItem value="all">{"Svi gradovi"}</SelectItem>
             {uniqueCities.map((c) => (<SelectItem key={c} value={c}>{c}</SelectItem>))}
           </SelectContent>
         </Select>
         <Select value={missionType} onValueChange={(v) => setMissionType(v === "all" ? "" : v)}>
-          <SelectTrigger><SelectValue placeholder={"Typ"} /></SelectTrigger>
+          <SelectTrigger><SelectValue placeholder={"Tip"} /></SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">{"Alle Typen"}</SelectItem>
+            <SelectItem value="all">{"Svi tipovi"}</SelectItem>
             {MISSION_TYPES.map((type) => (
               <SelectItem key={type} value={type}>{getMissionTypeLabel(type)}</SelectItem>
             ))}
@@ -154,8 +154,8 @@ export default function Missions() {
       {hasFilters && (
         <div className="mb-4 flex items-center gap-2">
           <Filter className="h-4 w-4 text-muted-foreground" />
-          <span className="text-sm text-muted-foreground">{missions?.length ?? 0} {"Ergebnisse"}</span>
-          <button onClick={clearFilters} className="ml-auto text-xs text-muted-foreground hover:text-foreground">{"Filter löschen"}</button>
+          <span className="text-sm text-muted-foreground">{missions?.length ?? 0} {"rezultata"}</span>
+          <button onClick={clearFilters} className="ml-auto text-xs text-muted-foreground hover:text-foreground">{"Obriši filtere"}</button>
         </div>
       )}
 

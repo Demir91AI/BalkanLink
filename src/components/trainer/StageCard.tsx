@@ -37,7 +37,7 @@ export default function StageCard({ label, index, freeCount, lockedCount, isPrem
         <div className="flex-1">
           <h3 className="text-sm font-bold">{label}</h3>
           <p className="text-[11px] text-muted-foreground">
-            {totalCount} {"Aufgaben"}{!isPremium && ` · ${freeCount} ${"Kostenlos"}`}
+            {totalCount} {"zadataka"}{!isPremium && ` · ${freeCount} ${"besplatno"}`}
           </p>
         </div>
         <ArrowRight className="h-4 w-4 text-muted-foreground" />
@@ -49,13 +49,13 @@ export default function StageCard({ label, index, freeCount, lockedCount, isPrem
           <div className="flex items-center gap-2">
             <Lock className="h-3.5 w-3.5 text-gold" />
             <span className="text-[11px] font-semibold text-muted-foreground">
-              🔒 +{lockedCount} {"Mehr Aufgaben"}
+              🔒 +{lockedCount} {"još zadataka"}
             </span>
             <button
               onClick={onUpgrade}
               className="ml-auto text-[10px] font-bold text-gold hover:text-gold-dark transition-colors"
             >
-              {"Mit Premium freischalten"} →
+              {"Otključaj s Premium"} →
             </button>
           </div>
         </div>
