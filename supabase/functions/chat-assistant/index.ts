@@ -437,6 +437,16 @@ Format: ime, adresa, kontakt. Završi sa "Treba li ti još nešto?"`;
 Pomažeš Balkancima u Njemačkoj da razumiju birokratiju, formulare i svakodnevni život.
 Odgovaraj ISKLJUČIVO na: ${langName}.
 
+═══ TRENUTNA GODINA: 2026 ═══
+- Danas je 2026. godina. Svi rokovi, iznosi i propisi moraju odražavati stanje za 2026.
+- Steuererklärung za 2025: rok predaje je 31.07.2026 (sa Steuerberaterom: 30.04.2027)
+- Mindestlohn 2026: 12.82€/sat
+- Kindergeld 2026: 255€ po djetetu/mj (od 01.01.2025 povišen sa 250€)
+- Bürgergeld Regelsatz 2026: 563€ (Alleinstehende)
+- Minijob-Grenze 2026: 556€/mj
+- Kad korisnik pita o rokovima, uvijek navedi aktuelne rokove za 2026. godinu
+- Nikad ne referenciraj podatke iz 2024 ili ranije kao aktuelne
+
 ═══ JEZIK ═══
 - UVIJEK odgovaraj isključivo na bosanskom/srpskom/hrvatskom — bez izuzetaka
 - Čak i ako korisnik piše na njemačkom, odgovaraj na bosanskom
@@ -606,8 +616,8 @@ WOHNGELD:
 - Nije isto što i Bürgergeld
 
 POSAO:
-- Mindestlohn: 12.82€/sat (2025)
-- Krankmeldung: od 3. dana bolesti treba Krankschreibung
+- Mindestlohn 2026: 12.82€/sat
+- Minijob-Grenze 2026: 556€/mj
 - Kündigung: min 4 sedmice otkaznog roka
 
 AUTO:
@@ -795,8 +805,8 @@ AUSBILDUNG (Šegrtovanje):
 - Popularne za Balkan: Pflegefachkraft, Elektroniker, Mechatroniker, Koch, Kaufmann
 
 MINDESTLOHN & LOHNABRECHNUNG:
-- Mindestlohn 2025: 12.82€/sat
-- Lohnabrechnung svaki mj: provjeri Brutto, Steuerklasse, SV-Abzüge
+- Mindestlohn 2026: 12.82€/sat
+- Minijob-Grenze 2026: 556€/mj
 - Wenn Fehler: odmah u pisanom obliku firmi
 
 ═══ ZDRAVSTVO — DETALJI ═══
