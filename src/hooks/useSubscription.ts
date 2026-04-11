@@ -3,6 +3,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { FREE_LESSONS_PER_LEVEL } from "@/lib/trainer/types";
 
+const FREE_SPRACHASSISTENT_SENTENCES = 3;
 
 interface SubscriptionState {
   isPremium: boolean;
@@ -15,6 +16,8 @@ interface SubscriptionState {
   canAccessStep: (stepIndex: number) => boolean;
   /** Check if user can access lesson (first 3 free per module) */
   canAccessLesson: (lessonIndex: number) => boolean;
+  /** Check if user can access Sprachassistent sentence (first 3 free) */
+  canAccessSprachassistent: (sentenceIndex: number) => boolean;
   isLoggedIn: boolean;
   refetch: () => Promise<void>;
 }
@@ -80,6 +83,11 @@ export function useSubscription(): SubscriptionState {
     [effectivePremium]
   );
 
+  const canAccessSprachassistent = useCallback(
+    (sentenceIndex: number) => effectivePremium || sentenceIndex < FREE_SPRACHASSISTENT_SENTENCES,
+    [effectivePremium]
+  );
+
   return {
     isPremium: effectivePremium,
     subscriptionTier: effectivePremium ? "premium" : "free",
@@ -89,6 +97,7 @@ export function useSubscription(): SubscriptionState {
     hasSingleAccess,
     canAccessStep,
     canAccessLesson,
+    canAccessSprachassistent,
     isLoggedIn: !!user,
     refetch: fetchSubscription,
   };
