@@ -67,7 +67,7 @@ export default function TurnstileWidget({ onVerify, onExpire, className }: Props
 
     return () => {
       cancelled = true;
-      if (widgetIdRef.current && window.turnstile) {
+      if (widgetIdRef.current && window.turnstile?.remove) {
         window.turnstile.remove(widgetIdRef.current);
         widgetIdRef.current = null;
       }
