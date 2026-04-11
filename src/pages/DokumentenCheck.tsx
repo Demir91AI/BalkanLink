@@ -557,6 +557,7 @@ export default function DokumentenCheck() {
             </p>
           </div>
         </div>
+        </AuthGate>
       </section>
     </>
   );
