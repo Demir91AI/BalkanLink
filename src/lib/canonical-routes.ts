@@ -84,6 +84,7 @@ export const VALID_PRODUCTION_ROUTES = new Set([
   "/deutsch-trainer", "/deutsch-trainer/preise", "/deutsch-trainer/faq",
   "/mapa", "/bussgeld", "/generatoren",
   "/radno-pravo",
+  "/biznis",
 ]);
 
 export function isValidProductionRoute(path: string): boolean {
@@ -95,5 +96,6 @@ export function isValidProductionRoute(path: string): boolean {
   if (path.startsWith("/nach-deutschland/")) return true;
   if (path.startsWith("/firma/")) return true;
   if (path.startsWith("/radno-pravo/")) return true;
+  if (path.startsWith("/biznis/")) return true;
   return false;
 }

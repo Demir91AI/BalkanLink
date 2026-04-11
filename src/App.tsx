@@ -98,6 +98,8 @@ const Viza = lazy(() => import("./pages/Viza"));
 const ZivotUNjemackoj = lazy(() => import("./pages/ZivotUNjemackoj"));
 const RadnoPravo = lazy(() => import("./pages/RadnoPravo"));
 const RadnoPravoGuide = lazy(() => import("./pages/RadnoPravoGuide"));
+const BiznisNjemacka = lazy(() => import("./pages/BiznisNjemacka"));
+const BiznisGuide = lazy(() => import("./pages/BiznisGuide"));
 const Premium = lazy(() => import("./pages/Premium"));
 const Paketi = lazy(() => import("./pages/Paketi"));
 const Profil = lazy(() => import("./pages/Profil"));
