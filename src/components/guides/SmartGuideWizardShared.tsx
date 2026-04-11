@@ -54,7 +54,7 @@ export default function SmartGuideWizardShared({
   const isLast = step === steps.length - 1;
 
   // Steps 0 and 1 are ALWAYS free. Step 2+ requires Premium.
-  const isStepLocked = !isPremium && step >= FREE_STEPS;
+  const isStepLocked = !free && !isPremium && step >= FREE_STEPS;
 
   const cardConfig = [
     {
