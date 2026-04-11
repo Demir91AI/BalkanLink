@@ -87,7 +87,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
           if (consumeSessionExpiredFlag()) {
             toast({
-              title: "Sitzung abgelaufen. Bitte melden Sie sich erneut an.",
+              title: "Sesija je istekla. Molimo prijavite se ponovo.",
               duration: 5000,
             });
           }

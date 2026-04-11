@@ -37,11 +37,11 @@ export default function NtSubmitForm({ onClose, onProClick }: Props) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.type || !form.title || !form.category || !form.city || !form.description || !form.contact_type || !form.contact_value) {
-      toast.error("Bitte füllen Sie alle Felder aus.");
+      toast.error("Molimo popunite sva polja.");
       return;
     }
     if (!form.agreed) {
-      toast.error("Sie müssen die Nutzungsbedingungen akzeptieren.");
+      toast.error("Morate prihvatiti uslove korištenja.");
       return;
     }
 

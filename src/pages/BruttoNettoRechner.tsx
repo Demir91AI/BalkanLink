@@ -145,7 +145,7 @@ export default function BruttoNettoRechner() {
             {"Brutto-Netto-Rechner"}
           </h1>
           <p className="mt-2 text-sm text-primary-foreground/80">
-            {"Berechne dein Nettogehalt"}
+            {"Izračunaj svoju neto platu"}
           </p>
         </div>
       </section>

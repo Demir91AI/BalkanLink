@@ -146,7 +146,7 @@ export default function ZivotSavjeti() {
           </button>
           <div className="text-center">
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">
-            {"Deine Tagesaufgabe"}
+            {"Tvoj dnevni zadatak"}
           </h1>
           <p className="mt-2 text-sm text-primary-foreground/80 md:text-base">
             Sve o životu u Njemačkoj — posao, stan, porezi, zdravstvo.

@@ -39,7 +39,7 @@ export default function Generatoren() {
               <Euro className="h-4 w-4 text-primary" />
               {"Brutto-Netto-Rechner"}
             </h2>
-            <p className="mt-1 text-xs text-muted-foreground">{"Berechne dein Nettogehalt"}</p>
+            <p className="mt-1 text-xs text-muted-foreground">{"Izračunaj svoju neto platu"}</p>
           </div>
 
           <div className="rounded-lg border bg-card p-5 shadow-sm">
