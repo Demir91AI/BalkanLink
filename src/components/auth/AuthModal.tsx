@@ -57,10 +57,10 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
   };
 
   const pwRules = useMemo(() => [
-    { label: "Minimum 8 znakova", pass: password.length >= 8 },
-    { label: "Jedno veliko slovo (A-Z)", pass: /[A-Z]/.test(password) },
-    { label: "Jedan broj (0-9)", pass: /[0-9]/.test(password) },
-    { label: "Jedan poseban znak (!@#$%...)", pass: /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?`~]/.test(password) },
+    { label: "Mindestens 8 Zeichen", pass: password.length >= 8 },
+    { label: "Ein Großbuchstabe (A-Z)", pass: /[A-Z]/.test(password) },
+    { label: "Eine Zahl (0-9)", pass: /[0-9]/.test(password) },
+    { label: "Ein Sonderzeichen (!@#$%...)", pass: /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?`~]/.test(password) },
   ], [password]);
   const allPwRulesPass = pwRules.every(r => r.pass);
 
@@ -68,7 +68,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
     e.preventDefault();
     setError("");
     if (!email || !password) { setError("Registrierungsfehler."); return; }
-    if (!allPwRulesPass) { setError("Lozinka ne ispunjava sigurnosne zahtjeve."); return; }
+    if (!allPwRulesPass) { setError("Das Passwort erfüllt die Sicherheitsanforderungen nicht."); return; }
     if (password !== confirmPassword) { setError("Passwörter stimmen nicht überein."); return; }
     setLoading(true);
     const { error: err } = await supabase.auth.signUp({ email, password });

@@ -27,7 +27,7 @@ export default function Login() {
     if (turnstileToken) {
       const valid = await verifyTurnstileToken(turnstileToken);
       if (!valid) {
-        toast({ title: "Verifikacija nije uspjela. Pokušaj ponovo.", variant: "destructive" });
+        toast({ title: "Die Verifizierung ist fehlgeschlagen. Bitte versuche es erneut.", variant: "destructive" });
         setTurnstileToken("");
         setLoading(false);
         return;
@@ -56,7 +56,7 @@ export default function Login() {
       <div className="relative z-10 w-full max-w-[420px]">
         {/* Logo */}
         <div className="flex justify-center mb-8">
-          <Link to="/" className="group relative inline-flex items-center gap-2.5" aria-label="BalkanLink home">
+          <Link to="/" className="group relative inline-flex items-center gap-2.5" aria-label="BalkanLink Startseite">
             <span className="absolute -inset-4 rounded-2xl bg-[hsl(var(--brand-orange)/0.08)] blur-2xl group-hover:bg-[hsl(var(--brand-orange)/0.15)] transition-all duration-500 pointer-events-none" />
             <span className="relative font-heading text-[32px] font-extrabold leading-none tracking-tight">
               <span className="text-foreground">B</span>
@@ -77,10 +77,10 @@ export default function Login() {
               <LogIn className="w-5 h-5 text-[hsl(var(--brand-orange))]" />
             </div>
             <h1 className="text-2xl font-bold text-foreground tracking-tight">
-              Dobrodošao nazad
+              Willkommen zurück
             </h1>
             <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">
-              Pristupi BalkanLink platformi i nastavi gdje si stao
+              Melde dich an und setze dort fort, wo du zuletzt aufgehört hast.
             </p>
           </div>
 
@@ -93,7 +93,7 @@ export default function Login() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Email adresa"
+                placeholder="E-Mail-Adresse"
                 className="w-full h-11 pl-10 pr-4 rounded-xl border border-border/60 bg-background/60 text-sm text-foreground placeholder:text-muted-foreground/50 shadow-sm shadow-black/[0.03] transition-all duration-200 focus:outline-none focus:border-[hsl(var(--brand-orange)/0.5)] focus:ring-2 focus:ring-[hsl(var(--brand-orange)/0.15)] focus:shadow-[0_0_0_4px_hsl(var(--brand-orange)/0.08)]"
               />
             </div>
@@ -106,7 +106,7 @@ export default function Login() {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="Lozinka"
+                placeholder="Passwort"
                 className="w-full h-11 pl-10 pr-4 rounded-xl border border-border/60 bg-background/60 text-sm text-foreground placeholder:text-muted-foreground/50 shadow-sm shadow-black/[0.03] transition-all duration-200 focus:outline-none focus:border-[hsl(var(--brand-orange)/0.5)] focus:ring-2 focus:ring-[hsl(var(--brand-orange)/0.15)] focus:shadow-[0_0_0_4px_hsl(var(--brand-orange)/0.08)]"
               />
             </div>
@@ -128,7 +128,7 @@ export default function Login() {
                 <Link to="/datenschutz" target="_blank" className="font-medium text-[hsl(var(--brand-orange))] hover:underline">
                   {"Datenschutzrichtlinie"}
                 </Link>{" "}
-                {"Ich akzeptiere"}
+                {"zu akzeptieren."}
               </label>
             </div>
 
@@ -140,17 +140,17 @@ export default function Login() {
               disabled={loading || !acceptedTerms}
               className="w-full h-11 rounded-xl bg-gradient-to-r from-[hsl(var(--brand-orange))] to-[hsl(var(--gold-light))] text-white font-semibold text-sm shadow-md shadow-[hsl(var(--brand-orange)/0.25)] hover:shadow-lg hover:shadow-[hsl(var(--brand-orange)/0.35)] hover:brightness-105 active:scale-[0.98] transition-all duration-200 disabled:opacity-50 disabled:shadow-none"
             >
-              {loading ? "Anmeldung..." : "Prijavi se"}
+              {loading ? "Anmeldung..." : "Anmelden"}
             </Button>
           </form>
 
           {/* Links */}
           <div className="mt-5 flex items-center justify-between text-[12px]">
             <Link to="/forgot-password" className="text-muted-foreground/60 hover:text-[hsl(var(--brand-orange))] transition-colors">
-              Zaboravljena lozinka?
+              Passwort vergessen?
             </Link>
             <Link to="/register" className="font-medium text-[hsl(var(--brand-orange))] hover:underline">
-              Nemaš nalog? Registruj se
+              Noch kein Konto? Registrieren
             </Link>
           </div>
         </div>
