@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import FieldTooltip from "@/components/muster/FieldTooltip";
 import FormularLock from "@/components/paywall/FormularLock";
 import { useSubscription } from "@/hooks/useSubscription";
+import AuthGate from "@/components/AuthGate";
 
 export const S = {
   page: { minHeight: "100vh", background: "#F5F0E8", fontFamily: "Arial, sans-serif", fontSize: 11, color: "#111" } as React.CSSProperties,
@@ -126,9 +127,11 @@ export default function MusterFormBase({ rootId, title, subtitle, pdfUrl, pdfLab
             </div>
           </div>
 
-          <FormularLock locked={locked} formularId={fId}>
-            {children}
-          </FormularLock>
+          <AuthGate>
+            <FormularLock locked={locked} formularId={fId}>
+              {children}
+            </FormularLock>
+          </AuthGate>
 
           <div style={S.footer}>
             {footerNote}
