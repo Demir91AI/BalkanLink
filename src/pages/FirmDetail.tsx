@@ -41,7 +41,7 @@ export default function FirmDetail() {
 
         {/* Premium badge */}
         <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-full border border-white/20 bg-gold/90 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.15em] text-gold-foreground shadow-lg">
-          <Star className="h-3 w-3 fill-current" /> {"Empfohlen"}
+          <Star className="h-3 w-3 fill-current" /> {"Preporučeno"}
         </span>
 
         {/* Nav arrows */}

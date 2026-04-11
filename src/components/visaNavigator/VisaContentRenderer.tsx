@@ -95,8 +95,8 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
   if (!country) return (
     <div style={{ textAlign: 'center', padding: '80px 20px', color: '#6B6B6B' }}>
       <FileText size={56} style={{ margin: '0 auto 20px', display: 'block', opacity: 0.2, color: CHARCOAL }} />
-      <h2 style={{ fontSize: 22, fontWeight: 700, color: CHARCOAL, marginBottom: 8 }}>{"Willkommen im Visa Navigator"}</h2>
-      <p style={{ fontSize: 15, lineHeight: 1.7 }}>{"Wähle ein Land aus dem linken Menü, um Informationen zu Visa und Aufenthaltsgenehmigungen zu finden."}</p>
+      <h2 style={{ fontSize: 22, fontWeight: 700, color: CHARCOAL, marginBottom: 8 }}>{"Dobrodošli u Viza Navigator"}</h2>
+      <p style={{ fontSize: 15, lineHeight: 1.7 }}>{"Odaberi državu iz lijevog menija da pronađeš informacije o vizama i dozvolama boravka."}</p>
     </div>
   );
 
@@ -481,12 +481,12 @@ function NonEURouteDetails({ route, GOLD, CHARCOAL, openFormKey, handleOpenForm,
                   <p style={{ fontSize: 12, color: '#94A3B8', margin: '0 0 12px' }}>{form.subtitle}</p>
                   <button onClick={() => handleOpenForm(form.formKey)}
                     style={{ width: '100%', padding: '10px', background: '#2563EB', color: 'white', border: 'none', borderRadius: 8, fontSize: 13, fontWeight: 600, cursor: 'pointer', marginBottom: 8 }}>
-                    📋 {openFormKey === form.formKey ? "Formular schließen" : "Formular öffnen"}
+                    📋 {openFormKey === form.formKey ? "Zatvori formular" : "Otvori formular"}
                   </button>
                   {form.downloadUrl && (
                     <button onClick={() => window.print()}
                       style={{ width: '100%', padding: '8px', background: 'transparent', color: '#94A3B8', border: '1px solid #334155', borderRadius: 8, fontSize: 12, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}>
-                      <Printer size={12} /> {"PDF-Vorschau"}
+                      <Printer size={12} /> {"PDF pregled"}
                     </button>
                   )}
                 </div>
@@ -508,7 +508,7 @@ function NonEURouteDetails({ route, GOLD, CHARCOAL, openFormKey, handleOpenForm,
                 : <InlineFormPlaceholder
                     title={route.musterformulare.find((f: any) => f.formKey === openFormKey)?.title || openFormKey}
                     onClose={() => handleOpenForm(openFormKey)}
-                    closeLabel={"Formular verfügbar"}
+                    closeLabel={"Formular dostupan"}
                   />
               }
             </div>

@@ -191,7 +191,7 @@ export default function BruttoNettoRechner() {
                             : "bg-card text-muted-foreground hover:bg-muted"
                         }`}
                       >
-                        {p === "monatlich" ? "Monatlich" : "Jährlich"}
+                        {p === "monatlich" ? "Mjesečno" : "Godišnje"}
                       </button>
                     ))}
                   </div>

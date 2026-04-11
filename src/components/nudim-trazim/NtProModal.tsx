@@ -15,7 +15,7 @@ export default function NtProModal({ open, onClose }: Props) {
   if (!open) return null;
 
   const handleActivate = () => {
-    toast.success("PRO-Aktivierung wird vorbereitet. Vielen Dank!");
+    toast.success("PRO aktivacija se priprema. Hvala ti!");
     onClose();
   };
 
@@ -99,7 +99,7 @@ export default function NtProModal({ open, onClose }: Props) {
             )}
           >
             <span className="absolute -top-2.5 right-3 rounded-full bg-[hsl(var(--gold))] px-2.5 py-0.5 text-[10px] font-bold text-[hsl(var(--gold-foreground))]">
-              Best Value
+              Najbolja vrijednost
             </span>
             <div className="flex items-center justify-between mb-2">
               <div className="flex items-center gap-2">

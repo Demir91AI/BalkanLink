@@ -141,7 +141,7 @@ function ShowcaseCarousel() {
                     <img src={firm.logoUrl} alt={firm.logoAlt} className="h-6 max-w-[90px] object-contain" />
                   </div>
                   <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-[hsl(var(--gold))] px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-white">
-                    <Star className="h-2.5 w-2.5 fill-current" /> {"Empfohlen"}
+                    <Star className="h-2.5 w-2.5 fill-current" /> {"Preporučeno"}
                   </span>
                 </div>
                 <div className="flex flex-1 flex-col gap-3 p-5 border-t-[3px] border-[hsl(var(--gold))]">
@@ -408,9 +408,9 @@ export default function Index() {
       <section className="py-16 bg-white border-t border-[#E8E0D0]">
         <div className="container max-w-[1200px] mx-auto mb-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-            <p className="text-xs font-bold uppercase tracking-[0.26em] text-[hsl(var(--gold))]">{"UNSERE PARTNER"}</p>
+            <p className="text-xs font-bold uppercase tracking-[0.26em] text-[hsl(var(--gold))]">{"NAŠI PARTNERI"}</p>
             <h2 className="mt-2 font-heading text-2xl font-extrabold text-[#2D2D2D]">
-              {"Empfohlene Dienste"}
+              {"Preporučene usluge"}
             </h2>
           </motion.div>
         </div>

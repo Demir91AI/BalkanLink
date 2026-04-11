@@ -478,7 +478,7 @@ export default function DokumentenCheck() {
                           summary.action.includes("Dringend") ? "text-red-500/80" :
                           summary.action.includes("Empfohlen") ? "text-amber-500/80" :
                           "text-emerald-500/80"
-                        }`}>Erforderliche Handlung</p>
+                        }`}>Potrebna radnja</p>
                         <p className="text-sm font-semibold text-foreground leading-snug">{summary.action}</p>
                       </div>
                     </div>
