@@ -5,6 +5,7 @@ import { checkSubscriptionStatus } from "@/lib/stripe";
 import { useSessionTimeout, consumeSessionExpiredFlag } from "@/hooks/useSessionTimeout";
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { getDisplayName } from "@/lib/display-name";
 
 interface AuthContextType {
   session: Session | null;
@@ -14,6 +15,7 @@ interface AuthContextType {
   isPremium: boolean;
   isAdmin: boolean;
   subscriptionEnd: string | null;
+  displayName: string;
   signOut: () => Promise<void>;
   refreshSubscription: () => Promise<void>;
 }
@@ -26,6 +28,7 @@ const AuthContext = createContext<AuthContextType>({
   isPremium: false,
   isAdmin: false,
   subscriptionEnd: null,
+  displayName: "Korisniče",
   signOut: async () => {},
   refreshSubscription: async () => {},
 });
@@ -37,6 +40,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [isPremium, setIsPremium] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [subscriptionEnd, setSubscriptionEnd] = useState<string | null>(null);
+  const [profileData, setProfileData] = useState<{ first_name?: string | null } | null>(null);
   const { toast } = useToast();
   const { t } = useLanguage();
 
@@ -44,15 +48,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setProfileLoading(true);
     try {
       const [profileRes, roleRes] = await Promise.all([
-        supabase.from("profiles").select("is_premium").eq("id", userId).single(),
+        supabase.from("profiles").select("is_premium, first_name").eq("id", userId).single(),
         supabase.from("user_roles").select("role").eq("user_id", userId),
       ]);
       setIsPremium(profileRes.data?.is_premium ?? false);
+      setProfileData({ first_name: (profileRes.data as any)?.first_name ?? null });
       setIsAdmin(roleRes.data?.some((r) => r.role === "admin") ?? false);
     } catch (err) {
       console.error("fetchUserMeta failed:", err);
       setIsPremium(false);
       setIsAdmin(false);
+      setProfileData(null);
     } finally {
       setProfileLoading(false);
     }
@@ -79,6 +85,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           setIsPremium(false);
           setIsAdmin(false);
           setSubscriptionEnd(null);
+          setProfileData(null);
           setProfileLoading(false);
 
           if (consumeSessionExpiredFlag()) {
@@ -109,6 +116,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   // Session timeout — runs globally
   useSessionTimeout(!!session?.user);
 
+  const displayName = getDisplayName(session?.user ?? null, profileData);
+
   return (
     <AuthContext.Provider value={{
       session,
@@ -118,6 +127,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       isPremium,
       isAdmin,
       subscriptionEnd,
+      displayName,
       signOut,
       refreshSubscription,
     }}>

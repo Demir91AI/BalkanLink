@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useSubscription } from "@/hooks/useSubscription";
 import { useNavigate } from "react-router-dom";
@@ -6,18 +7,33 @@ import PageNav from "@/components/navigation/PageNav";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { LogOut, Crown, User } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 export default function Profil() {
-  const { user, isPremium, subscriptionEnd, signOut, profileLoading } = useAuth();
+  const { user, isPremium, subscriptionEnd, signOut, profileLoading, displayName } = useAuth();
   const { subscriptionTier } = useSubscription();
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const [editName, setEditName] = useState(displayName);
+  const [saving, setSaving] = useState(false);
 
   if (!user) {
     navigate("/login");
     return null;
   }
+
+  const saveName = async () => {
+    if (!user || editName.trim() === displayName) return;
+    setSaving(true);
+    await supabase
+      .from("profiles")
+      .update({ first_name: editName.trim() } as any)
+      .eq("id", user.id);
+    setSaving(false);
+  };
 
   const handleLogout = async () => {
     await signOut();
@@ -33,13 +49,24 @@ export default function Profil() {
             <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
               <User className="h-8 w-8 text-primary" />
             </div>
-            <CardTitle className="text-xl">{t("nav.profil")}</CardTitle>
+            <CardTitle className="text-xl">Dobro došao, {displayName} 👋</CardTitle>
+            <p className="text-sm text-muted-foreground">{user.email}</p>
           </CardHeader>
           <CardContent className="space-y-5">
-            {/* Email */}
-            <div className="rounded-lg border border-border/40 bg-muted/30 px-4 py-3">
-              <p className="text-xs text-muted-foreground mb-0.5">Email</p>
-              <p className="text-sm font-medium">{user.email}</p>
+            {/* Editable name */}
+            <div className="rounded-lg border border-border/40 bg-muted/30 px-4 py-3 space-y-1.5">
+              <Label htmlFor="editName" className="text-xs text-muted-foreground">Ime</Label>
+              <Input
+                id="editName"
+                value={editName}
+                onChange={(e) => setEditName(e.target.value)}
+                onBlur={saveName}
+                placeholder="Tvoje ime"
+                className="h-9"
+              />
+              <p className="text-[11px] text-muted-foreground">
+                {saving ? "Čuvam..." : "Automatski se čuva"}
+              </p>
             </div>
 
             {/* Subscription */}
