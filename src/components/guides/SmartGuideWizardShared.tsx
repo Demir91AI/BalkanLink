@@ -272,5 +272,6 @@ export default function SmartGuideWizardShared({
         )}
       </div>
     </div>
+    </AuthGate>
   );
 }
