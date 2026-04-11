@@ -196,7 +196,7 @@ body{
       {hasKurz && (
         <div className="flex items-center gap-3">
           <Label htmlFor="variant-toggle" className="text-sm">
-            Standard (professionell)
+            Standardno (profesionalno)
           </Label>
           <Switch
             id="variant-toggle"
@@ -204,7 +204,7 @@ body{
             onCheckedChange={(v) => setVariantId(v ? "kurz" : "standard")}
           />
           <Label htmlFor="variant-toggle" className="text-sm">
-            Kurz &amp; kompakt
+            Kratko i kompaktno
           </Label>
         </div>
       )}
