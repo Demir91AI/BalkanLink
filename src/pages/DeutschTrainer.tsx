@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { SEO } from "@/components/SEO";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Trophy, Flame, Star, Lock, GraduationCap, CheckCircle2, X, Crown, ChevronLeft, ChevronRight, ArrowLeft, Home } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
-import { LEVELS, LEVEL_COLORS, getLessonsForLevel, FREE_LESSONS_PER_LEVEL, MAX_LEVEL, type Level, type Lesson } from "@/lib/deutsch-trainer-data";
+import { LEVELS, LEVEL_COLORS, getLessonsForLevel, loadLessonsForLevel, FREE_LESSONS_PER_LEVEL, MAX_LEVEL, type Level, type Lesson } from "@/lib/deutsch-trainer-data";
 import { useTrainerProgress } from "@/hooks/useTrainerProgress";
 import { useSubscription } from "@/hooks/useSubscription";
 import TrainerLesson from "@/components/trainer/TrainerLesson";
@@ -27,20 +27,26 @@ export default function DeutschTrainer() {
   const demo = params.get("demo") === "1";
 
   const [selectedLevel, setSelectedLevel] = useState<Level>("A1");
-  const [activeLesson, setActiveLesson] = useState<Lesson | null>(() => {
-    if (demo) {
-      const first = getLessonsForLevel("A1")[0];
-      return first ?? null;
-    }
-    return null;
-  });
+  const [levelLoading, setLevelLoading] = useState(true);
+  const [activeLesson, setActiveLesson] = useState<Lesson | null>(null);
   const [showPaywall, setShowPaywall] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
 
   const { progress } = useTrainerProgress();
   const { isPremium } = useSubscription();
 
+  useEffect(() => {
+    setLevelLoading(true);
+    loadLessonsForLevel(selectedLevel).then((loaded) => {
+      setLevelLoading(false);
+      if (demo && selectedLevel === "A1" && loaded.length > 0 && !activeLesson) {
+        setActiveLesson(loaded[0]);
+      }
+    });
+  }, [selectedLevel]);
+
   const levelLessons = getLessonsForLevel(selectedLevel);
+  const dataReady = !levelLoading && levelLessons.length > 0;
   const maxXpForLevel = MAX_LEVEL * 100;
   const xpForNextLevel = Math.min(progress.level * 100, maxXpForLevel);
   const xpInLevel = progress.level >= MAX_LEVEL ? 100 : progress.xp % 100;

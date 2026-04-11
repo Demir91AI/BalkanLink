@@ -8,29 +8,44 @@ export const INDIVIDUAL_PRICES: Record<string, string> = {
   "C1": "26,99 €", "C2": "32,99 €",
 };
 
-const levelLoaders: Record<string, () => Promise<Lesson[]>> = {
-  A1: () => import("./trainer/lessons-a1").then(m => m.lessonsA1),
-  A2: () => import("./trainer/lessons-a2").then(m => m.lessonsA2),
-  B1: () => import("./trainer/lessons-b1").then(m => m.lessonsB1),
-  B2: () => import("./trainer/lessons-b2").then(m => m.lessonsB2),
-  C1: () => import("./trainer/lessons-c1").then(m => m.lessonsC1),
-  C2: () => import("./trainer/lessons-c2").then(m => m.lessonsC2),
+const levelModules: Record<string, () => Promise<{ default?: Lesson[]; [key: string]: any }>> = {
+  A1: () => import("./trainer/lessons-a1"),
+  A2: () => import("./trainer/lessons-a2"),
+  B1: () => import("./trainer/lessons-b1"),
+  B2: () => import("./trainer/lessons-b2"),
+  C1: () => import("./trainer/lessons-c1"),
+  C2: () => import("./trainer/lessons-c2"),
 };
 
-export async function getLessonsForLevelAsync(level: string): Promise<Lesson[]> {
-  const loader = levelLoaders[level];
-  if (!loader) return [];
-  return loader();
+const loadedLevels: Partial<Record<string, Lesson[]>> = {};
+
+export async function loadLessonsForLevel(level: string): Promise<Lesson[]> {
+  if (loadedLevels[level]) return loadedLevels[level]!;
+  const mod = await levelModules[level]?.();
+  if (!mod) return [];
+  const key = `lessons${level}` as string;
+  const data = (mod[key] ?? mod.default ?? []) as Lesson[];
+  loadedLevels[level] = data;
+  return data;
 }
 
-// Backward compat — returns [] synchronously, consumers migrate to Async version
-export function getLessonsForLevel(_level: string): Lesson[] {
-  return [];
+export function getLessonsForLevel(level: string): Lesson[] {
+  return loadedLevels[level] ?? [];
+}
+
+export async function getLessonsForLevelAsync(level: string): Promise<Lesson[]> {
+  return loadLessonsForLevel(level);
 }
 
 export function getLessonById(id: string): Lesson | undefined {
-  return undefined; // use async version
+  for (const lessons of Object.values(loadedLevels)) {
+    const found = lessons?.find(l => l.id === id);
+    if (found) return found;
+  }
+  return undefined;
 }
+
+export const lessons: Lesson[] = [];
 
 /** Shuffle MC/QR options at runtime for variety */
 export function shuffleExercise(exercise: import("./trainer/types").Exercise): import("./trainer/types").Exercise {
