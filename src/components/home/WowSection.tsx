@@ -51,7 +51,7 @@ export function WowSection() {
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.6 }} className="mt-14 text-center">
           <Button asChild size="lg" className="group gap-2.5 rounded-2xl bg-[hsl(var(--gold))] px-10 py-4 text-base font-bold text-[hsl(var(--gold-foreground))] shadow-[0_4px_16px_hsl(var(--gold)/0.25)] transition-all duration-300 hover:bg-[hsl(var(--gold-light))] hover:shadow-[0_6px_24px_hsl(var(--gold)/0.35)] hover:scale-[1.03]">
             <Link to="/dolazak/prvi-koraci">
-              {"Jetzt starten"}
+              {"Počni sada"}
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </Button>

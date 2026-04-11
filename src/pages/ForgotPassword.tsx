@@ -34,7 +34,7 @@ export default function ForgotPassword() {
     setLoading(false);
 
     if (error) {
-      toast({ title: "Ein Fehler ist aufgetreten", description: error.message, variant: "destructive" });
+      toast({ title: "Došlo je do greške", description: error.message, variant: "destructive" });
     } else {
       setSent(true);
     }
@@ -45,11 +45,11 @@ export default function ForgotPassword() {
       <div className="container flex min-h-[70vh] items-center justify-center py-12">
         <Card className="w-full max-w-md text-center">
           <CardHeader>
-            <CardTitle>{"E-Mail prüfen"}</CardTitle>
-            <CardDescription>{"Wir haben dir eine Bestätigungs-E-Mail gesendet."}</CardDescription>
+            <CardTitle>{"Provjeri e-mail"}</CardTitle>
+            <CardDescription>{"Poslali smo ti link za resetovanje lozinke."}</CardDescription>
           </CardHeader>
           <CardFooter className="justify-center">
-            <Link to="/login" className="text-sm text-primary hover:underline">{"Zurück zur Anmeldung"}</Link>
+            <Link to="/login" className="text-sm text-primary hover:underline">{"Nazad na prijavu"}</Link>
           </CardFooter>
         </Card>
       </div>
@@ -62,22 +62,22 @@ export default function ForgotPassword() {
     <div className="container flex min-h-[70vh] items-center justify-center py-12">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
-          <CardTitle className="text-2xl">{"Passwort vergessen"}</CardTitle>
-          <CardDescription>{"E-Mail eingeben zum Zurücksetzen."}</CardDescription>
+          <CardTitle className="text-2xl">{"Zaboravljena lozinka"}</CardTitle>
+          <CardDescription>{"Unesi e-mail za resetovanje."}</CardDescription>
         </CardHeader>
         <form onSubmit={handleSubmit}>
           <CardContent className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="email">{"E-Mail-Adresse"}</Label>
+              <Label htmlFor="email">{"E-mail adresa"}</Label>
               <Input id="email" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="vas@email.com" />
             </div>
             <TurnstileWidget onVerify={setTurnstileToken} onExpire={() => setTurnstileToken("")} className="flex justify-center" />
           </CardContent>
           <CardFooter className="flex flex-col gap-3">
             <Button type="submit" className="w-full" disabled={loading}>
-              {loading ? "Sende..." : "Link senden"}
+              {loading ? "Šaljem..." : "Pošalji link"}
             </Button>
-            <Link to="/login" className="text-sm text-primary hover:underline">{"Zurück zur Anmeldung"}</Link>
+            <Link to="/login" className="text-sm text-primary hover:underline">{"Nazad na prijavu"}</Link>
           </CardFooter>
         </form>
       </Card>

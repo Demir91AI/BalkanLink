@@ -45,12 +45,12 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-    if (!email || !password) { setError("Falsche E-Mail oder Passwort."); return; }
+    if (!email || !password) { setError("Pogrešan e-mail ili lozinka."); return; }
     setLoading(true);
     const { error: err } = await supabase.auth.signInWithPassword({ email, password });
     setLoading(false);
     if (err) {
-      setError("Falsche E-Mail oder Passwort.");
+      setError("Pogrešan e-mail ili lozinka.");
     } else {
       handleClose();
     }
@@ -85,7 +85,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
   const handleForgot = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-    if (!email) { setError("Falsche E-Mail oder Passwort."); return; }
+    if (!email) { setError("Pogrešan e-mail ili lozinka."); return; }
     setLoading(true);
     await supabase.auth.resetPasswordForEmail(email, {
       redirectTo: `${window.location.origin}/reset-password`,
@@ -126,7 +126,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
                     : "text-[#6B6B6B] hover:text-[#2D2D2D]"
                 }`}
               >
-                {"Anmelden"}
+                {"Prijava"}
               </button>
               <button
                 onClick={() => switchTab("register")}
@@ -136,7 +136,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
                     : "text-[#6B6B6B] hover:text-[#2D2D2D]"
                 }`}
               >
-                {"Registrieren"}
+                {"Registracija"}
               </button>
             </div>
 
@@ -144,7 +144,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
             <form onSubmit={tab === "login" ? handleLogin : handleRegister} className="p-6 flex flex-col gap-4">
               {/* Email */}
               <div>
-                <label className="block text-xs font-medium text-[#6B6B6B] mb-1.5">{"E-Mail-Adresse"}</label>
+                <label className="block text-xs font-medium text-[#6B6B6B] mb-1.5">{"E-mail adresa"}</label>
                 <input
                   type="email"
                   value={email}
@@ -157,7 +157,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
 
               {/* Password */}
               <div>
-                <label className="block text-xs font-medium text-[#6B6B6B] mb-1.5">{"Passwort"}</label>
+                <label className="block text-xs font-medium text-[#6B6B6B] mb-1.5">{"Lozinka"}</label>
                 <div className="relative">
                   <input
                     type={showPassword ? "text" : "password"}
@@ -197,7 +197,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
               {/* Confirm password (register only) */}
               {tab === "register" && (
                 <div>
-                  <label className="block text-xs font-medium text-[#6B6B6B] mb-1.5">{"Passwort bestätigen"}</label>
+                  <label className="block text-xs font-medium text-[#6B6B6B] mb-1.5">{"Potvrdi lozinku"}</label>
                   <input
                     type={showPassword ? "text" : "password"}
                     value={confirmPassword}
@@ -211,7 +211,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
 
               {/* Error */}
               {error && (
-                <p className={`text-xs px-1 ${error === "Prüfe E-Mail für Bestätigung." ? "text-green-600" : "text-red-500"}`}>
+                <p className={`text-xs px-1 ${error === "Provjeri e-mail za potvrdu." ? "text-green-600" : "text-red-500"}`}>
                   {error}
                 </p>
               )}
@@ -223,7 +223,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
                   onClick={() => { setError(""); setView("forgot"); }}
                   className="text-xs text-[hsl(var(--gold))] hover:underline self-end -mt-2"
                 >
-                  {"Passwort vergessen"}?
+                  {"Zaboravljena lozinka"}?
                 </button>
               )}
 
@@ -234,7 +234,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
                 className="w-full h-11 rounded-xl bg-[hsl(var(--gold))] text-white font-semibold text-sm hover:brightness-110 disabled:opacity-60 transition-all flex items-center justify-center gap-2"
               >
                 {loading && <Loader2 className="h-4 w-4 animate-spin" />}
-                {tab === "login" ? "Anmelden" : "Registrieren"}
+                {tab === "login" ? "Prijavi se" : "Registruj se"}
               </button>
             </form>
           </>
@@ -243,10 +243,10 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
         {/* Forgot password view */}
         {view === "forgot" && (
           <form onSubmit={handleForgot} className="p-6 flex flex-col gap-4">
-            <h2 className="text-lg font-bold text-[#2D2D2D]">{"Passwort vergessen"}</h2>
-            <p className="text-sm text-[#6B6B6B]">{"E-Mail eingeben zum Zurücksetzen."}</p>
+            <h2 className="text-lg font-bold text-[#2D2D2D]">{"Zaboravljena lozinka"}</h2>
+            <p className="text-sm text-[#6B6B6B]">{"Unesi e-mail za resetovanje."}</p>
             <div>
-              <label className="block text-xs font-medium text-[#6B6B6B] mb-1.5">{"E-Mail-Adresse"}</label>
+              <label className="block text-xs font-medium text-[#6B6B6B] mb-1.5">{"E-mail adresa"}</label>
               <input
                 type="email"
                 value={email}
@@ -263,10 +263,10 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
               className="w-full h-11 rounded-xl bg-[hsl(var(--gold))] text-white font-semibold text-sm hover:brightness-110 disabled:opacity-60 transition-all flex items-center justify-center gap-2"
             >
               {loading && <Loader2 className="h-4 w-4 animate-spin" />}
-              {"Link senden"}
+              {"Pošalji link"}
             </button>
             <button type="button" onClick={() => { setError(""); setView("auth"); }} className="text-xs text-[hsl(var(--gold))] hover:underline self-center">
-              {"Zurück zur Anmeldung"}
+              {"Nazad na prijavu"}
             </button>
           </form>
         )}

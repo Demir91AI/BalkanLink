@@ -75,7 +75,7 @@ function VisaPaywall({ visaLabel }: { visaLabel: string }) {
       </div>
       <Button className="btn-gold-gradient mt-5 rounded-xl px-8" asChild>
         <Link to={user ? "/premium" : "/login"}>
-          <Crown className="mr-2 h-4 w-4" /> {"Jetzt freischalten"}
+          <Crown className="mr-2 h-4 w-4" /> {"Otključaj sada"}
         </Link>
       </Button>
     </div>

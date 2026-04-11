@@ -7,15 +7,15 @@ import { navigateBackOrHome } from "@/lib/navigation";
 export default function TrainerFaq() {
   const navigate = useNavigate();
   const faqs = [
-    { q: "Was ist in der Free-Version enthalten?", a: "Du bekommst 3 Lektionen pro Niveau mit Aufgaben und 3 Sprachassistent-Sätze pro Lektion – kostenlos." },
-    { q: "Was ist im Ultimate-Paket enthalten?", a: "Mit Ultimate erhältst du alle Lektionen, vollen Sprachassistenten-Zugriff und dynamisch generierte Aufgaben." },
-    { q: "Kann ich kostenlos testen?", a: "Ja, die ersten 3 Lektionen pro Niveau sind komplett kostenlos und sofort verfügbar." },
-    { q: "Für wen ist das geeignet?", a: "Für alle, die Deutsch in realen Alltagssituationen trainieren möchten – ob Anfänger (A1) oder Fortgeschrittene (C2)." },
-    { q: "Wie funktioniert die Preisstruktur?", a: "Du kannst einzelne Niveaus kaufen oder Pakete wählen. Pakete sind günstiger und bieten einen Wertgutschein bei 100% Abschluss." },
-    { q: "Was ist der Wertgutschein?", a: "Als Premium-Nutzer erhältst du bei 100% Abschluss einen Wertgutschein. Die Prüfung erfolgt manuell durch BalkanLink. Details in den Bonusbedingungen." },
-    { q: "Ist Ultimate ein Abo?", a: "Nein. Alle Käufe sind einmalige Zahlungen. Du zahlst einmal und hast dauerhaften Zugriff." },
-    { q: "Wie funktioniert das XP-System?", a: "Jede richtige Antwort gibt +1 XP. Dein Fortschritt wird gespeichert. Maximal erreichbar: Level 15." },
-    { q: "Muss ich Grammatik lernen?", a: "Nein. BalkanLink Deutsch fokussiert auf praktische Situationen. Grammatik lernst du nebenbei." },
+    { q: "Šta je uključeno u besplatnu verziju?", a: "Dobijaš 3 lekcije po nivou sa zadacima i 3 rečenice govorne pomoći po lekciji — besplatno." },
+    { q: "Šta je uključeno u Ultimate paket?", a: "Sa Ultimate paketom dobijaš sve lekcije, puni pristup govornoj pomoći i dinamički generisane zadatke." },
+    { q: "Mogu li besplatno testirati?", a: "Da, prvih 3 lekcija po nivou su potpuno besplatne i odmah dostupne." },
+    { q: "Za koga je ovo pogodno?", a: "Za sve koji žele vježbati njemački u stvarnim svakodnevnim situacijama — od početnika (A1) do naprednih (C2)." },
+    { q: "Kako funkcionira struktura cijena?", a: "Možeš kupiti pojedinačne nivoe ili pakete. Paketi su povoljniji i nude vrijednosni vaučer pri 100% završetku." },
+    { q: "Šta je vrijednosni vaučer?", a: "Kao Premium korisnik dobijaš vrijednosni vaučer pri 100% završetku. Provjera se vrši ručno od strane BalkanLink-a. Detalji u bonus uslovima." },
+    { q: "Da li je Ultimate pretplata?", a: "Ne. Svi kupovine su jednokratne uplate. Platiš jednom i imaš trajni pristup." },
+    { q: "Kako funkcionira XP sistem?", a: "Svaki tačan odgovor donosi +1 XP. Tvoj napredak se čuva. Maksimalno dostižno: Level 15." },
+    { q: "Moram li učiti gramatiku?", a: "Ne. BalkanLink Deutsch se fokusira na praktične situacije. Gramatiku učiš usput." },
   ];
 
   return (

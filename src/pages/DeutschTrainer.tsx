@@ -430,13 +430,13 @@ export default function DeutschTrainer() {
                   onClick={() => { setShowPaywall(false); navigate("/deutsch-trainer/preise"); }}
                   className="mt-4 h-11 w-full rounded-xl bg-gold text-sm font-bold text-gold-foreground shadow-[0_4px_20px_rgba(255,204,0,0.3)] hover:bg-gold-light"
                 >
-                  {"Jetzt freischalten"}
+                  {"Otključaj sada"}
                 </Button>
                 <button
                   onClick={() => setShowPaywall(false)}
                   className="mt-2 text-xs text-muted-foreground hover:underline"
                 >
-                  {"Später entscheiden"}
+                  {"Odluči kasnije"}
                 </button>
               </div>
             </motion.div>

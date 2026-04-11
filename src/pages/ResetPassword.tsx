@@ -32,11 +32,11 @@ export default function ResetPassword() {
   const handleReset = async (e: React.FormEvent) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      toast({ title: "Passwörter stimmen nicht überein.", variant: "destructive" });
+      toast({ title: "Lozinke se ne podudaraju.", variant: "destructive" });
       return;
     }
     if (password.length < 6) {
-      toast({ title: "Passwort ist zu kurz.", variant: "destructive" });
+      toast({ title: "Lozinka je prekratka.", variant: "destructive" });
       return;
     }
     setLoading(true);
@@ -44,9 +44,9 @@ export default function ResetPassword() {
     setLoading(false);
 
     if (error) {
-      toast({ title: "Ein Fehler ist aufgetreten", description: error.message, variant: "destructive" });
+      toast({ title: "Došlo je do greške", description: error.message, variant: "destructive" });
     } else {
-      toast({ title: "Passwort erfolgreich geändert!" });
+      toast({ title: "Lozinka uspješno promijenjena!" });
       navigate("/login");
     }
   };
@@ -56,8 +56,8 @@ export default function ResetPassword() {
       <div className="container flex min-h-[70vh] items-center justify-center py-12">
         <Card className="w-full max-w-md text-center">
           <CardHeader>
-            <CardTitle>{"Link gesendet"}</CardTitle>
-            <CardDescription>{"Prüfe E-Mail für den Zurücksetzungslink."}</CardDescription>
+            <CardTitle>{"Link poslan"}</CardTitle>
+            <CardDescription>{"Provjeri e-mail za link za resetovanje."}</CardDescription>
           </CardHeader>
         </Card>
       </div>
@@ -70,23 +70,23 @@ export default function ResetPassword() {
     <div className="container flex min-h-[70vh] items-center justify-center py-12">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
-          <CardTitle className="text-2xl">{"Passwort zurücksetzen"}</CardTitle>
-          <CardDescription>{"Neues Passwort eingeben."}</CardDescription>
+          <CardTitle className="text-2xl">{"Resetuj lozinku"}</CardTitle>
+          <CardDescription>{"Unesi novu lozinku."}</CardDescription>
         </CardHeader>
         <form onSubmit={handleReset}>
           <CardContent className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="password">{"Neues Passwort"}</Label>
-              <Input id="password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} placeholder={"Mindestens 8 Zeichen"} />
+              <Label htmlFor="password">{"Nova lozinka"}</Label>
+              <Input id="password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} placeholder={"Najmanje 8 znakova"} />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="confirmPassword">{"Passwort bestätigen"}</Label>
+              <Label htmlFor="confirmPassword">{"Potvrdi lozinku"}</Label>
               <Input id="confirmPassword" type="password" required value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="••••••••" />
             </div>
           </CardContent>
           <CardFooter>
             <Button type="submit" className="w-full" disabled={loading}>
-              {loading ? "Speichere..." : "Speichern"}
+              {loading ? "Čuvam..." : "Sačuvaj"}
             </Button>
           </CardFooter>
         </form>

@@ -52,22 +52,22 @@ const packages = [
 ];
 
 const freeFeatures = [
-  { text: "3 Lektionen pro Niveau (kostenlos)", included: true },
-  { text: "3 Sprachassistent-Sätze", included: true },
-  { text: "Alle Lektionen", included: false },
-  { text: "Unbegrenzter Sprachassistent", included: false },
-  { text: "Wertgutschein-Programm", included: false },
+  { text: "3 lekcije po nivou (besplatno)", included: true },
+  { text: "3 rečenice govorne pomoći", included: true },
+  { text: "Sve lekcije", included: false },
+  { text: "Neograničena govorna pomoć", included: false },
+  { text: "Program vrijednosnih vaučera", included: false },
 ];
 
 const ultimateFeatures = [
-  "Alle Lektionen freischalten",
-  "300 Aufgaben pro Lektion (laufend erweitert)",
-  "Sprachassistent mit 500 Sätzen",
-  "Alle Szenarien aus dem echten Leben",
-  "Dynamische Aufgaben (immer neu)",
-  "Smart Progress System",
-  "Wertgutschein bei 100% Abschluss",
-  "Kein Abo – einmal zahlen",
+  "Otključaj sve lekcije",
+  "300 zadataka po lekciji (stalno se proširuje)",
+  "Govorna pomoć sa 500 rečenica",
+  "Svi scenariji iz stvarnog života",
+  "Dinamički zadaci (uvijek novi)",
+  "Smart Progress sistem",
+  "Vrijednosni vaučer pri 100% završetku",
+  "Bez pretplate – platiš jednom",
 ];
 
 export default function TrainerPreise() {
@@ -81,7 +81,7 @@ export default function TrainerPreise() {
             onClick={() => navigateBackOrHome(navigate)}
             className="mb-3 flex items-center gap-1.5 text-sm text-primary-foreground/60 hover:text-primary-foreground"
           >
-            <ArrowLeft className="h-4 w-4" /> Zurück
+            <ArrowLeft className="h-4 w-4" /> Nazad
           </button>
           <div className="flex items-center gap-3">
             <GraduationCap className="h-7 w-7 text-gold" />

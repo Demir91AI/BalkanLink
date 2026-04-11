@@ -112,7 +112,7 @@ export default function BruttoNettoRechner() {
   const handleReset = () => {
     setInputs({ ...DEFAULT_INPUTS });
     saveInputs({ ...DEFAULT_INPUTS });
-    toast.success("Zurückgesetzt!");
+    toast.success("Resetovano!");
   };
 
   const handleShare = () => {
@@ -243,10 +243,10 @@ export default function BruttoNettoRechner() {
                 {/* Actions */}
                 <div className="flex gap-3 pt-2">
                   <Button variant="outline" size="sm" onClick={handleReset} className="gap-1.5 text-xs">
-                    <RotateCcw className="h-3.5 w-3.5" /> {"Zurücksetzen"}
+                    <RotateCcw className="h-3.5 w-3.5" /> {"Resetuj"}
                   </Button>
                   <Button variant="outline" size="sm" onClick={handleShare} className="gap-1.5 text-xs">
-                    <Share2 className="h-3.5 w-3.5" /> {"Teilen"}
+                    <Share2 className="h-3.5 w-3.5" /> {"Podijeli"}
                   </Button>
                 </div>
 

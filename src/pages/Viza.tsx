@@ -109,17 +109,17 @@ export default function Viza() {
           <div className="mb-6 flex flex-col sm:flex-row items-center gap-4 rounded-xl border-2 border-[hsl(var(--gold))]/30 bg-[#FFF8EC] px-5 py-4">
             <Lock className="h-5 w-5 text-[hsl(var(--gold))] shrink-0" />
             <p className="text-sm text-[#2D2D2D] flex-1">
-              <strong>{"Viza Navigator — erste 2 Wege kostenlos."}</strong>{" "}
-              {"Schalte alle Visa-Wege mit Premium frei."}
+              <strong>{"Viza Navigator — prva 2 puta besplatno."}</strong>{" "}
+              {"Otključaj sve viza-puteve sa Premium paketom."}
             </p>
             <div className="flex gap-2 shrink-0">
               <button onClick={() => navigate("/premium")}
                 className="rounded-full bg-[hsl(var(--gold))] px-4 py-2 text-xs font-bold text-[#0f1f3d] hover:opacity-90 transition-opacity">
-                {"Premium — 9,99€/Monat"}
+                {"Premium — 9,99€/mjesečno"}
               </button>
               <button onClick={() => navigate("/paketi")}
                 className="rounded-full border border-border px-4 py-2 text-xs font-semibold hover:bg-muted transition-colors">
-                {"Mehr erfahren"}
+                {"Saznaj više"}
               </button>
             </div>
           </div>
@@ -267,11 +267,11 @@ export default function Viza() {
                 <div className="flex flex-col items-center justify-center py-16 text-center">
                   <div className="rounded-2xl border-2 border-[hsl(var(--gold))]/20 bg-card p-8 max-w-md">
                     <Lock className="h-10 w-10 text-[hsl(var(--gold))] mx-auto mb-4" />
-                    <h3 className="text-lg font-bold text-foreground">
-                      {"Dieser Weg ist nur mit Premium verfügbar"}
-                    </h3>
-                    <p className="text-sm text-muted-foreground mt-2">
-                      {"Die ersten 2 Wege pro Land sind kostenlos. Schalte alle Visa-Wege frei."}
+                     <h3 className="text-lg font-bold text-foreground">
+                       {"Ovaj put je dostupan samo sa Premium paketom"}
+                     </h3>
+                     <p className="text-sm text-muted-foreground mt-2">
+                       {"Prva 2 puta po zemlji su besplatna. Otključaj sve viza-puteve."}
                     </p>
                     <Button
                       onClick={() => navigate("/paketi")}
@@ -281,7 +281,7 @@ export default function Viza() {
                         color: 'hsl(var(--gold-foreground))',
                       }}
                     >
-                      {"BalkanLink Premium — 9,99€/Monat"}
+                      {"BalkanLink Premium — 9,99€/mjesečno"}
                     </Button>
                   </div>
                 </div>
