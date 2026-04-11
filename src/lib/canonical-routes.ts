@@ -83,7 +83,7 @@ export const VALID_PRODUCTION_ROUTES = new Set([
   "/dsa", "/inhalte-melden", "/cookie-richtlinie",
   "/nudim-trazim", "/nach-deutschland", "/vorlagen",
   "/deutsch-trainer", "/deutsch-trainer/preise", "/deutsch-trainer/faq",
-  "/mapa", "/bussgeld", "/generatoren",
+  "/bussgeld", "/generatoren",
   "/radno-pravo",
   "/biznis",
 ]);
