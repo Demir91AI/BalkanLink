@@ -34,15 +34,15 @@ export default function Directory() {
       <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
-            <ChevronLeft className="h-4 w-4" /> {"Zurück"}
+            <ChevronLeft className="h-4 w-4" /> Nazad
           </button>
-          <h1 className="text-2xl font-bold md:text-3xl">{"Balkan-Unternehmen"}</h1>
-          <p className="mt-1 text-muted-foreground">{"Finde Dienste unserer Community"}</p>
+          <h1 className="text-2xl font-bold md:text-3xl">Balkanske firme</h1>
+          <p className="mt-1 text-muted-foreground">Pronađi usluge naše zajednice</p>
         </div>
         <Button asChild>
           <Link to="/directory/submit">
             <Plus className="mr-2 h-4 w-4" />
-            {"Firma hinzufügen"}
+            Dodaj firmu
           </Link>
         </Button>
       </div>
@@ -52,7 +52,7 @@ export default function Directory() {
         <div className="relative sm:col-span-2 lg:col-span-2">
           <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           <Input
-            placeholder={"Firmen suchen..."}
+            placeholder="Pretraži firme..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className="pl-9"
@@ -171,7 +171,7 @@ export default function Directory() {
       ) : (
         <div className="flex flex-col items-center gap-3 py-16 text-center">
           <Building2 className="h-12 w-12 text-muted-foreground/40" />
-          <p className="text-muted-foreground">{"Keine Ergebnisse"}</p>
+          <p className="text-muted-foreground">Nema rezultata</p>
         </div>
       )}
     </div>
