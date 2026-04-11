@@ -34,6 +34,7 @@ const BS: Record<string, string> = {
   "sidebar.menu": "Meni",
   "sidebar.mainFunctions": "Glavne funkcije",
   "sidebar.other": "Ostalo",
+  "sidebar.radnoPravo": "Radno pravo",
   "sidebar.cijene": "Paketi i cijene",
   "sidebar.packages": "Premium paketi",
   "auth.email": "E-mail adresa",
