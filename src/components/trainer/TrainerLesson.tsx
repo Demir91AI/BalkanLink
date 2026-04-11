@@ -23,7 +23,7 @@ import SprachassistentSection from "./SprachassistentSection";
 import SectionHeader from "@/components/navigation/SectionHeader";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const FREE_PHRASE_LIMIT = 5;
+const FREE_PHRASE_LIMIT = 3;
 const TOTAL_PHRASES = 500;
 
 const EXERCISES_PER_STAGE = 100;
