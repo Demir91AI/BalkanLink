@@ -616,8 +616,8 @@ WOHNGELD:
 - Nije isto što i Bürgergeld
 
 POSAO:
-- Mindestlohn: 12.82€/sat (2025)
-- Krankmeldung: od 3. dana bolesti treba Krankschreibung
+- Mindestlohn 2026: 12.82€/sat
+- Minijob-Grenze 2026: 556€/mj
 - Kündigung: min 4 sedmice otkaznog roka
 
 AUTO:
@@ -805,8 +805,8 @@ AUSBILDUNG (Šegrtovanje):
 - Popularne za Balkan: Pflegefachkraft, Elektroniker, Mechatroniker, Koch, Kaufmann
 
 MINDESTLOHN & LOHNABRECHNUNG:
-- Mindestlohn 2025: 12.82€/sat
-- Lohnabrechnung svaki mj: provjeri Brutto, Steuerklasse, SV-Abzüge
+- Mindestlohn 2026: 12.82€/sat
+- Minijob-Grenze 2026: 556€/mj
 - Wenn Fehler: odmah u pisanom obliku firmi
 
 ═══ ZDRAVSTVO — DETALJI ═══
