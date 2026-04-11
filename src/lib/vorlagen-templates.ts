@@ -665,29 +665,7 @@ Mit freundlichen Grüßen
       {
         id: "standard",
         label: "Standard (professionell)",
-        body: \`{{NAME}}
-{{ADRESSE}}
-
-{{KASSE}}
-{{KASSE_ADRESSE}}
-
-{{ORT}}, den {{DATUM}}
-
-Versichertennummer: {{VERSICHERTENNR}}
-
-Betreff: Widerspruch gegen Ihren Bescheid vom {{BESCHEID_DATUM}}
-
-Sehr geehrte Damen und Herren,
-
-hiermit lege ich fristgerecht Widerspruch gegen Ihren Bescheid vom {{BESCHEID_DATUM}} ein.
-
-Mit dem genannten Bescheid wurde mein Antrag abgelehnt. Diese Entscheidung halte ich für nicht gerechtfertigt und bitte um erneute Prüfung.
-
-Ich bitte um eine schriftliche Bestätigung des Eingangs dieses Widerspruchs sowie um einen rechtsmittelfähigen Widerspruchsbescheid.
-
-Mit freundlichen Grüßen
-
-{{NAME}}\`,
+        body: `{{NAME}}\n{{ADRESSE}}\n\n{{KASSE}}\n{{KASSE_ADRESSE}}\n\n{{ORT}}, den {{DATUM}}\n\nVersichertennummer: {{VERSICHERTENNR}}\n\nBetreff: Widerspruch gegen Ihren Bescheid vom {{BESCHEID_DATUM}}\n\nSehr geehrte Damen und Herren,\n\nhiermit lege ich fristgerecht Widerspruch gegen Ihren Bescheid vom {{BESCHEID_DATUM}} ein.\n\nMit dem genannten Bescheid wurde mein Antrag abgelehnt. Diese Entscheidung halte ich für nicht gerechtfertigt und bitte um erneute Prüfung.\n\nIch bitte um eine schriftliche Bestätigung des Eingangs dieses Widerspruchs sowie um einen rechtsmittelfähigen Widerspruchsbescheid.\n\nMit freundlichen Grüßen\n\n{{NAME}}`,
       },
     ],
     hints: [
