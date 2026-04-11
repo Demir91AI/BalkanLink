@@ -42,7 +42,7 @@ export default function SmartGuideWizardShared({ steps, free = false, finishLabe
   const current = steps[step];
   const progress = ((step + 1) / steps.length) * 100;
   const isLast = step === steps.length - 1;
-  const isStepLocked = !isPremium && step >= FREE_STEPS;
+  const isStepLocked = !free && !isPremium && step >= FREE_STEPS;
 
   const cardConfig = [
     { key: "whatToWrite" as const, label: st("guide.card.whatToWrite"), icon: <Pencil className="h-3.5 w-3.5" />, color: "border-blue-200 bg-blue-50 dark:border-blue-900/40 dark:bg-blue-950/20" },
