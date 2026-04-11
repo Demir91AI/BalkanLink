@@ -31,7 +31,7 @@ const CONTENT: Record<PaywallVariant, { icon: typeof Lock; title: string; subtit
   "ai-limit": {
     icon: Zap,
     title: "Dostigao/la si dnevni limit.",
-    subtitle: "Sa Premium dobijaš neograničenu AI pomoć i personalizirane odgovore.",
+    subtitle: "Sa Premium dobijaš neograničenu pomoć i personalizirane odgovore.",
     cta: "Aktiviraj Premium",
   },
   generic: {

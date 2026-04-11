@@ -71,7 +71,7 @@ export default function PremiumBenefitsSection() {
           </div>
         </div>
 
-        {/* AI Asistent */}
+        {/* BalkanLink Asistent */}
         <div className="flex gap-3">
           <div className="shrink-0 mt-0.5">
             <Bot className="h-5 w-5 text-[hsl(var(--gold))]" />
