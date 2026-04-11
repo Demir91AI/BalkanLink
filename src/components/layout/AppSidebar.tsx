@@ -1,7 +1,7 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
-  FileText, Shield, BookOpen, Camera, Megaphone, Map, Plane,
+  FileText, Shield, BookOpen, Camera, Megaphone, Plane,
   Briefcase, Building, Calculator, FileCheck, X, LogIn, LogOut, User,
   CreditCard, Scale, Store,
 } from "lucide-react";
@@ -37,7 +37,7 @@ export function AppSidebar() {
     { titleKey: "sidebar.radnoPravo", url: "/radno-pravo", icon: Scale },
     { titleKey: "sidebar.biznis", url: "/biznis", icon: Store },
     { titleKey: "sidebar.nudim", url: "/nudim-trazim", icon: Megaphone },
-    { titleKey: "sidebar.mapa", url: "/mapa", icon: Map },
+    
     { titleKey: "sidebar.jobs", url: "/stellenangebote", icon: Briefcase },
     { titleKey: "sidebar.stanovi", url: "/wohnungen", icon: Building },
     { titleKey: "sidebar.kalkulatori", url: "/kalkulatori", icon: Calculator },
