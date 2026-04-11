@@ -54,7 +54,7 @@ export default function SmartGuideWizardShared({ steps, free = false, finishLabe
   ];
 
   const handleStepClick = (i: number) => {
-    if (!isPremium && i >= FREE_STEPS) {
+    if (!free && !isPremium && i >= FREE_STEPS) {
       setStep(FREE_STEPS);
     } else {
       setStep(i);
@@ -62,7 +62,7 @@ export default function SmartGuideWizardShared({ steps, free = false, finishLabe
   };
 
   const handleNext = () => {
-    if (!isPremium && step + 1 >= FREE_STEPS) {
+    if (!free && !isPremium && step + 1 >= FREE_STEPS) {
       setStep(FREE_STEPS);
     } else if (!isLast) {
       setStep(step + 1);
@@ -90,7 +90,7 @@ export default function SmartGuideWizardShared({ steps, free = false, finishLabe
             onClick={() => handleStepClick(i)}
             className={
               "shrink-0 rounded-full px-3 py-1 text-[10px] font-medium transition " +
-              (!isPremium && i >= FREE_STEPS
+              (!free && !isPremium && i >= FREE_STEPS
                 ? "bg-muted text-muted-foreground/40 cursor-not-allowed"
                 : i === step
                 ? "bg-primary text-primary-foreground"
