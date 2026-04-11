@@ -101,7 +101,7 @@ function VisaDetail({ visa }: { visa: VisaType }) {
       <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 dark:border-amber-900/40 dark:bg-amber-950/20">
         <p className="text-xs text-amber-800 dark:text-amber-300 flex items-start gap-2">
           <Info className="h-3.5 w-3.5 shrink-0 mt-0.5" />
-          {"Hinweis: Verfahren und Anforderungen können je nach Bundesland und zuständiger Behörde leicht abweichen."}
+          {"Napomena: Postupci i zahtjevi mogu se malo razlikovati ovisno o saveznoj pokrajini i nadležnom organu."}
         </p>
       </div>
 

@@ -409,7 +409,7 @@ function NonEURouteDetails({ route, GOLD, CHARCOAL, openFormKey, handleOpenForm,
 
       {/* Steps */}
       <Card>
-        <CardHeader icon={CheckCircle} color="#22C55E" title={"Schritte"} />
+        <CardHeader icon={CheckCircle} color="#22C55E" title={"Koraci"} />
         {route.steps.map((step: string, i: number) => (
           <div key={i} style={{ display: 'flex', gap: 12, marginBottom: 14, alignItems: 'flex-start' }}>
             <StepCircle n={i + 1} />
