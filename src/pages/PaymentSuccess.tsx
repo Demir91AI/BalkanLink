@@ -22,12 +22,12 @@ export default function PaymentSuccess() {
         <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[hsl(var(--success))]/10">
           <Check className="h-8 w-8 text-[hsl(var(--success))]" />
         </div>
-        <h1 className="text-2xl font-bold mb-2">Zahlung erfolgreich!</h1>
+        <h1 className="text-2xl font-bold mb-2">Plaćanje uspješno!</h1>
         <p className="text-muted-foreground mb-2">
-          Vielen Dank. Dein Zugang wurde erfolgreich aktiviert.
+          Hvala vam na povjerenju. Vaš pristup je sada aktiviran.
         </p>
         <p className="text-xs text-muted-foreground mb-8">
-          Du wirst in 3 Sekunden weitergeleitet…
+          Preusmjeravamo vas za 3 sekunde…
         </p>
         <div className="flex flex-col gap-3">
           <Button
@@ -35,10 +35,10 @@ export default function PaymentSuccess() {
             className="rounded-xl bg-[hsl(var(--gold))] text-white hover:bg-[hsl(var(--gold-light))]"
           >
             <Crown className="mr-2 h-4 w-4" />
-            Weiter zu BalkanLink
+            Nastavi na BalkanLink
           </Button>
           <Button variant="outline" className="rounded-xl" onClick={() => navigate("/paketi")}>
-            Mein Paket ansehen
+            Pogledaj svoj plan
           </Button>
         </div>
       </div>

@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import CookieConsent from "@/components/CookieConsent";
+import PWAInstallBanner from "@/components/PWAInstallBanner";
 import { AppSidebar } from "./AppSidebar";
 import { DEV_MODE } from "@/lib/dev-mode";
 import MobileBottomNav from "./MobileBottomNav";
@@ -25,13 +26,13 @@ class ErrorBoundary extends Component<
     if (this.state.hasError) {
       return (
         <div className="flex min-h-[60vh] flex-col items-center justify-center gap-4 p-8 text-center">
-          <p className="text-2xl font-bold">Ein unerwarteter Fehler ist aufgetreten.</p>
-          <p className="text-muted-foreground">Bitte lade die Seite neu.</p>
+          <p className="text-2xl font-bold">Ups, nešto je pošlo po krivu</p>
+          <p className="text-muted-foreground">Pokušaj osvježiti stranicu.</p>
           <button
             onClick={() => window.location.reload()}
             className="rounded-lg bg-primary px-6 py-2.5 text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
           >
-            Seite neu laden
+            Osvježi stranicu
           </button>
         </div>
       );
@@ -47,7 +48,7 @@ export default function Layout() {
       <div className="flex flex-col min-h-screen w-full">
         {DEV_MODE && (
           <div className="w-full h-8 flex items-center justify-center text-[12px] font-bold text-black" style={{ background: '#EAB308' }}>
-            🔧 ADMIN-MODUS — Premium aktiv
+            🔧 ADMIN MODE — Premium aktivan
           </div>
         )}
         <Header />
@@ -59,6 +60,7 @@ export default function Layout() {
         <Footer />
         <MobileBottomNav />
         <CookieConsent />
+        <PWAInstallBanner />
       </div>
     </div>
   );

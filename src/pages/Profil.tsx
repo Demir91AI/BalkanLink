@@ -47,25 +47,27 @@ export default function Profil() {
             <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
               <User className="h-8 w-8 text-primary" />
             </div>
-            <CardTitle className="text-xl">Willkommen, {displayName} 👋</CardTitle>
+            <CardTitle className="text-xl">Dobro došao, {displayName} 👋</CardTitle>
             <p className="text-sm text-muted-foreground">{user.email}</p>
           </CardHeader>
           <CardContent className="space-y-5">
+            {/* Editable name */}
             <div className="rounded-lg border border-border/40 bg-muted/30 px-4 py-3 space-y-1.5">
-              <Label htmlFor="editName" className="text-xs text-muted-foreground">Vorname</Label>
+              <Label htmlFor="editName" className="text-xs text-muted-foreground">Ime</Label>
               <Input
                 id="editName"
                 value={editName}
                 onChange={(e) => setEditName(e.target.value)}
                 onBlur={saveName}
-                placeholder="Dein Vorname"
+                placeholder="Tvoje ime"
                 className="h-9"
               />
               <p className="text-[11px] text-muted-foreground">
-                {saving ? "Wird gespeichert..." : "Wird automatisch gespeichert"}
+                {saving ? "Čuvam..." : "Automatski se čuva"}
               </p>
             </div>
 
+            {/* Subscription */}
             <div className="rounded-lg border border-border/40 bg-muted/30 px-4 py-3">
               <p className="text-xs text-muted-foreground mb-1">Status</p>
               <div className="flex items-center gap-2">
@@ -89,6 +91,7 @@ export default function Profil() {
               )}
             </div>
 
+            {/* Actions */}
             <div className="space-y-2 pt-2">
               {!isPremium && (
                 <Button

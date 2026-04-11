@@ -22,7 +22,7 @@ export default function ForgotPassword() {
     if (turnstileToken) {
       const valid = await verifyTurnstileToken(turnstileToken);
       if (!valid) {
-        toast({ title: "Die Verifizierung ist fehlgeschlagen.", variant: "destructive" });
+        toast({ title: "Verifikacija nije uspjela.", variant: "destructive" });
         setTurnstileToken("");
         setLoading(false);
         return;
@@ -69,7 +69,7 @@ export default function ForgotPassword() {
           <CardContent className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="email">{"E-Mail-Adresse"}</Label>
-              <Input id="email" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="name@example.com" />
+              <Input id="email" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="vas@email.com" />
             </div>
             <TurnstileWidget onVerify={setTurnstileToken} onExpire={() => setTurnstileToken("")} className="flex justify-center" />
           </CardContent>

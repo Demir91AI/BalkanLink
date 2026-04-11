@@ -5,13 +5,14 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
-import { AuthProvider } from "@/contexts/AuthContext";
+import { AuthProvider, useAuth } from "@/contexts/AuthContext";
 import { CountryProvider } from "@/contexts/CountryContext";
 import Layout from "@/components/layout/Layout";
 import HomeLayout from "@/components/layout/HomeLayout";
 import AdminGuard from "@/components/AdminGuard";
 import Index from "./pages/Index";
 
+// Lazy-loaded pages
 const Login = lazy(() => import("./pages/Login"));
 const Register = lazy(() => import("./pages/Register"));
 const ForgotPassword = lazy(() => import("./pages/ForgotPassword"));
@@ -24,11 +25,76 @@ const Mitgliedschaft = lazy(() => import("./pages/Mitgliedschaft"));
 const Nutzungsbedingungen = lazy(() => import("./pages/Nutzungsbedingungen"));
 const DSA = lazy(() => import("./pages/DSA"));
 const CookieRichtlinie = lazy(() => import("./pages/CookieRichtlinie"));
+const QA = lazy(() => import("./pages/QA"));
+const QADetail = lazy(() => import("./pages/QADetail"));
+const Directory = lazy(() => import("./pages/Directory"));
+const DirectorySubmit = lazy(() => import("./pages/DirectorySubmit"));
+const Missions = lazy(() => import("./pages/Missions"));
+const PocniOvdje = lazy(() => import("./pages/PocniOvdje"));
+const PrijavaPrebijalista = lazy(() => import("./pages/dolazak/PrijavaPrebijalista"));
+const BoravisnaDozvola = lazy(() => import("./pages/dolazak/BoravisnaDozvola"));
+const SteuerIdPoreznaKlasa = lazy(() => import("./pages/dolazak/SteuerIdPoreznaKlasa"));
+const ZdravstvenoOsiguranje = lazy(() => import("./pages/dolazak/ZdravstvenoOsiguranje"));
+const BankovniRacun = lazy(() => import("./pages/dolazak/BankovniRacun"));
+const PrviKoraci = lazy(() => import("./pages/dolazak/PrviKoraci"));
+const Sozialversicherung = lazy(() => import("./pages/dolazak/Sozialversicherung"));
+const Rundfunkbeitrag = lazy(() => import("./pages/dolazak/Rundfunkbeitrag"));
+const Fuehrerschein = lazy(() => import("./pages/dolazak/Fuehrerschein"));
+const AutoAnmelden = lazy(() => import("./pages/dolazak/AutoAnmelden"));
+const ZivotSavjeti = lazy(() => import("./pages/ZivotSavjeti"));
+const TrebamPomoc = lazy(() => import("./pages/TrebamPomoc"));
+const FormCenter = lazy(() => import("./pages/FormCenter"));
+const LegacyGuideRedirect = lazy(() => import("./pages/LegacyGuideRedirect"));
+const Familie = lazy(() => import("./pages/Familie"));
+const Foerderungen = lazy(() => import("./pages/Foerderungen"));
+const Generatoren = lazy(() => import("./pages/Generatoren"));
+const Wohnungen = lazy(() => import("./pages/Wohnungen"));
+const Stellenangebote = lazy(() => import("./pages/Stellenangebote"));
+const DokumentenCheck = lazy(() => import("./pages/DokumentenCheck"));
 const AdminForms = lazy(() => import("./pages/AdminForms"));
 const AdminFormMapper = lazy(() => import("./pages/AdminFormMapper"));
+const BruttoNettoRechner = lazy(() => import("./pages/BruttoNettoRechner"));
+const NudimTrazim = lazy(() => import("./pages/NudimTrazim"));
+const NachDeutschland = lazy(() => import("./pages/NachDeutschland"));
+const Vorlagen = lazy(() => import("./pages/Vorlagen"));
+const DeutschTrainer = lazy(() => import("./pages/DeutschTrainer"));
+const TrainerPreise = lazy(() => import("./pages/TrainerPreise"));
+const TrainerFaq = lazy(() => import("./pages/TrainerFaq"));
+const TrainerBonusbedingungen = lazy(() => import("./pages/TrainerBonusbedingungen"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const FirmDetail = lazy(() => import("./pages/FirmDetail"));
+const BussgeldAssistent = lazy(() => import("./pages/BussgeldAssistent"));
+const ChatAssistant = lazy(() => import("./components/ChatAssistant"));
+const KindergeldMuster = lazy(() => import("./pages/muster/KindergeldMuster"));
+const AnmeldungMuster = lazy(() => import("./pages/muster/AnmeldungMuster"));
+
 const PaymentSuccess = lazy(() => import("./pages/PaymentSuccess"));
 const PaymentCancel = lazy(() => import("./pages/PaymentCancel"));
+const Kalkulatori = lazy(() => import("./pages/Kalkulatori"));
+const CommunityMapa = lazy(() => import("./pages/CommunityMapa"));
+const ElterngeldMuster = lazy(() => import("./pages/muster/ElterngeldMuster"));
+const BuergergeldMuster = lazy(() => import("./pages/muster/BuergergeldMuster"));
+const WohngeldMuster = lazy(() => import("./pages/muster/WohngeldMuster"));
+const SteuerklasseMuster = lazy(() => import("./pages/muster/SteuerklasseMuster"));
+const ArbeitslosengeldMuster = lazy(() => import("./pages/muster/ArbeitslosengeldMuster"));
+const BafoegMuster = lazy(() => import("./pages/muster/BafoegMuster"));
+const FuehrungszeugnisMuster = lazy(() => import("./pages/muster/FuehrungszeugnisMuster"));
+const KirchenaustrittMuster = lazy(() => import("./pages/muster/KirchenaustrittMuster"));
+const IntegrationskursMuster = lazy(() => import("./pages/muster/IntegrationskursMuster"));
+const KinderzuschlagMuster = lazy(() => import("./pages/muster/KinderzuschlagMuster"));
+const SchuelerBafoegMuster = lazy(() => import("./pages/muster/SchuelerBafoegMuster"));
+const GrundsicherungMuster = lazy(() => import("./pages/muster/GrundsicherungMuster"));
+const AnlageBBMuster = lazy(() => import("./pages/muster/AnlageBBMuster"));
+const AnlageSVMuster = lazy(() => import("./pages/muster/AnlageSVMuster"));
+const AnlageVEMuster = lazy(() => import("./pages/muster/AnlageVEMuster"));
+const AnlageHGMuster = lazy(() => import("./pages/muster/AnlageHGMuster"));
+const AnlageMEBMuster = lazy(() => import("./pages/muster/AnlageMEBMuster"));
+const AnlageUFMuster = lazy(() => import("./pages/muster/AnlageUFMuster"));
+const AnlageSEMuster = lazy(() => import("./pages/muster/AnlageSEMuster"));
+const ArbeitsbescheinigungMuster = lazy(() => import("./pages/muster/ArbeitsbescheinigungMuster"));
+const AntragsruecknahmeMuster = lazy(() => import("./pages/muster/AntragsruecknahmeMuster"));
+const Viza = lazy(() => import("./pages/Viza"));
+const ZivotUNjemackoj = lazy(() => import("./pages/ZivotUNjemackoj"));
 const Premium = lazy(() => import("./pages/Premium"));
 const Paketi = lazy(() => import("./pages/Paketi"));
 const Profil = lazy(() => import("./pages/Profil"));
@@ -42,10 +108,6 @@ const queryClient = new QueryClient({
   },
 });
 
-function RemovedContentRedirect() {
-  return <Navigate to="/" replace />;
-}
-
 function AppRoutes() {
   return (
     <Routes>
@@ -53,16 +115,74 @@ function AppRoutes() {
         <Route path="/" element={<Index />} />
       </Route>
       <Route element={<Layout />}>
+        <Route path="/dolazak" element={<PocniOvdje />} />
+        
+        <Route path="/dolazak/prijava-prebivalista" element={<PrijavaPrebijalista />} />
+        <Route path="/dolazak/boravisna-dozvola" element={<BoravisnaDozvola />} />
+        <Route path="/dolazak/steuer-id-i-porezna-klasa" element={<SteuerIdPoreznaKlasa />} />
+        <Route path="/dolazak/zdravstveno-osiguranje" element={<ZdravstvenoOsiguranje />} />
+        <Route path="/dolazak/bankovni-racun" element={<BankovniRacun />} />
+        <Route path="/dolazak/prvi-koraci" element={<PrviKoraci />} />
+        <Route path="/dolazak/sozialversicherung" element={<Sozialversicherung />} />
+        <Route path="/dolazak/rundfunkbeitrag" element={<Rundfunkbeitrag />} />
+        <Route path="/dolazak/fuehrerschein" element={<Fuehrerschein />} />
+        <Route path="/dolazak/auto-anmelden" element={<AutoAnmelden />} />
+        <Route path="/zivot" element={<ZivotSavjeti />} />
+        
+        <Route path="/probleme" element={<TrebamPomoc />} />
+        
+        <Route path="/formulare" element={<Navigate to="/formulari" replace />} />
+        <Route path="/formulari" element={<FormCenter />} />
+        
+        <Route path="/formulari/kindergeld/muster" element={<Navigate to="/musterformular/kindergeld" replace />} />
+        <Route path="/formulari/anmeldung/muster" element={<Navigate to="/musterformular/anmeldung" replace />} />
+        
+        <Route path="/musterformular/elterngeld" element={<ElterngeldMuster />} />
+        <Route path="/musterformular/anmeldung" element={<AnmeldungMuster />} />
+        <Route path="/musterformular/buergergeld" element={<BuergergeldMuster />} />
+        <Route path="/musterformular/wohngeld" element={<WohngeldMuster />} />
+        <Route path="/musterformular/steuerklasse" element={<SteuerklasseMuster />} />
+        <Route path="/musterformular/arbeitslosengeld" element={<ArbeitslosengeldMuster />} />
+        <Route path="/musterformular/bafoeg" element={<BafoegMuster />} />
+        <Route path="/musterformular/fuehrungszeugnis" element={<FuehrungszeugnisMuster />} />
+        <Route path="/musterformular/kirchenaustritt" element={<KirchenaustrittMuster />} />
+        <Route path="/musterformular/integrationskurs" element={<IntegrationskursMuster />} />
+        <Route path="/musterformular/kinderzuschlag" element={<KinderzuschlagMuster />} />
+        <Route path="/musterformular/schueler-bafoeg" element={<SchuelerBafoegMuster />} />
+        <Route path="/musterformular/grundsicherung" element={<GrundsicherungMuster />} />
+        <Route path="/musterformular/anlage-bb" element={<AnlageBBMuster />} />
+        <Route path="/musterformular/anlage-sv" element={<AnlageSVMuster />} />
+        <Route path="/musterformular/anlage-ve" element={<AnlageVEMuster />} />
+        <Route path="/musterformular/anlage-hg" element={<AnlageHGMuster />} />
+        <Route path="/musterformular/anlage-meb" element={<AnlageMEBMuster />} />
+        <Route path="/musterformular/anlage-uf" element={<AnlageUFMuster />} />
+        <Route path="/musterformular/anlage-se" element={<AnlageSEMuster />} />
+        <Route path="/musterformular/arbeitsbescheinigung" element={<ArbeitsbescheinigungMuster />} />
+        <Route path="/musterformular/kindergeld" element={<KindergeldMuster />} />
+        <Route path="/musterformular/antragsruecknahme" element={<AntragsruecknahmeMuster />} />
+        
+        <Route path="/formulari/:slug" element={<FormCenter />} />
+        <Route path="/familie" element={<Familie />} />
+        <Route path="/foerderungen" element={<Foerderungen />} />
+        <Route path="/tools" element={<Generatoren />} />
+        <Route path="/brutto-netto-rechner" element={<BruttoNettoRechner />} />
+        <Route path="/wohnungen" element={<Wohnungen />} />
+        <Route path="/stellenangebote" element={<Stellenangebote />} />
         <Route path="/premium" element={<Premium />} />
         <Route path="/profil" element={<Profil />} />
-        <Route path="/paketi" element={<Paketi />} />
-        <Route path="/pricing" element={<Navigate to="/paketi" replace />} />
-        <Route path="/payment-success" element={<PaymentSuccess />} />
-        <Route path="/payment-cancel" element={<PaymentCancel />} />
+        <Route path="/guide/:slug" element={<LegacyGuideRedirect />} />
+        <Route path="/smart-guide/:slug" element={<LegacyGuideRedirect />} />
+        <Route path="/dokumenten-check" element={<DokumentenCheck />} />
         <Route element={<AdminGuard />}>
           <Route path="/admin/forms" element={<AdminForms />} />
           <Route path="/admin/forms/:slug/mapper" element={<AdminFormMapper />} />
         </Route>
+        <Route path="/qa" element={<QA />} />
+        <Route path="/qa/:id" element={<QADetail />} />
+        <Route path="/directory" element={<Directory />} />
+        <Route path="/directory/submit" element={<DirectorySubmit />} />
+        <Route path="/ambasade-konzulati" element={<Missions />} />
+        
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
@@ -74,47 +194,40 @@ function AppRoutes() {
         <Route path="/ki-hinweis" element={<KiHinweis />} />
         <Route path="/mitgliedschaft" element={<Mitgliedschaft />} />
         <Route path="/agb" element={<Nutzungsbedingungen />} />
+        
         <Route path="/dsa" element={<DSA />} />
+        
         <Route path="/cookie-richtlinie" element={<CookieRichtlinie />} />
-
-        <Route path="/dolazak/*" element={<RemovedContentRedirect />} />
-        <Route path="/zivot" element={<RemovedContentRedirect />} />
-        <Route path="/probleme" element={<RemovedContentRedirect />} />
-        <Route path="/formulare/*" element={<RemovedContentRedirect />} />
-        <Route path="/formulari/*" element={<RemovedContentRedirect />} />
-        <Route path="/familie" element={<RemovedContentRedirect />} />
-        <Route path="/foerderungen" element={<RemovedContentRedirect />} />
-        <Route path="/tools" element={<RemovedContentRedirect />} />
-        <Route path="/brutto-netto-rechner" element={<RemovedContentRedirect />} />
-        <Route path="/wohnungen" element={<RemovedContentRedirect />} />
-        <Route path="/stellenangebote" element={<RemovedContentRedirect />} />
-        <Route path="/dokumenten-check" element={<RemovedContentRedirect />} />
-        <Route path="/guide/:slug" element={<RemovedContentRedirect />} />
-        <Route path="/smart-guide/:slug" element={<RemovedContentRedirect />} />
-        <Route path="/qa/*" element={<RemovedContentRedirect />} />
-        <Route path="/directory/*" element={<RemovedContentRedirect />} />
-        <Route path="/ambasade-konzulati" element={<RemovedContentRedirect />} />
-        <Route path="/nudim-trazim" element={<RemovedContentRedirect />} />
-        <Route path="/nach-deutschland/*" element={<RemovedContentRedirect />} />
-        <Route path="/vorlagen/*" element={<RemovedContentRedirect />} />
-        <Route path="/deutsch-trainer/*" element={<RemovedContentRedirect />} />
-        <Route path="/firma/:slug" element={<RemovedContentRedirect />} />
-        <Route path="/bussgeld" element={<RemovedContentRedirect />} />
-        <Route path="/ai-asistent" element={<RemovedContentRedirect />} />
-        <Route path="/kalkulatori" element={<RemovedContentRedirect />} />
-        <Route path="/mapa" element={<RemovedContentRedirect />} />
-        <Route path="/zivot-u-njemackoj" element={<RemovedContentRedirect />} />
-        <Route path="/viza" element={<RemovedContentRedirect />} />
-        <Route path="/oglasi" element={<RemovedContentRedirect />} />
-        <Route path="/deutsch" element={<RemovedContentRedirect />} />
-        <Route path="/sabloni" element={<RemovedContentRedirect />} />
-        <Route path="/pitanja" element={<RemovedContentRedirect />} />
-        <Route path="/zivot-savjeti" element={<RemovedContentRedirect />} />
-        <Route path="/trebam-pomoc" element={<RemovedContentRedirect />} />
-        <Route path="/pocni-ovdje" element={<RemovedContentRedirect />} />
-        <Route path="/ambasade" element={<RemovedContentRedirect />} />
-        <Route path="/placanje-uspjesno" element={<RemovedContentRedirect />} />
-        <Route path="/placanje-otkazano" element={<RemovedContentRedirect />} />
+        <Route path="/nudim-trazim" element={<NudimTrazim />} />
+        <Route path="/nach-deutschland" element={<NachDeutschland />} />
+        <Route path="/nach-deutschland/:countryCode" element={<NachDeutschland />} />
+        <Route path="/nach-deutschland/:countryCode/:categoryKey" element={<NachDeutschland />} />
+        <Route path="/vorlagen" element={<Vorlagen />} />
+        <Route path="/vorlagen/:slug" element={<Vorlagen />} />
+        <Route path="/deutsch-trainer" element={<DeutschTrainer />} />
+        <Route path="/deutsch-trainer/preise" element={<TrainerPreise />} />
+        <Route path="/deutsch-trainer/faq" element={<TrainerFaq />} />
+        <Route path="/deutsch-trainer/bonusbedingungen" element={<TrainerBonusbedingungen />} />
+        <Route path="/firma/:slug" element={<FirmDetail />} />
+        <Route path="/bussgeld" element={<BussgeldAssistent />} />
+        <Route path="/ai-asistent" element={<ChatAssistant />} />
+        <Route path="/paketi" element={<Paketi />} />
+        <Route path="/pricing" element={<Navigate to="/paketi" replace />} />
+        <Route path="/payment-success" element={<PaymentSuccess />} />
+        <Route path="/placanje-uspjesno" element={<PaymentSuccess />} />
+        <Route path="/placanje-otkazano" element={<PaymentCancel />} />
+        <Route path="/kalkulatori" element={<Kalkulatori />} />
+        <Route path="/mapa" element={<CommunityMapa />} />
+        <Route path="/zivot-u-njemackoj" element={<ZivotUNjemackoj />} />
+        <Route path="/viza" element={<Viza />} />
+        <Route path="/oglasi" element={<Navigate to="/nudim-trazim" replace />} />
+        <Route path="/deutsch" element={<Navigate to="/deutsch-trainer" replace />} />
+        <Route path="/sabloni" element={<Navigate to="/vorlagen" replace />} />
+        <Route path="/pitanja" element={<Navigate to="/qa" replace />} />
+        <Route path="/zivot-savjeti" element={<Navigate to="/zivot" replace />} />
+        <Route path="/trebam-pomoc" element={<Navigate to="/probleme" replace />} />
+        <Route path="/pocni-ovdje" element={<Navigate to="/dolazak" replace />} />
+        <Route path="/ambasade" element={<Navigate to="/ambasade-konzulati" replace />} />
         <Route path="/nutzungsbedingungen" element={<Navigate to="/agb" replace />} />
         <Route path="/haftungsausschluss" element={<Navigate to="/disclaimer" replace />} />
         <Route path="/inhalte-melden" element={<Navigate to="/dsa" replace />} />

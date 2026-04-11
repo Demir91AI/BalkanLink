@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
+import ChatAssistant from "@/components/ChatAssistant";
 import CookieConsent from "@/components/CookieConsent";
 import { AppSidebar } from "./AppSidebar";
 import MobileBottomNav from "./MobileBottomNav";
@@ -15,6 +16,7 @@ export default function HomeLayout() {
       </main>
       <Footer />
       <MobileBottomNav />
+      <ChatAssistant />
       <CookieConsent />
     </div>
   );

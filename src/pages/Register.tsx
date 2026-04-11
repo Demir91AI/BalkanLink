@@ -46,7 +46,7 @@ export default function Register() {
     setLoading(true);
     const valid = await verifyTurnstileToken(turnstileToken);
     if (!valid) {
-      toast({ title: "Die Verifizierung ist fehlgeschlagen. Bitte versuche es erneut.", variant: "destructive" });
+      toast({ title: "Verifikacija nije uspjela. Pokušaj ponovo.", variant: "destructive" });
       setTurnstileToken("");
       setLoading(false);
       return;
@@ -94,8 +94,8 @@ export default function Register() {
         <form onSubmit={handleRegister}>
           <CardContent className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="firstName">{"Vorname"}</Label>
-              <Input id="firstName" type="text" required value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder="Dein Vorname" autoComplete="given-name" />
+              <Label htmlFor="firstName">{"auth.firstName"}</Label>
+              <Input id="firstName" type="text" required value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder="Tvoje ime" autoComplete="given-name" />
             </div>
             <div className="space-y-2">
               <Label htmlFor="email">{"E-Mail-Adresse"}</Label>
@@ -157,7 +157,7 @@ export default function Register() {
                 <Link to="/datenschutz" target="_blank" className="font-semibold text-primary underline hover:no-underline">
                   {"Datenschutzrichtlinie"}
                 </Link>{" "}
-                {"zu akzeptieren."}
+                {"Ich akzeptiere"}
               </label>
             </div>
           </CardContent>

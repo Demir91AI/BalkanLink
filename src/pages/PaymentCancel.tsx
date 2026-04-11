@@ -13,19 +13,19 @@ export default function PaymentCancel() {
         <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-destructive/10">
           <XCircle className="h-8 w-8 text-destructive" />
         </div>
-        <h1 className="text-2xl font-bold mb-2">Zahlung abgebrochen</h1>
+        <h1 className="text-2xl font-bold mb-2">Plaćanje otkazano</h1>
         <p className="text-muted-foreground mb-8">
-          Die Zahlung wurde nicht abgeschlossen. Du kannst es jederzeit erneut versuchen.
+          Vaše plaćanje nije završeno. Možete pokušati ponovo u bilo kojem trenutku.
         </p>
         <div className="flex flex-col gap-3">
           <Button
             onClick={() => navigate("/paketi")}
             className="rounded-xl bg-[hsl(var(--gold))] text-white hover:bg-[hsl(var(--gold-light))]"
           >
-            Erneut versuchen
+            Pokušaj ponovo
           </Button>
           <Button variant="outline" className="rounded-xl" onClick={() => navigate("/")}>
-            Zur Startseite
+            Nazad na početnu
           </Button>
         </div>
       </div>
