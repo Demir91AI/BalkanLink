@@ -151,24 +151,6 @@ export default function DeutschTrainer() {
               {t("trainer.subtitle")}
             </motion.p>
 
-            {/* Stats row */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.24 }}
-              className="mt-6 flex gap-6 sm:gap-8"
-            >
-              {[
-                { value: "120", label: "Lekcija" },
-                { value: "10.800+", label: "Vježbi" },
-                { value: "6 mj.", label: "Sadržaja" },
-              ].map(s => (
-                <div key={s.label} className="text-center">
-                  <p className="text-xl font-black text-white sm:text-2xl">{s.value}</p>
-                  <p className="text-[10px] font-medium uppercase tracking-wider text-white/35">{s.label}</p>
-                </div>
-              ))}
-            </motion.div>
 
             {/* Feature pills */}
             <motion.div
@@ -398,9 +380,6 @@ export default function DeutschTrainer() {
               <p style={{ fontSize: 13, color: "#9CA3AF", marginBottom: 8 }}>
                 {t("trainer.unlock.desc")}
               </p>
-              <p className="mt-1 text-xs text-muted-foreground">
-                108 Lektionen · 16.000+ Übungen · Sprachassistent · A1 bis C2
-              </p>
               <div className="mt-2 flex flex-wrap justify-center gap-2">
                 <span className="rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold text-white/70">✓ {t("trainer.unlock.noSub")}</span>
                 <span className="rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold text-white/70">✓ {t("trainer.unlock.oneTime")}</span>
@@ -412,14 +391,6 @@ export default function DeutschTrainer() {
               >
                 {t("trainer.unlock.cta")}
               </Button>
-              <p style={{ fontSize: 11, fontWeight: 700, color: "#EAB308", marginTop: 6 }}>
-                🎉 Promo cijena — prvih 6 mjeseci
-              </p>
-              <div className="mt-4 flex items-center justify-center gap-4 text-[11px] text-white/35">
-                <span>✓ {t("trainer.unlock.noSub")}</span>
-                <span>✓ {t("trainer.unlock.oneTime")}</span>
-                <span>✓ {t("trainer.unlock.voucher")}</span>
-              </div>
             </motion.div>
           )}
         </div>
