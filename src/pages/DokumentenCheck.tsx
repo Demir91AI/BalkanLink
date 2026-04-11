@@ -39,17 +39,17 @@ interface AnalysisSection {
 }
 
 const SECTION_CONFIG: Record<string, { icon: React.ReactNode; colorClass: string; iconColorClass: string; isPremium: boolean }> = {
-  "dokument na prvi pogled": { icon: <Eye className="h-5 w-5" />, colorClass: "border-blue-500/30 bg-blue-50 dark:bg-blue-950/20", iconColorClass: "text-blue-500", isPremium: false },
-  "jednostavno objasnjenje": { icon: <BookOpen className="h-5 w-5" />, colorClass: "border-emerald-500/30 bg-emerald-50 dark:bg-emerald-950/20", iconColorClass: "text-emerald-500", isPremium: false },
-  "detaljna analiza": { icon: <Search className="h-5 w-5" />, colorClass: "border-purple-500/30 bg-purple-50 dark:bg-purple-950/20", iconColorClass: "text-purple-500", isPremium: true },
-  "sta je stvarno bitno": { icon: <AlertCircle className="h-5 w-5" />, colorClass: "border-amber-500/30 bg-amber-50 dark:bg-amber-950/20", iconColorClass: "text-amber-500", isPremium: true },
-  "rokovi i hitnost": { icon: <Clock className="h-5 w-5" />, colorClass: "border-red-500/30 bg-red-50 dark:bg-red-950/20", iconColorClass: "text-red-500", isPremium: true },
-  "finansijska analiza": { icon: <DollarSign className="h-5 w-5" />, colorClass: "border-green-500/30 bg-green-50 dark:bg-green-950/20", iconColorClass: "text-green-600", isPremium: true },
-  "konkretne opcije": { icon: <Wrench className="h-5 w-5" />, colorClass: "border-indigo-500/30 bg-indigo-50 dark:bg-indigo-950/20", iconColorClass: "text-indigo-500", isPremium: true },
-  "ako nista ne uradis": { icon: <XCircle className="h-5 w-5" />, colorClass: "border-orange-500/30 bg-orange-50 dark:bg-orange-950/20", iconColorClass: "text-orange-500", isPremium: true },
-  "rizici i ceste greske": { icon: <ShieldAlert className="h-5 w-5" />, colorClass: "border-rose-500/30 bg-rose-50 dark:bg-rose-950/20", iconColorClass: "text-rose-500", isPremium: true },
-  "sazetak na nasem jeziku": { icon: <Globe className="h-5 w-5" />, colorClass: "border-cyan-500/30 bg-cyan-50 dark:bg-cyan-950/20", iconColorClass: "text-cyan-500", isPremium: true },
-  "pravna napomena": { icon: <Scale className="h-5 w-5" />, colorClass: "border-muted bg-muted/30", iconColorClass: "text-muted-foreground", isPremium: false },
+  "dokument auf einen blick": { icon: <Eye className="h-5 w-5" />, colorClass: "border-blue-500/30 bg-blue-50 dark:bg-blue-950/20", iconColorClass: "text-blue-500", isPremium: false },
+  "einfache erklarung": { icon: <BookOpen className="h-5 w-5" />, colorClass: "border-emerald-500/30 bg-emerald-50 dark:bg-emerald-950/20", iconColorClass: "text-emerald-500", isPremium: false },
+  "detaillierte analyse": { icon: <Search className="h-5 w-5" />, colorClass: "border-purple-500/30 bg-purple-50 dark:bg-purple-950/20", iconColorClass: "text-purple-500", isPremium: true },
+  "was wirklich wichtig ist": { icon: <AlertCircle className="h-5 w-5" />, colorClass: "border-amber-500/30 bg-amber-50 dark:bg-amber-950/20", iconColorClass: "text-amber-500", isPremium: true },
+  "fristen und dringlichkeit": { icon: <Clock className="h-5 w-5" />, colorClass: "border-red-500/30 bg-red-50 dark:bg-red-950/20", iconColorClass: "text-red-500", isPremium: true },
+  "finanzielle analyse": { icon: <DollarSign className="h-5 w-5" />, colorClass: "border-green-500/30 bg-green-50 dark:bg-green-950/20", iconColorClass: "text-green-600", isPremium: true },
+  "konkrete optionen": { icon: <Wrench className="h-5 w-5" />, colorClass: "border-indigo-500/30 bg-indigo-50 dark:bg-indigo-950/20", iconColorClass: "text-indigo-500", isPremium: true },
+  "wenn sie nichts tun": { icon: <XCircle className="h-5 w-5" />, colorClass: "border-orange-500/30 bg-orange-50 dark:bg-orange-950/20", iconColorClass: "text-orange-500", isPremium: true },
+  "risiken und haufige fehler": { icon: <ShieldAlert className="h-5 w-5" />, colorClass: "border-rose-500/30 bg-rose-50 dark:bg-rose-950/20", iconColorClass: "text-rose-500", isPremium: true },
+  "zusammenfassung": { icon: <Globe className="h-5 w-5" />, colorClass: "border-cyan-500/30 bg-cyan-50 dark:bg-cyan-950/20", iconColorClass: "text-cyan-500", isPremium: true },
+  "rechtlicher hinweis": { icon: <Scale className="h-5 w-5" />, colorClass: "border-muted bg-muted/30", iconColorClass: "text-muted-foreground", isPremium: false },
 };
 
 function matchSectionKey(heading: string): string | null {
@@ -98,7 +98,7 @@ function parseAnalysisSections(text: string): AnalysisSection[] {
     sections.push({
       id: "full",
       icon: <FileText className="h-5 w-5" />,
-      title: "Rezultat analize",
+      title: "Analyseergebnis",
       content: text,
       colorClass: "border-border bg-card",
       iconColorClass: "text-foreground",
@@ -116,10 +116,10 @@ function extractSummaryFromSections(sections: AnalysisSection[]): {
   financial: string;
   deadline: string;
 } {
-  const firstSection = sections.find((s) => s.id === "dokument na prvi pogled");
-  const urgencySection = sections.find((s) => s.id === "rokovi i hitnost");
-  const financeSection = sections.find((s) => s.id === "finansijska analiza");
-  const actionSection = sections.find((s) => s.id === "konkretne opcije");
+  const firstSection = sections.find((s) => s.id === "dokument auf einen blick");
+  const urgencySection = sections.find((s) => s.id === "fristen und dringlichkeit");
+  const financeSection = sections.find((s) => s.id === "finanzielle analyse");
+  const actionSection = sections.find((s) => s.id === "konkrete optionen");
 
   const extractFirstLine = (content: string | undefined) => {
     if (!content) return "—";
@@ -131,34 +131,34 @@ function extractSummaryFromSections(sections: AnalysisSection[]): {
   // Try to extract document type from first section
   let docType = "Dokument";
   if (firstSection) {
-    const tipMatch = firstSection.content.match(/tip[a]?\s*dokumenta[:\s]*([^\n]+)/i);
+    const tipMatch = firstSection.content.match(/(?:typ|art)\s*(?:des\s*)?dokument[es]*[:\s]*([^\n]+)/i);
     if (tipMatch) docType = tipMatch[1].replace(/\*\*/g, "").trim().slice(0, 50);
     else docType = extractFirstLine(firstSection.content);
   }
 
   // Action needed
-  let action = "Pogledaj analizu";
+  let action = "Analyse ansehen";
   if (urgencySection) {
-    if (urgencySection.content.includes("🚨")) action = "Hitna akcija potrebna";
-    else if (urgencySection.content.includes("⚡")) action = "Preporučena akcija";
-    else if (urgencySection.content.includes("✅")) action = "Nije potrebna akcija";
+    if (urgencySection.content.includes("🚨")) action = "Dringende Handlung erforderlich";
+    else if (urgencySection.content.includes("⚡")) action = "Empfohlene Handlung";
+    else if (urgencySection.content.includes("✅")) action = "Keine Handlung erforderlich";
     else action = extractFirstLine(urgencySection.content);
   }
 
   // Financial
-  let financial = "Pogledaj finansijsku analizu";
+  let financial = "Finanzanalyse ansehen";
   if (financeSection) {
     const amountMatch = financeSection.content.match(/(\d+[.,]?\d*)\s*€/);
-    if (amountMatch) financial = `${amountMatch[0]} identificirano`;
+    if (amountMatch) financial = `${amountMatch[0]} identifiziert`;
     else financial = extractFirstLine(financeSection.content);
   }
 
   // Deadline
-  let deadline = "Nema vidljivog roka";
+  let deadline = "Keine sichtbare Frist";
   if (urgencySection) {
     const dateMatch = urgencySection.content.match(/\d{1,2}\.\d{1,2}\.\d{2,4}/);
-    if (dateMatch) deadline = `Rok: ${dateMatch[0]}`;
-    else if (urgencySection.content.toLowerCase().includes("nema")) deadline = "Nema vidljivog roka";
+    if (dateMatch) deadline = `Frist: ${dateMatch[0]}`;
+    else if (urgencySection.content.toLowerCase().includes("kein")) deadline = "Keine sichtbare Frist";
     else deadline = extractFirstLine(urgencySection.content);
   }
 
@@ -172,7 +172,7 @@ async function fileToBase64(file: File): Promise<string> {
       const result = reader.result as string;
       resolve(result.split(',')[1]);
     };
-    reader.onerror = () => reject(new Error('Greška pri čitanju fajla'));
+    reader.onerror = () => reject(new Error('Fehler beim Lesen der Datei'));
     reader.readAsDataURL(file);
   });
 }
@@ -208,11 +208,11 @@ export default function DokumentenCheck() {
     const selected = e.target.files?.[0];
     if (!selected) return;
     if (!isFileAllowed(selected)) {
-      setError("Podržani su samo PDF, JPG i PNG fajlovi.");
+      setError("Nur PDF-, JPG- und PNG-Dateien werden unterstützt.");
       return;
     }
     if (selected.size > MAX_FILE_SIZE) {
-      setError("Fajl je prevelik za analizu. Molimo pokušajte s manjim dokumentom (maks. 10 MB).");
+      setError("Datei ist zu groß für die Analyse. Bitte versuchen Sie eine kleinere Datei (max. 10 MB).");
       return;
     }
     setError(null);
@@ -223,9 +223,9 @@ export default function DokumentenCheck() {
 
   const handleAnalyze = useCallback(async () => {
     if (submittingRef.current || loading) return;
-    if (!confirmed) { setError("Molimo potvrdite checkbox prije analize."); return; }
+    if (!confirmed) { setError("Bitte bestätigen Sie das Kontrollkästchen vor der Analyse."); return; }
     if (!isPremium) { setShowPaywall(true); return; }
-    if (!file) { setError("Nije odabran dokument niti unešen tekst."); return; }
+    if (!file) { setError("Kein Dokument ausgewählt."); return; }
 
     submittingRef.current = true;
     setLoading(true);
@@ -243,15 +243,15 @@ export default function DokumentenCheck() {
 
       const { data, error: fnError } = await supabase.functions.invoke("document-check", { body: payload });
 
-      if (fnError) throw new Error("Greška na serveru pri analizi dokumenta. Pokušajte ponovo za nekoliko trenutaka.");
-      if (data?.success === false) throw new Error(data.message || "Dokument nije moguće obraditi. Pokušajte s drugim fajlom.");
-      if (!data?.analysis) throw new Error("Dokument nije moguće obraditi. Pokušajte s drugim fajlom.");
+      if (fnError) throw new Error("Serverfehler bei der Dokumentenanalyse. Bitte versuchen Sie es in einigen Augenblicken erneut.");
+      if (data?.success === false) throw new Error(data.message || "Dokument konnte nicht verarbeitet werden. Versuchen Sie es mit einer anderen Datei.");
+      if (!data?.analysis) throw new Error("Dokument konnte nicht verarbeitet werden. Versuchen Sie es mit einer anderen Datei.");
 
       setAnalysis(data.analysis);
     } catch (err: any) {
-      const message = err.message || "Greška na serveru pri analizi dokumenta.";
+      const message = err.message || "Serverfehler bei der Dokumentenanalyse.";
       if (message.includes("Edge Function") || message.includes("FunctionsHttpError") || message.includes("fetch")) {
-        setError("Greška na serveru pri analizi dokumenta. Pokušajte ponovo za nekoliko trenutaka.");
+        setError("Serverfehler bei der Dokumentenanalyse. Bitte versuchen Sie es in einigen Augenblicken erneut.");
       } else {
         setError(message);
       }
@@ -289,10 +289,10 @@ export default function DokumentenCheck() {
           <p className="mt-2 text-sm text-primary-foreground/80 max-w-xl leading-relaxed">{"Brief oder Dokument verstehen — ohne Speicherung, ohne Anmeldung."}</p>
           <div className="mt-4 flex flex-wrap gap-2">
             <span className="inline-block rounded-full bg-[hsl(var(--gold))]/20 px-3 py-1 text-xs font-semibold text-[hsl(var(--gold))]">
-              2.99€ po dokumentu bez pretplate
+              2,99€ pro Dokument ohne Abo
             </span>
             <span className="inline-block rounded-full bg-[hsl(var(--success))]/20 px-3 py-1 text-xs font-semibold text-[hsl(var(--success))]">
-              Premium uključuje 1 provjeru dnevno
+              Premium enthält 1 Prüfung täglich
             </span>
           </div>
         </div>
@@ -349,7 +349,7 @@ export default function DokumentenCheck() {
                         }}
                       />
                       <Upload className="h-10 w-10 text-[#C9A84C] mb-2" />
-                      <strong style={{fontSize:'16px'}}>Učitaj dokument</strong>
+                      <strong style={{fontSize:'16px'}}>Dokument hochladen</strong>
                       <span style={{color:'#6b7280', fontSize:'13px', marginTop:'4px'}}>
                         PDF, JPG, PNG — maks. 10 MB
                       </span>
@@ -425,11 +425,11 @@ export default function DokumentenCheck() {
               className="flex flex-col items-center rounded-2xl border border-[hsl(var(--gold))]/20 bg-[#0f1f3d] p-10 text-center">
               <Lock className="h-10 w-10 text-[hsl(var(--gold))] mb-4" />
               <p className="text-lg font-bold text-white mb-2">Dokumenten-Check</p>
-              <p className="text-sm text-white/60 mb-6 max-w-sm">Premium uključuje 1 provjeru dnevno</p>
+              <p className="text-sm text-white/60 mb-6 max-w-sm">Premium enthält 1 Prüfung täglich</p>
               <div className="flex flex-col gap-3 w-full max-w-xs items-center">
                 <button onClick={() => navigate("/premium")}
                   className="rounded-full bg-[hsl(var(--gold))] px-6 py-3.5 text-[#0f1f3d] font-bold transition-all hover:opacity-90">
-                  BalkanLink Premium — 9.99€/mj.
+                  BalkanLink Premium — 9,99€/Mon.
                 </button>
                 <p className="text-xs text-white/40 mt-2">Einzelkauf (2.99€) kommt bald — kontakt@balkanlink.de</p>
               </div>
@@ -451,34 +451,34 @@ export default function DokumentenCheck() {
                 >
                   <h2 className="text-lg font-black tracking-tight text-foreground mb-5 flex items-center gap-2">
                     <CheckSquare className="h-5 w-5 text-[hsl(var(--gold))]" />
-                    Pregled dokumenta
+                    Dokumentenübersicht
                   </h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Doc type */}
                     <div className="flex items-start gap-3 rounded-xl bg-blue-500/10 border border-blue-500/20 p-4">
                       <FileWarning className="h-5 w-5 text-blue-500 mt-0.5 shrink-0" />
                       <div>
-                        <p className="text-[11px] font-bold uppercase tracking-wider text-blue-500/80 mb-1">Tip dokumenta</p>
+                        <p className="text-[11px] font-bold uppercase tracking-wider text-blue-500/80 mb-1">Dokumenttyp</p>
                         <p className="text-sm font-semibold text-foreground leading-snug">{summary.docType}</p>
                       </div>
                     </div>
                     {/* Action */}
                     <div className={`flex items-start gap-3 rounded-xl p-4 border ${
-                      summary.action.includes("Hitna") ? "bg-red-500/10 border-red-500/20" :
-                      summary.action.includes("Preporučena") ? "bg-amber-500/10 border-amber-500/20" :
+                      summary.action.includes("Dringend") ? "bg-red-500/10 border-red-500/20" :
+                      summary.action.includes("Empfohlen") ? "bg-amber-500/10 border-amber-500/20" :
                       "bg-emerald-500/10 border-emerald-500/20"
                     }`}>
                       <AlertCircle className={`h-5 w-5 mt-0.5 shrink-0 ${
-                        summary.action.includes("Hitna") ? "text-red-500" :
-                        summary.action.includes("Preporučena") ? "text-amber-500" :
+                        summary.action.includes("Dringend") ? "text-red-500" :
+                        summary.action.includes("Empfohlen") ? "text-amber-500" :
                         "text-emerald-500"
                       }`} />
                       <div>
                         <p className={`text-[11px] font-bold uppercase tracking-wider mb-1 ${
-                          summary.action.includes("Hitna") ? "text-red-500/80" :
-                          summary.action.includes("Preporučena") ? "text-amber-500/80" :
+                          summary.action.includes("Dringend") ? "text-red-500/80" :
+                          summary.action.includes("Empfohlen") ? "text-amber-500/80" :
                           "text-emerald-500/80"
-                        }`}>Potrebna akcija</p>
+                        }`}>Erforderliche Handlung</p>
                         <p className="text-sm font-semibold text-foreground leading-snug">{summary.action}</p>
                       </div>
                     </div>
@@ -486,7 +486,7 @@ export default function DokumentenCheck() {
                     <div className="flex items-start gap-3 rounded-xl bg-green-500/10 border border-green-500/20 p-4">
                       <Banknote className="h-5 w-5 text-green-600 mt-0.5 shrink-0" />
                       <div>
-                        <p className="text-[11px] font-bold uppercase tracking-wider text-green-600/80 mb-1">Finansijski uticaj</p>
+                        <p className="text-[11px] font-bold uppercase tracking-wider text-green-600/80 mb-1">Finanzielle Auswirkung</p>
                         <p className="text-sm font-semibold text-foreground leading-snug">{summary.financial}</p>
                       </div>
                     </div>
@@ -494,7 +494,7 @@ export default function DokumentenCheck() {
                     <div className="flex items-start gap-3 rounded-xl bg-purple-500/10 border border-purple-500/20 p-4">
                       <CalendarClock className="h-5 w-5 text-purple-500 mt-0.5 shrink-0" />
                       <div>
-                        <p className="text-[11px] font-bold uppercase tracking-wider text-purple-500/80 mb-1">Rok</p>
+                        <p className="text-[11px] font-bold uppercase tracking-wider text-purple-500/80 mb-1">Frist</p>
                         <p className="text-sm font-semibold text-foreground leading-snug">{summary.deadline}</p>
                       </div>
                     </div>
