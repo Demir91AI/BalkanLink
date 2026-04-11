@@ -558,6 +558,7 @@ const DE: Record<string, string> = {
   "qa.results": "Rezultati",
   "sidebar.mainFunctions": "Glavne funkcije",
   "sidebar.other": "Ostalo",
+  "sidebar.radnoPravo": "Arbeitsrecht",
   "sidebar.cijene": "Paketi i cijene",
   "tools.pageTitle": "Alati i kalkulatori",
   "tools.pageSubtitle": "Korisni alati za svakodnevicu",
