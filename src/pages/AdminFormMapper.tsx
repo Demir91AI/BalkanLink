@@ -110,10 +110,10 @@ export default function AdminFormMapper() {
           <div className="h-full rounded-full bg-primary transition-all" style={{ width: `${pct}%` }} />
         </div>
         <Button variant="outline" size="sm" className="text-xs" onClick={handleExport}>
-          <Download className="mr-1 h-3 w-3" /> {"Exportieren"}
+          <Download className="mr-1 h-3 w-3" /> {"Izvezi"}
         </Button>
         <Button variant="outline" size="sm" className="text-xs" onClick={handleImport}>
-          <Upload className="mr-1 h-3 w-3" /> {"Importieren"}
+          <Upload className="mr-1 h-3 w-3" /> {"Uvezi"}
         </Button>
       </div>
 

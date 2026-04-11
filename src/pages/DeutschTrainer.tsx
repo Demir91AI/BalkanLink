@@ -257,9 +257,9 @@ export default function DeutschTrainer() {
           {/* ── LEVEL PROGRESS ── */}
           <div className="mb-10 max-w-3xl rounded-2xl border border-white/[0.06] bg-white/[0.02] px-5 py-4">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-bold text-white/80">{selectedLevel} {"Fortschritt"}</span>
+              <span className="text-sm font-bold text-white/80">{selectedLevel} {"Napredak"}</span>
               <span className="text-xs text-white/40">
-                {completedInLevel}/{levelLessons.length} {"Lektionen"}
+                {completedInLevel}/{levelLessons.length} {"lekcija"}
               </span>
             </div>
             <div className="h-2 w-full overflow-hidden rounded-full bg-white/[0.06]">

@@ -157,9 +157,9 @@ function ShowcaseCarousel() {
                   <div className="mt-auto flex gap-2 pt-2">
                     <Button asChild size="sm" className="h-8 rounded-lg bg-[hsl(var(--gold))] px-4 text-xs font-bold text-white hover:bg-[hsl(var(--gold-dark))]">
                       {firm.website ? (
-                        <a href={firm.website} target="_blank" rel="noopener noreferrer">{"Ansehen"} <ExternalLink className="ml-1 h-3 w-3" /></a>
+                        <a href={firm.website} target="_blank" rel="noopener noreferrer">{"Pogledaj"} <ExternalLink className="ml-1 h-3 w-3" /></a>
                       ) : (
-                        <Link to={`/firma/${firm.slug}`}>{"Ansehen"} <ExternalLink className="ml-1 h-3 w-3" /></Link>
+                        <Link to={`/firma/${firm.slug}`}>{"Pogledaj"} <ExternalLink className="ml-1 h-3 w-3" /></Link>
                       )}
                     </Button>
                     <Button asChild variant="outline" size="sm" className="h-8 rounded-lg border-[#E8E0D0] px-4 text-xs font-semibold text-[#2D2D2D] hover:bg-[hsl(var(--warm-cream))]">

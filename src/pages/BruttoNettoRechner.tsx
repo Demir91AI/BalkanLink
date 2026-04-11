@@ -133,7 +133,7 @@ export default function BruttoNettoRechner() {
         <div className="container flex items-center gap-1.5 py-3 text-xs text-muted-foreground">
           <Link to="/" className="hover:text-foreground transition-colors">BalkanLink</Link>
           <ChevronRight className="h-3 w-3" />
-          <span className="text-foreground font-medium">{"Rechner"}</span>
+          <span className="text-foreground font-medium">{"Kalkulator"}</span>
         </div>
       </div>
 

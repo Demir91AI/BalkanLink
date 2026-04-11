@@ -55,9 +55,9 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
 
   // Translated stage labels
   const stageLabels = [
-    "Grundlagen",
-    "Anwendung",
-    "Realität",
+    "Osnove",
+    "Primjena",
+    "Realnost",
   ];
 
   useEffect(() => {
