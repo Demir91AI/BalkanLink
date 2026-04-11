@@ -1,4 +1,5 @@
 import { useTranslation } from "@/i18n/useTranslation";
+import type { Language } from "@/lib/translations";
 import {
   DropdownMenu,
   DropdownMenuContent,
