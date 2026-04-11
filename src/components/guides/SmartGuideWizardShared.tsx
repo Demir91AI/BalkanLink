@@ -1,7 +1,13 @@
-import { Pencil, MapPin, Hash, XCircle, MinusCircle, FileCheck, Info, CheckCircle } from "lucide-react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  ChevronLeft, ChevronRight, Pencil, MapPin, Hash,
+  XCircle, MinusCircle, FileCheck, Info, Lock,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
 import { useSectionT } from "@/hooks/useSectionT";
 import { useSubscription } from "@/hooks/useSubscription";
-import SmartGuideLock from "@/components/paywall/SmartGuideLock";
 
 export interface StepData {
   deField: string;
@@ -15,99 +21,158 @@ export interface StepData {
   note?: string;
 }
 
+type CardKey = "whatToWrite" | "whereToFind" | "format" | "commonMistake" | "whenToLeaveEmpty" | "example";
+
 interface Props {
   steps: StepData[];
-  /** When true, all steps are shown without paywall */
-  free?: boolean;
   finishLabel?: string;
   onFinish?: () => void;
 }
 
-const GOLD = '#C9A84C';
+const FREE_STEPS = 2;
 
-export default function SmartGuideWizardShared({ steps, free = false }: Props) {
+export default function SmartGuideWizardShared({ steps, finishLabel, onFinish }: Props) {
+  const [step, setStep] = useState(0);
   const st = useSectionT();
-  const { canAccessStep } = useSubscription();
+  const navigate = useNavigate();
+  const { isPremium } = useSubscription();
+
+  const current = steps[step];
+  const progress = ((step + 1) / steps.length) * 100;
+  const isLast = step === steps.length - 1;
+  const isStepLocked = !isPremium && step >= FREE_STEPS;
 
   const cardConfig = [
-    { key: "whatToWrite" as const,      label: st("guide.card.whatToWrite"),    icon: <Pencil className="h-3.5 w-3.5" />,      color: "border-blue-200 bg-blue-50" },
-    { key: "whereToFind" as const,      label: st("guide.card.whereToFind"),    icon: <MapPin className="h-3.5 w-3.5" />,       color: "border-emerald-200 bg-emerald-50" },
-    { key: "format" as const,           label: st("guide.card.format"),          icon: <Hash className="h-3.5 w-3.5" />,         color: "border-violet-200 bg-violet-50" },
-    { key: "commonMistake" as const,    label: st("guide.card.commonMistakes"), icon: <XCircle className="h-3.5 w-3.5" />,      color: "border-red-200 bg-red-50" },
-    { key: "whenToLeaveEmpty" as const, label: st("guide.card.whenToLeaveEmpty"), icon: <MinusCircle className="h-3.5 w-3.5" />, color: "border-amber-200 bg-amber-50" },
-    { key: "example" as const,          label: st("guide.card.example"),         icon: <FileCheck className="h-3.5 w-3.5" />,    color: "border-cyan-200 bg-cyan-50" },
+    { key: "whatToWrite" as const, label: st("guide.card.whatToWrite"), icon: <Pencil className="h-3.5 w-3.5" />, color: "border-blue-200 bg-blue-50 dark:border-blue-900/40 dark:bg-blue-950/20" },
+    { key: "whereToFind" as const, label: st("guide.card.whereToFind"), icon: <MapPin className="h-3.5 w-3.5" />, color: "border-emerald-200 bg-emerald-50 dark:border-emerald-900/40 dark:bg-emerald-950/20" },
+    { key: "format" as const, label: st("guide.card.format"), icon: <Hash className="h-3.5 w-3.5" />, color: "border-violet-200 bg-violet-50 dark:border-violet-900/40 dark:bg-violet-950/20" },
+    { key: "commonMistake" as const, label: st("guide.card.commonMistakes"), icon: <XCircle className="h-3.5 w-3.5" />, color: "border-red-200 bg-red-50 dark:border-red-900/40 dark:bg-red-950/20" },
+    { key: "whenToLeaveEmpty" as const, label: st("guide.card.whenToLeaveEmpty"), icon: <MinusCircle className="h-3.5 w-3.5" />, color: "border-amber-200 bg-amber-50 dark:border-amber-900/40 dark:bg-amber-950/20" },
+    { key: "example" as const, label: st("guide.card.example"), icon: <FileCheck className="h-3.5 w-3.5" />, color: "border-cyan-200 bg-cyan-50 dark:border-cyan-900/40 dark:bg-cyan-950/20" },
   ];
 
+  const handleStepClick = (i: number) => {
+    if (!isPremium && i >= FREE_STEPS) {
+      setStep(FREE_STEPS);
+    } else {
+      setStep(i);
+    }
+  };
+
+  const handleNext = () => {
+    if (!isPremium && step + 1 >= FREE_STEPS) {
+      setStep(FREE_STEPS);
+    } else if (!isLast) {
+      setStep(step + 1);
+    }
+  };
+
   return (
-    <div className="space-y-6">
-      {/* Section header */}
-      <div className="flex items-start gap-3 rounded-xl border border-[#C9A84C]/20 bg-[#C9A84C]/5 p-4">
-        <CheckCircle className="h-5 w-5 mt-0.5 shrink-0" style={{ color: GOLD }} />
-        <div>
-          <h2 className="text-base font-bold text-[#2D2D2D]">Korak-po-korak vodič</h2>
-          <p className="text-xs text-[#6B6B6B] mt-0.5">Svako polje objašnjeno — šta upisati, gdje naći, format i česte greške</p>
-        </div>
+    <div className="space-y-4">
+      <div className="mb-4">
+        <h2 className="text-base font-bold">{st("guide.title")}</h2>
+        <p className="text-xs text-muted-foreground">{st("guide.subtitle")}</p>
       </div>
 
-      {/* Step 1 always free */}
-      {steps.length > 0 && (
-        <StepCard step={steps[0]} index={0} cardConfig={cardConfig} st={st} />
-      )}
-
-      {/* Steps 2+ gated */}
-      {steps.length > 1 && (
-        <SmartGuideLock locked={!free && !canAccessStep(1)}>
-          {steps.slice(1).map((step, i) => (
-            <StepCard key={i + 1} step={step} index={i + 1} cardConfig={cardConfig} st={st} />
-          ))}
-        </SmartGuideLock>
-      )}
-    </div>
-  );
-}
-
-function StepCard({ step, index, cardConfig, st }: {
-  step: StepData;
-  index: number;
-  cardConfig: { key: keyof StepData; label: string; icon: React.ReactNode; color: string }[];
-  st: (k: string) => string;
-}) {
-  return (
-    <div className="rounded-xl border border-[#E5DCC8] bg-white p-5 space-y-3">
-      <div className="flex items-start gap-3">
-        <div
-          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white"
-          style={{ background: '#C9A84C' }}
-        >
-          {index + 1}
-        </div>
-        <div>
-          <h3 className="font-bold text-sm text-[#2D2D2D]">{step.deField}</h3>
-          <p className="text-xs text-[#6B6B6B] mt-0.5">{step.bhsField}</p>
-        </div>
+      <div className="flex items-center gap-3">
+        <Progress value={progress} className="h-2 flex-1" />
+        <span className="text-xs font-medium text-muted-foreground whitespace-nowrap">
+          {st("guide.step")} {step + 1} / {steps.length}
+        </span>
       </div>
 
-      <div className="grid gap-2.5 grid-cols-1 sm:grid-cols-2">
-        {cardConfig.map(({ key, label, icon, color }) => {
-          const value = step[key];
-          if (!value) return null;
-          return (
-            <div key={key} className={`rounded-lg border p-3 ${color}`}>
-              <h4 className="mb-1 flex items-center gap-1.5 text-[11px] font-bold">
-                {icon} {label}
-              </h4>
-              <p className="text-xs leading-relaxed text-[#2D2D2D]/80 whitespace-pre-line">{value}</p>
-            </div>
-          );
-        })}
-        {step.note && (
-          <div className="rounded-lg border p-3 border-gray-200 bg-gray-50 sm:col-span-2">
-            <h4 className="mb-1 flex items-center gap-1.5 text-[11px] font-bold">
-              <Info className="h-3.5 w-3.5" /> {st("guide.note")}
-            </h4>
-            <p className="text-xs leading-relaxed text-[#2D2D2D]/80 whitespace-pre-line">{step.note}</p>
+      <div className="flex items-center gap-1 overflow-x-auto pb-2">
+        {steps.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => handleStepClick(i)}
+            className={
+              "shrink-0 rounded-full px-3 py-1 text-[10px] font-medium transition " +
+              (!isPremium && i >= FREE_STEPS
+                ? "bg-muted text-muted-foreground/40 cursor-not-allowed"
+                : i === step
+                ? "bg-primary text-primary-foreground"
+                : i < step
+                ? "bg-primary/20 text-primary"
+                : "bg-muted text-muted-foreground hover:bg-muted/80")
+            }
+          >
+            {!isPremium && i >= FREE_STEPS ? "🔒" : i + 1}
+          </button>
+        ))}
+      </div>
+
+      {isStepLocked ? (
+        <div className="flex flex-col items-center justify-center py-12 text-center">
+          <Lock className="h-10 w-10 text-[hsl(var(--gold))] mb-4" />
+          <h3 className="text-lg font-bold text-foreground">
+            Smart Guide dostupan uz Premium
+          </h3>
+          <p className="text-sm text-muted-foreground mt-2 max-w-sm">
+            Otključaj kompletni vodič za popunjavanje svih formulara.
+          </p>
+          <p className="text-xs text-muted-foreground mt-1">
+            Koraci 1–2 su besplatni · Korak {step + 1} zahtijeva Premium
+          </p>
+          <Button
+            onClick={() => navigate("/paketi")}
+            className="mt-6 w-full max-w-xs mx-auto block rounded-full py-3.5 text-sm font-bold"
+            style={{
+              background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))",
+              color: "hsl(var(--gold-foreground))",
+            }}
+          >
+            BalkanLink Premium — 9.99€/mj.
+          </Button>
+        </div>
+      ) : (
+        <>
+          <div className="rounded-2xl border border-border/60 bg-card p-5">
+            <span className="inline-block rounded-full bg-primary/10 px-3 py-0.5 text-[10px] font-bold text-primary mb-2">
+              {st("guide.step")} {step + 1}
+            </span>
+            <h3 className="font-bold text-sm">{current.deField}</h3>
+            <p className="text-xs text-muted-foreground mt-1">{current.bhsField}</p>
           </div>
-        )}
+
+          <div className="grid gap-3 sm:grid-cols-2">
+            {cardConfig.map(({ key, label, icon, color }) => {
+              const value = current[key as CardKey];
+              if (!value) return null;
+              return (
+                <div key={key} className={`rounded-xl border p-4 ${color}`}>
+                  <h4 className="mb-1.5 flex items-center gap-1.5 text-[11px] font-bold">
+                    {icon} {label}
+                  </h4>
+                  <p className="text-xs leading-relaxed text-foreground/80">{value}</p>
+                </div>
+              );
+            })}
+            {current.note && (
+              <div className="rounded-xl border p-4 border-gray-200 bg-gray-50 dark:border-gray-800 dark:bg-gray-900/20 sm:col-span-2">
+                <h4 className="mb-1.5 flex items-center gap-1.5 text-[11px] font-bold">
+                  <Info className="h-3.5 w-3.5" /> {st("guide.note")}
+                </h4>
+                <p className="text-xs leading-relaxed text-foreground/80">{current.note}</p>
+              </div>
+            )}
+          </div>
+        </>
+      )}
+
+      <div className="flex items-center justify-between">
+        <Button variant="outline" size="sm" disabled={step === 0} onClick={() => setStep(step - 1)}>
+          <ChevronLeft className="mr-1 h-4 w-4" /> {st("guide.back")}
+        </Button>
+        {isLast && !isStepLocked ? (
+          <Button size="sm" onClick={onFinish}>
+            {finishLabel || st("guide.done")}
+          </Button>
+        ) : !isStepLocked ? (
+          <Button variant="outline" size="sm" onClick={handleNext}>
+            {st("guide.next")} <ChevronRight className="ml-1 h-4 w-4" />
+          </Button>
+        ) : null}
       </div>
     </div>
   );

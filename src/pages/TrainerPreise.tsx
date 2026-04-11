@@ -53,11 +53,9 @@ const packages = [
 
 const freeFeatures = [
   { text: "3 Lektionen pro Niveau (kostenlos)", included: true },
-  { text: "Erste 3 Lektionen komplett", included: true },
-  { text: "5 Sprachassistent-Sätze", included: true },
+  { text: "3 Sprachassistent-Sätze", included: true },
   { text: "Alle Lektionen", included: false },
-  { text: "300 Aufgaben pro Lektion (laufend erweitert)", included: false },
-  { text: "Sprachassistent (500 Sätze)", included: false },
+  { text: "Unbegrenzter Sprachassistent", included: false },
   { text: "Wertgutschein-Programm", included: false },
 ];
 
