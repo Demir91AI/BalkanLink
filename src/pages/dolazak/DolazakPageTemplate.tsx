@@ -65,14 +65,14 @@ export default function DolazakPageTemplate({ title, subtitle, sections, links }
                   <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-card/80 backdrop-blur-sm z-10">
                     <Lock className="h-6 w-6 text-primary" />
                     <p className="text-sm font-semibold text-foreground text-center px-4">
-                      {"Dieser Schritt ist gesperrt"}
+                      Ovaj korak je zaključan
                     </p>
                     <div className="flex flex-col items-center gap-2">
                       <button
                         onClick={() => setShowPremiumModal(true)}
                         className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
                       >
-                        {"Mit Premium freischalten"}
+                        Otključaj sa Premium
                       </button>
                       <button
                         onClick={() => {}}
@@ -95,7 +95,7 @@ export default function DolazakPageTemplate({ title, subtitle, sections, links }
         <section className="border-t bg-card pb-10 pt-6">
           <div className="container max-w-3xl text-center">
             <h3 className="mb-3 flex items-center justify-center gap-1.5 text-sm font-bold">
-              <Info className="h-4 w-4 text-primary" /> {"Direktlinks"}
+              <Info className="h-4 w-4 text-primary" /> {"Korisni linkovi"}
             </h3>
             <div className="flex flex-wrap justify-center gap-2">
               {links.map((l, i) => (
@@ -112,7 +112,7 @@ export default function DolazakPageTemplate({ title, subtitle, sections, links }
               ))}
             </div>
             <p className="mt-3 text-[11px] text-muted-foreground/70">
-              {"Informative Hinweise — keine Rechtsberatung."}
+              {"Informativne napomene — ne predstavlja pravni savjet."}
             </p>
           </div>
         </section>
