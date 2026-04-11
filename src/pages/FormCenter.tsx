@@ -256,11 +256,7 @@ export default function FormCenter() {
     });
   };
 
-  const getGroupTitle = (group: FormGroup) => {
-    if (!group.titleKey) return group.title;
-    const translatedTitle = label(group.titleKey);
-    return translatedTitle === group.titleKey ? group.title : translatedTitle;
-  };
+  const getGroupTitle = (group: FormGroup) => group.title;
 
   const renderItem = (item: FormEntry) => {
     const isActive = item.slug === activeSlug;
