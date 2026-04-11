@@ -80,7 +80,7 @@ function applyAudioTuning(audio: HTMLAudioElement, playbackRate: number = UNIFIE
 export function useTTS() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [playState, setPlayState] = useState<PlayState>("idle");
-  const [rate, setRate] = useState<SpeechRate>(UNIFIED_RATE);
+  const [rate, setRate] = useState<SpeechRate>(1);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const cachedVoice = useRef<SpeechSynthesisVoice | null>(null);
 
