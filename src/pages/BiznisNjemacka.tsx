@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ChevronRight, Info } from "lucide-react";
+import { ChevronRight, Info, Search } from "lucide-react";
 import { BIZNIS_CATEGORIES, getBiznisGuidesByCategory, type BiznisGuide } from "@/lib/biznis-data";
 import { SEO } from "@/components/SEO";
 import PageNavBar from "@/components/navigation/PageNavBar";
@@ -8,6 +9,8 @@ const GOLD = "hsl(var(--gold))";
 
 export default function BiznisNjemacka() {
   const navigate = useNavigate();
+  const [query, setQuery] = useState("");
+  const q = query.toLowerCase().trim();
 
   return (
     <>
@@ -20,7 +23,19 @@ export default function BiznisNjemacka() {
         <PageNavBar />
 
         <h1 className="text-xl font-extrabold text-foreground sm:text-2xl">Biznis u Njemačkoj</h1>
-        <p className="text-sm text-muted-foreground mt-1 mb-6">Gewerbe, samozaposlenje i poslovanje — vodič za početnike · Stand 2026</p>
+        <p className="text-sm text-muted-foreground mt-1 mb-4">Gewerbe, samozaposlenje i poslovanje — vodič za početnike · Stand 2026</p>
+
+        {/* Search */}
+        <div className="relative mb-6">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Pretraži teme…"
+            className="w-full rounded-xl border border-border bg-card py-2.5 pl-10 pr-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[hsl(var(--gold))]/40 transition-shadow"
+          />
+        </div>
 
         <div className="mb-8 rounded-xl border border-blue-200 bg-blue-50 p-4 flex items-start gap-3">
           <Info className="h-4 w-4 text-blue-500 mt-0.5 shrink-0" />
@@ -31,7 +46,10 @@ export default function BiznisNjemacka() {
 
         <div className="space-y-8">
           {BIZNIS_CATEGORIES.map((cat) => {
-            const guides = getBiznisGuidesByCategory(cat.id);
+            const guides = getBiznisGuidesByCategory(cat.id).filter(
+              (g) => !q || g.title.toLowerCase().includes(q) || g.germanTerm.toLowerCase().includes(q)
+            );
+            if (guides.length === 0) return null;
             const Icon = cat.icon;
             return (
               <section key={cat.id}>
@@ -48,6 +66,9 @@ export default function BiznisNjemacka() {
               </section>
             );
           })}
+          {q && BIZNIS_CATEGORIES.every((cat) => getBiznisGuidesByCategory(cat.id).filter((g) => g.title.toLowerCase().includes(q) || g.germanTerm.toLowerCase().includes(q)).length === 0) && (
+            <p className="text-center text-sm text-muted-foreground py-8">Nema rezultata za „{query}"</p>
+          )}
         </div>
       </div>
     </>
