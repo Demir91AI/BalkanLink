@@ -122,7 +122,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
           <>
             <div className="relative">
               <div className="pointer-events-none select-none max-h-72 overflow-hidden" style={{ filter: 'blur(4px)' }} aria-hidden="true">
-                <VisaDetailCards route={r} t={t} GOLD={GOLD} CHARCOAL={CHARCOAL} />
+                <VisaDetailCards route={r} GOLD={GOLD} CHARCOAL={CHARCOAL} />
               </div>
               <div className="absolute inset-0 z-10 flex items-center justify-center rounded-2xl bg-background/60 backdrop-blur-[2px]">
                 <div className="flex flex-col items-center gap-3 px-6 text-center">
@@ -144,7 +144,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
           </>
         )}
 
-        {isPremium && <VisaDetailCards route={r} t={t} GOLD={GOLD} CHARCOAL={CHARCOAL} />}
+        {isPremium && <VisaDetailCards route={r} GOLD={GOLD} CHARCOAL={CHARCOAL} />}
 
         <div style={{ background: '#F9F6F0', borderRadius: 10, padding: '14px 18px', fontSize: 12, color: '#9CA3AF' }}>
           <Info size={13} style={{ marginRight: 6, verticalAlign: 'middle' }} />
@@ -266,7 +266,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
         <>
           <div className="relative">
             <div className="pointer-events-none select-none max-h-72 overflow-hidden" style={{ filter: 'blur(4px)' }} aria-hidden="true">
-              <NonEURouteDetails route={route} t={t} GOLD={GOLD} CHARCOAL={CHARCOAL} openFormKey={null} handleOpenForm={() => {}} LoadedForm={null} openFormRef={null} />
+              <NonEURouteDetails route={route} GOLD={GOLD} CHARCOAL={CHARCOAL} openFormKey={null} handleOpenForm={() => {}} LoadedForm={null} openFormRef={null} />
             </div>
             <div className="absolute inset-0 z-10 flex items-center justify-center rounded-2xl bg-background/60 backdrop-blur-[2px]">
               <div className="flex flex-col items-center gap-3 px-6 text-center">
@@ -289,7 +289,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
       )}
 
       {isPremium && (
-        <NonEURouteDetails route={route} t={t} GOLD={GOLD} CHARCOAL={CHARCOAL} openFormKey={openFormKey} handleOpenForm={handleOpenForm} LoadedForm={LoadedForm} openFormRef={openFormRef} />
+        <NonEURouteDetails route={route} GOLD={GOLD} CHARCOAL={CHARCOAL} openFormKey={openFormKey} handleOpenForm={handleOpenForm} LoadedForm={LoadedForm} openFormRef={openFormRef} />
       )}
 
       {/* Disclaimer */}
@@ -305,7 +305,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
 };
 
 /* ── Helper: EU detail cards ── */
-function VisaDetailCards({ route, t, GOLD, CHARCOAL }: { route: any; t: any; GOLD: string; CHARCOAL: string }) {
+function VisaDetailCards({ route, GOLD, CHARCOAL }: { route: any; GOLD: string; CHARCOAL: string }) {
   return (
     <>
       <Card>
@@ -366,8 +366,8 @@ function VisaDetailCards({ route, t, GOLD, CHARCOAL }: { route: any; t: any; GOL
 }
 
 /* ── Helper: Non-EU route detail cards ── */
-function NonEURouteDetails({ route, t, GOLD, CHARCOAL, openFormKey, handleOpenForm, LoadedForm, openFormRef }: {
-  route: any; t: any; GOLD: string; CHARCOAL: string;
+function NonEURouteDetails({ route, GOLD, CHARCOAL, openFormKey, handleOpenForm, LoadedForm, openFormRef }: {
+  route: any; GOLD: string; CHARCOAL: string;
   openFormKey: string | null; handleOpenForm: (k: string) => void; LoadedForm: React.FC | null; openFormRef: React.RefObject<HTMLDivElement> | null;
 }) {
   return (
