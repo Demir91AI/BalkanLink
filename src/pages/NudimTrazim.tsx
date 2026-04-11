@@ -42,7 +42,7 @@ export default function NudimTrazim() {
         .eq("status", "ACTIVE")
         .order("created_at", { ascending: false });
       if (error) throw error;
-      return (data ?? []).map((row): NtAd => ({
+      return ((data ?? []) as any[]).map((row: any): NtAd => ({
         id: row.id,
         type: row.type === "OFFERING" ? "nudim" : "trazim",
         title: row.title,
