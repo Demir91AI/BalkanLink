@@ -280,7 +280,7 @@ export default function DokumentenCheck() {
             Provjera dokumenata
           </h1>
           <p className="mt-2 text-sm text-primary-foreground/80 max-w-xl leading-relaxed">
-            Učitaj njemački dokument — AI ti objasni šta piše i šta moraš uraditi
+            Učitaj pismo ili dokument — dobiješ objašnjenje na svom jeziku u sekundi
           </p>
 
           {/* Document type examples — horizontal scroll */}
@@ -305,7 +305,7 @@ export default function DokumentenCheck() {
                 "Upozorenje ako dokument sadrži rok ili pravne posljedice",
               ].map((item) => (
                 <div key={item} className="flex items-start gap-1.5 text-xs text-primary-foreground/80">
-                  <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-3.5 w-3.5 text-[hsl(var(--gold))] shrink-0 mt-0.5" />
                   <span>{item}</span>
                 </div>
               ))}
@@ -324,7 +324,7 @@ export default function DokumentenCheck() {
             <div className="rounded-2xl border border-border bg-card p-5 text-center">
               <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">Jednokratno</p>
               <p className="text-2xl font-black text-foreground">2.99€</p>
-              <p className="text-xs text-muted-foreground mt-1">po dokumentu</p>
+              <p className="text-xs text-muted-foreground mt-1">po provjeri</p>
               <div className="mt-4 text-[11px] text-muted-foreground">
                 Plati i učitaj
               </div>
@@ -427,7 +427,7 @@ export default function DokumentenCheck() {
           <div className="flex gap-3">
             <Button onClick={handleAnalyze} disabled={loading || !confirmed || !file} className="gap-2 rounded-xl px-6">
               {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <CheckCircle2 className="h-4 w-4" />}
-              {loading ? "Analiziram…" : "Analiziraj dokument →"}
+              {loading ? "Provjeravam…" : "Provjeri dokument →"}
             </Button>
             {(analysis || file || error) && (
               <Button variant="outline" onClick={handleClear} className="rounded-xl">Resetuj</Button>

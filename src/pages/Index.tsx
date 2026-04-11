@@ -349,7 +349,7 @@ export default function Index() {
                   <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Viza Navigator</li>
                   <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> 1x Dokumenten-Check/dan</li>
                   <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Šabloni (PDF download)</li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> AI Asistent neograničeno</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> BalkanLink Asistent neograničeno</li>
                   <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> 2 Pro oglasa/mjesečno</li>
                 </ul>
                 <Button className="mt-6 w-full rounded-full bg-[hsl(var(--gold))] text-white font-bold hover:bg-[hsl(var(--gold-dark))] shadow-[0_4px_20px_rgba(201,168,76,0.35)]" onClick={() => navigate("/paketi")}>
@@ -385,7 +385,7 @@ export default function Index() {
                   { feature: "Smart Guides", free: "Samo uvod", premium: "✅ Svi koraci" },
                   { feature: "Dokumenten-Check", free: "2,99€/kom", premium: "✅ 1x gratis dnevno" },
                   { feature: "Šabloni / Vorlagen", free: "Samo pregled", premium: "✅ Download PDF" },
-                  { feature: "AI Asistent", free: "Ograničeno", premium: "✅ Neograničeno" },
+                  { feature: "BalkanLink Asistent", free: "Ograničeno", premium: "✅ Neograničeno" },
                   { feature: "Viza Navigator", free: "Osnovni", premium: "✅ Puni pristup" },
                   { feature: "Pro oglasi", free: "2,99€/oglas", premium: "✅ 2 uključena/mj." },
                 ].map((row) => (

@@ -10,15 +10,15 @@ type Trigger = "formular" | "guide" | "ai" | "kurs" | "viza";
 const TRIGGER_TEXT: Record<Trigger, { title: string; subtitle: string }> = {
   formular: {
     title: "Otključaj sve formulare uz Premium",
-    subtitle: "Pristup svim Musterformularima, korak-po-korak vodičima i AI asistentu.",
+    subtitle: "Pristup svim Musterformularima, korak-po-korak vodičima i BalkanLink asistentu.",
   },
   guide: {
     title: "Nastavi korak po korak uz Premium",
     subtitle: "Kompletni vodiči sa detaljnim uputstvima za svaki korak.",
   },
   ai: {
-    title: "Neograničen pristup AI Asistentu",
-    subtitle: "Premium korisnici imaju neograničenu AI pomoć i Dokumenten-Check.",
+    title: "Neograničen pristup BalkanLink Asistentu",
+    subtitle: "Premium korisnici imaju neograničenu pomoć i Dokumenten-Check.",
   },
   kurs: {
     title: "Nastavi učiti uz Premium",

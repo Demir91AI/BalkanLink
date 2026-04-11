@@ -517,7 +517,7 @@ export default function ChatAssistant() {
     if (!canChat) {
       setMessages(prev => [...prev,
         { role: "user", content: text.trim() },
-        { role: "assistant", content: "⚡ Dostigao/la si dnevni limit od 3 pitanja.\n\nSa **BalkanLink Premium** dobijaš neograničenu AI pomoć.\n\n[👉 Premium](/premium)" },
+        { role: "assistant", content: "⚡ Dostigao/la si dnevni limit od 3 pitanja.\n\nSa **BalkanLink Premium** dobijaš neograničenu pomoć.\n\n[👉 Premium](/premium)" },
       ]);
       setInput("");
       return;
@@ -630,7 +630,7 @@ export default function ChatAssistant() {
 
   return (
     <>
-      {location.pathname === "/ai-asistent" && <SEO title="AI Asistent — Pitaj na Svom Jeziku" description="Postavi pitanje o životu u Njemačkoj na bosanskom, hrvatskom ili srpskom i dobij odgovor odmah." path="/ai-asistent" />}
+      {location.pathname === "/ai-asistent" && <SEO title="BalkanLink Asistent — Pitaj na Svom Jeziku" description="Postavi pitanje o životu u Njemačkoj na bosanskom, hrvatskom ili srpskom i dobij odgovor odmah." path="/ai-asistent" />}
       {/* ── Floating Trigger ── */}
       <AnimatePresence>
         {!open && (
@@ -682,7 +682,7 @@ export default function ChatAssistant() {
                       <BLIcon size={22} />
                     </div>
                     <div>
-                      <span className="text-[14px] font-bold text-white block leading-tight">🤖 BalkanLink Asistent</span>
+                      <span className="text-[14px] font-bold text-white block leading-tight">BalkanLink Asistent</span>
                       <span className="text-[10px] text-white/40">Tvoj vodič kroz Njemačku</span>
                     </div>
                   </div>
@@ -873,7 +873,7 @@ export default function ChatAssistant() {
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
                         onKeyDown={handleKeyDown}
-                        placeholder="Pitaj me bilo šta..."
+                        placeholder="Npr: Kako da prijavim adresu? Šta je Steuer-ID?"
                         rows={1}
                         className="flex-1 resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-[13px] text-white outline-none transition-all placeholder:text-white/25 focus:border-[hsl(45,93%,49%)]/40 focus:ring-1 focus:ring-[hsl(45,93%,49%)]/20"
                       />

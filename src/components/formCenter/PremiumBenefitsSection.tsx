@@ -71,13 +71,13 @@ export default function PremiumBenefitsSection() {
           </div>
         </div>
 
-        {/* AI Asistent */}
+        {/* BalkanLink Asistent */}
         <div className="flex gap-3">
           <div className="shrink-0 mt-0.5">
             <Bot className="h-5 w-5 text-[hsl(var(--gold))]" />
           </div>
           <div>
-            <h3 className="text-sm font-bold">🤖 AI ASISTENT</h3>
+            <h3 className="text-sm font-bold">🤖 BALKANLINK ASISTENT</h3>
             <ul className="mt-2 space-y-1.5 text-xs text-muted-foreground">
               <li className="flex items-start gap-1.5">
                 <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" />
@@ -101,7 +101,7 @@ export default function PremiumBenefitsSection() {
             <ul className="mt-2 space-y-1.5 text-xs text-muted-foreground">
               <li className="flex items-start gap-1.5">
                 <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" />
-                <span>Upload dokumenata + AI provjera ispravnosti</span>
+                <span>Upload dokumenata + automatska provjera ispravnosti</span>
               </li>
             </ul>
           </div>
