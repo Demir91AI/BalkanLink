@@ -25,7 +25,11 @@ type CardKey = "whatToWrite" | "whereToFind" | "format" | "commonMistake" | "whe
 
 interface Props {
   steps: StepData[];
+  /** When true, all steps are free (no paywall) */
+  free?: boolean;
   finishLabel?: string;
+  onFinish?: () => void;
+}
   onFinish?: () => void;
 }
 
