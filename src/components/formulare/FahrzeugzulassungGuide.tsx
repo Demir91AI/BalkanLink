@@ -199,7 +199,7 @@ export default function FahrzeugzulassungGuide() {
             {"ADAC — Tipps zur Zulassung"}
           </a>
         </div>
-        <p className="text-center text-xs italic text-muted-foreground">{"Quelle: KBA, ADAC, Zoll.de"}</p>
+        <p className="text-center text-xs italic text-muted-foreground">Izvor: KBA, ADAC, Zoll.de</p>
       </section>
     </div>
   );
