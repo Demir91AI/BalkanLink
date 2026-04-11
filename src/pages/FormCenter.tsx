@@ -300,10 +300,10 @@ export default function FormCenter() {
               <Lock className="h-8 w-8 text-[hsl(var(--gold))]" />
             </div>
             <div>
-              <h2 className="text-xl font-bold">{"Smart Guide mit Premium verfügbar"}</h2>
-              <p className="mt-2 text-sm text-muted-foreground max-w-sm mx-auto">
-                {"Schalte den vollständigen Leitfaden für alle Formulare frei."}
-              </p>
+                    <h2 className="text-xl font-bold">Smart Guide dostupan uz Premium</h2>
+                    <p className="mt-2 text-sm text-muted-foreground max-w-sm mx-auto">
+                      Otključaj kompletni vodič za sve formulare.
+                    </p>
             </div>
             <button
               onClick={() => navigate("/paketi")}
@@ -330,10 +330,10 @@ export default function FormCenter() {
       <div className="mb-6">
         <PageNavBar onBack={handleBack} />
         <h1 className="font-heading text-2xl font-extrabold sm:text-3xl">
-          {"Formulare"}
+          Formulari
         </h1>
         <p className="mt-1 text-sm text-muted-foreground">
-          {"Formulare korrekt ausfüllen"}
+          Pravilno popuni formulare
         </p>
         <div className="h-px mt-4 mb-6" style={{ background: '#F0EAD8' }} />
       </div>
@@ -346,7 +346,7 @@ export default function FormCenter() {
             <Input
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder={"Formulare suchen..."}
+              placeholder="Pretraži formulare..."
               className="pl-9 h-10 text-sm rounded-xl border-[#E8E0D0] bg-white"
             />
           </div>
@@ -358,7 +358,7 @@ export default function FormCenter() {
                   {searchResults.map(renderItem)}
                   {searchResults.length === 0 && (
                     <p className="px-3 py-6 text-xs text-muted-foreground text-center">
-                      {"Keine Ergebnisse"}
+                      Nema rezultata
                     </p>
                   )}
                 </>
@@ -443,16 +443,16 @@ export default function FormCenter() {
                     <Lock className="h-8 w-8 text-[hsl(var(--gold))]" />
                   </div>
                   <div>
-                    <h2 className="text-xl font-bold">{"Smart Guide mit Premium verfügbar"}</h2>
+                    <h2 className="text-xl font-bold">Smart Guide dostupan uz Premium</h2>
                     <p className="mt-2 text-sm text-muted-foreground max-w-sm mx-auto">
-                      {"Schalte den vollständigen Leitfaden für alle Formulare frei."}
+                      Otključaj kompletni vodič za sve formulare.
                     </p>
                   </div>
                   <button
                     onClick={() => navigate("/paketi")}
                     className="rounded-full bg-[hsl(var(--gold))] px-8 py-3 font-bold text-[hsl(225,45%,6%)] hover:opacity-90 transition-opacity"
                   >
-                    BalkanLink Premium — 9.99€/mj.
+                    BalkanLink Premium — 9,99€/mj.
                   </button>
                 </div>
               )}
@@ -466,7 +466,7 @@ export default function FormCenter() {
                     <Input
                       value={search}
                       onChange={(e) => setSearch(e.target.value)}
-                      placeholder={"Formulare suchen..."}
+                      placeholder="Pretraži formulare..."
                       className="pl-9 h-10 text-sm rounded-xl border-border/60 bg-card"
                     />
                   </div>
@@ -490,7 +490,7 @@ export default function FormCenter() {
                       </div>
                     ) : (
                       <p className="px-3 py-6 text-xs text-muted-foreground text-center">
-                        {"Keine Ergebnisse"}
+                        Nema rezultata
                       </p>
                     )
                   ) : (
@@ -548,9 +548,9 @@ export default function FormCenter() {
                   <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-[#FFF8EC] mb-6">
                     <FileText className="h-10 w-10 text-[#C9A84C]/40" />
                   </div>
-                  <h2 className="text-lg font-bold text-foreground/70">{"Formular wählen"}</h2>
+                  <h2 className="text-lg font-bold text-foreground/70">Izaberi formular</h2>
                   <p className="mt-2 max-w-sm text-sm text-muted-foreground">
-                    {"Formular aus der Liste wählen"}
+                    Izaberi formular iz liste
                   </p>
                 </>
               )}
