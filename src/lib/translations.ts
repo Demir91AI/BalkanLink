@@ -983,4 +983,13 @@ export const translations: Record<string, T> = {
   "general.back":     { bs: "Nazad", hr: "Natrag", sr: "Nazad", de: "Zurück" },
   "general.close":    { bs: "Zatvori", hr: "Zatvori", sr: "Zatvori", de: "Schließen" },
   "general.validUntil": { bs: "Vrijedi do", hr: "Vrijedi do", sr: "Važi do", de: "Gültig bis" },
+
+  // SMART GUIDE PAYWALL
+  "sg.back":          { bs: "Nazad", hr: "Natrag", sr: "Nazad", de: "Zurück" },
+  "sg.next":          { bs: "Dalje", hr: "Dalje", sr: "Dalje", de: "Weiter" },
+  "sg.paywall.title": { bs: "Smart Guide dostupan uz Premium", de: "Smart Guide nur mit Premium" },
+  "sg.paywall.desc":  { bs: "Otključaj kompletni vodič za popunjavanje svih formulara.", de: "Schalte den kompletten Formular-Guide frei." },
+  "sg.paywall.cta":   { bs: "BalkanLink Premium — 9,99€/mj.", de: "BalkanLink Premium — 9,99€/Monat" },
+  "sg.paywall.free":  { bs: "su besplatni", de: "sind kostenlos" },
+  "sg.paywall.req":   { bs: "zahtijeva Premium", de: "erfordert Premium" },
 };
