@@ -9,7 +9,6 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { NT_CATEGORIES } from "@/lib/nudim-trazim-constants";
-import { useSectionT } from "@/hooks/useSectionT";
 import { toast } from "sonner";
 import TurnstileWidget from "@/components/TurnstileWidget";
 import { verifyTurnstileToken } from "@/lib/turnstile";
@@ -20,7 +19,6 @@ interface Props {
 }
 
 export default function NtSubmitForm({ onClose, onProClick }: Props) {
-  const st = useSectionT();
   const [form, setForm] = useState({
     type: "",
     title: "",
@@ -39,11 +37,11 @@ export default function NtSubmitForm({ onClose, onProClick }: Props) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.type || !form.title || !form.category || !form.city || !form.description || !form.contact_type || !form.contact_value) {
-      toast.error(st("nt.fillAll"));
+      toast.error("Bitte füllen Sie alle Felder aus.");
       return;
     }
     if (!form.agreed) {
-      toast.error(st("nt.acceptTerms"));
+      toast.error("Sie müssen die Nutzungsbedingungen akzeptieren.");
       return;
     }
 
@@ -70,33 +68,33 @@ export default function NtSubmitForm({ onClose, onProClick }: Props) {
       });
     } catch {}
 
-    toast.success(st("nt.submitSuccess"));
+    toast.success("Anzeige erfolgreich gesendet! Sie wird nach Prüfung sichtbar.");
     onClose();
   };
 
   return (
     <Card className="border-border/60">
       <CardHeader>
-        <CardTitle className="text-xl">{st("nt.formTitle")}</CardTitle>
-        <p className="text-sm text-muted-foreground">{st("nt.formDesc")}</p>
+        <CardTitle className="text-xl">{"Anzeige kostenlos aufgeben"}</CardTitle>
+        <p className="text-sm text-muted-foreground">{"Die Veröffentlichung ist kostenlos. Danach kannst du die Anzeige als PRO hervorheben."}</p>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-5">
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label>{st("nt.adType")} *</Label>
+              <Label>{"Anzeigentyp"} *</Label>
               <Select value={form.type} onValueChange={(v) => set("type", v)}>
-                <SelectTrigger><SelectValue placeholder={st("nt.select")} /></SelectTrigger>
+                <SelectTrigger><SelectValue placeholder={"Auswählen..."} /></SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="nudim">{st("nt.offerDe")}</SelectItem>
-                  <SelectItem value="trazim">{st("nt.seekDe")}</SelectItem>
+                  <SelectItem value="nudim">{"Ich biete"}</SelectItem>
+                  <SelectItem value="trazim">{"Ich suche"}</SelectItem>
                 </SelectContent>
               </Select>
             </div>
             <div className="space-y-2">
-              <Label>{st("nt.category")} *</Label>
+              <Label>{"Kategorie"} *</Label>
               <Select value={form.category} onValueChange={(v) => set("category", v)}>
-                <SelectTrigger><SelectValue placeholder={st("nt.select")} /></SelectTrigger>
+                <SelectTrigger><SelectValue placeholder={"Auswählen..."} /></SelectTrigger>
                 <SelectContent>
                   {NT_CATEGORIES.map((c) => (
                     <SelectItem key={c.value} value={c.value}>{c.label}</SelectItem>
@@ -107,23 +105,23 @@ export default function NtSubmitForm({ onClose, onProClick }: Props) {
           </div>
 
           <div className="space-y-2">
-            <Label>{st("nt.adTitle")} *</Label>
-            <Input value={form.title} onChange={(e) => set("title", e.target.value)} placeholder={st("nt.adTitlePlaceholder")} />
+            <Label>{"Anzeigentitel"} *</Label>
+            <Input value={form.title} onChange={(e) => set("title", e.target.value)} placeholder={"Z.B. Biete Umzugshilfe"} />
           </div>
 
           <div className="space-y-2">
-            <Label>{st("nt.city")} *</Label>
-            <Input value={form.city} onChange={(e) => set("city", e.target.value)} placeholder={st("nt.cityExample")} />
+            <Label>{"Stadt / Ort"} *</Label>
+            <Input value={form.city} onChange={(e) => set("city", e.target.value)} placeholder={"Z.B. München"} />
           </div>
 
           <div className="space-y-2">
-            <Label>{st("nt.description")} *</Label>
+            <Label>{"Beschreibung"} *</Label>
             <Textarea
               value={form.description}
               onChange={(e) => {
                 if (e.target.value.length <= 300) set("description", e.target.value);
               }}
-              placeholder={st("nt.descPlaceholder")}
+              placeholder={"Beschreiben Sie detailliert, was Sie anbieten oder suchen..."}
               rows={4}
               maxLength={300}
             />
@@ -132,22 +130,22 @@ export default function NtSubmitForm({ onClose, onProClick }: Props) {
 
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label>{st("nt.contactVia")} *</Label>
+              <Label>{"Kontakt über"} *</Label>
               <Select value={form.contact_type} onValueChange={(v) => set("contact_type", v)}>
-                <SelectTrigger><SelectValue placeholder={st("nt.select")} /></SelectTrigger>
+                <SelectTrigger><SelectValue placeholder={"Auswählen..."} /></SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="phone">{st("nt.phone")}</SelectItem>
-                  <SelectItem value="email">{st("nt.email")}</SelectItem>
-                  <SelectItem value="message">{st("nt.message")}</SelectItem>
+                  <SelectItem value="phone">{"Telefon"}</SelectItem>
+                  <SelectItem value="email">{"E-Mail"}</SelectItem>
+                  <SelectItem value="message">{"Nachricht über Plattform"}</SelectItem>
                 </SelectContent>
               </Select>
             </div>
             <div className="space-y-2">
-              <Label>{st("nt.contactData")} *</Label>
+              <Label>{"Kontaktdaten"} *</Label>
               <Input
                 value={form.contact_value}
                 onChange={(e) => set("contact_value", e.target.value)}
-                placeholder={st("nt.contactPlaceholder")}
+                placeholder={"Telefon, E-Mail..."}
               />
             </div>
           </div>
@@ -162,13 +160,13 @@ export default function NtSubmitForm({ onClose, onProClick }: Props) {
               className="mt-0.5"
             />
             <label htmlFor="nt-agree" className="text-sm text-muted-foreground leading-relaxed">
-              {st("nt.agreeTerms")}
+              {"Ich akzeptiere die Nutzungsbedingungen und bestätige die Richtigkeit der Angaben. Anzeige ist 30 Tage aktiv."}
             </label>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 pt-2">
             <Button type="submit" className="gap-2">
-              <Send className="h-4 w-4" /> {st("nt.submitFree")}
+              <Send className="h-4 w-4" /> {"Anzeige kostenlos aufgeben"}
             </Button>
             {onProClick && (
               <Button
@@ -177,11 +175,11 @@ export default function NtSubmitForm({ onClose, onProClick }: Props) {
                 className="gap-2 border-[hsl(var(--gold))]/40 text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/10"
                 onClick={onProClick}
               >
-                <Star className="h-4 w-4" /> {st("nt.highlightPro")}
+                <Star className="h-4 w-4" /> {"Als PRO hervorheben"}
               </Button>
             )}
             <Button type="button" variant="ghost" onClick={onClose}>
-              {st("nt.cancel")}
+              {"Abbrechen"}
             </Button>
           </div>
         </form>

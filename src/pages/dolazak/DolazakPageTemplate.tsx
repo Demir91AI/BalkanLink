@@ -4,7 +4,6 @@ import { ChevronLeft, ExternalLink, FileText, Info, Lock } from "lucide-react";
 import { navigateBackOrHome } from "@/lib/navigation";
 import { motion } from "framer-motion";
 import { type ReactNode } from "react";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { useSubscription } from "@/hooks/useSubscription";
 import PremiumModal from "@/components/paywall/PremiumModal";
 
@@ -29,7 +28,6 @@ const fade = (i: number) => ({ initial: { opacity: 0, y: 14 }, animate: { opacit
 
 export default function DolazakPageTemplate({ title, subtitle, sections, links }: DolazakPageProps) {
   const navigate = useNavigate();
-  const { t } = useLanguage();
   const { isPremium } = useSubscription();
   const [showPremiumModal, setShowPremiumModal] = useState(false);
 
@@ -42,7 +40,7 @@ export default function DolazakPageTemplate({ title, subtitle, sections, links }
       <section className="border-b bg-primary py-10">
         <div className="container max-w-3xl">
           <button onClick={handleBack} className="back-button">
-            <ChevronLeft className="h-4 w-4" /> {t("common.back")}
+            <ChevronLeft className="h-4 w-4" /> {"Zurück"}
           </button>
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">{title}</h1>
           <p className="mt-2 text-sm text-primary-foreground/80 md:text-base">{subtitle}</p>
@@ -67,14 +65,14 @@ export default function DolazakPageTemplate({ title, subtitle, sections, links }
                   <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-card/80 backdrop-blur-sm z-10">
                     <Lock className="h-6 w-6 text-primary" />
                     <p className="text-sm font-semibold text-foreground text-center px-4">
-                      {t("paywall.stepLocked")}
+                      {"Dieser Schritt ist gesperrt"}
                     </p>
                     <div className="flex flex-col items-center gap-2">
                       <button
                         onClick={() => setShowPremiumModal(true)}
                         className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
                       >
-                        {t("paywall.unlockPremium")}
+                        {"Mit Premium freischalten"}
                       </button>
                       <button
                         onClick={() => {}}
@@ -97,7 +95,7 @@ export default function DolazakPageTemplate({ title, subtitle, sections, links }
         <section className="border-t bg-card pb-10 pt-6">
           <div className="container max-w-3xl text-center">
             <h3 className="mb-3 flex items-center justify-center gap-1.5 text-sm font-bold">
-              <Info className="h-4 w-4 text-primary" /> {t("common.directLinks") || "Službene informacije"}
+              <Info className="h-4 w-4 text-primary" /> {"Direktlinks"}
             </h3>
             <div className="flex flex-wrap justify-center gap-2">
               {links.map((l, i) => (
@@ -114,7 +112,7 @@ export default function DolazakPageTemplate({ title, subtitle, sections, links }
               ))}
             </div>
             <p className="mt-3 text-[11px] text-muted-foreground/70">
-              {t("common.officialDisclaimer")}
+              {"Informative Hinweise — keine Rechtsberatung."}
             </p>
           </div>
         </section>

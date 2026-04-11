@@ -3,7 +3,6 @@ import { SEO } from "@/components/SEO";
 import { X, Send, Copy, ShieldCheck, ExternalLink, BookOpen, ThumbsUp, ThumbsDown, Camera, Save, MessageCircle, Clock, User } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ReactMarkdown from "react-markdown";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { useChatLimit } from "@/hooks/usePremiumAccess";
 import { Link, useLocation } from "react-router-dom";
@@ -213,7 +212,6 @@ type PanelTab = "chat" | "deadlines" | "profile";
 
 // ── Main Component ──
 export default function ChatAssistant() {
-  const { language } = useLanguage();
   const { isPremium } = useAuth();
   const { canChat, remaining, recordQuery } = useChatLimit();
   const location = useLocation();

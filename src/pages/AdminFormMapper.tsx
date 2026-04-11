@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { useFormFields, useFieldMappings } from "@/hooks/useFormData";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { useQueryClient } from "@tanstack/react-query";
@@ -17,7 +16,6 @@ export default function AdminFormMapper() {
   const formSlug = slug ?? "kindergeld-kg1";
   const { data: fields } = useFormFields(formSlug);
   const { data: mappings } = useFieldMappings(formSlug);
-  const { t } = useLanguage();
   const { toast } = useToast();
   const queryClient = useQueryClient();
   const [search, setSearch] = useState("");
@@ -52,7 +50,7 @@ export default function AdminFormMapper() {
       height: mapForm.height,
     });
     if (!error) {
-      toast({ title: t("admin.mapper.saved") });
+      toast({ title: "Gespeichert!" });
       queryClient.invalidateQueries({ queryKey: ["field_mapping", formSlug] });
     }
   };
@@ -101,21 +99,21 @@ export default function AdminFormMapper() {
       <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
         <ChevronLeft className="h-4 w-4" /> Nazad
       </button>
-      <h1 className="font-heading text-xl font-extrabold mb-4">{t("admin.mapper.title")} — {formSlug}</h1>
+      <h1 className="font-heading text-xl font-extrabold mb-4">{"Formular-Mapper"} — {formSlug}</h1>
 
       {/* Coverage */}
       <div className="mb-6 flex flex-wrap items-center gap-4">
         <Badge variant="outline" className="text-xs">
-          {t("admin.mapper.coverage")}: {mapped}/{total} ({pct}%)
+          {"Abdeckung"}: {mapped}/{total} ({pct}%)
         </Badge>
         <div className="h-2 flex-1 max-w-xs rounded-full bg-muted overflow-hidden">
           <div className="h-full rounded-full bg-primary transition-all" style={{ width: `${pct}%` }} />
         </div>
         <Button variant="outline" size="sm" className="text-xs" onClick={handleExport}>
-          <Download className="mr-1 h-3 w-3" /> {t("admin.mapper.export")}
+          <Download className="mr-1 h-3 w-3" /> {"Exportieren"}
         </Button>
         <Button variant="outline" size="sm" className="text-xs" onClick={handleImport}>
-          <Upload className="mr-1 h-3 w-3" /> {t("admin.mapper.import")}
+          <Upload className="mr-1 h-3 w-3" /> {"Importieren"}
         </Button>
       </div>
 
@@ -124,7 +122,7 @@ export default function AdminFormMapper() {
         <div className="space-y-3">
           <div className="relative">
             <Search className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
-            <Input className="pl-9 text-xs" placeholder={t("admin.mapper.search")} value={search} onChange={e => setSearch(e.target.value)} />
+            <Input className="pl-9 text-xs" placeholder={"Felder suchen..."} value={search} onChange={e => setSearch(e.target.value)} />
           </div>
           <div className="max-h-[500px] space-y-1 overflow-y-auto rounded-xl border p-2">
             {filtered.map(f => (
@@ -148,7 +146,7 @@ export default function AdminFormMapper() {
           {/* Unmapped list */}
           {unmapped.length > 0 && (
             <div>
-              <p className="text-xs font-bold text-red-500 mb-1">{t("admin.mapper.unmapped")} ({unmapped.length})</p>
+              <p className="text-xs font-bold text-red-500 mb-1">{"Nicht zugeordnet"} ({unmapped.length})</p>
               <div className="max-h-[150px] space-y-0.5 overflow-y-auto text-[10px] text-muted-foreground">
                 {unmapped.map(f => <p key={f.field_key}>• {f.field_key} — {f.label_de}</p>)}
               </div>
@@ -190,12 +188,12 @@ export default function AdminFormMapper() {
                 </div>
               </div>
               <Button size="sm" className="text-xs" onClick={handleSave}>
-                <Check className="mr-1 h-3 w-3" /> {t("admin.mapper.saved").replace("!", "")}
+                <Check className="mr-1 h-3 w-3" /> {"Gespeichert!".replace("!", "")}
               </Button>
             </div>
           ) : (
             <div className="rounded-xl border border-dashed p-6 text-center">
-              <p className="text-xs text-muted-foreground">{t("admin.mapper.selectField")}</p>
+              <p className="text-xs text-muted-foreground">{"Feld wählen"}</p>
             </div>
           )}
         </div>

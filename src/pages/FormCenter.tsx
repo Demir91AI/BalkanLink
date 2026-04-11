@@ -11,7 +11,6 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import { getGuideBySlug } from "@/lib/guide-data";
 import { formCatalog, getAllFormEntries, type FormEntry, type FormGroup } from "@/lib/form-catalog";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { cn } from "@/lib/utils";
 import FormFreeContent from "@/components/FormFreeContent";
 import FormSmartGuide from "@/components/FormSmartGuide";
@@ -50,6 +49,7 @@ import FuehrerscheinGuideContent from "@/components/formulare/FuehrerscheinGuide
 import FahrzeugzulassungGuide from "@/components/formulare/FahrzeugzulassungGuide";
 import { navigateBackOrHome } from "@/lib/navigation";
 import FormRightPanel from "@/components/formCenter/FormRightPanel";
+import { label } from "@/lib/de-labels";
 
 type LangKey = "de" | "bs" | "hr" | "sr";
 
@@ -97,8 +97,7 @@ function BuergergeldInfoModal({ open, onClose, onOpenForm }: { open: boolean; on
 /* ─── Guide Content (right side) ─── */
 function GuideContent({ slug }: { slug: string }) {
   const guide = getGuideBySlug(slug);
-  const { t, language } = useLanguage();
-  const lang = getLangKey(language);
+  const lang = getLangKey("de");
   const freeLang = (lang === "hr" || lang === "sr" ? "bs" : lang) as "de" | "bs" | "en";
   const navigate = useNavigate();
 
@@ -179,7 +178,7 @@ function GuideContent({ slug }: { slug: string }) {
         </div>
         <div className="relative flex justify-center">
           <span className="bg-background px-4 text-xs font-semibold text-muted-foreground">
-            {t("formCenter.smartGuideLabel")}
+            {"Smart Guide"}
           </span>
         </div>
       </div>
@@ -194,7 +193,6 @@ export default function FormCenter() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const isMobile = useIsMobile();
-  const { t } = useLanguage();
   const { isPremium } = useSubscription();
   const [search, setSearch] = useState("");
   const [openGroups, setOpenGroups] = useState<Set<string>>(new Set());
@@ -260,7 +258,7 @@ export default function FormCenter() {
 
   const getGroupTitle = (group: FormGroup) => {
     if (!group.titleKey) return group.title;
-    const translatedTitle = t(group.titleKey);
+    const translatedTitle = label(group.titleKey);
     return translatedTitle === group.titleKey ? group.title : translatedTitle;
   };
 
@@ -306,9 +304,9 @@ export default function FormCenter() {
               <Lock className="h-8 w-8 text-[hsl(var(--gold))]" />
             </div>
             <div>
-              <h2 className="text-xl font-bold">{t("formCenter.premiumRequired")}</h2>
+              <h2 className="text-xl font-bold">{"Smart Guide mit Premium verfügbar"}</h2>
               <p className="mt-2 text-sm text-muted-foreground max-w-sm mx-auto">
-                {t("formCenter.premiumRequiredDesc")}
+                {"Schalte den vollständigen Leitfaden für alle Formulare frei."}
               </p>
             </div>
             <button
@@ -336,10 +334,10 @@ export default function FormCenter() {
       <div className="mb-6">
         <PageNavBar onBack={handleBack} />
         <h1 className="font-heading text-2xl font-extrabold sm:text-3xl">
-          {t("formCenter.title")}
+          {"Formulare"}
         </h1>
         <p className="mt-1 text-sm text-muted-foreground">
-          {t("formCenter.subtitle")}
+          {"Formulare korrekt ausfüllen"}
         </p>
         <div className="h-px mt-4 mb-6" style={{ background: '#F0EAD8' }} />
       </div>
@@ -352,7 +350,7 @@ export default function FormCenter() {
             <Input
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder={t("formCenter.searchPlaceholder")}
+              placeholder={"Formulare suchen..."}
               className="pl-9 h-10 text-sm rounded-xl border-[#E8E0D0] bg-white"
             />
           </div>
@@ -364,7 +362,7 @@ export default function FormCenter() {
                   {searchResults.map(renderItem)}
                   {searchResults.length === 0 && (
                     <p className="px-3 py-6 text-xs text-muted-foreground text-center">
-                      {t("formCenter.noResults")}
+                      {"Keine Ergebnisse"}
                     </p>
                   )}
                 </>
@@ -449,9 +447,9 @@ export default function FormCenter() {
                     <Lock className="h-8 w-8 text-[hsl(var(--gold))]" />
                   </div>
                   <div>
-                    <h2 className="text-xl font-bold">{t("formCenter.premiumRequired")}</h2>
+                    <h2 className="text-xl font-bold">{"Smart Guide mit Premium verfügbar"}</h2>
                     <p className="mt-2 text-sm text-muted-foreground max-w-sm mx-auto">
-                      {t("formCenter.premiumRequiredDesc")}
+                      {"Schalte den vollständigen Leitfaden für alle Formulare frei."}
                     </p>
                   </div>
                   <button
@@ -472,7 +470,7 @@ export default function FormCenter() {
                     <Input
                       value={search}
                       onChange={(e) => setSearch(e.target.value)}
-                      placeholder={t("formCenter.searchPlaceholder")}
+                      placeholder={"Formulare suchen..."}
                       className="pl-9 h-10 text-sm rounded-xl border-border/60 bg-card"
                     />
                   </div>
@@ -496,7 +494,7 @@ export default function FormCenter() {
                       </div>
                     ) : (
                       <p className="px-3 py-6 text-xs text-muted-foreground text-center">
-                        {t("formCenter.noResults")}
+                        {"Keine Ergebnisse"}
                       </p>
                     )
                   ) : (
@@ -554,9 +552,9 @@ export default function FormCenter() {
                   <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-[#FFF8EC] mb-6">
                     <FileText className="h-10 w-10 text-[#C9A84C]/40" />
                   </div>
-                  <h2 className="text-lg font-bold text-foreground/70">{t("formCenter.selectForm")}</h2>
+                  <h2 className="text-lg font-bold text-foreground/70">{"Formular wählen"}</h2>
                   <p className="mt-2 max-w-sm text-sm text-muted-foreground">
-                    {t("formCenter.selectFormDesc")}
+                    {"Formular aus der Liste wählen"}
                   </p>
                 </>
               )}

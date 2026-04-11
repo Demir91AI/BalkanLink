@@ -5,13 +5,11 @@ import { Search, MapPin, Phone, Globe, Plus, Building2, Filter, ChevronLeft } fr
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { useDirectoryListings } from "@/hooks/useDirectoryListings";
 import { ORIGIN_COUNTRIES, DIRECTORY_CATEGORIES, GERMAN_CITIES } from "@/lib/directory-constants";
 import { navigateBackOrHome } from "@/lib/navigation";
 
 export default function Directory() {
-  const { t } = useLanguage();
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
   const [city, setCity] = useState("");
@@ -36,15 +34,15 @@ export default function Directory() {
       <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
-            <ChevronLeft className="h-4 w-4" /> {t("common.back")}
+            <ChevronLeft className="h-4 w-4" /> {"Zurück"}
           </button>
-          <h1 className="text-2xl font-bold md:text-3xl">{t("dir.title")}</h1>
-          <p className="mt-1 text-muted-foreground">{t("dir.subtitle")}</p>
+          <h1 className="text-2xl font-bold md:text-3xl">{"Balkan-Unternehmen"}</h1>
+          <p className="mt-1 text-muted-foreground">{"Finde Dienste unserer Community"}</p>
         </div>
         <Button asChild>
           <Link to="/directory/submit">
             <Plus className="mr-2 h-4 w-4" />
-            {t("dir.add")}
+            {"Firma hinzufügen"}
           </Link>
         </Button>
       </div>
@@ -54,7 +52,7 @@ export default function Directory() {
         <div className="relative sm:col-span-2 lg:col-span-2">
           <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           <Input
-            placeholder={t("dir.searchPlaceholder")}
+            placeholder={"Firmen suchen..."}
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className="pl-9"
@@ -62,10 +60,10 @@ export default function Directory() {
         </div>
         <Select value={city} onValueChange={(v) => setCity(v === "all" ? "" : v)}>
           <SelectTrigger>
-            <SelectValue placeholder={t("dir.filterCity")} />
+            <SelectValue placeholder={"Nach Stadt filtern"} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">{t("dir.allCities")}</SelectItem>
+            <SelectItem value="all">{"Alle Städte"}</SelectItem>
             {GERMAN_CITIES.map((c) => (
               <SelectItem key={c} value={c}>{c}</SelectItem>
             ))}
@@ -73,10 +71,10 @@ export default function Directory() {
         </Select>
         <Select value={category} onValueChange={(v) => setCategory(v === "all" ? "" : v)}>
           <SelectTrigger>
-            <SelectValue placeholder={t("dir.filterCategory")} />
+            <SelectValue placeholder={"Nach Kategorie filtern"} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">{t("dir.allCategories")}</SelectItem>
+            <SelectItem value="all">{"Alle Kategorien"}</SelectItem>
             {DIRECTORY_CATEGORIES.map((c) => (
               <SelectItem key={c} value={c}>{c}</SelectItem>
             ))}
@@ -84,10 +82,10 @@ export default function Directory() {
         </Select>
         <Select value={origin} onValueChange={(v) => setOrigin(v === "all" ? "" : v)}>
           <SelectTrigger>
-            <SelectValue placeholder={t("dir.filterOrigin")} />
+            <SelectValue placeholder={"Nach Land filtern"} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">{t("dir.allOrigins")}</SelectItem>
+            <SelectItem value="all">{"Alle Länder"}</SelectItem>
             {ORIGIN_COUNTRIES.map((c) => (
               <SelectItem key={c.code} value={c.code}>
                 <span className="mr-2">{c.flag}</span>{c.label}
@@ -101,10 +99,10 @@ export default function Directory() {
         <div className="mb-4 flex items-center gap-2">
           <Filter className="h-4 w-4 text-muted-foreground" />
           <span className="text-sm text-muted-foreground">
-            {listings?.length ?? 0} {t("dir.results")}
+            {listings?.length ?? 0} {"Ergebnisse"}
           </span>
           <Button variant="ghost" size="sm" onClick={clearFilters} className="ml-auto text-xs">
-            {t("dir.clearFilters")}
+            {"Filter löschen"}
           </Button>
         </div>
       )}
@@ -173,7 +171,7 @@ export default function Directory() {
       ) : (
         <div className="flex flex-col items-center gap-3 py-16 text-center">
           <Building2 className="h-12 w-12 text-muted-foreground/40" />
-          <p className="text-muted-foreground">{t("dir.empty")}</p>
+          <p className="text-muted-foreground">{"Keine Ergebnisse"}</p>
         </div>
       )}
     </div>

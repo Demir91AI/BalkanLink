@@ -3,8 +3,6 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { NT_CATEGORIES, NT_RADIUS_OPTIONS, NT_SORT_OPTIONS } from "@/lib/nudim-trazim-constants";
-import { useSectionT } from "@/hooks/useSectionT";
-
 interface Filters {
   search: string;
   type: string;
@@ -20,8 +18,6 @@ interface Props {
 }
 
 export default function NtFilters({ filters, onChange }: Props) {
-  const st = useSectionT();
-
   return (
     <div className="space-y-4">
       {/* Search + Type Toggle */}
@@ -29,7 +25,7 @@ export default function NtFilters({ filters, onChange }: Props) {
         <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
-            placeholder={st("nt.searchPlaceholder")}
+            placeholder={"Anzeigen durchsuchen..."}
             value={filters.search}
             onChange={(e) => onChange({ search: e.target.value })}
             className="pl-10"
@@ -37,9 +33,9 @@ export default function NtFilters({ filters, onChange }: Props) {
         </div>
         <Tabs value={filters.type} onValueChange={(v) => onChange({ type: v })}>
           <TabsList className="h-10">
-            <TabsTrigger value="sve" className="px-4">{st("nt.all")}</TabsTrigger>
-            <TabsTrigger value="nudim" className="px-4">{st("nt.offer")}</TabsTrigger>
-            <TabsTrigger value="trazim" className="px-4">{st("nt.seek")}</TabsTrigger>
+            <TabsTrigger value="sve" className="px-4">{"Alle"}</TabsTrigger>
+            <TabsTrigger value="nudim" className="px-4">{"Ich biete"}</TabsTrigger>
+            <TabsTrigger value="trazim" className="px-4">{"Ich suche"}</TabsTrigger>
           </TabsList>
         </Tabs>
       </div>
@@ -47,9 +43,9 @@ export default function NtFilters({ filters, onChange }: Props) {
       {/* Dropdowns row */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         <Select value={filters.category} onValueChange={(v) => onChange({ category: v })}>
-          <SelectTrigger><SelectValue placeholder={st("nt.category")} /></SelectTrigger>
+          <SelectTrigger><SelectValue placeholder={"Kategorie"} /></SelectTrigger>
           <SelectContent>
-            <SelectItem value="sve">{st("nt.allCategories")}</SelectItem>
+            <SelectItem value="sve">{"Alle Kategorien"}</SelectItem>
             {NT_CATEGORIES.map((c) => (
               <SelectItem key={c.value} value={c.value}>{c.label}</SelectItem>
             ))}
@@ -57,7 +53,7 @@ export default function NtFilters({ filters, onChange }: Props) {
         </Select>
 
         <Input
-          placeholder={st("nt.cityPlaceholder")}
+          placeholder={"Stadt / Ort"}
           value={filters.city}
           onChange={(e) => onChange({ city: e.target.value })}
         />

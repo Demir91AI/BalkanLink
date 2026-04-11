@@ -5,8 +5,6 @@ import { useAuth } from "@/contexts/AuthContext";
 import { initiateCheckout, STRIPE_PRICE_IDS } from "@/lib/stripe";
 import AuthModal from "@/components/auth/AuthModal";
 import { useNavigate } from "react-router-dom";
-import { useLanguage } from "@/contexts/LanguageContext";
-
 type Trigger = "formular" | "guide" | "ai" | "kurs" | "viza";
 
 const TRIGGER_TEXT: Record<Trigger, { title: string; subtitle: string }> = {
@@ -43,7 +41,6 @@ interface PremiumModalProps {
 export default function PremiumModal({ isOpen, onClose, trigger, formularId }: PremiumModalProps) {
   const { user } = useAuth();
   const navigate = useNavigate();
-  const { t } = useLanguage();
   const [authOpen, setAuthOpen] = useState(false);
   const content = TRIGGER_TEXT[trigger];
 
@@ -99,7 +96,7 @@ export default function PremiumModal({ isOpen, onClose, trigger, formularId }: P
               className="h-12 w-full rounded-xl bg-[hsl(var(--gold))] text-sm font-bold text-white shadow-lg hover:bg-[hsl(var(--gold-light))]"
             >
               <Crown className="mr-2 h-4 w-4" />
-              {t("paywall.unlockPremium")}
+              {"Mit Premium freischalten"}
             </Button>
 
             {/* Single formular CTA (only for formular trigger) */}

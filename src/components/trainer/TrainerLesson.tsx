@@ -21,8 +21,6 @@ import LockedContentOverlay from "./LockedContentOverlay";
 import StageCard from "./StageCard";
 import SprachassistentSection from "./SprachassistentSection";
 import SectionHeader from "@/components/navigation/SectionHeader";
-import { useLanguage } from "@/contexts/LanguageContext";
-
 const FREE_PHRASE_LIMIT = 3;
 const TOTAL_PHRASES = 500;
 
@@ -41,7 +39,6 @@ interface Props {
 
 export default function TrainerLesson({ lesson, onBack }: Props) {
   const navigate = useNavigate();
-  const { t } = useLanguage();
   const [selectedStage, setSelectedStage] = useState<number | null>(null);
   const [step, setStep] = useState(0);
   const [results, setResults] = useState<boolean[]>([]);
@@ -58,9 +55,9 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
 
   // Translated stage labels
   const stageLabels = [
-    t("trainer.stage.grundlagen"),
-    t("trainer.stage.anwendung"),
-    t("trainer.stage.realitaet"),
+    "Grundlagen",
+    "Anwendung",
+    "Realität",
   ];
 
   useEffect(() => {
@@ -137,8 +134,8 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
   // Build breadcrumbs based on current depth
   const buildBreadcrumbs = (): BreadcrumbItem[] => {
     const crumbs: BreadcrumbItem[] = [
-      { label: t("home"), onClick: () => navigate("/") },
-      { label: t("deutschTrainer.title"), onClick: () => { onBack(); } },
+      { label: "Startseite", onClick: () => navigate("/") },
+      { label: "BalkanLink Deutsch", onClick: () => { onBack(); } },
       { label: lesson.level, onClick: () => { onBack(); } },
     ];
 
@@ -212,7 +209,7 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
             <div className="max-w-2xl rounded-2xl border border-white/[0.06] bg-white/[0.03] p-5">
               <div className="mb-3 flex items-center gap-2">
                 <AlertTriangle className="h-4 w-4 text-orange-400" />
-                <h3 className="text-sm font-bold text-white/80">{t("typical_mistakes")}</h3>
+                <h3 className="text-sm font-bold text-white/80">{"typical_mistakes"}</h3>
               </div>
               <div className="flex flex-col gap-2">
                 {lesson.commonMistakes.map((m, i) => (
@@ -239,7 +236,7 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
       >
         <div className="flex flex-col items-center">
           <Loader2 className="mb-3 h-8 w-8 animate-spin text-blue-400" />
-          <p className="text-sm font-medium text-white/50">{t("generating_tasks")}</p>
+          <p className="text-sm font-medium text-white/50">{"generating_tasks"}</p>
         </div>
       </div>
     );
@@ -405,7 +402,7 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
                 {exercise!.explanation}
               </div>
               <Button onClick={handleNext} className="h-12 rounded-xl font-bold text-white" style={{ background: "linear-gradient(135deg, #3b82f6, #06b6d4)" }}>
-                {t("next")} <ArrowRight className="ml-2 h-4 w-4" />
+                {"next"} <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </motion.div>
           )}

@@ -2,7 +2,6 @@ import { FileCheck, Clock, Briefcase, Home, Wifi, Star, Heart, File } from "luci
 import { SEO } from "@/components/SEO";
 import PageNavBar from "@/components/navigation/PageNavBar";
 import { useNavigate, useParams, Link } from "react-router-dom";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { navigateBackOrHome } from "@/lib/navigation";
 import { VORLAGEN_TEMPLATES, getTemplate } from "@/lib/vorlagen-templates";
 import VorlagenGenerator from "@/components/vorlagen/VorlagenGenerator";
@@ -26,7 +25,6 @@ const SECTIONS = [
 export default function Vorlagen() {
   const navigate = useNavigate();
   const { slug } = useParams();
-  const { t } = useLanguage();
   const { isPremium: canUseDocGenerator } = useSubscription();
 
   /* ── Individual template detail/generator view ── */

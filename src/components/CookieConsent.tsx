@@ -1,9 +1,9 @@
 import { useState, useEffect, useCallback } from "react";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 import { Switch } from "@/components/ui/switch";
 import { Shield, Settings, X } from "lucide-react";
+import { label } from "@/lib/de-labels";
 
 const COOKIE_KEY = "bl-cookie-consent";
 
@@ -35,7 +35,6 @@ function savePrefs(prefs: CookiePrefs) {
 }
 
 export default function CookieConsent() {
-  const { t } = useLanguage();
   const [visible, setVisible] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [prefs, setPrefs] = useState<CookiePrefs>(DEFAULT_PREFS);
@@ -98,8 +97,8 @@ export default function CookieConsent() {
             <div className="flex items-start gap-3 mb-4">
               <Shield className="h-5 w-5 text-[hsl(var(--brand-orange))] mt-0.5 shrink-0" />
               <div>
-                <h3 className="text-sm font-semibold text-white">{t("cookie.title")}</h3>
-                <p className="mt-1 text-xs leading-relaxed text-white/60">{t("cookie.desc")}</p>
+                <h3 className="text-sm font-semibold text-white">{"Wir verwenden Cookies"}</h3>
+                <p className="mt-1 text-xs leading-relaxed text-white/60">{"Wir verwenden Cookies zur Verbesserung der Plattform."}</p>
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-2">
@@ -108,14 +107,14 @@ export default function CookieConsent() {
                 onClick={() => accept(true)}
                 className="bg-[hsl(var(--brand-orange))] hover:bg-[hsl(var(--brand-orange))]/90 text-[hsl(var(--brand-orange-foreground))] font-semibold text-xs h-9"
               >
-                {t("cookie.acceptAll")}
+                {"Alle akzeptieren"}
               </Button>
               <Button
                 size="sm"
                 onClick={() => accept(false)}
                 className="bg-[hsl(var(--primary))] hover:bg-[hsl(var(--primary))]/80 text-white font-medium text-xs h-9 border border-white/20"
               >
-                {t("cookie.necessaryOnly")}
+                {"Nur notwendige"}
               </Button>
               <Button
                 size="sm"
@@ -124,7 +123,7 @@ export default function CookieConsent() {
                 className="text-white/60 hover:text-white hover:bg-white/5 text-xs h-9 gap-1.5"
               >
                 <Settings className="h-3.5 w-3.5" />
-                {t("cookie.settings")}
+                {"Einstellungen"}
               </Button>
             </div>
           </div>
@@ -137,10 +136,10 @@ export default function CookieConsent() {
           <DialogHeader>
             <DialogTitle className="text-white flex items-center gap-2">
               <Shield className="h-4 w-4 text-[hsl(var(--brand-orange))]" />
-              {t("cookie.settingsTitle")}
+              {"Cookie-Einstellungen"}
             </DialogTitle>
             <DialogDescription className="text-white/50 text-xs">
-              {t("cookie.settingsDesc")}
+              {"Wähle welche Cookies du erlauben möchtest."}
             </DialogDescription>
           </DialogHeader>
 
@@ -148,8 +147,8 @@ export default function CookieConsent() {
             {categories.map(({ key, labelKey, descKey, locked }) => (
               <div key={key} className="flex items-center justify-between gap-3 rounded-lg border border-white/8 p-3">
                 <div className="min-w-0">
-                  <p className="text-sm font-medium text-white/90">{t(labelKey)}</p>
-                  <p className="text-[11px] text-white/40 mt-0.5">{t(descKey)}</p>
+                  <p className="text-sm font-medium text-white/90">{label(labelKey)}</p>
+                  <p className="text-[11px] text-white/40 mt-0.5">{label(descKey)}</p>
                 </div>
                 <Switch
                   checked={prefs[key]}
@@ -167,14 +166,14 @@ export default function CookieConsent() {
               onClick={saveSettings}
               className="bg-[hsl(var(--primary))] hover:bg-[hsl(var(--primary))]/80 text-white font-medium text-xs h-10 w-full border border-white/20"
             >
-              {t("cookie.saveSettings")}
+              {"Einstellungen speichern"}
             </Button>
             <Button
               size="sm"
               onClick={() => accept(true)}
               className="bg-[hsl(var(--brand-orange))] hover:bg-[hsl(var(--brand-orange))]/90 text-[hsl(var(--brand-orange-foreground))] font-semibold text-xs h-10 w-full"
             >
-              {t("cookie.acceptAll")}
+              {"Alle akzeptieren"}
             </Button>
           </DialogFooter>
         </DialogContent>

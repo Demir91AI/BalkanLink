@@ -3,8 +3,6 @@ import {
   ShoppingBag, Baby, MoreHorizontal,
 } from "lucide-react";
 import { NT_CATEGORIES } from "@/lib/nudim-trazim-constants";
-import { useSectionT } from "@/hooks/useSectionT";
-
 const ICONS: Record<string, React.ElementType> = {
   Briefcase, Home, Wrench, Car,
   ShoppingBag, Baby, MoreHorizontal,
@@ -16,8 +14,6 @@ interface Props {
 }
 
 export default function NtCategoryChips({ active, onSelect }: Props) {
-  const st = useSectionT();
-
   return (
     <div className="flex flex-wrap gap-2">
       <button
@@ -28,7 +24,7 @@ export default function NtCategoryChips({ active, onSelect }: Props) {
             : "bg-secondary text-secondary-foreground hover:bg-accent"
         }`}
       >
-        {st("nt.all")}
+        {"Alle"}
       </button>
       {NT_CATEGORIES.map((c) => {
         const Icon = ICONS[c.icon];

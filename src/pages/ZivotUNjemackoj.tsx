@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import PageNavBar from "@/components/navigation/PageNavBar";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { label } from "@/lib/de-labels";
 import {
   Eye, TrendingUp, FileText, MessageSquare, Clock,
   AlertTriangle, Plane, CheckCircle, Euro, ListChecks,
@@ -662,10 +662,9 @@ const SOURCES = [
 
 export default function ZivotUNjemackoj() {
   const navigate = useNavigate();
-  const { language } = useLanguage();
-  const lang = T[language] ? language : "bs";
+  const lang = "de" as const;
   const t = (key: string) => T[lang]?.[key] ?? T.bs[key] ?? key;
-  const countries = COUNTRIES_I18N[lang] ?? COUNTRIES_I18N.bs;
+  const countries = COUNTRIES_I18N["de"] ?? COUNTRIES_I18N.bs;
 
   const ways = [
     { tagKey: "way1Tag", titleKey: "way1Title", descKey: "way1Desc", forKey: "way1For" },
@@ -716,32 +715,32 @@ export default function ZivotUNjemackoj() {
         {/* Breadcrumb */}
         <nav className="flex items-center gap-1.5 mb-6 text-[13px]">
           <button onClick={() => navigate("/")} className="text-[#9CA3AF] hover:underline">
-            {t("breadcrumbHome")}
+            {"breadcrumbHome"}
           </button>
           <span className="text-[#9CA3AF]">›</span>
-          <span className="text-[#2D2D2D] font-medium">{t("pageTitle")}</span>
+          <span className="text-[#2D2D2D] font-medium">{"pageTitle"}</span>
         </nav>
 
         {/* Header */}
         <div className="rounded-2xl p-6 sm:p-10 mb-8" style={{ background: "linear-gradient(135deg, #1a3a5c, #2d6a9f)" }}>
-          <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">{t("pageTitle")}</h1>
-          <p className="text-white/80 text-sm sm:text-base mb-4">{t("pageSubtitle")}</p>
+          <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">{"pageTitle"}</h1>
+          <p className="text-white/80 text-sm sm:text-base mb-4">{"pageSubtitle"}</p>
           <span className="inline-flex items-center gap-1.5 text-xs text-white/70 bg-white/15 px-3 py-1 rounded-full">
-            <Info className="h-3 w-3" /> {t("trustBadge")}
+            <Info className="h-3 w-3" /> {"trustBadge"}
           </span>
         </div>
 
         {/* SECTION 1 — Reality Check */}
         <section className="mb-8">
-          <SectionTitle icon={Eye} title={t("sec1Title")} />
+          <SectionTitle icon={Eye} title={"sec1Title"} />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
             {["card1", "card2", "card3", "card4"].map((k, i) => {
               const Icon = cardIcons[i];
               return (
                 <div key={k} className="bg-white rounded-xl border border-gray-200 shadow-sm p-5">
                   <Icon className="h-5 w-5 text-[#2d6a9f] mb-2" />
-                  <h3 className="font-bold text-[#2D2D2D] mb-1">{t(`${k}Title`)}</h3>
-                  <p className="text-sm text-[#6B6B6B]">{t(`${k}Text`)}</p>
+                  <h3 className="font-bold text-[#2D2D2D] mb-1">{label(`${k}Title`)}</h3>
+                  <p className="text-sm text-[#6B6B6B]">{label(`${k}Text`)}</p>
                 </div>
               );
             })}
@@ -750,8 +749,8 @@ export default function ZivotUNjemackoj() {
             <div className="flex items-start gap-2.5">
               <AlertTriangle className="h-5 w-5 text-amber-500 shrink-0 mt-0.5" />
               <div>
-                <p className="font-bold text-[#2D2D2D] mb-1">{t("realityTitle")}</p>
-                <p className="text-sm text-[#6B6B6B]">{t("realityText")}</p>
+                <p className="font-bold text-[#2D2D2D] mb-1">{"realityTitle"}</p>
+                <p className="text-sm text-[#6B6B6B]">{"realityText"}</p>
               </div>
             </div>
           </div>
@@ -761,18 +760,18 @@ export default function ZivotUNjemackoj() {
 
         {/* SECTION 2 — Ways */}
         <section className="mb-8">
-          <SectionTitle icon={Plane} title={t("sec2Title")} />
+          <SectionTitle icon={Plane} title={"sec2Title"} />
           <div className="flex flex-col gap-4">
             {ways.map((w) => (
               <div key={w.tagKey} className="bg-white rounded-xl border border-gray-200 shadow-sm p-5">
                 <span className="inline-block text-[11px] font-mono font-semibold px-2 py-0.5 rounded-full bg-[#e8f4fd] text-[#2d6a9f] mb-2">
-                  {t(w.tagKey)}
+                  {label(w.tagKey)}
                 </span>
-                <h3 className="font-bold text-[#2D2D2D] mb-1">{t(w.titleKey)}</h3>
-                <p className="text-sm text-[#6B6B6B] mb-2">{t(w.descKey)}</p>
-                <p className="text-xs text-[#9CA3AF] mb-3">{t(w.forKey)}</p>
+                <h3 className="font-bold text-[#2D2D2D] mb-1">{label(w.titleKey)}</h3>
+                <p className="text-sm text-[#6B6B6B] mb-2">{label(w.descKey)}</p>
+                <p className="text-xs text-[#9CA3AF] mb-3">{label(w.forKey)}</p>
                 <button onClick={() => navigate("/viza")} className="text-sm font-semibold text-[#2d6a9f] hover:underline">
-                  {t("wayCta")}
+                  {"wayCta"}
                 </button>
               </div>
             ))}
@@ -783,14 +782,14 @@ export default function ZivotUNjemackoj() {
 
         {/* SECTION 3 — Requirements */}
         <section className="mb-8">
-          <SectionTitle icon={CheckCircle} title={t("sec3Title")} />
+          <SectionTitle icon={CheckCircle} title={"sec3Title"} />
           <div className="flex flex-col gap-3">
             {reqs.map((r) => (
               <div key={r.titleKey} className="flex items-start gap-3">
                 <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-bold text-[#2D2D2D]">{t(r.titleKey)}</p>
-                  <p className="text-sm text-[#6B6B6B]">{t(r.textKey)}</p>
+                  <p className="font-bold text-[#2D2D2D]">{label(r.titleKey)}</p>
+                  <p className="text-sm text-[#6B6B6B]">{label(r.textKey)}</p>
                 </div>
               </div>
             ))}
@@ -801,32 +800,32 @@ export default function ZivotUNjemackoj() {
 
         {/* SECTION 4 — Finances */}
         <section className="mb-8">
-          <SectionTitle icon={Euro} title={t("sec4Title")} />
+          <SectionTitle icon={Euro} title={"sec4Title"} />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
             <div className="rounded-xl border border-red-200 p-5" style={{ background: "#fff1f2" }}>
-              <p className="text-2xl font-bold text-[#2D2D2D] mb-1">{t("minAmount")}</p>
-              <p className="text-sm font-semibold text-[#2D2D2D] mb-1">{t("minLabel")}</p>
-              <p className="text-xs text-[#6B6B6B]">{t("minNote")}</p>
+              <p className="text-2xl font-bold text-[#2D2D2D] mb-1">{"minAmount"}</p>
+              <p className="text-sm font-semibold text-[#2D2D2D] mb-1">{"minLabel"}</p>
+              <p className="text-xs text-[#6B6B6B]">{"minNote"}</p>
             </div>
             <div className="rounded-xl border border-green-200 p-5" style={{ background: "#f0fdf4" }}>
-              <p className="text-2xl font-bold text-[#2D2D2D] mb-1">{t("recAmount")}</p>
-              <p className="text-sm font-semibold text-[#2D2D2D] mb-1">{t("recLabel")}</p>
-              <p className="text-xs text-[#6B6B6B]">{t("recNote")}</p>
+              <p className="text-2xl font-bold text-[#2D2D2D] mb-1">{"recAmount"}</p>
+              <p className="text-sm font-semibold text-[#2D2D2D] mb-1">{"recLabel"}</p>
+              <p className="text-xs text-[#6B6B6B]">{"recNote"}</p>
             </div>
           </div>
           <div className="flex flex-col gap-2 mb-4">
             {["exp1", "exp2", "exp3", "exp4"].map((k) => (
-              <p key={k} className="text-sm text-[#2D2D2D]">{t(k)}</p>
+              <p key={k} className="text-sm text-[#2D2D2D]">{label(k)}</p>
             ))}
           </div>
-          <p className="text-xs text-[#9CA3AF] bg-gray-50 rounded-lg p-3">{t("expNote")}</p>
+          <p className="text-xs text-[#9CA3AF] bg-gray-50 rounded-lg p-3">{"expNote"}</p>
         </section>
 
         <hr className="border-t border-gray-100 my-8" />
 
         {/* SECTION 5 — Steps */}
         <section className="mb-8">
-          <SectionTitle icon={ListChecks} title={t("sec5Title")} />
+          <SectionTitle icon={ListChecks} title={"sec5Title"} />
           <div className="relative pl-8">
             <div className="absolute left-3 top-1 bottom-1 w-0.5 bg-[#2d6a9f]/20" />
             <div className="flex flex-col gap-6">
@@ -835,8 +834,8 @@ export default function ZivotUNjemackoj() {
                   <div className="absolute -left-8 top-0.5 w-6 h-6 rounded-full bg-[#2d6a9f] text-white flex items-center justify-center text-xs font-bold">
                     {i + 1}
                   </div>
-                  <p className="font-bold text-[#2D2D2D]">{t(s.titleKey)}</p>
-                  <p className="text-sm text-[#6B6B6B]">{t(s.textKey)}</p>
+                  <p className="font-bold text-[#2D2D2D]">{label(s.titleKey)}</p>
+                  <p className="text-sm text-[#6B6B6B]">{label(s.textKey)}</p>
                 </div>
               ))}
             </div>
@@ -847,7 +846,7 @@ export default function ZivotUNjemackoj() {
 
         {/* SECTION 6 — Countries */}
         <section className="mb-8">
-          <SectionTitle icon={Globe} title={t("sec6Title")} />
+          <SectionTitle icon={Globe} title={"sec6Title"} />
           <div className="flex flex-col gap-3 mb-4">
             {countries.map((c) => (
               <div key={c.name} className="bg-white rounded-xl border border-gray-200 shadow-sm p-4 flex items-start gap-3">
@@ -861,7 +860,7 @@ export default function ZivotUNjemackoj() {
             ))}
           </div>
           <button onClick={() => navigate("/viza")} className="text-sm font-semibold text-[#2d6a9f] hover:underline flex items-center gap-1">
-            <ExternalLink className="h-3.5 w-3.5" /> {t("sec6Cta")}
+            <ExternalLink className="h-3.5 w-3.5" /> {"sec6Cta"}
           </button>
         </section>
 
@@ -869,12 +868,12 @@ export default function ZivotUNjemackoj() {
 
         {/* SECTION 7 — Mistakes */}
         <section className="mb-8">
-          <SectionTitle icon={XCircle} title={t("sec7Title")} color="#DC2626" />
+          <SectionTitle icon={XCircle} title={"sec7Title"} color="#DC2626" />
           <div className="flex flex-col gap-3">
             {errors.map((e) => (
               <div key={e.titleKey} className="rounded-lg p-4 border-l-4 border-red-400 bg-red-50/50">
-                <p className="font-bold text-[#2D2D2D] mb-1">❌ {t(e.titleKey)}</p>
-                <p className="text-sm text-[#6B6B6B]">{t(e.textKey)}</p>
+                <p className="font-bold text-[#2D2D2D] mb-1">❌ {label(e.titleKey)}</p>
+                <p className="text-sm text-[#6B6B6B]">{label(e.textKey)}</p>
               </div>
             ))}
           </div>
@@ -884,18 +883,18 @@ export default function ZivotUNjemackoj() {
 
         {/* SECTION 8 — Sources */}
         <section className="mb-8">
-          <SectionTitle icon={BookOpen} title={t("sec8Title")} />
-          <p className="text-sm text-[#6B6B6B] mb-5">{t("sec8Intro")}</p>
+          <SectionTitle icon={BookOpen} title={"sec8Title"} />
+          <p className="text-sm text-[#6B6B6B] mb-5">{"sec8Intro"}</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {SOURCES.map((s) => (
               <div key={s.key} className="bg-white rounded-xl border border-gray-200 shadow-sm p-5">
                 <div className="w-10 h-10 rounded-lg bg-[#e8f4fd] flex items-center justify-center mb-3">
                   <BookOpen className="h-5 w-5 text-[#2d6a9f]" />
                 </div>
-                <p className="font-bold text-[#2D2D2D] mb-1">{t(`${s.key}Name`)}</p>
-                <p className="text-sm text-[#6B6B6B] mb-3">{t(`${s.key}Desc`)}</p>
+                <p className="font-bold text-[#2D2D2D] mb-1">{label(`${s.key}Name`)}</p>
+                <p className="text-sm text-[#6B6B6B] mb-3">{label(`${s.key}Desc`)}</p>
                 <a href={s.url} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-[#2d6a9f] hover:underline">
-                  {t("visit")}
+                  {"visit"}
                 </a>
               </div>
             ))}
@@ -904,16 +903,16 @@ export default function ZivotUNjemackoj() {
 
         {/* CTA Strip */}
         <div className="rounded-2xl p-6 sm:p-10 text-center" style={{ background: "linear-gradient(135deg, #1a3a5c, #2d6a9f)" }}>
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-5">{t("ctaTitle")}</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-5">{"ctaTitle"}</h2>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <button onClick={() => navigate("/viza")} className="px-5 py-2.5 rounded-lg bg-white text-[#1a3a5c] font-semibold text-sm hover:bg-white/90 transition-colors">
-              {t("ctaVisa")}
+              {"ctaVisa"}
             </button>
             <button onClick={() => navigate("/deutsch-trainer")} className="px-5 py-2.5 rounded-lg border border-white/50 text-white font-semibold text-sm hover:bg-white/10 transition-colors">
-              {t("ctaDeutsch")}
+              {"ctaDeutsch"}
             </button>
             <button onClick={() => navigate("/formulari")} className="px-5 py-2.5 rounded-lg border border-white/50 text-white font-semibold text-sm hover:bg-white/10 transition-colors">
-              {t("ctaForms")}
+              {"ctaForms"}
             </button>
           </div>
         </div>

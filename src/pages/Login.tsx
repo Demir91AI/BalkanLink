@@ -4,7 +4,6 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { LogIn, Mail, Lock } from "lucide-react";
 import PageNav from "@/components/navigation/PageNav";
 import TurnstileWidget from "@/components/TurnstileWidget";
@@ -18,12 +17,10 @@ export default function Login() {
   const [turnstileToken, setTurnstileToken] = useState("");
   const navigate = useNavigate();
   const { toast } = useToast();
-  const { t } = useLanguage();
-
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!acceptedTerms) {
-      toast({ title: t("auth.termsRequired") || "Bitte akzeptieren Sie die AGB und Datenschutzbestimmungen.", variant: "destructive" });
+      toast({ title: "Du musst die AGB akzeptieren.", variant: "destructive" });
       return;
     }
     setLoading(true);
@@ -40,9 +37,9 @@ export default function Login() {
     setLoading(false);
 
     if (error) {
-      toast({ title: t("auth.loginError"), description: error.message, variant: "destructive" });
+      toast({ title: "Falsche E-Mail oder Passwort.", description: error.message, variant: "destructive" });
     } else {
-      toast({ title: t("auth.loginSuccess") });
+      toast({ title: "Erfolgreich angemeldet!" });
       navigate("/");
     }
   };
@@ -123,15 +120,15 @@ export default function Login() {
                 className="mt-0.5 h-3.5 w-3.5 rounded border-border/60"
               />
               <label htmlFor="terms" className="cursor-pointer text-[11px] leading-relaxed text-muted-foreground/70">
-                {t("auth.termsLabel") || "Ich habe die"}{" "}
+                {"Ich akzeptiere die AGB"}{" "}
                 <Link to="/agb" target="_blank" className="font-medium text-[hsl(var(--brand-orange))] hover:underline">
-                  {t("auth.termsAGB") || "AGB"}
+                  {"AGB"}
                 </Link>{" "}
-                {t("auth.termsAnd") || "und die"}{" "}
+                {"und"}{" "}
                 <Link to="/datenschutz" target="_blank" className="font-medium text-[hsl(var(--brand-orange))] hover:underline">
-                  {t("auth.termsPrivacy") || "Datenschutzbestimmungen"}
+                  {"Datenschutzrichtlinie"}
                 </Link>{" "}
-                {t("auth.termsAccept") || "gelesen und akzeptiere sie."}
+                {"Ich akzeptiere"}
               </label>
             </div>
 
@@ -143,7 +140,7 @@ export default function Login() {
               disabled={loading || !acceptedTerms}
               className="w-full h-11 rounded-xl bg-gradient-to-r from-[hsl(var(--brand-orange))] to-[hsl(var(--gold-light))] text-white font-semibold text-sm shadow-md shadow-[hsl(var(--brand-orange)/0.25)] hover:shadow-lg hover:shadow-[hsl(var(--brand-orange)/0.35)] hover:brightness-105 active:scale-[0.98] transition-all duration-200 disabled:opacity-50 disabled:shadow-none"
             >
-              {loading ? t("auth.loginLoading") : "Prijavi se"}
+              {loading ? "Anmeldung..." : "Prijavi se"}
             </Button>
           </form>
 

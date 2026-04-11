@@ -7,13 +7,13 @@ import {
   Megaphone, CheckCircle2, Star, ExternalLink,
   ChevronLeft, ChevronRight, FileText, Shield, GraduationCap, Search, Home, Calculator, Map, Camera,
 } from "lucide-react";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 
 
 import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
 
 import FlowBanner from "@/components/home/FlowBanner";
+import { label } from "@/lib/de-labels";
 
 
 const slides = [
@@ -63,7 +63,6 @@ function CarouselArrows({ onLeft, onRight }: { onLeft: () => void; onRight: () =
 
 /* ─── Services Carousel ─── */
 function ServicesCarousel() {
-  const { t } = useLanguage();
   const doubled = [...serviceCardKeys, ...serviceCardKeys];
   const { ref, pause, scheduleResume, scrollByCard, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.6, 3000);
 
@@ -97,8 +96,8 @@ function ServicesCarousel() {
                   </span>
                 )}
               </div>
-              <h3 className={`text-sm font-semibold mb-1 ${isPremium ? "text-white" : "text-[#2D2D2D]"}`}>{t(card.titleKey)}</h3>
-              <p className={`text-xs leading-relaxed mb-4 flex-1 ${isPremium ? "text-white/60" : "text-[#6B6B6B]"}`}>{t(card.descKey)}</p>
+              <h3 className={`text-sm font-semibold mb-1 ${isPremium ? "text-white" : "text-[#2D2D2D]"}`}>{label(card.titleKey)}</h3>
+              <p className={`text-xs leading-relaxed mb-4 flex-1 ${isPremium ? "text-white/60" : "text-[#6B6B6B]"}`}>{label(card.descKey)}</p>
               <span
                 className={`block w-full rounded-lg py-2 text-center text-xs font-semibold transition-all duration-300 ${
                   isPremium
@@ -107,7 +106,7 @@ function ServicesCarousel() {
                 }`}
                 style={isPremium ? { background: "linear-gradient(135deg, hsl(43,70%,53%), hsl(38,65%,45%))", boxShadow: "0 2px 12px hsla(43,70%,53%,0.25)" } : undefined}
               >
-                {t(card.ctaKey)}
+                {label(card.ctaKey)}
               </span>
             </Link>
           );
@@ -119,7 +118,6 @@ function ServicesCarousel() {
 
 /* ─── Showcase Carousel ─── */
 function ShowcaseCarousel() {
-  const { t } = useLanguage();
   const { ref, pause, scheduleResume, scrollByCard, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.7, 3000);
 
   type CardItem = { type: "firm"; firm: typeof premiumShowcaseFirms[0] };
@@ -142,7 +140,7 @@ function ShowcaseCarousel() {
                     <img src={firm.logoUrl} alt={firm.logoAlt} className="h-6 max-w-[90px] object-contain" />
                   </div>
                   <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-[hsl(var(--gold))] px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-white">
-                    <Star className="h-2.5 w-2.5 fill-current" /> {t("home.recommended")}
+                    <Star className="h-2.5 w-2.5 fill-current" /> {"Empfohlen"}
                   </span>
                 </div>
                 <div className="flex flex-1 flex-col gap-3 p-5 border-t-[3px] border-[hsl(var(--gold))]">
@@ -158,18 +156,18 @@ function ShowcaseCarousel() {
                   <div className="mt-auto flex gap-2 pt-2">
                     <Button asChild size="sm" className="h-8 rounded-lg bg-[hsl(var(--gold))] px-4 text-xs font-bold text-white hover:bg-[hsl(var(--gold-dark))]">
                       {firm.website ? (
-                        <a href={firm.website} target="_blank" rel="noopener noreferrer">{t("home.viewMore")} <ExternalLink className="ml-1 h-3 w-3" /></a>
+                        <a href={firm.website} target="_blank" rel="noopener noreferrer">{"Ansehen"} <ExternalLink className="ml-1 h-3 w-3" /></a>
                       ) : (
-                        <Link to={`/firma/${firm.slug}`}>{t("home.viewMore")} <ExternalLink className="ml-1 h-3 w-3" /></Link>
+                        <Link to={`/firma/${firm.slug}`}>{"Ansehen"} <ExternalLink className="ml-1 h-3 w-3" /></Link>
                       )}
                     </Button>
                     <Button asChild variant="outline" size="sm" className="h-8 rounded-lg border-[#E8E0D0] px-4 text-xs font-semibold text-[#2D2D2D] hover:bg-[hsl(var(--warm-cream))]">
                       {firm.contactUrl ? (
-                        <a href={firm.contactUrl} target="_blank" rel="noopener noreferrer">{t("home.contact")}</a>
+                        <a href={firm.contactUrl} target="_blank" rel="noopener noreferrer">{"Kontakt"}</a>
                       ) : firm.phone ? (
-                        <a href={`tel:${firm.phone}`}>{t("home.contact")}</a>
+                        <a href={`tel:${firm.phone}`}>{"Kontakt"}</a>
                       ) : (
-                        <Link to={`/firma/${firm.slug}`}>{t("home.contact")}</Link>
+                        <Link to={`/firma/${firm.slug}`}>{"Kontakt"}</Link>
                       )}
                     </Button>
                   </div>
@@ -188,7 +186,6 @@ function ShowcaseCarousel() {
 /* ─── Main Page ─── */
 export default function Index() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const { t } = useLanguage();
   const navigate = useNavigate();
 
   const nextSlide = useCallback(() => {
@@ -223,12 +220,12 @@ export default function Index() {
                 className="font-heading font-[800] text-white"
                 style={{ fontSize: "clamp(2.4rem, 5vw, 4rem)", lineHeight: 1.15, textShadow: "0 2px 12px rgba(0,0,0,0.4)" }}
               >
-                {t("hero.titleWhite")}{" "}
-                <span style={{ color: "#C9A84C" }}>{t("hero.titleGold")}</span>
+                {"Dein Wegweiser durch"}{" "}
+                <span style={{ color: "#C9A84C" }}>{"das deutsche System."}</span>
               </h1>
 
               <p className="mx-auto mt-4 text-white" style={{ maxWidth: 560, fontSize: "1.1rem", opacity: 0.88, lineHeight: 1.6 }}>
-                {t("hero.subtitle")}
+                {"Die einzige Plattform, die deine Sprache spricht."}
               </p>
 
 
@@ -248,7 +245,7 @@ export default function Index() {
                   onMouseEnter={(e) => { e.currentTarget.style.filter = "brightness(1.1)"; e.currentTarget.style.transform = "scale(1.02)"; }}
                   onMouseLeave={(e) => { e.currentTarget.style.filter = ""; e.currentTarget.style.transform = ""; }}
                 >
-                  {t("hero.cta.primary")}
+                  {"Kostenlos starten"}
                 </button>
                 <button
                   onClick={() => navigate("/paketi")}
@@ -264,19 +261,19 @@ export default function Index() {
                   onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.1)"; }}
                   onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; }}
                 >
-                  {t("hero.cta.secondary")}
+                  {"Pakete ansehen"}
                 </button>
               </div>
 
               <p className="mx-auto mt-6 max-w-sm text-center text-white" style={{ fontSize: "0.72rem", opacity: 0.55 }}>
-                {t("hero.disclaimer")}
+                {"BalkanLink ist eine Bildungsplattform und kein Rechtsberater."}
               </p>
 
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.7 }} className="mt-6 flex flex-row flex-wrap items-center justify-center" style={{ gap: 28 }}>
                 {trustBadgeKeys.map((key) => (
                   <span key={key} className="flex items-center gap-1.5 font-medium text-white" style={{ fontSize: "0.85rem", opacity: 0.82, textShadow: "0 1px 3px rgba(0,0,0,0.6)" }}>
                     <CheckCircle2 className="h-4 w-4" style={{ color: "#C9A84C" }} />
-                    {t(key)}
+                    {label(key)}
                   </span>
                 ))}
               </motion.div>
@@ -409,9 +406,9 @@ export default function Index() {
       <section className="py-16 bg-white border-t border-[#E8E0D0]">
         <div className="container max-w-[1200px] mx-auto mb-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-            <p className="text-xs font-bold uppercase tracking-[0.26em] text-[hsl(var(--gold))]">{t("home.showcaseLabel")}</p>
+            <p className="text-xs font-bold uppercase tracking-[0.26em] text-[hsl(var(--gold))]">{"UNSERE PARTNER"}</p>
             <h2 className="mt-2 font-heading text-2xl font-extrabold text-[#2D2D2D]">
-              {t("home.showcaseTitle")}
+              {"Empfohlene Dienste"}
             </h2>
           </motion.div>
         </div>

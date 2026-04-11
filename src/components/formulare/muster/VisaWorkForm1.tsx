@@ -1,4 +1,3 @@
-import { useLanguage } from "@/contexts/LanguageContext";
 import { Info } from "lucide-react";
 
 const gold = "#C9A84C";
@@ -42,8 +41,6 @@ function CheckRow({ options, selected }: { options: string[]; selected: number }
 }
 
 export default function VisaWorkForm1() {
-  const { t } = useLanguage();
-
   return (
     <div className="mx-auto max-w-[800px] rounded-lg bg-white p-8 space-y-6" style={{ border: "1px solid #D0C8B0" }}>
       {/* Form Header */}
@@ -258,7 +255,7 @@ export default function VisaWorkForm1() {
 
       {/* Download hint */}
       <div className="rounded-lg p-4 text-xs leading-relaxed" style={{ background: "#FFF8EC", border: "1px solid #E8D9B0", color: "#4A4A4A" }}>
-        {t("visa_work_form_hint")}
+        {"visa_work_form_hint"}
       </div>
     </div>
   );

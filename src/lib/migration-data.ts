@@ -1,4 +1,3 @@
-import type { Language } from "./translations";
 import { localizeMigrationCountries } from "./migration-localization";
 
 // Data for "Nach Deutschland kommen" section — per country, per category

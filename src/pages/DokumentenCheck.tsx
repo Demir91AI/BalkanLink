@@ -7,8 +7,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { supabase } from "@/integrations/supabase/client";
 import ReactMarkdown from "react-markdown";
-import { useLanguage } from "@/contexts/LanguageContext";
-import { useSectionT } from "@/hooks/useSectionT";
 import { useNavigate } from "react-router-dom";
 import { navigateBackOrHome } from "@/lib/navigation";
 import { useSubscription } from "@/hooks/useSubscription";
@@ -180,8 +178,6 @@ async function fileToBase64(file: File): Promise<string> {
 }
 
 export default function DokumentenCheck() {
-  const { t } = useLanguage();
-  const st = useSectionT();
   const navigate = useNavigate();
   const [mode, setMode] = useState<InputMode>("upload");
   const [textInput, setTextInput] = useState("");
@@ -288,9 +284,9 @@ export default function DokumentenCheck() {
         <div className="container max-w-4xl px-4">
           <PageNavBar onBack={handleBack} />
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl lg:text-4xl">
-            {t("index.nav.docCheck")}
+            {"Dokumentenprüfung"}
           </h1>
-          <p className="mt-2 text-sm text-primary-foreground/80 max-w-xl leading-relaxed">{st("docCheck.subtitle")}</p>
+          <p className="mt-2 text-sm text-primary-foreground/80 max-w-xl leading-relaxed">{"Brief oder Dokument verstehen — ohne Speicherung, ohne Anmeldung."}</p>
           <div className="mt-4 flex flex-wrap gap-2">
             <span className="inline-block rounded-full bg-[hsl(var(--gold))]/20 px-3 py-1 text-xs font-semibold text-[hsl(var(--gold))]">
               2.99€ po dokumentu bez pretplate
@@ -309,8 +305,8 @@ export default function DokumentenCheck() {
             className="flex items-start gap-4 rounded-2xl border border-[hsl(var(--gold))]/20 bg-[hsl(var(--gold))]/5 p-5 sm:p-6">
             <Shield className="mt-0.5 h-6 w-6 shrink-0 text-[hsl(var(--gold))]" />
             <div>
-              <p className="font-bold text-foreground">{st("docCheck.privacyTitle")}</p>
-              <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{st("docCheck.privacyDesc")}</p>
+              <p className="font-bold text-foreground">{"Datenschutz"}</p>
+              <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{"Bitte schwärzen Sie Namen, Adresse und Aktenzeichen vor dem Hochladen. Dateien werden nicht gespeichert — nur kurz zur Analyse verarbeitet und sofort verworfen."}</p>
             </div>
           </motion.div>
 
@@ -321,7 +317,7 @@ export default function DokumentenCheck() {
             className="rounded-2xl border bg-card p-6 sm:p-8 shadow-sm">
             {(
               <div>
-                <label className="mb-3 block text-sm font-bold">{st("docCheck.uploadLabel")}</label>
+                <label className="mb-3 block text-sm font-bold">{"Dokument hochladen (PDF, JPG, PNG)"}</label>
                 {!file ? (
                   <div style={{display:'flex', flexDirection:'column', gap:'12px', width:'100%'}}>
 
@@ -400,7 +396,7 @@ export default function DokumentenCheck() {
           <div className="flex items-start gap-4 rounded-2xl border bg-card p-5">
             <Checkbox id="confirm" checked={confirmed} onCheckedChange={(v) => setConfirmed(v === true)} className="mt-0.5" />
             <label htmlFor="confirm" className="cursor-pointer text-sm leading-relaxed text-muted-foreground">
-              {st("docCheck.confirmLabel")}
+              {"Ich bestätige, dass ich keine sensiblen Daten (Ausweisnummer, Steuer-ID, IBAN, Gesundheitsdaten) hochlade/eingebe."}
             </label>
           </div>
 
@@ -408,10 +404,10 @@ export default function DokumentenCheck() {
           <div className="flex gap-3">
             <Button onClick={handleAnalyze} disabled={loading || !confirmed || !file} className="gap-2 rounded-xl px-6">
               {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <CheckCircle2 className="h-4 w-4" />}
-              {loading ? st("docCheck.analyzing") : st("docCheck.analyzeBtn")}
+              {loading ? "Analysiere…" : "Dokument analysieren"}
             </Button>
             {(analysis || textInput || file || error) && (
-              <Button variant="outline" onClick={handleClear} className="rounded-xl">{st("docCheck.reset")}</Button>
+              <Button variant="outline" onClick={handleClear} className="rounded-xl">{"Zurücksetzen"}</Button>
             )}
           </div>
 
@@ -529,10 +525,10 @@ export default function DokumentenCheck() {
                       {locked && (
                         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-background/80 backdrop-blur-sm rounded-b-2xl">
                           <Lock className="h-7 w-7 text-[hsl(var(--gold))] mb-3" />
-                          <p className="text-sm font-bold text-foreground mb-3">{st("docCheck.lockText")}</p>
+                          <p className="text-sm font-bold text-foreground mb-3">{"🔒 Detaillierte Schritte und Lösung in der Premium-Version verfügbar"}</p>
                           <button onClick={() => navigate("/paketi")}
                             className="rounded-full bg-[hsl(var(--gold))] px-5 py-2.5 text-xs font-bold text-[#0f1f3d] transition-all hover:opacity-90">
-                            {st("docCheck.premiumCta")}
+                            {"BalkanLink Premium — 9,99€/Mon."}
                           </button>
                         </div>
                       )}
@@ -555,7 +551,7 @@ export default function DokumentenCheck() {
           {/* ── Disclaimer ── */}
           <div className="rounded-2xl border border-border/40 bg-muted/20 p-5 text-xs text-muted-foreground leading-relaxed">
             <p>
-              <strong>{st("docCheck.disclaimerTitle")}</strong> {st("docCheck.disclaimerText")}
+              <strong>{"Datenschutz-Hinweis:"}</strong> {"Hochgeladene Dateien und eingegebene Texte werden ausschließlich zur einmaligen Analyse verwendet und sofort nach der Ausgabe verworfen. Es erfolgt keine dauerhafte Speicherung, kein Tracking und keine Weitergabe an Dritte. BalkanLink ist keine Behörde und bietet keine Rechtsberatung."}
             </p>
           </div>
         </div>

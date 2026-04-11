@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import { Check, Crown, ChevronLeft } from "lucide-react";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { navigateBackOrHome } from "@/lib/navigation";
 import { toast } from "sonner";
 
@@ -15,8 +14,6 @@ const features = [
 
 export default function Paketi() {
   const navigate = useNavigate();
-  const { t } = useLanguage();
-
   const handlePurchase = () => {
     toast.info("Plaćanje dolazi uskoro — kontaktiraj nas na kontakt@balkanlink.de");
   };
@@ -29,7 +26,7 @@ export default function Paketi() {
           className="mb-6 flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
         >
           <ChevronLeft className="h-4 w-4" />
-          {t("nav.back")}
+          {"Zurück"}
         </button>
 
         <div className="text-center mb-10">

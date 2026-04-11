@@ -4,7 +4,6 @@ import { supabase } from "@/integrations/supabase/client";
 import { checkSubscriptionStatus } from "@/lib/stripe";
 import { useSessionTimeout, consumeSessionExpiredFlag } from "@/hooks/useSessionTimeout";
 import { useToast } from "@/hooks/use-toast";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { getDisplayName } from "@/lib/display-name";
 
 interface AuthContextType {
@@ -42,8 +41,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [subscriptionEnd, setSubscriptionEnd] = useState<string | null>(null);
   const [profileData, setProfileData] = useState<{ first_name?: string | null } | null>(null);
   const { toast } = useToast();
-  const { t } = useLanguage();
-
   const fetchUserMeta = async (userId: string) => {
     setProfileLoading(true);
     try {
@@ -90,7 +87,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
           if (consumeSessionExpiredFlag()) {
             toast({
-              title: t("auth.sessionExpired"),
+              title: "Sitzung abgelaufen. Bitte melden Sie sich erneut an.",
               duration: 5000,
             });
           }

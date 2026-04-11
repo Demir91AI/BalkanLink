@@ -3,20 +3,16 @@ import { ArrowLeft, Phone, MapPin, Star, ChevronLeft, ChevronRight } from "lucid
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
-import { useLanguage } from "@/contexts/LanguageContext";
-
 export default function FirmDetail() {
   const { slug } = useParams<{ slug: string }>();
   const firm = premiumShowcaseFirms.find((f) => f.slug === slug);
   const [selectedImage, setSelectedImage] = useState(0);
-  const { t } = useLanguage();
-
   if (!firm) {
     return (
       <div className="flex min-h-[60vh] flex-col items-center justify-center gap-4">
-        <h1 className="text-2xl font-bold text-foreground">{t("firm.notFound")}</h1>
+        <h1 className="text-2xl font-bold text-foreground">{"Firma nicht gefunden"}</h1>
         <Button asChild variant="outline">
-          <Link to="/"><ArrowLeft className="mr-2 h-4 w-4" /> {t("common.back")}</Link>
+          <Link to="/"><ArrowLeft className="mr-2 h-4 w-4" /> {"Zurück"}</Link>
         </Button>
       </div>
     );
@@ -26,7 +22,7 @@ export default function FirmDetail() {
     <div className="mx-auto max-w-4xl px-4 py-8">
       {/* Back */}
       <Link to="/" className="mb-6 inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-        <ChevronLeft className="h-4 w-4" /> {t("firm.back")}
+        <ChevronLeft className="h-4 w-4" /> {"Zurück"}
       </Link>
 
       {/* Hero image */}
@@ -45,7 +41,7 @@ export default function FirmDetail() {
 
         {/* Premium badge */}
         <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-full border border-white/20 bg-gold/90 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.15em] text-gold-foreground shadow-lg">
-          <Star className="h-3 w-3 fill-current" /> {t("firm.recommended")}
+          <Star className="h-3 w-3 fill-current" /> {"Empfohlen"}
         </span>
 
         {/* Nav arrows */}
@@ -128,11 +124,11 @@ export default function FirmDetail() {
         {firm.website && (
           <div className="flex gap-3">
             <Button asChild className="btn-gold-gradient rounded-xl px-6 font-bold">
-              <a href={firm.website} target="_blank" rel="noopener noreferrer">{t("firm.visitWebsite")}</a>
+              <a href={firm.website} target="_blank" rel="noopener noreferrer">{"Webseite besuchen"}</a>
             </Button>
             {firm.contactUrl && (
               <Button asChild variant="outline" className="rounded-xl border-border/40 px-6 font-semibold">
-                <a href={firm.contactUrl} target="_blank" rel="noopener noreferrer">{t("firm.contact")}</a>
+                <a href={firm.contactUrl} target="_blank" rel="noopener noreferrer">{"Kontakt"}</a>
               </Button>
             )}
           </div>

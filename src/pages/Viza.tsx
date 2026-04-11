@@ -7,14 +7,12 @@ import PageNavBar from "@/components/navigation/PageNavBar";
 import { COUNTRY_CONTENT } from "@/data/vizaNavigatorContent";
 import { VisaContentRenderer } from "@/components/visaNavigator/VisaContentRenderer";
 import VisaRightPanel from "@/components/visaNavigator/VisaRightPanel";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { useSubscription } from "@/hooks/useSubscription";
 
 const FREE_ROUTES = 2;
 
 export default function Viza() {
   const navigate = useNavigate();
-  const { t } = useLanguage();
   const [searchParams, setSearchParams] = useSearchParams();
   const { isPremium } = useSubscription();
   const [showRouteLock, setShowRouteLock] = useState(false);
@@ -75,8 +73,8 @@ export default function Viza() {
 
         {/* Title */}
         <div className="mb-4">
-          <h1 className="text-[28px] font-bold text-[#2D2D2D]">{t("visaNavigator.title")}</h1>
-          <p className="text-[16px] text-[#6B6B6B] mt-1">{t("visaNavigator.subtitle")}</p>
+          <h1 className="text-[28px] font-bold text-[#2D2D2D]">{"Visa Navigator"}</h1>
+          <p className="text-[16px] text-[#6B6B6B] mt-1">{"Finde den richtigen Status für deine Situation"}</p>
         </div>
 
         {/* Breadcrumb */}
@@ -84,7 +82,7 @@ export default function Viza() {
           <button onClick={handleClearAll}
             className="text-[13px] transition-colors hover:underline"
             style={{ color: selectedCountry ? '#9CA3AF' : '#2D2D2D', fontWeight: selectedCountry ? 400 : 500 }}>
-            {t("visaNavigator.title")}
+            {"Visa Navigator"}
           </button>
           {selectedCountry && country && (
             <>
@@ -111,17 +109,17 @@ export default function Viza() {
           <div className="mb-6 flex flex-col sm:flex-row items-center gap-4 rounded-xl border-2 border-[hsl(var(--gold))]/30 bg-[#FFF8EC] px-5 py-4">
             <Lock className="h-5 w-5 text-[hsl(var(--gold))] shrink-0" />
             <p className="text-sm text-[#2D2D2D] flex-1">
-              <strong>{t("viza.banner.info")}</strong>{" "}
-              {t("viza.banner.desc")}
+              <strong>{"Viza Navigator — erste 2 Wege kostenlos."}</strong>{" "}
+              {"Schalte alle Visa-Wege mit Premium frei."}
             </p>
             <div className="flex gap-2 shrink-0">
               <button onClick={() => navigate("/premium")}
                 className="rounded-full bg-[hsl(var(--gold))] px-4 py-2 text-xs font-bold text-[#0f1f3d] hover:opacity-90 transition-opacity">
-                {t("viza.banner.cta")}
+                {"Premium — 9,99€/Monat"}
               </button>
               <button onClick={() => navigate("/paketi")}
                 className="rounded-full border border-border px-4 py-2 text-xs font-semibold hover:bg-muted transition-colors">
-                {t("viza.banner.more")}
+                {"Mehr erfahren"}
               </button>
             </div>
           </div>
@@ -133,7 +131,7 @@ export default function Viza() {
           <div className="hidden md:block w-[220px] flex-shrink-0">
             <div className="sticky top-6">
               <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-3 text-[hsl(var(--gold))]">
-                {t("visaNavigator.sidebar_eu")}
+                {"EU-Länder"}
               </p>
               <div className="flex flex-col gap-1 mb-5">
                 {euCountries.map(c => {
@@ -157,7 +155,7 @@ export default function Viza() {
               </div>
 
               <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-3 text-[hsl(var(--gold))]">
-                {t("visaNavigator.sidebar_balkan")}
+                {"Balkanländer"}
               </p>
               <div className="flex flex-col gap-1">
                 {nonEuCountries.map(c => {
@@ -185,7 +183,7 @@ export default function Viza() {
                 <>
                   <div className="h-px my-4" style={{ background: '#F0EAD8' }} />
                   <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-3 text-[hsl(var(--gold))]">
-                    {t("visaNavigator.sidebar_routes")}
+                    {"Routen"}
                   </p>
                   <div className="flex flex-col gap-1">
                     {country.routes.map((r, routeIndex) => {
@@ -270,10 +268,10 @@ export default function Viza() {
                   <div className="rounded-2xl border-2 border-[hsl(var(--gold))]/20 bg-card p-8 max-w-md">
                     <Lock className="h-10 w-10 text-[hsl(var(--gold))] mx-auto mb-4" />
                     <h3 className="text-lg font-bold text-foreground">
-                      {t("viza.paywall.title")}
+                      {"Dieser Weg ist nur mit Premium verfügbar"}
                     </h3>
                     <p className="text-sm text-muted-foreground mt-2">
-                      {t("viza.paywall.desc")}
+                      {"Die ersten 2 Wege pro Land sind kostenlos. Schalte alle Visa-Wege frei."}
                     </p>
                     <Button
                       onClick={() => navigate("/paketi")}
@@ -283,7 +281,7 @@ export default function Viza() {
                         color: 'hsl(var(--gold-foreground))',
                       }}
                     >
-                      {t("viza.paywall.cta")}
+                      {"BalkanLink Premium — 9,99€/Monat"}
                     </Button>
                   </div>
                 </div>

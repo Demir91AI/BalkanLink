@@ -10,7 +10,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { ORIGIN_COUNTRIES, DIRECTORY_CATEGORIES, GERMAN_CITIES } from "@/lib/directory-constants";
@@ -33,7 +32,6 @@ const schema = z.object({
 type FormValues = z.infer<typeof schema>;
 
 export default function DirectorySubmit() {
-  const { t } = useLanguage();
   const { user } = useAuth();
   const navigate = useNavigate();
   const [submitting, setSubmitting] = useState(false);
@@ -55,7 +53,7 @@ export default function DirectorySubmit() {
 
   const onSubmit = async (values: FormValues) => {
     if (!user) {
-      toast.error(t("dir.loginRequired"));
+      toast.error("Anmeldung erforderlich");
       navigate("/login");
       return;
     }
@@ -83,11 +81,11 @@ export default function DirectorySubmit() {
     setSubmitting(false);
 
     if (error) {
-      toast.error(t("dir.submitError"));
+      toast.error("Fehler beim Senden.");
       return;
     }
 
-    toast.success(t("dir.submitSuccess"));
+    toast.success("Erfolgreich hinzugefügt!");
     navigate("/directory");
   };
 
@@ -97,8 +95,8 @@ export default function DirectorySubmit() {
         <ChevronLeft className="h-4 w-4" /> Nazad
       </button>
 
-      <h1 className="mb-2 text-2xl font-bold">{t("dir.submitTitle")}</h1>
-      <p className="mb-8 text-muted-foreground">{t("dir.submitSubtitle")}</p>
+      <h1 className="mb-2 text-2xl font-bold">{"Firma hinzufügen"}</h1>
+      <p className="mb-8 text-muted-foreground">{"Füge dein Unternehmen zum Verzeichnis hinzu"}</p>
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
@@ -107,7 +105,7 @@ export default function DirectorySubmit() {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{t("dir.fieldName")} *</FormLabel>
+                <FormLabel>{"Name"} *</FormLabel>
                 <FormControl><Input {...field} maxLength={100} /></FormControl>
                 <FormMessage />
               </FormItem>
@@ -120,7 +118,7 @@ export default function DirectorySubmit() {
               name="category"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t("dir.fieldCategory")} *</FormLabel>
+                  <FormLabel>{"Kategorie"} *</FormLabel>
                   <Select onValueChange={field.onChange} value={field.value}>
                     <FormControl><SelectTrigger><SelectValue /></SelectTrigger></FormControl>
                     <SelectContent>
@@ -138,7 +136,7 @@ export default function DirectorySubmit() {
               name="city"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t("dir.fieldCity")} *</FormLabel>
+                  <FormLabel>{"Stadt"} *</FormLabel>
                   <Select onValueChange={field.onChange} value={field.value}>
                     <FormControl><SelectTrigger><SelectValue /></SelectTrigger></FormControl>
                     <SelectContent>
@@ -158,7 +156,7 @@ export default function DirectorySubmit() {
             name="origin_country"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{t("dir.fieldOrigin")} *</FormLabel>
+                <FormLabel>{"Herkunftsland"} *</FormLabel>
                 <Select onValueChange={field.onChange} value={field.value}>
                   <FormControl><SelectTrigger><SelectValue /></SelectTrigger></FormControl>
                   <SelectContent>
@@ -179,7 +177,7 @@ export default function DirectorySubmit() {
             name="address"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{t("dir.fieldAddress")}</FormLabel>
+                <FormLabel>{"Adresse"}</FormLabel>
                 <FormControl><Input {...field} maxLength={200} /></FormControl>
                 <FormMessage />
               </FormItem>
@@ -192,7 +190,7 @@ export default function DirectorySubmit() {
               name="phone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t("dir.fieldPhone")}</FormLabel>
+                  <FormLabel>{"Telefon"}</FormLabel>
                   <FormControl><Input {...field} maxLength={30} type="tel" /></FormControl>
                   <FormMessage />
                 </FormItem>
@@ -203,7 +201,7 @@ export default function DirectorySubmit() {
               name="website"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t("dir.fieldWebsite")}</FormLabel>
+                  <FormLabel>{"Webseite"}</FormLabel>
                   <FormControl><Input {...field} maxLength={200} placeholder="https://" /></FormControl>
                   <FormMessage />
                 </FormItem>
@@ -216,7 +214,7 @@ export default function DirectorySubmit() {
             name="description"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{t("dir.fieldDescription")}</FormLabel>
+                <FormLabel>{"Beschreibung"}</FormLabel>
                 <FormControl><Textarea {...field} maxLength={500} rows={3} /></FormControl>
                 <FormMessage />
               </FormItem>
@@ -227,7 +225,7 @@ export default function DirectorySubmit() {
 
           <Button type="submit" size="lg" className="w-full" disabled={submitting}>
             <Send className="mr-2 h-4 w-4" />
-            {submitting ? t("dir.submitting") : t("dir.submit")}
+            {submitting ? "Sende..." : "Absenden"}
           </Button>
         </form>
       </Form>

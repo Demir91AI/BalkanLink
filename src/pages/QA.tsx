@@ -8,7 +8,6 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { CATEGORIES, getCategoryBySlug } from "@/lib/categories";
 import { useQaItems } from "@/hooks/useQaItems";
 import { useAuth } from "@/contexts/AuthContext";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { navigateBackOrHome } from "@/lib/navigation";
@@ -18,8 +17,6 @@ export default function QA() {
   const navigate = useNavigate();
   const activeFilter = searchParams.get("filter") || "";
   const [searchText, setSearchText] = useState("");
-  const { t } = useLanguage();
-
   const { data: items, isLoading } = useQaItems({
     search: searchText || undefined,
     category: activeFilter || undefined,
@@ -43,8 +40,8 @@ export default function QA() {
         <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
           <ChevronLeft className="h-4 w-4" /> Nazad
         </button>
-        <h1 className="text-3xl font-bold md:text-4xl">{t("qa.title")}</h1>
-        <p className="mt-2 text-muted-foreground">{t("qa.subtitle")}</p>
+        <h1 className="text-3xl font-bold md:text-4xl">{"Fragen & Antworten"}</h1>
+        <p className="mt-2 text-muted-foreground">{"Häufig gestellte Fragen"}</p>
       </div>
 
       <div className="flex flex-col gap-8 lg:flex-row">
@@ -52,7 +49,7 @@ export default function QA() {
           <div className="relative mb-4">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
-              placeholder={t("qa.search")}
+              placeholder={"Fragen suchen..."}
               className="pl-10 bg-card"
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}
@@ -72,7 +69,7 @@ export default function QA() {
               )}
             >
               <Search className="h-4 w-4" />
-              <span>{t("qa.all")}</span>
+              <span>{"Alle"}</span>
             </button>
             {CATEGORIES.map((cat) => {
               const isActive = activeFilter === cat.slug;
@@ -101,7 +98,7 @@ export default function QA() {
               <activeCategory.icon className="h-5 w-5 text-primary" />
               <h2 className="text-lg font-semibold">{activeCategory.label}</h2>
               <Badge variant="secondary" className="ml-auto text-xs">
-                {items?.length ?? 0} {t("qa.results")}
+                {items?.length ?? 0} {"Ergebnisse"}
               </Badge>
             </div>
           )}
@@ -126,7 +123,7 @@ export default function QA() {
           ) : (
             <div className="flex flex-col items-center gap-3 rounded-xl border border-dashed py-16 text-center">
               <Search className="h-10 w-10 text-muted-foreground/40" />
-              <p className="text-muted-foreground">{t("qa.empty")}</p>
+              <p className="text-muted-foreground">{"Keine Ergebnisse"}</p>
             </div>
           )}
         </main>

@@ -6,7 +6,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
 import { AuthProvider, useAuth } from "@/contexts/AuthContext";
-import { LanguageProvider } from "@/contexts/LanguageContext";
 import { CountryProvider } from "@/contexts/CountryContext";
 import Layout from "@/components/layout/Layout";
 import HomeLayout from "@/components/layout/HomeLayout";
@@ -240,25 +239,20 @@ function AppRoutes() {
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <LanguageProvider>
     <TooltipProvider>
-      
       <Toaster />
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
-        
-          <CountryProvider>
+        <CountryProvider>
           <AuthProvider>
             <Suspense fallback={null}>
               <AppRoutes />
             </Suspense>
-            
           </AuthProvider>
-          </CountryProvider>
+        </CountryProvider>
       </BrowserRouter>
     </TooltipProvider>
-    </LanguageProvider>
   </QueryClientProvider>
 );
 

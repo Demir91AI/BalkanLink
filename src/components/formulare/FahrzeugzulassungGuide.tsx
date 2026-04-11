@@ -1,4 +1,4 @@
-import { useLanguage } from "@/contexts/LanguageContext";
+import { label } from "@/lib/de-labels";
 import {
   ExternalLink,
   AlertTriangle,
@@ -25,8 +25,6 @@ function BoldDash({ text }: { text: string }) {
 }
 
 export default function FahrzeugzulassungGuide() {
-  const { t } = useLanguage();
-
   const types = ["fz_type1", "fz_type2", "fz_type3", "fz_type4", "fz_type5", "fz_type6"];
   const whos = ["fz_who1", "fz_who2", "fz_who3", "fz_who4", "fz_who5", "fz_who6"];
   const docs = ["fz_doc1", "fz_doc2", "fz_doc3", "fz_doc4", "fz_doc5", "fz_doc6", "fz_doc7", "fz_doc8", "fz_doc9"];
@@ -40,21 +38,21 @@ export default function FahrzeugzulassungGuide() {
     <div className="space-y-8">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-extrabold tracking-tight">🚗 {t("fz_title")}</h1>
-        <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{t("fz_subtitle")}</p>
+        <h1 className="text-2xl font-extrabold tracking-tight">🚗 {"Fahrzeugzulassung in Deutschland"}</h1>
+        <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{"Vollständiger Leitfaden für An-, Ab- und Ummeldung von Fahrzeugen — inkl. Import aus dem Ausland."}</p>
       </div>
 
       {/* S1 — What is it */}
       <section className="rounded-xl border bg-card p-5 space-y-3">
         <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-muted-foreground">
-          <Car className="h-4 w-4 text-[#C9A84C]" /> {t("fz_s1")}
+          <Car className="h-4 w-4 text-[#C9A84C]" /> {"Was ist eine Zulassung?"}
         </h2>
-        <p className="text-sm text-muted-foreground leading-relaxed">{t("fz_what")}</p>
+        <p className="text-sm text-muted-foreground leading-relaxed">{"Die Zulassung ist die amtliche Anmeldung eines Fahrzeugs bei der zuständigen Behörde. Ohne sie darf man nicht auf öffentlichen Straßen in Deutschland fahren."}</p>
         <ul className="space-y-1.5">
           {types.map((key) => (
             <li key={key} className="flex items-start gap-2 text-sm">
               <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#C9A84C]" />
-              <BoldDash text={t(key)} />
+              <BoldDash text={label(key)} />
             </li>
           ))}
         </ul>
@@ -63,13 +61,13 @@ export default function FahrzeugzulassungGuide() {
       {/* S2 — Who must register */}
       <section className="rounded-xl border bg-card p-5 space-y-3">
         <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-muted-foreground">
-          <Users className="h-4 w-4 text-[#C9A84C]" /> {t("fz_s2")}
+          <Users className="h-4 w-4 text-[#C9A84C]" /> {"Wer muss ein Fahrzeug zulassen?"}
         </h2>
         <ul className="space-y-2">
           {whos.map((key) => (
             <li key={key} className="flex items-start gap-2 text-sm">
               <span className="shrink-0 mt-1 h-1.5 w-1.5 rounded-full bg-[#C9A84C]" />
-              <BoldDash text={t(key)} />
+              <BoldDash text={label(key)} />
             </li>
           ))}
         </ul>
@@ -78,13 +76,13 @@ export default function FahrzeugzulassungGuide() {
       {/* S3 — Documents */}
       <section className="rounded-xl border bg-card p-5 space-y-3">
         <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-muted-foreground">
-          <FileText className="h-4 w-4 text-[#C9A84C]" /> {t("fz_s3")}
+          <FileText className="h-4 w-4 text-[#C9A84C]" /> {"Benötigte Unterlagen"}
         </h2>
         <ul className="space-y-1.5">
           {docs.map((key) => (
             <li key={key} className="flex items-start gap-2 text-sm">
               <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#C9A84C]" />
-              <BoldDash text={t(key)} />
+              <BoldDash text={label(key)} />
             </li>
           ))}
         </ul>
@@ -93,7 +91,7 @@ export default function FahrzeugzulassungGuide() {
       {/* S4 — Steps */}
       <section className="rounded-xl border bg-card p-5 space-y-3">
         <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-muted-foreground">
-          <ListOrdered className="h-4 w-4 text-[#C9A84C]" /> {t("fz_s4")}
+          <ListOrdered className="h-4 w-4 text-[#C9A84C]" /> {"Schritte zur Zulassung"}
         </h2>
         <ol className="space-y-2.5">
           {steps.map((key, i) => (
@@ -101,7 +99,7 @@ export default function FahrzeugzulassungGuide() {
               <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#C9A84C]/10 text-[10px] font-bold text-[#C9A84C]">
                 {i + 1}
               </span>
-              <BoldDash text={t(key)} />
+              <BoldDash text={label(key)} />
             </li>
           ))}
         </ol>
@@ -110,13 +108,13 @@ export default function FahrzeugzulassungGuide() {
       {/* S5 — Registration types */}
       <section className="rounded-xl border bg-card p-5 space-y-3">
         <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-muted-foreground">
-          <Car className="h-4 w-4 text-[#C9A84C]" /> {t("fz_s5")}
+          <Car className="h-4 w-4 text-[#C9A84C]" /> {"Arten der Zulassung"}
         </h2>
         <ul className="space-y-1.5">
           {regs.map((key) => (
             <li key={key} className="flex items-start gap-2 text-sm">
               <span className="shrink-0 mt-1 h-1.5 w-1.5 rounded-full bg-[#C9A84C]" />
-              <BoldDash text={t(key)} />
+              <BoldDash text={label(key)} />
             </li>
           ))}
         </ul>
@@ -125,21 +123,21 @@ export default function FahrzeugzulassungGuide() {
       {/* S6 — Where */}
       <section className="rounded-xl border bg-card p-5 space-y-3">
         <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-muted-foreground">
-          <MapPin className="h-4 w-4 text-[#C9A84C]" /> {t("fz_s6")}
+          <MapPin className="h-4 w-4 text-[#C9A84C]" /> {"Wo meldet man das Fahrzeug an?"}
         </h2>
-        <p className="text-sm text-muted-foreground leading-relaxed">{t("fz_where")}</p>
+        <p className="text-sm text-muted-foreground leading-relaxed">{"Bei der örtlichen Kfz-Zulassungsstelle. Termin muss im Voraus vereinbart werden — online oder telefonisch. In Großstädten (Berlin, München, Hamburg) kann die Wartezeit 2–6 Wochen betragen."}</p>
       </section>
 
       {/* S7 — Costs */}
       <section className="rounded-xl border bg-card p-5 space-y-3">
         <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-muted-foreground">
-          <Clock className="h-4 w-4 text-[#C9A84C]" /> {t("fz_s7")}
+          <Clock className="h-4 w-4 text-[#C9A84C]" /> {"Kosten"}
         </h2>
         <ul className="space-y-1.5">
           {costs.map((key) => (
             <li key={key} className="flex items-start gap-2 text-sm text-muted-foreground">
               <span className="shrink-0 mt-1 h-1.5 w-1.5 rounded-full bg-[#C9A84C]" />
-              {t(key)}
+              {label(key)}
             </li>
           ))}
         </ul>
@@ -148,14 +146,14 @@ export default function FahrzeugzulassungGuide() {
       {/* S8 — Import */}
       <section className="rounded-xl border bg-card p-5 space-y-3">
         <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-muted-foreground">
-          <Globe className="h-4 w-4 text-[#C9A84C]" /> {t("fz_s8")}
+          <Globe className="h-4 w-4 text-[#C9A84C]" /> {"Wichtige Infos zum Fahrzeugimport"}
         </h2>
-        <p className="text-sm font-medium text-foreground">{t("fz_imp_intro")}</p>
+        <p className="text-sm font-medium text-foreground">{"Wenn Sie ein Fahrzeug aus BiH, Serbien oder einem anderen Nicht-EU-Land importieren, beachten Sie Folgendes:"}</p>
         <ul className="space-y-1.5">
           {imports.map((key) => (
             <li key={key} className="flex items-start gap-2 text-sm">
               <span className="shrink-0 mt-1 h-1.5 w-1.5 rounded-full bg-[#C9A84C]" />
-              <BoldDash text={t(key)} />
+              <BoldDash text={label(key)} />
             </li>
           ))}
         </ul>
@@ -164,13 +162,13 @@ export default function FahrzeugzulassungGuide() {
       {/* S9 — Mistakes */}
       <section className="rounded-xl border border-destructive/20 bg-destructive/5 p-5 space-y-3">
         <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-[#EF4444]">
-          <AlertTriangle className="h-4 w-4 text-[#EF4444]" /> {t("fz_s9")}
+          <AlertTriangle className="h-4 w-4 text-[#EF4444]" /> {"Häufige Fehler"}
         </h2>
         <ul className="space-y-1.5">
           {errors.map((key) => (
             <li key={key} className="flex items-start gap-2 text-sm">
               <span className="shrink-0 mt-1 h-1.5 w-1.5 rounded-full bg-destructive" />
-              <BoldDash text={t(key)} />
+              <BoldDash text={label(key)} />
             </li>
           ))}
         </ul>
@@ -179,29 +177,29 @@ export default function FahrzeugzulassungGuide() {
       {/* S10 — Links */}
       <section className="rounded-xl border bg-card p-5 space-y-3">
         <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-muted-foreground">
-          <LinkIcon className="h-4 w-4 text-[#C9A84C]" /> {t("fz_s10")}
+          <LinkIcon className="h-4 w-4 text-[#C9A84C]" /> {"Nützliche Links"}
         </h2>
         <div className="flex flex-wrap gap-2">
           <a
-            href={t("fz_link1_url")}
+            href={"https://www.kba.de"}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2.5 text-xs font-semibold text-foreground transition-colors hover:bg-accent"
           >
             <ExternalLink className="h-3.5 w-3.5" />
-            {t("fz_link1_label")}
+            {"Zulassungsstelle-Finder"}
           </a>
           <a
-            href={t("fz_link2_url")}
+            href={"https://www.adac.de/rund-ums-fahrzeug/auto-kaufen-verkaufen/kfz-zulassung/"}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2.5 text-xs font-semibold text-foreground transition-colors hover:bg-accent"
           >
             <ExternalLink className="h-3.5 w-3.5" />
-            {t("fz_link2_label")}
+            {"ADAC — Tipps zur Zulassung"}
           </a>
         </div>
-        <p className="text-center text-xs italic text-muted-foreground">{t("fz_source")}</p>
+        <p className="text-center text-xs italic text-muted-foreground">{"Quelle: KBA, ADAC, Zoll.de"}</p>
       </section>
     </div>
   );

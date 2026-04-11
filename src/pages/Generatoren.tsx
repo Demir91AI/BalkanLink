@@ -1,7 +1,7 @@
 import { ExternalLink, Calculator, AlertTriangle, Euro, ChevronLeft } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { navigateBackOrHome } from "@/lib/navigation";
+import { label } from "@/lib/de-labels";
 
 /* ───────── OFFICIAL CALCULATORS ───────── */
 const officialTools = [
@@ -13,7 +13,6 @@ const officialTools = [
 ];
 
 export default function Generatoren() {
-  const { t } = useLanguage();
   const navigate = useNavigate();
 
   return (
@@ -25,8 +24,8 @@ export default function Generatoren() {
             <ChevronLeft className="h-4 w-4" /> Nazad
           </button>
           <div className="text-center">
-          <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">{t("tools.pageTitle")}</h1>
-          <p className="mt-2 text-sm text-primary-foreground/80 md:text-base">{t("tools.pageSubtitle")}</p>
+          <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">{"Tools & Rechner"}</h1>
+          <p className="mt-2 text-sm text-primary-foreground/80 md:text-base">{"Nützliche Tools für den Alltag"}</p>
           </div>
         </div>
       </section>
@@ -38,9 +37,9 @@ export default function Generatoren() {
           <div className="mb-4">
             <h2 className="flex items-center gap-2 text-base font-semibold">
               <Euro className="h-4 w-4 text-primary" />
-              {t("tools.bruttoNetto")}
+              {"Brutto-Netto-Rechner"}
             </h2>
-            <p className="mt-1 text-xs text-muted-foreground">{t("tools.bruttoNetto.desc")}</p>
+            <p className="mt-1 text-xs text-muted-foreground">{"Berechne dein Nettogehalt"}</p>
           </div>
 
           <div className="rounded-lg border bg-card p-5 shadow-sm">
@@ -60,7 +59,7 @@ export default function Generatoren() {
           <div className="mb-4 mt-12">
             <h2 className="flex items-center gap-2 text-base font-semibold">
               <Calculator className="h-4 w-4 text-primary" />
-              {t("tools.officialTitle")}
+              {"Offizielle Informationen"}
             </h2>
             <p className="mt-1 text-sm text-muted-foreground">
               Oficijelni kalkulatori njemačkih institucija.
@@ -76,11 +75,11 @@ export default function Generatoren() {
                   <Calculator className="h-5 w-5" strokeWidth={1.5} />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <h3 className="text-sm font-semibold">{t(tool.titleKey)}</h3>
-                  <p className="mt-1 text-xs text-muted-foreground">{t(tool.descKey)}</p>
+                  <h3 className="text-sm font-semibold">{label(tool.titleKey)}</h3>
+                  <p className="mt-1 text-xs text-muted-foreground">{label(tool.descKey)}</p>
                   <a href={tool.url} target="_blank" rel="noopener noreferrer"
                     className="mt-2 inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-1.5 text-xs font-medium text-primary-foreground hover:bg-primary/90 transition-colors">
-                    {t("tools.openOfficial")} <ExternalLink className="h-3 w-3" />
+                    {"Offizielle Seite öffnen"} <ExternalLink className="h-3 w-3" />
                   </a>
                 </div>
               </div>
@@ -90,7 +89,7 @@ export default function Generatoren() {
           {/* ── Disclaimer ── */}
           <div className="mt-10 flex items-start gap-2 rounded-md border border-border bg-muted/40 p-4">
             <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" />
-            <p className="text-xs text-muted-foreground">{t("tools.disclaimer")}</p>
+            <p className="text-xs text-muted-foreground">{"Informative Schätzung — keine Rechtsberatung."}</p>
           </div>
         </div>
       </section>

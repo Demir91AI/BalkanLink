@@ -2,7 +2,6 @@ import { Star, Check, X, Crown, Flame } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { useSectionT } from "@/hooks/useSectionT";
 import { toast } from "sonner";
 
 interface Props {
@@ -11,13 +10,12 @@ interface Props {
 }
 
 export default function NtProModal({ open, onClose }: Props) {
-  const st = useSectionT();
   const [selected, setSelected] = useState<"free" | "pro" | "premium">("pro");
 
   if (!open) return null;
 
   const handleActivate = () => {
-    toast.success(st("nt.proActivated"));
+    toast.success("PRO-Aktivierung wird vorbereitet. Vielen Dank!");
     onClose();
   };
 

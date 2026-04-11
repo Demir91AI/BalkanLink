@@ -2,23 +2,20 @@ import { useNavigate } from "react-router-dom";
 import { ArrowLeft, GraduationCap } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { navigateBackOrHome } from "@/lib/navigation";
 
 export default function TrainerFaq() {
   const navigate = useNavigate();
-  const { t } = useLanguage();
-
   const faqs = [
-    { q: t("trainerFaq.q1"), a: t("trainerFaq.a1") },
-    { q: t("trainerFaq.q2"), a: t("trainerFaq.a2") },
-    { q: t("trainerFaq.q3"), a: t("trainerFaq.a3") },
-    { q: t("trainerFaq.q4"), a: t("trainerFaq.a4") },
-    { q: t("trainerFaq.q5"), a: t("trainerFaq.a5") },
-    { q: t("trainerFaq.q6"), a: t("trainerFaq.a6") },
-    { q: t("trainerFaq.q7"), a: t("trainerFaq.a7") },
-    { q: t("trainerFaq.q8"), a: t("trainerFaq.a8") },
-    { q: t("trainerFaq.q9"), a: t("trainerFaq.a9") },
+    { q: "Was ist in der Free-Version enthalten?", a: "Du bekommst 3 Lektionen pro Niveau mit Aufgaben und 3 Sprachassistent-Sätze pro Lektion – kostenlos." },
+    { q: "Was ist im Ultimate-Paket enthalten?", a: "Mit Ultimate erhältst du alle Lektionen, vollen Sprachassistenten-Zugriff und dynamisch generierte Aufgaben." },
+    { q: "Kann ich kostenlos testen?", a: "Ja, die ersten 3 Lektionen pro Niveau sind komplett kostenlos und sofort verfügbar." },
+    { q: "Für wen ist das geeignet?", a: "Für alle, die Deutsch in realen Alltagssituationen trainieren möchten – ob Anfänger (A1) oder Fortgeschrittene (C2)." },
+    { q: "Wie funktioniert die Preisstruktur?", a: "Du kannst einzelne Niveaus kaufen oder Pakete wählen. Pakete sind günstiger und bieten einen Wertgutschein bei 100% Abschluss." },
+    { q: "Was ist der Wertgutschein?", a: "Als Premium-Nutzer erhältst du bei 100% Abschluss einen Wertgutschein. Die Prüfung erfolgt manuell durch BalkanLink. Details in den Bonusbedingungen." },
+    { q: "Ist Ultimate ein Abo?", a: "Nein. Alle Käufe sind einmalige Zahlungen. Du zahlst einmal und hast dauerhaften Zugriff." },
+    { q: "Wie funktioniert das XP-System?", a: "Jede richtige Antwort gibt +1 XP. Dein Fortschritt wird gespeichert. Maximal erreichbar: Level 15." },
+    { q: "Muss ich Grammatik lernen?", a: "Nein. BalkanLink Deutsch fokussiert auf praktische Situationen. Grammatik lernst du nebenbei." },
   ];
 
   return (
@@ -29,16 +26,16 @@ export default function TrainerFaq() {
             onClick={() => navigateBackOrHome(navigate)}
             className="mb-3 flex items-center gap-1.5 text-sm text-primary-foreground/60 hover:text-primary-foreground"
           >
-            <ArrowLeft className="h-4 w-4" /> {t("trainerFaq.back")}
+            <ArrowLeft className="h-4 w-4" /> {"Zurück"}
           </button>
           <div className="flex items-center gap-3">
             <GraduationCap className="h-7 w-7 text-gold" />
             <div>
               <h1 className="text-lg font-black text-primary-foreground sm:text-xl">
-                {t("trainerFaq.title")}
+                {"Häufige Fragen — BalkanLink Deutsch"}
               </h1>
               <p className="text-xs text-primary-foreground/70">
-                {t("trainerFaq.subtitle")}
+                {"Alles Wichtige auf einen Blick"}
               </p>
             </div>
           </div>
@@ -69,13 +66,13 @@ export default function TrainerFaq() {
             onClick={() => navigate("/deutsch-trainer")}
             className="h-10 rounded-xl font-bold"
           >
-            {t("trainerFaq.backToTrainer")}
+            {"Zurück zum Trainer"}
           </Button>
           <Button
             onClick={() => navigate("/deutsch-trainer/preise")}
             className="h-10 rounded-xl bg-gold font-bold text-gold-foreground hover:bg-gold-light"
           >
-            {t("trainerFaq.viewPackages")}
+            {"Pakete ansehen"}
           </Button>
         </div>
       </div>

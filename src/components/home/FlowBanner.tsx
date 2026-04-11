@@ -2,8 +2,6 @@ import { useRef, useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
-import { useLanguage } from "@/contexts/LanguageContext";
-
 import imgFormulari from "@/assets/carousel/formulari.jpg";
 import imgVisa from "@/assets/carousel/visa.jpg";
 import imgDeutsch from "@/assets/carousel/deutsch.jpg";
@@ -23,7 +21,6 @@ const flowItems = [
 ];
 
 export default function FlowBanner() {
-  const { t } = useLanguage();
   const [activeIndex, setActiveIndex] = useState(0);
   const totalItems = flowItems.length;
   const autoplayRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -104,10 +101,10 @@ export default function FlowBanner() {
         className="relative z-10 pt-16 sm:pt-24 pb-8 sm:pb-12 text-center px-4"
       >
         <h2 className="text-2xl sm:text-4xl lg:text-6xl font-black text-white tracking-tight leading-tight px-2">
-          {t("flowBanner.headline")}
+          {"Formulare fehlerfrei ausfüllen"}
         </h2>
         <p className="text-base sm:text-lg lg:text-xl text-white/45 mt-4 leading-relaxed max-w-xl mx-auto">
-          {t("flowBanner.subheadline")}
+          {"Schritt für Schritt in deiner Sprache"}
         </p>
         <div className="mx-auto mt-6 h-[3px] w-24 rounded-full bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--brand-orange))]" />
       </motion.div>
@@ -228,7 +225,7 @@ export default function FlowBanner() {
                   )}
                   {item.badge === "free" && (
                     <span className="absolute top-5 right-5 z-10 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-[11px] font-bold text-white/70 backdrop-blur-sm">
-                      {t("deutsch.free")}
+                      {"Kostenlos"}
                     </span>
                   )}
 
@@ -261,7 +258,7 @@ export default function FlowBanner() {
                           boxShadow: "0 8px 28px rgba(255,200,0,0.35)",
                         } : undefined}
                       >
-                        {isPremium ? t("flowBanner.start") : t("flowBanner.open")} <ArrowRight className="h-4 w-4" />
+                        {isPremium ? "Starten" : "Öffnen"} <ArrowRight className="h-4 w-4" />
                       </span>
                     )}
                   </div>
@@ -292,7 +289,7 @@ export default function FlowBanner() {
 
       {/* CTA below */}
       <div className="relative z-10 text-center pb-16 sm:pb-24">
-        <p className="text-sm text-white/30 mb-4">{t("flowBanner.hint")}</p>
+        <p className="text-sm text-white/30 mb-4">{"Ohne Registrierung"}</p>
         <Link
           to="/formulari"
           className="inline-flex items-center gap-2 rounded-full px-8 py-4 text-[15px] font-extrabold text-[hsl(220,50%,8%)] transition-all duration-200 hover:-translate-y-1 hover:scale-[1.04] active:scale-[0.98]"
@@ -301,10 +298,10 @@ export default function FlowBanner() {
             boxShadow: "0 12px 40px hsla(43,70%,55%,0.35)",
           }}
         >
-          {t("flowBanner.cta")}
+          {"Jetzt starten"}
           <ArrowRight className="h-4 w-4" />
         </Link>
-        <p className="text-xs text-white/20 mt-3">{t("flowBanner.ctaNote")}</p>
+        <p className="text-xs text-white/20 mt-3">{"Kostenlos für Basisformulare"}</p>
       </div>
 
       {/* Bottom edge fade */}
