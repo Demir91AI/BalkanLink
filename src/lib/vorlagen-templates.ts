@@ -27,8 +27,8 @@ export interface VorlagenTemplate {
   slug: string;
   titleDe: string;
   titleBs: string;
-  section: "work" | "service";
-  icon: "briefcase" | "file" | "home" | "wifi" | "star" | "heart";
+  section: "work" | "service" | "health";
+  icon: "briefcase" | "file" | "home" | "wifi" | "star" | "heart" | "alert" | "undo";
   fields: TemplateField[];
   variants: TemplateVariant[];
   hints: TemplateHint[];
