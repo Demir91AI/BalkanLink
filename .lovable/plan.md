@@ -1,22 +1,25 @@
 
 
-## Plan: Standardizacija PageNavBar na Radno pravo stranicama
+## Plan: Integracija Biznis u Njemačkoj sekcije
 
-### Problem
-- `/radno-pravo` nema nikakvu navigacijsku traku (Nazad + Početna)
-- `/radno-pravo/:slug` ima custom `← Radno pravo` button umjesto standardnog `PageNavBar`
-- Vizualna nedosljednost s ostalim sekcijama (npr. Formulari koji koriste `PageNavBar`)
+Tri fajla treba ažurirati da se nove stranice povežu s ostatkom aplikacije.
 
-### Promjene
+### 1. `src/App.tsx` — Dodaj lazy imports i rute
+- Dodaj lazy importove za `BiznisNjemacka` i `BiznisGuide`
+- Dodaj rute `/biznis` i `/biznis/:slug` (pored postojećih radno-pravo ruta)
 
-**1. `src/pages/RadnoPravo.tsx`**
-- Importati `PageNavBar` iz `@/components/navigation/PageNavBar`
-- Dodati `<PageNavBar />` na vrh sadržaja (unutar container diva, prije Hero sekcije)
+### 2. `src/components/layout/AppSidebar.tsx` — Dodaj sidebar stavku
+- Importuj `Store` ikonu iz lucide-react
+- Dodaj novu stavku u `secondaryItems` niz:
+  `{ titleKey: "sidebar.biznis", url: "/biznis", icon: Store }`
+- Pozicioniraj odmah ispod "Radno pravo"
 
-**2. `src/pages/RadnoPravoGuide.tsx`**
-- Importati `PageNavBar` iz `@/components/navigation/PageNavBar`
-- Zamijeniti custom back button (linija 33-39) sa `<PageNavBar />`
-- Na fallback "not found" stranici također dodati `PageNavBar` umjesto custom linka
+### 3. `src/lib/canonical-routes.ts` — Registruj kanonske rute
+- Dodaj novi `CanonicalSection` entry za biznis sa assistant topic keys (gewerbe, biznis, samozaposlenje, selbständig, freiberufler)
+- Dodaj `/biznis` u `VALID_PRODUCTION_ROUTES` set
+- Dodaj `path.startsWith("/biznis/")` provjeru u `isValidProductionRoute`
 
-Obje stranice će dobiti identičan `< Nazad` + `🏠 Početna` bar kao na Formulari stranici. Postojeći `PageNavBar` komponent je već reusable i ne zahtijeva nikakve izmjene.
+### 4. `src/i18n/bs.ts` + `src/lib/de-labels.ts` — Lokalizacija
+- BS: `"sidebar.biznis": "Biznis u Njemačkoj"`
+- DE: `"sidebar.biznis": "Business in Deutschland"`
 
