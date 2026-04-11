@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { SEO } from "@/components/SEO";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Trophy, Flame, Star, Lock, GraduationCap, CheckCircle2, X, Crown, ChevronLeft, ChevronRight, ArrowLeft, Home } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
-import { LEVELS, LEVEL_COLORS, getLessonsForLevel, FREE_LESSONS_PER_LEVEL, MAX_LEVEL, type Level, type Lesson } from "@/lib/deutsch-trainer-data";
+import { LEVELS, LEVEL_COLORS, getLessonsForLevel, loadLessonsForLevel, FREE_LESSONS_PER_LEVEL, MAX_LEVEL, type Level, type Lesson } from "@/lib/deutsch-trainer-data";
 import { useTrainerProgress } from "@/hooks/useTrainerProgress";
 import { useSubscription } from "@/hooks/useSubscription";
 import TrainerLesson from "@/components/trainer/TrainerLesson";
