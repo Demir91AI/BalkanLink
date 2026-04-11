@@ -172,7 +172,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
           </div>
           <a href={country.embassyUrl} target="_blank" rel="noopener noreferrer"
             style={{ display: 'flex', alignItems: 'center', gap: 6, color: GOLD, fontSize: 13, textDecoration: 'none' }}>
-            {"Öffnen"} <ExternalLink size={14} />
+            {"Otvori"} <ExternalLink size={14} />
           </a>
         </div>
 
@@ -319,7 +319,7 @@ function VisaDetailCards({ route, GOLD, CHARCOAL }: { route: any; GOLD: string; 
       </Card>
 
       <Card>
-        <CardHeader icon={FileText} title={"Erforderliche Dokumente"} />
+        <CardHeader icon={FileText} title={"Potrebna dokumenta"} />
         {route.documents.map((doc: string, i: number) => (
           <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8 }}>
             <CheckCircle size={14} color="#22C55E" style={{ flexShrink: 0, marginTop: 3 }} />
@@ -330,7 +330,7 @@ function VisaDetailCards({ route, GOLD, CHARCOAL }: { route: any; GOLD: string; 
 
       {route.costs.length > 0 && (
         <Card>
-          <CardHeader icon={Euro} title={"Kosten"} />
+          <CardHeader icon={Euro} title={"Troškovi"} />
           {route.costs.map((c: string, i: number) => (
             <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 6 }}>
               <span style={{ color: GOLD, fontWeight: 700, flexShrink: 0 }}>•</span>
@@ -342,7 +342,7 @@ function VisaDetailCards({ route, GOLD, CHARCOAL }: { route: any; GOLD: string; 
 
       {route.errors.length > 0 && (
         <Card bg="#FEF2F2" border="#FECACA">
-          <CardHeader icon={AlertTriangle} color="#EF4444" title={"Häufige Fehler"} />
+          <CardHeader icon={AlertTriangle} color="#EF4444" title={"Česte greške"} />
           {route.errors.map((err: string, i: number) => (
             <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8 }}>
               <span style={{ color: '#EF4444', fontWeight: 700, flexShrink: 0 }}>✕</span>
@@ -353,7 +353,7 @@ function VisaDetailCards({ route, GOLD, CHARCOAL }: { route: any; GOLD: string; 
       )}
 
       <Card>
-        <CardHeader icon={ExternalLink} title={"Nützliche Links"} />
+        <CardHeader icon={ExternalLink} title={"Korisni linkovi"} />
         {route.sources.map((s: any, i: number) => (
           <a key={i} href={s.url} target="_blank" rel="noopener noreferrer"
             style={{ display: 'flex', alignItems: 'center', gap: 8, color: GOLD, fontSize: 13, textDecoration: 'none', marginBottom: 8 }}>
@@ -420,7 +420,7 @@ function NonEURouteDetails({ route, GOLD, CHARCOAL, openFormKey, handleOpenForm,
 
       {/* Documents */}
       <Card>
-        <CardHeader icon={FileText} title={"Erforderliche Dokumente"} />
+        <CardHeader icon={FileText} title={"Potrebna dokumenta"} />
         {route.documents.map((doc: string, i: number) => (
           <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8 }}>
             <CheckCircle size={14} color="#22C55E" style={{ flexShrink: 0, marginTop: 3 }} />
@@ -431,7 +431,7 @@ function NonEURouteDetails({ route, GOLD, CHARCOAL, openFormKey, handleOpenForm,
 
       {/* Costs */}
       <Card>
-        <CardHeader icon={Euro} title={"Kosten"} />
+        <CardHeader icon={Euro} title={"Troškovi"} />
         {route.costs.map((c: string, i: number) => (
           <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 6 }}>
             <span style={{ color: GOLD, fontWeight: 700, flexShrink: 0 }}>•</span>
@@ -442,7 +442,7 @@ function NonEURouteDetails({ route, GOLD, CHARCOAL, openFormKey, handleOpenForm,
 
       {/* Errors */}
       <Card bg="#FEF2F2" border="#FECACA">
-        <CardHeader icon={AlertTriangle} color="#EF4444" title={"Fehler die man vermeiden sollte"} />
+        <CardHeader icon={AlertTriangle} color="#EF4444" title={"Greške koje treba izbjegavati"} />
         {route.errors.map((err: string, i: number) => (
           <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8 }}>
             <span style={{ color: '#EF4444', fontWeight: 700, flexShrink: 0 }}>✕</span>
@@ -453,14 +453,14 @@ function NonEURouteDetails({ route, GOLD, CHARCOAL, openFormKey, handleOpenForm,
 
       {/* Sources */}
       <Card>
-        <CardHeader icon={ExternalLink} title={"Offizielle Quellen"} />
+        <CardHeader icon={ExternalLink} title={"Zvanični izvori"} />
         {route.sources.map((s: any, i: number) => (
           <a key={i} href={s.url} target="_blank" rel="noopener noreferrer"
             style={{ display: 'flex', alignItems: 'center', gap: 8, color: GOLD, fontSize: 13, textDecoration: 'none', marginBottom: 8 }}>
             <ExternalLink size={14} />{s.label}
           </a>
         ))}
-        <p style={{ fontSize: 11, color: '#9CA3AF', margin: 0, marginTop: 8 }}>{"Offizielle Quellen"}</p>
+        <p style={{ fontSize: 11, color: '#9CA3AF', margin: 0, marginTop: 8 }}>{"Zvanični izvori"}</p>
       </Card>
 
       {/* Musterformulare */}
@@ -469,9 +469,9 @@ function NonEURouteDetails({ route, GOLD, CHARCOAL, openFormKey, handleOpenForm,
           <div style={{ background: '#1E293B', borderRadius: 14, padding: 24 }}>
             <div style={{ textAlign: 'center', marginBottom: 16 }}>
               <div style={{ fontSize: 28, marginBottom: 8 }}>📋</div>
-              <h3 style={{ fontSize: 18, fontWeight: 700, color: 'white', margin: '0 0 4px' }}>{"Musterformulare"}</h3>
-              <p style={{ fontSize: 13, color: GOLD, margin: '0 0 8px', fontWeight: 600 }}>{"Übe das Ausfüllen von Formularen"}</p>
-              <p style={{ fontSize: 13, color: '#94A3B8', margin: 0 }}>{"Interaktive Simulation — Übung, kein Originaldokument."}</p>
+              <h3 style={{ fontSize: 18, fontWeight: 700, color: 'white', margin: '0 0 4px' }}>{"Obrasci za vježbu"}</h3>
+              <p style={{ fontSize: 13, color: GOLD, margin: '0 0 8px', fontWeight: 600 }}>{"Vježbaj popunjavanje formulara"}</p>
+              <p style={{ fontSize: 13, color: '#94A3B8', margin: 0 }}>{"Interaktivna simulacija — vježba, nije originalni dokument."}</p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">

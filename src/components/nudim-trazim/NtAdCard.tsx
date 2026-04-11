@@ -78,7 +78,7 @@ export default function NtAdCard({ ad, onOpen }: Props) {
             }}
           >
             <Eye className="h-3 w-3" />
-            {showContact ? ad.contact_value : "Kontakt anzeigen"}
+            {showContact ? ad.contact_value : "Prikaži kontakt"}
           </Button>
         </div>
       </CardContent>
