@@ -1,12 +1,12 @@
 /**
  * BalkanLink Brutto-Netto Rechner – Configuration & Calculation Engine
- * All rates/thresholds for 2025 (Germany). Update this file annually.
+ * All rates/thresholds for 2026 (Germany). Update this file annually.
  *
  * DISCLAIMER: This is an approximation. Real payroll involves many edge cases.
  */
 
 // ─── Tax Year Config ───
-export const TAX_YEARS = [2025, 2024] as const;
+export const TAX_YEARS = [2026, 2025, 2024] as const;
 export type TaxYear = (typeof TAX_YEARS)[number];
 
 // ─── Bundesländer ───
@@ -29,7 +29,7 @@ export const BUNDESLAENDER = [
   { value: "TH", label: "Thüringen", kirchensteuerSatz: 9 },
 ] as const;
 
-// ─── Social contribution rates (2025, employee share unless noted) ───
+// ─── Social contribution rates (2026, employee share unless noted) ───
 export interface SocialRates {
   rv: number;          // Rentenversicherung AN-Anteil
   rvAG: number;        // Rentenversicherung AG-Anteil
@@ -45,6 +45,23 @@ export interface SocialRates {
   bbgKvPv: number;     // Beitragsbemessungsgrenze KV/PV (monatlich)
   defaultZusatzbeitrag: number; // KV Zusatzbeitrag default (gesamt, AN zahlt Hälfte)
 }
+
+// 2026 rates (projected based on 2025 + known adjustments)
+export const RATES_2026: SocialRates = {
+  rv: 0.093,
+  rvAG: 0.093,
+  av: 0.013,
+  avAG: 0.013,
+  kvBase: 0.073,        // 14.6% / 2
+  kvAG: 0.073,
+  pvBase: 0.017,         // 3.4% / 2
+  pvAG: 0.017,
+  pvKinderlosZuschlag: 0.006,
+  pvKindAbschlag: 0.0025,
+  bbgRvAv: 7550,         // update when official 2026 values published
+  bbgKvPv: 5512.50,
+  defaultZusatzbeitrag: 2.5,
+};
 
 export const RATES_2025: SocialRates = {
   rv: 0.093,
@@ -79,12 +96,30 @@ export const RATES_2024: SocialRates = {
 };
 
 export function getRatesForYear(year: TaxYear): SocialRates {
-  return year === 2024 ? RATES_2024 : RATES_2025;
+  if (year === 2024) return RATES_2024;
+  if (year === 2025) return RATES_2025;
+  return RATES_2026;
 }
 
-// ─── Income tax zones (2025 simplified progressive tariff §32a EStG) ───
+// ─── Income tax zones (§32a EStG) ───
+// 2026: using 2025 tariff as baseline (update when official 2026 tariff published)
+function computeYearlyTax2026(zvE: number): number {
+  if (zvE <= 12084) return 0;
+  if (zvE <= 17430) {
+    const y = (zvE - 12084) / 10000;
+    return Math.floor((932.30 * y + 1400) * y);
+  }
+  if (zvE <= 68430) {
+    const y = (zvE - 17430) / 10000;
+    return Math.floor((176.44 * y + 2397) * y + 1025.38);
+  }
+  if (zvE <= 277825) {
+    return Math.floor(0.42 * zvE - 10602.13);
+  }
+  return Math.floor(0.45 * zvE - 18936.88);
+}
+
 function computeYearlyTax2025(zvE: number): number {
-  // zvE = zu versteuerndes Einkommen (yearly)
   if (zvE <= 12084) return 0;
   if (zvE <= 17430) {
     const y = (zvE - 12084) / 10000;
@@ -117,7 +152,9 @@ function computeYearlyTax2024(zvE: number): number {
 }
 
 function computeYearlyTax(zvE: number, year: TaxYear): number {
-  return year === 2024 ? computeYearlyTax2024(zvE) : computeYearlyTax2025(zvE);
+  if (year === 2024) return computeYearlyTax2024(zvE);
+  if (year === 2025) return computeYearlyTax2025(zvE);
+  return computeYearlyTax2026(zvE);
 }
 
 // ─── Steuerklasse multiplier / Grundfreibetrag adjustments ───
@@ -172,7 +209,7 @@ function adjustTaxForSteuerklasse(
   if (kinderfreibetrag > 0) {
     const taxWithout = computeYearlyTax(zvE, year);
     const taxWith = computeYearlyTax(Math.max(0, zvE - kinderfreibetragBetrag), year);
-    const kindergeldYearly = kinderfreibetrag * 250 * 12; // rough
+    const kindergeldYearly = kinderfreibetrag * 255 * 12; // rough
     if ((taxWithout - taxWith) > kindergeldYearly) {
       zvE = Math.max(0, zvE - kinderfreibetragBetrag);
     }
@@ -334,7 +371,7 @@ export const DEFAULT_INPUTS: BruttoNettoInputs = {
   steuerklasse: 1,
   bundesland: "NW",
   kirchensteuer: false,
-  steuerjahr: 2025,
+  steuerjahr: 2026,
   alter: 30,
   kinderfreibetrag: 0,
   kinderlos: true,

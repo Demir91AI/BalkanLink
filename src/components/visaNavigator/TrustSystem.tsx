@@ -77,7 +77,7 @@ const TrustSystem = ({ variant, showSources = true }: Props) => {
 
       {/* Legal notice */}
       <p className="text-[12px] text-center" style={{ color: "#9CA3AF" }}>
-        § AufenthG · § FreizügG/EU · BAMF · Auswärtiges Amt · Stand 2025
+        § AufenthG · § FreizügG/EU · BAMF · Auswärtiges Amt · Stand 2026
       </p>
     </div>
   );

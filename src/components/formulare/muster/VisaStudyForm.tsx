@@ -120,7 +120,7 @@ export default function VisaStudyForm() {
         <Field label="Bezeichnung" example="Sperrkonto bei Fintiba — Bestätigung liegt bei" />
       </FieldRow>
       <GoldNote>
-        Das Sperrkonto wird monatlich in Höhe von 934 € (Stand 2025) freigegeben.
+        Das Sperrkonto wird monatlich in Höhe von 934 € (Stand 2026) freigegeben.
         Gesamtbetrag auf Sperrkonto: 11.208 €. Bescheinigung des Sperrkonto-Anbieters beifügen!
       </GoldNote>
       <GoldNote>

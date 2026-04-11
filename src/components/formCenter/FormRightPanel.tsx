@@ -104,7 +104,7 @@ export default function FormRightPanel({ activeSlug, formLabel, formDesc }: Prop
         </div>
         <div style={{ borderTop: '1px solid #F0EAD8', paddingTop: 12, marginTop: 4 }}>
           <p style={{ fontSize: 11, color: '#9CA3AF', lineHeight: 1.5 }}>
-            BalkanLink pruža informativne smjernice. Stand 2025.
+            BalkanLink pruža informativne smjernice. Stand 2026.
           </p>
         </div>
       </div>
@@ -170,7 +170,7 @@ export default function FormRightPanel({ activeSlug, formLabel, formDesc }: Prop
 
         <div style={{ borderTop: '1px solid #F0EAD8', paddingTop: 10, marginTop: 12 }}>
           <p style={{ fontSize: 11, color: '#9CA3AF', lineHeight: 1.5 }}>
-            BalkanLink pruža informativne smjernice i ne predstavlja pravni savjet. Stand 2025.
+            BalkanLink pruža informativne smjernice i ne predstavlja pravni savjet. Stand 2026.
           </p>
         </div>
       </div>

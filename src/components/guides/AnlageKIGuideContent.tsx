@@ -31,7 +31,7 @@ const STEPS: StepData[] = [
   {
     deField: "Einnahmen des Kindes",
     bhsField: "Prihodi djeteta",
-    whatToWrite: "Navedi SVE prihode djeteta:\n• Kindergeld (250€/mj.)\n• Unterhalt od drugog roditelja\n• Unterhaltsvorschuss od Jugendamta\n\nPriloži: Kindergeld-Bescheid.",
+    whatToWrite: "Navedi SVE prihode djeteta:\n• Kindergeld (255€/mj.)\n• Unterhalt od drugog roditelja\n• Unterhaltsvorschuss od Jugendamta\n\nPriloži: Kindergeld-Bescheid.",
     commonMistake: "Prihode djeteta zaboraviti — Kindergeld i Unterhalt se OBRAČUNAVAJU!",
   },
   {

@@ -33,7 +33,7 @@ const STEPS: StepData[] = [
   {
     deField: "Kombination mit Kindergeld",
     bhsField: "Kombinacija s Kindergeld",
-    whatToWrite: "Elterngeld i Kindergeld su RAZLIČITE naknade — prijaviti oba odvojeno. Kindergeld: 250€ po djetetu, prijava kod Familienkasse. Elterngeld: 65-67% plaće, prijava kod Elterngeldstelle",
+    whatToWrite: "Elterngeld i Kindergeld su RAZLIČITE naknade — prijaviti oba odvojeno. Kindergeld: 255€ po djetetu, prijava kod Familienkasse. Elterngeld: 65-67% plaće, prijava kod Elterngeldstelle",
     commonMistake: "Misliti da jedno isključuje drugo — oba se primaju istovremeno",
   },
 ];
