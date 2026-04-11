@@ -74,7 +74,7 @@ export default function Viza() {
         {/* Title */}
         <div className="mb-4">
           <h1 className="text-[28px] font-bold text-[#2D2D2D]">{"Visa Navigator"}</h1>
-          <p className="text-[16px] text-[#6B6B6B] mt-1">{"Finde den richtigen Status für deine Situation"}</p>
+          <p className="text-[16px] text-[#6B6B6B] mt-1">{"Pronađi pravi status za tvoju situaciju"}</p>
         </div>
 
         {/* Breadcrumb */}

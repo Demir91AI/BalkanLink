@@ -399,7 +399,7 @@ export default function Index() {
             </div>
 
             <div className="mt-8 text-center">
-              <p className="text-xs text-[#8A8A8A]"><p className="text-xs text-[#8A8A8A]">Gemäß § 19 UStG wird keine Umsatzsteuer berechnet · Otkaži kad hoćeš · Bez ugovora</p></p>
+              <p className="text-xs text-[#8A8A8A]"><p className="text-xs text-[#8A8A8A]">Prema § 19 UStG ne obračunava se PDV · Otkaži kad hoćeš · Bez ugovora</p></p>
             </div>
           </motion.div>
         </div>

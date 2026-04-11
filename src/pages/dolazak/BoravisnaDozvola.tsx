@@ -451,7 +451,7 @@ export default function BoravisnaDozvola() {
                     </button>
                   ))}
                   {filtered.length === 0 && (
-                    <p className="px-3 py-6 text-xs text-muted-foreground text-center">{"Keine Ergebnisse."}</p>
+                    <p className="px-3 py-6 text-xs text-muted-foreground text-center">{"Nema rezultata."}</p>
                   )}
                 </nav>
               )}

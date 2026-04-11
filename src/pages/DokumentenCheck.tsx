@@ -137,28 +137,28 @@ function extractSummaryFromSections(sections: AnalysisSection[]): {
   }
 
   // Action needed
-  let action = "Analyse ansehen";
+  let action = "Pogledaj analizu";
   if (urgencySection) {
-    if (urgencySection.content.includes("🚨")) action = "Dringende Handlung erforderlich";
-    else if (urgencySection.content.includes("⚡")) action = "Empfohlene Handlung";
-    else if (urgencySection.content.includes("✅")) action = "Keine Handlung erforderlich";
+    if (urgencySection.content.includes("🚨")) action = "Hitna radnja potrebna";
+    else if (urgencySection.content.includes("⚡")) action = "Preporučena radnja";
+    else if (urgencySection.content.includes("✅")) action = "Nije potrebna radnja";
     else action = extractFirstLine(urgencySection.content);
   }
 
   // Financial
-  let financial = "Finanzanalyse ansehen";
+  let financial = "Pogledaj finansijsku analizu";
   if (financeSection) {
     const amountMatch = financeSection.content.match(/(\d+[.,]?\d*)\s*€/);
-    if (amountMatch) financial = `${amountMatch[0]} identifiziert`;
+    if (amountMatch) financial = `${amountMatch[0]} identifikovano`;
     else financial = extractFirstLine(financeSection.content);
   }
 
   // Deadline
-  let deadline = "Keine sichtbare Frist";
+  let deadline = "Nema vidljivog roka";
   if (urgencySection) {
     const dateMatch = urgencySection.content.match(/\d{1,2}\.\d{1,2}\.\d{2,4}/);
-    if (dateMatch) deadline = `Frist: ${dateMatch[0]}`;
-    else if (urgencySection.content.toLowerCase().includes("kein")) deadline = "Keine sichtbare Frist";
+    if (dateMatch) deadline = `Rok: ${dateMatch[0]}`;
+    else if (urgencySection.content.toLowerCase().includes("kein")) deadline = "Nema vidljivog roka";
     else deadline = extractFirstLine(urgencySection.content);
   }
 
@@ -208,11 +208,11 @@ export default function DokumentenCheck() {
     const selected = e.target.files?.[0];
     if (!selected) return;
     if (!isFileAllowed(selected)) {
-      setError("Nur PDF-, JPG- und PNG-Dateien werden unterstützt.");
+      setError("Podržani su samo PDF, JPG i PNG formati.");
       return;
     }
     if (selected.size > MAX_FILE_SIZE) {
-      setError("Datei ist zu groß für die Analyse. Bitte versuchen Sie eine kleinere Datei (max. 10 MB).");
+      setError("Datoteka je prevelika za analizu. Pokušajte sa manjom datotekom (max. 10 MB).");
       return;
     }
     setError(null);
@@ -223,9 +223,9 @@ export default function DokumentenCheck() {
 
   const handleAnalyze = useCallback(async () => {
     if (submittingRef.current || loading) return;
-    if (!confirmed) { setError("Bitte bestätigen Sie das Kontrollkästchen vor der Analyse."); return; }
+    if (!confirmed) { setError("Molimo potvrdite checkbox prije analize."); return; }
     if (!isPremium) { setShowPaywall(true); return; }
-    if (!file) { setError("Kein Dokument ausgewählt."); return; }
+    if (!file) { setError("Nije odabran dokument."); return; }
 
     submittingRef.current = true;
     setLoading(true);
@@ -243,15 +243,15 @@ export default function DokumentenCheck() {
 
       const { data, error: fnError } = await supabase.functions.invoke("document-check", { body: payload });
 
-      if (fnError) throw new Error("Serverfehler bei der Dokumentenanalyse. Bitte versuchen Sie es in einigen Augenblicken erneut.");
-      if (data?.success === false) throw new Error(data.message || "Dokument konnte nicht verarbeitet werden. Versuchen Sie es mit einer anderen Datei.");
-      if (!data?.analysis) throw new Error("Dokument konnte nicht verarbeitet werden. Versuchen Sie es mit einer anderen Datei.");
+      if (fnError) throw new Error("Greška servera pri analizi dokumenta. Pokušajte ponovo za nekoliko trenutaka.");
+      if (data?.success === false) throw new Error(data.message || "Dokument nije mogao biti obrađen. Pokušajte s drugom datotekom.");
+      if (!data?.analysis) throw new Error("Dokument nije mogao biti obrađen. Pokušajte s drugom datotekom.");
 
       setAnalysis(data.analysis);
     } catch (err: any) {
-      const message = err.message || "Serverfehler bei der Dokumentenanalyse.";
+      const message = err.message || "Greška servera pri analizi dokumenta.";
       if (message.includes("Edge Function") || message.includes("FunctionsHttpError") || message.includes("fetch")) {
-        setError("Serverfehler bei der Dokumentenanalyse. Bitte versuchen Sie es in einigen Augenblicken erneut.");
+        setError("Greška servera pri analizi dokumenta. Pokušajte ponovo za nekoliko trenutaka.");
       } else {
         setError(message);
       }
@@ -305,8 +305,8 @@ export default function DokumentenCheck() {
             className="flex items-start gap-4 rounded-2xl border border-[hsl(var(--gold))]/20 bg-[hsl(var(--gold))]/5 p-5 sm:p-6">
             <Shield className="mt-0.5 h-6 w-6 shrink-0 text-[hsl(var(--gold))]" />
             <div>
-              <p className="font-bold text-foreground">{"Datenschutz"}</p>
-              <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{"Bitte schwärzen Sie Namen, Adresse und Aktenzeichen vor dem Hochladen. Dateien werden nicht gespeichert — nur kurz zur Analyse verarbeitet und sofort verworfen."}</p>
+              <p className="font-bold text-foreground">{"Zaštita podataka"}</p>
+              <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{"Molimo zacrnite ime, adresu i broj predmeta prije učitavanja. Datoteke se ne pohranjuju — obrađuju se samo kratko za analizu i odmah brišu."}</p>
             </div>
           </motion.div>
 
@@ -396,7 +396,7 @@ export default function DokumentenCheck() {
           <div className="flex items-start gap-4 rounded-2xl border bg-card p-5">
             <Checkbox id="confirm" checked={confirmed} onCheckedChange={(v) => setConfirmed(v === true)} className="mt-0.5" />
             <label htmlFor="confirm" className="cursor-pointer text-sm leading-relaxed text-muted-foreground">
-              {"Ich bestätige, dass ich keine sensiblen Daten (Ausweisnummer, Steuer-ID, IBAN, Gesundheitsdaten) hochlade/eingebe."}
+              {"Potvrđujem da ne učitavam/unosim osjetljive podatke (broj lične karte, Steuer-ID, IBAN, zdravstvene podatke)."}
             </label>
           </div>
 
@@ -551,7 +551,7 @@ export default function DokumentenCheck() {
           {/* ── Disclaimer ── */}
           <div className="rounded-2xl border border-border/40 bg-muted/20 p-5 text-xs text-muted-foreground leading-relaxed">
             <p>
-              <strong>{"Datenschutz-Hinweis:"}</strong> {"Hochgeladene Dateien und eingegebene Texte werden ausschließlich zur einmaligen Analyse verwendet und sofort nach der Ausgabe verworfen. Es erfolgt keine dauerhafte Speicherung, kein Tracking und keine Weitergabe an Dritte. BalkanLink ist keine Behörde und bietet keine Rechtsberatung."}
+              <strong>{"Napomena o zaštiti podataka:"}</strong> {"Učitane datoteke i uneseni tekstovi se koriste isključivo za jednokratnu analizu i odmah se brišu nakon rezultata. Nema trajnog pohranjivanja, praćenja niti dijeljenja s trećim stranama. BalkanLink nije državni organ i ne pruža pravne savjete."}
             </p>
           </div>
         </div>

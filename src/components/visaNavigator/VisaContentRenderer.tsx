@@ -194,7 +194,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
           </div>
         )}
 
-        <h2 style={{ fontSize: 18, fontWeight: 700, color: CHARCOAL, marginBottom: 16 }}>{"Wähle deine Situation"}</h2>
+        <h2 style={{ fontSize: 18, fontWeight: 700, color: CHARCOAL, marginBottom: 16 }}>{"Odaberi svoju situaciju"}</h2>
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
           {country.routes.map(r => (

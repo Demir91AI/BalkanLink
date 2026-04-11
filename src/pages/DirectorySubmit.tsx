@@ -95,8 +95,8 @@ export default function DirectorySubmit() {
         <ChevronLeft className="h-4 w-4" /> Nazad
       </button>
 
-      <h1 className="mb-2 text-2xl font-bold">{"Firma hinzufügen"}</h1>
-      <p className="mb-8 text-muted-foreground">{"Füge dein Unternehmen zum Verzeichnis hinzu"}</p>
+      <h1 className="mb-2 text-2xl font-bold">{"Dodaj firmu"}</h1>
+      <p className="mb-8 text-muted-foreground">{"Dodaj svoju firmu u imenik"}</p>
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
