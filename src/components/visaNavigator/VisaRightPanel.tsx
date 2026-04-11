@@ -21,11 +21,11 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
         <div style={{ textAlign: 'center', marginBottom: 24 }}>
           <Globe size={40} color="#C9A84C" style={{ margin: '0 auto 12px', display: 'block' }} />
           <p style={{ fontSize: 13, color: '#6B6B6B', lineHeight: 1.6 }}>
-            Izaberi zemlju iz lijevog menija za informacije o vizama i boravišnim dozvolama.
+            Wähle ein Land aus dem linken Menü, um Informationen zu Visa und Aufenthaltsgenehmigungen zu finden.
           </p>
         </div>
         <div style={{ borderTop: '1px solid #F0EAD8', paddingTop: 16 }}>
-          <p style={{ fontSize: 11, fontWeight: 600, color: '#C9A84C', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 10 }}>Korisni linkovi</p>
+          <p style={{ fontSize: 11, fontWeight: 600, color: '#C9A84C', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 10 }}>Nützliche Links</p>
           {[
             { label: 'BAMF', url: 'https://www.bamf.de' },
             { label: 'Make it in Germany', url: 'https://www.make-it-in-germany.com' },
@@ -40,7 +40,7 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
         </div>
         <div style={{ borderTop: '1px solid #F0EAD8', paddingTop: 12, marginTop: 4 }}>
           <p style={{ fontSize: 11, color: '#9CA3AF', lineHeight: 1.5 }}>
-            BalkanLink pruža informativne smjernice. Stand 2025.
+            BalkanLink bietet informative Hinweise. Stand 2026.
           </p>
         </div>
       </div>
@@ -74,7 +74,7 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
         ))}
         <div style={{ borderTop: '1px solid #F0EAD8', paddingTop: 12, marginTop: 8 }}>
           <p style={{ fontSize: 11, color: '#9CA3AF', lineHeight: 1.5 }}>
-            BalkanLink pruža informativne smjernice. Stand 2025.
+            BalkanLink bietet informative Hinweise. Stand 2026.
           </p>
         </div>
       </div>
@@ -100,7 +100,7 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
           <ExternalLink size={13} color="#C9A84C" />
         </a>
         <div style={{ borderTop: '1px solid #F0EAD8', paddingTop: 12 }}>
-          <p style={{ fontSize: 11, fontWeight: 600, color: '#C9A84C', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 8 }}>Zvanični izvori</p>
+          <p style={{ fontSize: 11, fontWeight: 600, color: '#C9A84C', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 8 }}>Offizielle Quellen</p>
           {route.sources.slice(0, 3).map((s, i) => (
             <a key={i} href={s.url} target="_blank" rel="noopener noreferrer"
               style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#4A4A4A', fontSize: 12, textDecoration: 'none', marginBottom: 6 }}
@@ -112,7 +112,7 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
         </div>
         <div style={{ borderTop: '1px solid #F0EAD8', paddingTop: 10, marginTop: 8 }}>
           <p style={{ fontSize: 11, color: '#9CA3AF', lineHeight: 1.5 }}>
-            BalkanLink pruža informativne smjernice. Stand 2025.
+            BalkanLink bietet informative Hinweise. Stand 2026.
           </p>
         </div>
       </div>
