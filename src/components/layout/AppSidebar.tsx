@@ -1,17 +1,18 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import {
-  FileText, Shield, BookOpen, Camera, Megaphone, Map, Plane,
-  Briefcase, Building, Calculator, FileCheck, X, LogIn, LogOut, User,
-  CreditCard,
-} from "lucide-react";
+import { Home, CreditCard, User, X, LogIn, LogOut, type LucideIcon } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import AuthModal from "@/components/auth/AuthModal";
-import { label } from "@/lib/de-labels";
 
 function getInitials(name: string) {
   const parts = name.split(/\s+/).filter(Boolean);
   return parts.slice(0, 2).map((part) => part.charAt(0).toUpperCase()).join("") || "?";
+}
+
+interface NavItem {
+  title: string;
+  url: string;
+  icon: LucideIcon;
 }
 
 export function AppSidebar() {
@@ -21,24 +22,12 @@ export function AppSidebar() {
   const navigate = useNavigate();
   const location = useLocation();
   const { user, signOut, displayName } = useAuth();
-  const firstName = displayName.split(/\s+/).filter(Boolean)[0] || "Korisniče";
-  const initials = getInitials(displayName);
-
-  const mainItems = [
-    { titleKey: "sidebar.formulari", url: "/formulari", icon: FileText, premium: true },
-    { titleKey: "sidebar.viza", url: "/viza", icon: Shield, premium: true },
-    { titleKey: "sidebar.deutsch", url: "/deutsch-trainer", icon: BookOpen, premium: true },
-    { titleKey: "sidebar.dokumentencheck", url: "/dokumenten-check", icon: Camera, premium: true },
-  ];
-
-  const secondaryItems = [
-    { titleKey: "sidebar.zivot", url: "/zivot-u-njemackoj", icon: Plane },
-    { titleKey: "sidebar.nudim", url: "/nudim-trazim", icon: Megaphone },
-    { titleKey: "sidebar.mapa", url: "/mapa", icon: Map },
-    { titleKey: "sidebar.jobs", url: "/stellenangebote", icon: Briefcase },
-    { titleKey: "sidebar.stanovi", url: "/wohnungen", icon: Building },
-    { titleKey: "sidebar.kalkulatori", url: "/kalkulatori", icon: Calculator },
-    { titleKey: "sidebar.predloski", url: "/vorlagen", icon: FileCheck },
+  const firstName = displayName.split(/\s+/).filter(Boolean)[0] || "Nutzer";
+  const initials = getInitials(displayName || user?.email || "BL");
+  const navItems: NavItem[] = [
+    { title: "Startseite", url: "/", icon: Home },
+    { title: "Pakete & Preise", url: "/paketi", icon: CreditCard },
+    ...(user ? [{ title: "Mein Profil", url: "/profil", icon: User }] : []),
   ];
 
   const toggle = useCallback(() => {
@@ -90,132 +79,81 @@ export function AppSidebar() {
       />
 
       <aside
-        className="fixed left-0 top-0 z-[999] h-screen bg-white shadow-2xl overflow-y-auto transition-transform duration-300 ease-in-out flex flex-col"
+        className="fixed left-0 top-0 z-[999] flex h-screen w-[300px] max-w-[85vw] flex-col overflow-y-auto border-r border-border bg-card shadow-2xl transition-transform duration-300 ease-in-out"
         role="dialog"
         aria-modal="true"
-        aria-label="Navigacioni meni"
+        aria-label="Navigationsmenü"
         style={{
-          width: "300px",
-          minWidth: "280px",
           transform: isOpen ? "translateX(0)" : "translateX(-100%)",
         }}
       >
-        <div className="flex items-center justify-between px-5 py-4 border-b border-[#E8E0D0]">
-          <span className="text-sm font-bold text-[#2D2D2D] tracking-wide uppercase">{"Menü"}</span>
-          <button onClick={close} className="h-8 w-8 rounded-lg flex items-center justify-center hover:bg-[#F0EDE6] transition-colors">
-            <X className="h-4 w-4 text-[#6B6B6B]" />
+        <div className="flex items-center justify-between border-b border-border px-5 py-4">
+          <span className="text-sm font-semibold text-foreground">Menü</span>
+          <button onClick={close} className="flex h-8 w-8 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">
+            <X className="h-4 w-4" />
           </button>
         </div>
 
-        {/* Auth section */}
-        <div className="px-3 pt-4 pb-3">
+        <div className="border-b border-border p-4">
           {user ? (
-            <div className="px-3">
+            <div className="rounded-2xl border border-border bg-muted/40 p-4">
               <div className="flex items-center gap-3">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[hsl(var(--gold))] text-sm font-bold text-[hsl(var(--primary))] shadow-[0_10px_28px_hsl(var(--gold)/0.22)]">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
                   {initials}
                 </div>
                 <div className="min-w-0">
-                  <p className="text-sm font-semibold text-[#2D2D2D]">
-                    Dobro došao/la, {firstName}!
+                  <p className="text-sm font-semibold text-foreground">
+                    Willkommen, {firstName}!
                   </p>
                   <p className="mt-0.5 truncate text-sm text-muted-foreground">{user.email}</p>
                 </div>
               </div>
-              <div className="mt-4 h-px bg-border/80" />
             </div>
           ) : (
             <button
               onClick={handleAuthClick}
-              className="flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-left text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D] transition-all duration-200"
+              className="flex w-full items-center gap-3 rounded-xl border border-border bg-muted/40 px-4 py-3 text-left text-foreground transition-colors hover:bg-muted"
             >
               <LogIn className="h-[18px] w-[18px] shrink-0" />
-              <span className="text-[14px] font-medium">{"Anmelden"} / {"Registrieren"}</span>
+              <span className="text-sm font-medium">Anmelden oder registrieren</span>
             </button>
           )}
         </div>
 
-        {/* Paketi */}
-        <div className="px-3 pt-2 pb-1 border-b border-[#E8E0D0]">
-          <nav className="flex flex-col gap-0.5">
+        <nav className="flex-1 p-4">
+          <div className="space-y-1">
+            {navItems.map((item) => {
+              const active = location.pathname === item.url || location.pathname.startsWith(item.url + "/");
+
+              return (
+                <button
+                  key={item.url}
+                  onClick={() => handleNav(item.url)}
+                  className={`flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left transition-colors ${
+                    active
+                      ? "bg-primary/10 text-primary"
+                      : "text-foreground hover:bg-muted"
+                  }`}
+                >
+                  <item.icon className="h-4 w-4 shrink-0" />
+                  <span className="text-sm font-medium">{item.title}</span>
+                </button>
+              );
+            })}
+          </div>
+        </nav>
+
+        {user && (
+          <div className="border-t border-border p-4">
             <button
-              onClick={() => handleNav("/paketi")}
-              className={`flex items-center gap-3 w-full px-3 py-2 rounded-lg text-left transition-all duration-200 ${
-                location.pathname === "/paketi"
-                  ? "bg-[hsl(var(--gold))]/10 text-[hsl(var(--gold))]"
-                  : "text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D]"
-              }`}
+              onClick={handleSignOut}
+              className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left text-foreground transition-colors hover:bg-muted"
             >
-              <CreditCard className={`h-[18px] w-[18px] shrink-0 ${location.pathname === "/paketi" ? "text-[hsl(var(--gold))]" : ""}`} />
-              <span className="text-[14px] font-medium">{"Pakete & Preise"}</span>
+              <LogOut className="h-[18px] w-[18px] shrink-0" />
+              <span className="text-sm font-medium">Abmelden</span>
             </button>
-            {user && (
-              <button
-                onClick={handleSignOut}
-                className="flex items-center gap-3 w-full px-3 py-2 rounded-lg text-left text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D] transition-all duration-200"
-              >
-                <LogOut className="h-[18px] w-[18px] shrink-0" />
-                <span className="text-[14px] font-medium">{"Abmelden"}</span>
-              </button>
-            )}
-          </nav>
-        </div>
-
-        <div className="px-3 pt-4">
-          <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">{"Hauptfunktionen"}</p>
-          <nav className="flex flex-col gap-0.5">
-            {mainItems.map((item) => {
-              const active = location.pathname === item.url || location.pathname.startsWith(item.url + "/");
-              return (
-                <button
-                  key={item.url}
-                  onClick={() => handleNav(item.url)}
-                  className={`flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-left transition-all duration-200 ${
-                    active
-                      ? "bg-[hsl(var(--gold))]/10 shadow-[inset_3px_0_0_hsl(var(--gold))]"
-                      : "hover:bg-[#F5F0E8]"
-                  }`}
-                >
-                  <item.icon className={`h-[18px] w-[18px] shrink-0 ${active ? "text-[hsl(var(--gold))]" : "text-[#6B6B6B]"}`} />
-                  <span className={`text-[14px] font-semibold whitespace-nowrap overflow-visible ${active ? "text-[hsl(var(--gold))]" : "text-[#2D2D2D]"}`}>
-                    {label(item.titleKey)}
-                  </span>
-                  {item.premium && (
-                    <span className="ml-auto shrink-0 rounded-full bg-[hsl(var(--gold))] px-1.5 py-0.5 text-[8px] font-bold leading-none text-white">
-                      PREMIUM
-                    </span>
-                  )}
-                </button>
-              );
-            })}
-          </nav>
-        </div>
-
-        <div className="px-3 pt-5">
-          <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">{"Sonstiges"}</p>
-          <nav className="flex flex-col gap-0.5">
-            {secondaryItems.map((item) => {
-              const active = location.pathname === item.url || location.pathname.startsWith(item.url + "/");
-              return (
-                <button
-                  key={item.url}
-                  onClick={() => handleNav(item.url)}
-                  className={`flex items-center gap-3 w-full px-3 py-2 rounded-lg text-left transition-all duration-200 ${
-                    active
-                      ? "bg-[hsl(var(--gold))]/10 text-[hsl(var(--gold))]"
-                      : "text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D]"
-                  }`}
-                >
-                  <item.icon className={`h-[18px] w-[18px] shrink-0 ${active ? "text-[hsl(var(--gold))]" : ""}`} />
-                  <span className="text-[14px] font-medium whitespace-nowrap overflow-visible">
-                    {label(item.titleKey)}
-                  </span>
-                </button>
-              );
-            })}
-          </nav>
-        </div>
-
+          </div>
+        )}
       </aside>
 
       <AuthModal open={authOpen} onClose={() => setAuthOpen(false)} />

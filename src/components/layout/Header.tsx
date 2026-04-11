@@ -28,7 +28,7 @@ export default function Header() {
         </Button>
 
         <div className="absolute left-1/2 top-[55%] -translate-x-1/2 -translate-y-1/2">
-          <Link to="/" className="group relative inline-flex items-center gap-3" aria-label="BalkanLink home">
+          <Link to="/" className="group relative inline-flex items-center gap-3" aria-label="BalkanLink Startseite">
             <span className="absolute -inset-3 rounded-2xl bg-[hsl(var(--gold))]/10 blur-xl group-hover:bg-[hsl(var(--gold))]/20 transition-all duration-500 pointer-events-none" />
             <span className="relative font-heading text-[28px] font-extrabold leading-none tracking-tight drop-shadow-[0_0_10px_hsl(var(--gold)/0.35)]">
               <span className="text-white">B</span>
