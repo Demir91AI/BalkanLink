@@ -230,7 +230,7 @@ export function calculateBenefits(data: { brutto: number; children: number; chil
 
   // Kinderzuschlag
   if (children > 0 && brutto < 3000) {
-    const kz = children * 292;
+    const kz = children * 297;
     result += `**Kinderzuschlag:** do ${kz}€/mj (provjeri)\n`;
     total += kz * 6; // conservative
   }

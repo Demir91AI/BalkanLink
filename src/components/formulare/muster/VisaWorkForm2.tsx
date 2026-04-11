@@ -215,7 +215,7 @@ export default function VisaWorkForm2() {
         </div>
         <div>
           <FormField label="Feld 46: Pro Monat (brutto)" example="4.500 €" />
-          <GoldTip>Mindestlohn 2025: 12,82 €/h. Für Blue Card: mind. 45.300 €/Jahr!</GoldTip>
+          <GoldTip>Mindestlohn 2026: 13,90 €/h. Für Blue Card: mind. 45.300 €/Jahr!</GoldTip>
         </div>
       </div>
 

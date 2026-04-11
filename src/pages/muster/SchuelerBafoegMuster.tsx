@@ -92,7 +92,7 @@ export default function SchuelerBafoegMuster() {
           <div style={S.row}><Field label="Betrag netto (€/Monat)" value={f.einkommenNetto} onChange={v => set("einkommenNetto", v)} /></div>
         </>)}
         <div style={S.row}><Field label="Eigenes Vermögen (€)" value={f.eigenesVermoegen} onChange={v => set("eigenesVermoegen", v)} /></div>
-        <Info>ℹ️ Vlastita primanja smanjuju BAföG. Minijob do 538 €/mj. se djelimično ne uzima u obzir. Više od toga smanjuje tvoj BAföG iznos.</Info>
+        <Info>ℹ️ Vlastita primanja smanjuju BAföG. Minijob do 603 €/mj. se djelimično ne uzima u obzir. Više od toga smanjuje tvoj BAföG iznos.</Info>
       </div>
 
       <div style={S.sec}>

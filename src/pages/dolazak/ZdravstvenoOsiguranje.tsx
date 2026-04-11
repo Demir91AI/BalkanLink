@@ -33,7 +33,7 @@ export default function ZdravstvenoOsiguranje() {
               <li>Zaposleni iznad tog iznosa mogu birati: ostati u javnom ili preći u privatno (PKV).</li>
               <li>Samozaposleni i freelanceri mogu birati od početka.</li>
               <li>Studenti imaju poseban studentski tarif u GKV (~110 €/mjesečno).</li>
-              <li>Minijoberi (450/520 € poslovi): poslodavac plaća paušalni doprinos, ali minijobler treba vlastito osiguranje.</li>
+              <li>Minijoberi (do 603 € poslovi): poslodavac plaća paušalni doprinos, ali minijobler treba vlastito osiguranje.</li>
             </ul>
           ),
         },
