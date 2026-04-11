@@ -96,7 +96,7 @@ export default function SmartGuideWizardShared({
   ];
 
   const handleStepClick = (i: number) => {
-    if (!isPremium && i >= FREE_STEPS) {
+    if (!free && !isPremium && i >= FREE_STEPS) {
       setStep(FREE_STEPS);
     } else {
       setStep(i);
@@ -104,7 +104,7 @@ export default function SmartGuideWizardShared({
   };
 
   const handleNext = () => {
-    if (!isPremium && step + 1 >= FREE_STEPS) {
+    if (!free && !isPremium && step + 1 >= FREE_STEPS) {
       setStep(FREE_STEPS);
     } else if (!isLast) {
       setStep(step + 1);
