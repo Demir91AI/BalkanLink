@@ -95,7 +95,7 @@ export default function DolazakPageTemplate({ title, subtitle, sections, links }
         <section className="border-t bg-card pb-10 pt-6">
           <div className="container max-w-3xl text-center">
             <h3 className="mb-3 flex items-center justify-center gap-1.5 text-sm font-bold">
-              <Info className="h-4 w-4 text-primary" /> {"Direktlinks"}
+              <Info className="h-4 w-4 text-primary" /> {"Korisni linkovi"}
             </h3>
             <div className="flex flex-wrap justify-center gap-2">
               {links.map((l, i) => (
