@@ -672,9 +672,9 @@ export const translations: Record<string, T> = {
   "qa.results":  { bs: "rezultata",                de: "Ergebnisse" },
 
   // SIDEBAR EXTRA
-  "sidebar.mainFunctions": { bs: "Glavne funkcije",   de: "Hauptfunktionen" },
-  "sidebar.other":         { bs: "Ostalo",             de: "Sonstiges" },
-  "sidebar.cijene":        { bs: "Cijene",              de: "Preise" },
+  "sidebar.mainFunctions": { bs: "Glavne funkcije", hr: "Glavne funkcije", sr: "Glavne funkcije", de: "Hauptfunktionen" },
+  "sidebar.other":         { bs: "Ostalo", hr: "Ostalo", sr: "Ostalo", de: "Sonstiges" },
+  "sidebar.cijene":        { bs: "Paketi i cijene", hr: "Paketi i cijene", sr: "Paketi i cene", de: "Pakete & Preise" },
 
   // TOOLS / KALKULATORI
   "tools.pageTitle":     { bs: "Alati i kalkulatori",                    de: "Tools & Rechner" },
@@ -1050,11 +1050,6 @@ export const translations: Record<string, T> = {
   "trainerFaq.a8": { bs: "Svaki tačan odgovor daje +1 XP. Napredak se čuva i ne gubi se. Maksimalno dostižan: Nivo 15.", hr: "Svaki točan odgovor daje +1 XP. Napredak se sprema i ne gubi se. Maksimalno dostižno: Razina 15.", sr: "Svaki tačan odgovor daje +1 XP. Napredak se čuva i ne gubi se. Maksimalno dostižno: Nivo 15.", de: "Jede richtige Antwort gibt +1 XP. Dein Fortschritt wird gespeichert. Maximal erreichbar: Level 15." },
   "trainerFaq.q9": { bs: "Moram li učiti gramatiku?", hr: "Moram li učiti gramatiku?", sr: "Da li moram da učim gramatiku?", de: "Muss ich Grammatik lernen?" },
   "trainerFaq.a9": { bs: "Ne. BalkanLink Deutsch fokusira se na praktične situacije. Gramatiku učiš usput kroz vježbe.", hr: "Ne. BalkanLink Deutsch usredotočuje se na praktične situacije. Gramatiku učiš usput kroz vježbe.", sr: "Ne. BalkanLink Deutsch fokusira se na praktične situacije. Gramatiku učiš usput kroz vežbe.", de: "Nein. BalkanLink Deutsch fokussiert auf praktische Situationen. Grammatik lernst du nebenbei." },
-
-  // SIDEBAR (additional keys)
-  "sidebar.cijene":    { bs: "Paketi i cijene", hr: "Paketi i cijene", sr: "Paketi i cene", de: "Pakete & Preise" },
-  "sidebar.mainFunctions": { bs: "Glavne funkcije", hr: "Glavne funkcije", sr: "Glavne funkcije", de: "Hauptfunktionen" },
-  "sidebar.other":     { bs: "Ostalo", hr: "Ostalo", sr: "Ostalo", de: "Sonstiges" },
 
   // COOKIE
   "cookie.footerLink": { bs: "Postavke kolačića", hr: "Postavke kolačića", sr: "Podešavanja kolačića", de: "Cookie-Einstellungen" },
