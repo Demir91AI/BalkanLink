@@ -143,10 +143,9 @@ export default function NudimTrazim() {
 
   return (
     <div className="min-h-screen bg-background">
-      <SEO title="Kleinanzeigen — Anbieten & Suchen" description="Kleinanzeigen der Balkan-Diaspora in Deutschland — Jobs, Wohnungen, Dienstleistungen." path="/nudim-trazim" />
+      <SEO title="Mali oglasi — Nudim & Tražim" description="Mali oglasi balkanske dijaspore u Njemačkoj — posao, stanovi, usluge." path="/nudim-trazim" />
       {/* ── Hero ── */}
       <section className="relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0a1628 0%, #0f1f3d 40%, #1a2a50 100%)' }}>
-        {/* Background glow */}
         <div className="pointer-events-none absolute inset-0" style={{
           backgroundImage: 'radial-gradient(ellipse 60% 50% at 30% 50%, rgba(201,168,76,0.08) 0%, transparent 60%), radial-gradient(ellipse 40% 60% at 80% 30%, rgba(59,130,246,0.06) 0%, transparent 60%)'
         }} />
@@ -160,12 +159,10 @@ export default function NudimTrazim() {
             </button>
           </div>
           <div className="max-w-3xl">
-            {/* Badge */}
             <div className="inline-flex items-center gap-2 rounded-full border border-[#C9A84C]/30 bg-[#C9A84C]/10 px-4 py-1.5 mb-5">
               <Megaphone className="h-3.5 w-3.5 text-[#C9A84C]" />
               <span className="text-[11px] font-bold uppercase tracking-widest text-[#C9A84C]">Balkan-Community</span>
             </div>
-            {/* Heading */}
             <h1 className="text-4xl sm:text-5xl font-black text-white leading-tight mb-4">
               Ponudi, traži,<br />
             <span style={{ background: 'linear-gradient(90deg, #C9A84C, #F0D080)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
@@ -173,30 +170,28 @@ export default function NudimTrazim() {
               </span>
             </h1>
             <p className="text-white/60 text-base sm:text-lg leading-relaxed mb-8 max-w-xl">
-              Balkan-Kleinanzeigenplattform in Deutschland — Jobs, Wohnungen, Dienstleistungen, Transport und mehr. Kostenlos, schnell, unkompliziert.
+              Balkanska oglasna platforma u Njemačkoj — posao, stanovi, usluge, prevoz i više. Besplatno, brzo, jednostavno.
             </p>
-            {/* CTA buttons */}
             <div className="flex flex-wrap gap-3 mb-10">
               <button
                 onClick={openForm}
                 className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold text-[#0f1f3d] transition-all hover:opacity-90 hover:scale-[1.02]"
                 style={{ background: 'linear-gradient(135deg, #C9A84C, #F0D080)' }}
               >
-                <PlusCircle className="h-4 w-4" /> Anzeige kostenlos aufgeben
+                <PlusCircle className="h-4 w-4" /> Objavi besplatno oglas
               </button>
               <button
                 onClick={openForm}
                 className="inline-flex items-center gap-2 rounded-full border-2 border-white/20 bg-white/5 px-7 py-3.5 text-sm font-bold text-white backdrop-blur transition-all hover:bg-white/10 hover:border-white/40"
               >
-                <SearchIcon className="h-4 w-4" /> Anzeigen durchsuchen
+                <SearchIcon className="h-4 w-4" /> Pretraži oglase
               </button>
             </div>
-            {/* Stats */}
             <div className="flex flex-wrap gap-6">
               {[
-                { value: "100%", label: "Kostenlos" },
-                { value: "7", label: "Kategorien" },
-                { value: "🇩🇪", label: "Ganz Deutschland" },
+                { value: "100%", label: "Besplatno" },
+                { value: "7", label: "Kategorija" },
+                { value: "🇩🇪", label: "Cijela Njemačka" },
               ].map(s => (
                 <div key={s.label} className="flex items-center gap-2">
                   <span className="text-lg font-black text-white">{s.value}</span>
@@ -209,7 +204,6 @@ export default function NudimTrazim() {
       </section>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-8">
-        {/* Filter card overlapping hero */}
         <div className="-mt-6 relative z-10 rounded-2xl bg-white shadow-md border border-border p-4 mb-8">
           <NtFilters filters={filters} onChange={updateFilters} />
           <div className="mt-3 overflow-x-auto">
@@ -225,16 +219,16 @@ export default function NudimTrazim() {
                 <Star className="h-5 w-5 text-[hsl(var(--gold))]" />
               </div>
               <div className="flex-1">
-                <h3 className="font-bold text-sm">{"PRO-Anzeigen"}</h3>
-                <p className="mt-1 text-xs text-muted-foreground">{"Hebe deine Anzeige hervor und erreiche mehr Menschen."}</p>
+                <h3 className="font-bold text-sm">PRO oglasi</h3>
+                <p className="mt-1 text-xs text-muted-foreground">Istakni svoj oglas i dosegni više ljudi.</p>
                 <ul className="mt-2 space-y-1">
-                  {["Deine Anzeige steht ganz oben", "Bekommt PRO-Kennzeichnung", "Mehr Aufrufe und Anfragen"].map((txt) => (
+                  {["Tvoj oglas stoji na vrhu", "Dobija PRO oznaku", "Više pregleda i upita"].map((txt) => (
                     <li key={txt} className="flex items-center gap-1.5 text-xs text-muted-foreground">
                       <Check className="h-3 w-3 text-[hsl(var(--gold))] shrink-0" /> {txt}
                     </li>
                   ))}
                 </ul>
-                <p className="mt-2 text-[11px] text-muted-foreground">{"Anzeige aufgeben ist kostenlos. PRO ist eine Option für mehr Sichtbarkeit."}</p>
+                <p className="mt-2 text-[11px] text-muted-foreground">Objavljivanje oglasa je besplatno. PRO je opcija za veću vidljivost.</p>
               </div>
               <Button
                 size="sm"
@@ -242,7 +236,7 @@ export default function NudimTrazim() {
                 className="shrink-0 border-[hsl(var(--gold))]/40 text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/10 text-xs"
                 onClick={openProModal}
               >
-                <Star className="mr-1 h-3 w-3" /> {"Mehr erfahren"}
+                <Star className="mr-1 h-3 w-3" /> Saznaj više
               </Button>
             </div>
           </div>
@@ -258,7 +252,7 @@ export default function NudimTrazim() {
                         ? "bg-[hsl(var(--success))]/10 text-[hsl(var(--success))]"
                         : "bg-primary/10 text-primary"
                     }`}>
-                      {ad.type === "nudim" ? "Anbieten".toUpperCase() : "Suchen".toUpperCase()}
+                      {ad.type === "nudim" ? "NUDIM" : "TRAŽIM"}
                     </span>
                   </div>
                   <NtAdCard ad={ad} onOpen={openAd} />
@@ -270,23 +264,23 @@ export default function NudimTrazim() {
               <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-muted">
                 <ClipboardList className="h-8 w-8 text-muted-foreground" />
               </div>
-              <h3 className="text-xl font-bold text-foreground">Noch keine Anzeigen</h3>
+              <h3 className="text-xl font-bold text-foreground">Još nema oglasa</h3>
               <p className="text-muted-foreground max-w-md mx-auto">
-                Sei der Erste, der eine Anzeige in deiner Community aufgibt!
+                Budi prvi koji objavi oglas u svojoj zajednici!
               </p>
               <Button onClick={openForm} size="lg" className="gap-2 mt-2">
-                <PlusCircle className="h-4 w-4" /> Anzeige aufgeben →
+                <PlusCircle className="h-4 w-4" /> Objavi oglas →
               </Button>
             </div>
           )}
 
           {/* CTA */}
           <section className="rounded-xl bg-muted/50 border border-border p-8 text-center space-y-4">
-            <h2 className="text-xl font-bold text-foreground">{"Möchtest du eine Anzeige aufgeben?"}</h2>
-            <p className="text-muted-foreground max-w-lg mx-auto">{"Gib schnell und einfach auf, was du anbietest oder suchst."}</p>
+            <h2 className="text-xl font-bold text-foreground">Želiš objaviti oglas?</h2>
+            <p className="text-muted-foreground max-w-lg mx-auto">Brzo i jednostavno objavi šta nudiš ili tražiš.</p>
             <div className="flex flex-col sm:flex-row justify-center gap-3">
               <Button size="lg" onClick={openForm} className="gap-2">
-                <PlusCircle className="h-4 w-4" /> {"Anzeige kostenlos aufgeben"}
+                <PlusCircle className="h-4 w-4" /> Objavi besplatno oglas
               </Button>
               <Button
                 size="lg"
@@ -294,14 +288,14 @@ export default function NudimTrazim() {
                 className="gap-2 border-[hsl(var(--gold))] text-[hsl(var(--gold))] font-semibold hover:bg-[hsl(var(--gold))]/15 hover:border-[hsl(var(--gold))]"
                 onClick={openProModal}
               >
-                <Star className="h-4 w-4" /> {"Als PRO hervorheben"}
+                <Star className="h-4 w-4" /> Istakni kao PRO
               </Button>
             </div>
-            <p className="text-xs text-muted-foreground">{"Anzeige aufgeben ist kostenlos. PRO ist eine Option für mehr Sichtbarkeit."}</p>
+            <p className="text-xs text-muted-foreground">Objavljivanje oglasa je besplatno. PRO je opcija za veću vidljivost.</p>
           </section>
 
           <p className="text-xs text-muted-foreground text-center max-w-3xl mx-auto leading-relaxed pt-4 border-t border-border">
-            {"BalkanLink dient in diesem Bereich ausschließlich als Vermittlungs- und Anzeigenplattform. Für Inhalte, Vereinbarungen oder Leistungen der Nutzer wird keine Haftung übernommen."}
+            BalkanLink u ovom dijelu služi isključivo kao posrednička i oglasna platforma. Za sadržaj, dogovore ili usluge korisnika se ne preuzima odgovornost.
           </p>
         </div>
       </div>

@@ -20,12 +20,11 @@ interface Props {
 export default function NtFilters({ filters, onChange }: Props) {
   return (
     <div className="space-y-4">
-      {/* Search + Type Toggle */}
       <div className="flex flex-col sm:flex-row gap-3">
         <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
-            placeholder={"Anzeigen durchsuchen..."}
+            placeholder="Pretraži oglase..."
             value={filters.search}
             onChange={(e) => onChange({ search: e.target.value })}
             className="pl-10"
@@ -33,19 +32,18 @@ export default function NtFilters({ filters, onChange }: Props) {
         </div>
         <Tabs value={filters.type} onValueChange={(v) => onChange({ type: v })}>
           <TabsList className="h-10">
-            <TabsTrigger value="sve" className="px-4">{"Alle"}</TabsTrigger>
-            <TabsTrigger value="nudim" className="px-4">{"Ich biete"}</TabsTrigger>
-            <TabsTrigger value="trazim" className="px-4">{"Ich suche"}</TabsTrigger>
+            <TabsTrigger value="sve" className="px-4">Sve</TabsTrigger>
+            <TabsTrigger value="nudim" className="px-4">Nudim</TabsTrigger>
+            <TabsTrigger value="trazim" className="px-4">Tražim</TabsTrigger>
           </TabsList>
         </Tabs>
       </div>
 
-      {/* Dropdowns row */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         <Select value={filters.category} onValueChange={(v) => onChange({ category: v })}>
-          <SelectTrigger><SelectValue placeholder={"Kategorie"} /></SelectTrigger>
+          <SelectTrigger><SelectValue placeholder="Kategorija" /></SelectTrigger>
           <SelectContent>
-            <SelectItem value="sve">{"Alle Kategorien"}</SelectItem>
+            <SelectItem value="sve">Sve kategorije</SelectItem>
             {NT_CATEGORIES.map((c) => (
               <SelectItem key={c.value} value={c.value}>{c.label}</SelectItem>
             ))}
@@ -53,13 +51,13 @@ export default function NtFilters({ filters, onChange }: Props) {
         </Select>
 
         <Input
-          placeholder={"Stadt / Ort"}
+          placeholder="Grad / Mjesto"
           value={filters.city}
           onChange={(e) => onChange({ city: e.target.value })}
         />
 
         <Select value={filters.radius} onValueChange={(v) => onChange({ radius: v })}>
-          <SelectTrigger><SelectValue placeholder="Umkreis" /></SelectTrigger>
+          <SelectTrigger><SelectValue placeholder="Radius" /></SelectTrigger>
           <SelectContent>
             {NT_RADIUS_OPTIONS.map((r) => (
               <SelectItem key={r.value} value={String(r.value)}>{r.label}</SelectItem>
@@ -68,7 +66,7 @@ export default function NtFilters({ filters, onChange }: Props) {
         </Select>
 
         <Select value={filters.sort} onValueChange={(v) => onChange({ sort: v })}>
-          <SelectTrigger><SelectValue placeholder="Sortierung" /></SelectTrigger>
+          <SelectTrigger><SelectValue placeholder="Sortiranje" /></SelectTrigger>
           <SelectContent>
             {NT_SORT_OPTIONS.map((s) => (
               <SelectItem key={s.value} value={s.value}>{s.label}</SelectItem>
