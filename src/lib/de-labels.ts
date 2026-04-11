@@ -559,6 +559,7 @@ const DE: Record<string, string> = {
   "sidebar.mainFunctions": "Glavne funkcije",
   "sidebar.other": "Ostalo",
   "sidebar.radnoPravo": "Arbeitsrecht",
+  "sidebar.biznis": "Business in Deutschland",
   "sidebar.cijene": "Paketi i cijene",
   "tools.pageTitle": "Alati i kalkulatori",
   "tools.pageSubtitle": "Korisni alati za svakodnevicu",
