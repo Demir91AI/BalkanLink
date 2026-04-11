@@ -8,6 +8,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { useSubscription } from "@/hooks/useSubscription";
+import AuthGate from "@/components/AuthGate";
 
 export interface StepData {
   deField: string;
@@ -112,6 +113,7 @@ export default function SmartGuideWizardShared({
   };
 
   return (
+    <AuthGate>
     <div className="space-y-4">
       <div className="text-center">
         <h2 className="text-lg font-bold text-foreground">
