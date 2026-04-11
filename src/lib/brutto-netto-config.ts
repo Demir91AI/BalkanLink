@@ -101,9 +101,25 @@ export function getRatesForYear(year: TaxYear): SocialRates {
   return RATES_2026;
 }
 
-// ─── Income tax zones (2025 simplified progressive tariff §32a EStG) ───
+// ─── Income tax zones (§32a EStG) ───
+// 2026: using 2025 tariff as baseline (update when official 2026 tariff published)
+function computeYearlyTax2026(zvE: number): number {
+  if (zvE <= 12084) return 0;
+  if (zvE <= 17430) {
+    const y = (zvE - 12084) / 10000;
+    return Math.floor((932.30 * y + 1400) * y);
+  }
+  if (zvE <= 68430) {
+    const y = (zvE - 17430) / 10000;
+    return Math.floor((176.44 * y + 2397) * y + 1025.38);
+  }
+  if (zvE <= 277825) {
+    return Math.floor(0.42 * zvE - 10602.13);
+  }
+  return Math.floor(0.45 * zvE - 18936.88);
+}
+
 function computeYearlyTax2025(zvE: number): number {
-  // zvE = zu versteuerndes Einkommen (yearly)
   if (zvE <= 12084) return 0;
   if (zvE <= 17430) {
     const y = (zvE - 12084) / 10000;
@@ -136,7 +152,9 @@ function computeYearlyTax2024(zvE: number): number {
 }
 
 function computeYearlyTax(zvE: number, year: TaxYear): number {
-  return year === 2024 ? computeYearlyTax2024(zvE) : computeYearlyTax2025(zvE);
+  if (year === 2024) return computeYearlyTax2024(zvE);
+  if (year === 2025) return computeYearlyTax2025(zvE);
+  return computeYearlyTax2026(zvE);
 }
 
 // ─── Steuerklasse multiplier / Grundfreibetrag adjustments ───
