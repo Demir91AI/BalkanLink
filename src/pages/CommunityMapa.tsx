@@ -217,7 +217,7 @@ export default function CommunityMapa() {
         <div className="flex items-start gap-3 rounded-xl border border-[hsl(var(--gold))]/20 bg-[hsl(var(--gold))]/5 p-4">
           <Shield className="mt-0.5 h-5 w-5 shrink-0 text-[hsl(var(--gold))]" />
           <p className="text-xs text-[#6B6B6B] leading-relaxed">
-            BalkanLink ne odgovara za tačnost podataka. Sve angabe su freiwillig i na vlastitu odgovornost korisnika. Lokacija = samo grad. Kontaktni podaci se prikazuju SAMO ako to korisnik eksplicitno odabere i da saglasnost.
+            BalkanLink ne odgovara za tačnost podataka. Sve informacije su dobrovoljne i na vlastitu odgovornost korisnika. Lokacija = samo grad. Kontaktni podaci se prikazuju SAMO ako to korisnik eksplicitno odabere i da saglasnost.
           </p>
         </div>
 
