@@ -7,7 +7,25 @@ import { navigateBackOrHome } from "@/lib/navigation";
 import GdjePocetiTimeline from "@/components/migration/GdjePocetiTimeline";
 import CostCalculator from "@/components/migration/CostCalculator";
 import CountryInfoBox from "@/components/migration/CountryInfoBox";
-import { label } from "@/lib/de-labels";
+
+const COUNTRY_NAMES: Record<string, string> = {
+  bih: "Bosna i Hercegovina",
+  srb: "Srbija",
+  hr: "Hrvatska",
+  me: "Crna Gora",
+  al: "Albanija",
+  xk: "Kosovo",
+  mk: "Makedonija",
+  si: "Slovenija",
+};
+
+const CATEGORY_NAMES: Record<string, string> = {
+  work: "Posao",
+  education: "Obrazovanje / Ausbildung",
+  study: "Studij",
+  fsj: "Volonterska služba (FSJ/BFD)",
+  recognition: "Priznavanje kvalifikacija",
+};
 
 const ICON_FOR_KEY: Record<CategoryKey, React.ElementType> = {
   work: Briefcase,
@@ -20,34 +38,35 @@ const ICON_FOR_KEY: Record<CategoryKey, React.ElementType> = {
 export default function NachDeutschland() {
   const { countryCode, categoryKey } = useParams<{ countryCode?: string; categoryKey?: string }>();
   const navigate = useNavigate();
-  const countries = getMigrationCountries("de");
+  const countries = getMigrationCountries("bs");
 
   const selectedCountry = countries.find((c) => c.code === countryCode);
   const selectedCategory = selectedCountry?.categories.find((c) => c.key === categoryKey);
 
   const handleBack = () => navigateBackOrHome(navigate);
 
+  const countryName = (code: string) => COUNTRY_NAMES[code] ?? code;
+  const catName = (key: string) => CATEGORY_NAMES[key] ?? key;
+  const euLabel = (isEU: boolean) => isEU ? "EU članica — slobodan pristup" : "Zapadni Balkan — potrebna viza";
+
   // Country selection view
   if (!selectedCountry) {
     return (
       <div className="container max-w-4xl py-8 px-4">
-        <SEO title="Nach Deutschland — Vodič za Dolazak" description="Sve informacije za dolazak u Njemačku — viza, posao, studij, spajanje porodice. Po zemljama." path="/nach-deutschland" />
+        <SEO title="Dolazak u Njemačku — Vodič" description="Sve informacije za dolazak u Njemačku — viza, posao, studij, spajanje porodice. Po zemljama." path="/nach-deutschland" />
         <PageNavBar onBack={handleBack} />
         <h1 className="text-2xl font-bold text-foreground mb-2">Dolazak u Njemačku</h1>
         <p className="text-sm text-muted-foreground mb-6">Izaberi svoju zemlju i saznaj kako doći u Njemačku.</p>
 
         <div className="rounded-lg border border-[hsl(var(--brand-orange))]/30 bg-[hsl(var(--brand-orange))]/5 p-3 mb-6 flex items-start gap-2">
           <ShieldAlert className="h-4 w-4 text-[hsl(var(--brand-orange))] mt-0.5 shrink-0" />
-          <p className="text-xs text-muted-foreground">{"Informationen dienen zur Orientierung."}</p>
+          <p className="text-xs text-muted-foreground">Informacije služe za orijentaciju.</p>
         </div>
 
-        {/* Gdje početi timeline */}
         <GdjePocetiTimeline />
-
-        {/* Cost calculator */}
         <CostCalculator />
 
-        <h2 className="text-lg font-semibold mb-4">{"Land wählen"}</h2>
+        <h2 className="text-lg font-semibold mb-4">Izaberi zemlju</h2>
         <div className="grid gap-3 sm:grid-cols-2">
           {countries.map((country) => (
             <button
@@ -58,10 +77,10 @@ export default function NachDeutschland() {
               <span className="text-3xl">{country.flag}</span>
               <div className="flex-1 min-w-0">
                 <p className="font-semibold text-foreground group-hover:text-[hsl(var(--brand-orange))]">
-                  {label(`migration.country.${country.code}`)}
+                  {countryName(country.code)}
                 </p>
                 <p className="text-xs text-muted-foreground">
-                  {country.isEU ? "EU-Mitglied — freier Zugang" : "Westbalkan — Visum erforderlich"}
+                  {euLabel(country.isEU)}
                 </p>
               </div>
               <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-[hsl(var(--brand-orange))]" />
@@ -81,22 +100,21 @@ export default function NachDeutschland() {
         <div className="flex items-center gap-3 mb-2">
           <span className="text-3xl">{selectedCountry.flag}</span>
           <div>
-            <h1 className="text-2xl font-bold text-foreground">{label(`migration.country.${selectedCountry.code}`)}</h1>
+            <h1 className="text-2xl font-bold text-foreground">{countryName(selectedCountry.code)}</h1>
             <p className="text-sm text-muted-foreground">
-              {selectedCountry.isEU ? "EU-Mitglied — freier Zugang" : "Westbalkan — Visum erforderlich"}
+              {euLabel(selectedCountry.isEU)}
             </p>
           </div>
         </div>
 
-        {/* Country-specific info box */}
         <CountryInfoBox isEU={selectedCountry.isEU} />
 
         <div className="rounded-lg border border-[hsl(var(--brand-orange))]/30 bg-[hsl(var(--brand-orange))]/5 p-3 mb-6 flex items-start gap-2">
           <ShieldAlert className="h-4 w-4 text-[hsl(var(--brand-orange))] mt-0.5 shrink-0" />
-          <p className="text-xs text-muted-foreground">{"Informationen dienen zur Orientierung."}</p>
+          <p className="text-xs text-muted-foreground">Informacije služe za orijentaciju.</p>
         </div>
 
-        <h2 className="text-lg font-semibold mb-4">{"Kategorie wählen"}</h2>
+        <h2 className="text-lg font-semibold mb-4">Izaberi kategoriju</h2>
         <div className="grid gap-3">
           {selectedCountry.categories.map((cat) => {
             const Icon = ICON_FOR_KEY[cat.key as CategoryKey] || Briefcase;
@@ -111,14 +129,14 @@ export default function NachDeutschland() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="font-semibold text-foreground group-hover:text-[hsl(var(--brand-orange))]">
-                    {label(`migration.cat.${cat.key}`)}
+                    {catName(cat.key)}
                   </p>
                   <p className="text-xs text-muted-foreground">
                     {cat.visaRequired === true
-                      ? `⚠️ ${"Visum erforderlich"}`
+                      ? "⚠️ Potrebna viza"
                       : cat.visaRequired === false
-                      ? `✅ ${"Kein Visum erforderlich"}`
-                      : `ℹ️ ${"Situationsabhängig"}`}
+                      ? "✅ Viza nije potrebna"
+                      : "ℹ️ Zavisi od situacije"}
                   </p>
                 </div>
                 <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-[hsl(var(--brand-orange))]" />
@@ -127,7 +145,6 @@ export default function NachDeutschland() {
           })}
         </div>
 
-        {/* Cost calculator */}
         <div className="mt-8">
           <CostCalculator />
         </div>
@@ -136,8 +153,6 @@ export default function NachDeutschland() {
   }
 
   // Category detail view
-  const Icon = ICON_FOR_KEY[selectedCategory.key as CategoryKey] || Briefcase;
-
   return (
     <div className="container max-w-4xl py-8 px-4">
       <PageNavBar onBack={handleBack} />
@@ -145,19 +160,18 @@ export default function NachDeutschland() {
       <div className="flex items-center gap-3 mb-1">
         <span className="text-2xl">{selectedCountry.flag}</span>
         <h1 className="text-xl font-bold text-foreground">
-          {label(`migration.country.${selectedCountry.code}`)} – {label(`migration.cat.${selectedCategory.key}`)}
+          {countryName(selectedCountry.code)} – {catName(selectedCategory.key)}
         </h1>
       </div>
       <p className="text-sm text-muted-foreground mb-4 ml-10">
-        {selectedCountry.isEU ? "EU-Mitglied — freier Zugang" : "Westbalkan — Visum erforderlich"}
+        {euLabel(selectedCountry.isEU)}
       </p>
 
-      {/* Country-specific info box */}
       <CountryInfoBox isEU={selectedCountry.isEU} />
 
       <div className="rounded-lg border border-[hsl(var(--brand-orange))]/30 bg-[hsl(var(--brand-orange))]/5 p-3 mb-6 flex items-start gap-2">
         <ShieldAlert className="h-4 w-4 text-[hsl(var(--brand-orange))] mt-0.5 shrink-0" />
-        <p className="text-xs text-muted-foreground">{"Informationen dienen zur Orientierung."}</p>
+        <p className="text-xs text-muted-foreground">Informacije služe za orijentaciju.</p>
       </div>
 
       {/* Visa status */}
@@ -166,13 +180,13 @@ export default function NachDeutschland() {
           ? "border-green-500/30 bg-green-500/5"
           : "border-amber-500/30 bg-amber-500/5"
       }`}>
-        <h3 className="text-sm font-semibold text-foreground mb-1">{"Brauche ich ein Visum?"}</h3>
+        <h3 className="text-sm font-semibold text-foreground mb-1">Trebam li vizu?</h3>
         <p className="text-sm font-medium">
           {selectedCategory.visaRequired === true
-            ? `⚠️ ${"Ja, Visum erforderlich"}`
+            ? "⚠️ Da, viza je potrebna"
             : selectedCategory.visaRequired === false
-            ? `✅ ${"Nein, kein Visum nötig (EU)"}`
-            : `ℹ️ ${"Abhängig von Tätigkeit und Qualifikation"}`}
+            ? "✅ Ne, viza nije potrebna (EU)"
+            : "ℹ️ Zavisi od djelatnosti i kvalifikacija"}
         </p>
       </div>
 
@@ -180,14 +194,14 @@ export default function NachDeutschland() {
       <div className="rounded-xl border border-border bg-card p-4 mb-4">
         <h3 className="text-sm font-semibold text-foreground mb-2 flex items-center gap-2">
           <Globe className="h-4 w-4 text-[hsl(var(--primary))]" />
-          {"Rechtsgrundlage"}
+          Pravna osnova
         </h3>
         <p className="text-sm text-muted-foreground font-medium">{selectedCategory.legalBasis}</p>
       </div>
 
       {/* Requirements */}
       <div className="rounded-xl border border-border bg-card p-4 mb-4">
-        <h3 className="text-sm font-semibold text-foreground mb-3">{"Voraussetzungen"}</h3>
+        <h3 className="text-sm font-semibold text-foreground mb-3">Preduslovi</h3>
         <ul className="space-y-2">
           {selectedCategory.requirements.map((req, i) => (
             <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -200,7 +214,7 @@ export default function NachDeutschland() {
 
       {/* Steps */}
       <div className="rounded-xl border border-border bg-card p-4 mb-4">
-        <h3 className="text-sm font-semibold text-foreground mb-3">{"Schritt für Schritt"}</h3>
+        <h3 className="text-sm font-semibold text-foreground mb-3">Korak po korak</h3>
         <ol className="space-y-3">
           {selectedCategory.steps.map((step, i) => (
             <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
@@ -216,7 +230,7 @@ export default function NachDeutschland() {
       {/* Službene informacije */}
       <div className="rounded-xl border bg-card p-4 text-center">
         <h3 className="mb-3 flex items-center justify-center gap-1.5 text-sm font-bold">
-          <Info className="h-4 w-4 text-primary" /> {"Offizielle Informationen"}
+          <Info className="h-4 w-4 text-primary" /> Službene informacije
         </h3>
         <a
           href={selectedCategory.officialLinks[0]?.url}
@@ -225,10 +239,10 @@ export default function NachDeutschland() {
           className="inline-flex items-center gap-2 text-xs font-semibold text-primary bg-primary/10 rounded-lg px-5 py-2.5 transition-colors hover:bg-primary/20"
         >
           <ExternalLink className="h-4 w-4" />
-          {"Offizielle Informationen"}
+          Otvori službenu stranicu
         </a>
         <p className="mt-3 text-[11px] text-muted-foreground/70">
-          {"Alle Daten stammen aus offiziellen Quellen."}
+          Svi podaci su preuzeti iz službenih izvora.
         </p>
       </div>
     </div>
