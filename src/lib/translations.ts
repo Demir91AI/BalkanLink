@@ -162,9 +162,7 @@ export const translations: Record<string, T> = {
   "forms.commonErrors":{ bs: "Najčešće greške",     de: "Häufige Fehler" },
   "forms.officialLink":{ bs: "Službena stranica",   de: "Offizielle Seite" },
 
-  // VIZA NAVIGATOR
-  "viza.title":       { bs: "Viza Navigator",       de: "Visa Navigator" },
-  "viza.subtitle":    { bs: "Pronađi pravi status za tvoju situaciju", de: "Finde den richtigen Status für deine Situation" },
+  // VIZA NAVIGATOR (basic keys — full i18n keys at bottom)
   "viza.selectCountry":{ bs: "Odaberi svoju zemlju", de: "Herkunftsland wählen" },
   "viza.requirements":{ bs: "Potrebni dokumenti",   de: "Erforderliche Dokumente" },
   "viza.processing":  { bs: "Rok obrade",           de: "Bearbeitungszeit" },
@@ -688,7 +686,7 @@ export const translations: Record<string, T> = {
   "tools.openOfficial":  { bs: "Otvori službenu stranicu",               de: "Offizielle Seite öffnen" },
 
   // TRAINER
-  "trainer.free":      { bs: "Besplatno",              de: "Kostenlos" },
+  // trainer.free moved to bottom with full i18n
   "trainer.moreTasks": { bs: "Još zadataka",           de: "Mehr Aufgaben" },
   "trainer.tasks":     { bs: "zadataka",               de: "Aufgaben" },
   "trainer.unlock":    { bs: "Otključaj s Premium",    de: "Mit Premium freischalten" },
