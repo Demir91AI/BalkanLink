@@ -83,7 +83,7 @@ function VisaPaywall({ visaLabel, st }: { visaLabel: string; st: (k: string) => 
 }
 
 /* ─── Visa Detail (right side) ─── */
-function VisaDetail({ visa, st }: { visa: VisaType; st: (k: string) => string }) {
+function VisaDetail({ visa }: { visa: VisaType }) {
   const { isPremium } = useAuth();
   const guide = visa.guideSlug ? getGuideBySlug(visa.guideSlug) : null;
 
@@ -310,7 +310,7 @@ export default function BoravisnaDozvola() {
         >
           <ChevronLeft className="h-4 w-4" /> {label("back_to_routes")}
         </button>
-        <VisaDetail visa={activeVisa} st={st} />
+        <VisaDetail visa={activeVisa} />
       </div>
     );
   }
@@ -461,7 +461,7 @@ export default function BoravisnaDozvola() {
             {!isMobile && (
               <main className="min-w-0 flex-1">
                 {activeVisa ? (
-                  <VisaDetail visa={activeVisa} st={st} />
+                  <VisaDetail visa={activeVisa} />
                 ) : (
                   <div className="flex flex-col items-center justify-center py-20 text-center">
                     <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-primary/5 mb-6">

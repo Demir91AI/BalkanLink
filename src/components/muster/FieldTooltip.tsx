@@ -30,7 +30,7 @@ export default function FieldTooltip({ label }: FieldTooltipProps) {
   if (!matchedKey) return null;
 
   const translationKey = TOOLTIP_FIELDS[matchedKey];
-  const tooltip = label(translationKey);
+  const tooltip = String(label(translationKey));
 
   // If translation returns the key itself, no translation found
   if (tooltip === translationKey) return null;

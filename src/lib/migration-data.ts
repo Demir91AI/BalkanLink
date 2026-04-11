@@ -316,6 +316,6 @@ export const COUNTRIES: CountryMigrationData[] = [
 export const CATEGORY_KEYS = ["work", "education", "study", "fsj", "recognition"] as const;
 export type CategoryKey = typeof CATEGORY_KEYS[number];
 
-export function getMigrationCountries(language: Language): CountryMigrationData[] {
+export function getMigrationCountries(language: string = "de"): CountryMigrationData[] {
   return localizeMigrationCountries(language, COUNTRIES);
 }

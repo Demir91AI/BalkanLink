@@ -539,13 +539,13 @@ const TRANSLATIONS: Record<"bs" | "hr" | "sr" | "me" | "sq" | "mk", Record<strin
   },
 };
 
-function translateText(language: Language, text: string) {
+function translateText(language: string, text: string) {
   const alias = LANGUAGE_ALIASES[language];
 
   return TRANSLATIONS[alias][text] ?? text;
 }
 
-export function localizeMigrationCountries(language: Language, countries: CountryMigrationData[]): CountryMigrationData[] {
+export function localizeMigrationCountries(language: string, countries: CountryMigrationData[]): CountryMigrationData[] {
   return countries.map((country) => ({
     ...country,
     categories: country.categories.map((category) => ({
