@@ -1,4 +1,4 @@
-import { useTranslation } from "@/i18n/useTranslation";
+import { useLanguage } from "@/contexts/LanguageContext";
 import type { Language } from "@/lib/translations";
 import {
   DropdownMenu,
@@ -16,7 +16,7 @@ const SUPPORTED_LANGS = [
 ];
 
 export default function LanguageSelector() {
-  const { currentLanguage, setLanguage } = useTranslation();
+  const { language: currentLanguage, setLanguage } = useLanguage();
   const current = SUPPORTED_LANGS.find(l => l.code === currentLanguage)
     ?? SUPPORTED_LANGS[0];
 
