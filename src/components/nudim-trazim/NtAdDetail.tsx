@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import type { NtAd } from "@/lib/nudim-trazim-constants";
 import { NT_CATEGORIES } from "@/lib/nudim-trazim-constants";
 import NtAdCard from "./NtAdCard";
+import AuthGate from "@/components/AuthGate";
 
 interface Props {
   ad: NtAd;
@@ -61,10 +62,12 @@ export default function NtAdDetail({ ad, onBack, onOpen }: Props) {
 
           {/* Contact */}
           <div className="pt-4 border-t border-border">
-            <Button onClick={() => setShowContact((v) => !v)} className="gap-2">
-              <Eye className="h-4 w-4" />
-              {showContact ? ad.contact_value : "Prikaži kontakt"}
-            </Button>
+            <AuthGate>
+              <Button onClick={() => setShowContact((v) => !v)} className="gap-2">
+                <Eye className="h-4 w-4" />
+                {showContact ? ad.contact_value : "Prikaži kontakt"}
+              </Button>
+            </AuthGate>
           </div>
 
           {/* Safety hint */}

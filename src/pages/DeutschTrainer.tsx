@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { SEO } from "@/components/SEO";
+import AuthGate from "@/components/AuthGate";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Trophy, Flame, Star, Lock, GraduationCap, CheckCircle2, X, Crown, ChevronLeft, ChevronRight, ArrowLeft, Home } from "lucide-react";
@@ -72,7 +73,7 @@ export default function DeutschTrainer() {
   };
 
   if (activeLesson) {
-    return <TrainerLesson lesson={activeLesson} onBack={() => setActiveLesson(null)} />;
+    return <AuthGate><TrainerLesson lesson={activeLesson} onBack={() => setActiveLesson(null)} /></AuthGate>;
   }
 
   return (
