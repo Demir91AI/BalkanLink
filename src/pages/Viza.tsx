@@ -2,6 +2,7 @@ import { useState, useCallback } from "react";
 import { SEO } from "@/components/SEO";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { Lock } from "lucide-react";
+import AuthGate from "@/components/AuthGate";
 import { Button } from "@/components/ui/button";
 import PageNavBar from "@/components/navigation/PageNavBar";
 import { COUNTRY_CONTENT } from "@/data/vizaNavigatorContent";
@@ -286,12 +287,14 @@ export default function Viza() {
                   </div>
                 </div>
               ) : (
-                <VisaContentRenderer
-                  selectedCountry={selectedCountry}
-                  selectedRoute={selectedRoute}
-                  onSelectRoute={handleSelectRoute}
-                  onBack={handleClearRoute}
-                />
+                <AuthGate>
+                  <VisaContentRenderer
+                    selectedCountry={selectedCountry}
+                    selectedRoute={selectedRoute}
+                    onSelectRoute={handleSelectRoute}
+                    onBack={handleClearRoute}
+                  />
+                </AuthGate>
               )}
             </div>
           </div>
