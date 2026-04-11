@@ -143,7 +143,7 @@ export default function NudimTrazim() {
 
   return (
     <div className="min-h-screen bg-background">
-      <SEO title="Oglasi — Nudim i Tražim" description="Oglasi balkanske dijaspore u Njemačkoj — posao, stanovi, usluge." path="/nudim-trazim" />
+      <SEO title="Kleinanzeigen — Anbieten & Suchen" description="Kleinanzeigen der Balkan-Diaspora in Deutschland — Jobs, Wohnungen, Dienstleistungen." path="/nudim-trazim" />
       {/* ── Hero ── */}
       <section className="relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0a1628 0%, #0f1f3d 40%, #1a2a50 100%)' }}>
         {/* Background glow */}
@@ -156,24 +156,24 @@ export default function NudimTrazim() {
               <ChevronLeft className="h-4 w-4" /> {"Zurück"}
             </button>
             <button onClick={() => navigate("/")} className="flex items-center gap-1.5 text-[13px] font-medium text-white/50 hover:text-white transition-colors">
-              <Home className="h-4 w-4" /> Početna
+              <Home className="h-4 w-4" /> Startseite
             </button>
           </div>
           <div className="max-w-3xl">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 rounded-full border border-[#C9A84C]/30 bg-[#C9A84C]/10 px-4 py-1.5 mb-5">
               <Megaphone className="h-3.5 w-3.5 text-[#C9A84C]" />
-              <span className="text-[11px] font-bold uppercase tracking-widest text-[#C9A84C]">Balkanska zajednica</span>
+              <span className="text-[11px] font-bold uppercase tracking-widest text-[#C9A84C]">Balkan-Community</span>
             </div>
             {/* Heading */}
             <h1 className="text-4xl sm:text-5xl font-black text-white leading-tight mb-4">
-              Nudi, traži,<br />
+              Anbieten, suchen,<br />
               <span style={{ background: 'linear-gradient(90deg, #C9A84C, #F0D080)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                poveži se.
+                vernetzen.
               </span>
             </h1>
             <p className="text-white/60 text-base sm:text-lg leading-relaxed mb-8 max-w-xl">
-              Balkanska oglasna platforma u Njemačkoj — posao, stanovanje, usluge, prevoz i sve ostalo. Besplatno, brzo, na tvom jeziku.
+              Balkan-Kleinanzeigenplattform in Deutschland — Jobs, Wohnungen, Dienstleistungen, Transport und mehr. Kostenlos, schnell, unkompliziert.
             </p>
             {/* CTA buttons */}
             <div className="flex flex-wrap gap-3 mb-10">
@@ -182,21 +182,21 @@ export default function NudimTrazim() {
                 className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold text-[#0f1f3d] transition-all hover:opacity-90 hover:scale-[1.02]"
                 style={{ background: 'linear-gradient(135deg, #C9A84C, #F0D080)' }}
               >
-                <PlusCircle className="h-4 w-4" /> Objavi oglas besplatno
+                <PlusCircle className="h-4 w-4" /> Anzeige kostenlos aufgeben
               </button>
               <button
                 onClick={openForm}
                 className="inline-flex items-center gap-2 rounded-full border-2 border-white/20 bg-white/5 px-7 py-3.5 text-sm font-bold text-white backdrop-blur transition-all hover:bg-white/10 hover:border-white/40"
               >
-                <SearchIcon className="h-4 w-4" /> Pretražuj oglase
+                <SearchIcon className="h-4 w-4" /> Anzeigen durchsuchen
               </button>
             </div>
             {/* Stats */}
             <div className="flex flex-wrap gap-6">
               {[
-                { value: "100%", label: "Besplatna objava" },
-                { value: "7", label: "Kategorija" },
-                { value: "🇩🇪", label: "Cijela Njemačka" },
+                { value: "100%", label: "Kostenlos" },
+                { value: "7", label: "Kategorien" },
+                { value: "🇩🇪", label: "Ganz Deutschland" },
               ].map(s => (
                 <div key={s.label} className="flex items-center gap-2">
                   <span className="text-lg font-black text-white">{s.value}</span>
@@ -270,12 +270,12 @@ export default function NudimTrazim() {
               <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-muted">
                 <ClipboardList className="h-8 w-8 text-muted-foreground" />
               </div>
-              <h3 className="text-xl font-bold text-foreground">Još nema oglasa</h3>
+              <h3 className="text-xl font-bold text-foreground">Noch keine Anzeigen</h3>
               <p className="text-muted-foreground max-w-md mx-auto">
-                Budi prvi koji objavljuje oglas u svojoj zajednici!
+                Sei der Erste, der eine Anzeige in deiner Community aufgibt!
               </p>
               <Button onClick={openForm} size="lg" className="gap-2 mt-2">
-                <PlusCircle className="h-4 w-4" /> Objavi oglas →
+                <PlusCircle className="h-4 w-4" /> Anzeige aufgeben →
               </Button>
             </div>
           )}
