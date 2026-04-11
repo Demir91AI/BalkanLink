@@ -1,7 +1,7 @@
 import { useRef, useCallback } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { Menu, ShieldCheck } from "lucide-react";
-import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+// LanguageSwitcher removed from UI per language policy (see src/config/language-policy.ts)
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -49,7 +49,7 @@ export default function Header() {
           )}
         </div>
 
-        <LanguageSwitcher />
+        {/* LanguageSwitcher hidden per language policy */}
       </div>
     </header>
   );

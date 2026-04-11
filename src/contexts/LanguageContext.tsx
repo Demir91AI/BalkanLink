@@ -1,6 +1,15 @@
+/**
+ * BalkanLink Language Policy
+ *
+ * i18n remains in codebase for future scalability.
+ * Only Bosanski is currently active in production.
+ * Language switcher is disabled in UI.
+ * Other languages remain inactive until explicitly re-enabled.
+ */
 import React, { createContext, useContext, useState, useCallback } from "react";
 import { label as deLabel } from "@/lib/de-labels";
 import BS from "@/i18n/bs";
+import { LANGUAGE_POLICY } from "@/config/language-policy";
 
 export type Language = "bs" | "de";
 
@@ -12,16 +21,15 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | null>(null);
 
+const FORCED_LANG = LANGUAGE_POLICY.activeLanguage as Language;
+
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLangState] = useState<Language>(() => {
-    try {
-      const stored = localStorage.getItem("bl-lang") as Language | null;
-      if (stored === "bs" || stored === "de") return stored;
-    } catch {}
-    return "de";
-  });
+  // Always force the active language defined in LANGUAGE_POLICY
+  const [lang, setLangState] = useState<Language>(FORCED_LANG);
 
   const setLang = useCallback((newLang: Language) => {
+    // Only allow switching if the policy permits other languages
+    if (!LANGUAGE_POLICY.allowOtherLanguagesInUI && newLang !== FORCED_LANG) return;
     setLangState(newLang);
     try { localStorage.setItem("bl-lang", newLang); } catch {}
   }, []);
@@ -44,10 +52,10 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 }
 
 const fallback: LanguageContextType = {
-  lang: "de",
+  lang: FORCED_LANG,
   setLang: () => {},
   t: (key: string) => {
-    try { return deLabel(key); } catch { return key; }
+    try { return BS[key] ?? deLabel(key); } catch { return key; }
   },
 };
 
