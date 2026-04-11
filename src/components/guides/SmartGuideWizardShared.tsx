@@ -42,7 +42,6 @@ export default function SmartGuideWizardShared({
   free = false,
   finishLabel,
   onFinish,
-  onFinish,
 }: Props) {
   const [step, setStep] = useState(0);
   const st = useSectionT();
