@@ -9,28 +9,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import AuthModal from "@/components/auth/AuthModal";
 
-type SidebarAuthUser = {
-  email?: string | null;
-  user_metadata?: {
-    full_name?: string;
-    name?: string;
-  } | null;
-};
-
-function getDisplayName(user: SidebarAuthUser | null) {
-  const fullName = typeof user?.user_metadata?.full_name === "string" ? user.user_metadata.full_name.trim() : "";
-  const name = typeof user?.user_metadata?.name === "string" ? user.user_metadata.name.trim() : "";
-  const emailFallback = user?.email?.split("@")[0]?.trim() ?? "";
-
-  return fullName || name || emailFallback || "prijatelju";
-}
-
-function getFirstName(user: SidebarAuthUser | null) {
-  return getDisplayName(user).split(/\s+/).filter(Boolean)[0] || "prijatelju";
-}
-
-function getInitials(user: SidebarAuthUser | null) {
-  const parts = getDisplayName(user).split(/\s+/).filter(Boolean);
+function getInitials(name: string) {
+  const parts = name.split(/\s+/).filter(Boolean);
   return parts.slice(0, 2).map((part) => part.charAt(0).toUpperCase()).join("") || "?";
 }
 
@@ -41,9 +21,9 @@ export function AppSidebar() {
   const navigate = useNavigate();
   const location = useLocation();
   const { t } = useLanguage();
-  const { user, signOut } = useAuth();
-  const firstName = getFirstName(user);
-  const initials = getInitials(user);
+  const { user, signOut, displayName } = useAuth();
+  const firstName = displayName.split(/\s+/).filter(Boolean)[0] || "Korisniče";
+  const initials = getInitials(displayName);
 
   const mainItems = [
     { titleKey: "sidebar.formulari", url: "/formulari", icon: FileText, premium: true },

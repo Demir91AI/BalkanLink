@@ -23,6 +23,7 @@ const PW_RULES = [
 ];
 
 export default function Register() {
+  const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -36,7 +37,7 @@ export default function Register() {
   const ruleResults = useMemo(() => PW_RULES.map(r => ({ ...r, pass: r.test(password) })), [password]);
   const allRulesPass = ruleResults.every(r => r.pass);
   const passwordsMatch = password === confirmPassword;
-  const canSubmit = allRulesPass && passwordsMatch && confirmPassword.length > 0 && acceptedTerms && turnstileToken.length > 0;
+  const canSubmit = allRulesPass && passwordsMatch && confirmPassword.length > 0 && acceptedTerms && turnstileToken.length > 0 && firstName.trim().length > 0;
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,11 +53,26 @@ export default function Register() {
       setLoading(false);
       return;
     }
-    const { error } = await supabase.auth.signUp({
+    const { data: signUpData, error } = await supabase.auth.signUp({
       email,
       password,
-      options: { emailRedirectTo: window.location.origin },
+      options: {
+        emailRedirectTo: window.location.origin,
+        data: { first_name: firstName.trim() },
+      },
     });
+    
+    // Save first_name to profiles table immediately after signup
+    if (!error && signUpData.user) {
+      await supabase
+        .from("profiles")
+        .upsert({
+          id: signUpData.user.id,
+          email,
+          first_name: firstName.trim(),
+        } as any, { onConflict: "id" });
+    }
+    
     setLoading(false);
 
     if (error) {
@@ -79,6 +95,10 @@ export default function Register() {
         </CardHeader>
         <form onSubmit={handleRegister}>
           <CardContent className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="firstName">{t("auth.firstName") || "Ime"}</Label>
+              <Input id="firstName" type="text" required value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder="Tvoje ime" autoComplete="given-name" />
+            </div>
             <div className="space-y-2">
               <Label htmlFor="email">{t("auth.email")}</Label>
               <Input id="email" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="vas@email.com" />
