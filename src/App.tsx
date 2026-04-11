@@ -239,25 +239,20 @@ function AppRoutes() {
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <LanguageProvider>
     <TooltipProvider>
-      
       <Toaster />
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
-        
-          <CountryProvider>
+        <CountryProvider>
           <AuthProvider>
             <Suspense fallback={null}>
               <AppRoutes />
             </Suspense>
-            
           </AuthProvider>
-          </CountryProvider>
+        </CountryProvider>
       </BrowserRouter>
     </TooltipProvider>
-    </LanguageProvider>
   </QueryClientProvider>
 );
 
