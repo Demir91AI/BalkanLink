@@ -951,7 +951,7 @@ export const translations: Record<string, T> = {
   "deutsch.tasks":             { bs: "zadataka",              de: "Aufgaben" },
   "deutsch.tasksFree":         { bs: "besplatno dostupno",    de: "frei verfügbar" },
   "deutsch.maxReached":        { bs: "Maks. dostignut",       de: "Max erreicht" },
-  "deutsch.free":              { bs: "Besplatno",             de: "Free" },
+  "deutsch.free":              { bs: "Besplatno",             de: "Kostenlos" },
 
   // TRAINER i18n (extended)
   "trainer.subtitle":       { bs: "Efikasno učenje njemačkog za svakodnevni život", hr: "Učinkovito učenje njemačkog za svakodnevni život", sr: "Efikasno učenje nemačkog za svakodnevni život", de: "Effektives Deutschlernen für das echte Leben" },

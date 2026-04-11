@@ -228,7 +228,7 @@ export default function FlowBanner() {
                   )}
                   {item.badge === "free" && (
                     <span className="absolute top-5 right-5 z-10 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-[11px] font-bold text-white/70 backdrop-blur-sm">
-                      Free
+                      {t("deutsch.free")}
                     </span>
                   )}
 
