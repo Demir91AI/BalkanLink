@@ -142,7 +142,7 @@ export default function BruttoNettoRechner() {
         <div className="container text-center">
           <Euro className="mx-auto h-6 w-6 text-[hsl(var(--gold))] mb-3" />
           <h1 className="text-xl font-bold text-primary-foreground md:text-2xl">
-            {"Brutto-Netto-Rechner"}
+            {"Bruto-Neto kalkulator"}
           </h1>
           <p className="mt-2 text-sm text-primary-foreground/80">
             {"Izračunaj svoju neto platu"}
@@ -159,14 +159,14 @@ export default function BruttoNettoRechner() {
             <div className="space-y-5">
               <div className="rounded-xl border bg-card p-5 shadow-sm space-y-5">
                 <h2 className="flex items-center gap-2 text-sm font-bold">
-                  <Euro className="h-4 w-4 text-primary" /> {"Daten eingeben"}
+                  <Euro className="h-4 w-4 text-primary" /> {"Unesi podatke"}
                 </h2>
 
                 {/* Brutto */}
                 <div className="space-y-1.5">
                   <Label className="text-xs">
                     Bruto plata (€)
-                    <InfoTip text={"Brutto-Monatsgehalt eingeben"} />
+                    <InfoTip text={"Unesi bruto mjesečnu platu"} />
                   </Label>
                   <div className="relative">
                     <Input
@@ -200,15 +200,15 @@ export default function BruttoNettoRechner() {
                 {/* Steuerklasse with descriptions */}
                 <div className="space-y-1.5">
                   <Label className="text-xs">
-                    {"Steuerklasse"}
-                    <InfoTip text={"Steuerklasse wählen"} />
+                    {"Porezna klasa"}
+                    <InfoTip text={"Odaberi poreznu klasu"} />
                   </Label>
                   <Select value={String(inputs.steuerklasse)} onValueChange={v => update({ steuerklasse: Number(v) })}>
                     <SelectTrigger className="text-xs"><SelectValue /></SelectTrigger>
                     <SelectContent>
                       {[1, 2, 3, 4, 5, 6].map(k => (
                         <SelectItem key={k} value={String(k)} className="text-xs">
-                          Klasse {k} — {STEUERKLASSE_DESC[k]}
+                          Klasa {k} — {STEUERKLASSE_DESC[k]}
                         </SelectItem>
                       ))}
                     </SelectContent>
@@ -218,8 +218,8 @@ export default function BruttoNettoRechner() {
                 {/* Bundesland */}
                 <div className="space-y-1.5">
                   <Label className="text-xs">
-                    {"Bundesland"}
-                    <InfoTip text={"Bundesland wählen"} />
+                    {"Savezna pokrajina"}
+                    <InfoTip text={"Odaberi saveznu pokrajinu"} />
                   </Label>
                   <Select value={inputs.bundesland} onValueChange={v => update({ bundesland: v })}>
                     <SelectTrigger className="text-xs"><SelectValue /></SelectTrigger>
@@ -236,7 +236,7 @@ export default function BruttoNettoRechner() {
                   <Switch checked={inputs.kirchensteuer} onCheckedChange={v => update({ kirchensteuer: v })} />
                   <Label className="text-xs">
                     Crkveni porez ({kirchensteuerSatz}%)
-                    <InfoTip text={"Kirchensteuer (falls Kirchenmitglied)"} />
+                    <InfoTip text={"Crkveni porez (ako si član crkve)"} />
                   </Label>
                 </div>
 
