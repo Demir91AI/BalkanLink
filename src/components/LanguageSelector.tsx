@@ -49,7 +49,7 @@ export default function LanguageSelector() {
         {SUPPORTED_LANGS.map((lang) => (
           <DropdownMenuItem
             key={lang.code}
-            onClick={() => setLanguage(lang.code)}
+            onClick={() => setLanguage(lang.code as Language)}
             className={`
               flex items-center gap-2.5 text-white/80
               hover:text-white focus:text-white focus:bg-white/10
