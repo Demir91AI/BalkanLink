@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import PageNavBar from "@/components/navigation/PageNavBar";
-import { label } from "@/lib/de-labels";
+
 import {
   Eye, TrendingUp, FileText, MessageSquare, Clock,
   AlertTriangle, Plane, CheckCircle, Euro, ListChecks,
