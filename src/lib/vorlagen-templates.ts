@@ -27,8 +27,8 @@ export interface VorlagenTemplate {
   slug: string;
   titleDe: string;
   titleBs: string;
-  section: "work" | "service";
-  icon: "briefcase" | "file" | "home" | "wifi" | "star" | "heart";
+  section: "work" | "service" | "health";
+  icon: "briefcase" | "file" | "home" | "wifi" | "star" | "heart" | "alert" | "undo";
   fields: TemplateField[];
   variants: TemplateVariant[];
   hints: TemplateHint[];
@@ -642,6 +642,82 @@ Mit freundlichen Grüßen
       },
     ],
     checklist: ["Name und Position korrekt", "Qualifiziertes Zeugnis angefordert"],
+  },
+
+  /* ── WIDERSPRUCH KRANKENKASSE ── */
+  {
+    slug: "widerspruch-krankenkasse",
+    titleDe: "Widerspruch gegen Krankenkasse",
+    titleBs: "Žalba na odluku zdravstvenog osiguranja",
+    section: "health",
+    icon: "heart",
+    fields: [
+      { key: "NAME", label: "Ihr vollständiger Name", labelBs: "Vaše puno ime", placeholder: "Max Mustermann" },
+      { key: "ADRESSE", label: "Ihre Adresse", labelBs: "Vaša adresa", placeholder: "Musterstr. 1, 12345 Berlin" },
+      { key: "KASSE", label: "Name der Krankenkasse", labelBs: "Ime osiguravajuće kuće", placeholder: "AOK / TK / Barmer" },
+      { key: "KASSE_ADRESSE", label: "Adresse der Krankenkasse", labelBs: "Adresa osiguravajuće kuće", placeholder: "Postfach 123, 12345 Berlin" },
+      { key: "VERSICHERTENNR", label: "Versichertennummer", labelBs: "Broj osiguranika", placeholder: "A123456789" },
+      { key: "BESCHEID_DATUM", label: "Datum des Bescheids", labelBs: "Datum odluke", type: "date" },
+      { key: "ORT", label: "Ort", labelBs: "Mjesto", placeholder: "Berlin" },
+      { key: "DATUM", label: "Datum", labelBs: "Datum", type: "date" },
+    ],
+    variants: [
+      {
+        id: "standard",
+        label: "Standard (professionell)",
+        body: `{{NAME}}\n{{ADRESSE}}\n\n{{KASSE}}\n{{KASSE_ADRESSE}}\n\n{{ORT}}, den {{DATUM}}\n\nVersichertennummer: {{VERSICHERTENNR}}\n\nBetreff: Widerspruch gegen Ihren Bescheid vom {{BESCHEID_DATUM}}\n\nSehr geehrte Damen und Herren,\n\nhiermit lege ich fristgerecht Widerspruch gegen Ihren Bescheid vom {{BESCHEID_DATUM}} ein.\n\nMit dem genannten Bescheid wurde mein Antrag abgelehnt. Diese Entscheidung halte ich für nicht gerechtfertigt und bitte um erneute Prüfung.\n\nIch bitte um eine schriftliche Bestätigung des Eingangs dieses Widerspruchs sowie um einen rechtsmittelfähigen Widerspruchsbescheid.\n\nMit freundlichen Grüßen\n\n{{NAME}}`,
+      },
+    ],
+    hints: [
+      {
+        title: "Wichtig zu wissen",
+        items: [
+          "Die Widerspruchsfrist beträgt 1 Monat ab Zugang des Bescheids.",
+          "Widerspruch muss schriftlich erfolgen.",
+          "Sie können den Widerspruch zunächst ohne Begründung einlegen und diese nachreichen.",
+        ],
+      },
+      { title: "Versand", items: ["Einschreiben mit Rückschein empfohlen.", "Fax mit Sendebericht ist ebenfalls ausreichend."] },
+    ],
+    checklist: ["Widerspruchsfrist (1 Monat) eingehalten", "Versichertennummer angegeben", "Bescheid-Datum korrekt", "Eigenhändig unterschrieben"],
+  },
+
+  /* ── KOSTENÜBERNAHME ── */
+  {
+    slug: "kostenuebernahme",
+    titleDe: "Antrag auf Kostenübernahme",
+    titleBs: "Zahtjev za pokriće troškova",
+    section: "health",
+    icon: "heart",
+    fields: [
+      { key: "NAME", label: "Ihr vollständiger Name", labelBs: "Vaše puno ime", placeholder: "Max Mustermann" },
+      { key: "ADRESSE", label: "Ihre Adresse", labelBs: "Vaša adresa", placeholder: "Musterstr. 1, 12345 Berlin" },
+      { key: "KASSE", label: "Name der Krankenkasse", labelBs: "Ime osiguravajuće kuće", placeholder: "AOK / TK / Barmer" },
+      { key: "KASSE_ADRESSE", label: "Adresse der Krankenkasse", labelBs: "Adresa osiguravajuće kuće", placeholder: "Postfach 123, 12345 Berlin" },
+      { key: "VERSICHERTENNR", label: "Versichertennummer", labelBs: "Broj osiguranika", placeholder: "A123456789" },
+      { key: "LEISTUNG", label: "Gewünschte Leistung", labelBs: "Tražena usluga/liječenje", placeholder: "z.B. Brille, Zahnersatz, Physiotherapie" },
+      { key: "ORT", label: "Ort", labelBs: "Mjesto", placeholder: "Berlin" },
+      { key: "DATUM", label: "Datum", labelBs: "Datum", type: "date" },
+    ],
+    variants: [
+      {
+        id: "standard",
+        label: "Standard (professionell)",
+        body: `{{NAME}}\n{{ADRESSE}}\n\n{{KASSE}}\n{{KASSE_ADRESSE}}\n\n{{ORT}}, den {{DATUM}}\n\nVersichertennummer: {{VERSICHERTENNR}}\n\nBetreff: Antrag auf Kostenübernahme für {{LEISTUNG}}\n\nSehr geehrte Damen und Herren,\n\nhiermit beantrage ich die Übernahme der Kosten für {{LEISTUNG}}.\n\nBeigefügt finden Sie die ärztliche Verordnung / den Kostenvoranschlag.\n\nIch bitte um eine schriftliche Bestätigung und zeitnahe Bearbeitung meines Antrags.\n\nMit freundlichen Grüßen\n\n{{NAME}}`,
+      },
+    ],
+    hints: [
+      {
+        title: "Wichtig zu wissen",
+        items: [
+          "Die Krankenkasse muss innerhalb von 3 Wochen über den Antrag entscheiden (§ 13 Abs. 3a SGB V).",
+          "Bei Nichtantwort innerhalb der Frist gilt der Antrag als genehmigt.",
+          "Ärztliche Verordnung oder Kostenvoranschlag beilegen.",
+        ],
+      },
+      { title: "Versand", items: ["Per Post oder über die Online-Geschäftsstelle der Krankenkasse."] },
+    ],
+    checklist: ["Ärztliche Verordnung beigefügt", "Versichertennummer angegeben", "Leistung genau beschrieben"],
   },
 ];
 
