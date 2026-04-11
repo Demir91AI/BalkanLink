@@ -407,7 +407,7 @@ export default function DokumentenCheck() {
               {loading ? "Analysiere…" : "Dokument analysieren"}
             </Button>
             {(analysis || textInput || file || error) && (
-              <Button variant="outline" onClick={handleClear} className="rounded-xl">{"Zurücksetzen"}</Button>
+              <Button variant="outline" onClick={handleClear} className="rounded-xl">{"Resetuj"}</Button>
             )}
           </div>
 

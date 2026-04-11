@@ -222,7 +222,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
       {/* Back */}
       <button onClick={onBack}
         style={{ display: 'flex', alignItems: 'center', gap: 6, background: 'none', border: 'none', color: GOLD, cursor: 'pointer', fontSize: 14, marginBottom: 20, padding: 0, fontWeight: 600 }}>
-        {"← Zurück zu den Routen"}
+        {"← Nazad na rute"}
       </button>
 
       {/* Breadcrumb */}
@@ -241,12 +241,12 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
           <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
             <Zap size={18} color={GOLD} style={{ flexShrink: 0, marginTop: 2 }} />
             <div>
-              <p style={{ fontSize: 13, fontWeight: 700, color: '#92400E', margin: '0 0 6px' }}>{"Westbalkan-Regelung aktiv!"}</p>
+              <p style={{ fontSize: 13, fontWeight: 700, color: '#92400E', margin: '0 0 6px' }}>{"Regulativa za Zapadni Balkan aktivna!"}</p>
               <p style={{ fontSize: 13, color: '#4A4A4A', margin: 0, lineHeight: 1.6 }}>{route.westbalkanNote}</p>
               <a href="https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/arbeit/westbalkan-regelung"
                 target="_blank" rel="noopener noreferrer"
                 style={{ display: 'inline-flex', alignItems: 'center', gap: 4, color: GOLD, fontSize: 12, marginTop: 8, textDecoration: 'none' }}>
-                {"Mehr erfahren"} <ExternalLink size={12} />
+                {"Saznaj više"} <ExternalLink size={12} />
               </a>
             </div>
           </div>
