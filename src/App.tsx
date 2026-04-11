@@ -96,6 +96,8 @@ const ArbeitsbescheinigungMuster = lazy(() => import("./pages/muster/Arbeitsbesc
 const AntragsruecknahmeMuster = lazy(() => import("./pages/muster/AntragsruecknahmeMuster"));
 const Viza = lazy(() => import("./pages/Viza"));
 const ZivotUNjemackoj = lazy(() => import("./pages/ZivotUNjemackoj"));
+const RadnoPravo = lazy(() => import("./pages/RadnoPravo"));
+const RadnoPravoGuide = lazy(() => import("./pages/RadnoPravoGuide"));
 const Premium = lazy(() => import("./pages/Premium"));
 const Paketi = lazy(() => import("./pages/Paketi"));
 const Profil = lazy(() => import("./pages/Profil"));
@@ -221,6 +223,8 @@ function AppRoutes() {
         <Route path="/mapa" element={<CommunityMapa />} />
         <Route path="/zivot-u-njemackoj" element={<ZivotUNjemackoj />} />
         <Route path="/viza" element={<Viza />} />
+        <Route path="/radno-pravo" element={<RadnoPravo />} />
+        <Route path="/radno-pravo/:slug" element={<RadnoPravoGuide />} />
         <Route path="/oglasi" element={<Navigate to="/nudim-trazim" replace />} />
         <Route path="/deutsch" element={<Navigate to="/deutsch-trainer" replace />} />
         <Route path="/sabloni" element={<Navigate to="/vorlagen" replace />} />
