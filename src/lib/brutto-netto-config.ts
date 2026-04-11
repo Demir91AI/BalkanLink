@@ -1,6 +1,6 @@
 /**
  * BalkanLink Brutto-Netto Rechner – Configuration & Calculation Engine
- * All rates/thresholds for 2025 (Germany). Update this file annually.
+ * All rates/thresholds for 2026 (Germany). Update this file annually.
  *
  * DISCLAIMER: This is an approximation. Real payroll involves many edge cases.
  */
@@ -29,7 +29,7 @@ export const BUNDESLAENDER = [
   { value: "TH", label: "Thüringen", kirchensteuerSatz: 9 },
 ] as const;
 
-// ─── Social contribution rates (2025, employee share unless noted) ───
+// ─── Social contribution rates (2026, employee share unless noted) ───
 export interface SocialRates {
   rv: number;          // Rentenversicherung AN-Anteil
   rvAG: number;        // Rentenversicherung AG-Anteil
@@ -45,6 +45,23 @@ export interface SocialRates {
   bbgKvPv: number;     // Beitragsbemessungsgrenze KV/PV (monatlich)
   defaultZusatzbeitrag: number; // KV Zusatzbeitrag default (gesamt, AN zahlt Hälfte)
 }
+
+// 2026 rates (projected based on 2025 + known adjustments)
+export const RATES_2026: SocialRates = {
+  rv: 0.093,
+  rvAG: 0.093,
+  av: 0.013,
+  avAG: 0.013,
+  kvBase: 0.073,        // 14.6% / 2
+  kvAG: 0.073,
+  pvBase: 0.017,         // 3.4% / 2
+  pvAG: 0.017,
+  pvKinderlosZuschlag: 0.006,
+  pvKindAbschlag: 0.0025,
+  bbgRvAv: 7550,         // update when official 2026 values published
+  bbgKvPv: 5512.50,
+  defaultZusatzbeitrag: 2.5,
+};
 
 export const RATES_2025: SocialRates = {
   rv: 0.093,
@@ -79,7 +96,9 @@ export const RATES_2024: SocialRates = {
 };
 
 export function getRatesForYear(year: TaxYear): SocialRates {
-  return year === 2024 ? RATES_2024 : RATES_2025;
+  if (year === 2024) return RATES_2024;
+  if (year === 2025) return RATES_2025;
+  return RATES_2026;
 }
 
 // ─── Income tax zones (2025 simplified progressive tariff §32a EStG) ───
