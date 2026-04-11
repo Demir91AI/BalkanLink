@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import {
   FileText, Shield, BookOpen, Camera, Megaphone, Map, Plane,
   Briefcase, Building, Calculator, FileCheck, X, LogIn, LogOut, User,
-  CreditCard,
+  CreditCard, Scale,
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import AuthModal from "@/components/auth/AuthModal";
@@ -34,6 +34,7 @@ export function AppSidebar() {
 
   const secondaryItems = [
     { titleKey: "sidebar.zivot", url: "/zivot-u-njemackoj", icon: Plane },
+    { titleKey: "sidebar.radnoPravo", url: "/radno-pravo", icon: Scale },
     { titleKey: "sidebar.nudim", url: "/nudim-trazim", icon: Megaphone },
     { titleKey: "sidebar.mapa", url: "/mapa", icon: Map },
     { titleKey: "sidebar.jobs", url: "/stellenangebote", icon: Briefcase },

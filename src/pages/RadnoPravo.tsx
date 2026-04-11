@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Scale, ChevronRight, Info } from "lucide-react";
 import { RADNO_PRAVO_CATEGORIES, getGuidesByCategory, type RadnoPravoGuide } from "@/lib/radno-pravo-data";
-import SEO from "@/components/SEO";
+import { SEO } from "@/components/SEO";
 
 const GOLD = "hsl(var(--gold))";
 

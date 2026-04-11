@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, CheckCircle, AlertTriangle, Lightbulb, BookOpen, ExternalLink, Calendar, Info, Scale } from "lucide-react";
 import { getGuideBySlug } from "@/lib/radno-pravo-data";
-import SEO from "@/components/SEO";
+import { SEO } from "@/components/SEO";
 
 const GOLD = "hsl(var(--gold))";
 
