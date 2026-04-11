@@ -1,6 +1,11 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Home, CreditCard, User, X, LogIn, LogOut, type LucideIcon } from "lucide-react";
+import {
+  Home, CreditCard, User, X, LogIn, LogOut,
+  FileText, Globe, Calculator, GraduationCap,
+  Megaphone, Map, Bot, BookOpen, HelpCircle,
+  type LucideIcon
+} from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import AuthModal from "@/components/auth/AuthModal";
 
@@ -24,9 +29,19 @@ export function AppSidebar() {
   const { user, signOut, displayName } = useAuth();
   const firstName = displayName.split(/\s+/).filter(Boolean)[0] || "Nutzer";
   const initials = getInitials(displayName || user?.email || "BL");
+
   const navItems: NavItem[] = [
     { title: "Startseite", url: "/", icon: Home },
-    { title: "Pakete & Preise", url: "/paketi", icon: CreditCard },
+    { title: "Formulare", url: "/formulare", icon: FileText },
+    { title: "Visa-Navigator", url: "/visa-navigator", icon: Globe },
+    { title: "Rechner", url: "/rechner", icon: Calculator },
+    { title: "Deutschkurs", url: "/deutsch-kurs", icon: GraduationCap },
+    { title: "Kleinanzeigen", url: "/kleinanzeigen", icon: Megaphone },
+    { title: "Karte", url: "/karte", icon: Map },
+    { title: "Dokumentenprüfung", url: "/dokumente", icon: Bot },
+    { title: "Vorlagen", url: "/vorlagen", icon: BookOpen },
+    { title: "Wissensdatenbank", url: "/wissensdatenbank", icon: HelpCircle },
+    { title: "Preise", url: "/preise", icon: CreditCard },
     ...(user ? [{ title: "Mein Profil", url: "/profil", icon: User }] : []),
   ];
 
@@ -123,7 +138,9 @@ export function AppSidebar() {
         <nav className="flex-1 p-4">
           <div className="space-y-1">
             {navItems.map((item) => {
-              const active = location.pathname === item.url || location.pathname.startsWith(item.url + "/");
+              const active = item.url === "/"
+                ? location.pathname === "/"
+                : location.pathname === item.url || location.pathname.startsWith(item.url + "/");
 
               return (
                 <button
