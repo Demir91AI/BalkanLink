@@ -1,5 +1,6 @@
 import { useState, useCallback, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import AuthGate from "@/components/AuthGate";
 import type { BreadcrumbItem } from "@/components/navigation/SectionHeader";
 import { ArrowRight, ArrowLeft, AlertTriangle, Lock, Crown, Volume2, Loader2 } from "lucide-react";
 import { Progress } from "@/components/ui/progress";

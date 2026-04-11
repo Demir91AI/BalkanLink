@@ -1,5 +1,6 @@
 import React, { useState, useRef, useCallback, useMemo } from "react";
 import { FileText, Upload, Type, Shield, AlertTriangle, Loader2, X, CheckCircle2, Lock, Eye, BookOpen, Search, AlertCircle, Clock, DollarSign, Wrench, XCircle, ShieldAlert, Globe, Scale, FileWarning, CalendarClock, Banknote, CheckSquare } from "lucide-react";
+import AuthGate from "@/components/AuthGate";
 import PageNavBar from "@/components/navigation/PageNavBar";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -299,6 +300,7 @@ export default function DokumentenCheck() {
       </section>
 
       <section className="py-10 sm:py-14">
+        <AuthGate>
         <div className="container max-w-4xl px-4 space-y-8">
           {/* ── Privacy notice ── */}
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
@@ -555,6 +557,7 @@ export default function DokumentenCheck() {
             </p>
           </div>
         </div>
+        </AuthGate>
       </section>
     </>
   );

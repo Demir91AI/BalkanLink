@@ -491,7 +491,7 @@ const BS: Record<string, string> = {
   "flowBanner.subheadline": "Korak po korak na tvom jeziku",
   "flowBanner.cta": "Počni sada",
   "flowBanner.ctaNote": "Besplatno za osnovne formulare",
-  "flowBanner.hint": "Bez registracije",
+  "flowBanner.hint": "Registracija je besplatna i traje 30 sekundi",
   "flowBanner.open": "Otvori",
   "flowBanner.start": "Počni",
   "guide.back": "Nazad",

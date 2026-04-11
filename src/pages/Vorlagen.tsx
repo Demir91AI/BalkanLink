@@ -71,7 +71,7 @@ export default function Vorlagen() {
           <PageNavBar onBack={() => navigateBackOrHome(navigate)} />
       <h1 className="text-2xl font-bold mb-1">Šabloni / Vorlagen</h1>
       <p className="text-sm text-muted-foreground mb-8">
-        Kreiraj profesionalne dokumente za Njemačku — besplatno i bez registracije.
+        Kreiraj profesionalne dokumente za Njemačku — besplatno.
       </p>
 
       <div className="space-y-8">

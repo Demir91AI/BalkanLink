@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { ExternalLink, CheckCircle, AlertTriangle, FileText, Clock, MapPin, Zap, Info, Printer, Euro, ChevronRight, Lock } from 'lucide-react';
 import { useSubscription } from '@/hooks/useSubscription';
 import PremiumModal from '@/components/paywall/PremiumModal';
+import AuthGate from '@/components/AuthGate';
 import { COUNTRY_CONTENT } from '../../data/vizaNavigatorContent';
 const loadForm = (formKey: string) => {
   const formMap: Record<string, () => Promise<{ default: React.FC }>> = {
