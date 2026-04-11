@@ -403,7 +403,7 @@ const DE: Record<string, string> = {
   "flowBanner.subheadline": "Korak po korak na tvom jeziku",
   "flowBanner.cta": "Započni sada",
   "flowBanner.ctaNote": "Besplatno za osnovne formulare",
-  "flowBanner.hint": "Bez registracije",
+  "flowBanner.hint": "Registrierung ist kostenlos und dauert 30 Sekunden",
   "flowBanner.open": "Otvori",
   "flowBanner.start": "Započni",
   "footer.legalSection": "Pravno",
