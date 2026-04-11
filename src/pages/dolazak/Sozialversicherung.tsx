@@ -4,7 +4,7 @@ import DolazakPageTemplate from "./DolazakPageTemplate";
 export default function Sozialversicherung() {
   return (
     <DolazakPageTemplate
-      title="Sozialversicherung"
+      title="Socijalno osiguranje"
       subtitle="Obavezno socijalno osiguranje u Njemačkoj – 5 stubova sigurnosti za sve zaposlene."
       sections={[
         {
