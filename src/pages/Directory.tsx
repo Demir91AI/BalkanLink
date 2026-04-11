@@ -60,10 +60,10 @@ export default function Directory() {
         </div>
         <Select value={city} onValueChange={(v) => setCity(v === "all" ? "" : v)}>
           <SelectTrigger>
-            <SelectValue placeholder={"Nach Stadt filtern"} />
+            <SelectValue placeholder="Filtriraj po gradu" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">{"Alle Städte"}</SelectItem>
+            <SelectItem value="all">Svi gradovi</SelectItem>
             {GERMAN_CITIES.map((c) => (
               <SelectItem key={c} value={c}>{c}</SelectItem>
             ))}
@@ -71,10 +71,10 @@ export default function Directory() {
         </Select>
         <Select value={category} onValueChange={(v) => setCategory(v === "all" ? "" : v)}>
           <SelectTrigger>
-            <SelectValue placeholder={"Nach Kategorie filtern"} />
+            <SelectValue placeholder="Filtriraj po kategoriji" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">{"Alle Kategorien"}</SelectItem>
+            <SelectItem value="all">Sve kategorije</SelectItem>
             {DIRECTORY_CATEGORIES.map((c) => (
               <SelectItem key={c} value={c}>{c}</SelectItem>
             ))}
@@ -82,10 +82,10 @@ export default function Directory() {
         </Select>
         <Select value={origin} onValueChange={(v) => setOrigin(v === "all" ? "" : v)}>
           <SelectTrigger>
-            <SelectValue placeholder={"Nach Land filtern"} />
+            <SelectValue placeholder="Filtriraj po zemlji" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">{"Alle Länder"}</SelectItem>
+            <SelectItem value="all">Sve zemlje</SelectItem>
             {ORIGIN_COUNTRIES.map((c) => (
               <SelectItem key={c.code} value={c.code}>
                 <span className="mr-2">{c.flag}</span>{c.label}
@@ -99,10 +99,10 @@ export default function Directory() {
         <div className="mb-4 flex items-center gap-2">
           <Filter className="h-4 w-4 text-muted-foreground" />
           <span className="text-sm text-muted-foreground">
-            {listings?.length ?? 0} {"Ergebnisse"}
+            {listings?.length ?? 0} rezultata
           </span>
           <Button variant="ghost" size="sm" onClick={clearFilters} className="ml-auto text-xs">
-            {"Filter löschen"}
+            Obriši filtere
           </Button>
         </div>
       )}

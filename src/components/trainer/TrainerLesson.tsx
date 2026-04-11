@@ -134,7 +134,7 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
   // Build breadcrumbs based on current depth
   const buildBreadcrumbs = (): BreadcrumbItem[] => {
     const crumbs: BreadcrumbItem[] = [
-      { label: "Startseite", onClick: () => navigate("/") },
+      { label: "Početna", onClick: () => navigate("/") },
       { label: "BalkanLink Deutsch", onClick: () => { onBack(); } },
       { label: lesson.level, onClick: () => { onBack(); } },
     ];

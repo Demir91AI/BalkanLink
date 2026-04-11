@@ -123,7 +123,7 @@ export default function QA() {
           ) : (
             <div className="flex flex-col items-center gap-3 rounded-xl border border-dashed py-16 text-center">
               <Search className="h-10 w-10 text-muted-foreground/40" />
-              <p className="text-muted-foreground">{"Keine Ergebnisse"}</p>
+              <p className="text-muted-foreground">Nema rezultata</p>
             </div>
           )}
         </main>

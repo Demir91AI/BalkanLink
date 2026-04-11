@@ -26,7 +26,7 @@ export default function TrainerFaq() {
             onClick={() => navigateBackOrHome(navigate)}
             className="mb-3 flex items-center gap-1.5 text-sm text-primary-foreground/60 hover:text-primary-foreground"
           >
-            <ArrowLeft className="h-4 w-4" /> {"Zurück"}
+            <ArrowLeft className="h-4 w-4" /> Nazad
           </button>
           <div className="flex items-center gap-3">
             <GraduationCap className="h-7 w-7 text-gold" />

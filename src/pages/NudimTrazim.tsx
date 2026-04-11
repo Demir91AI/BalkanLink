@@ -153,10 +153,10 @@ export default function NudimTrazim() {
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8 py-14 md:py-20">
           <div className="flex items-center gap-3 mb-8">
             <button onClick={handleBack} className="flex items-center gap-1.5 text-[13px] font-medium text-white/50 hover:text-white transition-colors">
-              <ChevronLeft className="h-4 w-4" /> {"Zurück"}
+              <ChevronLeft className="h-4 w-4" /> Nazad
             </button>
             <button onClick={() => navigate("/")} className="flex items-center gap-1.5 text-[13px] font-medium text-white/50 hover:text-white transition-colors">
-              <Home className="h-4 w-4" /> Startseite
+              <Home className="h-4 w-4" /> Početna
             </button>
           </div>
           <div className="max-w-3xl">
