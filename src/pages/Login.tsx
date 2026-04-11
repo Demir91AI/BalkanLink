@@ -20,7 +20,7 @@ export default function Login() {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!acceptedTerms) {
-      toast({ title: "Du musst die AGB akzeptieren." || "Bitte akzeptieren Sie die AGB und Datenschutzbestimmungen.", variant: "destructive" });
+      toast({ title: "Du musst die AGB akzeptieren.", variant: "destructive" });
       return;
     }
     setLoading(true);
@@ -120,15 +120,15 @@ export default function Login() {
                 className="mt-0.5 h-3.5 w-3.5 rounded border-border/60"
               />
               <label htmlFor="terms" className="cursor-pointer text-[11px] leading-relaxed text-muted-foreground/70">
-                {"Ich akzeptiere die AGB" || "Ich habe die"}{" "}
+                {"Ich akzeptiere die AGB"}{" "}
                 <Link to="/agb" target="_blank" className="font-medium text-[hsl(var(--brand-orange))] hover:underline">
-                  {"AGB" || "AGB"}
+                  {"AGB"}
                 </Link>{" "}
-                {"und" || "und die"}{" "}
+                {"und"}{" "}
                 <Link to="/datenschutz" target="_blank" className="font-medium text-[hsl(var(--brand-orange))] hover:underline">
-                  {"Datenschutzrichtlinie" || "Datenschutzbestimmungen"}
+                  {"Datenschutzrichtlinie"}
                 </Link>{" "}
-                {"Ich akzeptiere" || "gelesen und akzeptiere sie."}
+                {"Ich akzeptiere"}
               </label>
             </div>
 

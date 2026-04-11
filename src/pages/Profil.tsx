@@ -86,7 +86,7 @@ export default function Profil() {
               </div>
               {isPremium && subscriptionEnd && (
                 <p className="text-xs text-muted-foreground mt-1.5">
-                  {"Gültig bis" || "Vrijedi do"}: {new Date(subscriptionEnd).toLocaleDateString("de-DE")}
+                  {"Gültig bis"}: {new Date(subscriptionEnd).toLocaleDateString("de-DE")}
                 </p>
               )}
             </div>

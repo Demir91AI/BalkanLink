@@ -1,5 +1,5 @@
-import {
 import { label } from "@/lib/de-labels";
+import {
   ExternalLink,
   AlertTriangle,
   MapPin,

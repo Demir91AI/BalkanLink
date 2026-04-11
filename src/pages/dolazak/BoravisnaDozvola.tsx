@@ -1,3 +1,4 @@
+import { label } from "@/lib/de-labels";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { navigateBackOrHome } from "@/lib/navigation";
@@ -248,7 +249,7 @@ function SidebarGroup({
 /* ─── Main Page ─── */
 export default function BoravisnaDozvola() {
   const navigate = useNavigate();
-  const { t: vt } = useLanguage();
+  
   const [search, setSearch] = useState("");
   const { searchParams, setSearchState } = useHistorySearchState();
   const isMobile = useIsMobile();
@@ -307,7 +308,7 @@ export default function BoravisnaDozvola() {
           onClick={() => navigateBackOrHome(navigate)}
           className="back-button"
         >
-          <ChevronLeft className="h-4 w-4" /> {vt("back_to_routes")}
+          <ChevronLeft className="h-4 w-4" /> {label("back_to_routes")}
         </button>
         <VisaDetail visa={activeVisa} st={st} />
       </div>
@@ -323,13 +324,13 @@ export default function BoravisnaDozvola() {
             onClick={() => navigateBackOrHome(navigate)}
             className="back-button"
           >
-            <ChevronLeft className="h-4 w-4" /> {vt("back_to_countries")}
+            <ChevronLeft className="h-4 w-4" /> {label("back_to_countries")}
           </button>
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">
-            {vt("title")}
+            {label("title")}
           </h1>
           <p className="mt-2 text-sm text-primary-foreground/80 md:text-base">
-            {vt("subtitle")}
+            {label("subtitle")}
           </p>
         </div>
       </section>
@@ -340,7 +341,7 @@ export default function BoravisnaDozvola() {
           <div className="mb-6 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 dark:border-amber-900/40 dark:bg-amber-950/20">
             <p className="text-xs text-amber-800 dark:text-amber-300 flex items-start gap-2">
               <Info className="h-3.5 w-3.5 shrink-0 mt-0.5" />
-              {vt("disclaimer")}
+              {label("disclaimer")}
             </p>
           </div>
 
@@ -358,7 +359,7 @@ export default function BoravisnaDozvola() {
               </div>
 
               {/* Group 1: EU */}
-              <SidebarGroup label={vt("sidebar_eu")}>
+              <SidebarGroup label={label("sidebar_eu")}>
                 {euCountries.map((country) => (
                   <button
                     key={country.code}
@@ -371,16 +372,16 @@ export default function BoravisnaDozvola() {
                     )}
                   >
                     <img src={country.flagUrl} alt="" className="h-[18px] w-auto rounded-[2px] shrink-0" />
-                    <span>{vt(country.nameKey)}</span>
+                    <span>{label(country.nameKey)}</span>
                     <Badge variant="outline" className="ml-auto text-[9px] px-1.5 py-0 border-emerald-300 text-emerald-600 shrink-0">
-                      {vt("badge_eu")}
+                      {label("badge_eu")}
                     </Badge>
                   </button>
                 ))}
               </SidebarGroup>
 
               {/* Group 2: Western Balkans */}
-              <SidebarGroup label={vt("sidebar_balkan")}>
+              <SidebarGroup label={label("sidebar_balkan")}>
                 {balkanCountries.map((country) => (
                   <button
                     key={country.code}
@@ -393,13 +394,13 @@ export default function BoravisnaDozvola() {
                     )}
                   >
                     <img src={country.flagUrl} alt="" className="h-[18px] w-auto rounded-[2px] shrink-0" />
-                    <span>{vt(country.nameKey)}</span>
+                    <span>{label(country.nameKey)}</span>
                   </button>
                 ))}
               </SidebarGroup>
 
               {/* Group 3: Routes */}
-              <SidebarGroup label={vt("sidebar_routes")}>
+              <SidebarGroup label={label("sidebar_routes")}>
                 {ROUTE_ITEMS.map((route) => {
                   const Icon = route.icon;
                   return (
@@ -414,7 +415,7 @@ export default function BoravisnaDozvola() {
                       )}
                     >
                       <Icon className="h-4 w-4 shrink-0" />
-                      <span>{vt(route.key)}</span>
+                      <span>{label(route.key)}</span>
                     </button>
                   );
                 })}
@@ -466,9 +467,9 @@ export default function BoravisnaDozvola() {
                     <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-primary/5 mb-6">
                       <FileText className="h-10 w-10 text-primary/40" />
                     </div>
-                    <h2 className="text-lg font-bold text-foreground/70">{vt("welcome_title")}</h2>
+                    <h2 className="text-lg font-bold text-foreground/70">{label("welcome_title")}</h2>
                     <p className="mt-2 max-w-sm text-sm text-muted-foreground">
-                      {vt("welcome_text")}
+                      {label("welcome_text")}
                     </p>
                   </div>
                 )}

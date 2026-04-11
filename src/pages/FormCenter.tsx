@@ -97,7 +97,7 @@ function BuergergeldInfoModal({ open, onClose, onOpenForm }: { open: boolean; on
 /* ─── Guide Content (right side) ─── */
 function GuideContent({ slug }: { slug: string }) {
   const guide = getGuideBySlug(slug);
-  const lang = getLangKey(language);
+  const lang = getLangKey("de");
   const freeLang = (lang === "hr" || lang === "sr" ? "bs" : lang) as "de" | "bs" | "en";
   const navigate = useNavigate();
 

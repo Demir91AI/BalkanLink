@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import PageNavBar from "@/components/navigation/PageNavBar";
-import {
 import { label } from "@/lib/de-labels";
+import {
   Eye, TrendingUp, FileText, MessageSquare, Clock,
   AlertTriangle, Plane, CheckCircle, Euro, ListChecks,
   Globe, XCircle, BookOpen, Info, ExternalLink,
@@ -662,9 +662,9 @@ const SOURCES = [
 
 export default function ZivotUNjemackoj() {
   const navigate = useNavigate();
-  const lang = T[language] ? language : "bs";
+  const lang = "de" as const;
   const t = (key: string) => T[lang]?.[key] ?? T.bs[key] ?? key;
-  const countries = COUNTRIES_I18N[lang] ?? COUNTRIES_I18N.bs;
+  const countries = COUNTRIES_I18N["de"] ?? COUNTRIES_I18N.bs;
 
   const ways = [
     { tagKey: "way1Tag", titleKey: "way1Title", descKey: "way1Desc", forKey: "way1For" },

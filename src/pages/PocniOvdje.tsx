@@ -106,10 +106,10 @@ export default function PocniOvdje() {
             <ChevronLeft className="h-4 w-4" /> Nazad
           </button>
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl text-center">
-            {pt(language, "title")}
+            {pt("de", "title")}
           </h1>
           <p className="mt-2 text-sm text-primary-foreground/80 md:text-base text-center">
-            {pt(language, "subtitle")}
+            {pt("de", "subtitle")}
           </p>
         </div>
       </section>
@@ -127,9 +127,9 @@ export default function PocniOvdje() {
                   <card.icon className="h-5 w-5" strokeWidth={1.5} />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <h2 className="text-sm font-semibold">{pt(language, card.titleKey)}</h2>
+                  <h2 className="text-sm font-semibold">{pt("de", card.titleKey)}</h2>
                   <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-                    {pt(language, card.descKey)}
+                    {pt("de", card.descKey)}
                   </p>
                 </div>
                 <ArrowRight className="ml-auto mt-1 h-4 w-4 shrink-0 text-muted-foreground/40 transition-transform group-hover:translate-x-0.5" />

@@ -20,7 +20,7 @@ const ICON_FOR_KEY: Record<CategoryKey, React.ElementType> = {
 export default function NachDeutschland() {
   const { countryCode, categoryKey } = useParams<{ countryCode?: string; categoryKey?: string }>();
   const navigate = useNavigate();
-  const countries = getMigrationCountries(language);
+  const countries = getMigrationCountries("de");
 
   const selectedCountry = countries.find((c) => c.code === countryCode);
   const selectedCategory = selectedCountry?.categories.find((c) => c.key === categoryKey);

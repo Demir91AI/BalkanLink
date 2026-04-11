@@ -1,8 +1,7 @@
-import type { Language } from "./translations";
 import type { CountryMigrationData } from "./migration-data";
 
 // Map new Language type to internal localization aliases
-const LANGUAGE_ALIASES: Record<Language, "bs" | "hr" | "sr" | "me" | "sq" | "mk"> = {
+const LANGUAGE_ALIASES: Record<string, "bs" | "hr" | "sr" | "me" | "sq" | "mk"> = {
   bs: "bs",
   hr: "hr",
   sr: "sr",

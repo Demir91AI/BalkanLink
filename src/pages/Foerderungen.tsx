@@ -28,7 +28,7 @@ const titles = {
 
 export default function Foerderungen() {
   const navigate = useNavigate();
-  const lk = getLangKey(language);
+  const lk = getLangKey("de");
   const t = titles[lk];
 
   const categories: Guide["category"][] = ["wohnen", "arbeit", "gesundheit", "bildung"];

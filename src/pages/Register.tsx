@@ -94,7 +94,7 @@ export default function Register() {
         <form onSubmit={handleRegister}>
           <CardContent className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="firstName">{"auth.firstName" || "Ime"}</Label>
+              <Label htmlFor="firstName">{"auth.firstName"}</Label>
               <Input id="firstName" type="text" required value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder="Tvoje ime" autoComplete="given-name" />
             </div>
             <div className="space-y-2">
@@ -149,15 +149,15 @@ export default function Register() {
                 className="mt-0.5"
               />
               <label htmlFor="terms" className="cursor-pointer text-sm leading-relaxed text-muted-foreground">
-                {"Ich akzeptiere die AGB" || "Ich habe die"}{" "}
+                {"Ich akzeptiere die AGB"}{" "}
                 <Link to="/agb" target="_blank" className="font-semibold text-primary underline hover:no-underline">
-                  {"AGB" || "AGB"}
+                  {"AGB"}
                 </Link>{" "}
-                {"und" || "und die"}{" "}
+                {"und"}{" "}
                 <Link to="/datenschutz" target="_blank" className="font-semibold text-primary underline hover:no-underline">
-                  {"Datenschutzrichtlinie" || "Datenschutzbestimmungen"}
+                  {"Datenschutzrichtlinie"}
                 </Link>{" "}
-                {"Ich akzeptiere" || "gelesen und akzeptiere sie."}
+                {"Ich akzeptiere"}
               </label>
             </div>
           </CardContent>
