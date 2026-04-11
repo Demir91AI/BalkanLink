@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useSubscription } from "@/hooks/useSubscription";
-import { Lock } from "lucide-react";
+import { Lock, Crown, CheckCircle2 } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { useParams, useNavigate } from "react-router-dom";
 import { Search, ChevronLeft, FileText, ChevronDown, ChevronRight, Info, X } from "lucide-react";
@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { getGuideBySlug } from "@/lib/guide-data";
-import { formCatalog, getAllFormEntries, type FormEntry, type FormGroup } from "@/lib/form-catalog";
+import { formCatalog, getAllFormEntries, isFormFree, type FormEntry, type FormGroup } from "@/lib/form-catalog";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 import FormFreeContent from "@/components/FormFreeContent";
@@ -49,6 +49,7 @@ import FuehrerscheinGuideContent from "@/components/formulare/FuehrerscheinGuide
 import FahrzeugzulassungGuide from "@/components/formulare/FahrzeugzulassungGuide";
 import { navigateBackOrHome } from "@/lib/navigation";
 import FormRightPanel from "@/components/formCenter/FormRightPanel";
+import PremiumBenefitsSection from "@/components/formCenter/PremiumBenefitsSection";
 import { label } from "@/lib/de-labels";
 
 type LangKey = "de" | "bs" | "hr" | "sr";
@@ -82,7 +83,7 @@ function BuergergeldInfoModal({ open, onClose, onOpenForm }: { open: boolean; on
           <li>• Pogrešna porezna klasa ili IBAN</li>
         </ul>
         <div className="flex gap-3">
-          <button onClick={onOpenForm} className="flex-1 rounded-full py-2.5 text-sm font-bold text-[hsl(var(--gold-foreground))]" style={{ background: "linear-gradient(135deg, #FFD700, #FFA500)" }}>
+          <button onClick={onOpenForm} className="flex-1 rounded-full py-2.5 text-sm font-bold text-[hsl(var(--gold-foreground))]" style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))" }}>
             Otvori formular
           </button>
           <button onClick={onClose} className="flex-1 rounded-full py-2.5 text-sm font-medium border border-border text-muted-foreground hover:bg-muted">
@@ -94,45 +95,64 @@ function BuergergeldInfoModal({ open, onClose, onOpenForm }: { open: boolean; on
   );
 }
 
+/* ─── Premium paywall for a specific form ─── */
+function FormPremiumPaywall({ slug, entry }: { slug: string; entry: FormEntry | null }) {
+  const navigate = useNavigate();
+  return (
+    <div className="flex flex-col items-center justify-center py-12 text-center gap-5 max-w-md mx-auto">
+      <div className="h-14 w-14 rounded-2xl bg-[hsl(var(--gold))]/10 flex items-center justify-center ring-1 ring-[hsl(var(--gold))]/20">
+        <Lock className="h-7 w-7 text-[hsl(var(--gold))]" />
+      </div>
+      <div>
+        <h2 className="text-lg font-bold">Otključaj {entry?.label || "ovaj formular"}</h2>
+        <p className="mt-3 text-sm text-muted-foreground font-semibold">Šta dobijaš uz Premium:</p>
+      </div>
+      <ul className="text-left text-xs text-muted-foreground space-y-2 w-full">
+        <li className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> Kompletan Smart Guide — svaki korak detaljno objašnjen</li>
+        <li className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> Tačno šta upisati u svako polje formulara</li>
+        <li className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> Detaljan spisak dokumenata (šta tačno, gdje nabaviti)</li>
+        <li className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> Musterformular — primjer pravilno popunjenog formulara</li>
+        <li className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> Najčešće greške i kako ih izbjeći</li>
+        <li className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> Šta raditi ako zahtjev bude odbijen</li>
+        <li className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> Direktni linkovi na nadležne institucije</li>
+      </ul>
+      {entry?.includes && (
+        <div className="w-full text-left">
+          <p className="text-[11px] font-semibold text-muted-foreground mb-1.5">📄 Musterformulari uključeni:</p>
+          <div className="flex flex-wrap gap-1.5">
+            {entry.includes.split(" + ").map((tag) => (
+              <span key={tag} className="rounded-full bg-[hsl(var(--gold))]/10 px-2.5 py-0.5 text-[10px] font-semibold text-[hsl(var(--gold))]">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+      <div className="w-full space-y-2 mt-2">
+        <button
+          onClick={() => navigate("/paketi")}
+          className="w-full rounded-full py-3 text-sm font-bold text-white"
+          style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))" }}
+        >
+          <Crown className="inline-block mr-1.5 h-4 w-4" />
+          Otključaj Premium — 9.99€/mj.
+        </button>
+        <p className="text-[11px] text-muted-foreground">
+          ili samo ovaj formular — <span className="font-semibold">3.99€ jednokratno</span>
+        </p>
+      </div>
+    </div>
+  );
+}
+
 /* ─── Guide Content (right side) ─── */
 function GuideContent({ slug }: { slug: string }) {
   const guide = getGuideBySlug(slug);
   const lang = getLangKey("de");
   const freeLang = (lang === "hr" || lang === "sr" ? "bs" : lang) as "de" | "bs" | "en";
-  const navigate = useNavigate();
-
-  const MUSTER_MAP: Record<string, string> = {
-    "kindergeld": "kindergeld",
-    "elterngeld": "elterngeld",
-    "anmeldung": "anmeldung",
-    "hauptantrag": "buergergeld",
-    "weiterbewilligung": "buergergeld",
-    "wohngeld": "wohngeld",
-    "bafoeg": "bafoeg",
-    "schueler-bafoeg": "schueler-bafoeg",
-    "fuehrungszeugnis": "fuehrungszeugnis",
-    "kirchenaustritt": "kirchenaustritt",
-    "integrationskurs": "integrationskurs",
-    "kinderzuschlag": "kinderzuschlag",
-    "steuerklassenwechsel": "steuerklasse",
-    "arbeitslosengeld": "arbeitslosengeld",
-    "grundsicherung": "grundsicherung",
-    "anlage-bb": "anlage-bb",
-    "anlage-sv": "anlage-sv",
-    "anlage-ve": "anlage-ve",
-    "anlage-hg": "anlage-hg",
-    "anlage-meb": "anlage-meb",
-    "anlage-uf": "anlage-uf",
-    "anlage-se": "anlage-se",
-    "arbeitsbescheinigung": "arbeitsbescheinigung",
-    "antragsruecknahme": "antragsruecknahme",
-  };
-
-  const musterSlug = MUSTER_MAP[slug];
 
   const MusterButton = null;
 
-  /* Custom pages */
   if (slug === "kindergeld") return <><KindergeldGuideContent />{MusterButton}</>;
   if (slug === "anmeldung") return <><AnmeldungGuideContent />{MusterButton}</>;
   if (slug === "steuer-id") return <><SteuerIdGuideContent />{MusterButton}</>;
@@ -188,6 +208,30 @@ function GuideContent({ slug }: { slug: string }) {
   );
 }
 
+/* ─── Category badge helpers ─── */
+function FreeBadge() {
+  return (
+    <span className="ml-auto shrink-0 rounded-full bg-emerald-100 dark:bg-emerald-900/30 px-2 py-0.5 text-[9px] font-bold uppercase text-emerald-700 dark:text-emerald-400">
+      ✓ Besplatno
+    </span>
+  );
+}
+
+function PremiumBadge() {
+  return (
+    <span className="ml-auto shrink-0 flex items-center gap-0.5 rounded-full bg-[hsl(var(--gold))]/10 px-2 py-0.5 text-[9px] font-bold uppercase text-[hsl(var(--gold))]">
+      <Lock className="h-2.5 w-2.5" /> Premium
+    </span>
+  );
+}
+
+function ItemBadge({ slug }: { slug: string }) {
+  if (isFormFree(slug)) {
+    return <span className="shrink-0 rounded-full bg-emerald-100 dark:bg-emerald-900/30 px-1.5 py-0.5 text-[8px] font-bold text-emerald-700 dark:text-emerald-400">BESPLATNO</span>;
+  }
+  return <span className="shrink-0 rounded-full bg-[hsl(var(--gold))]/10 px-1.5 py-0.5 text-[8px] font-bold text-[hsl(var(--gold))]">🔒 PREMIUM</span>;
+}
+
 /* ─── Main Page ─── */
 export default function FormCenter() {
   const { slug } = useParams<{ slug: string }>();
@@ -203,6 +247,8 @@ export default function FormCenter() {
   const activeSlug = slug || "";
   const isRemovedFormSlug = activeSlug === "aufenthaltstitel";
   const handleBack = () => navigateBackOrHome(navigate);
+  const isFreeSlug = isFormFree(activeSlug);
+  const canAccess = isPremium || isFreeSlug;
 
   useEffect(() => {
     if (isRemovedFormSlug) {
@@ -265,24 +311,22 @@ export default function FormCenter() {
         key={item.slug}
         onClick={() => handleSelect(item.slug)}
         className={cn(
-          "w-full flex flex-col gap-0.5 px-3 py-2 text-left transition-all",
+          "w-full flex items-center gap-2 px-3 py-2 text-left transition-all",
           isActive
-            ? "text-[#C9A84C] font-bold"
-            : "text-foreground/80 hover:bg-[#FFF8EC] hover:text-foreground"
+            ? "text-[hsl(var(--gold))] font-bold"
+            : "text-foreground/80 hover:bg-[hsl(var(--gold))]/5 hover:text-foreground"
         )}
-        style={isActive ? { background: '#FFF8EC', borderLeft: '3px solid #C9A84C', borderRadius: 6 } : { borderRadius: 6 }}
+        style={isActive ? { background: 'hsl(var(--gold) / 0.08)', borderLeft: '3px solid hsl(var(--gold))', borderRadius: 6 } : { borderRadius: 6 }}
       >
-        <span className={cn("text-sm font-medium truncate leading-[1.3]", isActive && "font-bold")}>
-          {item.label}
-        </span>
-        <span
-          className={cn(
-            "text-[11px] leading-[1.3] truncate",
-            isActive ? "text-primary-foreground/70" : "text-muted-foreground"
+        <div className="flex-1 min-w-0">
+          <span className={cn("text-sm font-medium truncate leading-[1.3] block", isActive && "font-bold")}>
+            {item.label}
+          </span>
+          {item.includes && (
+            <span className="text-[10px] text-muted-foreground truncate block">{item.includes}</span>
           )}
-        >
-          {item.desc}
-        </span>
+        </div>
+        <ItemBadge slug={item.slug} />
       </button>
     );
   };
@@ -292,33 +336,17 @@ export default function FormCenter() {
     return (
       <div className="px-4 py-6">
         <PageNavBar onBack={handleBack} />
-        {isPremium ? (
+        {canAccess ? (
           <GuideContent key={activeSlug} slug={activeSlug} />
         ) : (
-          <div className="flex flex-col items-center justify-center py-20 text-center gap-6">
-            <div className="h-16 w-16 rounded-full bg-[hsl(var(--gold))]/10 flex items-center justify-center">
-              <Lock className="h-8 w-8 text-[hsl(var(--gold))]" />
-            </div>
-            <div>
-                    <h2 className="text-xl font-bold">Smart Guide dostupan uz Premium</h2>
-                    <p className="mt-2 text-sm text-muted-foreground max-w-sm mx-auto">
-                      Otključaj kompletni vodič za sve formulare.
-                    </p>
-            </div>
-            <button
-              onClick={() => navigate("/paketi")}
-              className="rounded-full bg-[hsl(var(--gold))] px-8 py-3 font-bold text-[hsl(225,45%,6%)] hover:opacity-90 transition-opacity"
-            >
-              BalkanLink Premium — 9.99€/mj.
-            </button>
-          </div>
+          <FormPremiumPaywall slug={activeSlug} entry={activeEntry} />
         )}
       </div>
     );
   }
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-6 min-h-screen" style={{ background: "#F5F0E8" }}>
+    <div className="mx-auto max-w-7xl px-4 py-6 min-h-screen" style={{ background: "hsl(var(--background))" }}>
       <SEO title="Musterformulari — Njemački Obrasci" description="Popuni njemačke formulare na svom jeziku — Kindergeld, Bürgergeld, Wohngeld, BAföG i još 15+ obrazaca." path="/formulari" />
       <BuergergeldInfoModal
         open={showBgInfo}
@@ -329,25 +357,25 @@ export default function FormCenter() {
       {/* Page title */}
       <div className="mb-6">
         <PageNavBar onBack={handleBack} />
-        <h1 className="font-heading text-2xl font-extrabold sm:text-3xl">
+        <h1 className="font-heading text-2xl font-extrabold sm:text-3xl text-foreground">
           Formulari
         </h1>
         <p className="mt-1 text-sm text-muted-foreground">
           Pravilno popuni formulare
         </p>
-        <div className="h-px mt-4 mb-6" style={{ background: '#F0EAD8' }} />
+        <div className="h-px mt-4 mb-6 bg-border/40" />
       </div>
 
       <div className="flex gap-6">
         {/* ─── Sidebar ─── */}
-        <aside className={cn("shrink-0", isMobile ? "hidden" : "sticky top-20 self-start w-72")} style={{ background: "#FFFFFF", borderRight: "1px solid #F0EAD8" }}>
+        <aside className={cn("shrink-0", isMobile ? "hidden" : "sticky top-20 self-start w-72")} style={{ background: "hsl(var(--card))", borderRight: "1px solid hsl(var(--border) / 0.4)" }}>
           <div className="relative mb-4">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Pretraži formulare..."
-              className="pl-9 h-10 text-sm rounded-xl border-[#E8E0D0] bg-white"
+              className="pl-9 h-10 text-sm rounded-xl border-border/60 bg-background"
             />
           </div>
 
@@ -369,18 +397,18 @@ export default function FormCenter() {
                     open={openGroups.has(group.id)}
                     onOpenChange={() => toggleGroup(group.id)}
                   >
-                    <CollapsibleTrigger className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-xs font-bold uppercase tracking-wide hover:text-foreground transition-colors" style={{ color: '#C9A84C' }}>
+                    <CollapsibleTrigger className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-xs font-bold uppercase tracking-wide hover:text-foreground transition-colors text-[hsl(var(--gold))]">
                       <span>{group.icon}</span>
                       <span className="flex-1 text-left">{getGroupTitle(group)}</span>
+                      {group.isFree ? <FreeBadge /> : <PremiumBadge />}
                       <ChevronDown
                         className={cn(
-                          "h-3.5 w-3.5 transition-transform",
+                          "h-3.5 w-3.5 transition-transform shrink-0",
                           openGroups.has(group.id) && "rotate-180"
                         )}
                       />
                     </CollapsibleTrigger>
                     <CollapsibleContent className="space-y-0.5 pb-2">
-                      {/* Primary items with optional info icon for Bürgergeld */}
                       {group.items.map((item) => (
                         <div key={item.slug} className="relative">
                           {renderItem(item)}
@@ -395,7 +423,6 @@ export default function FormCenter() {
                           )}
                         </div>
                       ))}
-                      {/* Sub-groups (accordion) */}
                       {group.subGroups?.map((sub) => (
                         <Collapsible
                           key={sub.id}
@@ -425,7 +452,7 @@ export default function FormCenter() {
             <>
               <div className="flex items-center gap-2 mb-4 text-sm">
                 <button
-                  className="text-[#C9A84C] hover:underline font-medium"
+                  className="text-[hsl(var(--gold))] hover:underline font-medium"
                   onClick={() => navigate('/formulari')}
                 >
                   Formulari
@@ -434,27 +461,12 @@ export default function FormCenter() {
                 <span className="text-foreground font-semibold truncate">
                   {allEntries.find(e => e.slug === activeSlug)?.label || activeSlug}
                 </span>
+                <ItemBadge slug={activeSlug} />
               </div>
-              {isPremium ? (
+              {canAccess ? (
                 <GuideContent key={activeSlug} slug={activeSlug} />
               ) : (
-                <div className="flex flex-col items-center justify-center py-20 text-center gap-6">
-                  <div className="h-16 w-16 rounded-full bg-[hsl(var(--gold))]/10 flex items-center justify-center">
-                    <Lock className="h-8 w-8 text-[hsl(var(--gold))]" />
-                  </div>
-                  <div>
-                    <h2 className="text-xl font-bold">Smart Guide dostupan uz Premium</h2>
-                    <p className="mt-2 text-sm text-muted-foreground max-w-sm mx-auto">
-                      Otključaj kompletni vodič za sve formulare.
-                    </p>
-                  </div>
-                  <button
-                    onClick={() => navigate("/paketi")}
-                    className="rounded-full bg-[hsl(var(--gold))] px-8 py-3 font-bold text-[hsl(225,45%,6%)] hover:opacity-90 transition-opacity"
-                  >
-                    BalkanLink Premium — 9,99€/mj.
-                  </button>
-                </div>
+                <FormPremiumPaywall slug={activeSlug} entry={activeEntry} />
               )}
             </>
           ) : (
@@ -480,8 +492,11 @@ export default function FormCenter() {
                             className="w-full flex items-center gap-3 rounded-xl border border-border/40 bg-card px-4 py-3 text-left text-sm transition hover:border-[hsl(var(--gold))]/40 hover:shadow-sm"
                           >
                             <FileText className="h-4 w-4 shrink-0 text-muted-foreground" />
-                            <div className="min-w-0">
-                              <p className="font-semibold truncate">{item.label}</p>
+                            <div className="min-w-0 flex-1">
+                              <div className="flex items-center gap-2">
+                                <p className="font-semibold truncate">{item.label}</p>
+                                <ItemBadge slug={item.slug} />
+                              </div>
                               <p className="text-[11px] text-muted-foreground truncate">{item.desc}</p>
                             </div>
                             <ChevronRight className="ml-auto h-4 w-4 shrink-0 text-muted-foreground" />
@@ -494,59 +509,81 @@ export default function FormCenter() {
                       </p>
                     )
                   ) : (
-                    formCatalog.map((group) => (
-                      <Collapsible
-                        key={group.id}
-                        open={openMobileGroups.has(group.id)}
-                        onOpenChange={() => toggleMobileGroup(group.id)}
-                      >
-                        <CollapsibleTrigger className="w-full flex items-center justify-between px-4 py-3 text-[11px] font-bold uppercase tracking-widest text-[hsl(var(--gold))] bg-[hsl(220,50%,8%)] rounded-lg mt-3 mb-1.5">
-                           <span>{group.icon} {getGroupTitle(group)}</span>
-                          <ChevronDown className={cn("h-4 w-4 transition-transform", openMobileGroups.has(group.id) && "rotate-180")} />
-                        </CollapsibleTrigger>
-                        <CollapsibleContent className="space-y-2">
-                          {group.items.map((item) => (
-                            <button
-                              key={item.slug}
-                              onClick={() => handleSelect(item.slug)}
-                              className="w-full flex items-center gap-3 rounded-xl border border-border/40 bg-card px-4 py-3 text-left text-sm transition hover:border-[hsl(var(--gold))]/40 hover:shadow-sm"
-                            >
-                              <FileText className="h-4 w-4 shrink-0 text-muted-foreground" />
-                              <div className="min-w-0">
-                                <p className="font-semibold truncate">{item.label}</p>
-                                <p className="text-[11px] text-muted-foreground truncate">{item.desc}</p>
-                              </div>
-                              <ChevronRight className="ml-auto h-4 w-4 shrink-0 text-muted-foreground" />
-                            </button>
-                          ))}
-                          {group.subGroups?.map((sub) => (
-                            <div key={sub.id}>
-                              <p className="px-4 py-2 text-[10px] font-bold uppercase tracking-wider text-muted-foreground mt-2">{sub.title}</p>
-                              {sub.items.map((item) => (
-                                <button
-                                  key={item.slug}
-                                  onClick={() => handleSelect(item.slug)}
-                                  className="w-full flex items-center gap-3 rounded-xl border border-border/40 bg-card px-4 py-3 text-left text-sm transition hover:border-[hsl(var(--gold))]/40 hover:shadow-sm"
-                                >
-                                  <FileText className="h-4 w-4 shrink-0 text-muted-foreground" />
-                                  <div className="min-w-0">
-                                    <p className="font-semibold truncate">{item.label}</p>
-                                    <p className="text-[11px] text-muted-foreground truncate">{item.desc}</p>
-                                  </div>
-                                  <ChevronRight className="ml-auto h-4 w-4 shrink-0 text-muted-foreground" />
-                                </button>
-                              ))}
+                    <>
+                      {formCatalog.map((group) => (
+                        <Collapsible
+                          key={group.id}
+                          open={openMobileGroups.has(group.id)}
+                          onOpenChange={() => toggleMobileGroup(group.id)}
+                        >
+                          {/* Free banner above Dolazak */}
+                          {group.isFree && (
+                            <div className="rounded-lg bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800/40 px-4 py-2.5 text-xs font-medium text-emerald-700 dark:text-emerald-400 mt-3 mb-1">
+                              ✓ Ova kategorija je potpuno besplatna — bez registracije, bez plaćanja.
                             </div>
-                          ))}
-                        </CollapsibleContent>
-                      </Collapsible>
-                    ))
+                          )}
+                          <CollapsibleTrigger className="w-full flex items-center justify-between px-4 py-3 text-[11px] font-bold uppercase tracking-widest text-[hsl(var(--gold))] bg-[hsl(220,50%,8%)] rounded-lg mt-1 mb-1.5">
+                            <span className="flex items-center gap-2">
+                              {group.icon} {getGroupTitle(group)}
+                              {group.isFree ? <FreeBadge /> : <PremiumBadge />}
+                            </span>
+                            <ChevronDown className={cn("h-4 w-4 transition-transform", openMobileGroups.has(group.id) && "rotate-180")} />
+                          </CollapsibleTrigger>
+                          <CollapsibleContent className="space-y-2">
+                            {group.items.map((item) => (
+                              <button
+                                key={item.slug}
+                                onClick={() => handleSelect(item.slug)}
+                                className="w-full flex items-center gap-3 rounded-xl border border-border/40 bg-card px-4 py-3 text-left text-sm transition hover:border-[hsl(var(--gold))]/40 hover:shadow-sm"
+                              >
+                                <FileText className="h-4 w-4 shrink-0 text-muted-foreground" />
+                                <div className="min-w-0 flex-1">
+                                  <div className="flex items-center gap-2">
+                                    <p className="font-semibold truncate">{item.label}</p>
+                                    <ItemBadge slug={item.slug} />
+                                  </div>
+                                  <p className="text-[11px] text-muted-foreground truncate">{item.desc}</p>
+                                  {item.includes && (
+                                    <p className="text-[10px] text-muted-foreground/70 truncate mt-0.5">{item.includes}</p>
+                                  )}
+                                </div>
+                                <ChevronRight className="ml-auto h-4 w-4 shrink-0 text-muted-foreground" />
+                              </button>
+                            ))}
+                            {group.subGroups?.map((sub) => (
+                              <div key={sub.id}>
+                                <p className="px-4 py-2 text-[10px] font-bold uppercase tracking-wider text-muted-foreground mt-2">{sub.title}</p>
+                                {sub.items.map((item) => (
+                                  <button
+                                    key={item.slug}
+                                    onClick={() => handleSelect(item.slug)}
+                                    className="w-full flex items-center gap-3 rounded-xl border border-border/40 bg-card px-4 py-3 text-left text-sm transition hover:border-[hsl(var(--gold))]/40 hover:shadow-sm"
+                                  >
+                                    <FileText className="h-4 w-4 shrink-0 text-muted-foreground" />
+                                    <div className="min-w-0 flex-1">
+                                      <div className="flex items-center gap-2">
+                                        <p className="font-semibold truncate">{item.label}</p>
+                                        <ItemBadge slug={item.slug} />
+                                      </div>
+                                      <p className="text-[11px] text-muted-foreground truncate">{item.desc}</p>
+                                    </div>
+                                    <ChevronRight className="ml-auto h-4 w-4 shrink-0 text-muted-foreground" />
+                                  </button>
+                                ))}
+                              </div>
+                            ))}
+                          </CollapsibleContent>
+                        </Collapsible>
+                      ))}
+                      {/* Premium benefits at bottom */}
+                      <PremiumBenefitsSection />
+                    </>
                   )}
                 </div>
               ) : (
                 <>
-                  <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-[#FFF8EC] mb-6">
-                    <FileText className="h-10 w-10 text-[#C9A84C]/40" />
+                  <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-[hsl(var(--gold))]/5 mb-6">
+                    <FileText className="h-10 w-10 text-[hsl(var(--gold))]/40" />
                   </div>
                   <h2 className="text-lg font-bold text-foreground/70">Izaberi formular</h2>
                   <p className="mt-2 max-w-sm text-sm text-muted-foreground">
@@ -556,6 +593,8 @@ export default function FormCenter() {
               )}
             </div>
           )}
+          {/* Desktop: Premium benefits at bottom when no slug selected */}
+          {!activeSlug && !isMobile && <PremiumBenefitsSection />}
         </main>
         {activeSlug && !isMobile && (
           <FormRightPanel
