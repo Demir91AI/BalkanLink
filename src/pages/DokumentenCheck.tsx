@@ -98,7 +98,7 @@ function parseAnalysisSections(text: string): AnalysisSection[] {
     sections.push({
       id: "full",
       icon: <FileText className="h-5 w-5" />,
-      title: "Analyseergebnis",
+      title: "Rezultat analize",
       content: text,
       colorClass: "border-border bg-card",
       iconColorClass: "text-foreground",
@@ -284,15 +284,15 @@ export default function DokumentenCheck() {
         <div className="container max-w-4xl px-4">
           <PageNavBar onBack={handleBack} />
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl lg:text-4xl">
-            {"Dokumentenprüfung"}
+            {"Provjera dokumenata"}
           </h1>
-          <p className="mt-2 text-sm text-primary-foreground/80 max-w-xl leading-relaxed">{"Brief oder Dokument verstehen — ohne Speicherung, ohne Anmeldung."}</p>
+          <p className="mt-2 text-sm text-primary-foreground/80 max-w-xl leading-relaxed">{"Razumij pismo ili dokument — bez pohrane, bez prijave."}</p>
           <div className="mt-4 flex flex-wrap gap-2">
             <span className="inline-block rounded-full bg-[hsl(var(--gold))]/20 px-3 py-1 text-xs font-semibold text-[hsl(var(--gold))]">
-              2,99€ pro Dokument ohne Abo
+              2,99€ po dokumentu bez pretplate
             </span>
             <span className="inline-block rounded-full bg-[hsl(var(--success))]/20 px-3 py-1 text-xs font-semibold text-[hsl(var(--success))]">
-              Premium enthält 1 Prüfung täglich
+              Premium uključuje 1 provjeru dnevno
             </span>
           </div>
         </div>

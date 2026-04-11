@@ -104,7 +104,7 @@ export default function AdminFormMapper() {
       {/* Coverage */}
       <div className="mb-6 flex flex-wrap items-center gap-4">
         <Badge variant="outline" className="text-xs">
-          {"Abdeckung"}: {mapped}/{total} ({pct}%)
+          {"Pokrivenost"}: {mapped}/{total} ({pct}%)
         </Badge>
         <div className="h-2 flex-1 max-w-xs rounded-full bg-muted overflow-hidden">
           <div className="h-full rounded-full bg-primary transition-all" style={{ width: `${pct}%` }} />
