@@ -142,7 +142,7 @@ export default function SmartGuideWizardShared({
             onClick={() => handleStepClick(i)}
             className={
               "shrink-0 rounded-full px-3 py-1 text-[10px] font-medium transition " +
-              (!isPremium && i >= FREE_STEPS
+              (!free && !isPremium && i >= FREE_STEPS
                 ? "bg-muted text-muted-foreground/40 cursor-not-allowed"
                 : i === step
                 ? "bg-primary text-primary-foreground"
@@ -151,7 +151,7 @@ export default function SmartGuideWizardShared({
                 : "bg-muted text-muted-foreground hover:bg-muted/80")
             }
           >
-            {!isPremium && i >= FREE_STEPS ? "🔒" : i + 1}
+            {!free && !isPremium && i >= FREE_STEPS ? "🔒" : i + 1}
           </button>
         ))}
       </div>
