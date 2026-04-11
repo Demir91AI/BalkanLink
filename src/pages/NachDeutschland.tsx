@@ -7,6 +7,7 @@ import { navigateBackOrHome } from "@/lib/navigation";
 import GdjePocetiTimeline from "@/components/migration/GdjePocetiTimeline";
 import CostCalculator from "@/components/migration/CostCalculator";
 import CountryInfoBox from "@/components/migration/CountryInfoBox";
+import { label } from "@/lib/de-labels";
 
 const ICON_FOR_KEY: Record<CategoryKey, React.ElementType> = {
   work: Briefcase,
@@ -57,7 +58,7 @@ export default function NachDeutschland() {
               <span className="text-3xl">{country.flag}</span>
               <div className="flex-1 min-w-0">
                 <p className="font-semibold text-foreground group-hover:text-[hsl(var(--brand-orange))]">
-                  {t(`migration.country.${country.code}`)}
+                  {label(`migration.country.${country.code}`)}
                 </p>
                 <p className="text-xs text-muted-foreground">
                   {country.isEU ? "EU-Mitglied — freier Zugang" : "Westbalkan — Visum erforderlich"}
@@ -80,7 +81,7 @@ export default function NachDeutschland() {
         <div className="flex items-center gap-3 mb-2">
           <span className="text-3xl">{selectedCountry.flag}</span>
           <div>
-            <h1 className="text-2xl font-bold text-foreground">{t(`migration.country.${selectedCountry.code}`)}</h1>
+            <h1 className="text-2xl font-bold text-foreground">{label(`migration.country.${selectedCountry.code}`)}</h1>
             <p className="text-sm text-muted-foreground">
               {selectedCountry.isEU ? "EU-Mitglied — freier Zugang" : "Westbalkan — Visum erforderlich"}
             </p>
@@ -110,7 +111,7 @@ export default function NachDeutschland() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="font-semibold text-foreground group-hover:text-[hsl(var(--brand-orange))]">
-                    {t(`migration.cat.${cat.key}`)}
+                    {label(`migration.cat.${cat.key}`)}
                   </p>
                   <p className="text-xs text-muted-foreground">
                     {cat.visaRequired === true
@@ -144,7 +145,7 @@ export default function NachDeutschland() {
       <div className="flex items-center gap-3 mb-1">
         <span className="text-2xl">{selectedCountry.flag}</span>
         <h1 className="text-xl font-bold text-foreground">
-          {t(`migration.country.${selectedCountry.code}`)} – {t(`migration.cat.${selectedCategory.key}`)}
+          {label(`migration.country.${selectedCountry.code}`)} – {label(`migration.cat.${selectedCategory.key}`)}
         </h1>
       </div>
       <p className="text-sm text-muted-foreground mb-4 ml-10">

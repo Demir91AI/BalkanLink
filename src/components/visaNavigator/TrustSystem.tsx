@@ -1,4 +1,5 @@
 import { Info, AlertTriangle, ExternalLink } from "lucide-react";
+import { label } from "@/lib/de-labels";
 
 const SOURCES = [
   { key: "source_bamf", url: "https://www.bamf.de/DE/Themen/MigrationAufenthalt/migrationaufenthalt-node.html" },
@@ -67,7 +68,7 @@ const TrustSystem = ({ variant, showSources = true }: Props) => {
                 onMouseLeave={(e) => (e.currentTarget.style.color = "#4A4A4A")}
               >
                 <ExternalLink size={14} style={{ color: "#C9A84C" }} />
-                {t(s.key)}
+                {label(s.key)}
               </a>
             ))}
           </div>

@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
 
 import FlowBanner from "@/components/home/FlowBanner";
+import { label } from "@/lib/de-labels";
 
 
 const slides = [
@@ -95,8 +96,8 @@ function ServicesCarousel() {
                   </span>
                 )}
               </div>
-              <h3 className={`text-sm font-semibold mb-1 ${isPremium ? "text-white" : "text-[#2D2D2D]"}`}>{t(card.titleKey)}</h3>
-              <p className={`text-xs leading-relaxed mb-4 flex-1 ${isPremium ? "text-white/60" : "text-[#6B6B6B]"}`}>{t(card.descKey)}</p>
+              <h3 className={`text-sm font-semibold mb-1 ${isPremium ? "text-white" : "text-[#2D2D2D]"}`}>{label(card.titleKey)}</h3>
+              <p className={`text-xs leading-relaxed mb-4 flex-1 ${isPremium ? "text-white/60" : "text-[#6B6B6B]"}`}>{label(card.descKey)}</p>
               <span
                 className={`block w-full rounded-lg py-2 text-center text-xs font-semibold transition-all duration-300 ${
                   isPremium
@@ -105,7 +106,7 @@ function ServicesCarousel() {
                 }`}
                 style={isPremium ? { background: "linear-gradient(135deg, hsl(43,70%,53%), hsl(38,65%,45%))", boxShadow: "0 2px 12px hsla(43,70%,53%,0.25)" } : undefined}
               >
-                {t(card.ctaKey)}
+                {label(card.ctaKey)}
               </span>
             </Link>
           );
@@ -272,7 +273,7 @@ export default function Index() {
                 {trustBadgeKeys.map((key) => (
                   <span key={key} className="flex items-center gap-1.5 font-medium text-white" style={{ fontSize: "0.85rem", opacity: 0.82, textShadow: "0 1px 3px rgba(0,0,0,0.6)" }}>
                     <CheckCircle2 className="h-4 w-4" style={{ color: "#C9A84C" }} />
-                    {t(key)}
+                    {label(key)}
                   </span>
                 ))}
               </motion.div>

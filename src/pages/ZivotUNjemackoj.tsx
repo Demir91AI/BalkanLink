@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import PageNavBar from "@/components/navigation/PageNavBar";
 import {
+import { label } from "@/lib/de-labels";
   Eye, TrendingUp, FileText, MessageSquare, Clock,
   AlertTriangle, Plane, CheckCircle, Euro, ListChecks,
   Globe, XCircle, BookOpen, Info, ExternalLink,
@@ -738,8 +739,8 @@ export default function ZivotUNjemackoj() {
               return (
                 <div key={k} className="bg-white rounded-xl border border-gray-200 shadow-sm p-5">
                   <Icon className="h-5 w-5 text-[#2d6a9f] mb-2" />
-                  <h3 className="font-bold text-[#2D2D2D] mb-1">{t(`${k}Title`)}</h3>
-                  <p className="text-sm text-[#6B6B6B]">{t(`${k}Text`)}</p>
+                  <h3 className="font-bold text-[#2D2D2D] mb-1">{label(`${k}Title`)}</h3>
+                  <p className="text-sm text-[#6B6B6B]">{label(`${k}Text`)}</p>
                 </div>
               );
             })}
@@ -764,11 +765,11 @@ export default function ZivotUNjemackoj() {
             {ways.map((w) => (
               <div key={w.tagKey} className="bg-white rounded-xl border border-gray-200 shadow-sm p-5">
                 <span className="inline-block text-[11px] font-mono font-semibold px-2 py-0.5 rounded-full bg-[#e8f4fd] text-[#2d6a9f] mb-2">
-                  {t(w.tagKey)}
+                  {label(w.tagKey)}
                 </span>
-                <h3 className="font-bold text-[#2D2D2D] mb-1">{t(w.titleKey)}</h3>
-                <p className="text-sm text-[#6B6B6B] mb-2">{t(w.descKey)}</p>
-                <p className="text-xs text-[#9CA3AF] mb-3">{t(w.forKey)}</p>
+                <h3 className="font-bold text-[#2D2D2D] mb-1">{label(w.titleKey)}</h3>
+                <p className="text-sm text-[#6B6B6B] mb-2">{label(w.descKey)}</p>
+                <p className="text-xs text-[#9CA3AF] mb-3">{label(w.forKey)}</p>
                 <button onClick={() => navigate("/viza")} className="text-sm font-semibold text-[#2d6a9f] hover:underline">
                   {"wayCta"}
                 </button>
@@ -787,8 +788,8 @@ export default function ZivotUNjemackoj() {
               <div key={r.titleKey} className="flex items-start gap-3">
                 <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-bold text-[#2D2D2D]">{t(r.titleKey)}</p>
-                  <p className="text-sm text-[#6B6B6B]">{t(r.textKey)}</p>
+                  <p className="font-bold text-[#2D2D2D]">{label(r.titleKey)}</p>
+                  <p className="text-sm text-[#6B6B6B]">{label(r.textKey)}</p>
                 </div>
               </div>
             ))}
@@ -814,7 +815,7 @@ export default function ZivotUNjemackoj() {
           </div>
           <div className="flex flex-col gap-2 mb-4">
             {["exp1", "exp2", "exp3", "exp4"].map((k) => (
-              <p key={k} className="text-sm text-[#2D2D2D]">{t(k)}</p>
+              <p key={k} className="text-sm text-[#2D2D2D]">{label(k)}</p>
             ))}
           </div>
           <p className="text-xs text-[#9CA3AF] bg-gray-50 rounded-lg p-3">{"expNote"}</p>
@@ -833,8 +834,8 @@ export default function ZivotUNjemackoj() {
                   <div className="absolute -left-8 top-0.5 w-6 h-6 rounded-full bg-[#2d6a9f] text-white flex items-center justify-center text-xs font-bold">
                     {i + 1}
                   </div>
-                  <p className="font-bold text-[#2D2D2D]">{t(s.titleKey)}</p>
-                  <p className="text-sm text-[#6B6B6B]">{t(s.textKey)}</p>
+                  <p className="font-bold text-[#2D2D2D]">{label(s.titleKey)}</p>
+                  <p className="text-sm text-[#6B6B6B]">{label(s.textKey)}</p>
                 </div>
               ))}
             </div>
@@ -871,8 +872,8 @@ export default function ZivotUNjemackoj() {
           <div className="flex flex-col gap-3">
             {errors.map((e) => (
               <div key={e.titleKey} className="rounded-lg p-4 border-l-4 border-red-400 bg-red-50/50">
-                <p className="font-bold text-[#2D2D2D] mb-1">❌ {t(e.titleKey)}</p>
-                <p className="text-sm text-[#6B6B6B]">{t(e.textKey)}</p>
+                <p className="font-bold text-[#2D2D2D] mb-1">❌ {label(e.titleKey)}</p>
+                <p className="text-sm text-[#6B6B6B]">{label(e.textKey)}</p>
               </div>
             ))}
           </div>
@@ -890,8 +891,8 @@ export default function ZivotUNjemackoj() {
                 <div className="w-10 h-10 rounded-lg bg-[#e8f4fd] flex items-center justify-center mb-3">
                   <BookOpen className="h-5 w-5 text-[#2d6a9f]" />
                 </div>
-                <p className="font-bold text-[#2D2D2D] mb-1">{t(`${s.key}Name`)}</p>
-                <p className="text-sm text-[#6B6B6B] mb-3">{t(`${s.key}Desc`)}</p>
+                <p className="font-bold text-[#2D2D2D] mb-1">{label(`${s.key}Name`)}</p>
+                <p className="text-sm text-[#6B6B6B] mb-3">{label(`${s.key}Desc`)}</p>
                 <a href={s.url} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-[#2d6a9f] hover:underline">
                   {"visit"}
                 </a>

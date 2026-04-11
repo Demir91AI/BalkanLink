@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { label } from "@/lib/de-labels";
 const NAV_LINKS_KEYS = [
   { labelKey: "sidebar.formulari", to: "/formulari" },
   { labelKey: "sidebar.viza", to: "/viza" },
@@ -76,7 +77,7 @@ export default function Footer() {
               style={linkStyle}
               className="footer-link"
             >
-              {t(l.labelKey)}
+              {label(l.labelKey)}
             </Link>
           ))}
         </div>
@@ -91,7 +92,7 @@ export default function Footer() {
               style={linkStyle}
               className="footer-link"
             >
-              {"labelKey" in l ? t(l.labelKey) : l.label}
+              {"labelKey" in l ? label(l.labelKey) : l.label}
             </Link>
           ))}
         </div>

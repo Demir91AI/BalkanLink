@@ -1,4 +1,5 @@
 import { ExternalLink, AlertTriangle, MapPin, Clock, FileText, CheckCircle2, Users } from "lucide-react";
+import { label } from "@/lib/de-labels";
 
 export default function FuehrerscheinGuideContent() {
   const statusItems = [
@@ -29,7 +30,7 @@ export default function FuehrerscheinGuideContent() {
           {statusItems.map(({ key, emoji }) => (
             <li key={key} className="flex items-start gap-2.5 text-sm leading-relaxed">
               <span className="shrink-0 text-base">{emoji}</span>
-              <span className="text-muted-foreground">{t(key)}</span>
+              <span className="text-muted-foreground">{label(key)}</span>
             </li>
           ))}
         </ul>
@@ -42,7 +43,7 @@ export default function FuehrerscheinGuideContent() {
         </h2>
         <ol className="space-y-2.5">
           {steps.map((key, i) => {
-            const text = t(key);
+            const text = label(key);
             const dashIdx = text.indexOf(" — ");
             const bold = dashIdx > 0 ? text.substring(0, dashIdx) : text;
             const rest = dashIdx > 0 ? text.substring(dashIdx) : "";
@@ -68,7 +69,7 @@ export default function FuehrerscheinGuideContent() {
         </h2>
         <ul className="space-y-1.5">
           {docs.map((key) => {
-            const text = t(key);
+            const text = label(key);
             const parenIdx = text.indexOf("(");
             const bold = parenIdx > 0 ? text.substring(0, parenIdx).trim() : text;
             const rest = parenIdx > 0 ? " " + text.substring(parenIdx) : "";
@@ -102,7 +103,7 @@ export default function FuehrerscheinGuideContent() {
           {costs.map((key) => (
             <li key={key} className="flex items-start gap-2 text-sm text-muted-foreground">
               <span className="shrink-0 mt-1 h-1.5 w-1.5 rounded-full bg-[hsl(var(--gold))]" />
-              {t(key)}
+              {label(key)}
             </li>
           ))}
         </ul>
@@ -115,7 +116,7 @@ export default function FuehrerscheinGuideContent() {
         </h2>
         <ul className="space-y-1.5">
           {errors.map((key) => {
-            const text = t(key);
+            const text = label(key);
             const dashIdx = text.indexOf(" — ");
             const bold = dashIdx > 0 ? text.substring(0, dashIdx) : text;
             const rest = dashIdx > 0 ? text.substring(dashIdx) : "";

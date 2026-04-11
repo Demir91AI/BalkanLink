@@ -1,6 +1,7 @@
 import { ExternalLink, Calculator, AlertTriangle, Euro, ChevronLeft } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { navigateBackOrHome } from "@/lib/navigation";
+import { label } from "@/lib/de-labels";
 
 /* ───────── OFFICIAL CALCULATORS ───────── */
 const officialTools = [
@@ -74,8 +75,8 @@ export default function Generatoren() {
                   <Calculator className="h-5 w-5" strokeWidth={1.5} />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <h3 className="text-sm font-semibold">{t(tool.titleKey)}</h3>
-                  <p className="mt-1 text-xs text-muted-foreground">{t(tool.descKey)}</p>
+                  <h3 className="text-sm font-semibold">{label(tool.titleKey)}</h3>
+                  <p className="mt-1 text-xs text-muted-foreground">{label(tool.descKey)}</p>
                   <a href={tool.url} target="_blank" rel="noopener noreferrer"
                     className="mt-2 inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-1.5 text-xs font-medium text-primary-foreground hover:bg-primary/90 transition-colors">
                     {"Offizielle Seite öffnen"} <ExternalLink className="h-3 w-3" />

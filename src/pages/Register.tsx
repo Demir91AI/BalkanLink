@@ -12,6 +12,7 @@ import { Check, X } from "lucide-react";
 import PageNav from "@/components/navigation/PageNav";
 import TurnstileWidget from "@/components/TurnstileWidget";
 import { verifyTurnstileToken } from "@/lib/turnstile";
+import { label } from "@/lib/de-labels";
 
 const PW_RULES = [
   { key: "auth.pwRule.length" as const, test: (pw: string) => pw.length >= 8 },
@@ -115,7 +116,7 @@ export default function Register() {
                         <X className="h-3.5 w-3.5 text-red-400 shrink-0" />
                       )}
                       <span className={r.pass ? "text-green-700 dark:text-green-400" : "text-red-600 dark:text-red-400"}>
-                        {t(r.key)}
+                        {label(r.key)}
                       </span>
                     </div>
                   ))}

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 import { Switch } from "@/components/ui/switch";
 import { Shield, Settings, X } from "lucide-react";
+import { label } from "@/lib/de-labels";
 
 const COOKIE_KEY = "bl-cookie-consent";
 
@@ -146,8 +147,8 @@ export default function CookieConsent() {
             {categories.map(({ key, labelKey, descKey, locked }) => (
               <div key={key} className="flex items-center justify-between gap-3 rounded-lg border border-white/8 p-3">
                 <div className="min-w-0">
-                  <p className="text-sm font-medium text-white/90">{t(labelKey)}</p>
-                  <p className="text-[11px] text-white/40 mt-0.5">{t(descKey)}</p>
+                  <p className="text-sm font-medium text-white/90">{label(labelKey)}</p>
+                  <p className="text-[11px] text-white/40 mt-0.5">{label(descKey)}</p>
                 </div>
                 <Switch
                   checked={prefs[key]}

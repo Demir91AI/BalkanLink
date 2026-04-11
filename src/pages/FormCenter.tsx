@@ -49,6 +49,7 @@ import FuehrerscheinGuideContent from "@/components/formulare/FuehrerscheinGuide
 import FahrzeugzulassungGuide from "@/components/formulare/FahrzeugzulassungGuide";
 import { navigateBackOrHome } from "@/lib/navigation";
 import FormRightPanel from "@/components/formCenter/FormRightPanel";
+import { label } from "@/lib/de-labels";
 
 type LangKey = "de" | "bs" | "hr" | "sr";
 
@@ -257,7 +258,7 @@ export default function FormCenter() {
 
   const getGroupTitle = (group: FormGroup) => {
     if (!group.titleKey) return group.title;
-    const translatedTitle = t(group.titleKey);
+    const translatedTitle = label(group.titleKey);
     return translatedTitle === group.titleKey ? group.title : translatedTitle;
   };
 

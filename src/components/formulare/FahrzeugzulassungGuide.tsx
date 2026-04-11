@@ -1,4 +1,5 @@
 import {
+import { label } from "@/lib/de-labels";
   ExternalLink,
   AlertTriangle,
   MapPin,
@@ -51,7 +52,7 @@ export default function FahrzeugzulassungGuide() {
           {types.map((key) => (
             <li key={key} className="flex items-start gap-2 text-sm">
               <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#C9A84C]" />
-              <BoldDash text={t(key)} />
+              <BoldDash text={label(key)} />
             </li>
           ))}
         </ul>
@@ -66,7 +67,7 @@ export default function FahrzeugzulassungGuide() {
           {whos.map((key) => (
             <li key={key} className="flex items-start gap-2 text-sm">
               <span className="shrink-0 mt-1 h-1.5 w-1.5 rounded-full bg-[#C9A84C]" />
-              <BoldDash text={t(key)} />
+              <BoldDash text={label(key)} />
             </li>
           ))}
         </ul>
@@ -81,7 +82,7 @@ export default function FahrzeugzulassungGuide() {
           {docs.map((key) => (
             <li key={key} className="flex items-start gap-2 text-sm">
               <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#C9A84C]" />
-              <BoldDash text={t(key)} />
+              <BoldDash text={label(key)} />
             </li>
           ))}
         </ul>
@@ -98,7 +99,7 @@ export default function FahrzeugzulassungGuide() {
               <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#C9A84C]/10 text-[10px] font-bold text-[#C9A84C]">
                 {i + 1}
               </span>
-              <BoldDash text={t(key)} />
+              <BoldDash text={label(key)} />
             </li>
           ))}
         </ol>
@@ -113,7 +114,7 @@ export default function FahrzeugzulassungGuide() {
           {regs.map((key) => (
             <li key={key} className="flex items-start gap-2 text-sm">
               <span className="shrink-0 mt-1 h-1.5 w-1.5 rounded-full bg-[#C9A84C]" />
-              <BoldDash text={t(key)} />
+              <BoldDash text={label(key)} />
             </li>
           ))}
         </ul>
@@ -136,7 +137,7 @@ export default function FahrzeugzulassungGuide() {
           {costs.map((key) => (
             <li key={key} className="flex items-start gap-2 text-sm text-muted-foreground">
               <span className="shrink-0 mt-1 h-1.5 w-1.5 rounded-full bg-[#C9A84C]" />
-              {t(key)}
+              {label(key)}
             </li>
           ))}
         </ul>
@@ -152,7 +153,7 @@ export default function FahrzeugzulassungGuide() {
           {imports.map((key) => (
             <li key={key} className="flex items-start gap-2 text-sm">
               <span className="shrink-0 mt-1 h-1.5 w-1.5 rounded-full bg-[#C9A84C]" />
-              <BoldDash text={t(key)} />
+              <BoldDash text={label(key)} />
             </li>
           ))}
         </ul>
@@ -167,7 +168,7 @@ export default function FahrzeugzulassungGuide() {
           {errors.map((key) => (
             <li key={key} className="flex items-start gap-2 text-sm">
               <span className="shrink-0 mt-1 h-1.5 w-1.5 rounded-full bg-destructive" />
-              <BoldDash text={t(key)} />
+              <BoldDash text={label(key)} />
             </li>
           ))}
         </ul>
