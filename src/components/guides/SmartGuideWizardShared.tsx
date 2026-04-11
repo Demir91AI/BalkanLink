@@ -39,7 +39,9 @@ const FREE_STEPS = 2;
 
 export default function SmartGuideWizardShared({
   steps,
+  free = false,
   finishLabel,
+  onFinish,
   onFinish,
 }: Props) {
   const [step, setStep] = useState(0);
