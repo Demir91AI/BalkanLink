@@ -19,7 +19,6 @@ import {
   speedTableAusserorts,
   otherOffensesTable,
 } from "@/lib/bussgeld-data";
-import { useLanguage } from "@/contexts/LanguageContext";
 import PageNav from "@/components/navigation/PageNav";
 
 const offenseOptions: { value: OffenseType; label: string; icon: typeof Car }[] = [
@@ -38,7 +37,6 @@ const topMistakes = [
 ];
 
 export default function BussgeldAssistent() {
-  const { t } = useLanguage();
   const [offense, setOffense] = useState<OffenseType>("speed");
   const [kmOver, setKmOver] = useState(15);
   const [innerorts, setInnerorts] = useState(true);

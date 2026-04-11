@@ -8,7 +8,6 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { Check, X } from "lucide-react";
 import PageNav from "@/components/navigation/PageNav";
 import TurnstileWidget from "@/components/TurnstileWidget";
@@ -32,8 +31,6 @@ export default function Register() {
   const [turnstileToken, setTurnstileToken] = useState("");
   const navigate = useNavigate();
   const { toast } = useToast();
-  const { t } = useLanguage();
-
   const ruleResults = useMemo(() => PW_RULES.map(r => ({ ...r, pass: r.test(password) })), [password]);
   const allRulesPass = ruleResults.every(r => r.pass);
   const passwordsMatch = password === confirmPassword;
@@ -42,7 +39,7 @@ export default function Register() {
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!canSubmit) {
-      toast({ title: t("auth.passwordTooShort"), variant: "destructive" });
+      toast({ title: "Passwort ist zu kurz.", variant: "destructive" });
       return;
     }
     setLoading(true);
@@ -76,9 +73,9 @@ export default function Register() {
     setLoading(false);
 
     if (error) {
-      toast({ title: t("auth.registerError"), description: error.message, variant: "destructive" });
+      toast({ title: "Registrierungsfehler.", description: error.message, variant: "destructive" });
     } else {
-      toast({ title: t("auth.registerSuccess"), description: t("auth.registerCheckEmail") });
+      toast({ title: "Erfolgreich registriert!", description: "Prüfe E-Mail zur Registrierungsbestätigung." });
       navigate("/login");
     }
   };
@@ -90,26 +87,26 @@ export default function Register() {
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
           <div className="flex justify-center mb-4"><BrandLogo variant="full" linkHome={false} darkText /></div>
-          <CardTitle className="text-2xl">{t("auth.registerTitle")}</CardTitle>
-          <CardDescription>{t("auth.registerDesc")}</CardDescription>
+          <CardTitle className="text-2xl">{"Registrierung"}</CardTitle>
+          <CardDescription>{"Erstelle ein Konto für vollen Zugang."}</CardDescription>
         </CardHeader>
         <form onSubmit={handleRegister}>
           <CardContent className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="firstName">{t("auth.firstName") || "Ime"}</Label>
+              <Label htmlFor="firstName">{"auth.firstName" || "Ime"}</Label>
               <Input id="firstName" type="text" required value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder="Tvoje ime" autoComplete="given-name" />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="email">{t("auth.email")}</Label>
+              <Label htmlFor="email">{"E-Mail-Adresse"}</Label>
               <Input id="email" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="vas@email.com" />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password">{t("auth.password")}</Label>
-              <Input id="password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} placeholder={t("auth.minChars")} />
+              <Label htmlFor="password">{"Passwort"}</Label>
+              <Input id="password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} placeholder={"Mindestens 8 Zeichen"} />
               {/* Live password rules */}
               {password.length > 0 && (
                 <div className="mt-2 space-y-1 rounded-lg border bg-muted/30 p-3">
-                  <p className="text-[11px] font-semibold text-muted-foreground mb-1">{t("auth.pwRule.title")}</p>
+                  <p className="text-[11px] font-semibold text-muted-foreground mb-1">{"Passwort muss enthalten:"}</p>
                   {ruleResults.map(r => (
                     <div key={r.key} className="flex items-center gap-2 text-xs">
                       {r.pass ? (
@@ -126,11 +123,11 @@ export default function Register() {
               )}
             </div>
             <div className="space-y-2">
-              <Label htmlFor="confirmPassword">{t("auth.confirmPassword")}</Label>
+              <Label htmlFor="confirmPassword">{"Passwort bestätigen"}</Label>
               <Input id="confirmPassword" type="password" required value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="••••••••" />
               {confirmPassword.length > 0 && !passwordsMatch && (
                 <p className="text-xs text-red-500 mt-1 flex items-center gap-1">
-                  <X className="h-3 w-3" /> {t("auth.passwordMismatch")}
+                  <X className="h-3 w-3" /> {"Passwörter stimmen nicht überein."}
                 </p>
               )}
               {confirmPassword.length > 0 && passwordsMatch && (
@@ -151,24 +148,24 @@ export default function Register() {
                 className="mt-0.5"
               />
               <label htmlFor="terms" className="cursor-pointer text-sm leading-relaxed text-muted-foreground">
-                {t("auth.termsLabel") || "Ich habe die"}{" "}
+                {"Ich akzeptiere die AGB" || "Ich habe die"}{" "}
                 <Link to="/agb" target="_blank" className="font-semibold text-primary underline hover:no-underline">
-                  {t("auth.termsAGB") || "AGB"}
+                  {"AGB" || "AGB"}
                 </Link>{" "}
-                {t("auth.termsAnd") || "und die"}{" "}
+                {"und" || "und die"}{" "}
                 <Link to="/datenschutz" target="_blank" className="font-semibold text-primary underline hover:no-underline">
-                  {t("auth.termsPrivacy") || "Datenschutzbestimmungen"}
+                  {"Datenschutzrichtlinie" || "Datenschutzbestimmungen"}
                 </Link>{" "}
-                {t("auth.termsAccept") || "gelesen und akzeptiere sie."}
+                {"Ich akzeptiere" || "gelesen und akzeptiere sie."}
               </label>
             </div>
           </CardContent>
           <CardFooter className="flex flex-col gap-3">
             <Button type="submit" className="w-full" disabled={loading || !canSubmit}>
-              {loading ? t("auth.registerLoading") : t("auth.registerButton")}
+              {loading ? "Registrierung..." : "Registrieren"}
             </Button>
             <p className="text-center text-sm text-muted-foreground">
-              {t("auth.haveAccount")} <Link to="/login" className="text-primary hover:underline">{t("auth.loginButton")}</Link>
+              {"Schon ein Konto?"} <Link to="/login" className="text-primary hover:underline">{"Anmelden"}</Link>
             </p>
           </CardFooter>
         </form>

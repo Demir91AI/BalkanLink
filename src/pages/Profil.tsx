@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useSubscription } from "@/hooks/useSubscription";
 import { useNavigate } from "react-router-dom";
-import { useLanguage } from "@/contexts/LanguageContext";
 import PageNav from "@/components/navigation/PageNav";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -16,7 +15,6 @@ export default function Profil() {
   const { user, isPremium, subscriptionEnd, signOut, profileLoading, displayName } = useAuth();
   const { subscriptionTier } = useSubscription();
   const navigate = useNavigate();
-  const { t } = useLanguage();
   const [editName, setEditName] = useState(displayName);
   const [saving, setSaving] = useState(false);
 
@@ -74,7 +72,7 @@ export default function Profil() {
               <p className="text-xs text-muted-foreground mb-1">Status</p>
               <div className="flex items-center gap-2">
                 {profileLoading ? (
-                  <span className="text-sm text-muted-foreground">{t("general.loading")}</span>
+                  <span className="text-sm text-muted-foreground">{"Wird geladen..."}</span>
                 ) : isPremium ? (
                   <>
                     <Badge className="bg-[hsl(var(--gold))] text-[#0f1f3d] hover:bg-[hsl(var(--gold))]">
@@ -88,7 +86,7 @@ export default function Profil() {
               </div>
               {isPremium && subscriptionEnd && (
                 <p className="text-xs text-muted-foreground mt-1.5">
-                  {t("general.validUntil") || "Vrijedi do"}: {new Date(subscriptionEnd).toLocaleDateString("de-DE")}
+                  {"Gültig bis" || "Vrijedi do"}: {new Date(subscriptionEnd).toLocaleDateString("de-DE")}
                 </p>
               )}
             </div>
@@ -110,7 +108,7 @@ export default function Profil() {
                 className="w-full"
               >
                 <LogOut className="h-4 w-4 mr-2" />
-                {t("nav.logout")}
+                {"Abmelden"}
               </Button>
             </div>
           </CardContent>

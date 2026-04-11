@@ -1,4 +1,3 @@
-import { useLanguage } from "@/contexts/LanguageContext";
 import { Info, ExternalLink } from "lucide-react";
 
 const gold = "#C9A84C";
@@ -50,8 +49,6 @@ function CheckRow({ options, selected }: { options: string[]; selected: number }
 }
 
 export default function VisaWorkForm2() {
-  const { t } = useLanguage();
-
   return (
     <div className="mx-auto max-w-[800px] rounded-lg bg-white p-8 space-y-4" style={{ border: "1px solid #D0C8B0" }}>
       {/* Header */}
@@ -60,7 +57,7 @@ export default function VisaWorkForm2() {
         <p className="text-sm text-muted-foreground">EzB - 02/2024</p>
       </div>
 
-      <BlueTip>{t("visa_work_ezb_hint")}</BlueTip>
+      <BlueTip>{"visa_work_ezb_hint"}</BlueTip>
 
       {/* ABSCHNITT A */}
       <h3 className={sectionTitle} style={{ borderColor: "#E0D0B0" }}>Abschnitt A — Erklärung und Anlass</h3>
@@ -253,7 +250,7 @@ export default function VisaWorkForm2() {
 
       {/* Download hint */}
       <div className="rounded-lg p-4 text-xs leading-relaxed" style={{ background: "#FFF8EC", border: "1px solid #E8D9B0", color: "#4A4A4A" }}>
-        {t("visa_work_ezb_download_hint")}
+        {"visa_work_ezb_download_hint"}
         <a
           href="https://www.arbeitsagentur.de/datei/ezb_ba047549.pdf"
           target="_blank"
@@ -262,7 +259,7 @@ export default function VisaWorkForm2() {
           style={{ color: gold }}
         >
           <ExternalLink className="h-3 w-3" />
-          {t("visa_work_ezb_download")}
+          {"visa_work_ezb_download"}
         </a>
       </div>
     </div>

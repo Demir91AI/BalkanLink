@@ -3,7 +3,6 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { MapPin, Building, Landmark, Filter, Phone, Mail, Globe, Info, ChevronLeft } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { useMissions } from "@/hooks/useMissions";
 import { useHistorySearchState } from "@/hooks/useHistorySearchState";
 import { ORIGIN_COUNTRIES } from "@/lib/directory-constants";
@@ -12,21 +11,20 @@ import { navigateBackOrHome } from "@/lib/navigation";
 const MISSION_TYPES = ["Embassy", "Consulate General"] as const;
 
 function MissionDetail({ id, onBack }: { id: string; onBack: () => void }) {
-  const { t } = useLanguage();
   const { data: missions, isLoading } = useMissions({ country: "", city: "", missionType: "" });
   const mission = missions?.find((m) => m.id === id);
 
   if (isLoading) return <div className="container py-8"><div className="h-48 animate-pulse rounded-xl border bg-muted" /></div>;
   if (!mission) return (
     <div className="container py-8 text-center">
-      <p className="text-muted-foreground">{t("missions.empty")}</p>
+      <p className="text-muted-foreground">{"Keine Ergebnisse"}</p>
       <button onClick={onBack} className="back-button"><ChevronLeft className="h-4 w-4" />Nazad</button>
     </div>
   );
 
   const originCountry = ORIGIN_COUNTRIES.find((c) => c.code === mission.country_code);
   const isEmbassy = mission.mission_type === "Embassy";
-  const getMissionTypeLabel = (type: string) => type === "Embassy" ? t("missions.embassy") : t("missions.consulate");
+  const getMissionTypeLabel = (type: string) => type === "Embassy" ? "Botschaft" : "Konsulat";
   const hasContact = mission.phone || mission.email || mission.website;
 
   return (
@@ -94,7 +92,6 @@ function MissionDetail({ id, onBack }: { id: string; onBack: () => void }) {
 }
 
 export default function Missions() {
-  const { t } = useLanguage();
   const navigate = useNavigate();
   const { searchParams, setSearchState } = useHistorySearchState();
   const [country, setCountry] = useState("");
@@ -109,7 +106,7 @@ export default function Missions() {
   const clearFilters = () => { setCountry(""); setCity(""); setMissionType(""); };
   const hasFilters = country || city || missionType;
 
-  const getMissionTypeLabel = (type: string) => type === "Embassy" ? t("missions.embassy") : t("missions.consulate");
+  const getMissionTypeLabel = (type: string) => type === "Embassy" ? "Botschaft" : "Konsulat";
 
   if (selectedId) {
     return <MissionDetail id={selectedId} onBack={() => navigateBackOrHome(navigate)} />;
@@ -121,32 +118,32 @@ export default function Missions() {
         <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
           <ChevronLeft className="h-4 w-4" /> Nazad
         </button>
-        <h1 className="text-2xl font-bold md:text-3xl">{t("missions.title")}</h1>
-        <p className="mt-1 text-muted-foreground">{t("missions.subtitle")}</p>
+        <h1 className="text-2xl font-bold md:text-3xl">{"Botschaften und Konsulate"}</h1>
+        <p className="mt-1 text-muted-foreground">{"Diplomatische Vertretungen finden"}</p>
       </div>
 
       {/* Filters */}
       <div className="mb-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
         <Select value={country} onValueChange={(v) => setCountry(v === "all" ? "" : v)}>
-          <SelectTrigger><SelectValue placeholder={t("missions.filterCountry")} /></SelectTrigger>
+          <SelectTrigger><SelectValue placeholder={"Land"} /></SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">{t("missions.allCountries")}</SelectItem>
+            <SelectItem value="all">{"Alle Länder"}</SelectItem>
             {ORIGIN_COUNTRIES.map((c) => (
               <SelectItem key={c.code} value={c.code}><span className="mr-2">{c.flag}</span>{c.label}</SelectItem>
             ))}
           </SelectContent>
         </Select>
         <Select value={city} onValueChange={(v) => setCity(v === "all" ? "" : v)}>
-          <SelectTrigger><SelectValue placeholder={t("missions.filterCity")} /></SelectTrigger>
+          <SelectTrigger><SelectValue placeholder={"Stadt"} /></SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">{t("missions.allCities")}</SelectItem>
+            <SelectItem value="all">{"Alle Städte"}</SelectItem>
             {uniqueCities.map((c) => (<SelectItem key={c} value={c}>{c}</SelectItem>))}
           </SelectContent>
         </Select>
         <Select value={missionType} onValueChange={(v) => setMissionType(v === "all" ? "" : v)}>
-          <SelectTrigger><SelectValue placeholder={t("missions.filterType")} /></SelectTrigger>
+          <SelectTrigger><SelectValue placeholder={"Typ"} /></SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">{t("missions.allTypes")}</SelectItem>
+            <SelectItem value="all">{"Alle Typen"}</SelectItem>
             {MISSION_TYPES.map((type) => (
               <SelectItem key={type} value={type}>{getMissionTypeLabel(type)}</SelectItem>
             ))}
@@ -157,8 +154,8 @@ export default function Missions() {
       {hasFilters && (
         <div className="mb-4 flex items-center gap-2">
           <Filter className="h-4 w-4 text-muted-foreground" />
-          <span className="text-sm text-muted-foreground">{missions?.length ?? 0} {t("missions.results")}</span>
-          <button onClick={clearFilters} className="ml-auto text-xs text-muted-foreground hover:text-foreground">{t("missions.clearFilters")}</button>
+          <span className="text-sm text-muted-foreground">{missions?.length ?? 0} {"Ergebnisse"}</span>
+          <button onClick={clearFilters} className="ml-auto text-xs text-muted-foreground hover:text-foreground">{"Filter löschen"}</button>
         </div>
       )}
 
@@ -218,7 +215,7 @@ export default function Missions() {
       ) : (
         <div className="flex flex-col items-center gap-3 py-16 text-center">
           <Landmark className="h-12 w-12 text-muted-foreground/40" />
-          <p className="text-muted-foreground">{t("missions.empty")}</p>
+          <p className="text-muted-foreground">{"Keine Ergebnisse"}</p>
         </div>
       )}
     </div>

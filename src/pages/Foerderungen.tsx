@@ -2,7 +2,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { ArrowRight, ChevronLeft, Home, Briefcase, HeartPulse, GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
 import { getGuidesByCategory, type Guide } from "@/lib/guide-data";
-import { useLanguage } from "@/contexts/LanguageContext";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
 import { navigateBackOrHome } from "@/lib/navigation";
 
@@ -28,7 +27,6 @@ const titles = {
 };
 
 export default function Foerderungen() {
-  const { language } = useLanguage();
   const navigate = useNavigate();
   const lk = getLangKey(language);
   const t = titles[lk];

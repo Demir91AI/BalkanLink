@@ -1,7 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { SEO } from "@/components/SEO";
 import { ArrowRight, ChevronLeft, Home, FileText, CreditCard, Heart, Landmark, ClipboardList, Shield, Radio, Car, KeyRound } from "lucide-react";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { navigateBackOrHome } from "@/lib/navigation";
 
 const T: Record<string, Record<string, string>> = {
@@ -96,7 +95,6 @@ const cards = [
 ];
 
 export default function PocniOvdje() {
-  const { language } = useLanguage();
   const navigate = useNavigate();
 
   return (

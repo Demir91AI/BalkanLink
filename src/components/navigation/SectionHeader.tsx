@@ -1,7 +1,5 @@
 import { ChevronLeft, ChevronRight, Home } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { useLanguage } from "@/contexts/LanguageContext";
-
 export interface BreadcrumbItem {
   label: string;
   onClick?: () => void;
@@ -17,8 +15,6 @@ interface SectionHeaderProps {
 
 export default function SectionHeader({ onBack, breadcrumbs, title, subtitle, icon }: SectionHeaderProps) {
   const navigate = useNavigate();
-  const { t } = useLanguage();
-
   return (
     <div className="mb-6 sm:mb-8">
       {/* ROW 1: Back + Home */}
@@ -28,14 +24,14 @@ export default function SectionHeader({ onBack, breadcrumbs, title, subtitle, ic
           className="flex items-center gap-1.5 text-[13px] font-medium text-white/50 hover:text-white/80 transition-colors px-3 py-1.5 rounded-lg hover:bg-white/[0.06]"
         >
           <ChevronLeft className="h-4 w-4" />
-          {t("back").replace("← ", "")}
+          {"← Zurück".replace("← ", "")}
         </button>
         <button
           onClick={() => navigate("/")}
           className="flex items-center gap-1.5 text-[13px] font-medium text-white/50 hover:text-white/80 transition-colors px-3 py-1.5 rounded-lg hover:bg-white/[0.06]"
         >
           <Home className="h-4 w-4" />
-          {t("home")}
+          {"Startseite"}
         </button>
       </div>
 

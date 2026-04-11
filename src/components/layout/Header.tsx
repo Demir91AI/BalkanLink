@@ -1,6 +1,5 @@
 import { useRef, useCallback } from "react";
 import { useAuth } from "@/contexts/AuthContext";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { Menu, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -11,8 +10,6 @@ const menuBtnClass =
 
 export default function Header() {
   const { loading, isAdmin } = useAuth();
-  const { t } = useLanguage();
-
   const lastToggleRef = useRef(0);
   const handleToggleSidebar = useCallback(() => {
     const now = Date.now();
@@ -26,7 +23,7 @@ export default function Header() {
       <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[hsl(var(--gold))] to-transparent opacity-60" />
 
       <div className="relative flex h-14 items-center justify-between px-4">
-        <Button variant="ghost" size="icon" onClick={handleToggleSidebar} className={menuBtnClass} aria-label={t("sidebar.menu")}>
+        <Button variant="ghost" size="icon" onClick={handleToggleSidebar} className={menuBtnClass} aria-label={"Menü"}>
           <Menu className="h-5 w-5" />
         </Button>
 

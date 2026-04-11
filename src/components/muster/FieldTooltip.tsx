@@ -1,7 +1,5 @@
 import { HelpCircle } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
-import { useLanguage } from "@/contexts/LanguageContext";
-
 const TOOLTIP_FIELDS: Record<string, string> = {
   "Steuernummer": "fieldTooltips.Steuernummer",
   "Steuer-ID": "fieldTooltips.Steuer-ID",
@@ -23,8 +21,6 @@ interface FieldTooltipProps {
 }
 
 export default function FieldTooltip({ label }: FieldTooltipProps) {
-  const { t } = useLanguage();
-
   // Check if label (or part of it) matches a known field
   const matchedKey = Object.keys(TOOLTIP_FIELDS).find(
     (key) => label.includes(key)

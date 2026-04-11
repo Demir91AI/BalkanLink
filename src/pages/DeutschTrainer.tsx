@@ -10,8 +10,6 @@ import { useTrainerProgress } from "@/hooks/useTrainerProgress";
 import { useSubscription } from "@/hooks/useSubscription";
 import TrainerLesson from "@/components/trainer/TrainerLesson";
 import { navigateBackOrHome } from "@/lib/navigation";
-import { useLanguage } from "@/contexts/LanguageContext";
-
 const LESSONS_PER_PAGE = 9;
 
 const INDIVIDUAL_PRICES: Record<string, string> = {
@@ -22,7 +20,6 @@ const INDIVIDUAL_PRICES: Record<string, string> = {
 
 export default function DeutschTrainer() {
   const navigate = useNavigate();
-  const { t } = useLanguage();
   const [params] = useSearchParams();
   const demo = params.get("demo") === "1";
 
@@ -111,13 +108,13 @@ export default function DeutschTrainer() {
               onClick={() => navigateBackOrHome(navigate)}
               className="flex items-center gap-1.5 text-[13px] font-medium text-white/50 hover:text-white transition-colors"
             >
-              <ArrowLeft className="h-4 w-4" /> {t("trainer.back")}
+              <ArrowLeft className="h-4 w-4" /> {"Zurück"}
             </button>
             <button
               onClick={() => navigate("/")}
               className="flex items-center gap-1.5 text-[13px] font-medium text-white/50 hover:text-white transition-colors"
             >
-              <Home className="h-4 w-4" /> {t("nav.home")}
+              <Home className="h-4 w-4" /> {"Startseite"}
             </button>
           </div>
 
@@ -130,7 +127,7 @@ export default function DeutschTrainer() {
               className="mb-3 inline-flex items-center gap-2 rounded-full border border-gold/20 bg-gold/[0.08] px-4 py-1.5"
             >
               <GraduationCap className="h-4 w-4 text-gold" />
-              <span className="text-xs font-bold text-gold">{t("trainer.pageTitle")}</span>
+              <span className="text-xs font-bold text-gold">{"BalkanLink Deutsch"}</span>
             </motion.div>
 
             <motion.h1
@@ -139,7 +136,7 @@ export default function DeutschTrainer() {
               transition={{ duration: 0.5, delay: 0.08 }}
               className="text-3xl font-black leading-[1.1] tracking-tight text-white sm:text-4xl lg:text-5xl"
             >
-              {t("trainer.pageSubtitle")}
+              {"Effektives Deutschlernen für das echte Leben"}
             </motion.h1>
 
             <motion.p
@@ -148,7 +145,7 @@ export default function DeutschTrainer() {
               transition={{ duration: 0.5, delay: 0.16 }}
               className="mt-4 max-w-lg text-sm leading-relaxed text-white/50 sm:text-base"
             >
-              {t("trainer.subtitle")}
+              {"Effektives Deutschlernen für das echte Leben"}
             </motion.p>
 
 
@@ -200,8 +197,8 @@ export default function DeutschTrainer() {
           <div className="mb-8 grid grid-cols-3 gap-3 sm:gap-4 max-w-3xl">
             {[
               { icon: <Trophy className="h-6 w-6 text-gold" />, value: progress.xp, label: "XP" },
-              { icon: <Flame className="h-6 w-6 text-orange-400" />, value: progress.streak, label: t("trainer.streak") },
-              { icon: <Star className="h-6 w-6 text-blue-400" />, value: `Lvl ${progress.level}`, label: `${t("trainer.level")} (max ${MAX_LEVEL})` },
+              { icon: <Flame className="h-6 w-6 text-orange-400" />, value: progress.streak, label: "Streak" },
+              { icon: <Star className="h-6 w-6 text-blue-400" />, value: `Lvl ${progress.level}`, label: `${"Level"} (max ${MAX_LEVEL})` },
             ].map((s, i) => (
               <motion.div
                 key={s.label}
@@ -220,8 +217,8 @@ export default function DeutschTrainer() {
           {/* ── XP PROGRESS BAR ── */}
           <div className="mb-10 max-w-3xl">
             <div className="mb-2 flex justify-between text-xs text-white/40">
-              <span className="font-semibold">{t("trainer.level")} {progress.level}{progress.level >= MAX_LEVEL ? ` (${t("trainer.levelMax")})` : ""}</span>
-              <span>{progress.level >= MAX_LEVEL ? t("trainer.xpMax") : `${xpInLevel}/${xpForNextLevel} XP`}</span>
+              <span className="font-semibold">{"Level"} {progress.level}{progress.level >= MAX_LEVEL ? ` (${"Max. Level"})` : ""}</span>
+              <span>{progress.level >= MAX_LEVEL ? "Maximales Level erreicht" : `${xpInLevel}/${xpForNextLevel} XP`}</span>
             </div>
             <div className="h-2.5 w-full overflow-hidden rounded-full bg-white/[0.06]">
               <motion.div
@@ -260,9 +257,9 @@ export default function DeutschTrainer() {
           {/* ── LEVEL PROGRESS ── */}
           <div className="mb-10 max-w-3xl rounded-2xl border border-white/[0.06] bg-white/[0.02] px-5 py-4">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-bold text-white/80">{selectedLevel} {t("trainer.progress")}</span>
+              <span className="text-sm font-bold text-white/80">{selectedLevel} {"Fortschritt"}</span>
               <span className="text-xs text-white/40">
-                {completedInLevel}/{levelLessons.length} {t("trainer.lessons")}
+                {completedInLevel}/{levelLessons.length} {"Lektionen"}
               </span>
             </div>
             <div className="h-2 w-full overflow-hidden rounded-full bg-white/[0.06]">
@@ -304,7 +301,7 @@ export default function DeutschTrainer() {
                     {/* Free badge */}
                     {isFree && !completed && (
                       <span className="absolute right-4 top-4 rounded-full bg-[hsl(var(--success)/0.12)] px-2.5 py-0.5 text-[10px] font-bold text-[hsl(var(--success))]">
-                        {t("deutsch.free")}
+                        {"Kostenlos"}
                       </span>
                     )}
 
@@ -323,7 +320,7 @@ export default function DeutschTrainer() {
                         {isLocked && <Lock className="h-3.5 w-3.5 shrink-0 text-white/20" />}
                       </div>
                       <p className={`mt-1 text-xs leading-relaxed ${isLocked ? "text-white/15" : "text-white/40"}`}>
-                        {lesson.title}{!isPremium && ` · ${t("trainer.freeAvailable")}`}
+                        {lesson.title}{!isPremium && ` · ${"frei verfügbar"}`}
                       </p>
                     </div>
                   </motion.button>
@@ -376,20 +373,20 @@ export default function DeutschTrainer() {
               style={{ background: "linear-gradient(135deg, rgba(255,204,0,0.06) 0%, rgba(255,204,0,0.02) 100%)" }}
             >
               <Crown className="mx-auto mb-3 h-8 w-8 text-gold" />
-              <h3 className="text-base font-black text-white">{t("trainer.unlock.title")}</h3>
+              <h3 className="text-base font-black text-white">{"Weiter lernen"}</h3>
               <p style={{ fontSize: 13, color: "#9CA3AF", marginBottom: 8 }}>
-                {t("trainer.unlock.desc")}
+                {"Schalte alle Lektionen & den vollen Sprachassistent frei"}
               </p>
               <div className="mt-2 flex flex-wrap justify-center gap-2">
-                <span className="rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold text-white/70">✓ {t("trainer.unlock.noSub")}</span>
-                <span className="rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold text-white/70">✓ {t("trainer.unlock.oneTime")}</span>
-                <span className="rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold text-white/70">✓ {t("trainer.unlock.voucher")}</span>
+                <span className="rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold text-white/70">✓ {"Kein Abo"}</span>
+                <span className="rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold text-white/70">✓ {"Einmal zahlen"}</span>
+                <span className="rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold text-white/70">✓ {"Wertgutschein für Premium"}</span>
               </div>
               <Button
                 onClick={() => navigate("/deutsch-trainer/preise")}
                 className="mt-5 h-12 w-full max-w-xs rounded-xl bg-gold text-sm font-bold text-gold-foreground shadow-[0_4px_20px_rgba(255,204,0,0.3)] hover:bg-gold-light"
               >
-                {t("trainer.unlock.cta")}
+                {"Alle Lektionen freischalten"}
               </Button>
             </motion.div>
           )}
@@ -421,25 +418,25 @@ export default function DeutschTrainer() {
               </button>
               <div className="text-center">
                 <Crown className="mx-auto mb-3 h-10 w-10 text-gold" />
-                <h2 className="text-base font-black">{t("trainer.paywall.title")}</h2>
+                <h2 className="text-base font-black">{"Weitere Lektionen freischalten"}</h2>
                 <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">
-                  {t("trainer.paywall.desc")}
+                  {"Schalte jetzt alle Inhalte frei und trainiere Deutsch für echte Situationen."}
                 </p>
                 <p className="mt-3 text-2xl font-black text-gold-dark">
-                  {t("trainer.paywall.from")} {INDIVIDUAL_PRICES[selectedLevel]}
-                  <span className="ml-1 text-xs font-normal text-muted-foreground">{t("trainer.paywall.oneTime")}</span>
+                  {"ab"} {INDIVIDUAL_PRICES[selectedLevel]}
+                  <span className="ml-1 text-xs font-normal text-muted-foreground">{"/ einmalig"}</span>
                 </p>
                 <Button
                   onClick={() => { setShowPaywall(false); navigate("/deutsch-trainer/preise"); }}
                   className="mt-4 h-11 w-full rounded-xl bg-gold text-sm font-bold text-gold-foreground shadow-[0_4px_20px_rgba(255,204,0,0.3)] hover:bg-gold-light"
                 >
-                  {t("trainer.paywall.unlock")}
+                  {"Jetzt freischalten"}
                 </Button>
                 <button
                   onClick={() => setShowPaywall(false)}
                   className="mt-2 text-xs text-muted-foreground hover:underline"
                 >
-                  {t("trainer.paywall.later")}
+                  {"Später entscheiden"}
                 </button>
               </div>
             </motion.div>

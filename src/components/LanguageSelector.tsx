@@ -1,5 +1,3 @@
-import { useLanguage } from "@/contexts/LanguageContext";
-import type { Language } from "@/lib/translations";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,7 +14,6 @@ const SUPPORTED_LANGS = [
 ];
 
 export default function LanguageSelector() {
-  const { language: currentLanguage, setLanguage } = useLanguage();
   const current = SUPPORTED_LANGS.find(l => l.code === currentLanguage)
     ?? SUPPORTED_LANGS[0];
 

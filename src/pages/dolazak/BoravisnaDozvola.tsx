@@ -15,8 +15,6 @@ import { getGuideBySlug } from "@/lib/guide-data";
 import { VISA_COUNTRIES } from "@/data/visaNavigatorData";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useAuth } from "@/contexts/AuthContext";
-import { useLanguage } from "@/contexts/LanguageContext";
-import { useSectionT } from "@/hooks/useSectionT";
 import { useHistorySearchState } from "@/hooks/useHistorySearchState";
 import { cn } from "@/lib/utils";
 
@@ -51,32 +49,32 @@ function VisaPaywall({ visaLabel, st }: { visaLabel: string; st: (k: string) => 
       </div>
       <h3 className="mb-1 text-sm font-bold">Smart Guide – korak po korak</h3>
       <p className="mb-5 max-w-md mx-auto text-xs text-muted-foreground">
-        {st("viza.smartGuideDesc")}
+        {"Antrag fehlerfrei ausfüllen mit geführter Anleitung und detaillierten Erklärungen."}
       </p>
       <div className="grid w-full max-w-md mx-auto gap-3 sm:grid-cols-2">
         <div className="rounded-xl border border-border/60 bg-card p-4 text-left">
           <p className="text-lg font-extrabold text-foreground">3.99€</p>
-          <p className="mt-1 text-xs text-muted-foreground">{st("viza.singleAccess")}</p>
+          <p className="mt-1 text-xs text-muted-foreground">{"Zugang nur zu diesem Visum"}</p>
         </div>
         <div className="rounded-xl border-2 border-gold/40 bg-gold/5 p-4 text-left relative">
           <span className="absolute -top-2.5 right-3 rounded-full bg-gold px-2.5 py-0.5 text-[10px] font-bold text-gold-foreground">
-            {st("viza.popular")}
+            {"BELIEBT"}
           </span>
           <p className="text-lg font-extrabold text-foreground">9.99€</p>
-          <p className="mt-1 text-xs text-muted-foreground">{st("viza.allAccess")}</p>
+          <p className="mt-1 text-xs text-muted-foreground">{"Zugang zu allen Formularen und Visa (30 Tage)"}</p>
           <ul className="mt-3 space-y-1">
             {included.map((f) => (
               <li key={f} className="flex items-center gap-1.5 text-[11px] text-muted-foreground">
                 <Check className="h-3 w-3 text-gold shrink-0" /> {f}
               </li>
             ))}
-            <li className="text-[11px] text-muted-foreground pl-[18px]">{st("viza.andMore")}</li>
+            <li className="text-[11px] text-muted-foreground pl-[18px]">{"und 30+ weitere Anleitungen"}</li>
           </ul>
         </div>
       </div>
       <Button className="btn-gold-gradient mt-5 rounded-xl px-8" asChild>
         <Link to={user ? "/premium" : "/login"}>
-          <Crown className="mr-2 h-4 w-4" /> {st("viza.unlock")}
+          <Crown className="mr-2 h-4 w-4" /> {"Jetzt freischalten"}
         </Link>
       </Button>
     </div>
@@ -102,13 +100,13 @@ function VisaDetail({ visa, st }: { visa: VisaType; st: (k: string) => string })
       <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 dark:border-amber-900/40 dark:bg-amber-950/20">
         <p className="text-xs text-amber-800 dark:text-amber-300 flex items-start gap-2">
           <Info className="h-3.5 w-3.5 shrink-0 mt-0.5" />
-          {st("viza.disclaimer")}
+          {"Hinweis: Verfahren und Anforderungen können je nach Bundesland und zuständiger Behörde leicht abweichen."}
         </p>
       </div>
 
       <motion.div {...fade(0)} className="rounded-2xl border border-border/60 bg-card p-4">
         <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold">
-          <PenLine className="h-3.5 w-3.5 text-primary" /> {st("viza.whoCanApply")}
+          <PenLine className="h-3.5 w-3.5 text-primary" /> {"Wer kann sich bewerben"}
         </h3>
         <ul className="space-y-1 pl-4 list-disc">
           {visa.whoCanApply.map((w, i) => (
@@ -119,7 +117,7 @@ function VisaDetail({ visa, st }: { visa: VisaType; st: (k: string) => string })
 
       <motion.div {...fade(1)} className="rounded-2xl border border-border/60 bg-card p-4">
         <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold">
-          <ClipboardList className="h-3.5 w-3.5 text-primary" /> {st("viza.basicReqs")}
+          <ClipboardList className="h-3.5 w-3.5 text-primary" /> {"Grundvoraussetzungen"}
         </h3>
         <ul className="space-y-1 pl-4 list-disc">
           {visa.basicRequirements.map((r, i) => (
@@ -130,7 +128,7 @@ function VisaDetail({ visa, st }: { visa: VisaType; st: (k: string) => string })
 
       <motion.div {...fade(2)} className="rounded-2xl border border-border/60 bg-card p-4">
         <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold">
-          <FileText className="h-3.5 w-3.5 text-primary" /> {st("viza.documents")}
+          <FileText className="h-3.5 w-3.5 text-primary" /> {"Benötigte Dokumente"}
         </h3>
         <ul className="space-y-1 pl-4 list-disc">
           {visa.documents.map((d, i) => (
@@ -141,7 +139,7 @@ function VisaDetail({ visa, st }: { visa: VisaType; st: (k: string) => string })
 
       <motion.div {...fade(3)} className="rounded-2xl border border-red-200 bg-red-50 p-4 dark:border-red-900/40 dark:bg-red-950/20">
         <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold text-red-700 dark:text-red-400">
-          <AlertTriangle className="h-3.5 w-3.5" /> {st("viza.mistakes")}
+          <AlertTriangle className="h-3.5 w-3.5" /> {"Häufige Fehler"}
         </h3>
         <ul className="space-y-1 pl-4 list-disc">
           {visa.commonMistakes.map((m, i) => (
@@ -152,7 +150,7 @@ function VisaDetail({ visa, st }: { visa: VisaType; st: (k: string) => string })
 
       <motion.div {...fade(4)} className="rounded-2xl border border-border/60 bg-card p-4 text-center">
         <h3 className="mb-2 flex items-center justify-center gap-1.5 text-xs font-bold">
-          <Info className="h-3.5 w-3.5 text-primary" /> {st("viza.officialInfo")}
+          <Info className="h-3.5 w-3.5 text-primary" /> {"Offizielle Informationen"}
         </h3>
         <a
           href={visa.officialUrl}
@@ -160,7 +158,7 @@ function VisaDetail({ visa, st }: { visa: VisaType; st: (k: string) => string })
           rel="noopener noreferrer"
           className="mt-2 inline-flex items-center gap-1.5 rounded-lg bg-primary/10 px-4 py-2 text-xs font-semibold text-primary transition-colors hover:bg-primary/20"
         >
-          <ExternalLink className="h-3.5 w-3.5" /> {st("viza.openOfficial")}
+          <ExternalLink className="h-3.5 w-3.5" /> {"Offizielle Seite öffnen"}
         </a>
       </motion.div>
 
@@ -195,10 +193,10 @@ function VisaDetail({ visa, st }: { visa: VisaType; st: (k: string) => string })
           </div>
           <div className="rounded-2xl border border-dashed border-border/60 bg-card p-8 text-center">
             <Badge variant="outline" className="mb-3 text-xs">
-              <Lock className="mr-1 h-3 w-3" /> {st("viza.comingSoon")}
+              <Lock className="mr-1 h-3 w-3" /> {"Demnächst verfügbar"}
             </Badge>
             <p className="text-xs text-muted-foreground">
-              {st("viza.comingSoonDesc").replace("\"VISA_NAME\"", `„${visa.title}"`)}
+              {"Der Smart Guide für \\".replace("\"VISA_NAME\"", `„${visa.title}"`)}
             </p>
           </div>
           {!isPremium && <VisaPaywall visaLabel={visa.title} st={st} />}
@@ -250,9 +248,7 @@ function SidebarGroup({
 /* ─── Main Page ─── */
 export default function BoravisnaDozvola() {
   const navigate = useNavigate();
-  const { t } = useLanguage();
   const { t: vt } = useLanguage();
-  const st = useSectionT();
   const [search, setSearch] = useState("");
   const { searchParams, setSearchState } = useHistorySearchState();
   const isMobile = useIsMobile();
@@ -356,7 +352,7 @@ export default function BoravisnaDozvola() {
                 <Input
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  placeholder={st("viza.search")}
+                  placeholder={"Visa suchen…"}
                   className="pl-9 h-10 text-sm rounded-xl border-border/60 bg-card"
                 />
               </div>
@@ -454,7 +450,7 @@ export default function BoravisnaDozvola() {
                     </button>
                   ))}
                   {filtered.length === 0 && (
-                    <p className="px-3 py-6 text-xs text-muted-foreground text-center">{st("viza.noResults")}</p>
+                    <p className="px-3 py-6 text-xs text-muted-foreground text-center">{"Keine Ergebnisse."}</p>
                   )}
                 </nav>
               )}

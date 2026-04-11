@@ -1,6 +1,5 @@
 import { ArrowRight, AlertTriangle, FileX, Mail, Wallet, HomeIcon, Briefcase, HeartPulse, ChevronLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { useLanguage } from "@/contexts/LanguageContext";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
 import { navigateBackOrHome } from "@/lib/navigation";
 
@@ -79,7 +78,6 @@ function ProblemCard({ item }: { item: typeof problems[number] }) {
 }
 
 export default function TrebamPomoc() {
-  const { t } = useLanguage();
   const navigate = useNavigate();
 
   return (
@@ -91,7 +89,7 @@ export default function TrebamPomoc() {
           </button>
           <div className="text-center">
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">
-            {t("cta.help.title")}
+            {"Ich brauche Hilfe"}
           </h1>
           <p className="mt-2 text-sm text-primary-foreground/80 md:text-base">
             Imaš problem? Pronađi rješenje korak po korak.

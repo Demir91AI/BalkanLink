@@ -1,8 +1,6 @@
 import { useState, useCallback, useMemo } from "react";
 import { X, Loader2, Eye, EyeOff, Check } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import { useLanguage } from "@/contexts/LanguageContext";
-
 interface AuthModalProps {
   open: boolean;
   onClose: () => void;
@@ -12,7 +10,6 @@ type Tab = "login" | "register";
 type View = "auth" | "forgot" | "forgot-sent";
 
 export default function AuthModal({ open, onClose }: AuthModalProps) {
-  const { t } = useLanguage();
   const [tab, setTab] = useState<Tab>("login");
   const [view, setView] = useState<View>("auth");
   const [email, setEmail] = useState("");
@@ -48,12 +45,12 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-    if (!email || !password) { setError(t("header.auth.loginError")); return; }
+    if (!email || !password) { setError("Falsche E-Mail oder Passwort."); return; }
     setLoading(true);
     const { error: err } = await supabase.auth.signInWithPassword({ email, password });
     setLoading(false);
     if (err) {
-      setError(t("header.auth.loginError"));
+      setError("Falsche E-Mail oder Passwort.");
     } else {
       handleClose();
     }
@@ -70,25 +67,25 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-    if (!email || !password) { setError(t("header.auth.registerError")); return; }
+    if (!email || !password) { setError("Registrierungsfehler."); return; }
     if (!allPwRulesPass) { setError("Lozinka ne ispunjava sigurnosne zahtjeve."); return; }
-    if (password !== confirmPassword) { setError(t("header.auth.passwordMismatch")); return; }
+    if (password !== confirmPassword) { setError("Passwörter stimmen nicht überein."); return; }
     setLoading(true);
     const { error: err } = await supabase.auth.signUp({ email, password });
     setLoading(false);
     if (err) {
-      setError(t("header.auth.registerError"));
+      setError("Registrierungsfehler.");
     } else {
       setError("");
       // Show success message — user needs to confirm email
-      setError(t("header.auth.registerCheckEmail"));
+      setError("Prüfe E-Mail für Bestätigung.");
     }
   };
 
   const handleForgot = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-    if (!email) { setError(t("header.auth.loginError")); return; }
+    if (!email) { setError("Falsche E-Mail oder Passwort."); return; }
     setLoading(true);
     await supabase.auth.resetPasswordForEmail(email, {
       redirectTo: `${window.location.origin}/reset-password`,
@@ -129,7 +126,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
                     : "text-[#6B6B6B] hover:text-[#2D2D2D]"
                 }`}
               >
-                {t("header.login")}
+                {"Anmelden"}
               </button>
               <button
                 onClick={() => switchTab("register")}
@@ -139,7 +136,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
                     : "text-[#6B6B6B] hover:text-[#2D2D2D]"
                 }`}
               >
-                {t("header.register")}
+                {"Registrieren"}
               </button>
             </div>
 
@@ -147,7 +144,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
             <form onSubmit={tab === "login" ? handleLogin : handleRegister} className="p-6 flex flex-col gap-4">
               {/* Email */}
               <div>
-                <label className="block text-xs font-medium text-[#6B6B6B] mb-1.5">{t("header.auth.email")}</label>
+                <label className="block text-xs font-medium text-[#6B6B6B] mb-1.5">{"E-Mail-Adresse"}</label>
                 <input
                   type="email"
                   value={email}
@@ -160,7 +157,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
 
               {/* Password */}
               <div>
-                <label className="block text-xs font-medium text-[#6B6B6B] mb-1.5">{t("header.auth.password")}</label>
+                <label className="block text-xs font-medium text-[#6B6B6B] mb-1.5">{"Passwort"}</label>
                 <div className="relative">
                   <input
                     type={showPassword ? "text" : "password"}
@@ -200,7 +197,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
               {/* Confirm password (register only) */}
               {tab === "register" && (
                 <div>
-                  <label className="block text-xs font-medium text-[#6B6B6B] mb-1.5">{t("header.auth.confirmPassword")}</label>
+                  <label className="block text-xs font-medium text-[#6B6B6B] mb-1.5">{"Passwort bestätigen"}</label>
                   <input
                     type={showPassword ? "text" : "password"}
                     value={confirmPassword}
@@ -214,7 +211,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
 
               {/* Error */}
               {error && (
-                <p className={`text-xs px-1 ${error === t("header.auth.registerCheckEmail") ? "text-green-600" : "text-red-500"}`}>
+                <p className={`text-xs px-1 ${error === "Prüfe E-Mail für Bestätigung." ? "text-green-600" : "text-red-500"}`}>
                   {error}
                 </p>
               )}
@@ -226,7 +223,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
                   onClick={() => { setError(""); setView("forgot"); }}
                   className="text-xs text-[hsl(var(--gold))] hover:underline self-end -mt-2"
                 >
-                  {t("header.auth.forgotTitle")}?
+                  {"Passwort vergessen"}?
                 </button>
               )}
 
@@ -237,7 +234,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
                 className="w-full h-11 rounded-xl bg-[hsl(var(--gold))] text-white font-semibold text-sm hover:brightness-110 disabled:opacity-60 transition-all flex items-center justify-center gap-2"
               >
                 {loading && <Loader2 className="h-4 w-4 animate-spin" />}
-                {tab === "login" ? t("header.auth.loginButton") : t("header.auth.registerButton")}
+                {tab === "login" ? "Anmelden" : "Registrieren"}
               </button>
             </form>
           </>
@@ -246,10 +243,10 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
         {/* Forgot password view */}
         {view === "forgot" && (
           <form onSubmit={handleForgot} className="p-6 flex flex-col gap-4">
-            <h2 className="text-lg font-bold text-[#2D2D2D]">{t("header.auth.forgotTitle")}</h2>
-            <p className="text-sm text-[#6B6B6B]">{t("header.auth.forgotDesc")}</p>
+            <h2 className="text-lg font-bold text-[#2D2D2D]">{"Passwort vergessen"}</h2>
+            <p className="text-sm text-[#6B6B6B]">{"E-Mail eingeben zum Zurücksetzen."}</p>
             <div>
-              <label className="block text-xs font-medium text-[#6B6B6B] mb-1.5">{t("header.auth.email")}</label>
+              <label className="block text-xs font-medium text-[#6B6B6B] mb-1.5">{"E-Mail-Adresse"}</label>
               <input
                 type="email"
                 value={email}
@@ -266,10 +263,10 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
               className="w-full h-11 rounded-xl bg-[hsl(var(--gold))] text-white font-semibold text-sm hover:brightness-110 disabled:opacity-60 transition-all flex items-center justify-center gap-2"
             >
               {loading && <Loader2 className="h-4 w-4 animate-spin" />}
-              {t("header.auth.sendLink")}
+              {"Link senden"}
             </button>
             <button type="button" onClick={() => { setError(""); setView("auth"); }} className="text-xs text-[hsl(var(--gold))] hover:underline self-center">
-              {t("header.auth.backToLogin")}
+              {"Zurück zur Anmeldung"}
             </button>
           </form>
         )}
@@ -277,8 +274,8 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
         {/* Forgot sent confirmation */}
         {view === "forgot-sent" && (
           <div className="p-6 flex flex-col gap-4 items-center text-center">
-            <h2 className="text-lg font-bold text-[#2D2D2D]">{t("header.auth.checkEmail")}</h2>
-            <p className="text-sm text-[#6B6B6B]">{t("header.auth.checkEmailDesc")}</p>
+            <h2 className="text-lg font-bold text-[#2D2D2D]">{"E-Mail prüfen"}</h2>
+            <p className="text-sm text-[#6B6B6B]">{"Bestätigungs-E-Mail gesendet."}</p>
             <button
               onClick={handleClose}
               className="mt-2 h-10 px-6 rounded-xl bg-[hsl(var(--gold))] text-white font-semibold text-sm hover:brightness-110 transition-all"

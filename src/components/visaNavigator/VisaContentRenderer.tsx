@@ -3,8 +3,6 @@ import { ExternalLink, CheckCircle, AlertTriangle, FileText, Clock, MapPin, Zap,
 import { useSubscription } from '@/hooks/useSubscription';
 import PremiumModal from '@/components/paywall/PremiumModal';
 import { COUNTRY_CONTENT } from '../../data/vizaNavigatorContent';
-import { useLanguage } from '@/contexts/LanguageContext';
-
 const loadForm = (formKey: string) => {
   const formMap: Record<string, () => Promise<{ default: React.FC }>> = {
     VisaWorkForm1: () => import('../formulare/muster/VisaWorkForm1').catch(() => ({ default: () => null as any })),
@@ -62,7 +60,6 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
   const [LoadedForm, setLoadedForm] = useState<React.FC | null>(null);
   const [premiumModalOpen, setPremiumModalOpen] = useState(false);
   const openFormRef = useRef<HTMLDivElement>(null);
-  const { t } = useLanguage();
   const { isPremium } = useSubscription();
 
   useEffect(() => {
@@ -98,8 +95,8 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
   if (!country) return (
     <div style={{ textAlign: 'center', padding: '80px 20px', color: '#6B6B6B' }}>
       <FileText size={56} style={{ margin: '0 auto 20px', display: 'block', opacity: 0.2, color: CHARCOAL }} />
-      <h2 style={{ fontSize: 22, fontWeight: 700, color: CHARCOAL, marginBottom: 8 }}>{t('welcome_title')}</h2>
-      <p style={{ fontSize: 15, lineHeight: 1.7 }}>{t('welcome_text')}</p>
+      <h2 style={{ fontSize: 22, fontWeight: 700, color: CHARCOAL, marginBottom: 8 }}>{"Willkommen im Visa Navigator"}</h2>
+      <p style={{ fontSize: 15, lineHeight: 1.7 }}>{"Wähle ein Land aus dem linken Menü, um Informationen zu Visa und Aufenthaltsgenehmigungen zu finden."}</p>
     </div>
   );
 
@@ -111,7 +108,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
     return (
       <div>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#DCFCE7', color: '#166534', borderRadius: 20, padding: '4px 16px', fontSize: 13, fontWeight: 600, marginBottom: 16 }}>
-          {t('ui_eu_badge')}
+          {"🇪🇺 EU — Freizügigkeit"}
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
@@ -151,7 +148,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
 
         <div style={{ background: '#F9F6F0', borderRadius: 10, padding: '14px 18px', fontSize: 12, color: '#9CA3AF' }}>
           <Info size={13} style={{ marginRight: 6, verticalAlign: 'middle' }} />
-          {t('ui_disclaimer_full')}
+          {"BalkanLink bietet informative Hinweise. Dies ist keine Rechtsberatung. Stand 2026."}
         </div>
       </div>
     );
@@ -164,7 +161,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
           <img src={country.flag} alt={country.name} style={{ height: 28, borderRadius: 3 }} />
           <h1 style={{ fontSize: 26, fontWeight: 700, color: CHARCOAL, margin: 0 }}>{country.name}</h1>
-          <span style={{ background: '#FEF9C3', color: '#854D0E', borderRadius: 20, padding: '3px 12px', fontSize: 12, fontWeight: 600 }}>{t('badge_western_balkans')}</span>
+          <span style={{ background: '#FEF9C3', color: '#854D0E', borderRadius: 20, padding: '3px 12px', fontSize: 12, fontWeight: 600 }}>{"Westbalkan"}</span>
         </div>
 
         {/* Embassy */}
@@ -175,7 +172,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
           </div>
           <a href={country.embassyUrl} target="_blank" rel="noopener noreferrer"
             style={{ display: 'flex', alignItems: 'center', gap: 6, color: GOLD, fontSize: 13, textDecoration: 'none' }}>
-            {t('ui_open')} <ExternalLink size={14} />
+            {"Öffnen"} <ExternalLink size={14} />
           </a>
         </div>
 
@@ -197,7 +194,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
           </div>
         )}
 
-        <h2 style={{ fontSize: 18, fontWeight: 700, color: CHARCOAL, marginBottom: 16 }}>{t('ui_select_situation')}</h2>
+        <h2 style={{ fontSize: 18, fontWeight: 700, color: CHARCOAL, marginBottom: 16 }}>{"Wähle deine Situation"}</h2>
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
           {country.routes.map(r => (
@@ -225,7 +222,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
       {/* Back */}
       <button onClick={onBack}
         style={{ display: 'flex', alignItems: 'center', gap: 6, background: 'none', border: 'none', color: GOLD, cursor: 'pointer', fontSize: 14, marginBottom: 20, padding: 0, fontWeight: 600 }}>
-        {t('ui_back_routes')}
+        {"← Zurück zu den Routen"}
       </button>
 
       {/* Breadcrumb */}
@@ -244,12 +241,12 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
           <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
             <Zap size={18} color={GOLD} style={{ flexShrink: 0, marginTop: 2 }} />
             <div>
-              <p style={{ fontSize: 13, fontWeight: 700, color: '#92400E', margin: '0 0 6px' }}>{t('ui_westbalkan_active')}</p>
+              <p style={{ fontSize: 13, fontWeight: 700, color: '#92400E', margin: '0 0 6px' }}>{"Westbalkan-Regelung aktiv!"}</p>
               <p style={{ fontSize: 13, color: '#4A4A4A', margin: 0, lineHeight: 1.6 }}>{route.westbalkanNote}</p>
               <a href="https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/arbeit/westbalkan-regelung"
                 target="_blank" rel="noopener noreferrer"
                 style={{ display: 'inline-flex', alignItems: 'center', gap: 4, color: GOLD, fontSize: 12, marginTop: 8, textDecoration: 'none' }}>
-                {t('learn_more')} <ExternalLink size={12} />
+                {"Mehr erfahren"} <ExternalLink size={12} />
               </a>
             </div>
           </div>
@@ -298,10 +295,10 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
       {/* Disclaimer */}
       <div style={{ background: '#F9F6F0', borderRadius: 10, padding: '14px 18px', fontSize: 12, color: '#9CA3AF' }}>
         <Info size={13} style={{ marginRight: 6, verticalAlign: 'middle' }} />
-        {t('ui_disclaimer_full')}
+        {"BalkanLink bietet informative Hinweise. Dies ist keine Rechtsberatung. Stand 2026."}
         <br />
         <AlertTriangle size={12} style={{ marginRight: 4, verticalAlign: 'middle', marginTop: 4 }} />
-        {t('ui_disclaimer_warn')}
+        {"Prüfe die Informationen immer direkt bei der zuständigen Behörde."}
       </div>
     </div>
   );
@@ -312,7 +309,7 @@ function VisaDetailCards({ route, t, GOLD, CHARCOAL }: { route: any; t: any; GOL
   return (
     <>
       <Card>
-        <CardHeader icon={CheckCircle} color="#22C55E" title={t('ui_quick_start')} />
+        <CardHeader icon={CheckCircle} color="#22C55E" title={"Schnellübersicht"} />
         {route.steps.map((step: string, i: number) => (
           <div key={i} style={{ display: 'flex', gap: 12, marginBottom: 14, alignItems: 'flex-start' }}>
             <StepCircle n={i + 1} />
@@ -322,7 +319,7 @@ function VisaDetailCards({ route, t, GOLD, CHARCOAL }: { route: any; t: any; GOL
       </Card>
 
       <Card>
-        <CardHeader icon={FileText} title={t('docs_title')} />
+        <CardHeader icon={FileText} title={"Erforderliche Dokumente"} />
         {route.documents.map((doc: string, i: number) => (
           <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8 }}>
             <CheckCircle size={14} color="#22C55E" style={{ flexShrink: 0, marginTop: 3 }} />
@@ -333,7 +330,7 @@ function VisaDetailCards({ route, t, GOLD, CHARCOAL }: { route: any; t: any; GOL
 
       {route.costs.length > 0 && (
         <Card>
-          <CardHeader icon={Euro} title={t('costs_title')} />
+          <CardHeader icon={Euro} title={"Kosten"} />
           {route.costs.map((c: string, i: number) => (
             <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 6 }}>
               <span style={{ color: GOLD, fontWeight: 700, flexShrink: 0 }}>•</span>
@@ -345,7 +342,7 @@ function VisaDetailCards({ route, t, GOLD, CHARCOAL }: { route: any; t: any; GOL
 
       {route.errors.length > 0 && (
         <Card bg="#FEF2F2" border="#FECACA">
-          <CardHeader icon={AlertTriangle} color="#EF4444" title={t('errors_title')} />
+          <CardHeader icon={AlertTriangle} color="#EF4444" title={"Häufige Fehler"} />
           {route.errors.map((err: string, i: number) => (
             <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8 }}>
               <span style={{ color: '#EF4444', fontWeight: 700, flexShrink: 0 }}>✕</span>
@@ -356,7 +353,7 @@ function VisaDetailCards({ route, t, GOLD, CHARCOAL }: { route: any; t: any; GOL
       )}
 
       <Card>
-        <CardHeader icon={ExternalLink} title={t('ui_useful_links')} />
+        <CardHeader icon={ExternalLink} title={"Nützliche Links"} />
         {route.sources.map((s: any, i: number) => (
           <a key={i} href={s.url} target="_blank" rel="noopener noreferrer"
             style={{ display: 'flex', alignItems: 'center', gap: 8, color: GOLD, fontSize: 13, textDecoration: 'none', marginBottom: 8 }}>
@@ -381,7 +378,7 @@ function NonEURouteDetails({ route, t, GOLD, CHARCOAL, openFormKey, handleOpenFo
           <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
             <Zap size={18} color={GOLD} style={{ flexShrink: 0, marginTop: 2 }} />
             <div>
-              <p style={{ fontSize: 13, fontWeight: 700, color: '#92400E', margin: '0 0 10px' }}>{t('ui_ausbildung_highlight')}</p>
+              <p style={{ fontSize: 13, fontWeight: 700, color: '#92400E', margin: '0 0 10px' }}>{"Ausbildung — wichtige Hinweise"}</p>
               {route.ausbildungHighlight.map((item: string, i: number) => (
                 <p key={i} style={{ fontSize: 13, color: '#4A4A4A', margin: '0 0 4px', lineHeight: 1.6 }}>{item}</p>
               ))}
@@ -397,7 +394,7 @@ function NonEURouteDetails({ route, t, GOLD, CHARCOAL, openFormKey, handleOpenFo
             <Info size={18} color="#3B82F6" style={{ flexShrink: 0, marginTop: 2 }} />
             <div>
               <p style={{ fontSize: 13, fontWeight: 700, color: '#1E40AF', margin: '0 0 10px' }}>
-                {t('ui_country_notes_title')}
+                {"Hinweise für dein Land"}
                 {route.countryBadge && (
                   <span style={{ marginLeft: 8, background: '#DBEAFE', color: '#1E40AF', borderRadius: 20, padding: '2px 10px', fontSize: 11, fontWeight: 600 }}>{route.countryBadge}</span>
                 )}
@@ -412,7 +409,7 @@ function NonEURouteDetails({ route, t, GOLD, CHARCOAL, openFormKey, handleOpenFo
 
       {/* Steps */}
       <Card>
-        <CardHeader icon={CheckCircle} color="#22C55E" title={t('steps_title')} />
+        <CardHeader icon={CheckCircle} color="#22C55E" title={"Schritte"} />
         {route.steps.map((step: string, i: number) => (
           <div key={i} style={{ display: 'flex', gap: 12, marginBottom: 14, alignItems: 'flex-start' }}>
             <StepCircle n={i + 1} />
@@ -423,7 +420,7 @@ function NonEURouteDetails({ route, t, GOLD, CHARCOAL, openFormKey, handleOpenFo
 
       {/* Documents */}
       <Card>
-        <CardHeader icon={FileText} title={t('docs_title')} />
+        <CardHeader icon={FileText} title={"Erforderliche Dokumente"} />
         {route.documents.map((doc: string, i: number) => (
           <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8 }}>
             <CheckCircle size={14} color="#22C55E" style={{ flexShrink: 0, marginTop: 3 }} />
@@ -434,7 +431,7 @@ function NonEURouteDetails({ route, t, GOLD, CHARCOAL, openFormKey, handleOpenFo
 
       {/* Costs */}
       <Card>
-        <CardHeader icon={Euro} title={t('costs_title')} />
+        <CardHeader icon={Euro} title={"Kosten"} />
         {route.costs.map((c: string, i: number) => (
           <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 6 }}>
             <span style={{ color: GOLD, fontWeight: 700, flexShrink: 0 }}>•</span>
@@ -445,7 +442,7 @@ function NonEURouteDetails({ route, t, GOLD, CHARCOAL, openFormKey, handleOpenFo
 
       {/* Errors */}
       <Card bg="#FEF2F2" border="#FECACA">
-        <CardHeader icon={AlertTriangle} color="#EF4444" title={t('ui_errors_avoid')} />
+        <CardHeader icon={AlertTriangle} color="#EF4444" title={"Fehler die man vermeiden sollte"} />
         {route.errors.map((err: string, i: number) => (
           <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8 }}>
             <span style={{ color: '#EF4444', fontWeight: 700, flexShrink: 0 }}>✕</span>
@@ -456,14 +453,14 @@ function NonEURouteDetails({ route, t, GOLD, CHARCOAL, openFormKey, handleOpenFo
 
       {/* Sources */}
       <Card>
-        <CardHeader icon={ExternalLink} title={t('sources_title')} />
+        <CardHeader icon={ExternalLink} title={"Offizielle Quellen"} />
         {route.sources.map((s: any, i: number) => (
           <a key={i} href={s.url} target="_blank" rel="noopener noreferrer"
             style={{ display: 'flex', alignItems: 'center', gap: 8, color: GOLD, fontSize: 13, textDecoration: 'none', marginBottom: 8 }}>
             <ExternalLink size={14} />{s.label}
           </a>
         ))}
-        <p style={{ fontSize: 11, color: '#9CA3AF', margin: 0, marginTop: 8 }}>{t('ui_stand_sources')}</p>
+        <p style={{ fontSize: 11, color: '#9CA3AF', margin: 0, marginTop: 8 }}>{"Offizielle Quellen"}</p>
       </Card>
 
       {/* Musterformulare */}
@@ -472,9 +469,9 @@ function NonEURouteDetails({ route, t, GOLD, CHARCOAL, openFormKey, handleOpenFo
           <div style={{ background: '#1E293B', borderRadius: 14, padding: 24 }}>
             <div style={{ textAlign: 'center', marginBottom: 16 }}>
               <div style={{ fontSize: 28, marginBottom: 8 }}>📋</div>
-              <h3 style={{ fontSize: 18, fontWeight: 700, color: 'white', margin: '0 0 4px' }}>{t('ui_practice_title')}</h3>
-              <p style={{ fontSize: 13, color: GOLD, margin: '0 0 8px', fontWeight: 600 }}>{t('ui_practice_subtitle')}</p>
-              <p style={{ fontSize: 13, color: '#94A3B8', margin: 0 }}>{t('ui_practice_desc')}</p>
+              <h3 style={{ fontSize: 18, fontWeight: 700, color: 'white', margin: '0 0 4px' }}>{"Musterformulare"}</h3>
+              <p style={{ fontSize: 13, color: GOLD, margin: '0 0 8px', fontWeight: 600 }}>{"Übe das Ausfüllen von Formularen"}</p>
+              <p style={{ fontSize: 13, color: '#94A3B8', margin: 0 }}>{"Interaktive Simulation — Übung, kein Originaldokument."}</p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -484,12 +481,12 @@ function NonEURouteDetails({ route, t, GOLD, CHARCOAL, openFormKey, handleOpenFo
                   <p style={{ fontSize: 12, color: '#94A3B8', margin: '0 0 12px' }}>{form.subtitle}</p>
                   <button onClick={() => handleOpenForm(form.formKey)}
                     style={{ width: '100%', padding: '10px', background: '#2563EB', color: 'white', border: 'none', borderRadius: 8, fontSize: 13, fontWeight: 600, cursor: 'pointer', marginBottom: 8 }}>
-                    📋 {openFormKey === form.formKey ? t('ui_close_form') : t('ui_open_form')}
+                    📋 {openFormKey === form.formKey ? "Formular schließen" : "Formular öffnen"}
                   </button>
                   {form.downloadUrl && (
                     <button onClick={() => window.print()}
                       style={{ width: '100%', padding: '8px', background: 'transparent', color: '#94A3B8', border: '1px solid #334155', borderRadius: 8, fontSize: 12, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}>
-                      <Printer size={12} /> {t('preview_pdf')}
+                      <Printer size={12} /> {"PDF-Vorschau"}
                     </button>
                   )}
                 </div>
@@ -504,14 +501,14 @@ function NonEURouteDetails({ route, t, GOLD, CHARCOAL, openFormKey, handleOpenFo
                 ? <div style={{ position: 'relative' }}>
                     <button onClick={() => handleOpenForm(openFormKey)}
                       style={{ position: 'absolute', top: 12, right: 12, zIndex: 10, background: '#EF4444', color: 'white', border: 'none', borderRadius: 6, padding: '6px 14px', fontSize: 12, cursor: 'pointer', fontWeight: 600 }}>
-                      {t('ui_close')}
+                      {"Schließen"}
                     </button>
                     <LoadedForm />
                   </div>
                 : <InlineFormPlaceholder
                     title={route.musterformulare.find((f: any) => f.formKey === openFormKey)?.title || openFormKey}
                     onClose={() => handleOpenForm(openFormKey)}
-                    closeLabel={t('ui_form_available')}
+                    closeLabel={"Formular verfügbar"}
                   />
               }
             </div>

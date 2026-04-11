@@ -1,8 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { SEO } from "@/components/SEO";
 import { Briefcase, Receipt, Home, Heart, Users, HandCoins, ArrowRight, ChevronLeft } from "lucide-react";
-import { useLanguage } from "@/contexts/LanguageContext";
-
 import LegalDisclaimer from "@/components/LegalDisclaimer";
 import { navigateBackOrHome } from "@/lib/navigation";
 
@@ -136,7 +134,6 @@ function CategoryCard({ cat, idx }: { cat: typeof categories[number]; idx: numbe
 }
 
 export default function ZivotSavjeti() {
-  const { t } = useLanguage();
   const navigate = useNavigate();
 
   return (
@@ -149,7 +146,7 @@ export default function ZivotSavjeti() {
           </button>
           <div className="text-center">
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">
-            {t("cta.daily.title")}
+            {"Deine Tagesaufgabe"}
           </h1>
           <p className="mt-2 text-sm text-primary-foreground/80 md:text-base">
             Sve o životu u Njemačkoj — posao, stan, porezi, zdravstvo.

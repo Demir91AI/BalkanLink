@@ -23,7 +23,6 @@ import {
   computeBruttoNetto,
   type BruttoNettoInputs, type BruttoNettoResult, type TaxYear,
 } from "@/lib/brutto-netto-config";
-import { useLanguage } from "@/contexts/LanguageContext";
 import PageNav from "@/components/navigation/PageNav";
 
 /* ─── Helpers ─── */
@@ -73,7 +72,6 @@ function saveInputs(inputs: BruttoNettoInputs) {
    MAIN COMPONENT
    ═══════════════════════════════════════ */
 export default function BruttoNettoRechner() {
-  const { t } = useLanguage();
   const [searchParams] = useSearchParams();
   const [inputs, setInputs] = useState<BruttoNettoInputs>(() => {
     const fromUrl = searchParams.get("b");
@@ -114,7 +112,7 @@ export default function BruttoNettoRechner() {
   const handleReset = () => {
     setInputs({ ...DEFAULT_INPUTS });
     saveInputs({ ...DEFAULT_INPUTS });
-    toast.success(t("calc.resetSuccess"));
+    toast.success("Zurückgesetzt!");
   };
 
   const handleShare = () => {
@@ -122,7 +120,7 @@ export default function BruttoNettoRechner() {
     const shareData = { brutto: b, period, steuerklasse, bundesland, kirchensteuer, steuerjahr, alter, kinderfreibetrag, kinderlos, kinderUnter25, kvType, zusatzbeitrag };
     const encoded = btoa(JSON.stringify(shareData));
     const url = `${window.location.origin}/brutto-netto-rechner?b=${encoded}`;
-    navigator.clipboard.writeText(url).then(() => toast.success(t("calc.shareSuccess")));
+    navigator.clipboard.writeText(url).then(() => toast.success("Link kopiert!"));
   };
 
   const segPct = (val: number) => total > 0 ? Math.max(0, (val / total) * 100) : 0;
@@ -135,7 +133,7 @@ export default function BruttoNettoRechner() {
         <div className="container flex items-center gap-1.5 py-3 text-xs text-muted-foreground">
           <Link to="/" className="hover:text-foreground transition-colors">BalkanLink</Link>
           <ChevronRight className="h-3 w-3" />
-          <span className="text-foreground font-medium">{t("calc.breadcrumbCalc")}</span>
+          <span className="text-foreground font-medium">{"Rechner"}</span>
         </div>
       </div>
 
@@ -144,10 +142,10 @@ export default function BruttoNettoRechner() {
         <div className="container text-center">
           <Euro className="mx-auto h-6 w-6 text-[hsl(var(--gold))] mb-3" />
           <h1 className="text-xl font-bold text-primary-foreground md:text-2xl">
-            {t("calc.pageTitle")}
+            {"Brutto-Netto-Rechner"}
           </h1>
           <p className="mt-2 text-sm text-primary-foreground/80">
-            {t("calc.pageSubtitle")}
+            {"Berechne dein Nettogehalt"}
           </p>
         </div>
       </section>
@@ -161,14 +159,14 @@ export default function BruttoNettoRechner() {
             <div className="space-y-5">
               <div className="rounded-xl border bg-card p-5 shadow-sm space-y-5">
                 <h2 className="flex items-center gap-2 text-sm font-bold">
-                  <Euro className="h-4 w-4 text-primary" /> {t("calc.inputsTitle")}
+                  <Euro className="h-4 w-4 text-primary" /> {"Daten eingeben"}
                 </h2>
 
                 {/* Brutto */}
                 <div className="space-y-1.5">
                   <Label className="text-xs">
                     Bruto plata (€)
-                    <InfoTip text={t("calc.grossSalaryTip")} />
+                    <InfoTip text={"Brutto-Monatsgehalt eingeben"} />
                   </Label>
                   <div className="relative">
                     <Input
@@ -193,7 +191,7 @@ export default function BruttoNettoRechner() {
                             : "bg-card text-muted-foreground hover:bg-muted"
                         }`}
                       >
-                        {p === "monatlich" ? t("calc.monthly") : t("calc.yearly")}
+                        {p === "monatlich" ? "Monatlich" : "Jährlich"}
                       </button>
                     ))}
                   </div>
@@ -202,8 +200,8 @@ export default function BruttoNettoRechner() {
                 {/* Steuerklasse with descriptions */}
                 <div className="space-y-1.5">
                   <Label className="text-xs">
-                    {t("calc.taxClass")}
-                    <InfoTip text={t("calc.taxClassTip")} />
+                    {"Steuerklasse"}
+                    <InfoTip text={"Steuerklasse wählen"} />
                   </Label>
                   <Select value={String(inputs.steuerklasse)} onValueChange={v => update({ steuerklasse: Number(v) })}>
                     <SelectTrigger className="text-xs"><SelectValue /></SelectTrigger>
@@ -220,8 +218,8 @@ export default function BruttoNettoRechner() {
                 {/* Bundesland */}
                 <div className="space-y-1.5">
                   <Label className="text-xs">
-                    {t("calc.federalState")}
-                    <InfoTip text={t("calc.federalStateTip")} />
+                    {"Bundesland"}
+                    <InfoTip text={"Bundesland wählen"} />
                   </Label>
                   <Select value={inputs.bundesland} onValueChange={v => update({ bundesland: v })}>
                     <SelectTrigger className="text-xs"><SelectValue /></SelectTrigger>
@@ -238,17 +236,17 @@ export default function BruttoNettoRechner() {
                   <Switch checked={inputs.kirchensteuer} onCheckedChange={v => update({ kirchensteuer: v })} />
                   <Label className="text-xs">
                     Crkveni porez ({kirchensteuerSatz}%)
-                    <InfoTip text={t("calc.churchTaxTip")} />
+                    <InfoTip text={"Kirchensteuer (falls Kirchenmitglied)"} />
                   </Label>
                 </div>
 
                 {/* Actions */}
                 <div className="flex gap-3 pt-2">
                   <Button variant="outline" size="sm" onClick={handleReset} className="gap-1.5 text-xs">
-                    <RotateCcw className="h-3.5 w-3.5" /> {t("calc.reset")}
+                    <RotateCcw className="h-3.5 w-3.5" /> {"Zurücksetzen"}
                   </Button>
                   <Button variant="outline" size="sm" onClick={handleShare} className="gap-1.5 text-xs">
-                    <Share2 className="h-3.5 w-3.5" /> {t("calc.share")}
+                    <Share2 className="h-3.5 w-3.5" /> {"Teilen"}
                   </Button>
                 </div>
 
@@ -389,7 +387,7 @@ export default function BruttoNettoRechner() {
               <div className="flex items-start gap-2 px-1 py-2">
                 <Info className="h-3.5 w-3.5 text-muted-foreground/60 mt-0.5 shrink-0" />
                 <p className="text-xs text-muted-foreground/60 leading-relaxed">
-                  {t("calc.infoNote")}
+                  {"Informative Schätzung — keine Rechtsberatung."}
                 </p>
               </div>
             </div>
@@ -411,7 +409,7 @@ export default function BruttoNettoRechner() {
               <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" />
               <div className="space-y-2">
                 <p className="text-xs text-muted-foreground">
-                  {t("calc.disclaimerFull")}
+                  {"Dies ist eine Schätzung. Zuständige Stelle kontaktieren."}
                 </p>
               </div>
             </div>

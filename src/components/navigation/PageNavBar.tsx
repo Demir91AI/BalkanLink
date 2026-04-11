@@ -1,7 +1,5 @@
 import { ChevronLeft, Home } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { useLanguage } from "@/contexts/LanguageContext";
-
 interface Props {
   onBack?: () => void;
   inline?: boolean;
@@ -9,8 +7,6 @@ interface Props {
 
 export default function PageNavBar({ onBack, inline }: Props) {
   const navigate = useNavigate();
-  const { t } = useLanguage();
-
   const handleBack = () => {
     if (onBack) {
       onBack();
@@ -26,14 +22,14 @@ export default function PageNavBar({ onBack, inline }: Props) {
         className="flex items-center gap-1.5 text-[13px] font-medium text-[#6B6B6B] hover:text-[#2D2D2D] transition-colors px-3 py-1.5 rounded-lg hover:bg-[#F0EAD8]"
       >
         <ChevronLeft className="h-4 w-4" />
-        {t("nav.back")}
+        {"Zurück"}
       </button>
       <button
         onClick={() => navigate("/")}
         className="flex items-center gap-1.5 text-[13px] font-medium text-[#6B6B6B] hover:text-[#2D2D2D] transition-colors px-3 py-1.5 rounded-lg hover:bg-[#F0EAD8]"
       >
         <Home className="h-4 w-4" />
-        {t("nav.home")}
+        {"Startseite"}
       </button>
     </div>
   );

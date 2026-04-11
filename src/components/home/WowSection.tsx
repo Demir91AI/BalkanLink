@@ -2,8 +2,6 @@ import { motion } from "framer-motion";
 import { FileCheck, Landmark, RefreshCcw, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { useLanguage } from "@/contexts/LanguageContext";
-
 const cardVariants = {
   hidden: { opacity: 0, y: 28 },
   visible: (i: number) => ({
@@ -14,12 +12,10 @@ const cardVariants = {
 };
 
 export function WowSection() {
-  const { t } = useLanguage();
-
   const features = [
-    { icon: FileCheck, title: t("wow.feat1.title"), desc: t("wow.feat1.desc"), to: "/formulari" },
-    { icon: Landmark, title: t("wow.feat2.title"), desc: t("wow.feat2.desc"), to: "/stellenangebote" },
-    { icon: RefreshCcw, title: t("wow.feat3.title"), desc: t("wow.feat3.desc"), to: "/nudim-trazim" },
+    { icon: FileCheck, title: "Formulare", desc: "Schritt-für-Schritt-Erklärungen ohne Fehler", to: "/formulari" },
+    { icon: Landmark, title: "Job & Wohnung", desc: "Schneller zu den Chancen die du suchst", to: "/stellenangebote" },
+    { icon: RefreshCcw, title: "Angebot / Gesuch", desc: "Verbinde dich direkt mit Menschen", to: "/nudim-trazim" },
   ];
 
   return (
@@ -32,10 +28,10 @@ export function WowSection() {
       <div className="container relative z-10 py-20 sm:py-24 lg:py-28">
         <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.7, ease: "easeOut" }} className="mx-auto max-w-3xl text-center">
           <h2 className="font-heading text-3xl font-extrabold leading-snug tracking-tight sm:text-4xl lg:text-[2.75rem]" style={{ color: "#0F172A" }}>
-            {t("wow.headline1")}<br /><span style={{ color: "hsl(45, 80%, 42%)" }}>{t("wow.headline2")}</span>
+            {"Alles was du für das Leben in Deutschland brauchst –"}<br /><span style={{ color: "hsl(45, 80%, 42%)" }}>{"an einem Ort."}</span>
           </h2>
           <div className="mx-auto mt-4 h-[3px] w-20 rounded-full" style={{ background: "linear-gradient(90deg, #3B82F6, #F59E0B)" }} />
-          <p className="mx-auto mt-5 max-w-md text-base font-medium sm:text-lg" style={{ color: "#475569" }}>{t("wow.subtitle")}</p>
+          <p className="mx-auto mt-5 max-w-md text-base font-medium sm:text-lg" style={{ color: "#475569" }}>{"Klar, schnell und unkompliziert."}</p>
         </motion.div>
 
         <div className="mx-auto mt-16 grid max-w-3xl grid-cols-1 gap-5 sm:grid-cols-3 sm:gap-6" style={{ alignItems: "stretch" }}>
@@ -55,7 +51,7 @@ export function WowSection() {
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.6 }} className="mt-14 text-center">
           <Button asChild size="lg" className="group gap-2.5 rounded-2xl bg-[hsl(var(--gold))] px-10 py-4 text-base font-bold text-[hsl(var(--gold-foreground))] shadow-[0_4px_16px_hsl(var(--gold)/0.25)] transition-all duration-300 hover:bg-[hsl(var(--gold-light))] hover:shadow-[0_6px_24px_hsl(var(--gold)/0.35)] hover:scale-[1.03]">
             <Link to="/dolazak/prvi-koraci">
-              {t("wow.cta")}
+              {"Jetzt starten"}
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </Button>

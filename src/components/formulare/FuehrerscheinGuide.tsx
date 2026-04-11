@@ -1,9 +1,6 @@
-import { useLanguage } from "@/contexts/LanguageContext";
 import { ExternalLink, AlertTriangle, MapPin, Clock, FileText, CheckCircle2, Users } from "lucide-react";
 
 export default function FuehrerscheinGuideContent() {
-  const { t } = useLanguage();
-
   const statusItems = [
     { key: "fs_1_eu", emoji: "🇪🇺" },
     { key: "fs_1_balkan", emoji: "🇧🇦" },
@@ -19,14 +16,14 @@ export default function FuehrerscheinGuideContent() {
     <div className="space-y-8">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-extrabold tracking-tight">🚗 {t("fuehrerschein_title")}</h1>
-        <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{t("fuehrerschein_subtitle")}</p>
+        <h1 className="text-2xl font-extrabold tracking-tight">🚗 {"Führerschein in Deutschland"}</h1>
+        <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{"Alles über Umschreibung, Anerkennung und Prüfung des Führerscheins für Ausländer in Deutschland."}</p>
       </div>
 
       {/* Section 1 — Who */}
       <section className="rounded-xl border bg-card p-5 space-y-3">
         <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-muted-foreground">
-          <Users className="h-4 w-4 text-[hsl(var(--gold))]" /> {t("fs_s1")}
+          <Users className="h-4 w-4 text-[hsl(var(--gold))]" /> {"Wer kann den Führerschein umschreiben?"}
         </h2>
         <ul className="space-y-2.5">
           {statusItems.map(({ key, emoji }) => (
@@ -41,7 +38,7 @@ export default function FuehrerscheinGuideContent() {
       {/* Section 2 — Steps */}
       <section className="rounded-xl border bg-card p-5 space-y-3">
         <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-muted-foreground">
-          <CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))]" /> {t("fs_s2")}
+          <CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))]" /> {"Schritte zur Umschreibung"}
         </h2>
         <ol className="space-y-2.5">
           {steps.map((key, i) => {
@@ -61,13 +58,13 @@ export default function FuehrerscheinGuideContent() {
             );
           })}
         </ol>
-        <p className="text-xs text-muted-foreground italic mt-2">{t("fs_step_note")}</p>
+        <p className="text-xs text-muted-foreground italic mt-2">{"Für anerkannte Führerscheine ist weder ein Erste-Hilfe-Kurs noch eine erneute Prüfung erforderlich."}</p>
       </section>
 
       {/* Section 3 — Documents */}
       <section className="rounded-xl border bg-card p-5 space-y-3">
         <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-muted-foreground">
-          <FileText className="h-4 w-4 text-[hsl(var(--gold))]" /> {t("fs_s3")}
+          <FileText className="h-4 w-4 text-[hsl(var(--gold))]" /> {"Benötigte Unterlagen"}
         </h2>
         <ul className="space-y-1.5">
           {docs.map((key) => {
@@ -85,21 +82,21 @@ export default function FuehrerscheinGuideContent() {
             );
           })}
         </ul>
-        <p className="text-xs text-muted-foreground italic mt-2">{t("fs_doc_note")}</p>
+        <p className="text-xs text-muted-foreground italic mt-2">{"Ein Sehtest kann in Einzelfällen verlangt werden, ist aber keine Standardanforderung für die Umschreibung."}</p>
       </section>
 
       {/* Section 4 — Where */}
       <section className="rounded-xl border bg-card p-5 space-y-3">
         <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-muted-foreground">
-          <MapPin className="h-4 w-4 text-[hsl(var(--gold))]" /> {t("fs_s4")}
+          <MapPin className="h-4 w-4 text-[hsl(var(--gold))]" /> {"Wo stellt man den Antrag?"}
         </h2>
-        <p className="text-sm text-muted-foreground leading-relaxed">{t("fs_where")}</p>
+        <p className="text-sm text-muted-foreground leading-relaxed">{"Bei der örtlichen Führerscheinstelle / Fahrerlaubnisbehörde. Termine werden meist online über die Stadt- oder Gemeindeseite vereinbart. In größeren Städten beträgt die Wartezeit 4–8 Wochen."}</p>
       </section>
 
       {/* Section 5 — Costs */}
       <section className="rounded-xl border bg-card p-5 space-y-3">
         <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-muted-foreground">
-          <Clock className="h-4 w-4 text-[hsl(var(--gold))]" /> {t("fs_s5")}
+          <Clock className="h-4 w-4 text-[hsl(var(--gold))]" /> {"Kosten"}
         </h2>
         <ul className="space-y-1.5">
           {costs.map((key) => (
@@ -114,7 +111,7 @@ export default function FuehrerscheinGuideContent() {
       {/* Section 6 — Mistakes */}
       <section className="rounded-xl border border-destructive/20 bg-destructive/5 p-5 space-y-3">
         <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-destructive">
-          <AlertTriangle className="h-4 w-4" /> {t("fs_s6")}
+          <AlertTriangle className="h-4 w-4" /> {"Häufige Fehler"}
         </h2>
         <ul className="space-y-1.5">
           {errors.map((key) => {
@@ -137,26 +134,26 @@ export default function FuehrerscheinGuideContent() {
       {/* Section 7 — Links */}
       <section className="rounded-xl border bg-card p-5 space-y-3">
         <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-muted-foreground">
-          <ExternalLink className="h-4 w-4 text-[hsl(var(--gold))]" /> {t("fs_s7")}
+          <ExternalLink className="h-4 w-4 text-[hsl(var(--gold))]" /> {"Nützliche Links"}
         </h2>
         <div className="flex flex-wrap gap-2">
           <a
-            href={t("fs_link1_url")}
+            href={"https://www.adac.de/verkehr/rund-um-den-fuehrerschein/auslaendische-fuehrerscheine/"}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2.5 text-xs font-semibold text-foreground transition-colors hover:bg-accent"
           >
             <ExternalLink className="h-3.5 w-3.5" />
-            {t("fs_link1_label")}
+            {"ADAC — Umschreibung ausländischer Führerscheine"}
           </a>
           <a
-            href={t("fs_link2_url")}
+            href={"https://www.bmvi.de/DE/Themen/Mobilitaet/Strasse/Fuehrerschein/fuehrerschein.html"}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2.5 text-xs font-semibold text-foreground transition-colors hover:bg-accent"
           >
             <ExternalLink className="h-3.5 w-3.5" />
-            {t("fs_link2_label")}
+            {"BMVI — Informationen zum Führerschein"}
           </a>
         </div>
       </section>

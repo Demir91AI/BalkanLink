@@ -2,7 +2,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { ArrowRight, ChevronLeft, Baby, BookOpen, GraduationCap, HandCoins, Heart, Users, Shield, Banknote, Scale } from "lucide-react";
 import { motion } from "framer-motion";
 import { getGuidesByCategory } from "@/lib/guide-data";
-import { useLanguage } from "@/contexts/LanguageContext";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
 import { navigateBackOrHome } from "@/lib/navigation";
 
@@ -32,7 +31,6 @@ const titles = {
 };
 
 export default function Familie() {
-  const { language } = useLanguage();
   const navigate = useNavigate();
   const lk = getLangKey(language);
   const familyGuides = getGuidesByCategory("familie");
