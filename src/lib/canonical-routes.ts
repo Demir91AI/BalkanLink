@@ -83,6 +83,7 @@ export const VALID_PRODUCTION_ROUTES = new Set([
   "/nudim-trazim", "/nach-deutschland", "/vorlagen",
   "/deutsch-trainer", "/deutsch-trainer/preise", "/deutsch-trainer/faq",
   "/mapa", "/bussgeld", "/generatoren",
+  "/radno-pravo",
 ]);
 
 export function isValidProductionRoute(path: string): boolean {
@@ -93,5 +94,6 @@ export function isValidProductionRoute(path: string): boolean {
   if (path.startsWith("/vorlagen/")) return true;
   if (path.startsWith("/nach-deutschland/")) return true;
   if (path.startsWith("/firma/")) return true;
+  if (path.startsWith("/radno-pravo/")) return true;
   return false;
 }
