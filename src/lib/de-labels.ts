@@ -975,8 +975,6 @@ const DE: Record<string, string> = {
   "docCheck.freeLabel": "✓ Kostenlos — 2 Prüfungen pro Tag",
   "docCheck.singleCta": "Einzelzugang — 3,99€",
   "docCheck.detailedTitle": "Detaillierte Schritte und Lösung",
-  "sidebar.mainFunctions": "Hauptfunktionen",
-  "sidebar.other": "Sonstiges",
   "auth.firstName": "Vorname",
   "auth.pwRule.length": "Mindestens 8 Zeichen",
   "auth.pwRule.upper": "Ein Großbuchstabe",
