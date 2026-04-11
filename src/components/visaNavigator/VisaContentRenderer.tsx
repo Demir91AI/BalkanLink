@@ -107,6 +107,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
   if (country.isEU) {
     const r = country.routes[0];
     return (
+      <AuthGate>
       <div>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#DCFCE7', color: '#166534', borderRadius: 20, padding: '4px 16px', fontSize: 13, fontWeight: 600, marginBottom: 16 }}>
           {"🇪🇺 EU — Freizügigkeit"}
