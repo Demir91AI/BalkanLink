@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, CheckCircle, AlertTriangle, Lightbulb, BookOpen, ExternalLink, Calendar, Info, Scale } from "lucide-react";
 import { getGuideBySlug } from "@/lib/radno-pravo-data";
 import { SEO } from "@/components/SEO";
+import PageNavBar from "@/components/navigation/PageNavBar";
 
 const GOLD = "hsl(var(--gold))";
 
@@ -12,11 +13,9 @@ export default function RadnoPravoGuide() {
 
   if (!guide) {
     return (
-      <div className="mx-auto max-w-3xl px-4 py-12 text-center">
-        <p className="text-muted-foreground">Vodič nije pronađen.</p>
-        <button onClick={() => navigate("/radno-pravo")} className="mt-4 text-sm font-medium" style={{ color: GOLD }}>
-          ← Nazad na Radno pravo
-        </button>
+      <div className="mx-auto max-w-3xl px-4 py-6 pb-28">
+        <PageNavBar />
+        <p className="text-muted-foreground text-center mt-8">Vodič nije pronađen.</p>
       </div>
     );
   }
@@ -29,14 +28,7 @@ export default function RadnoPravoGuide() {
       />
 
       <div className="mx-auto max-w-3xl px-4 py-6 pb-28">
-        {/* Back */}
-        <button
-          onClick={() => navigate("/radno-pravo")}
-          className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors mb-5"
-        >
-          <ArrowLeft className="h-3.5 w-3.5" />
-          Radno pravo
-        </button>
+        <PageNavBar />
 
         {/* Title */}
         <div className="mb-6">

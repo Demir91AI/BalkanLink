@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Scale, ChevronRight, Info } from "lucide-react";
 import { RADNO_PRAVO_CATEGORIES, getGuidesByCategory, type RadnoPravoGuide } from "@/lib/radno-pravo-data";
 import { SEO } from "@/components/SEO";
+import PageNavBar from "@/components/navigation/PageNavBar";
 
 const GOLD = "hsl(var(--gold))";
 
@@ -16,6 +17,7 @@ export default function RadnoPravo() {
       />
 
       <div className="mx-auto max-w-3xl px-4 py-6 pb-28">
+        <PageNavBar />
         {/* Hero */}
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-3">
