@@ -1,7 +1,7 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
-  FileText, Shield, BookOpen, Camera, Megaphone, Map, Plane,
+  FileText, Shield, BookOpen, Camera, Megaphone, Plane,
   Briefcase, Building, Calculator, FileCheck, X, LogIn, LogOut, User,
   CreditCard, Scale, Store,
 } from "lucide-react";

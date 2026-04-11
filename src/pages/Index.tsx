@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   Megaphone, CheckCircle2, Star, ExternalLink,
-  ChevronLeft, ChevronRight, FileText, Shield, GraduationCap, Search, Home, Calculator, Map, Camera,
+  ChevronLeft, ChevronRight, FileText, Shield, GraduationCap, Search, Home, Calculator, Camera,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
