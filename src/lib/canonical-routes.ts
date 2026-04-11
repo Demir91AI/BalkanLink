@@ -32,6 +32,7 @@ export const CANONICAL_SECTIONS: CanonicalSection[] = [
   { id: "community-map", route: "/mapa", premium: false, assistantTopicKeys: ["balkanci", "mapa", "zajednica"] },
   // Secondary
   { id: "radno-pravo", route: "/radno-pravo", premium: false, assistantTopicKeys: ["radno pravo", "arbeitsrecht", "ugovor", "otkaz", "plata", "bolovanje", "odmor", "minijob", "kündigungsfrist"] },
+  { id: "biznis", route: "/biznis", premium: false, assistantTopicKeys: ["biznis", "gewerbe", "samozaposlenje", "selbständig", "freiberufler", "firma", "kleingewerbe", "geschäft", "unternehmen"] },
   { id: "jobs", route: "/stellenangebote", premium: false, assistantTopicKeys: ["posao", "job", "rad", "zaposlenje", "arbeit", "stellenangebot"] },
   { id: "housing", route: "/wohnungen", premium: false, assistantTopicKeys: ["stan", "wohnung", "sobu", "wg", "smještaj"] },
   { id: "calculators", route: "/kalkulatori", premium: false, assistantTopicKeys: ["kalkulator", "brutto", "netto", "plata", "rechner"] },
