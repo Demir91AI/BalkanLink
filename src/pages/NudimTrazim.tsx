@@ -38,7 +38,7 @@ export default function NudimTrazim() {
     queryFn: async () => {
       const { data, error } = await supabase
         .from("ads")
-        .select("*")
+        .select("id, type, title, category, city, description, contact_type, contact_value, created_at, bundesland, city_lat, city_lng, domain, user_id")
         .eq("status", "ACTIVE")
         .order("created_at", { ascending: false });
       if (error) throw error;
