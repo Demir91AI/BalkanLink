@@ -12,7 +12,7 @@ import { Check, X } from "lucide-react";
 import PageNav from "@/components/navigation/PageNav";
 import TurnstileWidget from "@/components/TurnstileWidget";
 import { verifyTurnstileToken } from "@/lib/turnstile";
-import { label } from "@/lib/de-labels";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const PW_RULES = [
   { key: "auth.pwRule.length" as const, test: (pw: string) => pw.length >= 8 },
@@ -32,6 +32,7 @@ export default function Register() {
   const [turnstileToken, setTurnstileToken] = useState("");
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { t } = useLanguage();
   const ruleResults = useMemo(() => PW_RULES.map(r => ({ ...r, pass: r.test(password) })), [password]);
   const allRulesPass = ruleResults.every(r => r.pass);
   const passwordsMatch = password === confirmPassword;
@@ -40,13 +41,13 @@ export default function Register() {
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!canSubmit) {
-      toast({ title: "Passwort ist zu kurz.", variant: "destructive" });
+      toast({ title: t("auth.passwordTooShort"), variant: "destructive" });
       return;
     }
     setLoading(true);
     const valid = await verifyTurnstileToken(turnstileToken);
     if (!valid) {
-      toast({ title: "Verifikacija nije uspjela. Pokušaj ponovo.", variant: "destructive" });
+      toast({ title: t("auth.registerError"), variant: "destructive" });
       setTurnstileToken("");
       setLoading(false);
       return;
@@ -60,7 +61,6 @@ export default function Register() {
       },
     });
     
-    // Save first_name to profiles table immediately after signup
     if (!error && signUpData.user) {
       await supabase
         .from("profiles")
@@ -74,9 +74,9 @@ export default function Register() {
     setLoading(false);
 
     if (error) {
-      toast({ title: "Registrierungsfehler.", description: error.message, variant: "destructive" });
+      toast({ title: t("auth.registerError"), description: error.message, variant: "destructive" });
     } else {
-      toast({ title: "Erfolgreich registriert!", description: "Prüfe E-Mail zur Registrierungsbestätigung." });
+      toast({ title: t("auth.registerSuccess"), description: t("auth.registerCheckEmail") });
       navigate("/login");
     }
   };
@@ -88,26 +88,25 @@ export default function Register() {
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
           <div className="flex justify-center mb-4"><BrandLogo variant="full" linkHome={false} darkText /></div>
-          <CardTitle className="text-2xl">{"Registrierung"}</CardTitle>
-          <CardDescription>{"Erstelle ein Konto für vollen Zugang."}</CardDescription>
+          <CardTitle className="text-2xl">{t("auth.registerTitle")}</CardTitle>
+          <CardDescription>{t("auth.registerDesc")}</CardDescription>
         </CardHeader>
         <form onSubmit={handleRegister}>
           <CardContent className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="firstName">{"auth.firstName"}</Label>
-              <Input id="firstName" type="text" required value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder="Tvoje ime" autoComplete="given-name" />
+              <Label htmlFor="firstName">{t("auth.firstName")}</Label>
+              <Input id="firstName" type="text" required value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder={t("auth.firstName")} autoComplete="given-name" />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="email">{"E-Mail-Adresse"}</Label>
+              <Label htmlFor="email">{t("auth.email")}</Label>
               <Input id="email" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="vas@email.com" />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password">{"Passwort"}</Label>
-              <Input id="password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} placeholder={"Mindestens 8 Zeichen"} />
-              {/* Live password rules */}
+              <Label htmlFor="password">{t("auth.password")}</Label>
+              <Input id="password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} placeholder={t("auth.minChars")} />
               {password.length > 0 && (
                 <div className="mt-2 space-y-1 rounded-lg border bg-muted/30 p-3">
-                  <p className="text-[11px] font-semibold text-muted-foreground mb-1">{"Passwort muss enthalten:"}</p>
+                  <p className="text-[11px] font-semibold text-muted-foreground mb-1">{t("auth.pwRule.title")}</p>
                   {ruleResults.map(r => (
                     <div key={r.key} className="flex items-center gap-2 text-xs">
                       {r.pass ? (
@@ -116,7 +115,7 @@ export default function Register() {
                         <X className="h-3.5 w-3.5 text-red-400 shrink-0" />
                       )}
                       <span className={r.pass ? "text-green-700 dark:text-green-400" : "text-red-600 dark:text-red-400"}>
-                        {label(r.key)}
+                        {t(r.key)}
                       </span>
                     </div>
                   ))}
@@ -124,11 +123,11 @@ export default function Register() {
               )}
             </div>
             <div className="space-y-2">
-              <Label htmlFor="confirmPassword">{"Passwort bestätigen"}</Label>
+              <Label htmlFor="confirmPassword">{t("auth.confirmPassword")}</Label>
               <Input id="confirmPassword" type="password" required value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="••••••••" />
               {confirmPassword.length > 0 && !passwordsMatch && (
                 <p className="text-xs text-red-500 mt-1 flex items-center gap-1">
-                  <X className="h-3 w-3" /> {"Passwörter stimmen nicht überein."}
+                  <X className="h-3 w-3" /> {t("auth.passwordMismatch")}
                 </p>
               )}
               {confirmPassword.length > 0 && passwordsMatch && (
@@ -140,7 +139,6 @@ export default function Register() {
 
             <TurnstileWidget onVerify={setTurnstileToken} onExpire={() => setTurnstileToken("")} className="flex justify-center" />
 
-            {/* AGB / Datenschutz Checkbox */}
             <div className="flex items-start gap-3 rounded-xl border bg-muted/20 p-4">
               <Checkbox
                 id="terms"
@@ -149,24 +147,23 @@ export default function Register() {
                 className="mt-0.5"
               />
               <label htmlFor="terms" className="cursor-pointer text-sm leading-relaxed text-muted-foreground">
-                {"Ich akzeptiere die AGB"}{" "}
+                {t("auth.termsLabel")}{" "}
                 <Link to="/agb" target="_blank" className="font-semibold text-primary underline hover:no-underline">
-                  {"AGB"}
+                  {t("auth.termsAGB")}
                 </Link>{" "}
-                {"und"}{" "}
+                {t("auth.termsAnd")}{" "}
                 <Link to="/datenschutz" target="_blank" className="font-semibold text-primary underline hover:no-underline">
-                  {"Datenschutzrichtlinie"}
-                </Link>{" "}
-                {"Ich akzeptiere"}
+                  {t("auth.termsPrivacy")}
+                </Link>
               </label>
             </div>
           </CardContent>
           <CardFooter className="flex flex-col gap-3">
             <Button type="submit" className="w-full" disabled={loading || !canSubmit}>
-              {loading ? "Registrierung..." : "Registrieren"}
+              {loading ? t("auth.registerLoading") : t("auth.registerButton")}
             </Button>
             <p className="text-center text-sm text-muted-foreground">
-              {"Schon ein Konto?"} <Link to="/login" className="text-primary hover:underline">{"Anmelden"}</Link>
+              {t("auth.hasAccount")} <Link to="/login" className="text-primary hover:underline">{t("auth.loginButton")}</Link>
             </p>
           </CardFooter>
         </form>
