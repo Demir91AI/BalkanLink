@@ -130,7 +130,7 @@ export default function DeutschTrainer() {
               className="mb-3 inline-flex items-center gap-2 rounded-full border border-gold/20 bg-gold/[0.08] px-4 py-1.5"
             >
               <GraduationCap className="h-4 w-4 text-gold" />
-              <span className="text-xs font-bold text-gold">Premium Deutschkurs</span>
+              <span className="text-xs font-bold text-gold">{t("trainer.pageTitle")}</span>
             </motion.div>
 
             <motion.h1
@@ -139,13 +139,7 @@ export default function DeutschTrainer() {
               transition={{ duration: 0.5, delay: 0.08 }}
               className="text-3xl font-black leading-[1.1] tracking-tight text-white sm:text-4xl lg:text-5xl"
             >
-              Deutsch für das{" "}
-              <span
-                className="bg-clip-text text-transparent"
-                style={{ backgroundImage: "linear-gradient(135deg, #3b82f6, #06b6d4)" }}
-              >
-                echte Leben
-              </span>
+              {t("trainer.pageSubtitle")}
             </motion.h1>
 
             <motion.p
@@ -206,8 +200,8 @@ export default function DeutschTrainer() {
           <div className="mb-8 grid grid-cols-3 gap-3 sm:gap-4 max-w-3xl">
             {[
               { icon: <Trophy className="h-6 w-6 text-gold" />, value: progress.xp, label: "XP" },
-              { icon: <Flame className="h-6 w-6 text-orange-400" />, value: progress.streak, label: "Streak" },
-              { icon: <Star className="h-6 w-6 text-blue-400" />, value: `Lvl ${progress.level}`, label: `Level (max ${MAX_LEVEL})` },
+              { icon: <Flame className="h-6 w-6 text-orange-400" />, value: progress.streak, label: t("trainer.streak") },
+              { icon: <Star className="h-6 w-6 text-blue-400" />, value: `Lvl ${progress.level}`, label: `${t("trainer.level")} (max ${MAX_LEVEL})` },
             ].map((s, i) => (
               <motion.div
                 key={s.label}
@@ -226,8 +220,8 @@ export default function DeutschTrainer() {
           {/* ── XP PROGRESS BAR ── */}
           <div className="mb-10 max-w-3xl">
             <div className="mb-2 flex justify-between text-xs text-white/40">
-              <span className="font-semibold">Level {progress.level}{progress.level >= MAX_LEVEL ? ` (${t("deutsch.maxReached") || "Max"})` : ""}</span>
-              <span>{progress.level >= MAX_LEVEL ? (t("deutsch.maxReached") || "Max erreicht") : `${xpInLevel}/${xpForNextLevel} XP`}</span>
+              <span className="font-semibold">{t("trainer.level")} {progress.level}{progress.level >= MAX_LEVEL ? ` (${t("trainer.levelMax")})` : ""}</span>
+              <span>{progress.level >= MAX_LEVEL ? t("trainer.xpMax") : `${xpInLevel}/${xpForNextLevel} XP`}</span>
             </div>
             <div className="h-2.5 w-full overflow-hidden rounded-full bg-white/[0.06]">
               <motion.div
@@ -266,9 +260,9 @@ export default function DeutschTrainer() {
           {/* ── LEVEL PROGRESS ── */}
           <div className="mb-10 max-w-3xl rounded-2xl border border-white/[0.06] bg-white/[0.02] px-5 py-4">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-bold text-white/80">{selectedLevel} Fortschritt</span>
+              <span className="text-sm font-bold text-white/80">{selectedLevel} {t("trainer.progress")}</span>
               <span className="text-xs text-white/40">
-                {completedInLevel}/{levelLessons.length} Lektionen
+                {completedInLevel}/{levelLessons.length} {t("trainer.lessons")}
               </span>
             </div>
             <div className="h-2 w-full overflow-hidden rounded-full bg-white/[0.06]">

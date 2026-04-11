@@ -111,17 +111,17 @@ export default function Viza() {
           <div className="mb-6 flex flex-col sm:flex-row items-center gap-4 rounded-xl border-2 border-[hsl(var(--gold))]/30 bg-[#FFF8EC] px-5 py-4">
             <Lock className="h-5 w-5 text-[hsl(var(--gold))] shrink-0" />
             <p className="text-sm text-[#2D2D2D] flex-1">
-              <strong>Viza Navigator — prve 2 rute besplatno.</strong>{" "}
-              Otključaj sve vizne puteve uz Premium pristup.
+              <strong>{t("viza.banner.info")}</strong>{" "}
+              {t("viza.banner.desc")}
             </p>
             <div className="flex gap-2 shrink-0">
               <button onClick={() => navigate("/premium")}
                 className="rounded-full bg-[hsl(var(--gold))] px-4 py-2 text-xs font-bold text-[#0f1f3d] hover:opacity-90 transition-opacity">
-                Premium — 9.99€/mj.
+                {t("viza.banner.cta")}
               </button>
               <button onClick={() => navigate("/paketi")}
                 className="rounded-full border border-border px-4 py-2 text-xs font-semibold hover:bg-muted transition-colors">
-                Saznaj više
+                {t("viza.banner.more")}
               </button>
             </div>
           </div>
@@ -270,11 +270,10 @@ export default function Viza() {
                   <div className="rounded-2xl border-2 border-[hsl(var(--gold))]/20 bg-card p-8 max-w-md">
                     <Lock className="h-10 w-10 text-[hsl(var(--gold))] mx-auto mb-4" />
                     <h3 className="text-lg font-bold text-foreground">
-                      Ovaj vizni put je dostupan uz Premium
+                      {t("viza.paywall.title")}
                     </h3>
                     <p className="text-sm text-muted-foreground mt-2">
-                      Prve 2 rute po državi su besplatne.
-                      Otključaj sve vizne puteve i procedure.
+                      {t("viza.paywall.desc")}
                     </p>
                     <Button
                       onClick={() => navigate("/paketi")}
@@ -284,7 +283,7 @@ export default function Viza() {
                         color: 'hsl(var(--gold-foreground))',
                       }}
                     >
-                      BalkanLink Premium — 9.99€/mj.
+                      {t("viza.paywall.cta")}
                     </Button>
                   </div>
                 </div>

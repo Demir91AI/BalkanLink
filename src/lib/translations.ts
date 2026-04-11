@@ -992,4 +992,39 @@ export const translations: Record<string, T> = {
   "sg.paywall.cta":   { bs: "BalkanLink Premium — 9,99€/mj.", de: "BalkanLink Premium — 9,99€/Monat" },
   "sg.paywall.free":  { bs: "su besplatni", de: "sind kostenlos" },
   "sg.paywall.req":   { bs: "zahtijeva Premium", de: "erfordert Premium" },
+
+  // TRAINER (full i18n)
+  "trainer.pageTitle":     { bs: "BalkanLink Deutsch", hr: "BalkanLink Deutsch", sr: "BalkanLink Deutsch", de: "BalkanLink Deutsch" },
+  "trainer.pageSubtitle":  { bs: "Efikasno učenje njemačkog za svakodnevni život", hr: "Učinkovito učenje njemačkog za svakodnevni život", sr: "Efikasno učenje nemačkog za svakodnevni život", de: "Effektives Deutschlernen für das echte Leben" },
+  "trainer.done":          { bs: "Završi", hr: "Završi", sr: "Završi", de: "Fertig" },
+  "trainer.free":          { bs: "Besplatno", hr: "Besplatno", sr: "Besplatno", de: "Kostenlos" },
+  "trainer.locked":        { bs: "Zaključano", hr: "Zaključano", sr: "Zaključano", de: "Gesperrt" },
+  "trainer.progress":      { bs: "Napredak", hr: "Napredak", sr: "Napredak", de: "Fortschritt" },
+  "trainer.lessons":       { bs: "lekcija", hr: "lekcija", sr: "lekcija", de: "Lektionen" },
+  "trainer.streak":        { bs: "Streak", hr: "Streak", sr: "Streak", de: "Streak" },
+  "trainer.level":         { bs: "Nivo", hr: "Razina", sr: "Nivo", de: "Level" },
+  "trainer.levelMax":      { bs: "Max nivo", hr: "Maks. razina", sr: "Maks. nivo", de: "Max. Level" },
+  "trainer.xpNext":        { bs: "XP do sljedećeg nivoa", hr: "XP do sljedeće razine", sr: "XP do sledećeg nivoa", de: "XP bis zum nächsten Level" },
+  "trainer.xpMax":         { bs: "Maksimalni nivo dostignut", hr: "Maksimalna razina dosegnuta", sr: "Maksimalni nivo dostignut", de: "Maximales Level erreicht" },
+  "trainer.loading":       { bs: "Lekcije se učitavaju...", hr: "Lekcije se učitavaju...", sr: "Lekcije se učitavaju...", de: "Lektionen werden geladen..." },
+
+  // VIZA NAVIGATOR (full i18n)
+  "viza.title":            { bs: "Viza Navigator", hr: "Viza Navigator", sr: "Viza Navigator", de: "Viza Navigator" },
+  "viza.subtitle":         { bs: "Sve o vizama, boravišnim dozvolama i stalnom boravku — po državama", hr: "Sve o vizama, boravišnim dozvolama i stalnom boravku — po državama", sr: "Sve o vizama, boravišnim dozvolama i stalnom boravku — po državama", de: "Alles über Visa, Aufenthaltserlaubnisse und dauerhaften Aufenthalt — nach Ländern" },
+  "viza.euCountries":      { bs: "EU države", hr: "EU države", sr: "EU države", de: "EU-Länder" },
+  "viza.wbCountries":      { bs: "Balkanske zemlje", hr: "Balkanske zemlje", sr: "Balkanske zemlje", de: "Westbalkan-Länder" },
+  "viza.routes":           { bs: "Putevi dolaska i boravka", hr: "Putevi dolaska i boravka", sr: "Putevi dolaska i boravka", de: "Einreise- und Aufenthaltswege" },
+  "viza.paywall.title":    { bs: "Ovaj put je dostupan uz Premium", hr: "Ovaj put dostupan je uz Premium", sr: "Ovaj put je dostupan uz Premium", de: "Dieser Weg ist nur mit Premium verfügbar" },
+  "viza.paywall.desc":     { bs: "Prve 2 rute po državi su besplatne. Otključaj sve vizne puteve i procedure.", hr: "Prve 2 rute po državi su besplatne. Otključaj sve vizne puteve i procedure.", sr: "Prve 2 rute po državi su besplatne. Otključaj sve vizne puteve i procedure.", de: "Die ersten 2 Wege pro Land sind kostenlos. Schalte alle Visa-Wege frei." },
+  "viza.paywall.free":     { bs: "Prve 2 rute besplatne", hr: "Prve 2 rute besplatne", sr: "Prve 2 rute besplatne", de: "Erste 2 Wege kostenlos" },
+  "viza.paywall.cta":      { bs: "BalkanLink Premium — 9,99€/mj.", hr: "BalkanLink Premium — 9,99€/mj.", sr: "BalkanLink Premium — 9,99€/mj.", de: "BalkanLink Premium — 9,99€/Monat" },
+  "viza.banner.info":      { bs: "Viza Navigator — prve 2 rute besplatno.", hr: "Viza Navigator — prve 2 rute besplatno.", sr: "Viza Navigator — prve 2 rute besplatno.", de: "Viza Navigator — erste 2 Wege kostenlos." },
+  "viza.banner.desc":      { bs: "Otključaj sve vizne puteve uz Premium pristup.", hr: "Otključaj sve vizne puteve uz Premium pristup.", sr: "Otključaj sve vizne puteve uz Premium pristup.", de: "Schalte alle Visa-Wege mit Premium frei." },
+  "viza.banner.cta":       { bs: "Premium — 9,99€/mj.", hr: "Premium — 9,99€/mj.", sr: "Premium — 9,99€/mj.", de: "Premium — 9,99€/Monat" },
+  "viza.banner.more":      { bs: "Saznaj više", hr: "Saznaj više", sr: "Saznaj više", de: "Mehr erfahren" },
+
+  // GENERAL PREMIUM
+  "premium.unlockCta":     { bs: "BalkanLink Premium — 9,99€/mj.", hr: "BalkanLink Premium — 9,99€/mj.", sr: "BalkanLink Premium — 9,99€/mj.", de: "BalkanLink Premium — 9,99€/Monat" },
+  "premium.freeSteps":     { bs: "Koraci 1–2 su besplatni", hr: "Koraci 1–2 su besplatni", sr: "Koraci 1–2 su besplatni", de: "Schritte 1–2 kostenlos" },
+  "premium.stepLocked":    { bs: "zahtijeva Premium", hr: "zahtijeva Premium", sr: "zahtijeva Premium", de: "erfordert Premium" },
 };
