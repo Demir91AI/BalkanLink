@@ -418,13 +418,13 @@ export default function DeutschTrainer() {
               </button>
               <div className="text-center">
                 <Crown className="mx-auto mb-3 h-10 w-10 text-gold" />
-                <h2 className="text-base font-black">{"Weitere Lektionen freischalten"}</h2>
+                <h2 className="text-base font-black">{"Otključaj dodatne lekcije"}</h2>
                 <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">
-                  {"Schalte jetzt alle Inhalte frei und trainiere Deutsch für echte Situationen."}
+                  {"Otključaj sve sadržaje i vježbaj njemački za stvarne situacije."}
                 </p>
                 <p className="mt-3 text-2xl font-black text-gold-dark">
-                  {"ab"} {INDIVIDUAL_PRICES[selectedLevel]}
-                  <span className="ml-1 text-xs font-normal text-muted-foreground">{"/ einmalig"}</span>
+                  {"od"} {INDIVIDUAL_PRICES[selectedLevel]}
+                  <span className="ml-1 text-xs font-normal text-muted-foreground">{"/ jednokratno"}</span>
                 </p>
                 <Button
                   onClick={() => { setShowPaywall(false); navigate("/deutsch-trainer/preise"); }}

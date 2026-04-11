@@ -186,9 +186,9 @@ body{
       <div className="flex items-start gap-2.5 rounded-lg border border-border bg-muted/40 p-3.5">
         <Shield className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
         <p className="text-xs text-muted-foreground leading-relaxed">
-          <span className="font-semibold text-foreground">Datenschutzhinweis:</span>{" "}
-          Alle eingegebenen Daten werden ausschließlich lokal in Ihrem Browser
-          verarbeitet. Es erfolgt keine Speicherung oder Übertragung an Server.
+          <span className="font-semibold text-foreground">Napomena o zaštiti podataka:</span>{" "}
+          Svi uneseni podaci se obrađuju isključivo lokalno u vašem pregledniku.
+          Nema pohranjivanja niti prijenosa na servere.
         </p>
       </div>
 
@@ -289,7 +289,7 @@ body{
             className="flex w-full items-center justify-between px-4 py-3 text-sm font-semibold hover:bg-muted/50 transition-colors"
           >
             <span className="flex items-center gap-2">
-              <Info className="h-4 w-4 text-primary" /> Wichtige Hinweise &amp; Checkliste
+              <Info className="h-4 w-4 text-primary" /> Važne napomene i checklista
             </span>
             {hintsOpen ? (
               <ChevronUp className="h-4 w-4" />
