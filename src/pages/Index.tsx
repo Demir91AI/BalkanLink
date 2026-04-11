@@ -39,7 +39,7 @@ const serviceCardKeys = [
   { icon: GraduationCap, titleKey: "service.deutsch.title", descKey: "service.deutsch.desc", ctaKey: "service.deutsch.cta", to: "/deutsch-trainer", premium: true },
   { icon: Camera, titleKey: "service.docCheck.title", descKey: "service.docCheck.desc", ctaKey: "service.docCheck.cta", to: "/dokumenten-check", premium: true },
   { icon: Megaphone, titleKey: "service.nudim.title", descKey: "service.nudim.desc", ctaKey: "service.nudim.cta", to: "/nudim-trazim", premium: false },
-  { icon: Map, titleKey: "service.balkanci.title", descKey: "service.balkanci.desc", ctaKey: "service.balkanci.cta", to: "/mapa", premium: false },
+  
   { icon: Search, titleKey: "service.jobs.title", descKey: "service.jobs.desc", ctaKey: "service.jobs.cta", to: "/stellenangebote", premium: false },
   { icon: Home, titleKey: "service.housing.title", descKey: "service.housing.desc", ctaKey: "service.housing.cta", to: "/wohnungen", premium: false },
   { icon: Calculator, titleKey: "service.calc.title", descKey: "service.calc.desc", ctaKey: "service.calc.cta", to: "/kalkulatori", premium: false },

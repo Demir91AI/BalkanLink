@@ -72,7 +72,7 @@ const AnmeldungMuster = lazy(() => import("./pages/muster/AnmeldungMuster"));
 const PaymentSuccess = lazy(() => import("./pages/PaymentSuccess"));
 const PaymentCancel = lazy(() => import("./pages/PaymentCancel"));
 const Kalkulatori = lazy(() => import("./pages/Kalkulatori"));
-const CommunityMapa = lazy(() => import("./pages/CommunityMapa"));
+
 const ElterngeldMuster = lazy(() => import("./pages/muster/ElterngeldMuster"));
 const BuergergeldMuster = lazy(() => import("./pages/muster/BuergergeldMuster"));
 const WohngeldMuster = lazy(() => import("./pages/muster/WohngeldMuster"));
@@ -222,7 +222,7 @@ function AppRoutes() {
         <Route path="/placanje-uspjesno" element={<PaymentSuccess />} />
         <Route path="/placanje-otkazano" element={<PaymentCancel />} />
         <Route path="/kalkulatori" element={<Kalkulatori />} />
-        <Route path="/mapa" element={<CommunityMapa />} />
+        
         <Route path="/zivot-u-njemackoj" element={<ZivotUNjemackoj />} />
         <Route path="/viza" element={<Viza />} />
         <Route path="/radno-pravo" element={<RadnoPravo />} />

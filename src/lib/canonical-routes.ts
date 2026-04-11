@@ -29,7 +29,7 @@ export const CANONICAL_SECTIONS: CanonicalSection[] = [
   { id: "deutsch-trainer", route: "/deutsch-trainer", premium: true, assistantTopicKeys: ["deutsch", "njemački", "njemacki", "german", "sprachkurs", "učenje"] },
   { id: "dokumenten-check", route: "/dokumenten-check", premium: true, assistantTopicKeys: ["dokument", "pismo", "brief", "letter", "analiza", "dokumenten-check"] },
   { id: "nudim-trazim", route: "/nudim-trazim", premium: false, assistantTopicKeys: ["nudim", "tražim", "trazim", "oglas"] },
-  { id: "community-map", route: "/mapa", premium: false, assistantTopicKeys: ["balkanci", "mapa", "zajednica"] },
+  
   // Secondary
   { id: "radno-pravo", route: "/radno-pravo", premium: false, assistantTopicKeys: ["radno pravo", "arbeitsrecht", "ugovor", "otkaz", "plata", "bolovanje", "odmor", "minijob", "kündigungsfrist"] },
   { id: "biznis", route: "/biznis", premium: false, assistantTopicKeys: ["biznis", "gewerbe", "samozaposlenje", "selbständig", "freiberufler", "firma", "kleingewerbe", "geschäft", "unternehmen"] },
