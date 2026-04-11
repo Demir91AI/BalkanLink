@@ -49,7 +49,7 @@ export default function Header() {
           )}
         </div>
 
-        <div className="w-10" />
+        <LanguageSwitcher />
       </div>
     </header>
   );

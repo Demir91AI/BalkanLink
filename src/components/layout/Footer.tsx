@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { label } from "@/lib/de-labels";
+import { useLanguage } from "@/contexts/LanguageContext";
 const NAV_LINKS_KEYS = [
   { labelKey: "sidebar.formulari", to: "/formulari" },
   { labelKey: "sidebar.viza", to: "/viza" },

@@ -7,7 +7,7 @@ import {
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import AuthModal from "@/components/auth/AuthModal";
-import { label } from "@/lib/de-labels";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 function getInitials(name: string) {
   const parts = name.split(/\s+/).filter(Boolean);
