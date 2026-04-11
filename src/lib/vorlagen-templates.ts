@@ -703,29 +703,7 @@ Mit freundlichen Grüßen
       {
         id: "standard",
         label: "Standard (professionell)",
-        body: \`{{NAME}}
-{{ADRESSE}}
-
-{{KASSE}}
-{{KASSE_ADRESSE}}
-
-{{ORT}}, den {{DATUM}}
-
-Versichertennummer: {{VERSICHERTENNR}}
-
-Betreff: Antrag auf Kostenübernahme für {{LEISTUNG}}
-
-Sehr geehrte Damen und Herren,
-
-hiermit beantrage ich die Übernahme der Kosten für {{LEISTUNG}}.
-
-Beigefügt finden Sie die ärztliche Verordnung / den Kostenvoranschlag.
-
-Ich bitte um eine schriftliche Bestätigung und zeitnahe Bearbeitung meines Antrags.
-
-Mit freundlichen Grüßen
-
-{{NAME}}\`,
+        body: `{{NAME}}\n{{ADRESSE}}\n\n{{KASSE}}\n{{KASSE_ADRESSE}}\n\n{{ORT}}, den {{DATUM}}\n\nVersichertennummer: {{VERSICHERTENNR}}\n\nBetreff: Antrag auf Kostenübernahme für {{LEISTUNG}}\n\nSehr geehrte Damen und Herren,\n\nhiermit beantrage ich die Übernahme der Kosten für {{LEISTUNG}}.\n\nBeigefügt finden Sie die ärztliche Verordnung / den Kostenvoranschlag.\n\nIch bitte um eine schriftliche Bestätigung und zeitnahe Bearbeitung meines Antrags.\n\nMit freundlichen Grüßen\n\n{{NAME}}`,
       },
     ],
     hints: [
