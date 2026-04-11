@@ -17,7 +17,7 @@ const STEPS: StepData[] = [
   {
     deField: "Abschnitt C: Einkommensarten",
     bhsField: "Vrste prihoda",
-    whatToWrite: "Označi SVE vrste prihoda:\n• Zaposlenje (Erwerbstätigkeit)\n• Samozaposlenje\n• Kindergeld (čak i ako dolazi za dijete!)\n• Renta, alimentacija, socijalna davanja\n• Minijob (520€ poslovi MORAJU biti navedeni!)",
+    whatToWrite: "Označi SVE vrste prihoda:\n• Zaposlenje (Erwerbstätigkeit)\n• Samozaposlenje\n• Kindergeld (čak i ako dolazi za dijete!)\n• Renta, alimentacija, socijalna davanja\n• Minijob (603€ poslovi MORAJU biti navedeni!)",
     commonMistake: "Kindergeld zaboraviti — iako je za dijete, osoba koja ga prima mora ga navesti ovdje!\nMinijob zaboraviti — svi poslovi se moraju prijaviti.",
   },
   {
@@ -67,7 +67,7 @@ export default function AnlageEKGuideContent() {
         ]}
         commonMistakes={[
           "Kindergeld zaboraviti — i to je prihod!",
-          "Minijob ne navesti — čak i 520€ poslovi moraju biti prijavljeni",
+          "Minijob ne navesti — čak i 603€ poslovi moraju biti prijavljeni",
           "Troškove putovanja ne navesti — smanjuju obračunati prihod",
         ]}
       />

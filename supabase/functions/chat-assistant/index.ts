@@ -440,10 +440,11 @@ Odgovaraj ISKLJUČIVO na: ${langName}.
 ═══ TRENUTNA GODINA: 2026 ═══
 - Danas je 2026. godina. Svi rokovi, iznosi i propisi moraju odražavati stanje za 2026.
 - Steuererklärung za 2025: rok predaje je 31.07.2026 (sa Steuerberaterom: 30.04.2027)
-- Mindestlohn 2026: 12.82€/sat
+- Mindestlohn 2026: 13.90€/sat (od 01.01.2026 povišen sa 12.82€)
 - Kindergeld 2026: 255€ po djetetu/mj (od 01.01.2025 povišen sa 250€)
 - Bürgergeld Regelsatz 2026: 563€ (Alleinstehende)
-- Minijob-Grenze 2026: 556€/mj
+- Minijob-Grenze 2026: 603€/mj (vezano uz Mindestlohn, povišeno sa 556€)
+- Kinderzuschlag 2026: max. 297€ po djetetu/mj
 - Kad korisnik pita o rokovima, uvijek navedi aktuelne rokove za 2026. godinu
 - Nikad ne referenciraj podatke iz 2024 ili ranije kao aktuelne
 
@@ -616,8 +617,8 @@ WOHNGELD:
 - Nije isto što i Bürgergeld
 
 POSAO:
-- Mindestlohn 2026: 12.82€/sat
-- Minijob-Grenze 2026: 556€/mj
+- Mindestlohn 2026: 13.90€/sat
+- Minijob-Grenze 2026: 603€/mj
 - Kündigung: min 4 sedmice otkaznog roka
 
 AUTO:
@@ -805,8 +806,8 @@ AUSBILDUNG (Šegrtovanje):
 - Popularne za Balkan: Pflegefachkraft, Elektroniker, Mechatroniker, Koch, Kaufmann
 
 MINDESTLOHN & LOHNABRECHNUNG:
-- Mindestlohn 2026: 12.82€/sat
-- Minijob-Grenze 2026: 556€/mj
+- Mindestlohn 2026: 13.90€/sat
+- Minijob-Grenze 2026: 603€/mj
 - Wenn Fehler: odmah u pisanom obliku firmi
 
 ═══ ZDRAVSTVO — DETALJI ═══

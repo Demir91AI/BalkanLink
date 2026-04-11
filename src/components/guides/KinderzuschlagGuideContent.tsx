@@ -12,7 +12,7 @@ const STEPS: StepData[] = [
     deField: "Was ist Kinderzuschlag?",
     bhsField: "Šta je Kinderzuschlag?",
     whatToWrite:
-      "Kinderzuschlag (KiZ) je namijenjen porodicama koje zarađuju dovoljno za sebe, ali ne i za pokriće troškova cijele porodice. Cilj je spriječiti da porodica mora tražiti Bürgergeld.\n\n• Maksimalno 297€ po djetetu mjesečno (od 1.1.2025)\n• Uključuje Sofortzuschlag od 25€/mj. po djetetu\n• Iznos se smanjuje ako prihod porodice raste\n• Isplaćuje se zajedno sa Kindergeldom od Familienkasse\n• Pravna osnova: § 6a BKGG",
+      "Kinderzuschlag (KiZ) je namijenjen porodicama koje zarađuju dovoljno za sebe, ali ne i za pokriće troškova cijele porodice. Cilj je spriječiti da porodica mora tražiti Bürgergeld.\n\n• Maksimalno 297€ po djetetu mjesečno (Stand 2026)\n• Uključuje Sofortzuschlag od 25€/mj. po djetetu\n• Iznos se smanjuje ako prihod porodice raste\n• Isplaćuje se zajedno sa Kindergeldom od Familienkasse\n• Pravna osnova: § 6a BKGG",
     whereToFind:
       "Familienkasse pri Bundesagentur für Arbeit — online ili pismeno.",
     commonMistake:

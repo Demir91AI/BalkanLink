@@ -1915,9 +1915,9 @@ export const guides: Guide[] = [
     category: "gesundheit",
     title: { de: "Familienversicherung", bs: "Porodično osiguranje (Familienversicherung)", en: "Family Insurance (co-insurance)" },
     who: {
-      de: "Ehepartner und Kinder ohne eigenes Einkommen (über 520 €/Monat) können kostenlos über den Hauptversicherten mitversichert werden.",
-      bs: "Supružnici i djeca bez vlastitih primanja (preko 520 €/mjesečno) mogu besplatno biti osigurani preko glavnog osiguranika.",
-      en: "Spouses and children without own income (over €520/month) can be co-insured free of charge.",
+      de: "Ehepartner und Kinder ohne eigenes Einkommen (über 603 €/Monat) können kostenlos über den Hauptversicherten mitversichert werden.",
+      bs: "Supružnici i djeca bez vlastitih primanja (preko 603 €/mjesečno) mogu besplatno biti osigurani preko glavnog osiguranika.",
+      en: "Spouses and children without own income (over €603/month) can be co-insured free of charge.",
     },
     authority: { de: "Gesetzliche Krankenkasse des Hauptversicherten", bs: "Zdravstvena kasa glavnog osiguranika", en: "Main insured's statutory health insurance" },
     formName: { de: "Antrag auf Familienversicherung", bs: "Zahtjev za porodično osiguranje", en: "Family Insurance Application" },
@@ -1925,13 +1925,13 @@ export const guides: Guide[] = [
       de: [
         { field: "Antragsteller", instruction: "Das hauptversicherte Familienmitglied stellt den Antrag. Persönliche Daten und Versicherungsnummer angeben." },
         { field: "Familienangehörige", instruction: "Name, Geburtsdatum, Verwandtschaftsgrad (Ehepartner/Kind) des mitzuversichernden Angehörigen." },
-        { field: "Einkommenserklärung", instruction: "Nachweis, dass der Angehörige kein oder geringes Einkommen hat (unter 520 €/Monat, bzw. 538 € bei Minijob)." },
+        { field: "Einkommenserklärung", instruction: "Nachweis, dass der Angehörige kein oder geringes Einkommen hat (unter 603 €/Monat bei Minijob)." },
         { field: "Heiratsurkunde/Geburtsurkunde", instruction: "Nachweis der Familienbeziehung: Heiratsurkunde oder Geburtsurkunde des Kindes." },
       ],
       bs: [
         { field: "Podnosilac", instruction: "Glavni osiguranik podnosi zahtjev sa ličnim podacima." },
         { field: "Član porodice", instruction: "Ime, datum rođenja, srodstvo (supružnik/dijete)." },
-        { field: "Izjava o primanjima", instruction: "Dokaz da član nema ili ima mala primanja (ispod 520 €)." },
+        { field: "Izjava o primanjima", instruction: "Dokaz da član nema ili ima mala primanja (ispod 603 €)." },
         { field: "Vjenčani/rodni list", instruction: "Dokaz o porodičnoj vezi." },
       ],
       en: [

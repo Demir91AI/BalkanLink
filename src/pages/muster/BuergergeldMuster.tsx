@@ -152,7 +152,7 @@ export default function BuergergeldMuster() {
                 <div style={{ marginBottom: 6 }}><div style={S.lbl}>Art</div><Radio name={`ekArt${i}`} value={ek.art} options={["Angestellt", "Minijob", "Selbstständig"]} onChange={v => setEk(i, "art", v)} /></div>
                 <div style={S.row}><Field label="Arbeitgeber" value={ek.arbeitgeber} onChange={v => setEk(i, "arbeitgeber", v)} /></div>
                 <div style={S.row}><Field label="Bruttolohn (€/Monat)" value={ek.brutto} onChange={v => setEk(i, "brutto", v)} /><Field label="Nettolohn (€/Monat)" value={ek.netto} onChange={v => setEk(i, "netto", v)} /><Field label="Wochenstunden" value={ek.wochenstunden} onChange={v => setEk(i, "wochenstunden", v)} /></div>
-                <Info>ℹ️ Minijob (do 538 €/mj.) se i dalje mora prijaviti, ali se djelimično ne uračunava u Bürgergeld.</Info>
+                <Info>ℹ️ Minijob (do 603 €/mj.) se i dalje mora prijaviti, ali se djelimično ne uračunava u Bürgergeld.</Info>
               </>)}
 
               <div style={{ marginTop: 8 }}><div style={{ ...S.lbl, fontWeight: 600 }}>Sonstige Einnahmen</div></div>

@@ -14,7 +14,7 @@ export default function Sozialversicherung() {
             <ul className="list-disc space-y-1 pl-5">
               <li>Svi <strong>zaposleni</strong> u Njemačkoj su automatski obavezno socijalno osigurani.</li>
               <li>Samozaposleni i freelanceri su djelimično izuzeti (ali mogu dobrovoljno).</li>
-              <li>Minijob (do 538 €/mjesečno) — ograničeno osiguranje.</li>
+              <li>Minijob (do 603 €/mjesečno) — ograničeno osiguranje.</li>
               <li>Doprinos dijele <strong>poslodavac i zaposleni</strong> (otprilike pola-pola).</li>
             </ul>
           ),
