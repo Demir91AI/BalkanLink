@@ -192,7 +192,7 @@ function calculate(inp: CalcInputs) {
     if (kfbTotal <= 0) return baseZvE;
     const taxWithout = computeYearlyTax(Math.max(0, baseZvE), inp.godina);
     const taxWith = computeYearlyTax(Math.max(0, baseZvE - kfbTotal), inp.godina);
-    const kindergeldYearly = (inp.hasDjeca ? effBrojDjece : 0) * 250 * 12;
+    const kindergeldYearly = (inp.hasDjeca ? effBrojDjece : 0) * 255 * 12;
     if ((taxWithout - taxWith) > kindergeldYearly) {
       return Math.max(0, baseZvE - kfbTotal);
     }

@@ -6,7 +6,7 @@
  */
 
 // ─── Tax Year Config ───
-export const TAX_YEARS = [2025, 2024] as const;
+export const TAX_YEARS = [2026, 2025, 2024] as const;
 export type TaxYear = (typeof TAX_YEARS)[number];
 
 // ─── Bundesländer ───
@@ -172,7 +172,7 @@ function adjustTaxForSteuerklasse(
   if (kinderfreibetrag > 0) {
     const taxWithout = computeYearlyTax(zvE, year);
     const taxWith = computeYearlyTax(Math.max(0, zvE - kinderfreibetragBetrag), year);
-    const kindergeldYearly = kinderfreibetrag * 250 * 12; // rough
+    const kindergeldYearly = kinderfreibetrag * 255 * 12; // rough
     if ((taxWithout - taxWith) > kindergeldYearly) {
       zvE = Math.max(0, zvE - kinderfreibetragBetrag);
     }
@@ -334,7 +334,7 @@ export const DEFAULT_INPUTS: BruttoNettoInputs = {
   steuerklasse: 1,
   bundesland: "NW",
   kirchensteuer: false,
-  steuerjahr: 2025,
+  steuerjahr: 2026,
   alter: 30,
   kinderfreibetrag: 0,
   kinderlos: true,

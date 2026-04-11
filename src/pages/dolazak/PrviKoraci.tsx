@@ -51,7 +51,7 @@ export default function PrviKoraci() {
           content: (
             <ol className="list-decimal space-y-2 pl-5">
               <li><strong>Mein ELSTER registracija</strong> — Registruj se za online porezni portal (aktivacijski kod stiže poštom).</li>
-              <li><strong>Kindergeld (ako imaš djecu)</strong> — Podnesi zahtjev kod Familienkasse. 250 € po djetetu mjesečno.</li>
+              <li><strong>Kindergeld (ako imaš djecu)</strong> — Podnesi zahtjev kod Familienkasse. 255 € po djetetu mjesečno.</li>
               <li><strong>Elterngeld (ako je beba)</strong> — Zahtjev podnesi u roku od 3 mjeseca nakon rođenja.</li>
               <li><strong>Potpiši dodatna osiguranja</strong> — Berufsunfähigkeitsversicherung (osiguranje u slučaju nesposobnosti za rad), Hausratversicherung (osiguranje kućnog inventara).</li>
               <li><strong>Učlani se u Verein</strong> — Sportski klub, kulturno društvo — dobar način za integraciju.</li>

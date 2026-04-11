@@ -136,7 +136,7 @@ export function generateTodoList(profile: UserProfile): string {
   if (hasKids || isSeeking) {
     plan += `\n🟢 **NE ZABORAVI (možeš dobiti novac!):**\n`;
     if (hasKids) {
-      const kg = kidCount * 250;
+      const kg = kidCount * 255;
       plan += `${step}. **Kindergeld** — ${kg}€/mj za ${kidCount === 1 ? "1 dijete" : `${kidCount}+ djece`}!\n`;
       step++;
       plan += `${step}. **Elterngeld** — ako je dijete mlađe od 14 mj\n`;
@@ -150,7 +150,7 @@ export function generateTodoList(profile: UserProfile): string {
 
   // Estimate
   let estimate = 0;
-  if (hasKids) estimate += kidCount * 250 * 12;
+  if (hasKids) estimate += kidCount * 255 * 12;
   if (isSeeking) estimate += 563 * 6;
   if (isWorking) estimate += 800; // tax return estimate
 
@@ -175,7 +175,7 @@ export function generateDeadlines(profile: UserProfile | null): { priority: stri
 
   deadlines.push({
     priority: "🟡",
-    title: "Steuererklärung 2024 — rok: 31. Juli 2025",
+    title: "Steuererklärung 2025 — rok: 31. Juli 2026",
     desc: "Možeš dobiti povrat ~800€",
     chatMsg: "Kako podnijeti Steuererklärung?",
   });
@@ -207,7 +207,7 @@ export function calculateBenefits(data: { brutto: number; children: number; chil
 
   // Kindergeld
   if (children > 0) {
-    const kgMonthly = children * 250;
+    const kgMonthly = children * 255;
     const kgRetro = kgMonthly * 6;
     result += `**Kindergeld:** ${kgMonthly}€/mj (retroaktivno 6mj = ${kgRetro.toLocaleString("de-DE")}€)\n`;
     total += kgMonthly * 12;
@@ -230,7 +230,7 @@ export function calculateBenefits(data: { brutto: number; children: number; chil
 
   // Kinderzuschlag
   if (children > 0 && brutto < 3000) {
-    const kz = children * 250;
+    const kz = children * 292;
     result += `**Kinderzuschlag:** do ${kz}€/mj (provjeri)\n`;
     total += kz * 6; // conservative
   }
