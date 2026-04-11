@@ -43,8 +43,15 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   );
 }
 
+const fallback: LanguageContextType = {
+  lang: "de",
+  setLang: () => {},
+  t: (key: string) => {
+    try { return deLabel(key); } catch { return key; }
+  },
+};
+
 export function useLanguage() {
   const ctx = useContext(LanguageContext);
-  if (!ctx) throw new Error("useLanguage must be used inside LanguageProvider");
-  return ctx;
+  return ctx ?? fallback;
 }
