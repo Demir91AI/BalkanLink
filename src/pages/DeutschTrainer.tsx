@@ -27,20 +27,26 @@ export default function DeutschTrainer() {
   const demo = params.get("demo") === "1";
 
   const [selectedLevel, setSelectedLevel] = useState<Level>("A1");
-  const [activeLesson, setActiveLesson] = useState<Lesson | null>(() => {
-    if (demo) {
-      const first = getLessonsForLevel("A1")[0];
-      return first ?? null;
-    }
-    return null;
-  });
+  const [levelLoading, setLevelLoading] = useState(true);
+  const [activeLesson, setActiveLesson] = useState<Lesson | null>(null);
   const [showPaywall, setShowPaywall] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
 
   const { progress } = useTrainerProgress();
   const { isPremium } = useSubscription();
 
+  useEffect(() => {
+    setLevelLoading(true);
+    loadLessonsForLevel(selectedLevel).then((loaded) => {
+      setLevelLoading(false);
+      if (demo && selectedLevel === "A1" && loaded.length > 0 && !activeLesson) {
+        setActiveLesson(loaded[0]);
+      }
+    });
+  }, [selectedLevel]);
+
   const levelLessons = getLessonsForLevel(selectedLevel);
+  const dataReady = !levelLoading && levelLessons.length > 0;
   const maxXpForLevel = MAX_LEVEL * 100;
   const xpForNextLevel = Math.min(progress.level * 100, maxXpForLevel);
   const xpInLevel = progress.level >= MAX_LEVEL ? 100 : progress.xp % 100;
