@@ -1025,4 +1025,37 @@ export const translations: Record<string, T> = {
   "premium.unlockCta":     { bs: "BalkanLink Premium — 9,99€/mj.", hr: "BalkanLink Premium — 9,99€/mj.", sr: "BalkanLink Premium — 9,99€/mj.", de: "BalkanLink Premium — 9,99€/Monat" },
   "premium.freeSteps":     { bs: "Koraci 1–2 su besplatni", hr: "Koraci 1–2 su besplatni", sr: "Koraci 1–2 su besplatni", de: "Schritte 1–2 kostenlos" },
   "premium.stepLocked":    { bs: "zahtijeva Premium", hr: "zahtijeva Premium", sr: "zahtijeva Premium", de: "erfordert Premium" },
+
+  // TRAINER FAQ
+  "trainerFaq.title":          { bs: "Česta pitanja — BalkanLink Deutsch", hr: "Česta pitanja — BalkanLink Deutsch", sr: "Česta pitanja — BalkanLink Deutsch", de: "Häufige Fragen — BalkanLink Deutsch" },
+  "trainerFaq.subtitle":       { bs: "Sve na jednom mjestu", hr: "Sve na jednom mjestu", sr: "Sve na jednom mestu", de: "Alles Wichtige auf einen Blick" },
+  "trainerFaq.back":           { bs: "Nazad", hr: "Natrag", sr: "Nazad", de: "Zurück" },
+  "trainerFaq.backToTrainer":  { bs: "Nazad na trainer", hr: "Natrag na trainer", sr: "Nazad na trainer", de: "Zurück zum Trainer" },
+  "trainerFaq.viewPackages":   { bs: "Pogledaj pakete", hr: "Pogledaj pakete", sr: "Pogledaj pakete", de: "Pakete ansehen" },
+  "trainerFaq.q1": { bs: "Šta je uključeno u besplatnoj verziji?", hr: "Što je uključeno u besplatnoj verziji?", sr: "Šta je uključeno u besplatnoj verziji?", de: "Was ist in der Free-Version enthalten?" },
+  "trainerFaq.a1": { bs: "Dobiješ 3 lekcije po nivou s vježbama i 3 rečenice Sprachassistenta po lekciji — kompletno besplatno.", hr: "Dobivaš 3 lekcije po razini s vježbama i 3 rečenice Sprachassistenta po lekciji — potpuno besplatno.", sr: "Dobijaš 3 lekcije po nivou s vežbama i 3 rečenice Sprachassistenta po lekciji — potpuno besplatno.", de: "Du bekommst 3 Lektionen pro Niveau mit Aufgaben und 3 Sprachassistent-Sätze pro Lektion – kostenlos." },
+  "trainerFaq.q2": { bs: "Šta je uključeno u Ultimate paketu?", hr: "Što je uključeno u Ultimate paketu?", sr: "Šta je uključeno u Ultimate paketu?", de: "Was ist im Ultimate-Paket enthalten?" },
+  "trainerFaq.a2": { bs: "S Ultimate paketom dobiješ sve lekcije, puni pristup Sprachassistentu i dinamički generisane zadatke za maksimalnu raznovrsnost.", hr: "S Ultimate paketom dobivaš sve lekcije, puni pristup Sprachassistentu i dinamički generirane zadatke.", sr: "S Ultimate paketom dobijaš sve lekcije, pun pristup Sprachassistentu i dinamički generisane zadatke.", de: "Mit Ultimate erhältst du alle Lektionen, vollen Sprachassistenten-Zugriff und dynamisch generierte Aufgaben." },
+  "trainerFaq.q3": { bs: "Mogu li besplatno testirati?", hr: "Mogu li besplatno isprobati?", sr: "Mogu li besplatno da testiram?", de: "Kann ich kostenlos testen?" },
+  "trainerFaq.a3": { bs: "Da, prve 3 lekcije po nivou su kompletno besplatne i odmah dostupne.", hr: "Da, prve 3 lekcije po razini su potpuno besplatne i odmah dostupne.", sr: "Da, prve 3 lekcije po nivou su potpuno besplatne i odmah dostupne.", de: "Ja, die ersten 3 Lektionen pro Niveau sind komplett kostenlos und sofort verfügbar." },
+  "trainerFaq.q4": { bs: "Kome je namijenjeno?", hr: "Kome je namijenjeno?", sr: "Kome je namenjeno?", de: "Für wen ist das geeignet?" },
+  "trainerFaq.a4": { bs: "Svima koji žele vježbati njemački u realnim svakodnevnim situacijama — od početnika (A1) do naprednih (C2).", hr: "Svima koji žele vježbati njemački u stvarnim svakodnevnim situacijama — od početnika (A1) do naprednih (C2).", sr: "Svima koji žele da vežbaju nemački u realnim svakodnevnim situacijama — od početnika (A1) do naprednih (C2).", de: "Für alle, die Deutsch in realen Alltagssituationen trainieren möchten – ob Anfänger (A1) oder Fortgeschrittene (C2)." },
+  "trainerFaq.q5": { bs: "Kako funkcioniše struktura cijena?", hr: "Kako funkcionira struktura cijena?", sr: "Kako funkcioniše struktura cena?", de: "Wie funktioniert die Preisstruktur?" },
+  "trainerFaq.a5": { bs: "Možeš kupiti pojedinačne nivoe ili odabrati pakete. Paketi su povoljniji i nude Wertgutschein pri 100% završetku.", hr: "Možeš kupiti pojedinačne razine ili odabrati pakete. Paketi su povoljniji i nude Wertgutschein pri 100% završetku.", sr: "Možeš kupiti pojedinačne nivoe ili izabrati pakete. Paketi su povoljniji i nude Wertgutschein pri 100% završetku.", de: "Du kannst einzelne Niveaus kaufen oder Pakete wählen. Pakete sind günstiger und bieten einen Wertgutschein bei 100% Abschluss." },
+  "trainerFaq.q6": { bs: "Šta je Wertgutschein?", hr: "Što je Wertgutschein?", sr: "Šta je Wertgutschein?", de: "Was ist der Wertgutschein?" },
+  "trainerFaq.a6": { bs: "Kao Premium korisnik dobiješ Wertgutschein pri 100% završetku paketa. Provjera se vrši ručno od strane BalkanLink tima. Detalji su u Bonusbedingungen.", hr: "Kao Premium korisnik dobivaš Wertgutschein pri 100% završetku paketa. Provjera se obavlja ručno od strane BalkanLink tima.", sr: "Kao Premium korisnik dobijaš Wertgutschein pri 100% završetku paketa. Provera se vrši ručno od strane BalkanLink tima.", de: "Als Premium-Nutzer erhältst du bei 100% Abschluss einen Wertgutschein. Die Prüfung erfolgt manuell durch BalkanLink. Details in den Bonusbedingungen." },
+  "trainerFaq.q7": { bs: "Je li Ultimate pretplata?", hr: "Je li Ultimate pretplata?", sr: "Da li je Ultimate pretplata?", de: "Ist Ultimate ein Abo?" },
+  "trainerFaq.a7": { bs: "Ne. Svi kupovine su jednokratne uplate. Platiš jednom i imaš trajan pristup.", hr: "Ne. Sve kupovine su jednokratne uplate. Platiš jednom i imaš trajan pristup.", sr: "Ne. Sve kupovine su jednokratne uplate. Platiš jednom i imaš trajan pristup.", de: "Nein. Alle Käufe sind einmalige Zahlungen. Du zahlst einmal und hast dauerhaften Zugriff." },
+  "trainerFaq.q8": { bs: "Kako funkcioniše XP sistem?", hr: "Kako funkcionira XP sustav?", sr: "Kako funkcioniše XP sistem?", de: "Wie funktioniert das XP-System?" },
+  "trainerFaq.a8": { bs: "Svaki tačan odgovor daje +1 XP. Napredak se čuva i ne gubi se. Maksimalno dostižan: Nivo 15.", hr: "Svaki točan odgovor daje +1 XP. Napredak se sprema i ne gubi se. Maksimalno dostižno: Razina 15.", sr: "Svaki tačan odgovor daje +1 XP. Napredak se čuva i ne gubi se. Maksimalno dostižno: Nivo 15.", de: "Jede richtige Antwort gibt +1 XP. Dein Fortschritt wird gespeichert. Maximal erreichbar: Level 15." },
+  "trainerFaq.q9": { bs: "Moram li učiti gramatiku?", hr: "Moram li učiti gramatiku?", sr: "Da li moram da učim gramatiku?", de: "Muss ich Grammatik lernen?" },
+  "trainerFaq.a9": { bs: "Ne. BalkanLink Deutsch fokusira se na praktične situacije. Gramatiku učiš usput kroz vježbe.", hr: "Ne. BalkanLink Deutsch usredotočuje se na praktične situacije. Gramatiku učiš usput kroz vježbe.", sr: "Ne. BalkanLink Deutsch fokusira se na praktične situacije. Gramatiku učiš usput kroz vežbe.", de: "Nein. BalkanLink Deutsch fokussiert auf praktische Situationen. Grammatik lernst du nebenbei." },
+
+  // SIDEBAR (additional keys)
+  "sidebar.cijene":    { bs: "Paketi i cijene", hr: "Paketi i cijene", sr: "Paketi i cene", de: "Pakete & Preise" },
+  "sidebar.mainFunctions": { bs: "Glavne funkcije", hr: "Glavne funkcije", sr: "Glavne funkcije", de: "Hauptfunktionen" },
+  "sidebar.other":     { bs: "Ostalo", hr: "Ostalo", sr: "Ostalo", de: "Sonstiges" },
+
+  // COOKIE
+  "cookie.footerLink": { bs: "Postavke kolačića", hr: "Postavke kolačića", sr: "Podešavanja kolačića", de: "Cookie-Einstellungen" },
 };
