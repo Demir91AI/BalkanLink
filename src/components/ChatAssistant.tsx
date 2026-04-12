@@ -639,7 +639,7 @@ export default function ChatAssistant() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            className="fixed bottom-20 md:bottom-6 right-4 md:right-6 z-50 group cursor-pointer"
+            className="fixed bottom-20 right-4 z-50 group cursor-pointer hidden md:block md:bottom-6 md:right-6"
             onClick={() => setOpen(true)}
           >
             <div className="absolute bottom-full right-0 mb-2 whitespace-nowrap rounded-lg bg-[hsl(220,30%,12%)] border border-white/10 px-3 py-1.5 text-[11px] font-medium text-white opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
