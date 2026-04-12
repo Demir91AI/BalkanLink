@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { getGuideBySlug } from "@/lib/guide-data";
-import { formCatalog, getAllFormEntries, isFormFree, type FormEntry, type FormGroup } from "@/lib/form-catalog";
+import { formCatalog, getAllFormEntries, isFormFree, hasMuster, getMusterPath, type FormEntry, type FormGroup } from "@/lib/form-catalog";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 import FormFreeContent from "@/components/FormFreeContent";
@@ -230,6 +230,17 @@ function ItemBadge({ slug }: { slug: string }) {
     return <span className="shrink-0 rounded-full bg-emerald-100 dark:bg-emerald-900/30 px-1.5 py-0.5 text-[8px] font-bold text-emerald-700 dark:text-emerald-400">BESPLATNO</span>;
   }
   return <span className="shrink-0 rounded-full bg-[hsl(var(--gold))]/10 px-1.5 py-0.5 text-[8px] font-bold text-[hsl(var(--gold))]">🔒 PREMIUM</span>;
+}
+
+function AvailabilityIndicator({ slug }: { slug: string }) {
+  const free = isFormFree(slug);
+  const muster = hasMuster(slug);
+  const icon = free ? "✓" : "🔒";
+  return (
+    <p className="text-[10px] text-muted-foreground/70 mt-0.5">
+      {icon} Smart Guide {muster ? `  ${icon} Musterformular` : ""}
+    </p>
+  );
 }
 
 /* ─── Main Page ─── */
