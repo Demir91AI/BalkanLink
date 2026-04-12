@@ -16,23 +16,23 @@ export default function PricingPremiumCard({ yearly, isPremium, onCheckout }: Pr
       </span>
       <h2 className="text-lg font-bold mt-2">Premium</h2>
       <p className="mt-1 text-3xl font-bold">
-        {yearly ? "99.90€" : "9.99€"}
+        {yearly ? "99,90€" : "9,99€"}
         <span className="text-sm font-normal text-muted-foreground">
-          /{yearly ? "god." : "mjes."}
+          /{yearly ? "god." : "mj."}
         </span>
       </p>
       <p style={{ fontSize: 11, fontWeight: 700, color: "#EAB308", marginTop: 4, textAlign: "center" as const }}>
         🎉 Promo cijena — prvih 6 mjeseci
       </p>
       <p className="text-xs text-muted-foreground mb-6">
-        {yearly ? "8.33€/mjes. — uštedi 20€" : "Otkaži u bilo kojem trenutku"}
+        {yearly ? "8,33€/mj. — uštedi 20€" : "Otkaži u bilo kojem trenutku"}
       </p>
 
       <div className="flex-1 space-y-4 text-sm">
         <Category icon="📋" title="FORMULARI">
           <Ft>Svi Musterformulari — uključeni bez doplate</Ft>
           <Ft>Smart Guide za svaki formular</Ft>
-          <Ft>Tačna uputstva za svako polje</Ft>
+          <Ft>Tačna uputstva šta upisati u svako polje</Ft>
           <Ft>25+ formulara: Bürgergeld, Kindergeld, Elterngeld i još 20+</Ft>
         </Category>
 
@@ -50,6 +50,7 @@ export default function PricingPremiumCard({ yearly, isPremium, onCheckout }: Pr
 
         <Category icon="🔍" title="DOKUMENTEN-CHECK">
           <Ft>1 provjera dokumenta dnevno gratis</Ft>
+          <Ft>Dodatne provjere isti dan — 2,99€/kom</Ft>
           <Ft>Objašnjenje na tvom jeziku</Ft>
         </Category>
 
@@ -79,13 +80,13 @@ export default function PricingPremiumCard({ yearly, isPremium, onCheckout }: Pr
         }
       >
         <Crown className="mr-2 h-4 w-4" />
-        {isPremium ? "Promijeni plan" : "Kupi Premium →"}
+        {isPremium ? "Promijeni plan" : "Aktiviraj Premium →"}
       </Button>
 
       {!yearly && (
         <>
           <p className="mt-2 text-center text-[11px] text-muted-foreground">
-            ili 99.90€/godišnje — uštedi 2 mjeseca
+            ili 99,90€/godišnje — uštedi 2 mjeseca
           </p>
           <Button
             variant="outline"
