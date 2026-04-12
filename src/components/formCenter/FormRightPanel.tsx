@@ -140,6 +140,9 @@ export default function FormRightPanel({ activeSlug, formLabel, formDesc }: Prop
             }}
           >
             📋 Otvori Musterformular
+            {!isFormFree(slug) && (
+              <span style={{ color: '#C9A84C', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', marginLeft: 4 }}>⭐ PREMIUM</span>
+            )}
           </button>
         )}
 
