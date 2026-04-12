@@ -1,16 +1,34 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { ChevronRight, Info, Search } from "lucide-react";
-import { BIZNIS_CATEGORIES, getBiznisGuidesByCategory, type BiznisGuide } from "@/lib/biznis-data";
+import { Store, AlertCircle, ExternalLink } from "lucide-react";
+import { BIZNIS_CATEGORIES, getBiznisGuidesByCategory } from "@/lib/biznis-data";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { SEO } from "@/components/SEO";
 import PageNavBar from "@/components/navigation/PageNavBar";
+import { CheckCircle, AlertTriangle, Lightbulb, BookOpen, Info } from "lucide-react";
 
-const GOLD = "hsl(var(--gold))";
+const BORDER_COLORS: Record<string, string> = {
+  osnove: "border-l-blue-500",
+  "eu-vs-trecezemlje": "border-l-emerald-500",
+  pokretanje: "border-l-orange-500",
+  porezi: "border-l-green-500",
+  fakturisanje: "border-l-teal-500",
+  obaveze: "border-l-indigo-500",
+  "posebne-situacije": "border-l-amber-500",
+  "greske-zatvaranje": "border-l-red-500",
+  faq: "border-l-gray-500",
+};
+
+const pills = BIZNIS_CATEGORIES.map((cat) => ({ id: cat.id, label: cat.label }));
+
+function scrollTo(id: string) {
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+}
 
 export default function BiznisNjemacka() {
-  const navigate = useNavigate();
-  const [query, setQuery] = useState("");
-  const q = query.toLowerCase().trim();
+  const allGuides = BIZNIS_CATEGORIES.flatMap((cat) =>
+    getBiznisGuidesByCategory(cat.id).map((g) => ({ ...g, catId: cat.id, catIcon: cat.icon }))
+  );
 
   return (
     <>
@@ -22,72 +40,166 @@ export default function BiznisNjemacka() {
       <div className="mx-auto max-w-3xl px-4 py-6 pb-28">
         <PageNavBar />
 
-        <h1 className="text-xl font-extrabold text-foreground sm:text-2xl">Biznis u Njemačkoj</h1>
-        <p className="text-sm text-muted-foreground mt-1 mb-4">Gewerbe, samozaposlenje i poslovanje — vodič za početnike · Stand 2026</p>
-
-        {/* Search */}
-        <div className="relative mb-6">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Pretraži teme…"
-            className="w-full rounded-xl border border-border bg-card py-2.5 pl-10 pr-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[hsl(var(--gold))]/40 transition-shadow"
-          />
-        </div>
-
-        <div className="mb-8 rounded-xl border border-blue-200 bg-blue-50 p-4 flex items-start gap-3">
-          <Info className="h-4 w-4 text-blue-500 mt-0.5 shrink-0" />
-          <p className="text-xs text-blue-700 leading-relaxed">
-            Ovaj sadržaj je informativnog karaktera i <strong>ne predstavlja pravni, porezni niti poslovni savjet</strong>. Za konkretne slučajeve konsultiraj Steuerberater, advokata ili nadležne institucije.
+        {/* Hero */}
+        <div className="rounded-2xl bg-[#F5F0E8] p-6 sm:p-8 mb-6 text-center">
+          <Store className="mx-auto h-10 w-10 text-muted-foreground mb-3" />
+          <h1 className="text-2xl sm:text-3xl font-bold mb-2">Biznis u Njemačkoj</h1>
+          <p className="text-muted-foreground max-w-lg mx-auto mb-3">
+            Gewerbe, samozaposlenje i poslovanje — vodič za početnike · Stand 2026
           </p>
+          <Badge variant="outline" className="text-xs">
+            📌 Informativnog karaktera — ne predstavlja pravni, porezni niti poslovni savjet
+          </Badge>
         </div>
 
-        <div className="space-y-8">
-          {BIZNIS_CATEGORIES.map((cat) => {
-            const guides = getBiznisGuidesByCategory(cat.id).filter(
-              (g) => !q || g.title.toLowerCase().includes(q) || g.germanTerm.toLowerCase().includes(q)
-            );
-            if (guides.length === 0) return null;
-            const Icon = cat.icon;
+        {/* Pills */}
+        <div className="sticky top-14 z-20 -mx-4 px-4 py-2 bg-background/95 backdrop-blur mb-6 overflow-x-auto scrollbar-hide">
+          <div className="flex gap-2 min-w-max">
+            {pills.map((p) => (
+              <button key={p.id} onClick={() => scrollTo(p.id)} className="whitespace-nowrap rounded-full border px-3 py-1.5 text-xs font-medium hover:bg-accent transition-colors">
+                {p.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Accordion */}
+        <Accordion type="multiple" className="space-y-3">
+          {allGuides.map((guide) => {
+            const borderColor = BORDER_COLORS[guide.catId] || "border-l-gray-400";
+            const Icon = guide.catIcon;
             return (
-              <section key={cat.id}>
-                <div className="flex items-center gap-2 mb-3">
-                  <Icon className="h-4 w-4" style={{ color: GOLD }} />
-                  <h2 className="text-sm font-bold text-foreground uppercase tracking-wide">{cat.label}</h2>
-                  <span className="text-[10px] text-muted-foreground ml-1">({guides.length})</span>
-                </div>
-                <div className="grid gap-2">
-                  {guides.map((guide) => (
-                    <GuideCard key={guide.slug} guide={guide} onClick={() => navigate(`/biznis/${guide.slug}`)} />
-                  ))}
-                </div>
-              </section>
+              <AccordionItem
+                key={guide.slug}
+                value={guide.slug}
+                id={guide.catId}
+                className={`scroll-mt-28 border-l-4 ${borderColor} rounded-xl border bg-card`}
+              >
+                <AccordionTrigger className="px-5 py-4 hover:no-underline">
+                  <div className="flex items-center gap-3 text-left">
+                    <Icon className="h-5 w-5 text-muted-foreground shrink-0" />
+                    <div>
+                      <p className="font-bold text-sm sm:text-base">{guide.title}</p>
+                      <p className="text-xs text-muted-foreground">{guide.germanTerm}</p>
+                    </div>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="px-5 pb-5">
+                  <div className="space-y-4 text-sm leading-relaxed">
+                    {/* Explanation */}
+                    <div className="rounded-xl border border-border bg-card p-4">
+                      <h3 className="flex items-center gap-1.5 text-xs font-bold text-foreground mb-2">
+                        <BookOpen className="h-3.5 w-3.5 text-muted-foreground" /> Šta je to / Objašnjenje
+                      </h3>
+                      {guide.explanation.split('\n\n').map((p, i) => (
+                        <p key={i} className="text-muted-foreground mb-2 last:mb-0 whitespace-pre-line">{p}</p>
+                      ))}
+                    </div>
+
+                    {/* Rules */}
+                    <div className="rounded-xl border border-border bg-card p-4">
+                      <h3 className="flex items-center gap-1.5 text-xs font-bold text-foreground mb-2">
+                        <CheckCircle className="h-3.5 w-3.5 text-muted-foreground" /> Najvažnija pravila
+                      </h3>
+                      <ul className="space-y-1.5">
+                        {guide.rules.map((r, i) => (
+                          <li key={i} className="flex items-start gap-2 text-muted-foreground">
+                            <CheckCircle className="h-3 w-3 mt-1 shrink-0 text-green-500" />
+                            <span>{r}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Examples */}
+                    <div className="rounded-xl border border-amber-200 bg-amber-50 p-4">
+                      <h3 className="flex items-center gap-1.5 text-xs font-bold text-foreground mb-2">
+                        <Lightbulb className="h-3.5 w-3.5 text-amber-500" /> Praktični primjeri
+                      </h3>
+                      <ul className="space-y-1.5">
+                        {guide.examples.map((e, i) => (
+                          <li key={i} className="flex items-start gap-2 text-amber-800">
+                            <span className="font-bold text-amber-500 shrink-0 mt-0.5">→</span>
+                            <span>{e}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Warnings */}
+                    <div className="rounded-xl border border-red-200 bg-red-50 p-4">
+                      <h3 className="flex items-center gap-1.5 text-xs font-bold text-foreground mb-2">
+                        <AlertTriangle className="h-3.5 w-3.5 text-red-500" /> Na šta posebno paziti
+                      </h3>
+                      <ul className="space-y-1.5">
+                        {guide.warnings.map((w, i) => (
+                          <li key={i} className="flex items-start gap-2 text-red-700">
+                            <AlertTriangle className="h-3 w-3 mt-1 shrink-0 text-red-400" />
+                            <span>{w}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Myths */}
+                    <div className="rounded-xl border border-purple-200 bg-purple-50 p-4">
+                      <h3 className="flex items-center gap-1.5 text-xs font-bold text-foreground mb-2">
+                        <Info className="h-3.5 w-3.5 text-purple-500" /> Česte greške / Mitovi
+                      </h3>
+                      <ul className="space-y-2">
+                        {guide.myths.map((m, i) => (
+                          <li key={i} className="text-purple-800 border-l-2 border-purple-300 pl-3">{m}</li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Sources */}
+                    <div className="text-xs text-muted-foreground">
+                      <strong>Izvori:</strong> {guide.sources.join(" · ")}
+                    </div>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
             );
           })}
-          {q && BIZNIS_CATEGORIES.every((cat) => getBiznisGuidesByCategory(cat.id).filter((g) => g.title.toLowerCase().includes(q) || g.germanTerm.toLowerCase().includes(q)).length === 0) && (
-            <p className="text-center text-sm text-muted-foreground py-8">Nema rezultata za „{query}"</p>
-          )}
-        </div>
+        </Accordion>
+
+        {/* Footer — Korisni linkovi */}
+        <Card className="bg-blue-50 border-blue-200 mt-6">
+          <CardContent className="p-5 sm:p-6">
+            <h3 className="font-bold mb-4">Službeni izvori i pomoć</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {[
+                { label: "IHK Deutschland", url: "https://www.ihk.de", desc: "Registracija biznisa, savjeti za poduzetnike" },
+                { label: "Unternehmensregister", url: "https://www.unternehmensregister.de", desc: "Prijava obrta i provjera registra" },
+                { label: "Finanzamt ELSTER", url: "https://www.elster.de", desc: "Online prijava poreza i Steuernummer" },
+                { label: "Minijob-Zentrale", url: "https://www.minijob-zentrale.de", desc: "Sve o Minijob zaposlenju" },
+              ].map((l) => (
+                <a key={l.url} href={l.url} target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 rounded-lg border bg-background p-3 hover:bg-accent transition-colors">
+                  <ExternalLink className="h-4 w-4 mt-0.5 shrink-0 text-blue-600" />
+                  <div>
+                    <span className="font-medium text-sm">{l.label}</span>
+                    <p className="text-xs text-muted-foreground">{l.desc}</p>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Disclaimer */}
+        <Card className="bg-yellow-50 border-yellow-300 mt-3">
+          <CardContent className="p-5 flex gap-3">
+            <AlertCircle className="h-5 w-5 text-yellow-600 shrink-0 mt-0.5" />
+            <div>
+              <p className="font-semibold text-sm mb-1">Napomena</p>
+              <p className="text-sm text-yellow-900">
+                Informacije na ovoj stranici su opće prirode i ne zamjenjuju pravni, porezni niti poslovni savjet. Za konkretne slučajeve konsultiraj Steuerberater, advokata ili nadležne institucije.
+              </p>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </>
-  );
-}
-
-function GuideCard({ guide, onClick }: { guide: BiznisGuide; onClick: () => void }) {
-  return (
-    <button
-      onClick={onClick}
-      className="group flex items-center justify-between w-full rounded-xl border border-border bg-card p-4 text-left transition-all duration-200 hover:border-[hsl(var(--gold))] hover:shadow-md active:scale-[0.99]"
-    >
-      <div className="min-w-0">
-        <p className="text-sm font-semibold text-foreground group-hover:text-[hsl(var(--gold))] transition-colors">
-          {guide.title}
-        </p>
-        <p className="text-xs text-muted-foreground mt-0.5">{guide.germanTerm}</p>
-      </div>
-      <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground group-hover:text-[hsl(var(--gold))] transition-colors" />
-    </button>
   );
 }
