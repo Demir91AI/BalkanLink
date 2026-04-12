@@ -82,89 +82,115 @@ function extractJsonArray(raw: string): unknown[] {
 
 function buildSystemPrompt(level: string, stageType: string): string {
   const levelGuide: Record<string, string> = {
-    A1: `Nivo A1 — odrasli Balkanci koji su NEDAVNO stigli u Njemačku.
-Teme: prva posjeta ljekaru, Anmeldung (prijava boravišta), 
+    A1: `ODRASLI POČETNICI — Balkanci koji su NEDAVNO stigli u Njemačku.
+Realne situacije: prva posjeta ljekaru, Anmeldung prijava, 
 otvaranje bankovnog računa, kupovina u supermarketu, 
-javni prijevoz, razgovor sa stanodavcem, Apotheke, 
-osnove na radnom mjestu, razumijevanje jednostavnih pisama.
-Jezik: kratke ali ODRASLE rečenice. 
-NIKADA ne pitaj dječija pitanja kao "Wie sagt man Hallo".`,
+javni prijevoz (Bus/S-Bahn), razgovor sa stanodavcem, 
+Apotheke, osnove na radnom mjestu, razumijevanje jednostavnih pisama.
+Vokabular: Krankenkasse, Versicherungskarte, Rezept, Termin, 
+Anmeldung, Personalausweis, IBAN, Gehalt, Miete, Nebenkosten.
+ZABRANJENO: Pitanja za djecu, "Wie sagt man Hallo", 
+brojevanje, bojanje, abeceda.`,
 
-    A2: `Nivo A2 — Balkanci koji nekoliko mjeseci žive u Njemačkoj.
-Teme: Jobcenter razgovor, Krankenkasse prijava, 
-razumijevanje pisma od Finanzamt, razgovor s komšijom, 
-Nebenkostenabrechnung, traženje posla, Kita, 
-reklamacija u prodavnici, razumijevanje ugovora.
-Jezik: Perfekt, modalni glagoli, složenije rečenice.`,
+    A2: `ODRASLI — Balkanci koji nekoliko mjeseci žive u Njemačkoj.
+Situacije: Jobcenter razgovor, Krankenkasse pitanja,
+razumijevanje pisma od Finanzamt ili Jobcenter,
+razgovor s komšijom (buka, parking, müll),
+Nebenkostenabrechnung razumijevanje, traženje posla,
+Kita prijava, reklamacija u prodavnici, razumijevanje ugovora,
+telefon s Hausarztom za termin, prijevoz na posao.
+Vokabular: Arbeitslosengeld, Kinderzuschlag, Heizkostenabrechnung,
+Mietvertrag, Kündigung, Probezeit, Lebenslauf.`,
 
-    B1: `Nivo B1 — Balkanci koji godinu-dvije žive u Njemačkoj.
-Teme: razgovor za posao (Vorstellungsgespräch), 
-razumijevanje Arbeitsvertrag, prigovor stanodavcu zbog kvara,
-razgovor s Ausländerbehörde, roditeljski sastanak,
-telefon s osiguravajućim društvom, Elterngeld/Kindergeld prijava,
-Kündigung (otkaz).
-Jezik: Konjunktiv II, pasiv, zavisne rečenice.`,
+    B1: `SREDNJI NIVO — Balkanci godinu-dvije u Njemačkoj.
+Situacije: Vorstellungsgespräch (razgovor za posao),
+razumijevanje Arbeitsvertrag detalja, prigovor stanodavcu,
+razgovor s Ausländerbehörde o produženju Aufenthaltstitel,
+roditeljski sastanak u školi na njemačkom,
+telefon s Versicherung za štetu, Elterngeld/Kindergeld prijava,
+pisanje Kündigung, razumijevanje Abrechnung od Krankenkasse.
+Gramatika: Konjunktiv II (würde/könnte/sollte), pasiv, 
+Nebensätze, Relativsätze.`,
 
-    B2: `Nivo B2 — Balkanci koji nekoliko godina žive u Njemačkoj.
-Teme: pregovori o plati, žalba na odluku Jobcentera,
-razgovor s advokatom o stanarskom pravu,
-Steuererklärung, razgovor s bankom o kreditu,
-Betriebsrat, medicinska dokumentacija,
-složene birokratske procedure (Niederlassungserlaubnis).
-Jezik: pasiv, indirektni govor, složene nominalizacije.`,
+    B2: `NAPREDNI — Balkanci koji nekoliko godina žive u Njemačkoj.
+Situacije: pregovori o Gehaltserhöhung, žalba na Jobcenter odluku,
+razgovor s advokatom o Mietrecht, 
+priprema Steuererklärung s Werbungskosten,
+razgovor s bankom o Kredit ili Baufinanzierung,
+Betriebsrat prava i dužnosti, složena medicinska dokumentacija,
+Niederlassungserlaubnis procedura.
+Gramatika: Passiv (Vorgangs/Zustandspassiv), indirekte Rede,
+Nominalisierungen, dvosmislene strukture.`,
 
-    C1: `Nivo C1 — visoko integrirani Balkanci ili profesionalci.
-Teme: poslovni pregovori, pravne procedure,
-složena medicinska komunikacija, akademski kontekst,
-Verwaltungsgericht žalba, ugovorne klauzule,
-stručni sastanci, prezentacije.
-Jezik: idiomi, stručna terminologija, precizne formulacije.`,
+    C1: `VISOKI NIVO — Profesionalni Balkanci u Njemačkoj.
+Situacije: poslovni pregovori na njemačkom,
+Verwaltungsgericht ili Sozialgericht žalba,
+stručna medicinska komunikacija, ugovorne klauzule,
+akademski ili stručni tekst analiza,
+HR razgovor za rukovodeću poziciju,
+prezentacija pred klijentima na njemačkom.
+Gramatika: idiomi, Genitivkonstruktionen, stručna terminologija,
+precizne i nüansirane formulacije.`,
 
-    C2: `Nivo C2 — gotovo maternji nivo.
-Teme: pravni dokumenti, medicinska ekspertiza,
-politička diskusija, akademsko pisanje, stilistički 
-zahtjevna komunikacija.
-Jezik: Redewendungen, stilistika, izvornogovorni nivo.`,
+    C2: `MATERNJI NIVO — Bilingvalni ili dugogodišnji Balkanci.
+Situacije: pravni dokumenti i tumačenje,
+medicinska ekspertiza pisana forma, 
+politička ili kulturna diskusija,
+akademsko pisanje (Hausarbeit, Exposé),
+stilistički zahtjevna korespondencija,
+Redewendungen i idiomi u kontekstu,
+složene retoričke strukture.`,
   };
 
   const stageGuide: Record<string, string> = {
-    Grundlagen: `OSNOVE: Prepoznavanje i razumijevanje ključnih pojmova.
-Fokus: prepoznati ispravnu frazu, razumjeti situaciju, 
-naučiti ključni vokabular iz konteksta.`,
+    Grundlagen: `OSNOVE: Razumijevanje i prepoznavanje.
+Zadaci: prepoznati ispravnu frazu, razumjeti situaciju, 
+naučiti ključni vokabular iz konkretnog konteksta.
+Težina: jasni scenariji, jedna ispravna opcija koja je 
+logično tačna, druge opcije su očito netačne ali 
+ne glupe — realistične pogreške koje stvarno radi Balkanci.`,
+
     Anwendung: `PRIMJENA: Aktivna upotreba u realnim situacijama.
-Fokus: tvoriti rečenice, birati ispravnu gramatičku formu,
-primijeniti vokabular u novom kontekstu.`,
-    Realitaet: `REALNOST: Spontana komunikacija u nepredviđenim situacijama.
-Fokus: brze reakcije, neformalni govor,
-snalaženje pod pritiskom komunikacije.`,
+Zadaci: tvoriti rečenice, birati ispravnu gramatičku formu,
+primijeniti vokabular u novom kontekstu.
+Težina: nekoliko mogućih opcija, zahtijeva razmišljanje 
+o gramatici i leksiku istovremeno.`,
+
+    Realitaet: `REALNOST: Spontana komunikacija pod pritiskom.
+Zadaci: brze reakcije, razumijevanje neformalnog govora,
+snalaženje u neiočekivanim situacijama.
+Težina: realistični dijalozi, kulturni aspekti, 
+situacije gdje pogrešan odgovor ima posljedice.`,
   };
 
-  return `Ti si ekspert za podučavanje njemačkog odraslima 
-koji dolaze sa Balkana i žive u Njemačkoj.
+  return `Ti si profesor njemačkog za odrasle Balkance koji žive u Njemačkoj.
 
-NIVO: ${level}
+NIVO STUDENTA: ${level}
 ${levelGuide[level] || levelGuide.B1}
 
-FAZA: ${stageGuide[stageType] || stageGuide.Grundlagen}
+FAZA UČENJA: ${stageGuide[stageType] || stageGuide.Grundlagen}
 
-PRAVILA:
-1. SVE situacije moraju biti REALNE za odrasle Balkance u Njemačkoj
-2. NIKADA nemoj generisati dječija pitanja
-3. Svaka situacija mora biti specifična i konkretna
-4. Miješaj sva 4 tipa ravnomjerno
-5. Objašnjenja trebaju biti korisna i informativna
-6. Svaki batch mora imati RAZLIČITE situacije — ne ponavljaj
-7. Zadaci moraju biti izazovni za odabrani nivo
+OBAVEZNA PRAVILA — kršenje nije dopušteno:
+1. SVE situacije moraju biti REALNE za odrasle u Njemačkoj
+2. NIKAD ne generiraj pitanja za djecu ili početnike (Hallo, Tschüss, Zahlen 1-10)
+3. Svaki zadatak mora imati SPECIFIČNU situaciju (ne "Sie befinden sich irgendwo")
+4. Pogrešne opcije moraju biti REALISTIČNE GREŠKE — ne apsurdne
+5. explanation mora dati KORISTAN SAVJET za život u Njemačkoj
+6. Ravnomjerno miješaj sva 4 tipa
+7. SVAKI batch mora biti DRUGAČIJI — nikad iste situacije
+8. sort_sentence: korisne, realne rečenice koje Balkanci zaista trebaju
+9. fill_blank: rečenice iz stvarnih dokumenata ili razgovora
+10. quick_reaction: situacije koje zahtijevaju brzu odluku
 
-FORMAT — striktno JSON array bez Markdown:
+FORMAT — SAMO JSON array, bez ikakvog Markdowna:
 [
   {
     "type": "multiple_choice",
-    "situation": "Konkretan opis situacije (1-2 rečenice)",
+    "situation": "Konkretna situacija u Njemačkoj (1-2 rečenice)",
     "question": "Pitanje na njemačkom",
     "options": ["opcija1", "opcija2", "opcija3"],
     "answer": 0,
-    "explanation": "Kratko objašnjenje + koristan savjet"
+    "explanation": "Zašto je ovo tačno + praktičan savjet za Balkance"
   }
 ]`;
 }
@@ -191,7 +217,7 @@ function buildFallbackExercises(topic: string, stageType: string, count: number)
         return {
           type: "sort_sentence",
           situation: `${baseSituation} Sie brauchen Hilfe in einer Situation zu ${safeTopic}.`,
-          question: "Ordnen Sie die Woerter zu einem Satz:",
+          question: "Poredaj rečenicu:",
           options: ["Ich", "brauche", "heute", "Hilfe"],
           answer: [0, 1, 2, 3],
           explanation: "Der korrekte Satz ist 'Ich brauche heute Hilfe'.",
@@ -239,30 +265,63 @@ serve(async (req) => {
       return jsonResponse({ exercises: fallbackExercises, fallback: true });
     }
 
-    const randomSeed = Math.floor(Math.random() * 10000);
     const subtopics: Record<string, string[]> = {
-      A1: ["Arztbesuch","Anmeldung","Supermarkt","Bank","Bus/Bahn",
-           "Apotheke","Standesamt","Post","Nachbarn","Wohnung"],
-      A2: ["Jobcenter","Krankenkasse","Finanzamt","Kita","Vertrag",
-           "Reklamation","Telefon","Behörden","Wohnungssuche","Alltag"],
-      B1: ["Vorstellungsgespräch","Arbeitsvertrag","Ausländerbehörde",
-           "Elterngeld","Kündigung","Mietrecht","Versicherung","Schule"],
-      B2: ["Gehaltsverhandlung","Steuererklärung","Niederlassungserlaubnis",
-           "Rechtsstreit","Betriebsrat","Immobilien","Kredit","Verwaltung"],
-      C1: ["Vertragsverhandlung","Medizinische Fachsprache","Verwaltungsgericht",
-           "Unternehmensführung","Akademisches Schreiben","Fachkonferenz"],
-      C2: ["Rechtsdokumente","Politische Analyse","Medizinische Expertise",
-           "Wissenschaftlicher Diskurs","Stilistik","Redekunst"],
+      A1: ["Arzttermin buchen","Krankenversicherung","Apotheke Rezept",
+           "Anmeldung Bürgeramt","Bankkonto eröffnen","Supermarkt Reklamation",
+           "Bus und Bahn","Wohnungsbesichtigung","Arbeitsvertrag Grundlagen",
+           "Standesamt Dokumente","Post und Pakete","Telefon Kundenservice",
+           "Jobcenter erste Kontakt","Steuer-ID beantragen","Nachbarn vorstellen"],
+      A2: ["Jobcenter Gespräch","Krankenkasse Wechsel","Finanzamt Brief verstehen",
+           "Mietvertrag Details","Vorstellungsgespräch vorbereiten",
+           "Kita Anmeldung","Nebenkostenabrechnung","Kündigung schreiben",
+           "Versicherung Schaden melden","Elterngeld beantragen",
+           "Kindergeld Antrag","Schule Elternabend","Arzt Fachbegriffe",
+           "Fahrkarte kaufen","Reklamation Kaufvertrag"],
+      B1: ["Gehaltsverhandlung","Ausländerbehörde Termin","Aufenthaltstitel verlängern",
+           "Betriebsrat Rechte","Arbeitsvertrag Konjunktiv","Mietmängel melden",
+           "Steuerklasse wechseln","Krankenhaus Aufnahme","Rentenversicherung",
+           "Arbeitslosengeld beantragen","Schule Zeugnis","Wohngeld Antrag",
+           "Bürgergeld Anspruch","Sozialversicherung","Pflegeversicherung"],
+      B2: ["Niederlassungserlaubnis","Steuererklärung Werbungskosten",
+           "Arbeitsrecht Kündigung anfechten","Mietrecht Streit",
+           "Kredit Verhandlung","Betriebsvereinbarung","Werkvertrag vs Arbeitsvertrag",
+           "Rentenansprüche","Krankentagegeld","Elternzeit berechnen",
+           "Schwerbehindertenausweis","Erbrecht Grundlagen","Insolvenz Verfahren",
+           "Handelsregister","Gesellschaftsvertrag"],
+      C1: ["Verwaltungsgericht Klage","Arbeitsgerichtsverfahren",
+           "Unternehmensführung","Medizinische Gutachten","Steuerstrategie",
+           "Immobilienkauf Vertrag","Gesellschaftsrecht","Markenschutz",
+           "Arbeitsrecht Spezialfälle","Compliance und Datenschutz",
+           "Insolvenzrecht","Erbschaftsteuer","Bilanzierung","Tarifvertrag","Betriebsverfassung"],
+      C2: ["Rechtsdokumente analysieren","Wirtschaftssprache Nuancen",
+           "Politische Rhetorik","Wissenschaftliches Schreiben",
+           "Literarische Interpretation","Medizinische Fachsprache präzise",
+           "Philosophische Argumentation","Stilistik und Register",
+           "Historische Analyse","Journalistische Sprache",
+           "Diplomatische Kommunikation","Akademische Debatte",
+           "Sprachkritik","Redewendungen im Kontext","Ironie und Subtext"],
     };
-    const levelSubtopics = subtopics[level] || subtopics["B1"];
-    const randomSubtopic = levelSubtopics[randomSeed % levelSubtopics.length];
 
-    const userPrompt = `Generiere genau ${actualCount} einzigartige Übungen 
-zum Thema "${topic}" für Niveau ${level}, Stufe "${stageType}".
-Unterthema für diese Batch: ${randomSubtopic} (seed: ${randomSeed}).
-Wichtig: KEINE Wiederholungen, realistische Situationen für Erwachsene,
-alle 4 Typen gleichmäßig, mindestens 2 sort_sentence.
-Antworte NUR mit JSON-Array, ohne Markdown.`;
+    const levelSubs = subtopics[level] || subtopics["B1"];
+    const randomSeed = Math.floor(Math.random() * 100000);
+    const randomSubtopic = levelSubs[randomSeed % levelSubs.length];
+    const variety = ["formal","informal","schriftlich","mündlich","Amt","Alltag"];
+    const randomVariety = variety[randomSeed % variety.length];
+
+    const userPrompt = `Generiraj točno ${actualCount} JEDINSTVENIH zadataka.
+
+Tema: "${topic}"
+Specifični fokus: ${randomSubtopic} (${randomVariety} kontekst)
+Nivo: ${level}, Faza: ${stageType}
+Seed za jedinstvenost: ${randomSeed}
+
+VAŽNO:
+- Svaki zadatak mora biti potpuno drugačiji scenario
+- Situacije moraju biti KONKRETNE i SPECIFIČNE
+- Nijedno pitanje za djecu ili trivijalne odgovore
+- Sva 4 tipa ravnomjerno (${Math.ceil(actualCount/4)} od svakog)
+
+Odgovori SAMO JSON arrayom bez ikakvog teksta ili Markdowna.`;
 
     const models = [
       "google/gemini-2.5-flash",
