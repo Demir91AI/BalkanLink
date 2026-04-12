@@ -411,22 +411,40 @@ export default function Index() {
                     </span>
                   </AccordionTrigger>
                   <AccordionContent className="px-0 pb-0">
+                    {/* Column headers */}
+                    <div className="grid grid-cols-3 px-4 py-2 text-[10px] font-bold uppercase tracking-wider border-b border-[#E8E0D0] bg-muted/30">
+                      <span className="text-muted-foreground">Funkcija</span>
+                      <span className="text-center"><span className="inline-flex items-center gap-1 text-foreground">Besplatno <span className="rounded-full bg-muted px-1.5 py-0.5 text-[9px] font-semibold">0€</span></span></span>
+                      <span className="text-center"><span className="inline-flex items-center gap-1 text-[hsl(var(--gold))]">Premium <span className="rounded-full bg-[hsl(var(--gold))]/10 text-[hsl(var(--gold))] px-1.5 py-0.5 text-[9px] font-semibold">9,99€/mj.</span></span></span>
+                    </div>
                     <div className="divide-y divide-[#E8E0D0]">
                       {[
-                        { feature: "Musterformulare", free: "Zaključano", premium: "✅ Potpuni pristup" },
-                        { feature: "Smart Guides", free: "Samo uvod", premium: "✅ Svi koraci" },
-                        { feature: "Dokumenten-Check", free: "2,99€/kom", premium: "✅ 1x gratis dnevno" },
-                        { feature: "Šabloni / Vorlagen", free: "Samo pregled", premium: "✅ Download PDF" },
-                        { feature: "BalkanLink Asistent", free: "Ograničeno", premium: "✅ Neograničeno" },
-                        { feature: "Viza Navigator", free: "Osnovni", premium: "✅ Puni pristup" },
+                        { feature: "Musterformulari", free: "❌ Nije dostupno", premium: "✅ Svi formulari + primjeri" },
+                        { feature: "Smart Guides", free: "❌ Nije dostupno", premium: "✅ Korak-po-korak vodič" },
+                        { feature: "Viza Navigator", free: "Osnovna info", premium: "✅ Kompletni vodič + dokumenti" },
+                        { feature: "Dokumenten-Check", free: "2,99€ po provjeri", premium: "✅ 1x dnevno gratis" },
+                        { feature: "Šabloni / Vorlagen", free: "✅ Kündigung gratis", premium: "✅ Svi šabloni + PDF download" },
+                        { feature: "BalkanLink Asistent", free: "⚠️ 5 pitanja/dan", premium: "✅ Neograničeno" },
+                        { feature: "DeutschTrainer", free: "❌ Nije dostupno", premium: "✅ A1–C2 kompletni kurs" },
+                        { feature: "Brutto-Netto kalkulator", free: "✅ Dostupno", premium: "✅ Dostupno" },
                         { feature: "Pro oglasi", free: "2,99€/oglas", premium: "✅ 2 uključena/mj." },
+                        { feature: "Dolazak u Njemačku vodiči", free: "✅ Potpun pristup", premium: "✅ Potpun pristup" },
+                        { feature: "Wertgutschein program", free: "❌ Nije dostupno", premium: "✅ Amazon vaučer do 30€" },
+                        { feature: "Notifikacije o promjenama", free: "❌ Nije dostupno", premium: "✅ Push obavijesti" },
+                        { feature: "Prioritetna podrška", free: "❌ Nije dostupno", premium: "✅ Brži odgovor" },
+                        { feature: "Novi sadržaj — rano", free: "❌ Nije dostupno", premium: "✅ Pristup prvi" },
                       ].map((row) => (
                         <div key={row.feature} className="grid grid-cols-3 px-4 py-2.5 text-xs">
-                          <span className="font-medium text-[#2D2D2D]">{row.feature}</span>
-                          <span className="text-center text-[#999]">{row.free}</span>
+                          <span className="font-medium text-foreground">{row.feature}</span>
+                          <span className="text-center text-muted-foreground">{row.free}</span>
                           <span className="text-center font-semibold text-[hsl(var(--gold))]">{row.premium}</span>
                         </div>
                       ))}
+                    </div>
+                    <div className="px-4 py-4 border-t border-[#E8E0D0]">
+                      <Button className="w-full rounded-full bg-[hsl(var(--gold))] text-white font-bold hover:bg-[hsl(var(--gold-dark))]" onClick={() => navigate("/paketi")}>
+                        Postani Premium →
+                      </Button>
                     </div>
                   </AccordionContent>
                 </AccordionItem>
@@ -491,24 +509,42 @@ export default function Index() {
             {/* ── Comparison Table (desktop only) ── */}
             <div className="hidden sm:block max-w-3xl mx-auto rounded-2xl border border-[#E8E0D0] overflow-hidden">
               <div className="bg-[hsl(var(--warm-cream))] px-6 py-4 border-b border-[#E8E0D0]">
-                <h3 className="font-bold text-[#2D2D2D] text-lg">Besplatno vs. Premium</h3>
+                <h3 className="font-bold text-foreground text-lg">Besplatno vs. Premium</h3>
+              </div>
+              {/* Column headers */}
+              <div className="grid grid-cols-3 px-6 py-3 text-xs font-bold uppercase tracking-wider border-b border-[#E8E0D0] bg-muted/30">
+                <span className="text-muted-foreground">Funkcija</span>
+                <span className="text-center"><span className="inline-flex items-center gap-1.5 text-foreground">Besplatno <span className="rounded-full bg-muted px-2 py-0.5 text-[10px] font-semibold">0€</span></span></span>
+                <span className="text-center"><span className="inline-flex items-center gap-1.5 text-[hsl(var(--gold))]">Premium <span className="rounded-full bg-[hsl(var(--gold))]/10 text-[hsl(var(--gold))] px-2 py-0.5 text-[10px] font-semibold">9,99€/mj.</span></span></span>
               </div>
               <div className="divide-y divide-[#E8E0D0]">
                 {[
-                  { feature: "Musterformulare", free: "Zaključano", premium: "✅ Potpuni pristup" },
-                  { feature: "Smart Guides", free: "Samo uvod", premium: "✅ Svi koraci" },
-                  { feature: "Dokumenten-Check", free: "2,99€/kom", premium: "✅ 1x gratis dnevno" },
-                  { feature: "Šabloni / Vorlagen", free: "Samo pregled", premium: "✅ Download PDF" },
-                  { feature: "BalkanLink Asistent", free: "Ograničeno", premium: "✅ Neograničeno" },
-                  { feature: "Viza Navigator", free: "Osnovni", premium: "✅ Puni pristup" },
+                  { feature: "Musterformulari", free: "❌ Nije dostupno", premium: "✅ Svi formulari + primjeri" },
+                  { feature: "Smart Guides", free: "❌ Nije dostupno", premium: "✅ Korak-po-korak vodič" },
+                  { feature: "Viza Navigator", free: "Osnovna info", premium: "✅ Kompletni vodič + dokumenti" },
+                  { feature: "Dokumenten-Check", free: "2,99€ po provjeri", premium: "✅ 1x dnevno gratis" },
+                  { feature: "Šabloni / Vorlagen", free: "✅ Kündigung gratis", premium: "✅ Svi šabloni + PDF download" },
+                  { feature: "BalkanLink Asistent", free: "⚠️ 5 pitanja/dan", premium: "✅ Neograničeno" },
+                  { feature: "DeutschTrainer", free: "❌ Nije dostupno", premium: "✅ A1–C2 kompletni kurs" },
+                  { feature: "Brutto-Netto kalkulator", free: "✅ Dostupno", premium: "✅ Dostupno" },
                   { feature: "Pro oglasi", free: "2,99€/oglas", premium: "✅ 2 uključena/mj." },
+                  { feature: "Dolazak u Njemačku vodiči", free: "✅ Potpun pristup", premium: "✅ Potpun pristup" },
+                  { feature: "Wertgutschein program", free: "❌ Nije dostupno", premium: "✅ Amazon vaučer do 30€" },
+                  { feature: "Notifikacije o promjenama", free: "❌ Nije dostupno", premium: "✅ Push obavijesti" },
+                  { feature: "Prioritetna podrška", free: "❌ Nije dostupno", premium: "✅ Brži odgovor" },
+                  { feature: "Novi sadržaj — rano", free: "❌ Nije dostupno", premium: "✅ Pristup prvi" },
                 ].map((row) => (
                   <div key={row.feature} className="grid grid-cols-3 px-6 py-3 text-sm">
-                    <span className="font-medium text-[#2D2D2D]">{row.feature}</span>
-                    <span className="text-center text-[#999]">{row.free}</span>
+                    <span className="font-medium text-foreground">{row.feature}</span>
+                    <span className="text-center text-muted-foreground">{row.free}</span>
                     <span className="text-center font-semibold text-[hsl(var(--gold))]">{row.premium}</span>
                   </div>
                 ))}
+              </div>
+              <div className="px-6 py-5 border-t border-[#E8E0D0] text-center">
+                <Button className="rounded-full bg-[hsl(var(--gold))] text-white font-bold hover:bg-[hsl(var(--gold-dark))] px-8" onClick={() => navigate("/paketi")}>
+                  Postani Premium →
+                </Button>
               </div>
             </div>
 
