@@ -4,6 +4,7 @@ import { useSubscription } from '@/hooks/useSubscription';
 import { useAuth } from '@/contexts/AuthContext';
 import VisaGateCard from './VisaGateCard';
 import { COUNTRY_CONTENT } from '../../data/vizaNavigatorContent';
+import { DEV_MODE } from '@/lib/dev-mode';
 
 const loadForm = (formKey: string) => {
   const formMap: Record<string, () => Promise<{ default: React.FC }>> = {
@@ -78,7 +79,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
   const openFormRef = useRef<HTMLDivElement>(null);
   const { isPremium } = useSubscription();
   const { user } = useAuth();
-  const hasFullAccess = !!user && isPremium;
+  const hasFullAccess = DEV_MODE || (!!user && isPremium);
 
   useEffect(() => {
     if (openFormKey && openFormRef.current) {
