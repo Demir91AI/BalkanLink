@@ -1,86 +1,135 @@
-import PageNav from "@/components/navigation/PageNav";
+import PageNavBar from "@/components/navigation/PageNavBar";
 
 export default function KiHinweis() {
   return (
-    <>
-    <PageNav />
-    <div className="container max-w-3xl py-16">
-      <h1 className="mb-10 text-3xl font-bold">Hinweis zur Nutzung künstlicher Intelligenz</h1>
+    <div className="max-w-3xl mx-auto px-4 py-6 pb-28">
+      <PageNavBar />
+
+      <h1 className="mb-2 text-3xl font-bold">Napomena o upotrebi vještačke inteligencije</h1>
+      <p className="mb-10 text-sm text-muted-foreground">
+        KI-Hinweis — Transparentnost u upotrebi AI tehnologije na platformi BalkanLink
+      </p>
       <div className="space-y-8 text-sm leading-relaxed text-muted-foreground">
 
         <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">1. Einsatz von KI auf dieser Plattform</h2>
+          <h2 className="mb-3 text-lg font-semibold text-foreground">Koje AI tehnologije koristimo?</h2>
           <p>
-            Die Plattform „BalkanLink" setzt an verschiedenen Stellen KI-gestützte Technologien ein,
-            insbesondere:
+            Platforma koristi model{" "}
+            <strong className="text-foreground">Claude</strong> kompanije{" "}
+            <strong className="text-foreground">Anthropic PBC</strong> (San Francisco, SAD)
+            za sljedeće funkcije:
           </p>
+          <ul className="ml-4 mt-2 list-disc space-y-2">
+            <li>
+              <strong className="text-foreground">BalkanLink AI Asistent</strong> — Odgovara
+              na pitanja o životu u Njemačkoj, birokratiji, vizama, socijalnim naknadama,
+              radu i stanovanju, na bosanskom jeziku.
+            </li>
+            <li>
+              <strong className="text-foreground">Dokumenten-Check</strong> — Analizira
+              učitane dokumente i pruža informativne napomene o sadržaju.
+            </li>
+          </ul>
+          <p className="mt-3 text-xs">
+            Model:{" "}
+            <code className="rounded bg-muted px-1 py-0.5">
+              claude-sonnet-4-20250514
+            </code>{" "}
+            (Anthropic Claude Sonnet 4)
+          </p>
+        </section>
+
+        <section>
+          <h2 className="mb-3 text-lg font-semibold text-foreground">Kako AI funkcionira?</h2>
+          <p>
+            Kada postaviš pitanje, tvoj upit se šalje Anthropic API-ju, obrađuje se i vraća
+            odgovor u roku od nekoliko sekundi. AI asistent ima znanje o:
+          </p>
+          <ul className="ml-4 mt-2 list-disc space-y-1">
+            <li>Viznim i boravišnim pravilima za balkanske državljane u Njemačkoj</li>
+            <li>Socijalnim naknadama (Bürgergeld, Kindergeld, Elterngeld, BAföG, Wohngeld itd.)</li>
+            <li>Radnom pravu, stanarskom pravu i zdravstvenom osiguranju</li>
+            <li>Poreznim osnovama za strane radnike</li>
+            <li>Procedurama kod ključnih njemačkih ureda</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 className="mb-3 text-lg font-semibold text-foreground">Ograničenja AI sistema</h2>
+          <div className="rounded-md border border-yellow-500/30 bg-yellow-500/5 p-4 text-yellow-700 dark:text-yellow-200/80">
+            <p className="font-semibold text-yellow-600 dark:text-yellow-300">Šta AI ne može i ne smije:</p>
+            <ul className="ml-4 mt-2 list-disc space-y-1">
+              <li>Davati pravno obavezujuće savjete ili zastupati te u postupcima</li>
+              <li>Garantovati tačnost svih informacija — zakoni se mijenjaju</li>
+              <li>Poznavati specifičnosti tvoje situacije bez tvog objašnjenja</li>
+              <li>Pristupiti bazama podataka ureda niti provjeriti status tvog predmeta</li>
+              <li>Predvidjeti odluke konkretnih Ausländerbehörde ili sudova</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 className="mb-3 text-lg font-semibold text-foreground">Zaštita podataka pri AI korištenju</h2>
           <ul className="ml-4 mt-1 list-disc space-y-1">
-            <li>Informationsassistent („Pitaj BalkanLink")</li>
-            <li>Dokumenten-Check (allgemeine Erklärung von Dokumenten)</li>
-            <li>Inhaltlich unterstützte Formularhilfen</li>
+            <li>Sklopljen je DPA ugovor između BalkanLink-a i Anthropic-a (čl. 28 DSGVO)</li>
+            <li>
+              Prijenos u SAD po standardnim ugovornim klauzulama EU (SCC — čl. 46 DSGVO)
+            </li>
+            <li>
+              <strong className="text-foreground">
+                Tvoji podaci se ne koriste za treniranje AI modela
+              </strong>{" "}
+              (Anthropic API politika)
+            </li>
+            <li>Historiju razgovora možeš obrisati u Postavkama računa</li>
+          </ul>
+          <div className="mt-3 rounded-md border border-red-500/20 bg-red-500/5 p-3 text-xs text-red-700 dark:text-red-200/70">
+            <strong>Preporuka:</strong> Ne unosi u AI asistenta osjetljive osobne podatke:
+            JMBG/OIB, broj pasoša, podatke o platnoj kartici, medicinske informacije.
+          </div>
+        </section>
+
+        <section>
+          <h2 className="mb-3 text-lg font-semibold text-foreground">EU AI Act — usklađenost</h2>
+          <p>
+            BalkanLink koristi AI u kategoriji{" "}
+            <strong className="text-foreground">General Purpose AI (GPAI)</strong> prema
+            Zakonu o AI EU (Uredba (EU) 2024/1689). Platforma{" "}
+            <strong className="text-foreground">ne koristi AI za:</strong>
+          </p>
+          <ul className="ml-4 mt-2 list-disc space-y-1">
+            <li>Biometrijsku identifikaciju osoba</li>
+            <li>Automatizovano donošenje odluka s pravnim posljedicama</li>
+            <li>Socijalnu bodovnu evaluaciju (Social Scoring)</li>
+            <li>Manipulaciju ponašanjem korisnika</li>
           </ul>
           <p className="mt-2">
-            Die KI-gestützten Funktionen dienen ausschließlich der allgemeinen Information und Orientierung.
-            Sie stellen <strong>keine Rechtsberatung, Steuerberatung oder sonstige professionelle Beratung</strong> dar.
+            Upotreba AI-a klasificirana je kao{" "}
+            <strong className="text-foreground">nizak rizik</strong> prema EU AI Act-u.
+            Svi AI odgovori su jasno označeni oznakom "AI odgovor" u skladu s načelom
+            transparentnosti (čl. 13 DSGVO + EU AI Act).
           </p>
         </section>
 
         <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">2. Keine verbindlichen Aussagen</h2>
-          <p>Der Assistent gibt keine verbindlichen Aussagen ab. Insbesondere verwendet er keine Formulierungen wie:</p>
+          <h2 className="mb-3 text-lg font-semibold text-foreground">Više o Anthropic-u</h2>
           <ul className="ml-4 mt-1 list-disc space-y-1">
-            <li>„Sie haben Anspruch auf …"</li>
-            <li>„Sie bekommen garantiert …"</li>
-            <li>„Sie müssen zwingend …"</li>
-          </ul>
-          <p className="mt-2">Stattdessen werden bewusst unverbindliche Formulierungen verwendet wie:</p>
-          <ul className="ml-4 mt-1 list-disc space-y-1">
-            <li>„In der Regel …"</li>
-            <li>„Typischerweise …"</li>
-            <li>„Es kann sein, dass …"</li>
-            <li>„Bitte prüfen Sie dies bei der zuständigen Behörde."</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">3. Mögliche Ungenauigkeiten</h2>
-          <p>
-            KI-gestützte Systeme können Fehler machen. Die Ausgaben des Assistenten können Ungenauigkeiten,
-            veraltete Informationen oder unvollständige Angaben enthalten. Der Nutzer ist angehalten,
-            die erhaltenen Informationen eigenständig zu prüfen und bei Bedarf offizielle Quellen zu konsultieren.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">4. Datenschutz bei der KI-Nutzung</h2>
-          <p>
-            Eingegebene Texte werden ausschließlich zur Beantwortung der jeweiligen Anfrage verarbeitet und
-            <strong> nicht dauerhaft gespeichert</strong>. Es erfolgt keine Protokollierung, kein Training
-            mit Nutzerdaten und keine Weitergabe an Dritte.
-          </p>
-          <p className="mt-2">
-            <strong>Wichtiger Hinweis:</strong> Bitte geben Sie keine sensiblen personenbezogenen Daten ein,
-            insbesondere:
-          </p>
-          <ul className="ml-4 mt-1 list-disc space-y-1">
-            <li>Personalausweis- oder Reisepassnummern</li>
-            <li>Steuer-Identifikationsnummern</li>
-            <li>IBAN oder Kreditkartendaten</li>
-            <li>Gesundheitsdaten</li>
-            <li>Aktenzeichen oder Bescheide</li>
+            <li>
+              <a href="https://www.anthropic.com" target="_blank" rel="noopener noreferrer"
+                className="text-primary hover:underline">anthropic.com</a>
+            </li>
+            <li>
+              <a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener noreferrer"
+                className="text-primary hover:underline">anthropic.com/privacy</a>
+            </li>
+            <li>
+              <a href="https://www.anthropic.com/usage-policy" target="_blank" rel="noopener noreferrer"
+                className="text-primary hover:underline">anthropic.com/usage-policy</a>
+            </li>
           </ul>
         </section>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">5. Verbindliche Auskünfte</h2>
-          <p>
-            Für verbindliche rechtliche Auskünfte wenden Sie sich bitte an einen Rechtsanwalt, Steuerberater
-            oder die zuständige Behörde. Die Nutzung des KI-Assistenten ersetzt in keinem Fall eine professionelle
-            Beratung.
-          </p>
-        </section>
       </div>
     </div>
-    </>
   );
 }
