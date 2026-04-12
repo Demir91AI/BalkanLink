@@ -1,22 +1,21 @@
 import { Link } from "react-router-dom";
-import { useLanguage } from "@/contexts/LanguageContext";
 
-const NAV_LINKS_KEYS = [
-  { labelKey: "sidebar.formulari", to: "/formulari" },
-  { labelKey: "sidebar.viza", to: "/viza" },
-  { labelKey: "sidebar.deutsch", to: "/deutsch-trainer" },
-  { labelKey: "sidebar.dokumentencheck", to: "/dokumenten-check" },
-  { labelKey: "sidebar.asistent", to: "/ai-asistent" },
-  { labelKey: "sidebar.nudim", to: "/nudim-trazim" },
+const NAV_LINKS = [
+  { label: "Formulari", to: "/formulari" },
+  { label: "Viza Navigator", to: "/viza" },
+  { label: "Kurs njemačkog", to: "/deutsch-trainer" },
+  { label: "Provjera dokumenata", to: "/dokumenten-check" },
+  { label: "BalkanLink Asistent", to: "/ai-asistent" },
+  { label: "Nudim / Tražim", to: "/nudim-trazim" },
 ];
 
-const LEGAL_LINKS_KEYS = [
-  { labelKey: "footer.impressum", to: "/impressum" },
-  { labelKey: "footer.datenschutz", to: "/datenschutz" },
-  { labelKey: "footer.agb", to: "/agb" },
-  { labelKey: "footer.haftung", to: "/disclaimer" },
-  { labelKey: "footer.ki", to: "/ki-hinweis" },
-  { labelKey: "cookie.footerLink", to: "/cookie-richtlinie" },
+const LEGAL_LINKS = [
+  { label: "Impressum", to: "/impressum" },
+  { label: "Zaštita podataka", to: "/datenschutz" },
+  { label: "Uslovi korištenja", to: "/agb" },
+  { label: "Odricanje odgovornosti", to: "/disclaimer" },
+  { label: "Napomena o KI", to: "/ki-hinweis" },
+  { label: "Postavke kolačića", to: "/cookie-richtlinie" },
 ];
 
 const colTitleStyle: React.CSSProperties = {
@@ -39,7 +38,6 @@ const linkStyle: React.CSSProperties = {
 };
 
 export default function Footer() {
-  const { t } = useLanguage();
   return (
     <footer style={{ background: "#0d1526" }}>
       <div
@@ -60,33 +58,33 @@ export default function Footer() {
             </span>
           </Link>
           <p style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", marginTop: 14, lineHeight: 1.6 }}>
-            {t("footer.tagline")}
+            Tvoj vodič kroz njemački sistem.
           </p>
           <p style={{ fontSize: 11, color: "rgba(255,255,255,0.35)", marginTop: 12, lineHeight: 1.5 }}>
-            {t("footer.disclaimer")}
+            BalkanLink pruža informativne smjernice, ne pravne savjete.
           </p>
         </div>
 
         <div>
-          <p style={colTitleStyle}>{t("footer.navSection")}</p>
-          {NAV_LINKS_KEYS.map((l) => (
+          <p style={colTitleStyle}>Navigacija</p>
+          {NAV_LINKS.map((l) => (
             <Link key={l.to} to={l.to} style={linkStyle} className="footer-link">
-              {t(l.labelKey)}
+              {l.label}
             </Link>
           ))}
         </div>
 
         <div>
-          <p style={colTitleStyle}>{t("footer.legalSection")}</p>
-          {LEGAL_LINKS_KEYS.map((l) => (
+          <p style={colTitleStyle}>Pravno</p>
+          {LEGAL_LINKS.map((l) => (
             <Link key={l.to} to={l.to} style={linkStyle} className="footer-link">
-              {t(l.labelKey)}
+              {l.label}
             </Link>
           ))}
         </div>
 
         <div>
-          <p style={colTitleStyle}>{t("footer.contact")}</p>
+          <p style={colTitleStyle}>Kontakt</p>
           <a href="mailto:kontakt@balkanlink.de" style={linkStyle} className="footer-link">
             kontakt@balkanlink.de
           </a>
@@ -98,7 +96,7 @@ export default function Footer() {
       </div>
       <div style={{ padding: "20px 24px 16px", textAlign: "center" }}>
         <p style={{ fontSize: 10, color: "rgba(255,255,255,0.4)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 8, textAlign: "center" }}>
-          {t("footer.paymentMethods")}
+          Načini plaćanja
         </p>
         <p style={{ fontSize: 12, color: "rgba(255,255,255,0.55)", letterSpacing: 0.5, textAlign: "center", marginBottom: 4 }}>
           Visa · Mastercard · PayPal · Apple Pay · Google Pay
@@ -138,7 +136,7 @@ export default function Footer() {
           Powered by <span style={{ color: "#EAB308", fontWeight: 700 }}>RealCore Digital</span> · Klar denken. Digital umsetzen.
         </p>
         <p style={{ fontSize: 11, color: "rgba(255,255,255,0.4)" }}>
-          © 2026 BalkanLink · {t("footer.rights")}
+          © 2026 BalkanLink · Sva prava zadržana.
         </p>
       </div>
 

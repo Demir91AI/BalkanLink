@@ -7,7 +7,6 @@ import {
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import AuthModal from "@/components/auth/AuthModal";
-import { useLanguage } from "@/contexts/LanguageContext";
 
 function getInitials(name: string) {
   const parts = name.split(/\s+/).filter(Boolean);
@@ -21,27 +20,25 @@ export function AppSidebar() {
   const navigate = useNavigate();
   const location = useLocation();
   const { user, signOut, displayName } = useAuth();
-  const { t, lang } = useLanguage();
-  const firstName = displayName.split(/\s+/).filter(Boolean)[0] || (lang === "bs" ? "Korisniče" : "Nutzer");
+  const firstName = displayName.split(/\s+/).filter(Boolean)[0] || "Korisniče";
   const initials = getInitials(displayName);
 
   const mainItems = [
-    { titleKey: "sidebar.formulari", url: "/formulari", icon: FileText, premium: true },
-    { titleKey: "sidebar.viza", url: "/viza", icon: Shield, premium: true },
-    { titleKey: "sidebar.deutsch", url: "/deutsch-trainer", icon: BookOpen, premium: true },
-    { titleKey: "sidebar.dokumentencheck", url: "/dokumenten-check", icon: Camera, premium: true },
+    { title: "Formulari", url: "/formulari", icon: FileText, premium: true },
+    { title: "Viza Navigator", url: "/viza", icon: Shield, premium: true },
+    { title: "Kurs njemačkog", url: "/deutsch-trainer", icon: BookOpen, premium: true },
+    { title: "Provjera dokumenata", url: "/dokumenten-check", icon: Camera, premium: true },
   ];
 
   const secondaryItems = [
-    { titleKey: "sidebar.zivot", url: "/zivot-u-njemackoj", icon: Plane },
-    { titleKey: "sidebar.radnoPravo", url: "/radno-pravo", icon: Scale },
-    { titleKey: "sidebar.biznis", url: "/biznis", icon: Store },
-    { titleKey: "sidebar.nudim", url: "/nudim-trazim", icon: Megaphone },
-    
-    { titleKey: "sidebar.jobs", url: "/stellenangebote", icon: Briefcase },
-    { titleKey: "sidebar.stanovi", url: "/wohnungen", icon: Building },
-    { titleKey: "sidebar.kalkulatori", url: "/kalkulatori", icon: Calculator },
-    { titleKey: "sidebar.predloski", url: "/vorlagen", icon: FileCheck },
+    { title: "Život i dolazak", url: "/zivot-u-njemackoj", icon: Plane },
+    { title: "Radno pravo", url: "/radno-pravo", icon: Scale },
+    { title: "Biznis u Njemačkoj", url: "/biznis", icon: Store },
+    { title: "Nudim / Tražim", url: "/nudim-trazim", icon: Megaphone },
+    { title: "Oglasi za posao", url: "/stellenangebote", icon: Briefcase },
+    { title: "Ponuda stanova", url: "/wohnungen", icon: Building },
+    { title: "Kalkulator", url: "/kalkulatori", icon: Calculator },
+    { title: "Šabloni", url: "/vorlagen", icon: FileCheck },
   ];
 
   const toggle = useCallback(() => {
@@ -104,7 +101,7 @@ export function AppSidebar() {
         }}
       >
         <div className="flex items-center justify-between px-5 py-4 border-b border-[#E8E0D0]">
-          <span className="text-sm font-bold text-[#2D2D2D] tracking-wide uppercase">{t("sidebar.menu")}</span>
+          <span className="text-sm font-bold text-[#2D2D2D] tracking-wide uppercase">Meni</span>
           <button onClick={close} className="h-8 w-8 rounded-lg flex items-center justify-center hover:bg-[#F0EDE6] transition-colors">
             <X className="h-4 w-4 text-[#6B6B6B]" />
           </button>
@@ -120,7 +117,7 @@ export function AppSidebar() {
                 </div>
                 <div className="min-w-0">
                   <p className="text-sm font-semibold text-[#2D2D2D]">
-                    {lang === "bs" ? "Dobro došao/la" : "Willkommen"}, {firstName}!
+                    Dobro došao/la, {firstName}!
                   </p>
                   <p className="mt-0.5 truncate text-sm text-muted-foreground">{user.email}</p>
                 </div>
@@ -133,7 +130,7 @@ export function AppSidebar() {
               className="flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-left text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D] transition-all duration-200"
             >
               <LogIn className="h-[18px] w-[18px] shrink-0" />
-              <span className="text-[14px] font-medium">{t("sidebar.prijava")}</span>
+              <span className="text-[14px] font-medium">Prijavi se / Registruj se</span>
             </button>
           )}
         </div>
@@ -150,7 +147,7 @@ export function AppSidebar() {
               }`}
             >
               <CreditCard className={`h-[18px] w-[18px] shrink-0 ${location.pathname === "/paketi" ? "text-[hsl(var(--gold))]" : ""}`} />
-              <span className="text-[14px] font-medium">{t("sidebar.paketi")}</span>
+              <span className="text-[14px] font-medium">Paketi i cijene</span>
             </button>
             {user && (
               <button
@@ -158,14 +155,14 @@ export function AppSidebar() {
                 className="flex items-center gap-3 w-full px-3 py-2 rounded-lg text-left text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D] transition-all duration-200"
               >
                 <LogOut className="h-[18px] w-[18px] shrink-0" />
-                <span className="text-[14px] font-medium">{t("sidebar.odjava")}</span>
+                <span className="text-[14px] font-medium">Odjavi se</span>
               </button>
             )}
           </nav>
         </div>
 
         <div className="px-3 pt-4">
-          <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">{t("sidebar.mainFunctions")}</p>
+          <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">Glavne funkcije</p>
           <nav className="flex flex-col gap-0.5">
             {mainItems.map((item) => {
               const active = location.pathname === item.url || location.pathname.startsWith(item.url + "/");
@@ -181,7 +178,7 @@ export function AppSidebar() {
                 >
                   <item.icon className={`h-[18px] w-[18px] shrink-0 ${active ? "text-[hsl(var(--gold))]" : "text-[#6B6B6B]"}`} />
                   <span className={`text-[14px] font-semibold whitespace-nowrap overflow-visible ${active ? "text-[hsl(var(--gold))]" : "text-[#2D2D2D]"}`}>
-                    {t(item.titleKey)}
+                    {item.title}
                   </span>
                   {item.premium && (
                     <span className="ml-auto shrink-0 rounded-full bg-[hsl(var(--gold))] px-1.5 py-0.5 text-[8px] font-bold leading-none text-white">
@@ -195,7 +192,7 @@ export function AppSidebar() {
         </div>
 
         <div className="px-3 pt-5">
-          <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">{t("sidebar.other")}</p>
+          <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">Ostalo</p>
           <nav className="flex flex-col gap-0.5">
             {secondaryItems.map((item) => {
               const active = location.pathname === item.url || location.pathname.startsWith(item.url + "/");
@@ -211,7 +208,7 @@ export function AppSidebar() {
                 >
                   <item.icon className={`h-[18px] w-[18px] shrink-0 ${active ? "text-[hsl(var(--gold))]" : ""}`} />
                   <span className="text-[14px] font-medium whitespace-nowrap overflow-visible">
-                    {t(item.titleKey)}
+                    {item.title}
                   </span>
                 </button>
               );
