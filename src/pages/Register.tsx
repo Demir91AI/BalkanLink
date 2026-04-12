@@ -144,15 +144,21 @@ export default function Register() {
                 onCheckedChange={(v) => setAcceptedTerms(v === true)}
                 className="mt-0.5"
               />
-              <label htmlFor="terms" className="cursor-pointer text-sm leading-relaxed text-muted-foreground">
-                Prihvatam uslove korištenja{" "}
-                <Link to="/agb" target="_blank" className="font-semibold text-primary underline hover:no-underline">
-                  Uslovi korištenja
-                </Link>{" "}
-                i{" "}
-                <Link to="/datenschutz" target="_blank" className="font-semibold text-primary underline hover:no-underline">
-                  Politiku privatnosti
+              <label htmlFor="terms" className="cursor-pointer text-xs leading-relaxed text-muted-foreground">
+                Prihvatam{" "}
+                <Link to="/uslovi-koristenja" target="_blank" className="font-semibold text-primary underline hover:no-underline">
+                  Uslove korištenja
                 </Link>
+                ,{" "}
+                <Link to="/datenschutz" target="_blank" className="font-semibold text-primary underline hover:no-underline">
+                  Zaštitu podataka
+                </Link>{" "}
+                i potvrđujem da sam pročitao/la{" "}
+                <Link to="/napomena-o-ki" target="_blank" className="font-semibold text-primary underline hover:no-underline">
+                  Napomenu o upotrebi vještačke inteligencije
+                </Link>
+                . Razumijem da AI asistent pruža isključivo informativne odgovore
+                i ne zamjenjuje pravni savjet.
               </label>
             </div>
           </CardContent>
