@@ -131,7 +131,8 @@ export default function Paketi() {
                 <Ft yes>Bewerbungsschreiben, Lebenslauf i još 10+</Ft>
               </Cat>
               <Cat title="📢 PRO OGLASI">
-                <Ft yes>2 Pro oglasa uključena/mj.</Ft>
+                <Ft yes>Besplatno postavljanje oglasa</Ft>
+                <Ft yes>Trajanje oglasa: max 10 dana</Ft>
               </Cat>
             </div>
 
@@ -196,15 +197,15 @@ export default function Paketi() {
 }
 
 const comparisonRows = [
-  { label: "Musterformulari", free: "❌", premium: "✅ Svi" },
+  { label: "Musterformulari", free: "❌", premium: "✅ Svi uključeni" },
   { label: "Smart Guides", free: "❌", premium: "✅ Svi koraci" },
   { label: "Viza Navigator", free: "Osnovno", premium: "✅ Kompletno" },
   { label: "Dokumenten-Check", free: "2,99€/kom", premium: "✅ 1×/dan gratis" },
   { label: "Šabloni", free: "✅ 2 gratis", premium: "✅ Svi + PDF" },
   { label: "Asistent", free: "⚠️ 5/dan", premium: "✅ Neograničeno" },
-  { label: "DeutschTrainer", free: "❌", premium: "✅ A1–C2" },
-  { label: "Wertgutschein", free: "❌", premium: "✅ Do 30€ vaučer" },
-  { label: "Pro oglasi", free: "2,99€/oglas", premium: "✅ 2/mj. uključeno" },
+  { label: "DeutschTrainer", free: "3 lekcije/nivo", premium: "✅ A1–C2 sve" },
+  { label: "Wertgutschein", free: "❌", premium: "✅ Amazon 30€" },
+  { label: "Pro oglasi", free: "1,99€/7 dana", premium: "✅ Gratis (max 10 dana)" },
   { label: "Notifikacije", free: "❌", premium: "✅ Zakonske promjene" },
   { label: "Nove funkcije", free: "❌", premium: "✅ Rani pristup" },
 ];
