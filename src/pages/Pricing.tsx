@@ -5,6 +5,9 @@ import { useAuth } from "@/contexts/AuthContext";
 import { initiateCheckout, STRIPE_PRICE_IDS, openCustomerPortal } from "@/lib/stripe";
 import { useNavigate } from "react-router-dom";
 import PageNav from "@/components/navigation/PageNav";
+import PricingFreeCard from "@/components/pricing/PricingFreeCard";
+import PricingPremiumCard from "@/components/pricing/PricingPremiumCard";
+import PricingComparisonTable from "@/components/pricing/PricingComparisonTable";
 
 export default function Pricing() {
   const [yearly, setYearly] = useState(false);
@@ -72,91 +75,13 @@ export default function Pricing() {
 
         {/* Plan Cards */}
         <div className="grid gap-6 md:grid-cols-3">
-          {/* Free */}
-          <div className="rounded-2xl border border-border bg-card p-6 flex flex-col">
-            <h2 className="text-lg font-bold">Besplatno</h2>
-            <p className="mt-1 text-3xl font-bold">0€</p>
-            <p className="text-xs text-muted-foreground mb-6">Zauvijek besplatno</p>
+          <PricingFreeCard />
 
-            <ul className="flex-1 space-y-2.5 text-sm">
-              <Feature yes>Uvod u sve Smart Guides</Feature>
-              <Feature yes>Brutto-Netto kalkulator</Feature>
-              <Feature yes>Pregled oglasa (Classifieds)</Feature>
-              <Feature yes>3 besplatne poruke</Feature>
-              <Feature no>Kompletni formulari</Feature>
-              <Feature no>Puni Asistent</Feature>
-              <Feature no>Deutsch kurs</Feature>
-            </ul>
-
-            <Button
-              variant="outline"
-              className="mt-6 w-full rounded-xl border-[hsl(var(--success))] text-[hsl(var(--success))] hover:bg-[hsl(var(--success))]/10"
-              onClick={() => navigate("/register")}
-            >
-              Počni besplatno →
-            </Button>
-          </div>
-
-          {/* Premium (highlighted) */}
-          <div className="relative rounded-2xl border-2 border-[hsl(var(--gold))] bg-card p-6 flex flex-col shadow-lg">
-            <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[hsl(var(--gold))] px-3 py-1 text-[10px] font-bold text-white whitespace-nowrap">
-              NAJPOPULARNIJE
-            </span>
-            <h2 className="text-lg font-bold mt-2">Premium</h2>
-            <p className="mt-1 text-3xl font-bold">
-              {yearly ? "99.90€" : "9.99€"}
-              <span className="text-sm font-normal text-muted-foreground">
-                /{yearly ? "god." : "mjes."}
-              </span>
-            </p>
-            <p style={{ fontSize: 11, fontWeight: 700, color: "#EAB308", marginTop: 4, textAlign: "center" as const }}>🎉 Promo cijena — prvih 6 mjeseci</p>
-            <p className="text-xs text-muted-foreground mb-6">
-              {yearly ? "8.33€/mjes. — uštedi 20€" : "Otkaži u bilo kojem trenutku"}
-            </p>
-
-            <ul className="flex-1 space-y-2.5 text-sm">
-              <Feature yes>Sve iz Besplatnog plana</Feature>
-              <Feature yes>Svi Musterformulare (15+ formulara)</Feature>
-              <Feature yes>Kompletni Smart Guides (korak po korak)</Feature>
-              <Feature yes>Neograničen BalkanLink Asistent</Feature>
-              <Feature yes>Dokumenten-Check</Feature>
-              <Feature yes>Kompletan Deutsch kurs</Feature>
-              <Feature yes>Detaljni Viza Navigator</Feature>
-              <Feature yes>Prioritetna podrška</Feature>
-            </ul>
-
-            <Button
-              className="mt-6 w-full rounded-xl bg-[hsl(var(--gold))] text-sm font-bold text-white hover:bg-[hsl(var(--gold-light))] h-11 text-base"
-              onClick={() =>
-                handleCheckout(
-                  yearly ? STRIPE_PRICE_IDS.PREMIUM_YEARLY : STRIPE_PRICE_IDS.PREMIUM_MONTHLY,
-                  "subscription"
-                )
-              }
-            >
-              <Crown className="mr-2 h-4 w-4" />
-              {isPremium ? "Promijeni plan" : "Kupi Premium →"}
-            </Button>
-
-            {!yearly && (
-              <>
-                <p className="mt-2 text-center text-[11px] text-muted-foreground">
-                  ili 99.90€/godišnje — uštedi 2 mjeseca
-                </p>
-                <Button
-                  variant="outline"
-                  className="mt-1.5 w-full rounded-xl border-[hsl(var(--gold))]/30 text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/10 text-xs h-9"
-                  onClick={() => handleCheckout(STRIPE_PRICE_IDS.PREMIUM_YEARLY, "subscription")}
-                >
-                  Godišnji plan →
-                </Button>
-              </>
-            )}
-
-            <p className="mt-2 text-center text-[10px] text-muted-foreground">
-              §19 UStG — bez PDV-a
-            </p>
-          </div>
+          <PricingPremiumCard
+            yearly={yearly}
+            isPremium={isPremium}
+            onCheckout={handleCheckout}
+          />
 
           {/* Single formular */}
           <div className="rounded-2xl border border-border bg-card p-6 flex flex-col">
@@ -185,6 +110,9 @@ export default function Pricing() {
             </Button>
           </div>
         </div>
+
+        {/* Comparison Table */}
+        <PricingComparisonTable />
 
         {/* Firma oglasi */}
         <div className="mt-16">
@@ -237,7 +165,7 @@ export default function Pricing() {
   );
 }
 
-function Feature({ yes, no, children }: { yes?: boolean; no?: boolean; children: React.ReactNode }) {
+export function Feature({ yes, no, children }: { yes?: boolean; no?: boolean; children: React.ReactNode }) {
   return (
     <li className={`flex items-start gap-2 ${no ? "text-muted-foreground" : ""}`}>
       {yes && (
