@@ -25,7 +25,7 @@ const freeFeatures = [
 
 const premiumFeatures = [
   "40 lekcija po nivou (240 ukupno A1–C2)",
-  "500 zadataka po stageu — AI-generisano",
+  "500 zadataka po stageu",
   "3 stagea po lekciji = 1.500 zadataka po lekciji",
   "Sprachassistent — 500 rečenica",
   "Svi scenariji iz stvarnog života u Njemačkoj",
