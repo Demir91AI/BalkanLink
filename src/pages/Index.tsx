@@ -299,6 +299,9 @@ export default function Index() {
       </div>
 
 
+      {/* ─── "ŠTA JE ŠTA?" EXPLAINER ─── */}
+      <WhatIsWhat />
+
       {/* ─── FLOW BANNER CAROUSEL ─── */}
       <FlowBanner />
 
