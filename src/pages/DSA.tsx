@@ -1,111 +1,142 @@
-import PageNav from "@/components/navigation/PageNav";
+import { useNavigate } from "react-router-dom";
+import PageNavBar from "@/components/navigation/PageNavBar";
 
 export default function DSA() {
+  const navigate = useNavigate();
+
   return (
     <>
-    <PageNav />
-    <div className="container max-w-3xl py-16">
-      <h1 className="mb-10 text-3xl font-bold">Meldung rechtswidriger Inhalte &amp; Beschwerdeverfahren</h1>
-      <p className="mb-8 text-sm text-muted-foreground">
-        Gemäß der Verordnung (EU) 2022/2065 über einen Binnenmarkt für digitale Dienste (Digital Services Act – DSA)
-        sowie den Bestimmungen des Digitale-Dienste-Gesetzes (DDG) stellen wir Ihnen nachfolgend Informationen
-        zur Meldung rechtswidriger Inhalte und zu unserem internen Beschwerdeverfahren bereit.
-      </p>
-      <div className="space-y-8 text-sm leading-relaxed text-muted-foreground">
+      <div className="max-w-3xl mx-auto px-4 py-6 pb-28">
+        <PageNavBar onBack={() => navigate(-1)} />
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">1. Meldung rechtswidriger Inhalte</h2>
-          <p>
-            Nutzer und Dritte haben die Möglichkeit, Inhalte auf der Plattform zu melden, die sie für rechtswidrig halten.
-            Wir nehmen solche Meldungen ernst und bearbeiten sie zeitnah.
-          </p>
+        <h1 className="mb-2 text-3xl font-bold">Prijava sadržaja i postupak žalbe</h1>
+        <p className="mb-10 text-sm text-muted-foreground">
+          U skladu s Uredbom (EU) 2022/2065 o digitalnim uslugama (Digital Services Act — DSA)
+          i odredbama Digitale-Dienste-Gesetza (DDG)
+        </p>
 
-          <h3 className="mt-4 font-semibold text-foreground">1.1 Wie können Sie Inhalte melden?</h3>
-          <p className="mt-1">
-            Bitte senden Sie Ihre Meldung per E-Mail an:{" "}
-            <a href="mailto:kontakt@balkanlink.de" className="text-primary hover:underline">kontakt@balkanlink.de</a>
-          </p>
-          <p className="mt-1">Betreff: <strong>„Meldung rechtswidriger Inhalte"</strong></p>
+        <div className="space-y-8 text-sm leading-relaxed text-muted-foreground">
+          <section>
+            <h2 className="mb-3 text-lg font-semibold text-foreground">
+              1. Prijava nezakonitog sadržaja
+            </h2>
+            <p>
+              Korisnici i treća lica imaju mogućnost prijaviti sadržaje na Platformi koje
+              smatraju nezakonitim. Prijave shvatamo ozbiljno i obrađujemo ih pravovremeno.
+            </p>
 
-          <h3 className="mt-4 font-semibold text-foreground">1.2 Erforderliche Angaben</h3>
-          <p className="mt-1">Damit wir Ihre Meldung prüfen können, benötigen wir folgende Informationen:</p>
-          <ul className="ml-4 mt-1 list-disc space-y-1">
-            <li>Genaue URL oder Beschreibung des betreffenden Inhalts</li>
-            <li>Begründung, warum der Inhalt als rechtswidrig angesehen wird</li>
-            <li>Gegebenenfalls relevante rechtliche Bestimmungen</li>
-            <li>Kontaktdaten des Meldenden (Name, E-Mail-Adresse)</li>
-            <li>Versicherung, dass die Angaben nach bestem Wissen und Gewissen wahrheitsgemäß und vollständig sind</li>
-          </ul>
+            <h3 className="mt-4 font-semibold text-foreground">1.1 Kako prijaviti sadržaj?</h3>
+            <p className="mt-1">
+              Prijavu pošalji e-poštom na:{" "}
+              <a href="mailto:kontakt@balkanlink.de" className="text-primary hover:underline">
+                kontakt@balkanlink.de
+              </a>
+            </p>
+            <p className="mt-1">
+              Predmet: <strong className="text-foreground">„Prijava nezakonitog sadržaja"</strong>
+            </p>
 
-          <h3 className="mt-4 font-semibold text-foreground">1.3 Prüfung und Maßnahmen</h3>
-          <p className="mt-1">Nach Eingang Ihrer Meldung werden wir:</p>
-          <ul className="ml-4 mt-1 list-disc space-y-1">
-            <li>Den Eingang Ihrer Meldung zeitnah bestätigen</li>
-            <li>Den gemeldeten Inhalt sorgfältig und objektiv prüfen</li>
-            <li>Bei festgestellter Rechtswidrigkeit den Inhalt entfernen oder den Zugang dazu sperren</li>
-            <li>Den Meldenden über die getroffene Entscheidung und deren Begründung informieren</li>
-            <li>Den betroffenen Nutzer (Inhalteanbieter) über die Maßnahme und die Möglichkeit der Beschwerde informieren, sofern dem keine rechtlichen Hindernisse entgegenstehen</li>
-          </ul>
-          <p className="mt-2">
-            Die Bearbeitung erfolgt in der Regel innerhalb von 7 Werktagen nach Eingang einer vollständigen Meldung.
-            Bei offensichtlich rechtswidrigen Inhalten (z. B. Volksverhetzung, Kindesmissbrauch) erfolgt die Entfernung unverzüglich.
-          </p>
-        </section>
+            <h3 className="mt-4 font-semibold text-foreground">1.2 Potrebni podaci</h3>
+            <p className="mt-1">Da bismo mogli obraditi tvoju prijavu, potrebni su nam:</p>
+            <ul className="ml-4 mt-1 list-disc space-y-1">
+              <li>Tačan URL ili opis spornog sadržaja</li>
+              <li>Obrazloženje zašto se sadržaj smatra nezakonitim</li>
+              <li>Po potrebi relevantne pravne odredbe</li>
+              <li>Kontakt podaci prijavitelja (ime, e-mail adresa)</li>
+              <li>Izjava da su podaci istiniti i potpuni po najboljem znanju</li>
+            </ul>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">2. Internes Beschwerdeverfahren</h2>
-          <p>
-            Gemäß Art. 20 der Verordnung (EU) 2022/2065 stellen wir ein internes Beschwerdeverfahren bereit,
-            das folgenden Personen offensteht:
-          </p>
-          <ul className="ml-4 mt-1 list-disc space-y-1">
-            <li>Nutzern, deren Inhalte entfernt oder deren Zugang gesperrt wurde</li>
-            <li>Meldenden, deren Meldung abgelehnt wurde</li>
-          </ul>
+            <h3 className="mt-4 font-semibold text-foreground">1.3 Provjera i mjere</h3>
+            <p className="mt-1">Po prijemu tvoje prijave:</p>
+            <ul className="ml-4 mt-1 list-disc space-y-1">
+              <li>Pravovremeno ćemo potvrditi prijem prijave</li>
+              <li>Prijavljeni sadržaj pažljivo i objektivno provjeriti</li>
+              <li>U slučaju utvrđene nezakonitosti — sadržaj ukloniti ili blokirati pristup</li>
+              <li>Prijavitelja obavijestiti o donesenoj odluci i obrazloženju</li>
+              <li>
+                Pogođenog korisnika (autora sadržaja) obavijestiti o mjeri i mogućnosti
+                žalbe, osim ako tome ne stoje pravne prepreke
+              </li>
+            </ul>
+            <p className="mt-2">
+              Obrada se vrši u pravilu u roku od 7 radnih dana po prijemu potpune prijave.
+              Kod očigledno nezakonitih sadržaja (npr. huškanje na mržnju, zlostavljanje
+              djece) uklanjanje se vrši odmah.
+            </p>
+          </section>
 
-          <h3 className="mt-4 font-semibold text-foreground">2.1 Einreichung einer Beschwerde</h3>
-          <p className="mt-1">
-            Beschwerden können innerhalb von <strong>6 Monaten</strong> nach der betreffenden Entscheidung
-            per E-Mail an <a href="mailto:kontakt@balkanlink.de" className="text-primary hover:underline">kontakt@balkanlink.de</a> eingereicht werden.
-          </p>
-          <p className="mt-1">Betreff: <strong>„Beschwerde – [kurze Beschreibung]"</strong></p>
+          <section>
+            <h2 className="mb-3 text-lg font-semibold text-foreground">
+              2. Interni postupak žalbe
+            </h2>
+            <p>
+              U skladu s čl. 20 Uredbe (EU) 2022/2065 omogućavamo interni postupak žalbe
+              koji je otvoren za:
+            </p>
+            <ul className="ml-4 mt-1 list-disc space-y-1">
+              <li>Korisnike čiji su sadržaji uklonjeni ili čiji je pristup blokiran</li>
+              <li>Prijavitelje čija je prijava odbijena</li>
+            </ul>
 
-          <h3 className="mt-4 font-semibold text-foreground">2.2 Inhalt der Beschwerde</h3>
-          <ul className="ml-4 mt-1 list-disc space-y-1">
-            <li>Bezugnahme auf die betreffende Entscheidung (inkl. Datum und ggf. Referenznummer)</li>
-            <li>Begründung der Beschwerde</li>
-            <li>Kontaktdaten des Beschwerdeführers</li>
-          </ul>
+            <h3 className="mt-4 font-semibold text-foreground">2.1 Podnošenje žalbe</h3>
+            <p className="mt-1">
+              Žalbe se mogu podnijeti u roku od{" "}
+              <strong className="text-foreground">6 mjeseci</strong> od dotične odluke
+              e-poštom na{" "}
+              <a href="mailto:kontakt@balkanlink.de" className="text-primary hover:underline">
+                kontakt@balkanlink.de
+              </a>
+            </p>
+            <p className="mt-1">
+              Predmet: <strong className="text-foreground">„Žalba — [kratak opis]"</strong>
+            </p>
 
-          <h3 className="mt-4 font-semibold text-foreground">2.3 Bearbeitung</h3>
-          <ul className="ml-4 mt-1 list-disc space-y-1">
-            <li>Die Beschwerde wird zeitnah, fair und objektiv geprüft.</li>
-            <li>Die Entscheidung erfolgt nicht ausschließlich automatisiert.</li>
-            <li>Der Beschwerdeführer wird über das Ergebnis und die Begründung informiert.</li>
-            <li>Sofern die Beschwerde begründet ist, wird die ursprüngliche Entscheidung rückgängig gemacht.</li>
-          </ul>
+            <h3 className="mt-4 font-semibold text-foreground">2.2 Sadržaj žalbe</h3>
+            <ul className="ml-4 mt-1 list-disc space-y-1">
+              <li>Referenca na dotičnu odluku (uklj. datum i eventualni referentni broj)</li>
+              <li>Obrazloženje žalbe</li>
+              <li>Kontakt podaci podnositelja žalbe</li>
+            </ul>
 
-          <h3 className="mt-4 font-semibold text-foreground">2.4 Außergerichtliche Streitbeilegung</h3>
-          <p className="mt-1">
-            Unabhängig von diesem internen Beschwerdeverfahren haben Sie das Recht, eine zertifizierte
-            außergerichtliche Streitbeilegungsstelle gemäß Art. 21 der Verordnung (EU) 2022/2065 anzurufen.
-          </p>
-        </section>
+            <h3 className="mt-4 font-semibold text-foreground">2.3 Obrada</h3>
+            <ul className="ml-4 mt-1 list-disc space-y-1">
+              <li>Žalba se pravovremeno, objektivno i nepristrasno provjerava.</li>
+              <li>Odluka se ne donosi isključivo automatski.</li>
+              <li>Podnositelj žalbe biva obaviješten o rezultatu i obrazloženju.</li>
+              <li>Ako je žalba opravdana, prvobitna odluka se poništava.</li>
+            </ul>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">3. Kontaktstelle</h2>
-          <p>
-            Die zentrale Kontaktstelle für Behörden der Mitgliedstaaten, die Kommission und das Gremium
-            für digitale Dienste gemäß Art. 11 der Verordnung (EU) 2022/2065 ist:
-          </p>
-          <p className="mt-2">
-            <strong>RealCore Digital</strong><br />
-            E-Mail: <a href="mailto:kontakt@balkanlink.de" className="text-primary hover:underline">kontakt@balkanlink.de</a><br />
-            Sprache: Deutsch, Englisch
-          </p>
-        </section>
+            <h3 className="mt-4 font-semibold text-foreground">
+              2.4 Vansudsko rješavanje sporova
+            </h3>
+            <p className="mt-1">
+              Nezavisno od ovog internog postupka žalbe, imaš pravo obratiti se
+              certificiranom tijelu za vansudsko rješavanje sporova prema čl. 21
+              Uredbe (EU) 2022/2065.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="mb-3 text-lg font-semibold text-foreground">3. Kontakt tačka</h2>
+            <p>
+              Centralna kontakt tačka za organe država članica, Komisiju i Odbor za
+              digitalne usluge prema čl. 11 Uredbe (EU) 2022/2065 je:
+            </p>
+            <p className="mt-2">
+              <strong className="text-foreground">RealCore Digital</strong>
+              <br />
+              E-pošta:{" "}
+              <a href="mailto:kontakt@balkanlink.de" className="text-primary hover:underline">
+                kontakt@balkanlink.de
+              </a>
+              <br />
+              Jezici: njemački, engleski
+            </p>
+          </section>
+
+          <p className="text-xs opacity-60 pt-4">Verzija: April 2026</p>
+        </div>
       </div>
-    </div>
     </>
   );
 }
