@@ -78,8 +78,6 @@ const cards = [
       "Npr: Lekcija 'Kod doktora' — naučiš kako opisati simptome, razumjeti recept i razgovarati sa osiguranjem.",
     badge: "Dostupno uz Premium 🔒",
     badgeStyle: "gold" as const,
-    bonus:
-      "🎁 Wertgutschein: Završi A1+A2 → 1 mjesec Premium gratis. Svi nivoi → Amazon vaučer 30€.",
   },
 ];
 
@@ -155,9 +153,6 @@ export default function WhatIsWhat() {
           ))}
         </Accordion>
 
-        <p className="mt-6 text-center text-xs text-[#9CA3AF]">
-          Sve funkcije su dostupne na bosanskom, hrvatskom i srpskom jeziku.
-        </p>
       </div>
     </section>
   );

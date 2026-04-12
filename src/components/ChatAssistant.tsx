@@ -633,7 +633,7 @@ export default function ChatAssistant() {
 
   return (
     <>
-      {location.pathname === "/ai-asistent" && <SEO title="BalkanLink Asistent — Pitaj na Svom Jeziku" description="Postavi pitanje o životu u Njemačkoj na bosanskom, hrvatskom ili srpskom i dobij odgovor odmah." path="/ai-asistent" />}
+      {location.pathname === "/ai-asistent" && <SEO title="BalkanLink Asistent — Pitaj na Svom Jeziku" description="Postavi pitanje o životu u Njemačkoj i dobij odgovor odmah." path="/ai-asistent" />}
       {/* ── Floating Trigger ── */}
       <AnimatePresence>
         {!open && (

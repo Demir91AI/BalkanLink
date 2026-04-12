@@ -9,7 +9,7 @@ interface SEOProps {
 const BASE_URL = 'https://www.balkanlink.de';
 const OG_IMAGE = BASE_URL + '/og-image.png';
 const DEFAULT_TITLE = 'BalkanLink — Formulari, Viza i Savjeti za Balkance u Njemačkoj';
-const DEFAULT_DESC = 'Sve što ti treba za život u Njemačkoj — musterformulari, viza navigator, asistent, deutsch kurs. Na bosanskom, hrvatskom i srpskom.';
+const DEFAULT_DESC = 'Sve što ti treba za život u Njemačkoj — musterformulari, viza navigator, asistent, deutsch kurs.';
 
 export const SEO = ({ title, description, path = '' }: SEOProps) => {
   const fullTitle = title ? `${title} | BalkanLink` : DEFAULT_TITLE;
