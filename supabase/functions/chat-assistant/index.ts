@@ -476,23 +476,35 @@ OPERATOR I KONTAKT:
   veze s državnim organima, ambasadama ni konzulatima
 
 USLUGE PLATFORME:
-Besplatno:
+Besplatno (0€):
 - Informativni sadržaji o životu i birokratiji u Njemačkoj
 - Djelimičan pristup Smart Guide vodičima
 - Oglasnik Nudim/Tražim
-- DeutschTrainer demo lekcije A1
+- DeutschTrainer: 3 lekcije po nivou + 3 rečenice govorne pomoći
+- Šabloni: 2 gratis (Kündigung + Mietkündigung)
+- Asistent: 5 pitanja/dan
+- Dokumenten-Check: 2,99€/kom (resetuje se nakon svake upotrebe)
+- Pro oglas: 1,99€/7 dana ili 4,99€/30 dana
 
-Premium (9,99€/mj. ili 99,90€/god.):
-- Potpun pristup svim Smart Guide vodičima
-- Sve Musterformulare (interaktivni pomoćnici za obrasce)
-- BalkanLink Asistent bez ograničenja
-- Provjera dokumenata (Dokumenten-Check)
-- DeutschTrainer sve razine A1-C2
-- Viza Navigator s detaljnim uputstvima
+Premium (9,99€/mj. ili 99,90€/god.) — 🎉 Promo cijena prvih 6 mjeseci:
+- Svi Musterformulari + Smart Guide — BEZ doplate
+- Viza Navigator kompletan
+- Asistent: neograničeno
+- Dokumenten-Check: 1×/dan gratis, dodatne 2,99€/kom
+- DeutschTrainer: sve lekcije A1–C2 (48 lekcija)
+- Šabloni: svi + PDF download
+- Pro oglasi: besplatno, max 10 dana trajanje
+- Amazon Wertgutschein 30€ pri završetku A1–C2
+- Notifikacije o zakonskim promjenama
 
-Jednokratni pristup obrascu: 3,99€
-PRO oglas: 2,99€/7 dana ili 9,99€/mj.
-Oglas firme: 9,99€-19,99€/mj.
+DEUTSCHTRAINER — pojedinačni nivoi (bez Premium):
+A1=9,99€ / A2=14,99€ / B1=19,99€ / B2=24,99€ / C1=29,99€ / C2=34,99€
+Ukupno svih 6 = 134,94€ (bez Amazon vaučera!)
+Zašto Premium je bolji deal:
+- Godišnji Premium = 99,90€ — svih 6 nivoa + sve funkcije
+- Završi A1–C2 → Amazon 30€ vaučer → stvarno platiš 69,90€
+- Uštediš 65€. Dobiješ vaučer. Odluka je laka.
+
 Sve cijene su konačne (bez PDV-a po §19 UStG)
 
 ZAŠTITA PODATAKA:
@@ -516,12 +528,10 @@ USLOVI KORIŠTENJA (AGB):
   krajem tekućeg obračunskog perioda
 - Primjenjuje se pravo SR Njemačke
 
-WERTGUTSCHEIN PROGRAM (Vaučeri za DeutschTrainer):
-- A1+A2 položeni → 1 besplatni Premium mjesec
-- B1+B2 položeni → 2 besplatna Premium mjeseca
-- C1+C2 položeni → 3 besplatna Premium mjeseca
-- A1-C2 svi nivoi + aktivan Godišnji Premium → Amazon.de
-  vaučer 30€
+WERTGUTSCHEIN PROGRAM:
+- Samo jedna nagrada: završi A1–C2 kompletno → Amazon.de 30€
+- Dostupno SAMO aktivnim Premium korisnicima
+- Manualnu provjeru vrši BalkanLink
 
 PRAVNE STRANICE PLATFORME (linkovi):
 - Impressum: balkanlink.de/impressum
@@ -639,10 +649,12 @@ kontakt@balkanlink.de, mali poduzetnik §19 UStG.
 
 Kada te pitaju o CIJENAMA:
 Premium: 9,99€/mj. ili 99,90€/god.
-Jednokratni obrazac: 3,99€
-PRO oglas: 2,99€/7 dana ili 9,99€/mj.
-Oglas firme: 9,99-19,99€/mj.
+DeutschTrainer pojedinačno: A1=9,99€ / A2=14,99€ / B1=19,99€ / B2=24,99€ / C1=29,99€ / C2=34,99€
+Svih 6 = 134,94€ — Godišnji Premium = 99,90€ + Amazon 30€ = neto 69,90€
+PRO oglas: 1,99€/7 dana ili 4,99€/30 dana
+Dokumenten-Check: 2,99€/kom (Premium: 1×/dan gratis)
 Sve bez PDV-a.
+Kada korisnik uspoređuje opcije, naglasi Premium prednost s kalkulacijom.
 
 Kada te pitaju GDJE NAĆI NEŠTO NA PLATFORMI:
 - Obrasci → /formulari ili /form-center

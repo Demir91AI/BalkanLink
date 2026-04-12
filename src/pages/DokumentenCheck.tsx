@@ -320,25 +320,48 @@ export default function DokumentenCheck() {
 
           {/* ── Pricing cards ── */}
           <div className="grid grid-cols-2 gap-3">
-            {/* Single purchase */}
-            <div className="rounded-2xl border border-border bg-card p-5 text-center">
+            <div className="rounded-2xl border border-border bg-card p-5 text-center flex flex-col">
               <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">Jednokratno</p>
-              <p className="text-2xl font-black text-foreground">2.99€</p>
+              <p className="text-2xl font-black text-foreground">2,99€</p>
               <p className="text-xs text-muted-foreground mt-1">po provjeri</p>
-              <div className="mt-4 text-[11px] text-muted-foreground">
-                Plati i učitaj
-              </div>
+              <p className="text-[11px] text-muted-foreground mt-2 flex-1">
+                Resetuje se nakon svake upotrebe
+              </p>
+              <a
+                href="mailto:kontakt@balkanlink.de?subject=Dokumenten-Check%202%2C99%E2%82%AC"
+                className="mt-3 block rounded-xl border border-border px-3 py-2 text-xs font-semibold hover:bg-accent transition-colors"
+              >
+                Kontaktiraj nas →
+              </a>
             </div>
-            {/* Premium */}
-            <div className="rounded-2xl border-2 border-[hsl(var(--gold))]/40 bg-[hsl(var(--gold))]/5 p-5 text-center relative">
+            <div className="rounded-2xl border-2 border-[hsl(var(--gold))]/40 bg-[hsl(var(--gold))]/5 p-5 text-center relative flex flex-col">
               <span className="absolute -top-2.5 right-3 rounded-full bg-[hsl(var(--gold))] px-2 py-0.5 text-[8px] font-bold text-white uppercase">⭐ Premium</span>
               <p className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--gold))] mb-2">Premium</p>
-              <p className="text-2xl font-black text-foreground">9.99€<span className="text-sm font-medium text-muted-foreground">/mj.</span></p>
-              <ul className="mt-3 text-[11px] text-muted-foreground text-left space-y-1">
-                <li className="flex items-start gap-1"><CheckCircle2 className="h-3 w-3 text-emerald-500 shrink-0 mt-0.5" /> 30 provjera mjesečno</li>
-                <li className="flex items-start gap-1"><CheckCircle2 className="h-3 w-3 text-emerald-500 shrink-0 mt-0.5" /> Prioritetna analiza</li>
-                <li className="flex items-start gap-1"><CheckCircle2 className="h-3 w-3 text-emerald-500 shrink-0 mt-0.5" /> + sve ostalo u Premiumu</li>
+              <p className="text-2xl font-black text-foreground">
+                9,99€
+                <span className="text-sm font-medium text-muted-foreground">/mj.</span>
+              </p>
+              <ul className="mt-3 text-[11px] text-muted-foreground text-left space-y-1 flex-1">
+                <li className="flex items-start gap-1">
+                  <CheckCircle2 className="h-3 w-3 text-emerald-500 shrink-0 mt-0.5" />
+                  1×/dan gratis
+                </li>
+                <li className="flex items-start gap-1">
+                  <CheckCircle2 className="h-3 w-3 text-emerald-500 shrink-0 mt-0.5" />
+                  Dodatne provjere 2,99€/kom
+                </li>
+                <li className="flex items-start gap-1">
+                  <CheckCircle2 className="h-3 w-3 text-emerald-500 shrink-0 mt-0.5" />
+                  + sve Premium funkcije
+                </li>
               </ul>
+              <button
+                onClick={() => navigate("/paketi")}
+                className="mt-3 rounded-xl px-3 py-2 text-xs font-bold text-white transition-all hover:opacity-90"
+                style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))" }}
+              >
+                Kupi Premium →
+              </button>
             </div>
           </div>
 
@@ -448,15 +471,38 @@ export default function DokumentenCheck() {
               className="flex flex-col items-center rounded-2xl border border-[hsl(var(--gold))]/20 bg-primary p-10 text-center">
               <Lock className="h-10 w-10 text-[hsl(var(--gold))] mb-4" />
               <p className="text-lg font-bold text-primary-foreground mb-2">Dokumenten-Check</p>
-              <p className="text-sm text-primary-foreground/60 mb-6 max-w-sm">Premium uključuje 30 provjera mjesečno</p>
-              <div className="flex flex-col gap-3 w-full max-w-xs items-center">
-                <button onClick={() => navigate("/paketi")}
+              <p className="text-sm text-primary-foreground/60 mb-6 max-w-sm">
+                Učitaj dokument — dobiješ objašnjenje na svom jeziku
+              </p>
+              <div className="flex flex-col gap-3 w-full max-w-xs">
+                <button
+                  onClick={() => navigate("/paketi")}
                   className="rounded-full px-6 py-3.5 font-bold transition-all hover:opacity-90"
-                  style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))", color: "hsl(var(--gold-foreground))" }}>
+                  style={{
+                    background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))",
+                    color: "hsl(var(--gold-foreground))"
+                  }}
+                >
                   <Crown className="inline-block mr-1.5 h-4 w-4" />
-                  BalkanLink Premium — 9.99€/mj.
+                  BalkanLink Premium — 9,99€/mj.
                 </button>
-                <p className="text-xs text-primary-foreground/40 mt-2">Ili jednokratno 2.99€ po dokumentu — kontakt@balkanlink.de</p>
+                <p className="text-[11px] text-primary-foreground/50">
+                  1×/dan gratis + sve Premium funkcije
+                </p>
+                <div className="flex items-center gap-2 my-1">
+                  <div className="flex-1 h-px bg-primary-foreground/10" />
+                  <span className="text-[11px] text-primary-foreground/40">ili</span>
+                  <div className="flex-1 h-px bg-primary-foreground/10" />
+                </div>
+                <a
+                  href="mailto:kontakt@balkanlink.de?subject=Dokumenten-Check%202%2C99%E2%82%AC"
+                  className="rounded-full px-6 py-3 text-sm font-semibold border border-primary-foreground/20 text-primary-foreground/70 hover:text-primary-foreground hover:border-primary-foreground/40 transition-all text-center"
+                >
+                  Jednokratno — 2,99€
+                </a>
+                <p className="text-[11px] text-primary-foreground/40">
+                  Resetuje se nakon svake upotrebe
+                </p>
               </div>
             </motion.div>
           )}

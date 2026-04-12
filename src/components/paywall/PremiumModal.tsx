@@ -51,15 +51,7 @@ export default function PremiumModal({ isOpen, onClose, trigger, formularId }: P
       setAuthOpen(true);
       return;
     }
-    initiateCheckout(STRIPE_PRICE_IDS.PREMIUM_MONTHLY, user.id);
-  };
-
-  const handleSingle = () => {
-    if (!user) {
-      setAuthOpen(true);
-      return;
-    }
-    initiateCheckout(STRIPE_PRICE_IDS.SINGLE_FORMULAR, user.id);
+    initiateCheckout(STRIPE_PRICE_IDS.PREMIUM_MONTHLY, user.id, "subscription");
   };
 
   const handlePricing = () => {
@@ -96,24 +88,8 @@ export default function PremiumModal({ isOpen, onClose, trigger, formularId }: P
               className="h-12 w-full rounded-xl bg-[hsl(var(--gold))] text-sm font-bold text-white shadow-lg hover:bg-[hsl(var(--gold-light))]"
             >
               <Crown className="mr-2 h-4 w-4" />
-              {"Mit Premium freischalten"}
+              Premium otključaj — 9,99€/mj.
             </Button>
-
-            {/* Single formular CTA (only for formular trigger) */}
-            {trigger === "formular" && formularId && (
-              <div className="text-center">
-                <Button
-                  onClick={handleSingle}
-                  variant="outline"
-                  className="h-10 w-full rounded-xl text-sm"
-                >
-                  Otključaj ovaj formular — 3.99€
-                </Button>
-                <p className="mt-1 text-[10px] text-muted-foreground">
-                  Jednokratni pristup, zauvijek
-                </p>
-              </div>
-            )}
 
             {/* View pricing */}
             <button

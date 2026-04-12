@@ -5,9 +5,14 @@ import { toast } from "@/hooks/use-toast";
 export const STRIPE_PRICE_IDS = {
   PREMIUM_MONTHLY: "price_1TJHeDR9oGwbVekBiuiEiAn1",
   PREMIUM_YEARLY: "price_1TJHecR9oGwbVekB86ShMKjB",
-  SINGLE_FORMULAR: "price_1TJHgMR9oGwbVekBrDCPzBa9",
   PRO_AD_7DAY: "price_1TJHgZR9oGwbVekBnOVNmjEo",
   PRO_AD_30DAY: "price_1TJHgqR9oGwbVekB2gknywnu",
+  DEUTSCH_A1: "PLACEHOLDER_A1",
+  DEUTSCH_A2: "PLACEHOLDER_A2",
+  DEUTSCH_B1: "PLACEHOLDER_B1",
+  DEUTSCH_B2: "PLACEHOLDER_B2",
+  DEUTSCH_C1: "PLACEHOLDER_C1",
+  DEUTSCH_C2: "PLACEHOLDER_C2",
 } as const;
 
 /** Stripe product IDs for subscription tier mapping */

@@ -30,10 +30,10 @@ export default function PricingPremiumCard({ yearly, isPremium, onCheckout }: Pr
 
       <div className="flex-1 space-y-4 text-sm">
         <Category icon="📋" title="FORMULARI">
-          <Ft>25+ Musterformulara — PDF download</Ft>
+          <Ft>Svi Musterformulari — uključeni bez doplate</Ft>
           <Ft>Smart Guide za svaki formular</Ft>
-          <Ft>Tačna uputstva šta upisati u svako polje</Ft>
-          <Ft>Sve kategorije: Bürgergeld, Kindergeld, Elterngeld, Wohngeld, BAföG i još 20+</Ft>
+          <Ft>Tačna uputstva za svako polje</Ft>
+          <Ft>25+ formulara: Bürgergeld, Kindergeld, Elterngeld i još 20+</Ft>
         </Category>
 
         <Category icon="✈️" title="VIZA NAVIGATOR">
@@ -55,7 +55,7 @@ export default function PricingPremiumCard({ yearly, isPremium, onCheckout }: Pr
 
         <Category icon="🇩🇪" title="DEUTSCH TRAINER">
           <Ft>Kompletan A1–C2 kurs (48 lekcija)</Ft>
-          <Ft>Wertgutschein — uči i zarađuj Amazon vaučere</Ft>
+          <Ft>Završi sve → Amazon Wertgutschein 30€</Ft>
         </Category>
 
         <Category icon="✉️" title="ŠABLONI / VORLAGEN">
@@ -64,7 +64,8 @@ export default function PricingPremiumCard({ yearly, isPremium, onCheckout }: Pr
         </Category>
 
         <Category icon="📢" title="PRO OGLASI">
-          <Ft>2 Pro oglasa uključena/mj.</Ft>
+          <Ft>Besplatno postavljanje oglasa</Ft>
+          <Ft>Trajanje oglasa: max 10 dana</Ft>
         </Category>
       </div>
 
