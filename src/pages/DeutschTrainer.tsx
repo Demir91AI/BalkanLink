@@ -3,7 +3,7 @@ import { SEO } from "@/components/SEO";
 import AuthGate from "@/components/AuthGate";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Trophy, Flame, Star, Lock, GraduationCap, CheckCircle2, X, Crown, ChevronLeft, ChevronRight, ArrowLeft, Home } from "lucide-react";
+import { Lock, GraduationCap, CheckCircle2, X, Crown, ChevronLeft, ChevronRight, ArrowLeft, Home } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import { LEVELS, LEVEL_COLORS, getLessonsForLevel, loadLessonsForLevel, FREE_LESSONS_PER_LEVEL, MAX_LEVEL, type Level, type Lesson } from "@/lib/deutsch-trainer-data";
@@ -45,9 +45,6 @@ export default function DeutschTrainer() {
 
   const levelLessons = getLessonsForLevel(selectedLevel);
   const dataReady = !levelLoading && levelLessons.length > 0;
-  const maxXpForLevel = MAX_LEVEL * 100;
-  const xpForNextLevel = Math.min(progress.level * 100, maxXpForLevel);
-  const xpInLevel = progress.level >= MAX_LEVEL ? 100 : progress.xp % 100;
 
   const completedInLevel = levelLessons.filter((l) =>
     progress.completedLessons.includes(l.id)
