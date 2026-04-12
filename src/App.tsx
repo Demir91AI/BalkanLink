@@ -104,7 +104,6 @@ const BiznisGuide = lazy(() => import("./pages/BiznisGuide"));
 const Premium = lazy(() => import("./pages/Premium"));
 const Paketi = lazy(() => import("./pages/Paketi"));
 const Profil = lazy(() => import("./pages/Profil"));
-const NotifikacijeOglasi = lazy(() => import("./pages/NotifikacijeOglasi"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -177,7 +176,6 @@ function AppRoutes() {
         <Route path="/stellenangebote" element={<Stellenangebote />} />
         <Route path="/premium" element={<Premium />} />
         <Route path="/profil" element={<Profil />} />
-        <Route path="/profil/notifikacije" element={<NotifikacijeOglasi />} />
         <Route path="/guide/:slug" element={<LegacyGuideRedirect />} />
         <Route path="/smart-guide/:slug" element={<LegacyGuideRedirect />} />
         <Route path="/dokumenten-check" element={<DokumentenCheck />} />

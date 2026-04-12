@@ -10,7 +10,6 @@ import NtSubmitForm from "@/components/nudim-trazim/NtSubmitForm";
 import NtProModal from "@/components/nudim-trazim/NtProModal";
 import type { NtAd } from "@/lib/nudim-trazim-constants";
 import { useHistorySearchState } from "@/hooks/useHistorySearchState";
-import NtNotificationBanner from "@/components/nudim-trazim/NtNotificationBanner";
 import { useNavigate } from "react-router-dom";
 import { navigateBackOrHome } from "@/lib/navigation";
 import { useQuery } from "@tanstack/react-query";
@@ -213,9 +212,6 @@ export default function NudimTrazim() {
         </div>
 
         <div className="space-y-8 pb-10">
-          {/* Notification banner */}
-          <NtNotificationBanner />
-
           {/* Pro info box */}
           <div className="rounded-2xl border border-[hsl(var(--gold))]/30 bg-[hsl(var(--gold))]/5 p-5">
             <div className="flex items-start gap-3">

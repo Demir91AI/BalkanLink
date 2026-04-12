@@ -54,36 +54,18 @@ export default function NtSubmitForm({ onClose, onProClick }: Props) {
       }
     }
 
-    // Persist ad to Supabase
+    // Try to persist to Supabase (non-blocking — table may not exist yet)
     try {
-      const { data: session } = await supabase.auth.getSession();
-      const userId = session?.session?.user?.id;
-      
-      const { data: insertedAd, error: insertErr } = await supabase.from("ads" as any).insert({
-        type: form.type === "nudim" ? "OFFERING" : "SEEKING",
+      await supabase.from("nt_ads" as any).insert({
+        type: form.type,
         title: form.title.trim(),
         category: form.category,
         city: form.city.trim(),
         description: form.description.trim(),
-        contact_type: form.contact_type === "phone" ? "PHONE" : "EMAIL",
+        contact_type: form.contact_type,
         contact_value: form.contact_value.trim(),
-        bundesland: "Sonstige",
-        domain: "SERVICE",
-        owner_email: session?.session?.user?.email || form.contact_value.trim(),
-        user_id: userId,
-      } as any).select("id").single();
-
-      if (!insertErr && insertedAd) {
-        // Fire notification to subscribers (non-blocking)
-        supabase.functions.invoke("notify-new-classified", {
-          body: {
-            ad_id: (insertedAd as any).id,
-            title: form.title.trim(),
-            description: form.description.trim(),
-            category: form.category,
-          },
-        }).catch(() => {});
-      }
+        is_pro: false,
+      });
     } catch {}
 
     toast.success("Oglas uspješno poslan! Biće vidljiv nakon provjere.");
