@@ -107,7 +107,7 @@ function VisaDetail({ visa }: { visa: VisaType }) {
 
       <motion.div {...fade(0)} className="rounded-2xl border border-border/60 bg-card p-4">
         <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold">
-          <PenLine className="h-3.5 w-3.5 text-primary" /> {"Wer kann sich bewerben"}
+          <PenLine className="h-3.5 w-3.5 text-primary" /> {"Ko se može prijaviti"}
         </h3>
         <ul className="space-y-1 pl-4 list-disc">
           {visa.whoCanApply.map((w, i) => (
@@ -118,7 +118,7 @@ function VisaDetail({ visa }: { visa: VisaType }) {
 
       <motion.div {...fade(1)} className="rounded-2xl border border-border/60 bg-card p-4">
         <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold">
-          <ClipboardList className="h-3.5 w-3.5 text-primary" /> {"Grundvoraussetzungen"}
+          <ClipboardList className="h-3.5 w-3.5 text-primary" /> {"Osnovni uslovi"}
         </h3>
         <ul className="space-y-1 pl-4 list-disc">
           {visa.basicRequirements.map((r, i) => (
@@ -129,7 +129,7 @@ function VisaDetail({ visa }: { visa: VisaType }) {
 
       <motion.div {...fade(2)} className="rounded-2xl border border-border/60 bg-card p-4">
         <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold">
-          <FileText className="h-3.5 w-3.5 text-primary" /> {"Benötigte Dokumente"}
+          <FileText className="h-3.5 w-3.5 text-primary" /> {"Potrebna dokumenta"}
         </h3>
         <ul className="space-y-1 pl-4 list-disc">
           {visa.documents.map((d, i) => (
@@ -140,7 +140,7 @@ function VisaDetail({ visa }: { visa: VisaType }) {
 
       <motion.div {...fade(3)} className="rounded-2xl border border-red-200 bg-red-50 p-4 dark:border-red-900/40 dark:bg-red-950/20">
         <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold text-red-700 dark:text-red-400">
-          <AlertTriangle className="h-3.5 w-3.5" /> {"Häufige Fehler"}
+          <AlertTriangle className="h-3.5 w-3.5" /> {"Česte greške"}
         </h3>
         <ul className="space-y-1 pl-4 list-disc">
           {visa.commonMistakes.map((m, i) => (
@@ -151,7 +151,7 @@ function VisaDetail({ visa }: { visa: VisaType }) {
 
       <motion.div {...fade(4)} className="rounded-2xl border border-border/60 bg-card p-4 text-center">
         <h3 className="mb-2 flex items-center justify-center gap-1.5 text-xs font-bold">
-          <Info className="h-3.5 w-3.5 text-primary" /> {"Offizielle Informationen"}
+          <Info className="h-3.5 w-3.5 text-primary" /> {"Zvanične informacije"}
         </h3>
         <a
           href={visa.officialUrl}

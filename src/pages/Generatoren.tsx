@@ -24,8 +24,8 @@ export default function Generatoren() {
             <ChevronLeft className="h-4 w-4" /> Nazad
           </button>
           <div className="text-center">
-          <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">{"Tools & Rechner"}</h1>
-          <p className="mt-2 text-sm text-primary-foreground/80 md:text-base">{"Nützliche Tools für den Alltag"}</p>
+          <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">{"Alati i kalkulatori"}</h1>
+          <p className="mt-2 text-sm text-primary-foreground/80 md:text-base">{"Korisni alati za svakodnevnicu"}</p>
           </div>
         </div>
       </section>
