@@ -27,6 +27,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
     setError("");
     setShowPassword(false);
     setLoading(false);
+    setTermsAccepted(false);
   }, []);
 
   const handleClose = useCallback(() => {
@@ -71,6 +72,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
     if (!email || !password) { setError("Registrierungsfehler."); return; }
     if (!allPwRulesPass) { setError("Lozinka ne ispunjava sigurnosne zahtjeve."); return; }
     if (password !== confirmPassword) { setError("Passwörter stimmen nicht überein."); return; }
+    if (!termsAccepted) { setError("Moraš prihvatiti uslove korištenja."); return; }
     setLoading(true);
     const { error: err } = await supabase.auth.signUp({ email, password });
     setLoading(false);
