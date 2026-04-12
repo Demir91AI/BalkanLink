@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
 
 import FlowBanner from "@/components/home/FlowBanner";
+import WhatIsWhat from "@/components/home/WhatIsWhat";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 
@@ -297,6 +298,9 @@ export default function Index() {
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(var(--gold))]/40 to-transparent" />
       </div>
 
+
+      {/* ─── "ŠTA JE ŠTA?" EXPLAINER ─── */}
+      <WhatIsWhat />
 
       {/* ─── FLOW BANNER CAROUSEL ─── */}
       <FlowBanner />
