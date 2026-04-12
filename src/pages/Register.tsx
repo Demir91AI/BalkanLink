@@ -155,7 +155,7 @@ export default function Register() {
                 </Link>{" "}
                 i potvrđujem da sam pročitao/la{" "}
                 <Link to="/napomena-o-ki" target="_blank" className="font-semibold text-primary underline hover:no-underline">
-                  Napomenu o upotrebi vještačke inteligencije
+                  Napomenu o upotrebi asistenta
                 </Link>
                 . Razumijem da AI asistent pruža isključivo informativne odgovore
                 i ne zamjenjuje pravni savjet.

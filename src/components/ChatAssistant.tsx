@@ -737,14 +737,14 @@ export default function ChatAssistant() {
                   {!disclaimerSeen && (
                     <div className="absolute inset-0 z-10 flex items-center justify-center bg-[hsl(var(--primary))]/95 backdrop-blur-sm rounded-lg p-6">
                       <div className="max-w-md text-center space-y-4">
-                        <div className="text-3xl">🤖</div>
+                        <div className="text-3xl">📋</div>
                         <h3 className="text-lg font-bold text-white">
                           Prije nego počneš — pročitaj ovo
                         </h3>
                         <div className="text-sm text-white/70 text-left space-y-2">
                           <p>
-                            BalkanLink AI Asistent pruža <strong className="text-white">
-                            isključivo informativne odgovore</strong>. Odgovori AI-a:
+                            BalkanLink Asistent pruža <strong className="text-white">
+                            isključivo informativne odgovore</strong>. Odgovori asistenta:
                           </p>
                           <ul className="list-disc ml-4 space-y-1">
                             <li>Ne predstavljaju pravni ni porezni savjet</li>
@@ -753,10 +753,10 @@ export default function ChatAssistant() {
                             <li>Uvijek provjeri informacije na zvaničnim izvorima</li>
                           </ul>
                           <p className="text-xs opacity-70 mt-2">
-                            Više o upotrebi AI-a:{" "}
-                            <a href="/ki-hinweis" target="_blank"
+                            Više o asistentu:{" "}
+                            <a href="/napomena-o-ki" target="_blank"
                               className="text-[hsl(var(--brand-orange))] hover:underline">
-                              Napomena o KI
+                              Napomena o asistentu
                             </a>
                           </p>
                         </div>
