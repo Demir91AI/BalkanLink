@@ -839,46 +839,17 @@ export default function ChatAssistant() {
 
                     {loading && messages[messages.length - 1]?.role === "user" && (
                       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex justify-start">
-                        <div className="w-[85%] space-y-2.5 rounded-xl rounded-bl-none px-4 py-4 overflow-hidden" style={{ background: "#1F2937" }}>
-                          {[
-                            { cls: "h-4 w-4 rounded-full", inline: true },
-                            { cls: "h-3 w-24 rounded-md", inline: true },
-                            { cls: "h-3 w-full rounded-md" },
-                            { cls: "h-3 w-[90%] rounded-md", delay: 150 },
-                            { cls: "h-3 w-[70%] rounded-md", delay: 300 },
-                          ].reduce<{ rows: React.ReactNode[][]; current: React.ReactNode[] }>((acc, item, i) => {
-                            const el = (
-                              <div
-                                key={i}
-                                className={`${item.cls} relative bg-white/[0.07]`}
-                                style={{ animationDelay: item.delay ? `${item.delay}ms` : undefined, overflow: "hidden" }}
-                              >
-                                <div className="absolute inset-0" style={{
-                                  background: "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%)",
-                                  animation: `shimmer 1.8s ease-in-out infinite`,
-                                  animationDelay: item.delay ? `${item.delay}ms` : "0ms",
-                                }} />
-                              </div>
-                            );
-                            if (item.inline) { acc.current.push(el); }
-                            else { if (acc.current.length) { acc.rows.push(acc.current); acc.current = []; } acc.rows.push([el]); }
-                            return acc;
-                          }, { rows: [], current: [] }).rows.concat(
-                            // flush remaining inline
-                          ).map((row, ri) => row.length > 1
-                            ? <div key={ri} className="flex items-center gap-2">{row}</div>
-                            : <React.Fragment key={ri}>{row}</React.Fragment>
-                          )}
+                        <div className="bl-shimmer-host w-[85%] space-y-2.5 rounded-xl rounded-bl-none px-4 py-4 overflow-hidden" style={{ background: "#1F2937" }}>
+                          <div className="flex items-center gap-2">
+                            <div className="bl-shimmer h-4 w-4 rounded-full" />
+                            <div className="bl-shimmer h-3 w-24 rounded-md" />
+                          </div>
+                          <div className="bl-shimmer h-3 w-full rounded-md" />
+                          <div className="bl-shimmer h-3 w-[90%] rounded-md" style={{ animationDelay: "150ms" }} />
+                          <div className="bl-shimmer h-3 w-[70%] rounded-md" style={{ animationDelay: "300ms" }} />
                           <div className="flex gap-2 pt-1">
-                            {[16, 20].map((w, i) => (
-                              <div key={i} className={`h-3 w-${w} rounded-md relative bg-white/[0.05] overflow-hidden`}>
-                                <div className="absolute inset-0" style={{
-                                  background: "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%)",
-                                  animation: `shimmer 1.8s ease-in-out infinite`,
-                                  animationDelay: `${400 + i * 100}ms`,
-                                }} />
-                              </div>
-                            ))}
+                            <div className="bl-shimmer h-3 w-16 rounded-md" style={{ animationDelay: "400ms" }} />
+                            <div className="bl-shimmer h-3 w-20 rounded-md" style={{ animationDelay: "500ms" }} />
                           </div>
                         </div>
                       </motion.div>
