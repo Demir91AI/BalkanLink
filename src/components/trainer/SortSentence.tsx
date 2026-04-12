@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Check, X, RotateCcw } from "lucide-react";
+import { Check, X } from "lucide-react";
 import type { Exercise } from "@/lib/deutsch-trainer-data";
 
 interface Props {
@@ -34,14 +34,16 @@ export default function SortSentence({ exercise, onAnswer }: Props) {
 
   return (
     <div className="flex flex-col gap-4">
+      <p className="text-xs font-semibold text-white/50">Poredaj rečenicu:</p>
       {/* Placed words */}
       <div className="min-h-[56px] flex flex-wrap gap-2 rounded-xl border-2 border-dashed border-white/25 bg-white/[0.06] p-3">
-        {placed.length === 0 && <span className="text-sm text-white/40">Tippe auf die Wörter…</span>}
+        {placed.length === 0 && <span className="text-sm text-white/40">Klikni na riječi...</span>}
         {placed.map((wordIdx, pos) => (
           <button
             key={pos}
             onClick={() => removeWord(pos)}
-            className={`rounded-lg border px-3 py-2 text-sm font-medium transition-all ${
+            style={{ minHeight: 44, fontSize: 15 }}
+            className={`rounded-lg border px-3 py-2 font-medium transition-all ${
               checked
                 ? wordIdx === correctOrder[pos]
                   ? "border-[hsl(var(--success))] bg-[hsl(var(--success)/0.1)] text-[hsl(var(--success))]"
@@ -60,7 +62,8 @@ export default function SortSentence({ exercise, onAnswer }: Props) {
           <button
             key={idx}
             onClick={() => addWord(idx)}
-            className="rounded-lg border border-white/20 bg-white/[0.08] text-white px-3 py-2 text-sm font-medium transition-all hover:border-blue-400/60 hover:bg-white/[0.15]"
+            style={{ minHeight: 44, fontSize: 15 }}
+            className="rounded-lg border border-white/20 bg-white/[0.08] text-white px-3 py-2 font-medium transition-all hover:border-blue-400/60 hover:bg-white/[0.15]"
           >
             {exercise.options[idx]}
           </button>
@@ -72,14 +75,14 @@ export default function SortSentence({ exercise, onAnswer }: Props) {
           onClick={handleCheck}
           className="mt-2 rounded-xl px-6 py-3 text-sm font-bold text-white" style={{ background: "linear-gradient(135deg, #3b82f6, #06b6d4)" }}
         >
-          Prüfen
+          Provjeri
         </button>
       )}
 
       {checked && (
         <div className={`flex items-center gap-2 rounded-lg p-3 text-sm font-medium ${isCorrect ? "bg-[hsl(var(--success)/0.08)] text-[hsl(var(--success))]" : "bg-destructive/5 text-destructive"}`}>
           {isCorrect ? <Check className="h-4 w-4" /> : <X className="h-4 w-4" />}
-          {exercise.explanation}
+          {isCorrect ? "Tačno! ✓" : "Netačno."} {exercise.explanation}
         </div>
       )}
     </div>

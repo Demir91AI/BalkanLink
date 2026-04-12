@@ -15,21 +15,23 @@ const individualLevels = [
 ];
 
 const freeFeatures = [
-  { text: "3 lekcije po nivou", included: true },
-  { text: "3 rečenice govorne pomoći", included: true },
-  { text: "Sve lekcije A1–C2", included: false },
-  { text: "Neograničena govorna pomoć", included: false },
+  { text: "3 lekcije po nivou besplatno", included: true },
+  { text: "50 zadataka po stageu (od 500)", included: true },
+  { text: "3 rečenice Sprachassistenta (od 500)", included: true },
+  { text: "Sve lekcije A1–C2 (240 ukupno)", included: false },
+  { text: "500 zadataka po stageu", included: false },
+  { text: "Neograničen Sprachassistent", included: false },
   { text: "Amazon Wertgutschein 30€", included: false },
 ];
 
 const premiumFeatures = [
-  "Sve lekcije A1–C2 (48 lekcija)",
-  "300+ zadataka po lekciji",
-  "Neograničena govorna pomoć",
-  "Svi scenariji iz stvarnog života",
+  "40 lekcija po nivou (240 ukupno A1–C2)",
+  "500 zadataka po stageu — AI-generisano",
+  "3 stagea po lekciji = 1.500 zadataka po lekciji",
+  "Sprachassistent — 500 rečenica",
+  "Svi scenariji iz stvarnog života u Njemačkoj",
   "Smart Progress sistem",
-  "Amazon Wertgutschein 30€ pri završetku",
-  "Bez dodatnog plaćanja",
+  "Amazon Wertgutschein 30€ pri završetku A1–C2",
 ];
 
 export default function TrainerPreise() {

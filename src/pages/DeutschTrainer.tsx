@@ -78,7 +78,7 @@ export default function DeutschTrainer() {
 
   return (
     <>
-      <SEO title="Deutsch Trainer — Uči Njemački A1 do C2" description="Online kurs njemačkog jezika za Balkance — 48 lekcija, vježbe, TTS izgovor." path="/deutsch-trainer" />
+      <SEO title="Deutsch Trainer — Uči Njemački A1 do C2" description="240 lekcija (40 po nivou), 500 zadataka po stageu, Sprachassistent" path="/deutsch-trainer" />
       {/* Hero Banner */}
       <section
         className="relative overflow-hidden border-b border-white/[0.06] pb-12 pt-6 sm:pb-16 sm:pt-8"
@@ -321,7 +321,7 @@ export default function DeutschTrainer() {
                         {isLocked && <Lock className="h-3.5 w-3.5 shrink-0 text-white/20" />}
                       </div>
                       <p className={`mt-1 text-xs leading-relaxed ${isLocked ? "text-white/15" : "text-white/40"}`}>
-                        {lesson.title}{!isPremium && ` · ${"frei verfügbar"}`}
+                        {lesson.title}{!isPremium && ` · ${"besplatno"}`}
                       </p>
                     </div>
                   </motion.button>
@@ -376,7 +376,7 @@ export default function DeutschTrainer() {
               <Crown className="mx-auto mb-3 h-8 w-8 text-gold" />
               <h3 className="text-base font-black text-white">{"Nastavi učiti"}</h3>
               <p style={{ fontSize: 13, color: "#9CA3AF", marginBottom: 8 }}>
-                {"Otključaj sve lekcije i kompletnog Sprachassistenta"}
+                {"Otključaj sve lekcije i Sprachassistenta"}
               </p>
               <div className="mt-2 flex flex-wrap justify-center gap-2">
                 <span className="rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold text-white/70">✓ {"Bez pretplate"}</span>

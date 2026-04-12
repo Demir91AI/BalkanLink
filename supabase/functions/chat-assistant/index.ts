@@ -480,7 +480,7 @@ Besplatno (0€):
 - Informativni sadržaji o životu i birokratiji u Njemačkoj
 - Djelimičan pristup Smart Guide vodičima
 - Oglasnik Nudim/Tražim
-- DeutschTrainer: 3 lekcije po nivou + 3 rečenice govorne pomoći
+- DeutschTrainer: 3 lekcije po nivou, 50/500 zadataka po stageu, 3/500 rečenica Sprachassistenta
 - Šabloni: 2 gratis (Kündigung + Mietkündigung)
 - Asistent: 5 pitanja/dan
 - Dokumenten-Check: 2,99€/kom (resetuje se nakon svake upotrebe)
@@ -491,11 +491,20 @@ Premium (9,99€/mj. ili 99,90€/god.) — 🎉 Promo cijena prvih 6 mjeseci:
 - Viza Navigator kompletan
 - Asistent: neograničeno
 - Dokumenten-Check: 1×/dan gratis, dodatne 2,99€/kom
-- DeutschTrainer: sve lekcije A1–C2 (48 lekcija)
+- DeutschTrainer: sve lekcije A1–C2 (240 lekcija, 40 po nivou), 500 zadataka po stageu (AI-generisano), Sprachassistent 500 rečenica
 - Šabloni: svi + PDF download
 - Pro oglasi: besplatno, max 10 dana trajanje
 - Amazon Wertgutschein 30€ pri završetku A1–C2
 - Notifikacije o zakonskim promjenama
+
+DEUTSCHTRAINER — aktualni podaci:
+Struktura: 6 nivoa (A1–C2), 40 lekcija po nivou = 240 lekcija ukupno
+Svaka lekcija: 3 stagea (Osnove, Primjena, Realnost)
+Svaki stage: 500 AI-generisanih zadataka
+Po lekciji: 1.500 zadataka
+Sprachassistent: 500 rečenica
+Free: 3 lekcije/nivo, 50/500 zadataka/stage, 3/500 rečenica
+Premium: sve 40 lekcija/nivo, 500 zadataka/stage, 500 rečenica Sprachassistenta
 
 DEUTSCHTRAINER — pojedinačni nivoi (bez Premium):
 A1=9,99€ / A2=14,99€ / B1=19,99€ / B2=24,99€ / C1=29,99€ / C2=34,99€

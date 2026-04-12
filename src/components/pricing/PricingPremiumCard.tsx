@@ -55,8 +55,10 @@ export default function PricingPremiumCard({ yearly, isPremium, onCheckout }: Pr
         </Category>
 
         <Category icon="🇩🇪" title="DEUTSCH TRAINER">
-          <Ft>Kompletan A1–C2 kurs (48 lekcija)</Ft>
-          <Ft>Završi sve → Amazon Wertgutschein 30€</Ft>
+          <Ft>240 lekcija (40 po nivou, A1–C2)</Ft>
+          <Ft>500 zadataka po stageu (AI-generisano)</Ft>
+          <Ft>Sprachassistent — 500 rečenica</Ft>
+          <Ft>Završi A1–C2 → Amazon Wertgutschein 30€</Ft>
         </Category>
 
         <Category icon="✉️" title="ŠABLONI / VORLAGEN">
