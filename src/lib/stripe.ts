@@ -7,12 +7,12 @@ export const STRIPE_PRICE_IDS = {
   PREMIUM_YEARLY: "price_1TJHecR9oGwbVekB86ShMKjB",
   PRO_AD_7DAY: "price_1TJHgZR9oGwbVekBnOVNmjEo",
   PRO_AD_30DAY: "price_1TJHgqR9oGwbVekB2gknywnu",
-  DEUTSCH_A1: "PLACEHOLDER_A1",
-  DEUTSCH_A2: "PLACEHOLDER_A2",
-  DEUTSCH_B1: "PLACEHOLDER_B1",
-  DEUTSCH_B2: "PLACEHOLDER_B2",
-  DEUTSCH_C1: "PLACEHOLDER_C1",
-  DEUTSCH_C2: "PLACEHOLDER_C2",
+  DEUTSCH_A1: "price_1TLN7iR9oGwbVekBOpJkfwOf",
+  DEUTSCH_A2: "price_1TLN8AR9oGwbVekBipSzFiju",
+  DEUTSCH_B1: "price_1TLN8SR9oGwbVekBVpctlnAu",
+  DEUTSCH_B2: "price_1TLN8kR9oGwbVekB0048mH7y",
+  DEUTSCH_C1: "price_1TLN9YR9oGwbVekBsEiXY2aS",
+  DEUTSCH_C2: "price_1TLSWCR9oGwbVekB240bqnni",
 } as const;
 
 /** Stripe product IDs for subscription tier mapping */
