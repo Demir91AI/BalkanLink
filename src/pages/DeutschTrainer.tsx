@@ -374,20 +374,20 @@ export default function DeutschTrainer() {
               style={{ background: "linear-gradient(135deg, rgba(255,204,0,0.06) 0%, rgba(255,204,0,0.02) 100%)" }}
             >
               <Crown className="mx-auto mb-3 h-8 w-8 text-gold" />
-              <h3 className="text-base font-black text-white">{"Weiter lernen"}</h3>
+              <h3 className="text-base font-black text-white">{"Nastavi učiti"}</h3>
               <p style={{ fontSize: 13, color: "#9CA3AF", marginBottom: 8 }}>
-                {"Schalte alle Lektionen & den vollen Sprachassistent frei"}
+                {"Otključaj sve lekcije i kompletnog Sprachassistenta"}
               </p>
               <div className="mt-2 flex flex-wrap justify-center gap-2">
-                <span className="rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold text-white/70">✓ {"Kein Abo"}</span>
-                <span className="rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold text-white/70">✓ {"Einmal zahlen"}</span>
-                <span className="rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold text-white/70">✓ {"Wertgutschein für Premium"}</span>
+                <span className="rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold text-white/70">✓ {"Bez pretplate"}</span>
+                <span className="rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold text-white/70">✓ {"Jednom plati"}</span>
+                <span className="rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold text-white/70">✓ {"Wertgutschein za Premium"}</span>
               </div>
               <Button
                 onClick={() => navigate("/deutsch-trainer/preise")}
                 className="mt-5 h-12 w-full max-w-xs rounded-xl bg-gold text-sm font-bold text-gold-foreground shadow-[0_4px_20px_rgba(255,204,0,0.3)] hover:bg-gold-light"
               >
-                {"Alle Lektionen freischalten"}
+                {"Otključaj sve lekcije"}
               </Button>
             </motion.div>
           )}
