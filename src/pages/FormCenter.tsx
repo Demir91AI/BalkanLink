@@ -148,7 +148,7 @@ function FormPremiumPaywall({ slug, entry }: { slug: string; entry: FormEntry | 
 /* ─── Guide Content (right side) ─── */
 function GuideContent({ slug }: { slug: string }) {
   const guide = getGuideBySlug(slug);
-  const lang = getLangKey("de");
+  const lang = getLangKey("bs");
   const freeLang = (lang === "hr" || lang === "sr" ? "bs" : lang) as "de" | "bs" | "en";
 
   const MusterButton = null;
