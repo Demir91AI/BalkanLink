@@ -35,7 +35,7 @@ export default function QA() {
 
   return (
     <div className="container py-8 md:py-12">
-      <SEO title="Pitanja i Odgovori" description="Najčešća pitanja o životu u Njemačkoj — administracija, porezi, zdravstvo, stanovanje. Na bosanskom, hrvatskom i srpskom." path="/qa" />
+      <SEO title="Pitanja i Odgovori" description="Najčešća pitanja o životu u Njemačkoj — administracija, porezi, zdravstvo, stanovanje." path="/qa" />
       <div className="mb-8 max-w-2xl">
         <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
           <ChevronLeft className="h-4 w-4" /> Nazad

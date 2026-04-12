@@ -430,9 +430,6 @@ export default function Index() {
                         { feature: "Pro oglasi", free: "2,99€/oglas", premium: "✅ 2 uključena/mj." },
                         { feature: "Dolazak u Njemačku vodiči", free: "✅ Potpun pristup", premium: "✅ Potpun pristup" },
                         { feature: "Wertgutschein program", free: "❌ Nije dostupno", premium: "✅ Amazon vaučer do 30€" },
-                        { feature: "Notifikacije o promjenama", free: "❌ Nije dostupno", premium: "✅ Push obavijesti" },
-                        { feature: "Prioritetna podrška", free: "❌ Nije dostupno", premium: "✅ Brži odgovor" },
-                        { feature: "Novi sadržaj — rano", free: "❌ Nije dostupno", premium: "✅ Pristup prvi" },
                       ].map((row) => (
                         <div key={row.feature} className="grid grid-cols-3 px-4 py-2.5 text-xs">
                           <span className="font-medium text-foreground">{row.feature}</span>
@@ -530,9 +527,6 @@ export default function Index() {
                   { feature: "Pro oglasi", free: "2,99€/oglas", premium: "✅ 2 uključena/mj." },
                   { feature: "Dolazak u Njemačku vodiči", free: "✅ Potpun pristup", premium: "✅ Potpun pristup" },
                   { feature: "Wertgutschein program", free: "❌ Nije dostupno", premium: "✅ Amazon vaučer do 30€" },
-                  { feature: "Notifikacije o promjenama", free: "❌ Nije dostupno", premium: "✅ Push obavijesti" },
-                  { feature: "Prioritetna podrška", free: "❌ Nije dostupno", premium: "✅ Brži odgovor" },
-                  { feature: "Novi sadržaj — rano", free: "❌ Nije dostupno", premium: "✅ Pristup prvi" },
                 ].map((row) => (
                   <div key={row.feature} className="grid grid-cols-3 px-6 py-3 text-sm">
                     <span className="font-medium text-foreground">{row.feature}</span>
