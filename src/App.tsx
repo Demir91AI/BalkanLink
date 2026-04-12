@@ -104,6 +104,7 @@ const BiznisGuide = lazy(() => import("./pages/BiznisGuide"));
 const Premium = lazy(() => import("./pages/Premium"));
 const Paketi = lazy(() => import("./pages/Paketi"));
 const Profil = lazy(() => import("./pages/Profil"));
+const Mietrecht = lazy(() => import("./pages/Mietrecht"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -230,6 +231,7 @@ function AppRoutes() {
         <Route path="/radno-pravo/:slug" element={<RadnoPravoGuide />} />
         <Route path="/biznis" element={<BiznisNjemacka />} />
         <Route path="/biznis/:slug" element={<BiznisGuide />} />
+        <Route path="/mietrecht" element={<Mietrecht />} />
         <Route path="/oglasi" element={<Navigate to="/nudim-trazim" replace />} />
         <Route path="/deutsch" element={<Navigate to="/deutsch-trainer" replace />} />
         <Route path="/sabloni" element={<Navigate to="/vorlagen" replace />} />
