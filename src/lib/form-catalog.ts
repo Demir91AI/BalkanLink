@@ -137,6 +137,43 @@ export const formCatalog: FormGroup[] = [
   },
 ];
 
+/** Slugs that have a Musterformular page at /musterformular/:musterSlug */
+export const MUSTER_SLUG_MAP: Record<string, string> = {
+  "kindergeld": "kindergeld",
+  "elterngeld": "elterngeld",
+  "anmeldung": "anmeldung",
+  "hauptantrag": "buergergeld",
+  "weiterbewilligung": "buergergeld",
+  "wohngeld": "wohngeld",
+  "bafoeg": "bafoeg",
+  "schueler-bafoeg": "schueler-bafoeg",
+  "fuehrungszeugnis": "fuehrungszeugnis",
+  "kirchenaustritt": "kirchenaustritt",
+  "integrationskurs": "integrationskurs",
+  "kinderzuschlag": "kinderzuschlag",
+  "steuerklassenwechsel": "steuerklasse",
+  "arbeitslosengeld": "arbeitslosengeld",
+  "grundsicherung": "grundsicherung",
+  "anlage-bb": "anlage-bb",
+  "anlage-sv": "anlage-sv",
+  "anlage-ve": "anlage-ve",
+  "anlage-hg": "anlage-hg",
+  "anlage-meb": "anlage-meb",
+  "anlage-uf": "anlage-uf",
+  "anlage-se": "anlage-se",
+  "arbeitsbescheinigung": "arbeitsbescheinigung",
+  "antragsruecknahme": "antragsruecknahme",
+};
+
+export function hasMuster(slug: string): boolean {
+  return slug in MUSTER_SLUG_MAP;
+}
+
+export function getMusterPath(slug: string): string | null {
+  const ms = MUSTER_SLUG_MAP[slug];
+  return ms ? `/musterformular/${ms}` : null;
+}
+
 /** Flat list of all unique slugs for search */
 export function getAllFormEntries(): FormEntry[] {
   const seen = new Set<string>();

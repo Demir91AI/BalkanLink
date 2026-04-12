@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { getGuideBySlug } from "@/lib/guide-data";
-import { formCatalog, getAllFormEntries, isFormFree, type FormEntry, type FormGroup } from "@/lib/form-catalog";
+import { formCatalog, getAllFormEntries, isFormFree, hasMuster, getMusterPath, type FormEntry, type FormGroup } from "@/lib/form-catalog";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 import FormFreeContent from "@/components/FormFreeContent";
@@ -232,6 +232,17 @@ function ItemBadge({ slug }: { slug: string }) {
   return <span className="shrink-0 rounded-full bg-[hsl(var(--gold))]/10 px-1.5 py-0.5 text-[8px] font-bold text-[hsl(var(--gold))]">🔒 PREMIUM</span>;
 }
 
+function AvailabilityIndicator({ slug }: { slug: string }) {
+  const free = isFormFree(slug);
+  const muster = hasMuster(slug);
+  const icon = free ? "✓" : "🔒";
+  return (
+    <p className="text-[10px] text-muted-foreground/70 mt-0.5">
+      {icon} Smart Guide {muster ? `  ${icon} Musterformular` : ""}
+    </p>
+  );
+}
+
 /* ─── Main Page ─── */
 export default function FormCenter() {
   const { slug } = useParams<{ slug: string }>();
@@ -333,11 +344,23 @@ export default function FormCenter() {
 
   // Mobile: if slug selected, show guide
   if (isMobile && activeSlug && !isRemovedFormSlug) {
+    const musterPath = getMusterPath(activeSlug);
     return (
       <div className="px-4 py-6">
         <PageNavBar onBack={handleBack} />
         {canAccess ? (
-          <GuideContent key={activeSlug} slug={activeSlug} />
+          <>
+            <GuideContent key={activeSlug} slug={activeSlug} />
+            {musterPath && (
+              <button
+                onClick={() => navigate(musterPath)}
+                className="w-full mt-6 mb-4 rounded-xl py-3 text-sm font-bold text-white flex items-center justify-center gap-2"
+                style={{ background: '#1E293B' }}
+              >
+                📋 Otvori Musterformular
+              </button>
+            )}
+          </>
         ) : (
           <FormPremiumPaywall slug={activeSlug} entry={activeEntry} />
         )}
@@ -498,6 +521,7 @@ export default function FormCenter() {
                                 <ItemBadge slug={item.slug} />
                               </div>
                               <p className="text-[11px] text-muted-foreground truncate">{item.desc}</p>
+                              <AvailabilityIndicator slug={item.slug} />
                             </div>
                             <ChevronRight className="ml-auto h-4 w-4 shrink-0 text-muted-foreground" />
                           </button>
@@ -543,9 +567,7 @@ export default function FormCenter() {
                                     <ItemBadge slug={item.slug} />
                                   </div>
                                   <p className="text-[11px] text-muted-foreground truncate">{item.desc}</p>
-                                  {item.includes && (
-                                    <p className="text-[10px] text-muted-foreground/70 truncate mt-0.5">{item.includes}</p>
-                                  )}
+                                  <AvailabilityIndicator slug={item.slug} />
                                 </div>
                                 <ChevronRight className="ml-auto h-4 w-4 shrink-0 text-muted-foreground" />
                               </button>
@@ -566,6 +588,7 @@ export default function FormCenter() {
                                         <ItemBadge slug={item.slug} />
                                       </div>
                                       <p className="text-[11px] text-muted-foreground truncate">{item.desc}</p>
+                                      <AvailabilityIndicator slug={item.slug} />
                                     </div>
                                     <ChevronRight className="ml-auto h-4 w-4 shrink-0 text-muted-foreground" />
                                   </button>
