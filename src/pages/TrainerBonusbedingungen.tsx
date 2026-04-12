@@ -47,19 +47,14 @@ export default function TrainerBonusbedingungen() {
             <li>Zustimmung zu den AGB von BalkanLink</li>
           </ul>
 
-          <h2 className="text-base font-black text-foreground">3. Staffelung</h2>
+          <h2 className="text-base font-black text-foreground">3. Bonus</h2>
           <ul className="list-disc pl-5 space-y-1">
-            <li>Paket A (A1+A2): 1 Monat Premium gratis</li>
-            <li>Paket B (B1+B2): 2 Monate Premium gratis</li>
-            <li>Paket C (C1+C2): 3 Monate Premium gratis</li>
             <li>Alle Pakete (A1–C2) + Godišnji Premium: 30 € Amazon.de Gutschein</li>
           </ul>
 
           <h2 className="text-base font-black text-foreground">4. Einlösung</h2>
           <ul className="list-disc pl-5 space-y-1">
-            <li>Nur 1 Bonus pro Paket pro Nutzer</li>
-            <li>Kein mehrfacher Bezug für dasselbe Paket</li>
-            <li>Nutzer kann mehrere Freimonate sammeln (Paket A, B, C)</li>
+            <li>Nur 1 Bonus pro Nutzer</li>
             <li>Amazon-Gutschein (30 €) nur bei vollständigem Abschluss aller Pakete + Godišnji Premium — einmal möglich</li>
           </ul>
 
