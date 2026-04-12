@@ -74,7 +74,16 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
     if (password !== confirmPassword) { setError("Passwörter stimmen nicht überein."); return; }
     if (!termsAccepted) { setError("Moraš prihvatiti uslove korištenja."); return; }
     setLoading(true);
-    const { error: err } = await supabase.auth.signUp({ email, password });
+    const { error: err } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        data: {
+          terms_accepted: true,
+          terms_accepted_at: new Date().toISOString(),
+        },
+      },
+    });
     setLoading(false);
     if (err) {
       setError("Registrierungsfehler.");
