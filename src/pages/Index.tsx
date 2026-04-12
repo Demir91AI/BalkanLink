@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
 
@@ -329,8 +330,111 @@ export default function Index() {
               </p>
             </div>
 
-            {/* ── Pricing Cards ── */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
+            {/* ── Mobile: Accordion layout ── */}
+            <div className="sm:hidden mb-8">
+              <Accordion type="single" collapsible className="space-y-2">
+                {/* Free */}
+                <AccordionItem value="free" className="rounded-xl border-2 border-[#E8E0D0] bg-[hsl(var(--warm-cream))] overflow-hidden">
+                  <AccordionTrigger className="px-4 py-3.5 hover:no-underline [&>svg]:text-[hsl(var(--gold))]">
+                    <span className="flex items-center gap-3 text-left">
+                      <span className="text-lg">🆓</span>
+                      <span className="font-bold text-[#2D2D2D]">Besplatno — 0€</span>
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-4 pb-4">
+                    <ul className="space-y-2 text-sm text-[#6B6B6B] mb-4">
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Osnovni vodič</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Pregled formulara</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Brutto-Netto kalkulator</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Oglasi (besplatno)</li>
+                    </ul>
+                    <Button variant="outline" className="w-full rounded-full border-[#E8E0D0] text-[#2D2D2D] font-semibold" onClick={() => navigate("/formulari")}>
+                      Počni besplatno
+                    </Button>
+                  </AccordionContent>
+                </AccordionItem>
+
+                {/* Premium */}
+                <AccordionItem value="premium" className="rounded-xl border-2 border-[hsl(var(--gold))] bg-white overflow-hidden shadow-[0_4px_16px_rgba(201,168,76,0.1)]">
+                  <AccordionTrigger className="px-4 py-3.5 hover:no-underline [&>svg]:text-[hsl(var(--gold))]">
+                    <span className="flex items-center gap-3 text-left">
+                      <span className="text-lg">⭐</span>
+                      <span className="font-bold text-[#2D2D2D]">Premium — 9,99€/mj.</span>
+                      <span className="ml-auto mr-2 rounded-full bg-[hsl(var(--gold))] px-2 py-0.5 text-[9px] font-bold uppercase text-white">Preporučeno</span>
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-4 pb-4">
+                    <p className="text-xs text-[#6B6B6B] mb-3">ili 99,90€/godišnje (uštedi 17%)</p>
+                    <ul className="space-y-2 text-sm text-[#2D2D2D] mb-4">
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Svi Musterformulari</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Smart Guides (svi koraci)</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Viza Navigator</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> 1x Dokumenten-Check/dan</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Šabloni (PDF download)</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> BalkanLink Asistent neograničeno</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> 2 Pro oglasa/mjesečno</li>
+                    </ul>
+                    <Button className="w-full rounded-full bg-[hsl(var(--gold))] text-white font-bold hover:bg-[hsl(var(--gold-dark))] shadow-[0_4px_20px_rgba(201,168,76,0.35)]" onClick={() => navigate("/paketi")}>
+                      Postani Premium →
+                    </Button>
+                  </AccordionContent>
+                </AccordionItem>
+
+                {/* Dokumenten-Check */}
+                <AccordionItem value="doc-check" className="rounded-xl border-2 border-[#E8E0D0] bg-[hsl(var(--warm-cream))] overflow-hidden">
+                  <AccordionTrigger className="px-4 py-3.5 hover:no-underline [&>svg]:text-[hsl(var(--gold))]">
+                    <span className="flex items-center gap-3 text-left">
+                      <span className="text-lg">🔍</span>
+                      <span className="font-bold text-[#2D2D2D]">Dokumenten-Check — 2,99€</span>
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-4 pb-4">
+                    <p className="text-xs text-[#6B6B6B] mb-3">Po dokumentu (bez pretplate)</p>
+                    <ul className="space-y-2 text-sm text-[#6B6B6B] mb-4">
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Detaljna analiza dokumenta</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> 11 sekcija objašnjenja</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Rokovi i finansijski uticaj</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> PDF, JPG, PNG do 10 MB</li>
+                    </ul>
+                    <Button variant="outline" className="w-full rounded-full border-[#E8E0D0] text-[#2D2D2D] font-semibold" onClick={() => navigate("/dokumenten-check")}>
+                      Provjeri dokument
+                    </Button>
+                  </AccordionContent>
+                </AccordionItem>
+
+                {/* Comparison table — collapsible */}
+                <AccordionItem value="comparison" className="rounded-xl border border-[#E8E0D0] bg-white overflow-hidden">
+                  <AccordionTrigger className="px-4 py-3.5 hover:no-underline [&>svg]:text-[hsl(var(--gold))]">
+                    <span className="flex items-center gap-3 text-left">
+                      <span className="text-lg">📊</span>
+                      <span className="font-bold text-[#2D2D2D]">Besplatno vs. Premium</span>
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-0 pb-0">
+                    <div className="divide-y divide-[#E8E0D0]">
+                      {[
+                        { feature: "Musterformulare", free: "Zaključano", premium: "✅ Potpuni pristup" },
+                        { feature: "Smart Guides", free: "Samo uvod", premium: "✅ Svi koraci" },
+                        { feature: "Dokumenten-Check", free: "2,99€/kom", premium: "✅ 1x gratis dnevno" },
+                        { feature: "Šabloni / Vorlagen", free: "Samo pregled", premium: "✅ Download PDF" },
+                        { feature: "BalkanLink Asistent", free: "Ograničeno", premium: "✅ Neograničeno" },
+                        { feature: "Viza Navigator", free: "Osnovni", premium: "✅ Puni pristup" },
+                        { feature: "Pro oglasi", free: "2,99€/oglas", premium: "✅ 2 uključena/mj." },
+                      ].map((row) => (
+                        <div key={row.feature} className="grid grid-cols-3 px-4 py-2.5 text-xs">
+                          <span className="font-medium text-[#2D2D2D]">{row.feature}</span>
+                          <span className="text-center text-[#999]">{row.free}</span>
+                          <span className="text-center font-semibold text-[hsl(var(--gold))]">{row.premium}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </div>
+
+            {/* ── Desktop: Original card grid ── */}
+            <div className="hidden sm:grid grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
               {/* Free */}
               <div className="rounded-2xl border-2 border-[#E8E0D0] bg-[hsl(var(--warm-cream))] p-6 flex flex-col">
                 <p className="text-sm font-bold text-[#6B6B6B] uppercase tracking-wider mb-2">Besplatno</p>
@@ -347,12 +451,11 @@ export default function Index() {
                 </Button>
               </div>
 
-              {/* Premium — highlighted */}
+              {/* Premium */}
               <div className="relative rounded-2xl border-2 border-[hsl(var(--gold))] bg-white p-6 flex flex-col shadow-[0_8px_32px_rgba(201,168,76,0.15)]">
                 <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[hsl(var(--gold))] px-4 py-1 text-[10px] font-bold uppercase tracking-wider text-white">Preporučeno</span>
                 <p className="text-sm font-bold text-[hsl(var(--gold))] uppercase tracking-wider mb-2">Premium</p>
                 <p className="text-3xl font-black text-[#2D2D2D] mb-1">9,99€<span className="text-base font-normal text-[#6B6B6B]">/mj.</span></p>
-                
                 <p className="text-xs text-[#6B6B6B] mb-6">ili 99,90€/godišnje (uštedi 17%)</p>
                 <ul className="space-y-2 text-sm text-[#2D2D2D] flex-1">
                   <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Svi Musterformulari</li>
@@ -385,8 +488,8 @@ export default function Index() {
               </div>
             </div>
 
-            {/* ── Comparison Table ── */}
-            <div className="max-w-3xl mx-auto rounded-2xl border border-[#E8E0D0] overflow-hidden">
+            {/* ── Comparison Table (desktop only) ── */}
+            <div className="hidden sm:block max-w-3xl mx-auto rounded-2xl border border-[#E8E0D0] overflow-hidden">
               <div className="bg-[hsl(var(--warm-cream))] px-6 py-4 border-b border-[#E8E0D0]">
                 <h3 className="font-bold text-[#2D2D2D] text-lg">Besplatno vs. Premium</h3>
               </div>
