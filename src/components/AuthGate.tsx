@@ -2,6 +2,7 @@ import { ReactNode, useState } from "react";
 import { Lock, UserPlus } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import AuthModal from "@/components/auth/AuthModal";
+import { DEV_MODE } from "@/lib/dev-mode";
 
 interface AuthGateProps {
   children: ReactNode;
@@ -19,6 +20,7 @@ export default function AuthGate({ children, preview }: AuthGateProps) {
   const [authOpen, setAuthOpen] = useState(false);
 
   if (loading) return <>{children}</>;
+  if (DEV_MODE) return <>{children}</>;
 
   if (user) return <>{children}</>;
 

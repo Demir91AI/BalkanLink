@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { FREE_LESSONS_PER_LEVEL } from "@/lib/trainer/types";
+import { DEV_MODE } from "@/lib/dev-mode";
 
 const FREE_SPRACHASSISTENT_SENTENCES = 3;
 
@@ -66,7 +67,7 @@ export function useSubscription(): SubscriptionState {
   }, [fetchSubscription]);
 
   const tierActive = subscriptionTier === "premium";
-  const effectivePremium = isAdmin || authPremium || tierActive;
+  const effectivePremium = DEV_MODE || isAdmin || authPremium || tierActive;
 
   const hasSingleAccess = useCallback(
     (formularId: string) => effectivePremium || singleFormularAccess.includes(formularId),
