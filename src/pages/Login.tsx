@@ -8,7 +8,6 @@ import { LogIn, Mail, Lock } from "lucide-react";
 import PageNav from "@/components/navigation/PageNav";
 import TurnstileWidget from "@/components/TurnstileWidget";
 import { verifyTurnstileToken } from "@/lib/turnstile";
-import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -18,19 +17,18 @@ export default function Login() {
   const [turnstileToken, setTurnstileToken] = useState("");
   const navigate = useNavigate();
   const { toast } = useToast();
-  const { t } = useLanguage();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!acceptedTerms) {
-      toast({ title: t("auth.termsRequired"), variant: "destructive" });
+      toast({ title: "Moraš prihvatiti uslove korištenja.", variant: "destructive" });
       return;
     }
     setLoading(true);
     if (turnstileToken) {
       const valid = await verifyTurnstileToken(turnstileToken);
       if (!valid) {
-        toast({ title: t("common.error"), variant: "destructive" });
+        toast({ title: "Došlo je do greške", variant: "destructive" });
         setTurnstileToken("");
         setLoading(false);
         return;
@@ -40,9 +38,9 @@ export default function Login() {
     setLoading(false);
 
     if (error) {
-      toast({ title: t("auth.loginError"), description: error.message, variant: "destructive" });
+      toast({ title: "Pogrešan e-mail ili lozinka.", description: error.message, variant: "destructive" });
     } else {
-      toast({ title: t("auth.loginSuccess") });
+      toast({ title: "Uspješno prijavljeni!" });
       navigate("/");
     }
   };
@@ -75,9 +73,7 @@ export default function Login() {
             <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-[hsl(var(--brand-orange)/0.12)] mb-4">
               <LogIn className="w-5 h-5 text-[hsl(var(--brand-orange))]" />
             </div>
-            <h1 className="text-2xl font-bold text-foreground tracking-tight">
-              {t("auth.loginTab")}
-            </h1>
+            <h1 className="text-2xl font-bold text-foreground tracking-tight">Prijava</h1>
           </div>
 
           <form onSubmit={handleLogin} className="space-y-4">
@@ -88,7 +84,7 @@ export default function Login() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder={t("auth.email")}
+                placeholder="E-mail adresa"
                 className="w-full h-11 pl-10 pr-4 rounded-xl border border-border/60 bg-background/60 text-sm text-foreground placeholder:text-muted-foreground/50 shadow-sm shadow-black/[0.03] transition-all duration-200 focus:outline-none focus:border-[hsl(var(--brand-orange)/0.5)] focus:ring-2 focus:ring-[hsl(var(--brand-orange)/0.15)] focus:shadow-[0_0_0_4px_hsl(var(--brand-orange)/0.08)]"
               />
             </div>
@@ -100,7 +96,7 @@ export default function Login() {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder={t("auth.password")}
+                placeholder="Lozinka"
                 className="w-full h-11 pl-10 pr-4 rounded-xl border border-border/60 bg-background/60 text-sm text-foreground placeholder:text-muted-foreground/50 shadow-sm shadow-black/[0.03] transition-all duration-200 focus:outline-none focus:border-[hsl(var(--brand-orange)/0.5)] focus:ring-2 focus:ring-[hsl(var(--brand-orange)/0.15)] focus:shadow-[0_0_0_4px_hsl(var(--brand-orange)/0.08)]"
               />
             </div>
@@ -113,13 +109,13 @@ export default function Login() {
                 className="mt-0.5 h-3.5 w-3.5 rounded border-border/60"
               />
               <label htmlFor="terms" className="cursor-pointer text-[11px] leading-relaxed text-muted-foreground/70">
-                {t("auth.termsLabel")}{" "}
+                Prihvatam uslove korištenja{" "}
                 <Link to="/agb" target="_blank" className="font-medium text-[hsl(var(--brand-orange))] hover:underline">
-                  {t("auth.termsAGB")}
+                  Uslovi korištenja
                 </Link>{" "}
-                {t("auth.termsAnd")}{" "}
+                i{" "}
                 <Link to="/datenschutz" target="_blank" className="font-medium text-[hsl(var(--brand-orange))] hover:underline">
-                  {t("auth.termsPrivacy")}
+                  Politiku privatnosti
                 </Link>
               </label>
             </div>
@@ -131,16 +127,16 @@ export default function Login() {
               disabled={loading || !acceptedTerms}
               className="w-full h-11 rounded-xl bg-gradient-to-r from-[hsl(var(--brand-orange))] to-[hsl(var(--gold-light))] text-white font-semibold text-sm shadow-md shadow-[hsl(var(--brand-orange)/0.25)] hover:shadow-lg hover:shadow-[hsl(var(--brand-orange)/0.35)] hover:brightness-105 active:scale-[0.98] transition-all duration-200 disabled:opacity-50 disabled:shadow-none"
             >
-              {loading ? t("auth.loginLoading") : t("auth.loginButton")}
+              {loading ? "Prijava..." : "Prijavi se"}
             </Button>
           </form>
 
           <div className="mt-5 flex items-center justify-between text-[12px]">
             <Link to="/forgot-password" className="text-muted-foreground/60 hover:text-[hsl(var(--brand-orange))] transition-colors">
-              {t("auth.forgotPassword")}
+              Zaboravljena lozinka?
             </Link>
             <Link to="/register" className="font-medium text-[hsl(var(--brand-orange))] hover:underline">
-              {t("auth.noAccount")} {t("auth.registerButton")}
+              Nemaš nalog? Registruj se
             </Link>
           </div>
         </div>

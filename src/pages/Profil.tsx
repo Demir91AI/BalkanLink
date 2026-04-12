@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useSubscription } from "@/hooks/useSubscription";
 import { useNavigate } from "react-router-dom";
-import { useLanguage } from "@/contexts/LanguageContext";
 import PageNav from "@/components/navigation/PageNav";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -16,7 +15,6 @@ export default function Profil() {
   const { user, isPremium, subscriptionEnd, signOut, profileLoading, displayName } = useAuth();
   const { subscriptionTier } = useSubscription();
   const navigate = useNavigate();
-  const { t } = useLanguage();
   const [editName, setEditName] = useState(displayName);
   const [saving, setSaving] = useState(false);
 
@@ -49,30 +47,30 @@ export default function Profil() {
             <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
               <User className="h-8 w-8 text-primary" />
             </div>
-            <CardTitle className="text-xl">{t("profile.welcome")}, {displayName} 👋</CardTitle>
+            <CardTitle className="text-xl">Dobro došao/la, {displayName} 👋</CardTitle>
             <p className="text-sm text-muted-foreground">{user.email}</p>
           </CardHeader>
           <CardContent className="space-y-5">
             <div className="rounded-lg border border-border/40 bg-muted/30 px-4 py-3 space-y-1.5">
-              <Label htmlFor="editName" className="text-xs text-muted-foreground">{t("profile.nameLabel")}</Label>
+              <Label htmlFor="editName" className="text-xs text-muted-foreground">Ime</Label>
               <Input
                 id="editName"
                 value={editName}
                 onChange={(e) => setEditName(e.target.value)}
                 onBlur={saveName}
-                placeholder={t("profile.namePlaceholder")}
+                placeholder="Tvoje ime"
                 className="h-9"
               />
               <p className="text-[11px] text-muted-foreground">
-                {saving ? t("profile.saving") : t("profile.autoSave")}
+                {saving ? "Čuvam..." : "Automatski se čuva"}
               </p>
             </div>
 
             <div className="rounded-lg border border-border/40 bg-muted/30 px-4 py-3">
-              <p className="text-xs text-muted-foreground mb-1">{t("profile.status")}</p>
+              <p className="text-xs text-muted-foreground mb-1">Status</p>
               <div className="flex items-center gap-2">
                 {profileLoading ? (
-                  <span className="text-sm text-muted-foreground">{t("profile.loading")}</span>
+                  <span className="text-sm text-muted-foreground">Učitavanje...</span>
                 ) : isPremium ? (
                   <>
                     <Badge className="bg-[hsl(var(--gold))] text-[#0f1f3d] hover:bg-[hsl(var(--gold))]">
@@ -86,7 +84,7 @@ export default function Profil() {
               </div>
               {isPremium && subscriptionEnd && (
                 <p className="text-xs text-muted-foreground mt-1.5">
-                  {t("profile.validUntil")}: {new Date(subscriptionEnd).toLocaleDateString("de-DE")}
+                  Važi do: {new Date(subscriptionEnd).toLocaleDateString("de-DE")}
                 </p>
               )}
             </div>
@@ -98,7 +96,7 @@ export default function Profil() {
                   className="w-full bg-[hsl(var(--gold))] text-[#0f1f3d] hover:opacity-90 font-bold"
                 >
                   <Crown className="h-4 w-4 mr-2" />
-                  {t("profile.upgradePremium")}
+                  Nadogradi na Premium
                 </Button>
               )}
               <Button
@@ -107,7 +105,7 @@ export default function Profil() {
                 className="w-full"
               >
                 <LogOut className="h-4 w-4 mr-2" />
-                {t("profile.logout")}
+                Odjavi se
               </Button>
             </div>
           </CardContent>
