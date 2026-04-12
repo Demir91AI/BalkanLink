@@ -29,6 +29,7 @@ export const FREE_FORM_SLUGS = new Set([
   "steuer-id",
   "fuehrerschein",
   "fahrzeugzulassung",
+  "fuehrungszeugnis",
 ]);
 
 export function isFormFree(slug: string): boolean {
