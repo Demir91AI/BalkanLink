@@ -33,6 +33,7 @@ export function AppSidebar() {
   const secondaryItems = [
     { title: "Život i dolazak", url: "/zivot-u-njemackoj", icon: Plane },
     { title: "Radno pravo", url: "/radno-pravo", icon: Scale },
+    { title: "Mietrecht", url: "/mietrecht", icon: Scale },
     { title: "Biznis u Njemačkoj", url: "/biznis", icon: Store },
     { title: "Nudim / Tražim", url: "/nudim-trazim", icon: Megaphone },
     { title: "Oglasi za posao", url: "/stellenangebote", icon: Briefcase },

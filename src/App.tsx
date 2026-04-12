@@ -104,6 +104,7 @@ const BiznisGuide = lazy(() => import("./pages/BiznisGuide"));
 const Premium = lazy(() => import("./pages/Premium"));
 const Paketi = lazy(() => import("./pages/Paketi"));
 const Profil = lazy(() => import("./pages/Profil"));
+const Mietrecht = lazy(() => import("./pages/Mietrecht"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
