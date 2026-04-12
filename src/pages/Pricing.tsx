@@ -74,7 +74,7 @@ export default function Pricing() {
         </div>
 
         {/* Plan Cards */}
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2">
           <PricingFreeCard />
 
           <PricingPremiumCard
@@ -82,33 +82,6 @@ export default function Pricing() {
             isPremium={isPremium}
             onCheckout={handleCheckout}
           />
-
-          {/* Single formular */}
-          <div className="rounded-2xl border border-border bg-card p-6 flex flex-col">
-            <h2 className="text-lg font-bold">Jednokratni formular</h2>
-            <p className="mt-1 text-3xl font-bold">
-              3.99€
-              <span className="text-sm font-normal text-muted-foreground"> po formularu</span>
-            </p>
-            <p className="text-xs text-muted-foreground mb-6">Jednokratno, zauvijek</p>
-
-            <ul className="flex-1 space-y-2.5 text-sm">
-              <Feature yes>Pristup jednom formularu po izboru</Feature>
-              <Feature yes>Zauvijek, bez pretplate</Feature>
-              <Feature no>Ostali formulari</Feature>
-              <Feature no>Smart Guides</Feature>
-              <Feature no>BalkanLink Asistent</Feature>
-            </ul>
-
-            <Button
-              variant="outline"
-              className="mt-6 w-full rounded-xl border-[hsl(var(--gold))]/30 text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/10"
-              onClick={() => navigate("/formulari")}
-            >
-              <Tag className="mr-2 h-4 w-4" />
-              Odaberi formular →
-            </Button>
-          </div>
         </div>
 
         {/* Comparison Table */}
