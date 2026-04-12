@@ -25,7 +25,7 @@ import SectionHeader from "@/components/navigation/SectionHeader";
 const FREE_PHRASE_LIMIT = 3;
 const TOTAL_PHRASES = 500;
 
-const EXERCISES_PER_STAGE = 100;
+const EXERCISES_PER_STAGE = 500;
 const FREE_STAGE_COUNTS = [50, 50, 50] as const;
 const LOCKED_STAGE_COUNTS = FREE_STAGE_COUNTS.map(
   (free) => EXERCISES_PER_STAGE - free
@@ -69,13 +69,14 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
     }
     const stage = lesson.stages[selectedStage];
     const staticExercises = stage?.exercises ?? [];
-    if (staticExercises.length >= exerciseCount) {
+    if (false) { // Uvijek koristi AI generaciju
       setUseAi(false);
       return;
     }
     setUseAi(true);
     const stageType = STAGE_TYPES[selectedStage] || "Grundlagen";
-    generate(lesson.level, lesson.title, stageType, exerciseCount).then((generated) => {
+    const dailySeed = Math.floor(Date.now() / (1000 * 60 * 60 * 24));
+    generate(lesson.level, `${lesson.title}_${dailySeed}`, stageType, exerciseCount).then((generated) => {
       if (generated.length > 0) {
         setAiExercises([...staticExercises, ...generated].slice(0, exerciseCount));
       } else {
@@ -375,7 +376,7 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
           </div>
 
           <div className="mb-3 rounded-xl bg-white/[0.04] px-4 py-3 border border-white/[0.06]">
-            <p className="text-[10px] font-semibold uppercase tracking-wider text-blue-400/70">Situation</p>
+            <p className="text-[10px] font-semibold uppercase tracking-wider text-blue-400/70">SITUACIJA</p>
             <p className="mt-0.5 text-sm font-medium text-white/80">{exercise!.situation}</p>
           </div>
 
@@ -403,7 +404,7 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
                 {exercise!.explanation}
               </div>
               <Button onClick={handleNext} className="h-12 rounded-xl font-bold text-white" style={{ background: "linear-gradient(135deg, #3b82f6, #06b6d4)" }}>
-                {"next"} <ArrowRight className="ml-2 h-4 w-4" />
+                {"Dalje"} <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </motion.div>
           )}
