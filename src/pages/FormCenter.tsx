@@ -358,6 +358,9 @@ export default function FormCenter() {
                 style={{ background: '#1E293B' }}
               >
                 📋 Otvori Musterformular
+                {!isFormFree(activeSlug) && (
+                  <span style={{ color: '#C9A84C', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', marginLeft: 4 }}>⭐ PREMIUM</span>
+                )}
               </button>
             )}
           </>
