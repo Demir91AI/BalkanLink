@@ -1,224 +1,227 @@
-import PageNav from "@/components/navigation/PageNav";
+import { useNavigate } from "react-router-dom";
+import PageNavBar from "@/components/navigation/PageNavBar";
 
 export default function Nutzungsbedingungen() {
+  const navigate = useNavigate();
+
   return (
     <>
-    <PageNav />
-    <div className="container max-w-3xl py-16">
-      <h1 className="mb-10 text-3xl font-bold">Allgemeine Nutzungsbedingungen</h1>
-      <div className="space-y-8 text-sm leading-relaxed text-muted-foreground">
+      <div className="max-w-3xl mx-auto px-4 py-6 pb-28">
+        <PageNavBar onBack={() => navigate(-1)} />
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">§ 1 Geltungsbereich und Anbieter</h2>
-          <p>
-            Diese Allgemeinen Nutzungsbedingungen (nachfolgend „AGB") gelten für die Nutzung der Plattform
-            „BalkanLink" (nachfolgend „Plattform"), betrieben von:
-          </p>
-          <p className="mt-2">
-            <strong>RealCore Digital</strong><br />
-            Inhaber: Demir Sinanovic<br />
-            Münchener Straße 78<br />
-            83395 Freilassing<br />
-            Deutschland<br />
-            E-Mail: <a href="mailto:kontakt@balkanlink.de" className="text-primary hover:underline">kontakt@balkanlink.de</a>
-          </p>
-          <p className="mt-2">
-            Mit der Nutzung der Plattform erklärt sich der Nutzer mit diesen AGB einverstanden. Abweichende Bedingungen
-            des Nutzers werden nicht anerkannt, es sei denn, der Anbieter stimmt ihrer Geltung ausdrücklich schriftlich zu.
-          </p>
-        </section>
+        <h1 className="mb-2 text-3xl font-bold">Uslovi korištenja</h1>
+        <p className="mb-10 text-sm text-muted-foreground">
+          Opći uslovi korištenja platforme BalkanLink (AGB)
+        </p>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">§ 2 Leistungsbeschreibung</h2>
-          <p>Die Plattform bietet folgende Leistungen:</p>
-          <ul className="ml-4 mt-1 list-disc space-y-1">
-            <li>Strukturierte Informationsinhalte zu behördlichen Vorgängen und Alltagsthemen in Deutschland</li>
-            <li>Digitale Formularhilfen und Ausfüllhilfen (keine Rechtsberatung)</li>
-            <li>Werkzeuge und Rechner (z. B. Brutto-Netto-Rechner)</li>
-            <li>KI-gestützter Informationsassistent</li>
-            <li>Dokumenten-Check (allgemeine Erklärung hochgeladener Dokumente)</li>
-            <li>Nutzergenerierte Inhalte (Anzeigen, Einträge, Verzeichnisse)</li>
-            <li>Verzeichnisse und Karten</li>
-          </ul>
-          <p className="mt-2">
-            Der Anbieter behält sich das Recht vor, den Umfang der Leistungen jederzeit zu ändern, zu erweitern
-            oder einzuschränken, ohne dass hieraus Ansprüche des Nutzers entstehen.
-          </p>
-        </section>
+        <div className="space-y-8 text-sm leading-relaxed text-muted-foreground">
+          <section>
+            <h2 className="mb-3 text-lg font-semibold text-foreground">§ 1 Područje primjene i operator</h2>
+            <p>
+              Ovi Opći uslovi korištenja (u daljem tekstu: „AGB") važe za korištenje platforme
+              „BalkanLink" (u daljem tekstu: „Platforma"), koju vodi:
+            </p>
+            <p className="mt-2">
+              <strong className="text-foreground">RealCore Digital</strong><br />
+              Vlasnik: Demir Sinanovic<br />
+              Münchener Straße 78, 83395 Freilassing, Deutschland<br />
+              E-pošta:{" "}
+              <a href="mailto:kontakt@balkanlink.de" className="text-primary hover:underline">
+                kontakt@balkanlink.de
+              </a>
+            </p>
+            <p className="mt-2">
+              Korištenjem Platforme korisnik prihvata ove AGB. Drugačiji uslovi korisnika
+              ne vrijede, osim ako operator izričito pristane u pisanom obliku.
+            </p>
+          </section>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">§ 3 Kein Beratungsvertrag</h2>
-          <p>
-            Die Nutzung der Plattform begründet <strong>kein Mandatsverhältnis, keinen Beratungsvertrag und
-            kein sonstiges Vertragsverhältnis</strong>, das eine individuelle Rechts-, Steuer-, Finanz- oder
-            sonstige professionelle Beratung beinhaltet.
-          </p>
-          <p className="mt-2">
-            Sämtliche Inhalte dienen ausschließlich der allgemeinen Information und Orientierung. Für verbindliche
-            Auskünfte sind die jeweils zuständigen Behörden, Rechtsanwälte, Steuerberater oder sonstige
-            qualifizierte Fachpersonen zu konsultieren.
-          </p>
-        </section>
+          <section>
+            <h2 className="mb-3 text-lg font-semibold text-foreground">§ 2 Opis usluga</h2>
+            <p>Platforma nudi sljedeće usluge:</p>
+            <ul className="ml-4 mt-1 list-disc space-y-1">
+              <li>Strukturirane informacije o birokratskim postupcima i svakodnevnim temama u Njemačkoj</li>
+              <li>Digitalne pomoćnike za popunjavanje obrazaca (ne predstavljaju pravno savjetovanje)</li>
+              <li>Alate i kalkulatore (npr. Brutto-Netto-Rechner)</li>
+              <li>Informativnog asistenta (BalkanLink Asistent)</li>
+              <li>Dokumenten-Check (opće objašnjenje učitanih dokumenata)</li>
+              <li>Korisnički generirane sadržaje (oglasi, unosi, direktoriji)</li>
+              <li>Direktorije i karte</li>
+            </ul>
+            <p className="mt-2">
+              Operator zadržava pravo da obim usluga u svakom trenutku izmijeni, proširi ili
+              ograniči, bez da iz toga nastaju potraživanja korisnika.
+            </p>
+          </section>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">§ 4 Keine Gewähr für Inhalte</h2>
-          <p>
-            Alle Angaben auf der Plattform erfolgen nach bestem Wissen und Gewissen, jedoch ohne jegliche Gewähr
-            auf Richtigkeit, Vollständigkeit, Aktualität oder Eignung für einen bestimmten Zweck. Gesetze,
-            Verordnungen und behördliche Regelungen können sich jederzeit ändern. Der Anbieter übernimmt keine
-            Haftung für Schäden, die aus der Nutzung oder dem Vertrauen auf die bereitgestellten Inhalte entstehen.
-          </p>
-        </section>
+          <section>
+            <h2 className="mb-3 text-lg font-semibold text-foreground">§ 3 Bez ugovora o savjetovanju</h2>
+            <p>
+              Korištenjem Platforme <strong className="text-foreground">ne nastaje
+              punomoć, ugovor o savjetovanju niti bilo kakav drugi ugovorni odnos</strong>{" "}
+              koji uključuje individualno pravno, porezno, finansijsko ili drugo stručno
+              savjetovanje.
+            </p>
+            <p className="mt-2">
+              Svi sadržaji služe isključivo općem informiranju i orijentaciji. Za obavezujuće
+              informacije konsultuj nadležne organe, advokate, porezne savjetnike ili druge
+              kvalificirane stručnjake.
+            </p>
+          </section>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">§ 5 Nutzerpflichten</h2>
-          <p>Der Nutzer verpflichtet sich:</p>
-          <ul className="ml-4 mt-1 list-disc space-y-1">
-            <li>die Plattform nur für rechtmäßige Zwecke zu nutzen;</li>
-            <li>keine falschen, irreführenden oder rechtswidrigen Inhalte zu veröffentlichen;</li>
-            <li>keine Rechte Dritter (insbesondere Urheberrechte, Markenrechte, Persönlichkeitsrechte) zu verletzen;</li>
-            <li>keine Schadsoftware, Spam oder automatisierte Zugriffe einzusetzen;</li>
-            <li>seine Zugangsdaten vertraulich zu behandeln und nicht an Dritte weiterzugeben;</li>
-            <li>die Plattform nicht zu manipulieren oder deren Funktionalität zu beeinträchtigen;</li>
-            <li>keine Inhalte zu veröffentlichen, die gegen geltendes Recht, die guten Sitten oder die Rechte Dritter verstoßen;</li>
-            <li>wahrheitsgemäße Angaben bei der Registrierung und der Veröffentlichung von Inhalten zu machen.</li>
-          </ul>
-        </section>
+          <section>
+            <h2 className="mb-3 text-lg font-semibold text-foreground">§ 4 Bez garancije za sadržaj</h2>
+            <p>
+              Sve informacije na Platformi pružaju se po najboljem znanju, ali bez ikakve garancije
+              za tačnost, potpunost, aktuelnost ili prikladnost za određenu svrhu. Zakoni i propisi
+              mogu se u svakom trenutku promijeniti. Operator ne preuzima odgovornost za štete
+              nastale korištenjem ili oslanjanjem na pružene sadržaje.
+            </p>
+          </section>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">§ 6 Nutzergenerierte Inhalte</h2>
-          <p>
-            Nutzer können auf der Plattform eigene Inhalte veröffentlichen (z. B. Anzeigen, Einträge, Bewertungen).
-            Der Nutzer ist für seine veröffentlichten Inhalte allein verantwortlich.
-          </p>
-          <p className="mt-2">
-            Mit der Veröffentlichung von Inhalten auf der Plattform räumt der Nutzer dem Anbieter ein einfaches,
-            zeitlich und räumlich unbeschränktes, unentgeltliches Nutzungsrecht ein, die Inhalte im Rahmen der
-            Plattform öffentlich zugänglich zu machen, zu speichern, zu vervielfältigen und technisch zu verarbeiten.
-          </p>
-          <p className="mt-2">
-            Der Anbieter ist nicht verpflichtet, nutzergenerierte Inhalte vor der Veröffentlichung zu prüfen.
-            Der Anbieter behält sich jedoch das Recht vor, Inhalte jederzeit und ohne Angabe von Gründen zu prüfen,
-            zu bearbeiten, zu verschieben oder zu entfernen.
-          </p>
-        </section>
+          <section>
+            <h2 className="mb-3 text-lg font-semibold text-foreground">§ 5 Obaveze korisnika</h2>
+            <p>Korisnik se obavezuje:</p>
+            <ul className="ml-4 mt-1 list-disc space-y-1">
+              <li>koristiti Platformu samo u zakonite svrhe;</li>
+              <li>ne objavljivati lažne, obmanjujuće ili nezakonite sadržaje;</li>
+              <li>ne kršiti prava trećih lica (autorska prava, žigove, lična prava);</li>
+              <li>ne koristiti malware, spam ili automatizirane pristupe;</li>
+              <li>čuvati povjerljivost svojih pristupnih podataka;</li>
+              <li>ne manipulirati Platformom niti narušavati njenu funkcionalnost;</li>
+              <li>ne objavljivati sadržaje koji krše važeće pravo ili prava trećih lica;</li>
+              <li>davati istinite podatke pri registraciji i objavljivanju sadržaja.</li>
+            </ul>
+          </section>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">§ 7 Verbotene Inhalte</h2>
-          <p>Es ist untersagt, auf der Plattform folgende Inhalte zu veröffentlichen oder zu verbreiten:</p>
-          <ul className="ml-4 mt-1 list-disc space-y-1">
-            <li>Inhalte, die gegen geltendes Recht verstoßen (insbesondere Strafrecht)</li>
-            <li>Volksverhetzende, rassistische, diskriminierende oder menschenverachtende Inhalte</li>
-            <li>Gewaltverherrlichende oder terroristische Inhalte</li>
-            <li>Pornografische oder jugendgefährdende Inhalte</li>
-            <li>Urheberrechtlich geschützte Inhalte ohne Berechtigung</li>
-            <li>Persönliche Daten Dritter ohne deren Einwilligung</li>
-            <li>Spam, Werbung oder kommerzielle Inhalte ohne Genehmigung</li>
-            <li>Betrugsversuche, Phishing oder sonstige betrügerische Aktivitäten</li>
-            <li>Inhalte, die geeignet sind, den Ruf der Plattform zu schädigen</li>
-          </ul>
-        </section>
+          <section>
+            <h2 className="mb-3 text-lg font-semibold text-foreground">§ 6 Korisnički generirani sadržaji</h2>
+            <p>
+              Korisnici mogu na Platformi objavljivati vlastite sadržaje (npr. oglase, unose,
+              recenzije). Korisnik je isključivo odgovoran za sadržaje koje objavi.
+            </p>
+            <p className="mt-2">
+              Objavljivanjem sadržaja korisnik operatoru daje jednostavno, vremenski i
+              prostorno neograničeno, besplatno pravo korištenja sadržaja u okviru Platforme.
+            </p>
+            <p className="mt-2">
+              Operator nije obavezan pregledati sadržaje prije objavljivanja, ali zadržava
+              pravo da sadržaje u svakom trenutku pregleda, uredi, pomjeri ili ukloni.
+            </p>
+          </section>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">§ 8 Moderation, Sperrung und Löschung</h2>
-          <p>
-            Der Anbieter ist berechtigt, bei Verstößen gegen diese AGB oder bei Vorliegen konkreter Anhaltspunkte
-            für rechtswidrige Inhalte folgende Maßnahmen zu ergreifen:
-          </p>
-          <ul className="ml-4 mt-1 list-disc space-y-1">
-            <li>Verwarnung des Nutzers</li>
-            <li>Bearbeitung oder Entfernung einzelner Inhalte</li>
-            <li>Vorübergehende oder dauerhafte Sperrung des Benutzerkontos</li>
-            <li>Löschung des Benutzerkontos</li>
-          </ul>
-          <p className="mt-2">
-            Der Nutzer wird über die Maßnahme und deren Begründung informiert, sofern dem keine rechtlichen
-            Hindernisse entgegenstehen.
-          </p>
-        </section>
+          <section>
+            <h2 className="mb-3 text-lg font-semibold text-foreground">§ 7 Zabranjeni sadržaji</h2>
+            <p>Zabranjeno je na Platformi objavljivati ili širiti:</p>
+            <ul className="ml-4 mt-1 list-disc space-y-1">
+              <li>Sadržaje koji krše važeće pravo (posebno krivično)</li>
+              <li>Sadržaje koji huškaju na mržnju, rasizam, diskriminaciju</li>
+              <li>Sadržaje koji veličaju nasilje ili terorizam</li>
+              <li>Pornografske ili za maloljetnike štetne sadržaje</li>
+              <li>Autorski zaštićene sadržaje bez odobrenja</li>
+              <li>Lične podatke trećih lica bez njihove saglasnosti</li>
+              <li>Spam, reklamu ili komercijalne sadržaje bez odobrenja</li>
+              <li>Pokušaje prevare, phishing ili druge obmanjujuće aktivnosti</li>
+              <li>Sadržaje koji mogu naštetiti ugledu Platforme</li>
+            </ul>
+          </section>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">§ 9 Plattform als Vermittler</h2>
-          <p>
-            Die Plattform stellt lediglich die technische Infrastruktur für den Austausch von Informationen bereit.
-            Der Anbieter ist nicht Vertragspartei von Vereinbarungen, die zwischen Nutzern der Plattform geschlossen
-            werden (z. B. bei Kontaktaufnahme über Anzeigen). Der Anbieter übernimmt keinerlei Haftung für Verträge,
-            Absprachen oder sonstige Rechtsbeziehungen zwischen Nutzern.
-          </p>
-        </section>
+          <section>
+            <h2 className="mb-3 text-lg font-semibold text-foreground">§ 8 Moderacija, blokiranje i brisanje</h2>
+            <p>
+              Operator je ovlašten da u slučaju kršenja ovih AGB ili pri postojanju
+              indicija o nezakonitom sadržaju poduzme sljedeće mjere:
+            </p>
+            <ul className="ml-4 mt-1 list-disc space-y-1">
+              <li>Upozorenje korisniku</li>
+              <li>Uređivanje ili uklanjanje pojedinačnih sadržaja</li>
+              <li>Privremeno ili trajno blokiranje korisničkog računa</li>
+              <li>Brisanje korisničkog računa</li>
+            </ul>
+            <p className="mt-2">
+              Korisnik će biti obaviješten o mjeri i njenom obrazloženju, osim ako tome
+              ne stoje pravne prepreke.
+            </p>
+          </section>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">§ 10 Haftungsbeschränkung</h2>
-          <p>
-            Der Anbieter haftet unbeschränkt nur bei Vorsatz und grober Fahrlässigkeit sowie bei Verletzung
-            wesentlicher Vertragspflichten (Kardinalpflichten). Bei leichter Fahrlässigkeit ist die Haftung
-            auf den vorhersehbaren, vertragstypischen Schaden begrenzt.
-          </p>
-          <p className="mt-2">
-            Die Haftung für Schäden aus der Verletzung des Lebens, des Körpers oder der Gesundheit bleibt unberührt.
-            Ebenso bleiben Ansprüche nach dem Produkthaftungsgesetz unberührt.
-          </p>
-          <p className="mt-2">
-            Der Anbieter haftet nicht für Schäden, die durch die Nutzung oder das Vertrauen auf die
-            bereitgestellten Informationen, Werkzeuge oder nutzergenerierten Inhalte entstehen.
-          </p>
-        </section>
+          <section>
+            <h2 className="mb-3 text-lg font-semibold text-foreground">§ 9 Platforma kao posrednik</h2>
+            <p>
+              Platforma pruža samo tehničku infrastrukturu za razmjenu informacija. Operator
+              nije ugovorna strana u dogovorima između korisnika (npr. kontakt putem oglasa).
+              Operator ne preuzima nikakvu odgovornost za ugovore ili pravne odnose između korisnika.
+            </p>
+          </section>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">§ 11 Freistellung</h2>
-          <p>
-            Der Nutzer stellt den Anbieter von sämtlichen Ansprüchen Dritter frei, die aufgrund rechtswidriger
-            Nutzung der Plattform durch den Nutzer oder aufgrund von Inhalten, die der Nutzer auf der Plattform
-            veröffentlicht hat, geltend gemacht werden. Der Nutzer übernimmt die Kosten der notwendigen
-            Rechtsverteidigung einschließlich sämtlicher Gerichts- und Anwaltskosten in gesetzlicher Höhe.
-          </p>
-        </section>
+          <section>
+            <h2 className="mb-3 text-lg font-semibold text-foreground">§ 10 Ograničenje odgovornosti</h2>
+            <p>
+              Operator odgovara neograničeno samo u slučaju namjere i grubog nemara, te pri
+              povredi bitnih ugovornih obaveza (kardinalne obaveze). Kod blagog nemara
+              odgovornost je ograničena na predvidivu, uobičajenu štetu.
+            </p>
+            <p className="mt-2">
+              Odgovornost za štete nastale povredom života, tijela ili zdravlja ostaje
+              nepromijenjena. Isto vrijedi i za zahtjeve prema Zakonu o odgovornosti za proizvode.
+            </p>
+            <p className="mt-2">
+              Operator ne odgovara za štete nastale korištenjem ili oslanjanjem na pružene
+              informacije, alate ili korisnički generirane sadržaje.
+            </p>
+          </section>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">§ 12 Verfügbarkeit der Plattform</h2>
-          <p>
-            Der Anbieter bemüht sich um eine möglichst unterbrechungsfreie Verfügbarkeit der Plattform.
-            Es besteht jedoch kein Anspruch auf ständige Verfügbarkeit. Der Anbieter behält sich das Recht vor,
-            die Plattform jederzeit für Wartungsarbeiten, Updates oder aus sonstigen Gründen vorübergehend
-            einzuschränken oder einzustellen.
-          </p>
-        </section>
+          <section>
+            <h2 className="mb-3 text-lg font-semibold text-foreground">§ 11 Oslobađanje od odgovornosti</h2>
+            <p>
+              Korisnik oslobađa operatora od svih potraživanja trećih lica koja nastanu
+              zbog nezakonitog korištenja Platforme ili zbog sadržaja koje je korisnik
+              objavio. Korisnik snosi troškove potrebne pravne odbrane uključujući sudske
+              i advokatske troškove.
+            </p>
+          </section>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">§ 13 Änderungen der Plattform und der AGB</h2>
-          <p>
-            Der Anbieter behält sich das Recht vor, diese AGB jederzeit zu ändern. Änderungen werden auf der
-            Plattform veröffentlicht. Die weitere Nutzung der Plattform nach Veröffentlichung geänderter AGB
-            gilt als Zustimmung zu den Änderungen.
-          </p>
-          <p className="mt-2">
-            Der Anbieter behält sich ferner das Recht vor, die Plattform, ihre Funktionen, ihr Design und
-            ihre Inhalte jederzeit zu ändern, zu erweitern oder einzustellen.
-          </p>
-        </section>
+          <section>
+            <h2 className="mb-3 text-lg font-semibold text-foreground">§ 12 Dostupnost platforme</h2>
+            <p>
+              Operator nastoji osigurati što neprekidniju dostupnost Platforme. Međutim, ne
+              postoji pravo na stalnu dostupnost. Operator zadržava pravo da Platformu
+              privremeno ograniči ili obustavi radi održavanja, ažuriranja ili iz drugih razloga.
+            </p>
+          </section>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">§ 14 Anwendbares Recht und Gerichtsstand</h2>
-          <p>
-            Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts.
-            Sofern der Nutzer Kaufmann, eine juristische Person des öffentlichen Rechts oder ein
-            öffentlich-rechtliches Sondervermögen ist, ist der Gerichtsstand für alle Streitigkeiten
-            aus oder im Zusammenhang mit diesen AGB der Sitz des Anbieters.
-          </p>
-        </section>
+          <section>
+            <h2 className="mb-3 text-lg font-semibold text-foreground">§ 13 Izmjene platforme i AGB-a</h2>
+            <p>
+              Operator zadržava pravo da ove AGB u svakom trenutku izmijeni. Izmjene se
+              objavljuju na Platformi. Daljnje korištenje Platforme nakon objave izmijenjenih
+              AGB-a smatra se prihvatanjem izmjena.
+            </p>
+            <p className="mt-2">
+              Operator također zadržava pravo da Platformu, njene funkcije, dizajn i sadržaje
+              u svakom trenutku izmijeni, proširi ili obustavi.
+            </p>
+          </section>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">§ 15 Salvatorische Klausel</h2>
-          <p>
-            Sollten einzelne Bestimmungen dieser AGB unwirksam oder undurchführbar sein oder werden,
-            so bleibt die Wirksamkeit der übrigen Bestimmungen unberührt. An die Stelle der unwirksamen
-            oder undurchführbaren Bestimmung tritt diejenige wirksame und durchführbare Bestimmung,
-            deren Wirkungen der wirtschaftlichen Zielsetzung am nächsten kommen.
-          </p>
-          <p className="mt-2">Stand: März 2026</p>
-        </section>
+          <section>
+            <h2 className="mb-3 text-lg font-semibold text-foreground">§ 14 Primjenjivo pravo i nadležnost suda</h2>
+            <p>
+              Primjenjuje se pravo Savezne Republike Njemačke uz isključenje UN Konvencije o
+              ugovorima o međunarodnoj prodaji robe. Ako je korisnik trgovac, pravno lice javnog
+              prava ili javnopravni fond, nadležan je sud na sjedištu operatora.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="mb-3 text-lg font-semibold text-foreground">§ 15 Salvatorska klauzula</h2>
+            <p>
+              Ako pojedine odredbe ovih AGB-a budu nevažeće ili neprovedive, to ne utiče na
+              važnost ostalih odredbi. Umjesto nevažeće odredbe primjenjuje se važeća odredba
+              koja najbliže odgovara ekonomskom cilju.
+            </p>
+            <p className="mt-2 text-xs opacity-60">Verzija: April 2026</p>
+          </section>
+        </div>
       </div>
-    </div>
     </>
   );
 }
