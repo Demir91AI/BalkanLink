@@ -1023,9 +1023,9 @@ ${SITE_CONTENT_INDEX}
 FORMULARI:
 ${buildFormCatalogContext()}
 
-${pageContext ? \`KONTEKST STRANICE:\n\${pageContext}\n\` : ""}
+${pageContext ? `KONTEKST STRANICE:\n${pageContext}\n` : ""}
 
-$\{!isPremium ? \`KORISNIK JE FREE — premium zaštita je AKTIVNA. Ne daj duboku pomoć za premium teme.\` : \`KORISNIK JE PREMIUM — možeš dati detaljniju pomoć, ali i dalje upućuj na alate za strukturirani vodič.\`}
+${!isPremium ? `KORISNIK JE FREE — premium zaštita je AKTIVNA. Ne daj duboku pomoć za premium teme.` : `KORISNIK JE PREMIUM — možeš dati detaljniju pomoć, ali i dalje upućuj na alate za strukturirani vodič.`}
 
 FOLLOW-UP SUGESTIJE:
 Na kraju SVAKOG odgovora dodaj JSON blok (neće biti prikazan):
