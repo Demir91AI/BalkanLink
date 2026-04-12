@@ -1,257 +1,357 @@
-import PageNav from "@/components/navigation/PageNav";
+import { useNavigate } from "react-router-dom";
+import PageNavBar from "@/components/navigation/PageNavBar";
 
 export default function Datenschutz() {
+  const navigate = useNavigate();
+
   return (
     <>
-    <PageNav />
-    <div className="container max-w-3xl py-16">
-      <h1 className="mb-10 text-3xl font-bold">Datenschutzerklärung</h1>
-      <div className="space-y-8 text-sm leading-relaxed text-muted-foreground">
+      <div className="max-w-3xl mx-auto px-4 py-6 pb-28">
+        <PageNavBar onBack={() => navigate(-1)} />
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">1. Verantwortlicher</h2>
-          <p>
-            Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) und anderer nationaler
-            Datenschutzgesetze sowie sonstiger datenschutzrechtlicher Bestimmungen ist:
-          </p>
-          <p className="mt-2">
-            <strong>RealCore Digital</strong><br />
-            Inhaber: Demir Sinanovic<br />
-            Münchener Straße 78<br />
-            83395 Freilassing<br />
-            Deutschland<br />
-            E-Mail: <a href="mailto:kontakt@balkanlink.de" className="text-primary hover:underline">kontakt@balkanlink.de</a>
-          </p>
-        </section>
+        <h1 className="mb-2 text-3xl font-bold">Zaštita podataka</h1>
+        <p className="mb-10 text-sm text-muted-foreground">
+          Izjava o privatnosti — DSGVO (Opća uredba EU o zaštiti podataka) i BDSG
+        </p>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">2. Übersicht der Verarbeitungen</h2>
-          <p>Die nachfolgende Übersicht fasst die Arten der verarbeiteten Daten und die Zwecke ihrer Verarbeitung zusammen:</p>
-          <h3 className="mt-3 font-semibold text-foreground">Kategorien betroffener Personen</h3>
-          <ul className="ml-4 mt-1 list-disc space-y-1">
-            <li>Besucher und Nutzer der Plattform</li>
-            <li>Registrierte Nutzer (Benutzerkonten)</li>
-            <li>Personen, die über Kontaktformulare oder E-Mail kommunizieren</li>
-          </ul>
-          <h3 className="mt-3 font-semibold text-foreground">Kategorien personenbezogener Daten</h3>
-          <ul className="ml-4 mt-1 list-disc space-y-1">
-            <li>Bestandsdaten (z. B. E-Mail-Adresse)</li>
-            <li>Nutzungsdaten (z. B. aufgerufene Seiten, Zugriffszeiten)</li>
-            <li>Meta-/Kommunikationsdaten (z. B. IP-Adressen, Browsertyp)</li>
-            <li>Inhaltsdaten (z. B. eingegebene Texte in Formularen und Tools)</li>
-          </ul>
-        </section>
+        <div className="space-y-8 text-sm leading-relaxed text-muted-foreground">
+          <section>
+            <h2 className="mb-3 text-lg font-semibold text-foreground">1. Odgovorna osoba</h2>
+            <p>Odgovorna osoba u smislu DSGVO-a je:</p>
+            <p className="mt-2">
+              <strong className="text-foreground">RealCore Digital</strong>, vlasnik Demir
+              Sinanovic
+              <br />
+              Münchener Straße 78, 83395 Freilassing, Deutschland
+              <br />
+              E-pošta:{" "}
+              <a href="mailto:kontakt@balkanlink.de" className="text-primary hover:underline">
+                kontakt@balkanlink.de
+              </a>
+            </p>
+            <p className="mt-2 text-xs opacity-70">
+              Ova osoba je pravno odgovorna za sve odluke o tome kako se tvoji podaci
+              obrađuju. Obrati joj se s bilo kojim pitanjem o privatnosti podataka.
+            </p>
+          </section>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">3. Rechtsgrundlagen der Verarbeitung</h2>
-          <p>Wir verarbeiten personenbezogene Daten auf Grundlage folgender Rechtsgrundlagen:</p>
-          <ul className="ml-4 mt-1 list-disc space-y-1">
-            <li><strong>Einwilligung (Art. 6 Abs. 1 lit. a DSGVO):</strong> Die betroffene Person hat ihre Einwilligung in die Verarbeitung erteilt.</li>
-            <li><strong>Vertragserfüllung (Art. 6 Abs. 1 lit. b DSGVO):</strong> Die Verarbeitung ist für die Erfüllung eines Vertrags oder zur Durchführung vorvertraglicher Maßnahmen erforderlich.</li>
-            <li><strong>Rechtliche Verpflichtung (Art. 6 Abs. 1 lit. c DSGVO):</strong> Die Verarbeitung ist zur Erfüllung einer rechtlichen Verpflichtung erforderlich.</li>
-            <li><strong>Berechtigte Interessen (Art. 6 Abs. 1 lit. f DSGVO):</strong> Die Verarbeitung ist zur Wahrung berechtigter Interessen des Verantwortlichen oder eines Dritten erforderlich, sofern nicht die Interessen oder Grundrechte der betroffenen Person überwiegen.</li>
-          </ul>
-        </section>
+          <section>
+            <h2 className="mb-3 text-lg font-semibold text-foreground">
+              2. Koje podatke prikupljamo
+            </h2>
+            <p>
+              <strong className="text-foreground">Kategorije korisnika:</strong>
+            </p>
+            <ul className="ml-4 mt-1 list-disc space-y-1">
+              <li>Posjetioci platforme (bez registracije)</li>
+              <li>Registrirani korisnici (s korisničkim računom)</li>
+              <li>Premium pretplatnici</li>
+              <li>Osobe koje kontaktiraju e-poštom</li>
+            </ul>
+            <p className="mt-3">
+              <strong className="text-foreground">Kategorije podataka:</strong>
+            </p>
+            <ul className="ml-4 mt-1 list-disc space-y-1">
+              <li>
+                Podaci o računu: e-mail adresa, lozinka (pohranjena šifrirano —
+                bcrypt/argon2)
+              </li>
+              <li>Podaci o korištenju: posjećene stranice, napredak u kursu</li>
+              <li>Tehnički podaci: IP adresa, tip preglednika, OS</li>
+              <li>Sadržajni podaci: tekst u obrascima/alatima (nije trajno pohranjen)</li>
+              <li>
+                Podaci o plaćanju: obrađuju se isključivo putem Stripe-a (mi ne vidimo
+                broj kartice)
+              </li>
+            </ul>
+          </section>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">4. Server-Logfiles</h2>
-          <p>
-            Der Hosting-Provider dieser Plattform erhebt und speichert automatisch Informationen in sogenannten
-            Server-Logfiles, die Ihr Browser automatisch übermittelt. Dies sind:
-          </p>
-          <ul className="ml-4 mt-1 list-disc space-y-1">
-            <li>IP-Adresse des anfragenden Rechners (ggf. anonymisiert)</li>
-            <li>Datum und Uhrzeit des Zugriffs</li>
-            <li>Name und URL der abgerufenen Datei</li>
-            <li>Übertragene Datenmenge</li>
-            <li>Meldung, ob der Abruf erfolgreich war</li>
-            <li>Browsertyp und -version</li>
-            <li>Verwendetes Betriebssystem</li>
-            <li>Referrer-URL (die zuvor besuchte Seite)</li>
-            <li>Hostname des zugreifenden Rechners</li>
-          </ul>
-          <p className="mt-2">
-            Diese Daten werden nicht mit anderen Datenquellen zusammengeführt. Die Verarbeitung erfolgt auf Grundlage
-            von Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse liegt in der Gewährleistung eines störungsfreien
-            Betriebs und der Sicherheit unserer Plattform.
-          </p>
-        </section>
+          <section>
+            <h2 className="mb-3 text-lg font-semibold text-foreground">
+              3. Pravne osnove obrade
+            </h2>
+            <ul className="ml-4 mt-1 list-disc space-y-2">
+              <li>
+                <strong className="text-foreground">
+                  Saglasnost (čl. 6 st. 1 tač. a DSGVO):
+                </strong>{" "}
+                Npr. za opcionalne kolačiće — saglasnost se može povući u svako doba.
+              </li>
+              <li>
+                <strong className="text-foreground">
+                  Izvršenje ugovora (čl. 6 st. 1 tač. b DSGVO):
+                </strong>{" "}
+                Neophodna obrada za pružanje usluga — korisnički račun, pretplata.
+              </li>
+              <li>
+                <strong className="text-foreground">
+                  Zakonska obaveza (čl. 6 st. 1 tač. c DSGVO):
+                </strong>{" "}
+                Čuvanje računovodstvenih isprava prema §147 AO (do 10 godina).
+              </li>
+              <li>
+                <strong className="text-foreground">
+                  Legitimni interes (čl. 6 st. 1 tač. f DSGVO):
+                </strong>{" "}
+                Bezbjednost platforme, sprečavanje zloupotrebe, ispravno funkcionisanje.
+              </li>
+            </ul>
+          </section>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">5. Kontaktaufnahme</h2>
-          <p>
-            Wenn Sie uns per E-Mail kontaktieren, werden die von Ihnen mitgeteilten Daten (E-Mail-Adresse, ggf. Name, Inhalt der Anfrage)
-            von uns zum Zweck der Bearbeitung Ihrer Anfrage gespeichert. Die Verarbeitung erfolgt auf Grundlage von
-            Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) oder Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse
-            an der Beantwortung). Die Daten werden gelöscht, sobald der Zweck der Speicherung entfällt.
-          </p>
-        </section>
+          <section>
+            <h2 className="mb-3 text-lg font-semibold text-foreground">
+              4. Serverski logovi
+            </h2>
+            <p>
+              Hosting-provider automatski bilježi tehničke podatke: IP adresu,
+              datum/vrijeme pristupa, URL, HTTP statusni kod, tip preglednika, OS i
+              referrer URL. Ovi podaci se ne kombinuju s drugim izvorima i brišu se
+              nakon max. 30 dana.
+            </p>
+            <p className="mt-1">Pravna osnova: čl. 6 st. 1 tač. f DSGVO.</p>
+          </section>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">6. Registrierung und Benutzerkonto</h2>
-          <p>
-            Nutzer können auf der Plattform ein Benutzerkonto anlegen. Bei der Registrierung werden folgende Daten erhoben:
-          </p>
-          <ul className="ml-4 mt-1 list-disc space-y-1">
-            <li>E-Mail-Adresse</li>
-            <li>Passwort (verschlüsselt gespeichert, bcrypt/argon2)</li>
-          </ul>
-          <p className="mt-2">
-            Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung).
-            Es werden keine weiteren personenbezogenen Daten zwingend erhoben. Das Konto kann jederzeit gelöscht werden.
-          </p>
-        </section>
+          <section>
+            <h2 className="mb-3 text-lg font-semibold text-foreground">
+              5. Korisnički račun
+            </h2>
+            <p>
+              Registracijom prikupljamo e-mail adresu i lozinku (pohranjena isključivo
+              šifrirano, nikada u čitljivom obliku). Korisnički račun možeš obrisati u
+              svako doba u Postavkama ili slanjem zahtjeva na kontakt@balkanlink.de.
+            </p>
+            <p className="mt-1">Pravna osnova: čl. 6 st. 1 tač. b DSGVO.</p>
+          </section>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">7. Plattformnutzung – Formulare, Tools und Assistenten</h2>
-          <p>
-            Die Plattform bietet verschiedene digitale Werkzeuge, darunter Formularhilfen, Informationsassistenten
-            und einen Dokumenten-Check. Bei der Nutzung dieser Funktionen können Inhaltsdaten (eingegebene Texte,
-            hochgeladene Dokumente) verarbeitet werden.
-          </p>
-          <ul className="ml-4 mt-1 list-disc space-y-1">
-            <li>Eingegebene Texte werden ausschließlich zur Erbringung der jeweiligen Funktion verarbeitet.</li>
-            <li>Hochgeladene Dokumente werden nur temporär im Arbeitsspeicher verarbeitet (keine dauerhafte Speicherung).</li>
-            <li>Es erfolgt keine Protokollierung, Speicherung oder Weitergabe der Inhalte.</li>
-            <li>Nach Ausgabe des Ergebnisses werden alle übermittelten Daten sofort und vollständig gelöscht.</li>
-          </ul>
-          <p className="mt-2">
-            <strong>Empfehlung:</strong> Schwärzen Sie personenbezogene Daten (Namen, Adressen, Aktenzeichen, Steuer-IDs)
-            vor der Nutzung der Dokumenten-Check-Funktion.
-          </p>
-          <p className="mt-1">Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung durch Nutzung) sowie Art. 6 Abs. 1 lit. f DSGVO.</p>
-        </section>
+          <section>
+            <h2 className="mb-3 text-lg font-semibold text-foreground">
+              6. Obrasci, alati i Dokumenten-Check
+            </h2>
+            <p>
+              Tekst koji uneseš u obrasce i alate obrađuje se isključivo radi pružanja
+              tražene funkcije. Učitani dokumenti obrađuju se samo privremeno u radnoj
+              memoriji — <strong className="text-foreground">bez trajnog pohranjivanja</strong>.
+              Svi podaci brišu se odmah po prikazu rezultata.
+            </p>
+            <div className="mt-2 rounded-md border border-yellow-400/25 bg-yellow-950/30 p-3 text-xs text-yellow-100">
+              <strong className="text-foreground">Preporuka:</strong> Prekrij osobne podatke
+              (ime, adresu, JMBG, porezni broj) prije korištenja Dokumenten-Check
+              funkcije.
+            </div>
+            <p className="mt-1">Pravna osnova: čl. 6 st. 1 tač. a i f DSGVO.</p>
+          </section>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">8. Nutzergenerierte Inhalte</h2>
-          <p>
-            Nutzer können auf der Plattform Inhalte veröffentlichen (z. B. Anzeigen, Einträge, Kommentare).
-            Diese Inhalte werden gespeichert und sind für andere Nutzer sichtbar. Bei der Veröffentlichung werden
-            die mit dem Beitrag verbundenen Metadaten (Zeitstempel, ggf. Nutzername) gespeichert.
-            Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.
-          </p>
-        </section>
+          <section>
+            <h2 className="mb-3 text-lg font-semibold text-foreground">
+              7. BalkanLink Asistent
+            </h2>
+            <p>
+              BalkanLink Asistent je automatizirani sistem koji odgovara na pitanja
+              korisnika. Upiti se obrađuju putem eksternog servisa u skladu s GDPR
+              standardima.
+            </p>
+            <ul className="ml-4 mt-2 list-disc space-y-1">
+              <li>Tvoje poruke obrađuju se radi generiranja odgovora i odmah se vraća rezultat</li>
+              <li>
+                Zaključen je ugovor o obradi podataka (DPA) s pružaocem usluge (čl. 28
+                DSGVO)
+              </li>
+              <li>
+                <strong className="text-foreground">
+                  Tvoji podaci se ne koriste za poboljšanje sistema
+                </strong>{" "}
+                trećih strana
+              </li>
+              <li>
+                Historija razgovora može biti pohranjena u tvom profilu radi
+                kontinuiteta i može se obrisati u Postavkama računa
+              </li>
+            </ul>
+            <p className="mt-1">
+              Pravna osnova: čl. 6 st. 1 tač. b i f DSGVO; prijenos podataka po čl. 46
+              DSGVO (standardne ugovorne klauzule EU — SCC).
+            </p>
+          </section>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">9. Cookies und Einwilligung</h2>
-          <p>
-            Diese Plattform verwendet <strong>keine Marketing-Cookies</strong> und <strong>kein Tracking durch Drittanbieter</strong>.
-            Es werden ausschließlich technisch notwendige Daten im lokalen Speicher des Browsers (localStorage, sessionStorage) abgelegt,
-            insbesondere:
-          </p>
-          <ul className="ml-4 mt-1 list-disc space-y-1">
-            <li>Spracheinstellungen</li>
-            <li>Authentifizierungstoken (bei angemeldeten Nutzern)</li>
-            <li>Cookie-Consent-Einstellungen</li>
-          </ul>
-          <p className="mt-2">
-            Sollte zukünftig ein Analyse-Tool eingesetzt werden, erfolgt dies nur mit ausdrücklicher, vorheriger Einwilligung
-            des Nutzers (Opt-in) und mit IP-Anonymisierung. Die Einwilligung kann jederzeit widerrufen werden.
-          </p>
-          <p className="mt-1">Rechtsgrundlage: § 25 TDDDG i.V.m. Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) bzw. § 25 Abs. 2 TDDDG (technische Notwendigkeit).</p>
-        </section>
+          <section>
+            <h2 className="mb-3 text-lg font-semibold text-foreground">
+              8. Plaćanje putem Stripe
+            </h2>
+            <p>
+              Plaćanja obrađuje{" "}
+              <strong className="text-foreground">Stripe Payments Europe, Ltd.</strong>
+              {" "}(Dublin, Irska) — certificiran prema PCI DSS Level 1.
+            </p>
+            <ul className="ml-4 mt-2 list-disc space-y-1">
+              <li>
+                Mi <strong className="text-foreground">nikada ne vidimo niti pohranjujemo</strong>{" "}
+                podatke o kartici
+              </li>
+              <li>Stripe prima podatke direktno od tebe putem sigurne šifrirane veze</li>
+              <li>Mi primamo samo potvrdu uplate i anonimni ID transakcije</li>
+              <li>Stripe čuva transakcijske podatke radi zakonskih obaveza (do 10 godina)</li>
+            </ul>
+            <p className="mt-1">
+              Stripe privatnost:{" "}
+              <a
+                href="https://stripe.com/de/privacy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline"
+              >
+                stripe.com/de/privacy
+              </a>
+              <br />
+              Pravna osnova: čl. 6 st. 1 tač. b DSGVO.
+            </p>
+          </section>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">10. Speicherdauer und Löschung</h2>
-          <p>
-            Personenbezogene Daten werden nur so lange gespeichert, wie es für den jeweiligen Zweck erforderlich ist
-            oder gesetzliche Aufbewahrungspflichten bestehen. Nach Ablauf der Speicherfrist oder bei Wegfall des Zwecks
-            werden die Daten routinemäßig und entsprechend den gesetzlichen Vorschriften gelöscht oder gesperrt.
-          </p>
-          <ul className="ml-4 mt-1 list-disc space-y-1">
-            <li>Server-Logfiles: maximal 30 Tage</li>
-            <li>Kontaktanfragen: nach abschließender Bearbeitung, spätestens 6 Monate</li>
-            <li>Benutzerkonten: bis zur Löschung durch den Nutzer</li>
-            <li>Inhaltsdaten (Tools): sofortige Löschung nach Verarbeitung</li>
-          </ul>
-        </section>
+          <section>
+            <h2 className="mb-3 text-lg font-semibold text-foreground">
+              9. Supabase — baza podataka
+            </h2>
+            <p>
+              Za pohranu i autentifikaciju koristimo{" "}
+              <strong className="text-foreground">Supabase Inc.</strong> Podaci se
+              pohranjuju na serverima u{" "}
+              <strong className="text-foreground">Frankfurt am Main, EU (AWS eu-central-1)</strong>.
+            </p>
+            <ul className="ml-4 mt-2 list-disc space-y-1">
+              <li>Supabase je izvršilac obrade — DPA ugovor zaključen</li>
+              <li>Podaci se ne prenose izvan EU-a</li>
+              <li>Enkripcija u prijenosu: TLS; u mirovanju: AES-256</li>
+            </ul>
+          </section>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">11. Empfänger der Daten</h2>
-          <p>
-            Personenbezogene Daten werden grundsätzlich nicht an Dritte weitergegeben, es sei denn, dies ist zur Erfüllung
-            vertraglicher Pflichten erforderlich, eine gesetzliche Verpflichtung besteht oder der Nutzer eingewilligt hat.
-          </p>
-          <p className="mt-2">Folgende Kategorien von Empfängern können betroffen sein:</p>
-          <ul className="ml-4 mt-1 list-disc space-y-1">
-            <li>Hosting-Provider (Auftragsverarbeitung gemäß Art. 28 DSGVO)</li>
-            <li>Zahlungsdienstleister (bei kostenpflichtigen Leistungen)</li>
-            <li>E-Mail-Dienstleister (für transaktionale E-Mails)</li>
-          </ul>
-        </section>
+          <section>
+            <h2 className="mb-3 text-lg font-semibold text-foreground">
+              10. Kolačići i lokalna pohrana
+            </h2>
+            <p>
+              Ne koristimo marketinške kolačiće ni praćenje od strane trećih strana. U
+              lokalnoj pohrani pregledača pohranjujemo:
+            </p>
+            <ul className="ml-4 mt-1 list-disc space-y-1">
+              <li>Token za autentifikaciju (samo za prijavljene korisnike)</li>
+              <li>Postavke saglasnosti za kolačiće</li>
+              <li>Napredak u DeutschTraineru (do sinhronizacije s računom)</li>
+            </ul>
+            <p className="mt-1">Pravna osnova: §25 TDDDG / čl. 6 st. 1 tač. a DSGVO.</p>
+          </section>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">12. Auftragsverarbeitung</h2>
-          <p>
-            Soweit wir Dritte mit der Verarbeitung personenbezogener Daten beauftragen (z. B. Hosting),
-            geschieht dies ausschließlich auf Grundlage eines Vertrages zur Auftragsverarbeitung gemäß Art. 28 DSGVO.
-            Unsere Auftragsverarbeiter sind sorgfältig ausgewählt und vertraglich zur Einhaltung der DSGVO verpflichtet.
-          </p>
-        </section>
+          <section>
+            <h2 className="mb-3 text-lg font-semibold text-foreground">11. Rok čuvanja</h2>
+            <ul className="ml-4 mt-1 list-disc space-y-1">
+              <li>Serverski logovi: max. 30 dana</li>
+              <li>E-mail upiti: max. 6 mjeseci po završetku obrade</li>
+              <li>Korisnički račun: do brisanja od strane korisnika</li>
+              <li>Sadržajni podaci (alati): trenutno brisanje</li>
+              <li>Podaci o plaćanju: 10 godina (§147 AO)</li>
+            </ul>
+          </section>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">13. Datensicherheit</h2>
-          <p>
-            Wir setzen technische und organisatorische Sicherheitsmaßnahmen gemäß Art. 32 DSGVO ein, um Ihre Daten
-            gegen zufällige oder vorsätzliche Manipulation, Verlust, Zerstörung oder den Zugriff unberechtigter Personen
-            zu schützen. Unsere Sicherheitsmaßnahmen werden entsprechend der technologischen Entwicklung fortlaufend verbessert.
-            Die Datenübertragung erfolgt über SSL/TLS-Verschlüsselung.
-          </p>
-        </section>
+          <section>
+            <h2 className="mb-3 text-lg font-semibold text-foreground">
+              12. Primaoci podataka
+            </h2>
+            <ul className="ml-4 mt-1 list-disc space-y-1">
+              <li>
+                <strong className="text-foreground">Supabase Inc.</strong> — hosting i
+                baza podataka (čl. 28 DSGVO)
+              </li>
+              <li>
+                <strong className="text-foreground">Stripe Payments Europe, Ltd.</strong>
+                — obrada plaćanja
+              </li>
+              <li>Pružalac usluge za BalkanLink Asistenta (SCC ugovor, čl. 46 DSGVO)</li>
+              <li>Državni organi — samo na zakonski osnovan zahtjev</li>
+            </ul>
+          </section>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">14. Rechte der betroffenen Personen</h2>
-          <p>Als betroffene Person haben Sie folgende Rechte:</p>
-          <ul className="ml-4 mt-1 list-disc space-y-1">
-            <li><strong>Auskunftsrecht (Art. 15 DSGVO):</strong> Sie haben das Recht, eine Bestätigung darüber zu verlangen, ob betreffende Daten verarbeitet werden, und auf Auskunft über diese Daten sowie weitere Informationen.</li>
-            <li><strong>Recht auf Berichtigung (Art. 16 DSGVO):</strong> Sie haben das Recht, die Vervollständigung oder Berichtigung unrichtiger Daten zu verlangen.</li>
-            <li><strong>Recht auf Löschung (Art. 17 DSGVO):</strong> Sie haben das Recht, die Löschung betreffender Daten zu verlangen, sofern die Voraussetzungen erfüllt sind.</li>
-            <li><strong>Recht auf Einschränkung (Art. 18 DSGVO):</strong> Sie haben das Recht, die Einschränkung der Verarbeitung zu verlangen.</li>
-            <li><strong>Recht auf Datenübertragbarkeit (Art. 20 DSGVO):</strong> Sie haben das Recht, Ihre Daten in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten.</li>
-            <li><strong>Widerspruchsrecht (Art. 21 DSGVO):</strong> Sie haben das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit gegen die Verarbeitung Widerspruch einzulegen.</li>
-            <li><strong>Recht auf Widerruf (Art. 7 Abs. 3 DSGVO):</strong> Eine erteilte Einwilligung kann jederzeit widerrufen werden. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung bleibt unberührt.</li>
-            <li><strong>Beschwerderecht (Art. 77 DSGVO):</strong> Sie haben das Recht, eine Beschwerde bei einer Aufsichtsbehörde einzureichen. Die zuständige Aufsichtsbehörde ist das Bayerische Landesamt für Datenschutzaufsicht (BayLDA).</li>
-          </ul>
-        </section>
+          <section>
+            <h2 className="mb-3 text-lg font-semibold text-foreground">
+              13. Sigurnost podataka (čl. 32 DSGVO)
+            </h2>
+            <p>
+              SSL/TLS enkripcija svih veza, šifrirano pohranjivanje lozinki
+              (bcrypt/argon2), ograničen pristup podacima, redovne sigurnosne provjere.
+              Prenosivu prenosivu vezu prepoznaješ po "https://" u adresnoj traci.
+            </p>
+          </section>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">15. Widerspruchsrecht</h2>
-          <p>
-            Sofern Ihre personenbezogenen Daten auf Grundlage von berechtigten Interessen gemäß Art. 6 Abs. 1 lit. f DSGVO
-            verarbeitet werden, haben Sie das Recht, gemäß Art. 21 DSGVO Widerspruch gegen die Verarbeitung einzulegen,
-            sofern dafür Gründe vorliegen, die sich aus Ihrer besonderen Situation ergeben.
-            Richten Sie Ihren Widerspruch bitte an: <a href="mailto:kontakt@balkanlink.de" className="text-primary hover:underline">kontakt@balkanlink.de</a>.
-          </p>
-        </section>
+          <section>
+            <h2 className="mb-3 text-lg font-semibold text-foreground">
+              14. Tvoja prava (čl. 15–22 DSGVO)
+            </h2>
+            <ul className="ml-4 mt-1 list-disc space-y-2">
+              <li>
+                <strong className="text-foreground">Pravo na pristup (čl. 15):</strong>{" "}
+                Možeš zatražiti uvid u sve podatke koje obrađujemo.
+              </li>
+              <li>
+                <strong className="text-foreground">Pravo na ispravak (čl. 16):</strong>{" "}
+                Možeš zatražiti ispravku netačnih podataka.
+              </li>
+              <li>
+                <strong className="text-foreground">
+                  Pravo na brisanje (čl. 17 — "pravo na zaborav"):
+                </strong>{" "}
+                Možeš zatražiti brisanje svojih podataka.
+              </li>
+              <li>
+                <strong className="text-foreground">Pravo na ograničenje (čl. 18):</strong>{" "}
+                Možeš zatražiti ograničenje obrade u određenim slučajevima.
+              </li>
+              <li>
+                <strong className="text-foreground">Pravo na prenosivost (čl. 20):</strong>{" "}
+                Možeš dobiti svoje podatke u strojno čitljivom formatu.
+              </li>
+              <li>
+                <strong className="text-foreground">Pravo na prigovor (čl. 21):</strong>{" "}
+                Možeš podnijeti prigovor na obradu zasnovanu na legitimnom interesu.
+              </li>
+              <li>
+                <strong className="text-foreground">Opoziv saglasnosti (čl. 7 st. 3):</strong>{" "}
+                Saglasnost možeš povući u svako doba — bez retroaktivnog dejstva.
+              </li>
+              <li>
+                <strong className="text-foreground">Pravo na žalbu (čl. 77):</strong>{" "}
+                Nadležno nadzorno tijelo:{" "}
+                <strong className="text-foreground">
+                  Bayerisches Landesamt für Datenschutzaufsicht (BayLDA)
+                </strong>
+                , Promenade 18, 91522 Ansbach.
+              </li>
+            </ul>
+            <p className="mt-2">
+              Zahtjeve šalji na:{" "}
+              <a href="mailto:kontakt@balkanlink.de" className="text-primary hover:underline">
+                kontakt@balkanlink.de
+              </a>
+            </p>
+          </section>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">16. Keine automatisierte Entscheidungsfindung</h2>
-          <p>
-            Es findet keine automatisierte Entscheidungsfindung einschließlich Profiling gemäß Art. 22 Abs. 1 und 4 DSGVO statt,
-            die Ihnen gegenüber eine rechtliche Wirkung entfaltet oder Sie in ähnlicher Weise erheblich beeinträchtigt.
-          </p>
-        </section>
+          <section>
+            <h2 className="mb-3 text-lg font-semibold text-foreground">
+              15. Nema automatiziranog odlučivanja
+            </h2>
+            <p>
+              Ne vrši se automatizovano donošenje odluka niti profiliranje (čl. 22
+              DSGVO) koje bi imalo pravno dejstvo ili na sličan način znatno pogađalo
+              korisnika.
+            </p>
+          </section>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">17. SSL-/TLS-Verschlüsselung</h2>
-          <p>
-            Diese Plattform nutzt aus Sicherheitsgründen und zum Schutz der Übertragung personenbezogener Daten
-            eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie an „https://" in der
-            Adresszeile Ihres Browsers und dem Schloss-Symbol.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">18. Änderungen dieser Datenschutzerklärung</h2>
-          <p>
-            Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den aktuellen rechtlichen
-            Anforderungen entspricht oder um Änderungen unserer Leistungen umzusetzen. Für Ihren erneuten Besuch
-            gilt dann die neue Datenschutzerklärung.
-          </p>
-          <p className="mt-2">Stand: März 2026</p>
-        </section>
+          <section>
+            <h2 className="mb-3 text-lg font-semibold text-foreground">16. Izmjene izjave</h2>
+            <p>
+              Zadržavamo pravo izmjene ove Izjave radi usklađenosti s propisima ili
+              promjenama usluga.
+            </p>
+            <p className="mt-2 text-xs opacity-60">Verzija: April 2026</p>
+          </section>
+        </div>
       </div>
-    </div>
     </>
   );
 }
