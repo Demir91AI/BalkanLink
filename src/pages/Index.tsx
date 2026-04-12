@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
 
