@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
 
 import FlowBanner from "@/components/home/FlowBanner";
+import WhatIsWhat from "@/components/home/WhatIsWhat";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 
