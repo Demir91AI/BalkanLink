@@ -5,13 +5,7 @@ export default function NapomenaOKI() {
   const navigate = useNavigate();
   return (
     <>
-      <PageNavBar
-        backButton={{ label: "Nazad", onClick: () => navigate("/") }}
-        breadcrumb={[
-          { label: "Početna", href: "/" },
-          { label: "Napomena o asistentu" }
-        ]}
-      />
+      <PageNavBar onBack={() => navigate("/")} />
       <div className="container max-w-3xl py-16">
         <h1 className="mb-2 text-3xl font-bold">
           Napomena o upotrebi asistenta
