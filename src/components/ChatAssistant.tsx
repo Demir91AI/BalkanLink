@@ -259,6 +259,9 @@ export default function ChatAssistant() {
   const [showBenefitCalc, setShowBenefitCalc] = useState(false);
   const [chatLang, setChatLang] = useState<"bs" | "de">("bs");
   const [hasUnread, setHasUnread] = useState(false);
+  const [disclaimerSeen, setDisclaimerSeen] = useState(() =>
+    localStorage.getItem("bl_ai_disclaimer_seen") === "true"
+  );
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
