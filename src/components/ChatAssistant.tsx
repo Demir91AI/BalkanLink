@@ -839,17 +839,17 @@ export default function ChatAssistant() {
 
                     {loading && messages[messages.length - 1]?.role === "user" && (
                       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex justify-start">
-                        <div className="w-[85%] space-y-2.5 rounded-xl rounded-bl-none px-4 py-4" style={{ background: "#1F2937" }}>
+                        <div className="bl-shimmer-host w-[85%] space-y-2.5 rounded-xl rounded-bl-none px-4 py-4 overflow-hidden" style={{ background: "#1F2937" }}>
                           <div className="flex items-center gap-2">
-                            <div className="h-4 w-4 rounded-full bg-white/10 animate-pulse" />
-                            <div className="h-3 w-24 rounded-md bg-white/10 animate-pulse" />
+                            <div className="bl-shimmer h-4 w-4 rounded-full" />
+                            <div className="bl-shimmer h-3 w-24 rounded-md" />
                           </div>
-                          <div className="h-3 w-full rounded-md bg-white/[0.07] animate-pulse" />
-                          <div className="h-3 w-[90%] rounded-md bg-white/[0.07] animate-pulse" style={{ animationDelay: "150ms" }} />
-                          <div className="h-3 w-[70%] rounded-md bg-white/[0.07] animate-pulse" style={{ animationDelay: "300ms" }} />
+                          <div className="bl-shimmer h-3 w-full rounded-md" />
+                          <div className="bl-shimmer h-3 w-[90%] rounded-md" style={{ animationDelay: "150ms" }} />
+                          <div className="bl-shimmer h-3 w-[70%] rounded-md" style={{ animationDelay: "300ms" }} />
                           <div className="flex gap-2 pt-1">
-                            <div className="h-3 w-16 rounded-md bg-white/[0.05] animate-pulse" style={{ animationDelay: "400ms" }} />
-                            <div className="h-3 w-20 rounded-md bg-white/[0.05] animate-pulse" style={{ animationDelay: "500ms" }} />
+                            <div className="bl-shimmer h-3 w-16 rounded-md" style={{ animationDelay: "400ms" }} />
+                            <div className="bl-shimmer h-3 w-20 rounded-md" style={{ animationDelay: "500ms" }} />
                           </div>
                         </div>
                       </motion.div>
