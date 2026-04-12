@@ -301,20 +301,29 @@ export default function Index() {
       {/* ─── FLOW BANNER CAROUSEL ─── */}
       <FlowBanner />
 
-      {/* ─── PREMIUM SECTION — full pricing + comparison ─── */}
+      {/* ─── PARTNERS / SHOWCASE ─── */}
+      <section className="py-16 bg-white border-t border-[#E8E0D0]">
+        <div className="container max-w-[1200px] mx-auto mb-8">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <p className="text-xs font-bold uppercase tracking-[0.26em] text-[hsl(var(--gold))]">{"NAŠI PARTNERI"}</p>
+            <h2 className="mt-2 font-heading text-2xl font-extrabold text-[#2D2D2D]">
+              {"Preporučene usluge"}
+            </h2>
+          </motion.div>
+        </div>
+        <ShowcaseCarousel />
+      </section>
+
+      {/* ─── PRICING SECTION — at the bottom, before footer ─── */}
       <section className="py-16 bg-white border-t border-[#E8E0D0]">
         <div className="container max-w-[1200px] mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
             <div className="text-center mb-10">
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[hsl(var(--gold))]/20 bg-[hsl(var(--gold))]/[0.08] px-3 py-1">
-                <Star className="h-3 w-3 text-[hsl(var(--gold))]" />
-                <span className="text-[10px] font-bold uppercase tracking-widest text-[hsl(var(--gold))]">Premium</span>
-              </div>
               <h2 className="font-heading text-3xl font-extrabold text-[#2D2D2D] sm:text-4xl">
-                Riješi papire bez grešaka
+                Odaberi plan koji ti odgovara
               </h2>
               <p className="mt-3 text-base text-[#6B6B6B] max-w-xl mx-auto">
-                Izaberi plan koji ti odgovara — besplatno počni, nadogradi kad trebaš više.
+                Počni besplatno — nadogradi kad trebaš više. Bez ugovora, otkaži kad hoćeš.
               </p>
             </div>
 
@@ -399,26 +408,11 @@ export default function Index() {
             </div>
 
             <div className="mt-8 text-center">
-              <p className="text-xs text-[#8A8A8A]"><p className="text-xs text-[#8A8A8A]">Prema § 19 UStG ne obračunava se PDV · Otkaži kad hoćeš · Bez ugovora</p></p>
+              <p className="text-xs text-[#8A8A8A]">Prema § 19 UStG ne obračunava se PDV · Otkaži kad hoćeš · Bez ugovora</p>
             </div>
           </motion.div>
         </div>
       </section>
-
-      <section className="py-16 bg-white border-t border-[#E8E0D0]">
-        <div className="container max-w-[1200px] mx-auto mb-8">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-            <p className="text-xs font-bold uppercase tracking-[0.26em] text-[hsl(var(--gold))]">{"NAŠI PARTNERI"}</p>
-            <h2 className="mt-2 font-heading text-2xl font-extrabold text-[#2D2D2D]">
-              {"Preporučene usluge"}
-            </h2>
-          </motion.div>
-        </div>
-        <ShowcaseCarousel />
-      </section>
-
-      
-
 
     </div>
   );
