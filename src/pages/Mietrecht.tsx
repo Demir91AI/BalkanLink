@@ -5,7 +5,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import PageNavBar from "@/components/navigation/PageNavBar";
-import SEO from "@/components/SEO";
+import { SEO } from "@/components/SEO";
 
 const pills = [
   { id: "kaution", label: "Kaution" },

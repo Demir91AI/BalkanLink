@@ -231,6 +231,7 @@ function AppRoutes() {
         <Route path="/radno-pravo/:slug" element={<RadnoPravoGuide />} />
         <Route path="/biznis" element={<BiznisNjemacka />} />
         <Route path="/biznis/:slug" element={<BiznisGuide />} />
+        <Route path="/mietrecht" element={<Mietrecht />} />
         <Route path="/oglasi" element={<Navigate to="/nudim-trazim" replace />} />
         <Route path="/deutsch" element={<Navigate to="/deutsch-trainer" replace />} />
         <Route path="/sabloni" element={<Navigate to="/vorlagen" replace />} />
