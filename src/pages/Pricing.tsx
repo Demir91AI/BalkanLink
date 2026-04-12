@@ -236,11 +236,9 @@ export default function Pricing() {
             <p className="text-xs text-muted-foreground mt-1">Istaknuta kartica + flow banner</p>
             <Button
               className="mt-4 w-full rounded-xl bg-[hsl(var(--gold))] text-white hover:bg-[hsl(var(--gold-light))] text-sm"
-              asChild
+              onClick={() => handleCheckout(STRIPE_PRICE_IDS.FEATURED_FIRMA, "subscription")}
             >
-              <a href="mailto:kontakt@balkanlink.de?subject=Featured%20Firma%20Paket">
-                Zatraži Featured →
-              </a>
+              Zatraži Featured →
             </Button>
           </div>
         </div>
