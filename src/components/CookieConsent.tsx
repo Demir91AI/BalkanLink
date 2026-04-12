@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 import { Switch } from "@/components/ui/switch";
 import { Shield, Settings, X } from "lucide-react";
-import { useLanguage } from "@/contexts/LanguageContext";
 
 const COOKIE_KEY = "bl-cookie-consent";
 
@@ -34,11 +33,17 @@ function savePrefs(prefs: CookiePrefs) {
   localStorage.setItem(COOKIE_KEY, JSON.stringify(prefs));
 }
 
+const categories = [
+  { key: "necessary" as const, label: "Neophodni", desc: "Potrebni za rad platforme.", locked: true },
+  { key: "functional" as const, label: "Funkcionalni", desc: "Čuvaju tvoje postavke." },
+  { key: "statistics" as const, label: "Statistika", desc: "Pomažu nam poboljšati platformu." },
+  { key: "marketing" as const, label: "Marketing", desc: "Personalizirani sadržaj i oglasi." },
+];
+
 export default function CookieConsent() {
   const [visible, setVisible] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [prefs, setPrefs] = useState<CookiePrefs>(DEFAULT_PREFS);
-  const { t } = useLanguage();
 
   useEffect(() => {
     const saved = loadPrefs();
@@ -81,13 +86,6 @@ export default function CookieConsent() {
 
   if (!visible && !settingsOpen) return null;
 
-  const categories: { key: keyof CookiePrefs; labelKey: string; descKey: string; locked?: boolean }[] = [
-    { key: "necessary", labelKey: "cookie.cat.necessary", descKey: "cookie.cat.necessary.desc", locked: true },
-    { key: "functional", labelKey: "cookie.cat.functional", descKey: "cookie.cat.functional.desc" },
-    { key: "statistics", labelKey: "cookie.cat.statistics", descKey: "cookie.cat.statistics.desc" },
-    { key: "marketing", labelKey: "cookie.cat.marketing", descKey: "cookie.cat.marketing.desc" },
-  ];
-
   return (
     <>
       {visible && !settingsOpen && (
@@ -96,8 +94,8 @@ export default function CookieConsent() {
             <div className="flex items-start gap-3 mb-4">
               <Shield className="h-5 w-5 text-[hsl(var(--brand-orange))] mt-0.5 shrink-0" />
               <div>
-                <h3 className="text-sm font-semibold text-white">{t("cookie.title")}</h3>
-                <p className="mt-1 text-xs leading-relaxed text-white/60">{t("cookie.desc")}</p>
+                <h3 className="text-sm font-semibold text-white">Koristimo kolačiće</h3>
+                <p className="mt-1 text-xs leading-relaxed text-white/60">Koristimo kolačiće za poboljšanje platforme.</p>
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-2">
@@ -106,14 +104,14 @@ export default function CookieConsent() {
                 onClick={() => accept(true)}
                 className="bg-[hsl(var(--brand-orange))] hover:bg-[hsl(var(--brand-orange))]/90 text-[hsl(var(--brand-orange-foreground))] font-semibold text-xs h-9"
               >
-                {t("cookie.acceptAll")}
+                Prihvati sve
               </Button>
               <Button
                 size="sm"
                 onClick={() => accept(false)}
                 className="bg-[hsl(var(--primary))] hover:bg-[hsl(var(--primary))]/80 text-white font-medium text-xs h-9 border border-white/20"
               >
-                {t("cookie.necessaryOnly")}
+                Samo neophodni
               </Button>
               <Button
                 size="sm"
@@ -122,7 +120,7 @@ export default function CookieConsent() {
                 className="text-white/60 hover:text-white hover:bg-white/5 text-xs h-9 gap-1.5"
               >
                 <Settings className="h-3.5 w-3.5" />
-                {t("cookie.settings")}
+                Postavke
               </Button>
             </div>
           </div>
@@ -134,19 +132,19 @@ export default function CookieConsent() {
           <DialogHeader>
             <DialogTitle className="text-white flex items-center gap-2">
               <Shield className="h-4 w-4 text-[hsl(var(--brand-orange))]" />
-              {t("cookie.settingsTitle")}
+              Postavke kolačića
             </DialogTitle>
             <DialogDescription className="text-white/50 text-xs">
-              {t("cookie.settingsDesc")}
+              Odaberi koje kolačiće želiš dozvoliti.
             </DialogDescription>
           </DialogHeader>
 
           <div className="space-y-3 py-2">
-            {categories.map(({ key, labelKey, descKey, locked }) => (
+            {categories.map(({ key, label, desc, locked }) => (
               <div key={key} className="flex items-center justify-between gap-3 rounded-lg border border-white/8 p-3">
                 <div className="min-w-0">
-                  <p className="text-sm font-medium text-white/90">{t(labelKey)}</p>
-                  <p className="text-[11px] text-white/40 mt-0.5">{t(descKey)}</p>
+                  <p className="text-sm font-medium text-white/90">{label}</p>
+                  <p className="text-[11px] text-white/40 mt-0.5">{desc}</p>
                 </div>
                 <Switch
                   checked={prefs[key]}
@@ -164,14 +162,14 @@ export default function CookieConsent() {
               onClick={saveSettings}
               className="bg-[hsl(var(--primary))] hover:bg-[hsl(var(--primary))]/80 text-white font-medium text-xs h-10 w-full border border-white/20"
             >
-              {t("cookie.saveSettings")}
+              Spremi postavke
             </Button>
             <Button
               size="sm"
               onClick={() => accept(true)}
               className="bg-[hsl(var(--brand-orange))] hover:bg-[hsl(var(--brand-orange))]/90 text-[hsl(var(--brand-orange-foreground))] font-semibold text-xs h-10 w-full"
             >
-              {t("cookie.acceptAll")}
+              Prihvati sve
             </Button>
           </DialogFooter>
         </DialogContent>
