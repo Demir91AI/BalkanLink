@@ -180,7 +180,7 @@ export default function Paketi() {
               </tbody>
             </table>
           </div>
-        </div>
+        </motion.div>
 
         <div className="text-center space-y-2">
           <p className="text-sm text-muted-foreground">
