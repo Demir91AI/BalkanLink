@@ -102,7 +102,7 @@ export default function WhatIsWhat() {
           </p>
         </motion.div>
 
-        <Accordion type="single" collapsible defaultValue="smart-guide" className="space-y-2">
+        <Accordion type="single" collapsible className="space-y-2">
           {cards.map((card) => (
             <AccordionItem
               key={card.id}
