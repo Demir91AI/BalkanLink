@@ -38,16 +38,16 @@ export default function FahrzeugzulassungGuide() {
     <div className="space-y-8">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-extrabold tracking-tight">🚗 {"Fahrzeugzulassung in Deutschland"}</h1>
-        <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{"Vollständiger Leitfaden für An-, Ab- und Ummeldung von Fahrzeugen — inkl. Import aus dem Ausland."}</p>
+        <h1 className="text-2xl font-extrabold tracking-tight">🚗 {label("fz_title")}</h1>
+        <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{label("fz_subtitle")}</p>
       </div>
 
-      {/* S1 — What is it */}
+      {/* S1 — Šta je registracija */}
       <section className="rounded-xl border bg-card p-5 space-y-3">
         <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-muted-foreground">
-          <Car className="h-4 w-4 text-[#C9A84C]" /> {"Was ist eine Zulassung?"}
+          <Car className="h-4 w-4 text-[#C9A84C]" /> {label("fz_s1")}
         </h2>
-        <p className="text-sm text-muted-foreground leading-relaxed">{"Die Zulassung ist die amtliche Anmeldung eines Fahrzeugs bei der zuständigen Behörde. Ohne sie darf man nicht auf öffentlichen Straßen in Deutschland fahren."}</p>
+        <p className="text-sm text-muted-foreground leading-relaxed">{label("fz_what")}</p>
         <ul className="space-y-1.5">
           {types.map((key) => (
             <li key={key} className="flex items-start gap-2 text-sm">
@@ -58,10 +58,10 @@ export default function FahrzeugzulassungGuide() {
         </ul>
       </section>
 
-      {/* S2 — Who must register */}
+      {/* S2 — Ko mora registrovati */}
       <section className="rounded-xl border bg-card p-5 space-y-3">
         <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-muted-foreground">
-          <Users className="h-4 w-4 text-[#C9A84C]" /> {"Wer muss ein Fahrzeug zulassen?"}
+          <Users className="h-4 w-4 text-[#C9A84C]" /> {label("fz_s2")}
         </h2>
         <ul className="space-y-2">
           {whos.map((key) => (
@@ -73,10 +73,10 @@ export default function FahrzeugzulassungGuide() {
         </ul>
       </section>
 
-      {/* S3 — Documents */}
+      {/* S3 — Potrebna dokumenta */}
       <section className="rounded-xl border bg-card p-5 space-y-3">
         <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-muted-foreground">
-          <FileText className="h-4 w-4 text-[#C9A84C]" /> {"Benötigte Unterlagen"}
+          <FileText className="h-4 w-4 text-[#C9A84C]" /> {label("fz_s3")}
         </h2>
         <ul className="space-y-1.5">
           {docs.map((key) => (
@@ -88,10 +88,10 @@ export default function FahrzeugzulassungGuide() {
         </ul>
       </section>
 
-      {/* S4 — Steps */}
+      {/* S4 — Koraci */}
       <section className="rounded-xl border bg-card p-5 space-y-3">
         <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-muted-foreground">
-          <ListOrdered className="h-4 w-4 text-[#C9A84C]" /> {"Schritte zur Zulassung"}
+          <ListOrdered className="h-4 w-4 text-[#C9A84C]" /> {label("fz_s4")}
         </h2>
         <ol className="space-y-2.5">
           {steps.map((key, i) => (
@@ -105,10 +105,10 @@ export default function FahrzeugzulassungGuide() {
         </ol>
       </section>
 
-      {/* S5 — Registration types */}
+      {/* S5 — Vrste registracije */}
       <section className="rounded-xl border bg-card p-5 space-y-3">
         <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-muted-foreground">
-          <Car className="h-4 w-4 text-[#C9A84C]" /> {"Arten der Zulassung"}
+          <Car className="h-4 w-4 text-[#C9A84C]" /> {label("fz_s5")}
         </h2>
         <ul className="space-y-1.5">
           {regs.map((key) => (
@@ -120,18 +120,18 @@ export default function FahrzeugzulassungGuide() {
         </ul>
       </section>
 
-      {/* S6 — Where */}
+      {/* S6 — Gdje se prijavljuje */}
       <section className="rounded-xl border bg-card p-5 space-y-3">
         <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-muted-foreground">
-          <MapPin className="h-4 w-4 text-[#C9A84C]" /> {"Wo meldet man das Fahrzeug an?"}
+          <MapPin className="h-4 w-4 text-[#C9A84C]" /> {label("fz_s6")}
         </h2>
-        <p className="text-sm text-muted-foreground leading-relaxed">{"Bei der örtlichen Kfz-Zulassungsstelle. Termin muss im Voraus vereinbart werden — online oder telefonisch. In Großstädten (Berlin, München, Hamburg) kann die Wartezeit 2–6 Wochen betragen."}</p>
+        <p className="text-sm text-muted-foreground leading-relaxed">{label("fz_where")}</p>
       </section>
 
-      {/* S7 — Costs */}
+      {/* S7 — Troškovi */}
       <section className="rounded-xl border bg-card p-5 space-y-3">
         <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-muted-foreground">
-          <Clock className="h-4 w-4 text-[#C9A84C]" /> {"Kosten"}
+          <Clock className="h-4 w-4 text-[#C9A84C]" /> {label("fz_s7")}
         </h2>
         <ul className="space-y-1.5">
           {costs.map((key) => (
@@ -143,12 +143,12 @@ export default function FahrzeugzulassungGuide() {
         </ul>
       </section>
 
-      {/* S8 — Import */}
+      {/* S8 — Uvoz vozila */}
       <section className="rounded-xl border bg-card p-5 space-y-3">
         <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-muted-foreground">
-          <Globe className="h-4 w-4 text-[#C9A84C]" /> {"Wichtige Infos zum Fahrzeugimport"}
+          <Globe className="h-4 w-4 text-[#C9A84C]" /> {label("fz_s8")}
         </h2>
-        <p className="text-sm font-medium text-foreground">{"Wenn Sie ein Fahrzeug aus BiH, Serbien oder einem anderen Nicht-EU-Land importieren, beachten Sie Folgendes:"}</p>
+        <p className="text-sm font-medium text-foreground">{label("fz_imp_intro")}</p>
         <ul className="space-y-1.5">
           {imports.map((key) => (
             <li key={key} className="flex items-start gap-2 text-sm">
@@ -159,10 +159,10 @@ export default function FahrzeugzulassungGuide() {
         </ul>
       </section>
 
-      {/* S9 — Mistakes */}
+      {/* S9 — Česte greške */}
       <section className="rounded-xl border border-destructive/20 bg-destructive/5 p-5 space-y-3">
         <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-[#EF4444]">
-          <AlertTriangle className="h-4 w-4 text-[#EF4444]" /> {"Häufige Fehler"}
+          <AlertTriangle className="h-4 w-4 text-[#EF4444]" /> {"Česte greške"}
         </h2>
         <ul className="space-y-1.5">
           {errors.map((key) => (
@@ -174,29 +174,29 @@ export default function FahrzeugzulassungGuide() {
         </ul>
       </section>
 
-      {/* S10 — Links */}
+      {/* S10 — Korisni linkovi */}
       <section className="rounded-xl border bg-card p-5 space-y-3">
         <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-muted-foreground">
-          <LinkIcon className="h-4 w-4 text-[#C9A84C]" /> {"Nützliche Links"}
+          <LinkIcon className="h-4 w-4 text-[#C9A84C]" /> {"Korisni linkovi"}
         </h2>
         <div className="flex flex-wrap gap-2">
           <a
-            href={"https://www.kba.de"}
+            href="https://www.kba.de"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2.5 text-xs font-semibold text-foreground transition-colors hover:bg-accent"
           >
             <ExternalLink className="h-3.5 w-3.5" />
-            {"Zulassungsstelle-Finder"}
+            Pronađi Zulassungsstelle
           </a>
           <a
-            href={"https://www.adac.de/rund-ums-fahrzeug/auto-kaufen-verkaufen/kfz-zulassung/"}
+            href="https://www.adac.de/rund-ums-fahrzeug/auto-kaufen-verkaufen/kfz-zulassung/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2.5 text-xs font-semibold text-foreground transition-colors hover:bg-accent"
           >
             <ExternalLink className="h-3.5 w-3.5" />
-            {"ADAC — Tipps zur Zulassung"}
+            ADAC — Savjeti za registraciju
           </a>
         </div>
         <p className="text-center text-xs italic text-muted-foreground">Izvor: KBA, ADAC, Zoll.de</p>
