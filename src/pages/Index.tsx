@@ -8,7 +8,7 @@ import {
   ChevronLeft, ChevronRight, FileText, Shield, GraduationCap, Search, Home, Calculator, Camera,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
+import { useLanguage } from "@/contexts/LanguageContext";
 
 import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
 
