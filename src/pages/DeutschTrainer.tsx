@@ -194,43 +194,6 @@ export default function DeutschTrainer() {
 
         <div className="relative z-10 px-5 sm:px-10 lg:px-20 py-10">
 
-          {/* ── STATS ROW ── */}
-          <div className="mb-8 grid grid-cols-3 gap-3 sm:gap-4 max-w-3xl">
-            {[
-              { icon: <Trophy className="h-6 w-6 text-gold" />, value: progress.xp, label: "XP" },
-              { icon: <Flame className="h-6 w-6 text-orange-400" />, value: progress.streak, label: "Streak" },
-              { icon: <Star className="h-6 w-6 text-blue-400" />, value: `Lvl ${progress.level}`, label: `${"Level"} (max ${MAX_LEVEL})` },
-            ].map((s, i) => (
-              <motion.div
-                key={s.label}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.08 }}
-                className="group flex flex-col items-center gap-1 rounded-2xl border border-white/[0.06] bg-white/[0.03] px-4 py-4 backdrop-blur-sm transition-all duration-200 hover:scale-[1.02] hover:border-white/[0.12] hover:shadow-[0_8px_30px_rgba(59,130,246,0.08)]"
-              >
-                {s.icon}
-                <span className="text-lg font-black text-white sm:text-xl">{s.value}</span>
-                <span className="text-[10px] font-medium text-white/40">{s.label}</span>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* ── XP PROGRESS BAR ── */}
-          <div className="mb-10 max-w-3xl">
-            <div className="mb-2 flex justify-between text-xs text-white/40">
-              <span className="font-semibold">{"Level"} {progress.level}{progress.level >= MAX_LEVEL ? ` (${"Max. Level"})` : ""}</span>
-              <span>{progress.level >= MAX_LEVEL ? "Maksimalni level dostignut" : `${xpInLevel}/${xpForNextLevel} XP`}</span>
-            </div>
-            <div className="h-2.5 w-full overflow-hidden rounded-full bg-white/[0.06]">
-              <motion.div
-                className="h-full rounded-full"
-                style={{ background: "linear-gradient(90deg, #3b82f6, #06b6d4)" }}
-                initial={{ width: 0 }}
-                animate={{ width: `${progress.level >= MAX_LEVEL ? 100 : (xpInLevel / xpForNextLevel) * 100}%` }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-              />
-            </div>
-          </div>
 
           {/* ── LEVEL PILLS ── */}
           <div className="mb-4 flex flex-nowrap gap-2.5 sm:gap-3 overflow-x-auto pb-1 scrollbar-hide">
