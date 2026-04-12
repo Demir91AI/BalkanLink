@@ -241,8 +241,12 @@ function AppRoutes() {
         <Route path="/pocni-ovdje" element={<Navigate to="/dolazak" replace />} />
         <Route path="/ambasade" element={<Navigate to="/ambasade-konzulati" replace />} />
         <Route path="/nutzungsbedingungen" element={<Navigate to="/agb" replace />} />
+        <Route path="/uslovi-koristenja" element={<Navigate to="/agb" replace />} />
         <Route path="/haftungsausschluss" element={<Navigate to="/disclaimer" replace />} />
+        <Route path="/odricanje-odgovornosti" element={<Navigate to="/disclaimer" replace />} />
         <Route path="/inhalte-melden" element={<Navigate to="/dsa" replace />} />
+        <Route path="/napomena-o-ki" element={<Navigate to="/ki-hinweis" replace />} />
+        <Route path="/postavke-kolacica" element={<Navigate to="/cookie-richtlinie" replace />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>
