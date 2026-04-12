@@ -35,7 +35,14 @@ export default function Paketi() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           {/* Besplatno */}
-          <div className="rounded-2xl border border-border bg-card p-6 flex flex-col">
+          <motion.div
+            className="rounded-2xl border border-border bg-card p-6 flex flex-col transition-shadow duration-300 hover:shadow-lg hover:shadow-border/30"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            whileHover={{ y: -4 }}
+          >
             <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">Besplatno</p>
             <p className="text-3xl font-black">0€</p>
             <p className="text-xs text-muted-foreground mt-1">Zauvijek besplatno</p>
@@ -73,7 +80,7 @@ export default function Paketi() {
             >
               Počni besplatno →
             </button>
-          </div>
+          </motion.div>
 
           {/* Premium — Godišnje */}
           <div className="rounded-2xl border-2 border-[hsl(var(--gold))] bg-card p-6 relative flex flex-col">
