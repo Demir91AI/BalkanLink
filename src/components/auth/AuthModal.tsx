@@ -18,6 +18,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [termsAccepted, setTermsAccepted] = useState(false);
 
   const reset = useCallback(() => {
     setEmail("");
@@ -26,6 +27,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
     setError("");
     setShowPassword(false);
     setLoading(false);
+    setTermsAccepted(false);
   }, []);
 
   const handleClose = useCallback(() => {
@@ -70,8 +72,18 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
     if (!email || !password) { setError("Registrierungsfehler."); return; }
     if (!allPwRulesPass) { setError("Lozinka ne ispunjava sigurnosne zahtjeve."); return; }
     if (password !== confirmPassword) { setError("Passwörter stimmen nicht überein."); return; }
+    if (!termsAccepted) { setError("Moraš prihvatiti uslove korištenja."); return; }
     setLoading(true);
-    const { error: err } = await supabase.auth.signUp({ email, password });
+    const { error: err } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        data: {
+          terms_accepted: true,
+          terms_accepted_at: new Date().toISOString(),
+        },
+      },
+    });
     setLoading(false);
     if (err) {
       setError("Registrierungsfehler.");
@@ -227,15 +239,57 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
                 </button>
               )}
 
+              {/* Terms checkbox (register only) */}
+              {tab === "register" && (
+                <div className="flex items-start gap-3">
+                  <input
+                    type="checkbox"
+                    id="terms-accept"
+                    checked={termsAccepted}
+                    onChange={(e) => setTermsAccepted(e.target.checked)}
+                    className="mt-1 h-4 w-4 rounded border-[#E8E0D0] accent-[hsl(var(--gold))]"
+                  />
+                  <label htmlFor="terms-accept" className="text-[11px] text-[#6B6B6B] leading-relaxed">
+                    Prihvatam{" "}
+                    <a href="/agb" target="_blank" className="text-[hsl(var(--gold))] hover:underline">
+                      Uslove korištenja
+                    </a>
+                    ,{" "}
+                    <a href="/datenschutz" target="_blank" className="text-[hsl(var(--gold))] hover:underline">
+                      Zaštitu podataka
+                    </a>{" "}
+                    i potvrđujem da sam pročitao/la{" "}
+                    <a href="/ki-hinweis" target="_blank" className="text-[hsl(var(--gold))] hover:underline">
+                      Napomenu o upotrebi KI
+                    </a>
+                    . Razumijem da AI asistent pruža isključivo informativne odgovore.
+                  </label>
+                </div>
+              )}
+
               {/* Submit */}
               <button
                 type="submit"
-                disabled={loading}
+                disabled={loading || (tab === "register" && !termsAccepted)}
                 className="w-full h-11 rounded-xl bg-[hsl(var(--gold))] text-white font-semibold text-sm hover:brightness-110 disabled:opacity-60 transition-all flex items-center justify-center gap-2"
               >
                 {loading && <Loader2 className="h-4 w-4 animate-spin" />}
                 {tab === "login" ? "Prijavi se" : "Registruj se"}
               </button>
+
+              {/* Login terms reminder */}
+              {tab === "login" && (
+                <p className="text-center text-[10px] text-[#B0B0B0]">
+                  Prijavom potvrđuješ prihvatanje{" "}
+                  <a href="/agb" className="text-[hsl(var(--gold))] hover:underline">
+                    Uslova korištenja
+                  </a>{" "}
+                  i{" "}
+                  <a href="/datenschutz" className="text-[hsl(var(--gold))] hover:underline">
+                    Zaštite podataka
+                  </a>.
+                </p>
+              )}
             </form>
           </>
         )}
