@@ -128,6 +128,30 @@ export type Database = {
         }
         Relationships: []
       }
+      classifieds_notification_preferences: {
+        Row: {
+          category: string
+          created_at: string
+          enabled: boolean
+          id: string
+          user_id: string
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          enabled?: boolean
+          id?: string
+          user_id: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          enabled?: boolean
+          id?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       community_listings: {
         Row: {
           address: string | null
