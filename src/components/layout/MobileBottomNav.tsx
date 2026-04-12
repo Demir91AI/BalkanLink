@@ -15,7 +15,7 @@ export default function MobileBottomNav() {
   const items = [
     { icon: FileText, label: t("homepage.mobileNav.dokumenti"), path: "/formulari" },
     { icon: Map, label: t("homepage.mobileNav.vodici"), path: "/dolazak" },
-    { icon: Sparkles, label: t("homepage.mobileNav.ai"), path: "/dokumenten-check" },
+    { icon: Sparkles, label: t("homepage.mobileNav.ai"), path: "/ai-asistent" },
     { icon: Tag, label: t("homepage.mobileNav.cijene"), path: "/paketi" },
     { icon: User, label: t("homepage.mobileNav.profil"), path: "__auth__" },
   ];
