@@ -21,12 +21,17 @@ export default function Paketi() {
           Nazad
         </button>
 
-        <div className="text-center mb-10">
+        <motion.div
+          className="text-center mb-10"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
           <h1 className="text-3xl font-black">BalkanLink Premium</h1>
           <p className="mt-2 text-muted-foreground max-w-md mx-auto">
             Sve što trebaš za život u Njemačkoj — na jednom mjestu
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           {/* Besplatno */}
