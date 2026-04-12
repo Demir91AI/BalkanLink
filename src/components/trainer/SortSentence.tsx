@@ -1,31 +1,48 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Check, X } from "lucide-react";
 import type { Exercise } from "@/lib/deutsch-trainer-data";
 
 interface Props {
   exercise: Exercise;
   onAnswer: (correct: boolean) => void;
+  answered?: boolean;
+}
+
+function shuffle<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
 }
 
 export default function SortSentence({ exercise, onAnswer }: Props) {
-  const [placed, setPlaced] = useState<number[]>([]);
-  const [checked, setChecked] = useState(false);
   const correctOrder = exercise.answer as number[];
 
-  const available = exercise.options.map((_, i) => i).filter((i) => !placed.includes(i));
+  const shuffledIndices = useMemo(
+    () => shuffle(exercise.options.map((_, i) => i)),
+    [exercise]
+  );
+
+  const [placed, setPlaced] = useState<number[]>([]);
+  const [checked, setChecked] = useState(false);
+
+  const available = shuffledIndices.filter(i => !placed.includes(i));
 
   const addWord = (idx: number) => {
     if (checked) return;
-    setPlaced((p) => [...p, idx]);
+    setPlaced(p => [...p, idx]);
   };
 
   const removeWord = (pos: number) => {
     if (checked) return;
-    setPlaced((p) => p.filter((_, i) => i !== pos));
+    setPlaced(p => p.filter((_, i) => i !== pos));
   };
 
   const handleCheck = () => {
-    const isCorrect = placed.length === correctOrder.length && placed.every((v, i) => v === correctOrder[i]);
+    const isCorrect = placed.length === correctOrder.length && 
+      placed.every((v, i) => v === correctOrder[i]);
     setChecked(true);
     onAnswer(isCorrect);
   };
@@ -34,21 +51,25 @@ export default function SortSentence({ exercise, onAnswer }: Props) {
 
   return (
     <div className="flex flex-col gap-4">
-      <p className="text-xs font-semibold text-white/50">Poredaj rečenicu:</p>
-      {/* Placed words */}
-      <div className="min-h-[56px] flex flex-wrap gap-2 rounded-xl border-2 border-dashed border-white/25 bg-white/[0.06] p-3">
-        {placed.length === 0 && <span className="text-sm text-white/40">Klikni na riječi...</span>}
+      <div className="min-h-[64px] flex flex-wrap gap-2 rounded-2xl 
+        border-2 border-dashed border-white/20 bg-white/[0.04] p-3">
+        {placed.length === 0 && (
+          <span className="text-sm text-white/30 self-center px-1">
+            Klikni na riječi u ispravnom redoslijedu...
+          </span>
+        )}
         {placed.map((wordIdx, pos) => (
           <button
             key={pos}
             onClick={() => removeWord(pos)}
-            style={{ minHeight: 44, fontSize: 15 }}
-            className={`rounded-lg border px-3 py-2 font-medium transition-all ${
+            disabled={checked}
+            className={`rounded-xl border-2 px-4 py-2.5 text-[15px] 
+              font-semibold min-h-[44px] transition-all ${
               checked
                 ? wordIdx === correctOrder[pos]
-                  ? "border-[hsl(var(--success))] bg-[hsl(var(--success)/0.1)] text-[hsl(var(--success))]"
-                  : "border-destructive bg-destructive/5 text-destructive"
-                : "border-blue-400/50 bg-blue-500/10 text-white"
+                  ? "border-emerald-400 bg-emerald-500/20 text-emerald-200"
+                  : "border-red-400 bg-red-500/15 text-red-300"
+                : "border-blue-400/60 bg-blue-500/15 text-white hover:bg-blue-500/25"
             }`}
           >
             {exercise.options[wordIdx]}
@@ -56,14 +77,16 @@ export default function SortSentence({ exercise, onAnswer }: Props) {
         ))}
       </div>
 
-      {/* Available words */}
       <div className="flex flex-wrap gap-2">
-        {available.map((idx) => (
+        {available.map(idx => (
           <button
             key={idx}
             onClick={() => addWord(idx)}
-            style={{ minHeight: 44, fontSize: 15 }}
-            className="rounded-lg border border-white/20 bg-white/[0.08] text-white px-3 py-2 font-medium transition-all hover:border-blue-400/60 hover:bg-white/[0.15]"
+            disabled={checked}
+            className="rounded-xl border-2 border-white/20 bg-white/[0.08] 
+              text-white px-4 py-2.5 text-[15px] font-semibold min-h-[44px]
+              transition-all hover:border-white/40 hover:bg-white/[0.14]
+              active:scale-[0.97]"
           >
             {exercise.options[idx]}
           </button>
@@ -73,16 +96,30 @@ export default function SortSentence({ exercise, onAnswer }: Props) {
       {!checked && placed.length === exercise.options.length && (
         <button
           onClick={handleCheck}
-          className="mt-2 rounded-xl px-6 py-3 text-sm font-bold text-white" style={{ background: "linear-gradient(135deg, #3b82f6, #06b6d4)" }}
+          className="mt-1 rounded-2xl px-6 py-3.5 text-sm font-bold 
+            text-white w-full"
+          style={{ background: "linear-gradient(135deg, #3b82f6, #06b6d4)" }}
         >
           Provjeri
         </button>
       )}
 
       {checked && (
-        <div className={`flex items-center gap-2 rounded-lg p-3 text-sm font-medium ${isCorrect ? "bg-[hsl(var(--success)/0.08)] text-[hsl(var(--success))]" : "bg-destructive/5 text-destructive"}`}>
-          {isCorrect ? <Check className="h-4 w-4" /> : <X className="h-4 w-4" />}
-          {isCorrect ? "Tačno! ✓" : "Netačno."} {exercise.explanation}
+        <div className={`rounded-2xl p-4 ${
+          isCorrect 
+            ? "bg-emerald-500/15 border-2 border-emerald-400/40" 
+            : "bg-red-500/15 border-2 border-red-400/40"
+        }`}>
+          <p className={`text-sm font-black mb-1 ${
+            isCorrect ? "text-emerald-300" : "text-red-300"
+          }`}>
+            {isCorrect ? "✓ Tačno!" : "✗ Netačno."}
+          </p>
+          <p className={`text-sm leading-relaxed ${
+            isCorrect ? "text-emerald-100/90" : "text-red-100/90"
+          }`}>
+            {exercise.explanation}
+          </p>
         </div>
       )}
     </div>

@@ -4,7 +4,7 @@ import AuthGate from "@/components/AuthGate";
 import type { BreadcrumbItem } from "@/components/navigation/SectionHeader";
 import { ArrowRight, ArrowLeft, AlertTriangle, Lock, Crown, Loader2, RotateCcw } from "lucide-react";
 import type { Lesson, Exercise } from "@/lib/deutsch-trainer-data";
-import { XP_PER_CORRECT, shuffleExercise } from "@/lib/deutsch-trainer-data";
+import { shuffleExercise } from "@/lib/deutsch-trainer-data";
 import MultipleChoice from "./MultipleChoice";
 import SortSentence from "./SortSentence";
 import FillBlank from "./FillBlank";
@@ -55,7 +55,7 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
   const [initialLoading, setInitialLoading] = useState(false);
   const loadingRef = useRef(false);
 
-  const { progress, addXp, completeLesson } = useTrainerProgress();
+  const { completeLesson } = useTrainerProgress();
   const { toggle, activeId, playState, rate, setRate, RATE_OPTIONS } = useTTS();
   const { isPremium } = useSubscription();
   const { generate, error: aiError } = useGeneratedExercises();
@@ -147,8 +147,7 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
   const handleAnswer = useCallback((correct: boolean) => {
     setResults(r => [...r, correct]);
     setAnswered(true);
-    if (correct) addXp(XP_PER_CORRECT);
-  }, [addXp]);
+  }, []);
 
   const handleNext = () => {
     setAnswered(false);
@@ -433,8 +432,6 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
             <LessonComplete
               correctCount={correctCount}
               totalCount={total}
-              xpEarned={correctCount * XP_PER_CORRECT}
-              streak={progress.streak}
               onRestart={handleRestart}
               onBack={() => {
                 setSelectedStage(null);
@@ -442,6 +439,12 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
                 setResults([]);
                 setAnswered(false);
               }}
+              nextStageLabel={selectedStage < 2 
+                ? STAGE_LABELS[selectedStage + 1] 
+                : undefined}
+              onNextStage={selectedStage < 2 
+                ? () => setSelectedStage(selectedStage + 1) 
+                : undefined}
             />
           </div>
         </div>

@@ -5,57 +5,82 @@ import type { Exercise } from "@/lib/deutsch-trainer-data";
 interface Props {
   exercise: Exercise;
   onAnswer: (correct: boolean) => void;
+  answered?: boolean;
 }
 
 export default function FillBlank({ exercise, onAnswer }: Props) {
   const [selected, setSelected] = useState<string | null>(null);
-  const answered = selected !== null;
-  const correct = selected === exercise.answer;
+  const isAnswered = selected !== null;
+  const isCorrect = selected === exercise.answer;
+  const parts = exercise.question.split("___");
 
   const handleSelect = (opt: string) => {
-    if (answered) return;
+    if (isAnswered) return;
     setSelected(opt);
     onAnswer(opt === exercise.answer);
   };
 
-  const parts = exercise.question.split("___");
-
   return (
-    <div className="flex flex-col gap-4">
-      <p className="text-base font-semibold leading-relaxed text-white/90">
+    <div className="flex flex-col gap-5">
+      <p className="text-lg font-semibold leading-relaxed text-white">
         {parts[0]}
-        <span className={`inline-block min-w-[80px] border-b-2 px-1 text-center font-bold ${
-          !answered
-            ? "border-white/60 text-white/30 bg-white/5"
-            : correct
-            ? "border-[hsl(var(--success))] text-[hsl(var(--success))] bg-[hsl(var(--success)/0.1)]"
-            : "border-destructive text-destructive bg-destructive/10"
+        <span className={`inline-block min-w-[100px] rounded-lg border-b-2 
+          px-2 py-0.5 text-center font-bold mx-1 ${
+          !isAnswered
+            ? "border-white/40 text-white/30 bg-white/5"
+            : isCorrect
+            ? "border-emerald-400 text-emerald-300 bg-emerald-500/15"
+            : "border-red-400 text-red-300 bg-red-500/10"
         }`}>
           {selected ?? "___"}
         </span>
         {parts[1]}
       </p>
 
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-3">
         {exercise.options.map((opt) => {
           let cls = "border-white/20 bg-white/[0.07] text-white hover:border-blue-400/60 hover:bg-white/[0.12]";
-          if (answered && opt === exercise.answer) cls = "border-emerald-400 bg-emerald-500/15 text-emerald-300";
-          else if (answered && opt === selected) cls = "border-red-400 bg-red-500/10 text-red-300";
+          if (isAnswered && opt === exercise.answer)
+            cls = "border-emerald-400 bg-emerald-500/20 text-emerald-200";
+          else if (isAnswered && opt === selected && opt !== exercise.answer)
+            cls = "border-red-400 bg-red-500/15 text-red-300";
 
           return (
             <button
               key={opt}
               onClick={() => handleSelect(opt)}
-              disabled={answered}
-              className={`rounded-xl border-2 px-5 py-3 text-sm font-semibold transition-all ${cls}`}
+              disabled={isAnswered}
+              className={`rounded-2xl border-2 px-6 py-3 text-sm 
+                font-bold transition-all active:scale-[0.97] ${cls}`}
             >
               {opt}
-              {answered && opt === exercise.answer && <Check className="ml-2 inline h-4 w-4" />}
-              {answered && opt === selected && opt !== exercise.answer && <X className="ml-2 inline h-4 w-4" />}
+              {isAnswered && opt === exercise.answer && 
+                <Check className="ml-2 inline h-4 w-4" />}
+              {isAnswered && opt === selected && opt !== exercise.answer && 
+                <X className="ml-2 inline h-4 w-4" />}
             </button>
           );
         })}
       </div>
+
+      {isAnswered && (
+        <div className={`rounded-2xl p-4 ${
+          isCorrect 
+            ? "bg-emerald-500/15 border-2 border-emerald-400/40" 
+            : "bg-red-500/15 border-2 border-red-400/40"
+        }`}>
+          <p className={`text-sm font-black mb-1 ${
+            isCorrect ? "text-emerald-300" : "text-red-300"
+          }`}>
+            {isCorrect ? "✓ Tačno!" : `✗ Netačno. Tačan odgovor: ${exercise.answer}`}
+          </p>
+          <p className={`text-sm leading-relaxed ${
+            isCorrect ? "text-emerald-100/90" : "text-red-100/90"
+          }`}>
+            {exercise.explanation}
+          </p>
+        </div>
+      )}
     </div>
   );
 }
