@@ -15,6 +15,7 @@ const LEGAL_LINKS = [
   { label: "Uslovi korištenja", to: "/agb" },
   { label: "Odricanje odgovornosti", to: "/disclaimer" },
   { label: "Napomena o KI", to: "/ki-hinweis" },
+  { label: "DSA – Prijavi sadržaj", to: "/dsa" },
   { label: "Postavke kolačića", to: "/cookie-richtlinie" },
 ];
 

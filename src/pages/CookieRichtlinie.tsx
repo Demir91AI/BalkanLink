@@ -1,101 +1,134 @@
-import PageNav from "@/components/navigation/PageNav";
+import { useState } from "react";
+import PageNavBar from "@/components/navigation/PageNavBar";
 
 export default function CookieRichtlinie() {
+  const [analytics, setAnalytics] = useState(() => {
+    try {
+      const s = localStorage.getItem("bl-cookie-consent");
+      return s ? JSON.parse(s).statistics ?? false : false;
+    } catch { return false; }
+  });
+
+  const handleSave = () => {
+    localStorage.setItem("bl-cookie-consent", JSON.stringify({
+      necessary: true,
+      functional: false,
+      statistics: analytics,
+      marketing: false,
+    }));
+    alert("Postavke su sačuvane.");
+  };
+
   return (
-    <>
-    <PageNav />
-    <div className="container max-w-3xl py-16">
-      <h1 className="mb-10 text-3xl font-bold">Cookie-Richtlinie &amp; Einwilligung</h1>
+    <div className="max-w-3xl mx-auto px-4 py-6 pb-28">
+      <PageNavBar />
+      <h1 className="mb-2 text-3xl font-bold">Postavke kolačića</h1>
+      <p className="mb-10 text-sm text-muted-foreground">
+        Cookie-Einstellungen — upravljanje kolačićima i lokalnom pohranom
+      </p>
       <div className="space-y-8 text-sm leading-relaxed text-muted-foreground">
 
         <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">1. Was sind Cookies?</h2>
+          <h2 className="mb-3 text-lg font-semibold text-foreground">Šta su kolačići?</h2>
           <p>
-            Cookies sind kleine Textdateien, die von Websites auf dem Endgerät des Nutzers gespeichert werden.
-            Sie dienen dazu, die Nutzung einer Website effizienter und benutzerfreundlicher zu gestalten.
-            Neben klassischen Cookies können auch ähnliche Technologien (z. B. localStorage, sessionStorage)
-            zum Einsatz kommen.
+            Kolačići su male tekstualne datoteke u pregledaču. Pored klasičnih kolačića,
+            BalkanLink koristi <strong className="text-foreground">localStorage</strong> i{" "}
+            <strong className="text-foreground">sessionStorage</strong> — mehanizme lokalne
+            pohrane koji su ograničeni na tvoj uređaj i nikad se ne šalju automatski na server.
+          </p>
+          <p className="mt-2 text-xs opacity-70">
+            Pravna osnova: §25 TDDDG u vezi s čl. 6 st. 1 tač. a DSGVO (saglasnost)
+            i §25 st. 2 TDDDG (tehnički neophodni).
           </p>
         </section>
 
         <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">2. Technisch notwendige Cookies / Speicherungen</h2>
-          <p>
-            Diese Plattform verwendet ausschließlich technisch notwendige Speichertechnologien,
-            die für den ordnungsgemäßen Betrieb der Plattform erforderlich sind. Dazu gehören:
-          </p>
+          <h2 className="mb-3 text-lg font-semibold text-foreground">Vrste podataka</h2>
+
+          <div className="rounded-md border border-green-500/30 bg-green-500/5 p-4 mt-3">
+            <div className="flex items-center justify-between">
+              <p className="font-semibold text-green-300">✓ Tehnički neophodni</p>
+              <span className="rounded-full bg-green-500/20 px-3 py-1 text-xs text-green-300">
+                Uvijek aktivno
+              </span>
+            </div>
+            <p className="mt-2 text-xs">
+              Neophodni za rad platforme. Ne mogu se isključiti.
+            </p>
+            <ul className="ml-4 mt-2 list-disc space-y-1 text-xs">
+              <li>Autentifikacijski token — drži te prijavljenim</li>
+              <li>Postavke saglasnosti za kolačiće — bilježi tvoj odabir (12 mj.)</li>
+              <li>Napredak u DeutschTraineru — lokalno, do sinhronizacije s računom</li>
+            </ul>
+            <p className="mt-2 text-xs opacity-60">
+              Pravna osnova: §25 st. 2 TDDDG (tehnička neophodnost)
+            </p>
+          </div>
+
+          <div className="rounded-md border border-border p-4 mt-4">
+            <div className="flex items-center justify-between">
+              <p className="font-semibold text-foreground">📊 Analitički podaci (opcionalno)</p>
+              <button
+                onClick={() => setAnalytics(!analytics)}
+                className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors
+                  ${analytics ? "bg-primary" : "bg-muted"}`}
+              >
+                <span className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform
+                  ${analytics ? "translate-x-6" : "translate-x-1"}`}
+                />
+              </button>
+            </div>
+            <p className="mt-2 text-xs">
+              Anonimni podaci o korištenju koji nam pomažu poboljšati platformu.
+              IP adresa se u potpunosti anonimizira. Nema prosljeđivanja reklamerima.
+            </p>
+            <p className="mt-2 text-xs opacity-60">
+              Status: {analytics ? "Aktivirani ste za anonimnu analitiku" : "Analitika isključena"}<br />
+              Pravna osnova: čl. 6 st. 1 tač. a DSGVO (isključivo uz tvoju aktivaciju)
+            </p>
+          </div>
+
+          <div className="rounded-md border border-border p-4 mt-4 opacity-50">
+            <div className="flex items-center justify-between">
+              <p className="font-semibold text-foreground">🎯 Marketinški kolačići</p>
+              <span className="rounded-full bg-muted px-3 py-1 text-xs">Nije u upotrebi</span>
+            </div>
+            <p className="mt-2 text-xs">
+              BalkanLink <strong className="text-foreground">ne koristi</strong> marketinške
+              kolačiće, retargeting piksele ni reklamne mreže (Google Ads, Meta Pixel itd.).
+              Platforma je bez reklama i bez praćenja za reklamne svrhe.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 className="mb-3 text-lg font-semibold text-foreground">Brisanje kolačića u pregledaču</h2>
           <ul className="ml-4 mt-1 list-disc space-y-1">
-            <li><strong>Spracheinstellungen:</strong> Speicherung der gewählten Sprache im localStorage</li>
-            <li><strong>Authentifizierung:</strong> Sitzungs-Token für angemeldete Nutzer</li>
-            <li><strong>Cookie-Consent:</strong> Speicherung Ihrer Cookie-Einstellungen</li>
-            <li><strong>Formular-Zwischenspeicherung:</strong> Temporäre Speicherung von Formulareingaben</li>
+            <li><strong className="text-foreground">Chrome:</strong> Postavke → Privatnost i sigurnost → Obriši podatke</li>
+            <li><strong className="text-foreground">Firefox:</strong> Postavke → Privatnost → Kolačići i podaci stranice</li>
+            <li><strong className="text-foreground">Safari:</strong> Postavke → Privatnost → Upravljanje podacima</li>
+            <li><strong className="text-foreground">Edge:</strong> Postavke → Privatnost → Izbriši podatke pregledavanja</li>
           </ul>
-          <p className="mt-2">
-            Diese Speicherungen sind für die Bereitstellung der von Ihnen ausdrücklich angeforderten Dienste
-            unbedingt erforderlich und bedürfen keiner gesonderten Einwilligung
-            (§ 25 Abs. 2 Nr. 2 TDDDG).
+          <p className="mt-2 text-xs opacity-70">
+            Brisanjem svih kolačića možeš biti odjavan/a i izgubiti lokalni napredak u DeutschTraineru.
           </p>
         </section>
 
         <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">3. Optionale Cookies / Analyse</h2>
-          <p>
-            Derzeit werden <strong>keine optionalen Cookies</strong>, Analyse-Tools oder Tracking-Dienste eingesetzt.
-            Es erfolgt kein Marketing-Tracking und keine Weitergabe von Nutzungsdaten an Dritte.
-          </p>
-          <p className="mt-2">
-            Sollte zukünftig ein Analyse-Tool eingesetzt werden (z. B. datenschutzfreundliche Web-Analyse),
-            erfolgt dies ausschließlich mit Ihrer ausdrücklichen, vorherigen Einwilligung (Opt-in) und
-            unter Einsatz von IP-Anonymisierung. Die Einwilligung wird über ein Cookie-Banner eingeholt.
-          </p>
+          <p className="text-xs opacity-60">Verzija: April 2026</p>
         </section>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">4. Cookie-Banner</h2>
-          <p>
-            Beim ersten Besuch der Plattform wird Ihnen ein Cookie-Banner angezeigt, über das Sie folgende
-            Optionen haben:
-          </p>
-          <ul className="ml-4 mt-1 list-disc space-y-1">
-            <li><strong>„Alle akzeptieren"</strong> – Zustimmung zu allen Kategorien (sofern optionale Cookies vorhanden)</li>
-            <li><strong>„Nur notwendige"</strong> – Nur technisch erforderliche Speicherungen werden aktiviert</li>
-            <li><strong>„Einstellungen"</strong> – Individuelle Auswahl der Cookie-Kategorien</li>
-          </ul>
-          <p className="mt-2">
-            Da derzeit keine optionalen Cookies eingesetzt werden, dient das Banner primär der Transparenz
-            und Information gemäß § 25 TDDDG und Art. 6 Abs. 1 lit. a DSGVO.
-          </p>
-        </section>
+        <div className="pt-2">
+          <button
+            onClick={handleSave}
+            className="rounded-md bg-primary px-6 py-2 text-sm font-medium
+              text-primary-foreground hover:bg-primary/90 transition-colors"
+          >
+            Sačuvaj postavke
+          </button>
+        </div>
 
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">5. Widerruf der Einwilligung</h2>
-          <p>
-            Eine erteilte Einwilligung kann jederzeit und ohne Angabe von Gründen widerrufen werden.
-            Die Rechtmäßigkeit der aufgrund der Einwilligung bis zum Widerruf erfolgten Verarbeitung bleibt unberührt.
-          </p>
-          <p className="mt-2">
-            Den Widerruf können Sie wie folgt ausüben:
-          </p>
-          <ul className="ml-4 mt-1 list-disc space-y-1">
-            <li>Über die Cookie-Einstellungen im Footer der Plattform</li>
-            <li>Durch Löschen der Cookies und des lokalen Speichers in Ihrem Browser</li>
-            <li>Per E-Mail an: <a href="mailto:kontakt@balkanlink.de" className="text-primary hover:underline">kontakt@balkanlink.de</a></li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">6. Rechtsgrundlagen</h2>
-          <ul className="ml-4 mt-1 list-disc space-y-1">
-            <li><strong>Technisch notwendige Cookies:</strong> § 25 Abs. 2 Nr. 2 TDDDG (keine Einwilligung erforderlich)</li>
-            <li><strong>Optionale Cookies (zukünftig):</strong> § 25 Abs. 1 TDDDG i.V.m. Art. 6 Abs. 1 lit. a DSGVO (Einwilligung)</li>
-          </ul>
-        </section>
-
-        <section>
-          <p className="text-xs text-muted-foreground/60">Stand: März 2026</p>
-        </section>
       </div>
     </div>
-    </>
   );
 }
