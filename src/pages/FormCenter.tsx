@@ -566,9 +566,7 @@ export default function FormCenter() {
                                     <ItemBadge slug={item.slug} />
                                   </div>
                                   <p className="text-[11px] text-muted-foreground truncate">{item.desc}</p>
-                                  {item.includes && (
-                                    <p className="text-[10px] text-muted-foreground/70 truncate mt-0.5">{item.includes}</p>
-                                  )}
+                                  <AvailabilityIndicator slug={item.slug} />
                                 </div>
                                 <ChevronRight className="ml-auto h-4 w-4 shrink-0 text-muted-foreground" />
                               </button>
@@ -589,6 +587,7 @@ export default function FormCenter() {
                                         <ItemBadge slug={item.slug} />
                                       </div>
                                       <p className="text-[11px] text-muted-foreground truncate">{item.desc}</p>
+                                      <AvailabilityIndicator slug={item.slug} />
                                     </div>
                                     <ChevronRight className="ml-auto h-4 w-4 shrink-0 text-muted-foreground" />
                                   </button>
