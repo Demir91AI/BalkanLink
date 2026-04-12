@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Check, X, Crown, Tag, Building2, Megaphone, Settings } from "lucide-react";
+import { Crown, Building2, Megaphone, Settings, Check, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
 import { initiateCheckout, STRIPE_PRICE_IDS, openCustomerPortal } from "@/lib/stripe";
