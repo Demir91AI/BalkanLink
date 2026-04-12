@@ -83,7 +83,14 @@ export default function Paketi() {
           </motion.div>
 
           {/* Premium — Godišnje */}
-          <div className="rounded-2xl border-2 border-[hsl(var(--gold))] bg-card p-6 relative flex flex-col">
+          <motion.div
+            className="rounded-2xl border-2 border-[hsl(var(--gold))] bg-card p-6 relative flex flex-col transition-shadow duration-300 hover:shadow-xl hover:shadow-[hsl(var(--gold))]/20"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            whileHover={{ y: -4 }}
+          >
             <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[hsl(var(--gold))] px-3 py-0.5 text-xs font-bold text-[#0f1f3d]">
               POPULARNO — uštedi 20%
             </span>
@@ -135,11 +142,17 @@ export default function Paketi() {
               Aktiviraj Premium
             </button>
             <p className="text-[10px] text-muted-foreground mt-2 text-center">bez PDV-a prema §19 UStG</p>
-          </div>
+          </motion.div>
         </div>
 
         {/* Comparison Table */}
-        <div className="mt-12 mb-8">
+        <motion.div
+          className="mt-12 mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5 }}
+        >
           <h2 className="text-xl font-bold text-center mb-6">Besplatno vs. Premium</h2>
           <div className="overflow-x-auto rounded-2xl border border-border">
             <table className="w-full text-sm">
