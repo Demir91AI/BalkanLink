@@ -47,7 +47,7 @@ const sections = [
 
 export default function Mietrecht() {
   return (
-    <div className="max-w-3xl mx-auto px-4 pb-16">
+    <div className="max-w-3xl mx-auto px-4 py-6 pb-28">
       <SEO title="Mietrecht – Prava podstanara" description="Sva vaša prava kao podstanar u Njemačkoj — jasno, provjereno i na vašem jeziku." />
       <PageNavBar />
 
