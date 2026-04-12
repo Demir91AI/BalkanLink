@@ -206,8 +206,6 @@ const comparisonRows = [
   { label: "DeutschTrainer", free: "3 lekcije/nivo", premium: "✅ A1–C2 sve" },
   { label: "Wertgutschein", free: "❌", premium: "✅ Amazon 30€" },
   { label: "Pro oglasi", free: "1,99€/7 dana", premium: "✅ Gratis (max 10 dana)" },
-  { label: "Notifikacije", free: "❌", premium: "✅ Zakonske promjene" },
-  { label: "Nove funkcije", free: "❌", premium: "✅ Rani pristup" },
 ];
 
 function Cat({ title, children }: { title: string; children: React.ReactNode }) {

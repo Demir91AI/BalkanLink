@@ -16,7 +16,6 @@ const individualLevels = [
 
 const freeFeatures = [
   { text: "3 lekcije po nivou besplatno", included: true },
-  { text: "50 zadataka po stageu (od 500)", included: true },
   { text: "3 rečenice Sprachassistenta (od 500)", included: true },
   { text: "Sve lekcije A1–C2 (240 ukupno)", included: false },
   { text: "500 zadataka po stageu", included: false },
