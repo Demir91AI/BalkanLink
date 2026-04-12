@@ -32,7 +32,7 @@ const titles = {
 
 export default function Familie() {
   const navigate = useNavigate();
-  const lk = getLangKey("de");
+  const lk = getLangKey("bs");
   const familyGuides = getGuidesByCategory("familie");
   const t = titles[lk];
 
