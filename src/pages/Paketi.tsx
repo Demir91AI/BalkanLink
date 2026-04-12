@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Check, X, Crown, ChevronLeft } from "lucide-react";
 import { navigateBackOrHome } from "@/lib/navigation";
 import { toast } from "sonner";
+import { motion } from "framer-motion";
 
 export default function Paketi() {
   const navigate = useNavigate();
