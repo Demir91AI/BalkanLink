@@ -216,7 +216,7 @@ export default function ChatAssistant() {
   const { canChat, remaining, recordQuery } = useChatLimit();
   const location = useLocation();
 
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(location.pathname === "/ai-asistent");
   const { user } = useAuth();
 
   // ── Session-scoped chat persistence ──
