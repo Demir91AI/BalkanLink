@@ -82,45 +82,91 @@ function extractJsonArray(raw: string): unknown[] {
 
 function buildSystemPrompt(level: string, stageType: string): string {
   const levelGuide: Record<string, string> = {
-    A1: "Sehr einfache Saetze, Grundwortschatz, kurze Strukturen. Themen: Begruessungen, Zahlen, Familie, Essen, Uhrzeit.",
-    A2: "Einfache Alltagssaetze, etwas laengere Strukturen, haeufige Ausdruecke. Themen: Einkaufen, Reisen, Wohnung, Freizeit.",
-    B1: "Mittlere Komplexitaet, zusammenhaengende Saetze, Konjunktiv II einfach, Nebensaetze. Echte Alltagssprache.",
-    B2: "Komplexere Strukturen, Passiv, indirekte Rede, differenzierter Wortschatz. Berufliche und gesellschaftliche Themen.",
-    C1: "Anspruchsvolle Sprache, idiomatische Wendungen, professionelle Formulierungen, Nuancen.",
-    C2: "Muttersprachliches Niveau, Fachsprache, Redewendungen, praezise und stilistisch anspruchsvolle Ausdruecke.",
+    A1: `Nivo A1 — odrasli Balkanci koji su NEDAVNO stigli u Njemačku.
+Teme: prva posjeta ljekaru, Anmeldung (prijava boravišta), 
+otvaranje bankovnog računa, kupovina u supermarketu, 
+javni prijevoz, razgovor sa stanodavcem, Apotheke, 
+osnove na radnom mjestu, razumijevanje jednostavnih pisama.
+Jezik: kratke ali ODRASLE rečenice. 
+NIKADA ne pitaj dječija pitanja kao "Wie sagt man Hallo".`,
+
+    A2: `Nivo A2 — Balkanci koji nekoliko mjeseci žive u Njemačkoj.
+Teme: Jobcenter razgovor, Krankenkasse prijava, 
+razumijevanje pisma od Finanzamt, razgovor s komšijom, 
+Nebenkostenabrechnung, traženje posla, Kita, 
+reklamacija u prodavnici, razumijevanje ugovora.
+Jezik: Perfekt, modalni glagoli, složenije rečenice.`,
+
+    B1: `Nivo B1 — Balkanci koji godinu-dvije žive u Njemačkoj.
+Teme: razgovor za posao (Vorstellungsgespräch), 
+razumijevanje Arbeitsvertrag, prigovor stanodavcu zbog kvara,
+razgovor s Ausländerbehörde, roditeljski sastanak,
+telefon s osiguravajućim društvom, Elterngeld/Kindergeld prijava,
+Kündigung (otkaz).
+Jezik: Konjunktiv II, pasiv, zavisne rečenice.`,
+
+    B2: `Nivo B2 — Balkanci koji nekoliko godina žive u Njemačkoj.
+Teme: pregovori o plati, žalba na odluku Jobcentera,
+razgovor s advokatom o stanarskom pravu,
+Steuererklärung, razgovor s bankom o kreditu,
+Betriebsrat, medicinska dokumentacija,
+složene birokratske procedure (Niederlassungserlaubnis).
+Jezik: pasiv, indirektni govor, složene nominalizacije.`,
+
+    C1: `Nivo C1 — visoko integrirani Balkanci ili profesionalci.
+Teme: poslovni pregovori, pravne procedure,
+složena medicinska komunikacija, akademski kontekst,
+Verwaltungsgericht žalba, ugovorne klauzule,
+stručni sastanci, prezentacije.
+Jezik: idiomi, stručna terminologija, precizne formulacije.`,
+
+    C2: `Nivo C2 — gotovo maternji nivo.
+Teme: pravni dokumenti, medicinska ekspertiza,
+politička diskusija, akademsko pisanje, stilistički 
+zahtjevna komunikacija.
+Jezik: Redewendungen, stilistika, izvornogovorni nivo.`,
   };
 
   const stageGuide: Record<string, string> = {
-    Grundlagen:
-      "Basis-Verstaendnis: Vokabeln erkennen, einfache Saetze verstehen, Grundstrukturen ueben.",
-    Anwendung:
-      "Praktische Nutzung: Saetze bilden, Varianten ueben, Wissen anwenden in realistischen Kontexten.",
-    Realitaet:
-      "Echte Alltagssituationen: Dialoge, spontane Reaktionen, realistische Szenarien aus dem Leben in Deutschland.",
+    Grundlagen: `OSNOVE: Prepoznavanje i razumijevanje ključnih pojmova.
+Fokus: prepoznati ispravnu frazu, razumjeti situaciju, 
+naučiti ključni vokabular iz konteksta.`,
+    Anwendung: `PRIMJENA: Aktivna upotreba u realnim situacijama.
+Fokus: tvoriti rečenice, birati ispravnu gramatičku formu,
+primijeniti vokabular u novom kontekstu.`,
+    Realitaet: `REALNOST: Spontana komunikacija u nepredviđenim situacijama.
+Fokus: brze reakcije, neformalni govor,
+snalaženje pod pritiskom komunikacije.`,
   };
 
-  return `Du bist ein Deutsch-Uebungsgenerator fuer Niveau ${level}.
-Sprachniveau: ${levelGuide[level] || levelGuide.B1}
-Stufe: ${stageGuide[stageType] || stageGuide.Grundlagen}
+  return `Ti si ekspert za podučavanje njemačkog odraslima 
+koji dolaze sa Balkana i žive u Njemačkoj.
 
-Generiere Uebungen im JSON-Format. Jede Uebung hat:
-- type: "multiple_choice" | "sort_sentence" | "fill_blank" | "quick_reaction"
-- situation: Kontext auf Deutsch (1-2 Saetze)
-- question: Frage auf Deutsch
-- options: Array von Antwortmoeglichkeiten (3 Optionen fuer MC/QR/FB, 4-6 Woerter fuer sort_sentence)
-- answer: Index (number) fuer MC/QR, Array von Indizes fuer sort_sentence, String fuer fill_blank
-- explanation: Kurze Erklaerung auf Deutsch
+NIVO: ${level}
+${levelGuide[level] || levelGuide.B1}
 
-Regeln:
-- Mische die 4 Aufgabentypen gleichmaessig
-- Fuer sort_sentence: options sind einzelne Woerter, answer ist Array der korrekten Reihenfolge als Indizes
-- Fuer fill_blank: question enthaelt ___ als Luecke, answer ist der korrekte String aus options
-- Fuer multiple_choice/quick_reaction: answer ist der Index (0-basiert) der korrekten Option
-- Alle Inhalte muessen dem Niveau ${level} entsprechen
-- Situationen muessen realistisch und relevant fuer das Leben in Deutschland sein
-- Keine Wiederholungen
+FAZA: ${stageGuide[stageType] || stageGuide.Grundlagen}
 
-WICHTIG: Antworte NUR mit einem JSON-Array. Kein erklarender Text, keine Kommentare, nur das Array.`;
+PRAVILA:
+1. SVE situacije moraju biti REALNE za odrasle Balkance u Njemačkoj
+2. NIKADA nemoj generisati dječija pitanja
+3. Svaka situacija mora biti specifična i konkretna
+4. Miješaj sva 4 tipa ravnomjerno
+5. Objašnjenja trebaju biti korisna i informativna
+6. Svaki batch mora imati RAZLIČITE situacije — ne ponavljaj
+7. Zadaci moraju biti izazovni za odabrani nivo
+
+FORMAT — striktno JSON array bez Markdown:
+[
+  {
+    "type": "multiple_choice",
+    "situation": "Konkretan opis situacije (1-2 rečenice)",
+    "question": "Pitanje na njemačkom",
+    "options": ["opcija1", "opcija2", "opcija3"],
+    "answer": 0,
+    "explanation": "Kratko objašnjenje + koristan savjet"
+  }
+]`;
 }
 
 function buildFallbackExercises(topic: string, stageType: string, count: number) {
@@ -193,9 +239,30 @@ serve(async (req) => {
       return jsonResponse({ exercises: fallbackExercises, fallback: true });
     }
 
-    const userPrompt = `Generiere genau ${actualCount} Uebungen zum Thema "${topic}" fuer Niveau ${level}, Stufe "${stageType}".
-Mische die Typen: multiple_choice, sort_sentence, fill_blank, quick_reaction.
-Antworte NUR mit einem JSON-Array, KEIN anderer Text.`;
+    const randomSeed = Math.floor(Math.random() * 10000);
+    const subtopics: Record<string, string[]> = {
+      A1: ["Arztbesuch","Anmeldung","Supermarkt","Bank","Bus/Bahn",
+           "Apotheke","Standesamt","Post","Nachbarn","Wohnung"],
+      A2: ["Jobcenter","Krankenkasse","Finanzamt","Kita","Vertrag",
+           "Reklamation","Telefon","Behörden","Wohnungssuche","Alltag"],
+      B1: ["Vorstellungsgespräch","Arbeitsvertrag","Ausländerbehörde",
+           "Elterngeld","Kündigung","Mietrecht","Versicherung","Schule"],
+      B2: ["Gehaltsverhandlung","Steuererklärung","Niederlassungserlaubnis",
+           "Rechtsstreit","Betriebsrat","Immobilien","Kredit","Verwaltung"],
+      C1: ["Vertragsverhandlung","Medizinische Fachsprache","Verwaltungsgericht",
+           "Unternehmensführung","Akademisches Schreiben","Fachkonferenz"],
+      C2: ["Rechtsdokumente","Politische Analyse","Medizinische Expertise",
+           "Wissenschaftlicher Diskurs","Stilistik","Redekunst"],
+    };
+    const levelSubtopics = subtopics[level] || subtopics["B1"];
+    const randomSubtopic = levelSubtopics[randomSeed % levelSubtopics.length];
+
+    const userPrompt = `Generiere genau ${actualCount} einzigartige Übungen 
+zum Thema "${topic}" für Niveau ${level}, Stufe "${stageType}".
+Unterthema für diese Batch: ${randomSubtopic} (seed: ${randomSeed}).
+Wichtig: KEINE Wiederholungen, realistische Situationen für Erwachsene,
+alle 4 Typen gleichmäßig, mindestens 2 sort_sentence.
+Antworte NUR mit JSON-Array, ohne Markdown.`;
 
     const models = [
       "google/gemini-2.5-flash",
