@@ -102,7 +102,7 @@ const RadnoPravoGuide = lazy(() => import("./pages/RadnoPravoGuide"));
 const BiznisNjemacka = lazy(() => import("./pages/BiznisNjemacka"));
 const BiznisGuide = lazy(() => import("./pages/BiznisGuide"));
 const Premium = lazy(() => import("./pages/Premium"));
-const Paketi = lazy(() => import("./pages/Paketi"));
+const Paketi = lazy(() => import("./pages/Pricing"));
 const Profil = lazy(() => import("./pages/Profil"));
 const Mietrecht = lazy(() => import("./pages/Mietrecht"));
 
