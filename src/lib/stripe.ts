@@ -13,6 +13,7 @@ export const STRIPE_PRICE_IDS = {
   DEUTSCH_B2: "price_1TLN8kR9oGwbVekB0048mH7y",
   DEUTSCH_C1: "price_1TLN9YR9oGwbVekBsEiXY2aS",
   DEUTSCH_C2: "price_1TLSWCR9oGwbVekB240bqnni",
+  FEATURED_FIRMA: "price_1TLT7OR9oGwbVekB6K09ooCA",
 } as const;
 
 /** Stripe product IDs for subscription tier mapping */
