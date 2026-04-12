@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Check, X, Crown, ChevronLeft } from "lucide-react";
 import { navigateBackOrHome } from "@/lib/navigation";
 import { toast } from "sonner";
+import { motion } from "framer-motion";
 
 export default function Paketi() {
   const navigate = useNavigate();
@@ -20,16 +21,28 @@ export default function Paketi() {
           Nazad
         </button>
 
-        <div className="text-center mb-10">
+        <motion.div
+          className="text-center mb-10"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
           <h1 className="text-3xl font-black">BalkanLink Premium</h1>
           <p className="mt-2 text-muted-foreground max-w-md mx-auto">
             Sve što trebaš za život u Njemačkoj — na jednom mjestu
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           {/* Besplatno */}
-          <div className="rounded-2xl border border-border bg-card p-6 flex flex-col">
+          <motion.div
+            className="rounded-2xl border border-border bg-card p-6 flex flex-col transition-shadow duration-300 hover:shadow-lg hover:shadow-border/30"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            whileHover={{ y: -4 }}
+          >
             <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">Besplatno</p>
             <p className="text-3xl font-black">0€</p>
             <p className="text-xs text-muted-foreground mt-1">Zauvijek besplatno</p>
@@ -67,10 +80,17 @@ export default function Paketi() {
             >
               Počni besplatno →
             </button>
-          </div>
+          </motion.div>
 
           {/* Premium — Godišnje */}
-          <div className="rounded-2xl border-2 border-[hsl(var(--gold))] bg-card p-6 relative flex flex-col">
+          <motion.div
+            className="rounded-2xl border-2 border-[hsl(var(--gold))] bg-card p-6 relative flex flex-col transition-shadow duration-300 hover:shadow-xl hover:shadow-[hsl(var(--gold))]/20"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            whileHover={{ y: -4 }}
+          >
             <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[hsl(var(--gold))] px-3 py-0.5 text-xs font-bold text-[#0f1f3d]">
               POPULARNO — uštedi 20%
             </span>
@@ -122,11 +142,17 @@ export default function Paketi() {
               Aktiviraj Premium
             </button>
             <p className="text-[10px] text-muted-foreground mt-2 text-center">bez PDV-a prema §19 UStG</p>
-          </div>
+          </motion.div>
         </div>
 
         {/* Comparison Table */}
-        <div className="mt-12 mb-8">
+        <motion.div
+          className="mt-12 mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5 }}
+        >
           <h2 className="text-xl font-bold text-center mb-6">Besplatno vs. Premium</h2>
           <div className="overflow-x-auto rounded-2xl border border-border">
             <table className="w-full text-sm">
@@ -154,7 +180,7 @@ export default function Paketi() {
               </tbody>
             </table>
           </div>
-        </div>
+        </motion.div>
 
         <div className="text-center space-y-2">
           <p className="text-sm text-muted-foreground">
