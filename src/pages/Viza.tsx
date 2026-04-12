@@ -1,6 +1,6 @@
-import { useState, useCallback } from "react";
+import { useCallback } from "react";
 import { SEO } from "@/components/SEO";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import PageNavBar from "@/components/navigation/PageNavBar";
 import { COUNTRY_CONTENT } from "@/data/vizaNavigatorContent";
 import { VisaContentRenderer } from "@/components/visaNavigator/VisaContentRenderer";
