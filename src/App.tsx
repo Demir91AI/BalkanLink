@@ -22,7 +22,7 @@ const ResetPassword = lazy(() => import("./pages/ResetPassword"));
 const Impressum = lazy(() => import("./pages/Impressum"));
 const Datenschutz = lazy(() => import("./pages/Datenschutz"));
 const Disclaimer = lazy(() => import("./pages/Disclaimer"));
-const KiHinweis = lazy(() => import("./pages/KiHinweis"));
+const NapomenaOKI = lazy(() => import("./pages/NapomenaOKI"));
 const Mitgliedschaft = lazy(() => import("./pages/Mitgliedschaft"));
 const Nutzungsbedingungen = lazy(() => import("./pages/Nutzungsbedingungen"));
 const DSA = lazy(() => import("./pages/DSA"));
@@ -198,7 +198,7 @@ function AppRoutes() {
         <Route path="/datenschutz" element={<Datenschutz />} />
         <Route path="/disclaimer" element={<Disclaimer />} />
         
-        <Route path="/ki-hinweis" element={<KiHinweis />} />
+        <Route path="/napomena-o-ki" element={<NapomenaOKI />} />
         <Route path="/mitgliedschaft" element={<Mitgliedschaft />} />
         <Route path="/agb" element={<Nutzungsbedingungen />} />
         
@@ -245,7 +245,7 @@ function AppRoutes() {
         <Route path="/haftungsausschluss" element={<Navigate to="/disclaimer" replace />} />
         <Route path="/odricanje-odgovornosti" element={<Navigate to="/disclaimer" replace />} />
         <Route path="/inhalte-melden" element={<Navigate to="/dsa" replace />} />
-        <Route path="/napomena-o-ki" element={<Navigate to="/ki-hinweis" replace />} />
+        <Route path="/ki-hinweis" element={<Navigate to="/napomena-o-ki" replace />} />
         <Route path="/postavke-kolacica" element={<Navigate to="/cookie-richtlinie" replace />} />
       </Route>
       <Route path="*" element={<NotFound />} />
