@@ -733,6 +733,46 @@ export default function ChatAssistant() {
                 <ChatProfile />
               ) : (
                 <>
+                  {/* AI Disclaimer overlay — shown once */}
+                  {!disclaimerSeen && (
+                    <div className="absolute inset-0 z-10 flex items-center justify-center bg-[hsl(var(--primary))]/95 backdrop-blur-sm rounded-lg p-6">
+                      <div className="max-w-md text-center space-y-4">
+                        <div className="text-3xl">🤖</div>
+                        <h3 className="text-lg font-bold text-white">
+                          Prije nego počneš — pročitaj ovo
+                        </h3>
+                        <div className="text-sm text-white/70 text-left space-y-2">
+                          <p>
+                            BalkanLink AI Asistent pruža <strong className="text-white">
+                            isključivo informativne odgovore</strong>. Odgovori AI-a:
+                          </p>
+                          <ul className="list-disc ml-4 space-y-1">
+                            <li>Ne predstavljaju pravni ni porezni savjet</li>
+                            <li>Mogu sadržavati greške ili zastarjele informacije</li>
+                            <li>Ne zamjenjuju konsultaciju s nadležnim organima</li>
+                            <li>Uvijek provjeri informacije na zvaničnim izvorima</li>
+                          </ul>
+                          <p className="text-xs opacity-70 mt-2">
+                            Više o upotrebi AI-a:{" "}
+                            <a href="/ki-hinweis" target="_blank"
+                              className="text-[hsl(var(--brand-orange))] hover:underline">
+                              Napomena o KI
+                            </a>
+                          </p>
+                        </div>
+                        <button
+                          onClick={() => {
+                            localStorage.setItem("bl_ai_disclaimer_seen", "true");
+                            setDisclaimerSeen(true);
+                          }}
+                          className="w-full rounded-md bg-[hsl(var(--brand-orange))] px-6 py-2.5 text-sm font-medium text-[hsl(var(--brand-orange-foreground))] hover:bg-[hsl(var(--brand-orange))]/90 transition-colors"
+                        >
+                          Razumijem — nastavi na asistenta
+                        </button>
+                      </div>
+                    </div>
+                  )}
+
                   {/* Chat messages area */}
                   <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-4 space-y-3">
                     {showOnboarding && (
