@@ -344,11 +344,23 @@ export default function FormCenter() {
 
   // Mobile: if slug selected, show guide
   if (isMobile && activeSlug && !isRemovedFormSlug) {
+    const musterPath = getMusterPath(activeSlug);
     return (
       <div className="px-4 py-6">
         <PageNavBar onBack={handleBack} />
         {canAccess ? (
-          <GuideContent key={activeSlug} slug={activeSlug} />
+          <>
+            <GuideContent key={activeSlug} slug={activeSlug} />
+            {musterPath && (
+              <button
+                onClick={() => navigate(musterPath)}
+                className="w-full mt-6 mb-4 rounded-xl py-3 text-sm font-bold text-white flex items-center justify-center gap-2"
+                style={{ background: '#1E293B' }}
+              >
+                📋 Otvori Musterformular
+              </button>
+            )}
+          </>
         ) : (
           <FormPremiumPaywall slug={activeSlug} entry={activeEntry} />
         )}
