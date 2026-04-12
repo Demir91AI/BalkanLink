@@ -18,6 +18,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [termsAccepted, setTermsAccepted] = useState(false);
 
   const reset = useCallback(() => {
     setEmail("");
