@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import {
   FileText, Shield, BookOpen, Camera, Megaphone, Plane,
   Briefcase, Building, Calculator, FileCheck, X, LogIn, LogOut, User,
-  CreditCard, Scale, Store,
+  CreditCard, Scale, Store, Home,
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import AuthModal from "@/components/auth/AuthModal";
@@ -33,7 +33,7 @@ export function AppSidebar() {
   const secondaryItems = [
     { title: "Život i dolazak", url: "/zivot-u-njemackoj", icon: Plane },
     { title: "Radno pravo", url: "/radno-pravo", icon: Scale },
-    { title: "Mietrecht", url: "/mietrecht", icon: Scale },
+    { title: "Mietrecht", url: "/mietrecht", icon: Home },
     { title: "Biznis u Njemačkoj", url: "/biznis", icon: Store },
     { title: "Nudim / Tražim", url: "/nudim-trazim", icon: Megaphone },
     { title: "Oglasi za posao", url: "/stellenangebote", icon: Briefcase },
