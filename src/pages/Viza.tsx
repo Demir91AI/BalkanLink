@@ -7,7 +7,7 @@ import { VisaContentRenderer } from "@/components/visaNavigator/VisaContentRende
 import VisaRightPanel from "@/components/visaNavigator/VisaRightPanel";
 
 export default function Viza() {
-  const navigate = useNavigate();
+  
   const [searchParams, setSearchParams] = useSearchParams();
 
   const selectedCountry = searchParams.get("country") || null;
