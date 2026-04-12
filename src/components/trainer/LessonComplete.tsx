@@ -1,57 +1,77 @@
 import { motion } from "framer-motion";
-import { Trophy, Flame, ArrowRight, RotateCcw } from "lucide-react";
+import { ArrowRight, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface Props {
   correctCount: number;
   totalCount: number;
-  xpEarned: number;
-  streak: number;
   onRestart: () => void;
   onBack: () => void;
+  nextStageLabel?: string;
+  onNextStage?: () => void;
 }
 
-export default function LessonComplete({ correctCount, totalCount, xpEarned, streak, onRestart, onBack }: Props) {
+export default function LessonComplete({ 
+  correctCount, totalCount, onRestart, onBack,
+  nextStageLabel, onNextStage 
+}: Props) {
   const pct = Math.round((correctCount / totalCount) * 100);
-  const perfect = pct === 100;
 
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
-      className="flex flex-col items-center gap-6 py-8 text-center"
+      className="flex flex-col items-center gap-6 py-10 text-center px-4"
     >
-      <div className="text-6xl">{perfect ? "🏆" : pct >= 60 ? "⭐" : "📚"}</div>
+      <div className="text-6xl">
+        {pct === 100 ? "🏆" : pct >= 80 ? "⭐" : pct >= 60 ? "👍" : "📚"}
+      </div>
 
-      <h2 className="text-2xl font-black">
-        {perfect ? "Perfekt!" : pct >= 60 ? "Gut gemacht!" : "Weiter üben!"}
-      </h2>
+      <div>
+        <h2 className="text-2xl font-black text-white">
+          {pct === 100 ? "Savršeno!" : pct >= 80 ? "Odlično!" : pct >= 60 ? "Dobro!" : "Vježbaj dalje!"}
+        </h2>
+        <p className="text-white/60 mt-2">
+          {correctCount} / {totalCount} tačnih odgovora ({pct}%)
+        </p>
+      </div>
 
-      <p className="text-muted-foreground">
-        {correctCount} von {totalCount} richtig ({pct}%)
-      </p>
-
-      <div className="flex gap-6">
-        <div className="flex flex-col items-center gap-1">
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gold/10">
-            <Trophy className="h-7 w-7 text-gold" />
-          </div>
-          <span className="text-lg font-bold text-gold">+{xpEarned} XP</span>
-        </div>
-        <div className="flex flex-col items-center gap-1">
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-destructive/10">
-            <Flame className="h-7 w-7 text-destructive" />
-          </div>
-          <span className="text-lg font-bold">{streak} Tage</span>
+      <div className="w-full max-w-xs">
+        <div className="h-3 w-full rounded-full bg-white/10">
+          <div 
+            className="h-full rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400"
+            style={{ width: `${pct}%` }}
+          />
         </div>
       </div>
 
-      <div className="flex w-full flex-col gap-3 pt-4">
-        <Button onClick={onBack} className="h-12 rounded-xl bg-primary text-primary-foreground font-bold">
-          Weiter lernen <ArrowRight className="ml-2 h-4 w-4" />
+      <div className="flex w-full max-w-xs flex-col gap-3 pt-2">
+        {onNextStage && nextStageLabel && (
+          <Button 
+            onClick={onNextStage}
+            className="h-12 rounded-2xl bg-[hsl(var(--gold))] 
+              text-white font-bold"
+          >
+            Sljedeći: {nextStageLabel} 
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+        )}
+        <Button 
+          onClick={onBack} 
+          className="h-12 rounded-2xl bg-primary 
+            text-primary-foreground font-bold"
+        >
+          Nastavi učiti
+          <ArrowRight className="ml-2 h-4 w-4" />
         </Button>
-        <Button variant="outline" onClick={onRestart} className="h-12 rounded-xl font-bold">
-          <RotateCcw className="mr-2 h-4 w-4" /> Nochmal üben
+        <Button 
+          variant="outline" 
+          onClick={onRestart} 
+          className="h-12 rounded-2xl font-bold border-white/20 
+            text-white/70 hover:text-white"
+        >
+          <RotateCcw className="mr-2 h-4 w-4" />
+          Ponovi s novim pitanjima
         </Button>
       </div>
     </motion.div>
