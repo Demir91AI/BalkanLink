@@ -928,6 +928,69 @@ export type Database = {
         }
         Relationships: []
       }
+      pro_services_public: {
+        Row: {
+          bundesland: string | null
+          city: string | null
+          city_lat: number | null
+          city_lng: number | null
+          created_at: string | null
+          description: string | null
+          email: string | null
+          expires_at: string | null
+          id: string | null
+          name_or_business: string | null
+          phone: string | null
+          service_category: string | null
+          started_at: string | null
+          status: Database["public"]["Enums"]["pro_status"] | null
+          updated_at: string | null
+          user_id: string | null
+          website: string | null
+          whatsapp: string | null
+        }
+        Insert: {
+          bundesland?: string | null
+          city?: string | null
+          city_lat?: number | null
+          city_lng?: number | null
+          created_at?: string | null
+          description?: string | null
+          email?: string | null
+          expires_at?: string | null
+          id?: string | null
+          name_or_business?: string | null
+          phone?: string | null
+          service_category?: string | null
+          started_at?: string | null
+          status?: Database["public"]["Enums"]["pro_status"] | null
+          updated_at?: string | null
+          user_id?: string | null
+          website?: string | null
+          whatsapp?: string | null
+        }
+        Update: {
+          bundesland?: string | null
+          city?: string | null
+          city_lat?: number | null
+          city_lng?: number | null
+          created_at?: string | null
+          description?: string | null
+          email?: string | null
+          expires_at?: string | null
+          id?: string | null
+          name_or_business?: string | null
+          phone?: string | null
+          service_category?: string | null
+          started_at?: string | null
+          status?: Database["public"]["Enums"]["pro_status"] | null
+          updated_at?: string | null
+          user_id?: string | null
+          website?: string | null
+          whatsapp?: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       consume_doc_check: {
