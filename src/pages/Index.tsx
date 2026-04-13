@@ -55,8 +55,8 @@ function ShowcaseCarousel() {
                 <div className="relative h-[180px] w-full overflow-hidden">
                   <img src={firm.images[0]} alt={firm.name} className="h-full w-full object-cover" style={{ filter: "brightness(0.85) saturate(1.1)" }} loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                  <div className="absolute left-3 top-3 flex items-center rounded-xl border border-white/20 bg-black/40 px-3 py-1.5 backdrop-blur-md">
-                    <img src={firm.logoUrl} alt={firm.logoAlt} className="h-6 max-w-[90px] object-contain brightness-0 invert" />
+                   <div className="absolute left-3 top-3 flex items-center rounded-xl border border-white/20 bg-black/60 px-3 py-1.5 backdrop-blur-md">
+                     <img src={firm.logoUrl} alt={firm.logoAlt} className="h-6 max-w-[90px] object-contain brightness-0 invert drop-shadow-sm" />
                   </div>
                   <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider" style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))", color: "#000" }}>
                     <Star className="h-2.5 w-2.5 fill-current" /> Preporučeno
@@ -80,7 +80,7 @@ function ShowcaseCarousel() {
                         <Link to={`/firma/${firm.slug}`}>Pogledaj <ExternalLink className="ml-1 h-3 w-3" /></Link>
                       )}
                     </Button>
-                    <Button asChild variant="outline" size="sm" className="h-8 rounded-lg border-white/15 px-4 text-xs font-semibold text-white/70 hover:bg-white/10 hover:text-white">
+                    <Button asChild variant="outline" size="sm" className="h-8 rounded-lg border-white/20 bg-white/10 px-4 text-xs font-semibold text-white hover:bg-white/20">
                       {firm.contactUrl ? (
                         <a href={firm.contactUrl} target="_blank" rel="noopener noreferrer">Kontakt</a>
                       ) : firm.phone ? (
@@ -181,7 +181,7 @@ export default function Index() {
                       <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Brutto-Netto kalkulator</li>
                       <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Oglasi (besplatno)</li>
                     </ul>
-                    <Button variant="outline" className="w-full rounded-full border-white/15 text-white font-semibold hover:bg-white/10" onClick={() => navigate("/formulari")}>
+                    <Button variant="outline" className="w-full rounded-full border-[hsl(var(--gold))]/40 text-[hsl(var(--gold))] font-semibold hover:bg-[hsl(var(--gold))]/10" onClick={() => navigate("/formulari")}>
                       Počni besplatno
                     </Button>
                   </AccordionContent>
@@ -293,7 +293,7 @@ export default function Index() {
                   <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Brutto-Netto kalkulator</li>
                   <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Oglasi (besplatno)</li>
                 </ul>
-                <Button variant="outline" className="mt-6 w-full rounded-full border-white/15 text-white font-semibold hover:bg-white/10" onClick={() => navigate("/formulari")}>
+                <Button variant="outline" className="mt-6 w-full rounded-full border-[hsl(var(--gold))]/40 text-[hsl(var(--gold))] font-semibold hover:bg-[hsl(var(--gold))]/10" onClick={() => navigate("/formulari")}>
                   Počni besplatno
                 </Button>
               </motion.div>

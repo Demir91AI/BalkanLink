@@ -4,7 +4,7 @@ import { ClipboardList, CalendarCheck, Globe, CheckCheck } from "lucide-react";
 const trustPoints = [
   { icon: ClipboardList, title: "Službeni izvori", desc: "Sadržaj baziran isključivo na zvaničnim njemačkim izvorima" },
   { icon: CalendarCheck, title: "Ažurirano za 2026", desc: "Svi vodiči i formulari reflektuju trenutne propise" },
-  { icon: Globe, title: "Na bosanskom jeziku", desc: "Objašnjeno jasno, bez prijevodnih grešaka" },
+  { icon: Globe, title: "Razumljivo objašnjeno", desc: "Jasno napisano, bez komplikovanih prijevoda i konfuzije" },
   { icon: CheckCheck, title: "Jasnoća prije svega", desc: "Fokus na razumijevanju, ne komplikaciji" },
 ];
 

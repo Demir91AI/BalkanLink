@@ -78,8 +78,8 @@ export default function BeforeAfterSection() {
           <div className="h-full w-1/4 rounded-full" style={{ background: "linear-gradient(90deg, hsl(var(--gold)), hsl(var(--gold-light)))" }} />
         </div>
         {[
-          { label: "Prezime", hint: "Tvoje prezime (kao u pasošu)", example: "Hodžić" },
-          { label: "Ime", hint: "Tvoje ime", example: "Amir" },
+          { label: "Prezime", hint: "Tvoje prezime (kao u pasošu)", example: "Kovač" },
+          { label: "Ime", hint: "Tvoje ime", example: "Maja" },
           { label: "Datum rođenja", hint: "DD.MM.GGGG format", example: "15.03.1990" },
         ].map(f => (
           <div key={f.label} className="rounded-xl p-3" style={{ border: "1px solid rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)" }}>
