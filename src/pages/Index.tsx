@@ -55,8 +55,8 @@ function ShowcaseCarousel() {
                 <div className="relative h-[180px] w-full overflow-hidden">
                   <img src={firm.images[0]} alt={firm.name} className="h-full w-full object-cover" style={{ filter: "brightness(0.85) saturate(1.1)" }} loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                   <div className="absolute left-3 top-3 flex items-center rounded-xl border border-white/20 bg-black/60 px-3 py-1.5 backdrop-blur-md">
-                     <img src={firm.logoUrl} alt={firm.logoAlt} className="h-6 max-w-[90px] object-contain brightness-0 invert drop-shadow-sm" />
+                   <div className="absolute left-3 top-3 flex items-center rounded-xl border border-white/20 bg-white/90 px-3 py-1.5 backdrop-blur-md">
+                     <img src={firm.logoUrl} alt={firm.logoAlt} className="h-6 max-w-[90px] object-contain drop-shadow-sm" />
                   </div>
                   <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider" style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))", color: "#000" }}>
                     <Star className="h-2.5 w-2.5 fill-current" /> Preporučeno
