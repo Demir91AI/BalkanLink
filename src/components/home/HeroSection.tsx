@@ -86,12 +86,27 @@ export default function HeroSection() {
         </div>
       ))}
 
-      {/* Gradient overlay with shifting hue */}
+      {/* Radial glow behind text area */}
       <div
         className="absolute inset-0 z-[2]"
         style={{
-          background: "linear-gradient(135deg, rgba(10,18,42,0.7) 0%, rgba(0,0,0,0.3) 40%, rgba(10,18,42,0.75) 100%)",
-          animation: "heroHueShift 20s ease-in-out infinite alternate",
+          background: "radial-gradient(ellipse 70% 60% at 50% 45%, rgba(0,0,0,0.65) 0%, transparent 70%)",
+        }}
+      />
+
+      {/* Bottom fade for depth */}
+      <div
+        className="absolute inset-0 z-[2]"
+        style={{
+          background: "linear-gradient(to bottom, transparent 50%, rgba(2,6,23,0.85) 100%)",
+        }}
+      />
+
+      {/* Side vignette */}
+      <div
+        className="absolute inset-0 z-[2]"
+        style={{
+          background: "linear-gradient(90deg, rgba(2,6,23,0.5) 0%, transparent 25%, transparent 75%, rgba(2,6,23,0.5) 100%)",
         }}
       />
 
@@ -151,7 +166,7 @@ export default function HeroSection() {
               }}
             >
               <span className="absolute inset-0 rounded-[10px] opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ boxShadow: "0 0 30px hsla(43,70%,55%,0.5), 0 0 60px hsla(43,70%,55%,0.2)" }} />
-              <span className="relative">Počni sada</span>
+              <span className="relative">Pokreni vodič</span>
             </button>
             <button
               onClick={() => navigate("/paketi")}
@@ -185,11 +200,19 @@ export default function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="mt-6 flex flex-wrap items-center justify-center gap-6"
+            className="mt-6 flex flex-wrap items-center justify-center gap-4"
           >
             {trustBadges.map((badge) => (
-              <span key={badge} className="flex items-center gap-1.5 text-white/75 text-[0.82rem] font-medium">
-                <CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))]" />
+              <span
+                key={badge}
+                className="flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-[0.8rem] font-medium text-white/90"
+                style={{
+                  background: "rgba(255,255,255,0.08)",
+                  border: "1px solid rgba(212,175,55,0.25)",
+                  backdropFilter: "blur(12px)",
+                }}
+              >
+                <CheckCircle2 className="h-3.5 w-3.5 text-[#D4AF37]" />
                 {badge}
               </span>
             ))}
