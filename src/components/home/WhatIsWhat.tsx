@@ -83,65 +83,65 @@ const cards = [
 
 export default function WhatIsWhat() {
   return (
-    <section className="py-14 px-4 sm:px-6 lg:px-12" style={{ background: "hsl(var(--warm-cream))" }}>
-      <div className="max-w-2xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-8"
-        >
-          <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-[#2D2D2D]">
-            Šta je šta?
-          </h2>
-          <p className="mt-2 text-sm sm:text-base text-[#6B6B6B]">
-            Nikad čuo za Musterformular? Nema veze — objašnjavamo sve.
-          </p>
-        </motion.div>
+    <div className="max-w-2xl mx-auto">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="text-center mb-8"
+      >
+        <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-white">
+          Šta je šta?
+        </h2>
+        <p className="mt-2 text-sm sm:text-base text-white/50">
+          Nikad čuo za Musterformular? Nema veze — objašnjavamo sve.
+        </p>
+      </motion.div>
 
-        <Accordion type="single" collapsible className="space-y-2">
-          {cards.map((card) => (
-            <AccordionItem
-              key={card.id}
-              value={card.id}
-              className="rounded-xl bg-white border border-[#E8E0D0] shadow-[0_1px_8px_rgba(0,0,0,0.04)] overflow-hidden data-[state=open]:border-[hsl(var(--gold))]/40 transition-colors"
-              style={{ borderLeft: "3px solid hsl(var(--gold))" }}
-            >
-              <AccordionTrigger className="px-4 py-3.5 hover:no-underline gap-3 [&>svg]:text-[hsl(var(--gold))]">
-                <span className="flex items-center gap-3 text-left">
-                  <span className="text-lg shrink-0">{card.emoji}</span>
-                  <span className="text-[15px] font-bold text-[#2D2D2D]">{card.name}</span>
-                </span>
-              </AccordionTrigger>
-              <AccordionContent className="px-4 pb-4 pt-0">
-                <p className="text-sm font-semibold text-[hsl(var(--gold))] mb-2">
-                  {card.tagline}
-                </p>
-                <p className="text-sm text-[#4A4A4A] leading-relaxed mb-2">
-                  {card.explanation}
-                </p>
-                <p className="text-[13px] text-[#8A8A8A] italic leading-relaxed mb-3">
-                  {card.example}
-                </p>
+      <Accordion type="single" collapsible className="space-y-2">
+        {cards.map((card) => (
+          <AccordionItem
+            key={card.id}
+            value={card.id}
+            className="rounded-xl overflow-hidden transition-colors"
+            style={{
+              background: "rgba(255,255,255,0.03)",
+              border: "1px solid rgba(255,255,255,0.08)",
+              borderLeft: "3px solid hsl(var(--gold))",
+            }}
+          >
+            <AccordionTrigger className="px-4 py-3.5 hover:no-underline gap-3 [&>svg]:text-[hsl(var(--gold))]">
+              <span className="flex items-center gap-3 text-left">
+                <span className="text-lg shrink-0">{card.emoji}</span>
+                <span className="text-[15px] font-bold text-white">{card.name}</span>
+              </span>
+            </AccordionTrigger>
+            <AccordionContent className="px-4 pb-4 pt-0">
+              <p className="text-sm font-semibold text-[hsl(var(--gold))] mb-2">
+                {card.tagline}
+              </p>
+              <p className="text-sm text-white/60 leading-relaxed mb-2">
+                {card.explanation}
+              </p>
+              <p className="text-[13px] text-white/35 italic leading-relaxed mb-3">
+                {card.example}
+              </p>
 
-
-                <span
-                  className="inline-block rounded-full px-3 py-1 text-[11px] font-semibold"
-                  style={
-                    card.badgeStyle === "green"
-                      ? { background: "#DCFCE7", color: "#166534" }
-                      : { background: "hsl(var(--gold) / 0.12)", color: "#92400E" }
-                  }
-                >
-                  {card.badge}
-                </span>
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-
-      </div>
-    </section>
+              <span
+                className="inline-block rounded-full px-3 py-1 text-[11px] font-semibold"
+                style={
+                  card.badgeStyle === "green"
+                    ? { background: "rgba(34,197,94,0.15)", color: "#4ade80" }
+                    : { background: "hsla(43,52%,54%,0.12)", color: "hsl(var(--gold))" }
+                }
+              >
+                {card.badge}
+              </span>
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
+    </div>
   );
 }
