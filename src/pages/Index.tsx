@@ -1,119 +1,37 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { SEO } from "@/components/SEO";
-import { useInfiniteScroll } from "@/hooks/useInfiniteScroll";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
-  Megaphone, CheckCircle2, Star, ExternalLink,
-  ChevronLeft, ChevronRight, FileText, Shield, GraduationCap, Search, Home, Calculator, Camera,
+  CheckCircle2, Star, ExternalLink,
+  ChevronLeft, ChevronRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { useInfiniteScroll } from "@/hooks/useInfiniteScroll";
 
 import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
 
-import FlowBanner from "@/components/home/FlowBanner";
+import HeroSection from "@/components/home/HeroSection";
+import FeatureCards from "@/components/home/FeatureCards";
+import BeforeAfterSection from "@/components/home/BeforeAfterSection";
+import ProcessSection from "@/components/home/ProcessSection";
+import TrustSection from "@/components/home/TrustSection";
+import PricingWarning from "@/components/home/PricingWarning";
 import WhatIsWhat from "@/components/home/WhatIsWhat";
-
-const slides = [
-  { image: "/assets/hero-frankfurt.jpg", city: "FRANKFURT" },
-  { image: "/assets/hero-berlin.jpg", city: "BERLIN" },
-  { image: "/assets/hero-muenchen.jpg", city: "MÜNCHEN" },
-  { image: "/assets/hero-hamburg.jpg", city: "HAMBURG" },
-  { image: "/assets/hero-koeln.jpg", city: "KÖLN" },
-  { image: "/assets/hero-freilassing-real.jpg", city: "FREILASSING" },
-  { image: "/assets/hero-stuttgart.jpg", city: "STUTTGART" },
-  { image: "/assets/hero-duesseldorf.jpg", city: "DÜSSELDORF" },
-  { image: "/assets/hero-nuernberg.jpg", city: "NÜRNBERG" },
-  { image: "/assets/hero-leipzig.jpg", city: "LEIPZIG" },
-];
-
-const trustBadgeKeys = ["hero.badge1", "hero.badge2", "hero.badge3"];
-
-
-
-const serviceCardKeys = [
-  { icon: FileText, titleKey: "service.smartGuide.title", descKey: "service.smartGuide.desc", ctaKey: "service.smartGuide.cta", to: "/formulari", premium: true },
-  { icon: Shield, titleKey: "service.visa.title", descKey: "service.visa.desc", ctaKey: "service.visa.cta", to: "/viza", premium: false },
-  { icon: GraduationCap, titleKey: "service.deutsch.title", descKey: "service.deutsch.desc", ctaKey: "service.deutsch.cta", to: "/deutsch-trainer", premium: true },
-  { icon: Camera, titleKey: "service.docCheck.title", descKey: "service.docCheck.desc", ctaKey: "service.docCheck.cta", to: "/dokumenten-check", premium: true },
-  { icon: Megaphone, titleKey: "service.nudim.title", descKey: "service.nudim.desc", ctaKey: "service.nudim.cta", to: "/nudim-trazim", premium: false },
-  
-  { icon: Search, titleKey: "service.jobs.title", descKey: "service.jobs.desc", ctaKey: "service.jobs.cta", to: "/stellenangebote", premium: false },
-  { icon: Home, titleKey: "service.housing.title", descKey: "service.housing.desc", ctaKey: "service.housing.cta", to: "/wohnungen", premium: false },
-  { icon: Calculator, titleKey: "service.calc.title", descKey: "service.calc.desc", ctaKey: "service.calc.cta", to: "/kalkulatori", premium: false },
-];
-
-
-/* useInfiniteScroll moved to @/hooks/useInfiniteScroll */
+import FlowBanner from "@/components/home/FlowBanner";
 
 function CarouselArrows({ onLeft, onRight }: { onLeft: () => void; onRight: () => void }) {
   return (
     <>
-      <button onClick={onLeft} className="flex absolute left-2 top-1/2 -translate-y-1/2 z-20 h-10 w-10 rounded-full bg-white/80 shadow-md items-center justify-center hover:scale-105 hover:shadow-lg transition-all border border-[#E8E0D0]" aria-label="Previous">
-        <ChevronLeft className="h-5 w-5 text-[#2D2D2D]" />
+      <button onClick={onLeft} className="flex absolute left-2 top-1/2 -translate-y-1/2 z-20 h-10 w-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 shadow-md items-center justify-center hover:bg-white/15 transition-all text-white/60 hover:text-white" aria-label="Previous">
+        <ChevronLeft className="h-5 w-5" />
       </button>
-      <button onClick={onRight} className="flex absolute right-2 top-1/2 -translate-y-1/2 z-20 h-10 w-10 rounded-full bg-white/80 shadow-md items-center justify-center hover:scale-105 hover:shadow-lg transition-all border border-[#E8E0D0]" aria-label="Next">
-        <ChevronRight className="h-5 w-5 text-[#2D2D2D]" />
+      <button onClick={onRight} className="flex absolute right-2 top-1/2 -translate-y-1/2 z-20 h-10 w-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 shadow-md items-center justify-center hover:bg-white/15 transition-all text-white/60 hover:text-white" aria-label="Next">
+        <ChevronRight className="h-5 w-5" />
       </button>
     </>
-  );
-}
-
-/* ─── Services Carousel ─── */
-function ServicesCarousel() {
-  const doubled = [...serviceCardKeys, ...serviceCardKeys];
-  const { t } = useLanguage();
-  const { ref, pause, scheduleResume, scrollByCard, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.6, 3000);
-
-  return (
-    <div className="relative overflow-hidden" onMouseEnter={pause} onMouseLeave={scheduleResume}>
-      <CarouselArrows onLeft={() => scrollByCard("left")} onRight={() => scrollByCard("right")} />
-      <div ref={ref} className="flex gap-5 px-4 overflow-x-hidden scrollbar-hide cursor-grab select-none" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onMouseDown={onMouseDown} onMouseMove={onMouseMove} onMouseUp={onMouseUp} onMouseLeave={onMouseLeave}>
-        {doubled.map((card, i) => {
-          const Icon = card.icon;
-          const isPremium = card.premium;
-          return (
-            <Link
-              key={`${card.titleKey}-${i}`}
-              to={card.to}
-              className={`group flex flex-col w-[280px] shrink-0 rounded-[14px] p-5 transition-all duration-300 hover:-translate-y-[3px] ${
-                isPremium
-                  ? "border-2 border-[hsl(43,70%,53%)] shadow-[0_4px_20px_rgba(0,0,0,0.35),0_0_18px_hsla(43,70%,53%,0.12)] hover:border-[hsl(43,80%,62%)] hover:shadow-[0_12px_36px_rgba(0,0,0,0.45),0_0_28px_hsla(43,70%,53%,0.22)]"
-                  : "bg-white border border-[#E8E0D0] shadow-[0_2px_16px_rgba(0,0,0,0.07)] hover:shadow-[0_8px_28px_rgba(0,0,0,0.12)]"
-              }`}
-              style={isPremium ? { background: "linear-gradient(160deg, hsl(220,50%,8%), hsl(225,45%,6%))" } : undefined}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <Icon className={`h-6 w-6 shrink-0 ${isPremium ? "text-[hsl(43,70%,53%)]" : "text-[hsl(var(--gold))]"}`} />
-                {isPremium && (
-                  <span
-                    className="rounded-full px-2.5 py-0.5 text-[9px] font-extrabold uppercase tracking-wider text-[hsl(225,45%,6%)]"
-                    style={{ background: "linear-gradient(135deg, hsl(43,70%,53%), hsl(38,60%,42%))", boxShadow: "0 0 10px hsla(43,70%,53%,0.25)" }}
-                  >
-                    ⭐ Premium
-                  </span>
-                )}
-              </div>
-              <h3 className={`text-sm font-semibold mb-1 ${isPremium ? "text-white" : "text-[#2D2D2D]"}`}>{t(card.titleKey)}</h3>
-              <p className={`text-xs leading-relaxed mb-4 flex-1 ${isPremium ? "text-white/60" : "text-[#6B6B6B]"}`}>{t(card.descKey)}</p>
-              <span
-                className={`block w-full rounded-lg py-2 text-center text-xs font-semibold transition-all duration-300 ${
-                  isPremium
-                    ? "text-[hsl(225,45%,6%)] group-hover:brightness-110 group-hover:scale-[1.02]"
-                    : "bg-[hsl(var(--gold))] text-white group-hover:bg-[hsl(var(--gold-dark))]"
-                }`}
-                style={isPremium ? { background: "linear-gradient(135deg, hsl(43,70%,53%), hsl(38,65%,45%))", boxShadow: "0 2px 12px hsla(43,70%,53%,0.25)" } : undefined}
-              >
-                {t(card.ctaKey)}
-              </span>
-            </Link>
-          );
-        })}
-      </div>
-    </div>
   );
 }
 
@@ -133,42 +51,42 @@ function ShowcaseCarousel() {
           if (item.type === "firm") {
             const firm = item.firm;
             return (
-              <article key={`${firm.slug}-${i}`} className="min-w-[340px] max-w-[380px] shrink-0 rounded-2xl bg-white border border-[#E8E0D0] overflow-hidden flex flex-col shadow-[0_4px_24px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,0,0,0.14)]">
+              <article key={`${firm.slug}-${i}`} className="min-w-[340px] max-w-[380px] shrink-0 rounded-2xl overflow-hidden flex flex-col transition-all duration-200 hover:-translate-y-1" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
                 <div className="relative h-[180px] w-full overflow-hidden">
-                  <img src={firm.images[0]} alt={firm.name} className="h-full w-full object-cover" style={{ filter: "brightness(0.92) saturate(1.1)" }} loading="lazy" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
-                  <div className="absolute left-3 top-3 flex items-center rounded-xl border border-white/50 bg-white/70 px-3 py-1.5 backdrop-blur-md">
-                    <img src={firm.logoUrl} alt={firm.logoAlt} className="h-6 max-w-[90px] object-contain" />
+                  <img src={firm.images[0]} alt={firm.name} className="h-full w-full object-cover" style={{ filter: "brightness(0.85) saturate(1.1)" }} loading="lazy" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                  <div className="absolute left-3 top-3 flex items-center rounded-xl border border-white/20 bg-black/40 px-3 py-1.5 backdrop-blur-md">
+                    <img src={firm.logoUrl} alt={firm.logoAlt} className="h-6 max-w-[90px] object-contain brightness-0 invert" />
                   </div>
-                  <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-[hsl(var(--gold))] px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-white">
-                    <Star className="h-2.5 w-2.5 fill-current" /> {"Preporučeno"}
+                  <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider" style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))", color: "#000" }}>
+                    <Star className="h-2.5 w-2.5 fill-current" /> Preporučeno
                   </span>
                 </div>
-                <div className="flex flex-1 flex-col gap-3 p-5 border-t-[3px] border-[hsl(var(--gold))]">
+                <div className="flex flex-1 flex-col gap-3 p-5" style={{ borderTop: "2px solid hsl(var(--gold))" }}>
                   <div>
-                    <h3 className="text-base font-bold text-[#2D2D2D]">{firm.name}</h3>
-                    <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-[#6B6B6B]">{firm.description}</p>
+                    <h3 className="text-base font-bold text-white">{firm.name}</h3>
+                    <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-white/50">{firm.description}</p>
                   </div>
                   <div className="flex flex-wrap gap-1.5">
                     {firm.highlights.map((h) => (
-                      <span key={h} className="rounded-full border border-[#E8E0D0] bg-[hsl(var(--warm-cream))] px-2.5 py-0.5 text-[10px] font-semibold text-[#6B6B6B]">{h}</span>
+                      <span key={h} className="rounded-full border border-white/10 px-2.5 py-0.5 text-[10px] font-semibold text-white/50 bg-white/5">{h}</span>
                     ))}
                   </div>
                   <div className="mt-auto flex gap-2 pt-2">
-                    <Button asChild size="sm" className="h-8 rounded-lg bg-[hsl(var(--gold))] px-4 text-xs font-bold text-white hover:bg-[hsl(var(--gold-dark))]">
+                    <Button asChild size="sm" className="h-8 rounded-lg px-4 text-xs font-bold text-black" style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))" }}>
                       {firm.website ? (
-                        <a href={firm.website} target="_blank" rel="noopener noreferrer">{"Pogledaj"} <ExternalLink className="ml-1 h-3 w-3" /></a>
+                        <a href={firm.website} target="_blank" rel="noopener noreferrer">Pogledaj <ExternalLink className="ml-1 h-3 w-3" /></a>
                       ) : (
-                        <Link to={`/firma/${firm.slug}`}>{"Pogledaj"} <ExternalLink className="ml-1 h-3 w-3" /></Link>
+                        <Link to={`/firma/${firm.slug}`}>Pogledaj <ExternalLink className="ml-1 h-3 w-3" /></Link>
                       )}
                     </Button>
-                    <Button asChild variant="outline" size="sm" className="h-8 rounded-lg border-[#E8E0D0] px-4 text-xs font-semibold text-[#2D2D2D] hover:bg-[hsl(var(--warm-cream))]">
+                    <Button asChild variant="outline" size="sm" className="h-8 rounded-lg border-white/15 px-4 text-xs font-semibold text-white/70 hover:bg-white/10 hover:text-white">
                       {firm.contactUrl ? (
-                        <a href={firm.contactUrl} target="_blank" rel="noopener noreferrer">{"Kontakt"}</a>
+                        <a href={firm.contactUrl} target="_blank" rel="noopener noreferrer">Kontakt</a>
                       ) : firm.phone ? (
-                        <a href={`tel:${firm.phone}`}>{"Kontakt"}</a>
+                        <a href={`tel:${firm.phone}`}>Kontakt</a>
                       ) : (
-                        <Link to={`/firma/${firm.slug}`}>{"Kontakt"}</Link>
+                        <Link to={`/firma/${firm.slug}`}>Kontakt</Link>
                       )}
                     </Button>
                   </div>
@@ -186,186 +104,101 @@ function ShowcaseCarousel() {
 
 /* ─── Main Page ─── */
 export default function Index() {
-  const [currentSlide, setCurrentSlide] = useState(0);
   const navigate = useNavigate();
   const { t } = useLanguage();
 
-  const nextSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  }, []);
-
-  useEffect(() => {
-    const timer = setInterval(nextSlide, 5000);
-    return () => clearInterval(timer);
-  }, [nextSlide]);
-
-
   return (
-    <div className="relative bg-[hsl(var(--warm-cream))]">
+    <div className="relative" style={{ background: "hsl(215 55% 4%)" }}>
       <SEO path="/" />
+
       {/* ─── HERO ─── */}
-      <section className="relative min-h-[92vh] overflow-hidden">
-        {slides.map((slide, idx) => (
-          <div key={idx} className="absolute inset-0 transition-opacity duration-[1500ms] ease-in-out" style={{ opacity: idx === currentSlide ? 1 : 0, zIndex: idx === currentSlide ? 1 : 0 }}>
-            <img src={slide.image} alt={slide.city} className="h-full w-full object-cover transition-transform duration-[5000ms] ease-out" style={{ filter: "brightness(0.85) saturate(1.1) contrast(1.02)", transform: idx === currentSlide ? "scale(1.04)" : "scale(1)" }} loading={idx === 0 ? "eager" : "lazy"} fetchPriority={idx === 0 ? "high" : "auto"} />
-          </div>
-        ))}
+      <HeroSection />
 
-        {/* Overlay */}
-        <div className="absolute inset-0 z-[2]" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 50%, rgba(0,0,0,0.65) 100%)" }} />
+      {/* ─── FEATURE CARDS ─── */}
+      <FeatureCards />
 
-        <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-5 py-16 lg:py-20">
-
-          <div className="mx-auto flex w-full max-w-6xl flex-col items-center text-center">
-            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }} className="flex flex-col items-center text-center">
-              <h1
-                className="font-heading font-[800] text-white"
-                style={{ fontSize: "clamp(2.4rem, 5vw, 4rem)", lineHeight: 1.15, textShadow: "0 2px 12px rgba(0,0,0,0.4)" }}
-              >
-                {t("hero.titleWhite")}{" "}
-                <span style={{ color: "#C9A84C" }}>{t("hero.titleGold")}</span>
-              </h1>
-
-              <p className="mx-auto mt-4 text-white" style={{ maxWidth: 560, fontSize: "1.1rem", opacity: 0.88, lineHeight: 1.6 }}>
-                {t("hero.subtitle")}
-              </p>
-
-
-              <div className="mt-8 md:mt-8 flex flex-col items-center gap-4">
-                <button
-                  onClick={() => navigate("/formulari")}
-                  className="transition-all duration-200"
-                  style={{
-                    background: "#C9A84C",
-                    color: "#000",
-                    fontWeight: 700,
-                    padding: "14px 40px",
-                    borderRadius: 8,
-                    boxShadow: "0 4px 24px rgba(201,168,76,0.45)",
-                    fontSize: "1rem",
-                  }}
-                  onMouseEnter={(e) => { e.currentTarget.style.filter = "brightness(1.1)"; e.currentTarget.style.transform = "scale(1.02)"; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.filter = ""; e.currentTarget.style.transform = ""; }}
-                >
-                  {t("hero.cta.primary")}
-                </button>
-                <button
-                  onClick={() => navigate("/paketi")}
-                  className="transition-all duration-200"
-                  style={{
-                    background: "transparent",
-                    border: "2px solid rgba(255,255,255,0.45)",
-                    color: "white",
-                    fontWeight: 600,
-                    padding: "14px 40px",
-                    borderRadius: 8,
-                  }}
-                  onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.1)"; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; }}
-                >
-                  {t("hero.cta.secondary")}
-                </button>
-              </div>
-
-              <p className="mx-auto mt-6 max-w-sm text-center text-white" style={{ fontSize: "0.72rem", opacity: 0.55 }}>
-                {t("hero.disclaimer")}
-              </p>
-
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.7 }} className="mt-6 flex flex-row flex-wrap items-center justify-center" style={{ gap: 28 }}>
-                {trustBadgeKeys.map((key) => (
-                  <span key={key} className="flex items-center gap-1.5 font-medium text-white" style={{ fontSize: "0.85rem", opacity: 0.82, textShadow: "0 1px 3px rgba(0,0,0,0.6)" }}>
-                    <CheckCircle2 className="h-4 w-4" style={{ color: "#C9A84C" }} />
-                    {t(key)}
-                  </span>
-                ))}
-              </motion.div>
-            </motion.div>
-          </div>
-        </div>
-
-
-        {/* Slider dots */}
-        <div className="absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 gap-1.5">
-          {slides.map((_, idx) => (
-            <button key={idx} onClick={() => setCurrentSlide(idx)} className={`rounded-full transition-all duration-500 ${idx === currentSlide ? "h-1.5 w-6 bg-[hsl(var(--gold))] shadow-[0_0_8px_rgba(201,168,76,0.5)]" : "h-1.5 w-1.5 bg-white/15 hover:bg-white/30"}`} aria-label={`Slide ${idx + 1}`} />
-          ))}
-        </div>
-      </section>
-
-      {/* ─── HERO → BODY TRANSITION ─── */}
-      <div className="relative h-0">
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(var(--gold))]/40 to-transparent" />
-      </div>
-
-
-      {/* ─── "ŠTA JE ŠTA?" EXPLAINER ─── */}
-      <WhatIsWhat />
+      {/* ─── BEFORE / AFTER ─── */}
+      <BeforeAfterSection />
 
       {/* ─── FLOW BANNER CAROUSEL ─── */}
       <FlowBanner />
 
+      {/* ─── PROCESS ─── */}
+      <ProcessSection />
+
+      {/* ─── TRUST ─── */}
+      <TrustSection />
+
+      {/* ─── "ŠTA JE ŠTA?" EXPLAINER ─── */}
+      <section className="py-14 px-4" style={{ background: "hsl(220 50% 6%)" }}>
+        <WhatIsWhat />
+      </section>
+
       {/* ─── PARTNERS / SHOWCASE ─── */}
-      <section className="py-16 bg-white border-t border-[#E8E0D0]">
+      <section className="py-16" style={{ background: "hsl(215 55% 4%)", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
         <div className="container max-w-[1200px] mx-auto mb-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-            <p className="text-xs font-bold uppercase tracking-[0.26em] text-[hsl(var(--gold))]">{"NAŠI PARTNERI"}</p>
-            <h2 className="mt-2 font-heading text-2xl font-extrabold text-[#2D2D2D]">
-              {"Preporučene usluge"}
+            <p className="text-xs font-bold uppercase tracking-[0.26em] text-[hsl(var(--gold))]">NAŠI PARTNERI</p>
+            <h2 className="mt-2 font-heading text-2xl font-extrabold text-white">
+              Preporučene usluge
             </h2>
           </motion.div>
         </div>
         <ShowcaseCarousel />
       </section>
 
-      {/* ─── PRICING SECTION — at the bottom, before footer ─── */}
-      <section className="py-16 bg-white border-t border-[#E8E0D0]">
+      {/* ─── PRICING SECTION ─── */}
+      <section className="py-16" style={{ background: "hsl(220 50% 5%)", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
         <div className="container max-w-[1200px] mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
             <div className="text-center mb-10">
-              <h2 className="font-heading text-3xl font-extrabold text-[#2D2D2D] sm:text-4xl">
+              <h2 className="font-heading text-3xl font-extrabold text-white sm:text-4xl">
                 Odaberi plan koji ti odgovara
               </h2>
-              <p className="mt-3 text-base text-[#6B6B6B] max-w-xl mx-auto">
+              <p className="mt-3 text-base text-white/50 max-w-xl mx-auto">
                 Počni besplatno — nadogradi kad trebaš više. Bez ugovora, otkaži kad hoćeš.
               </p>
             </div>
+
+            {/* Pricing Warning */}
+            <PricingWarning />
 
             {/* ── Mobile: Accordion layout ── */}
             <div className="sm:hidden mb-8">
               <Accordion type="single" collapsible className="space-y-2">
                 {/* Free */}
-                <AccordionItem value="free" className="rounded-xl border-2 border-[#E8E0D0] bg-[hsl(var(--warm-cream))] overflow-hidden">
+                <AccordionItem value="free" className="rounded-xl overflow-hidden" style={{ border: "1px solid rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)" }}>
                   <AccordionTrigger className="px-4 py-3.5 hover:no-underline [&>svg]:text-[hsl(var(--gold))]">
                     <span className="flex items-center gap-3 text-left">
                       <span className="text-lg">🆓</span>
-                      <span className="font-bold text-[#2D2D2D]">Besplatno — 0€</span>
+                      <span className="font-bold text-white">Besplatno — 0€</span>
                     </span>
                   </AccordionTrigger>
                   <AccordionContent className="px-4 pb-4">
-                    <ul className="space-y-2 text-sm text-[#6B6B6B] mb-4">
+                    <ul className="space-y-2 text-sm text-white/60 mb-4">
                       <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Osnovni vodič</li>
                       <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Pregled formulara</li>
                       <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Brutto-Netto kalkulator</li>
                       <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Oglasi (besplatno)</li>
                     </ul>
-                    <Button variant="outline" className="w-full rounded-full border-[#E8E0D0] text-[#2D2D2D] font-semibold" onClick={() => navigate("/formulari")}>
+                    <Button variant="outline" className="w-full rounded-full border-white/15 text-white font-semibold hover:bg-white/10" onClick={() => navigate("/formulari")}>
                       Počni besplatno
                     </Button>
                   </AccordionContent>
                 </AccordionItem>
 
                 {/* Premium */}
-                <AccordionItem value="premium" className="rounded-xl border-2 border-[hsl(var(--gold))] bg-white overflow-hidden shadow-[0_4px_16px_rgba(201,168,76,0.1)]">
+                <AccordionItem value="premium" className="rounded-xl overflow-hidden" style={{ border: "1.5px solid hsla(43,52%,54%,0.4)", background: "rgba(255,255,255,0.04)", boxShadow: "0 4px 24px hsla(43,52%,54%,0.1)" }}>
                   <AccordionTrigger className="px-4 py-3.5 hover:no-underline [&>svg]:text-[hsl(var(--gold))]">
                     <span className="flex items-center gap-3 text-left">
                       <span className="text-lg">⭐</span>
-                      <span className="font-bold text-[#2D2D2D]">Premium — 9,99€/mj.</span>
-                      <span className="ml-auto mr-2 rounded-full bg-[hsl(var(--gold))] px-2 py-0.5 text-[9px] font-bold uppercase text-white">Preporučeno</span>
+                      <span className="font-bold text-white">Premium — 9,99€/mj.</span>
+                      <span className="ml-auto mr-2 rounded-full px-2 py-0.5 text-[9px] font-bold uppercase" style={{ background: "hsl(var(--gold))", color: "#000" }}>Preporučeno</span>
                     </span>
                   </AccordionTrigger>
                   <AccordionContent className="px-4 pb-4">
-                    <p className="text-xs text-[#6B6B6B] mb-3">ili 99,90€/godišnje (uštedi 17%)</p>
-                    <ul className="space-y-2 text-sm text-[#2D2D2D] mb-4">
+                    <p className="text-xs text-white/40 mb-3">ili 99,90€/godišnje (uštedi 17%)</p>
+                    <ul className="space-y-2 text-sm text-white/80 mb-4">
                       <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Svi Musterformulari</li>
                       <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Smart Guides (svi koraci)</li>
                       <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Viza Navigator</li>
@@ -374,72 +207,71 @@ export default function Index() {
                       <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> BalkanLink Asistent neograničeno</li>
                       <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> 2 Pro oglasa/mjesečno</li>
                     </ul>
-                    <Button className="w-full rounded-full bg-[hsl(var(--gold))] text-white font-bold hover:bg-[hsl(var(--gold-dark))] shadow-[0_4px_20px_rgba(201,168,76,0.35)]" onClick={() => navigate("/paketi")}>
+                    <Button className="w-full rounded-full font-bold text-black" style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-light)))", boxShadow: "0 4px 20px hsla(43,52%,54%,0.35)" }} onClick={() => navigate("/paketi")}>
                       Postani Premium →
                     </Button>
                   </AccordionContent>
                 </AccordionItem>
 
                 {/* Dokumenten-Check */}
-                <AccordionItem value="doc-check" className="rounded-xl border-2 border-[#E8E0D0] bg-[hsl(var(--warm-cream))] overflow-hidden">
+                <AccordionItem value="doc-check" className="rounded-xl overflow-hidden" style={{ border: "1px solid rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)" }}>
                   <AccordionTrigger className="px-4 py-3.5 hover:no-underline [&>svg]:text-[hsl(var(--gold))]">
                     <span className="flex items-center gap-3 text-left">
                       <span className="text-lg">🔍</span>
-                      <span className="font-bold text-[#2D2D2D]">Dokumenten-Check — 2,99€</span>
+                      <span className="font-bold text-white">Dokumenten-Check — 2,99€</span>
                     </span>
                   </AccordionTrigger>
                   <AccordionContent className="px-4 pb-4">
-                    <p className="text-xs text-[#6B6B6B] mb-3">Po dokumentu (bez pretplate)</p>
-                    <ul className="space-y-2 text-sm text-[#6B6B6B] mb-4">
+                    <p className="text-xs text-white/40 mb-3">Po dokumentu (bez pretplate)</p>
+                    <ul className="space-y-2 text-sm text-white/60 mb-4">
                       <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Detaljna analiza dokumenta</li>
                       <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> 11 sekcija objašnjenja</li>
                       <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Rokovi i finansijski uticaj</li>
                       <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> PDF, JPG, PNG do 10 MB</li>
                     </ul>
-                    <Button variant="outline" className="w-full rounded-full border-[#E8E0D0] text-[#2D2D2D] font-semibold" onClick={() => navigate("/dokumenten-check")}>
+                    <Button variant="outline" className="w-full rounded-full border-white/15 text-white font-semibold hover:bg-white/10" onClick={() => navigate("/dokumenten-check")}>
                       Provjeri dokument
                     </Button>
                   </AccordionContent>
                 </AccordionItem>
 
-                {/* Comparison table — collapsible */}
-                <AccordionItem value="comparison" className="rounded-xl border border-[#E8E0D0] bg-white overflow-hidden">
+                {/* Comparison */}
+                <AccordionItem value="comparison" className="rounded-xl overflow-hidden" style={{ border: "1px solid rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)" }}>
                   <AccordionTrigger className="px-4 py-3.5 hover:no-underline [&>svg]:text-[hsl(var(--gold))]">
                     <span className="flex items-center gap-3 text-left">
                       <span className="text-lg">📊</span>
-                      <span className="font-bold text-[#2D2D2D]">Besplatno vs. Premium</span>
+                      <span className="font-bold text-white">Besplatno vs. Premium</span>
                     </span>
                   </AccordionTrigger>
                   <AccordionContent className="px-0 pb-0">
-                    {/* Column headers */}
-                    <div className="grid grid-cols-3 px-4 py-2 text-[10px] font-bold uppercase tracking-wider border-b border-[#E8E0D0] bg-muted/30">
-                      <span className="text-muted-foreground">Funkcija</span>
-                      <span className="text-center"><span className="inline-flex items-center gap-1 text-foreground">Besplatno <span className="rounded-full bg-muted px-1.5 py-0.5 text-[9px] font-semibold">0€</span></span></span>
-                      <span className="text-center"><span className="inline-flex items-center gap-1 text-[hsl(var(--gold))]">Premium <span className="rounded-full bg-[hsl(var(--gold))]/10 text-[hsl(var(--gold))] px-1.5 py-0.5 text-[9px] font-semibold">9,99€/mj.</span></span></span>
+                    <div className="grid grid-cols-3 px-4 py-2 text-[10px] font-bold uppercase tracking-wider border-b border-white/10">
+                      <span className="text-white/40">Funkcija</span>
+                      <span className="text-center text-white/60">Besplatno</span>
+                      <span className="text-center text-[hsl(var(--gold))]">Premium</span>
                     </div>
-                    <div className="divide-y divide-[#E8E0D0]">
+                    <div className="divide-y divide-white/5">
                       {[
-                        { feature: "Musterformulari", free: "❌ Nije dostupno", premium: "✅ Svi formulari + primjeri" },
-                        { feature: "Smart Guides", free: "❌ Nije dostupno", premium: "✅ Korak-po-korak vodič" },
-                        { feature: "Viza Navigator", free: "Osnovna info", premium: "✅ Kompletni vodič + dokumenti" },
-                        { feature: "Dokumenten-Check", free: "2,99€ po provjeri", premium: "✅ 1x dnevno gratis" },
-                        { feature: "Šabloni / Vorlagen", free: "✅ Kündigung gratis", premium: "✅ Svi šabloni + PDF download" },
-                        { feature: "BalkanLink Asistent", free: "⚠️ 5 pitanja/dan", premium: "✅ Neograničeno" },
-                        { feature: "DeutschTrainer", free: "❌ Nije dostupno", premium: "✅ A1–C2 kompletni kurs" },
-                        { feature: "Brutto-Netto kalkulator", free: "✅ Dostupno", premium: "✅ Dostupno" },
-                        { feature: "Pro oglasi", free: "2,99€/oglas", premium: "✅ 2 uključena/mj." },
-                        { feature: "Dolazak u Njemačku vodiči", free: "✅ Potpun pristup", premium: "✅ Potpun pristup" },
-                        { feature: "Wertgutschein program", free: "❌ Nije dostupno", premium: "✅ Amazon vaučer do 30€" },
+                        { feature: "Musterformulari", free: "❌", premium: "✅ Svi formulari" },
+                        { feature: "Smart Guides", free: "❌", premium: "✅ Korak-po-korak" },
+                        { feature: "Viza Navigator", free: "Osnovna info", premium: "✅ Kompletni vodič" },
+                        { feature: "Dokumenten-Check", free: "2,99€", premium: "✅ 1x dnevno" },
+                        { feature: "Šabloni", free: "✅ Kündigung", premium: "✅ Svi + PDF" },
+                        { feature: "Asistent", free: "5/dan", premium: "✅ Neograničeno" },
+                        { feature: "DeutschTrainer", free: "❌", premium: "✅ A1–C2" },
+                        { feature: "Kalkulator", free: "✅", premium: "✅" },
+                        { feature: "Pro oglasi", free: "2,99€", premium: "✅ 2/mj." },
+                        { feature: "Vodiči", free: "✅", premium: "✅" },
+                        { feature: "Wertgutschein", free: "❌", premium: "✅ do 30€" },
                       ].map((row) => (
                         <div key={row.feature} className="grid grid-cols-3 px-4 py-2.5 text-xs">
-                          <span className="font-medium text-foreground">{row.feature}</span>
-                          <span className="text-center text-muted-foreground">{row.free}</span>
+                          <span className="font-medium text-white/70">{row.feature}</span>
+                          <span className="text-center text-white/40">{row.free}</span>
                           <span className="text-center font-semibold text-[hsl(var(--gold))]">{row.premium}</span>
                         </div>
                       ))}
                     </div>
-                    <div className="px-4 py-4 border-t border-[#E8E0D0]">
-                      <Button className="w-full rounded-full bg-[hsl(var(--gold))] text-white font-bold hover:bg-[hsl(var(--gold-dark))]" onClick={() => navigate("/paketi")}>
+                    <div className="px-4 py-4 border-t border-white/10">
+                      <Button className="w-full rounded-full font-bold text-black" style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-light)))" }} onClick={() => navigate("/paketi")}>
                         Postani Premium →
                       </Button>
                     </div>
@@ -448,31 +280,41 @@ export default function Index() {
               </Accordion>
             </div>
 
-            {/* ── Desktop: Original card grid ── */}
+            {/* ── Desktop: Card grid ── */}
             <div className="hidden sm:grid grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
               {/* Free */}
-              <div className="rounded-2xl border-2 border-[#E8E0D0] bg-[hsl(var(--warm-cream))] p-6 flex flex-col">
-                <p className="text-sm font-bold text-[#6B6B6B] uppercase tracking-wider mb-2">Besplatno</p>
-                <p className="text-3xl font-black text-[#2D2D2D] mb-1">0€</p>
-                <p className="text-xs text-[#6B6B6B] mb-6">Zauvijek besplatno</p>
-                <ul className="space-y-2 text-sm text-[#6B6B6B] flex-1">
+              <motion.div whileHover={{ y: -4, boxShadow: "0 12px 40px rgba(0,0,0,0.4)" }} className="rounded-2xl p-6 flex flex-col transition-all" style={{ border: "1px solid rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)" }}>
+                <p className="text-sm font-bold text-white/50 uppercase tracking-wider mb-2">Besplatno</p>
+                <p className="text-3xl font-black text-white mb-1">0€</p>
+                <p className="text-xs text-white/40 mb-6">Zauvijek besplatno</p>
+                <ul className="space-y-2 text-sm text-white/60 flex-1">
                   <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Osnovni vodič</li>
                   <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Pregled formulara</li>
                   <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Brutto-Netto kalkulator</li>
                   <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Oglasi (besplatno)</li>
                 </ul>
-                <Button variant="outline" className="mt-6 w-full rounded-full border-[#E8E0D0] text-[#2D2D2D] font-semibold" onClick={() => navigate("/formulari")}>
+                <Button variant="outline" className="mt-6 w-full rounded-full border-white/15 text-white font-semibold hover:bg-white/10" onClick={() => navigate("/formulari")}>
                   Počni besplatno
                 </Button>
-              </div>
+              </motion.div>
 
               {/* Premium */}
-              <div className="relative rounded-2xl border-2 border-[hsl(var(--gold))] bg-white p-6 flex flex-col shadow-[0_8px_32px_rgba(201,168,76,0.15)]">
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[hsl(var(--gold))] px-4 py-1 text-[10px] font-bold uppercase tracking-wider text-white">Preporučeno</span>
+              <motion.div
+                whileHover={{ y: -4 }}
+                className="relative rounded-2xl p-6 flex flex-col"
+                style={{
+                  border: "1.5px solid hsla(43,52%,54%,0.4)",
+                  background: "rgba(255,255,255,0.04)",
+                  boxShadow: "0 8px 32px hsla(43,52%,54%,0.12)",
+                }}
+              >
+                {/* Pulsing ring */}
+                <div className="absolute inset-0 rounded-2xl pointer-events-none animate-glow-pulse" style={{ boxShadow: "0 0 30px hsla(43,52%,54%,0.15), inset 0 0 30px hsla(43,52%,54%,0.05)" }} />
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-4 py-1 text-[10px] font-bold uppercase tracking-wider" style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))", color: "#000" }}>Preporučeno</span>
                 <p className="text-sm font-bold text-[hsl(var(--gold))] uppercase tracking-wider mb-2">Premium</p>
-                <p className="text-3xl font-black text-[#2D2D2D] mb-1">9,99€<span className="text-base font-normal text-[#6B6B6B]">/mj.</span></p>
-                <p className="text-xs text-[#6B6B6B] mb-6">ili 99,90€/godišnje (uštedi 17%)</p>
-                <ul className="space-y-2 text-sm text-[#2D2D2D] flex-1">
+                <p className="text-3xl font-black text-white mb-1">9,99€<span className="text-base font-normal text-white/40">/mj.</span></p>
+                <p className="text-xs text-white/40 mb-6">ili 99,90€/godišnje (uštedi 17%)</p>
+                <ul className="space-y-2 text-sm text-white/80 flex-1">
                   <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Svi Musterformulari</li>
                   <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Smart Guides (svi koraci)</li>
                   <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Viza Navigator</li>
@@ -481,40 +323,39 @@ export default function Index() {
                   <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> BalkanLink Asistent neograničeno</li>
                   <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> 2 Pro oglasa/mjesečno</li>
                 </ul>
-                <Button className="mt-6 w-full rounded-full bg-[hsl(var(--gold))] text-white font-bold hover:bg-[hsl(var(--gold-dark))] shadow-[0_4px_20px_rgba(201,168,76,0.35)]" onClick={() => navigate("/paketi")}>
+                <Button className="mt-6 w-full rounded-full font-bold text-black" style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-light)))", boxShadow: "0 4px 20px hsla(43,52%,54%,0.35)" }} onClick={() => navigate("/paketi")}>
                   Postani Premium →
                 </Button>
-              </div>
+              </motion.div>
 
               {/* Dokumenten-Check */}
-              <div className="rounded-2xl border-2 border-[#E8E0D0] bg-[hsl(var(--warm-cream))] p-6 flex flex-col">
-                <p className="text-sm font-bold text-[#6B6B6B] uppercase tracking-wider mb-2">Dokumenten-Check</p>
-                <p className="text-3xl font-black text-[#2D2D2D] mb-1">2,99€</p>
-                <p className="text-xs text-[#6B6B6B] mb-6">Po dokumentu (bez pretplate)</p>
-                <ul className="space-y-2 text-sm text-[#6B6B6B] flex-1">
+              <motion.div whileHover={{ y: -4, boxShadow: "0 12px 40px rgba(0,0,0,0.4)" }} className="rounded-2xl p-6 flex flex-col transition-all" style={{ border: "1px solid rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)" }}>
+                <p className="text-sm font-bold text-white/50 uppercase tracking-wider mb-2">Dokumenten-Check</p>
+                <p className="text-3xl font-black text-white mb-1">2,99€</p>
+                <p className="text-xs text-white/40 mb-6">Po dokumentu (bez pretplate)</p>
+                <ul className="space-y-2 text-sm text-white/60 flex-1">
                   <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Detaljna analiza dokumenta</li>
                   <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> 11 sekcija objašnjenja</li>
                   <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Rokovi i finansijski uticaj</li>
                   <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> PDF, JPG, PNG do 10 MB</li>
                 </ul>
-                <Button variant="outline" className="mt-6 w-full rounded-full border-[#E8E0D0] text-[#2D2D2D] font-semibold" onClick={() => navigate("/dokumenten-check")}>
+                <Button variant="outline" className="mt-6 w-full rounded-full border-white/15 text-white font-semibold hover:bg-white/10" onClick={() => navigate("/dokumenten-check")}>
                   Provjeri dokument
                 </Button>
-              </div>
+              </motion.div>
             </div>
 
-            {/* ── Comparison Table (desktop only) ── */}
-            <div className="hidden sm:block max-w-3xl mx-auto rounded-2xl border border-[#E8E0D0] overflow-hidden">
-              <div className="bg-[hsl(var(--warm-cream))] px-6 py-4 border-b border-[#E8E0D0]">
-                <h3 className="font-bold text-foreground text-lg">Besplatno vs. Premium</h3>
+            {/* ── Comparison Table (desktop) ── */}
+            <div className="hidden sm:block max-w-3xl mx-auto rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(255,255,255,0.08)" }}>
+              <div className="px-6 py-4 border-b border-white/10" style={{ background: "rgba(255,255,255,0.03)" }}>
+                <h3 className="font-bold text-white text-lg">Besplatno vs. Premium</h3>
               </div>
-              {/* Column headers */}
-              <div className="grid grid-cols-3 px-6 py-3 text-xs font-bold uppercase tracking-wider border-b border-[#E8E0D0] bg-muted/30">
-                <span className="text-muted-foreground">Funkcija</span>
-                <span className="text-center"><span className="inline-flex items-center gap-1.5 text-foreground">Besplatno <span className="rounded-full bg-muted px-2 py-0.5 text-[10px] font-semibold">0€</span></span></span>
-                <span className="text-center"><span className="inline-flex items-center gap-1.5 text-[hsl(var(--gold))]">Premium <span className="rounded-full bg-[hsl(var(--gold))]/10 text-[hsl(var(--gold))] px-2 py-0.5 text-[10px] font-semibold">9,99€/mj.</span></span></span>
+              <div className="grid grid-cols-3 px-6 py-3 text-xs font-bold uppercase tracking-wider border-b border-white/10" style={{ background: "rgba(255,255,255,0.02)" }}>
+                <span className="text-white/40">Funkcija</span>
+                <span className="text-center text-white/60">Besplatno <span className="rounded-full bg-white/10 px-2 py-0.5 text-[10px]">0€</span></span>
+                <span className="text-center text-[hsl(var(--gold))]">Premium <span className="rounded-full bg-[hsl(var(--gold))]/10 px-2 py-0.5 text-[10px]">9,99€/mj.</span></span>
               </div>
-              <div className="divide-y divide-[#E8E0D0]">
+              <div className="divide-y divide-white/5">
                 {[
                   { feature: "Musterformulari", free: "❌ Nije dostupno", premium: "✅ Svi formulari + primjeri" },
                   { feature: "Smart Guides", free: "❌ Nije dostupno", premium: "✅ Korak-po-korak vodič" },
@@ -529,26 +370,25 @@ export default function Index() {
                   { feature: "Wertgutschein program", free: "❌ Nije dostupno", premium: "✅ Amazon vaučer do 30€" },
                 ].map((row) => (
                   <div key={row.feature} className="grid grid-cols-3 px-6 py-3 text-sm">
-                    <span className="font-medium text-foreground">{row.feature}</span>
-                    <span className="text-center text-muted-foreground">{row.free}</span>
+                    <span className="font-medium text-white/70">{row.feature}</span>
+                    <span className="text-center text-white/40">{row.free}</span>
                     <span className="text-center font-semibold text-[hsl(var(--gold))]">{row.premium}</span>
                   </div>
                 ))}
               </div>
-              <div className="px-6 py-5 border-t border-[#E8E0D0] text-center">
-                <Button className="rounded-full bg-[hsl(var(--gold))] text-white font-bold hover:bg-[hsl(var(--gold-dark))] px-8" onClick={() => navigate("/paketi")}>
+              <div className="px-6 py-5 border-t border-white/10 text-center">
+                <Button className="rounded-full font-bold text-black px-8" style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-light)))" }} onClick={() => navigate("/paketi")}>
                   Postani Premium →
                 </Button>
               </div>
             </div>
 
             <div className="mt-8 text-center">
-              <p className="text-xs text-[#8A8A8A]">Prema § 19 UStG ne obračunava se PDV · Otkaži kad hoćeš · Bez ugovora</p>
+              <p className="text-xs text-white/30">Prema § 19 UStG ne obračunava se PDV · Otkaži kad hoćeš · Bez ugovora</p>
             </div>
           </motion.div>
         </div>
       </section>
-
     </div>
   );
 }

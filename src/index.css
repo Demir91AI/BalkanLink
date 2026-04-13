@@ -282,6 +282,23 @@
   }
 }
 
+/* ─── Hero premium animations ─── */
+@keyframes heroZoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+@keyframes heroHueShift {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(8deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-glow-pulse,
+  .animate-ecg-draw,
+  .animate-scroll-x { animation: none !important; }
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
 /* ─── Sidebar slide animation ─── */
 [data-sidebar="sidebar"] {
   transition: transform 300ms ease-in-out !important;
