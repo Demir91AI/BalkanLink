@@ -22,7 +22,7 @@ const trustBadges = [
   "Na bosanskom jeziku",
 ];
 
-const ease = [0.16, 1, 0.3, 1];
+const ease = [0.16, 1, 0.3, 1] as const;
 
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
