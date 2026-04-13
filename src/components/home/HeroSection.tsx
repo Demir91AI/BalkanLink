@@ -19,7 +19,7 @@ const slides = [
 const trustBadges = [
   "Službeni izvori",
   "Ažurirano 2026",
-  "Na bosanskom jeziku",
+  "Korak-po-korak vodiči",
 ];
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -130,7 +130,7 @@ export default function HeroSection() {
             className="mx-auto mt-5 max-w-xl text-white/80 leading-relaxed"
             style={{ fontSize: "clamp(0.95rem, 1.8vw, 1.15rem)" }}
           >
-            BalkanLink pretvara kompleksnu njemačku birokratiju u jasne, vođene korake — na bosanskom jeziku.
+            BalkanLink pretvara kompleksnu njemačku birokratiju u jasne, vođene korake — korak po korak, bez nagađanja.
           </motion.p>
 
           {/* CTA */}
