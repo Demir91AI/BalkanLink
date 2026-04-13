@@ -115,11 +115,7 @@ export default function HeroSection() {
             className="font-heading font-[900] text-white leading-[1.08]"
             style={{ fontSize: "clamp(2.2rem, 5.5vw, 4.2rem)", textShadow: "0 4px 20px rgba(0,0,0,0.5)" }}
           >
-            Navigirajte njemački sistem.
-            <br />
-            <span className="bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--gold-light))] bg-clip-text text-transparent">
-              Bez stresa. Bez greški.
-            </span>
+            Tvoj vodič kroz njemački sistem.
           </motion.h1>
 
           {/* Subheadline */}
@@ -130,7 +126,7 @@ export default function HeroSection() {
             className="mx-auto mt-5 max-w-xl text-white/80 leading-relaxed"
             style={{ fontSize: "clamp(0.95rem, 1.8vw, 1.15rem)" }}
           >
-            BalkanLink pretvara kompleksnu njemačku birokratiju u jasne, vođene korake — korak po korak, bez nagađanja.
+            Formulari, zahtjevi i procedure objašnjeni jasno, strukturirano i na jednom mjestu.
           </motion.p>
 
           {/* CTA */}
