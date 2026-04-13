@@ -144,7 +144,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3, ease }}
-            className="mx-auto mt-5 max-w-xl text-white/80 leading-relaxed"
+            className="mx-auto mt-7 max-w-xl text-white/80 leading-relaxed"
             style={{ fontSize: "clamp(0.95rem, 1.8vw, 1.15rem)" }}
           >
             Formulari, zahtjevi i procedure objašnjeni jasno, strukturirano i na jednom mjestu.
@@ -155,7 +155,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5, ease }}
-            className="mt-9 flex flex-col sm:flex-row items-center gap-4"
+            className="mt-10 flex flex-col sm:flex-row items-center gap-4"
           >
             <button
               ref={btnRef}
@@ -196,7 +196,7 @@ export default function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.7 }}
-            className="mt-6 text-white/40 text-[0.72rem]"
+            className="mt-10 text-white/40 text-[0.72rem]"
           >
             BalkanLink nije pravni savjetnik. Sadržaj služi isključivo za orijentaciju.
           </motion.p>
@@ -206,7 +206,7 @@ export default function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="mt-6 flex flex-wrap items-center justify-center gap-4"
+            className="mt-5 flex flex-wrap items-center justify-center gap-4"
           >
             {trustBadges.map((badge) => (
               <span
