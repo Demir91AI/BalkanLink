@@ -127,10 +127,10 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease }}
-            className="font-heading font-[900] leading-[1.08]"
+            className="font-heading font-[900] leading-[1.08] whitespace-nowrap"
             style={{
-              fontSize: "clamp(2.2rem, 5.5vw, 4.2rem)",
-              background: "linear-gradient(135deg, #ffffff 40%, #D4AF37 100%)",
+              fontSize: "clamp(1.6rem, 4.2vw, 3.8rem)",
+              background: "linear-gradient(135deg, #ffffff 20%, #D4AF37 60%, #F5D76E 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               filter: "drop-shadow(0 4px 20px rgba(0,0,0,0.5))",
