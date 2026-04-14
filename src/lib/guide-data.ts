@@ -2620,9 +2620,9 @@ export const guides: Guide[] = [
         "Child has already turned 3 (benefit ends Aug 31 of that year)",
       ],
     },
-    officialPdf: "https://www.zbfs.bayern.de/dam/jcr:cfe8cb4c-d7c1-4b97-a269-a97e3b42098f/Antrag_Krippengeld.pdf",
-    onlineLink: "https://www.zbfs.bayern.de/familienleistungen/krippengeld/",
-    officialInfoUrl: "https://www.zbfs.bayern.de/familienleistungen/krippengeld/",
+    officialPdf: "https://www.zbfs.bayern.de/familie/krippengeld/antrag/",
+    onlineLink: "https://www.zbfs.bayern.de/familie/krippengeld/",
+    officialInfoUrl: "https://www.zbfs.bayern.de/familie/krippengeld/",
   },
   // ===================== SOZIALHILFE =====================
   {

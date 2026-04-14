@@ -75,7 +75,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
       ],
       sources: [
         { label: 'Your Europe — EU Freizügigkeit', url: 'https://europa.eu/youreurope/citizens/travel/entry-exit/eu-citizens/index_de.htm' },
-        { label: 'Make it in Germany — EU Bürger', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/eu-buerger' },
+        { label: 'Make it in Germany — EU Bürger', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt' },
         { label: 'BAMF — EU Freizügigkeit', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/FreizuegigkeitEU/freizuegigkeiteu-node.html' }
       ],
       musterformulare: []
@@ -119,7 +119,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
       ],
       sources: [
         { label: 'Your Europe — EU Freizügigkeit', url: 'https://europa.eu/youreurope/citizens/travel/entry-exit/eu-citizens/index_de.htm' },
-        { label: 'Make it in Germany', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/eu-buerger' }
+        { label: 'Make it in Germany', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt' }
       ],
       musterformulare: []
     }]
@@ -177,7 +177,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         sources: [
           { label: 'Ambasada Sarajevo — Westbalkan termini', url: 'https://sarajevo.diplo.de' },
           { label: 'Bundesagentur für Arbeit — Westbalkanregelung', url: 'https://www.arbeitsagentur.de/unternehmen/fachkraefte-ausland/westbalkanregelung' },
-          { label: 'Make it in Germany — Westbalkan', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/arbeit/westbalkan-regelung' },
+          { label: 'Make it in Germany — Westbalkan', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt' },
           { label: 'BAMF — Arbeit §18', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Arbeit/arbeit-node.html' },
           { label: 'Auswärtiges Amt — Westbalkan', url: 'https://sarajewo.diplo.de/ba-de/service/westbalkanregelung-2550504' }
         ],
@@ -279,7 +279,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           { label: 'Ambasada Sarajevo', url: 'https://sarajevo.diplo.de' },
           { label: 'BAMF — Familiennachzug', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Familie/familie-node.html' },
           { label: 'Goethe-Institut Sarajevo', url: 'https://www.goethe.de/ins/ba/bs/index.html' },
-          { label: 'Make it in Germany — Familiennachzug', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/familiennachzug' }
+          { label: 'Make it in Germany — Familiennachzug', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/familiennachzug' }
         ],
         musterformulare: [
           { title: 'Musterformular: Antrag auf Aufenthaltserlaubnis (Spajanje porodice)', subtitle: 'Popunjen primjer §§27-36 AufenthG za BiH', formKey: 'VisaFamilyForm', downloadUrl: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Familie/familie-node.html' }
@@ -379,7 +379,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         sources: [
           { label: 'BAMF — Niederlassungserlaubnis', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/DauerhafterAufenthalt/dauerhafter-aufenthalt-node.html' },
           { label: 'Deutsche Rentenversicherung (DRV)', url: 'https://www.drv.de' },
-          { label: 'Make it in Germany — NE', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/niederlassungserlaubnis' }
+          { label: 'Make it in Germany — NE', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/dauerhaft-in-deutschland/niederlassungserlaubnis' }
         ],
         musterformulare: [
           { title: 'Musterformular 1: Niederlassungserlaubnis §9', subtitle: 'Popunjen primjer — AUFENTHG-009 za BiH', formKey: 'VisaPermanentForm1', downloadUrl: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/DauerhafterAufenthalt/dauerhafter-aufenthalt-node.html' },
@@ -458,7 +458,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         ],
         sources: [
           { label: 'Ambasada Sarajevo — termini', url: 'https://sarajewo.diplo.de' },
-          { label: 'Make it in Germany — Berufsausbildung', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/berufsausbildung' },
+          { label: 'Make it in Germany — Berufsausbildung', url: 'https://www.make-it-in-germany.com/de/visum/arten/berufsausbildung' },
           { label: 'BAMF — §16a AufenthG', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Bildung/Berufsausbildung/berufsausbildung-node.html' },
           { label: 'Bundesagentur für Arbeit — Ausbildung', url: 'https://www.arbeitsagentur.de/bildung/ausbildung' },
           { label: 'Gesetze im Internet — §16a AufenthG', url: 'https://www.gesetze-im-internet.de/aufenthg_2004/__16a.html' }
@@ -512,7 +512,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         sources: [
           { label: 'Ambasada Beograd', url: 'https://belgrad.diplo.de' },
           { label: 'Bundesagentur für Arbeit — Westbalkan', url: 'https://www.arbeitsagentur.de/unternehmen/fachkraefte-ausland/westbalkanregelung' },
-          { label: 'Make it in Germany', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/arbeit/westbalkan-regelung' }
+          { label: 'Make it in Germany', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt' }
         ],
         musterformulare: [
           { title: 'Musterformular 1: Antrag auf Aufenthaltserlaubnis', subtitle: 'Popunjen primer za §18 Srbija', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.bamf.de' },
@@ -568,7 +568,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         errors: ['Bez A1 viza odbijena!', 'Apostille obavezna za srpska dokumenta!', 'Min. 12 m² po osobi u stanu'],
         sources: [
           { label: 'Ambasada Beograd', url: 'https://belgrad.diplo.de' },
-          { label: 'Goethe-Institut Serbien', url: 'https://www.goethe.de/ins/rs/sr/index.html' },
+          { label: 'Goethe-Institut Serbien', url: 'https://www.goethe.de/ins/cs/sr/index.html' },
           { label: 'BAMF — Familiennachzug', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Familie/familie-node.html' }
         ],
         musterformulare: [
@@ -689,7 +689,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         ],
         sources: [
           { label: 'Ambasada Beograd — termini', url: 'https://belgrad.diplo.de' },
-          { label: 'Make it in Germany — Berufsausbildung', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/berufsausbildung' },
+          { label: 'Make it in Germany — Berufsausbildung', url: 'https://www.make-it-in-germany.com/de/visum/arten/berufsausbildung' },
           { label: 'BAMF — §16a AufenthG', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Bildung/Berufsausbildung/berufsausbildung-node.html' },
           { label: 'Bundesagentur für Arbeit — Ausbildung', url: 'https://www.arbeitsagentur.de/bildung/ausbildung' },
           { label: 'Gesetze im Internet — §16a AufenthG', url: 'https://www.gesetze-im-internet.de/aufenthg_2004/__16a.html' }
@@ -732,7 +732,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         errors: ['EzB nepotpuna ili bez potpisa', 'Termini tagesaktuell — provjeri svako jutro!'],
         sources: [
           { label: 'Ambasada Podgorica', url: 'https://podgorica.diplo.de' },
-          { label: 'Westbalkan-Regelung', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/arbeit/westbalkan-regelung' }
+          { label: 'Westbalkan-Regelung', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt' }
         ],
         musterformulare: [
           { title: 'Musterformular 1: Antrag Aufenthaltserlaubnis §18', subtitle: 'Primjer za Crnu Goru', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.bamf.de' },
@@ -840,7 +840,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         ],
         sources: [
           { label: 'Ambasada Podgorica', url: 'https://podgorica.diplo.de' },
-          { label: 'Make it in Germany — Berufsausbildung', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/berufsausbildung' },
+          { label: 'Make it in Germany — Berufsausbildung', url: 'https://www.make-it-in-germany.com/de/visum/arten/berufsausbildung' },
           { label: 'BAMF — §16a AufenthG', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Bildung/Berufsausbildung/berufsausbildung-node.html' },
           { label: 'Gesetze im Internet — §16a', url: 'https://www.gesetze-im-internet.de/aufenthg_2004/__16a.html' }
         ],
@@ -881,7 +881,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         errors: ['EzB непотполна или без потпис', 'Недигитални фотографии!'],
         sources: [
           { label: 'Амбасада Скопје', url: 'https://skopje.diplo.de' },
-          { label: 'Westbalkan-Regelung', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/arbeit/westbalkan-regelung' }
+          { label: 'Westbalkan-Regelung', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt' }
         ],
         musterformulare: [
           { title: 'Musterformular 1: Antrag Aufenthaltserlaubnis §18/§19c', subtitle: 'Пример за Македонија', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.bamf.de' },
@@ -989,7 +989,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         ],
         sources: [
           { label: 'Амбасада Скопје', url: 'https://skopje.diplo.de' },
-          { label: 'Make it in Germany — Berufsausbildung', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/berufsausbildung' },
+          { label: 'Make it in Germany — Berufsausbildung', url: 'https://www.make-it-in-germany.com/de/visum/arten/berufsausbildung' },
           { label: 'BAMF — §16a AufenthG', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Bildung/Berufsausbildung/berufsausbildung-node.html' },
           { label: 'Gesetze im Internet — §16a', url: 'https://www.gesetze-im-internet.de/aufenthg_2004/__16a.html' }
         ],
@@ -1030,7 +1030,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         errors: ['EzB jo e plotë ose pa nënshkrim', 'Foto jo dixhitale!'],
         sources: [
           { label: 'Ambasada Tiranë', url: 'https://tirana.diplo.de' },
-          { label: 'Westbalkan-Regelung', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/arbeit/westbalkan-regelung' }
+          { label: 'Westbalkan-Regelung', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt' }
         ],
         musterformulare: [
           { title: 'Musterformular 1: Antrag Aufenthaltserlaubnis §18', subtitle: 'Shembull për Shqipërinë', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.bamf.de' },
@@ -1141,7 +1141,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         ],
         sources: [
           { label: 'Ambasada Tiranë', url: 'https://tirana.diplo.de' },
-          { label: 'Make it in Germany — Berufsausbildung', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/berufsausbildung' },
+          { label: 'Make it in Germany — Berufsausbildung', url: 'https://www.make-it-in-germany.com/de/visum/arten/berufsausbildung' },
           { label: 'BAMF — §16a AufenthG', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Bildung/Berufsausbildung/berufsausbildung-node.html' },
           { label: 'Gesetze im Internet — §16a', url: 'https://www.gesetze-im-internet.de/aufenthg_2004/__16a.html' }
         ],
@@ -1206,7 +1206,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         sources: [
           { label: 'Ambasada Priština', url: 'https://pristina.diplo.de' },
           { label: 'VisaMetric Kosovo — termini', url: 'https://www.visametric.com/Kosovo/Germany/de' },
-          { label: 'Westbalkan-Regelung', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/arbeit/westbalkan-regelung' },
+          { label: 'Westbalkan-Regelung', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt' },
           { label: 'Ambasada Priština — Westbalkan', url: 'https://pristina.diplo.de/xk-de/service/visa-einreise/willkommen-in-deutschland-2433504' }
         ],
         musterformulare: [
@@ -1352,7 +1352,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         sources: [
           { label: 'Ambasada Priština', url: 'https://pristina.diplo.de' },
           { label: 'VisaMetric Kosovo', url: 'https://www.visametric.com/Kosovo/Germany/de' },
-          { label: 'Make it in Germany — Berufsausbildung', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/berufsausbildung' },
+          { label: 'Make it in Germany — Berufsausbildung', url: 'https://www.make-it-in-germany.com/de/visum/arten/berufsausbildung' },
           { label: 'BAMF — §16a AufenthG', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Bildung/Berufsausbildung/berufsausbildung-node.html' },
           { label: 'Gesetze im Internet — §16a', url: 'https://www.gesetze-im-internet.de/aufenthg_2004/__16a.html' }
         ],

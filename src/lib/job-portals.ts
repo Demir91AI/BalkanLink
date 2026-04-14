@@ -83,7 +83,7 @@ export const PORTALE_SPEZIAL: PortalDef[] = [
   {
     name: "Medwing",
     desc: "Zdravstvo i njega – specijalizirani portal",
-    buildUrl: () => `https://www.medwing.com/de`,
+    buildUrl: () => `https://www.medwing.com/jobs`,
   },
   {
     name: "Bau-Stellen",
