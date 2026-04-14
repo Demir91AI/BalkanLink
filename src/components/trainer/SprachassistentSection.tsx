@@ -3,7 +3,7 @@ import { Volume2, Lock, Crown } from "lucide-react";
 import AudioButton from "./AudioButton";
 import { Button } from "@/components/ui/button";
 import type { Lesson } from "@/lib/deutsch-trainer-data";
-import type { SpeechRate } from "@/hooks/useTTS";
+import { TTS_CONFIG } from "@/config/ttsConfig";
 import { cn } from "@/lib/utils";
 
 interface Props {
@@ -15,12 +15,13 @@ interface Props {
   activeId: string | null;
   playState: "playing" | "paused" | "idle";
   onUpgrade: () => void;
-  rate: SpeechRate;
-  setRate: (r: SpeechRate) => void;
-  rateOptions: readonly SpeechRate[];
+  rate: number;
+  setRate: (r: number) => void;
+  rateOptions: readonly number[];
 }
 
-const RATE_LABELS: Record<number, string> = {
+const SPEED_LABELS: Record<number, string> = {
+  0.5: "0.5×",
   0.75: "0.75×",
   1: "1×",
   1.25: "1.25×",
@@ -68,23 +69,37 @@ const SprachassistentSection = React.forwardRef<HTMLDivElement, Props>(
         )}
       </div>
 
-      {/* Speed control */}
-      <div className="mb-3 flex items-center gap-1.5">
-        <span className="text-[10px] text-muted-foreground font-medium mr-1">Tempo:</span>
-        {rateOptions.map((r) => (
-          <button
-            key={r}
-            onClick={() => setRate(r)}
-            className={cn(
-              "rounded-full px-2.5 py-1 text-[10px] font-bold transition-all",
-              r === rate
-                ? "bg-primary text-primary-foreground shadow-sm"
-                : "bg-muted text-muted-foreground hover:bg-muted/80"
-            )}
-          >
-            {RATE_LABELS[r]}
-          </button>
-        ))}
+      {/* Speed selector — segmented pill */}
+      <div
+        className="mb-3 inline-flex items-center gap-1 rounded-[20px] p-[3px]"
+        style={{
+          background: "rgba(255,255,255,0.06)",
+          border: "1px solid rgba(255,255,255,0.1)",
+        }}
+      >
+        {rateOptions.map((r) => {
+          const isActive = r === rate;
+          return (
+            <button
+              key={r}
+              onClick={() => setRate(r)}
+              className={cn(
+                "rounded-[16px] px-3 text-[13px] transition-all",
+                "min-h-[36px] min-w-[40px]",
+                isActive
+                  ? "font-semibold shadow-sm"
+                  : "font-normal hover:opacity-80"
+              )}
+              style={
+                isActive
+                  ? { background: "#D4AF37", color: "#0a0a0a" }
+                  : { color: "rgba(255,255,255,0.6)" }
+              }
+            >
+              {SPEED_LABELS[r] ?? `${r}×`}
+            </button>
+          );
+        })}
       </div>
 
       <div className="flex flex-col gap-2">

@@ -1,5 +1,6 @@
 import { useCallback, useRef, useEffect, useState } from "react";
 import { toast } from "sonner";
+import { TTS_CONFIG, type TtsSpeed } from "@/config/ttsConfig";
 
 /* ── helpers ── */
 
@@ -7,25 +8,36 @@ function getSynth(): SpeechSynthesis | null {
   try { return window.speechSynthesis ?? null; } catch { return null; }
 }
 
-function getBestGermanVoice(synth: SpeechSynthesis): SpeechSynthesisVoice | null {
+/** Cached voice ref — selected once, reused everywhere */
+let _cachedVoice: SpeechSynthesisVoice | null = null;
+
+function selectBestVoice(synth: SpeechSynthesis): SpeechSynthesisVoice | null {
   const voices = synth.getVoices();
   const de = voices.filter((v) => v.lang.startsWith("de"));
   if (!de.length) return null;
-  // Prefer known high-quality German voices by name
+
+  // 1. User-preferred voice
+  if (TTS_CONFIG.PREFERRED_VOICE_NAME) {
+    const pref = de.find((v) => v.name === TTS_CONFIG.PREFERRED_VOICE_NAME);
+    if (pref) return pref;
+  }
+
+  // 2. Known high-quality names
   const preferred = [
-    'Google Deutsch', 'Microsoft Conrad', 'Microsoft Hedda',
-    'Anna', 'Helena', 'Markus', 'Google German',
+    "Google Deutsch", "Microsoft Conrad", "Microsoft Hedda",
+    "Anna", "Helena", "Markus", "Google German",
   ];
   for (const name of preferred) {
     const v = de.find((voice) => voice.name.includes(name));
     if (v) return v;
   }
-  // Fallback tiers
+
+  // 3. Tiered fallback — prefer non-Google for naturalness
   const tests: ((v: SpeechSynthesisVoice) => boolean)[] = [
     (v) => /neural|wavenet/i.test(v.name),
     (v) => /enhanced|premium/i.test(v.name),
     (v) => /natural/i.test(v.name),
-    (v) => /google/i.test(v.name),
+    (v) => v.lang === TTS_CONFIG.VOICE_LANG && !v.name.toLowerCase().includes("google"),
     (v) => v.localService,
   ];
   for (const fn of tests) { const m = de.find(fn); if (m) return m; }
@@ -35,20 +47,20 @@ function getBestGermanVoice(synth: SpeechSynthesis): SpeechSynthesisVoice | null
 /** Preprocess German text for better TTS pronunciation */
 function preprocessGerman(text: string): string {
   return text
-    .replace(/z\.B\./gi, 'zum Beispiel')
-    .replace(/bzw\./gi, 'beziehungsweise')
-    .replace(/ca\./gi, 'circa')
-    .replace(/d\.h\./gi, 'das heißt')
-    .replace(/u\.a\./gi, 'unter anderem')
-    .replace(/usw\./gi, 'und so weiter')
-    .replace(/ggf\./gi, 'gegebenenfalls')
-    .replace(/inkl\./gi, 'inklusive')
-    .replace(/Nr\./gi, 'Nummer')
-    .replace(/Dr\./gi, 'Doktor')
-    .replace(/Prof\./gi, 'Professor')
-    .replace(/€/g, ' Euro ')
-    .replace(/%/g, ' Prozent ')
-    .replace(/\s+/g, ' ')
+    .replace(/z\.B\./gi, "zum Beispiel")
+    .replace(/bzw\./gi, "beziehungsweise")
+    .replace(/ca\./gi, "circa")
+    .replace(/d\.h\./gi, "das heißt")
+    .replace(/u\.a\./gi, "unter anderem")
+    .replace(/usw\./gi, "und so weiter")
+    .replace(/ggf\./gi, "gegebenenfalls")
+    .replace(/inkl\./gi, "inklusive")
+    .replace(/Nr\./gi, "Nummer")
+    .replace(/Dr\./gi, "Doktor")
+    .replace(/Prof\./gi, "Professor")
+    .replace(/€/g, " Euro ")
+    .replace(/%/g, " Prozent ")
+    .replace(/\s+/g, " ")
     .trim();
 }
 
@@ -57,44 +69,54 @@ type PlayState = "idle" | "playing" | "paused";
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL as string;
 const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY as string;
 
-const UNIFIED_RATE = 1.15 as const;
-const UNIFIED_PITCH = 0.95;
-
-const RATE_OPTIONS = [0.95, 1.15] as const;
-export type SpeechRate = (typeof RATE_OPTIONS)[number] | typeof UNIFIED_RATE;
-
-function applyAudioTuning(audio: HTMLAudioElement, playbackRate: number = UNIFIED_RATE) {
+function applyAudioTuning(audio: HTMLAudioElement, playbackRate: number) {
   audio.playbackRate = playbackRate;
-
   const tunedAudio = audio as HTMLAudioElement & {
     mozPreservesPitch?: boolean;
     preservesPitch?: boolean;
     webkitPreservesPitch?: boolean;
   };
-
   tunedAudio.preservesPitch = true;
   tunedAudio.mozPreservesPitch = true;
   tunedAudio.webkitPreservesPitch = true;
 }
 
+/** Read persisted speed from localStorage */
+function getPersistedSpeed(): number {
+  try {
+    const saved = localStorage.getItem(TTS_CONFIG.STORAGE_KEY);
+    if (saved) {
+      const parsed = parseFloat(saved);
+      if (!isNaN(parsed) && parsed >= 0.5 && parsed <= 1.5) return parsed;
+    }
+  } catch { /* */ }
+  return TTS_CONFIG.DEFAULT_SPEED;
+}
+
+export type SpeechRate = TtsSpeed;
+
 export function useTTS() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [playState, setPlayState] = useState<PlayState>("idle");
-  const [rate, setRate] = useState<SpeechRate>(1.15);
+  const [rate, setRateState] = useState<number>(getPersistedSpeed);
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const cachedVoice = useRef<SpeechSynthesisVoice | null>(null);
 
-  // Cache voices
+  const setRate = useCallback((r: number) => {
+    setRateState(r);
+    try { localStorage.setItem(TTS_CONFIG.STORAGE_KEY, r.toString()); } catch { /* */ }
+  }, []);
+
+  // Init voice once
   useEffect(() => {
     const synth = getSynth();
     if (!synth) return;
-    const load = () => { cachedVoice.current = getBestGermanVoice(synth); };
+    const load = () => { _cachedVoice = selectBestVoice(synth); };
     load();
     synth.addEventListener?.("voiceschanged", load);
     return () => synth.removeEventListener?.("voiceschanged", load);
   }, []);
 
-  // Stop any playing audio on unmount
+  // Cleanup on unmount
   useEffect(() => {
     return () => {
       audioRef.current?.pause();
@@ -102,7 +124,7 @@ export function useTTS() {
     };
   }, []);
 
-  /* ── Method 1: Edge function (reliable, works everywhere) ── */
+  /* ── Method 1: Edge function (fallback) ── */
   const playViaEdge = useCallback(async (id: string, text: string): Promise<boolean> => {
     try {
       const res = await fetch(`${SUPABASE_URL}/functions/v1/tts-speak`, {
@@ -114,50 +136,39 @@ export function useTTS() {
         },
         body: JSON.stringify({ text: preprocessGerman(text).slice(0, 200), lang: "de" }),
       });
-
       if (!res.ok) return false;
-
       const blob = await res.blob();
       if (blob.size < 100) return false;
-
       const url = URL.createObjectURL(blob);
       const audio = new Audio(url);
       applyAudioTuning(audio, rate);
       audioRef.current = audio;
-
       audio.onplay = () => { setActiveId(id); setPlayState("playing"); };
       audio.onended = () => {
         setTimeout(() => { setActiveId(null); setPlayState("idle"); URL.revokeObjectURL(url); }, 100);
       };
       audio.onerror = () => { setActiveId(null); setPlayState("idle"); URL.revokeObjectURL(url); };
-
       await new Promise((r) => setTimeout(r, 120));
       await audio.play();
       return true;
-    } catch {
-      return false;
-    }
+    } catch { return false; }
   }, [rate]);
 
-  /* ── Method 2: Web Speech API fallback ── */
+  /* ── Method 2: Web Speech API (primary) ── */
   const playViaSpeechSynth = useCallback((id: string, text: string): boolean => {
     const synth = getSynth();
     if (!synth) return false;
-
     try { synth.cancel(); } catch { /* */ }
-
-    // Android Chrome fix: small delay after cancel() for stability
-    const isAndroid = /android/i.test(navigator.userAgent);
 
     const processedText = preprocessGerman(text);
     const u = new SpeechSynthesisUtterance(processedText);
-    u.lang = "de-DE";
+    u.lang = TTS_CONFIG.VOICE_LANG;
 
     const applyVoiceAndSpeak = () => {
-      const voice = cachedVoice.current ?? getBestGermanVoice(synth);
-      if (voice) { u.voice = voice; u.lang = voice.lang; cachedVoice.current = voice; }
+      const voice = _cachedVoice ?? selectBestVoice(synth);
+      if (voice) { u.voice = voice; u.lang = voice.lang; _cachedVoice = voice; }
       u.rate = rate;
-      u.pitch = UNIFIED_PITCH;
+      u.pitch = TTS_CONFIG.PITCH;
       u.volume = 1.0;
 
       let started = false;
@@ -174,38 +185,30 @@ export function useTTS() {
       };
 
       const doSpeak = () => { try { synth.speak(u); } catch { /* */ } };
-      // 120ms delay before playback to prevent harsh start
       setTimeout(doSpeak, 120);
     };
 
-    // Fix mobile voice loading: voices load async on iOS/Android
     if (synth.getVoices().length === 0) {
       synth.addEventListener("voiceschanged", applyVoiceAndSpeak, { once: true });
     } else {
       applyVoiceAndSpeak();
     }
-
     return true;
   }, [rate]);
 
-  /* ── Play: try browser first so rate/pitch stay identical on desktop and mobile ── */
+  /* ── Play: Web Speech first, edge fallback ── */
   const playNew = useCallback(async (id: string, text: string) => {
-    // Stop anything playing
     audioRef.current?.pause();
     try { getSynth()?.cancel(); } catch { /* */ }
-
     setActiveId(id);
     setPlayState("playing");
 
-    // Use Web Speech first because it supports explicit pitch tuning
     const synthOk = playViaSpeechSynth(id, text);
     if (synthOk) return;
 
-    // Fallback to edge audio if browser speech is unavailable
     const edgeOk = await playViaEdge(id, text);
     if (edgeOk) return;
 
-    // Both failed
     setActiveId(null);
     setPlayState("idle");
     toast.error("Audio konnte nicht abgespielt werden.");
@@ -213,7 +216,6 @@ export function useTTS() {
 
   const toggle = useCallback(
     (id: string, text: string) => {
-      // If same id is playing via Audio element, pause/resume it
       if (activeId === id && playState === "playing") {
         if (audioRef.current && !audioRef.current.paused) {
           audioRef.current.pause();
@@ -224,7 +226,6 @@ export function useTTS() {
         setPlayState("paused");
         return;
       }
-
       if (activeId === id && playState === "paused") {
         if (audioRef.current?.paused && audioRef.current.currentTime > 0) {
           audioRef.current.play();
@@ -235,7 +236,6 @@ export function useTTS() {
         setPlayState("playing");
         return;
       }
-
       playNew(id, text);
     },
     [activeId, playState, playNew]
@@ -248,5 +248,5 @@ export function useTTS() {
     setPlayState("idle");
   }, []);
 
-  return { toggle, stop, activeId, playState, rate, setRate, RATE_OPTIONS };
+  return { toggle, stop, activeId, playState, rate, setRate, SPEED_OPTIONS: TTS_CONFIG.SPEED_OPTIONS };
 }
