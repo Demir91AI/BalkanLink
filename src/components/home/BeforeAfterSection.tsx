@@ -37,7 +37,7 @@ export default function BeforeAfterSection() {
   }, []);
 
   const beforeContent = (
-    <div className="p-6 sm:p-8 h-full" style={{ background: "#f3f4f6", fontFamily: "monospace" }}>
+    <div className="p-6 sm:p-8 sm:pt-14 h-full" style={{ background: "#f3f4f6", fontFamily: "monospace" }}>
       <div className="space-y-3">
         <div className="h-3 w-3/4 rounded bg-gray-300" />
         <div className="h-3 w-1/2 rounded bg-gray-300" />
@@ -65,7 +65,7 @@ export default function BeforeAfterSection() {
   );
 
   const afterContent = (
-    <div className="p-6 sm:p-8 h-full" style={{ background: "hsl(220 50% 6%)" }}>
+    <div className="p-6 sm:p-8 sm:pt-14 h-full" style={{ background: "hsl(220 50% 6%)" }}>
       <div className="space-y-4">
         <div className="flex items-center gap-2">
           <div className="h-8 w-8 rounded-lg flex items-center justify-center text-sm" style={{ background: "hsla(43,52%,54%,0.15)" }}>📋</div>
