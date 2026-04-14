@@ -1,6 +1,7 @@
 import { useCallback, useRef, useEffect, useState } from "react";
 import { toast } from "sonner";
 import { TTS_CONFIG, type TtsSpeed } from "@/config/ttsConfig";
+import { getAudio, type TTSSentence } from "@/services/ttsProvider";
 
 /* ── helpers ── */
 
@@ -8,7 +9,6 @@ function getSynth(): SpeechSynthesis | null {
   try { return window.speechSynthesis ?? null; } catch { return null; }
 }
 
-/** Cached voice ref — selected once, reused everywhere */
 let _cachedVoice: SpeechSynthesisVoice | null = null;
 
 function selectBestVoice(synth: SpeechSynthesis): SpeechSynthesisVoice | null {
@@ -16,13 +16,11 @@ function selectBestVoice(synth: SpeechSynthesis): SpeechSynthesisVoice | null {
   const de = voices.filter((v) => v.lang.startsWith("de"));
   if (!de.length) return null;
 
-  // 1. User-preferred voice
   if (TTS_CONFIG.PREFERRED_VOICE_NAME) {
     const pref = de.find((v) => v.name === TTS_CONFIG.PREFERRED_VOICE_NAME);
     if (pref) return pref;
   }
 
-  // 2. Known high-quality names
   const preferred = [
     "Google Deutsch", "Microsoft Conrad", "Microsoft Hedda",
     "Anna", "Helena", "Markus", "Google German",
@@ -32,7 +30,6 @@ function selectBestVoice(synth: SpeechSynthesis): SpeechSynthesisVoice | null {
     if (v) return v;
   }
 
-  // 3. Tiered fallback — prefer non-Google for naturalness
   const tests: ((v: SpeechSynthesisVoice) => boolean)[] = [
     (v) => /neural|wavenet/i.test(v.name),
     (v) => /enhanced|premium/i.test(v.name),
@@ -44,7 +41,6 @@ function selectBestVoice(synth: SpeechSynthesis): SpeechSynthesisVoice | null {
   return de[0];
 }
 
-/** Preprocess German text for better TTS pronunciation */
 function preprocessGerman(text: string): string {
   return text
     .replace(/z\.B\./gi, "zum Beispiel")
@@ -66,8 +62,16 @@ function preprocessGerman(text: string): string {
 
 type PlayState = "idle" | "playing" | "paused";
 
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL as string;
-const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY as string;
+function getPersistedSpeed(): number {
+  try {
+    const saved = localStorage.getItem(TTS_CONFIG.STORAGE_KEY);
+    if (saved) {
+      const parsed = parseFloat(saved);
+      if (!isNaN(parsed) && parsed >= 0.5 && parsed <= 1.5) return parsed;
+    }
+  } catch { /* */ }
+  return TTS_CONFIG.DEFAULT_SPEED;
+}
 
 function applyAudioTuning(audio: HTMLAudioElement, playbackRate: number) {
   audio.playbackRate = playbackRate;
@@ -81,18 +85,6 @@ function applyAudioTuning(audio: HTMLAudioElement, playbackRate: number) {
   tunedAudio.webkitPreservesPitch = true;
 }
 
-/** Read persisted speed from localStorage */
-function getPersistedSpeed(): number {
-  try {
-    const saved = localStorage.getItem(TTS_CONFIG.STORAGE_KEY);
-    if (saved) {
-      const parsed = parseFloat(saved);
-      if (!isNaN(parsed) && parsed >= 0.5 && parsed <= 1.5) return parsed;
-    }
-  } catch { /* */ }
-  return TTS_CONFIG.DEFAULT_SPEED;
-}
-
 export type SpeechRate = TtsSpeed;
 
 export function useTTS() {
@@ -104,9 +96,13 @@ export function useTTS() {
   const setRate = useCallback((r: number) => {
     setRateState(r);
     try { localStorage.setItem(TTS_CONFIG.STORAGE_KEY, r.toString()); } catch { /* */ }
+    // Apply to current audio immediately
+    if (audioRef.current) {
+      applyAudioTuning(audioRef.current, r);
+    }
   }, []);
 
-  // Init voice once
+  // Init browser voice once (for fallback)
   useEffect(() => {
     const synth = getSynth();
     if (!synth) return;
@@ -119,100 +115,113 @@ export function useTTS() {
   // Cleanup on unmount
   useEffect(() => {
     return () => {
-      audioRef.current?.pause();
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.src = "";
+        audioRef.current = null;
+      }
       getSynth()?.cancel();
     };
   }, []);
 
-  /* ── Method 1: Edge function (fallback) ── */
-  const playViaEdge = useCallback(async (id: string, text: string): Promise<boolean> => {
+  /* ── Play via ElevenLabs (Audio URL) ── */
+  const playViaProvider = useCallback(async (id: string, text: string): Promise<boolean> => {
+    const sentence: TTSSentence = { id, text: preprocessGerman(text) };
+    const audioUrl = await getAudio(sentence);
+
+    if (!audioUrl) return false;
+
     try {
-      const res = await fetch(`${SUPABASE_URL}/functions/v1/tts-speak`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          apikey: SUPABASE_KEY,
-          Authorization: `Bearer ${SUPABASE_KEY}`,
-        },
-        body: JSON.stringify({ text: preprocessGerman(text).slice(0, 200), lang: "de" }),
-      });
-      if (!res.ok) return false;
-      const blob = await res.blob();
-      if (blob.size < 100) return false;
-      const url = URL.createObjectURL(blob);
-      const audio = new Audio(url);
+      // Stop any existing audio
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.src = "";
+      }
+
+      const audio = new Audio(audioUrl);
       applyAudioTuning(audio, rate);
       audioRef.current = audio;
+
       audio.onplay = () => { setActiveId(id); setPlayState("playing"); };
       audio.onended = () => {
-        setTimeout(() => { setActiveId(null); setPlayState("idle"); URL.revokeObjectURL(url); }, 100);
+        setTimeout(() => { setActiveId(null); setPlayState("idle"); }, 100);
       };
-      audio.onerror = () => { setActiveId(null); setPlayState("idle"); URL.revokeObjectURL(url); };
-      await new Promise((r) => setTimeout(r, 120));
+      audio.onerror = () => {
+        console.error(`[TTS] Playback error for ${id}`);
+        setActiveId(null);
+        setPlayState("idle");
+      };
+
       await audio.play();
       return true;
-    } catch { return false; }
+    } catch (err) {
+      console.error("[TTS] Audio play error:", err);
+      return false;
+    }
   }, [rate]);
 
-  /* ── Method 2: Web Speech API (primary) ── */
-  const playViaSpeechSynth = useCallback((id: string, text: string): boolean => {
+  /* ── Browser fallback (emergency only) ── */
+  const playViaBrowserFallback = useCallback((id: string, text: string): boolean => {
+    if (!TTS_CONFIG.fallbackEnabled) return false;
+
     const synth = getSynth();
     if (!synth) return false;
+
+    console.warn("[TTS] Using browser fallback — ElevenLabs unavailable");
+
     try { synth.cancel(); } catch { /* */ }
 
     const processedText = preprocessGerman(text);
     const u = new SpeechSynthesisUtterance(processedText);
     u.lang = TTS_CONFIG.VOICE_LANG;
 
-    const applyVoiceAndSpeak = () => {
-      const voice = _cachedVoice ?? selectBestVoice(synth);
-      if (voice) { u.voice = voice; u.lang = voice.lang; _cachedVoice = voice; }
-      u.rate = rate;
-      u.pitch = TTS_CONFIG.PITCH;
-      u.volume = 1.0;
+    const voice = _cachedVoice ?? selectBestVoice(synth);
+    if (voice) { u.voice = voice; u.lang = voice.lang; _cachedVoice = voice; }
+    u.rate = rate;
+    u.pitch = TTS_CONFIG.PITCH;
+    u.volume = 1.0;
 
-      let started = false;
-      const timeout = setTimeout(() => {
-        if (!started) { setActiveId(null); setPlayState("idle"); }
-      }, 2000);
+    let started = false;
+    const timeout = setTimeout(() => {
+      if (!started) { setActiveId(null); setPlayState("idle"); }
+    }, 2000);
 
-      u.onstart = () => { started = true; clearTimeout(timeout); setActiveId(id); setPlayState("playing"); };
-      u.onend = () => { clearTimeout(timeout); setTimeout(() => { setActiveId(null); setPlayState("idle"); }, 100); };
-      u.onerror = (e) => {
-        clearTimeout(timeout);
-        if (e.error === "interrupted" || e.error === "canceled") return;
-        setActiveId(null); setPlayState("idle");
-      };
-
-      const doSpeak = () => { try { synth.speak(u); } catch { /* */ } };
-      setTimeout(doSpeak, 120);
+    u.onstart = () => { started = true; clearTimeout(timeout); setActiveId(id); setPlayState("playing"); };
+    u.onend = () => { clearTimeout(timeout); setTimeout(() => { setActiveId(null); setPlayState("idle"); }, 100); };
+    u.onerror = (e) => {
+      clearTimeout(timeout);
+      if (e.error === "interrupted" || e.error === "canceled") return;
+      setActiveId(null); setPlayState("idle");
     };
 
-    if (synth.getVoices().length === 0) {
-      synth.addEventListener("voiceschanged", applyVoiceAndSpeak, { once: true });
-    } else {
-      applyVoiceAndSpeak();
-    }
+    setTimeout(() => { try { synth.speak(u); } catch { /* */ } }, 120);
     return true;
   }, [rate]);
 
-  /* ── Play: Web Speech first, edge fallback ── */
+  /* ── Play: ElevenLabs first, browser fallback ── */
   const playNew = useCallback(async (id: string, text: string) => {
-    audioRef.current?.pause();
+    // Stop everything
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.src = "";
+    }
     try { getSynth()?.cancel(); } catch { /* */ }
+
     setActiveId(id);
     setPlayState("playing");
 
-    const synthOk = playViaSpeechSynth(id, text);
-    if (synthOk) return;
+    // Try ElevenLabs first
+    const providerOk = await playViaProvider(id, text);
+    if (providerOk) return;
 
-    const edgeOk = await playViaEdge(id, text);
-    if (edgeOk) return;
+    // Browser fallback
+    const fallbackOk = playViaBrowserFallback(id, text);
+    if (fallbackOk) return;
 
     setActiveId(null);
     setPlayState("idle");
     toast.error("Audio konnte nicht abgespielt werden.");
-  }, [playViaEdge, playViaSpeechSynth]);
+  }, [playViaProvider, playViaBrowserFallback]);
 
   const toggle = useCallback(
     (id: string, text: string) => {
@@ -242,7 +251,11 @@ export function useTTS() {
   );
 
   const stop = useCallback(() => {
-    audioRef.current?.pause();
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.src = "";
+      audioRef.current = null;
+    }
     try { getSynth()?.cancel(); } catch { /* */ }
     setActiveId(null);
     setPlayState("idle");
