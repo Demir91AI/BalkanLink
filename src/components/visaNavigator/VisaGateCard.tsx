@@ -58,12 +58,6 @@ export default function VisaGateCard() {
         >
           Otključaj Premium — 9.99€/mjes.
         </button>
-        <button
-          onClick={() => navigate("/premium")}
-          className="mt-2 w-full text-xs text-[#9CA3AF] hover:text-[#6B6B6B] transition-colors"
-        >
-          ili samo ovaj vodič — 3.99€
-        </button>
       </div>
     );
   }
