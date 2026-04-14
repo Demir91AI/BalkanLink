@@ -56,7 +56,7 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
   const loadingRef = useRef(false);
 
   const { completeLesson } = useTrainerProgress();
-  const { toggle, activeId, playState, rate, setRate, RATE_OPTIONS } = useTTS();
+  const { toggle, activeId, playState, rate, setRate, SPEED_OPTIONS } = useTTS();
   const { isPremium } = useSubscription();
   const { generate, error: aiError } = useGeneratedExercises();
 
@@ -270,7 +270,7 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
               onUpgrade={() => navigate("/deutsch-trainer/preise")}
               rate={rate}
               setRate={setRate}
-              rateOptions={RATE_OPTIONS}
+              rateOptions={SPEED_OPTIONS}
             />
           </div>
 
