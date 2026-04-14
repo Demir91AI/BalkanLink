@@ -1,12 +1,12 @@
 import { useNavigate, useLocation } from "react-router-dom";
-import { FileText, Map, Sparkles, User, Tag } from "lucide-react";
+import { FileText, Globe, Sparkles, User, Tag } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import AuthModal from "@/components/auth/AuthModal";
 import { useState } from "react";
 
 const sideItems = [
   { icon: FileText, label: "Dokumenti", path: "/formulari" },
-  { icon: Map, label: "Vodiči", path: "/dolazak" },
+  { icon: Globe, label: "Vize", path: "/viza" },
   // center gap
   { icon: Tag, label: "Cijene", path: "/paketi" },
   { icon: User, label: "Profil", path: "__auth__" },
