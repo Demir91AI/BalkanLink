@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { FileText, Shield, GraduationCap, Camera, Megaphone } from "lucide-react";
+import { FileText, Shield, GraduationCap, Camera, Megaphone, Mail } from "lucide-react";
 
 const features = [
   {
@@ -26,6 +26,12 @@ const features = [
     label: "Nauči njemački",
     desc: "A1–C2 uz praktične vježbe",
     to: "/deutsch-trainer",
+  },
+  {
+    icon: Mail,
+    label: "Šabloni",
+    desc: "Gotova pisma i dokumenti",
+    to: "/vorlagen",
   },
   {
     icon: Megaphone,
@@ -67,7 +73,7 @@ export default function FeatureCards() {
         </h2>
       </div>
 
-      <div className="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+      <div className="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
         {features.map((f, i) => {
           const Icon = f.icon;
           return (
