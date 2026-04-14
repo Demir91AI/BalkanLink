@@ -13,7 +13,7 @@ export const TTS_CONFIG = {
   /* ── ElevenLabs settings ── */
   apiEndpoint: "https://api.elevenlabs.io/v1/text-to-speech",
   modelId: "eleven_multilingual_v2",
-  voiceId: "EXAVITQu4vr4xnSDxMaL", // Sarah — soft female, natural for German
+  voiceId: "FGY2WhTYpPnrIDTdsKH5", // Laura — warm soft female, natural for German
   stability: 0.5,
   similarityBoost: 0.75,
   style: 0.0,
