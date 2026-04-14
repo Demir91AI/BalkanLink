@@ -72,9 +72,8 @@ function TemplatePremiumPaywall({ templateName }: { templateName: string }) {
           <Crown className="inline-block mr-1.5 h-4 w-4" />
           Otključaj Premium — 9.99€/mj.
         </button>
-        <p className="text-[11px] text-muted-foreground">
-          ili samo ovaj šablon — <span className="font-semibold">1.99€</span>
-        </p>
+
+
       </div>
     </div>
   );
