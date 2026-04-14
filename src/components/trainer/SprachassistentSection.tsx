@@ -70,13 +70,7 @@ const SprachassistentSection = React.forwardRef<HTMLDivElement, Props>(
       </div>
 
       {/* Speed selector — segmented pill */}
-      <div
-        className="mb-3 inline-flex items-center gap-1 rounded-[20px] p-[3px]"
-        style={{
-          background: "rgba(255,255,255,0.06)",
-          border: "1px solid rgba(255,255,255,0.1)",
-        }}
-      >
+      <div className="mb-3 inline-flex items-center gap-1 rounded-[20px] border border-border/30 bg-muted/40 p-[3px]">
         {rateOptions.map((r) => {
           const isActive = r === rate;
           return (
@@ -84,17 +78,12 @@ const SprachassistentSection = React.forwardRef<HTMLDivElement, Props>(
               key={r}
               onClick={() => setRate(r)}
               className={cn(
-                "rounded-[16px] px-3 text-[13px] transition-all",
+                "rounded-[16px] px-3 py-2 text-[13px] transition-all",
                 "min-h-[36px] min-w-[40px]",
                 isActive
-                  ? "font-semibold shadow-sm"
-                  : "font-normal hover:opacity-80"
+                  ? "bg-gold font-semibold text-gold-foreground shadow-sm"
+                  : "font-normal text-muted-foreground hover:text-foreground hover:bg-muted/60"
               )}
-              style={
-                isActive
-                  ? { background: "#D4AF37", color: "#0a0a0a" }
-                  : { color: "rgba(255,255,255,0.6)" }
-              }
             >
               {SPEED_LABELS[r] ?? `${r}×`}
             </button>
