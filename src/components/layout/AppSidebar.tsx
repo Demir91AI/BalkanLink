@@ -3,9 +3,10 @@ import { useLocation, useNavigate } from "react-router-dom";
 import {
   FileText, Shield, BookOpen, Camera, Megaphone, Plane,
   Briefcase, Building, Calculator, FileCheck, X, LogIn, LogOut, User,
-  CreditCard, Scale, Store, Home, Smartphone,
+  CreditCard, Scale, Store, Home, Smartphone, Share2,
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
+import { toast } from "sonner";
 import AuthModal from "@/components/auth/AuthModal";
 
 function getInitials(name: string) {
