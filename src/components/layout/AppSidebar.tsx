@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import {
   FileText, Shield, BookOpen, Camera, Megaphone, Plane,
   Briefcase, Building, Calculator, FileCheck, X, LogIn, LogOut, User,
-  CreditCard, Scale, Store, Home,
+  CreditCard, Scale, Store, Home, Smartphone,
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import AuthModal from "@/components/auth/AuthModal";
@@ -13,7 +13,7 @@ function getInitials(name: string) {
   return parts.slice(0, 2).map((part) => part.charAt(0).toUpperCase()).join("") || "?";
 }
 
-export function AppSidebar() {
+export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {}) {
   const [isOpen, setIsOpen] = useState(false);
   const [authOpen, setAuthOpen] = useState(false);
   const debounceRef = useRef(0);
@@ -216,6 +216,19 @@ export function AppSidebar() {
             })}
           </nav>
         </div>
+
+        {/* PWA install entry */}
+        {onPWAInstall && (
+          <div className="px-3 pt-4 pb-4">
+            <button
+              onClick={() => { close(); onPWAInstall(); }}
+              className="flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-left text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D] transition-all duration-200"
+            >
+              <Smartphone className="h-[18px] w-[18px] shrink-0" />
+              <span className="text-[14px] font-medium">Dodaj aplikaciju</span>
+            </button>
+          </div>
+        )}
 
       </aside>
 

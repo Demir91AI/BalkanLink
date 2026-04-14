@@ -2,22 +2,45 @@ import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import ChatAssistant from "@/components/ChatAssistant";
-import CookieConsent from "@/components/CookieConsent";
 import { AppSidebar } from "./AppSidebar";
 import MobileBottomNav from "./MobileBottomNav";
+import { useCookieConsent } from "@/hooks/useCookieConsent";
+import CookieConsentBanner from "@/components/CookieConsentBanner";
+import CookiePreferencesModal from "@/components/CookiePreferencesModal";
+import { usePWAInstall } from "@/hooks/usePWAInstall";
+import PWAInstallBanner from "@/components/PWAInstallBanner";
+import PWAiOSGuide from "@/components/PWAiOSGuide";
 
 export default function HomeLayout() {
+  const cookie = useCookieConsent();
+  const pwa = usePWAInstall();
+
   return (
     <div className="relative min-h-screen w-full flex-col">
-      <AppSidebar />
+      <AppSidebar onPWAInstall={pwa.canShowMenuEntry ? pwa.triggerManual : undefined} />
       <Header />
       <main className="flex-1 pb-16 md:pb-0">
         <Outlet />
       </main>
-      <Footer />
+      <Footer onOpenCookieSettings={cookie.openPreferences} />
       <MobileBottomNav />
       <ChatAssistant />
-      <CookieConsent />
+      <CookieConsentBanner
+        showBanner={cookie.showBanner}
+        acceptAll={cookie.acceptAll}
+        rejectOptional={cookie.rejectOptional}
+        openPreferences={cookie.openPreferences}
+      />
+      <CookiePreferencesModal
+        consent={cookie.consent}
+        showPreferences={cookie.showPreferences}
+        closePreferences={cookie.closePreferences}
+        acceptAll={cookie.acceptAll}
+        rejectOptional={cookie.rejectOptional}
+        saveCustom={cookie.saveCustom}
+      />
+      <PWAInstallBanner show={pwa.showBanner} onInstall={pwa.installAndroid} onDismiss={pwa.dismiss} />
+      <PWAiOSGuide open={pwa.showIOSGuide} onClose={pwa.closeIOSGuide} onDismiss={pwa.dismiss} />
     </div>
   );
 }

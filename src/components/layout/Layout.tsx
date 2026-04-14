@@ -1,12 +1,16 @@
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
-import CookieConsent from "@/components/CookieConsent";
-import PWAInstallBanner from "@/components/PWAInstallBanner";
 import { AppSidebar } from "./AppSidebar";
 import { DEV_MODE } from "@/lib/dev-mode";
 import MobileBottomNav from "./MobileBottomNav";
 import { Component, type ErrorInfo, type ReactNode } from "react";
+import { useCookieConsent } from "@/hooks/useCookieConsent";
+import CookieConsentBanner from "@/components/CookieConsentBanner";
+import CookiePreferencesModal from "@/components/CookiePreferencesModal";
+import { usePWAInstall } from "@/hooks/usePWAInstall";
+import PWAInstallBanner from "@/components/PWAInstallBanner";
+import PWAiOSGuide from "@/components/PWAiOSGuide";
 
 class ErrorBoundary extends Component<
   { children: ReactNode },
@@ -42,9 +46,12 @@ class ErrorBoundary extends Component<
 }
 
 export default function Layout() {
+  const cookie = useCookieConsent();
+  const pwa = usePWAInstall();
+
   return (
     <div className="relative min-h-screen w-full overflow-x-hidden">
-      <AppSidebar />
+      <AppSidebar onPWAInstall={pwa.canShowMenuEntry ? pwa.triggerManual : undefined} />
       <div className="flex flex-col min-h-screen w-full">
         {DEV_MODE && (
           <div className="w-full h-8 flex items-center justify-center text-[12px] font-bold text-black" style={{ background: '#EAB308' }}>
@@ -57,10 +64,24 @@ export default function Layout() {
             <Outlet />
           </ErrorBoundary>
         </main>
-        <Footer />
+        <Footer onOpenCookieSettings={cookie.openPreferences} />
         <MobileBottomNav />
-        <CookieConsent />
-        <PWAInstallBanner />
+        <CookieConsentBanner
+          showBanner={cookie.showBanner}
+          acceptAll={cookie.acceptAll}
+          rejectOptional={cookie.rejectOptional}
+          openPreferences={cookie.openPreferences}
+        />
+        <CookiePreferencesModal
+          consent={cookie.consent}
+          showPreferences={cookie.showPreferences}
+          closePreferences={cookie.closePreferences}
+          acceptAll={cookie.acceptAll}
+          rejectOptional={cookie.rejectOptional}
+          saveCustom={cookie.saveCustom}
+        />
+        <PWAInstallBanner show={pwa.showBanner} onInstall={pwa.installAndroid} onDismiss={pwa.dismiss} />
+        <PWAiOSGuide open={pwa.showIOSGuide} onClose={pwa.closeIOSGuide} onDismiss={pwa.dismiss} />
       </div>
     </div>
   );
