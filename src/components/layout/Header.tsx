@@ -73,7 +73,7 @@ export default function Header() {
         <button
           onClick={handleToggleSidebar}
           aria-label="Menü"
-          className="flex items-center justify-center transition-all duration-250 ease-in-out hover:scale-105 md:hidden"
+          className="flex items-center justify-center transition-all duration-250 ease-in-out hover:scale-105"
           style={{
             background: "rgba(255,255,255,0.04)",
             border: "1px solid rgba(255,255,255,0.08)",
@@ -101,8 +101,7 @@ export default function Header() {
           />
         </button>
 
-        {/* Desktop spacer for left side */}
-        <div className="hidden md:block w-10" />
+        {/* Desktop spacer removed — hamburger is now always visible */}
 
         {/* CENTER: Logo — absolutely centered */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
