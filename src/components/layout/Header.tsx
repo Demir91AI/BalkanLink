@@ -27,7 +27,7 @@ export default function Header() {
     <header
       className="sticky top-0 z-50 relative overflow-hidden transition-all duration-300 ease-in-out"
       style={{
-        height: scrolled ? 48 : undefined,
+        height: scrolled ? 56 : 72,
         background: "linear-gradient(180deg, rgba(8,15,35,0.97) 0%, rgba(13,25,60,0.95) 100%)",
         backdropFilter: scrolled ? "blur(20px)" : "blur(16px)",
         WebkitBackdropFilter: scrolled ? "blur(20px)" : "blur(16px)",
@@ -67,7 +67,7 @@ export default function Header() {
       {/* Main content */}
       <div
         className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between transition-all duration-300 ease-in-out"
-        style={{ height: scrolled ? 48 : undefined }}
+        style={{ height: scrolled ? 56 : 72 }}
       >
         {/* LEFT: Hamburger */}
         <button
@@ -126,7 +126,7 @@ export default function Header() {
                   "0 0 16px rgba(212,175,55,0.12), inset 0 1px 0 rgba(255,255,255,0.06)",
               }}
             >
-              <span className="font-heading text-[22px] font-extrabold leading-none tracking-tight">
+              <span className="font-heading text-[26px] font-extrabold leading-none tracking-tight">
                 <span style={{ color: "#F8F8FF" }}>B</span>
                 <span
                   style={{
@@ -141,7 +141,7 @@ export default function Header() {
 
             {/* BalkanLink text */}
             <span
-              className="relative font-heading text-[20px] font-bold leading-none tracking-tight hidden sm:inline"
+              className="relative font-heading text-[24px] font-bold leading-none tracking-tight hidden sm:inline"
               style={{ filter: "drop-shadow(0 0 8px rgba(212,175,55,0.3))" }}
             >
               <span style={{ color: "#F8F8FF", fontWeight: 700 }}>Balkan</span>
