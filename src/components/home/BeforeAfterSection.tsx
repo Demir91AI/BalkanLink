@@ -37,7 +37,7 @@ export default function BeforeAfterSection() {
   }, []);
 
   const beforeContent = (
-    <div className="p-6 sm:p-8 h-full" style={{ background: "#f3f4f6", fontFamily: "monospace" }}>
+    <div className="p-6 sm:p-8 sm:pt-14 h-full" style={{ background: "#f3f4f6", fontFamily: "monospace" }}>
       <div className="space-y-3">
         <div className="h-3 w-3/4 rounded bg-gray-300" />
         <div className="h-3 w-1/2 rounded bg-gray-300" />
@@ -65,7 +65,7 @@ export default function BeforeAfterSection() {
   );
 
   const afterContent = (
-    <div className="p-6 sm:p-8 h-full" style={{ background: "hsl(220 50% 6%)" }}>
+    <div className="p-6 sm:p-8 sm:pt-14 h-full" style={{ background: "hsl(220 50% 6%)" }}>
       <div className="space-y-4">
         <div className="flex items-center gap-2">
           <div className="h-8 w-8 rounded-lg flex items-center justify-center text-sm" style={{ background: "hsla(43,52%,54%,0.15)" }}>📋</div>
@@ -162,7 +162,7 @@ export default function BeforeAfterSection() {
           {/* Before (full width behind) */}
           <div className="absolute inset-0">
             {beforeContent}
-            <div className="absolute bottom-4 right-4 z-10 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider bg-red-500/20 text-red-400 border border-red-500/30 backdrop-blur-sm">
+            <div className="absolute top-4 right-4 z-10 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider bg-red-500/20 text-red-400 border border-red-500/30 backdrop-blur-sm">
               PRIJE
             </div>
           </div>
@@ -171,7 +171,7 @@ export default function BeforeAfterSection() {
           <div className="absolute inset-0" style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}>
             {afterContent}
             <div
-              className="absolute bottom-4 left-4 z-10 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[hsl(var(--gold))] border backdrop-blur-sm"
+              className="absolute top-4 left-4 z-10 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[hsl(var(--gold))] border backdrop-blur-sm"
               style={{ background: "hsla(43,52%,54%,0.15)", borderColor: "hsla(43,52%,54%,0.3)", boxShadow: "0 0 12px hsla(43,52%,54%,0.2)" }}
             >
               SA BALKANLINK
