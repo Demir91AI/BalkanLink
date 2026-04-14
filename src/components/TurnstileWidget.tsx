@@ -103,7 +103,26 @@ export default function TurnstileWidget({ onVerify, onExpire, className }: Props
   }, [handleVerify, onExpire, onVerify]);
 
   if (failed) {
-    return null; // hide widget when Turnstile can't load
+    return (
+      <div className={className} style={{
+        display: "flex",
+        alignItems: "center",
+        gap: 8,
+        padding: "10px 14px",
+        borderRadius: 8,
+        background: "rgba(201,168,76,0.08)",
+        border: "1px solid rgba(201,168,76,0.2)",
+        fontSize: 13,
+        color: "#8B7530",
+      }}>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0 }}>
+          <circle cx="8" cy="8" r="7" stroke="#C9A84C" strokeWidth="1.5" />
+          <path d="M8 5v3.5" stroke="#C9A84C" strokeWidth="1.5" strokeLinecap="round" />
+          <circle cx="8" cy="11" r="0.75" fill="#C9A84C" />
+        </svg>
+        <span>Sigurnosna provjera nije dostupna — prijava je i dalje moguća.</span>
+      </div>
+    );
   }
 
   return <div ref={containerRef} className={className} />;
