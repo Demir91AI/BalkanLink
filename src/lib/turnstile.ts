@@ -13,7 +13,3 @@ export async function verifyTurnstileToken(token: string): Promise<boolean> {
     return false;
   }
 }
-  } catch {
-    return false;
-  }
-}
