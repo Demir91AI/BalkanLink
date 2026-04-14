@@ -218,33 +218,36 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
           </nav>
         </div>
 
-        {/* Share & PWA install */}
-        <div className="px-3 pt-4 pb-4 flex flex-col gap-0.5">
-          <button
-            onClick={() => {
-              const url = "https://balkan-navi-deutsch.lovable.app";
-              if (navigator.share) {
-                navigator.share({ title: "BalkanLink", url }).catch(() => {});
-              } else {
-                navigator.clipboard.writeText(url);
-                toast.success("Link kopiran!");
-              }
-              close();
-            }}
-            className="flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-left text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D] transition-all duration-200"
-          >
-            <Share2 className="h-[18px] w-[18px] shrink-0" />
-            <span className="text-[14px] font-medium">Podijeli BalkanLink</span>
-          </button>
-          {onPWAInstall && (
+        {/* Mobile sekcija */}
+        <div className="px-3 pt-5 pb-4">
+          <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">Mobilna aplikacija</p>
+          <nav className="flex flex-col gap-0.5">
             <button
-              onClick={() => { close(); onPWAInstall(); }}
-              className="flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-left text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D] transition-all duration-200"
+              onClick={() => {
+                const url = "https://balkan-navi-deutsch.lovable.app";
+                if (navigator.share) {
+                  navigator.share({ title: "BalkanLink", url }).catch(() => {});
+                } else {
+                  navigator.clipboard.writeText(url);
+                  toast.success("Link kopiran!");
+                }
+                close();
+              }}
+              className="flex items-center gap-3 w-full px-3 py-2 rounded-lg text-left text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D] transition-all duration-200"
             >
-              <Smartphone className="h-[18px] w-[18px] shrink-0" />
-              <span className="text-[14px] font-medium">Preuzmi BalkanLink App</span>
+              <Share2 className="h-[18px] w-[18px] shrink-0" />
+              <span className="text-[14px] font-medium">Podijeli BalkanLink</span>
             </button>
-          )}
+            {onPWAInstall && (
+              <button
+                onClick={() => { close(); onPWAInstall(); }}
+                className="flex items-center gap-3 w-full px-3 py-2 rounded-lg text-left text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D] transition-all duration-200"
+              >
+                <Smartphone className="h-[18px] w-[18px] shrink-0" />
+                <span className="text-[14px] font-medium">Preuzmi BalkanLink App</span>
+              </button>
+            )}
+          </nav>
         </div>
 
       </aside>
