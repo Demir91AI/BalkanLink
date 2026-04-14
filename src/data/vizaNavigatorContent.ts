@@ -1053,7 +1053,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         errors: ['Pa A1 viza refuzohet!', 'Apostilë e detyrueshme!'],
         sources: [
           { label: 'Ambasada Tiranë', url: 'https://tirana.diplo.de' },
-          { label: 'Goethe-Institut Shqipëri', url: 'https://www.goethe.de/ins/al/sq/index.html' }
+          { label: 'Goethe-Institut Shqipëri', url: 'https://www.goethe.de/de/index.html' }
         ],
         musterformulare: [
           { title: 'Musterformular: Antrag Aufenthaltserlaubnis (Ribashkim)', subtitle: '§§27-36 shembull Shqipëria', formKey: 'VisaFamilyForm', downloadUrl: 'https://www.bamf.de' }
