@@ -339,7 +339,7 @@ export default function Index() {
                   <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Rokovi i finansijski uticaj</li>
                   <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> PDF, JPG, PNG do 10 MB</li>
                 </ul>
-                <Button variant="outline" className="mt-6 w-full rounded-full border-white/15 text-white font-semibold hover:bg-white/10" onClick={() => navigate("/dokumenten-check")}>
+                <Button variant="outline" className="mt-6 w-full rounded-full border-[hsl(var(--gold))]/40 text-[hsl(var(--gold))] font-semibold hover:bg-[hsl(var(--gold))]/10" onClick={() => navigate("/dokumenten-check")}>
                   Provjeri dokument
                 </Button>
               </motion.div>

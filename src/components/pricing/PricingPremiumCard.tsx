@@ -21,9 +21,6 @@ export default function PricingPremiumCard({ yearly, isPremium, onCheckout }: Pr
           /{yearly ? "god." : "mj."}
         </span>
       </p>
-      <p style={{ fontSize: 11, fontWeight: 700, color: "#EAB308", marginTop: 4, textAlign: "center" as const }}>
-        🎉 Promo cijena — prvih 6 mjeseci
-      </p>
       <p className="text-xs text-muted-foreground mb-6">
         {yearly ? "8,33€/mj. — uštedi 20€" : "Otkaži u bilo kojem trenutku"}
       </p>

@@ -162,7 +162,7 @@ export default function BeforeAfterSection() {
           {/* Before (full width behind) */}
           <div className="absolute inset-0">
             {beforeContent}
-            <div className="absolute top-4 left-4 z-10 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider bg-red-500/20 text-red-400 border border-red-500/30 backdrop-blur-sm">
+            <div className="absolute top-4 right-4 z-10 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider bg-red-500/20 text-red-400 border border-red-500/30 backdrop-blur-sm">
               PRIJE
             </div>
           </div>
