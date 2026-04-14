@@ -45,7 +45,7 @@ serve(async (req) => {
         is_premium: false,
         subscription_tier: "free",
         subscription_expires_at: null,
-      }).eq("id", user.id);
+      }).eq("id", userId);
 
       return new Response(JSON.stringify({ subscribed: false }), {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -74,7 +74,7 @@ serve(async (req) => {
       is_premium: hasActiveSub,
       subscription_tier: hasActiveSub ? "premium" : "free",
       subscription_expires_at: subscriptionEnd,
-    }).eq("id", user.id);
+    }).eq("id", userId);
 
     return new Response(JSON.stringify({
       subscribed: hasActiveSub,
