@@ -77,11 +77,22 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
 
         <div>
           <p style={colTitleStyle}>Pravno</p>
-          {LEGAL_LINKS.map((l) => (
-            <Link key={l.to} to={l.to} style={linkStyle} className="footer-link">
-              {l.label}
-            </Link>
-          ))}
+          {LEGAL_LINKS.map((l) =>
+            (l as any).action && onOpenCookieSettings ? (
+              <button
+                key={l.to}
+                onClick={onOpenCookieSettings}
+                style={{ ...linkStyle, cursor: "pointer", background: "none", border: "none", textAlign: "left", width: "100%" }}
+                className="footer-link"
+              >
+                {l.label}
+              </button>
+            ) : (
+              <Link key={l.to} to={l.to} style={linkStyle} className="footer-link">
+                {l.label}
+              </Link>
+            )
+          )}
         </div>
 
         <div>
