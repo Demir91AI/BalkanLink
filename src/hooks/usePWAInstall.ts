@@ -155,6 +155,8 @@ export function usePWAInstall() {
       setShowBanner(true);
     } else if (isIOS()) {
       setShowIOSGuide(true);
+    } else {
+      toast.info("Otvori ovu stranicu na mobilnom telefonu u pregledniku da instaliraš BalkanLink aplikaciju.", { duration: 5000 });
     }
   }, [deferredPrompt]);
 
