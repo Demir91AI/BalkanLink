@@ -16,7 +16,7 @@ const LEGAL_LINKS = [
   { label: "Odricanje odgovornosti", to: "/disclaimer" },
   { label: "Napomena o asistentu", to: "/napomena-o-ki" },
   { label: "DSA – Prijavi sadržaj", to: "/dsa" },
-  { label: "Postavke kolačića", to: "/cookie-richtlinie" },
+  { label: "Postavke kolačića", to: "/cookie-richtlinie", action: true },
 ];
 
 const colTitleStyle: React.CSSProperties = {
