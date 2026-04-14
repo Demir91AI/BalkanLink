@@ -310,7 +310,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
             <div>
               <p style={{ fontSize: 13, fontWeight: 700, color: '#92400E', margin: '0 0 6px' }}>Regulativa za Zapadni Balkan aktivna!</p>
               <p style={{ fontSize: 13, color: '#4A4A4A', margin: 0, lineHeight: 1.6 }}>{route.westbalkanNote}</p>
-              <a href="https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/arbeit/westbalkan-regelung"
+              <a href="https://www.make-it-in-germany.com/de/visum-aufenthalt"
                 target="_blank" rel="noopener noreferrer"
                 style={{ display: 'inline-flex', alignItems: 'center', gap: 4, color: GOLD, fontSize: 12, marginTop: 8, textDecoration: 'none' }}>
                 Saznaj više <ExternalLink size={12} />

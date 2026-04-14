@@ -176,10 +176,10 @@ export const VISA_ROUTES: VisaRoute[] = [
     difficulty: 'medium',
     timeValue: 2,
     timeUnit: 'months',
-    ctaUrl: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/arbeit',
+    ctaUrl: 'https://www.make-it-in-germany.com/de/visum/arten/arbeiten',
     sources: [
       { labelKey: 'source_bamf', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Arbeit/arbeit-node.html' },
-      { labelKey: 'source_makeitingermany', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/arbeit' }
+      { labelKey: 'source_makeitingermany', url: 'https://www.make-it-in-germany.com/de/visum/arten/arbeiten' }
     ]
   },
   {
@@ -249,7 +249,7 @@ export const VISA_ROUTES: VisaRoute[] = [
     ctaUrl: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Studium/studium-node.html',
     sources: [
       { labelKey: 'source_bamf', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Studium/studium-node.html' },
-      { labelKey: 'source_makeitingermany', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/studium' }
+      { labelKey: 'source_makeitingermany', url: 'https://www.make-it-in-germany.com/de/visum/arten/studieren' }
     ]
   },
   {
@@ -297,7 +297,7 @@ export const VISA_ROUTES: VisaRoute[] = [
     ctaUrl: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/DauerhafterAufenthalt/dauerhafter-aufenthalt-node.html',
     sources: [
       { labelKey: 'source_bamf', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/DauerhafterAufenthalt/dauerhafter-aufenthalt-node.html' },
-      { labelKey: 'source_makeitingermany', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/niederlassungserlaubnis' }
+      { labelKey: 'source_makeitingermany', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/dauerhaft-in-deutschland/niederlassungserlaubnis' }
     ]
   }
 ];

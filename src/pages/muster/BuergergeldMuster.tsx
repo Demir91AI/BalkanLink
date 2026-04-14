@@ -2,7 +2,7 @@ import { useState } from "react";
 import MusterFormBase, { S, Field, IdBoxes, SecHeader, Signature } from "@/components/muster/MusterFormBase";
 
 const LS_KEY = "buergergeld-muster-data";
-const PDF_URL = "https://www.arbeitsagentur.de/datei/ba012914.pdf";
+const PDF_URL = "https://www.arbeitsagentur.de/arbeitslos-arbeit-finden/buergergeld";
 
 const TABS = [
   { key: "ha", label: "Hauptantrag (HA)" },

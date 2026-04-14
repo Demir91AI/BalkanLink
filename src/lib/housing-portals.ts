@@ -36,7 +36,7 @@ export const PORTALE_HAUPT: HousingPortal[] = [
   {
     name: "Wohnungsboerse.net",
     desc: "Besplatni oglasi bez provizije",
-    buildUrl: () => `https://www.wohnungsboerse.net/mieten`,
+    buildUrl: () => `https://www.wohnungsboerse.net/suche`,
   },
   {
     name: "Kalaydo",
@@ -60,12 +60,12 @@ export const PORTALE_WG: HousingPortal[] = [
   {
     name: "HousingAnywhere",
     desc: "Međunarodni portal – engleski oglasi",
-    buildUrl: () => `https://housinganywhere.com/s/Germany`,
+    buildUrl: () => `https://housinganywhere.com/`,
   },
   {
     name: "Spotahome",
     desc: "Online obilazak stana prije useljenja",
-    buildUrl: () => `https://www.spotahome.com/germany`,
+    buildUrl: () => `https://www.spotahome.com/`,
   },
   {
     name: "Uniplaces",

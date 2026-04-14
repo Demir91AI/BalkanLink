@@ -3,7 +3,7 @@ import { label } from "@/lib/de-labels";
 
 const SOURCES = [
   { key: "source_bamf", url: "https://www.bamf.de/DE/Themen/MigrationAufenthalt/migrationaufenthalt-node.html" },
-  { key: "source_auswamt", url: "https://www.auswaertiges-amt.de/de/service/visa-einreise-aufenthalt" },
+  { key: "source_auswamt", url: "https://www.auswaertiges-amt.de/de/service/visa-und-aufenthalt" },
   { key: "source_makeitingermany", url: "https://www.make-it-in-germany.com/de/visum-aufenthalt" },
   { key: "source_youreurope", url: "https://europa.eu/youreurope/citizens/travel/entry-exit/eu-citizens/index_de.htm" },
 ];

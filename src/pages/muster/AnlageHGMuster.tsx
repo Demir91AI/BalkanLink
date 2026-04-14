@@ -2,7 +2,7 @@ import { useState } from "react";
 import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/muster/MusterFormBase";
 
 const LS_KEY = "anlage-hg-muster-data";
-const PDF_URL = "https://www.arbeitsagentur.de/datei/anlage-hg_ba015206.pdf";
+const PDF_URL = "https://www.arbeitsagentur.de/arbeitslos-arbeit-finden/buergergeld";
 
 const initial = () => ({
   vorname: "", nachname: "", geburtsdatum: "", bgNummer: "",
