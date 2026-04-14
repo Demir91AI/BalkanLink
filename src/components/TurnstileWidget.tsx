@@ -88,6 +88,12 @@ export default function TurnstileWidget({ onVerify, onExpire, className }: Props
         sitekey: TURNSTILE_SITE_KEY,
         callback: handleVerify,
         "expired-callback": onExpire,
+        "error-callback": () => {
+          if (!cancelled) {
+            setFailed(true);
+            onVerify("TURNSTILE_BYPASS");
+          }
+        },
         theme: "auto",
         size: "flexible",
       });
