@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import {
   FileText, Shield, BookOpen, Camera, Megaphone, Plane,
   Briefcase, Building, Calculator, FileCheck, X, LogIn, LogOut, User,
-  CreditCard, Scale, Store, Home,
+  CreditCard, Scale, Store, Home, Smartphone,
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import AuthModal from "@/components/auth/AuthModal";
@@ -13,7 +13,7 @@ function getInitials(name: string) {
   return parts.slice(0, 2).map((part) => part.charAt(0).toUpperCase()).join("") || "?";
 }
 
-export function AppSidebar() {
+export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {}) {
   const [isOpen, setIsOpen] = useState(false);
   const [authOpen, setAuthOpen] = useState(false);
   const debounceRef = useRef(0);
