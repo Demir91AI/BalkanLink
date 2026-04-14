@@ -11,7 +11,7 @@
 
 export const TTS_CONFIG = {
   /** Standard playback speed — clear and slightly brisk */
-  DEFAULT_SPEED: 1.15,
+  DEFAULT_SPEED: 1.0,
   /** Slow / natural playback speed */
   SLOW_SPEED: 0.95,
   /** All available speed options for the selector UI */
