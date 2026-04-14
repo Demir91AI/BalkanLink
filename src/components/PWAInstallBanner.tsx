@@ -1,12 +1,15 @@
-import { X, Download, Share2, Smartphone } from "lucide-react";
+import { X, Download, Smartphone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { usePWAInstall } from "@/hooks/usePWAInstall";
 import { Button } from "@/components/ui/button";
 
-export default function PWAInstallBanner() {
-  const { canShow, platform, installAndroid, dismissBanner } = usePWAInstall();
+interface Props {
+  show: boolean;
+  onInstall: () => void;
+  onDismiss: () => void;
+}
 
-  if (!canShow || !platform) return null;
+export default function PWAInstallBanner({ show, onInstall, onDismiss }: Props) {
+  if (!show) return null;
 
   return (
     <div className="fixed bottom-20 left-0 right-0 z-[60] flex justify-center px-4 pointer-events-none md:bottom-4">
@@ -18,76 +21,48 @@ export default function PWAInstallBanner() {
             exit={{ opacity: 0, y: 12 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
           >
-            <div className="relative rounded-2xl border border-border/70 bg-card/95 p-5 shadow-2xl backdrop-blur-md">
+            <div className="relative rounded-2xl border border-border/40 bg-card/95 backdrop-blur-xl shadow-2xl p-5">
               <button
                 type="button"
-                onClick={dismissBanner}
-                className="absolute right-3 top-3 inline-flex h-8 w-8 items-center justify-center rounded-full border border-border/80 bg-background/90 text-muted-foreground transition-colors hover:text-foreground"
+                onClick={onDismiss}
+                className="absolute right-3 top-3 inline-flex h-8 w-8 items-center justify-center rounded-full border border-border/60 bg-background/90 text-muted-foreground transition-colors hover:text-foreground"
                 aria-label="Zatvori"
               >
                 <X className="h-4 w-4" />
               </button>
 
               <div className="flex items-start gap-4 pr-8">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[hsl(var(--gold))] text-[hsl(var(--primary))] shadow-[0_12px_32px_hsl(var(--gold)/0.24)]">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[hsl(var(--gold))] text-[hsl(var(--primary))] shadow-lg">
                   <Smartphone className="h-6 w-6" />
                 </div>
-
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-semibold text-foreground">
-                    BalkanLink kao aplikacija 📱
+                    Dodaj BalkanLink na početni ekran
                   </p>
                   <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">
-                    Brži pristup vodičima, formularima i asistentu — instaliraj na telefon.
+                    Brži pristup formularima, vodičima i alatima — kao prava aplikacija.
                   </p>
                 </div>
-
-                {platform === "android" && (
-                  <Button
-                    onClick={installAndroid}
-                    size="sm"
-                    className="shrink-0 rounded-full bg-[hsl(var(--gold))] px-4 text-xs font-bold text-[hsl(var(--primary))] transition-colors hover:bg-[hsl(var(--gold-light))]"
-                  >
-                    <Download className="h-3.5 w-3.5" />
-                    Preuzmi app
-                  </Button>
-                )}
+                <Button
+                  onClick={onInstall}
+                  size="sm"
+                  className="shrink-0 rounded-full bg-[hsl(var(--gold))] px-4 text-xs font-bold text-[hsl(var(--primary))] transition-colors hover:bg-[hsl(var(--gold))]/90"
+                >
+                  <Download className="h-3.5 w-3.5" />
+                  Instaliraj aplikaciju
+                </Button>
               </div>
 
-              {platform === "ios" && (
-                <div className="mt-4 space-y-2">
-                  {[
-                    { step: "1", text: "Otvori u Safari pregledniku" },
-                    {
-                      step: "2",
-                      text: (
-                        <span>
-                          Klikni <Share2 className="inline h-3.5 w-3.5 mx-0.5 text-[hsl(210,100%,50%)]" /> Share ikonu
-                        </span>
-                      ),
-                    },
-                    { step: "3", text: 'Izaberi "Dodaj na početni ekran"' },
-                  ].map((item) => (
-                    <div key={item.step} className="flex items-center gap-2.5">
-                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent text-[10px] font-bold text-foreground">
-                        {item.step}
-                      </span>
-                      <span className="text-xs text-muted-foreground">{item.text}</span>
-                    </div>
-                  ))}
-                </div>
-              )}
-
-              <div className="mt-4 flex items-center justify-between gap-3 border-t border-border/70 pt-4">
+              <div className="mt-4 flex items-center justify-between gap-3 border-t border-border/40 pt-3">
                 <p className="text-[11px] text-muted-foreground">
-                  Ako zatvoriš popup, sakrit će se 7 dana.
+                  Možeš i kasnije — opcija ostaje u meniju.
                 </p>
                 <button
                   type="button"
-                  onClick={dismissBanner}
+                  onClick={onDismiss}
                   className="text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  Ne hvala
+                  Kasnije
                 </button>
               </div>
             </div>
