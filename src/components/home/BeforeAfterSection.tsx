@@ -20,7 +20,7 @@ export default function BeforeAfterSection() {
   const handleMove = useCallback((clientX: number) => {
     if (!containerRef.current || !dragging.current) return;
     const rect = containerRef.current.getBoundingClientRect();
-    const pct = Math.min(Math.max(((clientX - rect.left) / rect.width) * 100, 5), 95);
+    const pct = Math.min(Math.max(((clientX - rect.left) / rect.width) * 100, 0), 100);
     setSliderPos(pct);
   }, []);
 
@@ -155,7 +155,7 @@ export default function BeforeAfterSection() {
         <div
           ref={containerRef}
           className="hidden sm:block relative rounded-2xl overflow-hidden border border-white/10 select-none"
-          style={{ height: 420, cursor: dragging.current ? "grabbing" : "default" }}
+          style={{ height: 480, cursor: dragging.current ? "grabbing" : "default" }}
           onMouseMove={onMouseMove}
           onTouchMove={onTouchMove}
         >
