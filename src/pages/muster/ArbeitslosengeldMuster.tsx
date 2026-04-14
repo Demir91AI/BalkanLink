@@ -2,7 +2,7 @@ import { useState } from "react";
 import MusterFormBase, { S, Field, IdBoxes, SecHeader, Signature } from "@/components/muster/MusterFormBase";
 
 const LS_KEY = "arbeitslosengeld-muster-data";
-const PDF_URL = "https://www.arbeitsagentur.de/datei/ba013384.pdf";
+const PDF_URL = "https://www.arbeitsagentur.de/arbeitslos-arbeit-finden/arbeitslosengeld";
 
 const initial = () => ({
   familienname: "", vorname: "", geburtsdatum: "", geburtsort: "", steuerId: "", svNummer: "", staatsangehoerigkeit: "",

@@ -183,7 +183,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         ],
         musterformulare: [
           { title: 'Musterformular 1: Antrag auf Aufenthaltserlaubnis', subtitle: 'Popunjen primjer za radnu vizu §18 AufenthG', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.bamf.de' },
-          { title: 'Musterformular 2: Erklärung zum Beschäftigungsverhältnis (EzB)', subtitle: 'Formular koji popunjava POSLODAVAC — primjer popunjavanja', formKey: 'VisaWorkForm2', downloadUrl: 'https://www.arbeitsagentur.de/datei/ezb_ba047549.pdf' }
+          { title: 'Musterformular 2: Erklärung zum Beschäftigungsverhältnis (EzB)', subtitle: 'Formular koji popunjava POSLODAVAC — primjer popunjavanja', formKey: 'VisaWorkForm2', downloadUrl: 'https://www.arbeitsagentur.de/unternehmen/fachkraefte-ausland/westbalkanregelung' }
         ]
       },
       {
@@ -516,7 +516,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         ],
         musterformulare: [
           { title: 'Musterformular 1: Antrag auf Aufenthaltserlaubnis', subtitle: 'Popunjen primer za §18 Srbija', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.bamf.de' },
-          { title: 'Musterformular 2: EzB — Erklärung zum Beschäftigungsverhältnis', subtitle: 'Formular koji popunjava POSLODAVAC', formKey: 'VisaWorkForm2', downloadUrl: 'https://www.arbeitsagentur.de/datei/ezb_ba047549.pdf' }
+          { title: 'Musterformular 2: EzB — Erklärung zum Beschäftigungsverhältnis', subtitle: 'Formular koji popunjava POSLODAVAC', formKey: 'VisaWorkForm2', downloadUrl: 'https://www.arbeitsagentur.de/unternehmen/fachkraefte-ausland/westbalkanregelung' }
         ]
       },
       {
@@ -736,7 +736,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         ],
         musterformulare: [
           { title: 'Musterformular 1: Antrag Aufenthaltserlaubnis §18', subtitle: 'Primjer za Crnu Goru', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.bamf.de' },
-          { title: 'Musterformular 2: EzB', subtitle: 'Formular poslodavca', formKey: 'VisaWorkForm2', downloadUrl: 'https://www.arbeitsagentur.de/datei/ezb_ba047549.pdf' }
+          { title: 'Musterformular 2: EzB', subtitle: 'Formular poslodavca', formKey: 'VisaWorkForm2', downloadUrl: 'https://www.arbeitsagentur.de/unternehmen/fachkraefte-ausland/westbalkanregelung' }
         ]
       },
       {
@@ -885,7 +885,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         ],
         musterformulare: [
           { title: 'Musterformular 1: Antrag Aufenthaltserlaubnis §18/§19c', subtitle: 'Пример за Македонија', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.bamf.de' },
-          { title: 'Musterformular 2: EzB', subtitle: 'Формулар на работодавачот', formKey: 'VisaWorkForm2', downloadUrl: 'https://www.arbeitsagentur.de/datei/ezb_ba047549.pdf' }
+          { title: 'Musterformular 2: EzB', subtitle: 'Формулар на работодавачот', formKey: 'VisaWorkForm2', downloadUrl: 'https://www.arbeitsagentur.de/unternehmen/fachkraefte-ausland/westbalkanregelung' }
         ]
       },
       {
@@ -1034,7 +1034,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         ],
         musterformulare: [
           { title: 'Musterformular 1: Antrag Aufenthaltserlaubnis §18', subtitle: 'Shembull për Shqipërinë', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.bamf.de' },
-          { title: 'Musterformular 2: EzB', subtitle: 'Formulari i punëdhënësit', formKey: 'VisaWorkForm2', downloadUrl: 'https://www.arbeitsagentur.de/datei/ezb_ba047549.pdf' }
+          { title: 'Musterformular 2: EzB', subtitle: 'Formulari i punëdhënësit', formKey: 'VisaWorkForm2', downloadUrl: 'https://www.arbeitsagentur.de/unternehmen/fachkraefte-ausland/westbalkanregelung' }
         ]
       },
       {
@@ -1211,7 +1211,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         ],
         musterformulare: [
           { title: 'Musterformular 1: Antrag Aufenthaltserlaubnis §18', subtitle: 'Primjer za Kosovo — VisaMetric procedura', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.bamf.de' },
-          { title: 'Musterformular 2: EzB', subtitle: 'Formular koji popunjava poslodavac', formKey: 'VisaWorkForm2', downloadUrl: 'https://www.arbeitsagentur.de/datei/ezb_ba047549.pdf' }
+          { title: 'Musterformular 2: EzB', subtitle: 'Formular koji popunjava poslodavac', formKey: 'VisaWorkForm2', downloadUrl: 'https://www.arbeitsagentur.de/unternehmen/fachkraefte-ausland/westbalkanregelung' }
         ]
       },
       {

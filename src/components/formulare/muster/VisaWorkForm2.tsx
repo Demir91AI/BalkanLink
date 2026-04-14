@@ -252,7 +252,7 @@ export default function VisaWorkForm2() {
       <div className="rounded-lg p-4 text-xs leading-relaxed" style={{ background: "#FFF8EC", border: "1px solid #E8D9B0", color: "#4A4A4A" }}>
         {"visa_work_ezb_download_hint"}
         <a
-          href="https://www.arbeitsagentur.de/datei/ezb_ba047549.pdf"
+          href="https://www.arbeitsagentur.de/unternehmen/fachkraefte-ausland/westbalkanregelung"
           target="_blank"
           rel="noopener noreferrer"
           className="ml-2 inline-flex items-center gap-1 font-semibold hover:underline"

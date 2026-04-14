@@ -2,7 +2,7 @@ import { useState } from "react";
 import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/muster/MusterFormBase";
 
 const LS_KEY = "antragsruecknahme-muster-data";
-const PDF_URL = "https://www.arbeitsagentur.de/datei/antragsruecknahme_ba015959.pdf";
+const PDF_URL = "https://www.arbeitsagentur.de/arbeitslos-arbeit-finden/buergergeld";
 
 const initial = () => ({
   vorname: "", nachname: "", geburtsdatum: "",
