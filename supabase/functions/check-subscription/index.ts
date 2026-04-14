@@ -27,13 +27,17 @@ serve(async (req) => {
     if (!authHeader) throw new Error("No authorization header");
 
     const token = authHeader.replace("Bearer ", "");
-    const { data: userData, error: userError } = await supabaseClient.auth.getUser(token);
-    if (userError) throw new Error(`Auth error: ${userError.message}`);
-    const user = userData.user;
-    if (!user?.email) throw new Error("User not authenticated");
+
+    // Use getClaims for edge function context (no session needed)
+    const { data: claimsData, error: claimsError } = await supabaseClient.auth.getClaims(token);
+    if (claimsError || !claimsData?.claims) throw new Error(`Auth error: ${claimsError?.message ?? "Invalid token"}`);
+
+    const userId = claimsData.claims.sub as string;
+    const userEmail = claimsData.claims.email as string;
+    if (!userId || !userEmail) throw new Error("User not authenticated");
 
     const stripe = new Stripe(stripeKey, { apiVersion: "2025-08-27.basil" });
-    const customers = await stripe.customers.list({ email: user.email, limit: 1 });
+    const customers = await stripe.customers.list({ email: userEmail, limit: 1 });
 
     if (customers.data.length === 0) {
       // Sync profile to free
@@ -41,7 +45,7 @@ serve(async (req) => {
         is_premium: false,
         subscription_tier: "free",
         subscription_expires_at: null,
-      }).eq("id", user.id);
+      }).eq("id", userId);
 
       return new Response(JSON.stringify({ subscribed: false }), {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -70,7 +74,7 @@ serve(async (req) => {
       is_premium: hasActiveSub,
       subscription_tier: hasActiveSub ? "premium" : "free",
       subscription_expires_at: subscriptionEnd,
-    }).eq("id", user.id);
+    }).eq("id", userId);
 
     return new Response(JSON.stringify({
       subscribed: hasActiveSub,
