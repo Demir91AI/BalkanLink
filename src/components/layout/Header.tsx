@@ -1,15 +1,19 @@
-import { useRef, useCallback } from "react";
+import { useRef, useCallback, useState, useEffect } from "react";
 import { useAuth } from "@/contexts/AuthContext";
-import { Menu, ShieldCheck } from "lucide-react";
-// LanguageSwitcher removed from UI per language policy (see src/config/language-policy.ts)
+import { Menu, ShieldCheck, Crown, UserCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
-
-const menuBtnClass =
-  "h-10 w-10 rounded-lg text-white/70 hover:text-white hover:bg-white/8 active:scale-[0.93] transition-transform duration-150";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Header() {
-  const { loading, isAdmin } = useAuth();
+  const { loading, isAdmin, user } = useAuth();
+  const navigate = useNavigate();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const lastToggleRef = useRef(0);
   const handleToggleSidebar = useCallback(() => {
@@ -20,24 +24,129 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/8 bg-[#0f1f3d]/95 backdrop-blur-xl shadow-lg shadow-black/20">
-      <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[hsl(var(--gold))] to-transparent opacity-60" />
+    <header
+      className="sticky top-0 z-50 relative overflow-hidden transition-all duration-300 ease-in-out"
+      style={{
+        height: scrolled ? 48 : undefined,
+        background: "linear-gradient(180deg, rgba(8,15,35,0.97) 0%, rgba(13,25,60,0.95) 100%)",
+        backdropFilter: scrolled ? "blur(20px)" : "blur(16px)",
+        WebkitBackdropFilter: scrolled ? "blur(20px)" : "blur(16px)",
+        boxShadow: scrolled
+          ? "0 8px 40px rgba(0,0,0,0.6), 0 1px 0 rgba(212,175,55,0.1)"
+          : "0 4px 32px rgba(0,0,0,0.5), 0 1px 0 rgba(212,175,55,0.1)",
+      }}
+    >
+      {/* Top highlight line */}
+      <div
+        className="absolute top-0 inset-x-0 h-px"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent 0%, rgba(212,175,55,0.25) 30%, rgba(255,255,255,0.12) 50%, rgba(212,175,55,0.25) 70%, transparent 100%)",
+        }}
+      />
 
-      <div className="relative flex h-14 items-center justify-between px-4">
-        <Button variant="ghost" size="icon" onClick={handleToggleSidebar} className={menuBtnClass} aria-label="Menü">
-          <Menu className="h-5 w-5" />
-        </Button>
+      {/* Bottom border glow */}
+      <div
+        className="absolute bottom-0 inset-x-0 h-px"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent 0%, rgba(212,175,55,0.35) 25%, rgba(100,140,255,0.2) 50%, rgba(212,175,55,0.35) 75%, transparent 100%)",
+          boxShadow: "0 1px 20px rgba(212,175,55,0.08)",
+        }}
+      />
 
-        <div className="absolute left-1/2 top-[55%] -translate-x-1/2 -translate-y-1/2">
-          <Link to="/" className="group relative inline-flex items-center gap-3" aria-label="BalkanLink home">
-            <span className="absolute -inset-3 rounded-2xl bg-[hsl(var(--gold))]/10 blur-xl group-hover:bg-[hsl(var(--gold))]/20 transition-all duration-500 pointer-events-none" />
-            <span className="relative font-heading text-[28px] font-extrabold leading-none tracking-tight drop-shadow-[0_0_10px_hsl(var(--gold)/0.35)]">
-              <span className="text-white">B</span>
-              <span className="bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--gold-light))] bg-clip-text text-transparent">L</span>
+      {/* Ambient center radial glow */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 50% 120% at 50% -10%, rgba(212,175,55,0.06) 0%, transparent 65%)",
+        }}
+      />
+
+      {/* Main content */}
+      <div
+        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between transition-all duration-300 ease-in-out"
+        style={{ height: scrolled ? 48 : undefined }}
+      >
+        {/* LEFT: Hamburger */}
+        <button
+          onClick={handleToggleSidebar}
+          aria-label="Menü"
+          className="flex items-center justify-center transition-all duration-250 ease-in-out hover:scale-105 md:hidden"
+          style={{
+            background: "rgba(255,255,255,0.04)",
+            border: "1px solid rgba(255,255,255,0.08)",
+            borderRadius: 10,
+            padding: 8,
+            boxShadow:
+              "0 2px 8px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.04)",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = "rgba(212,175,55,0.08)";
+            e.currentTarget.style.borderColor = "rgba(212,175,55,0.3)";
+            e.currentTarget.style.boxShadow = "0 0 12px rgba(212,175,55,0.15)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = "rgba(255,255,255,0.04)";
+            e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
+            e.currentTarget.style.boxShadow =
+              "0 2px 8px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.04)";
+          }}
+        >
+          <Menu
+            className="h-5 w-5"
+            style={{ color: "rgba(255,255,255,0.85)" }}
+            strokeWidth={1.75}
+          />
+        </button>
+
+        {/* Desktop spacer for left side */}
+        <div className="hidden md:block w-10" />
+
+        {/* CENTER: Logo — absolutely centered */}
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <Link
+            to="/"
+            className="group relative inline-flex items-center gap-2.5 transition-all duration-300 ease-in-out hover:scale-[1.02]"
+            aria-label="BalkanLink home"
+            style={{
+              transform: scrolled ? "scale(0.92)" : undefined,
+              transition: "transform 0.3s ease",
+            }}
+          >
+            {/* BL icon container */}
+            <span
+              className="relative flex items-center justify-center transition-all duration-300"
+              style={{
+                background: "rgba(212,175,55,0.08)",
+                border: "1px solid rgba(212,175,55,0.2)",
+                borderRadius: 8,
+                padding: "6px 8px",
+                boxShadow:
+                  "0 0 16px rgba(212,175,55,0.12), inset 0 1px 0 rgba(255,255,255,0.06)",
+              }}
+            >
+              <span className="font-heading text-[22px] font-extrabold leading-none tracking-tight">
+                <span style={{ color: "#F8F8FF" }}>B</span>
+                <span
+                  style={{
+                    color: "#D4AF37",
+                    filter: "drop-shadow(0 0 8px rgba(212,175,55,0.3))",
+                  }}
+                >
+                  L
+                </span>
+              </span>
             </span>
-            <span className="relative font-heading text-[22px] font-extrabold leading-none tracking-tight drop-shadow-[0_0_16px_hsl(var(--gold)/0.3)]">
-              <span className="text-white">Balkan</span>
-              <span className="bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--gold-light))] bg-clip-text text-transparent">Link</span>
+
+            {/* BalkanLink text */}
+            <span
+              className="relative font-heading text-[20px] font-bold leading-none tracking-tight hidden sm:inline"
+              style={{ filter: "drop-shadow(0 0 8px rgba(212,175,55,0.3))" }}
+            >
+              <span style={{ color: "#F8F8FF", fontWeight: 700 }}>Balkan</span>
+              <span style={{ color: "#D4AF37", fontWeight: 700 }}>Link</span>
             </span>
           </Link>
 
@@ -49,7 +158,69 @@ export default function Header() {
           )}
         </div>
 
-        {/* LanguageSwitcher hidden per language policy */}
+        {/* RIGHT: Premium badge + User icon */}
+        <div className="flex items-center gap-2 ml-auto">
+          {/* Premium badge button */}
+          <button
+            onClick={() => navigate("/premium")}
+            className="hidden sm:inline-flex items-center gap-1.5 transition-all duration-250 ease-in-out hover:scale-[1.03]"
+            style={{
+              background:
+                "linear-gradient(135deg, rgba(212,175,55,0.12) 0%, rgba(212,175,55,0.05) 100%)",
+              border: "1px solid rgba(212,175,55,0.35)",
+              color: "#D4AF37",
+              borderRadius: 20,
+              padding: "5px 12px",
+              fontSize: 11,
+              letterSpacing: "0.08em",
+              textTransform: "uppercase" as const,
+              fontWeight: 600,
+              boxShadow:
+                "0 0 12px rgba(212,175,55,0.1), inset 0 1px 0 rgba(255,255,255,0.05)",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "rgba(212,175,55,0.18)";
+              e.currentTarget.style.boxShadow =
+                "0 0 20px rgba(212,175,55,0.2)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background =
+                "linear-gradient(135deg, rgba(212,175,55,0.12) 0%, rgba(212,175,55,0.05) 100%)";
+              e.currentTarget.style.boxShadow =
+                "0 0 12px rgba(212,175,55,0.1), inset 0 1px 0 rgba(255,255,255,0.05)";
+            }}
+          >
+            <Crown className="h-4 w-4" />
+            Premium
+          </button>
+
+          {/* User/profile icon button */}
+          <button
+            onClick={() => navigate(user ? "/profil" : "/login")}
+            aria-label={user ? "Profil" : "Prijava"}
+            className="flex items-center justify-center transition-all duration-250 ease-in-out"
+            style={{
+              width: 36,
+              height: 36,
+              background: "rgba(255,255,255,0.04)",
+              border: "1px solid rgba(255,255,255,0.1)",
+              borderRadius: "50%",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = "rgba(212,175,55,0.3)";
+              e.currentTarget.style.background = "rgba(212,175,55,0.06)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+              e.currentTarget.style.background = "rgba(255,255,255,0.04)";
+            }}
+          >
+            <UserCircle
+              className="h-5 w-5"
+              style={{ color: "rgba(255,255,255,0.7)" }}
+            />
+          </button>
+        </div>
       </div>
     </header>
   );
