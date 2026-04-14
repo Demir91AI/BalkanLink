@@ -60,7 +60,7 @@ const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY as string;
 const UNIFIED_RATE = 1.15 as const;
 const UNIFIED_PITCH = 0.95;
 
-const RATE_OPTIONS = [0.75, 1, 1.25, 1.5] as const;
+const RATE_OPTIONS = [0.95, 1.15] as const;
 export type SpeechRate = (typeof RATE_OPTIONS)[number] | typeof UNIFIED_RATE;
 
 function applyAudioTuning(audio: HTMLAudioElement, playbackRate: number = UNIFIED_RATE) {
@@ -80,7 +80,7 @@ function applyAudioTuning(audio: HTMLAudioElement, playbackRate: number = UNIFIE
 export function useTTS() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [playState, setPlayState] = useState<PlayState>("idle");
-  const [rate, setRate] = useState<SpeechRate>(1);
+  const [rate, setRate] = useState<SpeechRate>(1.15);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const cachedVoice = useRef<SpeechSynthesisVoice | null>(null);
 
