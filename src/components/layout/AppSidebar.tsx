@@ -217,6 +217,19 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
           </nav>
         </div>
 
+        {/* PWA install entry */}
+        {onPWAInstall && (
+          <div className="px-3 pt-4 pb-4">
+            <button
+              onClick={() => { close(); onPWAInstall(); }}
+              className="flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-left text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D] transition-all duration-200"
+            >
+              <Smartphone className="h-[18px] w-[18px] shrink-0" />
+              <span className="text-[14px] font-medium">Dodaj aplikaciju</span>
+            </button>
+          </div>
+        )}
+
       </aside>
 
       <AuthModal open={authOpen} onClose={() => setAuthOpen(false)} />

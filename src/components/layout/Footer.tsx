@@ -38,7 +38,7 @@ const linkStyle: React.CSSProperties = {
   transition: "color 0.2s",
 };
 
-export default function Footer() {
+export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?: () => void } = {}) {
   return (
     <footer style={{ background: "#0d1526" }}>
       <div
