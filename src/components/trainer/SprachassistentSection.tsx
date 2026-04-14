@@ -69,27 +69,8 @@ const SprachassistentSection = React.forwardRef<HTMLDivElement, Props>(
         )}
       </div>
 
-      {/* Speed selector — segmented pill */}
-      <div className="mb-3 inline-flex items-center gap-1 rounded-[20px] border border-border/30 bg-muted/40 p-[3px]">
-        {rateOptions.map((r) => {
-          const isActive = r === rate;
-          return (
-            <button
-              key={r}
-              onClick={() => setRate(r)}
-              className={cn(
-                "rounded-[16px] px-3 py-2 text-[13px] transition-all",
-                "min-h-[36px] min-w-[40px]",
-                isActive
-                  ? "bg-gold font-semibold text-gold-foreground shadow-sm"
-                  : "font-normal text-muted-foreground hover:text-foreground hover:bg-muted/60"
-              )}
-            >
-              {SPEED_LABELS[r] ?? `${r}×`}
-            </button>
-          );
-        })}
-      </div>
+
+
 
       <div className="flex flex-col gap-2">
         {visiblePhrases.map((phrase, i) => {
