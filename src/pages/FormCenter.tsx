@@ -137,9 +137,8 @@ function FormPremiumPaywall({ slug, entry }: { slug: string; entry: FormEntry | 
           <Crown className="inline-block mr-1.5 h-4 w-4" />
           Otključaj Premium — 9.99€/mj.
         </button>
-        <p className="text-[11px] text-muted-foreground">
-          ili samo ovaj formular — <span className="font-semibold">3.99€ jednokratno</span>
-        </p>
+
+
       </div>
     </div>
   );
