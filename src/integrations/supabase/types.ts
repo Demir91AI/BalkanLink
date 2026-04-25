@@ -636,7 +636,7 @@ export type Database = {
           provider: Database["public"]["Enums"]["payment_provider"]
           provider_payment_id: string | null
           status: Database["public"]["Enums"]["payment_status"]
-          user_id: string | null
+          user_id: string
         }
         Insert: {
           amount?: number
@@ -649,7 +649,7 @@ export type Database = {
           provider?: Database["public"]["Enums"]["payment_provider"]
           provider_payment_id?: string | null
           status?: Database["public"]["Enums"]["payment_status"]
-          user_id?: string | null
+          user_id: string
         }
         Update: {
           amount?: number
@@ -662,7 +662,7 @@ export type Database = {
           provider?: Database["public"]["Enums"]["payment_provider"]
           provider_payment_id?: string | null
           status?: Database["public"]["Enums"]["payment_status"]
-          user_id?: string | null
+          user_id?: string
         }
         Relationships: []
       }
