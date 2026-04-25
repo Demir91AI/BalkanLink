@@ -1,22 +1,49 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { Check, Crown, AlertTriangle, Loader2 } from "lucide-react";
+import { Check, Crown, AlertTriangle, Loader2, Receipt, Calendar, Hash, Euro } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
-import { checkSubscriptionStatus } from "@/lib/stripe";
+import { checkSubscriptionStatus, verifyPaymentSession, type PaymentVerification } from "@/lib/stripe";
 import PageNav from "@/components/navigation/PageNav";
 
-type Status = "verifying" | "confirmed" | "pending" | "invalid";
+type UiStatus = "verifying" | "succeeded" | "pending" | "invalid";
 
 // Polling schedule: quick at first, then back off. Total budget ~30s.
 const POLL_DELAYS_MS = [800, 1200, 1500, 2000, 2500, 3000, 4000, 5000, 5000, 5000];
+
+const formatAmount = (minor: number | null | undefined, currency: string | null | undefined) => {
+  if (minor == null) return null;
+  const major = minor / 100;
+  const cur = (currency ?? "EUR").toUpperCase();
+  try {
+    return new Intl.NumberFormat("bs-BA", { style: "currency", currency: cur }).format(major);
+  } catch {
+    return `${major.toFixed(2)} ${cur}`;
+  }
+};
+
+const formatDate = (iso: string | null | undefined) => {
+  if (!iso) return null;
+  try {
+    return new Date(iso).toLocaleString("bs-BA", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  } catch {
+    return iso;
+  }
+};
 
 export default function PaymentSuccess() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const { refreshSubscription, isPremium } = useAuth();
-  const [status, setStatus] = useState<Status>("verifying");
+  const [status, setStatus] = useState<UiStatus>("verifying");
   const [attempt, setAttempt] = useState(0);
+  const [details, setDetails] = useState<PaymentVerification | null>(null);
   const cancelledRef = useRef(false);
 
   const sessionId = searchParams.get("session_id");
@@ -29,42 +56,50 @@ export default function PaymentSuccess() {
       return;
     }
 
-    // If global state already shows premium, short-circuit immediately.
-    if (isPremium) {
-      setStatus("confirmed");
-      return;
-    }
-
     let timeoutId: number | undefined;
 
     const poll = async (i: number) => {
       if (cancelledRef.current) return;
       setAttempt(i + 1);
 
-      try {
-        const result = await checkSubscriptionStatus();
-        if (cancelledRef.current) return;
+      // Always try to fetch session details (amount/date/transaction id)
+      const verification = await verifyPaymentSession(sessionId);
+      if (cancelledRef.current) return;
+      setDetails(verification);
 
-        if (result.subscribed) {
-          // Sync the AuthContext so the rest of the app sees premium too.
+      if (verification.status === "invalid") {
+        setStatus("invalid");
+        return;
+      }
+
+      if (verification.status === "succeeded") {
+        // Sync subscription status if applicable
+        try {
+          await checkSubscriptionStatus();
           await refreshSubscription();
-          if (!cancelledRef.current) setStatus("confirmed");
-          return;
-        }
-      } catch {
-        // swallow — polling will retry
+        } catch { /* ignore */ }
+        if (!cancelledRef.current) setStatus("succeeded");
+        return;
       }
 
       // Schedule next attempt or give up
       if (i + 1 < POLL_DELAYS_MS.length) {
         timeoutId = window.setTimeout(() => poll(i + 1), POLL_DELAYS_MS[i]);
       } else if (!cancelledRef.current) {
-        // Webhook hasn't caught up — show pending state, don't claim failure.
         setStatus("pending");
       }
     };
 
-    poll(0);
+    // Short-circuit: if global state already shows premium, mark as succeeded but still fetch details
+    if (isPremium) {
+      verifyPaymentSession(sessionId).then((v) => {
+        if (cancelledRef.current) return;
+        setDetails(v);
+        setStatus(v.status === "invalid" ? "invalid" : "succeeded");
+      });
+    } else {
+      poll(0);
+    }
 
     return () => {
       cancelledRef.current = true;
@@ -73,28 +108,33 @@ export default function PaymentSuccess() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sessionId]);
 
-  // Auto-redirect after confirmation
+  // Auto-redirect after success
   useEffect(() => {
-    if (status !== "confirmed") return;
-    const t = window.setTimeout(() => navigate("/"), 4000);
+    if (status !== "succeeded") return;
+    const t = window.setTimeout(() => navigate("/"), 6000);
     return () => window.clearTimeout(t);
   }, [status, navigate]);
 
-  // Manual reconciliation trigger (used in pending state)
   const retryNow = async () => {
+    if (!sessionId) return;
     setStatus("verifying");
     setAttempt(0);
-    try {
-      const result = await checkSubscriptionStatus();
-      if (result.subscribed) {
+    const v = await verifyPaymentSession(sessionId);
+    setDetails(v);
+    if (v.status === "succeeded") {
+      try {
+        await checkSubscriptionStatus();
         await refreshSubscription();
-        setStatus("confirmed");
-        return;
-      }
-    } catch {}
-    setStatus("pending");
+      } catch { /* ignore */ }
+      setStatus("succeeded");
+    } else if (v.status === "invalid") {
+      setStatus("invalid");
+    } else {
+      setStatus("pending");
+    }
   };
 
+  // ── INVALID ────────────────────────────────────────
   if (status === "invalid") {
     return (
       <div className="min-h-screen bg-background">
@@ -115,6 +155,7 @@ export default function PaymentSuccess() {
     );
   }
 
+  // ── VERIFYING ──────────────────────────────────────
   if (status === "verifying") {
     return (
       <div className="min-h-screen bg-background">
@@ -135,6 +176,11 @@ export default function PaymentSuccess() {
     );
   }
 
+  const amount = formatAmount(details?.amount, details?.currency);
+  const date = formatDate(details?.paid_at);
+  const txId = details?.transaction_id ?? details?.session_id ?? null;
+
+  // ── PENDING ────────────────────────────────────────
   if (status === "pending") {
     return (
       <div className="min-h-screen bg-background">
@@ -143,13 +189,40 @@ export default function PaymentSuccess() {
           <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[hsl(var(--gold))]/10">
             <AlertTriangle className="h-8 w-8 text-[hsl(var(--gold))]" />
           </div>
-          <h1 className="text-2xl font-bold mb-2">Plaćanje primljeno</h1>
+          <h1 className="text-2xl font-bold mb-2">Plaćanje na čekanju</h1>
           <p className="text-muted-foreground mb-2">
             Stripe potvrda još nije stigla do našeg sistema. Aktivacija obično traje do minutu.
           </p>
           <p className="text-xs text-muted-foreground mb-8">
-            Pokušajte ponovo za nekoliko sekundi ili osvježite stranicu.
+            Pokušajte ponovo za nekoliko sekundi.
           </p>
+
+          {(amount || date || txId) && (
+            <div className="rounded-xl border border-border bg-card/50 p-4 text-left text-sm space-y-2 mb-6">
+              {amount && (
+                <div className="flex items-center gap-2">
+                  <Euro className="h-4 w-4 text-muted-foreground" />
+                  <span className="text-muted-foreground">Iznos:</span>
+                  <span className="font-medium ml-auto">{amount}</span>
+                </div>
+              )}
+              {date && (
+                <div className="flex items-center gap-2">
+                  <Calendar className="h-4 w-4 text-muted-foreground" />
+                  <span className="text-muted-foreground">Datum:</span>
+                  <span className="font-medium ml-auto">{date}</span>
+                </div>
+              )}
+              {txId && (
+                <div className="flex items-center gap-2">
+                  <Hash className="h-4 w-4 text-muted-foreground" />
+                  <span className="text-muted-foreground">Transakcija:</span>
+                  <span className="font-mono text-xs ml-auto truncate max-w-[180px]" title={txId}>{txId}</span>
+                </div>
+              )}
+            </div>
+          )}
+
           <div className="flex flex-col gap-3">
             <Button
               onClick={retryNow}
@@ -166,7 +239,7 @@ export default function PaymentSuccess() {
     );
   }
 
-  // confirmed
+  // ── SUCCEEDED ──────────────────────────────────────
   return (
     <div className="min-h-screen bg-background">
       <PageNav />
@@ -175,8 +248,42 @@ export default function PaymentSuccess() {
           <Check className="h-8 w-8 text-[hsl(var(--success))]" />
         </div>
         <h1 className="text-2xl font-bold mb-2">Plaćanje uspješno!</h1>
-        <p className="text-muted-foreground mb-2">Hvala vam na povjerenju. Vaš pristup je sada aktiviran.</p>
-        <p className="text-xs text-muted-foreground mb-8">Preusmjeravamo vas za 4 sekunde…</p>
+        <p className="text-muted-foreground mb-6">
+          Hvala vam na povjerenju. Vaš pristup je sada aktiviran.
+        </p>
+
+        {(amount || date || txId) && (
+          <div className="rounded-xl border border-border bg-card/50 p-4 text-left text-sm space-y-2 mb-6">
+            <div className="flex items-center gap-2 pb-2 border-b border-border/50">
+              <Receipt className="h-4 w-4 text-[hsl(var(--gold))]" />
+              <span className="font-semibold">Detalji plaćanja</span>
+            </div>
+            {amount && (
+              <div className="flex items-center gap-2">
+                <Euro className="h-4 w-4 text-muted-foreground" />
+                <span className="text-muted-foreground">Iznos:</span>
+                <span className="font-medium ml-auto">{amount}</span>
+              </div>
+            )}
+            {date && (
+              <div className="flex items-center gap-2">
+                <Calendar className="h-4 w-4 text-muted-foreground" />
+                <span className="text-muted-foreground">Datum:</span>
+                <span className="font-medium ml-auto">{date}</span>
+              </div>
+            )}
+            {txId && (
+              <div className="flex items-center gap-2">
+                <Hash className="h-4 w-4 text-muted-foreground" />
+                <span className="text-muted-foreground">Transakcija:</span>
+                <span className="font-mono text-xs ml-auto truncate max-w-[180px]" title={txId}>{txId}</span>
+              </div>
+            )}
+          </div>
+        )}
+
+        <p className="text-xs text-muted-foreground mb-6">Preusmjeravamo vas za 6 sekundi…</p>
+
         <div className="flex flex-col gap-3">
           <Button
             onClick={() => navigate("/")}
@@ -185,7 +292,7 @@ export default function PaymentSuccess() {
             <Crown className="mr-2 h-4 w-4" />
             Nastavi na BalkanLink
           </Button>
-          <Button variant="outline" className="rounded-xl" onClick={() => navigate("/paketi")}>
+          <Button variant="outline" className="rounded-xl" onClick={() => navigate("/profil")}>
             Pogledaj svoj plan
           </Button>
         </div>
