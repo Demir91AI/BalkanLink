@@ -346,7 +346,11 @@ export default function HistorijaPlacanja() {
                   </TableHeader>
                   <TableBody>
                     {payments.map((p) => (
-                      <TableRow key={p.id}>
+                      <TableRow
+                        key={p.id}
+                        onClick={() => setSelected(p)}
+                        className="cursor-pointer hover:bg-muted/40 transition-colors"
+                      >
                         <TableCell className="text-xs whitespace-nowrap">
                           {formatDateTime(p.created_at)}
                         </TableCell>
