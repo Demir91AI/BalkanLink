@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useSubscription } from "@/hooks/useSubscription";
@@ -130,14 +130,48 @@ export default function HistorijaPlacanja() {
   const [openingId, setOpeningId] = useState<string | null>(null);
   const [copied, setCopied] = useState<string | null>(null);
 
+  // Sinhroni guardovi koji rade prije nego React commit-uje state.
+  // Sprečavaju duplo otvaranje istog reda kad korisnik brzo klikne više puta.
+  const openingRef = useRef<string | null>(null);
+  const openTimerRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (openTimerRef.current !== null) {
+        window.clearTimeout(openTimerRef.current);
+      }
+    };
+  }, []);
+
   const handleRowClick = (p: PaymentRow) => {
-    if (loading || subLoading || openingId) return;
+    // Blokiraj ako je modal već otvoren za istu transakciju
+    if (selected?.id === p.id) return;
+    // Blokiraj ako se već priprema bilo koji red (sinhroni ref check)
+    if (openingRef.current) return;
+    // Blokiraj ako se podaci sinhronizuju
+    if (loading || subLoading) return;
+
+    openingRef.current = p.id;
     setOpeningId(p.id);
-    // Small delay to let any in-flight refresh settle and to show feedback
-    window.setTimeout(() => {
+
+    if (openTimerRef.current !== null) {
+      window.clearTimeout(openTimerRef.current);
+    }
+    openTimerRef.current = window.setTimeout(() => {
       setSelected(p);
       setOpeningId(null);
+      openingRef.current = null;
+      openTimerRef.current = null;
     }, 180);
+  };
+
+  const handleDialogOpenChange = (open: boolean) => {
+    if (!open) {
+      setSelected(null);
+      // Resetuj guard kako bi sljedeći klik prošao
+      openingRef.current = null;
+      setOpeningId(null);
+    }
   };
 
   const copyToClipboard = async (value: string, key: string) => {
@@ -411,7 +445,7 @@ export default function HistorijaPlacanja() {
         </p>
       </div>
 
-      <Dialog open={!!selected} onOpenChange={(open) => !open && setSelected(null)}>
+      <Dialog open={!!selected} onOpenChange={handleDialogOpenChange}>
         <DialogContent className="max-w-lg">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2 text-base">
@@ -548,7 +582,7 @@ export default function HistorijaPlacanja() {
             <Button
               variant="outline"
               size="sm"
-              onClick={() => setSelected(null)}
+              onClick={() => handleDialogOpenChange(false)}
             >
               Zatvori
             </Button>
