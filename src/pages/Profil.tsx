@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { LogOut, Crown, User, Calendar, RefreshCw, Settings, AlertTriangle, CheckCircle2, History, XCircle } from "lucide-react";
+import { LogOut, Crown, User, Calendar, RefreshCw, Settings, AlertTriangle, CheckCircle2, History, XCircle, Receipt } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { openCustomerPortal, STRIPE_PRODUCT_IDS } from "@/lib/stripe";
 import { toast } from "@/hooks/use-toast";
@@ -455,6 +455,14 @@ export default function Profil() {
                   Nadogradi na Premium
                 </Button>
               )}
+              <Button
+                onClick={() => navigate("/profil/placanja")}
+                variant="outline"
+                className="w-full"
+              >
+                <Receipt className="h-4 w-4 mr-2" />
+                Historija plaćanja
+              </Button>
               <Button
                 onClick={handleLogout}
                 variant="outline"
