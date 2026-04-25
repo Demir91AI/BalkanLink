@@ -17,6 +17,14 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from "@/components/ui/dialog";
+import {
   ArrowLeft,
   Crown,
   Calendar,
@@ -26,7 +34,11 @@ import {
   Clock,
   AlertTriangle,
   RefreshCw,
+  ExternalLink,
+  Copy,
+  Check,
 } from "lucide-react";
+import { toast } from "sonner";
 
 interface PaymentRow {
   id: string;
