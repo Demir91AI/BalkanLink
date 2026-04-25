@@ -582,7 +582,7 @@ export default function HistorijaPlacanja() {
             <Button
               variant="outline"
               size="sm"
-              onClick={() => setSelected(null)}
+              onClick={() => handleDialogOpenChange(false)}
             >
               Zatvori
             </Button>
