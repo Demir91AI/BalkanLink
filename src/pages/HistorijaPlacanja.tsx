@@ -197,19 +197,39 @@ export default function HistorijaPlacanja() {
   };
 
   useEffect(() => {
-    if (!authLoading && !user) {
+    if (!authLoading && (!user || !session)) {
       navigate("/login");
     }
-  }, [authLoading, user, navigate]);
+  }, [authLoading, user, session, navigate]);
 
   const loadPayments = async () => {
-    if (!user) return;
+    if (!user || !session) return;
+
+    // Dodatna sigurnosna provjera: re-verifikuj session direktno protiv Supabase-a
+    // prije čitanja osjetljivih podataka. Ako je sesija istekla, odjavi.
+    const { data: sessData, error: sessErr } = await supabase.auth.getSession();
+    const liveUserId = sessData?.session?.user?.id;
+    if (sessErr || !liveUserId) {
+      setError("Sesija je istekla. Prijavi se ponovo.");
+      setPayments([]);
+      setLoading(false);
+      navigate("/login");
+      return;
+    }
+    if (liveUserId !== user.id) {
+      // Spriječi da se podaci jednog korisnika prikažu drugom (account switching race).
+      setError("Sigurnosna nepodudarnost sesije.");
+      setPayments([]);
+      setLoading(false);
+      return;
+    }
+
     setLoading(true);
     setError(null);
     const { data, error: dbError } = await supabase
       .from("payments")
-      .select("id, provider, status, amount, currency, transaction_id, paid_at, created_at")
-      .eq("user_id", user.id)
+      .select("id, provider, status, amount, currency, transaction_id, paid_at, created_at, user_id")
+      .eq("user_id", liveUserId)
       .order("created_at", { ascending: false })
       .limit(100);
 
@@ -217,7 +237,12 @@ export default function HistorijaPlacanja() {
       setError(dbError.message);
       setPayments([]);
     } else {
-      setPayments((data ?? []) as PaymentRow[]);
+      // Defense-in-depth: čak i ako bi RLS popustio (admin polica), filtriraj
+      // klijentski isključivo zapise koji pripadaju trenutnom korisniku.
+      const ownOnly = (data ?? []).filter(
+        (row: PaymentRow & { user_id?: string }) => row.user_id === liveUserId,
+      );
+      setPayments(ownOnly as PaymentRow[]);
     }
     setLoading(false);
   };
