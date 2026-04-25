@@ -130,6 +130,19 @@ export default function HistorijaPlacanja() {
   const [selected, setSelected] = useState<PaymentRow | null>(null);
   const [openingId, setOpeningId] = useState<string | null>(null);
   const [copied, setCopied] = useState<string | null>(null);
+  const [checkoutLoading, setCheckoutLoading] = useState(false);
+
+  const handleUpgrade = async () => {
+    if (!user || checkoutLoading) return;
+    setCheckoutLoading(true);
+    try {
+      await initiateCheckout(STRIPE_PRICE_IDS.PREMIUM_MONTHLY, user.id, "subscription");
+    } finally {
+      // initiateCheckout otvara Stripe u novom tabu; resetuj stanje da korisnik
+      // može ponovo pokrenuti tok ako zatvori tab bez plaćanja.
+      setTimeout(() => setCheckoutLoading(false), 1500);
+    }
+  };
 
   // Sinhroni guardovi koji rade prije nego React commit-uje state.
   // Sprečavaju duplo otvaranje istog reda kad korisnik brzo klikne više puta.
