@@ -437,7 +437,7 @@ export default function HistorijaPlacanja() {
           ) : (
             <Crown className="h-4 w-4 mt-0.5 shrink-0 text-muted-foreground" />
           )}
-          <div className="space-y-1">
+          <div className="space-y-1 flex-1">
             <p className="font-medium text-foreground">
               {subLoading
                 ? "Provjeravam Premium status..."
@@ -449,6 +449,42 @@ export default function HistorijaPlacanja() {
               Premium otključava sve Smart Guide korake, kompletne Musterformulare,
               neograničene upite Asistentu, Dokumenten-Check analizu i sve premium šablone.
             </p>
+            {isPremium && !subLoading && endDate && (() => {
+              const end = new Date(endDate);
+              const daysLeft = Math.max(
+                0,
+                Math.ceil((end.getTime() - Date.now()) / (1000 * 60 * 60 * 24)),
+              );
+              const expiringSoon = daysLeft <= 7;
+              return (
+                <div
+                  className={`mt-2 inline-flex items-center gap-1.5 rounded border px-2 py-1 text-[11px] ${
+                    expiringSoon
+                      ? "border-amber-500/40 bg-amber-500/10 text-amber-500"
+                      : "border-[hsl(var(--gold))]/30 bg-[hsl(var(--gold))]/10 text-foreground"
+                  }`}
+                >
+                  <Calendar className="h-3 w-3 shrink-0" />
+                  <span>
+                    Pristup ističe:{" "}
+                    <span className="font-semibold">{formatDate(endDate)}</span>
+                    {" "}
+                    <span className="text-muted-foreground">
+                      ({daysLeft === 0
+                        ? "ističe danas"
+                        : daysLeft === 1
+                          ? "još 1 dan"
+                          : `još ${daysLeft} dana`})
+                    </span>
+                  </span>
+                </div>
+              );
+            })()}
+            {isPremium && !subLoading && !endDate && (
+              <p className="mt-2 text-[11px] text-muted-foreground italic">
+                Datum isteka nije dostupan (npr. trajni admin pristup ili jednokratna aktivacija).
+              </p>
+            )}
             {!isPremium && !subLoading && (
               <div className="flex items-center gap-3 flex-wrap pt-1">
                 <Button
