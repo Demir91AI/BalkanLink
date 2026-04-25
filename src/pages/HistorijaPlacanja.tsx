@@ -115,7 +115,7 @@ const getStatusBadge = (status: string) => {
 };
 
 export default function HistorijaPlacanja() {
-  const { user, loading: authLoading } = useAuth();
+  const { user, session, isAdmin, loading: authLoading } = useAuth();
   const { isPremium } = useSubscription();
   const navigate = useNavigate();
 
@@ -197,19 +197,39 @@ export default function HistorijaPlacanja() {
   };
 
   useEffect(() => {
-    if (!authLoading && !user) {
+    if (!authLoading && (!user || !session)) {
       navigate("/login");
     }
-  }, [authLoading, user, navigate]);
+  }, [authLoading, user, session, navigate]);
 
   const loadPayments = async () => {
-    if (!user) return;
+    if (!user || !session) return;
+
+    // Dodatna sigurnosna provjera: re-verifikuj session direktno protiv Supabase-a
+    // prije čitanja osjetljivih podataka. Ako je sesija istekla, odjavi.
+    const { data: sessData, error: sessErr } = await supabase.auth.getSession();
+    const liveUserId = sessData?.session?.user?.id;
+    if (sessErr || !liveUserId) {
+      setError("Sesija je istekla. Prijavi se ponovo.");
+      setPayments([]);
+      setLoading(false);
+      navigate("/login");
+      return;
+    }
+    if (liveUserId !== user.id) {
+      // Spriječi da se podaci jednog korisnika prikažu drugom (account switching race).
+      setError("Sigurnosna nepodudarnost sesije.");
+      setPayments([]);
+      setLoading(false);
+      return;
+    }
+
     setLoading(true);
     setError(null);
     const { data, error: dbError } = await supabase
       .from("payments")
-      .select("id, provider, status, amount, currency, transaction_id, paid_at, created_at")
-      .eq("user_id", user.id)
+      .select("id, provider, status, amount, currency, transaction_id, paid_at, created_at, user_id")
+      .eq("user_id", liveUserId)
       .order("created_at", { ascending: false })
       .limit(100);
 
@@ -217,7 +237,12 @@ export default function HistorijaPlacanja() {
       setError(dbError.message);
       setPayments([]);
     } else {
-      setPayments((data ?? []) as PaymentRow[]);
+      // Defense-in-depth: čak i ako bi RLS popustio (admin polica), filtriraj
+      // klijentski isključivo zapise koji pripadaju trenutnom korisniku.
+      const ownOnly = (data ?? []).filter(
+        (row: PaymentRow & { user_id?: string }) => row.user_id === liveUserId,
+      );
+      setPayments(ownOnly as PaymentRow[]);
     }
     setLoading(false);
   };
@@ -241,7 +266,8 @@ export default function HistorijaPlacanja() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
-  if (authLoading || !user) {
+  // Striktni guard: traži i `user` i `session` (access token mora postojati).
+  if (authLoading || !user || !session) {
     return (
       <div className="flex min-h-[60vh] items-center justify-center">
         <p className="text-sm text-muted-foreground">Učitavanje...</p>
@@ -269,6 +295,20 @@ export default function HistorijaPlacanja() {
         <p className="text-sm text-muted-foreground mt-1">
           Pregled svih transakcija i trenutni period pretplate.
         </p>
+
+        {isAdmin && (
+          <div className="mt-3 rounded-md border border-amber-500/30 bg-amber-500/10 p-3 text-xs text-amber-600 dark:text-amber-400 flex items-start gap-2">
+            <AlertTriangle className="h-4 w-4 mt-0.5 shrink-0" />
+            <div>
+              <p className="font-medium">Admin mod</p>
+              <p className="text-amber-600/80 dark:text-amber-400/80">
+                Ova stranica prikazuje isključivo tvoje vlastite transakcije. Za upravljanje
+                tuđim plaćanjima koristi admin panel — tamo su dostupni alati za pregled
+                svih korisničkih uplata, refundove i ručne korekcije.
+              </p>
+            </div>
+          </div>
+        )}
       </div>
 
       <div className="container max-w-5xl mx-auto px-4 py-6 space-y-6">
