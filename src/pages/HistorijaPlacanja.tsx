@@ -260,12 +260,13 @@ export default function HistorijaPlacanja() {
   };
 
   useEffect(() => {
-    if (user) {
+    // Ne učitavaj billing podatke za admin sesije — admin ide na kontrolnu rutu.
+    if (user && !isAdmin) {
       loadPayments();
       loadSubscription();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user]);
+  }, [user, isAdmin]);
 
   // Striktni guard: traži i `user` i `session` (access token mora postojati).
   if (authLoading || !user || !session) {
