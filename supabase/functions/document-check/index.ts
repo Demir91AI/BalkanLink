@@ -1,3 +1,5 @@
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.57.2";
+
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers":
@@ -8,9 +10,74 @@ Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
 
   try {
+    // ── Auth check (paid feature — must require login) ──
+    const authHeader = req.headers.get("Authorization");
+    if (!authHeader?.startsWith("Bearer ")) {
+      return new Response(
+        JSON.stringify({ success: false, errorCode: "UNAUTHORIZED", message: "Prijava je obavezna." }),
+        { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
+    const supabase = createClient(
+      Deno.env.get("SUPABASE_URL") ?? "",
+      Deno.env.get("SUPABASE_ANON_KEY") ?? "",
+      { global: { headers: { Authorization: authHeader } } }
+    );
+
+    const token = authHeader.replace("Bearer ", "");
+    const { data: claimsData, error: claimsErr } = await supabase.auth.getClaims(token);
+    if (claimsErr || !claimsData?.claims?.sub) {
+      return new Response(
+        JSON.stringify({ success: false, errorCode: "UNAUTHORIZED", message: "Sesija nije važeća." }),
+        { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+    const userId = claimsData.claims.sub as string;
+
+    // ── Premium check or daily-credit consumption ──
+    const adminSupabase = createClient(
+      Deno.env.get("SUPABASE_URL") ?? "",
+      Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "",
+      { auth: { persistSession: false } }
+    );
+
+    const { data: profile } = await adminSupabase
+      .from("profiles")
+      .select("is_premium, subscription_expires_at")
+      .eq("id", userId)
+      .maybeSingle();
+
+    const now = new Date();
+    const isPremium = !!profile?.is_premium &&
+      (!profile.subscription_expires_at || new Date(profile.subscription_expires_at) > now);
+
+    if (!isPremium) {
+      // Free / non-premium users: 1 free analysis per day via consume_doc_check()
+      const { data: allowed, error: rpcErr } = await adminSupabase.rpc("consume_doc_check", {
+        uid: userId,
+        daily_limit: 1,
+      });
+      if (rpcErr) {
+        console.error("consume_doc_check error:", rpcErr.message);
+        return new Response(
+          JSON.stringify({ success: false, errorCode: "SERVER_ERROR", message: "Provjera kvote nije uspjela." }),
+          { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        );
+      }
+      if (!allowed) {
+        return new Response(
+          JSON.stringify({ success: false, errorCode: "QUOTA_EXCEEDED", message: "Dnevna kvota iskorištena. Uključi Premium za neograničene analize." }),
+          { status: 402, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        );
+      }
+    }
+
     const { text, imageBase64, mimeType } = await req.json();
 
     console.log("Request received:", {
+      userId,
+      isPremium,
       hasText: !!text,
       textLength: text?.length || 0,
       hasImage: !!imageBase64,
