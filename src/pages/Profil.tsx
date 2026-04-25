@@ -89,11 +89,21 @@ export default function Profil() {
   const [refreshing, setRefreshing] = useState(false);
   const [lastError, setLastError] = useState<string | null>(null);
   const [lastSyncedAt, setLastSyncedAt] = useState<Date | null>(null);
+  const [auditLog, setAuditLog] = useState<AuditEntry[]>(() => loadAudit());
+
+  const recordAudit = (entry: AuditEntry) => {
+    setAuditLog((prev) => {
+      const next = [entry, ...prev].slice(0, AUDIT_MAX);
+      saveAudit(next);
+      return next;
+    });
+  };
 
   const loadDetails = async (manual = false) => {
     if (!user) return;
     setRefreshing(true);
     setLastError(null);
+    const startedAt = performance.now();
     try {
       const { data, error } = await supabase.functions.invoke("check-subscription");
       if (error) throw error;
@@ -101,16 +111,33 @@ export default function Profil() {
       if (data) setDetails(data as SubDetails);
       setLastSyncedAt(new Date());
       if (manual) {
+        recordAudit({
+          at: new Date().toISOString(),
+          ok: true,
+          subscribed: !!data?.subscribed,
+          status: data?.subscribed
+            ? (data?.cancel_at_period_end ? "active_canceling" : "active")
+            : "inactive",
+          durationMs: Math.round(performance.now() - startedAt),
+        });
         toast({
           title: "Status osvježen",
           description: "Pretplata je uspješno sinhronizirana sa Stripe-om.",
         });
       }
-    } catch (e) {
+    } catch (e: any) {
       const msg = e instanceof Error ? e.message : "Nepoznata greška";
+      const code = e?.code || e?.name || (e?.status ? `HTTP_${e.status}` : "UNKNOWN");
       console.error("check-subscription error", e);
       setLastError(msg);
       if (manual) {
+        recordAudit({
+          at: new Date().toISOString(),
+          ok: false,
+          errorCode: String(code),
+          errorMessage: msg,
+          durationMs: Math.round(performance.now() - startedAt),
+        });
         toast({
           title: "Sinhronizacija nije uspjela",
           description: msg,
