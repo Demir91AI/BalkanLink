@@ -174,7 +174,7 @@ export default function HistorijaPlacanja() {
 
   return (
     <>
-      <PageNav title="Historija plaćanja" subtitle="Pregled svih transakcija i trenutni period pretplate" />
+      <PageNav />
 
       <div className="container max-w-5xl mx-auto px-4 py-6 space-y-6">
         <div className="flex items-center justify-between gap-2">
