@@ -176,6 +176,16 @@ export default function HistorijaPlacanja() {
     <>
       <PageNav />
 
+      <div className="container max-w-5xl mx-auto px-4 pt-4">
+        <h1 className="text-2xl font-bold flex items-center gap-2">
+          <Receipt className="h-5 w-5 text-primary" />
+          Historija plaćanja
+        </h1>
+        <p className="text-sm text-muted-foreground mt-1">
+          Pregled svih transakcija i trenutni period pretplate.
+        </p>
+      </div>
+
       <div className="container max-w-5xl mx-auto px-4 py-6 space-y-6">
         <div className="flex items-center justify-between gap-2">
           <Button variant="ghost" size="sm" asChild>
