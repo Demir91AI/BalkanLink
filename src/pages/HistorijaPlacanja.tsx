@@ -144,7 +144,7 @@ function ProgressFill({
 
 export default function HistorijaPlacanja() {
   const { user, session, isAdmin, loading: authLoading } = useAuth();
-  const { isPremium } = useSubscription();
+  const { isPremium, expiresAt: profileExpiresAt } = useSubscription();
   const navigate = useNavigate();
 
   const [payments, setPayments] = useState<PaymentRow[]>([]);
@@ -384,11 +384,32 @@ export default function HistorijaPlacanja() {
 
   const isYearly = subInfo?.product_id === STRIPE_PRODUCT_IDS.PREMIUM_YEARLY;
   const planLabel = subInfo?.subscribed ? (isYearly ? "Premium (godišnje)" : "Premium (mjesečno)") : "Free";
-  const endDate = subInfo?.subscription_end ?? null;
+  // Fallback: ako Stripe sync nije uspio (npr. customer email mismatch),
+  // koristi datum iz `profiles.subscription_expires_at` koji je već sinhronizovan
+  // kroz webhook ili admin tool. Time historija prikazuje tačan istek čak i kad
+  // direktni Stripe poziv padne.
+  const stripeEnd = subInfo?.subscription_end ?? null;
+  const profileEndIso = profileExpiresAt ? profileExpiresAt.toISOString() : null;
+  const endDate = stripeEnd ?? profileEndIso;
+  // Stripe je vraćio aktivnu pretplatu? Ako ne, ali profil kaže Premium sa
+  // datumom isteka u budućnosti, tretiramo to kao validan Premium iz baze
+  // (npr. nakon webhook obrade, prije nego check-subscription opet uspije).
+  const stripeSubscribed = !!subInfo?.subscribed;
+  const profileSubscribed =
+    isPremium && !!profileExpiresAt && profileExpiresAt.getTime() > Date.now();
+  const effectiveSubscribed = stripeSubscribed || profileSubscribed;
 
   const totalPaid = payments
     .filter((p) => ["paid", "succeeded", "complete", "completed"].includes((p.status ?? "").toLowerCase()))
     .reduce((sum, p) => sum + (p.amount ?? 0), 0);
+
+  // Plan label nakon što znamo effectiveSubscribed (može biti Premium iz baze
+  // čak i kad Stripe sync trenutno ne odgovara).
+  const displayPlanLabel = effectiveSubscribed
+    ? stripeSubscribed
+      ? planLabel
+      : "Premium"
+    : "Free";
 
   return (
     <>
@@ -655,11 +676,11 @@ export default function HistorijaPlacanja() {
           <CardContent className="space-y-3">
             {subLoading ? (
               <p className="text-sm text-muted-foreground">Sinhronizujem sa Stripe-om...</p>
-            ) : subInfo?.subscribed ? (
+            ) : effectiveSubscribed ? (
               <>
                 <div className="flex items-center gap-2 flex-wrap">
                   <Badge className="bg-[hsl(var(--gold))] text-[#0f1f3d] hover:bg-[hsl(var(--gold))]">
-                    <Crown className="h-3 w-3 mr-1" /> {planLabel}
+                    <Crown className="h-3 w-3 mr-1" /> {displayPlanLabel}
                   </Badge>
                   <span className="text-xs text-muted-foreground">Aktivan</span>
                 </div>
@@ -672,14 +693,19 @@ export default function HistorijaPlacanja() {
                     </p>
                   </div>
                 )}
+                {!stripeSubscribed && (
+                  <p className="text-[11px] text-muted-foreground italic">
+                    Premium status je potvrđen iz tvog naloga. Lista pojedinačnih
+                    transakcija se trenutno ne može dohvatiti sa Stripe-a — pokušaj
+                    „Osvježi" za par sekundi.
+                  </p>
+                )}
               </>
             ) : (
               <div className="flex items-center gap-2">
                 <Badge variant="secondary">Free</Badge>
                 <span className="text-xs text-muted-foreground">
-                  {isPremium
-                    ? "Premium pristup je aktivan kroz drugi izvor (admin/jednokratni)."
-                    : "Nemaš aktivnu Premium pretplatu."}
+                  Nemaš aktivnu Premium pretplatu.
                 </span>
               </div>
             )}
