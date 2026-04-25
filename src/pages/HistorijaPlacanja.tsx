@@ -403,6 +403,14 @@ export default function HistorijaPlacanja() {
     .filter((p) => ["paid", "succeeded", "complete", "completed"].includes((p.status ?? "").toLowerCase()))
     .reduce((sum, p) => sum + (p.amount ?? 0), 0);
 
+  // Plan label nakon što znamo effectiveSubscribed (može biti Premium iz baze
+  // čak i kad Stripe sync trenutno ne odgovara).
+  const displayPlanLabel = effectiveSubscribed
+    ? stripeSubscribed
+      ? planLabel
+      : "Premium"
+    : "Free";
+
   return (
     <>
       <PageNav />
