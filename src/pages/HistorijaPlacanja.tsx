@@ -357,28 +357,42 @@ export default function HistorijaPlacanja() {
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {payments.map((p) => (
-                      <TableRow
-                        key={p.id}
-                        onClick={() => setSelected(p)}
-                        className="cursor-pointer hover:bg-muted/40 transition-colors"
-                      >
-                        <TableCell className="text-xs whitespace-nowrap">
-                          {formatDateTime(p.created_at)}
-                        </TableCell>
-                        <TableCell className="text-xs capitalize">{p.provider}</TableCell>
-                        <TableCell>{getStatusBadge(p.status)}</TableCell>
-                        <TableCell className="text-xs text-right font-medium whitespace-nowrap">
-                          {formatPrice(p.amount, p.currency)}
-                        </TableCell>
-                        <TableCell className="text-xs text-muted-foreground hidden md:table-cell whitespace-nowrap">
-                          {formatDateTime(p.paid_at)}
-                        </TableCell>
-                        <TableCell className="text-[10px] font-mono text-muted-foreground hidden lg:table-cell max-w-[200px] truncate">
-                          {p.transaction_id || "—"}
-                        </TableCell>
-                      </TableRow>
-                    ))}
+                    {payments.map((p) => {
+                      const isOpening = openingId === p.id;
+                      const isDisabled = loading || subLoading || (!!openingId && !isOpening);
+                      return (
+                        <TableRow
+                          key={p.id}
+                          onClick={() => handleRowClick(p)}
+                          aria-disabled={isDisabled}
+                          className={`transition-colors ${
+                            isDisabled
+                              ? "cursor-not-allowed opacity-60"
+                              : "cursor-pointer hover:bg-muted/40"
+                          } ${isOpening ? "bg-muted/30" : ""}`}
+                        >
+                          <TableCell className="text-xs whitespace-nowrap">
+                            <span className="inline-flex items-center gap-1.5">
+                              {isOpening && (
+                                <Loader2 className="h-3 w-3 animate-spin text-primary" />
+                              )}
+                              {formatDateTime(p.created_at)}
+                            </span>
+                          </TableCell>
+                          <TableCell className="text-xs capitalize">{p.provider}</TableCell>
+                          <TableCell>{getStatusBadge(p.status)}</TableCell>
+                          <TableCell className="text-xs text-right font-medium whitespace-nowrap">
+                            {formatPrice(p.amount, p.currency)}
+                          </TableCell>
+                          <TableCell className="text-xs text-muted-foreground hidden md:table-cell whitespace-nowrap">
+                            {formatDateTime(p.paid_at)}
+                          </TableCell>
+                          <TableCell className="text-[10px] font-mono text-muted-foreground hidden lg:table-cell max-w-[200px] truncate">
+                            {p.transaction_id || "—"}
+                          </TableCell>
+                        </TableRow>
+                      );
+                    })}
                   </TableBody>
                 </Table>
               </div>
