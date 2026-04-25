@@ -1,24 +1,32 @@
-const CACHE_NAME = "bl-cache-v2";
+const CACHE_NAME = "bl-cache-v3";
 const STATIC_ASSETS = ["/", "/manifest.json", "/icons/icon-192x192.png", "/icons/icon-512x512.png"];
 const HASHED_ASSET_RE = /\/assets\/[^/]+-[A-Za-z0-9_-]{6,}\.(js|css|jpg|jpeg|png|svg|woff2?|ttf)$/;
 
 const PERMISSIONS_POLICY = "camera=(), microphone=(), geolocation=(), payment=(self), usb=(), magnetometer=(), gyroscope=(), accelerometer=()";
 
-function addSecurityHeaders(response) {
-  const headers = new Headers(response.headers);
-  headers.set("Permissions-Policy", PERMISSIONS_POLICY);
-  headers.set("X-Content-Type-Options", "nosniff");
-  headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
-  return new Response(response.body, {
-    status: response.status,
-    statusText: response.statusText,
-    headers,
-  });
+async function addSecurityHeaders(response) {
+  // Cannot read or modify opaque / cross-origin / errored responses
+  if (!response || response.type === "opaque" || response.type === "opaqueredirect" || response.status === 0) {
+    return response;
+  }
+  try {
+    const headers = new Headers(response.headers);
+    headers.set("Permissions-Policy", PERMISSIONS_POLICY);
+    headers.set("X-Content-Type-Options", "nosniff");
+    headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
+    return new Response(response.body, {
+      status: response.status,
+      statusText: response.statusText,
+      headers,
+    });
+  } catch {
+    return response;
+  }
 }
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(STATIC_ASSETS))
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(STATIC_ASSETS)).catch(() => {})
   );
   self.skipWaiting();
 });
@@ -39,8 +47,12 @@ self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
   if (!url.protocol.startsWith("http")) return;
 
-  // Network-first for API/supabase calls
-  if (url.pathname.startsWith("/rest/") || url.hostname.includes("supabase")) {
+  // Cross-origin: do not intercept — let the browser handle it natively.
+  // This prevents opaque-response crashes (Stripe, Cloudflare, Supabase, etc.)
+  if (url.origin !== self.location.origin) return;
+
+  // Network-first for API/supabase calls (same-origin only at this point)
+  if (url.pathname.startsWith("/rest/")) {
     event.respondWith(
       fetch(event.request).catch(() => caches.match(event.request))
     );
@@ -53,11 +65,13 @@ self.addEventListener("fetch", (event) => {
       caches.match(event.request).then((cached) => {
         if (cached) return cached;
         return fetch(event.request).then((resp) => {
-          const clone = resp.clone();
-          caches.open(CACHE_NAME).then((c) => c.put(event.request, clone));
+          try {
+            const clone = resp.clone();
+            caches.open(CACHE_NAME).then((c) => c.put(event.request, clone)).catch(() => {});
+          } catch {}
           return resp;
         });
-      })
+      }).catch(() => fetch(event.request))
     );
     return;
   }
@@ -68,23 +82,32 @@ self.addEventListener("fetch", (event) => {
       caches.match(event.request).then((cached) => {
         if (cached) return cached;
         return fetch(event.request).then((resp) => {
-          const clone = resp.clone();
-          caches.open(CACHE_NAME).then((c) => c.put(event.request, clone));
+          try {
+            const clone = resp.clone();
+            caches.open(CACHE_NAME).then((c) => c.put(event.request, clone)).catch(() => {});
+          } catch {}
           return resp;
         });
-      })
+      }).catch(() => fetch(event.request))
     );
     return;
   }
 
-  // Network-first for HTML/navigation — add security headers
+  // Network-first for HTML/navigation — add security headers (same-origin only)
   event.respondWith(
     fetch(event.request)
-      .then((resp) => {
-        const clone = resp.clone();
-        caches.open(CACHE_NAME).then((c) => c.put(event.request, clone));
+      .then(async (resp) => {
+        try {
+          const clone = resp.clone();
+          caches.open(CACHE_NAME).then((c) => c.put(event.request, clone)).catch(() => {});
+        } catch {}
         return addSecurityHeaders(resp);
       })
-      .catch(() => caches.match(event.request).then((r) => r ? addSecurityHeaders(r) : caches.match("/")))
+      .catch(async () => {
+        const cached = await caches.match(event.request);
+        if (cached) return addSecurityHeaders(cached);
+        const fallback = await caches.match("/");
+        return fallback || Response.error();
+      })
   );
 });
