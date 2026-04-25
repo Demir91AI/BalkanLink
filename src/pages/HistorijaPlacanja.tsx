@@ -132,6 +132,13 @@ export default function HistorijaPlacanja() {
   const [copied, setCopied] = useState<string | null>(null);
   const [checkoutLoading, setCheckoutLoading] = useState(false);
 
+  // Animacija progress bara: kada se `endDate` promijeni (npr. nakon „Osvježi"
+  // ili nakon nove uplate), animiramo iz 0% u trenutni postotak i kratko
+  // "blicnemo" traku da promjena bude lako uočljiva.
+  const prevEndDateRef = useRef<string | null>(null);
+  const [progressKey, setProgressKey] = useState(0);
+  const [highlightProgress, setHighlightProgress] = useState(false);
+
   const handleUpgrade = async () => {
     if (!user || checkoutLoading) return;
     setCheckoutLoading(true);
