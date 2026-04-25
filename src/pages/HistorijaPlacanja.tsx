@@ -17,6 +17,14 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from "@/components/ui/dialog";
+import {
   ArrowLeft,
   Crown,
   Calendar,
@@ -26,7 +34,11 @@ import {
   Clock,
   AlertTriangle,
   RefreshCw,
+  ExternalLink,
+  Copy,
+  Check,
 } from "lucide-react";
+import { toast } from "sonner";
 
 interface PaymentRow {
   id: string;
@@ -110,6 +122,31 @@ export default function HistorijaPlacanja() {
 
   const [subInfo, setSubInfo] = useState<SubInfo | null>(null);
   const [subLoading, setSubLoading] = useState(false);
+
+  const [selected, setSelected] = useState<PaymentRow | null>(null);
+  const [copied, setCopied] = useState<string | null>(null);
+
+  const copyToClipboard = async (value: string, key: string) => {
+    try {
+      await navigator.clipboard.writeText(value);
+      setCopied(key);
+      toast.success("Kopirano u clipboard");
+      setTimeout(() => setCopied((c) => (c === key ? null : c)), 1500);
+    } catch {
+      toast.error("Kopiranje nije uspjelo");
+    }
+  };
+
+  const getStripeUrl = (p: PaymentRow): string | null => {
+    if (p.provider?.toLowerCase() !== "stripe" || !p.transaction_id) return null;
+    const id = p.transaction_id;
+    if (id.startsWith("pi_")) return `https://dashboard.stripe.com/payments/${id}`;
+    if (id.startsWith("ch_")) return `https://dashboard.stripe.com/payments/${id}`;
+    if (id.startsWith("in_")) return `https://dashboard.stripe.com/invoices/${id}`;
+    if (id.startsWith("sub_")) return `https://dashboard.stripe.com/subscriptions/${id}`;
+    if (id.startsWith("cs_")) return `https://dashboard.stripe.com/payments/${id}`;
+    return null;
+  };
 
   useEffect(() => {
     if (!authLoading && !user) {
@@ -309,7 +346,11 @@ export default function HistorijaPlacanja() {
                   </TableHeader>
                   <TableBody>
                     {payments.map((p) => (
-                      <TableRow key={p.id}>
+                      <TableRow
+                        key={p.id}
+                        onClick={() => setSelected(p)}
+                        className="cursor-pointer hover:bg-muted/40 transition-colors"
+                      >
                         <TableCell className="text-xs whitespace-nowrap">
                           {formatDateTime(p.created_at)}
                         </TableCell>
@@ -336,8 +377,156 @@ export default function HistorijaPlacanja() {
         <p className="text-[11px] text-muted-foreground/70 text-center">
           Plaćanja se sinhronizuju automatski preko Stripe webhook-a. Ako neka transakcija nedostaje,
           klikni „Osvježi" ili koristi „Upravljaj pretplatom" na profilu.
+          {payments.length > 0 && (
+            <> Klikni na red u tabeli za detalje transakcije.</>
+          )}
         </p>
       </div>
+
+      <Dialog open={!!selected} onOpenChange={(open) => !open && setSelected(null)}>
+        <DialogContent className="max-w-lg">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2 text-base">
+              <Receipt className="h-4 w-4 text-primary" />
+              Detalji transakcije
+            </DialogTitle>
+            <DialogDescription className="text-xs">
+              Kompletni podaci o uplati zabilježeni u sistemu.
+            </DialogDescription>
+          </DialogHeader>
+
+          {selected && (
+            <div className="space-y-4 text-sm">
+              <div className="flex items-center justify-between gap-3 flex-wrap">
+                <div className="flex items-center gap-2">
+                  {getStatusBadge(selected.status)}
+                  <span className="text-xs text-muted-foreground capitalize">
+                    {selected.provider}
+                  </span>
+                </div>
+                <span className="text-lg font-semibold">
+                  {formatPrice(selected.amount, selected.currency)}
+                </span>
+              </div>
+
+              <div className="rounded-md border border-border/40 divide-y divide-border/40">
+                <div className="flex items-start justify-between gap-3 p-3">
+                  <span className="text-xs text-muted-foreground">Kreirano</span>
+                  <span className="text-xs font-medium text-right">
+                    {formatDateTime(selected.created_at)}
+                  </span>
+                </div>
+                <div className="flex items-start justify-between gap-3 p-3">
+                  <span className="text-xs text-muted-foreground">Plaćeno (paid_at)</span>
+                  <span className="text-xs font-medium text-right">
+                    {formatDateTime(selected.paid_at)}
+                  </span>
+                </div>
+                <div className="flex items-start justify-between gap-3 p-3">
+                  <span className="text-xs text-muted-foreground">Raw status</span>
+                  <code className="text-[11px] font-mono px-1.5 py-0.5 rounded bg-muted text-foreground">
+                    {selected.status || "—"}
+                  </code>
+                </div>
+                <div className="flex items-start justify-between gap-3 p-3">
+                  <span className="text-xs text-muted-foreground">Valuta</span>
+                  <span className="text-xs font-medium uppercase">
+                    {selected.currency || "EUR"}
+                  </span>
+                </div>
+                <div className="p-3 space-y-1.5">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-xs text-muted-foreground">Transaction ID</span>
+                    {selected.transaction_id && (
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="h-6 px-2 text-[11px]"
+                        onClick={() =>
+                          copyToClipboard(selected.transaction_id!, "txid")
+                        }
+                      >
+                        {copied === "txid" ? (
+                          <Check className="h-3 w-3 mr-1" />
+                        ) : (
+                          <Copy className="h-3 w-3 mr-1" />
+                        )}
+                        Kopiraj
+                      </Button>
+                    )}
+                  </div>
+                  <code className="block text-[11px] font-mono break-all bg-muted/50 rounded px-2 py-1.5">
+                    {selected.transaction_id || "—"}
+                  </code>
+                </div>
+                <div className="p-3 space-y-1.5">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-xs text-muted-foreground">Interni ID</span>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="h-6 px-2 text-[11px]"
+                      onClick={() => copyToClipboard(selected.id, "id")}
+                    >
+                      {copied === "id" ? (
+                        <Check className="h-3 w-3 mr-1" />
+                      ) : (
+                        <Copy className="h-3 w-3 mr-1" />
+                      )}
+                      Kopiraj
+                    </Button>
+                  </div>
+                  <code className="block text-[11px] font-mono break-all bg-muted/50 rounded px-2 py-1.5">
+                    {selected.id}
+                  </code>
+                </div>
+              </div>
+
+              {getStripeUrl(selected) ? (
+                <div className="rounded-md border border-primary/30 bg-primary/5 p-3 text-xs flex items-start gap-2">
+                  <ExternalLink className="h-3.5 w-3.5 mt-0.5 text-primary shrink-0" />
+                  <div className="flex-1">
+                    <p className="font-medium text-foreground">Otvori u Stripe Dashboard-u</p>
+                    <p className="text-muted-foreground mt-0.5">
+                      Pristup detaljima transakcije zahtijeva admin pristup Stripe računu.
+                    </p>
+                  </div>
+                </div>
+              ) : (
+                <p className="text-[11px] text-muted-foreground/80">
+                  Stripe link nije dostupan za ovu transakciju (provider „{selected.provider}" ili nedostaje ID).
+                </p>
+              )}
+            </div>
+          )}
+
+          <DialogFooter className="gap-2 sm:gap-2">
+            {selected && getStripeUrl(selected) && (
+              <Button
+                asChild
+                size="sm"
+                className="bg-primary hover:bg-primary/90"
+              >
+                <a
+                  href={getStripeUrl(selected)!}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <ExternalLink className="h-3.5 w-3.5 mr-1.5" />
+                  Otvori u Stripe-u
+                </a>
+              </Button>
+            )}
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setSelected(null)}
+            >
+              Zatvori
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </>
   );
 }
