@@ -55,15 +55,36 @@ export default function Profil() {
   const [saving, setSaving] = useState(false);
   const [details, setDetails] = useState<SubDetails | null>(null);
   const [refreshing, setRefreshing] = useState(false);
+  const [lastError, setLastError] = useState<string | null>(null);
+  const [lastSyncedAt, setLastSyncedAt] = useState<Date | null>(null);
 
-  const loadDetails = async () => {
+  const loadDetails = async (manual = false) => {
     if (!user) return;
     setRefreshing(true);
+    setLastError(null);
     try {
-      const { data } = await supabase.functions.invoke("check-subscription");
+      const { data, error } = await supabase.functions.invoke("check-subscription");
+      if (error) throw error;
+      if (data?.error) throw new Error(String(data.error));
       if (data) setDetails(data as SubDetails);
+      setLastSyncedAt(new Date());
+      if (manual) {
+        toast({
+          title: "Status osvježen",
+          description: "Pretplata je uspješno sinhronizirana sa Stripe-om.",
+        });
+      }
     } catch (e) {
+      const msg = e instanceof Error ? e.message : "Nepoznata greška";
       console.error("check-subscription error", e);
+      setLastError(msg);
+      if (manual) {
+        toast({
+          title: "Sinhronizacija nije uspjela",
+          description: msg,
+          variant: "destructive",
+        });
+      }
     } finally {
       setRefreshing(false);
     }
