@@ -64,6 +64,31 @@ export async function checkSubscriptionStatus(): Promise<{
   }
 }
 
+export type PaymentVerification = {
+  status: "succeeded" | "pending" | "invalid";
+  mode?: "payment" | "subscription" | "setup" | null;
+  amount?: number | null;
+  currency?: string | null;
+  transaction_id?: string | null;
+  paid_at?: string | null;
+  session_id?: string | null;
+};
+
+/**
+ * Verify a Stripe checkout session and fetch payment details (amount, date, transaction id).
+ */
+export async function verifyPaymentSession(sessionId: string): Promise<PaymentVerification> {
+  try {
+    const { data, error } = await supabase.functions.invoke("verify-payment", {
+      body: { session_id: sessionId },
+    });
+    if (error) throw error;
+    return (data as PaymentVerification) ?? { status: "invalid" };
+  } catch {
+    return { status: "invalid" };
+  }
+}
+
 /**
  * Open Stripe customer portal for subscription management.
  */
