@@ -62,11 +62,22 @@ serve(async (req) => {
     const hasActiveSub = subscriptions.data.length > 0;
     let subscriptionEnd: string | null = null;
     let productId: string | null = null;
+    let priceId: string | null = null;
+    let interval: string | null = null;
+    let cancelAtPeriodEnd = false;
+    let amount: number | null = null;
+    let currency: string | null = null;
 
     if (hasActiveSub) {
       const sub = subscriptions.data[0];
       subscriptionEnd = new Date(sub.current_period_end * 1000).toISOString();
-      productId = sub.items.data[0].price.product as string;
+      const item = sub.items.data[0];
+      productId = item.price.product as string;
+      priceId = item.price.id;
+      interval = item.price.recurring?.interval ?? null; // "month" | "year"
+      cancelAtPeriodEnd = sub.cancel_at_period_end ?? false;
+      amount = item.price.unit_amount ?? null; // in cents
+      currency = item.price.currency ?? null;
     }
 
     // Sync premium status to profiles table
@@ -79,7 +90,12 @@ serve(async (req) => {
     return new Response(JSON.stringify({
       subscribed: hasActiveSub,
       product_id: productId,
+      price_id: priceId,
       subscription_end: subscriptionEnd,
+      interval,
+      cancel_at_period_end: cancelAtPeriodEnd,
+      amount,
+      currency,
     }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
