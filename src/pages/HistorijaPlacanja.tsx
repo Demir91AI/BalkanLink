@@ -384,8 +384,18 @@ export default function HistorijaPlacanja() {
             </span>
           )}
           {!subLoading && !isPremium && (
-            <Button asChild size="sm" variant="outline" className="h-6 px-2 text-[11px] ml-1">
-              <Link to="/paketi">Pogledaj pakete</Link>
+            <Button
+              size="sm"
+              onClick={handleUpgrade}
+              disabled={checkoutLoading}
+              className="h-6 px-2 text-[11px] ml-1 bg-[hsl(var(--gold))] text-[#0f1f3d] hover:bg-[hsl(var(--gold))]/90"
+            >
+              {checkoutLoading ? (
+                <Loader2 className="h-3 w-3 mr-1 animate-spin" />
+              ) : (
+                <Crown className="h-3 w-3 mr-1" />
+              )}
+              Uključi Premium
             </Button>
           )}
         </div>
