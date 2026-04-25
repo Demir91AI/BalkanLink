@@ -519,22 +519,34 @@ export default function HistorijaPlacanja() {
                   </div>
 
                   {/* Vremenska traka — vizuelni odnos iskorišteno vs. preostalo
-                      za tekući obračunski period. */}
+                      za tekući obračunski period. Animira se kad se promijeni
+                      `endDate` (re-fill iz 0% + suptilan glow). */}
                   <div className="space-y-1">
                     <div
-                      className="h-1.5 w-full rounded-full bg-muted/50 overflow-hidden"
+                      className={`relative h-1.5 w-full rounded-full bg-muted/50 overflow-hidden transition-shadow duration-500 ${
+                        highlightProgress
+                          ? expiringSoon
+                            ? "ring-2 ring-amber-500/40 shadow-[0_0_12px_rgba(245,158,11,0.45)]"
+                            : "ring-2 ring-[hsl(var(--gold))]/40 shadow-[0_0_12px_hsl(var(--gold)/0.45)]"
+                          : ""
+                      }`}
                       role="progressbar"
                       aria-valuemin={0}
                       aria-valuemax={100}
                       aria-valuenow={remainingPct}
                       aria-label="Preostalo vrijeme Premium perioda"
                     >
-                      <div
-                        className={`h-full transition-all ${
-                          expiringSoon ? "bg-amber-500" : "bg-[hsl(var(--gold))]"
-                        }`}
-                        style={{ width: `${remainingPct}%` }}
+                      <ProgressFill
+                        key={progressKey}
+                        targetPct={remainingPct}
+                        expiringSoon={expiringSoon}
                       />
+                      {highlightProgress && (
+                        <span
+                          className="pointer-events-none absolute inset-0 rounded-full bg-foreground/10 animate-pulse"
+                          aria-hidden="true"
+                        />
+                      )}
                     </div>
                     <div className="flex items-center justify-between text-[10px] text-muted-foreground">
                       <span>{formatDate(new Date(periodStartMs).toISOString())}</span>
