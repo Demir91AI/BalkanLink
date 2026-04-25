@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useSubscription } from "@/hooks/useSubscription";
 import { supabase } from "@/integrations/supabase/client";
-import { checkSubscriptionStatus, STRIPE_PRODUCT_IDS } from "@/lib/stripe";
+import { checkSubscriptionStatus, initiateCheckout, STRIPE_PRICE_IDS, STRIPE_PRODUCT_IDS } from "@/lib/stripe";
 import PageNav from "@/components/navigation/PageNav";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -130,6 +130,19 @@ export default function HistorijaPlacanja() {
   const [selected, setSelected] = useState<PaymentRow | null>(null);
   const [openingId, setOpeningId] = useState<string | null>(null);
   const [copied, setCopied] = useState<string | null>(null);
+  const [checkoutLoading, setCheckoutLoading] = useState(false);
+
+  const handleUpgrade = async () => {
+    if (!user || checkoutLoading) return;
+    setCheckoutLoading(true);
+    try {
+      await initiateCheckout(STRIPE_PRICE_IDS.PREMIUM_MONTHLY, user.id, "subscription");
+    } finally {
+      // initiateCheckout otvara Stripe u novom tabu; resetuj stanje da korisnik
+      // može ponovo pokrenuti tok ako zatvori tab bez plaćanja.
+      setTimeout(() => setCheckoutLoading(false), 1500);
+    }
+  };
 
   // Sinhroni guardovi koji rade prije nego React commit-uje state.
   // Sprečavaju duplo otvaranje istog reda kad korisnik brzo klikne više puta.
@@ -371,8 +384,18 @@ export default function HistorijaPlacanja() {
             </span>
           )}
           {!subLoading && !isPremium && (
-            <Button asChild size="sm" variant="outline" className="h-6 px-2 text-[11px] ml-1">
-              <Link to="/paketi">Pogledaj pakete</Link>
+            <Button
+              size="sm"
+              onClick={handleUpgrade}
+              disabled={checkoutLoading}
+              className="h-6 px-2 text-[11px] ml-1 bg-[hsl(var(--gold))] text-[#0f1f3d] hover:bg-[hsl(var(--gold))]/90"
+            >
+              {checkoutLoading ? (
+                <Loader2 className="h-3 w-3 mr-1 animate-spin" />
+              ) : (
+                <Crown className="h-3 w-3 mr-1" />
+              )}
+              Uključi Premium
             </Button>
           )}
         </div>
@@ -427,12 +450,27 @@ export default function HistorijaPlacanja() {
               neograničene upite Asistentu, Dokumenten-Check analizu i sve premium šablone.
             </p>
             {!isPremium && !subLoading && (
-              <Link
-                to="/paketi"
-                className="inline-block mt-1 text-[hsl(var(--gold))] hover:underline font-medium"
-              >
-                Pogledaj Premium pakete →
-              </Link>
+              <div className="flex items-center gap-3 flex-wrap pt-1">
+                <Button
+                  size="sm"
+                  onClick={handleUpgrade}
+                  disabled={checkoutLoading}
+                  className="h-8 bg-[hsl(var(--gold))] text-[#0f1f3d] hover:bg-[hsl(var(--gold))]/90 font-medium"
+                >
+                  {checkoutLoading ? (
+                    <Loader2 className="h-3.5 w-3.5 mr-1.5 animate-spin" />
+                  ) : (
+                    <Crown className="h-3.5 w-3.5 mr-1.5" />
+                  )}
+                  Uključi Premium — 9,99€/mj
+                </Button>
+                <Link
+                  to="/paketi"
+                  className="text-[11px] text-muted-foreground hover:text-foreground hover:underline"
+                >
+                  Uporedi sve pakete →
+                </Link>
+              </div>
             )}
           </div>
         </div>
