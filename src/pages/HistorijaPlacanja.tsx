@@ -38,6 +38,7 @@ import {
   Copy,
   Check,
   Loader2,
+  ShieldCheck,
 } from "lucide-react";
 import { toast } from "sonner";
 
