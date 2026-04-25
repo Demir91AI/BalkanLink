@@ -1,25 +1,26 @@
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
 
-/** Real Stripe price IDs */
+/** Real Stripe LIVE price IDs (Stand 2026) */
 export const STRIPE_PRICE_IDS = {
-  PREMIUM_MONTHLY: "price_1TJHeDR9oGwbVekBiuiEiAn1",
-  PREMIUM_YEARLY: "price_1TJHecR9oGwbVekB86ShMKjB",
-  PRO_AD_7DAY: "price_1TJHgZR9oGwbVekBnOVNmjEo",
-  PRO_AD_30DAY: "price_1TJHgqR9oGwbVekB2gknywnu",
-  DEUTSCH_A1: "price_1TLN7iR9oGwbVekBOpJkfwOf",
-  DEUTSCH_A2: "price_1TLN8AR9oGwbVekBipSzFiju",
-  DEUTSCH_B1: "price_1TLN8SR9oGwbVekBVpctlnAu",
-  DEUTSCH_B2: "price_1TLN8kR9oGwbVekB0048mH7y",
-  DEUTSCH_C1: "price_1TLN9YR9oGwbVekBsEiXY2aS",
-  DEUTSCH_C2: "price_1TLSWCR9oGwbVekB240bqnni",
-  FEATURED_FIRMA: "price_1TLT7OR9oGwbVekB6K09ooCA",
+  PREMIUM_MONTHLY: "price_1TQCp5R9oGwbVekBjHqW3ZB2", // 9.99€/mj
+  PREMIUM_YEARLY: "price_1TQCpXR9oGwbVekBj1nzikZY", // 99.90€/god
+  PRO_AD_7DAY: "price_1TQCseR9oGwbVekBgnFgOP36", // 1.99€
+  PRO_AD_30DAY: "price_1TQCwBR9oGwbVekBwOEsOdn1", // 4.99€
+  DEUTSCH_A1: "price_1TQCwwR9oGwbVekBpyXXRscr", // 9.99€
+  DEUTSCH_A2: "price_1TQCxIR9oGwbVekBMSR93Ipn", // 14.99€
+  DEUTSCH_B1: "price_1TQCxtR9oGwbVekByM2zOJSl", // 19.99€
+  DEUTSCH_B2: "price_1TQCyqR9oGwbVekBa4nTKivo", // 24.99€
+  DEUTSCH_C1: "price_1TQCziR9oGwbVekBqdJqN7OR", // 29.99€
+  DEUTSCH_C2: "price_1TQD0LR9oGwbVekBfI5aS18k", // 34.99€
+  FEATURED_FIRMA: "price_1TQCwTR9oGwbVekB3QmMofQf", // 14.99€/mj
+  DOC_CHECK: "price_1TQD1qR9oGwbVekBIRZ9iWyE", // 2.99€ jednokratno
 } as const;
 
-/** Stripe product IDs for subscription tier mapping */
+/** Stripe LIVE product IDs for subscription tier mapping */
 export const STRIPE_PRODUCT_IDS = {
-  PREMIUM_MONTHLY: "prod_UHrMPPjYqOdBZM",
-  PREMIUM_YEARLY: "prod_UHrNePEaRqOa7c",
+  PREMIUM_MONTHLY: "prod_UP0qtmroemHcqy",
+  PREMIUM_YEARLY: "prod_UP0r1DdUxYd4Pi",
 } as const;
 
 /**
