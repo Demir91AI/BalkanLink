@@ -199,15 +199,24 @@ export default function Profil() {
                       <p>
                         Status:{" "}
                         {details?.subscribed ? (
-                          <span className="font-medium text-emerald-500/90">Aktivan (Premium)</span>
+                          willCancel ? (
+                            <span className="font-medium text-amber-500/90">Aktivan (otkazana obnova)</span>
+                          ) : (
+                            <span className="font-medium text-emerald-500/90">Aktivan (Premium)</span>
+                          )
                         ) : (
                           <span className="font-medium text-muted-foreground">Neaktivan (Free)</span>
                         )}
                       </p>
-                      {details?.subscribed && endDate && (
+                      {endDate && (
                         <p>
-                          {willCancel ? "Premium istječe" : "Sljedeća naplata"}:{" "}
+                          {willCancel || !details?.subscribed ? "Premium istječe" : "Sljedeća naplata"}:{" "}
                           <span className="font-medium text-foreground">{formatDate(endDate)}</span>
+                          {typeof daysLeft === "number" && (
+                            <span className="text-muted-foreground/70">
+                              {" "}({daysLeft} {daysLeft === 1 ? "dan" : "dana"})
+                            </span>
+                          )}
                         </p>
                       )}
                       <p className="text-muted-foreground/70 text-[10px] pt-0.5">
