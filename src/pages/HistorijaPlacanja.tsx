@@ -450,12 +450,27 @@ export default function HistorijaPlacanja() {
               neograničene upite Asistentu, Dokumenten-Check analizu i sve premium šablone.
             </p>
             {!isPremium && !subLoading && (
-              <Link
-                to="/paketi"
-                className="inline-block mt-1 text-[hsl(var(--gold))] hover:underline font-medium"
-              >
-                Pogledaj Premium pakete →
-              </Link>
+              <div className="flex items-center gap-3 flex-wrap pt-1">
+                <Button
+                  size="sm"
+                  onClick={handleUpgrade}
+                  disabled={checkoutLoading}
+                  className="h-8 bg-[hsl(var(--gold))] text-[#0f1f3d] hover:bg-[hsl(var(--gold))]/90 font-medium"
+                >
+                  {checkoutLoading ? (
+                    <Loader2 className="h-3.5 w-3.5 mr-1.5 animate-spin" />
+                  ) : (
+                    <Crown className="h-3.5 w-3.5 mr-1.5" />
+                  )}
+                  Uključi Premium — 9,99€/mj
+                </Button>
+                <Link
+                  to="/paketi"
+                  className="text-[11px] text-muted-foreground hover:text-foreground hover:underline"
+                >
+                  Uporedi sve pakete →
+                </Link>
+              </div>
             )}
           </div>
         </div>
