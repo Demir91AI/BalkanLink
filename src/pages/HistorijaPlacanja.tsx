@@ -451,32 +451,81 @@ export default function HistorijaPlacanja() {
             </p>
             {isPremium && !subLoading && endDate && (() => {
               const end = new Date(endDate);
+              const now = Date.now();
               const daysLeft = Math.max(
                 0,
-                Math.ceil((end.getTime() - Date.now()) / (1000 * 60 * 60 * 24)),
+                Math.ceil((end.getTime() - now) / (1000 * 60 * 60 * 24)),
               );
               const expiringSoon = daysLeft <= 7;
+
+              // Početak perioda: pokušaj iz posljednje uspješne uplate (paid_at),
+              // u suprotnom procijeni iz tipa plana (mjesečno=30d, godišnje=365d).
+              const lastPaid = payments.find(
+                (p) =>
+                  ["paid", "succeeded", "complete", "completed"].includes(
+                    (p.status ?? "").toLowerCase(),
+                  ) && p.paid_at,
+              );
+              const planSpanDays = isYearly ? 365 : 30;
+              const periodStartMs = lastPaid?.paid_at
+                ? new Date(lastPaid.paid_at).getTime()
+                : end.getTime() - planSpanDays * 24 * 60 * 60 * 1000;
+              const totalMs = Math.max(1, end.getTime() - periodStartMs);
+              const elapsedMs = Math.min(totalMs, Math.max(0, now - periodStartMs));
+              const usedPct = Math.round((elapsedMs / totalMs) * 100);
+              const remainingPct = Math.max(0, Math.min(100, 100 - usedPct));
+
               return (
-                <div
-                  className={`mt-2 inline-flex items-center gap-1.5 rounded border px-2 py-1 text-[11px] ${
-                    expiringSoon
-                      ? "border-amber-500/40 bg-amber-500/10 text-amber-500"
-                      : "border-[hsl(var(--gold))]/30 bg-[hsl(var(--gold))]/10 text-foreground"
-                  }`}
-                >
-                  <Calendar className="h-3 w-3 shrink-0" />
-                  <span>
-                    Pristup ističe:{" "}
-                    <span className="font-semibold">{formatDate(endDate)}</span>
-                    {" "}
-                    <span className="text-muted-foreground">
-                      ({daysLeft === 0
-                        ? "ističe danas"
-                        : daysLeft === 1
-                          ? "još 1 dan"
-                          : `još ${daysLeft} dana`})
+                <div className="mt-2 space-y-1.5">
+                  <div
+                    className={`inline-flex items-center gap-1.5 rounded border px-2 py-1 text-[11px] ${
+                      expiringSoon
+                        ? "border-amber-500/40 bg-amber-500/10 text-amber-500"
+                        : "border-[hsl(var(--gold))]/30 bg-[hsl(var(--gold))]/10 text-foreground"
+                    }`}
+                  >
+                    <Calendar className="h-3 w-3 shrink-0" />
+                    <span>
+                      Pristup ističe:{" "}
+                      <span className="font-semibold">{formatDate(endDate)}</span>
+                      {" "}
+                      <span className="text-muted-foreground">
+                        ({daysLeft === 0
+                          ? "ističe danas"
+                          : daysLeft === 1
+                            ? "još 1 dan"
+                            : `još ${daysLeft} dana`})
+                      </span>
                     </span>
-                  </span>
+                  </div>
+
+                  {/* Vremenska traka — vizuelni odnos iskorišteno vs. preostalo
+                      za tekući obračunski period. */}
+                  <div className="space-y-1">
+                    <div
+                      className="h-1.5 w-full rounded-full bg-muted/50 overflow-hidden"
+                      role="progressbar"
+                      aria-valuemin={0}
+                      aria-valuemax={100}
+                      aria-valuenow={remainingPct}
+                      aria-label="Preostalo vrijeme Premium perioda"
+                    >
+                      <div
+                        className={`h-full transition-all ${
+                          expiringSoon ? "bg-amber-500" : "bg-[hsl(var(--gold))]"
+                        }`}
+                        style={{ width: `${remainingPct}%` }}
+                      />
+                    </div>
+                    <div className="flex items-center justify-between text-[10px] text-muted-foreground">
+                      <span>{formatDate(new Date(periodStartMs).toISOString())}</span>
+                      <span>
+                        {remainingPct}% perioda preostalo
+                        {!lastPaid && " (procjena)"}
+                      </span>
+                      <span>{formatDate(endDate)}</span>
+                    </div>
+                  </div>
                 </div>
               );
             })()}
