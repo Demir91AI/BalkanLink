@@ -10,8 +10,6 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { useToast } from "@/hooks/use-toast";
 import { Check, X } from "lucide-react";
 import PageNav from "@/components/navigation/PageNav";
-import TurnstileWidget from "@/components/TurnstileWidget";
-import { verifyTurnstileToken } from "@/lib/turnstile";
 
 const PW_RULES = [
   { label: "Minimalno 8 znakova", test: (pw: string) => pw.length >= 8 },
@@ -28,13 +26,12 @@ export default function Register() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [turnstileToken, setTurnstileToken] = useState("");
   const navigate = useNavigate();
   const { toast } = useToast();
   const ruleResults = useMemo(() => PW_RULES.map(r => ({ ...r, pass: r.test(password) })), [password]);
   const allRulesPass = ruleResults.every(r => r.pass);
   const passwordsMatch = password === confirmPassword;
-  const canSubmit = allRulesPass && passwordsMatch && confirmPassword.length > 0 && acceptedTerms && turnstileToken.length > 0 && firstName.trim().length > 0;
+  const canSubmit = allRulesPass && passwordsMatch && confirmPassword.length > 0 && acceptedTerms && firstName.trim().length > 0;
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -43,13 +40,6 @@ export default function Register() {
       return;
     }
     setLoading(true);
-    const valid = await verifyTurnstileToken(turnstileToken);
-    if (!valid) {
-      toast({ title: "Greška pri registraciji.", variant: "destructive" });
-      setTurnstileToken("");
-      setLoading(false);
-      return;
-    }
     const { data: signUpData, error } = await supabase.auth.signUp({
       email,
       password,
@@ -135,7 +125,7 @@ export default function Register() {
               )}
             </div>
 
-            <TurnstileWidget onVerify={setTurnstileToken} onExpire={() => setTurnstileToken("")} className="flex justify-center" />
+            
 
             <div className="flex items-start gap-3 rounded-xl border bg-muted/20 p-4">
               <Checkbox

@@ -7,27 +7,16 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import PageNav from "@/components/navigation/PageNav";
-import TurnstileWidget from "@/components/TurnstileWidget";
-import { verifyTurnstileToken } from "@/lib/turnstile";
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
-  const [turnstileToken, setTurnstileToken] = useState("");
+  
   const { toast } = useToast();
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    if (turnstileToken) {
-      const valid = await verifyTurnstileToken(turnstileToken);
-      if (!valid) {
-        toast({ title: "Verifikacija nije uspjela.", variant: "destructive" });
-        setTurnstileToken("");
-        setLoading(false);
-        return;
-      }
-    }
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
       redirectTo: `${window.location.origin}/reset-password`,
     });
@@ -71,7 +60,7 @@ export default function ForgotPassword() {
               <Label htmlFor="email">{"E-mail adresa"}</Label>
               <Input id="email" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="vas@email.com" />
             </div>
-            <TurnstileWidget onVerify={setTurnstileToken} onExpire={() => setTurnstileToken("")} className="flex justify-center" />
+            
           </CardContent>
           <CardFooter className="flex flex-col gap-3">
             <Button type="submit" className="w-full" disabled={loading}>
