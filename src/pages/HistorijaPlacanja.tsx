@@ -115,6 +115,33 @@ const getStatusBadge = (status: string) => {
   return <Badge variant="outline">{status}</Badge>;
 };
 
+/**
+ * Animirano popunjavanje progress bara: počinje od 0% i lagano se popunjava
+ * do `targetPct` (cca. 900ms ease-out). Re-mount preko parent `key` resetuje
+ * animaciju kada se period pretplate promijeni.
+ */
+function ProgressFill({
+  targetPct,
+  expiringSoon,
+}: {
+  targetPct: number;
+  expiringSoon: boolean;
+}) {
+  const [width, setWidth] = useState(0);
+  useEffect(() => {
+    const id = window.requestAnimationFrame(() => setWidth(targetPct));
+    return () => window.cancelAnimationFrame(id);
+  }, [targetPct]);
+  return (
+    <div
+      className={`h-full rounded-full transition-[width] duration-[900ms] ease-out ${
+        expiringSoon ? "bg-amber-500" : "bg-[hsl(var(--gold))]"
+      }`}
+      style={{ width: `${width}%` }}
+    />
+  );
+}
+
 export default function HistorijaPlacanja() {
   const { user, session, isAdmin, loading: authLoading } = useAuth();
   const { isPremium } = useSubscription();
@@ -131,6 +158,13 @@ export default function HistorijaPlacanja() {
   const [openingId, setOpeningId] = useState<string | null>(null);
   const [copied, setCopied] = useState<string | null>(null);
   const [checkoutLoading, setCheckoutLoading] = useState(false);
+
+  // Animacija progress bara: kada se `endDate` promijeni (npr. nakon „Osvježi"
+  // ili nakon nove uplate), animiramo iz 0% u trenutni postotak i kratko
+  // "blicnemo" traku da promjena bude lako uočljiva.
+  const prevEndDateRef = useRef<string | null>(null);
+  const [progressKey, setProgressKey] = useState(0);
+  const [highlightProgress, setHighlightProgress] = useState(false);
 
   const handleUpgrade = async () => {
     if (!user || checkoutLoading) return;
@@ -156,6 +190,18 @@ export default function HistorijaPlacanja() {
       }
     };
   }, []);
+
+  // Detektuj promjenu datuma isteka i okini animaciju re-fill + highlight.
+  useEffect(() => {
+    const next = subInfo?.subscription_end ?? null;
+    if (prevEndDateRef.current !== null && prevEndDateRef.current !== next) {
+      setProgressKey((k) => k + 1);
+      setHighlightProgress(true);
+      const t = window.setTimeout(() => setHighlightProgress(false), 1400);
+      return () => window.clearTimeout(t);
+    }
+    prevEndDateRef.current = next;
+  }, [subInfo?.subscription_end]);
 
   const handleRowClick = (p: PaymentRow) => {
     // Blokiraj ako je modal već otvoren za istu transakciju
@@ -500,22 +546,34 @@ export default function HistorijaPlacanja() {
                   </div>
 
                   {/* Vremenska traka — vizuelni odnos iskorišteno vs. preostalo
-                      za tekući obračunski period. */}
+                      za tekući obračunski period. Animira se kad se promijeni
+                      `endDate` (re-fill iz 0% + suptilan glow). */}
                   <div className="space-y-1">
                     <div
-                      className="h-1.5 w-full rounded-full bg-muted/50 overflow-hidden"
+                      className={`relative h-1.5 w-full rounded-full bg-muted/50 overflow-hidden transition-shadow duration-500 ${
+                        highlightProgress
+                          ? expiringSoon
+                            ? "ring-2 ring-amber-500/40 shadow-[0_0_12px_rgba(245,158,11,0.45)]"
+                            : "ring-2 ring-[hsl(var(--gold))]/40 shadow-[0_0_12px_hsl(var(--gold)/0.45)]"
+                          : ""
+                      }`}
                       role="progressbar"
                       aria-valuemin={0}
                       aria-valuemax={100}
                       aria-valuenow={remainingPct}
                       aria-label="Preostalo vrijeme Premium perioda"
                     >
-                      <div
-                        className={`h-full transition-all ${
-                          expiringSoon ? "bg-amber-500" : "bg-[hsl(var(--gold))]"
-                        }`}
-                        style={{ width: `${remainingPct}%` }}
+                      <ProgressFill
+                        key={progressKey}
+                        targetPct={remainingPct}
+                        expiringSoon={expiringSoon}
                       />
+                      {highlightProgress && (
+                        <span
+                          className="pointer-events-none absolute inset-0 rounded-full bg-foreground/10 animate-pulse"
+                          aria-hidden="true"
+                        />
+                      )}
                     </div>
                     <div className="flex items-center justify-between text-[10px] text-muted-foreground">
                       <span>{formatDate(new Date(periodStartMs).toISOString())}</span>
