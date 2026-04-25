@@ -676,11 +676,11 @@ export default function HistorijaPlacanja() {
           <CardContent className="space-y-3">
             {subLoading ? (
               <p className="text-sm text-muted-foreground">Sinhronizujem sa Stripe-om...</p>
-            ) : subInfo?.subscribed ? (
+            ) : effectiveSubscribed ? (
               <>
                 <div className="flex items-center gap-2 flex-wrap">
                   <Badge className="bg-[hsl(var(--gold))] text-[#0f1f3d] hover:bg-[hsl(var(--gold))]">
-                    <Crown className="h-3 w-3 mr-1" /> {planLabel}
+                    <Crown className="h-3 w-3 mr-1" /> {displayPlanLabel}
                   </Badge>
                   <span className="text-xs text-muted-foreground">Aktivan</span>
                 </div>
@@ -693,14 +693,19 @@ export default function HistorijaPlacanja() {
                     </p>
                   </div>
                 )}
+                {!stripeSubscribed && (
+                  <p className="text-[11px] text-muted-foreground italic">
+                    Premium status je potvrđen iz tvog naloga. Lista pojedinačnih
+                    transakcija se trenutno ne može dohvatiti sa Stripe-a — pokušaj
+                    „Osvježi" za par sekundi.
+                  </p>
+                )}
               </>
             ) : (
               <div className="flex items-center gap-2">
                 <Badge variant="secondary">Free</Badge>
                 <span className="text-xs text-muted-foreground">
-                  {isPremium
-                    ? "Premium pristup je aktivan kroz drugi izvor (admin/jednokratni)."
-                    : "Nemaš aktivnu Premium pretplatu."}
+                  Nemaš aktivnu Premium pretplatu.
                 </span>
               </div>
             )}
