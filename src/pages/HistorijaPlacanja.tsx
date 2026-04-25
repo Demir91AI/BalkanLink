@@ -144,7 +144,7 @@ function ProgressFill({
 
 export default function HistorijaPlacanja() {
   const { user, session, isAdmin, loading: authLoading } = useAuth();
-  const { isPremium } = useSubscription();
+  const { isPremium, expiresAt: profileExpiresAt } = useSubscription();
   const navigate = useNavigate();
 
   const [payments, setPayments] = useState<PaymentRow[]>([]);
@@ -384,7 +384,20 @@ export default function HistorijaPlacanja() {
 
   const isYearly = subInfo?.product_id === STRIPE_PRODUCT_IDS.PREMIUM_YEARLY;
   const planLabel = subInfo?.subscribed ? (isYearly ? "Premium (godišnje)" : "Premium (mjesečno)") : "Free";
-  const endDate = subInfo?.subscription_end ?? null;
+  // Fallback: ako Stripe sync nije uspio (npr. customer email mismatch),
+  // koristi datum iz `profiles.subscription_expires_at` koji je već sinhronizovan
+  // kroz webhook ili admin tool. Time historija prikazuje tačan istek čak i kad
+  // direktni Stripe poziv padne.
+  const stripeEnd = subInfo?.subscription_end ?? null;
+  const profileEndIso = profileExpiresAt ? profileExpiresAt.toISOString() : null;
+  const endDate = stripeEnd ?? profileEndIso;
+  // Stripe je vraćio aktivnu pretplatu? Ako ne, ali profil kaže Premium sa
+  // datumom isteka u budućnosti, tretiramo to kao validan Premium iz baze
+  // (npr. nakon webhook obrade, prije nego check-subscription opet uspije).
+  const stripeSubscribed = !!subInfo?.subscribed;
+  const profileSubscribed =
+    isPremium && !!profileExpiresAt && profileExpiresAt.getTime() > Date.now();
+  const effectiveSubscribed = stripeSubscribed || profileSubscribed;
 
   const totalPaid = payments
     .filter((p) => ["paid", "succeeded", "complete", "completed"].includes((p.status ?? "").toLowerCase()))
