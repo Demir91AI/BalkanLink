@@ -33,7 +33,7 @@ export default function DirectorySubmit() {
   const { user } = useAuth();
   const navigate = useNavigate();
   const [submitting, setSubmitting] = useState(false);
-  const [turnstileToken, setTurnstileToken] = useState("");
+  
 
   const form = useForm<FormValues>({
     resolver: zodResolver(schema),
@@ -57,15 +57,6 @@ export default function DirectorySubmit() {
     }
 
     setSubmitting(true);
-    if (turnstileToken) {
-      const valid = await verifyTurnstileToken(turnstileToken);
-      if (!valid) {
-        toast.error("Verifikacija nije uspjela. Pokušaj ponovo.");
-        setTurnstileToken("");
-        setSubmitting(false);
-        return;
-      }
-    }
     const { error } = await supabase.from("directory_listings").insert({
       name: values.name,
       category: values.category,
@@ -219,7 +210,7 @@ export default function DirectorySubmit() {
             )}
           />
 
-          <TurnstileWidget onVerify={setTurnstileToken} onExpire={() => setTurnstileToken("")} className="flex justify-center" />
+          
 
           <Button type="submit" size="lg" className="w-full" disabled={submitting}>
             <Send className="mr-2 h-4 w-4" />
