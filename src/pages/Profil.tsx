@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { LogOut, Crown, User, Calendar, RefreshCw, Settings, AlertTriangle, CheckCircle2 } from "lucide-react";
+import { LogOut, Crown, User, Calendar, RefreshCw, Settings, AlertTriangle, CheckCircle2, History, XCircle } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { openCustomerPortal, STRIPE_PRODUCT_IDS } from "@/lib/stripe";
 import { toast } from "@/hooks/use-toast";
@@ -23,6 +23,38 @@ interface SubDetails {
   amount?: number | null;
   currency?: string | null;
 }
+
+interface AuditEntry {
+  at: string;
+  ok: boolean;
+  subscribed?: boolean;
+  status?: string;
+  errorCode?: string;
+  errorMessage?: string;
+  durationMs: number;
+}
+
+const AUDIT_STORAGE_KEY = "premium_sync_audit_v1";
+const AUDIT_MAX = 5;
+
+const loadAudit = (): AuditEntry[] => {
+  try {
+    const raw = localStorage.getItem(AUDIT_STORAGE_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed.slice(0, AUDIT_MAX) : [];
+  } catch {
+    return [];
+  }
+};
+
+const saveAudit = (entries: AuditEntry[]) => {
+  try {
+    localStorage.setItem(AUDIT_STORAGE_KEY, JSON.stringify(entries.slice(0, AUDIT_MAX)));
+  } catch {
+    // ignore quota errors
+  }
+};
 
 const formatPrice = (amount?: number | null, currency?: string | null) => {
   if (!amount || !currency) return null;
@@ -57,11 +89,21 @@ export default function Profil() {
   const [refreshing, setRefreshing] = useState(false);
   const [lastError, setLastError] = useState<string | null>(null);
   const [lastSyncedAt, setLastSyncedAt] = useState<Date | null>(null);
+  const [auditLog, setAuditLog] = useState<AuditEntry[]>(() => loadAudit());
+
+  const recordAudit = (entry: AuditEntry) => {
+    setAuditLog((prev) => {
+      const next = [entry, ...prev].slice(0, AUDIT_MAX);
+      saveAudit(next);
+      return next;
+    });
+  };
 
   const loadDetails = async (manual = false) => {
     if (!user) return;
     setRefreshing(true);
     setLastError(null);
+    const startedAt = performance.now();
     try {
       const { data, error } = await supabase.functions.invoke("check-subscription");
       if (error) throw error;
@@ -69,16 +111,33 @@ export default function Profil() {
       if (data) setDetails(data as SubDetails);
       setLastSyncedAt(new Date());
       if (manual) {
+        recordAudit({
+          at: new Date().toISOString(),
+          ok: true,
+          subscribed: !!data?.subscribed,
+          status: data?.subscribed
+            ? (data?.cancel_at_period_end ? "active_canceling" : "active")
+            : "inactive",
+          durationMs: Math.round(performance.now() - startedAt),
+        });
         toast({
           title: "Status osvježen",
           description: "Pretplata je uspješno sinhronizirana sa Stripe-om.",
         });
       }
-    } catch (e) {
+    } catch (e: any) {
       const msg = e instanceof Error ? e.message : "Nepoznata greška";
+      const code = e?.code || e?.name || (e?.status ? `HTTP_${e.status}` : "UNKNOWN");
       console.error("check-subscription error", e);
       setLastError(msg);
       if (manual) {
+        recordAudit({
+          at: new Date().toISOString(),
+          ok: false,
+          errorCode: String(code),
+          errorMessage: msg,
+          durationMs: Math.round(performance.now() - startedAt),
+        });
         toast({
           title: "Sinhronizacija nije uspjela",
           description: msg,
@@ -314,6 +373,75 @@ export default function Profil() {
                     </p>
                   </div>
                 </>
+              )}
+
+              {auditLog.length > 0 && (
+                <div className="rounded-md border border-border/40 bg-background/40 p-3 space-y-2">
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="flex items-center gap-1.5 text-[11px] font-medium text-foreground/90">
+                      <History className="h-3 w-3" />
+                      Historija sinhronizacija
+                      <span className="text-muted-foreground/70 font-normal">
+                        ({auditLog.length}/{AUDIT_MAX})
+                      </span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setAuditLog([]);
+                        saveAudit([]);
+                      }}
+                      className="text-[10px] text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      Očisti
+                    </button>
+                  </div>
+                  <ul className="space-y-1.5">
+                    {auditLog.map((entry, idx) => {
+                      const ts = new Date(entry.at);
+                      return (
+                        <li
+                          key={`${entry.at}-${idx}`}
+                          className="flex items-start gap-2 text-[11px] rounded border border-border/30 bg-muted/20 px-2 py-1.5"
+                        >
+                          {entry.ok ? (
+                            <CheckCircle2 className="h-3 w-3 mt-0.5 shrink-0 text-emerald-500/90" />
+                          ) : (
+                            <XCircle className="h-3 w-3 mt-0.5 shrink-0 text-destructive" />
+                          )}
+                          <div className="min-w-0 flex-1 space-y-0.5">
+                            <div className="flex items-center justify-between gap-2 flex-wrap">
+                              <span className="font-medium text-foreground">
+                                {entry.ok ? "Uspjeh" : "Greška"}
+                                {entry.ok && entry.status && (
+                                  <span className="ml-1 text-muted-foreground font-normal">
+                                    · Stripe:{" "}
+                                    <span className={entry.subscribed ? "text-emerald-500/90" : "text-muted-foreground"}>
+                                      {entry.status}
+                                    </span>
+                                  </span>
+                                )}
+                              </span>
+                              <span className="text-muted-foreground/70 text-[10px]">
+                                {ts.toLocaleDateString("bs-BA", { day: "2-digit", month: "2-digit" })}{" "}
+                                {ts.toLocaleTimeString("bs-BA", { hour: "2-digit", minute: "2-digit", second: "2-digit" })}
+                                {" · "}{entry.durationMs}ms
+                              </span>
+                            </div>
+                            {!entry.ok && (
+                              <div className="text-destructive/90 break-words">
+                                <span className="font-mono text-[10px] uppercase">{entry.errorCode}</span>
+                                {entry.errorMessage && (
+                                  <span className="text-destructive/80"> — {entry.errorMessage}</span>
+                                )}
+                              </div>
+                            )}
+                          </div>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
               )}
             </div>
 
