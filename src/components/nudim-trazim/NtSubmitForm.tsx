@@ -27,7 +27,7 @@ export default function NtSubmitForm({ onClose, onProClick }: Props) {
     contact_value: "",
     agreed: false,
   });
-  const [turnstileToken, setTurnstileToken] = useState("");
+  
 
   const set = (key: string, value: string | boolean) =>
     setForm((prev) => ({ ...prev, [key]: value }));
@@ -43,14 +43,6 @@ export default function NtSubmitForm({ onClose, onProClick }: Props) {
       return;
     }
 
-    if (turnstileToken) {
-      const valid = await verifyTurnstileToken(turnstileToken);
-      if (!valid) {
-        toast.error("Verifikacija nije uspjela. Pokušaj ponovo.");
-        setTurnstileToken("");
-        return;
-      }
-    }
 
     // Try to persist to Supabase (non-blocking — table may not exist yet)
     try {
@@ -148,7 +140,7 @@ export default function NtSubmitForm({ onClose, onProClick }: Props) {
             </div>
           </div>
 
-          <TurnstileWidget onVerify={setTurnstileToken} onExpire={() => setTurnstileToken("")} className="flex justify-center" />
+          
 
           <div className="flex items-start gap-2">
             <Checkbox
