@@ -15,8 +15,6 @@ import { supabase } from "@/integrations/supabase/client";
 import { ORIGIN_COUNTRIES, DIRECTORY_CATEGORIES, GERMAN_CITIES } from "@/lib/directory-constants";
 import { ChevronLeft, Send } from "lucide-react";
 import { Link } from "react-router-dom";
-import TurnstileWidget from "@/components/TurnstileWidget";
-import { verifyTurnstileToken } from "@/lib/turnstile";
 
 const schema = z.object({
   name: z.string().trim().min(2, "Minimalno 2 karaktera").max(100),

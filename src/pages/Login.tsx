@@ -6,8 +6,6 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { LogIn, Mail, Lock } from "lucide-react";
 import PageNav from "@/components/navigation/PageNav";
-import TurnstileWidget from "@/components/TurnstileWidget";
-import { verifyTurnstileToken } from "@/lib/turnstile";
 
 export default function Login() {
   const [email, setEmail] = useState("");

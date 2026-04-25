@@ -10,8 +10,6 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { useToast } from "@/hooks/use-toast";
 import { Check, X } from "lucide-react";
 import PageNav from "@/components/navigation/PageNav";
-import TurnstileWidget from "@/components/TurnstileWidget";
-import { verifyTurnstileToken } from "@/lib/turnstile";
 
 const PW_RULES = [
   { label: "Minimalno 8 znakova", test: (pw: string) => pw.length >= 8 },
