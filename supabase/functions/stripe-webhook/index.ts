@@ -73,6 +73,22 @@ serve(async (req) => {
             } else {
               log("Profile activated", { userId, expiresAt });
             }
+
+            // Record payment in payments table for Historija plaćanja
+            const amountTotal = session.amount_total ?? 0;
+            const currency = (session.currency ?? "eur").toUpperCase();
+            const txId = (session.payment_intent as string) ?? session.id;
+            const { error: payErr } = await supabase.from("payments").insert({
+              user_id: userId,
+              provider: "stripe",
+              status: "paid",
+              amount: amountTotal,
+              currency,
+              transaction_id: txId,
+              paid_at: new Date().toISOString(),
+            });
+            if (payErr) log("ERROR inserting payment", { userId, error: payErr.message });
+            else log("Payment recorded", { userId, txId, amountTotal });
           }
         }
 
@@ -88,7 +104,62 @@ serve(async (req) => {
             if (error) log("ERROR granting form access", { error: error.message });
             else log("Form access granted", { userId, formSlug });
           }
+
+          // Record one-time payment in payments table
+          const amountTotal = session.amount_total ?? 0;
+          const currency = (session.currency ?? "eur").toUpperCase();
+          const txId = (session.payment_intent as string) ?? session.id;
+          const { error: payErr } = await supabase.from("payments").insert({
+            user_id: userId,
+            provider: "stripe",
+            status: "paid",
+            amount: amountTotal,
+            currency,
+            transaction_id: txId,
+            paid_at: new Date().toISOString(),
+          });
+          if (payErr) log("ERROR inserting one-time payment", { userId, error: payErr.message });
+          else log("One-time payment recorded", { userId, txId, amountTotal });
         }
+        break;
+      }
+
+      // ── Subscription renewal payment ─────────────────────────
+      case "invoice.payment_succeeded": {
+        const invoice = event.data.object as Stripe.Invoice;
+        // Skip the first invoice — it's already covered by checkout.session.completed
+        if (invoice.billing_reason === "subscription_create") {
+          log("Skipping initial invoice (handled by checkout.session.completed)");
+          break;
+        }
+        const customerId = invoice.customer as string;
+        const customer = await stripe.customers.retrieve(customerId);
+        if (customer.deleted) break;
+        const email = (customer as Stripe.Customer).email;
+        if (!email) break;
+
+        const { data: profile } = await supabase
+          .from("profiles")
+          .select("id")
+          .eq("email", email)
+          .maybeSingle();
+        if (!profile?.id) {
+          log("No profile found for renewal", { email });
+          break;
+        }
+
+        const txId = (invoice.payment_intent as string) ?? invoice.id;
+        const { error: payErr } = await supabase.from("payments").insert({
+          user_id: profile.id,
+          provider: "stripe",
+          status: "paid",
+          amount: invoice.amount_paid ?? 0,
+          currency: (invoice.currency ?? "eur").toUpperCase(),
+          transaction_id: txId,
+          paid_at: new Date().toISOString(),
+        });
+        if (payErr) log("ERROR inserting renewal payment", { email, error: payErr.message });
+        else log("Renewal payment recorded", { email, txId });
         break;
       }
 
