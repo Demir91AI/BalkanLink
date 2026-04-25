@@ -266,7 +266,8 @@ export default function HistorijaPlacanja() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
-  if (authLoading || !user) {
+  // Striktni guard: traži i `user` i `session` (access token mora postojati).
+  if (authLoading || !user || !session) {
     return (
       <div className="flex min-h-[60vh] items-center justify-center">
         <p className="text-sm text-muted-foreground">Učitavanje...</p>
@@ -294,6 +295,20 @@ export default function HistorijaPlacanja() {
         <p className="text-sm text-muted-foreground mt-1">
           Pregled svih transakcija i trenutni period pretplate.
         </p>
+
+        {isAdmin && (
+          <div className="mt-3 rounded-md border border-amber-500/30 bg-amber-500/10 p-3 text-xs text-amber-600 dark:text-amber-400 flex items-start gap-2">
+            <AlertTriangle className="h-4 w-4 mt-0.5 shrink-0" />
+            <div>
+              <p className="font-medium">Admin mod</p>
+              <p className="text-amber-600/80 dark:text-amber-400/80">
+                Ova stranica prikazuje isključivo tvoje vlastite transakcije. Za upravljanje
+                tuđim plaćanjima koristi admin panel — tamo su dostupni alati za pregled
+                svih korisničkih uplata, refundove i ručne korekcije.
+              </p>
+            </div>
+          </div>
+        )}
       </div>
 
       <div className="container max-w-5xl mx-auto px-4 py-6 space-y-6">
