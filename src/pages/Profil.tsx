@@ -163,20 +163,36 @@ export default function Profil() {
 
             {/* Status sekcija */}
             <div className="rounded-lg border border-border/40 bg-muted/30 px-4 py-4 space-y-3">
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between gap-2">
                 <p className="text-xs text-muted-foreground">Status pretplate</p>
-                {isPremium && (
-                  <button
-                    onClick={loadDetails}
-                    disabled={refreshing}
-                    className="text-[11px] text-muted-foreground hover:text-foreground inline-flex items-center gap-1"
-                    aria-label="Osvježi status"
-                  >
-                    <RefreshCw className={`h-3 w-3 ${refreshing ? "animate-spin" : ""}`} />
-                    Osvježi
-                  </button>
-                )}
+                <Button
+                  onClick={() => loadDetails(true)}
+                  disabled={refreshing}
+                  variant="ghost"
+                  size="sm"
+                  className="h-7 px-2 text-[11px] text-muted-foreground hover:text-foreground"
+                  aria-label="Osvježi status pretplate"
+                >
+                  <RefreshCw className={`h-3 w-3 mr-1 ${refreshing ? "animate-spin" : ""}`} />
+                  {refreshing ? "Sinhronizujem..." : "Osvježi status"}
+                </Button>
               </div>
+
+              {lastError && (
+                <div className="rounded-md border border-destructive/30 bg-destructive/10 p-2.5 text-[11px] text-destructive flex items-start gap-2">
+                  <AlertTriangle className="h-3.5 w-3.5 mt-0.5 shrink-0" />
+                  <div className="space-y-0.5 min-w-0">
+                    <p className="font-medium">Sinhronizacija sa Stripe-om nije uspjela</p>
+                    <p className="text-destructive/80 break-words">{lastError}</p>
+                  </div>
+                </div>
+              )}
+
+              {!lastError && lastSyncedAt && (
+                <p className="text-[10px] text-muted-foreground/70">
+                  Zadnja sinhronizacija: {lastSyncedAt.toLocaleTimeString("bs-BA", { hour: "2-digit", minute: "2-digit", second: "2-digit" })}
+                </p>
+              )}
 
               {profileLoading ? (
                 <span className="text-sm text-muted-foreground">Učitavanje...</span>
