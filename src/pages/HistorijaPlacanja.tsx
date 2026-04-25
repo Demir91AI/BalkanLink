@@ -400,6 +400,43 @@ export default function HistorijaPlacanja() {
           </Button>
         </div>
 
+        {/* Kompaktna napomena: šta otključava Premium + trenutni status */}
+        <div
+          className={`rounded-md border p-3 text-xs flex items-start gap-2 ${
+            isPremium
+              ? "border-[hsl(var(--gold))]/30 bg-[hsl(var(--gold))]/5"
+              : "border-border/50 bg-muted/20"
+          }`}
+          aria-live="polite"
+        >
+          {isPremium ? (
+            <CheckCircle2 className="h-4 w-4 mt-0.5 shrink-0 text-[hsl(var(--gold))]" />
+          ) : (
+            <Crown className="h-4 w-4 mt-0.5 shrink-0 text-muted-foreground" />
+          )}
+          <div className="space-y-1">
+            <p className="font-medium text-foreground">
+              {subLoading
+                ? "Provjeravam Premium status..."
+                : isPremium
+                  ? "Premium pristup je aktivan."
+                  : "Premium pristup trenutno nije aktivan."}
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              Premium otključava sve Smart Guide korake, kompletne Musterformulare,
+              neograničene upite Asistentu, Dokumenten-Check analizu i sve premium šablone.
+            </p>
+            {!isPremium && !subLoading && (
+              <Link
+                to="/paketi"
+                className="inline-block mt-1 text-[hsl(var(--gold))] hover:underline font-medium"
+              >
+                Pogledaj Premium pakete →
+              </Link>
+            )}
+          </div>
+        </div>
+
         {/* Trenutni premium period */}
         <Card className="border-border/40">
           <CardHeader className="pb-3">
