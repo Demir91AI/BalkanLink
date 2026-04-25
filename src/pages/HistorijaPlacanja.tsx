@@ -115,6 +115,33 @@ const getStatusBadge = (status: string) => {
   return <Badge variant="outline">{status}</Badge>;
 };
 
+/**
+ * Animirano popunjavanje progress bara: počinje od 0% i lagano se popunjava
+ * do `targetPct` (cca. 900ms ease-out). Re-mount preko parent `key` resetuje
+ * animaciju kada se period pretplate promijeni.
+ */
+function ProgressFill({
+  targetPct,
+  expiringSoon,
+}: {
+  targetPct: number;
+  expiringSoon: boolean;
+}) {
+  const [width, setWidth] = useState(0);
+  useEffect(() => {
+    const id = window.requestAnimationFrame(() => setWidth(targetPct));
+    return () => window.cancelAnimationFrame(id);
+  }, [targetPct]);
+  return (
+    <div
+      className={`h-full rounded-full transition-[width] duration-[900ms] ease-out ${
+        expiringSoon ? "bg-amber-500" : "bg-[hsl(var(--gold))]"
+      }`}
+      style={{ width: `${width}%` }}
+    />
+  );
+}
+
 export default function HistorijaPlacanja() {
   const { user, session, isAdmin, loading: authLoading } = useAuth();
   const { isPremium } = useSubscription();
