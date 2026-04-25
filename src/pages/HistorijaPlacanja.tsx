@@ -260,12 +260,13 @@ export default function HistorijaPlacanja() {
   };
 
   useEffect(() => {
-    if (user) {
+    // Ne učitavaj billing podatke za admin sesije — admin ide na kontrolnu rutu.
+    if (user && !isAdmin) {
       loadPayments();
       loadSubscription();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user]);
+  }, [user, isAdmin]);
 
   // Striktni guard: traži i `user` i `session` (access token mora postojati).
   if (authLoading || !user || !session) {
@@ -273,6 +274,52 @@ export default function HistorijaPlacanja() {
       <div className="flex min-h-[60vh] items-center justify-center">
         <p className="text-sm text-muted-foreground">Učitavanje...</p>
       </div>
+    );
+  }
+
+  // Admin: ne prikazujemo ličnu listu plaćanja na ovoj ruti — samo kontrolna
+  // kartica koja vodi u Admin panel. Time se osigurava da admin nikada ne
+  // miješa svoj billing prikaz sa upravljačkim alatima nad tuđim podacima.
+  if (isAdmin) {
+    return (
+      <>
+        <PageNav />
+        <div className="container max-w-2xl mx-auto px-4 py-10">
+          <Card className="border-border/40">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-base">
+                <ShieldCheck className="h-5 w-5 text-primary" />
+                Admin preusmjeravanje
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4 text-sm">
+              <p className="text-muted-foreground">
+                Stranica „Historija plaćanja" namijenjena je krajnjim korisnicima i
+                prikazuje isključivo lične transakcije prijavljenog naloga. Kao
+                administrator, za pregled, refundove i ručne korekcije koristi
+                Admin panel.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <Button asChild size="sm">
+                  <Link to="/admin/forms">
+                    <ShieldCheck className="h-4 w-4 mr-1.5" />
+                    Otvori Admin panel
+                  </Link>
+                </Button>
+                <Button asChild size="sm" variant="outline">
+                  <Link to="/profil">
+                    <ArrowLeft className="h-4 w-4 mr-1.5" />
+                    Nazad na profil
+                  </Link>
+                </Button>
+              </div>
+              <p className="text-[11px] text-muted-foreground/70">
+                Ova ruta ne učitava podatke o plaćanjima dok je admin sesija aktivna.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </>
     );
   }
 
@@ -297,32 +344,6 @@ export default function HistorijaPlacanja() {
           Pregled svih transakcija i trenutni period pretplate.
         </p>
 
-        {isAdmin && (
-          <div className="mt-3 rounded-md border border-amber-500/30 bg-amber-500/10 p-3 text-xs text-amber-600 dark:text-amber-400 flex items-start gap-3">
-            <AlertTriangle className="h-4 w-4 mt-0.5 shrink-0" />
-            <div className="flex-1 space-y-2">
-              <div>
-                <p className="font-medium">Admin mod</p>
-                <p className="text-amber-600/80 dark:text-amber-400/80">
-                  Ova stranica prikazuje isključivo tvoje vlastite transakcije. Za pregled
-                  i upravljanje plaćanjima drugih korisnika koristi posebnu Admin rutu —
-                  ovaj prikaz nikada ne učitava tuđe podatke.
-                </p>
-              </div>
-              <Button
-                size="sm"
-                variant="outline"
-                asChild
-                className="h-7 px-2.5 text-[11px] border-amber-500/40 text-amber-700 dark:text-amber-300 hover:bg-amber-500/10"
-              >
-                <Link to="/admin/forms">
-                  <ShieldCheck className="h-3.5 w-3.5 mr-1.5" />
-                  Otvori Admin panel
-                </Link>
-              </Button>
-            </div>
-          </div>
-        )}
       </div>
 
       <div className="container max-w-5xl mx-auto px-4 py-6 space-y-6">
