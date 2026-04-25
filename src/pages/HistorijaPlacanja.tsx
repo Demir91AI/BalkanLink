@@ -583,6 +583,32 @@ export default function HistorijaPlacanja() {
                       </span>
                       <span>{formatDate(endDate)}</span>
                     </div>
+
+                    {/* Obnovi Premium CTA — pojavljuje se kad je preostalo
+                        ≤ 7 dana ili kad je period već istekao. Koristi isti
+                        Stripe checkout tok kao i početna aktivacija. */}
+                    {expiringSoon && (
+                      <div className="flex items-center gap-2 flex-wrap pt-1.5">
+                        <Button
+                          size="sm"
+                          onClick={handleUpgrade}
+                          disabled={checkoutLoading}
+                          className="h-7 px-2.5 text-[11px] bg-amber-500 text-[#0f1f3d] hover:bg-amber-500/90 font-medium"
+                        >
+                          {checkoutLoading ? (
+                            <Loader2 className="h-3 w-3 mr-1 animate-spin" />
+                          ) : (
+                            <RefreshCw className="h-3 w-3 mr-1" />
+                          )}
+                          Obnovi Premium
+                        </Button>
+                        <span className="text-[10px] text-muted-foreground">
+                          {daysLeft === 0
+                            ? "Period je istekao — aktiviraj ponovo da zadržiš pristup."
+                            : `Period ističe za ${daysLeft === 1 ? "1 dan" : `${daysLeft} dana`} — obnovi unaprijed.`}
+                        </span>
+                      </div>
+                    )}
                   </div>
                 </div>
               );
