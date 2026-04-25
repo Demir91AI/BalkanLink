@@ -125,7 +125,18 @@ export default function HistorijaPlacanja() {
   const [subLoading, setSubLoading] = useState(false);
 
   const [selected, setSelected] = useState<PaymentRow | null>(null);
+  const [openingId, setOpeningId] = useState<string | null>(null);
   const [copied, setCopied] = useState<string | null>(null);
+
+  const handleRowClick = (p: PaymentRow) => {
+    if (loading || subLoading || openingId) return;
+    setOpeningId(p.id);
+    // Small delay to let any in-flight refresh settle and to show feedback
+    window.setTimeout(() => {
+      setSelected(p);
+      setOpeningId(null);
+    }, 180);
+  };
 
   const copyToClipboard = async (value: string, key: string) => {
     try {
