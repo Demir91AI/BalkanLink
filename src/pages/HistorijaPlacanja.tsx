@@ -66,9 +66,11 @@ const formatPrice = (amount: number, currency: string) => {
   }).format(amount / 100);
 };
 
-const formatDateTime = (iso: string | null) => {
+const formatDateTime = (iso: string | null | undefined) => {
   if (!iso) return "—";
-  return new Date(iso).toLocaleString("bs-BA", {
+  const d = new Date(iso);
+  if (isNaN(d.getTime())) return "—";
+  return d.toLocaleString("bs-BA", {
     day: "2-digit",
     month: "2-digit",
     year: "numeric",
