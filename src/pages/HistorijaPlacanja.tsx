@@ -123,6 +123,31 @@ export default function HistorijaPlacanja() {
   const [subInfo, setSubInfo] = useState<SubInfo | null>(null);
   const [subLoading, setSubLoading] = useState(false);
 
+  const [selected, setSelected] = useState<PaymentRow | null>(null);
+  const [copied, setCopied] = useState<string | null>(null);
+
+  const copyToClipboard = async (value: string, key: string) => {
+    try {
+      await navigator.clipboard.writeText(value);
+      setCopied(key);
+      toast.success("Kopirano u clipboard");
+      setTimeout(() => setCopied((c) => (c === key ? null : c)), 1500);
+    } catch {
+      toast.error("Kopiranje nije uspjelo");
+    }
+  };
+
+  const getStripeUrl = (p: PaymentRow): string | null => {
+    if (p.provider?.toLowerCase() !== "stripe" || !p.transaction_id) return null;
+    const id = p.transaction_id;
+    if (id.startsWith("pi_")) return `https://dashboard.stripe.com/payments/${id}`;
+    if (id.startsWith("ch_")) return `https://dashboard.stripe.com/payments/${id}`;
+    if (id.startsWith("in_")) return `https://dashboard.stripe.com/invoices/${id}`;
+    if (id.startsWith("sub_")) return `https://dashboard.stripe.com/subscriptions/${id}`;
+    if (id.startsWith("cs_")) return `https://dashboard.stripe.com/payments/${id}`;
+    return null;
+  };
+
   useEffect(() => {
     if (!authLoading && !user) {
       navigate("/login");
