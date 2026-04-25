@@ -73,7 +73,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (_event, session) => {
+      async (event, session) => {
+        // Handle expired/invalid refresh tokens silently — clear session, no redirect
+        if (event === "TOKEN_REFRESHED" && !session) {
+          try { await supabase.auth.signOut(); } catch {}
+        }
+
         setSession(session);
         if (session?.user) {
           setTimeout(() => fetchUserMeta(session.user.id), 0);
@@ -96,7 +101,20 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }
     );
 
-    return () => subscription.unsubscribe();
+    // Catch unhandled refresh-token errors globally and clean up silently
+    const handleRejection = (e: PromiseRejectionEvent) => {
+      const msg = String(e.reason?.message || e.reason || "");
+      if (msg.includes("Invalid Refresh Token") || msg.includes("Refresh Token Not Found")) {
+        e.preventDefault();
+        supabase.auth.signOut().catch(() => {});
+      }
+    };
+    window.addEventListener("unhandledrejection", handleRejection);
+
+    return () => {
+      subscription.unsubscribe();
+      window.removeEventListener("unhandledrejection", handleRejection);
+    };
   }, []);
 
   // Auto-refresh subscription every 60 seconds
