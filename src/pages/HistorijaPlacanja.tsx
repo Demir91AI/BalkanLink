@@ -344,6 +344,38 @@ export default function HistorijaPlacanja() {
           Pregled svih transakcija i trenutni period pretplate.
         </p>
 
+        {/* Lični status pretplate — vidljiv isključivo prijavljenom korisniku
+            (admin grana je već vraćena iznad). Daje trenutnu, jasnu informaciju
+            "jesam li Premium" bez potrebe za skrolovanjem do kartice ispod. */}
+        <div className="mt-3 flex items-center gap-2 flex-wrap" aria-live="polite">
+          <span className="text-xs text-muted-foreground">Tvoj status:</span>
+          {subLoading ? (
+            <Badge variant="outline" className="gap-1">
+              <Loader2 className="h-3 w-3 animate-spin" />
+              Provjera...
+            </Badge>
+          ) : isPremium ? (
+            <Badge className="bg-[hsl(var(--gold))] text-[#0f1f3d] hover:bg-[hsl(var(--gold))] gap-1">
+              <Crown className="h-3 w-3" />
+              Premium aktivan
+            </Badge>
+          ) : (
+            <Badge variant="secondary" className="gap-1">
+              <XCircle className="h-3 w-3" />
+              Free nalog
+            </Badge>
+          )}
+          {!subLoading && isPremium && endDate && (
+            <span className="text-[11px] text-muted-foreground">
+              do <span className="font-medium text-foreground">{formatDate(endDate)}</span>
+            </span>
+          )}
+          {!subLoading && !isPremium && (
+            <Button asChild size="sm" variant="outline" className="h-6 px-2 text-[11px] ml-1">
+              <Link to="/paketi">Pogledaj pakete</Link>
+            </Button>
+          )}
+        </div>
       </div>
 
       <div className="container max-w-5xl mx-auto px-4 py-6 space-y-6">
