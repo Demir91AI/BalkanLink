@@ -115,7 +115,7 @@ const getStatusBadge = (status: string) => {
 };
 
 export default function HistorijaPlacanja() {
-  const { user, loading: authLoading } = useAuth();
+  const { user, session, isAdmin, loading: authLoading } = useAuth();
   const { isPremium } = useSubscription();
   const navigate = useNavigate();
 
