@@ -189,9 +189,33 @@ export default function Profil() {
               )}
 
               {!lastError && lastSyncedAt && (
-                <p className="text-[10px] text-muted-foreground/70">
-                  Zadnja sinhronizacija: {lastSyncedAt.toLocaleTimeString("bs-BA", { hour: "2-digit", minute: "2-digit", second: "2-digit" })}
-                </p>
+                <div className="rounded-md border border-emerald-500/25 bg-emerald-500/5 p-2.5 text-[11px] flex items-start gap-2">
+                  <CheckCircle2 className="h-3.5 w-3.5 mt-0.5 shrink-0 text-emerald-500/90" />
+                  <div className="space-y-1 min-w-0 flex-1">
+                    <p className="font-medium text-foreground">
+                      Sinhronizacija uspješna
+                    </p>
+                    <div className="space-y-0.5 text-muted-foreground">
+                      <p>
+                        Status:{" "}
+                        {details?.subscribed ? (
+                          <span className="font-medium text-emerald-500/90">Aktivan (Premium)</span>
+                        ) : (
+                          <span className="font-medium text-muted-foreground">Neaktivan (Free)</span>
+                        )}
+                      </p>
+                      {details?.subscribed && endDate && (
+                        <p>
+                          {willCancel ? "Premium istječe" : "Sljedeća naplata"}:{" "}
+                          <span className="font-medium text-foreground">{formatDate(endDate)}</span>
+                        </p>
+                      )}
+                      <p className="text-muted-foreground/70 text-[10px] pt-0.5">
+                        Provjereno u {lastSyncedAt.toLocaleTimeString("bs-BA", { hour: "2-digit", minute: "2-digit", second: "2-digit" })}
+                      </p>
+                    </div>
+                  </div>
+                </div>
               )}
 
               {profileLoading ? (
