@@ -164,6 +164,18 @@ export default function HistorijaPlacanja() {
     };
   }, []);
 
+  // Detektuj promjenu datuma isteka i okini animaciju re-fill + highlight.
+  useEffect(() => {
+    const next = subInfo?.subscription_end ?? null;
+    if (prevEndDateRef.current !== null && prevEndDateRef.current !== next) {
+      setProgressKey((k) => k + 1);
+      setHighlightProgress(true);
+      const t = window.setTimeout(() => setHighlightProgress(false), 1400);
+      return () => window.clearTimeout(t);
+    }
+    prevEndDateRef.current = next;
+  }, [subInfo?.subscription_end]);
+
   const handleRowClick = (p: PaymentRow) => {
     // Blokiraj ako je modal već otvoren za istu transakciju
     if (selected?.id === p.id) return;
