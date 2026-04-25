@@ -9,7 +9,7 @@ import { Download, Trash2, ShieldAlert, Loader2, FileJson, AlertTriangle } from 
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "@/hooks/use-toast";
-import SEO from "@/components/SEO";
+import { SEO } from "@/components/SEO";
 
 export default function MojiPodaci() {
   const { user, signOut } = useAuth();
