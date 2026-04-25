@@ -62,6 +62,17 @@ serve(async (req) => {
       }
     }
 
+    const safeIso = (unix: number | null | undefined): string | null => {
+      if (typeof unix !== "number" || !Number.isFinite(unix) || unix <= 0) return null;
+      try {
+        const d = new Date(unix * 1000);
+        const iso = d.toISOString();
+        return iso;
+      } catch {
+        return null;
+      }
+    };
+
     let status: Status = "pending";
     let amount: number | null = null;
     let currency: string | null = null;
@@ -80,11 +91,10 @@ serve(async (req) => {
       amount = invoiceObj?.amount_paid ?? session.amount_total ?? null;
       currency = (invoiceObj?.currency ?? session.currency ?? "eur").toUpperCase();
       transactionId = invoiceObj?.id ?? sub?.id ?? session.id;
-      paidAt = invoiceObj?.status_transitions?.paid_at
-        ? new Date(invoiceObj.status_transitions.paid_at * 1000).toISOString()
-        : session.created
-        ? new Date(session.created * 1000).toISOString()
-        : null;
+      paidAt =
+        safeIso((invoiceObj as any)?.status_transitions?.paid_at) ??
+        safeIso((invoiceObj as any)?.created) ??
+        safeIso(session.created);
     } else {
       const pi = session.payment_intent as Stripe.PaymentIntent | string | null;
       const piObj = pi && typeof pi === "object" ? pi : null;
@@ -96,7 +106,7 @@ serve(async (req) => {
         piObj?.status === "canceled" ||
         session.status === "expired"
       ) {
-        status = "pending"; // user-facing: not yet succeeded
+        status = "pending";
       } else {
         status = "pending";
       }
@@ -104,7 +114,7 @@ serve(async (req) => {
       amount = piObj?.amount_received ?? session.amount_total ?? null;
       currency = (piObj?.currency ?? session.currency ?? "eur").toUpperCase();
       transactionId = piObj?.id ?? session.id;
-      paidAt = session.created ? new Date(session.created * 1000).toISOString() : null;
+      paidAt = safeIso(piObj?.created) ?? safeIso(session.created);
     }
 
     return new Response(

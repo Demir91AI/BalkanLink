@@ -83,9 +83,11 @@ export async function verifyPaymentSession(sessionId: string): Promise<PaymentVe
       body: { session_id: sessionId },
     });
     if (error) throw error;
-    return (data as PaymentVerification) ?? { status: "invalid" };
+    return (data as PaymentVerification) ?? { status: "pending" };
   } catch {
-    return { status: "invalid" };
+    // Network/edge error — treat as pending so the UI keeps polling
+    // and falls back to global subscription state instead of "invalid".
+    return { status: "pending" };
   }
 }
 
