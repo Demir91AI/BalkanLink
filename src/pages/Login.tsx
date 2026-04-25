@@ -12,7 +12,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [turnstileToken, setTurnstileToken] = useState("");
+  
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -23,15 +23,6 @@ export default function Login() {
       return;
     }
     setLoading(true);
-    if (turnstileToken) {
-      const valid = await verifyTurnstileToken(turnstileToken);
-      if (!valid) {
-        toast({ title: "Došlo je do greške", variant: "destructive" });
-        setTurnstileToken("");
-        setLoading(false);
-        return;
-      }
-    }
     const { error } = await supabase.auth.signInWithPassword({ email, password });
     setLoading(false);
 
@@ -118,7 +109,7 @@ export default function Login() {
               </label>
             </div>
 
-            <TurnstileWidget onVerify={setTurnstileToken} onExpire={() => setTurnstileToken("")} className="flex justify-center" />
+            
 
             <Button
               type="submit"
