@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useSubscription } from "@/hooks/useSubscription";
 import { supabase } from "@/integrations/supabase/client";
-import { checkSubscriptionStatus, STRIPE_PRODUCT_IDS } from "@/lib/stripe";
+import { checkSubscriptionStatus, initiateCheckout, STRIPE_PRICE_IDS, STRIPE_PRODUCT_IDS } from "@/lib/stripe";
 import PageNav from "@/components/navigation/PageNav";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
