@@ -24,38 +24,6 @@ interface SubDetails {
   currency?: string | null;
 }
 
-interface AuditEntry {
-  at: string;
-  ok: boolean;
-  subscribed?: boolean;
-  status?: string;
-  errorCode?: string;
-  errorMessage?: string;
-  durationMs: number;
-}
-
-const AUDIT_STORAGE_KEY = "premium_sync_audit_v1";
-const AUDIT_MAX = 5;
-
-const loadAudit = (): AuditEntry[] => {
-  try {
-    const raw = localStorage.getItem(AUDIT_STORAGE_KEY);
-    if (!raw) return [];
-    const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) ? parsed.slice(0, AUDIT_MAX) : [];
-  } catch {
-    return [];
-  }
-};
-
-const saveAudit = (entries: AuditEntry[]) => {
-  try {
-    localStorage.setItem(AUDIT_STORAGE_KEY, JSON.stringify(entries.slice(0, AUDIT_MAX)));
-  } catch {
-    // ignore quota errors
-  }
-};
-
 const formatPrice = (amount?: number | null, currency?: string | null) => {
   if (!amount || !currency) return null;
   return new Intl.NumberFormat("de-DE", {
