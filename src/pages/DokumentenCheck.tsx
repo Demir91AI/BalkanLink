@@ -380,8 +380,8 @@ export default function DokumentenCheck() {
             className="flex items-start gap-4 rounded-2xl border border-[hsl(var(--gold))]/20 bg-[hsl(var(--gold))]/5 p-5 sm:p-6">
             <Shield className="mt-0.5 h-6 w-6 shrink-0 text-[hsl(var(--gold))]" />
             <div>
-              <p className="font-bold text-foreground">Zaštita podataka</p>
-              <p className="mt-1 text-sm text-muted-foreground leading-relaxed">Molimo zacrnite ime, adresu i broj predmeta prije učitavanja. Datoteke se ne pohranjuju — obrađuju se samo kratko za analizu i odmah brišu.</p>
+              <p className="font-bold text-foreground">{t("documentCheck.privacy.title")}</p>
+              <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{t("documentCheck.privacy.body")}</p>
             </div>
           </motion.div>
 
@@ -389,7 +389,7 @@ export default function DokumentenCheck() {
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
             className="rounded-2xl border bg-card p-6 sm:p-8 shadow-sm">
             <div>
-              <label className="mb-3 block text-sm font-bold">Učitaj dokument</label>
+              <label className="mb-3 block text-sm font-bold">{t("documentCheck.upload.label")}</label>
               {!file ? (
                 <div style={{display:'flex', flexDirection:'column', gap:'12px', width:'100%'}}>
                   <label className="relative flex flex-col items-center justify-center min-h-[160px] w-full border-2 border-dashed border-[hsl(var(--gold))] rounded-xl cursor-pointer p-6 bg-[hsl(var(--gold))]/5 hover:bg-[hsl(var(--gold))]/10 transition-colors">
@@ -409,15 +409,15 @@ export default function DokumentenCheck() {
                       }}
                     />
                     <Upload className="h-10 w-10 text-[hsl(var(--gold))] mb-2" />
-                    <strong className="text-base">Učitaj dokument</strong>
+                    <strong className="text-base">{t("documentCheck.upload.label")}</strong>
                     <span className="text-sm text-muted-foreground mt-1">
-                      PDF, JPG, PNG — maks. 10 MB
+                      {t("documentCheck.upload.hint")}
                     </span>
                   </label>
 
                   <p className="text-xs text-muted-foreground text-center flex items-center justify-center gap-1.5">
                     <Lock className="h-3 w-3" />
-                    Dokument se briše odmah nakon analize. Ništa se ne pohranjuje.
+                    {t("documentCheck.upload.deletedAfter")}
                   </p>
 
                   {previewName !== '' && (
@@ -452,7 +452,7 @@ export default function DokumentenCheck() {
           <div className="flex items-start gap-4 rounded-2xl border bg-card p-5">
             <Checkbox id="confirm" checked={confirmed} onCheckedChange={(v) => setConfirmed(v === true)} className="mt-0.5" />
             <label htmlFor="confirm" className="cursor-pointer text-sm leading-relaxed text-muted-foreground">
-              Potvrđujem da ne učitavam/unosim osjetljive podatke (broj lične karte, Steuer-ID, IBAN, zdravstvene podatke).
+              {t("documentCheck.confirm")}
             </label>
           </div>
 
@@ -460,10 +460,10 @@ export default function DokumentenCheck() {
           <div className="flex gap-3">
             <Button onClick={handleAnalyze} disabled={loading || !confirmed || !file} className="gap-2 rounded-xl px-6">
               {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <CheckCircle2 className="h-4 w-4" />}
-              {loading ? "Provjeravam…" : "Provjeri dokument →"}
+              {loading ? t("documentCheck.buttons.checking") : t("documentCheck.buttons.checkDocument")}
             </Button>
             {(analysis || file || error) && (
-              <Button variant="outline" onClick={handleClear} className="rounded-xl">Resetuj</Button>
+              <Button variant="outline" onClick={handleClear} className="rounded-xl">{t("documentCheck.buttons.reset")}</Button>
             )}
           </div>
 
