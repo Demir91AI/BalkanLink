@@ -199,8 +199,18 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
                   <span className={`text-[14px] font-semibold whitespace-nowrap overflow-visible ${active ? "text-[hsl(var(--gold))]" : "text-[#2D2D2D]"}`}>
                     {item.title}
                   </span>
-                  {item.premium && (
+                  {item.isNew && (
+                    <span className="ml-auto shrink-0 rounded-full bg-emerald-500 px-1.5 py-0.5 text-[8px] font-bold leading-none text-white animate-pulse">
+                      NOVO
+                    </span>
+                  )}
+                  {item.premium && !item.isNew && (
                     <span className="ml-auto shrink-0 rounded-full bg-[hsl(var(--gold))] px-1.5 py-0.5 text-[8px] font-bold leading-none text-white">
+                      {t("sidebar.premiumBadge")}
+                    </span>
+                  )}
+                  {item.premium && item.isNew && (
+                    <span className="shrink-0 rounded-full bg-[hsl(var(--gold))] px-1.5 py-0.5 text-[8px] font-bold leading-none text-white">
                       {t("sidebar.premiumBadge")}
                     </span>
                   )}
