@@ -45,39 +45,94 @@ serve(async (req) => {
     const userId = userData.user.id;
     const userEmail = userData.user.email;
 
-    // Confirmation guard
+    // ---------------------------------------------------------------
+    // STEP 0 — Confirmation guard. MUST pass before ANY destructive
+    // operation (Stripe cancellation, DB deletes, auth deletion).
+    // Mirrors client-side checks in src/pages/MojiPodaci.tsx.
+    // ---------------------------------------------------------------
     const body = await req.json().catch(() => ({}));
-    const { confirm_email, confirm_text } = body as { confirm_email?: string; confirm_text?: string };
-    if (
-      !confirm_email ||
-      confirm_email.trim().toLowerCase() !== (userEmail ?? "").toLowerCase() ||
-      confirm_text !== "OBRIŠI"
-    ) {
+    const { confirm_email, confirm_text } = body as {
+      confirm_email?: string;
+      confirm_text?: string;
+    };
+    const emailMatches =
+      typeof confirm_email === "string" &&
+      confirm_email.trim().toLowerCase() === (userEmail ?? "").toLowerCase() &&
+      (userEmail ?? "").length > 0;
+    const textMatches = confirm_text === "OBRIŠI";
+
+    if (!emailMatches || !textMatches) {
+      log("confirmation guard FAILED — aborting before any destructive op", {
+        emailMatches,
+        textMatches,
+      });
       return new Response(
         JSON.stringify({ error: "Potvrda nije ispravna. Ukucaj svoj email i riječ OBRIŠI." }),
         { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
 
-    log("starting deletion", { userId, userEmail });
+    log("confirmation guard PASSED — proceeding with deletion", { userId, userEmail });
 
-    // 1. Cancel active Stripe subscriptions (best effort)
+    // ---------------------------------------------------------------
+    // STEP 1 — Cancel active Stripe subscriptions.
+    // Runs ONLY after the guard above. Failures are collected and
+    // reported to the client but do NOT abort account deletion (user
+    // has explicitly requested erasure under GDPR čl. 17).
+    // ---------------------------------------------------------------
+    const stripeWarnings: string[] = [];
+    let stripeCancelledCount = 0;
     try {
       const stripeKey = Deno.env.get("STRIPE_SECRET_KEY");
-      if (stripeKey && userEmail) {
+      if (!stripeKey) {
+        stripeWarnings.push("STRIPE_SECRET_KEY nije konfigurisan — preskačem otkazivanje pretplate.");
+        log("stripe key missing — skipping cancellation");
+      } else if (!userEmail) {
+        stripeWarnings.push("Email korisnika nije dostupan — preskačem Stripe pretragu.");
+      } else {
         const stripe = new Stripe(stripeKey, { apiVersion: "2025-08-27.basil" });
-        const customers = await stripe.customers.list({ email: userEmail, limit: 5 });
+        let customers;
+        try {
+          customers = await stripe.customers.list({ email: userEmail, limit: 5 });
+        } catch (e) {
+          const msg = e instanceof Error ? e.message : String(e);
+          stripeWarnings.push(`Stripe customers.list nije uspio: ${msg}`);
+          log("stripe customers.list failed", { error: msg });
+          customers = { data: [] as Array<{ id: string }> };
+        }
+
         for (const customer of customers.data) {
-          const subs = await stripe.subscriptions.list({ customer: customer.id, status: "active", limit: 10 });
+          let subs;
+          try {
+            subs = await stripe.subscriptions.list({
+              customer: customer.id,
+              status: "active",
+              limit: 10,
+            });
+          } catch (e) {
+            const msg = e instanceof Error ? e.message : String(e);
+            stripeWarnings.push(`Stripe subscriptions.list nije uspio za ${customer.id}: ${msg}`);
+            log("stripe subscriptions.list failed", { customerId: customer.id, error: msg });
+            continue;
+          }
+
           for (const sub of subs.data) {
-            await stripe.subscriptions.cancel(sub.id);
-            log("cancelled subscription", { subId: sub.id });
+            try {
+              await stripe.subscriptions.cancel(sub.id);
+              stripeCancelledCount += 1;
+              log("cancelled subscription", { subId: sub.id });
+            } catch (e) {
+              const msg = e instanceof Error ? e.message : String(e);
+              stripeWarnings.push(`Otkazivanje pretplate ${sub.id} nije uspjelo: ${msg}`);
+              log("stripe subscriptions.cancel failed", { subId: sub.id, error: msg });
+            }
           }
         }
       }
     } catch (e) {
       const msg = e instanceof Error ? e.message : String(e);
-      log("stripe cancel failed (continuing)", { error: msg });
+      stripeWarnings.push(`Neočekivana greška pri Stripe operaciji: ${msg}`);
+      log("stripe block unexpected error (continuing)", { error: msg });
     }
 
     // 2. Delete user-owned rows across all related tables
