@@ -1,0 +1,8 @@
+{
+  "generic": "Došlo je do greške. Pokušajte ponovo.",
+  "network": "Nema veze sa internetom. Provjerite konekciju.",
+  "unauthorized": "Nemate dozvolu za ovu radnju.",
+  "notFound": "Nije pronađeno.",
+  "serverError": "Greška na serveru. Pokušajte kasnije.",
+  "sessionExpired": "Sesija je istekla. Prijavite se ponovo."
+}
