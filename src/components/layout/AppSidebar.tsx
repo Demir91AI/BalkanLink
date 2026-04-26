@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import {
   FileText, Shield, BookOpen, Camera, Megaphone, Plane,
   Briefcase, Building, Calculator, FileCheck, X, LogIn, LogOut, User,
-  CreditCard, Scale, Store, Home, Smartphone, Share2, Receipt,
+  CreditCard, Scale, Store, Home, Smartphone, Share2, Receipt, Gauge,
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
@@ -30,10 +30,11 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
   const currentPath = location.pathname.replace(/^\/de(?=\/|$)/, "") || "/";
 
   const mainItems = [
-    { title: t("sidebar.items.formulari"), url: "/formulari", icon: FileText, premium: true },
-    { title: t("sidebar.items.viza"), url: "/viza", icon: Shield, premium: true },
-    { title: t("sidebar.items.deutschTrainer"), url: "/deutsch-trainer", icon: BookOpen, premium: true },
-    { title: t("sidebar.items.dokumentenCheck"), url: "/dokumenten-check", icon: Camera, premium: true },
+    { title: t("sidebar.items.formulari"), url: "/formulari", icon: FileText, premium: true, isNew: false },
+    { title: t("sidebar.items.viza"), url: "/viza", icon: Shield, premium: true, isNew: false },
+    { title: t("sidebar.items.deutschTrainer"), url: "/deutsch-trainer", icon: BookOpen, premium: true, isNew: false },
+    { title: t("sidebar.items.dokumentenCheck"), url: "/dokumenten-check", icon: Camera, premium: true, isNew: false },
+    { title: "Bonitet Simulator", url: "/schufa-simulator", icon: Gauge, premium: true, isNew: true },
   ];
 
   const secondaryItems = [
@@ -198,8 +199,18 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
                   <span className={`text-[14px] font-semibold whitespace-nowrap overflow-visible ${active ? "text-[hsl(var(--gold))]" : "text-[#2D2D2D]"}`}>
                     {item.title}
                   </span>
-                  {item.premium && (
+                  {item.isNew && (
+                    <span className="ml-auto shrink-0 rounded-full bg-emerald-500 px-1.5 py-0.5 text-[8px] font-bold leading-none text-white animate-pulse">
+                      NOVO
+                    </span>
+                  )}
+                  {item.premium && !item.isNew && (
                     <span className="ml-auto shrink-0 rounded-full bg-[hsl(var(--gold))] px-1.5 py-0.5 text-[8px] font-bold leading-none text-white">
+                      {t("sidebar.premiumBadge")}
+                    </span>
+                  )}
+                  {item.premium && item.isNew && (
+                    <span className="shrink-0 rounded-full bg-[hsl(var(--gold))] px-1.5 py-0.5 text-[8px] font-bold leading-none text-white">
                       {t("sidebar.premiumBadge")}
                     </span>
                   )}
