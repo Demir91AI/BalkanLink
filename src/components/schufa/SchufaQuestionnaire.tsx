@@ -306,7 +306,7 @@ function RadioGrid<T extends string>({
 }: {
   options: Option<T>[];
   value: T;
-  onChange: (v: T) => void;
+  onChange: React.Dispatch<React.SetStateAction<T>>;
 }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
