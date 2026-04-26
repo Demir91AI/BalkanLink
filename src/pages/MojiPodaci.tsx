@@ -13,19 +13,19 @@ import { SEO } from "@/components/SEO";
 export default function MojiPodaci() {
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
-  const [exporting, setExporting] = useState(false);
+  const [exporting, setExporting] = useState<null | "txt" | "pdf">(null);
   const [deleting, setDeleting] = useState(false);
   const [confirmEmail, setConfirmEmail] = useState("");
   const [confirmText, setConfirmText] = useState("");
   const [showConfirm, setShowConfirm] = useState(false);
   const [deleteError, setDeleteError] = useState<string | null>(null);
 
-  const handleExport = async () => {
+  const handleExport = async (format: "txt" | "pdf") => {
     if (!user) {
       navigate("/login");
       return;
     }
-    setExporting(true);
+    setExporting(format);
     try {
       const { data: session } = await supabase.auth.getSession();
       const token = session.session?.access_token;
@@ -33,7 +33,7 @@ export default function MojiPodaci() {
 
       const projectId = import.meta.env.VITE_SUPABASE_PROJECT_ID;
       const res = await fetch(
-        `https://${projectId}.supabase.co/functions/v1/export-user-data`,
+        `https://${projectId}.supabase.co/functions/v1/export-user-data?format=${format}`,
         {
           method: "POST",
           headers: {
@@ -52,15 +52,18 @@ export default function MojiPodaci() {
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = `balkanlink-podaci-${new Date().toISOString().slice(0, 10)}.txt`;
+      a.download = `balkanlink-podaci-${new Date().toISOString().slice(0, 10)}.${format}`;
       document.body.appendChild(a);
       a.click();
       a.remove();
       URL.revokeObjectURL(url);
 
       toast({
-        title: "Izvještaj preuzet",
-        description: "Tvoj izvještaj je sačuvan i možeš ga otvoriti u bilo kojem programu.",
+        title: format === "pdf" ? "PDF preuzet" : "Izvještaj preuzet",
+        description:
+          format === "pdf"
+            ? "PDF izvještaj je sačuvan na tvoj uređaj."
+            : "Tvoj izvještaj je sačuvan i možeš ga otvoriti u bilo kojem programu.",
       });
     } catch (e) {
       const msg = e instanceof Error ? e.message : String(e);
@@ -70,7 +73,7 @@ export default function MojiPodaci() {
         description: msg,
       });
     } finally {
-      setExporting(false);
+      setExporting(null);
     }
   };
 
