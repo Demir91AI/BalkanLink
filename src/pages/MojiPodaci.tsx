@@ -20,6 +20,84 @@ export default function MojiPodaci() {
   const [showConfirm, setShowConfirm] = useState(false);
   const [deleteError, setDeleteError] = useState<string | null>(null);
 
+  const describeHttpError = (
+    status: number,
+    serverMsg: string | null,
+    retryAfter: string | null
+  ): { title: string; description: string } => {
+    switch (status) {
+      case 400:
+        return {
+          title: "Neispravan zahtjev (400)",
+          description:
+            serverMsg ||
+            "Server je odbio zahtjev. Osvježi stranicu (Ctrl+R) i pokušaj ponovo.",
+        };
+      case 401:
+        return {
+          title: "Sesija je istekla (401)",
+          description:
+            "Tvoja prijava više nije važeća. Odjavi se i prijavi ponovo, pa pokušaj još jednom.",
+        };
+      case 403:
+        return {
+          title: "Nemaš dozvolu (403)",
+          description:
+            "Ovaj račun nema pristup izvozu podataka. Kontaktiraj kontakt@balkanlink.de.",
+        };
+      case 404:
+        return {
+          title: "Servis nije dostupan (404)",
+          description:
+            "Funkcija za izvoz nije pronađena. Pokušaj ponovo za par minuta.",
+        };
+      case 408:
+        return {
+          title: "Zahtjev je istekao (408)",
+          description: "Veza je presporo odgovorila. Pokušaj ponovo.",
+        };
+      case 413:
+        return {
+          title: "Previše podataka (413)",
+          description:
+            "Tvoj izvještaj je prevelik za jedan zahtjev. Kontaktiraj kontakt@balkanlink.de.",
+        };
+      case 429: {
+        const seconds = retryAfter ? parseInt(retryAfter, 10) : NaN;
+        const wait =
+          Number.isFinite(seconds) && seconds > 0
+            ? `Sačekaj ${seconds} sekundi pa pokušaj ponovo.`
+            : "Sačekaj minut pa pokušaj ponovo.";
+        return {
+          title: "Previše pokušaja (429)",
+          description: `Slao si previše zahtjeva u kratkom periodu. ${wait}`,
+        };
+      }
+      case 500:
+        return {
+          title: "Greška na serveru (500)",
+          description:
+            (serverMsg ? `Detalji: ${serverMsg}. ` : "") +
+            "Sačekaj 30 sekundi pa pokušaj ponovo. Ako se ponovi, javi nam na kontakt@balkanlink.de.",
+        };
+      case 502:
+      case 503:
+      case 504:
+        return {
+          title: `Servis privremeno nedostupan (${status})`,
+          description:
+            "Server trenutno ne odgovara. Sačekaj minut pa pokušaj ponovo.",
+        };
+      default:
+        return {
+          title: `Greška ${status}`,
+          description:
+            (serverMsg ? `${serverMsg}. ` : "") +
+            "Pokušaj ponovo. Ako se ponovi, javi nam na kontakt@balkanlink.de.",
+        };
+    }
+  };
+
   const handleExport = async (format: "txt" | "pdf") => {
     if (!user) {
       navigate("/login");
@@ -34,7 +112,14 @@ export default function MojiPodaci() {
     try {
       const { data: session } = await supabase.auth.getSession();
       const token = session.session?.access_token;
-      if (!token) throw new Error("Nema aktivne sesije");
+      if (!token) {
+        toast({
+          variant: "destructive",
+          title: "Nisi prijavljen",
+          description: "Prijavi se ponovo i pokušaj još jednom.",
+        });
+        return;
+      }
 
       const projectId = import.meta.env.VITE_SUPABASE_PROJECT_ID;
       // Cache-buster (`_t`) prevents browser/CDN from serving a stale failed response on retry
@@ -53,11 +138,37 @@ export default function MojiPodaci() {
       );
 
       if (!res.ok) {
-        const err = await res.json().catch(() => ({ error: "Nepoznata greška" }));
-        throw new Error(err.error || `HTTP ${res.status}`);
+        // Try to extract a server-provided error message; fall back gracefully
+        let serverMsg: string | null = null;
+        try {
+          const body = await res.clone().json();
+          serverMsg =
+            (body && typeof body.error === "string" ? body.error : null) ||
+            (body && typeof body.message === "string" ? body.message : null);
+        } catch {
+          try {
+            const txt = await res.text();
+            serverMsg = txt && txt.length < 300 ? txt : null;
+          } catch {
+            serverMsg = null;
+          }
+        }
+        const retryAfter = res.headers.get("Retry-After");
+        const { title, description } = describeHttpError(res.status, serverMsg, retryAfter);
+        toast({ variant: "destructive", title, description });
+        return;
       }
 
       const blob = await res.blob();
+      if (blob.size === 0) {
+        toast({
+          variant: "destructive",
+          title: "Prazan izvještaj",
+          description: "Server je vratio prazan fajl. Pokušaj ponovo.",
+        });
+        return;
+      }
+
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
@@ -75,17 +186,29 @@ export default function MojiPodaci() {
             : "Tvoj izvještaj je sačuvan i možeš ga otvoriti u bilo kojem programu.",
       });
     } catch (e) {
-      const isAbort = e instanceof DOMException && e.name === "AbortError";
-      const msg = isAbort
-        ? "Preuzimanje je predugo trajalo. Pokušaj ponovo."
-        : e instanceof Error
-          ? e.message
-          : String(e);
-      toast({
-        variant: "destructive",
-        title: "Greška pri preuzimanju",
-        description: `${msg} Klikni dugme ponovo da pokušaš.`,
-      });
+      if (e instanceof DOMException && e.name === "AbortError") {
+        toast({
+          variant: "destructive",
+          title: "Isteklo vrijeme (60s)",
+          description:
+            "Preuzimanje je predugo trajalo. Provjeri internet vezu i pokušaj ponovo.",
+        });
+      } else if (e instanceof TypeError) {
+        // Network error (offline, DNS, CORS preflight failure)
+        toast({
+          variant: "destructive",
+          title: "Nema veze sa serverom",
+          description:
+            "Provjeri internet vezu pa pokušaj ponovo. Ako koristiš VPN, isključi ga i probaj još jednom.",
+        });
+      } else {
+        const msg = e instanceof Error ? e.message : String(e);
+        toast({
+          variant: "destructive",
+          title: "Neočekivana greška",
+          description: `${msg}. Pokušaj ponovo. Ako se ponovi, javi nam na kontakt@balkanlink.de.`,
+        });
+      }
     } finally {
       window.clearTimeout(timeoutId);
       // Always reset — guarantees user can immediately retry without page refresh
