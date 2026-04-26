@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { LogOut, Crown, User, Calendar, RefreshCw, Settings, AlertTriangle, CheckCircle2, History, XCircle, Receipt, ShieldAlert } from "lucide-react";
+import { LogOut, Crown, User, Calendar, RefreshCw, Settings, AlertTriangle, CheckCircle2, History, XCircle, Receipt } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { openCustomerPortal, STRIPE_PRODUCT_IDS } from "@/lib/stripe";
 import { toast } from "@/hooks/use-toast";
@@ -237,14 +237,19 @@ export default function Profil() {
                 </Button>
               </div>
 
-              {lastError && (
-                <div className="rounded-md border border-destructive/30 bg-destructive/10 p-2.5 text-[11px] text-destructive flex items-start gap-2">
-                  <AlertTriangle className="h-3.5 w-3.5 mt-0.5 shrink-0" />
-                  <div className="space-y-0.5 min-w-0">
-                    <p className="font-medium">Sinhronizacija sa Stripe-om nije uspjela</p>
-                    <p className="text-destructive/80 break-words">{lastError}</p>
-                  </div>
+              {lastError && !isPremium && (
+                <div className="rounded-md border border-amber-500/20 bg-amber-500/5 p-2.5 text-[11px] text-muted-foreground flex items-start gap-2">
+                  <RefreshCw className="h-3.5 w-3.5 mt-0.5 shrink-0 text-amber-500/70" />
+                  <p>
+                    Status se osvježava… Ako Premium nije aktivan u par minuta, klikni{" "}
+                    <span className="font-medium text-foreground">Osvježi status</span>.
+                  </p>
                 </div>
+              )}
+              {lastError && isPremium && (
+                <p className="text-[10px] text-muted-foreground/60 italic">
+                  Premium status potvrđen iz tvog naloga.
+                </p>
               )}
 
               {!lastError && lastSyncedAt && (
@@ -464,14 +469,6 @@ export default function Profil() {
                 Historija plaćanja
               </Button>
               <Button
-                onClick={() => navigate("/moji-podaci")}
-                variant="outline"
-                className="w-full"
-              >
-                <ShieldAlert className="h-4 w-4 mr-2" />
-                Moji podaci (GDPR)
-              </Button>
-              <Button
                 onClick={handleLogout}
                 variant="outline"
                 className="w-full"
@@ -479,6 +476,30 @@ export default function Profil() {
                 <LogOut className="h-4 w-4 mr-2" />
                 Odjavi se
               </Button>
+
+              {/* Suptilna disclosure sekcija — GDPR (čl. 15 i 17). Namjerno tihana. */}
+              <details className="group pt-3 mt-1 border-t border-border/30">
+                <summary className="cursor-pointer text-[11px] text-muted-foreground/70 hover:text-muted-foreground transition-colors list-none flex items-center justify-center gap-1.5 select-none">
+                  <span>Postavke računa i privatnost</span>
+                  <span className="text-muted-foreground/40 group-open:rotate-180 transition-transform">⌄</span>
+                </summary>
+                <div className="pt-2.5 space-y-1.5 text-[11px] text-center">
+                  <button
+                    type="button"
+                    onClick={() => navigate("/moji-podaci")}
+                    className="block w-full text-muted-foreground/70 hover:text-foreground transition-colors py-1"
+                  >
+                    Preuzmi svoje podatke <span className="text-muted-foreground/40">(GDPR čl. 15)</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => navigate("/moji-podaci")}
+                    className="block w-full text-muted-foreground/70 hover:text-destructive/80 transition-colors py-1"
+                  >
+                    Trajno obriši račun
+                  </button>
+                </div>
+              </details>
             </div>
           </CardContent>
         </Card>
