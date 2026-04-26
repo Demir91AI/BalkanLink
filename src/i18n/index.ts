@@ -36,13 +36,20 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
+    // Hard fallback: any unsupported browser language → Bosanski (never German).
     fallbackLng: DEFAULT_LANGUAGE,
+    lng: undefined, // let detector decide on first load
     supportedLngs: [...SUPPORTED_LANGUAGES],
+    nonExplicitSupportedLngs: false,
+    load: "languageOnly", // 'de-AT' → 'de', 'sr-Latn' → falls back to 'bs'
     defaultNS: "common",
     ns: ["common", "forms", "pages", "errors"],
     interpolation: { escapeValue: false },
     detection: {
-      order: ["localStorage", "navigator"],
+      // URL path takes precedence (so /de always means German on direct visit),
+      // then the user's saved choice, then the browser language as last resort.
+      order: ["path", "localStorage", "navigator"],
+      lookupFromPathIndex: 0,
       lookupLocalStorage: LANG_STORAGE_KEY,
       caches: ["localStorage"],
     },

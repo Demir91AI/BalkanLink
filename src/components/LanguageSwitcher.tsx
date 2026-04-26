@@ -8,6 +8,7 @@
  * On selection: changes i18n language, navigates to the mirrored URL (BS root ↔ /de/*),
  * and persists the choice to localStorage.
  */
+import { useState, type ComponentType } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ChevronDown, Check } from "lucide-react";
@@ -19,10 +20,14 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { LANG_STORAGE_KEY, type SupportedLanguage } from "@/i18n";
 import { mirrorPath } from "@/lib/i18n-paths";
+import { FlagBA } from "@/components/flags/FlagBA";
+import { FlagDE } from "@/components/flags/FlagDE";
 
-const LANGUAGES: { code: SupportedLanguage; nativeName: string }[] = [
-  { code: "bs", nativeName: "Bosanski" },
-  { code: "de", nativeName: "Deutsch" },
+type FlagComp = ComponentType<{ width?: number; className?: string }>;
+
+const LANGUAGES: { code: SupportedLanguage; nativeName: string; Flag: FlagComp }[] = [
+  { code: "bs", nativeName: "Bosanski", Flag: FlagBA },
+  { code: "de", nativeName: "Deutsch", Flag: FlagDE },
 ];
 
 const GOLD = "#D4AF37";
@@ -36,23 +41,42 @@ export function LanguageSwitcher({ variant = "header" }: Props) {
   const { i18n } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
+  const [open, setOpen] = useState(false);
 
-  const currentLang = (LANGUAGES.find((l) => l.code === i18n.language)?.code ??
-    "bs") as SupportedLanguage;
-  const currentNative =
-    LANGUAGES.find((l) => l.code === currentLang)?.nativeName ?? "Bosanski";
+  const currentEntry =
+    LANGUAGES.find((l) => l.code === i18n.language) ?? LANGUAGES[0];
+  const currentLang = currentEntry.code;
+  const currentNative = currentEntry.nativeName;
+  const CurrentFlag = currentEntry.Flag;
 
-  const handleSelect = (lang: SupportedLanguage) => {
-    if (lang === currentLang) return;
-    void i18n.changeLanguage(lang);
+  const handleSelect = async (lang: SupportedLanguage) => {
+    if (lang === currentLang) {
+      setOpen(false);
+      return;
+    }
+    // 1. Update i18next FIRST so subsequent renders use the new language.
+    await i18n.changeLanguage(lang);
+
+    // 2. Persist to localStorage.
     try {
       localStorage.setItem(LANG_STORAGE_KEY, lang);
     } catch {
-      /* ignore */
+      /* storage unavailable — ignore */
     }
+
+    // 3. Update <html lang>.
+    if (typeof document !== "undefined") {
+      document.documentElement.lang = lang;
+    }
+
+    // 4. Compute mirror path (preserves search/hash).
     const target = mirrorPath(location.pathname, lang);
-    // Preserve search/hash on switch
+
+    // 5. Navigate to mirror path.
     navigate(`${target}${location.search}${location.hash}`);
+
+    // 6. Close dropdown.
+    setOpen(false);
   };
 
   const triggerClass =
@@ -74,26 +98,31 @@ export function LanguageSwitcher({ variant = "header" }: Props) {
         };
 
   return (
-    <DropdownMenu>
+    <DropdownMenu open={open} onOpenChange={setOpen}>
       <DropdownMenuTrigger
         aria-label="Language / Sprache / Jezik"
         className={`${triggerClass} focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37]/60 data-[state=open]:scale-[1.02] transition-transform duration-200`}
         style={triggerStyle}
       >
-        <span>{currentNative}</span>
+        <CurrentFlag width={20} />
+        <span style={{ marginLeft: 8 }}>{currentNative}</span>
         <ChevronDown className="h-3.5 w-3.5 opacity-70" strokeWidth={2.25} />
       </DropdownMenuTrigger>
       <DropdownMenuContent
         align="end"
         sideOffset={6}
-        className="min-w-[160px] rounded-xl border-white/10 bg-[#0d1526] p-1 text-white shadow-2xl animate-in fade-in-0 zoom-in-95 duration-200"
+        className="min-w-[180px] rounded-xl border-white/10 bg-[#0d1526] p-1 text-white shadow-2xl animate-in fade-in-0 zoom-in-95 duration-200"
       >
         {LANGUAGES.map((lang) => {
           const active = lang.code === currentLang;
+          const RowFlag = lang.Flag;
           return (
             <DropdownMenuItem
               key={lang.code}
-              onSelect={() => handleSelect(lang.code)}
+              onSelect={(e) => {
+                e.preventDefault();
+                void handleSelect(lang.code);
+              }}
               className={`flex cursor-pointer items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm font-medium outline-none transition-colors focus:bg-white/5 ${
                 active
                   ? "border-l-2 text-white"
@@ -101,7 +130,10 @@ export function LanguageSwitcher({ variant = "header" }: Props) {
               }`}
               style={active ? { borderLeftColor: GOLD } : undefined}
             >
-              <span>{lang.nativeName}</span>
+              <span className="flex items-center gap-2">
+                <RowFlag width={20} />
+                <span>{lang.nativeName}</span>
+              </span>
               {active && <Check className="h-4 w-4" style={{ color: GOLD }} strokeWidth={2.5} />}
             </DropdownMenuItem>
           );
