@@ -79,6 +79,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           try { await supabase.auth.signOut(); } catch {}
         }
 
+        // Fresh login must reset stale inactivity markers before the timeout hook runs.
+        // Otherwise an old bl_last_activity value can immediately log the user out
+        // right after a successful password login.
+        if (event === "SIGNED_IN" && session?.user) {
+          try {
+            localStorage.removeItem("bl_session_expired");
+            localStorage.setItem("bl_last_activity", String(Date.now()));
+          } catch { /* best-effort */ }
+        }
+
         setSession(session);
         if (session?.user) {
           setTimeout(() => fetchUserMeta(session.user.id), 0);
