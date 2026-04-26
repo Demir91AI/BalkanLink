@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
+import LanguageRouter from "@/components/LanguageRouter";
 import { AuthProvider, useAuth } from "@/contexts/AuthContext";
 import { CountryProvider } from "@/contexts/CountryContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
@@ -267,6 +268,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        <LanguageRouter />
         <LanguageProvider>
           <CountryProvider>
             <AuthProvider>
