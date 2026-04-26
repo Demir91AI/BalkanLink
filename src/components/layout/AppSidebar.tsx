@@ -24,28 +24,28 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
   const navigate = useLocalizedNavigate();
   const location = useLocation();
   const { user, signOut, displayName } = useAuth();
-  const { t } = useTranslation();
-  const firstName = displayName.split(/\s+/).filter(Boolean)[0] || "Korisniče";
+  const { t } = useTranslation("common");
+  const firstName = displayName.split(/\s+/).filter(Boolean)[0] || t("sidebar.defaultUser");
   const initials = getInitials(displayName);
   const currentPath = location.pathname.replace(/^\/de(?=\/|$)/, "") || "/";
 
   const mainItems = [
-    { title: "Formulari", url: "/formulari", icon: FileText, premium: true },
-    { title: "Viza Navigator", url: "/viza", icon: Shield, premium: true },
-    { title: "Kurs njemačkog", url: "/deutsch-trainer", icon: BookOpen, premium: true },
-    { title: "Provjera dokumenata", url: "/dokumenten-check", icon: Camera, premium: true },
+    { title: t("sidebar.items.formulari"), url: "/formulari", icon: FileText, premium: true },
+    { title: t("sidebar.items.viza"), url: "/viza", icon: Shield, premium: true },
+    { title: t("sidebar.items.deutschTrainer"), url: "/deutsch-trainer", icon: BookOpen, premium: true },
+    { title: t("sidebar.items.dokumentenCheck"), url: "/dokumenten-check", icon: Camera, premium: true },
   ];
 
   const secondaryItems = [
-    { title: "Život i dolazak", url: "/zivot-u-njemackoj", icon: Plane },
-    { title: "Radno pravo", url: "/radno-pravo", icon: Scale },
-    { title: "Mietrecht", url: "/mietrecht", icon: Home },
-    { title: "Biznis u Njemačkoj", url: "/biznis", icon: Store },
-    { title: "Nudim / Tražim", url: "/nudim-trazim", icon: Megaphone },
-    { title: "Oglasi za posao", url: "/stellenangebote", icon: Briefcase },
-    { title: "Ponuda stanova", url: "/wohnungen", icon: Building },
-    { title: "Kalkulator", url: "/kalkulatori", icon: Calculator },
-    { title: "Šabloni", url: "/vorlagen", icon: FileCheck },
+    { title: t("sidebar.items.zivot"), url: "/zivot-u-njemackoj", icon: Plane },
+    { title: t("sidebar.items.radnoPravo"), url: "/radno-pravo", icon: Scale },
+    { title: t("sidebar.items.mietrecht"), url: "/mietrecht", icon: Home },
+    { title: t("sidebar.items.biznis"), url: "/biznis", icon: Store },
+    { title: t("sidebar.items.nudimTrazim"), url: "/nudim-trazim", icon: Megaphone },
+    { title: t("sidebar.items.stellenangebote"), url: "/stellenangebote", icon: Briefcase },
+    { title: t("sidebar.items.wohnungen"), url: "/wohnungen", icon: Building },
+    { title: t("sidebar.items.kalkulatori"), url: "/kalkulatori", icon: Calculator },
+    { title: t("sidebar.items.vorlagen"), url: "/vorlagen", icon: FileCheck },
   ];
 
   const toggle = useCallback(() => {
@@ -100,7 +100,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
         className="fixed left-0 top-0 z-[999] h-screen bg-white shadow-2xl overflow-y-auto transition-transform duration-300 ease-in-out flex flex-col"
         role="dialog"
         aria-modal="true"
-        aria-label="Navigacioni meni"
+        aria-label={t("sidebar.navAriaLabel")}
         style={{
           width: "300px",
           minWidth: "280px",
@@ -108,7 +108,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
         }}
       >
         <div className="flex items-center justify-between px-5 py-4 border-b border-[#E8E0D0]">
-          <span className="text-sm font-bold text-[#2D2D2D] tracking-wide uppercase">Meni</span>
+          <span className="text-sm font-bold text-[#2D2D2D] tracking-wide uppercase">{t("sidebar.menu")}</span>
           <button onClick={close} className="h-8 w-8 rounded-lg flex items-center justify-center hover:bg-[#F0EDE6] transition-colors">
             <X className="h-4 w-4 text-[#6B6B6B]" />
           </button>
@@ -124,7 +124,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
                 </div>
                 <div className="min-w-0">
                   <p className="text-sm font-semibold text-[#2D2D2D]">
-                    Dobro došao/la, {firstName}!
+                    {t("sidebar.greeting", { name: firstName })}
                   </p>
                   <p className="mt-0.5 truncate text-sm text-muted-foreground">{user.email}</p>
                 </div>
@@ -138,7 +138,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
                 }`}
               >
                 <Receipt className={`h-[18px] w-[18px] shrink-0 ${location.pathname === "/profil/placanja" ? "text-[hsl(var(--gold))]" : ""}`} />
-                <span className="text-[14px] font-medium">Historija plaćanja</span>
+                <span className="text-[14px] font-medium">{t("sidebar.paymentHistory")}</span>
               </button>
               <div className="mt-4 h-px bg-border/80" />
             </div>
@@ -148,7 +148,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
               className="flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-left text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D] transition-all duration-200"
             >
               <LogIn className="h-[18px] w-[18px] shrink-0" />
-              <span className="text-[14px] font-medium">Prijavi se / Registruj se</span>
+              <span className="text-[14px] font-medium">{t("sidebar.loginRegister")}</span>
             </button>
           )}
         </div>
@@ -165,7 +165,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
               }`}
             >
               <CreditCard className={`h-[18px] w-[18px] shrink-0 ${location.pathname === "/paketi" ? "text-[hsl(var(--gold))]" : ""}`} />
-              <span className="text-[14px] font-medium">Paketi i cijene</span>
+              <span className="text-[14px] font-medium">{t("sidebar.packagesPricing")}</span>
             </button>
             {user && (
               <button
@@ -173,14 +173,14 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
                 className="flex items-center gap-3 w-full px-3 py-2 rounded-lg text-left text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D] transition-all duration-200"
               >
                 <LogOut className="h-[18px] w-[18px] shrink-0" />
-                <span className="text-[14px] font-medium">Odjavi se</span>
+                <span className="text-[14px] font-medium">{t("sidebar.logout")}</span>
               </button>
             )}
           </nav>
         </div>
 
         <div className="px-3 pt-4">
-          <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">Glavne funkcije</p>
+          <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">{t("sidebar.mainSectionLabel")}</p>
           <nav className="flex flex-col gap-0.5">
             {mainItems.map((item) => {
               const active = currentPath === item.url || currentPath.startsWith(item.url + "/");
@@ -200,7 +200,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
                   </span>
                   {item.premium && (
                     <span className="ml-auto shrink-0 rounded-full bg-[hsl(var(--gold))] px-1.5 py-0.5 text-[8px] font-bold leading-none text-white">
-                      PREMIUM
+                      {t("sidebar.premiumBadge")}
                     </span>
                   )}
                 </button>
@@ -210,7 +210,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
         </div>
 
         <div className="px-3 pt-5">
-          <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">Ostalo</p>
+          <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">{t("sidebar.otherSectionLabel")}</p>
           <nav className="flex flex-col gap-0.5">
             {secondaryItems.map((item) => {
               const active = currentPath === item.url || currentPath.startsWith(item.url + "/");
@@ -236,7 +236,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
 
         {/* Mobile sekcija */}
         <div className="px-3 pt-5 pb-4">
-          <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">Mobilna aplikacija</p>
+          <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">{t("sidebar.mobileSectionLabel")}</p>
           <nav className="flex flex-col gap-0.5">
             <button
               onClick={() => {
@@ -245,14 +245,14 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
                   navigator.share({ title: "BalkanLink", url }).catch(() => {});
                 } else {
                   navigator.clipboard.writeText(url);
-                  toast.success("Link kopiran!");
+                  toast.success(t("sidebar.shareSuccess"));
                 }
                 close();
               }}
               className="flex items-center gap-3 w-full px-3 py-2 rounded-lg text-left text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D] transition-all duration-200"
             >
               <Share2 className="h-[18px] w-[18px] shrink-0" />
-              <span className="text-[14px] font-medium">Podijeli BalkanLink</span>
+              <span className="text-[14px] font-medium">{t("sidebar.shareApp")}</span>
             </button>
             {onPWAInstall && (
               <button
@@ -260,7 +260,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
                 className="flex items-center gap-3 w-full px-3 py-2 rounded-lg text-left text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D] transition-all duration-200"
               >
                 <Smartphone className="h-[18px] w-[18px] shrink-0" />
-                <span className="text-[14px] font-medium">Preuzmi BalkanLink App</span>
+                <span className="text-[14px] font-medium">{t("sidebar.downloadApp")}</span>
               </button>
             )}
           </nav>
