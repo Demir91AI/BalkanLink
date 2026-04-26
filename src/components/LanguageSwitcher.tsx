@@ -7,7 +7,7 @@
  * On selection: changes i18n language, navigates to the mirrored URL (BS root ↔ /de/*),
  * and persists the choice to localStorage.
  */
-import { useState, type ComponentType } from "react";
+import { useEffect, useState, type ComponentType } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ChevronDown, Check } from "lucide-react";
