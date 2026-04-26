@@ -226,7 +226,7 @@ export default function Profil() {
               ) : isPremium ? (
                 <>
                   <div className="flex items-center justify-center gap-2 flex-wrap">
-                    <Badge className="bg-[hsl(var(--gold))] text-[#0f1f3d] hover:bg-[hsl(var(--gold))]">
+                    <Badge className="bg-gold text-gold-foreground hover:bg-gold">
                       <Crown className="h-3 w-3 mr-1" /> {planLabel}
                     </Badge>
                     {priceLabel && (
@@ -238,7 +238,7 @@ export default function Profil() {
 
                   <Button
                     onClick={handlePortal}
-                    className="w-full bg-[hsl(var(--gold))] text-[#0f1f3d] hover:opacity-90 font-bold"
+                    className="w-full bg-gold text-gold-foreground hover:opacity-90 font-bold"
                   >
                     <Settings className="h-4 w-4 mr-2" />
                     Upravljaj pretplatom
@@ -406,7 +406,7 @@ export default function Profil() {
               {!isPremium && (
                 <Button
                   onClick={() => navigate("/paketi")}
-                  className="w-full bg-[hsl(var(--gold))] text-[#0f1f3d] hover:opacity-90 font-bold"
+                  className="w-full bg-gold text-gold-foreground hover:opacity-90 font-bold"
                 >
                   <Crown className="h-4 w-4 mr-2" />
                   Nadogradi na Premium
