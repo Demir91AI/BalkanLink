@@ -1,5 +1,5 @@
 import PageNavBar from "@/components/navigation/PageNavBar";
-import { useState, useRef, useCallback, type ReactNode } from "react";
+import { useState, useRef, useCallback, useEffect, type ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 import FieldTooltip from "@/components/muster/FieldTooltip";
 import FormularLock from "@/components/paywall/FormularLock";
@@ -82,18 +82,89 @@ interface MusterFormBaseProps {
   children: ReactNode;
 }
 
+type AutosaveStatus = "idle" | "saving" | "saved";
+
 export default function MusterFormBase({ rootId, title, subtitle, pdfUrl, pdfLabel, footerNote, lsKey, formularId, data, onSave, onReset, children }: MusterFormBaseProps) {
   const navigate = useNavigate();
   const [saved, setSaved] = useState(false);
+  const [autoStatus, setAutoStatus] = useState<AutosaveStatus>("idle");
+  const [lastSavedAt, setLastSavedAt] = useState<Date | null>(null);
+  const [confirmReset, setConfirmReset] = useState(false);
+  const isFirstRun = useRef(true);
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const savedTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const onSaveRef = useRef(onSave);
   const { hasSingleAccess, isPremium } = useSubscription();
   const fId = formularId || lsKey;
   const locked = !isPremium && !hasSingleAccess(fId);
 
+  // Keep latest onSave reference without retriggering autosave
+  useEffect(() => {
+    onSaveRef.current = onSave;
+  }, [onSave]);
+
+  // Debounced autosave on every data change (skip first render)
+  useEffect(() => {
+    if (locked) return;
+    if (isFirstRun.current) {
+      isFirstRun.current = false;
+      return;
+    }
+    setAutoStatus("saving");
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+    debounceRef.current = setTimeout(() => {
+      try {
+        onSaveRef.current();
+        setLastSavedAt(new Date());
+        setAutoStatus("saved");
+      } catch {
+        setAutoStatus("idle");
+      }
+    }, 800);
+    return () => {
+      if (debounceRef.current) clearTimeout(debounceRef.current);
+    };
+  }, [data, locked]);
+
+  // Cleanup timers on unmount
+  useEffect(() => {
+    return () => {
+      if (debounceRef.current) clearTimeout(debounceRef.current);
+      if (savedTimerRef.current) clearTimeout(savedTimerRef.current);
+    };
+  }, []);
+
   const handleSave = () => {
     onSave();
     setSaved(true);
-    setTimeout(() => setSaved(false), 2000);
+    setLastSavedAt(new Date());
+    setAutoStatus("saved");
+    if (savedTimerRef.current) clearTimeout(savedTimerRef.current);
+    savedTimerRef.current = setTimeout(() => setSaved(false), 2000);
   };
+
+  const handleResetClick = () => {
+    if (!confirmReset) {
+      setConfirmReset(true);
+      setTimeout(() => setConfirmReset(false), 4000);
+      return;
+    }
+    setConfirmReset(false);
+    onReset();
+    setLastSavedAt(new Date());
+    setAutoStatus("saved");
+  };
+
+  const formatTime = (d: Date) =>
+    d.toLocaleTimeString("bs-BA", { hour: "2-digit", minute: "2-digit" });
+
+  const statusLabel =
+    autoStatus === "saving"
+      ? "💾 Spremanje…"
+      : autoStatus === "saved" && lastSavedAt
+        ? `✅ Automatski spremljeno u ${formatTime(lastSavedAt)}`
+        : "Promjene se automatski spremaju u ovaj uređaj";
+  const statusColor = autoStatus === "saving" ? "#92400e" : autoStatus === "saved" ? "#15803d" : "#6b7280";
 
   return (
     <div id={rootId} style={S.page}>
@@ -140,13 +211,47 @@ export default function MusterFormBase({ rootId, title, subtitle, pdfUrl, pdfLab
       </div>
 
       <div style={{ padding: "0 16px 40px", maxWidth: 794, margin: "0 auto", display: "flex", flexDirection: "column", gap: 10 }}>
+        <div
+          aria-live="polite"
+          style={{
+            textAlign: "center",
+            fontSize: 12,
+            fontWeight: 600,
+            color: statusColor,
+            background: "#FFFFFF",
+            border: "1px solid #E5E7EB",
+            borderRadius: 8,
+            padding: "8px 12px",
+          }}
+        >
+          {statusLabel}
+        </div>
         <button onClick={handleSave} style={{ display: "block", background: "#EAB308", color: "#111", border: "none", padding: "12px", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: "pointer", textAlign: "center", width: "100%", boxSizing: "border-box" }}>
-          💾 Sačuvaj unose
+          💾 Sačuvaj odmah
         </button>
         {saved && <div style={{ textAlign: "center", color: "#22c55e", fontWeight: 600, fontSize: 14 }}>✅ Podaci sačuvani!</div>}
-        <button onClick={onReset} style={{ display: "block", background: "transparent", color: "#9CA3AF", border: "2px solid #6b7280", padding: "12px", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: "pointer", textAlign: "center", width: "100%", boxSizing: "border-box" }}>
-          🔄 Poništi sve
+        <button
+          onClick={handleResetClick}
+          style={{
+            display: "block",
+            background: confirmReset ? "#FEE2E2" : "transparent",
+            color: confirmReset ? "#991B1B" : "#6b7280",
+            border: `2px solid ${confirmReset ? "#DC2626" : "#9CA3AF"}`,
+            padding: "12px",
+            borderRadius: 8,
+            fontWeight: 700,
+            fontSize: 14,
+            cursor: "pointer",
+            textAlign: "center",
+            width: "100%",
+            boxSizing: "border-box",
+          }}
+        >
+          {confirmReset ? "⚠️ Klikni ponovo za potvrdu — vraća primjer i briše tvoje izmjene" : "🔄 Vrati primjer (reset)"}
         </button>
+        <p style={{ fontSize: 10, color: "#9CA3AF", textAlign: "center", margin: 0 }}>
+          Tvoji unosi se čuvaju lokalno na ovom uređaju i pretraživaču. Brisanjem cookies/podataka pretraživača nestaju.
+        </p>
       </div>
     </div>
   );
