@@ -13,19 +13,19 @@ import { SEO } from "@/components/SEO";
 export default function MojiPodaci() {
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
-  const [exporting, setExporting] = useState(false);
+  const [exporting, setExporting] = useState<null | "txt" | "pdf">(null);
   const [deleting, setDeleting] = useState(false);
   const [confirmEmail, setConfirmEmail] = useState("");
   const [confirmText, setConfirmText] = useState("");
   const [showConfirm, setShowConfirm] = useState(false);
   const [deleteError, setDeleteError] = useState<string | null>(null);
 
-  const handleExport = async () => {
+  const handleExport = async (format: "txt" | "pdf") => {
     if (!user) {
       navigate("/login");
       return;
     }
-    setExporting(true);
+    setExporting(format);
     try {
       const { data: session } = await supabase.auth.getSession();
       const token = session.session?.access_token;
@@ -33,7 +33,7 @@ export default function MojiPodaci() {
 
       const projectId = import.meta.env.VITE_SUPABASE_PROJECT_ID;
       const res = await fetch(
-        `https://${projectId}.supabase.co/functions/v1/export-user-data`,
+        `https://${projectId}.supabase.co/functions/v1/export-user-data?format=${format}`,
         {
           method: "POST",
           headers: {
@@ -52,15 +52,18 @@ export default function MojiPodaci() {
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = `balkanlink-podaci-${new Date().toISOString().slice(0, 10)}.txt`;
+      a.download = `balkanlink-podaci-${new Date().toISOString().slice(0, 10)}.${format}`;
       document.body.appendChild(a);
       a.click();
       a.remove();
       URL.revokeObjectURL(url);
 
       toast({
-        title: "Izvještaj preuzet",
-        description: "Tvoj izvještaj je sačuvan i možeš ga otvoriti u bilo kojem programu.",
+        title: format === "pdf" ? "PDF preuzet" : "Izvještaj preuzet",
+        description:
+          format === "pdf"
+            ? "PDF izvještaj je sačuvan na tvoj uređaj."
+            : "Tvoj izvještaj je sačuvan i možeš ga otvoriti u bilo kojem programu.",
       });
     } catch (e) {
       const msg = e instanceof Error ? e.message : String(e);
@@ -70,7 +73,7 @@ export default function MojiPodaci() {
         description: msg,
       });
     } finally {
-      setExporting(false);
+      setExporting(null);
     }
   };
 
@@ -188,27 +191,43 @@ export default function MojiPodaci() {
 
         {/* Export — diskretna sekcija */}
         <section className="space-y-2 pb-5 border-b border-border/40">
-          <div className="flex items-center justify-between gap-3">
-            <div className="space-y-0.5 min-w-0">
-              <p className="text-sm font-medium">Preuzmi svoje podatke</p>
-              <p className="text-[11px] text-muted-foreground">
-                Čitljiv izvještaj svih tvojih podataka (GDPR čl. 15).
-              </p>
-            </div>
+          <div className="space-y-0.5">
+            <p className="text-sm font-medium">Preuzmi svoje podatke</p>
+            <p className="text-[11px] text-muted-foreground">
+              Uredan izvještaj svih tvojih podataka (GDPR čl. 15). Otvara se u svakom programu.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-2 pt-1">
             <Button
-              onClick={handleExport}
-              disabled={exporting}
+              onClick={() => handleExport("pdf")}
+              disabled={exporting !== null}
               variant="outline"
               size="sm"
-              className="shrink-0 text-xs h-8"
+              className="text-xs h-8"
             >
-              {exporting ? (
+              {exporting === "pdf" ? (
                 <>
                   <Loader2 className="h-3 w-3 mr-1.5 animate-spin" />
                   Pripremam…
                 </>
               ) : (
-                "Preuzmi izvještaj"
+                "Preuzmi PDF izvještaj"
+              )}
+            </Button>
+            <Button
+              onClick={() => handleExport("txt")}
+              disabled={exporting !== null}
+              variant="ghost"
+              size="sm"
+              className="text-xs h-8 text-muted-foreground hover:text-foreground"
+            >
+              {exporting === "txt" ? (
+                <>
+                  <Loader2 className="h-3 w-3 mr-1.5 animate-spin" />
+                  Pripremam…
+                </>
+              ) : (
+                "Preuzmi tekstualnu verziju"
               )}
             </Button>
           </div>
