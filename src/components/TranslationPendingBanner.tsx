@@ -18,8 +18,8 @@ import { X, Info } from "lucide-react";
  * MUST NOT appear on these. Everything else under /de/* shows the banner.
  */
 // Routes whose German chrome is fully translated. Pages with deep nested
-// children still pending translation (DokumentenCheck, Viza, DeutschTrainer,
-// NudimTrazim) are intentionally NOT listed here so the banner appears.
+// children still pending translation (Viza, DeutschTrainer, NudimTrazim)
+// are intentionally NOT listed here so the banner appears.
 const TRANSLATED_DE_PATHS = new Set<string>([
   "/de",
   // Auth flows — chrome translated
@@ -27,6 +27,8 @@ const TRANSLATED_DE_PATHS = new Set<string>([
   "/de/register",
   "/de/forgot-password",
   "/de/reset-password",
+  // Dokumentenprüfung — full page chrome translated
+  "/de/dokumentencheck",
 ]);
 
 export default function TranslationPendingBanner() {
