@@ -142,9 +142,9 @@ export default function Index() {
       <section className="py-16" style={{ background: "hsl(215 55% 4%)", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
         <div className="container max-w-[1200px] mx-auto mb-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-            <p className="text-xs font-bold uppercase tracking-[0.26em] text-[hsl(var(--gold))]">NAŠI PARTNERI</p>
+            <p className="text-xs font-bold uppercase tracking-[0.26em] text-[hsl(var(--gold))]">{t("home.pricing.partnersLabel")}</p>
             <h2 className="mt-2 font-heading text-2xl font-extrabold text-white">
-              Preporučene usluge
+              {t("home.pricing.partnersHeading")}
             </h2>
           </motion.div>
         </div>
