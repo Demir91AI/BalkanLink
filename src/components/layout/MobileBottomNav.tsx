@@ -10,8 +10,17 @@ export default function MobileBottomNav() {
   const navigate = useLocalizedNavigate();
   const location = useLocation();
   const { user } = useAuth();
+  const { t } = useTranslation("common");
   const [authOpen, setAuthOpen] = useState(false);
   const [pressing, setPressing] = useState(false);
+
+  const sideItems = [
+    { icon: FileText, label: t("mobileNav.documents"), path: "/formulari" },
+    { icon: Globe, label: t("mobileNav.visa"), path: "/viza" },
+    // center gap
+    { icon: Tag, label: t("mobileNav.pricing"), path: "/paketi" },
+    { icon: User, label: t("mobileNav.profile"), path: "__auth__" },
+  ] as const;
 
   const isActive = (path: string) => {
     const stripped = location.pathname.replace(/^\/de(?=\/|$)/, "") || "/";
