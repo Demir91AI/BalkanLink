@@ -4,15 +4,37 @@ import { navigateBackOrHome } from "@/lib/navigation";
 import { motion } from "framer-motion";
 import { useAuth } from "@/contexts/AuthContext";
 import { initiateCheckout, STRIPE_PRICE_IDS } from "@/lib/stripe";
+import { toast } from "@/hooks/use-toast";
 
 export default function Paketi() {
   const navigate = useNavigate();
   const { user } = useAuth();
 
-  const handleSubscribe = (plan: "monthly" | "yearly") => {
-    if (!user) { navigate("/login"); return; }
+  const handleSubscribe = async (plan: "monthly" | "yearly") => {
+    if (!user) {
+      navigate("/login");
+      return;
+    }
     const priceId = plan === "yearly" ? STRIPE_PRICE_IDS.PREMIUM_YEARLY : STRIPE_PRICE_IDS.PREMIUM_MONTHLY;
-    initiateCheckout(priceId, user.id, "subscription");
+    if (!priceId || typeof priceId !== "string" || !priceId.startsWith("price_")) {
+      toast({
+        title: "Greška",
+        description: "Cijena nije pronađena. Pokušajte kasnije ili nas kontaktirajte.",
+        variant: "destructive",
+      });
+      console.error("[Paketi] Missing or invalid Stripe Price ID for plan:", plan);
+      return;
+    }
+    try {
+      await initiateCheckout(priceId, user.id, "subscription");
+    } catch (err) {
+      console.error("[Paketi] Checkout init failed:", err);
+      toast({
+        title: "Plaćanje nije pokrenuto",
+        description: "Nije moguće pokrenuti Stripe checkout. Pokušajte ponovo.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
