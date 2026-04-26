@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import {
   FileText, Shield, BookOpen, Camera, Megaphone, Plane,
   Briefcase, Building, Calculator, FileCheck, X, LogIn, LogOut, User,
-  CreditCard, Scale, Store, Home, Smartphone, Share2, Receipt, HeartPulse, Percent,
+  CreditCard, Scale, Store, Home, Smartphone, Share2, Receipt,
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
@@ -46,8 +46,6 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
     { title: t("sidebar.items.wohnungen"), url: "/wohnungen", icon: Building },
     { title: t("sidebar.items.kalkulatori"), url: "/kalkulatori", icon: Calculator },
     { title: t("sidebar.items.vorlagen"), url: "/vorlagen", icon: FileCheck },
-    { title: t("sidebar.items.krankenkasse"), url: "/formulari/krankenkasse", icon: HeartPulse },
-    { title: t("sidebar.items.steuerklassenwechsel"), url: "/formulari/steuerklassenwechsel", icon: Percent },
   ];
 
   const toggle = useCallback(() => {
