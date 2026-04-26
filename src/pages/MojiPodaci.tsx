@@ -258,9 +258,13 @@ export default function MojiPodaci() {
                     id="confirm-email"
                     type="email"
                     value={confirmEmail}
-                    onChange={(e) => setConfirmEmail(e.target.value)}
+                    onChange={(e) => {
+                      setConfirmEmail(e.target.value);
+                      if (deleteError) setDeleteError(null);
+                    }}
                     placeholder={user.email ?? ""}
                     autoComplete="off"
+                    aria-invalid={deleteError ? true : undefined}
                   />
                 </div>
                 <div className="space-y-2">
@@ -270,11 +274,25 @@ export default function MojiPodaci() {
                   <Input
                     id="confirm-text"
                     value={confirmText}
-                    onChange={(e) => setConfirmText(e.target.value)}
+                    onChange={(e) => {
+                      setConfirmText(e.target.value);
+                      if (deleteError) setDeleteError(null);
+                    }}
                     placeholder="OBRIŠI"
                     autoComplete="off"
+                    aria-invalid={deleteError ? true : undefined}
                   />
                 </div>
+
+                {deleteError && (
+                  <div
+                    role="alert"
+                    className="flex items-start gap-2 rounded-md border border-destructive/50 bg-destructive/10 p-3 text-sm text-destructive"
+                  >
+                    <AlertTriangle className="h-4 w-4 mt-0.5 shrink-0" />
+                    <span>{deleteError}</span>
+                  </div>
+                )}
                 <div className="flex flex-col sm:flex-row gap-2 pt-2">
                   <Button
                     variant="destructive"
