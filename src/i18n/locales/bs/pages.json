@@ -17,12 +17,30 @@
     "featureCards": {
       "heading": "Šta ti danas treba?",
       "items": {
-        "form": { "label": "Popuni formular", "desc": "Korak po korak — bez grešaka" },
-        "doc": { "label": "Provjeri dokument", "desc": "Razumij pismo iz Njemačke" },
-        "visa": { "label": "Istraži vizu", "desc": "Pronađi pravi put do dozvole" },
-        "german": { "label": "Nauči njemački", "desc": "A1–C2 uz praktične vježbe" },
-        "templates": { "label": "Šabloni", "desc": "Gotova pisma i dokumenti" },
-        "ads": { "label": "Oglasi", "desc": "Nađi posao ili ponudi uslugu" }
+        "form": {
+          "label": "Popuni formular",
+          "desc": "Korak po korak — bez grešaka"
+        },
+        "doc": {
+          "label": "Provjeri dokument",
+          "desc": "Razumij pismo iz Njemačke"
+        },
+        "visa": {
+          "label": "Istraži vizu",
+          "desc": "Pronađi pravi put do dozvole"
+        },
+        "german": {
+          "label": "Nauči njemački",
+          "desc": "A1–C2 uz praktične vježbe"
+        },
+        "templates": {
+          "label": "Šabloni",
+          "desc": "Gotova pisma i dokumenti"
+        },
+        "ads": {
+          "label": "Oglasi",
+          "desc": "Nađi posao ili ponudi uslugu"
+        }
       }
     },
     "whatIsWhat": {
@@ -74,19 +92,43 @@
     "process": {
       "heading": "Kako funkcioniše?",
       "steps": {
-        "s1": { "title": "Odaberi uslugu", "desc": "Izaberi šta ti treba — formular, dokument, viza ili jezik" },
-        "s2": { "title": "Prati vodič", "desc": "Korak po korak vodič na bosanskom jeziku" },
-        "s3": { "title": "Popuni / Riješi", "desc": "Precizno i tačno, bez nagađanja" },
-        "s4": { "title": "Završeno bez stresa", "desc": "Budi siguran da si uradio sve ispravno" }
+        "s1": {
+          "title": "Odaberi uslugu",
+          "desc": "Izaberi šta ti treba — formular, dokument, viza ili jezik"
+        },
+        "s2": {
+          "title": "Prati vodič",
+          "desc": "Korak po korak vodič na bosanskom jeziku"
+        },
+        "s3": {
+          "title": "Popuni / Riješi",
+          "desc": "Precizno i tačno, bez nagađanja"
+        },
+        "s4": {
+          "title": "Završeno bez stresa",
+          "desc": "Budi siguran da si uradio sve ispravno"
+        }
       }
     },
     "trust": {
       "heading": "Zašto korisnici vjeruju BalkanLink-u",
       "points": {
-        "p1": { "title": "Službeni izvori", "desc": "Sadržaj baziran isključivo na zvaničnim njemačkim izvorima" },
-        "p2": { "title": "Ažurirano za 2026", "desc": "Svi vodiči i formulari reflektuju trenutne propise" },
-        "p3": { "title": "Sve na jednom mjestu", "desc": "Formulari, vodiči, kalkulatori i provjere — bez traženja po stranim sajtovima" },
-        "p4": { "title": "Jasnoća prije svega", "desc": "Fokus na razumijevanju, ne komplikaciji" }
+        "p1": {
+          "title": "Službeni izvori",
+          "desc": "Sadržaj baziran isključivo na zvaničnim njemačkim izvorima"
+        },
+        "p2": {
+          "title": "Ažurirano za 2026",
+          "desc": "Svi vodiči i formulari reflektuju trenutne propise"
+        },
+        "p3": {
+          "title": "Sve na jednom mjestu",
+          "desc": "Formulari, vodiči, kalkulatori i provjere — bez traženja po stranim sajtovima"
+        },
+        "p4": {
+          "title": "Jasnoća prije svega",
+          "desc": "Fokus na razumijevanju, ne komplikaciji"
+        }
       }
     },
     "beforeAfter": {
@@ -110,13 +152,34 @@
       "heading": "Popuni formulare bez grešaka",
       "subline": "Korak po korak na tvom jeziku",
       "items": {
-        "forms": { "title": "Formulari", "text": "Popuni bez greške — korak po korak" },
-        "visa": { "title": "Viza", "text": "Pronađi pravi put za dolazak u Njemačku" },
-        "german": { "title": "Njemački", "text": "Uči kroz stvarne situacije (A1–C2)" },
-        "docs": { "title": "Dokumenti", "text": "Provjeri pisma i dokumente iz Njemačke" },
-        "money": { "title": "Novčana pomoć", "text": "Bürgergeld, Wohngeld i dodaci" },
-        "calc": { "title": "Kalkulatori", "text": "Izračunaj platu, poreze i više" },
-        "ads": { "title": "Oglasi", "text": "Nađi posao ili objavi oglas" }
+        "forms": {
+          "title": "Formulari",
+          "text": "Popuni bez greške — korak po korak"
+        },
+        "visa": {
+          "title": "Viza",
+          "text": "Pronađi pravi put za dolazak u Njemačku"
+        },
+        "german": {
+          "title": "Njemački",
+          "text": "Uči kroz stvarne situacije (A1–C2)"
+        },
+        "docs": {
+          "title": "Dokumenti",
+          "text": "Provjeri pisma i dokumente iz Njemačke"
+        },
+        "money": {
+          "title": "Novčana pomoć",
+          "text": "Bürgergeld, Wohngeld i dodaci"
+        },
+        "calc": {
+          "title": "Kalkulatori",
+          "text": "Izračunaj platu, poreze i više"
+        },
+        "ads": {
+          "title": "Oglasi",
+          "text": "Nađi posao ili objavi oglas"
+        }
       },
       "free": "Besplatno",
       "premium": "⭐ PREMIUM",
@@ -182,17 +245,83 @@
         "free": "Besplatno",
         "premium": "Premium",
         "rows": {
-          "muster": { "feature": "Musterformulari", "free": "❌ Nije dostupno", "premium": "✅ Svi formulari + primjeri", "freeShort": "❌", "premiumShort": "✅ Svi formulari" },
-          "guides": { "feature": "Smart Guides", "free": "❌ Nije dostupno", "premium": "✅ Korak-po-korak vodič", "freeShort": "❌", "premiumShort": "✅ Korak-po-korak" },
-          "visa": { "feature": "Viza Navigator", "free": "Osnovna info", "premium": "✅ Kompletni vodič + dokumenti", "freeShort": "Osnovna info", "premiumShort": "✅ Kompletni vodič" },
-          "doc": { "feature": "Dokumenten-Check", "free": "2,99€ po provjeri", "premium": "✅ 1x dnevno gratis", "freeShort": "2,99€", "premiumShort": "✅ 1x dnevno" },
-          "templates": { "feature": "Šabloni / Vorlagen", "free": "✅ Kündigung gratis", "premium": "✅ Svi šabloni + PDF download", "freeShort": "✅ Kündigung", "premiumShort": "✅ Svi + PDF" },
-          "assistant": { "feature": "BalkanLink Asistent", "free": "⚠️ 5 pitanja/dan", "premium": "✅ Neograničeno", "freeShort": "5/dan", "premiumShort": "✅ Neograničeno" },
-          "trainer": { "feature": "DeutschTrainer", "free": "❌ Nije dostupno", "premium": "✅ A1–C2 kompletni kurs", "freeShort": "❌", "premiumShort": "✅ A1–C2" },
-          "calc": { "feature": "Brutto-Netto kalkulator", "free": "✅ Dostupno", "premium": "✅ Dostupno", "freeShort": "✅", "premiumShort": "✅" },
-          "proAds": { "feature": "Pro oglasi", "free": "2,99€/oglas", "premium": "✅ 2 uključena/mj.", "freeShort": "2,99€", "premiumShort": "✅ 2/mj." },
-          "arrival": { "feature": "Dolazak u Njemačku vodiči", "free": "✅ Potpun pristup", "premium": "✅ Potpun pristup", "freeShort": "✅", "premiumShort": "✅" },
-          "voucher": { "feature": "Wertgutschein program", "free": "❌ Nije dostupno", "premium": "✅ Amazon vaučer do 30€", "freeShort": "❌", "premiumShort": "✅ do 30€" }
+          "muster": {
+            "feature": "Musterformulari",
+            "free": "❌ Nije dostupno",
+            "premium": "✅ Svi formulari + primjeri",
+            "freeShort": "❌",
+            "premiumShort": "✅ Svi formulari"
+          },
+          "guides": {
+            "feature": "Smart Guides",
+            "free": "❌ Nije dostupno",
+            "premium": "✅ Korak-po-korak vodič",
+            "freeShort": "❌",
+            "premiumShort": "✅ Korak-po-korak"
+          },
+          "visa": {
+            "feature": "Viza Navigator",
+            "free": "Osnovna info",
+            "premium": "✅ Kompletni vodič + dokumenti",
+            "freeShort": "Osnovna info",
+            "premiumShort": "✅ Kompletni vodič"
+          },
+          "doc": {
+            "feature": "Dokumenten-Check",
+            "free": "2,99€ po provjeri",
+            "premium": "✅ 1x dnevno gratis",
+            "freeShort": "2,99€",
+            "premiumShort": "✅ 1x dnevno"
+          },
+          "templates": {
+            "feature": "Šabloni / Vorlagen",
+            "free": "✅ Kündigung gratis",
+            "premium": "✅ Svi šabloni + PDF download",
+            "freeShort": "✅ Kündigung",
+            "premiumShort": "✅ Svi + PDF"
+          },
+          "assistant": {
+            "feature": "BalkanLink Asistent",
+            "free": "⚠️ 5 pitanja/dan",
+            "premium": "✅ Neograničeno",
+            "freeShort": "5/dan",
+            "premiumShort": "✅ Neograničeno"
+          },
+          "trainer": {
+            "feature": "DeutschTrainer",
+            "free": "❌ Nije dostupno",
+            "premium": "✅ A1–C2 kompletni kurs",
+            "freeShort": "❌",
+            "premiumShort": "✅ A1–C2"
+          },
+          "calc": {
+            "feature": "Brutto-Netto kalkulator",
+            "free": "✅ Dostupno",
+            "premium": "✅ Dostupno",
+            "freeShort": "✅",
+            "premiumShort": "✅"
+          },
+          "proAds": {
+            "feature": "Pro oglasi",
+            "free": "2,99€/oglas",
+            "premium": "✅ 2 uključena/mj.",
+            "freeShort": "2,99€",
+            "premiumShort": "✅ 2/mj."
+          },
+          "arrival": {
+            "feature": "Dolazak u Njemačku vodiči",
+            "free": "✅ Potpun pristup",
+            "premium": "✅ Potpun pristup",
+            "freeShort": "✅",
+            "premiumShort": "✅"
+          },
+          "voucher": {
+            "feature": "Wertgutschein program",
+            "free": "❌ Nije dostupno",
+            "premium": "✅ Amazon vaučer do 30€",
+            "freeShort": "❌",
+            "premiumShort": "✅ do 30€"
+          }
         }
       },
       "footer": "Prema § 19 UStG ne obračunava se PDV · Otkaži kad hoćeš · Bez ugovora",
@@ -638,10 +767,6 @@
     "title": "Ups, nešto je pošlo po krivu",
     "body": "Pokušaj osvježiti stranicu.",
     "refresh": "Osvježi stranicu"
-  },
-  "translationBanner": {
-    "title": "Prevod u toku",
-    "message": "Ovaj sadržaj se trenutno prevodi. Za sada dostupan samo na bosanskom."
   },
   "notFound": {
     "title": "Stranica nije pronađena",

@@ -17,12 +17,30 @@
     "featureCards": {
       "heading": "Was brauchen Sie heute?",
       "items": {
-        "form": { "label": "Formular ausfüllen", "desc": "Schritt für Schritt — ohne Fehler" },
-        "doc": { "label": "Dokument prüfen", "desc": "Verstehen Sie Schreiben aus Deutschland" },
-        "visa": { "label": "Visum erkunden", "desc": "Finden Sie den richtigen Weg zur Genehmigung" },
-        "german": { "label": "Deutsch lernen", "desc": "A1–C2 mit praxisnahen Übungen" },
-        "templates": { "label": "Vorlagen", "desc": "Fertige Briefe und Dokumente" },
-        "ads": { "label": "Kleinanzeigen", "desc": "Job finden oder Dienstleistung anbieten" }
+        "form": {
+          "label": "Formular ausfüllen",
+          "desc": "Schritt für Schritt — ohne Fehler"
+        },
+        "doc": {
+          "label": "Dokument prüfen",
+          "desc": "Verstehen Sie Schreiben aus Deutschland"
+        },
+        "visa": {
+          "label": "Visum erkunden",
+          "desc": "Finden Sie den richtigen Weg zur Genehmigung"
+        },
+        "german": {
+          "label": "Deutsch lernen",
+          "desc": "A1–C2 mit praxisnahen Übungen"
+        },
+        "templates": {
+          "label": "Vorlagen",
+          "desc": "Fertige Briefe und Dokumente"
+        },
+        "ads": {
+          "label": "Kleinanzeigen",
+          "desc": "Job finden oder Dienstleistung anbieten"
+        }
       }
     },
     "whatIsWhat": {
@@ -74,19 +92,43 @@
     "process": {
       "heading": "Wie funktioniert es?",
       "steps": {
-        "s1": { "title": "Leistung wählen", "desc": "Wählen Sie, was Sie benötigen — Formular, Dokument, Visum oder Sprache" },
-        "s2": { "title": "Leitfaden folgen", "desc": "Schritt-für-Schritt-Anleitung in Ihrer Sprache" },
-        "s3": { "title": "Ausfüllen / Lösen", "desc": "Präzise und korrekt, ohne Rätselraten" },
-        "s4": { "title": "Stressfrei erledigt", "desc": "Seien Sie sicher, dass alles richtig gemacht wurde" }
+        "s1": {
+          "title": "Leistung wählen",
+          "desc": "Wählen Sie, was Sie benötigen — Formular, Dokument, Visum oder Sprache"
+        },
+        "s2": {
+          "title": "Leitfaden folgen",
+          "desc": "Schritt-für-Schritt-Anleitung in Ihrer Sprache"
+        },
+        "s3": {
+          "title": "Ausfüllen / Lösen",
+          "desc": "Präzise und korrekt, ohne Rätselraten"
+        },
+        "s4": {
+          "title": "Stressfrei erledigt",
+          "desc": "Seien Sie sicher, dass alles richtig gemacht wurde"
+        }
       }
     },
     "trust": {
       "heading": "Warum die Nutzer BalkanLink vertrauen",
       "points": {
-        "p1": { "title": "Offizielle Quellen", "desc": "Inhalte basieren ausschließlich auf offiziellen deutschen Quellen" },
-        "p2": { "title": "Aktualisiert für 2026", "desc": "Alle Leitfäden und Formulare spiegeln die aktuellen Vorschriften wider" },
-        "p3": { "title": "Alles an einem Ort", "desc": "Formulare, Leitfäden, Rechner und Prüfungen — ohne Suche auf fremden Websites" },
-        "p4": { "title": "Klarheit zuerst", "desc": "Fokus auf Verständnis statt Komplikation" }
+        "p1": {
+          "title": "Offizielle Quellen",
+          "desc": "Inhalte basieren ausschließlich auf offiziellen deutschen Quellen"
+        },
+        "p2": {
+          "title": "Aktualisiert für 2026",
+          "desc": "Alle Leitfäden und Formulare spiegeln die aktuellen Vorschriften wider"
+        },
+        "p3": {
+          "title": "Alles an einem Ort",
+          "desc": "Formulare, Leitfäden, Rechner und Prüfungen — ohne Suche auf fremden Websites"
+        },
+        "p4": {
+          "title": "Klarheit zuerst",
+          "desc": "Fokus auf Verständnis statt Komplikation"
+        }
       }
     },
     "beforeAfter": {
@@ -110,13 +152,34 @@
       "heading": "Formulare ohne Fehler ausfüllen",
       "subline": "Schritt für Schritt in Ihrer Sprache",
       "items": {
-        "forms": { "title": "Formulare", "text": "Fehlerfrei ausfüllen — Schritt für Schritt" },
-        "visa": { "title": "Visum", "text": "Den richtigen Weg nach Deutschland finden" },
-        "german": { "title": "Deutsch", "text": "Lernen Sie anhand realer Situationen (A1–C2)" },
-        "docs": { "title": "Dokumente", "text": "Briefe und Dokumente aus Deutschland prüfen" },
-        "money": { "title": "Finanzhilfen", "text": "Bürgergeld, Wohngeld und Zuschüsse" },
-        "calc": { "title": "Rechner", "text": "Berechnen Sie Gehalt, Steuern und mehr" },
-        "ads": { "title": "Kleinanzeigen", "text": "Job finden oder eine Anzeige aufgeben" }
+        "forms": {
+          "title": "Formulare",
+          "text": "Fehlerfrei ausfüllen — Schritt für Schritt"
+        },
+        "visa": {
+          "title": "Visum",
+          "text": "Den richtigen Weg nach Deutschland finden"
+        },
+        "german": {
+          "title": "Deutsch",
+          "text": "Lernen Sie anhand realer Situationen (A1–C2)"
+        },
+        "docs": {
+          "title": "Dokumente",
+          "text": "Briefe und Dokumente aus Deutschland prüfen"
+        },
+        "money": {
+          "title": "Finanzhilfen",
+          "text": "Bürgergeld, Wohngeld und Zuschüsse"
+        },
+        "calc": {
+          "title": "Rechner",
+          "text": "Berechnen Sie Gehalt, Steuern und mehr"
+        },
+        "ads": {
+          "title": "Kleinanzeigen",
+          "text": "Job finden oder eine Anzeige aufgeben"
+        }
       },
       "free": "Kostenlos",
       "premium": "⭐ PREMIUM",
@@ -182,17 +245,83 @@
         "free": "Kostenlos",
         "premium": "Premium",
         "rows": {
-          "muster": { "feature": "Musterformulare", "free": "❌ Nicht verfügbar", "premium": "✅ Alle Formulare + Beispiele", "freeShort": "❌", "premiumShort": "✅ Alle Formulare" },
-          "guides": { "feature": "Smart Guides", "free": "❌ Nicht verfügbar", "premium": "✅ Schritt-für-Schritt-Leitfaden", "freeShort": "❌", "premiumShort": "✅ Schritt für Schritt" },
-          "visa": { "feature": "Visa Navigator", "free": "Basisinformation", "premium": "✅ Vollständiger Leitfaden + Unterlagen", "freeShort": "Basisinfo", "premiumShort": "✅ Vollständiger Leitfaden" },
-          "doc": { "feature": "Dokumentenprüfung", "free": "2,99 € pro Prüfung", "premium": "✅ 1× täglich gratis", "freeShort": "2,99 €", "premiumShort": "✅ 1×/Tag" },
-          "templates": { "feature": "Vorlagen", "free": "✅ Kündigung gratis", "premium": "✅ Alle Vorlagen + PDF-Download", "freeShort": "✅ Kündigung", "premiumShort": "✅ Alle + PDF" },
-          "assistant": { "feature": "BalkanLink Assistent", "free": "⚠️ 5 Fragen/Tag", "premium": "✅ Unbegrenzt", "freeShort": "5/Tag", "premiumShort": "✅ Unbegrenzt" },
-          "trainer": { "feature": "DeutschTrainer", "free": "❌ Nicht verfügbar", "premium": "✅ A1–C2 vollständiger Kurs", "freeShort": "❌", "premiumShort": "✅ A1–C2" },
-          "calc": { "feature": "Brutto-Netto-Rechner", "free": "✅ Verfügbar", "premium": "✅ Verfügbar", "freeShort": "✅", "premiumShort": "✅" },
-          "proAds": { "feature": "Pro-Anzeigen", "free": "2,99 €/Anzeige", "premium": "✅ 2 enthalten/Monat", "freeShort": "2,99 €", "premiumShort": "✅ 2/Monat" },
-          "arrival": { "feature": "Ankunft-in-Deutschland-Leitfäden", "free": "✅ Voller Zugang", "premium": "✅ Voller Zugang", "freeShort": "✅", "premiumShort": "✅" },
-          "voucher": { "feature": "Wertgutschein-Programm", "free": "❌ Nicht verfügbar", "premium": "✅ Amazon-Gutschein bis 30 €", "freeShort": "❌", "premiumShort": "✅ bis 30 €" }
+          "muster": {
+            "feature": "Musterformulare",
+            "free": "❌ Nicht verfügbar",
+            "premium": "✅ Alle Formulare + Beispiele",
+            "freeShort": "❌",
+            "premiumShort": "✅ Alle Formulare"
+          },
+          "guides": {
+            "feature": "Smart Guides",
+            "free": "❌ Nicht verfügbar",
+            "premium": "✅ Schritt-für-Schritt-Leitfaden",
+            "freeShort": "❌",
+            "premiumShort": "✅ Schritt für Schritt"
+          },
+          "visa": {
+            "feature": "Visa Navigator",
+            "free": "Basisinformation",
+            "premium": "✅ Vollständiger Leitfaden + Unterlagen",
+            "freeShort": "Basisinfo",
+            "premiumShort": "✅ Vollständiger Leitfaden"
+          },
+          "doc": {
+            "feature": "Dokumentenprüfung",
+            "free": "2,99 € pro Prüfung",
+            "premium": "✅ 1× täglich gratis",
+            "freeShort": "2,99 €",
+            "premiumShort": "✅ 1×/Tag"
+          },
+          "templates": {
+            "feature": "Vorlagen",
+            "free": "✅ Kündigung gratis",
+            "premium": "✅ Alle Vorlagen + PDF-Download",
+            "freeShort": "✅ Kündigung",
+            "premiumShort": "✅ Alle + PDF"
+          },
+          "assistant": {
+            "feature": "BalkanLink Assistent",
+            "free": "⚠️ 5 Fragen/Tag",
+            "premium": "✅ Unbegrenzt",
+            "freeShort": "5/Tag",
+            "premiumShort": "✅ Unbegrenzt"
+          },
+          "trainer": {
+            "feature": "DeutschTrainer",
+            "free": "❌ Nicht verfügbar",
+            "premium": "✅ A1–C2 vollständiger Kurs",
+            "freeShort": "❌",
+            "premiumShort": "✅ A1–C2"
+          },
+          "calc": {
+            "feature": "Brutto-Netto-Rechner",
+            "free": "✅ Verfügbar",
+            "premium": "✅ Verfügbar",
+            "freeShort": "✅",
+            "premiumShort": "✅"
+          },
+          "proAds": {
+            "feature": "Pro-Anzeigen",
+            "free": "2,99 €/Anzeige",
+            "premium": "✅ 2 enthalten/Monat",
+            "freeShort": "2,99 €",
+            "premiumShort": "✅ 2/Monat"
+          },
+          "arrival": {
+            "feature": "Ankunft-in-Deutschland-Leitfäden",
+            "free": "✅ Voller Zugang",
+            "premium": "✅ Voller Zugang",
+            "freeShort": "✅",
+            "premiumShort": "✅"
+          },
+          "voucher": {
+            "feature": "Wertgutschein-Programm",
+            "free": "❌ Nicht verfügbar",
+            "premium": "✅ Amazon-Gutschein bis 30 €",
+            "freeShort": "❌",
+            "premiumShort": "✅ bis 30 €"
+          }
         }
       },
       "footer": "Gemäß § 19 UStG wird keine MwSt. ausgewiesen · Jederzeit kündbar · Ohne Vertrag",
@@ -638,10 +767,6 @@
     "title": "Ups, da ist etwas schiefgelaufen",
     "body": "Bitte aktualisieren Sie die Seite.",
     "refresh": "Seite aktualisieren"
-  },
-  "translationBanner": {
-    "title": "Übersetzung in Arbeit",
-    "message": "Dieser Inhalt wird derzeit übersetzt. Vorerst nur auf Bosnisch verfügbar."
   },
   "notFound": {
     "title": "Seite nicht gefunden",

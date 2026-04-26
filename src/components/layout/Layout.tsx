@@ -12,7 +12,8 @@ import CookiePreferencesModal from "@/components/CookiePreferencesModal";
 import { usePWAInstall } from "@/hooks/usePWAInstall";
 import PWAInstallBanner from "@/components/PWAInstallBanner";
 import PWAiOSGuide from "@/components/PWAiOSGuide";
-import TranslationPendingBanner from "@/components/TranslationPendingBanner";
+// TranslationPendingBanner removed (apr 2026): all UI strings ship fully
+// translated; the platform must never advertise "translation pending".
 
 class ErrorBoundary extends Component<
   { children: ReactNode },
@@ -63,7 +64,6 @@ export default function Layout() {
         <Header />
         <main className="flex-1 pb-16 md:pb-0">
           <ErrorBoundary>
-            <TranslationPendingBanner />
             <Outlet />
           </ErrorBoundary>
         </main>
