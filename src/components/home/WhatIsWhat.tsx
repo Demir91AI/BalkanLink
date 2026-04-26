@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import {
   Accordion,
   AccordionContent,
@@ -7,81 +8,17 @@ import {
 } from "@/components/ui/accordion";
 
 const cards = [
-  {
-    id: "smart-guide",
-    emoji: "🗺️",
-    name: "Smart Guide",
-    tagline: "Tvoj lični vodič kroz svaki formular",
-    explanation:
-      "Zamisli da imaš prijatelja koji je već prošao kroz cijeli proces i tačno zna šta se radi. Smart Guide te vodi korak po korak — šta popuniti, šta priložiti, na šta paziti.",
-    example:
-      "Npr: Apliciraš za Kindergeld — Smart Guide ti kaže tačno koje polje kako ispuniti, koje dokumente priložiti i najčešće greške koje ljudi prave.",
-    badge: "Dostupno uz Premium 🔒",
-    badgeStyle: "gold" as const,
-  },
-  {
-    id: "musterformular",
-    emoji: "📋",
-    name: "Musterformular",
-    tagline: "Primjer pravilno popunjenog formulara",
-    explanation:
-      "Muster na njemačkom znači 'primjer'. Musterformular je formular koji je već pravilno popunjen — ti ga koristiš kao šablon. Vidiš tačno kako treba izgledati svako polje.",
-    example:
-      "Npr: Imaš pred sobom KG1 formular za Kindergeld i ne znaš šta upisati u polje 'Bankverbindung'. Musterformular ti pokazuje popunjen primjer.",
-    badge: "Dostupno uz Premium 🔒",
-    badgeStyle: "gold" as const,
-  },
-  {
-    id: "viza-navigator",
-    emoji: "✈️",
-    name: "Viza Navigator",
-    tagline: "Pronađi pravi put do radne dozvole",
-    explanation:
-      "Svako ima drugačiju situaciju — drugi pasoš, drugi zanimanje, drugi grad. Viza Navigator analizira tvoju situaciju i pokazuje tačno koji tip dozvole trebaš i gdje ih predati.",
-    example:
-      "Npr: Državljanin si BiH, imaš ponudu za posao u Münchenu — Navigator ti kaže da ti treba §18 AufenthG + Westbalkan Regelung.",
-    badge: "Dostupno uz Premium 🔒",
-    badgeStyle: "gold" as const,
-  },
-  {
-    id: "dokumenten-check",
-    emoji: "🔍",
-    name: "Provjera dokumenata",
-    tagline: "Učitaj pismo — razumij šta piše",
-    explanation:
-      "Stiglo ti pismo od Finanzamta i ne razumiješ ni riječ? Fotografiraj ga ili učitaj PDF — dobiješ objašnjenje na svom jeziku: šta traže, do kada, šta se dešava ako ne reaguješ.",
-    example:
-      "Npr: Stigla ti Mahnung (opomena) — Provjera dokumenata ti kaže da imaš 15 dana da platiš i šta se dešava ako ignorišeš.",
-    badge: "2.99€ po provjeri ili uz Premium",
-    badgeStyle: "gold" as const,
-  },
-  {
-    id: "vorlagen",
-    emoji: "✉️",
-    name: "Šabloni (Vorlagen)",
-    tagline: "Profesionalna pisma na njemačkom — bez muke",
-    explanation:
-      "Trebaš napisati otkaz ili otkazati ugovor? Šabloni su gotovi tekstovi na pravnom njemačkom — samo uneseš svoje podatke i preuzimaš kao PDF spreman za slanje.",
-    example:
-      "Npr: Hoćeš otkazati Telekom ugovor — šablon 'Vertragskündigung' generira ti profesionalno pismo u 2 minute.",
-    badge: "Kündigung besplatno, ostalo uz Premium 🔒",
-    badgeStyle: "green" as const,
-  },
-  {
-    id: "deutsch-trainer",
-    emoji: "🇩🇪",
-    name: "DeutschTrainer",
-    tagline: "Nauči njemački koji ti stvarno treba",
-    explanation:
-      "DeutschTrainer te uči jezik koji koristiš svaki dan — na poslu, u Jobcenteru, kod doktora, u banci. A1 do C2, sa vježbama, izgovorom i testovima.",
-    example:
-      "Npr: Lekcija 'Kod doktora' — naučiš kako opisati simptome, razumjeti recept i razgovarati sa osiguranjem.",
-    badge: "Dostupno uz Premium 🔒",
-    badgeStyle: "gold" as const,
-  },
+  { id: "smart-guide", emoji: "🗺️", key: "smartGuide", badgeStyle: "gold" as const },
+  { id: "musterformular", emoji: "📋", key: "muster", badgeStyle: "gold" as const },
+  { id: "viza-navigator", emoji: "✈️", key: "visaNav", badgeStyle: "gold" as const },
+  { id: "dokumenten-check", emoji: "🔍", key: "docCheck", badgeStyle: "gold" as const },
+  { id: "vorlagen", emoji: "✉️", key: "vorlagen", badgeStyle: "green" as const },
+  { id: "deutsch-trainer", emoji: "🇩🇪", key: "trainer", badgeStyle: "gold" as const },
 ];
 
 export default function WhatIsWhat() {
+  const { t } = useTranslation("pages");
+
   return (
     <div className="max-w-2xl mx-auto">
       <motion.div
@@ -92,10 +29,10 @@ export default function WhatIsWhat() {
         className="text-center mb-8"
       >
         <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-white">
-          Šta je šta?
+          {t("home.whatIsWhat.heading")}
         </h2>
         <p className="mt-2 text-sm sm:text-base text-white/50">
-          Nikad čuo za Musterformular? Nema veze — objašnjavamo sve.
+          {t("home.whatIsWhat.subline")}
         </p>
       </motion.div>
 
@@ -114,18 +51,18 @@ export default function WhatIsWhat() {
             <AccordionTrigger className="px-4 py-3.5 hover:no-underline gap-3 [&>svg]:text-[hsl(var(--gold))]">
               <span className="flex items-center gap-3 text-left">
                 <span className="text-lg shrink-0">{card.emoji}</span>
-                <span className="text-[15px] font-bold text-white">{card.name}</span>
+                <span className="text-[15px] font-bold text-white">{t(`home.whatIsWhat.${card.key}.name`)}</span>
               </span>
             </AccordionTrigger>
             <AccordionContent className="px-4 pb-4 pt-0">
               <p className="text-sm font-semibold text-[hsl(var(--gold))] mb-2">
-                {card.tagline}
+                {t(`home.whatIsWhat.${card.key}.tagline`)}
               </p>
               <p className="text-sm text-white/60 leading-relaxed mb-2">
-                {card.explanation}
+                {t(`home.whatIsWhat.${card.key}.explanation`)}
               </p>
               <p className="text-[13px] text-white/35 italic leading-relaxed mb-3">
-                {card.example}
+                {t(`home.whatIsWhat.${card.key}.example`)}
               </p>
 
               <span
@@ -136,7 +73,7 @@ export default function WhatIsWhat() {
                     : { background: "hsla(43,52%,54%,0.12)", color: "hsl(var(--gold))" }
                 }
               >
-                {card.badge}
+                {t(`home.whatIsWhat.${card.key}.badge`)}
               </span>
             </AccordionContent>
           </AccordionItem>

@@ -1,51 +1,23 @@
 import { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FileText, Shield, GraduationCap, Camera, Megaphone, Mail } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { useLocalizedHref } from "@/hooks/useLocalizedHref";
-
-const features = [
-  {
-    icon: FileText,
-    label: "Popuni formular",
-    desc: "Korak po korak — bez grešaka",
-    to: "/formulari",
-  },
-  {
-    icon: Camera,
-    label: "Provjeri dokument",
-    desc: "Razumij pismo iz Njemačke",
-    to: "/dokumenten-check",
-  },
-  {
-    icon: Shield,
-    label: "Istraži vizu",
-    desc: "Pronađi pravi put do dozvole",
-    to: "/viza",
-  },
-  {
-    icon: GraduationCap,
-    label: "Nauči njemački",
-    desc: "A1–C2 uz praktične vježbe",
-    to: "/deutsch-trainer",
-  },
-  {
-    icon: Mail,
-    label: "Šabloni",
-    desc: "Gotova pisma i dokumenti",
-    to: "/vorlagen",
-  },
-  {
-    icon: Megaphone,
-    label: "Oglasi",
-    desc: "Nađi posao ili ponudi uslugu",
-    to: "/nudim-trazim",
-  },
-];
 
 export default function FeatureCards() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
   const localize = useLocalizedHref();
+  const { t } = useTranslation("pages");
+
+  const features = [
+    { icon: FileText, key: "form", to: "/formulari" },
+    { icon: Camera, key: "doc", to: "/dokumenten-check" },
+    { icon: Shield, key: "visa", to: "/viza" },
+    { icon: GraduationCap, key: "german", to: "/deutsch-trainer" },
+    { icon: Mail, key: "templates", to: "/vorlagen" },
+    { icon: Megaphone, key: "ads", to: "/nudim-trazim" },
+  ];
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -71,7 +43,7 @@ export default function FeatureCards() {
             transition: "all 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
           }}
         >
-          Šta ti danas treba?
+          {t("home.featureCards.heading")}
         </h2>
       </div>
 
@@ -103,8 +75,8 @@ export default function FeatureCards() {
               }}
             >
               <Icon className="h-7 w-7 text-[hsl(var(--gold))] mb-3 transition-transform duration-200 group-hover:scale-110" />
-              <span className="text-sm font-bold text-white mb-1">{f.label}</span>
-              <span className="text-[11px] text-white/50 leading-snug">{f.desc}</span>
+              <span className="text-sm font-bold text-white mb-1">{t(`home.featureCards.items.${f.key}.label`)}</span>
+              <span className="text-[11px] text-white/50 leading-snug">{t(`home.featureCards.items.${f.key}.desc`)}</span>
             </Link>
           );
         })}
