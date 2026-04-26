@@ -113,7 +113,7 @@ function parseAnalysisSections(text: string): AnalysisSection[] {
   return sections;
 }
 
-function extractSummaryFromSections(sections: AnalysisSection[]) {
+function extractSummaryFromSections(sections: AnalysisSection[], t: (k: string, opts?: any) => string) {
   const firstSection = sections.find((s) => s.id === "dokument auf einen blick");
   const urgencySection = sections.find((s) => s.id === "fristen und dringlichkeit");
   const financeSection = sections.find((s) => s.id === "finanzielle analyse");
@@ -125,33 +125,33 @@ function extractSummaryFromSections(sections: AnalysisSection[]) {
     return first?.slice(0, 80) || "—";
   };
 
-  let docType = "Dokument";
+  let docType = t("documentCheck.results.fallbackDoc");
   if (firstSection) {
     const tipMatch = firstSection.content.match(/(?:typ|art)\s*(?:des\s*)?dokument[es]*[:\s]*([^\n]+)/i);
     if (tipMatch) docType = tipMatch[1].replace(/\*\*/g, "").trim().slice(0, 50);
     else docType = extractFirstLine(firstSection.content);
   }
 
-  let action = "Pogledaj analizu";
+  let action = t("documentCheck.results.viewAnalysis");
   if (urgencySection) {
-    if (urgencySection.content.includes("🚨")) action = "Hitna radnja potrebna";
-    else if (urgencySection.content.includes("⚡")) action = "Preporučena radnja";
-    else if (urgencySection.content.includes("✅")) action = "Nije potrebna radnja";
+    if (urgencySection.content.includes("🚨")) action = t("documentCheck.results.urgent");
+    else if (urgencySection.content.includes("⚡")) action = t("documentCheck.results.recommended");
+    else if (urgencySection.content.includes("✅")) action = t("documentCheck.results.noActionNeeded");
     else action = extractFirstLine(urgencySection.content);
   }
 
-  let financial = "Pogledaj finansijsku analizu";
+  let financial = t("documentCheck.results.viewFinancial");
   if (financeSection) {
     const amountMatch = financeSection.content.match(/(\d+[.,]?\d*)\s*€/);
-    if (amountMatch) financial = `${amountMatch[0]} identifikovano`;
+    if (amountMatch) financial = t("documentCheck.results.amountIdentified", { amount: amountMatch[0] });
     else financial = extractFirstLine(financeSection.content);
   }
 
-  let deadline = "Nema vidljivog roka";
+  let deadline = t("documentCheck.results.noVisibleDeadline");
   if (urgencySection) {
     const dateMatch = urgencySection.content.match(/\d{1,2}\.\d{1,2}\.\d{2,4}/);
-    if (dateMatch) deadline = `Rok: ${dateMatch[0]}`;
-    else if (urgencySection.content.toLowerCase().includes("kein")) deadline = "Nema vidljivog roka";
+    if (dateMatch) deadline = `${t("documentCheck.results.deadlinePrefix")} ${dateMatch[0]}`;
+    else if (urgencySection.content.toLowerCase().includes("kein")) deadline = t("documentCheck.results.noVisibleDeadline");
     else deadline = extractFirstLine(urgencySection.content);
   }
 
