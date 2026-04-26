@@ -20,14 +20,13 @@ import {
 import { LANG_STORAGE_KEY, type SupportedLanguage } from "@/i18n";
 import { mirrorPath } from "@/lib/i18n-paths";
 import { FlagDE } from "@/components/flags/FlagDE";
+import { FlagBA } from "@/components/flags/FlagBA";
 
 type FlagComp = ComponentType<{ width?: number; className?: string }>;
 
-// Bosnian language has no neutral flag (BiH flag is politically charged in diaspora context
-// and visually confusable with Ukrainian flag at small sizes). German keeps its flag because
-// it is unambiguous. Asymmetric by design.
+// Bosnian and German both shown with their official flags.
 const LANGUAGES: { code: SupportedLanguage; nativeName: string; Flag: FlagComp | null }[] = [
-  { code: "bs", nativeName: "Bosanski", Flag: null },
+  { code: "bs", nativeName: "Bosanski", Flag: FlagBA },
   { code: "de", nativeName: "Deutsch", Flag: FlagDE },
 ];
 
