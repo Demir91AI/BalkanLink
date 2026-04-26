@@ -1,11 +1,13 @@
 import { useRef, useCallback, useState, useEffect } from "react";
 import { useAuth } from "@/contexts/AuthContext";
+import { useTranslation } from "react-i18next";
 import { Menu, ShieldCheck, Crown, UserCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "react-router-dom";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 export default function Header() {
   const { loading, isAdmin, user, isPremium } = useAuth();
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
 
@@ -72,7 +74,7 @@ export default function Header() {
         {/* LEFT: Hamburger */}
         <button
           onClick={handleToggleSidebar}
-          aria-label="Menü"
+          aria-label={t("common:nav.menu")}
           className="flex items-center justify-center transition-all duration-250 ease-in-out hover:scale-105"
           style={{
             background: "rgba(255,255,255,0.04)",
@@ -162,7 +164,7 @@ export default function Header() {
           {/* Premium CTA button */}
           <button
             onClick={() => navigate("/premium")}
-            aria-label="Postani Premium član"
+            aria-label={isPremium ? t("common:nav.premiumActive") : t("common:nav.becomePremium")}
             className="group relative hidden sm:inline-flex items-center gap-2 overflow-hidden transition-all duration-300 ease-out hover:scale-[1.04] active:scale-[0.98]"
             style={{
               background:
@@ -193,13 +195,18 @@ export default function Header() {
               className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full"
             />
             <Crown className="h-3.5 w-3.5 relative z-10" strokeWidth={2.5} />
-            <span className="relative z-10">{isPremium ? "Premium aktivan" : "Postani Premium"}</span>
+            <span className="relative z-10">{isPremium ? t("common:nav.premiumActive") : t("common:nav.becomePremium")}</span>
           </button>
+
+          {/* Language switcher — desktop only (mobile has it inside the sidebar) */}
+          <div className="hidden sm:block">
+            <LanguageSwitcher variant="header" />
+          </div>
 
           {/* User/profile icon button */}
           <button
             onClick={() => navigate(user ? "/profil" : "/login")}
-            aria-label={user ? "Profil" : "Prijava"}
+            aria-label={user ? t("common:nav.profile") : t("common:nav.login")}
             className="flex items-center justify-center transition-all duration-250 ease-in-out"
             style={{
               width: 36,
