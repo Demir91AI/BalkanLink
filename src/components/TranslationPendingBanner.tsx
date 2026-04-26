@@ -29,6 +29,8 @@ const TRANSLATED_DE_PATHS = new Set<string>([
   "/de/reset-password",
   // Dokumentenprüfung — full page chrome translated
   "/de/dokumentencheck",
+  // DeutschTrainer — full page + child components translated
+  "/de/deutsch-trainer",
 ]);
 
 export default function TranslationPendingBanner() {
