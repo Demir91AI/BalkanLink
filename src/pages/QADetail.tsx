@@ -120,36 +120,60 @@ export default function QADetail() {
         <p className="text-foreground leading-relaxed">{item.short_answer}</p>
       </div>
 
-      {/* Step by step — fully visible */}
-      {item.step_by_step && (
-        <div className="mb-8">
-          <h2 className="mb-3 text-lg font-semibold">Detaljno objašnjenje</h2>
-          <div className="prose prose-sm max-w-none rounded-xl border bg-card p-5">
-            <FormattedContent text={item.step_by_step} />
+      {/* Premium gating: free users see only short answer for premium items */}
+      {item.is_premium && !isPremium ? (
+        <div className="mb-8 rounded-xl border-2 border-[hsl(var(--gold))]/40 bg-gradient-to-br from-[hsl(var(--gold))]/5 to-transparent p-6 text-center">
+          <div className="mb-3 flex justify-center">
+            <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[hsl(var(--gold))]/15">
+              <Lock className="h-5 w-5 text-[hsl(var(--gold))]" />
+            </span>
           </div>
+          <h2 className="mb-2 text-lg font-bold">Detaljni odgovor je Premium sadržaj</h2>
+          <p className="mb-5 text-sm text-muted-foreground max-w-md mx-auto">
+            Otključaj korak-po-korak vodič, zvanične izvore i sve Q&A teme uz BalkanLink Premium.
+          </p>
+          <Button
+            onClick={() => navigate("/paketi")}
+            className="bg-[hsl(var(--gold))] text-[#0f1f3d] hover:opacity-90 font-bold"
+          >
+            <Crown className="mr-2 h-4 w-4" />
+            Otključaj Premium — od 9,99€/mj
+          </Button>
         </div>
-      )}
+      ) : (
+        <>
+          {/* Step by step — fully visible */}
+          {item.step_by_step && (
+            <div className="mb-8">
+              <h2 className="mb-3 text-lg font-semibold">Detaljno objašnjenje</h2>
+              <div className="prose prose-sm max-w-none rounded-xl border bg-card p-5">
+                <FormattedContent text={item.step_by_step} />
+              </div>
+            </div>
+          )}
 
-      {/* Sources */}
-      {item.sources && item.sources.length > 0 && (
-        <div className="mb-8">
-          <h2 className="mb-3 text-lg font-semibold">Zvanični izvori</h2>
-          <ul className="space-y-2">
-            {item.sources.map((src, i) => (
-              <li key={i}>
-                <a
-                  href={src}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-sm text-primary hover:underline"
-                >
-                  <ExternalLink className="h-3.5 w-3.5" />
-                  {src}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
+          {/* Sources */}
+          {item.sources && item.sources.length > 0 && (
+            <div className="mb-8">
+              <h2 className="mb-3 text-lg font-semibold">Zvanični izvori</h2>
+              <ul className="space-y-2">
+                {item.sources.map((src, i) => (
+                  <li key={i}>
+                    <a
+                      href={src}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-sm text-primary hover:underline"
+                    >
+                      <ExternalLink className="h-3.5 w-3.5" />
+                      {src}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </>
       )}
 
       {/* Tags */}
