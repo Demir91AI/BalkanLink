@@ -200,5 +200,41 @@
     "lastUpdated": "Letzte Aktualisierung:",
     "tableOfContents": "Inhaltsverzeichnis",
     "backToTop": "Nach oben"
+  },
+  "cookies": {
+    "banner": {
+      "title": "Ihre Privatsphäre ist uns wichtig",
+      "description": "Wir verwenden notwendige Cookies für den Betrieb der Seite und – mit Ihrer Zustimmung – zusätzliche Cookies für Analyse, Funktionalität und ein besseres Nutzererlebnis."
+    },
+    "actions": {
+      "acceptAll": "Alle akzeptieren",
+      "rejectOptional": "Optionale ablehnen",
+      "settings": "Einstellungen",
+      "save": "Auswahl speichern"
+    },
+    "modal": {
+      "title": "Cookie-Einstellungen",
+      "description": "Wählen Sie aus, welche Cookie-Kategorien Sie zulassen möchten. Weitere Informationen im",
+      "privacyLink": "Datenschutz",
+      "alwaysActive": "Immer aktiv"
+    },
+    "categories": {
+      "necessary": {
+        "label": "Notwendige Cookies",
+        "desc": "Werden für den grundlegenden Betrieb der Seite benötigt und können nicht deaktiviert werden."
+      },
+      "analytics": {
+        "label": "Analyse",
+        "desc": "Helfen uns zu verstehen, wie Nutzer BalkanLink verwenden, damit wir Inhalte und Erlebnis verbessern können."
+      },
+      "marketing": {
+        "label": "Marketing",
+        "desc": "Werden zur Messung von Kampagnen und zur Anzeige relevanterer Werbeinhalte verwendet."
+      },
+      "functional": {
+        "label": "Funktionale Cookies",
+        "desc": "Speichern bestimmte Auswahlen und verbessern das Nutzererlebnis."
+      }
+    }
   }
 }
