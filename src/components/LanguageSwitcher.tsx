@@ -30,7 +30,7 @@ const LANGUAGES: { code: SupportedLanguage; nativeName: string; Flag: FlagComp |
   { code: "de", nativeName: "Deutsch", Flag: FlagDE },
 ];
 
-const FLAG_SLOT_PX = 24;
+const FLAG_SLOT_PX = 28;
 
 const GOLD = "#D4AF37";
 
