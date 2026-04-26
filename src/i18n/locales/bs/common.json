@@ -200,5 +200,41 @@
     "lastUpdated": "Posljednje ažuriranje:",
     "tableOfContents": "Sadržaj",
     "backToTop": "Nazad na vrh"
+  },
+  "cookies": {
+    "banner": {
+      "title": "Vaša privatnost je važna",
+      "description": "Koristimo neophodne kolačiće za rad stranice, a uz vašu dozvolu i dodatne kolačiće za analitiku, funkcionalnosti i poboljšanje korisničkog iskustva."
+    },
+    "actions": {
+      "acceptAll": "Prihvati sve",
+      "rejectOptional": "Odbij opcionalne",
+      "settings": "Postavke",
+      "save": "Spremi izbor"
+    },
+    "modal": {
+      "title": "Postavke kolačića",
+      "description": "Odaberite koje kategorije kolačića želite dozvoliti. Više informacija u",
+      "privacyLink": "zaštiti podataka",
+      "alwaysActive": "Uvijek aktivno"
+    },
+    "categories": {
+      "necessary": {
+        "label": "Neophodni kolačići",
+        "desc": "Potrebni su za osnovni rad stranice i ne mogu se isključiti."
+      },
+      "analytics": {
+        "label": "Analitika",
+        "desc": "Pomažu nam da razumijemo kako korisnici koriste BalkanLink kako bismo poboljšali sadržaj i iskustvo."
+      },
+      "marketing": {
+        "label": "Marketing",
+        "desc": "Koriste se za mjerenje kampanja i prikaz relevantnijeg promotivnog sadržaja."
+      },
+      "functional": {
+        "label": "Funkcionalni kolačići",
+        "desc": "Pamte određene izbore i poboljšavaju korisničko iskustvo."
+      }
+    }
   }
 }
