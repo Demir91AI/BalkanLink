@@ -122,7 +122,7 @@ export default function MobileBottomNav() {
                 className="text-[10px] font-bold mt-1"
                 style={{ color: "#C9A84C" }}
               >
-                Asistent
+                {t("mobileNav.assistant")}
               </span>
             </button>
           </div>
