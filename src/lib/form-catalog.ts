@@ -113,8 +113,6 @@ export const formCatalog: FormGroup[] = [
     icon: "💼",
     title: "Rad i karijera",
     items: [
-      { slug: "krankenkasse", label: "Krankenkasse", desc: "Prijava na zdravstveno osiguranje u Njemačkoj.", includes: "Smart Guide + Anmeldeformular" },
-      { slug: "steuerklassenwechsel", label: "Steuerklassenwechsel", desc: "Promjena porezne klase, npr. nakon vjenčanja.", includes: "Smart Guide + Antrag" },
       { slug: "arbeitslosengeld", label: "Arbeitslosengeld I", desc: "Naknada za nezaposlenost uz ispunjene uslove.", includes: "Smart Guide + ALG1 Antrag" },
     ],
   },
@@ -136,6 +134,15 @@ export const formCatalog: FormGroup[] = [
       { slug: "grundsicherung", label: "Grundsicherung im Alter", desc: "Osnovna pomoć za starije osobe i osobe s invaliditetom.", includes: "Smart Guide + Antrag Grundsicherung" },
       { slug: "fuehrungszeugnis", label: "Führungszeugnis", desc: "Potvrda o nekažnjavanju.", includes: "Smart Guide + Online Antrag vodič" },
       { slug: "kirchenaustritt", label: "Kirchenaustritt", desc: "Istupanje iz crkve radi ukidanja crkvenog poreza.", includes: "Vodič + Antrag Kirchenaustritt" },
+    ],
+  },
+  {
+    id: "ostalo",
+    icon: "📂",
+    title: "Ostalo",
+    items: [
+      { slug: "krankenkasse", label: "Krankenkasse", desc: "Prijava na zdravstveno osiguranje u Njemačkoj.", includes: "Smart Guide + Anmeldeformular" },
+      { slug: "steuerklassenwechsel", label: "Steuerklassenwechsel", desc: "Promjena porezne klase, npr. nakon vjenčanja.", includes: "Smart Guide + Antrag" },
     ],
   },
 ];
