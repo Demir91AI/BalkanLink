@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
-import { stripGermanPrefix } from '@/lib/i18n-paths';
+import { stripLangPrefix } from '@/lib/i18n-paths';
+import type { SupportedLanguage } from '@/i18n';
 
 interface SEOProps {
   /** Direct title — takes priority over titleKey. */
@@ -11,14 +12,14 @@ interface SEOProps {
   titleKey?: string;
   /** i18n key for the description. */
   descKey?: string;
-  /** Path to the page WITHOUT /de prefix (BS canonical). e.g. '/dokumenten-check'. */
+  /** Path to the page WITHOUT language prefix (BS canonical). e.g. '/dokumenten-check'. */
   path?: string;
 }
 
 const BASE_URL = 'https://www.balkanlink.de';
 const OG_IMAGE = BASE_URL + '/og-image.png';
 
-const DEFAULTS = {
+const DEFAULTS: Record<SupportedLanguage, { title: string; desc: string }> = {
   bs: {
     title: 'BalkanLink — Formulari, Viza i Savjeti za Balkance u Njemačkoj',
     desc: 'Sve što ti treba za život u Njemačkoj — musterformulari, viza navigator, asistent, deutsch kurs.',
@@ -27,22 +28,40 @@ const DEFAULTS = {
     title: 'BalkanLink — Formulare, Visa und Wegweiser für Ihr Leben in Deutschland',
     desc: 'Alles, was Sie für das Leben in Deutschland brauchen — Musterformulare, Visa-Navigator, Assistent, Deutschkurs.',
   },
-} as const;
+  hr: {
+    title: 'BalkanLink — Obrasci, Vize i Savjeti za Balkance u Njemačkoj',
+    desc: 'Sve što ti treba za život u Njemačkoj — musterformulari, viza navigator, asistent, deutsch tečaj.',
+  },
+  sr: {
+    title: 'BalkanLink — Formulari, Vize i Saveti za Balkance u Nemačkoj',
+    desc: 'Sve što ti treba za život u Nemačkoj — musterformulari, viza navigator, asistent, deutsch kurs.',
+  },
+};
 
-function buildBsHref(path: string): string {
-  const p = stripGermanPrefix(path);
-  return `${BASE_URL}${p === '/' ? '' : p}` || BASE_URL;
+const OG_LOCALE: Record<SupportedLanguage, string> = {
+  bs: 'bs_BA',
+  de: 'de_DE',
+  hr: 'hr_HR',
+  sr: 'sr_RS',
+};
+
+function buildHref(path: string, lang: SupportedLanguage): string {
+  const p = stripLangPrefix(path);
+  if (lang === 'bs') {
+    return `${BASE_URL}${p === '/' ? '' : p}` || BASE_URL;
+  }
+  if (p === '/' || p === '') return `${BASE_URL}/${lang}`;
+  return `${BASE_URL}/${lang}${p}`;
 }
 
-function buildDeHref(path: string): string {
-  const p = stripGermanPrefix(path);
-  if (p === '/' || p === '') return `${BASE_URL}/de`;
-  return `${BASE_URL}/de${p}`;
-}
+const SUPPORTED: SupportedLanguage[] = ['bs', 'de', 'hr', 'sr'];
 
 export const SEO = ({ title, description, titleKey, descKey, path = '' }: SEOProps) => {
   const { t, i18n } = useTranslation();
-  const lang = (i18n.language === 'de' ? 'de' : 'bs') as 'bs' | 'de';
+  const raw = i18n.language as string;
+  const lang: SupportedLanguage = (SUPPORTED as string[]).includes(raw)
+    ? (raw as SupportedLanguage)
+    : 'bs';
 
   const resolvedTitle = title ?? (titleKey ? t(titleKey) : DEFAULTS[lang].title);
   const resolvedDesc = description ?? (descKey ? t(descKey) : DEFAULTS[lang].desc);
@@ -51,11 +70,8 @@ export const SEO = ({ title, description, titleKey, descKey, path = '' }: SEOPro
       ? `${resolvedTitle} | BalkanLink`
       : DEFAULTS[lang].title;
 
-  const bsHref = buildBsHref(path);
-  const deHref = buildDeHref(path);
-  const canonical = lang === 'de' ? deHref : bsHref;
-  const ogLocale = lang === 'de' ? 'de_DE' : 'bs_BA';
-  const ogLocaleAlt = lang === 'de' ? 'bs_BA' : 'de_DE';
+  const canonical = buildHref(path, lang);
+  const bsHref = buildHref(path, 'bs');
 
   return (
     <Helmet>
@@ -65,9 +81,10 @@ export const SEO = ({ title, description, titleKey, descKey, path = '' }: SEOPro
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href={canonical} />
 
-      {/* hreflang alternates */}
-      <link rel="alternate" hrefLang="bs" href={bsHref} />
-      <link rel="alternate" hrefLang="de" href={deHref} />
+      {/* hreflang alternates — one per supported language + x-default → BS */}
+      {SUPPORTED.map((l) => (
+        <link key={l} rel="alternate" hrefLang={l} href={buildHref(path, l)} />
+      ))}
       <link rel="alternate" hrefLang="x-default" href={bsHref} />
 
       <meta property="og:type" content="website" />
@@ -78,8 +95,10 @@ export const SEO = ({ title, description, titleKey, descKey, path = '' }: SEOPro
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:site_name" content="BalkanLink" />
-      <meta property="og:locale" content={ogLocale} />
-      <meta property="og:locale:alternate" content={ogLocaleAlt} />
+      <meta property="og:locale" content={OG_LOCALE[lang]} />
+      {SUPPORTED.filter((l) => l !== lang).map((l) => (
+        <meta key={l} property="og:locale:alternate" content={OG_LOCALE[l]} />
+      ))}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={resolvedDesc} />

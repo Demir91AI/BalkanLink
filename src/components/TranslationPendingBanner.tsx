@@ -14,28 +14,33 @@ import { useTranslation } from "react-i18next";
 import { X, Info } from "lucide-react";
 
 /**
- * Routes whose German version is ALREADY translated by this prompt — banner
- * MUST NOT appear on these. Everything else under /de/* shows the banner.
+ * Per-language allow-list of paths whose chrome AND body are fully
+ * translated — the banner MUST NOT appear on these. Everything else under
+ * /de/*, /hr/*, /sr/* shows the banner.
+ *
+ * For /de/* we keep the prior allow-list (Viza, DeutschTrainer, NudimTrazim
+ * etc. that have been fully translated). For /hr/* and /sr/* only the
+ * landing pages with no long-form body are excluded — every Smart Guide
+ * body page shows the banner until dedicated translations land.
  */
-// Routes whose German chrome is fully translated. Pages with deep nested
-// children still pending translation (Viza, DeutschTrainer, NudimTrazim)
-// are intentionally NOT listed here so the banner appears.
-const TRANSLATED_DE_PATHS = new Set<string>([
-  "/de",
-  // Auth flows — chrome translated
-  "/de/login",
-  "/de/register",
-  "/de/forgot-password",
-  "/de/reset-password",
-  // Dokumentenprüfung — full page chrome translated
-  "/de/dokumentencheck",
-  // DeutschTrainer — full page + child components translated
-  "/de/deutsch-trainer",
-  // Viza — page + visa navigator components translated
-  "/de/viza",
-  // NudimTrazim — classifieds page + child components translated
-  "/de/nudim-trazim",
-]);
+const SHARED_LANDING_SUFFIXES = [
+  "", // root (e.g. /hr)
+  "/login",
+  "/register",
+  "/forgot-password",
+  "/reset-password",
+  "/dokumentencheck",
+  "/dokumenten-check",
+  "/deutsch-trainer",
+  "/viza",
+  "/nudim-trazim",
+];
+
+const TRANSLATED_PATHS: Record<"de" | "hr" | "sr", Set<string>> = {
+  de: new Set(SHARED_LANDING_SUFFIXES.map((s) => `/de${s}`)),
+  hr: new Set(SHARED_LANDING_SUFFIXES.map((s) => `/hr${s}`)),
+  sr: new Set(SHARED_LANDING_SUFFIXES.map((s) => `/sr${s}`)),
+};
 
 export default function TranslationPendingBanner() {
   const { pathname } = useLocation();
@@ -44,9 +49,11 @@ export default function TranslationPendingBanner() {
 
   const visible = useMemo(() => {
     if (dismissed) return false;
-    if (i18n.language !== "de") return false;
-    if (!pathname.startsWith("/de")) return false;
-    if (TRANSLATED_DE_PATHS.has(pathname)) return false;
+    const lang = i18n.language as "de" | "hr" | "sr" | string;
+    if (lang !== "de" && lang !== "hr" && lang !== "sr") return false;
+    const prefix = `/${lang}`;
+    if (!pathname.startsWith(prefix)) return false;
+    if (TRANSLATED_PATHS[lang as "de" | "hr" | "sr"].has(pathname)) return false;
     return true;
   }, [pathname, i18n.language, dismissed]);
 

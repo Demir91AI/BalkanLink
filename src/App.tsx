@@ -271,6 +271,8 @@ function AppRoutes() {
         <Route path="/__visual/flag-ba" element={<VisualFlagBA />} />
       )}
       <Route path="/de/*" element={<LocalizedRoutes />} />
+      <Route path="/hr/*" element={<LocalizedRoutes />} />
+      <Route path="/sr/*" element={<LocalizedRoutes />} />
       <Route path="/*" element={<LocalizedRoutes />} />
     </Routes>
   );
