@@ -170,10 +170,15 @@ serve(async (req) => {
       );
     }
 
-    log("deletion complete", { userId });
-    return new Response(JSON.stringify({ success: true }), {
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-    });
+    log("deletion complete", { userId, stripeCancelledCount, stripeWarnings });
+    return new Response(
+      JSON.stringify({
+        success: true,
+        stripe_cancelled_count: stripeCancelledCount,
+        stripe_warnings: stripeWarnings,
+      }),
+      { headers: { ...corsHeaders, "Content-Type": "application/json" } }
+    );
   } catch (error) {
     const msg = error instanceof Error ? error.message : String(error);
     console.error("[delete-account] ERROR", msg);
