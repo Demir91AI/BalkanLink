@@ -1,9 +1,17 @@
 {
   "home": {
-    "heroHeadline": "Navigirajte njemački sistem. Bez stresa. Bez greški.",
-    "heroSubline": "Smart vodiči, provjera dokumenata, vize i njemački jezik — sve jasno objašnjeno.",
+    "heroHeadlineBeforeAccent": "Tvoj vodič kroz ",
+    "heroHeadlineAccent": "njemački sistem",
+    "heroHeadlineAfterAccent": ".",
+    "heroSubline": "Formulari, zahtjevi i procedure objašnjeni jasno, strukturirano i na jednom mjestu.",
     "ctaPrimary": "Pokreni vodič",
-    "ctaSecondary": "Saznaj više",
+    "ctaSecondary": "Pogledaj planove",
+    "disclaimer": "BalkanLink nije pravni savjetnik. Sadržaj služi isključivo za orijentaciju.",
+    "trustBadges": {
+      "officialSources": "Službeni izvori",
+      "updated": "Ažurirano 2026",
+      "stepByStep": "Korak-po-korak vodiči"
+    },
     "servicesTitle": "Naši servisi",
     "partnersTitle": "Naši partneri"
   },

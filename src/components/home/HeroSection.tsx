@@ -1,7 +1,8 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, ChevronLeft, ChevronRight } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
 
 const slides = [
   { image: "/assets/hero-frankfurt.jpg", city: "FRANKFURT" },
@@ -16,18 +17,19 @@ const slides = [
   { image: "/assets/hero-leipzig.jpg", city: "LEIPZIG" },
 ];
 
-const trustBadges = [
-  "Službeni izvori",
-  "Ažurirano 2026",
-  "Korak-po-korak vodiči",
-];
-
 const ease = [0.16, 1, 0.3, 1] as const;
 
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const navigate = useNavigate();
+  const navigate = useLocalizedNavigate();
+  const { t } = useTranslation("pages");
   const btnRef = useRef<HTMLButtonElement>(null);
+
+  const trustBadges = [
+    t("home.trustBadges.officialSources"),
+    t("home.trustBadges.updated"),
+    t("home.trustBadges.stepByStep"),
+  ];
 
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);

@@ -1,9 +1,17 @@
 {
   "home": {
-    "heroHeadline": "Navigieren Sie das deutsche System. Ohne Stress. Ohne Fehler.",
-    "heroSubline": "Smart Guides, Dokumentenprüfung, Visa und Deutschkurs — alles klar erklärt.",
+    "heroHeadlineBeforeAccent": "Ihr Wegweiser durch das ",
+    "heroHeadlineAccent": "deutsche System",
+    "heroHeadlineAfterAccent": ".",
+    "heroSubline": "Formulare, Anträge und Verfahren — klar, strukturiert und an einem Ort erklärt.",
     "ctaPrimary": "Leitfaden starten",
-    "ctaSecondary": "Mehr erfahren",
+    "ctaSecondary": "Pläne ansehen",
+    "disclaimer": "BalkanLink ist keine Rechtsberatung. Die Inhalte dienen ausschließlich der Orientierung.",
+    "trustBadges": {
+      "officialSources": "Offizielle Quellen",
+      "updated": "Stand 2026",
+      "stepByStep": "Schritt-für-Schritt-Leitfäden"
+    },
     "servicesTitle": "Unsere Leistungen",
     "partnersTitle": "Unsere Partner"
   },
