@@ -164,6 +164,7 @@ export const MUSTER_SLUG_MAP: Record<string, string> = {
   "anlage-se": "anlage-se",
   "arbeitsbescheinigung": "arbeitsbescheinigung",
   "antragsruecknahme": "antragsruecknahme",
+  "wirtschaftliche-jugendhilfe": "wirtschaftliche-jugendhilfe",
 };
 
 export function hasMuster(slug: string): boolean {
