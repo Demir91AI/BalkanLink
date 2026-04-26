@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useLocalizedHref } from "@/hooks/useLocalizedHref";
 
 const colTitleStyle: React.CSSProperties = {
   fontSize: 11,
@@ -22,6 +23,7 @@ const linkStyle: React.CSSProperties = {
 
 export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?: () => void } = {}) {
   const { t } = useTranslation();
+  const localize = useLocalizedHref();
 
   const NAV_LINKS: { label: string; to: string }[] = [
     { label: t("common:nav.smartGuides"), to: "/formulari" },
@@ -56,7 +58,7 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
         className="footer-grid"
       >
         <div>
-          <Link to="/" style={{ textDecoration: "none" }}>
+          <Link to={localize("/")} style={{ textDecoration: "none" }}>
             <span style={{ fontSize: 20, fontWeight: 900, color: "#fff", letterSpacing: -0.5 }}>
               <span style={{ color: "#EAB308" }}>BL</span> BalkanLink
             </span>
@@ -72,7 +74,7 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
         <div>
           <p style={colTitleStyle}>{t("common:footer.navigation")}</p>
           {NAV_LINKS.map((l) => (
-            <Link key={l.to} to={l.to} style={linkStyle} className="footer-link">
+            <Link key={l.to} to={localize(l.to)} style={linkStyle} className="footer-link">
               {l.label}
             </Link>
           ))}
@@ -91,7 +93,7 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
                 {l.label}
               </button>
             ) : (
-              <Link key={l.to} to={l.to} style={linkStyle} className="footer-link">
+              <Link key={l.to} to={localize(l.to)} style={linkStyle} className="footer-link">
                 {l.label}
               </Link>
             ),
