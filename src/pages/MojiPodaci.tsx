@@ -77,28 +77,72 @@ export default function MojiPodaci() {
 
   const handleDelete = async () => {
     if (!user) return;
+    // Re-enforce client-side rules (defense-in-depth — also enforced by backend).
+    const emailOk =
+      confirmEmail.trim().toLowerCase() === (user.email ?? "").toLowerCase() &&
+      (user.email ?? "").length > 0;
+    const textOk = confirmText === "OBRIŠI";
+    if (!emailOk || !textOk) {
+      setDeleteError(
+        !emailOk
+          ? "Email ne odgovara tvom računu."
+          : "Moraš ukucati tačno OBRIŠI (velikim slovima)."
+      );
+      return;
+    }
+
     setDeleting(true);
+    setDeleteError(null);
     try {
       const { data: session } = await supabase.auth.getSession();
       const token = session.session?.access_token;
-      if (!token) throw new Error("Nema aktivne sesije");
+      if (!token) throw new Error("Nema aktivne sesije. Prijavi se ponovo.");
 
-      const { data, error } = await supabase.functions.invoke("delete-account", {
-        body: { confirm_email: confirmEmail, confirm_text: confirmText },
-      });
+      // Use direct fetch so we can read 400/500 JSON bodies (functions.invoke
+      // discards the body on non-2xx).
+      const projectId = import.meta.env.VITE_SUPABASE_PROJECT_ID;
+      const res = await fetch(
+        `https://${projectId}.supabase.co/functions/v1/delete-account`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            confirm_email: confirmEmail,
+            confirm_text: confirmText,
+          }),
+        }
+      );
 
-      if (error) throw error;
-      if (data?.error) throw new Error(data.error);
+      const payload = await res.json().catch(() => ({} as Record<string, unknown>));
+
+      if (!res.ok) {
+        const backendMsg =
+          (payload as { error?: string })?.error ||
+          `Brisanje nije uspjelo (HTTP ${res.status}).`;
+        throw new Error(backendMsg);
+      }
+
+      const warnings = (payload as { stripe_warnings?: string[] })?.stripe_warnings ?? [];
+      const cancelled = (payload as { stripe_cancelled_count?: number })?.stripe_cancelled_count ?? 0;
 
       toast({
         title: "Račun obrisan",
-        description: "Svi tvoji podaci su uklonjeni. Hvala što si bio s nama.",
+        description:
+          warnings.length > 0
+            ? `Podaci su uklonjeni. Napomena uz Stripe (${cancelled} otkazanih): ${warnings.join("; ")}`
+            : cancelled > 0
+              ? `Svi tvoji podaci su uklonjeni. Otkazano ${cancelled} pretplata.`
+              : "Svi tvoji podaci su uklonjeni. Hvala što si bio s nama.",
       });
 
       await signOut();
       navigate("/", { replace: true });
     } catch (e) {
       const msg = e instanceof Error ? e.message : String(e);
+      setDeleteError(msg);
       toast({
         variant: "destructive",
         title: "Brisanje nije uspjelo",
