@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Lock } from "lucide-react";
+import { useTranslation } from "react-i18next";
 interface Props {
   label: string;
   index: number;
@@ -17,6 +18,7 @@ const STAGE_COLORS = [
 ];
 
 export default function StageCard({ label, index, freeCount, lockedCount, isPremium, onSelect, onUpgrade }: Props) {
+  const { t } = useTranslation("pages");
   const totalCount = freeCount + lockedCount;
 
   return (
@@ -37,7 +39,7 @@ export default function StageCard({ label, index, freeCount, lockedCount, isPrem
         <div className="flex-1">
           <h3 className="text-sm font-bold">{label}</h3>
           <p className="text-[11px] text-muted-foreground">
-            {totalCount} {"zadataka"}{!isPremium && ` · ${freeCount} ${"besplatno"}`}
+            {totalCount} {t("deutschTrainer.stages.tasks")}{!isPremium && ` · ${freeCount} ${t("deutschTrainer.stages.freeTasks")}`}
           </p>
         </div>
         <ArrowRight className="h-4 w-4 text-muted-foreground" />
@@ -49,13 +51,13 @@ export default function StageCard({ label, index, freeCount, lockedCount, isPrem
           <div className="flex items-center gap-2">
             <Lock className="h-3.5 w-3.5 text-gold" />
             <span className="text-[11px] font-semibold text-muted-foreground">
-              🔒 +{lockedCount} {"još zadataka"}
+              🔒 +{lockedCount} {t("deutschTrainer.stages.moreTasks")}
             </span>
             <button
               onClick={onUpgrade}
               className="ml-auto text-[10px] font-bold text-gold hover:text-gold-dark transition-colors"
             >
-              {"Otključaj s Premium"} →
+              {t("deutschTrainer.stages.unlockWithPremium")} →
             </button>
           </div>
         </div>

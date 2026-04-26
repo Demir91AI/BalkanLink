@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 import AuthGate from "@/components/AuthGate";
 import type { BreadcrumbItem } from "@/components/navigation/SectionHeader";
@@ -36,7 +37,7 @@ const LOCKED_STAGE_COUNTS = FREE_STAGE_COUNTS.map(
 ) as unknown as readonly [number, number, number];
 
 const STAGE_TYPES = ["Grundlagen", "Anwendung", "Realitaet"] as const;
-const STAGE_LABELS = ["Osnove", "Primjena", "Realnost"] as const;
+const STAGE_LABEL_KEYS = ["basics", "application", "reality"] as const;
 
 interface Props {
   lesson: Lesson;
@@ -44,7 +45,9 @@ interface Props {
 }
 
 export default function TrainerLesson({ lesson, onBack }: Props) {
+  const { t } = useTranslation("pages");
   const navigate = useNavigate();
+  const STAGE_LABELS = STAGE_LABEL_KEYS.map(k => t(`deutschTrainer.stages.${k}`)) as readonly string[];
   const [selectedStage, setSelectedStage] = useState<number | null>(null);
   const [step, setStep] = useState(0);
   const [results, setResults] = useState<boolean[]>([]);
@@ -204,8 +207,8 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
   // Build breadcrumbs
   const buildBreadcrumbs = (): BreadcrumbItem[] => {
     const crumbs: BreadcrumbItem[] = [
-      { label: "Početna", onClick: () => navigate("/") },
-      { label: "BalkanLink Deutsch", onClick: () => { onBack(); } },
+      { label: t("common.home", { defaultValue: "Početna", ns: "common" }), onClick: () => navigate("/") },
+      { label: t("deutschTrainer.brand"), onClick: () => { onBack(); } },
       { label: lesson.level, onClick: () => { onBack(); } },
     ];
     if (selectedStage === null) {
@@ -279,7 +282,7 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
             <div className="max-w-2xl rounded-2xl border border-white/[0.06] bg-white/[0.03] p-5">
               <div className="mb-3 flex items-center gap-2">
                 <AlertTriangle className="h-4 w-4 text-orange-400" />
-                <h3 className="text-sm font-bold text-white/80">Tipične greške</h3>
+                <h3 className="text-sm font-bold text-white/80">{t("deutschTrainer.lessonView.commonMistakes")}</h3>
               </div>
               <div className="flex flex-col gap-2">
                 {lesson.commonMistakes.map((m, i) => (
@@ -311,10 +314,10 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
             {accuracy >= 80 ? "🏆" : accuracy >= 60 ? "👍" : "📚"}
           </div>
           <h2 className="text-2xl font-black text-white mb-2">
-            {STAGE_LABELS[selectedStage]} završen!
+            {t("deutschTrainer.lessonView.stageCompleted", { stage: STAGE_LABELS[selectedStage] })}
           </h2>
           <p className="text-white/60 mb-6">
-            {correctCount} / {results.length} tačnih odgovora ({accuracy}%)
+            {t("deutschTrainer.lessonView.answerStats", { correct: correctCount, total: results.length, pct: accuracy })}
           </p>
 
           <div className="space-y-3">
@@ -326,7 +329,7 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
                   setStageComplete(false);
                 }}
               >
-                Sljedeća faza: {STAGE_LABELS[selectedStage + 1]} →
+                {t("deutschTrainer.lessonView.nextStagePrefix")} {STAGE_LABELS[selectedStage + 1]} →
               </Button>
             )}
 
@@ -338,7 +341,7 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
                 setStageComplete(false);
               }}
             >
-              Nazad na lekciju
+              {t("deutschTrainer.lessonView.backToLesson")}
             </Button>
 
             <button
@@ -346,7 +349,7 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
               className="text-sm text-white/40 hover:text-white/70 transition-colors"
             >
               <RotateCcw className="inline h-3.5 w-3.5 mr-1" />
-              Ponovi s novim pitanjima
+              {t("deutschTrainer.lessonView.restart")}
             </button>
           </div>
         </motion.div>
@@ -363,7 +366,7 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
       >
         <div className="flex flex-col items-center">
           <Loader2 className="mb-3 h-8 w-8 animate-spin text-blue-400" />
-          <p className="text-sm font-medium text-white/50">Pripremamo pitanja...</p>
+          <p className="text-sm font-medium text-white/50">{t("deutschTrainer.lessonView.preparingExercises")}</p>
         </div>
       </div>
     );
@@ -386,9 +389,9 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
           />
           <div className="mx-auto max-w-lg rounded-2xl border border-white/[0.06] bg-white/[0.03] p-6 text-center">
             <AlertTriangle className="mx-auto mb-3 h-7 w-7 text-orange-400" />
-            <h3 className="text-base font-bold text-white">Vježbe trenutno nisu dostupne</h3>
+            <h3 className="text-base font-bold text-white">{t("deutschTrainer.lessonView.exercisesUnavailable")}</h3>
             <p className="mt-2 text-sm text-white/60">
-              {aiError || "Došlo je do privremenog problema pri generisanju zadataka. Pokušaj ponovo za nekoliko sekundi."}
+              {aiError || t("deutschTrainer.lessonView.exercisesError")}
             </p>
             <Button
               onClick={() => {
@@ -400,7 +403,7 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
               className="mt-4 h-11 rounded-xl font-bold text-white"
               style={{ background: "linear-gradient(135deg, #3b82f6, #06b6d4)" }}
             >
-              Nazad na faze
+              {t("deutschTrainer.lessonView.backToStages")}
             </Button>
           </div>
         </div>
@@ -514,7 +517,7 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
           {exercise && (
             <>
               <div className="mb-3 rounded-xl bg-white/[0.04] px-4 py-3 border border-white/[0.06]">
-                <p className="text-[10px] font-semibold uppercase tracking-wider text-blue-400/70">SITUACIJA</p>
+                <p className="text-[10px] font-semibold uppercase tracking-wider text-blue-400/70">{t("deutschTrainer.lessonView.situation")}</p>
                 <p className="mt-0.5 text-sm font-medium text-white/80">{exercise.situation}</p>
               </div>
 
@@ -547,8 +550,8 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
                     style={{ background: "linear-gradient(135deg, #3b82f6, #06b6d4)" }}
                   >
                     {step + 1 >= maxExercises || step + 1 >= exercises.length
-                      ? "Završi fazu ✓"
-                      : "Dalje →"}
+                      ? t("deutschTrainer.lessonView.finishStage")
+                      : t("deutschTrainer.lessonView.next")}
                     {step + 1 < maxExercises && step + 1 < exercises.length && (
                       <ArrowRight className="ml-2 h-4 w-4" />
                     )}

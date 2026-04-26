@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Check, X } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import type { Exercise } from "@/lib/deutsch-trainer-data";
 
 interface Props {
@@ -9,6 +10,7 @@ interface Props {
 }
 
 export default function QuickReaction({ exercise, onAnswer }: Props) {
+  const { t } = useTranslation("pages");
   const [selected, setSelected] = useState<number | null>(null);
   const isAnswered = selected !== null;
   const isCorrect = selected === exercise.answer;
@@ -56,7 +58,7 @@ export default function QuickReaction({ exercise, onAnswer }: Props) {
           <p className={`text-sm font-black mb-1 ${
             isCorrect ? "text-emerald-300" : "text-red-300"
           }`}>
-            {isCorrect ? "✓ Tačno!" : "✗ Netačno."}
+            {isCorrect ? t("deutschTrainer.exercise.correct") : t("deutschTrainer.exercise.incorrect")}
           </p>
           <p className={`text-sm leading-relaxed ${
             isCorrect ? "text-emerald-100/90" : "text-red-100/90"
