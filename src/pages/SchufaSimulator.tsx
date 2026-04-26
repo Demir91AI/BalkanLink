@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Lock, Sparkles, Shield } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import AuthGate from "@/components/AuthGate";
@@ -15,6 +16,7 @@ import { simulate, type SimInput, type SimResult } from "@/lib/schufa-simulator"
 type Step = "questionnaire" | "result" | "plan" | "guide";
 
 function SchufaSimulatorInner() {
+  const { t } = useTranslation("schufa");
   const [disclaimerAccepted, setDisclaimerAccepted] = useState(false);
   const [step, setStep] = useState<Step>("questionnaire");
   const [result, setResult] = useState<SimResult | null>(null);
@@ -45,8 +47,8 @@ function SchufaSimulatorInner() {
       }}
     >
       <SEO
-        title="Bonitet Simulator — Indikativna procjena kreditne sposobnosti"
-        description="Edukativni simulator kreditne sposobnosti za naše ljude u Njemačkoj. Razumij Schufa faktore prije nego što ti banka kaže Nein. Nije zvanični Schufa Score."
+        title={t("seo.title")}
+        description={t("seo.description")}
         path="/schufa-simulator"
       />
 
@@ -58,17 +60,16 @@ function SchufaSimulatorInner() {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[hsl(var(--gold))]/10 border border-[hsl(var(--gold))]/30 mb-4">
             <Sparkles className="h-3.5 w-3.5 text-[hsl(var(--gold))]" />
             <span className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--gold))]">
-              Premium · Bonitet Simulator
+              {t("hero.badge")}
             </span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-black text-white leading-tight mb-3">
-            Razumij svoju kreditnu sposobnost
+            {t("hero.headline1")}
             <br />
-            <span className="text-[hsl(var(--gold))]">prije nego ti banka kaže "Nein"</span>
+            <span className="text-[hsl(var(--gold))]">{t("hero.headline2")}</span>
           </h1>
           <p className="text-sm sm:text-base text-white/60 max-w-xl mx-auto leading-relaxed">
-            Edukativna procjena bazirana na Schufa javnim faktorima. 100% anonimno —
-            sve se računa u tvom browseru.
+            {t("hero.subline")}
           </p>
         </div>
 
@@ -107,20 +108,17 @@ function SchufaSimulatorInner() {
           <p className="flex items-start gap-2">
             <Shield className="h-3.5 w-3.5 shrink-0 text-white/40 mt-0.5" />
             <span>
-              <strong className="text-white/65">Pravna napomena:</strong> Ovo je edukativni simulator.
-              NIJE zvanični Schufa Score. Procjena je orijentaciona i bazirana na javnim Schufa scoring
-              faktorima (§31 BDSG). Stvarni Score možeš dobiti samo besplatnim{" "}
+              <strong className="text-white/65">{t("footer.legalLabel")}</strong>{" "}
+              {t("footer.legalBody")}{" "}
               <a
                 href="https://www.meineschufa.de/de/datenkopie"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline text-[hsl(var(--gold))]"
               >
-                Datenkopie zahtjevom (§15 DSGVO)
+                {t("footer.legalLink")}
               </a>
-              . Banke, stanodavci i poslodavci koriste isključivo zvanični Schufa Score. BalkanLink
-              ne snosi odgovornost za odluke donesene na osnovu ove procjene. Ovo nije pravni ni
-              finansijski savjet.
+              {t("footer.legalAfter")}
             </span>
           </p>
         </div>
@@ -130,9 +128,10 @@ function SchufaSimulatorInner() {
 }
 
 /**
- * Premium gate — ne-Premium korisnici vide marketing landing umjesto simulatora.
+ * Premium gate — non-Premium users see a marketing landing instead of the simulator.
  */
 function PremiumGate() {
+  const { t } = useTranslation("schufa");
   const navigate = useLocalizedNavigate();
   return (
     <div
@@ -154,17 +153,14 @@ function PremiumGate() {
         >
           <Lock className="h-6 w-6 text-[hsl(225,45%,6%)]" />
         </div>
-        <h1 className="text-2xl font-black text-white mb-2">Bonitet Simulator je Premium</h1>
-        <p className="text-sm text-white/60 mb-6 leading-relaxed">
-          Edukativna procjena tvoje kreditne sposobnosti, personalizirani 6-mjesečni plan
-          poboljšanja i kompletan vodič za zvanični Schufa Datenkopie — samo za Premium korisnike.
-        </p>
+        <h1 className="text-2xl font-black text-white mb-2">{t("gate.title")}</h1>
+        <p className="text-sm text-white/60 mb-6 leading-relaxed">{t("gate.subline")}</p>
         <ul className="text-left space-y-2 mb-6 text-sm text-white/75">
-          <li>✓ Indikativna procjena u 5 minuta</li>
-          <li>✓ Top 6 faktora koji utječu na tvoj profil</li>
-          <li>✓ Personalizirani plan poboljšanja za 6 mjeseci</li>
-          <li>✓ Vodič kako dobiti BESPLATAN zvanični Schufa Auskunft</li>
-          <li>✓ 100% anonimno — ništa se ne čuva</li>
+          <li>{t("gate.feature1")}</li>
+          <li>{t("gate.feature2")}</li>
+          <li>{t("gate.feature3")}</li>
+          <li>{t("gate.feature4")}</li>
+          <li>{t("gate.feature5")}</li>
         </ul>
         <Button
           onClick={() => navigate("/paketi")}
@@ -174,11 +170,9 @@ function PremiumGate() {
             boxShadow: "0 4px 20px hsla(43,70%,53%,0.35)",
           }}
         >
-          Otključaj Premium — 9.99€/mj
+          {t("gate.cta")}
         </Button>
-        <p className="mt-4 text-[11px] text-white/40">
-          Nije zvanični Schufa Score · Edukativni simulator
-        </p>
+        <p className="mt-4 text-[11px] text-white/40">{t("gate.footnote")}</p>
       </div>
     </div>
   );
