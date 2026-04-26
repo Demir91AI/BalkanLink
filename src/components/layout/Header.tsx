@@ -200,10 +200,8 @@ export default function Header() {
             <span className="relative z-10">{isPremium ? t("common:nav.premiumActive") : t("common:nav.becomePremium")}</span>
           </button>
 
-          {/* Language switcher — desktop only (mobile has it inside the sidebar) */}
-          <div className="hidden sm:block">
-            <LanguageSwitcher variant="header" />
-          </div>
+          {/* Language switcher — visible on all viewports */}
+          <LanguageSwitcher variant="header" />
 
           {/* User/profile icon button */}
           <button
