@@ -162,11 +162,14 @@ function AnerkennungPaywall() {
 
 export default function AnerkennungNavigator() {
   const navigate = useNavigate();
-  const { isPremium, isLoggedIn } = usePremiumAccess();
+  const { isPremium } = usePremiumAccess();
+  const { displayName } = useAuth();
 
   const [selectedCountry, setSelectedCountry] = useState<Country | null>(null);
   const [selectedProfession, setSelectedProfession] = useState<string | null>(null);
   const [bundesland, setBundesland] = useState<string>("");
+  const [emailFullName, setEmailFullName] = useState<string>(displayName || "");
+  const [emailVisible, setEmailVisible] = useState(false);
 
   const profession = useMemo(
     () => PROFESSIONS.find((p) => p.id === selectedProfession) || null,
@@ -176,12 +179,57 @@ export default function AnerkennungNavigator() {
     () => COUNTRIES.find((c) => c.code === selectedCountry) || null,
     [selectedCountry]
   );
+  const bundeslandObj = useMemo(
+    () => BUNDESLAENDER.find((b) => b.code === bundesland) || null,
+    [bundesland]
+  );
+  const authority = useMemo(() => {
+    if (!profession || !bundesland) return null;
+    return getAuthority(profession.id, bundesland) || ZAB_FALLBACK;
+  }, [profession, bundesland]);
+
+  const generatedEmail = useMemo(() => {
+    if (!profession || !country || !bundeslandObj || !emailFullName.trim()) return null;
+    const input: EmailTemplateInput = {
+      fullName: emailFullName.trim(),
+      professionDE: profession.nameDE,
+      professionLocal: profession.name,
+      countryOfOrigin: country.name,
+      bundesland: bundeslandObj.name,
+      regulation: profession.regulation,
+      requiresLanguageExam: profession.requiresLanguageExam,
+    };
+    return generateAnerkennungEmail(input);
+  }, [profession, country, bundeslandObj, emailFullName]);
+
+  const copyEmail = () => {
+    if (!generatedEmail) return;
+    const fullText = `${generatedEmail.subject}\n\n${generatedEmail.body}`;
+    navigator.clipboard.writeText(fullText);
+    toast.success("Email kopiran u clipboard");
+  };
+
+  const downloadEmail = () => {
+    if (!generatedEmail) return;
+    const fullText = `Betreff: ${generatedEmail.subject}\n\n${generatedEmail.body}\n\n\n────────────────────────────────────\n${generatedEmail.bsTranslation}`;
+    const blob = new Blob([fullText], { type: "text/plain;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `Anerkennung-Email-${profession?.id || "bewerbung"}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    toast.success("Email preuzet");
+  };
 
   const handleBack = () => navigateBackOrHome(navigate);
   const resetWizard = () => {
     setSelectedCountry(null);
     setSelectedProfession(null);
     setBundesland("");
+    setEmailVisible(false);
   };
 
   // Premium gate
