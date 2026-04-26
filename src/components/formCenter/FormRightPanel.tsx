@@ -4,13 +4,31 @@ import { isFormFree } from "@/lib/form-catalog";
 
 const GOLD = '#C9A84C';
 
+interface FormSource {
+  label: string;
+  url: string;
+}
+
 interface FormMeta {
   agency: string;
   musterSlug?: string;
   onlineUrl?: string;
   sourceLabel: string;
   sourceUrl: string;
+  /** Optional: additional official sources to show alongside the primary one. */
+  extraSources?: FormSource[];
+  /** Optional: short hint shown under the sources block (e.g. "Formular se preuzima sa stranice lokalnog Jugendamt-a."). */
+  sourceHint?: string;
 }
+
+/** Used as a safety net so every form always shows an "Zvanični izvor(i)" block. */
+const DEFAULT_META: FormMeta = {
+  agency: "Nadležna njemačka institucija",
+  sourceLabel: "Bund.de — Verwaltungsportal",
+  sourceUrl: "https://www.bund.de",
+  sourceHint:
+    "Formular se preuzima sa stranice nadležne lokalne ustanove (općina/Kreis/Land). Provjerite kod svog ureda za važeću verziju.",
+};
 
 const FORM_META: Record<string, FormMeta> = {
   "kindergeld":         { agency: "Familienkasse / BA",           musterSlug: "kindergeld",         sourceLabel: "Bundesagentur für Arbeit",     sourceUrl: "https://www.arbeitsagentur.de/familie-und-kinder/kindergeld" },
