@@ -59,6 +59,7 @@ export const formCatalog: FormGroup[] = [
       { slug: "mutterschaftsgeld", label: "Mutterschaftsgeld", desc: "Naknada tokom zaštitnog perioda prije i poslije poroda.", includes: "Smart Guide + Antrag Mutterschaftsgeld" },
       { slug: "kinderzuschlag", label: "Kinderzuschlag", desc: "Dodatna podrška za porodice s niskim primanjima.", includes: "Smart Guide + Antrag Kinderzuschlag" },
       { slug: "krippengeld-bayern", label: "Krippengeld (Bayern)", desc: "Subvencija za troškove vrtića u Bavarskoj za djecu do 3 godine.", includes: "Vodič + Antrag Krippengeld" },
+      { slug: "wirtschaftliche-jugendhilfe", label: "Wirtschaftliche Jugendhilfe", desc: "Finansijska pomoć Jugendamt-a za odgoj djeteta (SGB VIII).", includes: "Smart Guide + Antrag auf Hilfe zur Erziehung" },
     ],
   },
   {
@@ -163,6 +164,7 @@ export const MUSTER_SLUG_MAP: Record<string, string> = {
   "anlage-se": "anlage-se",
   "arbeitsbescheinigung": "arbeitsbescheinigung",
   "antragsruecknahme": "antragsruecknahme",
+  "wirtschaftliche-jugendhilfe": "wirtschaftliche-jugendhilfe",
 };
 
 export function hasMuster(slug: string): boolean {

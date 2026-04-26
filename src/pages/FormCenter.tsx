@@ -46,6 +46,7 @@ import AnlageUH2GuideContent from "@/components/guides/AnlageUH2GuideContent";
 import AnlageUH3GuideContent from "@/components/guides/AnlageUH3GuideContent";
 import AnfrageNichterreichbarkeitGuideContent from "@/components/guides/AnfrageNichterreichbarkeitGuideContent";
 import FuehrerscheinGuideContent from "@/components/formulare/FuehrerscheinGuide";
+import WirtschaftlicheJugendhilfeGuideContent from "@/components/guides/WirtschaftlicheJugendhilfeGuideContent";
 import FahrzeugzulassungGuide from "@/components/formulare/FahrzeugzulassungGuide";
 import { navigateBackOrHome } from "@/lib/navigation";
 import FormRightPanel from "@/components/formCenter/FormRightPanel";
@@ -184,6 +185,7 @@ function GuideContent({ slug }: { slug: string }) {
   if (slug === "anlage-uh3") return <><AnlageUH3GuideContent />{MusterButton}</>;
   if (slug === "nichterreichbarkeit") return <><AnfrageNichterreichbarkeitGuideContent />{MusterButton}</>;
   if (slug === "fuehrerschein") return <><FuehrerscheinGuideContent />{MusterButton}</>;
+  if (slug === "wirtschaftliche-jugendhilfe") return <><WirtschaftlicheJugendhilfeGuideContent />{MusterButton}</>;
   if (slug === "fahrzeugzulassung") return <><FahrzeugzulassungGuide />{MusterButton}</>;
 
   if (!guide) return null;
