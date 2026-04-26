@@ -90,7 +90,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           setProfileData(null);
           setProfileLoading(false);
 
-          if (consumeSessionExpiredFlag()) {
+          // Show "session expired" toast ONLY on a real SIGNED_OUT event
+          // triggered by inactivity timeout — never on INITIAL_SESSION
+          // (which fires on every page load before login).
+          if (event === "SIGNED_OUT" && consumeSessionExpiredFlag()) {
             toast({
               title: "Sesija je istekla. Molimo prijavite se ponovo.",
               duration: 5000,
