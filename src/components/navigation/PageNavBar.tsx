@@ -1,5 +1,6 @@
 import { ChevronLeft, Home } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { navigateBackOrHome } from "@/lib/navigation";
 interface Props {
   onBack?: () => void;
   inline?: boolean;
@@ -11,7 +12,7 @@ export default function PageNavBar({ onBack, inline }: Props) {
     if (onBack) {
       onBack();
     } else {
-      navigate(-1);
+      navigateBackOrHome(navigate);
     }
   };
 
