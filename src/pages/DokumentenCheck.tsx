@@ -328,49 +328,49 @@ export default function DokumentenCheck() {
           {/* ── Pricing cards ── */}
           <div className="grid grid-cols-2 gap-3">
             <div className="rounded-2xl border border-border bg-card p-5 text-center flex flex-col">
-              <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">Jednokratno</p>
+              <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">{t("documentCheck.pricing.oneTimeLabel")}</p>
               <p className="text-2xl font-black text-foreground">2,99€</p>
-              <p className="text-xs text-muted-foreground mt-1">po provjeri</p>
+              <p className="text-xs text-muted-foreground mt-1">{t("documentCheck.pricing.oneTimePerCheck")}</p>
               <p className="text-[11px] text-muted-foreground mt-2 flex-1">
-                Resetuje se nakon svake upotrebe
+                {t("documentCheck.pricing.oneTimeReset")}
               </p>
               <button
                 onClick={() => {
-                  if (!user) { navigate("/login"); return; }
+                  if (!user) { localizedNavigate("/login"); return; }
                   initiateCheckout(STRIPE_PRICE_IDS.DOC_CHECK, user.id, "payment");
                 }}
                 className="mt-3 block w-full rounded-xl border border-border px-3 py-2 text-xs font-semibold hover:bg-accent transition-colors"
               >
-                Kupi za 2,99€ →
+                {t("documentCheck.pricing.buyOneTime")}
               </button>
             </div>
             <div className="rounded-2xl border-2 border-[hsl(var(--gold))]/40 bg-[hsl(var(--gold))]/5 p-5 text-center relative flex flex-col">
-              <span className="absolute -top-2.5 right-3 rounded-full bg-[hsl(var(--gold))] px-2 py-0.5 text-[8px] font-bold text-white uppercase">⭐ Premium</span>
-              <p className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--gold))] mb-2">Premium</p>
+              <span className="absolute -top-2.5 right-3 rounded-full bg-[hsl(var(--gold))] px-2 py-0.5 text-[8px] font-bold text-white uppercase">{t("documentCheck.pricing.premiumBadge")}</span>
+              <p className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--gold))] mb-2">{t("documentCheck.pricing.premiumLabel")}</p>
               <p className="text-2xl font-black text-foreground">
                 9,99€
-                <span className="text-sm font-medium text-muted-foreground">/mj.</span>
+                <span className="text-sm font-medium text-muted-foreground">{t("documentCheck.pricing.premiumPerMonth")}</span>
               </p>
               <ul className="mt-3 text-[11px] text-muted-foreground text-left space-y-1 flex-1">
                 <li className="flex items-start gap-1">
                   <CheckCircle2 className="h-3 w-3 text-emerald-500 shrink-0 mt-0.5" />
-                  1×/dan gratis
+                  {t("documentCheck.pricing.premiumFeature1")}
                 </li>
                 <li className="flex items-start gap-1">
                   <CheckCircle2 className="h-3 w-3 text-emerald-500 shrink-0 mt-0.5" />
-                  Dodatne provjere 2,99€/kom
+                  {t("documentCheck.pricing.premiumFeature2")}
                 </li>
                 <li className="flex items-start gap-1">
                   <CheckCircle2 className="h-3 w-3 text-emerald-500 shrink-0 mt-0.5" />
-                  + sve Premium funkcije
+                  {t("documentCheck.pricing.premiumFeature3")}
                 </li>
               </ul>
               <button
-                onClick={() => navigate("/paketi")}
+                onClick={() => localizedNavigate("/paketi")}
                 className="mt-3 rounded-xl px-3 py-2 text-xs font-bold text-white transition-all hover:opacity-90"
                 style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))" }}
               >
-                Kupi Premium →
+                {t("documentCheck.pricing.buyPremium")}
               </button>
             </div>
           </div>
