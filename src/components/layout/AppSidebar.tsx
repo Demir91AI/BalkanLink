@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import {
   FileText, Shield, BookOpen, Camera, Megaphone, Plane,
   Briefcase, Building, Calculator, FileCheck, X, LogIn, LogOut, User,
-  CreditCard, Scale, Store, Home, Smartphone, Share2, Receipt, Gauge,
+  CreditCard, Scale, Store, Home, Smartphone, Share2, Receipt, Gauge, GraduationCap,
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
@@ -35,6 +35,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
     { title: t("sidebar.items.deutschTrainer"), url: "/deutsch-trainer", icon: BookOpen, premium: true, isNew: false },
     { title: t("sidebar.items.dokumentenCheck"), url: "/dokumenten-check", icon: Camera, premium: true, isNew: false },
     { title: "Bonitet Simulator", url: "/schufa-simulator", icon: Gauge, premium: true, isNew: false, isFree: false },
+    { title: "Anerkennung Navigator", url: "/anerkennung-navigator", icon: GraduationCap, premium: true, isNew: true, isFree: false },
     { title: t("sidebar.items.nudimTrazim"), url: "/nudim-trazim", icon: Megaphone, premium: false, isNew: false, isFree: false },
     { title: t("sidebar.items.vorlagen"), url: "/vorlagen", icon: FileCheck, premium: false, isNew: false, isFree: false },
   ];
