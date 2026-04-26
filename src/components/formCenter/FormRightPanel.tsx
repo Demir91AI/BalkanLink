@@ -93,7 +93,7 @@ interface Props {
 
 export default function FormRightPanel({ activeSlug, formLabel, formDesc }: Props) {
   const navigate = useNavigate();
-  const meta = activeSlug ? FORM_META[activeSlug] : null;
+  const meta = activeSlug ? FORM_META[activeSlug] ?? DEFAULT_META : null;
 
   const panelStyle: React.CSSProperties = {
     width: 260,
