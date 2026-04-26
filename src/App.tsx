@@ -110,6 +110,9 @@ const HistorijaPlacanja = lazy(() => import("./pages/HistorijaPlacanja"));
 const MojiPodaci = lazy(() => import("./pages/MojiPodaci"));
 const Mietrecht = lazy(() => import("./pages/Mietrecht"));
 
+// Dev-only visual fixtures (excluded from production bundle behaviour via guard).
+const VisualFlagBA = lazy(() => import("./pages/__visual/VisualFlagBA"));
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -264,6 +267,9 @@ function LocalizedRoutes() {
 function AppRoutes() {
   return (
     <Routes>
+      {!import.meta.env.PROD && (
+        <Route path="/__visual/flag-ba" element={<VisualFlagBA />} />
+      )}
       <Route path="/de/*" element={<LocalizedRoutes />} />
       <Route path="/*" element={<LocalizedRoutes />} />
     </Routes>
