@@ -439,7 +439,7 @@ export default function AnerkennungNavigator() {
           <div className="flex items-center justify-between gap-3 flex-wrap">
             <div>
               <p className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--gold))] mb-2">
-                Korak 3 od 3 — Rezultat
+                Korak 4 od 4 — Rezultat
               </p>
               <h2 className="text-xl sm:text-2xl font-bold text-foreground flex items-center gap-2 flex-wrap">
                 <span>{country.flag}</span>
@@ -448,6 +448,17 @@ export default function AnerkennungNavigator() {
               <p className="text-sm text-muted-foreground italic">
                 {profession.nameDE}
               </p>
+              {bundeslandObj && (
+                <p className="mt-1 text-xs text-muted-foreground flex items-center gap-1.5">
+                  <MapPin className="h-3 w-3" /> {bundeslandObj.name}
+                  <button
+                    onClick={() => setBundesland("")}
+                    className="ml-1 text-[hsl(var(--gold))] hover:underline"
+                  >
+                    promijeni
+                  </button>
+                </p>
+              )}
             </div>
             <button
               onClick={resetWizard}
