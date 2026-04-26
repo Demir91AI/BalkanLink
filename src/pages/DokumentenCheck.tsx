@@ -171,17 +171,19 @@ async function fileToBase64(file: File): Promise<string> {
 }
 
 /* ── Example document types ── */
-const DOC_EXAMPLES = [
-  { emoji: "📬", label: "Pismo od Finanzamt" },
-  { emoji: "🏠", label: "Ugovor o najmu" },
-  { emoji: "💰", label: "Bürgergeld obavijest" },
-  { emoji: "🏥", label: "Pismo od osiguranja" },
-  { emoji: "⚠️", label: "Mahnung (opomena)" },
-  { emoji: "📋", label: "Jobcenter odluka" },
-];
+const DOC_EXAMPLE_KEYS = [
+  { emoji: "📬", key: "letterFromFinanzamt" },
+  { emoji: "🏠", key: "rentalContract" },
+  { emoji: "💰", key: "buergergeldNotice" },
+  { emoji: "🏥", key: "insuranceLetter" },
+  { emoji: "⚠️", key: "mahnung" },
+  { emoji: "📋", key: "jobcenterDecision" },
+] as const;
 
 export default function DokumentenCheck() {
   const navigate = useNavigate();
+  const localizedNavigate = useLocalizedNavigate();
+  const { t } = useTranslation("pages");
   const [file, setFile] = useState<File | null>(null);
   const [filePreviewUrl, setFilePreviewUrl] = useState<string | null>(null);
   const [selectedFile, setSelectedFile] = React.useState<File | null>(null);
