@@ -102,7 +102,7 @@ function parseAnalysisSections(text: string, fallbackTitle: string): AnalysisSec
     sections.push({
       id: "full",
       icon: <FileText className="h-5 w-5" />,
-      title: "Rezultat analize",
+      title: fallbackTitle,
       content: text,
       colorClass: "border-border bg-card",
       iconColorClass: "text-foreground",
