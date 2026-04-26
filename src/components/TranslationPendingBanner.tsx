@@ -31,6 +31,10 @@ const TRANSLATED_DE_PATHS = new Set<string>([
   "/de/dokumentencheck",
   // DeutschTrainer — full page + child components translated
   "/de/deutsch-trainer",
+  // Viza — page + visa navigator components translated
+  "/de/viza",
+  // NudimTrazim — classifieds page + child components translated
+  "/de/nudim-trazim",
 ]);
 
 export default function TranslationPendingBanner() {
