@@ -35,8 +35,8 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
     { title: t("sidebar.items.deutschTrainer"), url: "/deutsch-trainer", icon: BookOpen, premium: true, isNew: false },
     { title: t("sidebar.items.dokumentenCheck"), url: "/dokumenten-check", icon: Camera, premium: true, isNew: false },
     { title: "Bonitet Simulator", url: "/schufa-simulator", icon: Gauge, premium: true, isNew: false, isFree: false },
-    { title: t("sidebar.items.nudimTrazim"), url: "/nudim-trazim", icon: Megaphone, premium: false, isNew: false, isFree: true },
-    { title: t("sidebar.items.vorlagen"), url: "/vorlagen", icon: FileCheck, premium: false, isNew: false, isFree: true },
+    { title: t("sidebar.items.nudimTrazim"), url: "/nudim-trazim", icon: Megaphone, premium: false, isNew: false, isFree: false },
+    { title: t("sidebar.items.vorlagen"), url: "/vorlagen", icon: FileCheck, premium: false, isNew: false, isFree: false },
   ];
 
   const secondaryItems = [
