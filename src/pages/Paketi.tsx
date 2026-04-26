@@ -1,13 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import { Check, X, Crown, ChevronLeft } from "lucide-react";
 import { navigateBackOrHome } from "@/lib/navigation";
-import { toast } from "sonner";
 import { motion } from "framer-motion";
+import { useAuth } from "@/contexts/AuthContext";
+import { initiateCheckout, STRIPE_PRICE_IDS } from "@/lib/stripe";
 
 export default function Paketi() {
   const navigate = useNavigate();
-  const handlePurchase = () => {
-    toast.info("Plaćanje uskoro dostupno. Za rani pristup: kontakt@balkanlink.de");
+  const { user } = useAuth();
+
+  const handleSubscribe = (plan: "monthly" | "yearly") => {
+    if (!user) { navigate("/login"); return; }
+    const priceId = plan === "yearly" ? STRIPE_PRICE_IDS.PREMIUM_YEARLY : STRIPE_PRICE_IDS.PREMIUM_MONTHLY;
+    initiateCheckout(priceId, user.id, "subscription");
   };
 
   return (
