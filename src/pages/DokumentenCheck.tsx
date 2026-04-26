@@ -228,9 +228,9 @@ export default function DokumentenCheck() {
 
   const handleAnalyze = useCallback(async () => {
     if (submittingRef.current || loading) return;
-    if (!confirmed) { setError("Molimo potvrdite checkbox prije analize."); return; }
+    if (!confirmed) { setError(t("documentCheck.errors.confirmRequired")); return; }
     if (!isPremium) { setShowPaywall(true); return; }
-    if (!file) { setError("Nije odabran dokument."); return; }
+    if (!file) { setError(t("documentCheck.errors.noFile")); return; }
 
     submittingRef.current = true;
     setLoading(true);
@@ -244,15 +244,15 @@ export default function DokumentenCheck() {
 
       const { data, error: fnError } = await supabase.functions.invoke("document-check", { body: payload });
 
-      if (fnError) throw new Error("Greška servera pri analizi dokumenta. Pokušajte ponovo za nekoliko trenutaka.");
-      if (data?.success === false) throw new Error(data.message || "Dokument nije mogao biti obrađen. Pokušajte s drugom datotekom.");
-      if (!data?.analysis) throw new Error("Dokument nije mogao biti obrađen. Pokušajte s drugom datotekom.");
+      if (fnError) throw new Error(t("documentCheck.errors.serverError"));
+      if (data?.success === false) throw new Error(data.message || t("documentCheck.errors.processingFailed"));
+      if (!data?.analysis) throw new Error(t("documentCheck.errors.processingFailed"));
 
       setAnalysis(data.analysis);
     } catch (err: any) {
-      const message = err.message || "Greška servera pri analizi dokumenta.";
+      const message = err.message || t("documentCheck.errors.fallback");
       if (message.includes("Edge Function") || message.includes("FunctionsHttpError") || message.includes("fetch")) {
-        setError("Greška servera pri analizi dokumenta. Pokušajte ponovo za nekoliko trenutaka.");
+        setError(t("documentCheck.errors.serverError"));
       } else {
         setError(message);
       }
@@ -260,7 +260,7 @@ export default function DokumentenCheck() {
       setLoading(false);
       submittingRef.current = false;
     }
-  }, [confirmed, file, isPremium, loading]);
+  }, [confirmed, file, isPremium, loading, t]);
 
   const handleClear = useCallback(() => {
     clearFile();
