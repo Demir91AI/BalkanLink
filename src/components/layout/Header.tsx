@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Header() {
-  const { loading, isAdmin, user } = useAuth();
+  const { loading, isAdmin, user, isPremium } = useAuth();
   const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
 
