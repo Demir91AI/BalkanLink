@@ -75,18 +75,18 @@ function ShowcaseCarousel() {
                   <div className="mt-auto flex gap-2 pt-2">
                     <Button asChild size="sm" className="h-8 rounded-lg px-4 text-xs font-bold text-black" style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))" }}>
                       {firm.website ? (
-                        <a href={firm.website} target="_blank" rel="noopener noreferrer">Pogledaj <ExternalLink className="ml-1 h-3 w-3" /></a>
+                        <a href={firm.website} target="_blank" rel="noopener noreferrer">{tView} <ExternalLink className="ml-1 h-3 w-3" /></a>
                       ) : (
-                        <Link to={`/firma/${firm.slug}`}>Pogledaj <ExternalLink className="ml-1 h-3 w-3" /></Link>
+                        <Link to={`/firma/${firm.slug}`}>{tView} <ExternalLink className="ml-1 h-3 w-3" /></Link>
                       )}
                     </Button>
                     <Button asChild variant="outline" size="sm" className="h-8 rounded-lg border-white/20 bg-white/10 px-4 text-xs font-semibold text-white hover:bg-white/20">
                       {firm.contactUrl ? (
-                        <a href={firm.contactUrl} target="_blank" rel="noopener noreferrer">Kontakt</a>
+                        <a href={firm.contactUrl} target="_blank" rel="noopener noreferrer">{tContact}</a>
                       ) : firm.phone ? (
-                        <a href={`tel:${firm.phone}`}>Kontakt</a>
+                        <a href={`tel:${firm.phone}`}>{tContact}</a>
                       ) : (
-                        <Link to={`/firma/${firm.slug}`}>Kontakt</Link>
+                        <Link to={`/firma/${firm.slug}`}>{tContact}</Link>
                       )}
                     </Button>
                   </div>
