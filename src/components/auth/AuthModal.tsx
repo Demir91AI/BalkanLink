@@ -139,7 +139,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
                     : "text-[#6B6B6B] hover:text-[#2D2D2D]"
                 }`}
               >
-                {"Prijava"}
+                {t("auth.modal.loginTab")}
               </button>
               <button
                 onClick={() => switchTab("register")}
@@ -149,7 +149,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
                     : "text-[#6B6B6B] hover:text-[#2D2D2D]"
                 }`}
               >
-                {"Registracija"}
+                {t("auth.modal.registerTab")}
               </button>
             </div>
 
@@ -157,7 +157,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
             <form onSubmit={tab === "login" ? handleLogin : handleRegister} className="p-6 flex flex-col gap-4">
               {/* Email */}
               <div>
-                <label className="block text-xs font-medium text-[#6B6B6B] mb-1.5">{"E-mail adresa"}</label>
+                <label className="block text-xs font-medium text-[#6B6B6B] mb-1.5">{t("auth.login.emailPlaceholder")}</label>
                 <input
                   type="email"
                   value={email}
@@ -170,7 +170,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
 
               {/* Password */}
               <div>
-                <label className="block text-xs font-medium text-[#6B6B6B] mb-1.5">{"Lozinka"}</label>
+                <label className="block text-xs font-medium text-[#6B6B6B] mb-1.5">{t("auth.login.passwordPlaceholder")}</label>
                 <div className="relative">
                   <input
                     type={showPassword ? "text" : "password"}
@@ -210,7 +210,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
               {/* Confirm password (register only) */}
               {tab === "register" && (
                 <div>
-                  <label className="block text-xs font-medium text-[#6B6B6B] mb-1.5">{"Potvrdi lozinku"}</label>
+                  <label className="block text-xs font-medium text-[#6B6B6B] mb-1.5">{t("auth.register.labelConfirmPassword")}</label>
                   <input
                     type={showPassword ? "text" : "password"}
                     value={confirmPassword}
@@ -236,7 +236,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
                   onClick={() => { setError(""); setView("forgot"); }}
                   className="text-xs text-[hsl(var(--gold))] hover:underline self-end -mt-2"
                 >
-                  {"Zaboravljena lozinka"}?
+                  {t("auth.login.forgotPassword")}
                 </button>
               )}
 
@@ -251,19 +251,19 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
                     className="mt-1 h-4 w-4 rounded border-[#E8E0D0] accent-[hsl(var(--gold))]"
                   />
                   <label htmlFor="terms-accept" className="text-[11px] text-[#6B6B6B] leading-relaxed">
-                    Prihvatam{" "}
+                    {t("auth.register.consentText")}{" "}
                     <a href="/agb" target="_blank" className="text-[hsl(var(--gold))] hover:underline">
-                      Uslove korištenja
+                      {t("auth.register.consentTermsLink")}
                     </a>
                     ,{" "}
                     <a href="/datenschutz" target="_blank" className="text-[hsl(var(--gold))] hover:underline">
-                      Zaštitu podataka
+                      {t("auth.register.consentPrivacyLink")}
                     </a>{" "}
-                    i potvrđujem da sam pročitao/la{" "}
+                    {t("auth.register.consentAiPrefix")}{" "}
                     <a href="/ki-hinweis" target="_blank" className="text-[hsl(var(--gold))] hover:underline">
-                      Napomenu o upotrebi KI
+                      {t("auth.register.consentAiLink")}
                     </a>
-                    . Razumijem da AI asistent pruža isključivo informativne odgovore.
+                    {t("auth.register.consentAiSuffix")}
                   </label>
                 </div>
               )}
@@ -275,19 +275,19 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
                 className="w-full h-11 rounded-xl bg-[hsl(var(--gold))] text-white font-semibold text-sm hover:brightness-110 disabled:opacity-60 transition-all flex items-center justify-center gap-2"
               >
                 {loading && <Loader2 className="h-4 w-4 animate-spin" />}
-                {tab === "login" ? "Prijavi se" : "Registruj se"}
+                {tab === "login" ? t("auth.login.submit") : t("auth.register.submit")}
               </button>
 
               {/* Login terms reminder */}
               {tab === "login" && (
                 <p className="text-center text-[10px] text-[#B0B0B0]">
-                  Prijavom potvrđuješ prihvatanje{" "}
+                  {t("auth.login.termsPrefix")}{" "}
                   <a href="/agb" className="text-[hsl(var(--gold))] hover:underline">
-                    Uslova korištenja
+                    {t("auth.login.termsLink")}
                   </a>{" "}
-                  i{" "}
+                  {t("auth.login.termsAnd")}{" "}
                   <a href="/datenschutz" className="text-[hsl(var(--gold))] hover:underline">
-                    Zaštite podataka
+                    {t("auth.login.privacyLink")}
                   </a>.
                 </p>
               )}
@@ -298,10 +298,10 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
         {/* Forgot password view */}
         {view === "forgot" && (
           <form onSubmit={handleForgot} className="p-6 flex flex-col gap-4">
-            <h2 className="text-lg font-bold text-[#2D2D2D]">{"Zaboravljena lozinka"}</h2>
-            <p className="text-sm text-[#6B6B6B]">{"Unesi e-mail za resetovanje."}</p>
+            <h2 className="text-lg font-bold text-[#2D2D2D]">{t("auth.forgotPassword.title")}</h2>
+            <p className="text-sm text-[#6B6B6B]">{t("auth.forgotPassword.subtitle")}</p>
             <div>
-              <label className="block text-xs font-medium text-[#6B6B6B] mb-1.5">{"E-mail adresa"}</label>
+              <label className="block text-xs font-medium text-[#6B6B6B] mb-1.5">{t("auth.login.emailPlaceholder")}</label>
               <input
                 type="email"
                 value={email}
@@ -318,10 +318,10 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
               className="w-full h-11 rounded-xl bg-[hsl(var(--gold))] text-white font-semibold text-sm hover:brightness-110 disabled:opacity-60 transition-all flex items-center justify-center gap-2"
             >
               {loading && <Loader2 className="h-4 w-4 animate-spin" />}
-              {"Pošalji link"}
+              {t("auth.forgotPassword.submit")}
             </button>
             <button type="button" onClick={() => { setError(""); setView("auth"); }} className="text-xs text-[hsl(var(--gold))] hover:underline self-center">
-              {"Nazad na prijavu"}
+              {t("auth.forgotPassword.backToLogin")}
             </button>
           </form>
         )}
@@ -329,8 +329,8 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
         {/* Forgot sent confirmation */}
         {view === "forgot-sent" && (
           <div className="p-6 flex flex-col gap-4 items-center text-center">
-            <h2 className="text-lg font-bold text-[#2D2D2D]">{"E-Mail prüfen"}</h2>
-            <p className="text-sm text-[#6B6B6B]">{"Bestätigungs-E-Mail gesendet."}</p>
+            <h2 className="text-lg font-bold text-[#2D2D2D]">{t("auth.forgotPassword.successTitle")}</h2>
+            <p className="text-sm text-[#6B6B6B]">{t("auth.forgotPassword.successDescription")}</p>
             <button
               onClick={handleClose}
               className="mt-2 h-10 px-6 rounded-xl bg-[hsl(var(--gold))] text-white font-semibold text-sm hover:brightness-110 transition-all"
