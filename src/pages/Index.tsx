@@ -37,6 +37,10 @@ function CarouselArrows({ onLeft, onRight }: { onLeft: () => void; onRight: () =
 
 /* ─── Showcase Carousel ─── */
 function ShowcaseCarousel() {
+  const { t } = useLanguage();
+  const tView = t("home.pricing.partnerView");
+  const tContact = t("home.pricing.partnerContact");
+  const tRecommended = t("home.pricing.partnerRecommended");
   const { ref, pause, scheduleResume, scrollByCard, onTouchStart, onTouchMove, onTouchEnd, onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useInfiniteScroll(0.7, 3000);
 
   type CardItem = { type: "firm"; firm: typeof premiumShowcaseFirms[0] };
