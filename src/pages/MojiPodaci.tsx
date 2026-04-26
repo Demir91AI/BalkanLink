@@ -2,10 +2,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PageNav from "@/components/navigation/PageNav";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Download, Trash2, ShieldAlert, Loader2, FileJson, AlertTriangle } from "lucide-react";
+import { Loader2, ArrowLeft } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "@/hooks/use-toast";
@@ -60,14 +59,14 @@ export default function MojiPodaci() {
       URL.revokeObjectURL(url);
 
       toast({
-        title: "Export uspješan",
-        description: "Tvoji podaci su preuzeti kao JSON fajl.",
+        title: "Podaci preuzeti",
+        description: "JSON fajl je sačuvan na tvoj uređaj.",
       });
     } catch (e) {
       const msg = e instanceof Error ? e.message : String(e);
       toast({
         variant: "destructive",
-        title: "Greška pri exportu",
+        title: "Greška pri preuzimanju",
         description: msg,
       });
     } finally {
@@ -77,7 +76,6 @@ export default function MojiPodaci() {
 
   const handleDelete = async () => {
     if (!user) return;
-    // Re-enforce client-side rules (defense-in-depth — also enforced by backend).
     const emailOk =
       confirmEmail.trim().toLowerCase() === (user.email ?? "").toLowerCase() &&
       (user.email ?? "").length > 0;
@@ -98,8 +96,6 @@ export default function MojiPodaci() {
       const token = session.session?.access_token;
       if (!token) throw new Error("Nema aktivne sesije. Prijavi se ponovo.");
 
-      // Use direct fetch so we can read 400/500 JSON bodies (functions.invoke
-      // discards the body on non-2xx).
       const projectId = import.meta.env.VITE_SUPABASE_PROJECT_ID;
       const res = await fetch(
         `https://${projectId}.supabase.co/functions/v1/delete-account`,
@@ -135,7 +131,7 @@ export default function MojiPodaci() {
             ? `Podaci su uklonjeni. Napomena uz Stripe (${cancelled} otkazanih): ${warnings.join("; ")}`
             : cancelled > 0
               ? `Svi tvoji podaci su uklonjeni. Otkazano ${cancelled} pretplata.`
-              : "Svi tvoji podaci su uklonjeni. Hvala što si bio s nama.",
+              : "Svi tvoji podaci su uklonjeni.",
       });
 
       await signOut();
@@ -156,15 +152,11 @@ export default function MojiPodaci() {
     return (
       <>
         <PageNav />
-        <div className="container max-w-2xl mx-auto py-12 px-4">
-          <Card>
-            <CardContent className="pt-6 text-center space-y-4">
-              <p className="text-muted-foreground">
-                Moraš biti prijavljen da bi pristupio svojim podacima.
-              </p>
-              <Button onClick={() => navigate("/login")}>Prijavi se</Button>
-            </CardContent>
-          </Card>
+        <div className="container max-w-md mx-auto py-12 px-4 text-center space-y-4">
+          <p className="text-sm text-muted-foreground">
+            Moraš biti prijavljen da bi pristupio postavkama.
+          </p>
+          <Button onClick={() => navigate("/login")} size="sm">Prijavi se</Button>
         </div>
       </>
     );
@@ -172,167 +164,163 @@ export default function MojiPodaci() {
 
   return (
     <>
-      <SEO title="Moji podaci — GDPR | BalkanLink" description="Preuzmi svoje podatke ili trajno obriši svoj BalkanLink račun (GDPR čl. 15 i 17)." />
+      <SEO
+        title="Postavke računa | BalkanLink"
+        description="Upravljaj svojim podacima i računom (GDPR čl. 15 i 17)."
+      />
       <PageNav />
-      <div className="container max-w-3xl mx-auto py-8 px-4 space-y-6">
-        <div className="space-y-2">
-          <h1 className="text-2xl md:text-3xl font-bold">Moji podaci</h1>
-          <p className="text-sm text-muted-foreground">
-            Tvoja prava prema GDPR-u (čl. 15 i 17): preuzimanje vlastitih podataka i trajno brisanje računa.
+      <div className="container max-w-md mx-auto py-8 px-4 space-y-6">
+        <button
+          type="button"
+          onClick={() => navigate("/profil")}
+          className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors"
+        >
+          <ArrowLeft className="h-3 w-3" />
+          Nazad na profil
+        </button>
+
+        <div className="space-y-1">
+          <h1 className="text-lg font-semibold">Postavke računa</h1>
+          <p className="text-xs text-muted-foreground">
+            {user.email}
           </p>
         </div>
 
-        {/* EXPORT */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-lg">
-              <FileJson className="h-5 w-5 text-[hsl(var(--gold))]" />
-              Preuzmi svoje podatke (GDPR čl. 15)
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <p className="text-sm text-muted-foreground">
-              Dobićeš JSON fajl sa svim podacima koje BalkanLink čuva o tebi:
-            </p>
-            <ul className="text-sm text-muted-foreground/90 space-y-1 list-disc list-inside ml-2">
-              <li>Profil (email, ime, premium status, datumi)</li>
-              <li>Plaćanja (Stripe transakcije i mreza payments)</li>
-              <li>Tvoji oglasi i postavke notifikacija</li>
-              <li>Napredak u Deutsch Traineru</li>
-              <li>Korištenje asistenta i Dokumenten-Checka</li>
-            </ul>
-            <Button onClick={handleExport} disabled={exporting} className="w-full sm:w-auto">
+        {/* Export — diskretna sekcija */}
+        <section className="space-y-2 pb-5 border-b border-border/40">
+          <div className="flex items-center justify-between gap-3">
+            <div className="space-y-0.5 min-w-0">
+              <p className="text-sm font-medium">Preuzmi svoje podatke</p>
+              <p className="text-[11px] text-muted-foreground">
+                JSON kopija svih tvojih podataka (GDPR čl. 15).
+              </p>
+            </div>
+            <Button
+              onClick={handleExport}
+              disabled={exporting}
+              variant="outline"
+              size="sm"
+              className="shrink-0 text-xs h-8"
+            >
               {exporting ? (
                 <>
-                  <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                  Pripremam fajl...
+                  <Loader2 className="h-3 w-3 mr-1.5 animate-spin" />
+                  Pripremam…
                 </>
               ) : (
-                <>
-                  <Download className="h-4 w-4 mr-2" />
-                  Preuzmi JSON
-                </>
+                "Preuzmi JSON"
               )}
             </Button>
-          </CardContent>
-        </Card>
+          </div>
+        </section>
 
-        {/* DELETE */}
-        <Card className="border-destructive/30">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-lg text-destructive">
-              <ShieldAlert className="h-5 w-5" />
-              Trajno obriši račun (GDPR čl. 17)
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="rounded-md border border-destructive/30 bg-destructive/5 p-3 text-sm flex items-start gap-2">
-              <AlertTriangle className="h-4 w-4 mt-0.5 shrink-0 text-destructive" />
+        {/* Delete — diskretna sekcija; agresivno UI tek kad se otvori konfirmacija */}
+        <section className="space-y-2">
+          <div className="space-y-0.5">
+            <p className="text-sm font-medium">Brisanje računa</p>
+            <p className="text-[11px] text-muted-foreground">
+              Trajno uklanja sve tvoje podatke i otkazuje aktivnu pretplatu (GDPR čl. 17).
+            </p>
+          </div>
+
+          {!showConfirm ? (
+            <button
+              type="button"
+              onClick={() => setShowConfirm(true)}
+              className="text-xs text-destructive/80 hover:text-destructive transition-colors underline-offset-4 hover:underline"
+            >
+              Želim obrisati račun
+            </button>
+          ) : (
+            <div className="space-y-3 rounded-md border border-border/50 bg-muted/20 p-3 mt-1">
+              <p className="text-[11px] text-muted-foreground">
+                Ova akcija je nepovratna. Aktivna pretplata bit će otkazana, profil i historija obrisani.
+              </p>
+
               <div className="space-y-1.5">
-                <p className="font-medium text-foreground">Ova akcija je nepovratna.</p>
-                <ul className="text-muted-foreground space-y-0.5 list-disc list-inside text-xs">
-                  <li>Aktivna Stripe pretplata bit će automatski otkazana</li>
-                  <li>Profil, oglasi, napredak i historija plaćanja bit će obrisani</li>
-                  <li>Tvoj auth račun bit će uklonjen — ne možeš ga vratiti</li>
-                  <li>Preporučujemo da prvo preuzmeš svoje podatke (gore)</li>
-                </ul>
+                <Label htmlFor="confirm-email" className="text-[11px] text-muted-foreground">
+                  Ukucaj svoj email ({user.email}):
+                </Label>
+                <Input
+                  id="confirm-email"
+                  type="email"
+                  value={confirmEmail}
+                  onChange={(e) => {
+                    setConfirmEmail(e.target.value);
+                    if (deleteError) setDeleteError(null);
+                  }}
+                  placeholder={user.email ?? ""}
+                  autoComplete="off"
+                  className="h-8 text-xs"
+                  aria-invalid={deleteError ? true : undefined}
+                />
+              </div>
+              <div className="space-y-1.5">
+                <Label htmlFor="confirm-text" className="text-[11px] text-muted-foreground">
+                  Ukucaj <span className="font-mono font-bold text-destructive">OBRIŠI</span> velikim slovima:
+                </Label>
+                <Input
+                  id="confirm-text"
+                  value={confirmText}
+                  onChange={(e) => {
+                    setConfirmText(e.target.value);
+                    if (deleteError) setDeleteError(null);
+                  }}
+                  placeholder="OBRIŠI"
+                  autoComplete="off"
+                  className="h-8 text-xs"
+                  aria-invalid={deleteError ? true : undefined}
+                />
+              </div>
+
+              {deleteError && (
+                <p
+                  role="alert"
+                  className="text-[11px] text-destructive"
+                >
+                  {deleteError}
+                </p>
+              )}
+
+              <div className="flex flex-col-reverse sm:flex-row gap-2 pt-1">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => {
+                    setShowConfirm(false);
+                    setConfirmEmail("");
+                    setConfirmText("");
+                    setDeleteError(null);
+                  }}
+                  disabled={deleting}
+                  className="text-xs h-8"
+                >
+                  Odustani
+                </Button>
+                <Button
+                  variant="destructive"
+                  size="sm"
+                  onClick={handleDelete}
+                  disabled={
+                    deleting ||
+                    confirmEmail.trim().toLowerCase() !== (user.email ?? "").toLowerCase() ||
+                    confirmText !== "OBRIŠI"
+                  }
+                  className="flex-1 text-xs h-8"
+                >
+                  {deleting ? (
+                    <>
+                      <Loader2 className="h-3 w-3 mr-1.5 animate-spin" />
+                      Brišem…
+                    </>
+                  ) : (
+                    "Trajno obriši"
+                  )}
+                </Button>
               </div>
             </div>
-
-            {!showConfirm ? (
-              <Button
-                variant="destructive"
-                onClick={() => setShowConfirm(true)}
-                className="w-full sm:w-auto"
-              >
-                <Trash2 className="h-4 w-4 mr-2" />
-                Želim obrisati račun
-              </Button>
-            ) : (
-              <div className="space-y-3 rounded-md border border-destructive/40 bg-background/50 p-4">
-                <div className="space-y-2">
-                  <Label htmlFor="confirm-email" className="text-xs">
-                    Ukucaj svoj email ({user.email}):
-                  </Label>
-                  <Input
-                    id="confirm-email"
-                    type="email"
-                    value={confirmEmail}
-                    onChange={(e) => {
-                      setConfirmEmail(e.target.value);
-                      if (deleteError) setDeleteError(null);
-                    }}
-                    placeholder={user.email ?? ""}
-                    autoComplete="off"
-                    aria-invalid={deleteError ? true : undefined}
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="confirm-text" className="text-xs">
-                    Ukucaj <span className="font-mono font-bold text-destructive">OBRIŠI</span> velikim slovima:
-                  </Label>
-                  <Input
-                    id="confirm-text"
-                    value={confirmText}
-                    onChange={(e) => {
-                      setConfirmText(e.target.value);
-                      if (deleteError) setDeleteError(null);
-                    }}
-                    placeholder="OBRIŠI"
-                    autoComplete="off"
-                    aria-invalid={deleteError ? true : undefined}
-                  />
-                </div>
-
-                {deleteError && (
-                  <div
-                    role="alert"
-                    className="flex items-start gap-2 rounded-md border border-destructive/50 bg-destructive/10 p-3 text-sm text-destructive"
-                  >
-                    <AlertTriangle className="h-4 w-4 mt-0.5 shrink-0" />
-                    <span>{deleteError}</span>
-                  </div>
-                )}
-                <div className="flex flex-col sm:flex-row gap-2 pt-2">
-                  <Button
-                    variant="destructive"
-                    onClick={handleDelete}
-                    disabled={
-                      deleting ||
-                      confirmEmail.trim().toLowerCase() !== (user.email ?? "").toLowerCase() ||
-                      confirmText !== "OBRIŠI"
-                    }
-                    className="flex-1"
-                  >
-                    {deleting ? (
-                      <>
-                        <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                        Brišem...
-                      </>
-                    ) : (
-                      <>
-                        <Trash2 className="h-4 w-4 mr-2" />
-                        Trajno obriši
-                      </>
-                    )}
-                  </Button>
-                  <Button
-                    variant="outline"
-                    onClick={() => {
-                      setShowConfirm(false);
-                      setConfirmEmail("");
-                      setConfirmText("");
-                      setDeleteError(null);
-                    }}
-                    disabled={deleting}
-                  >
-                    Odustani
-                  </Button>
-                </div>
-              </div>
-            )}
-          </CardContent>
-        </Card>
+          )}
+        </section>
       </div>
     </>
   );
