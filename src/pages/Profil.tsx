@@ -220,83 +220,13 @@ export default function Profil() {
               </p>
             </div>
 
-            {/* Status sekcija */}
-            <div className="rounded-lg border border-border/40 bg-muted/30 px-4 py-4 space-y-3">
-              <div className="flex items-center justify-between gap-2">
-                <p className="text-xs text-muted-foreground">Status pretplate</p>
-                <Button
-                  onClick={() => loadDetails(true)}
-                  disabled={refreshing}
-                  variant="ghost"
-                  size="sm"
-                  className="h-7 px-2 text-[11px] text-muted-foreground hover:text-foreground"
-                  aria-label="Osvježi status pretplate"
-                >
-                  <RefreshCw className={`h-3 w-3 mr-1 ${refreshing ? "animate-spin" : ""}`} />
-                  {refreshing ? "Sinhronizujem..." : "Osvježi status"}
-                </Button>
-              </div>
-
-              {lastError && !isPremium && (
-                <div className="rounded-md border border-amber-500/20 bg-amber-500/5 p-2.5 text-[11px] text-muted-foreground flex items-start gap-2">
-                  <RefreshCw className="h-3.5 w-3.5 mt-0.5 shrink-0 text-amber-500/70" />
-                  <p>
-                    Status se osvježava… Ako Premium nije aktivan u par minuta, klikni{" "}
-                    <span className="font-medium text-foreground">Osvježi status</span>.
-                  </p>
-                </div>
-              )}
-              {lastError && isPremium && (
-                <p className="text-[10px] text-muted-foreground/60 italic">
-                  Premium status potvrđen iz tvog naloga.
-                </p>
-              )}
-
-              {!lastError && lastSyncedAt && (
-                <div className="rounded-md border border-emerald-500/25 bg-emerald-500/5 p-2.5 text-[11px] flex items-start gap-2">
-                  <CheckCircle2 className="h-3.5 w-3.5 mt-0.5 shrink-0 text-emerald-500/90" />
-                  <div className="space-y-1 min-w-0 flex-1">
-                    <p className="font-medium text-foreground">
-                      Sinhronizacija uspješna
-                    </p>
-                    <div className="space-y-0.5 text-muted-foreground">
-                      <p>
-                        Status:{" "}
-                        {details?.subscribed ? (
-                          willCancel ? (
-                            <span className="font-medium text-amber-500/90">Aktivan (otkazana obnova)</span>
-                          ) : (
-                            <span className="font-medium text-emerald-500/90">Aktivan (Premium)</span>
-                          )
-                        ) : (
-                          <span className="font-medium text-muted-foreground">Neaktivan (Free)</span>
-                        )}
-                      </p>
-                      {endDate && (
-                        <p>
-                          {willCancel || !details?.subscribed ? "Premium istječe" : "Sljedeća naplata"}:{" "}
-                          <span className="font-medium text-foreground">{formatDate(endDate)}</span>
-                          {typeof daysLeft === "number" && (
-                            <span className="text-muted-foreground/70">
-                              {" "}({daysLeft} {daysLeft === 1 ? "dan" : "dana"})
-                            </span>
-                          )}
-                        </p>
-                      )}
-                      <p className="text-muted-foreground/70 text-[10px] pt-0.5">
-                        Provjereno u {lastSyncedAt.toLocaleTimeString("bs-BA", { hour: "2-digit", minute: "2-digit", second: "2-digit" })}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              )}
-
+            <div className="space-y-2 pt-2">
               {profileLoading ? (
                 <span className="text-sm text-muted-foreground">Učitavanje...</span>
               ) : isPremium ? (
                 <>
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <Badge className="bg-[hsl(var(--gold))] text-[#0f1f3d] hover:bg-[hsl(var(--gold))]">
+                  <div className="flex items-center justify-center gap-2 flex-wrap">
+                    <Badge className="bg-gold text-gold-foreground hover:bg-gold">
                       <Crown className="h-3 w-3 mr-1" /> {planLabel}
                     </Badge>
                     {priceLabel && (
@@ -306,62 +236,11 @@ export default function Profil() {
                     )}
                   </div>
 
-                  <div className="rounded-md border border-border/40 bg-background/40 p-3 space-y-2 text-sm">
-                    <p className="text-foreground/90 leading-relaxed">
-                      Trenutno koristiš{" "}
-                      <span className="font-semibold text-[hsl(var(--gold))]">{planLabel}</span> pretplatu.
-                    </p>
-
-                    {endDate && (
-                      <div className="flex items-start gap-2 text-xs text-muted-foreground">
-                        <Calendar className="h-3.5 w-3.5 mt-0.5 shrink-0" />
-                        <div className="space-y-0.5">
-                          {willCancel ? (
-                            <>
-                              <p className="text-amber-500/90 font-medium">
-                                Pretplata otkazana
-                              </p>
-                              <p>
-                                Premium pristup ostaje aktivan do{" "}
-                                <span className="font-medium text-foreground">{formatDate(endDate)}</span>.
-                                Nakon toga prelaziš na Free.
-                              </p>
-                            </>
-                          ) : (
-                            <>
-                              <p>
-                                Sljedeća automatska naplata:{" "}
-                                <span className="font-medium text-foreground">{formatDate(endDate)}</span>
-                              </p>
-                              {typeof daysLeft === "number" && daysLeft <= 7 && (
-                                <p className="text-amber-500/90">
-                                  Obnova za {daysLeft} {daysLeft === 1 ? "dan" : "dana"}
-                                </p>
-                              )}
-                            </>
-                          )}
-                        </div>
-                      </div>
-                    )}
-
-                    {!willCancel && (
-                      <div className="flex items-start gap-2 text-[11px] text-muted-foreground/80 pt-1 border-t border-border/30">
-                        <CheckCircle2 className="h-3 w-3 mt-0.5 shrink-0 text-emerald-500/80" />
-                        <p>
-                          Auto-renewal je aktivan. Možeš ga otkazati u svako doba preko portala
-                          — pristup ostaje do kraja perioda.
-                        </p>
-                      </div>
-                    )}
-                  </div>
-
                   <Button
                     onClick={handlePortal}
-                    variant="outline"
-                    size="sm"
-                    className="w-full"
+                    className="w-full bg-gold text-gold-foreground hover:opacity-90 font-bold"
                   >
-                    <Settings className="h-3.5 w-3.5 mr-2" />
+                    <Settings className="h-4 w-4 mr-2" />
                     Upravljaj pretplatom
                   </Button>
                 </>
@@ -380,8 +259,81 @@ export default function Profil() {
                 </>
               )}
 
-              {auditLog.length > 0 && (
-                <div className="rounded-md border border-border/40 bg-background/40 p-3 space-y-2">
+              <Button
+                onClick={() => navigate("/profil/placanja")}
+                variant="outline"
+                className="w-full"
+              >
+                <Receipt className="h-4 w-4 mr-2" />
+                Historija plaćanja
+              </Button>
+
+              <details className="group pt-2">
+                <summary className="cursor-pointer text-[11px] text-muted-foreground/70 hover:text-muted-foreground transition-colors list-none flex items-center justify-center gap-1.5 select-none py-1">
+                  <span>Detalji pretplate i računa</span>
+                  <span className="text-muted-foreground/40 group-open:rotate-180 transition-transform">⌄</span>
+                </summary>
+                <div className="pt-3 space-y-3">
+                  <div className="rounded-lg border border-border/40 bg-muted/30 px-4 py-4 space-y-3">
+                    <div className="flex items-center justify-between gap-2">
+                      <p className="text-xs text-muted-foreground">Status pretplate</p>
+                      <Button
+                        onClick={() => loadDetails(true)}
+                        disabled={refreshing}
+                        variant="ghost"
+                        size="sm"
+                        className="h-7 px-2 text-[11px] text-muted-foreground hover:text-foreground"
+                        aria-label="Osvježi status pretplate"
+                      >
+                        <RefreshCw className={`h-3 w-3 mr-1 ${refreshing ? "animate-spin" : ""}`} />
+                        {refreshing ? "Sinhronizujem..." : "Osvježi"}
+                      </Button>
+                    </div>
+
+                    {lastError && !isPremium && (
+                      <p className="text-[11px] text-muted-foreground">
+                        Status se još osvježava. Ako Premium nije aktivan, klikni Osvježi.
+                      </p>
+                    )}
+                    {lastError && isPremium && (
+                      <p className="text-[10px] text-muted-foreground/60 italic">
+                        Premium status potvrđen iz tvog naloga.
+                      </p>
+                    )}
+
+                    {!lastError && lastSyncedAt && (
+                      <div className="rounded-md border border-emerald-500/25 bg-emerald-500/5 p-2.5 text-[11px] flex items-start gap-2">
+                        <CheckCircle2 className="h-3.5 w-3.5 mt-0.5 shrink-0 text-emerald-500/90" />
+                        <div className="space-y-1 min-w-0 flex-1">
+                          <p className="font-medium text-foreground">Sinhronizacija uspješna</p>
+                          <div className="space-y-0.5 text-muted-foreground">
+                            <p>Status: <span className="font-medium text-foreground">{details?.subscribed ? "Premium" : "Free"}</span></p>
+                            {endDate && (
+                              <p>
+                                {willCancel || !details?.subscribed ? "Premium istječe" : "Sljedeća naplata"}: <span className="font-medium text-foreground">{formatDate(endDate)}</span>
+                              </p>
+                            )}
+                            <p className="text-muted-foreground/70 text-[10px] pt-0.5">
+                              Provjereno u {lastSyncedAt.toLocaleTimeString("bs-BA", { hour: "2-digit", minute: "2-digit", second: "2-digit" })}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {isPremium && endDate && (
+                      <div className="flex items-start gap-2 text-xs text-muted-foreground">
+                        <Calendar className="h-3.5 w-3.5 mt-0.5 shrink-0" />
+                        <p>
+                          {willCancel ? "Premium pristup ostaje aktivan do" : "Sljedeća automatska naplata"}: <span className="font-medium text-foreground">{formatDate(endDate)}</span>
+                          {typeof daysLeft === "number" && <span className="text-muted-foreground/70"> ({daysLeft} {daysLeft === 1 ? "dan" : "dana"})</span>}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+
+                  {auditLog.length > 0 && (
+                    <div className="rounded-md border border-border/40 bg-background/40 p-3 space-y-2">
                   <div className="flex items-center justify-between gap-2">
                     <div className="flex items-center gap-1.5 text-[11px] font-medium text-foreground/90">
                       <History className="h-3 w-3" />
@@ -446,28 +398,20 @@ export default function Profil() {
                       );
                     })}
                   </ul>
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
+              </details>
 
-            <div className="space-y-2 pt-2">
               {!isPremium && (
                 <Button
                   onClick={() => navigate("/paketi")}
-                  className="w-full bg-[hsl(var(--gold))] text-[#0f1f3d] hover:opacity-90 font-bold"
+                  className="w-full bg-gold text-gold-foreground hover:opacity-90 font-bold"
                 >
                   <Crown className="h-4 w-4 mr-2" />
                   Nadogradi na Premium
                 </Button>
               )}
-              <Button
-                onClick={() => navigate("/profil/placanja")}
-                variant="outline"
-                className="w-full"
-              >
-                <Receipt className="h-4 w-4 mr-2" />
-                Historija plaćanja
-              </Button>
               <Button
                 onClick={handleLogout}
                 variant="outline"
