@@ -138,7 +138,7 @@ export default function HeroSection() {
               filter: "drop-shadow(0 4px 20px rgba(0,0,0,0.5))",
             }}
           >
-            Tvoj vodič kroz njemački sistem.
+            {t("home.heroHeadlineBeforeAccent")}{t("home.heroHeadlineAccent")}{t("home.heroHeadlineAfterAccent")}
           </motion.h1>
 
           {/* Subheadline */}
@@ -149,7 +149,7 @@ export default function HeroSection() {
             className="mx-auto mt-7 max-w-xl text-white/80 leading-relaxed"
             style={{ fontSize: "clamp(0.95rem, 1.8vw, 1.15rem)" }}
           >
-            Formulari, zahtjevi i procedure objašnjeni jasno, strukturirano i na jednom mjestu.
+            {t("home.heroSubline")}
           </motion.p>
 
           {/* CTA */}
@@ -174,7 +174,7 @@ export default function HeroSection() {
               }}
             >
               <span className="absolute inset-0 rounded-[10px] opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ boxShadow: "0 0 30px hsla(43,70%,55%,0.5), 0 0 60px hsla(43,70%,55%,0.2)" }} />
-              <span className="relative">Pokreni vodič</span>
+              <span className="relative">{t("home.ctaPrimary")}</span>
             </button>
             <button
               onClick={() => navigate("/paketi")}
@@ -189,7 +189,7 @@ export default function HeroSection() {
                 backdropFilter: "blur(8px)",
               }}
             >
-              Pogledaj planove
+              {t("home.ctaSecondary")}
             </button>
           </motion.div>
 
@@ -200,7 +200,7 @@ export default function HeroSection() {
             transition={{ duration: 0.5, delay: 0.7 }}
             className="mt-10 text-white/40 text-[0.72rem]"
           >
-            BalkanLink nije pravni savjetnik. Sadržaj služi isključivo za orijentaciju.
+            {t("home.disclaimer")}
           </motion.p>
 
           {/* Trust badges */}
