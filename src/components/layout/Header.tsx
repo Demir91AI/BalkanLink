@@ -193,7 +193,7 @@ export default function Header() {
               className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full"
             />
             <Crown className="h-3.5 w-3.5 relative z-10" strokeWidth={2.5} />
-            <span className="relative z-10">Postani Premium</span>
+            <span className="relative z-10">{isPremium ? "Premium aktivan" : "Postani Premium"}</span>
           </button>
 
           {/* User/profile icon button */}
