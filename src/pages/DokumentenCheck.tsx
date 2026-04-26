@@ -274,8 +274,8 @@ export default function DokumentenCheck() {
 
   const handleBack = useCallback(() => { navigateBackOrHome(navigate); }, [navigate]);
 
-  const sections = useMemo(() => analysis ? parseAnalysisSections(analysis) : [], [analysis]);
-  const summary = useMemo(() => sections.length > 0 ? extractSummaryFromSections(sections) : null, [sections]);
+  const sections = useMemo(() => analysis ? parseAnalysisSections(analysis, t("documentCheck.results.fallbackTitle")) : [], [analysis, t]);
+  const summary = useMemo(() => sections.length > 0 ? extractSummaryFromSections(sections, t) : null, [sections, t]);
 
   return (
     <>
@@ -284,17 +284,17 @@ export default function DokumentenCheck() {
         <div className="container max-w-4xl px-4">
           <PageNavBar onBack={handleBack} />
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl lg:text-4xl">
-            Provjera dokumenata
+            {t("documentCheck.title")}
           </h1>
           <p className="mt-2 text-sm text-primary-foreground/80 max-w-xl leading-relaxed">
-            Učitaj pismo ili dokument — dobiješ objašnjenje na svom jeziku u sekundi
+            {t("documentCheck.subtitle")}
           </p>
 
           {/* Document type examples — horizontal scroll */}
           <div className="mt-5 flex gap-2 overflow-x-auto pb-2 -mx-1 px-1">
-            {DOC_EXAMPLES.map((ex) => (
-              <span key={ex.label} className="shrink-0 rounded-full bg-primary-foreground/10 border border-primary-foreground/20 px-3 py-1.5 text-xs font-medium text-primary-foreground whitespace-nowrap">
-                {ex.emoji} {ex.label}
+            {DOC_EXAMPLE_KEYS.map((ex) => (
+              <span key={ex.key} className="shrink-0 rounded-full bg-primary-foreground/10 border border-primary-foreground/20 px-3 py-1.5 text-xs font-medium text-primary-foreground whitespace-nowrap">
+                {ex.emoji} {t(`documentCheck.examples.${ex.key}`)}
               </span>
             ))}
           </div>
