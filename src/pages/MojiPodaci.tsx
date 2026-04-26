@@ -322,6 +322,7 @@ export default function MojiPodaci() {
                       setShowConfirm(false);
                       setConfirmEmail("");
                       setConfirmText("");
+                      setDeleteError(null);
                     }}
                     disabled={deleting}
                   >
