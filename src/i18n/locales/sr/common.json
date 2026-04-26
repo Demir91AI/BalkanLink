@@ -1,0 +1,244 @@
+{
+  "nav": {
+    "home": "Početna",
+    "smartGuides": "Smart vodiči",
+    "documentCheck": "Provera dokumenata",
+    "visa": "Vize",
+    "germanTrainer": "Nemački jezik",
+    "classifieds": "Oglasi",
+    "about": "O nama",
+    "contact": "Kontakt",
+    "login": "Prijava",
+    "register": "Registracija",
+    "logout": "Odjava",
+    "profile": "Profil",
+    "premiumActive": "Premium aktivan",
+    "becomePremium": "Postani Premium",
+    "menu": "Meni"
+  },
+  "sidebar": {
+    "menu": "Meni",
+    "navAriaLabel": "Navigacioni meni",
+    "greeting": "Dobro došao/la, {{name}}!",
+    "defaultUser": "Korisniče",
+    "paymentHistory": "Historija plaćanja",
+    "loginRegister": "Prijavi se / Registruj se",
+    "packagesPricing": "Paketi i cene",
+    "logout": "Odjavi se",
+    "mainSectionLabel": "Glavne funkcije",
+    "otherSectionLabel": "Ostalo",
+    "mobileSectionLabel": "Mobilna aplikacija",
+    "shareApp": "Podijeli BalkanLink",
+    "shareSuccess": "Link kopiran!",
+    "downloadApp": "Preuzmi BalkanLink App",
+    "items": {
+      "formulari": "Formulari",
+      "viza": "Viza Navigator",
+      "deutschTrainer": "Kurs nemačkog",
+      "dokumentenCheck": "Provera dokumenata",
+      "zivot": "Život i dolazak",
+      "radnoPravo": "Radno pravo",
+      "mietrecht": "Mietrecht",
+      "biznis": "Biznis u Nemačkoj",
+      "nudimTrazim": "Nudim / Tražim",
+      "stellenangebote": "Oglasi za posao",
+      "wohnungen": "Ponuda stanova",
+      "kalkulatori": "Kalkulator",
+      "vorlagen": "Šabloni"
+    },
+    "premiumBadge": "PREMIUM"
+  },
+  "mobileNav": {
+    "documents": "Dokumenti",
+    "visa": "Vize",
+    "assistant": "Asistent",
+    "pricing": "Cene",
+    "profile": "Profil"
+  },
+  "footer": {
+    "tagline": "Sve što ti treba za život u Nemačkoj",
+    "brandTagline": "Tvoj vodič kroz nemački sistem.",
+    "infoNote": "BalkanLink pruža informativne smernice, ne pravne savete.",
+    "navigation": "Navigacija",
+    "sections": "Sekcije",
+    "company": "Kompanija",
+    "legal": "Pravne informacije",
+    "legalShort": "Pravno",
+    "contactTitle": "Kontakt",
+    "paymentMethods": "Načini plaćanja",
+    "paymentList": "Visa · Mastercard · PayPal · Apple Pay · Google Pay",
+    "poweredBy": "Powered by",
+    "poweredTagline": "Klar denken. Digital umsetzen.",
+    "imprint": "Impresum",
+    "imprintAlt": "Impresum",
+    "privacy": "Zaštita podataka",
+    "terms": "Uslovi korišćenja",
+    "disclaimer": "Odricanje odgovornosti",
+    "aiNotice": "Napomena o asistentu",
+    "dsa": "DSA – Prijavi sadržaj",
+    "cookies": "Postavke kolačića",
+    "copyright": "© 2026 BalkanLink · Sva prava zadržana."
+  },
+  "buttons": {
+    "startGuide": "Pokreni vodič",
+    "checkDocument": "Proveri dokument",
+    "learnMore": "Saznaj više",
+    "viewPlans": "Pogledaj planove",
+    "back": "Nazad",
+    "next": "Dalje",
+    "save": "Sačuvaj",
+    "cancel": "Otkaži",
+    "submit": "Pošalji",
+    "close": "Zatvori",
+    "download": "Preuzmi",
+    "share": "Podijeli",
+    "copy": "Kopiraj",
+    "copied": "Kopirano!",
+    "loading": "Učitavanje...",
+    "saving": "Čuvam..."
+  },
+  "common": {
+    "back": "Nazad",
+    "home": "Početna"
+  },
+  "audio": {
+    "play": "Pusti",
+    "pause": "Pauza",
+    "speed": "Brzina"
+  },
+  "languageSwitcher": {
+    "label": "Jezik"
+  },
+  "auth": {
+    "login": {
+      "title": "Prijava",
+      "emailPlaceholder": "E-mail adresa",
+      "passwordPlaceholder": "Lozinka",
+      "termsPrefix": "Prihvatam uslove korišćenja",
+      "termsLink": "Uslovi korišćenja",
+      "termsAnd": "i",
+      "privacyLink": "Politiku privatnosti",
+      "loading": "Prijava...",
+      "submit": "Prijavi se",
+      "forgotPassword": "Zaboravljena lozinka?",
+      "noAccount": "Nemaš nalog? Registruj se",
+      "mustAcceptTerms": "Moraš prihvatiti uslove korišćenja.",
+      "wrongCredentials": "Pogrešan e-mail ili lozinka.",
+      "successTitle": "Uspješno prijavljeni!"
+    },
+    "register": {
+      "title": "Registracija",
+      "subtitle": "Kreiraj besplatan nalog",
+      "firstNamePlaceholder": "Ime",
+      "emailPlaceholder": "E-mail adresa",
+      "passwordPlaceholder": "Lozinka (min. 8 znakova)",
+      "confirmPasswordPlaceholder": "Potvrdi lozinku",
+      "submit": "Registruj se",
+      "loading": "Registracija...",
+      "haveAccount": "Već imaš nalog? Prijavi se",
+      "termsRequired": "Moraš prihvatiti sve uslove.",
+      "passwordMismatch": "Lozinke se ne podudaraju.",
+      "passwordTooShort": "Lozinka mora imati najmanje 8 znakova.",
+      "successTitle": "Proveri e-mail!",
+      "successDescription": "Poslali smo ti link za potvrdu na tvoj e-mail.",
+      "errorTitle": "Greška pri registraciji",
+      "consentTerms": "Prihvatam Uslove korišćenja",
+      "consentPrivacy": "Prihvatam Politiku privatnosti",
+      "consentAi": "Razumem Napomenu o asistentu",
+      "subtitleCard": "Kreiraj nalog za puni pristup.",
+      "labelFirstName": "Ime",
+      "labelEmail": "E-mail adresa",
+      "emailExample": "vas@email.com",
+      "labelPassword": "Lozinka",
+      "passwordHint": "Minimalno 8 znakova",
+      "labelConfirmPassword": "Potvrdi lozinku",
+      "rulesTitle": "Lozinka mora sadržavati:",
+      "rule1": "Minimalno 8 znakova",
+      "rule2": "Jedno veliko slovo",
+      "rule3": "Jedno malo slovo",
+      "rule4": "Jedan broj",
+      "rule5": "Jedan specijalni znak",
+      "consentText": "Prihvatam",
+      "consentTermsLink": "Uslove korišćenja",
+      "consentPrivacyLink": "Zaštitu podataka",
+      "consentAiPrefix": "i potvrđujem da sam pročitao/la",
+      "consentAiLink": "Napomenu o upotrebi asistenta",
+      "consentAiSuffix": ". Razumem da asistent pruža isključivo informativne odgovore i ne zamjenjuje pravni savet.",
+      "successCheckEmail": "Proveri e-mail za potvrdu registracije.",
+      "successRegistered": "Uspješno registrirani!",
+      "errorTitleShort": "Greška pri registraciji.",
+      "passwordTooShortShort": "Lozinka je prekratka."
+    },
+    "forgotPassword": {
+      "title": "Zaboravljena lozinka",
+      "subtitle": "Unesi svoju e-mail adresu i poslat ćemo ti link za reset lozinke.",
+      "emailPlaceholder": "E-mail adresa",
+      "submit": "Pošalji link za reset",
+      "loading": "Slanje...",
+      "backToLogin": "Nazad na prijavu",
+      "successTitle": "Proveri e-mail!",
+      "successDescription": "Ako postoji nalog s tom e-mail adresom, poslat ćemo ti link za reset.",
+      "errorTitle": "Greška"
+    },
+    "resetPassword": {
+      "title": "Postavi novu lozinku",
+      "subtitle": "Unesi novu lozinku za svoj nalog.",
+      "newPasswordPlaceholder": "Nova lozinka (min. 8 znakova)",
+      "confirmPasswordPlaceholder": "Potvrdi novu lozinku",
+      "submit": "Sačuvaj novu lozinku",
+      "loading": "Spremanje...",
+      "successTitle": "Lozinka promenjena!",
+      "successDescription": "Sada se možeš prijaviti s novom lozinkom.",
+      "errorTitle": "Greška",
+      "passwordMismatch": "Lozinke se ne podudaraju.",
+      "passwordTooShort": "Lozinka mora imati najmanje 8 znakova."
+    },
+    "modal": {
+      "title": "Prijavi se za nastavak",
+      "description": "Kreiraj besplatan nalog ili se Prijavi da nastaviš.",
+      "loginTab": "Prijava",
+      "registerTab": "Registracija"
+    }
+  },
+  "legal": {
+    "lastUpdated": "Poslednje ažuriranje:",
+    "tableOfContents": "Sadržaj",
+    "backToTop": "Nazad na vrh"
+  },
+  "cookies": {
+    "banner": {
+      "title": "Vaša privatnost je važna",
+      "description": "Koristimo neophodne kolačiće za rad stranice, a uz vašu dozvolu i dodatne kolačiće za analitiku, funkcionalnosti i poboljšanje korisničkog iskustva."
+    },
+    "actions": {
+      "acceptAll": "Prihvati sve",
+      "rejectOptional": "Odbij opcionalne",
+      "settings": "Postavke",
+      "save": "Spremi izbor"
+    },
+    "modal": {
+      "title": "Postavke kolačića",
+      "description": "Odaberite koje kategorije kolačića želite dozvoliti. Više informacija u",
+      "privacyLink": "zaštiti podataka",
+      "alwaysActive": "Uvek aktivno"
+    },
+    "categories": {
+      "necessary": {
+        "label": "Neophodni kolačići",
+        "desc": "Potrebni su za osnovni rad stranice i ne mogu se isključiti."
+      },
+      "analytics": {
+        "label": "Analitika",
+        "desc": "Pomažu nam da razumijemo kako korisnici koriste BalkanLink kako bismo poboljšali sadržaj i iskustvo."
+      },
+      "marketing": {
+        "label": "Marketing",
+        "desc": "Koriste se za merenje kampanja i prikaz relevantnijeg promotivnog sadržaja."
+      },
+      "functional": {
+        "label": "Funkcionalni kolačići",
+        "desc": "Pamte određene izbore i poboljšavaju korisničko iskustvo."
+      }
+    }
+  }
+}

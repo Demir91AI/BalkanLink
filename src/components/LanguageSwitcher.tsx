@@ -21,12 +21,18 @@ import { LANG_STORAGE_KEY, type SupportedLanguage } from "@/i18n";
 import { mirrorPath } from "@/lib/i18n-paths";
 import { FlagDE } from "@/components/flags/FlagDE";
 import { FlagBA } from "@/components/flags/FlagBA";
+import { FlagHR } from "@/components/flags/FlagHR";
+import { FlagRS } from "@/components/flags/FlagRS";
 
 type FlagComp = ComponentType<{ width?: number; className?: string }>;
 
-// Bosnian and German both shown with their official flags.
+// Order: BS (default) first, HR + SR alphabetically, DE last. All four with
+// their official flags. (Per Demir's apr 2026 override of the earlier
+// "no flag for BS" rule — flags side-by-side disambiguate.)
 const LANGUAGES: { code: SupportedLanguage; nativeName: string; Flag: FlagComp | null }[] = [
   { code: "bs", nativeName: "Bosanski", Flag: FlagBA },
+  { code: "hr", nativeName: "Hrvatski", Flag: FlagHR },
+  { code: "sr", nativeName: "Srpski", Flag: FlagRS },
   { code: "de", nativeName: "Deutsch", Flag: FlagDE },
 ];
 

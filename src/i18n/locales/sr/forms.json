@@ -1,0 +1,32 @@
+{
+  "labels": {
+    "firstName": "Ime",
+    "lastName": "Prezime",
+    "email": "E-mail",
+    "phone": "Telefon",
+    "address": "Adresa",
+    "city": "Grad",
+    "postalCode": "Poštanski broj",
+    "country": "Država",
+    "dateOfBirth": "Datum rođenja",
+    "password": "Lozinka",
+    "passwordConfirm": "Potvrdi lozinku",
+    "passwordNew": "Nova lozinka",
+    "message": "Poruka"
+  },
+  "validation": {
+    "required": "Ovo polje je obavezno",
+    "email": "Unesite ispravnu e-mail adresu",
+    "minLength": "Minimalno {{count}} karaktera",
+    "maxLength": "Maksimalno {{count}} karaktera",
+    "passwordMatch": "Lozinke se ne podudaraju",
+    "passwordTooShort": "Lozinka je prekratka.",
+    "phoneInvalid": "Unesite ispravan broj telefona"
+  },
+  "placeholders": {
+    "search": "Pretraži...",
+    "selectOption": "Odaberi opciju",
+    "writeHere": "Napišite ovde...",
+    "passwordPlaceholder": "Najmanje 8 znakova"
+  }
+}

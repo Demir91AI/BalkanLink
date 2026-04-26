@@ -1,133 +1,136 @@
-## Audit (Step 0)
 
-**Bug 1 root cause:** `src/components/home/HeroSection.tsx` — the hero is rendered by this component, not `Index.tsx`. Every visible string is hardcoded:
-- L20–22 — `trustBadges` array (Bosnian-only literals)
-- L139 — headline `"Tvoj vodič kroz njemački sistem."`
-- L150 — subline `"Formulari, zahtjevi i procedure objašnjeni jasno, strukturirano i na jednom mjestu."`
-- L175 — primary CTA `"Pokreni vodič"`
-- L190 — secondary CTA `"Pogledaj planove"`
-- L201 — disclaimer `"BalkanLink nije pravni savjetnik. Sadržaj služi isključivo za orijentaciju."`
+# Add Hrvatski (HR) + Srpski ekavica (SR) language support
 
-The component does **not** import `useTranslation` — that's why nothing switches. `de/pages.json` has a `home` block but with old/different keys (`heroHeadline`, `ctaPrimary`, `ctaSecondary`) that the hero never reads.
-
-**Bug 2 root cause:** `src/components/LanguageSwitcher.tsx` renders `FlagBA` for the `bs` row and trigger (lines `Flag: FlagBA` in the LANGUAGES array, plus `<CurrentFlag>` in trigger and `<RowFlag>` in dropdown rows). Asymmetric removal needed.
-
-**Other landing pages (Step 4 scan):** Most landing-page bodies (`Viza`, `DokumentenCheck`, `DeutschTrainer`, `NudimTrazim`) remain in Bosnian by design — they are still under the `TranslationPendingBanner` per prior scope. Index.tsx contains the FreemiumGate / pricing tables, also not in scope of this task. **Only the Hero section is in scope here** (the prompt explicitly lists the hero strings as Bug 1). Remaining Bosnian strings on those pages will be reported but not auto-translated unless they are simple CTAs that already have keys — to avoid creeping outside the approved "Chrome + landing pages" scope.
+Mirrors the existing /de/* architecture exactly. UI chrome + page meta translated; long-form Smart Guide bodies stay BS and show the existing translation-pending banner on /hr/* and /sr/*.
 
 ---
 
-## Plan
+## 1. Extend i18n config — `src/i18n/index.ts`
 
-### 1. Update locale JSON files
+- Import 8 new JSON files from `locales/hr/` and `locales/sr/`.
+- `SUPPORTED_LANGUAGES = ['bs','de','hr','sr']`.
+- `fallbackLng: 'bs'` (unchanged).
+- `nonExplicitSupportedLngs: false` and `load: 'languageOnly'` keep `sr-Latn`, `hr-HR`, `it-IT`, etc. from auto-resolving — anything outside the 4 codes falls to `bs`.
+- Detection order, storage key — unchanged.
 
-**`src/i18n/locales/bs/pages.json`** — replace the `home` block with:
-```json
-"home": {
-  "heroHeadlineBeforeAccent": "Tvoj vodič kroz ",
-  "heroHeadlineAccent": "njemački sistem",
-  "heroHeadlineAfterAccent": ".",
-  "heroSubline": "Formulari, zahtjevi i procedure objašnjeni jasno, strukturirano i na jednom mjestu.",
-  "ctaPrimary": "Pokreni vodič",
-  "ctaSecondary": "Pogledaj planove",
-  "disclaimer": "BalkanLink nije pravni savjetnik. Sadržaj služi isključivo za orijentaciju.",
-  "trustBadges": {
-    "officialSources": "Službeni izvori",
-    "updated": "Ažurirano 2026",
-    "stepByStep": "Korak-po-korak vodiči"
-  },
-  "servicesTitle": "Naši servisi",
-  "partnersTitle": "Naši partneri"
+## 2. Generalise the path helper — `src/lib/i18n-paths.ts`
+
+Rewrite to handle any language prefix:
+
+```ts
+const PREFIX_RE = /^\/(de|hr|sr)(?=\/|$)/;
+
+export function langFromPath(p: string): SupportedLanguage {
+  const m = p.match(PREFIX_RE);
+  return (m?.[1] as SupportedLanguage) ?? 'bs';
 }
-```
-(Preserves `servicesTitle` / `partnersTitle` already used elsewhere.)
-
-**`src/i18n/locales/de/pages.json`** — mirror with German:
-```json
-"home": {
-  "heroHeadlineBeforeAccent": "Ihr Wegweiser durch das ",
-  "heroHeadlineAccent": "deutsche System",
-  "heroHeadlineAfterAccent": ".",
-  "heroSubline": "Formulare, Anträge und Verfahren — klar, strukturiert und an einem Ort erklärt.",
-  "ctaPrimary": "Leitfaden starten",
-  "ctaSecondary": "Pläne ansehen",
-  "disclaimer": "BalkanLink ist keine Rechtsberatung. Die Inhalte dienen ausschließlich der Orientierung.",
-  "trustBadges": {
-    "officialSources": "Offizielle Quellen",
-    "updated": "Stand 2026",
-    "stepByStep": "Schritt-für-Schritt-Leitfäden"
-  },
-  "servicesTitle": "Unsere Leistungen",
-  "partnersTitle": "Unsere Partner"
+export function stripLangPrefix(p: string): string {
+  return p.replace(PREFIX_RE, '') || '/';
 }
+export function mirrorPath(p: string, target: SupportedLanguage): string {
+  const bs = stripLangPrefix(p);
+  if (target === 'bs') return bs;
+  return bs === '/' ? `/${target}` : `/${target}${bs}`;
+}
+// Keep stripGermanPrefix as an alias of stripLangPrefix for back-compat.
 ```
 
-### 2. Refactor `src/components/home/HeroSection.tsx`
+## 3. Add the two prefixed route mounts — `src/App.tsx`
 
-- Add `import { useTranslation } from "react-i18next";`
-- Add `import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";` (replaces raw `useNavigate` so CTAs land on `/de/formulari` and `/de/paketi` when on /de).
-- Inside component: `const { t } = useTranslation("pages");`
-- Replace literals:
-  - L139 headline → 3-span split with gold accent preserved on the middle span:
-    ```tsx
-    {t("home.heroHeadlineBeforeAccent")}
-    <span style={{ color: "#D4AF37" }}>{t("home.heroHeadlineAccent")}</span>
-    {t("home.heroHeadlineAfterAccent")}
-    ```
-    *(The current headline uses a full-text gradient, not a span accent. To preserve the visual treatment in both languages we keep the existing `WebkitBackgroundClip: "text"` gradient on the `<h1>` itself, which already paints the whole sentence in the white→gold gradient. The 3-span split is therefore wrapped inside the same gradient `<h1>` — no inner span color override needed. This honors the constraint "Color tokens, spacing, gold accent treatment — DO NOT TOUCH." We will simply concatenate the three keys inside the gradient h1: the gradient already ends in gold so `njemački sistem` / `deutsche System` naturally sits in the gold portion.)*
-  - L150 subline → `{t("home.heroSubline")}`
-  - L175 primary CTA → `{t("home.ctaPrimary")}`
-  - L178 navigate path → `navigate("/formulari")` already; with `useLocalizedNavigate` it auto-prefixes `/de`.
-  - L190 secondary CTA → `{t("home.ctaSecondary")}`
-  - L201 disclaimer → `{t("home.disclaimer")}`
-  - L19–23 trustBadges array → derive inside component:
-    ```ts
-    const trustBadges = [
-      t("home.trustBadges.officialSources"),
-      t("home.trustBadges.updated"),
-      t("home.trustBadges.stepByStep"),
-    ];
-    ```
+In `AppRoutes`, add two extra `<Route path="/hr/*" element={<LocalizedRoutes />} />` and `<Route path="/sr/*" element={<LocalizedRoutes />} />` next to the existing `/de/*` and `/*`. `<LocalizedRoutes>` itself stays unchanged — it's relative-pathed and works under any prefix.
 
-### 3. Update `src/components/LanguageSwitcher.tsx`
+## 4. Update `LanguageRouter` — `src/components/LanguageRouter.tsx`
 
-- Remove `FlagBA` import. Keep `FlagDE`.
-- Update LANGUAGES array — `bs` entry has no `Flag`:
-  ```ts
-  const LANGUAGES: { code: SupportedLanguage; nativeName: string; Flag: FlagComp | null }[] = [
-    { code: "bs", nativeName: "Bosanski", Flag: null },
-    { code: "de", nativeName: "Deutsch", Flag: FlagDE },
-  ];
-  ```
-- Trigger render: only render `<CurrentFlag width={20} />` when `CurrentFlag` is non-null. When `bs`, render nothing (text-only — keeps the same vertical alignment because the chevron and padding remain).
-- Dropdown row render: when a row's Flag is null, render a `<span style={{ width: 20, display: "inline-block", flexShrink: 0 }} aria-hidden />` spacer so labels align across both rows.
-- Add the design-rationale comment at the top of the LANGUAGES const, exactly as specified in Step 3 of the prompt.
+Already calls `langFromPath(pathname)`. After step 2's helper update it auto-detects `bs/de/hr/sr`. No further changes needed beyond confirming that.
 
-### 4. Delete `src/components/flags/FlagBA.tsx`
+## 5. Create 8 new locale JSON files
 
-No longer imported anywhere. Removing the file keeps the codebase clean.
+Mirror the existing structure 1-for-1 (same keys, same nesting). Apply lexical rules from the prompt to derive each value from the BS source.
 
-### 5. Update memory
+```
+src/i18n/locales/hr/common.json   ← bs/common.json + HR rules
+src/i18n/locales/hr/forms.json    ← bs/forms.json  + HR rules
+src/i18n/locales/hr/pages.json    ← bs/pages.json  + HR rules
+src/i18n/locales/hr/errors.json   ← bs/errors.json + HR rules
+src/i18n/locales/sr/common.json   ← bs/common.json (ijekavica→ekavica + SR lexical)
+src/i18n/locales/sr/forms.json    ← bs/forms.json  (same)
+src/i18n/locales/sr/pages.json    ← bs/pages.json  (same)
+src/i18n/locales/sr/errors.json   ← bs/errors.json (same)
+```
 
-Append a note to `mem://style/flag-usage-standard` reflecting the asymmetric flag rule (DE flag yes, BiH flag no) so future sessions don't re-add it.
+Brand names (BalkanLink, DeutschTrainer, Smart Guides) and German legal nouns (Anmeldung, Bürgergeld, Finanzamt, …) stay verbatim. Tone stays informal "ti" for both new languages.
 
-### Out of scope (explicitly NOT touched)
+Add a new `pages.translationBanner` key in HR + SR (and in BS + DE if missing — currently the banner already reads `pages:translationBanner.title|message`, so confirm/extend in all 4 files):
 
-- `Index.tsx` body sections (FreemiumGate, pricing comparison) — those are gated under `TranslationPendingBanner` by prior scope.
-- `Viza.tsx`, `DokumentenCheck.tsx`, `DeutschTrainer.tsx`, `NudimTrazim.tsx` body content — same reason. Their hero/title strings already come from `pages.json` (`pages:visa.title`, etc.) per prior work, but body copy is intentionally still Bosnian until the translation banner is removed.
-- `ttsConfig.ts`, color tokens, layout, brand name, premium pricing copy.
+- HR: title `Prijevod u tijeku`, message `Ovaj se sadržaj trenutno prevodi. Zasad dostupan samo na bosanskom.`
+- SR: title `Prevod u toku`, message `Ovaj sadržaj se trenutno prevodi. Za sada dostupan samo na bosanskom.`
 
-### Files touched
-- `src/i18n/locales/bs/pages.json` (modify)
-- `src/i18n/locales/de/pages.json` (modify)
-- `src/components/home/HeroSection.tsx` (modify)
-- `src/components/LanguageSwitcher.tsx` (modify)
-- `src/components/flags/FlagBA.tsx` (delete)
-- `mem://style/flag-usage-standard` (update)
+(`porezi` namespace doesn't exist — skip; if it gets added later it'll mirror the same pattern.)
 
-### Verification after deploy
-1. Visit `/de` → headline `Ihr Wegweiser durch das deutsche System.` rendered in white→gold gradient (existing styling preserved).
-2. Subline + both CTAs + disclaimer + 3 badges all in German.
-3. Switcher trigger on `/de` → `[DE flag] Deutsch`.
-4. Open dropdown → `[DE flag] Deutsch ✓` and `[20px spacer] Bosanski` (labels left-aligned identically).
-5. Switch to `/` → trigger reads `Bosanski` (no flag), and the same dropdown alignment applies.
-6. CTAs on `/de` route to `/de/formulari` and `/de/paketi` (via `useLocalizedNavigate`).
+## 6. Add 2 new flag SVG components
+
+```
+src/components/flags/FlagHR.tsx   — red/white/red horizontal stripes, simplified šahovnica/coat shown as a tiny crest centered (or simplified red-white-red only — simpler version preferred at 20px). Inline SVG, 2px border-radius, 1px gray border.
+src/components/flags/FlagRS.tsx   — civil flag: red / blue / white horizontal stripes (no coat of arms — too noisy at 20px).
+```
+
+`FlagBA.tsx` and `FlagDE.tsx` exist — leave alone.
+
+**Note re. memory `style/flag-usage-standard`:** that note already documents that BS got a flag in apr 2026. Update it to add HR + RS entries (memory write).
+
+## 7. Extend the LanguageSwitcher — `src/components/LanguageSwitcher.tsx`
+
+```ts
+const LANGUAGES = [
+  { code: 'bs', nativeName: 'Bosanski', Flag: FlagBA },
+  { code: 'hr', nativeName: 'Hrvatski', Flag: FlagHR },
+  { code: 'sr', nativeName: 'Srpski',   Flag: FlagRS },
+  { code: 'de', nativeName: 'Deutsch',  Flag: FlagDE },
+];
+```
+
+Existing `mirrorPath()` becomes 4-language-aware via step 2 — no other switcher changes needed.
+
+## 8. Extend `<SEO />` — `src/components/SEO.tsx`
+
+- Add HR + DE+HR+SR `DEFAULTS` entries (translated title/desc).
+- Compute `lang` as one of `bs|de|hr|sr` from `i18n.language`.
+- Build `bsHref`, `deHref`, `hrHref`, `srHref`; emit 4 `<link rel="alternate" hreflang="…">` + `x-default → bsHref`.
+- og:locale map: `bs→bs_BA`, `de→de_DE`, `hr→hr_HR`, `sr→sr_RS`. Replace `og:locale:alternate` with one tag per other language.
+- `<html lang>` driven by Helmet uses the same code.
+
+Replace the hard-coded `stripGermanPrefix` calls with `stripLangPrefix`.
+
+## 9. Extend `TranslationPendingBanner` — `src/components/TranslationPendingBanner.tsx`
+
+- Trigger when `i18n.language` is `de`, `hr`, or `sr` AND pathname starts with the matching prefix.
+- Allow-list expanded to a per-language map: e.g. `TRANSLATED_PATHS = { de: Set<string>, hr: Set<string>, sr: Set<string> }`. For HR + SR, include the same six landing pages (root, dokumentencheck, deutsch-trainer, viza, nudim-trazim, login family) prefixed with `/hr` / `/sr`.
+- Banner copy already comes from `t('pages:translationBanner.title|message')` which now resolves per language.
+
+## 10. Extend `public/sitemap.xml`
+
+Programmatic regeneration: every canonical BS URL (currently 23 entries) gets 4 `<url>` entries (one per language) and each `<url>` lists 4 `<xhtml:link rel="alternate">` + `x-default→bs`. New total: ~92 `<url>` entries (vs current ~30).
+
+The sitemap is a static file, so I'll write it out hand-shaped from a small generation script run during the implementation step (kept inline / committed result only — no runtime generator).
+
+## 11. Verification grep (read-only audit, reported in delivery)
+
+Run `rg` for leftover hard-coded BS strings in `src/` (excluding `i18n/locales/`): patterns `Pokreni|Provjeri|Saznaj|Pogledaj|Početna|Naši servisi|njemački|Bez stresa|vodič\b`. Any hits get either translated via existing `t()` keys or new keys added to all 4 JSONs.
+
+## 12. Constraints honoured
+
+- **No changes** to `ttsConfig.ts`, audio system, long-form Smart Guide bodies, color tokens, layout, brand names, German legal nouns, demo data names, existing `/de/*` translations, existing root BS routes.
+- BS remains the default; unsupported browser locales fall to BS (verified by `nonExplicitSupportedLngs: false` + `load: 'languageOnly'` + explicit `fallbackLng: 'bs'`).
+
+---
+
+## Deliverable on completion
+
+1. **Files created (10):** `hr/{common,forms,pages,errors}.json`, `sr/{common,forms,pages,errors}.json`, `FlagHR.tsx`, `FlagRS.tsx`.
+2. **Files modified (7):** `i18n/index.ts`, `lib/i18n-paths.ts`, `App.tsx`, `LanguageSwitcher.tsx`, `SEO.tsx`, `TranslationPendingBanner.tsx`, `public/sitemap.xml` (+ `bs/pages.json`, `de/pages.json` if `translationBanner` key needs adding).
+3. Route count parity: BS root routes ≈ /de mirror ≈ /hr mirror ≈ /sr mirror (all share the single `<LocalizedRoutes>` tree).
+4. Hard-coded BS leftovers report (file:line list).
+5. Sitemap URL count after regeneration.
+6. 10-step manual test plan as specified in the prompt.
+
+Memory writes after success: update `mem://style/flag-usage-standard` with HR + RS flags + 4-language switcher; add `mem://architecture/language-policy` entry noting the move from 2 → 4 active UI languages with bodies still BS for HR/SR/DE deep pages.
