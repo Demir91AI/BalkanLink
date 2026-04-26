@@ -213,18 +213,18 @@ export default function DokumentenCheck() {
     const selected = e.target.files?.[0];
     if (!selected) return;
     if (!isFileAllowed(selected)) {
-      setError("Podržani su samo PDF, JPG i PNG formati.");
+      setError(t("documentCheck.errors.unsupportedFormat"));
       return;
     }
     if (selected.size > MAX_FILE_SIZE) {
-      setError("Datoteka je prevelika za analizu. Pokušajte sa manjom datotekom (max. 10 MB).");
+      setError(t("documentCheck.errors.fileTooLarge"));
       return;
     }
     setError(null);
     setFile(selected);
     setAnalysis(null);
     setFilePreviewUrl(selected.type.startsWith("image/") ? URL.createObjectURL(selected) : null);
-  }, []);
+  }, [t]);
 
   const handleAnalyze = useCallback(async () => {
     if (submittingRef.current || loading) return;
