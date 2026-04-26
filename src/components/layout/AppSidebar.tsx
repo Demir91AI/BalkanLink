@@ -165,7 +165,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
               }`}
             >
               <CreditCard className={`h-[18px] w-[18px] shrink-0 ${location.pathname === "/paketi" ? "text-[hsl(var(--gold))]" : ""}`} />
-              <span className="text-[14px] font-medium">Paketi i cijene</span>
+              <span className="text-[14px] font-medium">{t("sidebar.packagesPricing")}</span>
             </button>
             {user && (
               <button
@@ -173,14 +173,14 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
                 className="flex items-center gap-3 w-full px-3 py-2 rounded-lg text-left text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D] transition-all duration-200"
               >
                 <LogOut className="h-[18px] w-[18px] shrink-0" />
-                <span className="text-[14px] font-medium">Odjavi se</span>
+                <span className="text-[14px] font-medium">{t("sidebar.logout")}</span>
               </button>
             )}
           </nav>
         </div>
 
         <div className="px-3 pt-4">
-          <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">Glavne funkcije</p>
+          <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">{t("sidebar.mainSectionLabel")}</p>
           <nav className="flex flex-col gap-0.5">
             {mainItems.map((item) => {
               const active = currentPath === item.url || currentPath.startsWith(item.url + "/");
