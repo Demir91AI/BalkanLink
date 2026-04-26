@@ -123,7 +123,7 @@ export const formCatalog: FormGroup[] = [
     icon: "🎓",
     title: "Obrazovanje",
     items: [
-      { slug: "anerkennung-navigator", label: "Anerkennung Navigator ⭐", desc: "Priznavanje diplome iz BiH/HR/SR/CG/MK/XK — interaktivni asistent po profesiji i Bundeslandu.", includes: "Anabin vodič + 10 profesija + Anerkennungszuschuss" },
+      { slug: "anerkennung-navigator", label: "Anerkennung Navigator", desc: "Priznavanje diplome iz BiH/HR/SR/CG/MK/XK — interaktivni asistent po profesiji i Bundeslandu.", includes: "Anabin vodič + 14 profesija + Anerkennungszuschuss" },
       { slug: "bafoeg", label: "BAföG", desc: "Finansijska podrška za studij ili školu.", includes: "Smart Guide + Antrag BAföG + Schüler-BAföG" },
       { slug: "schueler-bafoeg", label: "Schüler-BAföG", desc: "Finansijska podrška za učenike koji žive odvojeno od roditelja.", includes: "Smart Guide + Antrag Schüler-BAföG" },
       { slug: "integrationskurs", label: "Integrationskurs", desc: "Kurs jezika i orijentacije.", includes: "Smart Guide + Antrag Integrationskurs" },
