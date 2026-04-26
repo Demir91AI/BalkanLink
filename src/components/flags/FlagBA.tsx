@@ -4,14 +4,12 @@
  * Geometry (viewBox 200 × 100, ratio 2:1):
  *  - Blue field (#002F6C) covering full rectangle.
  *  - Yellow right triangle (#FECB00) with vertices at:
- *        (100,   0)   — midpoint of top edge
+ *        ( 70,   0)   — point on top edge, ~1/3 from the left
  *        (200,   0)   — top-right corner
- *        (  0, 100)   — bottom-left corner
- *    The hypotenuse runs from (100, 0) diagonally down to (0, 100).
- *  - Seven full white five-pointed stars sit ON the hypotenuse line, plus
- *    two halved stars at the ends (top-right corner and bottom-left corner)
- *    for the iconic "infinite" star pattern. The clipPath ensures the
- *    end stars are correctly halved by the flag rectangle.
+ *        (200, 100)   — bottom-right corner
+ *    The hypotenuse runs from (70, 0) diagonally down to (200, 100).
+ *  - Nine white five-pointed stars sit ON that hypotenuse, with the first
+ *    star halved by the top edge and the last star halved by the right edge.
  */
 interface Props {
   /** Width in px (height auto-derived from 2:1 ratio). Default: 24. */
@@ -22,18 +20,18 @@ interface Props {
 const BLUE = "#002F6C";
 const YELLOW = "#FECB00";
 
-// Hypotenuse endpoints (top-mid → bottom-left).
-const HX1 = 100;
+// Hypotenuse endpoints (top → bottom-right).
+const HX1 = 70;
 const HY1 = 0;
-const HX2 = 0;
+const HX2 = 200;
 const HY2 = 100;
 
 export function FlagBA({ width = 24, className }: Props) {
   const height = Math.round(width / 2);
 
-  // 9 evenly-spaced star centers along the hypotenuse. The first sits exactly
-  // at (100, 0) on the top edge and the last at (0, 100) on the bottom edge —
-  // both end up visually halved due to the clipPath.
+  // 9 evenly-spaced star centers along the hypotenuse. The first sits on the
+  // top edge and the last on the right edge — both end up visually halved
+  // due to the clipPath.
   const starCount = 9;
   const starRadius = 9;
   const stars = Array.from({ length: starCount }, (_, i) => {
@@ -63,22 +61,19 @@ export function FlagBA({ width = 24, className }: Props) {
       preserveAspectRatio="xMidYMid meet"
     >
       <defs>
-        {/* Clip stars to flag rectangle so the first/last appear halved. */}
         <clipPath id="ba-flag-clip">
           <rect x="0" y="0" width="200" height="100" />
         </clipPath>
       </defs>
 
-      {/* Blue field */}
       <rect width="200" height="100" fill={BLUE} />
 
-      {/* Yellow triangle: mid-top, top-right, bottom-left */}
+      {/* Yellow triangle: top-edge point, top-right, bottom-right */}
       <polygon
-        points={`${HX1},${HY1} 200,0 ${HX2},${HY2}`}
+        points={`${HX1},${HY1} 200,0 200,100`}
         fill={YELLOW}
       />
 
-      {/* Stars centred on the hypotenuse, clipped to the flag rectangle */}
       <g fill="#FFFFFF" clipPath="url(#ba-flag-clip)">
         {stars.map((s, i) => (
           <Star key={i} cx={s.cx} cy={s.cy} r={starRadius} />
