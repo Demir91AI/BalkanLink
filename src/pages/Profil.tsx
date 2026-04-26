@@ -66,11 +66,11 @@ const formatPrice = (amount?: number | null, currency?: string | null) => {
 
 const formatDate = (iso?: string | null) => {
   if (!iso) return null;
-  return new Date(iso).toLocaleDateString("bs-BA", {
-    day: "2-digit",
-    month: "long",
-    year: "numeric",
-  });
+  const d = new Date(iso);
+  const dd = String(d.getDate()).padStart(2, "0");
+  const mm = String(d.getMonth() + 1).padStart(2, "0");
+  const yyyy = d.getFullYear();
+  return `${dd}.${mm}.${yyyy}`;
 };
 
 const daysUntil = (iso?: string | null) => {
