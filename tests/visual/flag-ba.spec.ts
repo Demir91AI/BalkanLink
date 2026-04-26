@@ -15,7 +15,7 @@
  */
 import { test, expect } from "@playwright/test";
 
-const WIDTHS = [16, 20, 32, 48, 96, 200] as const;
+const WIDTHS = [14, 16, 18, 20, 24, 32, 36, 48, 64, 96, 200] as const;
 const THEMES = ["light", "dark"] as const;
 
 test.beforeEach(async ({ page }) => {

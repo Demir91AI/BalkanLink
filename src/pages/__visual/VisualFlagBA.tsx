@@ -10,7 +10,7 @@
 import { useEffect } from "react";
 import { FlagBA } from "@/components/flags/FlagBA";
 
-const WIDTHS = [16, 20, 32, 48, 96, 200];
+const WIDTHS = [14, 16, 18, 20, 24, 32, 36, 48, 64, 96, 200];
 const THEMES: Array<"light" | "dark"> = ["light", "dark"];
 
 export default function VisualFlagBA() {
