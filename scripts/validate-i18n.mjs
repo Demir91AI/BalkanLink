@@ -92,13 +92,26 @@ function* walk(dir) {
 
 // Match: useTranslation("ns") / useTranslation('ns')
 const NS_HOOK_RE = /useTranslation\(\s*["'`]([a-zA-Z_]+)["'`]\s*\)/g;
-// Match t("..."), t('...'), t(`...`) — only literal, no ${...}
-const T_CALL_RE = /\bt\(\s*(["'`])((?:\\.|(?!\1).)*?)\1\s*[,)]/g;
+// Heuristic: file uses i18next translation if it imports/uses useTranslation
+// or destructures t from useLanguage (legacy shim that delegates to i18next).
+const I18N_USE_RE = /useTranslation\s*\(|from\s+["']react-i18next["']/;
+// Detect locally-defined `t` (e.g. `const t = (key) => ...`) — those files
+// have their own translation table and should be skipped.
+const LOCAL_T_RE = /\b(?:const|let|var|function)\s+t\s*[=(:]/;
+// Match t("..."), t('...') — only string literals, capture optional 2nd arg
+// to inspect for an inline { ns: "..." } override.
+const T_CALL_RE = /\bt\(\s*(["'])((?:\\.|(?!\1).)*?)\1\s*(,\s*\{[^}]*\})?\s*\)/g;
+const NS_OPT_RE = /\bns\s*:\s*["'`]([a-zA-Z_]+)["'`]/;
 
 const usages = []; // { file, key, ns }
 
 for (const file of walk(SRC)) {
   const text = readFileSync(file, "utf8");
+
+  // Skip files that don't actually use i18next.
+  if (!I18N_USE_RE.test(text)) continue;
+  // Skip files that shadow `t` with a local function/table.
+  if (LOCAL_T_RE.test(text)) continue;
 
   // Determine default namespace for this file based on the first useTranslation call.
   let fileNs = DEFAULT_NS;
@@ -111,12 +124,16 @@ for (const file of walk(SRC)) {
   let m;
   while ((m = T_CALL_RE.exec(text)) !== null) {
     const raw = m[2];
+    const opts = m[3] ?? "";
     if (!raw || raw.includes("${") || raw.includes("\n")) continue;
-    // Skip dynamic keys built with concatenation indicators
-    if (raw.startsWith("$") || raw.includes("`")) continue;
+    if (raw.startsWith("$")) continue;
 
     let ns = fileNs;
     let key = raw;
+    // Inline { ns: "..." } option overrides file default.
+    const optNs = NS_OPT_RE.exec(opts);
+    if (optNs && NAMESPACES.includes(optNs[1])) ns = optNs[1];
+    // "ns:key.path" prefix overrides everything.
     const colonIdx = raw.indexOf(":");
     if (colonIdx > 0 && NAMESPACES.includes(raw.slice(0, colonIdx))) {
       ns = raw.slice(0, colonIdx);
