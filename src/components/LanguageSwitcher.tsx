@@ -144,7 +144,7 @@ export function LanguageSwitcher({ variant = "header" }: Props) {
         className={`${triggerClass} focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37]/60 data-[state=open]:scale-[1.02] transition-transform duration-200`}
         style={triggerStyle}
       >
-        {CurrentFlag ? <CurrentFlag width={FLAG_SLOT_PX} /> : null}
+        {CurrentFlag ? <CurrentFlag width={flagSize} /> : null}
         <span style={{ marginLeft: CurrentFlag ? 8 : 0 }}>{currentNative}</span>
         <ChevronDown className="h-3.5 w-3.5 opacity-70" strokeWidth={2.25} />
       </DropdownMenuTrigger>
@@ -172,12 +172,12 @@ export function LanguageSwitcher({ variant = "header" }: Props) {
             >
               <span className="flex items-center gap-2">
                 {RowFlag ? (
-                  <RowFlag width={FLAG_SLOT_PX} />
+                  <RowFlag width={flagSize} />
                 ) : (
                   // Spacer so labels with and without a flag align identically.
                   <span
                     aria-hidden
-                    style={{ width: FLAG_SLOT_PX, display: "inline-block", flexShrink: 0 }}
+                    style={{ width: flagSize, display: "inline-block", flexShrink: 0 }}
                   />
                 )}
                 <span>{lang.nativeName}</span>
