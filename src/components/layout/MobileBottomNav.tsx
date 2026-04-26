@@ -1,8 +1,9 @@
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { FileText, Globe, Sparkles, User, Tag } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import AuthModal from "@/components/auth/AuthModal";
 import { useState } from "react";
+import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
 
 const sideItems = [
   { icon: FileText, label: "Dokumenti", path: "/formulari" },
@@ -13,16 +14,19 @@ const sideItems = [
 ] as const;
 
 export default function MobileBottomNav() {
-  const navigate = useNavigate();
+  const navigate = useLocalizedNavigate();
   const location = useLocation();
   const { user } = useAuth();
   const [authOpen, setAuthOpen] = useState(false);
   const [pressing, setPressing] = useState(false);
 
-  const isActive = (path: string) =>
-    path !== "__auth__" &&
-    (location.pathname === path ||
-      (path !== "/" && location.pathname.startsWith(path)));
+  const isActive = (path: string) => {
+    const stripped = location.pathname.replace(/^\/de(?=\/|$)/, "") || "/";
+    return (
+      path !== "__auth__" &&
+      (stripped === path || (path !== "/" && stripped.startsWith(path)))
+    );
+  };
 
   const handleClick = (path: string) => {
     if (path === "__auth__") {
@@ -33,7 +37,7 @@ export default function MobileBottomNav() {
     }
   };
 
-  const asistentActive = location.pathname === "/ai-asistent";
+  const asistentActive = location.pathname === "/ai-asistent" || location.pathname === "/de/ai-asistent";
 
   return (
     <>

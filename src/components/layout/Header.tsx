@@ -2,13 +2,15 @@ import { useRef, useCallback, useState, useEffect } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useTranslation } from "react-i18next";
 import { Menu, ShieldCheck, Crown, UserCircle } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { useLocalizedHref, useLocalizedNavigate } from "@/hooks/useLocalizedHref";
 
 export default function Header() {
   const { loading, isAdmin, user, isPremium } = useAuth();
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  const navigate = useLocalizedNavigate();
+  const localize = useLocalizedHref();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -108,7 +110,7 @@ export default function Header() {
         {/* CENTER: Logo — absolutely centered */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           <Link
-            to="/"
+            to={localize("/")}
             className="group relative inline-flex items-center gap-2.5 transition-all duration-300 ease-in-out hover:scale-[1.02]"
             aria-label="BalkanLink home"
             style={{
