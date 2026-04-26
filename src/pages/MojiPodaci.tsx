@@ -26,20 +26,29 @@ export default function MojiPodaci() {
       return;
     }
     setExporting(format);
+
+    // 60s safety timeout — guarantees finally runs even if network hangs
+    const controller = new AbortController();
+    const timeoutId = window.setTimeout(() => controller.abort(), 60_000);
+
     try {
       const { data: session } = await supabase.auth.getSession();
       const token = session.session?.access_token;
       if (!token) throw new Error("Nema aktivne sesije");
 
       const projectId = import.meta.env.VITE_SUPABASE_PROJECT_ID;
+      // Cache-buster (`_t`) prevents browser/CDN from serving a stale failed response on retry
       const res = await fetch(
-        `https://${projectId}.supabase.co/functions/v1/export-user-data?format=${format}`,
+        `https://${projectId}.supabase.co/functions/v1/export-user-data?format=${format}&_t=${Date.now()}`,
         {
           method: "POST",
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
+            "Cache-Control": "no-cache",
           },
+          cache: "no-store",
+          signal: controller.signal,
         }
       );
 
@@ -66,13 +75,20 @@ export default function MojiPodaci() {
             : "Tvoj izvještaj je sačuvan i možeš ga otvoriti u bilo kojem programu.",
       });
     } catch (e) {
-      const msg = e instanceof Error ? e.message : String(e);
+      const isAbort = e instanceof DOMException && e.name === "AbortError";
+      const msg = isAbort
+        ? "Preuzimanje je predugo trajalo. Pokušaj ponovo."
+        : e instanceof Error
+          ? e.message
+          : String(e);
       toast({
         variant: "destructive",
         title: "Greška pri preuzimanju",
-        description: msg,
+        description: `${msg} Klikni dugme ponovo da pokušaš.`,
       });
     } finally {
+      window.clearTimeout(timeoutId);
+      // Always reset — guarantees user can immediately retry without page refresh
       setExporting(null);
     }
   };
