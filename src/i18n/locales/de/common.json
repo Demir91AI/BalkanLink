@@ -1,0 +1,69 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "smartGuides": "Smart Guides",
+    "documentCheck": "Dokumentenprüfung",
+    "visa": "Visa",
+    "germanTrainer": "Deutsch lernen",
+    "classifieds": "Kleinanzeigen",
+    "about": "Über uns",
+    "contact": "Kontakt",
+    "login": "Anmelden",
+    "register": "Registrieren",
+    "logout": "Abmelden",
+    "profile": "Profil",
+    "premiumActive": "Premium aktiv",
+    "becomePremium": "Premium werden",
+    "menu": "Menü"
+  },
+  "footer": {
+    "tagline": "Alles, was Sie für das Leben in Deutschland brauchen",
+    "brandTagline": "Ihr Wegweiser durch das deutsche System.",
+    "infoNote": "BalkanLink bietet informative Hinweise, keine Rechtsberatung.",
+    "navigation": "Navigation",
+    "sections": "Bereiche",
+    "company": "Unternehmen",
+    "legal": "Rechtliches",
+    "legalShort": "Rechtliches",
+    "contactTitle": "Kontakt",
+    "paymentMethods": "Zahlungsmethoden",
+    "paymentList": "Visa · Mastercard · PayPal · Apple Pay · Google Pay",
+    "poweredBy": "Powered by",
+    "poweredTagline": "Klar denken. Digital umsetzen.",
+    "imprint": "Impressum",
+    "imprintAlt": "Impressum",
+    "privacy": "Datenschutz",
+    "terms": "Nutzungsbedingungen",
+    "disclaimer": "Haftungsausschluss",
+    "aiNotice": "KI-Hinweis",
+    "dsa": "DSA – Inhalt melden",
+    "cookies": "Cookie-Einstellungen",
+    "copyright": "© 2026 BalkanLink · Alle Rechte vorbehalten."
+  },
+  "buttons": {
+    "startGuide": "Leitfaden starten",
+    "checkDocument": "Dokument prüfen",
+    "learnMore": "Mehr erfahren",
+    "viewPlans": "Pläne ansehen",
+    "back": "Zurück",
+    "next": "Weiter",
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "submit": "Absenden",
+    "close": "Schließen",
+    "download": "Herunterladen",
+    "share": "Teilen",
+    "copy": "Kopieren",
+    "copied": "Kopiert!",
+    "loading": "Wird geladen...",
+    "saving": "Wird gespeichert..."
+  },
+  "audio": {
+    "play": "Abspielen",
+    "pause": "Pause",
+    "speed": "Geschwindigkeit"
+  },
+  "languageSwitcher": {
+    "label": "Sprache"
+  }
+}
