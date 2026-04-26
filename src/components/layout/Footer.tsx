@@ -149,9 +149,28 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
         <div style={{ height: 1, background: "rgba(255,255,255,0.08)" }} />
       </div>
       <div style={{ textAlign: "center", padding: "20px 24px 28px" }}>
-        <p style={{ fontSize: 11, color: "rgba(255,255,255,0.4)", marginBottom: 4 }}>
-          {t("common:footer.poweredBy")} <span style={{ color: "#EAB308", fontWeight: 700 }}>RealCore Digital</span> · {t("common:footer.poweredTagline")}
-        </p>
+        <div
+          style={{
+            display: "inline-flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: 10,
+            marginBottom: 10,
+          }}
+        >
+          <span style={{ fontSize: 11, color: "rgba(255,255,255,0.5)", letterSpacing: 0.3 }}>
+            {t("common:footer.poweredBy")}{" "}
+            <span style={{ color: "#EAB308", fontWeight: 700 }}>RealCore Digital</span>
+            <span style={{ color: "rgba(255,255,255,0.55)" }}> · {t("common:footer.poweredTagline")}</span>
+          </span>
+          <span aria-hidden style={{ color: "rgba(255,255,255,0.18)", fontSize: 11 }}>|</span>
+          <span style={{ fontSize: 11, color: "rgba(255,255,255,0.5)", letterSpacing: 0.3 }}>
+            U partnerstvu sa{" "}
+            <span style={{ color: "#EAB308", fontWeight: 700 }}>Bosnischer Kulturverein Freilassing e.V.</span>
+            <span style={{ color: "rgba(255,255,255,0.55)" }}> · Kultura, zajednica, integracija.</span>
+          </span>
+        </div>
         <p style={{ fontSize: 11, color: "rgba(255,255,255,0.4)" }}>
           {t("common:footer.copyright")}
         </p>
