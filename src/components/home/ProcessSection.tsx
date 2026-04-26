@@ -1,16 +1,18 @@
 import { useRef, useState, useEffect } from "react";
 import { MousePointerClick, BookOpen, PenLine, PartyPopper } from "lucide-react";
-
-const steps = [
-  { num: "01", icon: MousePointerClick, title: "Odaberi uslugu", desc: "Izaberi šta ti treba — formular, dokument, viza ili jezik" },
-  { num: "02", icon: BookOpen, title: "Prati vodič", desc: "Korak po korak vodič na bosanskom jeziku" },
-  { num: "03", icon: PenLine, title: "Popuni / Riješi", desc: "Precizno i tačno, bez nagađanja" },
-  { num: "04", icon: PartyPopper, title: "Završeno bez stresa", desc: "Budi siguran da si uradio sve ispravno" },
-];
+import { useTranslation } from "react-i18next";
 
 export default function ProcessSection() {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const { t } = useTranslation("pages");
+
+  const steps = [
+    { num: "01", icon: MousePointerClick, key: "s1" },
+    { num: "02", icon: BookOpen, key: "s2" },
+    { num: "03", icon: PenLine, key: "s3" },
+    { num: "04", icon: PartyPopper, key: "s4" },
+  ];
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -37,7 +39,7 @@ export default function ProcessSection() {
           }}
         >
           <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-[900] text-white tracking-tight">
-            Kako funkcioniše?
+            {t("home.process.heading")}
           </h2>
         </div>
 
@@ -79,8 +81,8 @@ export default function ProcessSection() {
                   {step.num}
                 </div>
                 <Icon className="h-5 w-5 text-[hsl(var(--gold))] mb-2 opacity-60" />
-                <h3 className="text-sm font-bold text-white mb-1">{step.title}</h3>
-                <p className="text-[12px] text-white/45 leading-relaxed max-w-[160px]">{step.desc}</p>
+                <h3 className="text-sm font-bold text-white mb-1">{t(`home.process.steps.${step.key}.title`)}</h3>
+                <p className="text-[12px] text-white/45 leading-relaxed max-w-[160px]">{t(`home.process.steps.${step.key}.desc`)}</p>
               </div>
             );
           })}
@@ -124,12 +126,12 @@ export default function ProcessSection() {
                   >
                     {step.num}
                   </div>
-                  <div className="pl-4">
+                    <div className="pl-4">
                     <div className="flex items-center gap-2 mb-1">
                       <Icon className="h-4 w-4 text-[hsl(var(--gold))] opacity-60" />
-                      <h3 className="text-sm font-bold text-white">{step.title}</h3>
+                      <h3 className="text-sm font-bold text-white">{t(`home.process.steps.${step.key}.title`)}</h3>
                     </div>
-                    <p className="text-[12px] text-white/45 leading-relaxed">{step.desc}</p>
+                    <p className="text-[12px] text-white/45 leading-relaxed">{t(`home.process.steps.${step.key}.desc`)}</p>
                   </div>
                 </div>
               );

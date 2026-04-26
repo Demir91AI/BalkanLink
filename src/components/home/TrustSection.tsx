@@ -1,16 +1,18 @@
 import { useRef, useState, useEffect } from "react";
 import { ClipboardList, CalendarCheck, Globe, CheckCheck } from "lucide-react";
-
-const trustPoints = [
-  { icon: ClipboardList, title: "Službeni izvori", desc: "Sadržaj baziran isključivo na zvaničnim njemačkim izvorima" },
-  { icon: CalendarCheck, title: "Ažurirano za 2026", desc: "Svi vodiči i formulari reflektuju trenutne propise" },
-  { icon: Globe, title: "Sve na jednom mjestu", desc: "Formulari, vodiči, kalkulatori i provjere — bez traženja po stranim sajtovima" },
-  { icon: CheckCheck, title: "Jasnoća prije svega", desc: "Fokus na razumijevanju, ne komplikaciji" },
-];
+import { useTranslation } from "react-i18next";
 
 export default function TrustSection() {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const { t } = useTranslation("pages");
+
+  const trustPoints = [
+    { icon: ClipboardList, key: "p1" },
+    { icon: CalendarCheck, key: "p2" },
+    { icon: Globe, key: "p3" },
+    { icon: CheckCheck, key: "p4" },
+  ];
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -37,7 +39,7 @@ export default function TrustSection() {
           }}
         >
           <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-[900] text-white tracking-tight">
-            Zašto korisnici vjeruju BalkanLink-u
+            {t("home.trust.heading")}
           </h2>
         </div>
 
@@ -46,7 +48,7 @@ export default function TrustSection() {
             const Icon = tp.icon;
             return (
               <div
-                key={tp.title}
+                key={tp.key}
                 className="rounded-2xl p-6 transition-all duration-200 group"
                 style={{
                   background: "rgba(255,255,255,0.03)",
@@ -65,8 +67,8 @@ export default function TrustSection() {
                 }}
               >
                 <Icon className="h-8 w-8 text-[hsl(var(--gold))] mb-3" strokeWidth={1.5} />
-                <h3 className="text-base font-bold text-white mb-1">{tp.title}</h3>
-                <p className="text-sm text-white/45 leading-relaxed">{tp.desc}</p>
+                <h3 className="text-base font-bold text-white mb-1">{t(`home.trust.points.${tp.key}.title`)}</h3>
+                <p className="text-sm text-white/45 leading-relaxed">{t(`home.trust.points.${tp.key}.desc`)}</p>
               </div>
             );
           })}

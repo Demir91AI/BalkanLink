@@ -1,15 +1,17 @@
 import { useRef, useState, useEffect } from "react";
 import { XCircle } from "lucide-react";
-
-const warnings = [
-  "Pogrešno popunjen formular = sedmice čekanja",
-  "Propušten rok = izgubljen novac ili status",
-  "Nerazumijevanje dokumenta = ozbiljne pravne posljedice",
-];
+import { useTranslation } from "react-i18next";
 
 export default function PricingWarning() {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const { t } = useTranslation("pages");
+
+  const warnings = [
+    t("home.pricingWarning.items.i1"),
+    t("home.pricingWarning.items.i2"),
+    t("home.pricingWarning.items.i3"),
+  ];
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -33,7 +35,7 @@ export default function PricingWarning() {
       }}
     >
       <h3 className="font-heading text-xl sm:text-2xl font-[900] text-white mb-6 text-center">
-        Koliko te može koštati jedna greška?
+        {t("home.pricingWarning.heading")}
       </h3>
       <div className="space-y-3">
         {warnings.map((w, i) => (
