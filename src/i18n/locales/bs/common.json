@@ -97,6 +97,10 @@
     "loading": "Učitavanje...",
     "saving": "Čuvam..."
   },
+  "common": {
+    "back": "Nazad",
+    "home": "Početna"
+  },
   "audio": {
     "play": "Pusti",
     "pause": "Pauza",
