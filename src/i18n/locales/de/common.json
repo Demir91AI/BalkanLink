@@ -97,6 +97,10 @@
     "loading": "Wird geladen...",
     "saving": "Wird gespeichert..."
   },
+  "common": {
+    "back": "Zurück",
+    "home": "Startseite"
+  },
   "audio": {
     "play": "Abspielen",
     "pause": "Pause",
