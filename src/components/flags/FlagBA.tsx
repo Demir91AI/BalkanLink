@@ -1,35 +1,20 @@
 /**
  * FlagBA — Inline SVG flag of Bosnia and Herzegovina (official spec).
  *
- * Spec (Constitution of BiH, 1998):
- *  - Ratio 2:1 (viewBox 200x100)
- *  - Field: medium blue (#002F6C — UN blue, official)
- *  - Yellow isoceles right triangle (#FECB00) with vertices at:
- *      top-right corner (200, 0), bottom-right corner (200, 100), bottom-left (0, 100)... 
- *      NO — official: triangle has vertices at top-right (200,0), bottom-right (200,100),
- *      and on the top edge such that the triangle's hypotenuse runs from top edge to
- *      bottom-left corner. Concretely the hypotenuse goes from (0, 100) up to a point on
- *      the top edge. Per spec, the triangle vertices are:
- *        A = (50, 0)    — on top edge, 1/4 in from left? No.
- *      
- *      Correct per Wikipedia/official: hypotenuse stretches from upper-left corner (0,0)
- *      area to lower-right? Also no.
- *
- *      Definitive: triangle vertices are
- *        top edge at right end (200, 0),
- *        bottom edge at right end (200, 100),
- *        third vertex on top edge at (some x). 
- *      That makes the hypotenuse run from (200,100) up to (x, 0) — i.e. diagonal from 
- *      bottom-right corner up to top edge. Stars run along this hypotenuse.
- *
- *      Implemented below: triangle vertices (100, 0), (200, 0), (200, 100). Hypotenuse from
- *      (100, 0) to (200, 100). Stars run along this line, top-edge to right-edge.
- *
- *  - 9 white five-pointed stars along hypotenuse, top star (at top edge) and bottom star
- *    (at right edge) are clipped in half by the flag border.
+ * Geometry (viewBox 200 × 100, ratio 2:1):
+ *  - Blue field (#002F6C) covering full rectangle.
+ *  - Yellow isosceles right triangle (#FECB00) with vertices at:
+ *        (66.66,   0)   — point on top edge, ~1/3 from the left
+ *        (200,     0)   — top-right corner
+ *        (200,   100)   — bottom-right corner
+ *    The hypotenuse runs from (66.66, 0) down to (200, 100).
+ *  - Nine white five-pointed stars sit ON the hypotenuse line, centered on it,
+ *    so half of each star is on the yellow triangle and half on the blue field.
+ *    The first and last stars are clipped by the flag rectangle (top edge and
+ *    right edge respectively), producing the iconic "halved" stars.
  */
 interface Props {
-  /** Width in px (height auto-derived from 2:1 ratio). Default: 20. */
+  /** Width in px (height auto-derived from 2:1 ratio). Default: 24. */
   width?: number;
   className?: string;
 }
@@ -37,18 +22,26 @@ interface Props {
 const BLUE = "#002F6C";
 const YELLOW = "#FECB00";
 
-export function FlagBA({ width = 20, className }: Props) {
+// Hypotenuse endpoints.
+const HX1 = 66.66;
+const HY1 = 0;
+const HX2 = 200;
+const HY2 = 100;
+
+export function FlagBA({ width = 24, className }: Props) {
   const height = Math.round(width / 2);
 
-  // Hypotenuse from (100, 0) → (200, 100). Direction unit vector = (1, 1)/√2.
-  // Place 9 stars evenly spaced; the first sits on the top edge (y=0), the last on the
-  // right edge (x=200). Both end stars get clipped by the flag rectangle naturally.
-  // Star radius increased so they're visible at small sizes (e.g. 20px).
+  // 9 evenly-spaced star centers along the hypotenuse. The first sits exactly
+  // on the top edge, the last on the right edge — both end up visually halved
+  // because of the clipPath.
   const starCount = 9;
   const starRadius = 11;
   const stars = Array.from({ length: starCount }, (_, i) => {
     const t = i / (starCount - 1);
-    return { cx: 100 + t * 100, cy: 0 + t * 100 };
+    return {
+      cx: HX1 + t * (HX2 - HX1),
+      cy: HY1 + t * (HY2 - HY1),
+    };
   });
 
   return (
@@ -79,10 +72,13 @@ export function FlagBA({ width = 20, className }: Props) {
       {/* Blue field */}
       <rect width="200" height="100" fill={BLUE} />
 
-      {/* Yellow triangle: top edge midpoint → top-right corner → bottom-right corner */}
-      <polygon points="100,0 200,0 200,100" fill={YELLOW} />
+      {/* Yellow triangle: top edge at ~1/3, top-right corner, bottom-right corner */}
+      <polygon
+        points={`${HX1},${HY1} ${HX2},${HY1} ${HX2},${HY2}`}
+        fill={YELLOW}
+      />
 
-      {/* Stars along the hypotenuse, clipped to the flag */}
+      {/* Stars centred on the hypotenuse, clipped to the flag rectangle */}
       <g fill="#FFFFFF" clipPath="url(#ba-flag-clip)">
         {stars.map((s, i) => (
           <Star key={i} cx={s.cx} cy={s.cy} r={starRadius} />
