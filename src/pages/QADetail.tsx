@@ -56,6 +56,7 @@ export default function QADetail() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { data: item, isLoading, error } = useQaItem(id || "");
+  const { isPremium } = usePremiumAccess();
 
   if (isLoading) {
     return (
