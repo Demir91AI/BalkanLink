@@ -469,14 +469,6 @@ export default function Profil() {
                 Historija plaćanja
               </Button>
               <Button
-                onClick={() => navigate("/moji-podaci")}
-                variant="outline"
-                className="w-full"
-              >
-                <ShieldAlert className="h-4 w-4 mr-2" />
-                Moji podaci (GDPR)
-              </Button>
-              <Button
                 onClick={handleLogout}
                 variant="outline"
                 className="w-full"
@@ -484,6 +476,30 @@ export default function Profil() {
                 <LogOut className="h-4 w-4 mr-2" />
                 Odjavi se
               </Button>
+
+              {/* Suptilna disclosure sekcija — GDPR (čl. 15 i 17). Namjerno tihana. */}
+              <details className="group pt-3 mt-1 border-t border-border/30">
+                <summary className="cursor-pointer text-[11px] text-muted-foreground/70 hover:text-muted-foreground transition-colors list-none flex items-center justify-center gap-1.5 select-none">
+                  <span>Postavke računa i privatnost</span>
+                  <span className="text-muted-foreground/40 group-open:rotate-180 transition-transform">⌄</span>
+                </summary>
+                <div className="pt-2.5 space-y-1.5 text-[11px] text-center">
+                  <button
+                    type="button"
+                    onClick={() => navigate("/moji-podaci")}
+                    className="block w-full text-muted-foreground/70 hover:text-foreground transition-colors py-1"
+                  >
+                    Preuzmi svoje podatke <span className="text-muted-foreground/40">(GDPR čl. 15)</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => navigate("/moji-podaci")}
+                    className="block w-full text-muted-foreground/70 hover:text-destructive/80 transition-colors py-1"
+                  >
+                    Trajno obriši račun
+                  </button>
+                </div>
+              </details>
             </div>
           </CardContent>
         </Card>
