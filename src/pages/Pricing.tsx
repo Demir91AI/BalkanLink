@@ -163,19 +163,39 @@ export default function Pricing() {
             Istakni oglas (Nudim / Tražim)
           </h2>
           <div className="rounded-2xl border border-border bg-card p-5 space-y-3">
-            <div className="flex items-center justify-between">
-              <div>
+            <div className="flex items-center justify-between gap-3">
+              <div className="min-w-0">
                 <p className="text-sm font-medium">7 dana</p>
                 <p className="text-xs text-muted-foreground">Non-Premium korisnici</p>
               </div>
-              <span className="font-bold">1,99€</span>
+              <div className="flex items-center gap-3 shrink-0">
+                <span className="font-bold">1,99€</span>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="h-8 rounded-lg text-[11px] font-bold"
+                  onClick={() => handleCheckout(STRIPE_PRICE_IDS.PRO_AD_7DAY, "payment")}
+                >
+                  Kupi →
+                </Button>
+              </div>
             </div>
-            <div className="flex items-center justify-between">
-              <div>
+            <div className="flex items-center justify-between gap-3">
+              <div className="min-w-0">
                 <p className="text-sm font-medium">30 dana</p>
                 <p className="text-xs text-muted-foreground">Non-Premium korisnici</p>
               </div>
-              <span className="font-bold">4,99€</span>
+              <div className="flex items-center gap-3 shrink-0">
+                <span className="font-bold">4,99€</span>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="h-8 rounded-lg text-[11px] font-bold"
+                  onClick={() => handleCheckout(STRIPE_PRICE_IDS.PRO_AD_30DAY, "payment")}
+                >
+                  Kupi →
+                </Button>
+              </div>
             </div>
             <div className="h-px bg-border" />
             <div className="flex items-center justify-between">
@@ -195,12 +215,22 @@ export default function Pricing() {
         <div className="max-w-md mx-auto">
           <h2 className="text-xl font-bold text-center mb-4">Dokumenten-Check</h2>
           <div className="rounded-2xl border border-border bg-card p-5 space-y-3">
-            <div className="flex items-center justify-between">
-              <div>
+            <div className="flex items-center justify-between gap-3">
+              <div className="min-w-0">
                 <p className="text-sm font-medium">Jednokratno</p>
                 <p className="text-xs text-muted-foreground">Resetuje se nakon svake upotrebe</p>
               </div>
-              <span className="font-bold">2,99€</span>
+              <div className="flex items-center gap-3 shrink-0">
+                <span className="font-bold">2,99€</span>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="h-8 rounded-lg text-[11px] font-bold"
+                  onClick={() => handleCheckout(STRIPE_PRICE_IDS.DOC_CHECK, "payment")}
+                >
+                  Kupi →
+                </Button>
+              </div>
             </div>
             <div className="h-px bg-border" />
             <div className="flex items-center justify-between">
@@ -230,15 +260,12 @@ export default function Pricing() {
             <p className="text-2xl font-bold mt-1">
               14,99€<span className="text-sm font-normal text-muted-foreground">/mjes.</span>
             </p>
-            <p style={{ fontSize: 11, fontWeight: 700, color: "#EAB308", marginTop: 4 }}>
-              🎉 Promo cijena — prvih 6 mjeseci
-            </p>
-            <p className="text-xs text-muted-foreground mt-1">Istaknuta kartica + flow banner</p>
+            <p className="text-xs text-muted-foreground mt-2">Istaknuta kartica + flow banner</p>
             <Button
-              className="mt-4 w-full rounded-xl bg-[hsl(var(--gold))] text-white hover:bg-[hsl(var(--gold-light))] text-sm"
+              className="mt-4 w-full rounded-xl bg-[hsl(var(--gold))] text-white hover:bg-[hsl(var(--gold-light))] text-sm font-bold"
               onClick={() => handleCheckout(STRIPE_PRICE_IDS.FEATURED_FIRMA, "subscription")}
             >
-              Zatraži Featured →
+              Kupi Featured →
             </Button>
           </div>
         </div>
