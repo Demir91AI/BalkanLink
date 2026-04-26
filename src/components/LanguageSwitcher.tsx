@@ -119,39 +119,57 @@ export function LanguageSwitcher({ variant = "header" }: Props) {
     setOpen(false);
   };
 
-  const triggerClass =
-    variant === "header"
-      ? "inline-flex items-center gap-1.5 rounded-full text-[12px] font-semibold text-white/85 transition-all hover:text-white"
-      : "inline-flex items-center justify-between w-full gap-2 rounded-lg text-sm font-semibold text-foreground transition-all hover:bg-muted/50";
+  const isHeader = variant === "header";
 
-  const triggerStyle: React.CSSProperties =
-    variant === "header"
-      ? {
-          background: "rgba(255,255,255,0.04)",
-          border: "1px solid rgba(255,255,255,0.08)",
-          padding: "7px 14px",
-          letterSpacing: "0.02em",
-        }
-      : {
-          padding: "10px 14px",
-          border: "1px solid hsl(var(--border))",
-        };
+  // Header: round 36x36 icon-only button on mobile, expands to label+chevron on desktop.
+  // Sidebar: full-width labeled row.
+  const triggerClass = isHeader
+    ? "inline-flex items-center justify-center sm:justify-start sm:gap-1.5 text-[12px] font-semibold text-white/85 transition-all hover:text-white"
+    : "inline-flex items-center justify-between w-full gap-2 rounded-lg text-sm font-semibold text-foreground transition-all hover:bg-muted/50";
+
+  const triggerStyle: React.CSSProperties = isHeader
+    ? {
+        background: "rgba(255,255,255,0.04)",
+        border: "1px solid rgba(255,255,255,0.1)",
+        letterSpacing: "0.02em",
+      }
+    : {
+        padding: "10px 14px",
+        border: "1px solid hsl(var(--border))",
+      };
+
+  // Compact flag for the round mobile trigger so it fits cleanly inside 36x36.
+  const headerTriggerFlagSize = 20;
 
   return (
     <DropdownMenu open={open} onOpenChange={setOpen}>
       <DropdownMenuTrigger
         aria-label="Language / Sprache / Jezik"
-        className={`${triggerClass} focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37]/60 data-[state=open]:scale-[1.02] transition-transform duration-200`}
+        className={`${triggerClass} focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37]/60 data-[state=open]:scale-[1.02] transition-transform duration-200 rounded-full sm:rounded-full h-9 w-9 sm:h-auto sm:w-auto sm:px-3.5 sm:py-1.5`}
         style={triggerStyle}
       >
-        {CurrentFlag ? <CurrentFlag width={flagSize} /> : null}
+        {CurrentFlag ? (
+          <>
+            {/* Mobile: small flag fitted to round button */}
+            <span className="sm:hidden inline-flex">
+              <CurrentFlag width={headerTriggerFlagSize} />
+            </span>
+            {/* Desktop / sidebar: responsive flag */}
+            <span className="hidden sm:inline-flex">
+              <CurrentFlag width={flagSize} />
+            </span>
+          </>
+        ) : null}
         <span
-          className={variant === "header" ? "hidden sm:inline" : ""}
-          style={{ marginLeft: CurrentFlag ? 8 : 0 }}
+          className={isHeader ? "hidden sm:inline" : ""}
+          style={{ marginLeft: CurrentFlag && !isHeader ? 8 : undefined }}
         >
           {currentNative}
         </span>
-        <ChevronDown className="h-3.5 w-3.5 opacity-70" strokeWidth={2.25} />
+        <ChevronDown
+          className={`h-3.5 w-3.5 opacity-70 ${isHeader ? "hidden sm:inline-block" : ""}`}
+          strokeWidth={2.25}
+        />
       </DropdownMenuTrigger>
       <DropdownMenuContent
         align="end"
