@@ -64,7 +64,7 @@ export default function Login() {
             <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-[hsl(var(--brand-orange)/0.12)] mb-4">
               <LogIn className="w-5 h-5 text-[hsl(var(--brand-orange))]" />
             </div>
-            <h1 className="text-2xl font-bold text-foreground tracking-tight">Prijava</h1>
+            <h1 className="text-2xl font-bold text-foreground tracking-tight">{t("auth.login.title")}</h1>
           </div>
 
           <form onSubmit={handleLogin} className="space-y-4">
