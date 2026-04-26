@@ -142,12 +142,18 @@ export default function Paketi() {
             </div>
 
             <button
-              onClick={handlePurchase}
+              onClick={() => handleSubscribe("yearly")}
               className="mt-6 w-full rounded-full bg-[hsl(var(--gold))] py-3 text-sm font-bold text-[#0f1f3d] hover:opacity-90 transition-opacity"
             >
-              Aktiviraj Premium
+              Kupi Godišnji — 99,90€ →
             </button>
-            <p className="text-[10px] text-muted-foreground mt-2 text-center">bez PDV-a prema §19 UStG</p>
+            <button
+              onClick={() => handleSubscribe("monthly")}
+              className="mt-2 w-full rounded-full border border-[hsl(var(--gold))]/40 bg-transparent py-2.5 text-xs font-semibold text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/10 transition-colors"
+            >
+              ili Mjesečno — 9,99€/mj →
+            </button>
+            <p className="text-[10px] text-muted-foreground mt-2 text-center">Sigurno plaćanje preko Stripe-a · Otkaži bilo kada · bez PDV-a §19 UStG</p>
           </motion.div>
         </div>
 
@@ -190,7 +196,7 @@ export default function Paketi() {
 
         <div className="text-center space-y-2">
           <p className="text-sm text-muted-foreground">
-            Plaćanje uskoro dostupno. Za rani pristup: <a href="mailto:kontakt@balkanlink.de" className="text-primary underline">kontakt@balkanlink.de</a>
+            Sigurno plaćanje preko Stripe-a. Otkaži bilo kada iz svog profila.
           </p>
           <p className="text-[10px] text-muted-foreground">
             Sve cijene bez PDV-a prema §19 UStG. Kleinunternehmerregelung.
