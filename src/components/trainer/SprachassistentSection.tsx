@@ -1,5 +1,6 @@
 import React from "react";
 import { Volume2, Lock, Crown } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import AudioButton from "./AudioButton";
 import { Button } from "@/components/ui/button";
 import type { Lesson } from "@/lib/deutsch-trainer-data";
@@ -42,6 +43,7 @@ const SprachassistentSection = React.forwardRef<HTMLDivElement, Props>(
     setRate,
     rateOptions,
   }, ref) {
+  const { t } = useTranslation("pages");
   if (lesson.importantPhrases.length === 0) return null;
 
   const visiblePhrases = isPremium
@@ -58,13 +60,13 @@ const SprachassistentSection = React.forwardRef<HTMLDivElement, Props>(
     <div ref={ref} className="mb-4 rounded-xl border bg-card p-4">
       <div className="mb-2 flex items-center gap-2">
         <Volume2 className="h-4 w-4 text-primary" />
-        <h3 className="text-xs font-bold">Sprachassistent</h3>
+        <h3 className="text-xs font-bold">{t("deutschTrainer.sprachassistent.title")}</h3>
         <span className="ml-auto rounded-full bg-muted px-2 py-0.5 text-[9px] font-bold text-muted-foreground">
           {visiblePhrases.length}/{totalPhrases}
         </span>
         {!isPremium && (
           <span className="rounded-full bg-gold/10 px-2 py-0.5 text-[9px] font-bold text-gold-dark">
-            Vorschau
+            {t("deutschTrainer.sprachassistent.preview")}
           </span>
         )}
       </div>
@@ -112,16 +114,16 @@ const SprachassistentSection = React.forwardRef<HTMLDivElement, Props>(
         <div className="mt-3 rounded-xl border border-gold/20 bg-gradient-to-b from-gold/5 to-gold/10 p-4 text-center">
           <Lock className="mx-auto mb-1.5 h-5 w-5 text-gold" />
           <p className="text-xs font-bold">
-            🔒 +{lockedCount} weitere Sätze freischalten
+            {t("deutschTrainer.sprachassistent.lockedHint", { count: lockedCount })}
           </p>
           <p className="mt-0.5 text-[11px] text-muted-foreground">
-            Nur mit Ultimate freigeschaltet
+            {t("deutschTrainer.sprachassistent.lockedSubtitle")}
           </p>
           <Button
             onClick={onUpgrade}
             className="mt-3 h-9 w-full rounded-xl bg-gold text-xs font-bold text-gold-foreground shadow-[0_4px_20px_rgba(255,204,0,0.3)] hover:bg-gold-light"
           >
-            <Crown className="mr-1.5 h-3.5 w-3.5" /> Sprachassistent freischalten
+            <Crown className="mr-1.5 h-3.5 w-3.5" /> {t("deutschTrainer.sprachassistent.unlockCta")}
           </Button>
         </div>
       )}

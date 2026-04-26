@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import { Check, X } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import type { Exercise } from "@/lib/deutsch-trainer-data";
 
 interface Props {
@@ -18,6 +19,7 @@ function shuffle<T>(arr: T[]): T[] {
 }
 
 export default function SortSentence({ exercise, onAnswer }: Props) {
+  const { t } = useTranslation("pages");
   const correctOrder = exercise.answer as number[];
 
   const shuffledIndices = useMemo(
@@ -55,7 +57,7 @@ export default function SortSentence({ exercise, onAnswer }: Props) {
         border-2 border-dashed border-white/20 bg-white/[0.04] p-3">
         {placed.length === 0 && (
           <span className="text-sm text-white/30 self-center px-1">
-            Klikni na riječi u ispravnom redoslijedu...
+            {t("deutschTrainer.exercise.sortHint")}
           </span>
         )}
         {placed.map((wordIdx, pos) => (
@@ -100,7 +102,7 @@ export default function SortSentence({ exercise, onAnswer }: Props) {
             text-white w-full"
           style={{ background: "linear-gradient(135deg, #3b82f6, #06b6d4)" }}
         >
-          Provjeri
+          {t("deutschTrainer.exercise.checkAnswer")}
         </button>
       )}
 
@@ -113,7 +115,7 @@ export default function SortSentence({ exercise, onAnswer }: Props) {
           <p className={`text-sm font-black mb-1 ${
             isCorrect ? "text-emerald-300" : "text-red-300"
           }`}>
-            {isCorrect ? "✓ Tačno!" : "✗ Netačno."}
+            {isCorrect ? t("deutschTrainer.exercise.correct") : t("deutschTrainer.exercise.incorrect")}
           </p>
           <p className={`text-sm leading-relaxed ${
             isCorrect ? "text-emerald-100/90" : "text-red-100/90"

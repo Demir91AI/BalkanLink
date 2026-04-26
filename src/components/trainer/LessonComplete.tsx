@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, RotateCcw } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 
 interface Props {
@@ -15,6 +16,7 @@ export default function LessonComplete({
   correctCount, totalCount, onRestart, onBack,
   nextStageLabel, onNextStage 
 }: Props) {
+  const { t } = useTranslation("pages");
   const pct = Math.round((correctCount / totalCount) * 100);
 
   return (
@@ -29,10 +31,16 @@ export default function LessonComplete({
 
       <div>
         <h2 className="text-2xl font-black text-white">
-          {pct === 100 ? "Savršeno!" : pct >= 80 ? "Odlično!" : pct >= 60 ? "Dobro!" : "Vježbaj dalje!"}
+          {pct === 100
+            ? t("deutschTrainer.complete.perfect")
+            : pct >= 80
+              ? t("deutschTrainer.complete.great")
+              : pct >= 60
+                ? t("deutschTrainer.complete.good")
+                : t("deutschTrainer.complete.keepGoing")}
         </h2>
         <p className="text-white/60 mt-2">
-          {correctCount} / {totalCount} tačnih odgovora ({pct}%)
+          {t("deutschTrainer.lessonView.answerStats", { correct: correctCount, total: totalCount, pct })}
         </p>
       </div>
 
@@ -52,7 +60,7 @@ export default function LessonComplete({
             className="h-12 rounded-2xl bg-[hsl(var(--gold))] 
               text-white font-bold"
           >
-            Sljedeći: {nextStageLabel} 
+            {t("deutschTrainer.complete.next")} {nextStageLabel} 
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         )}
@@ -61,7 +69,7 @@ export default function LessonComplete({
           className="h-12 rounded-2xl bg-primary 
             text-primary-foreground font-bold"
         >
-          Nastavi učiti
+          {t("deutschTrainer.complete.continueLearning")}
           <ArrowRight className="ml-2 h-4 w-4" />
         </Button>
         <Button 
@@ -71,7 +79,7 @@ export default function LessonComplete({
             text-white/70 hover:text-white"
         >
           <RotateCcw className="mr-2 h-4 w-4" />
-          Ponovi s novim pitanjima
+          {t("deutschTrainer.complete.restart")}
         </Button>
       </div>
     </motion.div>
