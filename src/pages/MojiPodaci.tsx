@@ -52,15 +52,15 @@ export default function MojiPodaci() {
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = `balkanlink-podaci-${new Date().toISOString().slice(0, 10)}.json`;
+      a.download = `balkanlink-podaci-${new Date().toISOString().slice(0, 10)}.txt`;
       document.body.appendChild(a);
       a.click();
       a.remove();
       URL.revokeObjectURL(url);
 
       toast({
-        title: "Podaci preuzeti",
-        description: "JSON fajl je sačuvan na tvoj uređaj.",
+        title: "Izvještaj preuzet",
+        description: "Tvoj izvještaj je sačuvan i možeš ga otvoriti u bilo kojem programu.",
       });
     } catch (e) {
       const msg = e instanceof Error ? e.message : String(e);
@@ -192,7 +192,7 @@ export default function MojiPodaci() {
             <div className="space-y-0.5 min-w-0">
               <p className="text-sm font-medium">Preuzmi svoje podatke</p>
               <p className="text-[11px] text-muted-foreground">
-                JSON kopija svih tvojih podataka (GDPR čl. 15).
+                Čitljiv izvještaj svih tvojih podataka (GDPR čl. 15).
               </p>
             </div>
             <Button
@@ -208,7 +208,7 @@ export default function MojiPodaci() {
                   Pripremam…
                 </>
               ) : (
-                "Preuzmi JSON"
+                "Preuzmi izvještaj"
               )}
             </Button>
           </div>
