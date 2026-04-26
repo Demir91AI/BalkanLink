@@ -3,15 +3,8 @@ import { FileText, Globe, Sparkles, User, Tag } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import AuthModal from "@/components/auth/AuthModal";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
-
-const sideItems = [
-  { icon: FileText, label: "Dokumenti", path: "/formulari" },
-  { icon: Globe, label: "Vize", path: "/viza" },
-  // center gap
-  { icon: Tag, label: "Cijene", path: "/paketi" },
-  { icon: User, label: "Profil", path: "__auth__" },
-] as const;
 
 export default function MobileBottomNav() {
   const navigate = useLocalizedNavigate();
