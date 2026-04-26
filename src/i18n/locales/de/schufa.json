@@ -1,0 +1,393 @@
+{
+  "seo": {
+    "title": "Bonitäts-Simulator — Indikative Einschätzung der Kreditwürdigkeit",
+    "description": "Edukativer Bonitäts-Simulator für Menschen vom Balkan in Deutschland. Verstehe Schufa-Faktoren, bevor die Bank „Nein" sagt. Kein offizieller Schufa-Score."
+  },
+  "hero": {
+    "badge": "Premium · Bonitäts-Simulator",
+    "headline1": "Verstehe deine Kreditwürdigkeit",
+    "headline2": "bevor die Bank „Nein" sagt",
+    "subline": "Edukative Einschätzung basierend auf öffentlichen Schufa-Faktoren. 100 % anonym — alles wird in deinem Browser berechnet."
+  },
+  "footer": {
+    "legalLabel": "Rechtlicher Hinweis:",
+    "legalBody": "Dies ist ein edukativer Simulator. KEIN offizieller Schufa-Score. Die Einschätzung ist orientierend und basiert auf öffentlich bekannten Schufa-Scoring-Faktoren (§31 BDSG). Den tatsächlichen Score erhältst du nur über die kostenlose",
+    "legalLink": "Datenkopie nach §15 DSGVO",
+    "legalAfter": ". Banken, Vermieter und Arbeitgeber nutzen ausschließlich den offiziellen Schufa-Score. BalkanLink übernimmt keine Haftung für Entscheidungen, die auf dieser Einschätzung basieren. Dies ist keine Rechts- oder Finanzberatung."
+  },
+  "gate": {
+    "title": "Bonitäts-Simulator ist Premium",
+    "subline": "Edukative Einschätzung deiner Kreditwürdigkeit, personalisierter 6-Monats-Verbesserungsplan und kompletter Leitfaden zur offiziellen Schufa-Datenkopie — nur für Premium-Nutzer.",
+    "feature1": "✓ Indikative Einschätzung in 5 Minuten",
+    "feature2": "✓ Top 6 Faktoren, die dein Profil beeinflussen",
+    "feature3": "✓ Personalisierter Verbesserungsplan für 6 Monate",
+    "feature4": "✓ Anleitung für die KOSTENLOSE offizielle Schufa-Auskunft",
+    "feature5": "✓ 100 % anonym — nichts wird gespeichert",
+    "cta": "Premium freischalten — 9,99 €/Monat",
+    "footnote": "Kein offizieller Schufa-Score · Edukativer Simulator"
+  },
+  "disclaimer": {
+    "title": "Wichtiger Hinweis vor der Nutzung",
+    "subtitle": "BalkanLink Bonitäts-Simulator",
+    "warningStrong": "Dies ist KEIN offizieller Schufa-Score.",
+    "warningBody": "Es handelt sich um eine edukative orientierende Einschätzung, die auf öffentlich verfügbaren Faktoren basiert, die die Schufa Holding AG in ihrem Scoring-Modell angibt.",
+    "bullet1Strong1": "indikativ",
+    "bullet1": "Die Einschätzung ist {{strong1}} und basiert auf allgemeinen Faktoren — der tatsächliche Schufa-Score hängt von Daten ab, die die Schufa über dich besitzt, und diese Daten sind uns {{strong2}}.",
+    "bullet1Strong2": "NICHT zugänglich",
+    "bullet2Strong": "UNBEDINGT die kostenlose „Datenkopie nach Art. 15 DSGVO"",
+    "bullet2": "Für eine offizielle Information {{strong}} direkt bei der Schufa Holding AG anfordern (1× jährlich kostenlos).",
+    "bullet3Strong": "ausschließlich den offiziellen Schufa-Score",
+    "bullet3": "Banken, Vermieter und Arbeitgeber nutzen {{strong}} — nicht diese Einschätzung.",
+    "bullet4": "BalkanLink übernimmt keine Haftung für Entscheidungen, die auf dieser edukativen Einschätzung basieren. Dies ist keine Rechts- oder Finanzberatung.",
+    "bullet5Strong": "ausschließlich in deinem Browser",
+    "bullet5": "Deine Daten werden {{strong}} verarbeitet — nichts wird an einen Server gesendet, nichts gespeichert.",
+    "officialLink": "Offizielle kostenlose Schufa-Datenkopie anfordern",
+    "check1": "Ich verstehe, dass dies <strong>kein offizieller Schufa-Score</strong> ist.",
+    "check2": "Ich verstehe, dass dies eine <strong>edukative orientierende Einschätzung</strong> ist.",
+    "check3": "Ich verstehe, dass ich für eine offizielle Information die <strong>Datenkopie</strong> bei der Schufa anfordern muss.",
+    "ctaAccept": "Einverstanden, weiter →",
+    "ctaWaiting": "Alle markieren, um fortzufahren",
+    "ctaCancel": "Abbrechen"
+  },
+  "questionnaire": {
+    "anonymousLabel": "Anonym:",
+    "anonymousBody": "Alle Antworten werden ausschließlich in deinem Browser verarbeitet. Nichts wird an einen Server gesendet, nichts gespeichert.",
+    "q1": "1. Wie viele Jahre lebst du in Deutschland?",
+    "q1Aria": "Jahre des Aufenthalts in Deutschland",
+    "q1Suffix": "J.",
+    "q2": "2. Wie oft hast du in den letzten 5 Jahren die Adresse gewechselt?",
+    "q2Tooltip": "Häufige An-/Abmeldungen interpretiert die Schufa als Instabilität.",
+    "q3": "3. Wie viele aktive Kredite / Leasingverträge hast du?",
+    "q3Tooltip": "Immobilienkredit, Auto-Leasing, Konsumentenkredit, Handy auf Raten...",
+    "q4": "4. Wie viele Kreditkarten besitzt du?",
+    "q5": "5. Wie viele Bankkonten (Girokonto) hast du eröffnet?",
+    "q5Aria": "Anzahl der Bankkonten",
+    "q6": "6. Wie nutzt du den Dispokredit?",
+    "q6Tooltip": "Die Schufa SIEHT NICHT deinen Kontostand. Sie sieht nur, ob du einen Dispo eingeräumt bekommen hast und ob du eine Mahnung erhalten hast.",
+    "q6MythTitle": "💡 Mythos / Wahrheit zum Dispo:",
+    "q6MythLabel": "Mythos:",
+    "q6MythBody": "„Der Dispo ruiniert die Schufa.”",
+    "q6TruthLabel": "Wahrheit:",
+    "q6TruthBody": "Der Dispo selbst ist ein <strong>positives Signal</strong> (die Bank vertraut dir). Probleme entstehen erst, wenn du 90+ Tage nicht zahlst oder die Bank den Dispo kündigt.",
+    "q7": "7. Hast du unbezahlte Rechnungen, Mahnungen oder Inkasso-Forderungen?",
+    "q7Tooltip": "Eine Mahnung nach 90 Tagen Nichtzahlung wird der Schufa gemeldet und bleibt 3 Jahre.",
+    "q8": "8. Wie oft hast du dich in den letzten 12 Monaten für Wohnungen/Kredite beworben?",
+    "q8Tooltip": "Jede Wohnungs- oder Kreditbewerbung = 1 Schufa-Anfrage. Mehr Anfragen = höhere Risikowahrnehmung.",
+    "q9": "9. Hattest du jemals eine Privatinsolvenz?",
+    "submit": "Indikative Einschätzung berechnen",
+    "submitNote": "Berechnung erfolgt lokal · nichts wird an den Server gesendet",
+    "address": {
+      "01": "0-1 Wechsel",
+      "23": "2-3 Wechsel",
+      "4plus": "4+ Wechsel"
+    },
+    "loans": {
+      "0": "Keinen Kredit",
+      "1": "1 Kredit",
+      "23": "2-3 Kredite",
+      "4plus": "4+ Kredite"
+    },
+    "cards": {
+      "0": "Keine",
+      "12": "1-2 Karten",
+      "34": "3-4 Karten",
+      "5plus": "5+ Karten"
+    },
+    "dispo": {
+      "none": "Keinen Dispo (kein Dispokredit)",
+      "approvedUnused": "✓ Dispo eingeräumt, nutze ihn nicht",
+      "approvedUnusedHint": "Ideal: positives Signal für die Schufa, die Bank vertraut dir",
+      "occasional": "Habe Dispo, nutze ihn gelegentlich",
+      "occasionalHint": "Neutral — die Schufa SIEHT deinen Kontostand NICHT",
+      "constant": "Ständig im Dispo (3+ Monate)",
+      "constantHint": "Schufa sieht es noch nicht, aber das Risiko einer Mahnung steigt",
+      "mahnung": "⚠️ Habe wegen Dispo eine Mahnung bekommen",
+      "mahnungHint": "Negativeintrag bei der Schufa, bleibt 3 Jahre",
+      "cancelled": "❌ Bank hat meinen Dispo gekündigt",
+      "cancelledHint": "Schwerer Negativeintrag — sehr schlecht"
+    },
+    "bills": {
+      "none": "Alles pünktlich bezahlt",
+      "one": "1 unbezahlte Rechnung (Mahnung)",
+      "multiple": "Mehrere unbezahlte Rechnungen",
+      "inkasso": "⚠️ Aktives Inkasso-Verfahren"
+    },
+    "inquiries": {
+      "02": "0-2 (wenig Anfragen)",
+      "35": "3-5 (durchschnittlich)",
+      "610": "6-10 (viele)",
+      "11plus": "11+ (sehr viele)"
+    },
+    "insolvency": {
+      "no": "Nie",
+      "discharged": "Ja, abgeschlossen (Restschuldbefreiung)",
+      "active": "Ja, aktiv"
+    }
+  },
+  "result": {
+    "label": "Indikative orientierende Einschätzung",
+    "warningStrong": "Dies ist KEIN offizieller Schufa-Score.",
+    "warningBody": "Den tatsächlichen Score erhältst du nur über die kostenlose",
+    "warningLink": "Datenkopie",
+    "warningAfter": "nach §15 DSGVO.",
+    "chancesTitle": "Geschätzte Erfolgschancen",
+    "chanceRent": "Wohnung in München/Berlin",
+    "chanceLoan": "Konsumentenkredit (~50.000 €)",
+    "chanceCard": "Kreditkarte",
+    "chanceLeasing": "Auto-Leasing",
+    "chancesNote": "Einschätzung basierend auf öffentlichen Kriterien von Banken und Vermietern. Tatsächliche Entscheidungen hängen auch vom Gehalt, Arbeitsvertrag und anderen Faktoren ab.",
+    "factorsTitle": "Was deine Einschätzung am stärksten beeinflusst",
+    "mythTitle": "Was sieht die Schufa wirklich?",
+    "mythSeesLabel": "SIEHT",
+    "mythSeesBody": "Kredite, Kreditkarten, gekündigte Dispos, Mahnungen, Inkasso, Insolvenzen, Anzahl der Anfragen, Adressdaten.",
+    "mythHiddenLabel": "SIEHT NICHT",
+    "mythHiddenBody": "dein Gehalt, deinen Kontostand, wie viel du ausgibst, ob du im Dispo bist (solange keine Mahnung erfolgt).",
+    "ctaContinue": "6-Monats-Verbesserungsplan ansehen →",
+    "ctaRestart": "Antworten ändern",
+    "chanceHigh": "Hoch",
+    "chanceMedium": "Mittel",
+    "chanceLow": "Gering"
+  },
+  "actionPlan": {
+    "title": "Dein 6-Monats-Verbesserungsplan",
+    "subline": "Personalisierte Schritte basierend auf deinen Antworten. Nach Priorität sortiert — beginne oben.",
+    "priorityHigh": "Hohe Priorität",
+    "priorityMedium": "Mittlere Priorität",
+    "priorityLow": "Niedrige Priorität",
+    "effectLabel": "Wirkung:",
+    "deadlineLabel": "Frist:",
+    "monthsAbbr": "Mon.",
+    "nextStepTitle": "Nächster wichtiger Schritt: Offizielle Schufa-Datenkopie",
+    "nextStepBody": "Nach §15 DSGVO hast du Anspruch auf eine <strong>KOSTENLOSE</strong> Auskunft deines Schufa-Profils 1× jährlich. Erst dort siehst du die tatsächlichen Daten und kannst falsche Einträge prüfen.",
+    "ctaContinue": "Wie du die offizielle Schufa-Auskunft anforderst →"
+  },
+  "guide": {
+    "title": "Offizielle Schufa-Auskunft",
+    "subline": "Alles, was du wissen musst, um die <strong>tatsächlichen</strong> Daten von der Schufa Holding AG zu erhalten.",
+    "optionsTitle": "Welche Auskunft brauchst du?",
+    "recommended": "Empfohlen",
+    "free": "KOSTENLOS",
+    "opt1Title": "Datenkopie (§15 DSGVO)",
+    "opt1UseCase": "Für dich persönlich — einmal jährlich",
+    "opt1Description": "Komplette Auskunft aller Daten, die die Schufa über dich gespeichert hat. Das ist dein gesetzliches Recht.",
+    "opt1LinkText": "Kostenlose Datenkopie anfordern",
+    "opt2Title": "bonify (kostenlose App)",
+    "opt2UseCase": "Für den schnellen Überblick auf dem Handy",
+    "opt2Description": "App von der Schufa mit vereinfachter Score-Anzeige. Ersetzt nicht die offizielle Datenkopie.",
+    "opt2LinkText": "bonify öffnen",
+    "opt3Title": "Bonitätsauskunft",
+    "opt3Price": "29,95 € einmalig",
+    "opt3UseCase": "Für den Vermieter bei der Wohnungsbewerbung",
+    "opt3Description": "Zertifikat für den Vermieter — zeigt nur das allgemeine Bonitätsbild ohne Details.",
+    "opt3LinkText": "Bonitätsauskunft anfordern",
+    "opt4Title": "meineSCHUFA Plus",
+    "opt4Price": "3,95 €/Monat",
+    "opt4UseCase": "Für kontinuierliche Überwachung (z. B. nach Insolvenz)",
+    "opt4Description": "Online-Zugang, Echtzeit-Updates, Push-Benachrichtigungen bei Änderungen.",
+    "opt4LinkText": "meineSCHUFA Registrierung",
+    "stepsTitle": "Wie du die kostenlose Datenkopie anforderst — Schritt für Schritt",
+    "step1": "Gehe zum offiziellen Link:",
+    "step1Link": "meineschufa.de/de/datenkopie",
+    "step2": "Fülle das Online-Formular aus mit: Name, Vorname, Geburtsdatum, Adresse (und frühere Adressen der letzten 5 Jahre).",
+    "step3": "Sende eine Kopie deines Reisepasses/Personalausweises (du kannst die Pass-Nummer schwärzen — die Schufa benötigt diese nicht).",
+    "step4": "Warte <strong>2-4 Wochen</strong> — die Datenkopie kommt per Post an deine Adresse.",
+    "step5": "Prüfe alle Daten. Wenn etwas falsch ist → sofort <strong>Berichtigungsantrag</strong>.",
+    "musterTitle": "Musterbrief — Datenkopie-Antrag",
+    "musterSubline": "Fertige Vorlage auf Deutsch zum Versand per Einschreiben",
+    "musterCta": "Musterbrief herunterladen",
+    "errorsTitle": "Wenn du falsche Daten in deiner Schufa-Auskunft findest:",
+    "error1": "Sende einen <strong>Berichtigungsantrag</strong> an die Schufa und an den Gläubiger/die Bank.",
+    "error2": "Lege Belege bei (Vertrag, Zahlungsbestätigung, Korrespondenz).",
+    "error3": "Die Schufa muss gesetzlich innerhalb von 30 Tagen reagieren (§17 DSGVO).",
+    "error4Before": "Wenn sie ablehnen → kostenlose Hilfe:",
+    "error4Mid": "oder Beschwerde einreichen bei",
+    "error4After": ".",
+    "ctaRestart": "Simulation wiederholen",
+    "ctaOfficial": "Offizielle Datenkopie anfordern"
+  },
+  "riskClass": {
+    "A": "Ausgezeichnet",
+    "B": "Sehr gut",
+    "C": "Gut",
+    "D": "Befriedigend",
+    "E": "Grenzwertig",
+    "F": "Schwach",
+    "G": "Schlecht",
+    "H": "Sehr schlecht"
+  },
+  "factors": {
+    "stayLong": {
+      "label": "Langjähriger Aufenthalt in Deutschland",
+      "detail": "Die Schufa bewertet einen stabilen Aufenthalt von mehr als 5 Jahren positiv, da er Stabilität zeigt."
+    },
+    "stayMid": {
+      "label": "Stabiler Aufenthalt (2+ Jahre)",
+      "detail": "Ein Aufenthalt von mehr als 2 Jahren ist ein neutral-positives Signal."
+    },
+    "stayShort": {
+      "label": "Kurze Zeit in Deutschland",
+      "detail": "Die Schufa hat weniger historische Daten über dich, was das Risiko für Geschäftspartner erhöht."
+    },
+    "addressMany": {
+      "label": "Häufige Adresswechsel (4+)",
+      "detail": "Mehr als 3 Anmeldungen in den letzten 5 Jahren interpretiert die Schufa als Instabilität (BDSG §31)."
+    },
+    "addressMid": {
+      "label": "Moderate Adresswechsel",
+      "detail": "2-3 Wechsel sind durchschnittlich; sie haben keinen großen Einfluss."
+    },
+    "loansNone": {
+      "label": "Keine aktiven Kredite",
+      "detail": "Ohne Kredite hat die Schufa nicht genug Daten für eine zuverlässige Einschätzung — der Score ist „dünn"."
+    },
+    "loansOne": {
+      "label": "Ein aktiver Kredit (ordnungsgemäß)",
+      "detail": "Ordnungsgemäße Tilgung eines Kredits ist das beste Signal für Zuverlässigkeit."
+    },
+    "loansMid": {
+      "label": "2-3 aktive Kredite",
+      "detail": "Mehrere Kredite erhöhen die Gesamtverschuldung."
+    },
+    "loansMany": {
+      "label": "4+ aktive Kredite",
+      "detail": "Hohe Verschuldung ist ein erheblicher negativer Faktor im Schufa-Modell."
+    },
+    "cardsMany": {
+      "label": "5+ Kreditkarten",
+      "detail": "Zu viele offene Kreditlinien erhöhen die Risikowahrnehmung."
+    },
+    "cardsMid": {
+      "label": "3-4 Kreditkarten",
+      "detail": "Mehr Karten, als du realistisch brauchst."
+    },
+    "cardsIdeal": {
+      "label": "1-2 Kreditkarten (ideal)",
+      "detail": "Optimale Anzahl — zeigt finanzielle Organisation."
+    },
+    "accountsNone": {
+      "label": "Kein Girokonto",
+      "detail": "Ohne Bankkonto hat die Schufa keine Grunddaten — kritisch für jede Bewerbung."
+    },
+    "accountsMany": {
+      "label": "Zu viele Bankkonten (4+)",
+      "detail": "Mehrere Konten können wie „Verstreuung" wirken — Banken mögen ein klares Bild."
+    },
+    "accountsOk": {
+      "label": "{{count}} Bankkonto/-konten",
+      "detail": "Eine angemessene Anzahl an Konten ist ein positives Signal."
+    },
+    "dispoApprovedUnused": {
+      "label": "Dispokredit eingeräumt, ungenutzt",
+      "detail": "POSITIV: Die Schufa sieht, dass die Bank dir vertraut (eingeräumtes Limit). Nicht genutzt = ideales Signal."
+    },
+    "dispoOccasional": {
+      "label": "Dispokredit, gelegentliche Nutzung",
+      "detail": "Der Dispo selbst ist positiv, gelegentliche Nutzung ist neutral."
+    },
+    "dispoConstant": {
+      "label": "Ständig im Dispo",
+      "detail": "WICHTIG: Die Schufa SIEHT deinen aktuellen Kontostand NICHT, aber ein konstanter Dispo über 3+ Monate kann zu einer Mahnung führen, die SEHR WOHL ein Schufa-Eintrag ist."
+    },
+    "dispoMahnung": {
+      "label": "Mahnung wegen Dispo erhalten",
+      "detail": "ERNST: Eine Mahnung nach 90 Tagen Nichtzahlung wird der Schufa als Negativeintrag gemeldet und bleibt 3 Jahre."
+    },
+    "dispoCancelled": {
+      "label": "Bank hat den Dispo gekündigt",
+      "detail": "KRITISCH: Eine Dispo-Kündigung wegen Überziehung ist ein schwerer Negativeintrag — Banken und Vermieter sehen das sofort."
+    },
+    "billsNone": {
+      "label": "Keine unbezahlten Rechnungen",
+      "detail": "Keine Negativeinträge — das ist die Grundlage eines gesunden Schufa-Profils."
+    },
+    "billsOne": {
+      "label": "Eine unbezahlte Rechnung",
+      "detail": "Selbst eine Mahnung wirkt sich negativ aus. Zahle SOFORT und fordere einen Erledigungsvermerk an."
+    },
+    "billsMultiple": {
+      "label": "Mehrere unbezahlte Rechnungen",
+      "detail": "Mehrere Mahnungen = ernstes Signal mangelnder Zuverlässigkeit für alle Geschäftspartner."
+    },
+    "billsInkasso": {
+      "label": "Aktives Inkasso-Verfahren",
+      "detail": "KRITISCH: Ein Inkasso-Eintrag ist ein harter Negativeintrag, der die meisten Kredite, Wohnungen und Verträge blockiert."
+    },
+    "inquiriesFew": {
+      "label": "Wenige Schufa-Anfragen (0-2 in den letzten 12 Mon.)",
+      "detail": "Geringe Anfrageaktivität zeigt, dass du nicht in „Geldnot-Panik" bist."
+    },
+    "inquiriesMany": {
+      "label": "Viele Schufa-Anfragen (6-10)",
+      "detail": "Jede Wohnungs- oder Kreditbewerbung = Schufa-Anfrage. Mehr Anfragen = höhere Risikowahrnehmung."
+    },
+    "inquiriesVeryMany": {
+      "label": "Sehr viele Schufa-Anfragen (11+)",
+      "detail": "Banken und Vermieter interpretieren das als „verzweifelte Suche" — Tipp: pausiere Bewerbungen für 3+ Monate."
+    },
+    "insolvencyActive": {
+      "label": "Aktive Privatinsolvenz",
+      "detail": "Eine aktive Insolvenz ist ein schwerer Negativeintrag — Kredit, Wohnung und die meisten Verträge sind praktisch blockiert."
+    },
+    "insolvencyDischarged": {
+      "label": "Abgeschlossene Insolvenz (Restschuldbefreiung)",
+      "detail": "Nach §882e ZPO bleibt der Eintrag 3 Jahre nach Abschluss bestehen. Der Score erholt sich allmählich."
+    }
+  },
+  "actions": {
+    "datenkopie": {
+      "title": "KOSTENLOSE offizielle Schufa-Datenkopie anfordern",
+      "detail": "Nach §15 DSGVO hast du das Recht auf eine kostenlose Auskunft 1x jährlich. Das ist der EINZIGE Weg, deinen tatsächlichen Schufa-Score zu kennen und falsche Daten zu prüfen.",
+      "impact": "Du erfährst die echten Daten"
+    },
+    "payInkasso": {
+      "title": "Alle offenen Inkasso/Mahnungen begleichen",
+      "detail": "Nach Zahlung schriftlichen „Erledigungsvermerk" anfordern und an die Schufa senden. Der Negativeintrag kann als „erledigt" markiert werden.",
+      "impact": "+10-18 %"
+    },
+    "regulateDispo": {
+      "title": "Dispo-Schulden mit der Bank regeln",
+      "detail": "Vereinbare einen Tilgungsplan (Ratenzahlung). Nach Abschluss schriftliche Bestätigung anfordern und an die Schufa für den Erledigungsvermerk senden.",
+      "impact": "+8-15 %"
+    },
+    "pauseInquiries": {
+      "title": "Wohnungs-/Kreditbewerbungen 3 Monate pausieren",
+      "detail": "Jede Bewerbung = Schufa-Anfrage. Regel: bewerbe dich NUR auf Wohnungen, wo du realistisch eine Chance hast, nicht „aus Routine". Alte Anfragen verblassen langsam nach 12 Monaten.",
+      "impact": "+2-5 %"
+    },
+    "closeCards": {
+      "title": "Ungenutzte Kreditkarten schließen",
+      "detail": "Behalte 1-2, die du aktiv nutzt. Bei der Schließung schriftliche Bestätigung vom Aussteller anfordern und an die Schufa senden.",
+      "impact": "+1-3 %"
+    },
+    "exitDispo": {
+      "title": "Bis Quartalsende aus dem Dispo herauskommen",
+      "detail": "Die Schufa SIEHT deinen Kontostand NICHT — ABER wenn die Bank dich anmahnt, wird sie es sehen. Besser frühzeitig einen Tilgungsplan machen.",
+      "impact": "Verhindert -18 %"
+    },
+    "openGiro": {
+      "title": "Girokonto eröffnen und 6 Monate ohne Minus halten",
+      "detail": "Beste kostenlose Optionen: DKB, ING, Comdirect. Ein ordentliches Girokonto ohne Minus = starker positiver Marker.",
+      "impact": "+3-6 %"
+    },
+    "buildHistory": {
+      "title": "1 kleinen Kredit zum Aufbau der Historie erwägen",
+      "detail": "Eine Schufa ohne jegliche Kredite ist ein „dünner" Score. Ein kleiner, ordnungsgemäßer Ratenkredit (z. B. Handy auf Raten) baut innerhalb von 6-12 Monaten eine positive Historie auf.",
+      "impact": "+2-4 %"
+    },
+    "keepDispo": {
+      "title": "Dispo geöffnet halten — nicht kündigen",
+      "detail": "Du hast die ideale Situation: eingeräumt aber ungenutzt. Eine Kündigung würde den positiven Marker entfernen.",
+      "impact": "Erhält +3 %"
+    },
+    "waitInsolvency": {
+      "title": "3 Jahre nach Restschuldbefreiung abwarten",
+      "detail": "Der Eintrag wird automatisch gelöscht. In der Zwischenzeit keine neuen Kredite aufnehmen — Stabilität aufbauen.",
+      "impact": "+10-12 %"
+    },
+    "checkAnnually": {
+      "title": "Schufa jährlich prüfen",
+      "detail": "Nach §15 DSGVO hast du Anspruch auf 1 kostenlose Datenkopie pro Jahr. Nutze dieses Recht — oft finden sich Fehler, die den Score nach unten ziehen.",
+      "impact": "Prävention"
+    }
+  }
+}
