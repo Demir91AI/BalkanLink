@@ -124,6 +124,17 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
                   <p className="mt-0.5 truncate text-sm text-muted-foreground">{user.email}</p>
                 </div>
               </div>
+              <button
+                onClick={() => handleNav("/profil/placanja")}
+                className={`mt-3 flex items-center gap-3 w-full px-3 py-2 rounded-lg text-left transition-all duration-200 ${
+                  location.pathname === "/profil/placanja"
+                    ? "bg-[hsl(var(--gold))]/10 text-[hsl(var(--gold))]"
+                    : "text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D]"
+                }`}
+              >
+                <Receipt className={`h-[18px] w-[18px] shrink-0 ${location.pathname === "/profil/placanja" ? "text-[hsl(var(--gold))]" : ""}`} />
+                <span className="text-[14px] font-medium">Historija plaćanja</span>
+              </button>
               <div className="mt-4 h-px bg-border/80" />
             </div>
           ) : (
