@@ -2,9 +2,12 @@
  * BalkanLink i18n bootstrap
  *
  * Default language: 'bs' (Bosanski) — served at root paths
- * Secondary language: 'de' (Deutsch) — served at /de/* prefix
+ * Secondary languages:
+ *   - 'de' (Deutsch)   — /de/* prefix
+ *   - 'hr' (Hrvatski)  — /hr/* prefix
+ *   - 'sr' (Srpski, ekavica) — /sr/* prefix
  *
- * Detection order: localStorage ('balkanlink-lang') → navigator → fallback ('bs')
+ * Detection order: path → localStorage ('balkanlink-lang') → navigator → 'bs'.
  * Language is also forced by URL via <LanguageRouter />.
  */
 import i18n from "i18next";
@@ -21,7 +24,17 @@ import deForms from "./locales/de/forms.json";
 import dePages from "./locales/de/pages.json";
 import deErrors from "./locales/de/errors.json";
 
-export const SUPPORTED_LANGUAGES = ["bs", "de"] as const;
+import hrCommon from "./locales/hr/common.json";
+import hrForms from "./locales/hr/forms.json";
+import hrPages from "./locales/hr/pages.json";
+import hrErrors from "./locales/hr/errors.json";
+
+import srCommon from "./locales/sr/common.json";
+import srForms from "./locales/sr/forms.json";
+import srPages from "./locales/sr/pages.json";
+import srErrors from "./locales/sr/errors.json";
+
+export const SUPPORTED_LANGUAGES = ["bs", "de", "hr", "sr"] as const;
 export type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number];
 export const DEFAULT_LANGUAGE: SupportedLanguage = "bs";
 export const LANG_STORAGE_KEY = "balkanlink-lang";
@@ -29,6 +42,8 @@ export const LANG_STORAGE_KEY = "balkanlink-lang";
 const resources = {
   bs: { common: bsCommon, forms: bsForms, pages: bsPages, errors: bsErrors },
   de: { common: deCommon, forms: deForms, pages: dePages, errors: deErrors },
+  hr: { common: hrCommon, forms: hrForms, pages: hrPages, errors: hrErrors },
+  sr: { common: srCommon, forms: srForms, pages: srPages, errors: srErrors },
 };
 
 i18n
@@ -36,18 +51,20 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    // Hard fallback: any unsupported browser language → Bosanski (never German).
+    // Hard fallback: any unsupported browser language → Bosanski.
+    // Anything outside the 4 codes (Italian, French, Russian, Cyrillic SR, …)
+    // resolves here.
     fallbackLng: DEFAULT_LANGUAGE,
     lng: undefined, // let detector decide on first load
     supportedLngs: [...SUPPORTED_LANGUAGES],
-    nonExplicitSupportedLngs: false,
-    load: "languageOnly", // 'de-AT' → 'de', 'sr-Latn' → falls back to 'bs'
+    nonExplicitSupportedLngs: false, // 'sr-Latn' / 'hr-HR' won't auto-resolve
+    load: "languageOnly", // 'de-AT' → 'de'
     defaultNS: "common",
     ns: ["common", "forms", "pages", "errors"],
     interpolation: { escapeValue: false },
     detection: {
-      // URL path takes precedence (so /de always means German on direct visit),
-      // then the user's saved choice, then the browser language as last resort.
+      // URL path takes precedence (so /de, /hr, /sr always force the language
+      // on direct visit), then user choice, then browser language.
       order: ["path", "localStorage", "navigator"],
       lookupFromPathIndex: 0,
       lookupLocalStorage: LANG_STORAGE_KEY,
