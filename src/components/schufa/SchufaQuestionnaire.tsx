@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { ChevronRight, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
@@ -19,80 +20,62 @@ interface Props {
 
 interface Option<T extends string> {
   value: T;
-  label: string;
-  hint?: string;
+  /** i18n key inside `schufa.questionnaire.*` */
+  labelKey: string;
+  hintKey?: string;
 }
 
 const ADDRESS_OPTS: Option<AddressChanges>[] = [
-  { value: "0-1", label: "0-1 promjene" },
-  { value: "2-3", label: "2-3 promjene" },
-  { value: "4+", label: "4+ promjene" },
+  { value: "0-1", labelKey: "address.01" },
+  { value: "2-3", labelKey: "address.23" },
+  { value: "4+", labelKey: "address.4plus" },
 ];
 
 const LOAN_OPTS: Option<ActiveLoans>[] = [
-  { value: "0", label: "Nemam kredit" },
-  { value: "1", label: "1 kredit" },
-  { value: "2-3", label: "2-3 kredita" },
-  { value: "4+", label: "4+ kredita" },
+  { value: "0", labelKey: "loans.0" },
+  { value: "1", labelKey: "loans.1" },
+  { value: "2-3", labelKey: "loans.23" },
+  { value: "4+", labelKey: "loans.4plus" },
 ];
 
 const CARD_OPTS: Option<CardCount>[] = [
-  { value: "0", label: "Nemam" },
-  { value: "1-2", label: "1-2 kartice" },
-  { value: "3-4", label: "3-4 kartice" },
-  { value: "5+", label: "5+ kartica" },
+  { value: "0", labelKey: "cards.0" },
+  { value: "1-2", labelKey: "cards.12" },
+  { value: "3-4", labelKey: "cards.34" },
+  { value: "5+", labelKey: "cards.5plus" },
 ];
 
 const DISPO_OPTS: Option<DispoUsage>[] = [
-  { value: "none", label: "Nemam Dispo (nema dispokredita)" },
-  {
-    value: "approved_unused",
-    label: "✓ Imam odobren Dispo, ne koristim ga",
-    hint: "Idealno: pozitivan signal za Schufu, banka ti vjeruje",
-  },
-  {
-    value: "occasional",
-    label: "Imam Dispo, povremeno koristim",
-    hint: "Neutralno — Schufa NE vidi tvoj saldo",
-  },
-  {
-    value: "constant",
-    label: "Stalno sam u Dispo minusu (3+ mj)",
-    hint: "Schufa još ne vidi, ali rizik od Mahnunga raste",
-  },
-  {
-    value: "mahnung",
-    label: "⚠️ Dobio sam Mahnung zbog Dispo",
-    hint: "Negativeintrag u Schufi, ostaje 3 godine",
-  },
-  {
-    value: "cancelled",
-    label: "❌ Banka mi je otkazala Dispo",
-    hint: "Teški Negativeintrag — vrlo loše",
-  },
+  { value: "none", labelKey: "dispo.none" },
+  { value: "approved_unused", labelKey: "dispo.approvedUnused", hintKey: "dispo.approvedUnusedHint" },
+  { value: "occasional", labelKey: "dispo.occasional", hintKey: "dispo.occasionalHint" },
+  { value: "constant", labelKey: "dispo.constant", hintKey: "dispo.constantHint" },
+  { value: "mahnung", labelKey: "dispo.mahnung", hintKey: "dispo.mahnungHint" },
+  { value: "cancelled", labelKey: "dispo.cancelled", hintKey: "dispo.cancelledHint" },
 ];
 
 const BILLS_OPTS: Option<UnpaidBills>[] = [
-  { value: "none", label: "Sve plaćeno na vrijeme" },
-  { value: "one", label: "1 neplaćeni račun (Mahnung)" },
-  { value: "multiple", label: "Više neplaćenih računa" },
-  { value: "inkasso", label: "⚠️ Aktivan Inkasso postupak" },
+  { value: "none", labelKey: "bills.none" },
+  { value: "one", labelKey: "bills.one" },
+  { value: "multiple", labelKey: "bills.multiple" },
+  { value: "inkasso", labelKey: "bills.inkasso" },
 ];
 
 const INQUIRY_OPTS: Option<SchufaInquiries>[] = [
-  { value: "0-2", label: "0-2 (malo prijava)" },
-  { value: "3-5", label: "3-5 (prosječno)" },
-  { value: "6-10", label: "6-10 (mnogo)" },
-  { value: "11+", label: "11+ (vrlo mnogo)" },
+  { value: "0-2", labelKey: "inquiries.02" },
+  { value: "3-5", labelKey: "inquiries.35" },
+  { value: "6-10", labelKey: "inquiries.610" },
+  { value: "11+", labelKey: "inquiries.11plus" },
 ];
 
 const INSOLVENCY_OPTS: Option<Insolvency>[] = [
-  { value: "no", label: "Nikad" },
-  { value: "discharged", label: "Da, završeno (Restschuldbefreiung)" },
-  { value: "active", label: "Da, aktivno" },
+  { value: "no", labelKey: "insolvency.no" },
+  { value: "discharged", labelKey: "insolvency.discharged" },
+  { value: "active", labelKey: "insolvency.active" },
 ];
 
 export default function SchufaQuestionnaire({ onSubmit }: Props) {
+  const { t } = useTranslation("schufa");
   const [years, setYears] = useState<number>(3);
   const [accounts, setAccounts] = useState<number>(1);
   const [address, setAddress] = useState<AddressChanges>("0-1");
@@ -124,14 +107,13 @@ export default function SchufaQuestionnaire({ onSubmit }: Props) {
           <p className="flex items-start gap-2">
             <Info className="h-4 w-4 shrink-0 text-[hsl(var(--gold))] mt-0.5" />
             <span>
-              <strong className="text-white">Anonimno:</strong> Sve odgovore obrađujemo isključivo u
-              tvom browseru. Ništa se ne šalje na server, ništa se ne čuva.
+              <strong className="text-white">{t("questionnaire.anonymousLabel")}</strong>{" "}
+              {t("questionnaire.anonymousBody")}
             </span>
           </p>
         </div>
 
-        {/* 1. Godine boravka */}
-        <Question label="1. Koliko godina živiš u Njemačkoj?">
+        <Question label={t("questionnaire.q1")}>
           <div className="flex items-center gap-4">
             <input
               type="range"
@@ -140,37 +122,27 @@ export default function SchufaQuestionnaire({ onSubmit }: Props) {
               value={years}
               onChange={(e) => setYears(Number(e.target.value))}
               className="flex-1 accent-[hsl(var(--gold))]"
-              aria-label="Godine boravka u Njemačkoj"
+              aria-label={t("questionnaire.q1Aria")}
             />
             <span className="min-w-[80px] text-right font-bold text-[hsl(var(--gold))] text-lg">
-              {years === 20 ? "20+" : years} {years === 1 ? "god" : "god"}
+              {years === 20 ? "20+" : years} {t("questionnaire.q1Suffix")}
             </span>
           </div>
         </Question>
 
-        {/* 2. Promjene adrese */}
-        <Question
-          label="2. Koliko puta si mijenjao adresu u zadnjih 5 godina?"
-          tooltip="Česte prijave/odjave (Anmeldung) Schufa tumači kao nestabilnost."
-        >
-          <RadioGrid options={ADDRESS_OPTS} value={address} onChange={setAddress} />
+        <Question label={t("questionnaire.q2")} tooltip={t("questionnaire.q2Tooltip")}>
+          <RadioGrid options={ADDRESS_OPTS} value={address} onChange={setAddress} t={t} />
         </Question>
 
-        {/* 3. Aktivni krediti */}
-        <Question
-          label="3. Koliko aktivnih kredita / leasing ugovora imaš?"
-          tooltip="Stambeni kredit, auto leasing, potrošački kredit, mobitel na rate..."
-        >
-          <RadioGrid options={LOAN_OPTS} value={loans} onChange={setLoans} />
+        <Question label={t("questionnaire.q3")} tooltip={t("questionnaire.q3Tooltip")}>
+          <RadioGrid options={LOAN_OPTS} value={loans} onChange={setLoans} t={t} />
         </Question>
 
-        {/* 4. Kreditne kartice */}
-        <Question label="4. Koliko kreditnih kartica posjeduješ?">
-          <RadioGrid options={CARD_OPTS} value={cards} onChange={setCards} />
+        <Question label={t("questionnaire.q4")}>
+          <RadioGrid options={CARD_OPTS} value={cards} onChange={setCards} t={t} />
         </Question>
 
-        {/* 5. Bankovni računi */}
-        <Question label="5. Koliko bankovnih računa (Girokonto) imaš otvoreno?">
+        <Question label={t("questionnaire.q5")}>
           <div className="flex items-center gap-4">
             <input
               type="range"
@@ -179,7 +151,7 @@ export default function SchufaQuestionnaire({ onSubmit }: Props) {
               value={accounts}
               onChange={(e) => setAccounts(Number(e.target.value))}
               className="flex-1 accent-[hsl(var(--gold))]"
-              aria-label="Broj bankovnih računa"
+              aria-label={t("questionnaire.q5Aria")}
             />
             <span className="min-w-[80px] text-right font-bold text-[hsl(var(--gold))] text-lg">
               {accounts === 6 ? "6+" : accounts}
@@ -187,11 +159,7 @@ export default function SchufaQuestionnaire({ onSubmit }: Props) {
           </div>
         </Question>
 
-        {/* 6. DISPO — najnijansiranije pitanje */}
-        <Question
-          label="6. Kako koristiš Dispokredit?"
-          tooltip="Schufa NE VIDI tvoj saldo na računu. Vidi samo da li imaš odobren Dispo i da li si dobio Mahnung."
-        >
+        <Question label={t("questionnaire.q6")} tooltip={t("questionnaire.q6Tooltip")}>
           <div className="space-y-2">
             {DISPO_OPTS.map((opt) => (
               <button
@@ -205,11 +173,11 @@ export default function SchufaQuestionnaire({ onSubmit }: Props) {
                 }`}
               >
                 <div className={`text-sm font-medium ${dispo === opt.value ? "text-white" : "text-white/85"}`}>
-                  {opt.label}
+                  {t(`questionnaire.${opt.labelKey}`)}
                 </div>
-                {opt.hint && (
+                {opt.hintKey && (
                   <div className={`text-xs mt-1 ${dispo === opt.value ? "text-[hsl(var(--gold))]" : "text-white/45"}`}>
-                    {opt.hint}
+                    {t(`questionnaire.${opt.hintKey}`)}
                   </div>
                 )}
               </button>
@@ -217,34 +185,27 @@ export default function SchufaQuestionnaire({ onSubmit }: Props) {
           </div>
 
           <div className="mt-4 rounded-lg bg-blue-500/10 border border-blue-500/30 p-3 text-xs text-blue-100">
-            <p className="font-bold text-blue-200 mb-1">💡 Mit / Istina o Dispo:</p>
+            <p className="font-bold text-blue-200 mb-1">{t("questionnaire.q6MythTitle")}</p>
             <p>
-              <strong>Mit:</strong> "Dispo uništava Schufu."<br />
-              <strong>Istina:</strong> Sam Dispo je <strong>pozitivan signal</strong> (banka ti vjeruje).
-              Problem nastaje samo ako ne plaćaš 90+ dana ili banka otkaže Dispo.
+              <strong>{t("questionnaire.q6MythLabel")}</strong>{" "}
+              <span dangerouslySetInnerHTML={{ __html: t("questionnaire.q6MythBody") }} />
+              <br />
+              <strong>{t("questionnaire.q6TruthLabel")}</strong>{" "}
+              <span dangerouslySetInnerHTML={{ __html: t("questionnaire.q6TruthBody") }} />
             </p>
           </div>
         </Question>
 
-        {/* 7. Neplaćeni računi */}
-        <Question
-          label="7. Imaš li neplaćenih računa, Mahnunga ili Inkasso poziva?"
-          tooltip="Mahnung nakon 90 dana neplaćanja se prijavljuje Schufi i ostaje 3 godine."
-        >
-          <RadioGrid options={BILLS_OPTS} value={bills} onChange={setBills} />
+        <Question label={t("questionnaire.q7")} tooltip={t("questionnaire.q7Tooltip")}>
+          <RadioGrid options={BILLS_OPTS} value={bills} onChange={setBills} t={t} />
         </Question>
 
-        {/* 8. Schufa upiti */}
-        <Question
-          label="8. Koliko si se prijavljivao za stanove/kredite u zadnjih 12 mjeseci?"
-          tooltip="Svaka prijava na stan ili kredit = 1 Schufa upit. Više upita = veća percepcija rizika."
-        >
-          <RadioGrid options={INQUIRY_OPTS} value={inquiries} onChange={setInquiries} />
+        <Question label={t("questionnaire.q8")} tooltip={t("questionnaire.q8Tooltip")}>
+          <RadioGrid options={INQUIRY_OPTS} value={inquiries} onChange={setInquiries} t={t} />
         </Question>
 
-        {/* 9. Insolvencija */}
-        <Question label="9. Da li si ikad imao Privatinsolvenciju?">
-          <RadioGrid options={INSOLVENCY_OPTS} value={insolvency} onChange={setInsolvency} />
+        <Question label={t("questionnaire.q9")}>
+          <RadioGrid options={INSOLVENCY_OPTS} value={insolvency} onChange={setInsolvency} t={t} />
         </Question>
 
         <div className="pt-4">
@@ -256,11 +217,11 @@ export default function SchufaQuestionnaire({ onSubmit }: Props) {
               boxShadow: "0 4px 24px hsla(43,70%,53%,0.35)",
             }}
           >
-            Izračunaj indikativnu procjenu
+            {t("questionnaire.submit")}
             <ChevronRight className="h-5 w-5 ml-1" />
           </Button>
           <p className="mt-3 text-center text-xs text-white/40">
-            Procjena se izračunava lokalno · ništa se ne šalje na server
+            {t("questionnaire.submitNote")}
           </p>
         </div>
       </div>
@@ -303,10 +264,12 @@ function RadioGrid<T extends string>({
   options,
   value,
   onChange,
+  t,
 }: {
   options: Option<T>[];
   value: T;
   onChange: React.Dispatch<React.SetStateAction<T>>;
+  t: (key: string) => string;
 }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -321,7 +284,7 @@ function RadioGrid<T extends string>({
               : "border-white/10 bg-white/5 text-white/80 hover:border-white/30 hover:bg-white/10"
           }`}
         >
-          {opt.label}
+          {t(`questionnaire.${opt.labelKey}`)}
         </button>
       ))}
     </div>
