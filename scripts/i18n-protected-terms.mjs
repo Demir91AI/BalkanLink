@@ -171,9 +171,33 @@ export const TERM_VARIANTS = {
   Evropa: { bs: ["Evropa"], hr: ["Europa"], sr: ["Evropa"], de: ["Europa"] },
   evropski: { bs: ["evropski"], hr: ["europski"], sr: ["evropski"], de: [/* not used */] },
 
-  // "njemački/Njemačka" — ekavica converts to "nemački/Nemačka" in SR.
+  // "njemački/Njemačka" — ekavica converts to "nemački/Nemačka" in SR; DE uses
+  // its own native form.
   Njemačka: { bs: ["Njemačka"], hr: ["Njemačka"], sr: ["Nemačka"], de: ["Deutschland"] },
-  njemački: { bs: ["njemački"], hr: ["njemački"], sr: ["nemački"], de: ["deutsch"] },
+  njemački: { bs: ["njemački"], hr: ["njemački"], sr: ["nemački"], de: ["deutsch", "Deutsch"] },
+
+  // Brand "Asistent" → in DE copy it appears as "Assistent" (German spelling).
+  Asistent: { bs: ["Asistent"], hr: ["Asistent"], sr: ["Asistent"], de: ["Assistent", "Asistent"] },
+
+  // "Smart vodič / Smart vodiči" — in DE the catalogue label is rendered as
+  // "Smart Guide / Smart Guides".
+  "Smart vodič": { bs: ["Smart vodič"], hr: ["Smart vodič"], sr: ["Smart vodič"], de: ["Smart Guide", "Smart vodič"] },
+  "Smart vodiči": { bs: ["Smart vodiči"], hr: ["Smart vodiči"], sr: ["Smart vodiči"], de: ["Smart Guides", "Smart vodiči"] },
+
+  // "Viza Navigator" → in DE it appears as "Visa Navigator".
+  "Viza Navigator": { bs: ["Viza Navigator"], hr: ["Viza Navigator"], sr: ["Viza Navigator"], de: ["Visa Navigator", "Viza Navigator"] },
+
+  // Currency formatting — DE convention uses comma as decimal separator,
+  // but some legacy strings may use a dot. Accept both in DE.
+  "9,99€": { bs: ["9,99€"], hr: ["9,99€"], sr: ["9,99€"], de: ["9,99€", "9.99€", "9,99 €", "9.99 €"] },
+  "9.99€": { bs: ["9.99€", "9,99€"], hr: ["9.99€", "9,99€"], sr: ["9.99€", "9,99€"], de: ["9.99€", "9,99€", "9,99 €", "9.99 €"] },
+  "2,99€": { bs: ["2,99€"], hr: ["2,99€"], sr: ["2,99€"], de: ["2,99€", "2.99€", "2,99 €", "2.99 €"] },
+  "14,99€": { bs: ["14,99€"], hr: ["14,99€"], sr: ["14,99€"], de: ["14,99€", "14.99€", "14,99 €", "14.99 €"] },
+
+  // "Dokumenten-Check" / "Dokumentencheck" — DE often uses the hyphenated
+  // form interchangeably with the closed form.
+  "Dokumenten-Check": { bs: ["Dokumenten-Check"], hr: ["Dokumenten-Check"], sr: ["Dokumenten-Check"], de: ["Dokumenten-Check", "Dokumentencheck"] },
+  Dokumentencheck: { bs: ["Dokumentencheck"], hr: ["Dokumentencheck"], sr: ["Dokumentencheck"], de: ["Dokumentencheck", "Dokumenten-Check"] },
 };
 
 // ---------------------------------------------------------------------------
