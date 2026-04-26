@@ -1,0 +1,393 @@
+{
+  "seo": {
+    "title": "Bonitet Simulator — Indikativna procjena kreditne sposobnosti",
+    "description": "Edukativni simulator kreditne sposobnosti za naše ljude u Njemačkoj. Razumij Schufa faktore prije nego što ti banka kaže Nein. Nije službeni Schufa Score."
+  },
+  "hero": {
+    "badge": "Premium · Bonitet Simulator",
+    "headline1": "Razumij svoju kreditnu sposobnost",
+    "headline2": "prije nego ti banka kaže \"Nein\"",
+    "subline": "Edukativna procjena temeljena na Schufa javnim čimbenicima. 100 % anonimno — sve se računa u tvom pregledniku."
+  },
+  "footer": {
+    "legalLabel": "Pravna napomena:",
+    "legalBody": "Ovo je edukativni simulator. NIJE službeni Schufa Score. Procjena je orijentacijska i temelji se na javnim Schufa scoring čimbenicima (§31 BDSG). Stvarni Score možeš dobiti samo besplatnim",
+    "legalLink": "Datenkopie zahtjevom (§15 DSGVO)",
+    "legalAfter": ". Banke, najmodavci i poslodavci koriste isključivo službeni Schufa Score. BalkanLink ne snosi odgovornost za odluke donesene na temelju ove procjene. Ovo nije pravni ni financijski savjet."
+  },
+  "gate": {
+    "title": "Bonitet Simulator je Premium",
+    "subline": "Edukativna procjena tvoje kreditne sposobnosti, personalizirani 6-mjesečni plan poboljšanja i kompletan vodič za službeni Schufa Datenkopie — samo za Premium korisnike.",
+    "feature1": "✓ Indikativna procjena u 5 minuta",
+    "feature2": "✓ Top 6 čimbenika koji utječu na tvoj profil",
+    "feature3": "✓ Personalizirani plan poboljšanja za 6 mjeseci",
+    "feature4": "✓ Vodič kako dobiti BESPLATAN službeni Schufa Auskunft",
+    "feature5": "✓ 100 % anonimno — ništa se ne pohranjuje",
+    "cta": "Otključaj Premium — 9,99€/mj",
+    "footnote": "Nije službeni Schufa Score · Edukativni simulator"
+  },
+  "disclaimer": {
+    "title": "Važna napomena prije korištenja",
+    "subtitle": "BalkanLink Bonitet Simulator",
+    "warningStrong": "Ovo NIJE službeni Schufa Score.",
+    "warningBody": "Ovo je edukativna orijentacijska procjena temeljena na javno dostupnim čimbenicima koje Schufa Holding AG navodi u svom scoring modelu.",
+    "bullet1Strong1": "indikativna",
+    "bullet1": "Procjena je {{strong1}} i temelji se na općim čimbenicima — stvarni Schufa Score ovisi o podacima koje Schufa posjeduje o tebi, a ti podaci nam {{strong2}}.",
+    "bullet1Strong2": "NISU dostupni",
+    "bullet2Strong": "OBAVEZNO zatraži besplatni \"Datenkopie nach Art. 15 DSGVO\"",
+    "bullet2": "Za službenu informaciju {{strong}} izravno od Schufa Holding AG (1× godišnje besplatno).",
+    "bullet3Strong": "isključivo službeni Schufa Score",
+    "bullet3": "Banke, najmodavci i poslodavci koriste {{strong}} — ne ovu procjenu.",
+    "bullet4": "BalkanLink ne snosi odgovornost za odluke donesene na temelju ove edukativne procjene. Ovo nije pravni ni financijski savjet.",
+    "bullet5Strong": "isključivo u tvom pregledniku",
+    "bullet5": "Tvoji se podaci obrađuju {{strong}} — ništa se ne šalje na server i ništa se ne pohranjuje.",
+    "officialLink": "Službeni besplatni Schufa Datenkopie zahtjev",
+    "check1": "Razumijem da ovo <strong>nije službeni Schufa Score</strong>.",
+    "check2": "Razumijem da je ovo <strong>edukativna orijentacijska procjena</strong>.",
+    "check3": "Razumijem da za službenu informaciju moram zatražiti <strong>Datenkopie</strong> od Schufe.",
+    "ctaAccept": "Slažem se i nastavljam →",
+    "ctaWaiting": "Označi sve za nastavak",
+    "ctaCancel": "Odustani"
+  },
+  "questionnaire": {
+    "anonymousLabel": "Anonimno:",
+    "anonymousBody": "Sve odgovore obrađujemo isključivo u tvom pregledniku. Ništa se ne šalje na server, ništa se ne pohranjuje.",
+    "q1": "1. Koliko godina živiš u Njemačkoj?",
+    "q1Aria": "Godine boravka u Njemačkoj",
+    "q1Suffix": "god",
+    "q2": "2. Koliko si puta mijenjao adresu u zadnjih 5 godina?",
+    "q2Tooltip": "Česte prijave/odjave (Anmeldung) Schufa tumači kao nestabilnost.",
+    "q3": "3. Koliko aktivnih kredita / leasing ugovora imaš?",
+    "q3Tooltip": "Stambeni kredit, auto leasing, potrošački kredit, mobitel na rate...",
+    "q4": "4. Koliko kreditnih kartica posjeduješ?",
+    "q5": "5. Koliko bankovnih računa (Girokonto) imaš otvoreno?",
+    "q5Aria": "Broj bankovnih računa",
+    "q6": "6. Kako koristiš Dispokredit?",
+    "q6Tooltip": "Schufa NE VIDI tvoj saldo na računu. Vidi samo imaš li odobren Dispo i jesi li dobio Mahnung.",
+    "q6MythTitle": "💡 Mit / Istina o Dispo:",
+    "q6MythLabel": "Mit:",
+    "q6MythBody": "\"Dispo uništava Schufu.\"",
+    "q6TruthLabel": "Istina:",
+    "q6TruthBody": "Sam Dispo je <strong>pozitivan signal</strong> (banka ti vjeruje). Problem nastaje samo ako ne plaćaš 90+ dana ili banka otkaže Dispo.",
+    "q7": "7. Imaš li neplaćenih računa, Mahnunga ili Inkasso poziva?",
+    "q7Tooltip": "Mahnung nakon 90 dana neplaćanja prijavljuje se Schufi i ostaje 3 godine.",
+    "q8": "8. Koliko si se puta prijavljivao za stanove/kredite u zadnjih 12 mjeseci?",
+    "q8Tooltip": "Svaka prijava na stan ili kredit = 1 Schufa upit. Više upita = veća percepcija rizika.",
+    "q9": "9. Jesi li ikad imao Privatinsolvenciju?",
+    "submit": "Izračunaj indikativnu procjenu",
+    "submitNote": "Procjena se izračunava lokalno · ništa se ne šalje na server",
+    "address": {
+      "01": "0-1 promjene",
+      "23": "2-3 promjene",
+      "4plus": "4+ promjene"
+    },
+    "loans": {
+      "0": "Nemam kredit",
+      "1": "1 kredit",
+      "23": "2-3 kredita",
+      "4plus": "4+ kredita"
+    },
+    "cards": {
+      "0": "Nemam",
+      "12": "1-2 kartice",
+      "34": "3-4 kartice",
+      "5plus": "5+ kartica"
+    },
+    "dispo": {
+      "none": "Nemam Dispo (nema dispokredita)",
+      "approvedUnused": "✓ Imam odobren Dispo, ne koristim ga",
+      "approvedUnusedHint": "Idealno: pozitivan signal za Schufu, banka ti vjeruje",
+      "occasional": "Imam Dispo, povremeno koristim",
+      "occasionalHint": "Neutralno — Schufa NE vidi tvoj saldo",
+      "constant": "Stalno sam u Dispo minusu (3+ mj)",
+      "constantHint": "Schufa još ne vidi, ali rizik od Mahnunga raste",
+      "mahnung": "⚠️ Dobio sam Mahnung zbog Dispo",
+      "mahnungHint": "Negativeintrag u Schufi, ostaje 3 godine",
+      "cancelled": "❌ Banka mi je otkazala Dispo",
+      "cancelledHint": "Teški Negativeintrag — vrlo loše"
+    },
+    "bills": {
+      "none": "Sve plaćeno na vrijeme",
+      "one": "1 neplaćeni račun (Mahnung)",
+      "multiple": "Više neplaćenih računa",
+      "inkasso": "⚠️ Aktivan Inkasso postupak"
+    },
+    "inquiries": {
+      "02": "0-2 (malo prijava)",
+      "35": "3-5 (prosječno)",
+      "610": "6-10 (mnogo)",
+      "11plus": "11+ (vrlo mnogo)"
+    },
+    "insolvency": {
+      "no": "Nikad",
+      "discharged": "Da, završeno (Restschuldbefreiung)",
+      "active": "Da, aktivno"
+    }
+  },
+  "result": {
+    "label": "Indikativna orijentacijska procjena",
+    "warningStrong": "Ovo NIJE službeni Schufa Score.",
+    "warningBody": "Stvarni Score možeš dobiti samo besplatnim",
+    "warningLink": "Datenkopie",
+    "warningAfter": "zahtjevom (§15 DSGVO).",
+    "chancesTitle": "Procijenjene šanse za uspjeh",
+    "chanceRent": "Stan u Münchenu/Berlinu",
+    "chanceLoan": "Potrošački kredit (~50.000€)",
+    "chanceCard": "Kreditna kartica",
+    "chanceLeasing": "Auto leasing",
+    "chancesNote": "Procjena na temelju javnih kriterija banaka i najmodavaca. Stvarne odluke ovise i o plaći, ugovoru o radu i drugim čimbenicima.",
+    "factorsTitle": "Što najviše utječe na tvoju procjenu",
+    "mythTitle": "Što Schufa stvarno vidi?",
+    "mythSeesLabel": "VIDI",
+    "mythSeesBody": "kredite, kreditne kartice, otkazane Dispo, Mahnunge, Inkasso, insolvencije, broj prijava (upita), adresne podatke.",
+    "mythHiddenLabel": "NE VIDI",
+    "mythHiddenBody": "tvoju plaću, saldo na računu, koliko trošiš, jesi li u Dispo minusu (dok te ne pošalju na Mahnung).",
+    "ctaContinue": "Pogledaj 6-mjesečni plan poboljšanja →",
+    "ctaRestart": "Promijeni odgovore",
+    "chanceHigh": "Velike",
+    "chanceMedium": "Srednje",
+    "chanceLow": "Male"
+  },
+  "actionPlan": {
+    "title": "Tvoj 6-mjesečni plan poboljšanja",
+    "subline": "Personalizirani koraci na temelju tvojih odgovora. Sortirani po prioritetu — počni od vrha.",
+    "priorityHigh": "Visok prioritet",
+    "priorityMedium": "Srednji prioritet",
+    "priorityLow": "Nizak prioritet",
+    "effectLabel": "Učinak:",
+    "deadlineLabel": "Rok:",
+    "monthsAbbr": "mj",
+    "nextStepTitle": "Sljedeći važan korak: Službeni Schufa Datenkopie",
+    "nextStepBody": "Po §15 DSGVO imaš pravo na <strong>BESPLATAN</strong> izvod tvog Schufa profila 1× godišnje. Tek tu vidiš stvarne podatke i možeš provjeriti netočne unose.",
+    "ctaContinue": "Kako zatražiti službeni Schufa Auskunft →"
+  },
+  "guide": {
+    "title": "Službeni Schufa Auskunft",
+    "subline": "Sve što trebaš znati da dobiješ <strong>stvarne</strong> podatke od Schufa Holding AG.",
+    "optionsTitle": "Koji izvod ti treba?",
+    "recommended": "Preporučeno",
+    "free": "BESPLATNO",
+    "opt1Title": "Datenkopie (§15 DSGVO)",
+    "opt1UseCase": "Za tebe osobno — jednom godišnje",
+    "opt1Description": "Kompletan izvod svih podataka koje Schufa ima o tebi. Ovo je tvoje zakonsko pravo.",
+    "opt1LinkText": "Zatraži besplatni Datenkopie",
+    "opt2Title": "bonify (besplatna app)",
+    "opt2UseCase": "Za brzi pregled na mobitelu",
+    "opt2Description": "App od Schufe s pojednostavljenim prikazom score-a. Ne zamjenjuje službeni Datenkopie.",
+    "opt2LinkText": "Otvori bonify",
+    "opt3Title": "Bonitätsauskunft",
+    "opt3Price": "29,95€ jednokratno",
+    "opt3UseCase": "Za najmodavca pri prijavi na stan",
+    "opt3Description": "Certifikat koji se daje najmodavcu — pokazuje samo opću bonitetnu sliku, bez detalja.",
+    "opt3LinkText": "Zatraži Bonitätsauskunft",
+    "opt4Title": "meineSCHUFA Plus",
+    "opt4Price": "3,95€/mj",
+    "opt4UseCase": "Za kontinuirano praćenje (npr. nakon insolvencije)",
+    "opt4Description": "Online pristup, ažuriranja u stvarnom vremenu, push obavijesti pri promjenama.",
+    "opt4LinkText": "meineSCHUFA registracija",
+    "stepsTitle": "Kako zatražiti besplatni Datenkopie — korak po korak",
+    "step1": "Idi na službeni link:",
+    "step1Link": "meineschufa.de/de/datenkopie",
+    "step2": "Ispuni online formular s: ime, prezime, datum rođenja, adresa (i prijašnje adrese 5 god.).",
+    "step3": "Pošalji kopiju putovnice/osobne iskaznice (možeš zatamniti broj putovnice — Schufa ne treba taj broj).",
+    "step4": "Pričekaj <strong>2-4 tjedna</strong> — Datenkopie stiže poštom na tvoju adresu.",
+    "step5": "Provjeri sve podatke. Ako je nešto netočno → odmah <strong>Berichtigungsantrag</strong>.",
+    "musterTitle": "Musterbrief — Datenkopie Antrag",
+    "musterSubline": "Spreman obrazac na njemačkom za slanje preporučenom poštom (Einschreiben)",
+    "musterCta": "Preuzmi Musterbrief",
+    "errorsTitle": "Ako pronađeš netočne podatke u svom Schufa izvodu:",
+    "error1": "Pošalji <strong>Berichtigungsantrag</strong> (zahtjev za ispravak) Schufi i kreditoru/banci.",
+    "error2": "Priloži dokaz (ugovor, potvrda o plaćanju, korespondencija).",
+    "error3": "Schufa po zakonu mora reagirati u roku od 30 dana (§17 DSGVO).",
+    "error4Before": "Ako odbiju → besplatna pomoć:",
+    "error4Mid": "ili podnesi prijavu pri",
+    "error4After": ".",
+    "ctaRestart": "Ponovi simulaciju",
+    "ctaOfficial": "Zatraži službeni Datenkopie"
+  },
+  "riskClass": {
+    "A": "Odlično",
+    "B": "Vrlo dobro",
+    "C": "Dobro",
+    "D": "Zadovoljavajuće",
+    "E": "Granično",
+    "F": "Slabo",
+    "G": "Loše",
+    "H": "Vrlo loše"
+  },
+  "factors": {
+    "stayLong": {
+      "label": "Dugogodišnji boravak u Njemačkoj",
+      "detail": "Schufa pozitivno tretira stabilan boravak duži od 5 godina jer pokazuje stabilnost."
+    },
+    "stayMid": {
+      "label": "Stabilan boravak (2+ godine)",
+      "detail": "Boravak duži od 2 godine je neutralno-pozitivan signal."
+    },
+    "stayShort": {
+      "label": "Kratko vrijeme u Njemačkoj",
+      "detail": "Schufa ima manje povijesnih podataka o tebi, što povećava rizik za poslovne partnere."
+    },
+    "addressMany": {
+      "label": "Česte promjene adrese (4+)",
+      "detail": "Više od 3 prijave u zadnjih 5 god. Schufa tumači kao nestabilnost (BDSG §31)."
+    },
+    "addressMid": {
+      "label": "Umjerene promjene adrese",
+      "detail": "2-3 promjene su prosjek; nemaju veliki utjecaj."
+    },
+    "loansNone": {
+      "label": "Nema aktivnih kredita",
+      "detail": "Bez kredita Schufa nema dovoljno podataka za pouzdanu procjenu — score je 'tanji'."
+    },
+    "loansOne": {
+      "label": "Jedan aktivan kredit (uredan)",
+      "detail": "Uredno otplaćivanje 1 kredita najbolji je signal pouzdanosti."
+    },
+    "loansMid": {
+      "label": "2-3 aktivna kredita",
+      "detail": "Više kredita povećava ukupnu zaduženost."
+    },
+    "loansMany": {
+      "label": "4+ aktivnih kredita",
+      "detail": "Visoka zaduženost značajan je negativan čimbenik po Schufa modelu."
+    },
+    "cardsMany": {
+      "label": "5+ kreditnih kartica",
+      "detail": "Previše otvorenih kreditnih linija povećava percepciju rizika."
+    },
+    "cardsMid": {
+      "label": "3-4 kreditne kartice",
+      "detail": "Više kartica nego što ti realno treba."
+    },
+    "cardsIdeal": {
+      "label": "1-2 kreditne kartice (idealno)",
+      "detail": "Optimalan broj — pokazuje financijsku organiziranost."
+    },
+    "accountsNone": {
+      "label": "Nema Girokonta",
+      "detail": "Bez bankovnog računa Schufa nema osnovnih podataka — kritično za bilo koju aplikaciju."
+    },
+    "accountsMany": {
+      "label": "Previše bankovnih računa (4+)",
+      "detail": "Više računa može djelovati kao 'rasipanje' — banke vole jasnu sliku."
+    },
+    "accountsOk": {
+      "label": "{{count}} bankovni račun(a)",
+      "detail": "Razuman broj računa pozitivan je signal."
+    },
+    "dispoApprovedUnused": {
+      "label": "Dispokredit odobren, ne koristi se",
+      "detail": "POZITIVNO: Schufa vidi da ti banka vjeruje (odobren limit). Ne koristiš ga = idealan signal."
+    },
+    "dispoOccasional": {
+      "label": "Dispokredit, povremeno korištenje",
+      "detail": "Sam Dispo je pozitivan, povremeno korištenje je neutralno."
+    },
+    "dispoConstant": {
+      "label": "Stalno u Dispo minusu",
+      "detail": "VAŽNO: Schufa NE VIDI tvoj trenutni saldo, ali konstantni minus 3+ mjeseca može dovesti do Mahnunga koji JEST Schufa unos."
+    },
+    "dispoMahnung": {
+      "label": "Dobio Mahnung zbog Dispo",
+      "detail": "OZBILJNO: Mahnung nakon 90 dana neplaćanja prijavljuje se Schufi kao Negativeintrag i ostaje 3 godine."
+    },
+    "dispoCancelled": {
+      "label": "Banka otkazala Dispo",
+      "detail": "KRITIČNO: Otkaz Dispo zbog prekoračenja teški je Negativeintrag — banke i najmodavci to odmah vide."
+    },
+    "billsNone": {
+      "label": "Nema neplaćenih računa",
+      "detail": "Bez negativnih unosa — to je osnova zdravog Schufa profila."
+    },
+    "billsOne": {
+      "label": "Jedan neplaćeni račun",
+      "detail": "Čak i jedan Mahnung negativno utječe. Plati ODMAH i traži Erledigungsvermerk."
+    },
+    "billsMultiple": {
+      "label": "Više neplaćenih računa",
+      "detail": "Više Mahnunga = ozbiljan signal nepouzdanosti za sve poslovne partnere."
+    },
+    "billsInkasso": {
+      "label": "Aktivan Inkasso postupak",
+      "detail": "KRITIČNO: Inkasso unos je hardneg. unos koji blokira većinu kredita, stanova i ugovora."
+    },
+    "inquiriesFew": {
+      "label": "Malo Schufa upita (0-2 u zadnjih 12 mj)",
+      "detail": "Niska aktivnost upita pokazuje da nisi u 'panici za novcem'."
+    },
+    "inquiriesMany": {
+      "label": "Mnogo Schufa upita (6-10)",
+      "detail": "Svaka prijava na stan ili kredit = Schufa upit. Više upita = veća percepcija rizika."
+    },
+    "inquiriesVeryMany": {
+      "label": "Vrlo mnogo Schufa upita (11+)",
+      "detail": "Banke i najmodavci to tumače kao 'očajnu potragu' — savjet: pauziraj prijave 3+ mjeseca."
+    },
+    "insolvencyActive": {
+      "label": "Aktivna Privatinsolvencija",
+      "detail": "Aktivna insolvencija je teški Negativeintrag — kredit, stan i većina ugovora praktički su blokirani."
+    },
+    "insolvencyDischarged": {
+      "label": "Završena insolvencija (Restschuldbefreiung)",
+      "detail": "Po §882e ZPO unos ostaje 3 godine nakon završetka. Postupno se oporavlja."
+    }
+  },
+  "actions": {
+    "datenkopie": {
+      "title": "Zatraži BESPLATAN službeni Schufa Datenkopie",
+      "detail": "Po §15 DSGVO imaš pravo na besplatni izvod 1x godišnje. Ovo je JEDINI način da znaš stvarni Schufa Score i provjeriš ima li netočnih podataka.",
+      "impact": "Saznaješ stvarne podatke"
+    },
+    "payInkasso": {
+      "title": "Plati sve otvorene Inkasso/Mahnung pozive",
+      "detail": "Nakon plaćanja zatraži pisani 'Erledigungsvermerk' i pošalji ga Schufi. Negativan unos može biti označen kao 'erledigt'.",
+      "impact": "+10-18%"
+    },
+    "regulateDispo": {
+      "title": "Reguliraj Dispo dug s bankom",
+      "detail": "Dogovori plan otplate (Ratenzahlung). Nakon završetka traži pisanu potvrdu i prijavi Schufi za Erledigungsvermerk.",
+      "impact": "+8-15%"
+    },
+    "pauseInquiries": {
+      "title": "Pauziraj prijave na stanove/kredite 3 mjeseca",
+      "detail": "Svaka prijava = Schufa upit. Pravilo: prijavi se SAMO na stanove gdje ozbiljno možeš dobiti, ne 'po inerciji'. Stari upiti polako blijede nakon 12 mjeseci.",
+      "impact": "+2-5%"
+    },
+    "closeCards": {
+      "title": "Zatvori nekorištene kreditne kartice",
+      "detail": "Zadrži 1-2 koje aktivno koristiš. Pri zatvaranju traži pisanu potvrdu od izdavatelja i pošalji Schufi.",
+      "impact": "+1-3%"
+    },
+    "exitDispo": {
+      "title": "Izađi iz Dispo minusa do kraja kvartala",
+      "detail": "Schufa NE VIDI saldo — ALI ako te banka pošalje na Mahnung, vidjet će. Bolje napravi plan otplate ranije.",
+      "impact": "Sprječava -18%"
+    },
+    "openGiro": {
+      "title": "Otvori Girokonto i drži ga 6 mj. bez minusa",
+      "detail": "Najbolje besplatne opcije: DKB, ING, Comdirect. Uredan Girokonto bez minusa = jak pozitivan marker.",
+      "impact": "+3-6%"
+    },
+    "buildHistory": {
+      "title": "Razmotri 1 mali kredit za izgradnju povijesti",
+      "detail": "Schufa bez ikakvih kredita je 'tanak' score. Mali, uredan ratni kredit (npr. mobitel na rate) gradi pozitivnu povijest za 6-12 mjeseci.",
+      "impact": "+2-4%"
+    },
+    "keepDispo": {
+      "title": "Zadrži Dispo otvoren — ne otkazuj",
+      "detail": "Imaš idealnu situaciju: odobren ali nekorišten. Otkazivanje bi uklonilo pozitivan marker.",
+      "impact": "Čuva +3%"
+    },
+    "waitInsolvency": {
+      "title": "Pričekaj 3 god. od Restschuldbefreiung",
+      "detail": "Unos se automatski briše. U međuvremenu ne uzimaj nove kredite — gradi stabilnost.",
+      "impact": "+10-12%"
+    },
+    "checkAnnually": {
+      "title": "Provjeri Schufu svake godine",
+      "detail": "Po §15 DSGVO imaš pravo na 1 besplatni Datenkopie godišnje. Iskoristi to pravo — često se nađu greške koje vuku score dolje.",
+      "impact": "Prevencija"
+    }
+  }
+}
