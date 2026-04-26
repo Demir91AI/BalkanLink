@@ -58,7 +58,7 @@
   "footer": {
     "tagline": "Sve što ti treba za život u Nemačkoj",
     "brandTagline": "Tvoj vodič kroz nemački sistem.",
-    "infoNote": "BalkanLink pruža informativne smjernice, ne pravne savjete.",
+    "infoNote": "BalkanLink pruža informativne smernice, ne pravne savete.",
     "navigation": "Navigacija",
     "sections": "Sekcije",
     "company": "Kompanija",
@@ -144,7 +144,7 @@
       "errorTitle": "Greška pri registraciji",
       "consentTerms": "Prihvatam Uslove korišćenja",
       "consentPrivacy": "Prihvatam Politiku privatnosti",
-      "consentAi": "Razumijem Napomenu o asistentu",
+      "consentAi": "Razumem Napomenu o asistentu",
       "subtitleCard": "Kreiraj nalog za puni pristup.",
       "labelFirstName": "Ime",
       "labelEmail": "E-mail adresa",
@@ -163,7 +163,7 @@
       "consentPrivacyLink": "Zaštitu podataka",
       "consentAiPrefix": "i potvrđujem da sam pročitao/la",
       "consentAiLink": "Napomenu o upotrebi asistenta",
-      "consentAiSuffix": ". Razumijem da asistent pruža isključivo informativne odgovore i ne zamjenjuje pravni savet.",
+      "consentAiSuffix": ". Razumem da asistent pruža isključivo informativne odgovore i ne zamjenjuje pravni savet.",
       "successCheckEmail": "Proveri e-mail za potvrdu registracije.",
       "successRegistered": "Uspješno registrirani!",
       "errorTitleShort": "Greška pri registraciji.",
@@ -195,7 +195,7 @@
     },
     "modal": {
       "title": "Prijavi se za nastavak",
-      "description": "Kreiraj besplatan nalog ili se prijavi da nastaviš.",
+      "description": "Kreiraj besplatan nalog ili se Prijavi da nastaviš.",
       "loginTab": "Prijava",
       "registerTab": "Registracija"
     }
@@ -220,7 +220,7 @@
       "title": "Postavke kolačića",
       "description": "Odaberite koje kategorije kolačića želite dozvoliti. Više informacija u",
       "privacyLink": "zaštiti podataka",
-      "alwaysActive": "Uvijek aktivno"
+      "alwaysActive": "Uvek aktivno"
     },
     "categories": {
       "necessary": {

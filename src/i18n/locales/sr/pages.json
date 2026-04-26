@@ -3,7 +3,7 @@
     "heroHeadlineBeforeAccent": "Tvoj vodič kroz ",
     "heroHeadlineAccent": "nemački sistem",
     "heroHeadlineAfterAccent": ".",
-    "heroSubline": "Formulari, zahtjevi i procedure objašnjeni jasno, strukturirano i na jednom mestu.",
+    "heroSubline": "Formulari, zahtevi i procedure objašnjeni jasno, strukturirano i na jednom mestu.",
     "ctaPrimary": "Pokreni vodič",
     "ctaSecondary": "Pogledaj planove",
     "disclaimer": "BalkanLink nije pravni savetnik. Sadržaj služi isključivo za orijentaciju.",
@@ -31,7 +31,7 @@
         },
         "german": {
           "label": "Nauči nemački",
-          "desc": "A1–C2 uz praktične vježbe"
+          "desc": "A1–C2 uz praktične Vežbe"
         },
         "templates": {
           "label": "Šabloni",
@@ -55,9 +55,9 @@
       },
       "muster": {
         "name": "Musterformular",
-        "tagline": "Primjer pravilno popunjenog formulara",
-        "explanation": "Muster na njemačkom znači 'primjer'. Musterformular je formular koji je već pravilno popunjen — ti ga koristiš kao šablon. Vidiš tačno kako treba izgledati svako polje.",
-        "example": "Npr: Imaš pred sobom KG1 formular za Kindergeld i ne znaš šta upisati u polje 'Bankverbindung'. Musterformular ti pokazuje popunjen primjer.",
+        "tagline": "Primer pravilno popunjenog formulara",
+        "explanation": "Muster na njemačkom znači 'Primer'. Musterformular je formular koji je već pravilno popunjen — ti ga koristiš kao šablon. Vidiš tačno kako treba izgledati svako polje.",
+        "example": "Npr: Imaš pred sobom KG1 formular za Kindergeld i ne znaš šta upisati u polje 'Bankverbindung'. Musterformular ti pokazuje popunjen Primer.",
         "badge": "Dostupno uz Premium 🔒"
       },
       "visaNav": {
@@ -70,7 +70,7 @@
       "docCheck": {
         "name": "Provera dokumenata",
         "tagline": "Učitaj pismo — razumij šta piše",
-        "explanation": "Stiglo ti pismo od Finanzamta i ne razumiješ ni riječ? Fotografiraj ga ili učitaj PDF — dobiješ objašnjenje na svom jeziku: šta traže, do kada, šta se dešava ako ne reaguješ.",
+        "explanation": "Stiglo ti pismo od Finanzamta i ne razumeš ni Reč? Fotografiraj ga ili učitaj PDF — dobiješ objašnjenje na svom jeziku: šta traže, do kada, šta se dešava ako ne reaguješ.",
         "example": "Npr: Stigla ti Mahnung (opomena) — Provera dokumenata ti kaže da imaš 15 dana da platiš i šta se dešava ako ignorišeš.",
         "badge": "2.99€ po Proveri ili uz Premium"
       },
@@ -84,8 +84,8 @@
       "trainer": {
         "name": "DeutschTrainer",
         "tagline": "Nauči nemački koji ti stvarno treba",
-        "explanation": "DeutschTrainer te uči jezik koji koristiš svaki dan — na poslu, u Jobcenteru, kod doktora, u banci. A1 do C2, sa vježbama, izgovorom i testovima.",
-        "example": "Npr: Lekcija 'Kod doktora' — naučiš kako opisati simptome, razumjeti recept i razgovarati sa osiguranjem.",
+        "explanation": "DeutschTrainer te uči jezik koji koristiš svaki dan — na poslu, u Jobcenteru, kod doktora, u banci. A1 do C2, sa vežbama, izgovorom i testovima.",
+        "example": "Npr: Lekcija 'Kod doktora' — naučiš kako opisati simptome, razumeti recept i razgovarati sa osiguranjem.",
         "badge": "Dostupno uz Premium 🔒"
       }
     },
@@ -127,7 +127,7 @@
         },
         "p4": {
           "title": "Jasnoća pre svega",
-          "desc": "Fokus na razumijevanju, ne komplikaciji"
+          "desc": "Fokus na razumevanju, ne komplikaciji"
         }
       }
     },
@@ -195,7 +195,7 @@
       "items": {
         "i1": "Pogrešno popunjen formular = sedmice čekanja",
         "i2": "Propušten rok = izgubljen novac ili status",
-        "i3": "Nerazumijevanje dokumenta = ozbiljne pravne posledice"
+        "i3": "Nerazumevanje dokumenta = ozbiljne pravne posledice"
       }
     },
     "pricing": {
@@ -204,7 +204,7 @@
       "free": {
         "label": "Besplatno",
         "price": "0€",
-        "subtitle": "Zauvijek besplatno",
+        "subtitle": "Zauvek besplatno",
         "title": "Besplatno — 0€",
         "f1": "Osnovni vodič",
         "f2": "Pregled formulara",
@@ -248,7 +248,7 @@
           "muster": {
             "feature": "Musterformulari",
             "free": "❌ Nije dostupno",
-            "premium": "✅ Svi formulari + primjeri",
+            "premium": "✅ Svi formulari + primeri",
             "freeShort": "❌",
             "premiumShort": "✅ Svi formulari"
           },
@@ -339,7 +339,7 @@
     "examples": {
       "letterFromFinanzamt": "Pismo od Finanzamt",
       "rentalContract": "Ugovor o najmu",
-      "buergergeldNotice": "Bürgergeld obavijest",
+      "buergergeldNotice": "Bürgergeld obaveštenje",
       "insuranceLetter": "Pismo od osiguranja",
       "mahnung": "Mahnung (opomena)",
       "jobcenterDecision": "Jobcenter odluka"
@@ -347,7 +347,7 @@
     "whatYouGet": {
       "label": "Šta dobijaš analizom:",
       "items": {
-        "translation": "Prijevod i objašnjenje na tvom jeziku",
+        "translation": "Prevod i objašnjenje na tvom jeziku",
         "whatIsAsked": "Šta se od tebe traži i do kada",
         "urgency": "Da li je dokument hitne prirode",
         "nextStep": "Koji je sledeći korak koji trebaš poduzeti",
@@ -377,7 +377,7 @@
       "hint": "PDF, JPG, PNG — maks. 10 MB",
       "deletedAfter": "Dokument se briše odmah nakon analize. Ništa se ne pohranjuje."
     },
-    "confirm": "Potvrđujem da ne učitavam/unosim osjetljive podatke (broj lične karte, Steuer-ID, IBAN, zdravstvene podatke).",
+    "confirm": "Potvrđujem da ne učitavam/unosim osetljive podatke (broj lične karte, Steuer-ID, IBAN, zdravstvene podatke).",
     "buttons": {
       "checking": "Proveravam…",
       "checkDocument": "Proveri dokument →",
@@ -403,10 +403,10 @@
       "oneTimeReset": "Resetuje se nakon svake upotrebe"
     },
     "example": {
-      "trigger": "👁 Primjer analize — klikni da vidiš",
-      "heading": "Primjer: Mahnung od Deutsche Telekom",
+      "trigger": "👁 Primer analize — klikni da vidiš",
+      "heading": "Primer: Mahnung od Deutsche Telekom",
       "docTypeLabel": "Tip dokumenta:",
-      "docType": "Opomena (Mahnung) — zahtjev za plaćanje dospjelog računa.",
+      "docType": "Opomena (Mahnung) — zahtev za plaćanje dospelog računa.",
       "askedLabel": "Šta se traži:",
       "asked1": "Radi se o opomeni za neplaćeni račun. Iznos:",
       "askedAmount": "47.50€",
@@ -414,7 +414,7 @@
       "askedDeadline": "15 dana",
       "askedDeadlineSuffix": "od datuma pisma.",
       "riskLabel": "Rizik:",
-      "risk": "Ako ne platite, slijedi naplata putem Inkasso agencije što može negativno uticati na Schufa (kreditni rejting).",
+      "risk": "Ako ne platite, sledi naplata putem Inkasso agencije što može negativno uticati na Schufa (kreditni rejting).",
       "nextLabel": "Sledeći korak:",
       "nextPrefix": "Preporučujemo kontaktirati Telekom na",
       "nextPhone": "0800 330 1000",
@@ -441,7 +441,7 @@
     },
     "disclaimer": {
       "title": "Napomena o zaštiti podataka:",
-      "body": "Učitane datoteke i uneseni tekstovi se koriste isključivo za jednokratnu analizu i odmah se brišu nakon rezultata. Nema trajnog pohranjivanja, praćenja niti dijeljenja s trećim stranama. BalkanLink nije državni organ i ne pruža pravne savjete."
+      "body": "Učitane datoteke i uneseni tekstovi se koriste isključivo za jednokratnu analizu i odmah se brišu nakon rezultata. Nema trajnog pohranjivanja, praćenja niti dijeljenja s trećim stranama. BalkanLink nije državni organ i ne pruža pravne savete."
     }
   },
   "visa": {
@@ -457,13 +457,13 @@
     },
     "renderer": {
       "welcome": "Dobrodošli u Viza Navigator",
-      "welcomeBody": "Odaberi državu iz lijevog menija da pronađeš informacije o vizama i dozvolama boravka.",
+      "welcomeBody": "Odaberi državu iz levog menija da pronađeš informacije o vizama i dozvolama boravka.",
       "freizuegigkeit": "🇪🇺 EU — Freizügigkeit",
       "schnelluebersicht": "Schnellübersicht",
       "requiredDocuments": "Potrebna dokumenta",
       "costs": "Troškovi",
       "commonErrors": "Česte greške",
-      "errorsToAvoid": "Greške koje treba izbjegavati",
+      "errorsToAvoid": "Greške koje treba izbegavati",
       "usefulLinks": "Korisni linkovi",
       "openLink": "Otvori",
       "westbalkan": "Westbalkan",
@@ -475,22 +475,22 @@
       "backToRoutes": "← Nazad na rute",
       "steps": "Koraci",
       "officialSources": "Zvanični izvori",
-      "musterTitle": "Obrasci za vježbu",
-      "musterSubtitle": "Vježbaj popunjavanje formulara",
-      "musterDescription": "Interaktivna simulacija — vježba, nije originalni dokument.",
+      "musterTitle": "Obrasci za Vežbu",
+      "musterSubtitle": "Vežbaj popunjavanje formulara",
+      "musterDescription": "Interaktivna simulacija — Vežba, nije originalni dokument.",
       "openForm": "Otvori formular",
       "closeForm": "Zatvori formular",
       "pdfPreview": "PDF pregled",
       "close": "Zatvori",
       "formAvailable": "Formular dostupan",
-      "disclaimer": "BalkanLink pruža informativne smjernice. Ovo nije pravno savjetovanje. Stanje 2026.",
-      "verifyAuthority": "Uvijek Proveri informacije direktno kod nadležnog organa."
+      "disclaimer": "BalkanLink pruža informativne smernice. Ovo nije pravno savetovanje. Stanje 2026.",
+      "verifyAuthority": "Uvek Proveri informacije direktno kod nadležnog organa."
     },
     "rightPanel": {
       "introBody": "Wähle ein Land aus dem linken Menü, um Informationen zu Visa und Aufenthaltsgenehmigungen zu finden.",
       "usefulLinks": "Nützliche Links",
       "officialSources": "Službeni izvori",
-      "disclaimer": "BalkanLink pruža informativne smjernice. Stanje 2026."
+      "disclaimer": "BalkanLink pruža informativne smernice. Stanje 2026."
     },
     "gateCard": {
       "benefits": {
@@ -503,7 +503,7 @@
       },
       "premiumTitle": "Otključaj kompletan vodič",
       "anonTitle": "Vidi kompletan vodič",
-      "premiumCta": "Otključaj Premium — 9.99€/mjes.",
+      "premiumCta": "Otključaj Premium — 9.99€/mes.",
       "registerCta": "Registruj se besplatno →",
       "haveAccount": "Već imaš nalog?",
       "signIn": "Prijavi se"
@@ -511,13 +511,13 @@
   },
   "deutschTrainer": {
     "title": "DeutschTrainer",
-    "subtitle": "Vježbaj nemački koji ti stvarno treba: kod ljekara, na Amtu, na poslu.",
+    "subtitle": "Vežbaj nemački koji ti stvarno treba: kod lekara, na Amtu, na poslu.",
     "ctaPrimary": "Počni učiti",
     "seoTitle": "Deutsch Trainer — Uči Nemački A1 do C2",
     "seoDescription": "240 lekcija (40 po nivou), 500 zadataka po stageu, Sprachassistent",
     "brand": "BalkanLink Deutsch",
     "heroHeadline": "Effektives Deutschlernen für das echte Leben",
-    "heroSubline": "Vježbaj nemački za stvarne situacije: kod ljekara, na Amtu, na poslu — sa pet vrsta interaktivnih vježbi i govorom Sprachassistenta.",
+    "heroSubline": "Vežbaj nemački za stvarne situacije: kod lekara, na Amtu, na poslu — sa pet vrsta interaktivnih vežbi i govorom Sprachassistenta.",
     "tags": {
       "doctor": "🏥 Beim Arzt",
       "authorities": "🏛️ Behörden",
@@ -544,7 +544,7 @@
     },
     "paywallModal": {
       "title": "Otključaj dodatne lekcije",
-      "body": "Otključaj sve sadržaje i vježbaj nemački za stvarne situacije.",
+      "body": "Otključaj sve sadržaje i Vežbaj nemački za stvarne situacije.",
       "from": "od",
       "perOneTime": "/ jednokratno",
       "unlockNow": "Otključaj sada",
@@ -552,7 +552,7 @@
     },
     "stages": {
       "basics": "Osnove",
-      "application": "Primjena",
+      "application": "Primena",
       "reality": "Realnost",
       "tasks": "zadataka",
       "freeTasks": "besplatno",
@@ -561,7 +561,7 @@
     },
     "lessonView": {
       "preparingExercises": "Pripremamo pitanja...",
-      "exercisesUnavailable": "Vježbe trenutno nisu dostupne",
+      "exercisesUnavailable": "Vežbe trenutno nisu dostupne",
       "exercisesError": "Došlo je do privremenog problema pri generisanju zadataka. Pokušaj ponovo za nekoliko sekundi.",
       "backToStages": "Nazad na faze",
       "situation": "SITUACIJA",
@@ -579,13 +579,13 @@
       "incorrect": "✗ Netačno.",
       "incorrectWithAnswer": "✗ Netačno. Tačan odgovor: {{answer}}",
       "checkAnswer": "Proveri",
-      "sortHint": "Klikni na riječi u ispravnom redoslijedu..."
+      "sortHint": "Klikni na reči u ispravnom redosledu..."
     },
     "complete": {
       "perfect": "Savršeno!",
       "great": "Odlično!",
       "good": "Dobro!",
-      "keepGoing": "Vježbaj dalje!",
+      "keepGoing": "Vežbaj dalje!",
       "next": "Sledeći:",
       "continueLearning": "Nastavi učiti",
       "restart": "Ponovi s novim pitanjima"
@@ -774,7 +774,7 @@
   },
   "notFound": {
     "title": "Stranica nije pronađena",
-    "description": "Izgleda da stranice koju tražite nema ili je premještena.",
+    "description": "Izgleda da stranice koju tražite nema ili je premeštena.",
     "cta": "Vrati se na početnu"
   },
   "auth": {
