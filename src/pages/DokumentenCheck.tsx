@@ -301,19 +301,19 @@ export default function DokumentenCheck() {
 
           {/* What you get */}
           <div className="mt-6 space-y-2">
-            <p className="text-xs font-semibold text-primary-foreground/70 uppercase tracking-wider">Šta dobijaš analizom:</p>
+            <p className="text-xs font-semibold text-primary-foreground/70 uppercase tracking-wider">{t("documentCheck.whatYouGet.label")}</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
               {[
-                "Prijevod i objašnjenje na tvom jeziku",
-                "Šta se od tebe traži i do kada",
-                "Da li je dokument hitne prirode",
-                "Koji je sljedeći korak koji trebaš poduzeti",
-                "Na koje institucije se možeš obratiti",
-                "Upozorenje ako dokument sadrži rok ili pravne posljedice",
-              ].map((item) => (
-                <div key={item} className="flex items-start gap-1.5 text-xs text-primary-foreground/80">
+                "translation",
+                "whatIsAsked",
+                "urgency",
+                "nextStep",
+                "institutions",
+                "warning",
+              ].map((key) => (
+                <div key={key} className="flex items-start gap-1.5 text-xs text-primary-foreground/80">
                   <CheckCircle2 className="h-3.5 w-3.5 text-[hsl(var(--gold))] shrink-0 mt-0.5" />
-                  <span>{item}</span>
+                  <span>{t(`documentCheck.whatYouGet.items.${key}`)}</span>
                 </div>
               ))}
             </div>
