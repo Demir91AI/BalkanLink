@@ -392,16 +392,19 @@ export default function MojiPodaci() {
             </div>
             <Button
               onClick={() => handleExport("pdf")}
-              disabled={exporting !== null}
+              disabled={exporting !== null || isCoolingDown}
               variant="outline"
               size="sm"
-              className="shrink-0 text-xs h-8"
+              className="shrink-0 text-xs h-8 min-w-[8.5rem]"
+              aria-busy={exporting !== null}
             >
               {exporting !== null ? (
                 <>
                   <Loader2 className="h-3 w-3 mr-1.5 animate-spin" />
                   Pripremam…
                 </>
+              ) : isCoolingDown ? (
+                `Pokušaj za ${cooldownRemaining}s`
               ) : (
                 "Preuzmi izvještaj"
               )}
