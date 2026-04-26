@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FileText, Shield, GraduationCap, Camera, Megaphone, Mail } from "lucide-react";
+import { useLocalizedHref } from "@/hooks/useLocalizedHref";
 
 const features = [
   {
@@ -44,6 +45,7 @@ const features = [
 export default function FeatureCards() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const localize = useLocalizedHref();
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -79,7 +81,7 @@ export default function FeatureCards() {
           return (
             <Link
               key={f.to}
-              to={f.to}
+              to={localize(f.to)}
               className="group relative flex flex-col items-center justify-center text-center rounded-2xl p-6 min-h-[120px] transition-all duration-200 will-change-transform active:scale-[0.97] hover:-translate-y-1"
               style={{
                 background: "rgba(255,255,255,0.04)",

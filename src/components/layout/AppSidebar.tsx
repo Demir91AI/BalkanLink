@@ -27,6 +27,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
   const { t } = useTranslation();
   const firstName = displayName.split(/\s+/).filter(Boolean)[0] || "Korisniče";
   const initials = getInitials(displayName);
+  const currentPath = location.pathname.replace(/^\/de(?=\/|$)/, "") || "/";
 
   const mainItems = [
     { title: "Formulari", url: "/formulari", icon: FileText, premium: true },
@@ -182,7 +183,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
           <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">Glavne funkcije</p>
           <nav className="flex flex-col gap-0.5">
             {mainItems.map((item) => {
-              const active = location.pathname === item.url || location.pathname.startsWith(item.url + "/");
+              const active = currentPath === item.url || currentPath.startsWith(item.url + "/");
               return (
                 <button
                   key={item.url}
@@ -212,7 +213,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
           <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">Ostalo</p>
           <nav className="flex flex-col gap-0.5">
             {secondaryItems.map((item) => {
-              const active = location.pathname === item.url || location.pathname.startsWith(item.url + "/");
+              const active = currentPath === item.url || currentPath.startsWith(item.url + "/");
               return (
                 <button
                   key={item.url}
