@@ -121,8 +121,15 @@ export function useSessionTimeout(isAuthenticated: boolean) {
     /* ── cross-tab sync via storage event ── */
     const onStorage = (e: StorageEvent) => {
       if (e.key === LOGOUT_SYNC_KEY && e.newValue) {
-        // another tab triggered logout
-        performLogout();
+        const syncAt = Number(e.newValue) || 0;
+        const lastActivity = getLastActivity();
+
+        // Ignore stale logout broadcasts that are older than the current login/activity.
+        // This prevents another tab with an old timeout from instantly logging out
+        // a freshly logged-in session.
+        if (syncAt > lastActivity) {
+          performLogout();
+        }
       }
     };
     window.addEventListener("storage", onStorage);
