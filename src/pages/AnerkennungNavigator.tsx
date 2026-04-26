@@ -391,8 +391,50 @@ export default function AnerkennungNavigator() {
         </section>
       )}
 
-      {/* ────────── STEP 3: Result roadmap ────────── */}
-      {profession && country && (
+      {/* ────────── STEP 3: Bundesland ────────── */}
+      {selectedCountry && selectedProfession && !bundesland && profession && country && (
+        <section className="space-y-6">
+          <div className="flex items-center justify-between gap-3 flex-wrap">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--gold))] mb-2">
+                Korak 3 od 4
+              </p>
+              <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-1 flex items-center gap-2">
+                <MapPin className="h-5 w-5 text-[hsl(var(--gold))]" />
+                U kojem Bundeslandu želiš raditi?
+              </h2>
+              <p className="text-sm text-muted-foreground">
+                Nadležna ustanova zavisi od Bundeslanda. Birajte gdje planirate
+                raditi (a ne gdje trenutno živite, ako se razlikuje).
+              </p>
+            </div>
+            <button
+              onClick={() => setSelectedProfession(null)}
+              className="text-xs font-semibold text-muted-foreground hover:text-foreground flex items-center gap-1"
+            >
+              <ChevronLeft className="h-3 w-3" /> Promijeni profesiju
+            </button>
+          </div>
+
+          <div className="grid gap-2 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
+            {BUNDESLAENDER.map((b) => (
+              <button
+                key={b.code}
+                onClick={() => setBundesland(b.code)}
+                className="group rounded-xl border border-border/40 bg-card p-3 text-left transition hover:border-[hsl(var(--gold))]/40 hover:shadow-md"
+              >
+                <p className="font-bold text-foreground text-sm">{b.name}</p>
+                <p className="text-[10px] text-muted-foreground mt-0.5">
+                  {b.capital}
+                </p>
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* ────────── STEP 4: Result roadmap ────────── */}
+      {profession && country && bundesland && (
         <section className="space-y-6">
           <div className="flex items-center justify-between gap-3 flex-wrap">
             <div>
