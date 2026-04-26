@@ -1,6 +1,7 @@
+import { useTranslation } from "react-i18next";
 import { TrendingUp, TrendingDown, RefreshCw, Building, CreditCard, Car, Home, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { RISK_CLASS_LABELS, type SimResult } from "@/lib/schufa-simulator";
+import { RISK_CLASS_COLORS, type SimResult } from "@/lib/schufa-simulator";
 
 interface Props {
   result: SimResult;
@@ -9,11 +10,12 @@ interface Props {
 }
 
 export default function SchufaResult({ result, onRestart, onContinue }: Props) {
-  const classMeta = RISK_CLASS_LABELS[result.riskClass];
+  const { t } = useTranslation("schufa");
+  const classColor = RISK_CLASS_COLORS[result.riskClass];
+  const classLabel = t(`riskClass.${result.riskClass}`);
 
   return (
     <div className="space-y-6">
-      {/* Glavna procjena */}
       <div
         className="rounded-2xl border border-white/10 p-6 sm:p-8 text-center"
         style={{
@@ -21,7 +23,7 @@ export default function SchufaResult({ result, onRestart, onContinue }: Props) {
         }}
       >
         <p className="text-xs font-bold uppercase tracking-widest text-white/40 mb-2">
-          Indikativna orijentaciona procjena
+          {t("result.label")}
         </p>
         <div className="flex items-baseline justify-center gap-3">
           <span className="text-6xl sm:text-7xl font-black text-white leading-none">
@@ -33,38 +35,38 @@ export default function SchufaResult({ result, onRestart, onContinue }: Props) {
         <div
           className="inline-flex items-center gap-3 mt-5 px-5 py-2.5 rounded-full font-bold"
           style={{
-            background: `${classMeta.color}20`,
-            border: `1px solid ${classMeta.color}50`,
-            color: classMeta.color,
+            background: `${classColor}20`,
+            border: `1px solid ${classColor}50`,
+            color: classColor,
           }}
         >
           <span className="text-2xl">{result.riskClass}</span>
-          <span className="text-sm uppercase tracking-wide">{classMeta.label}</span>
+          <span className="text-sm uppercase tracking-wide">{classLabel}</span>
         </div>
 
         <p className="mt-5 text-xs text-white/50 max-w-md mx-auto leading-relaxed">
-          ⚠️ <strong className="text-white/80">Ovo NIJE zvanični Schufa Score.</strong> Stvarni Score
-          možeš dobiti samo besplatnim <a href="https://www.meineschufa.de/de/datenkopie" target="_blank" rel="noopener noreferrer" className="text-[hsl(var(--gold))] underline">Datenkopie</a> zahtjevom (§15 DSGVO).
+          ⚠️ <strong className="text-white/80">{t("result.warningStrong")}</strong>{" "}
+          {t("result.warningBody")}{" "}
+          <a href="https://www.meineschufa.de/de/datenkopie" target="_blank" rel="noopener noreferrer" className="text-[hsl(var(--gold))] underline">
+            {t("result.warningLink")}
+          </a>{" "}
+          {t("result.warningAfter")}
         </p>
       </div>
 
-      {/* Šanse za scenarije */}
       <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
-        <h3 className="text-base font-bold text-white mb-4">Procijenjene šanse za uspjeh</h3>
+        <h3 className="text-base font-bold text-white mb-4">{t("result.chancesTitle")}</h3>
         <div className="grid grid-cols-2 gap-3">
-          <ChanceCard icon={Building} label="Stan u Münchenu/Berlinu" level={result.chances.rentMunich} />
-          <ChanceCard icon={CreditCard} label="Potrošački kredit (~50.000€)" level={result.chances.consumerLoan} />
-          <ChanceCard icon={CreditCard} label="Kreditna kartica" level={result.chances.creditCard} />
-          <ChanceCard icon={Car} label="Auto leasing" level={result.chances.carLeasing} />
+          <ChanceCard icon={Building} label={t("result.chanceRent")} level={result.chances.rentMunich} t={t} />
+          <ChanceCard icon={CreditCard} label={t("result.chanceLoan")} level={result.chances.consumerLoan} t={t} />
+          <ChanceCard icon={CreditCard} label={t("result.chanceCard")} level={result.chances.creditCard} t={t} />
+          <ChanceCard icon={Car} label={t("result.chanceLeasing")} level={result.chances.carLeasing} t={t} />
         </div>
-        <p className="mt-3 text-xs text-white/40 italic">
-          Procjena na osnovu javnih kriterija banaka i stanodavaca. Stvarne odluke zavise i od plate, ugovora o radu i drugih faktora.
-        </p>
+        <p className="mt-3 text-xs text-white/40 italic">{t("result.chancesNote")}</p>
       </div>
 
-      {/* Top faktori */}
       <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
-        <h3 className="text-base font-bold text-white mb-4">Šta najviše utječe na tvoju procjenu</h3>
+        <h3 className="text-base font-bold text-white mb-4">{t("result.factorsTitle")}</h3>
         <div className="space-y-2.5">
           {result.factors.map((f, i) => {
             const positive = f.delta >= 0;
@@ -91,7 +93,9 @@ export default function SchufaResult({ result, onRestart, onContinue }: Props) {
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-start justify-between gap-2">
-                    <p className="text-sm font-bold text-white">{f.label}</p>
+                    <p className="text-sm font-bold text-white">
+                      {t(`factors.${f.key}.label`, f.params ?? {})}
+                    </p>
                     <span
                       className={`text-xs font-black shrink-0 ${
                         positive ? "text-emerald-400" : "text-red-400"
@@ -101,7 +105,9 @@ export default function SchufaResult({ result, onRestart, onContinue }: Props) {
                       {f.delta}%
                     </span>
                   </div>
-                  <p className="text-xs text-white/60 mt-1 leading-relaxed">{f.detail}</p>
+                  <p className="text-xs text-white/60 mt-1 leading-relaxed">
+                    {t(`factors.${f.key}.detail`, f.params ?? {})}
+                  </p>
                 </div>
               </div>
             );
@@ -109,15 +115,15 @@ export default function SchufaResult({ result, onRestart, onContinue }: Props) {
         </div>
       </div>
 
-      {/* Mit/Istina edukativni box */}
       <div className="rounded-2xl border border-blue-500/30 bg-blue-500/10 p-5">
         <div className="flex gap-3">
           <AlertCircle className="h-5 w-5 shrink-0 text-blue-300 mt-0.5" />
           <div className="text-sm text-blue-100 leading-relaxed">
-            <p className="font-bold text-blue-200 mb-1">Šta Schufa stvarno vidi?</p>
+            <p className="font-bold text-blue-200 mb-1">{t("result.mythTitle")}</p>
             <p>
-              Schufa <strong>VIDI</strong>: kredite, kreditne kartice, otkazane Dispo, Mahnunge, Inkasso, insolvencije, broj prijava (upita), adresne podatke.<br />
-              Schufa <strong>NE VIDI</strong>: tvoju platu, saldo na računu, koliko trošiš, da li si u Dispo minusu (dok te ne pošalju na Mahnung).
+              Schufa <strong>{t("result.mythSeesLabel")}</strong>: {t("result.mythSeesBody")}
+              <br />
+              Schufa <strong>{t("result.mythHiddenLabel")}</strong>: {t("result.mythHiddenBody")}
             </p>
           </div>
         </div>
@@ -132,7 +138,7 @@ export default function SchufaResult({ result, onRestart, onContinue }: Props) {
             boxShadow: "0 4px 20px hsla(43,70%,53%,0.35)",
           }}
         >
-          Vidi 6-mjesečni plan poboljšanja →
+          {t("result.ctaContinue")}
         </Button>
         <Button
           variant="ghost"
@@ -140,7 +146,7 @@ export default function SchufaResult({ result, onRestart, onContinue }: Props) {
           className="h-12 text-white/70 hover:text-white hover:bg-white/5 border border-white/10"
         >
           <RefreshCw className="h-4 w-4 mr-2" />
-          Promijeni odgovore
+          {t("result.ctaRestart")}
         </Button>
       </div>
     </div>
@@ -151,15 +157,17 @@ function ChanceCard({
   icon: Icon,
   label,
   level,
+  t,
 }: {
   icon: typeof Home;
   label: string;
   level: "low" | "medium" | "high";
+  t: (key: string) => string;
 }) {
   const meta = {
-    high: { color: "hsl(140, 60%, 50%)", text: "Velike", emoji: "✅" },
-    medium: { color: "hsl(45, 80%, 55%)", text: "Srednje", emoji: "⚠️" },
-    low: { color: "hsl(0, 70%, 55%)", text: "Male", emoji: "❌" },
+    high: { color: "hsl(140, 60%, 50%)", textKey: "result.chanceHigh", emoji: "✅" },
+    medium: { color: "hsl(45, 80%, 55%)", textKey: "result.chanceMedium", emoji: "⚠️" },
+    low: { color: "hsl(0, 70%, 55%)", textKey: "result.chanceLow", emoji: "❌" },
   }[level];
 
   return (
@@ -176,7 +184,7 @@ function ChanceCard({
       </div>
       <div className="flex items-baseline gap-1.5">
         <span style={{ color: meta.color }} className="text-base font-black">
-          {meta.emoji} {meta.text}
+          {meta.emoji} {t(meta.textKey)}
         </span>
       </div>
     </div>
