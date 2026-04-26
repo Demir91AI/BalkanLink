@@ -81,6 +81,7 @@ export function LanguageSwitcher({ variant = "header" }: Props) {
   const navigate = useNavigate();
   const location = useLocation();
   const [open, setOpen] = useState(false);
+  const flagSize = useResponsiveFlagSize(variant);
 
   const currentEntry =
     LANGUAGES.find((l) => l.code === i18n.language) ?? LANGUAGES[0];
