@@ -17,23 +17,439 @@
   },
   "documentCheck": {
     "title": "Provjera dokumenata",
-    "subtitle": "Provjeri da li su tvoji dokumenti u redu prije slanja na njemačke institucije.",
-    "ctaPrimary": "Provjeri dokument"
+    "subtitle": "Učitaj pismo ili dokument — dobiješ objašnjenje na svom jeziku u sekundi",
+    "ctaPrimary": "Provjeri dokument",
+    "examples": {
+      "letterFromFinanzamt": "Pismo od Finanzamt",
+      "rentalContract": "Ugovor o najmu",
+      "buergergeldNotice": "Bürgergeld obavijest",
+      "insuranceLetter": "Pismo od osiguranja",
+      "mahnung": "Mahnung (opomena)",
+      "jobcenterDecision": "Jobcenter odluka"
+    },
+    "whatYouGet": {
+      "label": "Šta dobijaš analizom:",
+      "items": {
+        "translation": "Prijevod i objašnjenje na tvom jeziku",
+        "whatIsAsked": "Šta se od tebe traži i do kada",
+        "urgency": "Da li je dokument hitne prirode",
+        "nextStep": "Koji je sljedeći korak koji trebaš poduzeti",
+        "institutions": "Na koje institucije se možeš obratiti",
+        "warning": "Upozorenje ako dokument sadrži rok ili pravne posljedice"
+      }
+    },
+    "pricing": {
+      "oneTimeLabel": "Jednokratno",
+      "oneTimePerCheck": "po provjeri",
+      "oneTimeReset": "Resetuje se nakon svake upotrebe",
+      "buyOneTime": "Kupi za 2,99€ →",
+      "premiumLabel": "Premium",
+      "premiumBadge": "⭐ Premium",
+      "premiumPerMonth": "/mj.",
+      "premiumFeature1": "1×/dan gratis",
+      "premiumFeature2": "Dodatne provjere 2,99€/kom",
+      "premiumFeature3": "+ sve Premium funkcije",
+      "buyPremium": "Kupi Premium →"
+    },
+    "privacy": {
+      "title": "Zaštita podataka",
+      "body": "Molimo zacrnite ime, adresu i broj predmeta prije učitavanja. Datoteke se ne pohranjuju — obrađuju se samo kratko za analizu i odmah brišu."
+    },
+    "upload": {
+      "label": "Učitaj dokument",
+      "hint": "PDF, JPG, PNG — maks. 10 MB",
+      "deletedAfter": "Dokument se briše odmah nakon analize. Ništa se ne pohranjuje."
+    },
+    "confirm": "Potvrđujem da ne učitavam/unosim osjetljive podatke (broj lične karte, Steuer-ID, IBAN, zdravstvene podatke).",
+    "buttons": {
+      "checking": "Provjeravam…",
+      "checkDocument": "Provjeri dokument →",
+      "reset": "Resetuj"
+    },
+    "errors": {
+      "unsupportedFormat": "Podržani su samo PDF, JPG i PNG formati.",
+      "fileTooLarge": "Datoteka je prevelika za analizu. Pokušajte sa manjom datotekom (max. 10 MB).",
+      "confirmRequired": "Molimo potvrdite checkbox prije analize.",
+      "noFile": "Nije odabran dokument.",
+      "serverError": "Greška servera pri analizi dokumenta. Pokušajte ponovo za nekoliko trenutaka.",
+      "processingFailed": "Dokument nije mogao biti obrađen. Pokušajte s drugom datotekom.",
+      "readError": "Greška pri čitanju datoteke",
+      "fallback": "Greška servera pri analizi dokumenta."
+    },
+    "paywall": {
+      "title": "Dokumenten-Check",
+      "subtitle": "Učitaj dokument — dobiješ objašnjenje na svom jeziku",
+      "premiumCta": "BalkanLink Premium — 9,99€/mj.",
+      "premiumPerk": "1×/dan gratis + sve Premium funkcije",
+      "or": "ili",
+      "oneTimeCta": "Kupi jednokratno — 2,99€ →",
+      "oneTimeReset": "Resetuje se nakon svake upotrebe"
+    },
+    "example": {
+      "trigger": "👁 Primjer analize — klikni da vidiš",
+      "heading": "Primjer: Mahnung od Deutsche Telekom",
+      "docTypeLabel": "Tip dokumenta:",
+      "docType": "Opomena (Mahnung) — zahtjev za plaćanje dospjelog računa.",
+      "askedLabel": "Šta se traži:",
+      "asked1": "Radi se o opomeni za neplaćeni račun. Iznos:",
+      "askedAmount": "47.50€",
+      "askedDeadlineLabel": "Rok plaćanja:",
+      "askedDeadline": "15 dana",
+      "askedDeadlineSuffix": "od datuma pisma.",
+      "riskLabel": "Rizik:",
+      "risk": "Ako ne platite, slijedi naplata putem Inkasso agencije što može negativno utjecati na Schufa (kreditni rejting).",
+      "nextLabel": "Sljedeći korak:",
+      "nextPrefix": "Preporučujemo kontaktirati Telekom na",
+      "nextPhone": "0800 330 1000",
+      "nextSuffix": "ili platiti online putem Mein Telekom portala."
+    },
+    "results": {
+      "fallbackTitle": "Rezultat analize",
+      "overview": "Dokumentenübersicht",
+      "docType": "Dokumenttyp",
+      "actionNeeded": "Potrebna radnja",
+      "financial": "Finanzielle Auswirkung",
+      "deadline": "Frist",
+      "lockedTitle": "🔒 Detaljna analiza dostupna uz Premium",
+      "lockedCta": "BalkanLink Premium — 9.99€/mj.",
+      "viewAnalysis": "Pogledaj analizu",
+      "urgent": "Hitna radnja potrebna",
+      "recommended": "Preporučena radnja",
+      "noActionNeeded": "Nije potrebna radnja",
+      "viewFinancial": "Pogledaj finansijsku analizu",
+      "amountIdentified": "{{amount}} identifikovano",
+      "noVisibleDeadline": "Nema vidljivog roka",
+      "deadlinePrefix": "Rok:",
+      "fallbackDoc": "Dokument"
+    },
+    "disclaimer": {
+      "title": "Napomena o zaštiti podataka:",
+      "body": "Učitane datoteke i uneseni tekstovi se koriste isključivo za jednokratnu analizu i odmah se brišu nakon rezultata. Nema trajnog pohranjivanja, praćenja niti dijeljenja s trećim stranama. BalkanLink nije državni organ i ne pruža pravne savjete."
+    }
   },
   "visa": {
     "title": "Vize",
     "subtitle": "Vodič kroz njemački sistem viza, dozvola i boravišnih statusa.",
-    "ctaPrimary": "Pokreni Viza Navigator"
+    "ctaPrimary": "Pokreni Viza Navigator",
+    "navTitle": "Visa Navigator",
+    "navSubtitle": "Pronađi pravi status za tvoju situaciju",
+    "sidebar": {
+      "euCountries": "EU-Länder",
+      "balkanCountries": "Balkanländer",
+      "routes": "Routen"
+    },
+    "renderer": {
+      "welcome": "Dobrodošli u Viza Navigator",
+      "welcomeBody": "Odaberi državu iz lijevog menija da pronađeš informacije o vizama i dozvolama boravka.",
+      "freizuegigkeit": "🇪🇺 EU — Freizügigkeit",
+      "schnelluebersicht": "Schnellübersicht",
+      "requiredDocuments": "Potrebna dokumenta",
+      "costs": "Troškovi",
+      "commonErrors": "Česte greške",
+      "errorsToAvoid": "Greške koje treba izbjegavati",
+      "usefulLinks": "Korisni linkovi",
+      "openLink": "Otvori",
+      "westbalkan": "Westbalkan",
+      "westbalkanActive": "Regulativa za Zapadni Balkan aktivna!",
+      "learnMore": "Saznaj više",
+      "ausbildungTitle": "Stručno obrazovanje — važne napomene",
+      "countryNotesTitle": "Napomene za tvoju zemlju",
+      "chooseSituation": "Odaberi svoju situaciju",
+      "backToRoutes": "← Nazad na rute",
+      "steps": "Koraci",
+      "officialSources": "Zvanični izvori",
+      "musterTitle": "Obrasci za vježbu",
+      "musterSubtitle": "Vježbaj popunjavanje formulara",
+      "musterDescription": "Interaktivna simulacija — vježba, nije originalni dokument.",
+      "openForm": "Otvori formular",
+      "closeForm": "Zatvori formular",
+      "pdfPreview": "PDF pregled",
+      "close": "Zatvori",
+      "formAvailable": "Formular dostupan",
+      "disclaimer": "BalkanLink pruža informativne smjernice. Ovo nije pravno savjetovanje. Stanje 2026.",
+      "verifyAuthority": "Uvijek provjeri informacije direktno kod nadležnog organa."
+    },
+    "rightPanel": {
+      "introBody": "Wähle ein Land aus dem linken Menü, um Informationen zu Visa und Aufenthaltsgenehmigungen zu finden.",
+      "usefulLinks": "Nützliche Links",
+      "officialSources": "Službeni izvori",
+      "disclaimer": "BalkanLink pruža informativne smjernice. Stanje 2026."
+    },
+    "gateCard": {
+      "benefits": {
+        "docDetails": "Detalji za svaki dokument",
+        "allSteps": "Svi koraci do predaje",
+        "addresses": "Adrese i radno vrijeme ureda",
+        "tips": "Savjeti za brži termin",
+        "ifRejected": "Šta raditi ako bude odbijeno",
+        "muster": "Musterformulari za ovu vizu"
+      },
+      "premiumTitle": "Otključaj kompletan vodič",
+      "anonTitle": "Vidi kompletan vodič",
+      "premiumCta": "Otključaj Premium — 9.99€/mjes.",
+      "registerCta": "Registruj se besplatno →",
+      "haveAccount": "Već imaš nalog?",
+      "signIn": "Prijavi se"
+    }
   },
   "deutschTrainer": {
     "title": "DeutschTrainer",
     "subtitle": "Vježbaj njemački koji ti stvarno treba: kod ljekara, na Amtu, na poslu.",
-    "ctaPrimary": "Počni učiti"
+    "ctaPrimary": "Počni učiti",
+    "seoTitle": "Deutsch Trainer — Uči Njemački A1 do C2",
+    "seoDescription": "240 lekcija (40 po nivou), 500 zadataka po stageu, Sprachassistent",
+    "brand": "BalkanLink Deutsch",
+    "heroHeadline": "Effektives Deutschlernen für das echte Leben",
+    "heroSubline": "Vježbaj njemački za stvarne situacije: kod ljekara, na Amtu, na poslu — sa pet vrsta interaktivnih vježbi i govorom Sprachassistenta.",
+    "tags": {
+      "doctor": "🏥 Beim Arzt",
+      "authorities": "🏛️ Behörden",
+      "jobcenter": "💼 Jobcenter",
+      "buergergeld": "📋 Bürgergeld",
+      "sprachassistent": "🗣️ Sprachassistent",
+      "levelRange": "🏆 A1 → C2"
+    },
+    "progress": {
+      "label": "Napredak",
+      "lessons": "lekcija"
+    },
+    "lesson": {
+      "free": "Besplatno",
+      "freeSuffix": "besplatno"
+    },
+    "upgradeCta": {
+      "title": "Nastavi učiti",
+      "subtitle": "Otključaj sve lekcije i Sprachassistenta",
+      "noSubscription": "Bez pretplate",
+      "payOnce": "Jednom plati",
+      "wertgutschein": "Wertgutschein za Premium",
+      "unlockAll": "Otključaj sve lekcije"
+    },
+    "paywallModal": {
+      "title": "Otključaj dodatne lekcije",
+      "body": "Otključaj sve sadržaje i vježbaj njemački za stvarne situacije.",
+      "from": "od",
+      "perOneTime": "/ jednokratno",
+      "unlockNow": "Otključaj sada",
+      "decideLater": "Odluči kasnije"
+    },
+    "stages": {
+      "basics": "Osnove",
+      "application": "Primjena",
+      "reality": "Realnost",
+      "tasks": "zadataka",
+      "freeTasks": "besplatno",
+      "moreTasks": "još zadataka",
+      "unlockWithPremium": "Otključaj s Premium"
+    },
+    "lessonView": {
+      "preparingExercises": "Pripremamo pitanja...",
+      "exercisesUnavailable": "Vježbe trenutno nisu dostupne",
+      "exercisesError": "Došlo je do privremenog problema pri generisanju zadataka. Pokušaj ponovo za nekoliko sekundi.",
+      "backToStages": "Nazad na faze",
+      "situation": "SITUACIJA",
+      "finishStage": "Završi fazu ✓",
+      "next": "Dalje →",
+      "stageCompleted": "{{stage}} završen!",
+      "answerStats": "{{correct}} / {{total}} tačnih odgovora ({{pct}}%)",
+      "nextStagePrefix": "Sljedeća faza:",
+      "backToLesson": "Nazad na lekciju",
+      "restart": "Ponovi s novim pitanjima",
+      "commonMistakes": "Tipične greške"
+    },
+    "exercise": {
+      "correct": "✓ Tačno!",
+      "incorrect": "✗ Netačno.",
+      "incorrectWithAnswer": "✗ Netačno. Tačan odgovor: {{answer}}",
+      "checkAnswer": "Provjeri",
+      "sortHint": "Klikni na riječi u ispravnom redoslijedu..."
+    },
+    "complete": {
+      "perfect": "Savršeno!",
+      "great": "Odlično!",
+      "good": "Dobro!",
+      "keepGoing": "Vježbaj dalje!",
+      "next": "Sljedeći:",
+      "continueLearning": "Nastavi učiti",
+      "restart": "Ponovi s novim pitanjima"
+    },
+    "sprachassistent": {
+      "title": "Sprachassistent",
+      "preview": "Vorschau",
+      "lockedHint": "🔒 +{{count}} weitere Sätze freischalten",
+      "lockedSubtitle": "Nur mit Ultimate freigeschaltet",
+      "unlockCta": "Sprachassistent freischalten"
+    },
+    "lockedOverlay": {
+      "lockedItems": "🔒 +{{count}} {{label}} zaključano",
+      "lockedDefaultLabel": "sadržaja",
+      "lockedSubtitle": "Dostupno sa Premium pretplatom",
+      "unlockCta": "Otključaj Premium"
+    }
   },
   "classifieds": {
     "title": "Oglasi",
     "subtitle": "Posao, stan, usluge i zajednica — oglasi za naše ljude u Njemačkoj.",
-    "ctaPrimary": "Pogledaj oglase"
+    "ctaPrimary": "Pogledaj oglase",
+    "seoTitle": "Mali oglasi — Nudim & Tražim",
+    "seoDescription": "Mali oglasi balkanske dijaspore u Njemačkoj — posao, stanovi, usluge.",
+    "hero": {
+      "badge": "Balkan-Community",
+      "headlineLine1": "Ponudi, traži,",
+      "headlineLine2": "poveži se.",
+      "subline": "Balkanska oglasna platforma u Njemačkoj — posao, stanovi, usluge, prevoz i više. Besplatno, brzo, jednostavno.",
+      "ctaPostFree": "Objavi besplatno oglas",
+      "ctaSearch": "Pretraži oglase",
+      "statFree": "Besplatno",
+      "statCategories": "Kategorija",
+      "statGermany": "Cijela Njemačka"
+    },
+    "filters": {
+      "searchPlaceholder": "Pretraži oglase...",
+      "all": "Sve",
+      "offering": "Nudim",
+      "seeking": "Tražim",
+      "categoryPlaceholder": "Kategorija",
+      "allCategories": "Sve kategorije",
+      "cityPlaceholder": "Grad / Mjesto",
+      "radiusPlaceholder": "Radius",
+      "sortPlaceholder": "Sortiranje",
+      "allRadius": "Cijela Njemačka"
+    },
+    "categories": {
+      "posao": "Posao",
+      "stanovanje": "Stanovanje",
+      "usluge": "Usluge",
+      "prevoz": "Prevoz",
+      "kupoprodaja": "Kupujem / Prodajem",
+      "porodica": "Djeca i porodica",
+      "ostalo": "Ostalo"
+    },
+    "sort": {
+      "newest": "Najnovije",
+      "relevant": "Najrelevantnije"
+    },
+    "pro": {
+      "title": "PRO oglasi",
+      "subtitle": "Istakni svoj oglas i dosegni više ljudi.",
+      "benefit1": "Tvoj oglas stoji na vrhu",
+      "benefit2": "Dobija PRO oznaku",
+      "benefit3": "Više pregleda i upita",
+      "freeNote": "Objavljivanje oglasa je besplatno. PRO je opcija za veću vidljivost.",
+      "learnMore": "Saznaj više"
+    },
+    "ad": {
+      "labelOffering": "NUDIM",
+      "labelSeeking": "TRAŽIM",
+      "labelOfferingDe": "Ich biete",
+      "labelSeekingDe": "Ich suche",
+      "showContact": "Prikaži kontakt"
+    },
+    "empty": {
+      "title": "Još nema oglasa",
+      "body": "Budi prvi koji objavi oglas u svojoj zajednici!",
+      "cta": "Objavi oglas →"
+    },
+    "ctaSection": {
+      "title": "Želiš objaviti oglas?",
+      "body": "Brzo i jednostavno objavi šta nudiš ili tražiš.",
+      "post": "Objavi besplatno oglas",
+      "highlightPro": "Istakni kao PRO",
+      "freeNote": "Objavljivanje oglasa je besplatno. PRO je opcija za veću vidljivost."
+    },
+    "footerNote": "BalkanLink u ovom dijelu služi isključivo kao posrednička i oglasna platforma. Za sadržaj, dogovore ili usluge korisnika se ne preuzima odgovornost.",
+    "detail": {
+      "back": "Nazad",
+      "showContact": "Prikaži kontakt",
+      "safetyHint": "Budite oprezni pri kontaktu. BalkanLink ne provjerava identitet oglašivača i ne odgovara za dogovorene usluge.",
+      "similar": "Slični oglasi"
+    },
+    "form": {
+      "title": "Objavi oglas besplatno",
+      "subtitle": "Objavljivanje je besplatno. Nakon toga možeš istaknuti oglas kao PRO.",
+      "typeLabel": "Tip oglasa",
+      "categoryLabel": "Kategorija",
+      "selectPlaceholder": "Odaberi...",
+      "offering": "Nudim",
+      "seeking": "Tražim",
+      "titleLabel": "Naslov oglasa",
+      "titlePlaceholder": "Npr. Nudim pomoć pri selidbi",
+      "cityLabel": "Grad / Mjesto",
+      "cityPlaceholder": "Npr. München",
+      "descriptionLabel": "Opis",
+      "descriptionPlaceholder": "Detaljno opišite šta nudite ili tražite...",
+      "contactTypeLabel": "Kontakt putem",
+      "contactTypePhone": "Telefon",
+      "contactTypeEmail": "E-Mail",
+      "contactTypeMessage": "Poruka preko platforme",
+      "contactValueLabel": "Kontakt podaci",
+      "contactValuePlaceholder": "Telefon, e-mail...",
+      "agree": "Prihvatam uslove korištenja i potvrđujem tačnost podataka. Oglas je aktivan 30 dana.",
+      "submit": "Objavi oglas besplatno",
+      "highlightPro": "Istakni kao PRO",
+      "cancel": "Otkaži",
+      "errorRequired": "Molimo popunite sva polja.",
+      "errorAgree": "Morate prihvatiti uslove korištenja.",
+      "success": "Oglas uspješno poslan! Biće vidljiv nakon provjere."
+    },
+    "proModal": {
+      "title": "Objavi ili istakni oglas",
+      "subtitle": "Besplatno objavi ili povećaj vidljivost uz Pro oglase",
+      "free": {
+        "label": "Besplatan oglas",
+        "price": "0€",
+        "f1": "Objavi besplatno",
+        "f2": "Standardna lista",
+        "f3": "Sortiranje po datumu",
+        "f4": "Dostupan svima"
+      },
+      "pro": {
+        "label": "🔥 Pro oglas",
+        "price": "1,99€",
+        "period": "/ 7 dana",
+        "f1": "Vrh liste",
+        "f2": "Iznad free oglasa",
+        "f3": "Badge + glow",
+        "f4": "Više pregleda",
+        "f5": "Istaknuta pozicija 7 dana",
+        "afterExpire": "Po isteku vraća se u normalnu listu"
+      },
+      "premium": {
+        "label": "⭐ Premium",
+        "price": "9,99€",
+        "period": "/ mjesec",
+        "bestValue": "Najbolja vrijednost",
+        "f1": "2 Pro oglasa/mj",
+        "f2": "Svaki 7 dana",
+        "f3": "Na različitim oglasima",
+        "f4": "Max 2 aktivna",
+        "f5": "Dodatni 1,99€ nakon toga",
+        "savings": "Uštedi i istakni oglase bez dodatnog plaćanja"
+      },
+      "buttons": {
+        "free": "Objavi besplatno →",
+        "pro": "Kupi Pro — 1,99€ →",
+        "premium": "Kupi Premium — 9,99€/mj →"
+      },
+      "info": "💡 **Kako funkcioniše?** Pro oglasi su istaknuti iznad ostalih i donose više pregleda. Premium uključuje 2 takva isticanja mjesečno."
+    }
+  },
+  "navigation": {
+    "back": "Nazad",
+    "home": "Početna"
+  },
+  "authGate": {
+    "title": "Registracija je potrebna",
+    "body1": "Kreiraj besplatan nalog da pristupiš sadržaju.",
+    "body2": "Traje manje od 30 sekundi.",
+    "register": "Registruj se besplatno →",
+    "haveAccount": "Već imaš nalog?",
+    "signIn": "Prijavi se"
+  },
+  "errorBoundary": {
+    "title": "Ups, nešto je pošlo po krivu",
+    "body": "Pokušaj osvježiti stranicu.",
+    "refresh": "Osvježi stranicu"
   },
   "translationBanner": {
     "title": "Prevod u toku",

@@ -17,23 +17,439 @@
   },
   "documentCheck": {
     "title": "Dokumentenprüfung",
-    "subtitle": "Prüfen Sie, ob Ihre Unterlagen vollständig sind, bevor Sie sie bei deutschen Behörden einreichen.",
-    "ctaPrimary": "Dokument prüfen"
+    "subtitle": "Laden Sie ein Schreiben oder Dokument hoch — Sie erhalten in Sekunden eine Erklärung in Ihrer Sprache.",
+    "ctaPrimary": "Dokument prüfen",
+    "examples": {
+      "letterFromFinanzamt": "Schreiben vom Finanzamt",
+      "rentalContract": "Mietvertrag",
+      "buergergeldNotice": "Bürgergeld-Bescheid",
+      "insuranceLetter": "Schreiben der Versicherung",
+      "mahnung": "Mahnung",
+      "jobcenterDecision": "Jobcenter-Bescheid"
+    },
+    "whatYouGet": {
+      "label": "Das erhalten Sie mit der Analyse:",
+      "items": {
+        "translation": "Übersetzung und Erklärung in Ihrer Sprache",
+        "whatIsAsked": "Was von Ihnen verlangt wird und bis wann",
+        "urgency": "Ob das Dokument dringend ist",
+        "nextStep": "Welcher nächste Schritt zu unternehmen ist",
+        "institutions": "An welche Stellen Sie sich wenden können",
+        "warning": "Hinweis bei Fristen oder rechtlichen Folgen"
+      }
+    },
+    "pricing": {
+      "oneTimeLabel": "Einmalig",
+      "oneTimePerCheck": "pro Prüfung",
+      "oneTimeReset": "Wird nach jeder Nutzung zurückgesetzt",
+      "buyOneTime": "Für 2,99 € kaufen →",
+      "premiumLabel": "Premium",
+      "premiumBadge": "⭐ Premium",
+      "premiumPerMonth": "/Monat",
+      "premiumFeature1": "1×/Tag kostenlos",
+      "premiumFeature2": "Weitere Prüfungen 2,99 €/Stk.",
+      "premiumFeature3": "+ alle Premium-Funktionen",
+      "buyPremium": "Premium kaufen →"
+    },
+    "privacy": {
+      "title": "Datenschutz",
+      "body": "Bitte schwärzen Sie Name, Adresse und Aktenzeichen vor dem Hochladen. Dateien werden nicht gespeichert — sie werden nur kurz zur Analyse verarbeitet und sofort gelöscht."
+    },
+    "upload": {
+      "label": "Dokument hochladen",
+      "hint": "PDF, JPG, PNG — max. 10 MB",
+      "deletedAfter": "Das Dokument wird unmittelbar nach der Analyse gelöscht. Es wird nichts gespeichert."
+    },
+    "confirm": "Ich bestätige, dass ich keine sensiblen Daten hochlade/eingebe (Personalausweisnummer, Steuer-ID, IBAN, Gesundheitsdaten).",
+    "buttons": {
+      "checking": "Wird geprüft …",
+      "checkDocument": "Dokument prüfen →",
+      "reset": "Zurücksetzen"
+    },
+    "errors": {
+      "unsupportedFormat": "Es werden nur PDF, JPG und PNG unterstützt.",
+      "fileTooLarge": "Die Datei ist zu groß für die Analyse. Bitte versuchen Sie es mit einer kleineren Datei (max. 10 MB).",
+      "confirmRequired": "Bitte bestätigen Sie das Kontrollkästchen vor der Analyse.",
+      "noFile": "Es wurde kein Dokument ausgewählt.",
+      "serverError": "Serverfehler bei der Dokumentenanalyse. Bitte versuchen Sie es in wenigen Augenblicken erneut.",
+      "processingFailed": "Das Dokument konnte nicht verarbeitet werden. Bitte versuchen Sie es mit einer anderen Datei.",
+      "readError": "Fehler beim Lesen der Datei",
+      "fallback": "Serverfehler bei der Dokumentenanalyse."
+    },
+    "paywall": {
+      "title": "Dokumenten-Check",
+      "subtitle": "Dokument hochladen — Sie erhalten eine Erklärung in Ihrer Sprache",
+      "premiumCta": "BalkanLink Premium — 9,99 €/Monat",
+      "premiumPerk": "1×/Tag kostenlos + alle Premium-Funktionen",
+      "or": "oder",
+      "oneTimeCta": "Einmalig kaufen — 2,99 € →",
+      "oneTimeReset": "Wird nach jeder Nutzung zurückgesetzt"
+    },
+    "example": {
+      "trigger": "👁 Beispielanalyse — zum Ansehen klicken",
+      "heading": "Beispiel: Mahnung der Deutschen Telekom",
+      "docTypeLabel": "Dokumenttyp:",
+      "docType": "Mahnung — Aufforderung zur Zahlung einer fälligen Rechnung.",
+      "askedLabel": "Was wird verlangt:",
+      "asked1": "Es handelt sich um eine Mahnung für eine unbezahlte Rechnung. Betrag:",
+      "askedAmount": "47,50 €",
+      "askedDeadlineLabel": "Zahlungsfrist:",
+      "askedDeadline": "15 Tage",
+      "askedDeadlineSuffix": "ab dem Datum des Schreibens.",
+      "riskLabel": "Risiko:",
+      "risk": "Bei Nichtzahlung folgt das Inkasso, was sich negativ auf die Schufa (Bonität) auswirken kann.",
+      "nextLabel": "Nächster Schritt:",
+      "nextPrefix": "Wir empfehlen, die Telekom unter",
+      "nextPhone": "0800 330 1000",
+      "nextSuffix": "zu kontaktieren oder online über das Mein-Telekom-Portal zu zahlen."
+    },
+    "results": {
+      "fallbackTitle": "Analyseergebnis",
+      "overview": "Dokumentenübersicht",
+      "docType": "Dokumenttyp",
+      "actionNeeded": "Erforderliche Maßnahme",
+      "financial": "Finanzielle Auswirkung",
+      "deadline": "Frist",
+      "lockedTitle": "🔒 Detaillierte Analyse mit Premium verfügbar",
+      "lockedCta": "BalkanLink Premium — 9,99 €/Monat",
+      "viewAnalysis": "Analyse ansehen",
+      "urgent": "Dringende Maßnahme erforderlich",
+      "recommended": "Empfohlene Maßnahme",
+      "noActionNeeded": "Keine Maßnahme erforderlich",
+      "viewFinancial": "Finanzielle Analyse ansehen",
+      "amountIdentified": "{{amount}} identifiziert",
+      "noVisibleDeadline": "Keine sichtbare Frist",
+      "deadlinePrefix": "Frist:",
+      "fallbackDoc": "Dokument"
+    },
+    "disclaimer": {
+      "title": "Hinweis zum Datenschutz:",
+      "body": "Hochgeladene Dateien und eingegebene Texte werden ausschließlich für eine einmalige Analyse genutzt und nach dem Ergebnis sofort gelöscht. Es gibt keine dauerhafte Speicherung, kein Tracking und keine Weitergabe an Dritte. BalkanLink ist keine Behörde und bietet keine Rechtsberatung."
+    }
   },
   "visa": {
     "title": "Visa",
     "subtitle": "Ihr Wegweiser durch das deutsche Visa- und Aufenthaltsrecht.",
-    "ctaPrimary": "Visa-Navigator starten"
+    "ctaPrimary": "Visa-Navigator starten",
+    "navTitle": "Visa Navigator",
+    "navSubtitle": "Finden Sie den richtigen Status für Ihre Situation",
+    "sidebar": {
+      "euCountries": "EU-Länder",
+      "balkanCountries": "Balkanländer",
+      "routes": "Routen"
+    },
+    "renderer": {
+      "welcome": "Willkommen beim Visa Navigator",
+      "welcomeBody": "Wählen Sie ein Land aus dem linken Menü, um Informationen zu Visa und Aufenthaltsgenehmigungen zu finden.",
+      "freizuegigkeit": "🇪🇺 EU — Freizügigkeit",
+      "schnelluebersicht": "Schnellübersicht",
+      "requiredDocuments": "Erforderliche Unterlagen",
+      "costs": "Kosten",
+      "commonErrors": "Häufige Fehler",
+      "errorsToAvoid": "Zu vermeidende Fehler",
+      "usefulLinks": "Nützliche Links",
+      "openLink": "Öffnen",
+      "westbalkan": "Westbalkan",
+      "westbalkanActive": "Westbalkan-Regelung aktiv!",
+      "learnMore": "Mehr erfahren",
+      "ausbildungTitle": "Berufsausbildung — wichtige Hinweise",
+      "countryNotesTitle": "Hinweise für Ihr Land",
+      "chooseSituation": "Wählen Sie Ihre Situation",
+      "backToRoutes": "← Zurück zu den Routen",
+      "steps": "Schritte",
+      "officialSources": "Offizielle Quellen",
+      "musterTitle": "Übungsformulare",
+      "musterSubtitle": "Üben Sie das Ausfüllen von Formularen",
+      "musterDescription": "Interaktive Simulation — Übung, kein Originaldokument.",
+      "openForm": "Formular öffnen",
+      "closeForm": "Formular schließen",
+      "pdfPreview": "PDF-Vorschau",
+      "close": "Schließen",
+      "formAvailable": "Formular verfügbar",
+      "disclaimer": "BalkanLink bietet informative Hinweise. Dies ist keine Rechtsberatung. Stand 2026.",
+      "verifyAuthority": "Bitte verifizieren Sie die Informationen stets direkt bei der zuständigen Behörde."
+    },
+    "rightPanel": {
+      "introBody": "Wählen Sie ein Land aus dem linken Menü, um Informationen zu Visa und Aufenthaltsgenehmigungen zu finden.",
+      "usefulLinks": "Nützliche Links",
+      "officialSources": "Offizielle Quellen",
+      "disclaimer": "BalkanLink bietet informative Hinweise. Stand 2026."
+    },
+    "gateCard": {
+      "benefits": {
+        "docDetails": "Details zu jedem Dokument",
+        "allSteps": "Alle Schritte bis zur Antragstellung",
+        "addresses": "Adressen und Öffnungszeiten der Ämter",
+        "tips": "Tipps für einen schnelleren Termin",
+        "ifRejected": "Was zu tun ist, wenn der Antrag abgelehnt wird",
+        "muster": "Musterformulare für dieses Visum"
+      },
+      "premiumTitle": "Vollständigen Leitfaden freischalten",
+      "anonTitle": "Vollständigen Leitfaden ansehen",
+      "premiumCta": "Premium freischalten — 9,99 €/Monat",
+      "registerCta": "Kostenlos registrieren →",
+      "haveAccount": "Bereits ein Konto?",
+      "signIn": "Anmelden"
+    }
   },
   "deutschTrainer": {
     "title": "DeutschTrainer",
     "subtitle": "Üben Sie das Deutsch, das Sie wirklich brauchen: beim Arzt, auf dem Amt, am Arbeitsplatz.",
-    "ctaPrimary": "Jetzt lernen"
+    "ctaPrimary": "Jetzt lernen",
+    "seoTitle": "Deutsch Trainer — Deutsch lernen A1 bis C2",
+    "seoDescription": "240 Lektionen (40 pro Niveau), 500 Aufgaben pro Stage, Sprachassistent",
+    "brand": "BalkanLink Deutsch",
+    "heroHeadline": "Effektives Deutschlernen für das echte Leben",
+    "heroSubline": "Üben Sie Deutsch für reale Situationen: beim Arzt, auf dem Amt, am Arbeitsplatz — mit fünf interaktiven Übungstypen und dem Sprachassistenten.",
+    "tags": {
+      "doctor": "🏥 Beim Arzt",
+      "authorities": "🏛️ Behörden",
+      "jobcenter": "💼 Jobcenter",
+      "buergergeld": "📋 Bürgergeld",
+      "sprachassistent": "🗣️ Sprachassistent",
+      "levelRange": "🏆 A1 → C2"
+    },
+    "progress": {
+      "label": "Fortschritt",
+      "lessons": "Lektionen"
+    },
+    "lesson": {
+      "free": "Kostenlos",
+      "freeSuffix": "kostenlos"
+    },
+    "upgradeCta": {
+      "title": "Weiter lernen",
+      "subtitle": "Schalten Sie alle Lektionen und den Sprachassistenten frei",
+      "noSubscription": "Kein Abo",
+      "payOnce": "Einmal zahlen",
+      "wertgutschein": "Wertgutschein für Premium",
+      "unlockAll": "Alle Lektionen freischalten"
+    },
+    "paywallModal": {
+      "title": "Weitere Lektionen freischalten",
+      "body": "Schalten Sie alle Inhalte frei und üben Sie Deutsch für reale Situationen.",
+      "from": "ab",
+      "perOneTime": "/ einmalig",
+      "unlockNow": "Jetzt freischalten",
+      "decideLater": "Später entscheiden"
+    },
+    "stages": {
+      "basics": "Grundlagen",
+      "application": "Anwendung",
+      "reality": "Realität",
+      "tasks": "Aufgaben",
+      "freeTasks": "kostenlos",
+      "moreTasks": "weitere Aufgaben",
+      "unlockWithPremium": "Mit Premium freischalten"
+    },
+    "lessonView": {
+      "preparingExercises": "Aufgaben werden vorbereitet …",
+      "exercisesUnavailable": "Aufgaben derzeit nicht verfügbar",
+      "exercisesError": "Es gab ein vorübergehendes Problem beim Generieren der Aufgaben. Bitte versuchen Sie es in wenigen Sekunden erneut.",
+      "backToStages": "Zurück zu den Phasen",
+      "situation": "SITUATION",
+      "finishStage": "Phase abschließen ✓",
+      "next": "Weiter →",
+      "stageCompleted": "{{stage}} abgeschlossen!",
+      "answerStats": "{{correct}} / {{total}} richtige Antworten ({{pct}} %)",
+      "nextStagePrefix": "Nächste Phase:",
+      "backToLesson": "Zurück zur Lektion",
+      "restart": "Mit neuen Fragen wiederholen",
+      "commonMistakes": "Typische Fehler"
+    },
+    "exercise": {
+      "correct": "✓ Richtig!",
+      "incorrect": "✗ Falsch.",
+      "incorrectWithAnswer": "✗ Falsch. Richtige Antwort: {{answer}}",
+      "checkAnswer": "Prüfen",
+      "sortHint": "Klicken Sie die Wörter in der richtigen Reihenfolge an …"
+    },
+    "complete": {
+      "perfect": "Perfekt!",
+      "great": "Ausgezeichnet!",
+      "good": "Gut!",
+      "keepGoing": "Weiter üben!",
+      "next": "Nächste:",
+      "continueLearning": "Weiter lernen",
+      "restart": "Mit neuen Fragen wiederholen"
+    },
+    "sprachassistent": {
+      "title": "Sprachassistent",
+      "preview": "Vorschau",
+      "lockedHint": "🔒 +{{count}} weitere Sätze freischalten",
+      "lockedSubtitle": "Nur mit Ultimate freigeschaltet",
+      "unlockCta": "Sprachassistent freischalten"
+    },
+    "lockedOverlay": {
+      "lockedItems": "🔒 +{{count}} {{label}} gesperrt",
+      "lockedDefaultLabel": "Inhalte",
+      "lockedSubtitle": "Verfügbar mit Premium-Abo",
+      "unlockCta": "Premium freischalten"
+    }
   },
   "classifieds": {
     "title": "Kleinanzeigen",
     "subtitle": "Arbeit, Wohnung, Dienstleistungen und Community — Kleinanzeigen für unsere Leute in Deutschland.",
-    "ctaPrimary": "Anzeigen ansehen"
+    "ctaPrimary": "Anzeigen ansehen",
+    "seoTitle": "Kleinanzeigen — Biete & Suche",
+    "seoDescription": "Kleinanzeigen der Balkan-Diaspora in Deutschland — Arbeit, Wohnungen, Dienstleistungen.",
+    "hero": {
+      "badge": "Balkan-Community",
+      "headlineLine1": "Bieten, suchen,",
+      "headlineLine2": "vernetzen.",
+      "subline": "Die Balkan-Anzeigenplattform in Deutschland — Arbeit, Wohnungen, Dienstleistungen, Transport und mehr. Kostenlos, schnell, einfach.",
+      "ctaPostFree": "Kostenlos Anzeige aufgeben",
+      "ctaSearch": "Anzeigen durchsuchen",
+      "statFree": "Kostenlos",
+      "statCategories": "Kategorien",
+      "statGermany": "Ganz Deutschland"
+    },
+    "filters": {
+      "searchPlaceholder": "Anzeigen durchsuchen …",
+      "all": "Alle",
+      "offering": "Biete",
+      "seeking": "Suche",
+      "categoryPlaceholder": "Kategorie",
+      "allCategories": "Alle Kategorien",
+      "cityPlaceholder": "Stadt / Ort",
+      "radiusPlaceholder": "Umkreis",
+      "sortPlaceholder": "Sortierung",
+      "allRadius": "Ganz Deutschland"
+    },
+    "categories": {
+      "posao": "Arbeit",
+      "stanovanje": "Wohnen",
+      "usluge": "Dienstleistungen",
+      "prevoz": "Transport",
+      "kupoprodaja": "Kaufen / Verkaufen",
+      "porodica": "Kinder & Familie",
+      "ostalo": "Sonstiges"
+    },
+    "sort": {
+      "newest": "Neueste",
+      "relevant": "Relevanteste"
+    },
+    "pro": {
+      "title": "PRO-Anzeigen",
+      "subtitle": "Heben Sie Ihre Anzeige hervor und erreichen Sie mehr Menschen.",
+      "benefit1": "Ihre Anzeige steht ganz oben",
+      "benefit2": "Erhält das PRO-Abzeichen",
+      "benefit3": "Mehr Aufrufe und Anfragen",
+      "freeNote": "Anzeigen aufgeben ist kostenlos. PRO ist optional für mehr Sichtbarkeit.",
+      "learnMore": "Mehr erfahren"
+    },
+    "ad": {
+      "labelOffering": "BIETE",
+      "labelSeeking": "SUCHE",
+      "labelOfferingDe": "Ich biete",
+      "labelSeekingDe": "Ich suche",
+      "showContact": "Kontakt anzeigen"
+    },
+    "empty": {
+      "title": "Noch keine Anzeigen",
+      "body": "Seien Sie die erste Person, die in Ihrer Community eine Anzeige aufgibt!",
+      "cta": "Anzeige aufgeben →"
+    },
+    "ctaSection": {
+      "title": "Möchten Sie eine Anzeige aufgeben?",
+      "body": "Schnell und einfach veröffentlichen, was Sie anbieten oder suchen.",
+      "post": "Kostenlos Anzeige aufgeben",
+      "highlightPro": "Als PRO hervorheben",
+      "freeNote": "Anzeigen aufgeben ist kostenlos. PRO ist optional für mehr Sichtbarkeit."
+    },
+    "footerNote": "BalkanLink dient in diesem Bereich ausschließlich als Vermittlungs- und Anzeigenplattform. Für Inhalte, Vereinbarungen oder Dienstleistungen der Nutzer wird keine Verantwortung übernommen.",
+    "detail": {
+      "back": "Zurück",
+      "showContact": "Kontakt anzeigen",
+      "safetyHint": "Seien Sie beim Kontakt vorsichtig. BalkanLink prüft die Identität der Inserenten nicht und haftet nicht für vereinbarte Leistungen.",
+      "similar": "Ähnliche Anzeigen"
+    },
+    "form": {
+      "title": "Kostenlos Anzeige aufgeben",
+      "subtitle": "Das Aufgeben ist kostenlos. Anschließend können Sie die Anzeige als PRO hervorheben.",
+      "typeLabel": "Anzeigenart",
+      "categoryLabel": "Kategorie",
+      "selectPlaceholder": "Bitte wählen …",
+      "offering": "Biete",
+      "seeking": "Suche",
+      "titleLabel": "Anzeigentitel",
+      "titlePlaceholder": "z. B. Biete Hilfe beim Umzug",
+      "cityLabel": "Stadt / Ort",
+      "cityPlaceholder": "z. B. München",
+      "descriptionLabel": "Beschreibung",
+      "descriptionPlaceholder": "Beschreiben Sie ausführlich, was Sie anbieten oder suchen …",
+      "contactTypeLabel": "Kontakt per",
+      "contactTypePhone": "Telefon",
+      "contactTypeEmail": "E-Mail",
+      "contactTypeMessage": "Nachricht über die Plattform",
+      "contactValueLabel": "Kontaktdaten",
+      "contactValuePlaceholder": "Telefon, E-Mail …",
+      "agree": "Ich akzeptiere die Nutzungsbedingungen und bestätige die Richtigkeit der Angaben. Die Anzeige ist 30 Tage aktiv.",
+      "submit": "Kostenlos Anzeige aufgeben",
+      "highlightPro": "Als PRO hervorheben",
+      "cancel": "Abbrechen",
+      "errorRequired": "Bitte füllen Sie alle Felder aus.",
+      "errorAgree": "Sie müssen die Nutzungsbedingungen akzeptieren.",
+      "success": "Anzeige erfolgreich gesendet! Sie wird nach der Prüfung sichtbar."
+    },
+    "proModal": {
+      "title": "Anzeige aufgeben oder hervorheben",
+      "subtitle": "Kostenlos veröffentlichen oder mit Pro-Anzeigen die Sichtbarkeit erhöhen",
+      "free": {
+        "label": "Kostenlose Anzeige",
+        "price": "0 €",
+        "f1": "Kostenlos veröffentlichen",
+        "f2": "Standardliste",
+        "f3": "Sortierung nach Datum",
+        "f4": "Für alle verfügbar"
+      },
+      "pro": {
+        "label": "🔥 Pro-Anzeige",
+        "price": "1,99 €",
+        "period": "/ 7 Tage",
+        "f1": "Oben in der Liste",
+        "f2": "Über kostenlosen Anzeigen",
+        "f3": "Badge + Glow",
+        "f4": "Mehr Aufrufe",
+        "f5": "Hervorgehobene Position 7 Tage",
+        "afterExpire": "Nach Ablauf zurück in die normale Liste"
+      },
+      "premium": {
+        "label": "⭐ Premium",
+        "price": "9,99 €",
+        "period": "/ Monat",
+        "bestValue": "Bestes Angebot",
+        "f1": "2 Pro-Anzeigen/Monat",
+        "f2": "Jeweils 7 Tage",
+        "f3": "Auf verschiedenen Anzeigen",
+        "f4": "Max. 2 aktiv",
+        "f5": "Weitere 1,99 € danach",
+        "savings": "Sparen Sie und heben Sie Anzeigen ohne Aufpreis hervor"
+      },
+      "buttons": {
+        "free": "Kostenlos veröffentlichen →",
+        "pro": "Pro kaufen — 1,99 € →",
+        "premium": "Premium kaufen — 9,99 €/Monat →"
+      },
+      "info": "💡 **Wie funktioniert das?** Pro-Anzeigen werden über den anderen hervorgehoben und erhalten mehr Aufrufe. Premium enthält 2 solche Hervorhebungen pro Monat."
+    }
+  },
+  "navigation": {
+    "back": "Zurück",
+    "home": "Startseite"
+  },
+  "authGate": {
+    "title": "Registrierung erforderlich",
+    "body1": "Erstellen Sie ein kostenloses Konto, um auf die Inhalte zuzugreifen.",
+    "body2": "Dauert weniger als 30 Sekunden.",
+    "register": "Kostenlos registrieren →",
+    "haveAccount": "Bereits ein Konto?",
+    "signIn": "Anmelden"
+  },
+  "errorBoundary": {
+    "title": "Ups, da ist etwas schiefgelaufen",
+    "body": "Bitte aktualisieren Sie die Seite.",
+    "refresh": "Seite aktualisieren"
   },
   "translationBanner": {
     "title": "Übersetzung in Arbeit",

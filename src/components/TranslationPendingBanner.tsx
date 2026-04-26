@@ -17,15 +17,11 @@ import { X, Info } from "lucide-react";
  * Routes whose German version is ALREADY translated by this prompt — banner
  * MUST NOT appear on these. Everything else under /de/* shows the banner.
  */
+// Routes whose German chrome is fully translated. Pages with deep nested
+// children still pending translation (DokumentenCheck, Viza, DeutschTrainer,
+// NudimTrazim) are intentionally NOT listed here so the banner appears.
 const TRANSLATED_DE_PATHS = new Set<string>([
   "/de",
-  "/de/dokumenten-check",
-  "/de/viza",
-  "/de/deutsch-trainer",
-  "/de/deutsch-trainer/preise",
-  "/de/deutsch-trainer/faq",
-  "/de/deutsch-trainer/bonusbedingungen",
-  "/de/nudim-trazim",
   // Auth flows — chrome translated
   "/de/login",
   "/de/register",
