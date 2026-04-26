@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PageNav from "@/components/navigation/PageNav";
 import { Button } from "@/components/ui/button";
@@ -10,6 +10,9 @@ import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "@/hooks/use-toast";
 import { SEO } from "@/components/SEO";
 
+// Default cooldown after a failed attempt (seconds). Server `Retry-After` overrides this.
+const DEFAULT_COOLDOWN_SECONDS = 15;
+
 export default function MojiPodaci() {
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
@@ -19,6 +22,19 @@ export default function MojiPodaci() {
   const [confirmText, setConfirmText] = useState("");
   const [showConfirm, setShowConfirm] = useState(false);
   const [deleteError, setDeleteError] = useState<string | null>(null);
+  const [cooldownUntil, setCooldownUntil] = useState<number>(0);
+  const [now, setNow] = useState<number>(() => Date.now());
+  const inFlightRef = useRef(false);
+
+  // Tick every second only while cooldown is active — keeps button label live without churn
+  useEffect(() => {
+    if (cooldownUntil <= Date.now()) return;
+    const id = window.setInterval(() => setNow(Date.now()), 1000);
+    return () => window.clearInterval(id);
+  }, [cooldownUntil]);
+
+  const cooldownRemaining = Math.max(0, Math.ceil((cooldownUntil - now) / 1000));
+  const isCoolingDown = cooldownRemaining > 0;
 
   const describeHttpError = (
     status: number,
@@ -98,11 +114,43 @@ export default function MojiPodaci() {
     }
   };
 
+  // Helper: trigger cooldown after a failed attempt. Server `Retry-After` (seconds)
+  // takes precedence over the default; clamps to a sane upper bound.
+  const startCooldown = (retryAfterHeader: string | null, fallback = DEFAULT_COOLDOWN_SECONDS) => {
+    let seconds = fallback;
+    if (retryAfterHeader) {
+      const parsed = parseInt(retryAfterHeader, 10);
+      if (Number.isFinite(parsed) && parsed > 0) seconds = Math.min(parsed, 300);
+    }
+    setCooldownUntil(Date.now() + seconds * 1000);
+    setNow(Date.now());
+  };
+
   const handleExport = async (format: "txt" | "pdf") => {
     if (!user) {
       navigate("/login");
       return;
     }
+
+    // Hard guards — prevent any concurrent or rate-limited click from starting a request.
+    // The ref check runs synchronously, so even rapid double-clicks within one render frame are blocked.
+    if (inFlightRef.current) {
+      toast({
+        title: "Već radim na tome",
+        description: "Sačekaj da se trenutni pokušaj završi.",
+      });
+      return;
+    }
+    if (Date.now() < cooldownUntil) {
+      const remaining = Math.ceil((cooldownUntil - Date.now()) / 1000);
+      toast({
+        title: "Sačekaj malo",
+        description: `Možeš pokušati ponovo za ${remaining} sek.`,
+      });
+      return;
+    }
+
+    inFlightRef.current = true;
     setExporting(format);
 
     // 60s safety timeout — guarantees finally runs even if network hangs
@@ -118,6 +166,7 @@ export default function MojiPodaci() {
           title: "Nisi prijavljen",
           description: "Prijavi se ponovo i pokušaj još jednom.",
         });
+        startCooldown(null);
         return;
       }
 
@@ -156,6 +205,8 @@ export default function MojiPodaci() {
         const retryAfter = res.headers.get("Retry-After");
         const { title, description } = describeHttpError(res.status, serverMsg, retryAfter);
         toast({ variant: "destructive", title, description });
+        // Cooldown duration: respect server hint for 429/503; otherwise default 15s
+        startCooldown(retryAfter);
         return;
       }
 
@@ -166,6 +217,7 @@ export default function MojiPodaci() {
           title: "Prazan izvještaj",
           description: "Server je vratio prazan fajl. Pokušaj ponovo.",
         });
+        startCooldown(null);
         return;
       }
 
@@ -194,7 +246,6 @@ export default function MojiPodaci() {
             "Preuzimanje je predugo trajalo. Provjeri internet vezu i pokušaj ponovo.",
         });
       } else if (e instanceof TypeError) {
-        // Network error (offline, DNS, CORS preflight failure)
         toast({
           variant: "destructive",
           title: "Nema veze sa serverom",
@@ -209,8 +260,10 @@ export default function MojiPodaci() {
           description: `${msg}. Pokušaj ponovo. Ako se ponovi, javi nam na kontakt@balkanlink.de.`,
         });
       }
+      startCooldown(null);
     } finally {
       window.clearTimeout(timeoutId);
+      inFlightRef.current = false;
       // Always reset — guarantees user can immediately retry without page refresh
       setExporting(null);
     }
@@ -339,16 +392,19 @@ export default function MojiPodaci() {
             </div>
             <Button
               onClick={() => handleExport("pdf")}
-              disabled={exporting !== null}
+              disabled={exporting !== null || isCoolingDown}
               variant="outline"
               size="sm"
-              className="shrink-0 text-xs h-8"
+              className="shrink-0 text-xs h-8 min-w-[8.5rem]"
+              aria-busy={exporting !== null}
             >
               {exporting !== null ? (
                 <>
                   <Loader2 className="h-3 w-3 mr-1.5 animate-spin" />
                   Pripremam…
                 </>
+              ) : isCoolingDown ? (
+                `Pokušaj za ${cooldownRemaining}s`
               ) : (
                 "Preuzmi izvještaj"
               )}
