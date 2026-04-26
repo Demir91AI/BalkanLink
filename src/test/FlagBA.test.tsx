@@ -48,12 +48,13 @@ describe("FlagBA — official BiH flag SVG contract", () => {
     expect(rect!.getAttribute("height")).toBe("100");
   });
 
-  it("renders the yellow triangle with official vertices (100,0)-(200,0)-(200,100)", () => {
+  it("renders the yellow triangle with vertices on top edge, top-right and bottom-right", () => {
     const { container } = render(<FlagBA />);
     const triangle = container.querySelector('polygon[fill="#FECB00"]');
     expect(triangle).not.toBeNull();
     const points = triangle!.getAttribute("points");
-    expect(points).toBe("100,0 200,0 200,100");
+    // Top vertex sits ~1/3 across the top edge.
+    expect(points).toMatch(/^66\.66,0 200,0 200,100$/);
     expect(triangle!.getAttribute("fill")?.toUpperCase()).toBe(YELLOW);
   });
 
@@ -63,14 +64,12 @@ describe("FlagBA — official BiH flag SVG contract", () => {
     expect(stars.length).toBe(9);
   });
 
-  it("places stars on the diagonal from (100,0) to (200,100), evenly spaced", () => {
+  it("places stars on the hypotenuse from (66.66,0) to (200,100), evenly spaced", () => {
     const { container } = render(<FlagBA />);
     const stars = Array.from(
       container.querySelectorAll('g[fill="#FFFFFF"] polygon'),
     );
 
-    // For each star compute its centroid from the 10 polygon points and
-    // verify it lies on the line y = x - 100, evenly spaced.
     const centroids = stars.map((star) => {
       const pts = (star.getAttribute("points") || "")
         .trim()
@@ -81,16 +80,16 @@ describe("FlagBA — official BiH flag SVG contract", () => {
       return { cx, cy };
     });
 
+    const HX1 = 66.66;
+    const HX2 = 200;
     centroids.forEach((c, i) => {
       const t = i / (centroids.length - 1);
-      const expectedCx = 100 + t * 100;
+      const expectedCx = HX1 + t * (HX2 - HX1);
       const expectedCy = 0 + t * 100;
       expect(Math.abs(c.cx - expectedCx)).toBeLessThan(0.5);
       expect(Math.abs(c.cy - expectedCy)).toBeLessThan(0.5);
     });
 
-    // First star sits on the top edge, last on the right edge — both will be
-    // visually halved by the clip-path.
     expect(centroids[0].cy).toBeCloseTo(0, 1);
     expect(centroids[centroids.length - 1].cx).toBeCloseTo(200, 1);
   });
