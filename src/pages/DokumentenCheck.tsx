@@ -64,7 +64,7 @@ function matchSectionKey(heading: string): string | null {
   return null;
 }
 
-function parseAnalysisSections(text: string): AnalysisSection[] {
+function parseAnalysisSections(text: string, fallbackTitle: string): AnalysisSection[] {
   const sections: AnalysisSection[] = [];
   const lines = text.split("\n");
   let currentTitle = "";
