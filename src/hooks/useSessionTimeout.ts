@@ -89,7 +89,16 @@ export function useSessionTimeout(isAuthenticated: boolean) {
       return;
     }
 
-    // initial stamp + timer
+    // On mount: check if previous session already expired (e.g. browser closed for days).
+    // Only stamp fresh activity if NOT expired — otherwise force logout immediately.
+    const lastActivityRaw = (() => {
+      try { return Number(localStorage.getItem(LAST_ACTIVITY_KEY)) || 0; } catch { return 0; }
+    })();
+    const elapsedSinceLast = lastActivityRaw > 0 ? Date.now() - lastActivityRaw : 0;
+    if (lastActivityRaw > 0 && elapsedSinceLast >= getTimeoutMs()) {
+      performLogout();
+      return;
+    }
     stampActivity();
     resetTimer();
 
