@@ -480,13 +480,13 @@ export default function DokumentenCheck() {
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
               className="flex flex-col items-center rounded-2xl border border-[hsl(var(--gold))]/20 bg-primary p-10 text-center">
               <Lock className="h-10 w-10 text-[hsl(var(--gold))] mb-4" />
-              <p className="text-lg font-bold text-primary-foreground mb-2">Dokumenten-Check</p>
+              <p className="text-lg font-bold text-primary-foreground mb-2">{t("documentCheck.paywall.title")}</p>
               <p className="text-sm text-primary-foreground/60 mb-6 max-w-sm">
-                Učitaj dokument — dobiješ objašnjenje na svom jeziku
+                {t("documentCheck.paywall.subtitle")}
               </p>
               <div className="flex flex-col gap-3 w-full max-w-xs">
                 <button
-                  onClick={() => navigate("/paketi")}
+                  onClick={() => localizedNavigate("/paketi")}
                   className="rounded-full px-6 py-3.5 font-bold transition-all hover:opacity-90"
                   style={{
                     background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))",
@@ -494,27 +494,27 @@ export default function DokumentenCheck() {
                   }}
                 >
                   <Crown className="inline-block mr-1.5 h-4 w-4" />
-                  BalkanLink Premium — 9,99€/mj.
+                  {t("documentCheck.paywall.premiumCta")}
                 </button>
                 <p className="text-[11px] text-primary-foreground/50">
-                  1×/dan gratis + sve Premium funkcije
+                  {t("documentCheck.paywall.premiumPerk")}
                 </p>
                 <div className="flex items-center gap-2 my-1">
                   <div className="flex-1 h-px bg-primary-foreground/10" />
-                  <span className="text-[11px] text-primary-foreground/40">ili</span>
+                  <span className="text-[11px] text-primary-foreground/40">{t("documentCheck.paywall.or")}</span>
                   <div className="flex-1 h-px bg-primary-foreground/10" />
                 </div>
                 <button
                   onClick={() => {
-                    if (!user) { navigate("/login"); return; }
+                    if (!user) { localizedNavigate("/login"); return; }
                     initiateCheckout(STRIPE_PRICE_IDS.DOC_CHECK, user.id, "payment");
                   }}
                   className="rounded-full px-6 py-3 text-sm font-semibold border border-primary-foreground/20 text-primary-foreground/70 hover:text-primary-foreground hover:border-primary-foreground/40 transition-all text-center"
                 >
-                  Kupi jednokratno — 2,99€ →
+                  {t("documentCheck.paywall.oneTimeCta")}
                 </button>
                 <p className="text-[11px] text-primary-foreground/40">
-                  Resetuje se nakon svake upotrebe
+                  {t("documentCheck.paywall.oneTimeReset")}
                 </p>
               </div>
             </motion.div>
@@ -525,27 +525,27 @@ export default function DokumentenCheck() {
             <Collapsible open={showExample} onOpenChange={setShowExample}>
               <CollapsibleTrigger className="flex w-full items-center gap-2 rounded-xl border bg-card px-5 py-4 text-sm font-semibold hover:bg-accent/50 transition-colors">
                 <Eye className="h-4 w-4 text-[hsl(var(--gold))]" />
-                <span className="flex-1 text-left">👁 Primjer analize — klikni da vidiš</span>
+                <span className="flex-1 text-left">{t("documentCheck.example.trigger")}</span>
                 <ChevronDown className={`h-4 w-4 transition-transform ${showExample ? "rotate-180" : ""}`} />
               </CollapsibleTrigger>
               <CollapsibleContent className="mt-3">
                 <div className="rounded-2xl border border-amber-200 dark:border-amber-900/40 bg-amber-50 dark:bg-amber-950/20 p-5 sm:p-6 space-y-3">
                   <div className="flex items-center gap-2 text-sm font-bold text-amber-800 dark:text-amber-400">
                     <FileWarning className="h-4 w-4" />
-                    Primjer: Mahnung od Deutsche Telekom
+                    {t("documentCheck.example.heading")}
                   </div>
                   <div className="text-sm text-foreground/80 leading-relaxed space-y-2">
                     <p>
-                      <strong>Tip dokumenta:</strong> Opomena (Mahnung) — zahtjev za plaćanje dospjelog računa.
+                      <strong>{t("documentCheck.example.docTypeLabel")}</strong> {t("documentCheck.example.docType")}
                     </p>
                     <p>
-                      <strong>Šta se traži:</strong> Radi se o opomeni za neplaćeni račun. Iznos: <strong>47.50€</strong>. Rok plaćanja: <strong>15 dana</strong> od datuma pisma.
+                      <strong>{t("documentCheck.example.askedLabel")}</strong> {t("documentCheck.example.asked1")} <strong>{t("documentCheck.example.askedAmount")}</strong>. {t("documentCheck.example.askedDeadlineLabel")} <strong>{t("documentCheck.example.askedDeadline")}</strong> {t("documentCheck.example.askedDeadlineSuffix")}
                     </p>
                     <p>
-                      <strong>Rizik:</strong> Ako ne platite, slijedi naplata putem Inkasso agencije što može negativno utjecati na Schufa (kreditni rejting).
+                      <strong>{t("documentCheck.example.riskLabel")}</strong> {t("documentCheck.example.risk")}
                     </p>
                     <p>
-                      <strong>Sljedeći korak:</strong> Preporučujemo kontaktirati Telekom na <strong>0800 330 1000</strong> ili platiti online putem Mein Telekom portala.
+                      <strong>{t("documentCheck.example.nextLabel")}</strong> {t("documentCheck.example.nextPrefix")} <strong>{t("documentCheck.example.nextPhone")}</strong> {t("documentCheck.example.nextSuffix")}
                     </p>
                   </div>
                 </div>
@@ -561,46 +561,46 @@ export default function DokumentenCheck() {
                   className="rounded-2xl border-2 border-[hsl(var(--gold))]/30 bg-gradient-to-br from-[hsl(var(--gold))]/5 to-transparent p-6 sm:p-8 shadow-lg">
                   <h2 className="text-lg font-black tracking-tight text-foreground mb-5 flex items-center gap-2">
                     <CheckSquare className="h-5 w-5 text-[hsl(var(--gold))]" />
-                    Dokumentenübersicht
+                    {t("documentCheck.results.overview")}
                   </h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="flex items-start gap-3 rounded-xl bg-blue-500/10 border border-blue-500/20 p-4">
                       <FileWarning className="h-5 w-5 text-blue-500 mt-0.5 shrink-0" />
                       <div>
-                        <p className="text-[11px] font-bold uppercase tracking-wider text-blue-500/80 mb-1">Dokumenttyp</p>
+                        <p className="text-[11px] font-bold uppercase tracking-wider text-blue-500/80 mb-1">{t("documentCheck.results.docType")}</p>
                         <p className="text-sm font-semibold text-foreground leading-snug">{summary.docType}</p>
                       </div>
                     </div>
                     <div className={`flex items-start gap-3 rounded-xl p-4 border ${
-                      summary.action.includes("Dringend") ? "bg-red-500/10 border-red-500/20" :
-                      summary.action.includes("Empfohlen") ? "bg-amber-500/10 border-amber-500/20" :
+                      summary.action.includes("Dringend") || summary.action.includes("Hitna") ? "bg-red-500/10 border-red-500/20" :
+                      summary.action.includes("Empfohlen") || summary.action.includes("Preporučena") ? "bg-amber-500/10 border-amber-500/20" :
                       "bg-emerald-500/10 border-emerald-500/20"
                     }`}>
                       <AlertCircle className={`h-5 w-5 mt-0.5 shrink-0 ${
-                        summary.action.includes("Dringend") ? "text-red-500" :
-                        summary.action.includes("Empfohlen") ? "text-amber-500" :
+                        summary.action.includes("Dringend") || summary.action.includes("Hitna") ? "text-red-500" :
+                        summary.action.includes("Empfohlen") || summary.action.includes("Preporučena") ? "text-amber-500" :
                         "text-emerald-500"
                       }`} />
                       <div>
                         <p className={`text-[11px] font-bold uppercase tracking-wider mb-1 ${
-                          summary.action.includes("Dringend") ? "text-red-500/80" :
-                          summary.action.includes("Empfohlen") ? "text-amber-500/80" :
+                          summary.action.includes("Dringend") || summary.action.includes("Hitna") ? "text-red-500/80" :
+                          summary.action.includes("Empfohlen") || summary.action.includes("Preporučena") ? "text-amber-500/80" :
                           "text-emerald-500/80"
-                        }`}>Potrebna radnja</p>
+                        }`}>{t("documentCheck.results.actionNeeded")}</p>
                         <p className="text-sm font-semibold text-foreground leading-snug">{summary.action}</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3 rounded-xl bg-green-500/10 border border-green-500/20 p-4">
                       <Banknote className="h-5 w-5 text-green-600 mt-0.5 shrink-0" />
                       <div>
-                        <p className="text-[11px] font-bold uppercase tracking-wider text-green-600/80 mb-1">Finanzielle Auswirkung</p>
+                        <p className="text-[11px] font-bold uppercase tracking-wider text-green-600/80 mb-1">{t("documentCheck.results.financial")}</p>
                         <p className="text-sm font-semibold text-foreground leading-snug">{summary.financial}</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3 rounded-xl bg-purple-500/10 border border-purple-500/20 p-4">
                       <CalendarClock className="h-5 w-5 text-purple-500 mt-0.5 shrink-0" />
                       <div>
-                        <p className="text-[11px] font-bold uppercase tracking-wider text-purple-500/80 mb-1">Frist</p>
+                        <p className="text-[11px] font-bold uppercase tracking-wider text-purple-500/80 mb-1">{t("documentCheck.results.deadline")}</p>
                         <p className="text-sm font-semibold text-foreground leading-snug">{summary.deadline}</p>
                       </div>
                     </div>
@@ -627,11 +627,11 @@ export default function DokumentenCheck() {
                       {locked && (
                         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-background/80 backdrop-blur-sm rounded-b-2xl">
                           <Lock className="h-7 w-7 text-[hsl(var(--gold))] mb-3" />
-                          <p className="text-sm font-bold text-foreground mb-3">🔒 Detaljna analiza dostupna uz Premium</p>
-                          <button onClick={() => navigate("/paketi")}
+                          <p className="text-sm font-bold text-foreground mb-3">{t("documentCheck.results.lockedTitle")}</p>
+                          <button onClick={() => localizedNavigate("/paketi")}
                             className="rounded-full px-5 py-2.5 text-xs font-bold transition-all hover:opacity-90"
                             style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))", color: "hsl(var(--gold-foreground))" }}>
-                            BalkanLink Premium — 9.99€/mj.
+                            {t("documentCheck.results.lockedCta")}
                           </button>
                         </div>
                       )}
@@ -654,7 +654,7 @@ export default function DokumentenCheck() {
           {/* ── Disclaimer ── */}
           <div className="rounded-2xl border border-border/40 bg-muted/20 p-5 text-xs text-muted-foreground leading-relaxed">
             <p>
-              <strong>Napomena o zaštiti podataka:</strong> Učitane datoteke i uneseni tekstovi se koriste isključivo za jednokratnu analizu i odmah se brišu nakon rezultata. Nema trajnog pohranjivanja, praćenja niti dijeljenja s trećim stranama. BalkanLink nije državni organ i ne pruža pravne savjete.
+              <strong>{t("documentCheck.disclaimer.title")}</strong> {t("documentCheck.disclaimer.body")}
             </p>
           </div>
         </div>
