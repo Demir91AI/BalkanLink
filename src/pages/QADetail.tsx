@@ -1,10 +1,11 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { ChevronLeft, ExternalLink, Calendar } from "lucide-react";
+import { ChevronLeft, ExternalLink, Calendar, Crown, Lock } from "lucide-react";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useQaItem } from "@/hooks/useQaItems";
+import { usePremiumAccess } from "@/hooks/usePremiumAccess";
 
 import { getCategoryBySlug } from "@/lib/categories";
 import { navigateBackOrHome } from "@/lib/navigation";
