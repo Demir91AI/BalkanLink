@@ -1,0 +1,8 @@
+{
+  "generic": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+  "network": "Keine Internetverbindung. Bitte prüfen Sie Ihre Verbindung.",
+  "unauthorized": "Sie haben keine Berechtigung für diese Aktion.",
+  "notFound": "Nicht gefunden.",
+  "serverError": "Serverfehler. Bitte versuchen Sie es später erneut.",
+  "sessionExpired": "Sitzung abgelaufen. Bitte melden Sie sich erneut an."
+}

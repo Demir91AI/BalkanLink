@@ -1,5 +1,6 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import {
   FileText, Shield, BookOpen, Camera, Megaphone, Plane,
   Briefcase, Building, Calculator, FileCheck, X, LogIn, LogOut, User,
@@ -8,6 +9,7 @@ import {
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 import AuthModal from "@/components/auth/AuthModal";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 function getInitials(name: string) {
   const parts = name.split(/\s+/).filter(Boolean);
@@ -21,6 +23,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
   const navigate = useNavigate();
   const location = useLocation();
   const { user, signOut, displayName } = useAuth();
+  const { t } = useTranslation();
   const firstName = displayName.split(/\s+/).filter(Boolean)[0] || "Korisniče";
   const initials = getInitials(displayName);
 

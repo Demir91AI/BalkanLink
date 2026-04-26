@@ -1,0 +1,69 @@
+{
+  "nav": {
+    "home": "Početna",
+    "smartGuides": "Smart vodiči",
+    "documentCheck": "Provjera dokumenata",
+    "visa": "Vize",
+    "germanTrainer": "Njemački jezik",
+    "classifieds": "Oglasi",
+    "about": "O nama",
+    "contact": "Kontakt",
+    "login": "Prijava",
+    "register": "Registracija",
+    "logout": "Odjava",
+    "profile": "Profil",
+    "premiumActive": "Premium aktivan",
+    "becomePremium": "Postani Premium",
+    "menu": "Meni"
+  },
+  "footer": {
+    "tagline": "Sve što ti treba za život u Njemačkoj",
+    "brandTagline": "Tvoj vodič kroz njemački sistem.",
+    "infoNote": "BalkanLink pruža informativne smjernice, ne pravne savjete.",
+    "navigation": "Navigacija",
+    "sections": "Sekcije",
+    "company": "Kompanija",
+    "legal": "Pravne informacije",
+    "legalShort": "Pravno",
+    "contactTitle": "Kontakt",
+    "paymentMethods": "Načini plaćanja",
+    "paymentList": "Visa · Mastercard · PayPal · Apple Pay · Google Pay",
+    "poweredBy": "Powered by",
+    "poweredTagline": "Klar denken. Digital umsetzen.",
+    "imprint": "Imprint",
+    "imprintAlt": "Impressum",
+    "privacy": "Zaštita podataka",
+    "terms": "Uslovi korištenja",
+    "disclaimer": "Odricanje odgovornosti",
+    "aiNotice": "Napomena o asistentu",
+    "dsa": "DSA – Prijavi sadržaj",
+    "cookies": "Postavke kolačića",
+    "copyright": "© 2026 BalkanLink · Sva prava zadržana."
+  },
+  "buttons": {
+    "startGuide": "Pokreni vodič",
+    "checkDocument": "Provjeri dokument",
+    "learnMore": "Saznaj više",
+    "viewPlans": "Pogledaj planove",
+    "back": "Nazad",
+    "next": "Dalje",
+    "save": "Sačuvaj",
+    "cancel": "Otkaži",
+    "submit": "Pošalji",
+    "close": "Zatvori",
+    "download": "Preuzmi",
+    "share": "Podijeli",
+    "copy": "Kopiraj",
+    "copied": "Kopirano!",
+    "loading": "Učitavanje...",
+    "saving": "Čuvam..."
+  },
+  "audio": {
+    "play": "Pusti",
+    "pause": "Pauza",
+    "speed": "Brzina"
+  },
+  "languageSwitcher": {
+    "label": "Jezik"
+  }
+}

@@ -7,6 +7,7 @@ import "@fontsource/inter/700.css";
 import "@fontsource/source-sans-3/400.css";
 import "@fontsource/source-sans-3/600.css";
 import "@fontsource/source-sans-3/700.css";
+import "./i18n";
 import App from "./App.tsx";
 import "./index.css";
 

@@ -1,0 +1,51 @@
+{
+  "home": {
+    "heroHeadline": "Navigirajte njemački sistem. Bez stresa. Bez greški.",
+    "heroSubline": "Smart vodiči, provjera dokumenata, vize i njemački jezik — sve jasno objašnjeno.",
+    "ctaPrimary": "Pokreni vodič",
+    "ctaSecondary": "Saznaj više",
+    "servicesTitle": "Naši servisi",
+    "partnersTitle": "Naši partneri"
+  },
+  "documentCheck": {
+    "title": "Provjera dokumenata",
+    "subtitle": "Provjeri da li su tvoji dokumenti u redu prije slanja na njemačke institucije.",
+    "ctaPrimary": "Provjeri dokument"
+  },
+  "visa": {
+    "title": "Vize",
+    "subtitle": "Vodič kroz njemački sistem viza, dozvola i boravišnih statusa.",
+    "ctaPrimary": "Pokreni Viza Navigator"
+  },
+  "deutschTrainer": {
+    "title": "DeutschTrainer",
+    "subtitle": "Vježbaj njemački koji ti stvarno treba: kod ljekara, na Amtu, na poslu.",
+    "ctaPrimary": "Počni učiti"
+  },
+  "classifieds": {
+    "title": "Oglasi",
+    "subtitle": "Posao, stan, usluge i zajednica — oglasi za naše ljude u Njemačkoj.",
+    "ctaPrimary": "Pogledaj oglase"
+  },
+  "translationBanner": {
+    "title": "Prevod u toku",
+    "message": "Ovaj sadržaj se trenutno prevodi. Za sada dostupan samo na bosanskom."
+  },
+  "notFound": {
+    "title": "Stranica nije pronađena",
+    "description": "Izgleda da stranice koju tražite nema ili je premještena.",
+    "cta": "Vrati se na početnu"
+  },
+  "auth": {
+    "loginTitle": "Prijava",
+    "registerTitle": "Registracija",
+    "forgotTitle": "Zaboravljena lozinka",
+    "resetTitle": "Resetuj lozinku",
+    "resetSubtitle": "Unesi novu lozinku.",
+    "linkSent": "Link poslan",
+    "linkSentDesc": "Provjeri e-mail za link za resetovanje.",
+    "passwordChanged": "Lozinka uspješno promijenjena!",
+    "passwordsDontMatch": "Lozinke se ne podudaraju.",
+    "errorOccurred": "Došlo je do greške"
+  }
+}

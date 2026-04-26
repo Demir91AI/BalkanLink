@@ -1,23 +1,5 @@
 import { Link } from "react-router-dom";
-
-const NAV_LINKS = [
-  { label: "Formulari", to: "/formulari" },
-  { label: "Viza Navigator", to: "/viza" },
-  { label: "Kurs njemačkog", to: "/deutsch-trainer" },
-  { label: "Provjera dokumenata", to: "/dokumenten-check" },
-  { label: "BalkanLink Asistent", to: "/ai-asistent" },
-  { label: "Nudim / Tražim", to: "/nudim-trazim" },
-];
-
-const LEGAL_LINKS = [
-  { label: "Impressum", to: "/impressum" },
-  { label: "Zaštita podataka", to: "/datenschutz" },
-  { label: "Uslovi korištenja", to: "/agb" },
-  { label: "Odricanje odgovornosti", to: "/disclaimer" },
-  { label: "Napomena o asistentu", to: "/napomena-o-ki" },
-  { label: "DSA – Prijavi sadržaj", to: "/dsa" },
-  { label: "Postavke kolačića", to: "/cookie-richtlinie", action: true },
-];
+import { useTranslation } from "react-i18next";
 
 const colTitleStyle: React.CSSProperties = {
   fontSize: 11,
@@ -39,6 +21,27 @@ const linkStyle: React.CSSProperties = {
 };
 
 export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?: () => void } = {}) {
+  const { t } = useTranslation();
+
+  const NAV_LINKS: { label: string; to: string }[] = [
+    { label: t("common:nav.smartGuides"), to: "/formulari" },
+    { label: t("common:nav.visa"), to: "/viza" },
+    { label: t("common:nav.germanTrainer"), to: "/deutsch-trainer" },
+    { label: t("common:nav.documentCheck"), to: "/dokumenten-check" },
+    { label: "BalkanLink Asistent", to: "/ai-asistent" },
+    { label: t("common:nav.classifieds"), to: "/nudim-trazim" },
+  ];
+
+  const LEGAL_LINKS: { label: string; to: string; action?: boolean }[] = [
+    { label: t("common:footer.imprintAlt"), to: "/impressum" },
+    { label: t("common:footer.privacy"), to: "/datenschutz" },
+    { label: t("common:footer.terms"), to: "/agb" },
+    { label: t("common:footer.disclaimer"), to: "/disclaimer" },
+    { label: t("common:footer.aiNotice"), to: "/napomena-o-ki" },
+    { label: t("common:footer.dsa"), to: "/dsa" },
+    { label: t("common:footer.cookies"), to: "/cookie-richtlinie", action: true },
+  ];
+
   return (
     <footer style={{ background: "#0d1526" }}>
       <div
@@ -59,15 +62,15 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
             </span>
           </Link>
           <p style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", marginTop: 14, lineHeight: 1.6 }}>
-            Tvoj vodič kroz njemački sistem.
+            {t("common:footer.brandTagline")}
           </p>
           <p style={{ fontSize: 11, color: "rgba(255,255,255,0.35)", marginTop: 12, lineHeight: 1.5 }}>
-            BalkanLink pruža informativne smjernice, ne pravne savjete.
+            {t("common:footer.infoNote")}
           </p>
         </div>
 
         <div>
-          <p style={colTitleStyle}>Navigacija</p>
+          <p style={colTitleStyle}>{t("common:footer.navigation")}</p>
           {NAV_LINKS.map((l) => (
             <Link key={l.to} to={l.to} style={linkStyle} className="footer-link">
               {l.label}
@@ -76,9 +79,9 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
         </div>
 
         <div>
-          <p style={colTitleStyle}>Pravno</p>
+          <p style={colTitleStyle}>{t("common:footer.legalShort")}</p>
           {LEGAL_LINKS.map((l) =>
-            (l as any).action && onOpenCookieSettings ? (
+            l.action && onOpenCookieSettings ? (
               <button
                 key={l.to}
                 onClick={onOpenCookieSettings}
@@ -91,12 +94,12 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
               <Link key={l.to} to={l.to} style={linkStyle} className="footer-link">
                 {l.label}
               </Link>
-            )
+            ),
           )}
         </div>
 
         <div>
-          <p style={colTitleStyle}>Kontakt</p>
+          <p style={colTitleStyle}>{t("common:footer.contactTitle")}</p>
           <a href="mailto:kontakt@balkanlink.de" style={linkStyle} className="footer-link">
             kontakt@balkanlink.de
           </a>
@@ -108,10 +111,10 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
       </div>
       <div style={{ padding: "20px 24px 16px", textAlign: "center" }}>
         <p style={{ fontSize: 10, color: "rgba(255,255,255,0.4)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 8, textAlign: "center" }}>
-          Načini plaćanja
+          {t("common:footer.paymentMethods")}
         </p>
         <p style={{ fontSize: 12, color: "rgba(255,255,255,0.55)", letterSpacing: 0.5, textAlign: "center", marginBottom: 4 }}>
-          Visa · Mastercard · PayPal · Apple Pay · Google Pay
+          {t("common:footer.paymentList")}
         </p>
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 16, flexWrap: "wrap", marginTop: 14 }}>
           {[
@@ -145,10 +148,10 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
       </div>
       <div style={{ textAlign: "center", padding: "20px 24px 28px" }}>
         <p style={{ fontSize: 11, color: "rgba(255,255,255,0.4)", marginBottom: 4 }}>
-          Powered by <span style={{ color: "#EAB308", fontWeight: 700 }}>RealCore Digital</span> · Klar denken. Digital umsetzen.
+          {t("common:footer.poweredBy")} <span style={{ color: "#EAB308", fontWeight: 700 }}>RealCore Digital</span> · {t("common:footer.poweredTagline")}
         </p>
         <p style={{ fontSize: 11, color: "rgba(255,255,255,0.4)" }}>
-          © 2026 BalkanLink · Sva prava zadržana.
+          {t("common:footer.copyright")}
         </p>
       </div>
 

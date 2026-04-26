@@ -1,0 +1,32 @@
+{
+  "labels": {
+    "firstName": "Vorname",
+    "lastName": "Nachname",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "address": "Adresse",
+    "city": "Stadt",
+    "postalCode": "Postleitzahl",
+    "country": "Land",
+    "dateOfBirth": "Geburtsdatum",
+    "password": "Passwort",
+    "passwordConfirm": "Passwort bestätigen",
+    "passwordNew": "Neues Passwort",
+    "message": "Nachricht"
+  },
+  "validation": {
+    "required": "Dieses Feld ist erforderlich",
+    "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+    "minLength": "Mindestens {{count}} Zeichen",
+    "maxLength": "Maximal {{count}} Zeichen",
+    "passwordMatch": "Die Passwörter stimmen nicht überein",
+    "passwordTooShort": "Das Passwort ist zu kurz.",
+    "phoneInvalid": "Bitte geben Sie eine gültige Telefonnummer ein"
+  },
+  "placeholders": {
+    "search": "Suchen...",
+    "selectOption": "Option auswählen",
+    "writeHere": "Schreiben Sie hier...",
+    "passwordPlaceholder": "Mindestens 8 Zeichen"
+  }
+}

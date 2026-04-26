@@ -1,4 +1,5 @@
 import { Outlet } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Header from "./Header";
 import Footer from "./Footer";
 import { AppSidebar } from "./AppSidebar";
@@ -11,6 +12,7 @@ import CookiePreferencesModal from "@/components/CookiePreferencesModal";
 import { usePWAInstall } from "@/hooks/usePWAInstall";
 import PWAInstallBanner from "@/components/PWAInstallBanner";
 import PWAiOSGuide from "@/components/PWAiOSGuide";
+import TranslationPendingBanner from "@/components/TranslationPendingBanner";
 
 class ErrorBoundary extends Component<
   { children: ReactNode },
@@ -61,6 +63,7 @@ export default function Layout() {
         <Header />
         <main className="flex-1 pb-16 md:pb-0">
           <ErrorBoundary>
+            <TranslationPendingBanner />
             <Outlet />
           </ErrorBoundary>
         </main>

@@ -1,15 +1,17 @@
 /**
- * BalkanLink Language Policy
+ * LanguageContext — backwards-compatible shim that delegates to react-i18next.
  *
- * i18n remains in codebase for future scalability.
- * Only Bosanski is currently active in production.
- * Language switcher is disabled in UI.
- * Other languages remain inactive until explicitly re-enabled.
+ * Existing components calling `useLanguage().t(...)` keep working against the
+ * legacy BS/DE label tables (src/i18n/bs.ts and src/lib/de-labels.ts). The
+ * authoritative language now comes from i18next, so the switcher and the URL
+ * /de prefix drive what `lang` returns here.
  */
-import React, { createContext, useContext, useState, useCallback } from "react";
+import React, { createContext, useContext, useCallback } from "react";
+import { useTranslation } from "react-i18next";
 import { label as deLabel } from "@/lib/de-labels";
 import BS from "@/i18n/bs";
 import { LANGUAGE_POLICY } from "@/config/language-policy";
+import i18n, { LANG_STORAGE_KEY } from "@/i18n";
 
 export type Language = "bs" | "de";
 
@@ -21,27 +23,25 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | null>(null);
 
-const FORCED_LANG = LANGUAGE_POLICY.activeLanguage as Language;
-
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  // Always force the active language defined in LANGUAGE_POLICY
-  const [lang, setLangState] = useState<Language>(FORCED_LANG);
+  const { i18n: i18nInstance } = useTranslation();
+  const lang = ((i18nInstance.language as Language) || LANGUAGE_POLICY.defaultLanguage) as Language;
 
   const setLang = useCallback((newLang: Language) => {
-    // Only allow switching if the policy permits other languages
-    if (!LANGUAGE_POLICY.allowOtherLanguagesInUI && newLang !== FORCED_LANG) return;
-    setLangState(newLang);
-    try { localStorage.setItem("bl-lang", newLang); } catch {}
+    void i18n.changeLanguage(newLang);
+    try {
+      localStorage.setItem(LANG_STORAGE_KEY, newLang);
+    } catch {
+      /* ignore */
+    }
   }, []);
 
   const t = useCallback(
     (key: string): string => {
-      if (lang === "bs") {
-        return BS[key] ?? deLabel(key);
-      }
+      if (lang === "bs") return BS[key] ?? deLabel(key);
       return deLabel(key);
     },
-    [lang]
+    [lang],
   );
 
   return (
@@ -52,7 +52,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 }
 
 const fallback: LanguageContextType = {
-  lang: FORCED_LANG,
+  lang: LANGUAGE_POLICY.defaultLanguage as Language,
   setLang: () => {},
   t: (key: string) => {
     try { return BS[key] ?? deLabel(key); } catch { return key; }

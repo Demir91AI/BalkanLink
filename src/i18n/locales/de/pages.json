@@ -1,0 +1,51 @@
+{
+  "home": {
+    "heroHeadline": "Navigieren Sie das deutsche System. Ohne Stress. Ohne Fehler.",
+    "heroSubline": "Smart Guides, Dokumentenprüfung, Visa und Deutschkurs — alles klar erklärt.",
+    "ctaPrimary": "Leitfaden starten",
+    "ctaSecondary": "Mehr erfahren",
+    "servicesTitle": "Unsere Leistungen",
+    "partnersTitle": "Unsere Partner"
+  },
+  "documentCheck": {
+    "title": "Dokumentenprüfung",
+    "subtitle": "Prüfen Sie, ob Ihre Unterlagen vollständig sind, bevor Sie sie bei deutschen Behörden einreichen.",
+    "ctaPrimary": "Dokument prüfen"
+  },
+  "visa": {
+    "title": "Visa",
+    "subtitle": "Ihr Wegweiser durch das deutsche Visa- und Aufenthaltsrecht.",
+    "ctaPrimary": "Visa-Navigator starten"
+  },
+  "deutschTrainer": {
+    "title": "DeutschTrainer",
+    "subtitle": "Üben Sie das Deutsch, das Sie wirklich brauchen: beim Arzt, auf dem Amt, am Arbeitsplatz.",
+    "ctaPrimary": "Jetzt lernen"
+  },
+  "classifieds": {
+    "title": "Kleinanzeigen",
+    "subtitle": "Arbeit, Wohnung, Dienstleistungen und Community — Kleinanzeigen für unsere Leute in Deutschland.",
+    "ctaPrimary": "Anzeigen ansehen"
+  },
+  "translationBanner": {
+    "title": "Übersetzung in Arbeit",
+    "message": "Dieser Inhalt wird derzeit übersetzt. Vorerst nur auf Bosnisch verfügbar."
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "description": "Die gesuchte Seite existiert nicht oder wurde verschoben.",
+    "cta": "Zur Startseite"
+  },
+  "auth": {
+    "loginTitle": "Anmelden",
+    "registerTitle": "Registrieren",
+    "forgotTitle": "Passwort vergessen",
+    "resetTitle": "Passwort zurücksetzen",
+    "resetSubtitle": "Geben Sie Ihr neues Passwort ein.",
+    "linkSent": "Link gesendet",
+    "linkSentDesc": "Bitte prüfen Sie Ihre E-Mails für den Reset-Link.",
+    "passwordChanged": "Passwort erfolgreich geändert!",
+    "passwordsDontMatch": "Die Passwörter stimmen nicht überein.",
+    "errorOccurred": "Ein Fehler ist aufgetreten"
+  }
+}
