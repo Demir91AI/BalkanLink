@@ -4,13 +4,31 @@ import { isFormFree } from "@/lib/form-catalog";
 
 const GOLD = '#C9A84C';
 
+interface FormSource {
+  label: string;
+  url: string;
+}
+
 interface FormMeta {
   agency: string;
   musterSlug?: string;
   onlineUrl?: string;
   sourceLabel: string;
   sourceUrl: string;
+  /** Optional: additional official sources to show alongside the primary one. */
+  extraSources?: FormSource[];
+  /** Optional: short hint shown under the sources block (e.g. "Formular se preuzima sa stranice lokalnog Jugendamt-a."). */
+  sourceHint?: string;
 }
+
+/** Used as a safety net so every form always shows an "Zvanični izvor(i)" block. */
+const DEFAULT_META: FormMeta = {
+  agency: "Nadležna njemačka institucija",
+  sourceLabel: "Bund.de — Verwaltungsportal",
+  sourceUrl: "https://www.bund.de",
+  sourceHint:
+    "Formular se preuzima sa stranice nadležne lokalne ustanove (općina/Kreis/Land). Provjerite kod svog ureda za važeću verziju.",
+};
 
 const FORM_META: Record<string, FormMeta> = {
   "kindergeld":         { agency: "Familienkasse / BA",           musterSlug: "kindergeld",         sourceLabel: "Bundesagentur für Arbeit",     sourceUrl: "https://www.arbeitsagentur.de/familie-und-kinder/kindergeld" },
@@ -53,7 +71,18 @@ const FORM_META: Record<string, FormMeta> = {
   "nichterreichbarkeit":{ agency: "Jobcenter",                                                      onlineUrl: "https://jobcenter.digital", sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
   "arbeitsbescheinigung":{ agency: "Agentur für Arbeit",           musterSlug: "arbeitsbescheinigung", sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
   "antragsruecknahme":  { agency: "Jobcenter",                    musterSlug: "antragsruecknahme",  sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
-  "wirtschaftliche-jugendhilfe": { agency: "Jugendamt (lokal)",   musterSlug: "wirtschaftliche-jugendhilfe", sourceLabel: "SGB VIII — Hilfe zur Erziehung (gesetze-im-internet.de)", sourceUrl: "https://www.gesetze-im-internet.de/sgb_8/__27.html" },
+  "wirtschaftliche-jugendhilfe": {
+    agency: "Jugendamt (lokal)",
+    musterSlug: "wirtschaftliche-jugendhilfe",
+    sourceLabel: "SGB VIII § 27 — Hilfe zur Erziehung (gesetze-im-internet.de)",
+    sourceUrl: "https://www.gesetze-im-internet.de/sgb_8/__27.html",
+    extraSources: [
+      { label: "BMFSFJ — Kinder- und Jugendhilfe", url: "https://www.bmfsfj.de/bmfsfj/themen/kinder-und-jugend/kinder-und-jugendhilfe" },
+      { label: "LWL — Wirtschaftliche Jugendhilfe", url: "https://www.lwl-landesjugendamt.de/de/unsere-handlungsfelder/wirtschaftliche-jugendhilfe-kostenerstattung/" },
+    ],
+    sourceHint:
+      "Ne postoji jedinstveni federalni obrazac. Konkretan formular preuzima se sa stranice lokalnog Jugendamt-a (Stadt/Landkreis).",
+  },
 };
 
 interface Props {
@@ -64,7 +93,7 @@ interface Props {
 
 export default function FormRightPanel({ activeSlug, formLabel, formDesc }: Props) {
   const navigate = useNavigate();
-  const meta = activeSlug ? FORM_META[activeSlug] : null;
+  const meta = activeSlug ? FORM_META[activeSlug] ?? DEFAULT_META : null;
 
   const panelStyle: React.CSSProperties = {
     width: 260,
@@ -164,13 +193,41 @@ export default function FormRightPanel({ activeSlug, formLabel, formDesc }: Prop
           </a>
         )}
         <div style={{ borderTop: '1px solid #F0EAD8', paddingTop: 12 }}>
-          <p style={{ fontSize: 11, fontWeight: 600, color: GOLD, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 8 }}>Zvanični izvor</p>
-          <a href={meta.sourceUrl} target="_blank" rel="noopener noreferrer"
-            style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#4A4A4A', fontSize: 12, textDecoration: 'none' }}
-            onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = GOLD}
-            onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#4A4A4A'}>
-            <ExternalLink size={11} color={GOLD} />{meta.sourceLabel}
-          </a>
+          <p style={{ fontSize: 11, fontWeight: 600, color: GOLD, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 8 }}>
+            {meta.extraSources && meta.extraSources.length > 0 ? 'Zvanični izvori' : 'Zvanični izvor'}
+          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+            <a
+              href={meta.sourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: 'flex', alignItems: 'flex-start', gap: 6, color: '#4A4A4A', fontSize: 12, textDecoration: 'none', lineHeight: 1.4 }}
+              onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = GOLD)}
+              onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = '#4A4A4A')}
+            >
+              <ExternalLink size={11} color={GOLD} style={{ marginTop: 2, flexShrink: 0 }} />
+              <span>{meta.sourceLabel}</span>
+            </a>
+            {meta.extraSources?.map((s, i) => (
+              <a
+                key={i}
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ display: 'flex', alignItems: 'flex-start', gap: 6, color: '#4A4A4A', fontSize: 12, textDecoration: 'none', lineHeight: 1.4 }}
+                onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = GOLD)}
+                onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = '#4A4A4A')}
+              >
+                <ExternalLink size={11} color={GOLD} style={{ marginTop: 2, flexShrink: 0 }} />
+                <span>{s.label}</span>
+              </a>
+            ))}
+          </div>
+          {meta.sourceHint && (
+            <p style={{ fontSize: 11, color: '#6B6B6B', lineHeight: 1.5, marginTop: 8, fontStyle: 'italic' }}>
+              {meta.sourceHint}
+            </p>
+          )}
         </div>
 
         <div style={{ borderTop: '1px solid #F0EAD8', paddingTop: 10, marginTop: 12 }}>
