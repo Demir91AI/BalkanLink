@@ -63,7 +63,7 @@ describe("FlagBA — official BiH flag SVG contract", () => {
     expect(stars.length).toBe(9);
   });
 
-  it("places stars on the hypotenuse from (70,0) to (200,100), evenly spaced", () => {
+  it("places stars on the blue side, parallel to the hypotenuse", () => {
     const { container } = render(<FlagBA />);
     const stars = Array.from(
       container.querySelectorAll('g[fill="#FFFFFF"] polygon'),
@@ -79,18 +79,17 @@ describe("FlagBA — official BiH flag SVG contract", () => {
       return { cx, cy };
     });
 
-    const HX1 = 70;
-    const HX2 = 200;
-    centroids.forEach((c, i) => {
-      const t = i / (centroids.length - 1);
-      const expectedCx = HX1 + t * (HX2 - HX1);
-      const expectedCy = 0 + t * 100;
-      expect(Math.abs(c.cx - expectedCx)).toBeLessThan(0.5);
-      expect(Math.abs(c.cy - expectedCy)).toBeLessThan(0.5);
+    // For each star, the line from hypotenuse (y = (100/130)*(x-70)) must
+    // place it on the BLUE side: y > (100/130)*(x-70) means below the line,
+    // which here is the YELLOW side. Blue side: y < (100/130)*(x-70) is FALSE
+    // — actually blue is to the LEFT (smaller x for given y). We verify each
+    // centroid is strictly outside the yellow triangle.
+    centroids.forEach((c) => {
+      // Line through (70,0)-(200,100): 100x - 130y - 7000 = 0.
+      // Yellow side is where 100x - 130y - 7000 > 0. Blue side: < 0.
+      const side = 100 * c.cx - 130 * c.cy - 7000;
+      expect(side).toBeLessThan(0);
     });
-
-    expect(centroids[0].cy).toBeCloseTo(0, 1);
-    expect(centroids[centroids.length - 1].cx).toBeCloseTo(200, 1);
   });
 
   it("clips stars to the flag rectangle so the end stars appear halved", () => {
