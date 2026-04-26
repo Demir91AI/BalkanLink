@@ -7,7 +7,7 @@ import {
   ChevronLeft, ChevronRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useTranslation } from "react-i18next";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useInfiniteScroll } from "@/hooks/useInfiniteScroll";
 
@@ -37,7 +37,7 @@ function CarouselArrows({ onLeft, onRight }: { onLeft: () => void; onRight: () =
 
 /* ─── Showcase Carousel ─── */
 function ShowcaseCarousel() {
-  const { t } = useLanguage();
+  const { t } = useTranslation("pages");
   const tView = t("home.pricing.partnerView");
   const tContact = t("home.pricing.partnerContact");
   const tRecommended = t("home.pricing.partnerRecommended");
@@ -109,7 +109,7 @@ function ShowcaseCarousel() {
 /* ─── Main Page ─── */
 export default function Index() {
   const navigate = useNavigate();
-  const { t } = useLanguage();
+  const { t } = useTranslation("pages");
 
   return (
     <div className="relative" style={{ background: "hsl(215 55% 4%)" }}>
