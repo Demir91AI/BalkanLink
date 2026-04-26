@@ -114,6 +114,8 @@ export const formCatalog: FormGroup[] = [
     title: "Rad i karijera",
     items: [
       { slug: "arbeitslosengeld", label: "Arbeitslosengeld I", desc: "Naknada za nezaposlenost uz ispunjene uslove.", includes: "Smart Guide + ALG1 Antrag" },
+      { slug: "krankenkasse", label: "Krankenkasse", desc: "Prijava na zdravstveno osiguranje u Njemačkoj.", includes: "Smart Guide + Anmeldeformular" },
+      { slug: "steuerklassenwechsel", label: "Steuerklassenwechsel", desc: "Promjena porezne klase, npr. nakon vjenčanja.", includes: "Smart Guide + Antrag" },
     ],
   },
   {
