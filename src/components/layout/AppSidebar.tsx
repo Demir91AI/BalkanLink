@@ -204,6 +204,11 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
                       NOVO
                     </span>
                   )}
+                  {item.isFree && (
+                    <span className="ml-auto shrink-0 rounded-full bg-emerald-600 px-1.5 py-0.5 text-[8px] font-bold leading-none text-white">
+                      FREE
+                    </span>
+                  )}
                   {item.premium && !item.isNew && (
                     <span className="ml-auto shrink-0 rounded-full bg-[hsl(var(--gold))] px-1.5 py-0.5 text-[8px] font-bold leading-none text-white">
                       {t("sidebar.premiumBadge")}
