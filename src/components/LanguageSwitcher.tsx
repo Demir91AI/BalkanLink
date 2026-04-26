@@ -1,9 +1,8 @@
 /**
  * <LanguageSwitcher />
  *
- * Dropdown switcher for BalkanLink — shows native language names ("Bosanski" / "Deutsch")
- * with no flags and no country codes. Each language label is ALWAYS written in its
- * own language regardless of active UI language.
+ * Dropdown switcher for BalkanLink — shows native language names ("Bosanski" / "Deutsch").
+ * Each label is ALWAYS written in its own language regardless of active UI language.
  *
  * On selection: changes i18n language, navigates to the mirrored URL (BS root ↔ /de/*),
  * and persists the choice to localStorage.
@@ -20,15 +19,19 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { LANG_STORAGE_KEY, type SupportedLanguage } from "@/i18n";
 import { mirrorPath } from "@/lib/i18n-paths";
-import { FlagBA } from "@/components/flags/FlagBA";
 import { FlagDE } from "@/components/flags/FlagDE";
 
 type FlagComp = ComponentType<{ width?: number; className?: string }>;
 
-const LANGUAGES: { code: SupportedLanguage; nativeName: string; Flag: FlagComp }[] = [
-  { code: "bs", nativeName: "Bosanski", Flag: FlagBA },
+// Bosnian language has no neutral flag (BiH flag is politically charged in diaspora context
+// and visually confusable with Ukrainian flag at small sizes). German keeps its flag because
+// it is unambiguous. Asymmetric by design.
+const LANGUAGES: { code: SupportedLanguage; nativeName: string; Flag: FlagComp | null }[] = [
+  { code: "bs", nativeName: "Bosanski", Flag: null },
   { code: "de", nativeName: "Deutsch", Flag: FlagDE },
 ];
+
+const FLAG_SLOT_PX = 20;
 
 const GOLD = "#D4AF37";
 
@@ -104,8 +107,8 @@ export function LanguageSwitcher({ variant = "header" }: Props) {
         className={`${triggerClass} focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37]/60 data-[state=open]:scale-[1.02] transition-transform duration-200`}
         style={triggerStyle}
       >
-        <CurrentFlag width={20} />
-        <span style={{ marginLeft: 8 }}>{currentNative}</span>
+        {CurrentFlag ? <CurrentFlag width={FLAG_SLOT_PX} /> : null}
+        <span style={{ marginLeft: CurrentFlag ? 8 : 0 }}>{currentNative}</span>
         <ChevronDown className="h-3.5 w-3.5 opacity-70" strokeWidth={2.25} />
       </DropdownMenuTrigger>
       <DropdownMenuContent
@@ -131,7 +134,15 @@ export function LanguageSwitcher({ variant = "header" }: Props) {
               style={active ? { borderLeftColor: GOLD } : undefined}
             >
               <span className="flex items-center gap-2">
-                <RowFlag width={20} />
+                {RowFlag ? (
+                  <RowFlag width={FLAG_SLOT_PX} />
+                ) : (
+                  // Spacer so labels with and without a flag align identically.
+                  <span
+                    aria-hidden
+                    style={{ width: FLAG_SLOT_PX, display: "inline-block", flexShrink: 0 }}
+                  />
+                )}
                 <span>{lang.nativeName}</span>
               </span>
               {active && <Check className="h-4 w-4" style={{ color: GOLD }} strokeWidth={2.5} />}
