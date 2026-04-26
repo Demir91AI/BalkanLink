@@ -3,15 +3,15 @@
  *
  * Geometry (viewBox 200 × 100, ratio 2:1):
  *  - Blue field (#002F6C) covering full rectangle.
- *  - Yellow isosceles right triangle (#FECB00) with vertices at:
- *        (66.66,   0)   — point on top edge, ~1/3 from the left
- *        (200,     0)   — top-right corner
- *        (200,   100)   — bottom-right corner
- *    The hypotenuse runs from (66.66, 0) down to (200, 100).
- *  - Nine white five-pointed stars sit ON the hypotenuse line, centered on it,
- *    so half of each star is on the yellow triangle and half on the blue field.
- *    The first and last stars are clipped by the flag rectangle (top edge and
- *    right edge respectively), producing the iconic "halved" stars.
+ *  - Yellow right triangle (#FECB00) with vertices at:
+ *        (100,   0)   — midpoint of top edge
+ *        (200,   0)   — top-right corner
+ *        (  0, 100)   — bottom-left corner
+ *    The hypotenuse runs from (100, 0) diagonally down to (0, 100).
+ *  - Seven full white five-pointed stars sit ON the hypotenuse line, plus
+ *    two halved stars at the ends (top-right corner and bottom-left corner)
+ *    for the iconic "infinite" star pattern. The clipPath ensures the
+ *    end stars are correctly halved by the flag rectangle.
  */
 interface Props {
   /** Width in px (height auto-derived from 2:1 ratio). Default: 24. */
@@ -22,20 +22,20 @@ interface Props {
 const BLUE = "#002F6C";
 const YELLOW = "#FECB00";
 
-// Hypotenuse endpoints.
-const HX1 = 66.66;
+// Hypotenuse endpoints (top-mid → bottom-left).
+const HX1 = 100;
 const HY1 = 0;
-const HX2 = 200;
+const HX2 = 0;
 const HY2 = 100;
 
 export function FlagBA({ width = 24, className }: Props) {
   const height = Math.round(width / 2);
 
   // 9 evenly-spaced star centers along the hypotenuse. The first sits exactly
-  // on the top edge, the last on the right edge — both end up visually halved
-  // because of the clipPath.
+  // at (100, 0) on the top edge and the last at (0, 100) on the bottom edge —
+  // both end up visually halved due to the clipPath.
   const starCount = 9;
-  const starRadius = 11;
+  const starRadius = 9;
   const stars = Array.from({ length: starCount }, (_, i) => {
     const t = i / (starCount - 1);
     return {
@@ -72,9 +72,9 @@ export function FlagBA({ width = 24, className }: Props) {
       {/* Blue field */}
       <rect width="200" height="100" fill={BLUE} />
 
-      {/* Yellow triangle: top edge at ~1/3, top-right corner, bottom-right corner */}
+      {/* Yellow triangle: mid-top, top-right, bottom-left */}
       <polygon
-        points={`${HX1},${HY1} ${HX2},${HY1} ${HX2},${HY2}`}
+        points={`${HX1},${HY1} 200,0 ${HX2},${HY2}`}
         fill={YELLOW}
       />
 
