@@ -11,6 +11,8 @@ import ReactMarkdown from "react-markdown";
 import { useNavigate } from "react-router-dom";
 import { navigateBackOrHome } from "@/lib/navigation";
 import { useSubscription } from "@/hooks/useSubscription";
+import { useAuth } from "@/contexts/AuthContext";
+import { initiateCheckout, STRIPE_PRICE_IDS } from "@/lib/stripe";
 import { toast } from "sonner";
 
 type InputMode = "upload";
@@ -192,6 +194,7 @@ export default function DokumentenCheck() {
   const submittingRef = useRef(false);
 
   const { isPremium } = useSubscription();
+  const { user } = useAuth();
 
   const clearFile = useCallback(() => {
     setFile(null);
