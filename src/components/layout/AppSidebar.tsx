@@ -1,5 +1,6 @@
 import { useState, useRef, useCallback, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
 import { useTranslation } from "react-i18next";
 import {
   FileText, Shield, BookOpen, Camera, Megaphone, Plane,
@@ -20,7 +21,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
   const [isOpen, setIsOpen] = useState(false);
   const [authOpen, setAuthOpen] = useState(false);
   const debounceRef = useRef(0);
-  const navigate = useNavigate();
+  const navigate = useLocalizedNavigate();
   const location = useLocation();
   const { user, signOut, displayName } = useAuth();
   const { t } = useTranslation();
