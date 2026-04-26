@@ -148,29 +148,27 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
         <div style={{ height: 1, background: "rgba(255,255,255,0.08)" }} />
       </div>
-      <div style={{ textAlign: "center", padding: "20px 24px 28px" }}>
-        <div
+      <div style={{ textAlign: "center", padding: "24px 24px 28px" }}>
+        <p
           style={{
-            display: "inline-flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: 10,
-            marginBottom: 10,
+            fontSize: 10,
+            color: "rgba(255,255,255,0.4)",
+            textTransform: "uppercase",
+            letterSpacing: 2,
+            fontWeight: 700,
+            marginBottom: 14,
           }}
         >
-          <span style={{ fontSize: 11, color: "rgba(255,255,255,0.5)", letterSpacing: 0.3 }}>
-            {t("common:footer.poweredBy")}{" "}
-            <span style={{ color: "#EAB308", fontWeight: 700 }}>RealCore Digital</span>
-            <span style={{ color: "rgba(255,255,255,0.55)" }}> · {t("common:footer.poweredTagline")}</span>
-          </span>
-          <span aria-hidden style={{ color: "rgba(255,255,255,0.18)", fontSize: 11 }}>|</span>
-          <span style={{ fontSize: 11, color: "rgba(255,255,255,0.5)", letterSpacing: 0.3 }}>
-            U partnerstvu sa{" "}
-            <span style={{ color: "#EAB308", fontWeight: 700 }}>Bosnischer Kulturverein Freilassing e.V.</span>
-            <span style={{ color: "rgba(255,255,255,0.55)" }}> · Kultura, zajednica, integracija.</span>
-          </span>
-        </div>
+          {t("common:footer.poweredBy")}
+        </p>
+        <p style={{ fontSize: 14, color: "rgba(255,255,255,0.85)", marginBottom: 6, letterSpacing: 0.2 }}>
+          <span style={{ color: "#EAB308", fontWeight: 800 }}>RealCore Digital</span>
+          <span style={{ color: "rgba(255,255,255,0.55)", fontWeight: 400 }}> — {t("common:footer.poweredTagline")}</span>
+        </p>
+        <p style={{ fontSize: 14, color: "rgba(255,255,255,0.85)", marginBottom: 16, letterSpacing: 0.2 }}>
+          <span style={{ color: "#EAB308", fontWeight: 800 }}>Bosnischer Kulturverein Freilassing e.V.</span>
+          <span style={{ color: "rgba(255,255,255,0.55)", fontWeight: 400 }}> — Kultura, zajednica, integracija.</span>
+        </p>
         <p style={{ fontSize: 11, color: "rgba(255,255,255,0.4)" }}>
           {t("common:footer.copyright")}
         </p>
