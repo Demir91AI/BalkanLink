@@ -48,12 +48,12 @@ describe("FlagBA — official BiH flag SVG contract", () => {
     expect(rect!.getAttribute("height")).toBe("100");
   });
 
-  it("renders the yellow triangle with vertices at top-mid, top-right and bottom-left", () => {
+  it("renders the yellow triangle with vertices on top edge, top-right and bottom-right", () => {
     const { container } = render(<FlagBA />);
     const triangle = container.querySelector('polygon[fill="#FECB00"]');
     expect(triangle).not.toBeNull();
     const points = triangle!.getAttribute("points");
-    expect(points).toMatch(/^100,0 200,0 0,100$/);
+    expect(points).toMatch(/^70,0 200,0 200,100$/);
     expect(triangle!.getAttribute("fill")?.toUpperCase()).toBe(YELLOW);
   });
 
@@ -63,7 +63,7 @@ describe("FlagBA — official BiH flag SVG contract", () => {
     expect(stars.length).toBe(9);
   });
 
-  it("places stars on the hypotenuse from (100,0) to (0,100), evenly spaced", () => {
+  it("places stars on the hypotenuse from (70,0) to (200,100), evenly spaced", () => {
     const { container } = render(<FlagBA />);
     const stars = Array.from(
       container.querySelectorAll('g[fill="#FFFFFF"] polygon'),
@@ -79,8 +79,8 @@ describe("FlagBA — official BiH flag SVG contract", () => {
       return { cx, cy };
     });
 
-    const HX1 = 100;
-    const HX2 = 0;
+    const HX1 = 70;
+    const HX2 = 200;
     centroids.forEach((c, i) => {
       const t = i / (centroids.length - 1);
       const expectedCx = HX1 + t * (HX2 - HX1);
@@ -90,7 +90,7 @@ describe("FlagBA — official BiH flag SVG contract", () => {
     });
 
     expect(centroids[0].cy).toBeCloseTo(0, 1);
-    expect(centroids[centroids.length - 1].cy).toBeCloseTo(100, 1);
+    expect(centroids[centroids.length - 1].cx).toBeCloseTo(200, 1);
   });
 
   it("clips stars to the flag rectangle so the end stars appear halved", () => {
