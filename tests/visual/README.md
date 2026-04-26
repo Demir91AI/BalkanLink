@@ -3,7 +3,7 @@
 Vizuelni regresioni testovi za UI komponente koje moraju ostati piksel-stabilne
 (npr. zastave, logoi, ikone). Trenutno pokriveno:
 
-- **`flag-ba.spec.ts`** — BiH zastava (`FlagBA`) na 6 širina (16, 20, 32, 48, 96, 200 px),
+- **`flag-ba.spec.ts`** — BiH zastava (`FlagBA`) na 11 širina (14, 16, 18, 20, 24, 32, 36, 48, 64, 96, 200 px),
   u light i dark temi, na 1x i 2x DPR.
 
 ## Pokretanje
