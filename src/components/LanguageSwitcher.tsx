@@ -145,7 +145,12 @@ export function LanguageSwitcher({ variant = "header" }: Props) {
         style={triggerStyle}
       >
         {CurrentFlag ? <CurrentFlag width={flagSize} /> : null}
-        <span style={{ marginLeft: CurrentFlag ? 8 : 0 }}>{currentNative}</span>
+        <span
+          className={variant === "header" ? "hidden sm:inline" : ""}
+          style={{ marginLeft: CurrentFlag ? 8 : 0 }}
+        >
+          {currentNative}
+        </span>
         <ChevronDown className="h-3.5 w-3.5 opacity-70" strokeWidth={2.25} />
       </DropdownMenuTrigger>
       <DropdownMenuContent
