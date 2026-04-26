@@ -100,7 +100,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
         className="fixed left-0 top-0 z-[999] h-screen bg-white shadow-2xl overflow-y-auto transition-transform duration-300 ease-in-out flex flex-col"
         role="dialog"
         aria-modal="true"
-        aria-label="Navigacioni meni"
+        aria-label={t("sidebar.navAriaLabel")}
         style={{
           width: "300px",
           minWidth: "280px",
@@ -108,7 +108,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
         }}
       >
         <div className="flex items-center justify-between px-5 py-4 border-b border-[#E8E0D0]">
-          <span className="text-sm font-bold text-[#2D2D2D] tracking-wide uppercase">Meni</span>
+          <span className="text-sm font-bold text-[#2D2D2D] tracking-wide uppercase">{t("sidebar.menu")}</span>
           <button onClick={close} className="h-8 w-8 rounded-lg flex items-center justify-center hover:bg-[#F0EDE6] transition-colors">
             <X className="h-4 w-4 text-[#6B6B6B]" />
           </button>
