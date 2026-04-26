@@ -13,6 +13,13 @@ const log = (step: string, details?: unknown) => {
   console.log(`[check-subscription] ${step}${extra}`);
 };
 
+const unixSecondsToIso = (value: unknown): string | null => {
+  const seconds = typeof value === "number" ? value : Number(value);
+  if (!Number.isFinite(seconds) || seconds <= 0) return null;
+  const date = new Date(seconds * 1000);
+  return Number.isNaN(date.getTime()) ? null : date.toISOString();
+};
+
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -93,8 +100,10 @@ serve(async (req) => {
 
     if (hasActiveSub) {
       const sub = subscriptions.data[0];
-      subscriptionEnd = new Date(sub.current_period_end * 1000).toISOString();
       const item = sub.items.data[0];
+      subscriptionEnd = unixSecondsToIso(
+        sub.current_period_end ?? (item as { current_period_end?: number }).current_period_end
+      );
       productId = item.price.product as string;
       priceId = item.price.id;
       interval = item.price.recurring?.interval ?? null;
