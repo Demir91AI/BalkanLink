@@ -1,68 +1,40 @@
-## Scope
-Edit only `src/pages/Pricing.tsx` (the page that contains the three cards iz screenshota — `Paketi.tsx` ne sadrži ove sekcije).
+## Cilj
+Audit + zamjena svih "Kontaktiraj nas / Plaćanje uskoro / aktivacija se priprema" CTA-ova direktnim Stripe checkout buttonima na cijeloj stranici.
 
-Stripe je već povezan i `STRIPE_PRICE_IDS` + `initiateCheckout(...)` funkcija već rade (već se koriste za Premium, DeutschTrainer i Featured Firma). Samo trebamo dodati identičnu logiku na sva tri spomenuta proizvoda.
+## Pronađene lokacije (3 mjesta gdje fali real-checkout)
 
----
+### 1. `src/pages/DokumentenCheck.tsx` — 2 mjesta
+- **Linija 330–335 (pricing kartica "Jednokratno 2,99€")**: trenutno `mailto:kontakt@balkanlink.de` link "Kontaktiraj nas →" (ovo je tačno baner sa screenshota).
+  - Zamijeniti sa Stripe button: `initiateCheckout(STRIPE_PRICE_IDS.DOC_CHECK, user.id, "payment")`. Label: **"Kupi za 2,99€ →"**. Ako user nije logiran → redirect na `/login`.
+- **Linija 497–502 (post-analysis CTA "Jednokratno — 2,99€")**: isti mailto link.
+  - Zamijeniti istom Stripe logikom. Sačuvati postojeći outline styling.
 
-## 1. Istakni oglas (Nudim / Tražim)
+### 2. `src/pages/Paketi.tsx` — glavna premium stranica (KRITIČNO)
+- **Linija 9–11**: `handlePurchase` samo prikazuje toast "Plaćanje uskoro dostupno". Ovo je glavni Premium CTA cijelog sajta a ne radi.
+  - Zamijeniti sa pravom funkcijom koja zove `initiateCheckout(STRIPE_PRICE_IDS.PREMIUM_YEARLY, user.id, "subscription")` (godišnji 99,90€ je popularniji jer je već označen "uštedi 20%"). Ako nema usera → `/login`.
+- **Dodati drugi button** za mjesečnu pretplatu (9,99€/mj `PREMIUM_MONTHLY`) ispod godišnjeg, da user ima izbor — npr. mali tekstualni link "ili 9,99€/mj. mjesečno →".
+- **Linija 186–189**: ukloniti rečenicu "Plaćanje uskoro dostupno. Za rani pristup..." — nije više tačno. Zamijeniti kratkom porukom: "Sigurno plaćanje preko Stripe-a. Otkaži bilo kada."
 
-Trenutno: čisto informativna kartica, bez dugmeta.
+### 3. `src/components/nudim-trazim/NtProModal.tsx` — modal za istakni oglas
+- **Linija 17–20 + 125–131**: `handleActivate` samo toast "PRO aktivacija se priprema. Hvala ti!". Modal nudi 3 opcije (Free / Pro 2.99€ / Premium 9.99€) ali nijedna ne ide na checkout.
+  - Wire na osnovu `selected`:
+    - `"free"` → zatvori modal i pozovi postojeću logiku objave (current behaviour OK; trebam provjeriti da li parent hendlapokretanje submit forme — najsigurnije: ostaviti toast za free i delegirati na `onClose`).
+    - `"pro"` → `initiateCheckout(STRIPE_PRICE_IDS.PRO_AD_7DAY, user.id, "payment")` (cijena u modalu je 2.99€ ali Stripe katalog ima `PRO_AD_7DAY = 1.99€` — **PAŽNJA**: ovo je nesklad; ispravljam UI prikaz na **1,99€ / 7 dana** da odgovara stvarnoj Stripe cijeni iz `STRIPE_PRICE_IDS`. Isto i u listi opcija (`"Dodatni 2.99€ nakon toga"` → `"Dodatni 1,99€ nakon toga"`).
+    - `"premium"` → `initiateCheckout(STRIPE_PRICE_IDS.PREMIUM_MONTHLY, user.id, "subscription")`.
+  - Dodati `useAuth()` import za guard prema `/login`.
 
-Promjena — dodati po jedno **„Kupi → "** dugme uz svaku cijenu:
+## Provjerene lokacije gdje JE već OK
+- `src/pages/Pricing.tsx` — već ima Stripe buttone (od prethodnog mesidža).
+- `src/pages/DeutschTrainer.tsx` — Premium CTA vodi na `/deutsch-trainer/preise` koja već ima direktne Stripe buttone po nivou.
+- `src/pages/TrainerPreise.tsx` — već ima `initiateCheckout` po nivou.
+- `src/pages/BiznisNjemacka.tsx` — nema premium banera.
+- `src/components/home/WhatIsWhat.tsx`, `src/pages/Index.tsx` — samo informativni tekst (badges, tabele), bez CTA buttona.
+- `src/components/pricing/PricingPremiumCard.tsx`, `PricingFreeCard.tsx`, `PricingComparisonTable.tsx` — koristi se na `/pricing` koji već radi.
 
-- **7 dana — 1,99€** → `initiateCheckout(STRIPE_PRICE_IDS.PRO_AD_7DAY, user.id, "payment")`
-- **30 dana — 4,99€** → `initiateCheckout(STRIPE_PRICE_IDS.PRO_AD_30DAY, user.id, "payment")`
-- **Premium oglas — Gratis** → ostaje bez dugmeta (besplatno za premium korisnike)
+## Nakon implementacije
+Brzo testiranje preko `supabase--curl_edge_functions` na `create-checkout` sa svakim novim price ID-em (`PREMIUM_YEARLY`, `PREMIUM_MONTHLY`, `DOC_CHECK`, `PRO_AD_7DAY`) da potvrdimo da svi vraćaju validan checkout URL (već je verifikovano da su svi price ID-ovi aktivni u Stripe-u — vidi prethodni `list_prices` poziv).
 
-Ako user nije ulogovan → `navigate("/login")` (već postoji `handleCheckout` helper koji to radi).
-
-Stil dugmeta: `variant="outline"`, mali (`h-8`, `text-xs`), zlatni hover, isti pattern kao kod DeutschTrainer „Kupi →" dugmadi da ostane vizuelno konzistentno (UI preservation rule).
-
----
-
-## 2. Dokumenten-Check
-
-Trenutno: prikazuje cijene bez dugmeta.
-
-Promjena:
-- **Jednokratno — 2,99€** → dodati **„Kupi →"** dugme → `initiateCheckout(STRIPE_PRICE_IDS.DOC_CHECK, user.id, "payment")`
-- **Premium 1×/dan gratis** → ostaje bez dugmeta
-
-Isti outline stil kao gore.
-
----
-
-## 3. Reklamiraj svoju firmu — Featured
-
-Već ima dugme „Zatraži Featured →" koje vodi na Stripe (`FEATURED_FIRMA`, mode `"subscription"`). Provjerio sam — radi ispravno.
-
-Promjene:
-- **Promijeniti label dugmeta** sa „Zatraži Featured →" u **„Kupi Featured →"** (eksplicitnije, kao što je traženo).
-- **Ukloniti red:** `🎉 Promo cijena — prvih 6 mjeseci` (linije 233–235).
-- **Ukloniti red ispod cijene:** „Istaknuta kartica + flow banner" ostaje, ali tekst „prvih 6 mjeseci" se nigdje više ne spominje.
-- Zadržati cijenu **14,99€/mjes.** kao trajnu (ne promo).
-
----
-
-## 4. Verifikacija Stripe protoka (odmah nakon edita)
-
-Nakon implementacije, koristiću `supabase--curl_edge_functions` da pozovem `create-checkout` edge funkciju sa svakim od 4 nova price ID-a (PRO_AD_7DAY, PRO_AD_30DAY, DOC_CHECK, FEATURED_FIRMA) i potvrdim da Stripe vraća validan checkout URL — bez stvarnog plaćanja, samo provjera da price ID postoji u Stripe-u i da se sesija uspješno kreira.
-
-Ako neki price ID ne postoji u live Stripe katalogu → javit ću korisniku tačno koji nedostaje umjesto da tiho pukne na klik.
-
----
-
-## Memory update
-
-Ažurirat ću `mem://monetization/pricing-strategy` — uklanja se „promo cijena prvih 6 mjeseci" za Featured Firma; cijena je trajno 14,99€/mj.
-
----
-
-## Šta NEĆE biti dirano
-
-- `src/pages/Paketi.tsx` (druga stranica, ne sadrži ove sekcije)
-- Layout, boje, ikone, motion animacije (UI preservation)
-- Premium subscription flow (već radi)
-- Stripe edge funkcija `create-checkout` (već radi za sve mode-ove)
-- DeutschTrainer kartice (već imaju Kupi dugmad)
+## Ne mijenjamo
+- Stripe price IDs u `src/lib/stripe.ts` (već potvrđeni live).
+- Postojeći `create-checkout` edge function (već radi).
+- UI strukturu ostalih banera (poštujemo `mem://constraints/ui-preservation`).
