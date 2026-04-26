@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import BrandLogo from "@/components/BrandLogo";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -11,14 +12,6 @@ import { useToast } from "@/hooks/use-toast";
 import { Check, X } from "lucide-react";
 import PageNav from "@/components/navigation/PageNav";
 
-const PW_RULES = [
-  { label: "Minimalno 8 znakova", test: (pw: string) => pw.length >= 8 },
-  { label: "Jedno veliko slovo", test: (pw: string) => /[A-Z]/.test(pw) },
-  { label: "Jedno malo slovo", test: (pw: string) => /[a-z]/.test(pw) },
-  { label: "Jedan broj", test: (pw: string) => /[0-9]/.test(pw) },
-  { label: "Jedan specijalni znak", test: (pw: string) => /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?`~]/.test(pw) },
-];
-
 export default function Register() {
   const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
@@ -28,7 +21,17 @@ export default function Register() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
-  const ruleResults = useMemo(() => PW_RULES.map(r => ({ ...r, pass: r.test(password) })), [password]);
+  const { t } = useTranslation("common");
+
+  const PW_RULES = useMemo(() => [
+    { label: t("auth.register.rule1"), test: (pw: string) => pw.length >= 8 },
+    { label: t("auth.register.rule2"), test: (pw: string) => /[A-Z]/.test(pw) },
+    { label: t("auth.register.rule3"), test: (pw: string) => /[a-z]/.test(pw) },
+    { label: t("auth.register.rule4"), test: (pw: string) => /[0-9]/.test(pw) },
+    { label: t("auth.register.rule5"), test: (pw: string) => /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?`~]/.test(pw) },
+  ], [t]);
+
+  const ruleResults = useMemo(() => PW_RULES.map(r => ({ ...r, pass: r.test(password) })), [password, PW_RULES]);
   const allRulesPass = ruleResults.every(r => r.pass);
   const passwordsMatch = password === confirmPassword;
   const canSubmit = allRulesPass && passwordsMatch && confirmPassword.length > 0 && acceptedTerms && firstName.trim().length > 0;
@@ -36,7 +39,7 @@ export default function Register() {
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!canSubmit) {
-      toast({ title: "Lozinka je prekratka.", variant: "destructive" });
+      toast({ title: t("auth.register.passwordTooShortShort"), variant: "destructive" });
       return;
     }
     setLoading(true);
@@ -48,7 +51,7 @@ export default function Register() {
         data: { first_name: firstName.trim() },
       },
     });
-    
+
     if (!error && signUpData.user) {
       await supabase
         .from("profiles")
@@ -58,13 +61,13 @@ export default function Register() {
           first_name: firstName.trim(),
         } as any, { onConflict: "id" });
     }
-    
+
     setLoading(false);
 
     if (error) {
-      toast({ title: "Greška pri registraciji.", description: error.message, variant: "destructive" });
+      toast({ title: t("auth.register.errorTitleShort"), description: error.message, variant: "destructive" });
     } else {
-      toast({ title: "Uspješno registrirani!", description: "Provjeri e-mail za potvrdu registracije." });
+      toast({ title: t("auth.register.successRegistered"), description: t("auth.register.successCheckEmail") });
       navigate("/login");
     }
   };
@@ -76,25 +79,25 @@ export default function Register() {
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
           <div className="flex justify-center mb-4"><BrandLogo variant="full" linkHome={false} darkText /></div>
-          <CardTitle className="text-2xl">Registracija</CardTitle>
-          <CardDescription>Kreiraj nalog za puni pristup.</CardDescription>
+          <CardTitle className="text-2xl">{t("auth.register.title")}</CardTitle>
+          <CardDescription>{t("auth.register.subtitleCard")}</CardDescription>
         </CardHeader>
         <form onSubmit={handleRegister}>
           <CardContent className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="firstName">Ime</Label>
-              <Input id="firstName" type="text" required value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder="Ime" autoComplete="given-name" />
+              <Label htmlFor="firstName">{t("auth.register.labelFirstName")}</Label>
+              <Input id="firstName" type="text" required value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder={t("auth.register.labelFirstName")} autoComplete="given-name" />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="email">E-mail adresa</Label>
-              <Input id="email" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="vas@email.com" />
+              <Label htmlFor="email">{t("auth.register.labelEmail")}</Label>
+              <Input id="email" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder={t("auth.register.emailExample")} />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password">Lozinka</Label>
-              <Input id="password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Minimalno 8 znakova" />
+              <Label htmlFor="password">{t("auth.register.labelPassword")}</Label>
+              <Input id="password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} placeholder={t("auth.register.passwordHint")} />
               {password.length > 0 && (
                 <div className="mt-2 space-y-1 rounded-lg border bg-muted/30 p-3">
-                  <p className="text-[11px] font-semibold text-muted-foreground mb-1">Lozinka mora sadržavati:</p>
+                  <p className="text-[11px] font-semibold text-muted-foreground mb-1">{t("auth.register.rulesTitle")}</p>
                   {ruleResults.map(r => (
                     <div key={r.label} className="flex items-center gap-2 text-xs">
                       {r.pass ? (
@@ -111,11 +114,11 @@ export default function Register() {
               )}
             </div>
             <div className="space-y-2">
-              <Label htmlFor="confirmPassword">Potvrdi lozinku</Label>
+              <Label htmlFor="confirmPassword">{t("auth.register.labelConfirmPassword")}</Label>
               <Input id="confirmPassword" type="password" required value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="••••••••" />
               {confirmPassword.length > 0 && !passwordsMatch && (
                 <p className="text-xs text-red-500 mt-1 flex items-center gap-1">
-                  <X className="h-3 w-3" /> Lozinke se ne podudaraju.
+                  <X className="h-3 w-3" /> {t("auth.register.passwordMismatch")}
                 </p>
               )}
               {confirmPassword.length > 0 && passwordsMatch && (
@@ -125,8 +128,6 @@ export default function Register() {
               )}
             </div>
 
-            
-
             <div className="flex items-start gap-3 rounded-xl border bg-muted/20 p-4">
               <Checkbox
                 id="terms"
@@ -135,29 +136,28 @@ export default function Register() {
                 className="mt-0.5"
               />
               <label htmlFor="terms" className="cursor-pointer text-xs leading-relaxed text-muted-foreground">
-                Prihvatam{" "}
+                {t("auth.register.consentText")}{" "}
                 <Link to="/uslovi-koristenja" target="_blank" className="font-semibold text-primary underline hover:no-underline">
-                  Uslove korištenja
+                  {t("auth.register.consentTermsLink")}
                 </Link>
                 ,{" "}
                 <Link to="/datenschutz" target="_blank" className="font-semibold text-primary underline hover:no-underline">
-                  Zaštitu podataka
+                  {t("auth.register.consentPrivacyLink")}
                 </Link>{" "}
-                i potvrđujem da sam pročitao/la{" "}
+                {t("auth.register.consentAiPrefix")}{" "}
                 <Link to="/napomena-o-ki" target="_blank" className="font-semibold text-primary underline hover:no-underline">
-                  Napomenu o upotrebi asistenta
+                  {t("auth.register.consentAiLink")}
                 </Link>
-                . Razumijem da AI asistent pruža isključivo informativne odgovore
-                i ne zamjenjuje pravni savjet.
+                {t("auth.register.consentAiSuffix")}
               </label>
             </div>
           </CardContent>
           <CardFooter className="flex flex-col gap-3">
             <Button type="submit" className="w-full" disabled={loading || !canSubmit}>
-              {loading ? "Registracija..." : "Registruj se"}
+              {loading ? t("auth.register.loading") : t("auth.register.submit")}
             </Button>
             <p className="text-center text-sm text-muted-foreground">
-              Već imaš nalog? <Link to="/login" className="text-primary hover:underline">Prijavi se</Link>
+              {t("auth.register.haveAccount").split("?")[0]}? <Link to="/login" className="text-primary hover:underline">{t("auth.login.submit")}</Link>
             </p>
           </CardFooter>
         </form>
