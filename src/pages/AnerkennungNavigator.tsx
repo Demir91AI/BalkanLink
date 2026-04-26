@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import {
   GraduationCap,
   CheckCircle2,
-  XCircle,
   AlertTriangle,
   ExternalLink,
   ChevronRight,
@@ -18,10 +17,17 @@ import {
   Info,
   BookOpen,
   Sparkles,
+  MapPin,
+  Mail,
+  Copy,
+  Download,
+  Building2,
 } from "lucide-react";
+import { toast } from "sonner";
 import { SEO } from "@/components/SEO";
 import PageNavBar from "@/components/navigation/PageNavBar";
 import { usePremiumAccess } from "@/hooks/usePremiumAccess";
+import { useAuth } from "@/contexts/AuthContext";
 import { navigateBackOrHome } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 import {
@@ -31,9 +37,17 @@ import {
   ANERKENNUNGSZUSCHUSS,
   OFFICIAL_PORTALS,
   type Country,
-  type ProfessionInfo,
   type Regulation,
 } from "@/lib/anerkennung-data";
+import {
+  BUNDESLAENDER,
+  getAuthority,
+  ZAB_FALLBACK,
+} from "@/lib/anerkennung-bundeslaender";
+import {
+  generateAnerkennungEmail,
+  type EmailTemplateInput,
+} from "@/lib/anerkennung-email-templates";
 
 /* ──────────── Helpers ──────────── */
 
