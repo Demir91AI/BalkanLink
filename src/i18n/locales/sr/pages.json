@@ -768,10 +768,6 @@
     "body": "Pokušaj osvežiti stranicu.",
     "refresh": "Osveži stranicu"
   },
-  "translationBanner": {
-    "title": "Prevod u toku",
-    "message": "Ovaj sadržaj se trenutno prevodi. Za sada dostupan samo na bosanskom."
-  },
   "notFound": {
     "title": "Stranica nije pronađena",
     "description": "Izgleda da stranice koju tražite nema ili je premeštena.",
