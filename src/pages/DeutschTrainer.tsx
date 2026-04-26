@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { SEO } from "@/components/SEO";
 import AuthGate from "@/components/AuthGate";
 import { useSearchParams, useNavigate } from "react-router-dom";
@@ -20,6 +21,7 @@ const INDIVIDUAL_PRICES: Record<string, string> = {
 };
 
 export default function DeutschTrainer() {
+  const { t } = useTranslation("pages");
   const navigate = useNavigate();
   const [params] = useSearchParams();
   const demo = params.get("demo") === "1";
@@ -75,7 +77,7 @@ export default function DeutschTrainer() {
 
   return (
     <>
-      <SEO title="Deutsch Trainer — Uči Njemački A1 do C2" description="240 lekcija (40 po nivou), 500 zadataka po stageu, Sprachassistent" path="/deutsch-trainer" />
+      <SEO title={t("deutschTrainer.seoTitle")} description={t("deutschTrainer.seoDescription")} path="/deutsch-trainer" />
       {/* Hero Banner */}
       <section
         className="relative overflow-hidden border-b border-white/[0.06] pb-12 pt-6 sm:pb-16 sm:pt-8"
@@ -106,13 +108,13 @@ export default function DeutschTrainer() {
               onClick={() => navigateBackOrHome(navigate)}
               className="flex items-center gap-1.5 text-[13px] font-medium text-white/50 hover:text-white transition-colors"
             >
-              <ArrowLeft className="h-4 w-4" /> Nazad
+              <ArrowLeft className="h-4 w-4" /> {t("common.back", { defaultValue: "Nazad", ns: "common" })}
             </button>
             <button
               onClick={() => navigate("/")}
               className="flex items-center gap-1.5 text-[13px] font-medium text-white/50 hover:text-white transition-colors"
             >
-              <Home className="h-4 w-4" /> Početna
+              <Home className="h-4 w-4" /> {t("common.home", { defaultValue: "Početna", ns: "common" })}
             </button>
           </div>
 
@@ -125,7 +127,7 @@ export default function DeutschTrainer() {
               className="mb-3 inline-flex items-center gap-2 rounded-full border border-gold/20 bg-gold/[0.08] px-4 py-1.5"
             >
               <GraduationCap className="h-4 w-4 text-gold" />
-              <span className="text-xs font-bold text-gold">{"BalkanLink Deutsch"}</span>
+              <span className="text-xs font-bold text-gold">{t("deutschTrainer.brand")}</span>
             </motion.div>
 
             <motion.h1
@@ -134,7 +136,7 @@ export default function DeutschTrainer() {
               transition={{ duration: 0.5, delay: 0.08 }}
               className="text-3xl font-black leading-[1.1] tracking-tight text-white sm:text-4xl lg:text-5xl"
             >
-              {"Effektives Deutschlernen für das echte Leben"}
+              {t("deutschTrainer.heroHeadline")}
             </motion.h1>
 
             <motion.p
@@ -143,7 +145,7 @@ export default function DeutschTrainer() {
               transition={{ duration: 0.5, delay: 0.16 }}
               className="mt-4 max-w-lg text-sm leading-relaxed text-white/50 sm:text-base"
             >
-              {"Effektives Deutschlernen für das echte Leben"}
+              {t("deutschTrainer.heroSubline")}
             </motion.p>
 
 
@@ -155,12 +157,12 @@ export default function DeutschTrainer() {
               className="mt-6 flex flex-wrap gap-2"
             >
               {[
-                "🏥 Beim Arzt",
-                "🏛️ Behörden",
-                "💼 Jobcenter",
-                "📋 Bürgergeld",
-                "🗣️ Sprachassistent",
-                "🏆 A1 → C2",
+                t("deutschTrainer.tags.doctor"),
+                t("deutschTrainer.tags.authorities"),
+                t("deutschTrainer.tags.jobcenter"),
+                t("deutschTrainer.tags.buergergeld"),
+                t("deutschTrainer.tags.sprachassistent"),
+                t("deutschTrainer.tags.levelRange"),
               ].map(tag => (
                 <span
                   key={tag}
@@ -218,9 +220,9 @@ export default function DeutschTrainer() {
           {/* ── LEVEL PROGRESS ── */}
           <div className="mb-10 max-w-3xl rounded-2xl border border-white/[0.06] bg-white/[0.02] px-5 py-4">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-bold text-white/80">{selectedLevel} {"Napredak"}</span>
+              <span className="text-sm font-bold text-white/80">{selectedLevel} {t("deutschTrainer.progress.label")}</span>
               <span className="text-xs text-white/40">
-                {completedInLevel}/{levelLessons.length} {"lekcija"}
+                {completedInLevel}/{levelLessons.length} {t("deutschTrainer.progress.lessons")}
               </span>
             </div>
             <div className="h-2 w-full overflow-hidden rounded-full bg-white/[0.06]">
@@ -262,7 +264,7 @@ export default function DeutschTrainer() {
                     {/* Free badge */}
                     {isFree && !completed && (
                       <span className="absolute right-4 top-4 rounded-full bg-[hsl(var(--success)/0.12)] px-2.5 py-0.5 text-[10px] font-bold text-[hsl(var(--success))]">
-                        {"Besplatno"}
+                        {t("deutschTrainer.lesson.free")}
                       </span>
                     )}
 
@@ -281,7 +283,7 @@ export default function DeutschTrainer() {
                         {isLocked && <Lock className="h-3.5 w-3.5 shrink-0 text-white/20" />}
                       </div>
                       <p className={`mt-1 text-xs leading-relaxed ${isLocked ? "text-white/15" : "text-white/40"}`}>
-                        {lesson.title}{!isPremium && ` · ${"besplatno"}`}
+                        {lesson.title}{!isPremium && ` · ${t("deutschTrainer.lesson.freeSuffix")}`}
                       </p>
                     </div>
                   </motion.button>
@@ -334,20 +336,20 @@ export default function DeutschTrainer() {
               style={{ background: "linear-gradient(135deg, rgba(255,204,0,0.06) 0%, rgba(255,204,0,0.02) 100%)" }}
             >
               <Crown className="mx-auto mb-3 h-8 w-8 text-gold" />
-              <h3 className="text-base font-black text-white">{"Nastavi učiti"}</h3>
+              <h3 className="text-base font-black text-white">{t("deutschTrainer.upgradeCta.title")}</h3>
               <p style={{ fontSize: 13, color: "#9CA3AF", marginBottom: 8 }}>
-                {"Otključaj sve lekcije i Sprachassistenta"}
+                {t("deutschTrainer.upgradeCta.subtitle")}
               </p>
               <div className="mt-2 flex flex-wrap justify-center gap-2">
-                <span className="rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold text-white/70">✓ {"Bez pretplate"}</span>
-                <span className="rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold text-white/70">✓ {"Jednom plati"}</span>
-                <span className="rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold text-white/70">✓ {"Wertgutschein za Premium"}</span>
+                <span className="rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold text-white/70">✓ {t("deutschTrainer.upgradeCta.noSubscription")}</span>
+                <span className="rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold text-white/70">✓ {t("deutschTrainer.upgradeCta.payOnce")}</span>
+                <span className="rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold text-white/70">✓ {t("deutschTrainer.upgradeCta.wertgutschein")}</span>
               </div>
               <Button
                 onClick={() => navigate("/deutsch-trainer/preise")}
                 className="mt-5 h-12 w-full max-w-xs rounded-xl bg-gold text-sm font-bold text-gold-foreground shadow-[0_4px_20px_rgba(255,204,0,0.3)] hover:bg-gold-light"
               >
-                {"Otključaj sve lekcije"}
+                {t("deutschTrainer.upgradeCta.unlockAll")}
               </Button>
             </motion.div>
           )}
@@ -379,25 +381,25 @@ export default function DeutschTrainer() {
               </button>
               <div className="text-center">
                 <Crown className="mx-auto mb-3 h-10 w-10 text-gold" />
-                <h2 className="text-base font-black">{"Otključaj dodatne lekcije"}</h2>
+                <h2 className="text-base font-black">{t("deutschTrainer.paywallModal.title")}</h2>
                 <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">
-                  {"Otključaj sve sadržaje i vježbaj njemački za stvarne situacije."}
+                  {t("deutschTrainer.paywallModal.body")}
                 </p>
                 <p className="mt-3 text-2xl font-black text-gold-dark">
-                  {"od"} {INDIVIDUAL_PRICES[selectedLevel]}
-                  <span className="ml-1 text-xs font-normal text-muted-foreground">{"/ jednokratno"}</span>
+                  {t("deutschTrainer.paywallModal.from")} {INDIVIDUAL_PRICES[selectedLevel]}
+                  <span className="ml-1 text-xs font-normal text-muted-foreground">{t("deutschTrainer.paywallModal.perOneTime")}</span>
                 </p>
                 <Button
                   onClick={() => { setShowPaywall(false); navigate("/deutsch-trainer/preise"); }}
                   className="mt-4 h-11 w-full rounded-xl bg-gold text-sm font-bold text-gold-foreground shadow-[0_4px_20px_rgba(255,204,0,0.3)] hover:bg-gold-light"
                 >
-                  {"Otključaj sada"}
+                  {t("deutschTrainer.paywallModal.unlockNow")}
                 </Button>
                 <button
                   onClick={() => setShowPaywall(false)}
                   className="mt-2 text-xs text-muted-foreground hover:underline"
                 >
-                  {"Odluči kasnije"}
+                  {t("deutschTrainer.paywallModal.decideLater")}
                 </button>
               </div>
             </motion.div>
