@@ -191,43 +191,27 @@ export default function MojiPodaci() {
 
         {/* Export — diskretna sekcija */}
         <section className="space-y-2 pb-5 border-b border-border/40">
-          <div className="space-y-0.5">
-            <p className="text-sm font-medium">Preuzmi svoje podatke</p>
-            <p className="text-[11px] text-muted-foreground">
-              Uredan izvještaj svih tvojih podataka (GDPR čl. 15). Otvara se u svakom programu.
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-2 pt-1">
+          <div className="flex items-center justify-between gap-3">
+            <div className="space-y-0.5 min-w-0">
+              <p className="text-sm font-medium">Preuzmi svoje podatke</p>
+              <p className="text-[11px] text-muted-foreground">
+                Uredan izvještaj tvojih podataka (GDPR čl. 15).
+              </p>
+            </div>
             <Button
               onClick={() => handleExport("pdf")}
               disabled={exporting !== null}
               variant="outline"
               size="sm"
-              className="text-xs h-8"
+              className="shrink-0 text-xs h-8"
             >
-              {exporting === "pdf" ? (
+              {exporting !== null ? (
                 <>
                   <Loader2 className="h-3 w-3 mr-1.5 animate-spin" />
                   Pripremam…
                 </>
               ) : (
-                "Preuzmi PDF izvještaj"
-              )}
-            </Button>
-            <Button
-              onClick={() => handleExport("txt")}
-              disabled={exporting !== null}
-              variant="ghost"
-              size="sm"
-              className="text-xs h-8 text-muted-foreground hover:text-foreground"
-            >
-              {exporting === "txt" ? (
-                <>
-                  <Loader2 className="h-3 w-3 mr-1.5 animate-spin" />
-                  Pripremam…
-                </>
-              ) : (
-                "Preuzmi tekstualnu verziju"
+                "Preuzmi izvještaj"
               )}
             </Button>
           </div>
