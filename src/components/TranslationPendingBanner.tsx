@@ -43,21 +43,17 @@ const TRANSLATED_PATHS: Record<"de" | "hr" | "sr", Set<string>> = {
 };
 
 export default function TranslationPendingBanner() {
-  const { pathname } = useLocation();
-  const { t, i18n } = useTranslation();
-  const [dismissed, setDismissed] = useState(false);
-
-  const visible = useMemo(() => {
-    if (dismissed) return false;
-    const lang = i18n.language as "de" | "hr" | "sr" | string;
-    if (lang !== "de" && lang !== "hr" && lang !== "sr") return false;
-    const prefix = `/${lang}`;
-    if (!pathname.startsWith(prefix)) return false;
-    if (TRANSLATED_PATHS[lang as "de" | "hr" | "sr"].has(pathname)) return false;
-    return true;
-  }, [pathname, i18n.language, dismissed]);
-
-  if (!visible) return null;
+  // Per Demir's apr 2026 directive: the platform must never advertise
+  // "translation pending". All UI strings (HR, SR, DE) ship fully translated
+  // via the locale JSONs. The banner is therefore disabled platform-wide.
+  // Component kept as a no-op to preserve existing imports/mounts and to
+  // make it trivial to re-enable in the future if a partial-translation
+  // workflow is ever reintroduced.
+  void useLocation();
+  void useTranslation();
+  void useState;
+  void useMemo;
+  return null;
 
   return (
     <div
