@@ -159,38 +159,41 @@ export default function Header() {
 
         {/* RIGHT: Premium badge + User icon */}
         <div className="flex items-center gap-2 ml-auto">
-          {/* Premium badge button */}
+          {/* Premium CTA button */}
           <button
             onClick={() => navigate("/premium")}
-            className="hidden sm:inline-flex items-center gap-1.5 transition-all duration-250 ease-in-out hover:scale-[1.03]"
+            aria-label="Postani Premium član"
+            className="group relative hidden sm:inline-flex items-center gap-2 overflow-hidden transition-all duration-300 ease-out hover:scale-[1.04] active:scale-[0.98]"
             style={{
               background:
-                "linear-gradient(135deg, rgba(212,175,55,0.12) 0%, rgba(212,175,55,0.05) 100%)",
-              border: "1px solid rgba(212,175,55,0.35)",
-              color: "#D4AF37",
-              borderRadius: 20,
-              padding: "5px 12px",
-              fontSize: 11,
-              letterSpacing: "0.08em",
+                "linear-gradient(135deg, #D4AF37 0%, #F4D77A 50%, #B8941F 100%)",
+              border: "1px solid rgba(244,215,122,0.5)",
+              color: "#0A0F1F",
+              borderRadius: 22,
+              padding: "7px 16px 7px 12px",
+              fontSize: 12,
+              letterSpacing: "0.06em",
               textTransform: "uppercase" as const,
-              fontWeight: 600,
+              fontWeight: 800,
               boxShadow:
-                "0 0 12px rgba(212,175,55,0.1), inset 0 1px 0 rgba(255,255,255,0.05)",
+                "0 4px 14px rgba(212,175,55,0.35), 0 0 0 1px rgba(212,175,55,0.2), inset 0 1px 0 rgba(255,255,255,0.4)",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = "rgba(212,175,55,0.18)";
               e.currentTarget.style.boxShadow =
-                "0 0 20px rgba(212,175,55,0.2)";
+                "0 6px 22px rgba(212,175,55,0.55), 0 0 0 1px rgba(244,215,122,0.4), inset 0 1px 0 rgba(255,255,255,0.5)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.background =
-                "linear-gradient(135deg, rgba(212,175,55,0.12) 0%, rgba(212,175,55,0.05) 100%)";
               e.currentTarget.style.boxShadow =
-                "0 0 12px rgba(212,175,55,0.1), inset 0 1px 0 rgba(255,255,255,0.05)";
+                "0 4px 14px rgba(212,175,55,0.35), 0 0 0 1px rgba(212,175,55,0.2), inset 0 1px 0 rgba(255,255,255,0.4)";
             }}
           >
-            <Crown className="h-4 w-4" />
-            Premium
+            {/* Shine sweep on hover */}
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full"
+            />
+            <Crown className="h-3.5 w-3.5 relative z-10" strokeWidth={2.5} />
+            <span className="relative z-10">Postani Premium</span>
           </button>
 
           {/* User/profile icon button */}
