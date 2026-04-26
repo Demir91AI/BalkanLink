@@ -14,6 +14,8 @@ import { useSubscription } from "@/hooks/useSubscription";
 import { useAuth } from "@/contexts/AuthContext";
 import { initiateCheckout, STRIPE_PRICE_IDS } from "@/lib/stripe";
 import { toast } from "sonner";
+import { useTranslation } from "react-i18next";
+import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
 
 type InputMode = "upload";
 
