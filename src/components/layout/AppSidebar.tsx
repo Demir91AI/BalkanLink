@@ -24,28 +24,28 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
   const navigate = useLocalizedNavigate();
   const location = useLocation();
   const { user, signOut, displayName } = useAuth();
-  const { t } = useTranslation();
-  const firstName = displayName.split(/\s+/).filter(Boolean)[0] || "Korisniče";
+  const { t } = useTranslation("common");
+  const firstName = displayName.split(/\s+/).filter(Boolean)[0] || t("sidebar.defaultUser");
   const initials = getInitials(displayName);
   const currentPath = location.pathname.replace(/^\/de(?=\/|$)/, "") || "/";
 
   const mainItems = [
-    { title: "Formulari", url: "/formulari", icon: FileText, premium: true },
-    { title: "Viza Navigator", url: "/viza", icon: Shield, premium: true },
-    { title: "Kurs njemačkog", url: "/deutsch-trainer", icon: BookOpen, premium: true },
-    { title: "Provjera dokumenata", url: "/dokumenten-check", icon: Camera, premium: true },
+    { title: t("sidebar.items.formulari"), url: "/formulari", icon: FileText, premium: true },
+    { title: t("sidebar.items.viza"), url: "/viza", icon: Shield, premium: true },
+    { title: t("sidebar.items.deutschTrainer"), url: "/deutsch-trainer", icon: BookOpen, premium: true },
+    { title: t("sidebar.items.dokumentenCheck"), url: "/dokumenten-check", icon: Camera, premium: true },
   ];
 
   const secondaryItems = [
-    { title: "Život i dolazak", url: "/zivot-u-njemackoj", icon: Plane },
-    { title: "Radno pravo", url: "/radno-pravo", icon: Scale },
-    { title: "Mietrecht", url: "/mietrecht", icon: Home },
-    { title: "Biznis u Njemačkoj", url: "/biznis", icon: Store },
-    { title: "Nudim / Tražim", url: "/nudim-trazim", icon: Megaphone },
-    { title: "Oglasi za posao", url: "/stellenangebote", icon: Briefcase },
-    { title: "Ponuda stanova", url: "/wohnungen", icon: Building },
-    { title: "Kalkulator", url: "/kalkulatori", icon: Calculator },
-    { title: "Šabloni", url: "/vorlagen", icon: FileCheck },
+    { title: t("sidebar.items.zivot"), url: "/zivot-u-njemackoj", icon: Plane },
+    { title: t("sidebar.items.radnoPravo"), url: "/radno-pravo", icon: Scale },
+    { title: t("sidebar.items.mietrecht"), url: "/mietrecht", icon: Home },
+    { title: t("sidebar.items.biznis"), url: "/biznis", icon: Store },
+    { title: t("sidebar.items.nudimTrazim"), url: "/nudim-trazim", icon: Megaphone },
+    { title: t("sidebar.items.stellenangebote"), url: "/stellenangebote", icon: Briefcase },
+    { title: t("sidebar.items.wohnungen"), url: "/wohnungen", icon: Building },
+    { title: t("sidebar.items.kalkulatori"), url: "/kalkulatori", icon: Calculator },
+    { title: t("sidebar.items.vorlagen"), url: "/vorlagen", icon: FileCheck },
   ];
 
   const toggle = useCallback(() => {
