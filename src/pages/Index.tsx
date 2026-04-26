@@ -175,18 +175,18 @@ export default function Index() {
                   <AccordionTrigger className="px-4 py-3.5 hover:no-underline [&>svg]:text-[hsl(var(--gold))]">
                     <span className="flex items-center gap-3 text-left">
                       <span className="text-lg">🆓</span>
-                      <span className="font-bold text-white">Besplatno — 0€</span>
+                      <span className="font-bold text-white">{t("home.pricing.free.title")}</span>
                     </span>
                   </AccordionTrigger>
                   <AccordionContent className="px-4 pb-4">
                     <ul className="space-y-2 text-sm text-white/60 mb-4">
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Osnovni vodič</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Pregled formulara</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Brutto-Netto kalkulator</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Oglasi (besplatno)</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.free.f1")}</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.free.f2")}</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.free.f3")}</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.free.f4")}</li>
                     </ul>
                     <Button variant="outline" className="w-full rounded-full border-[hsl(var(--gold))]/40 text-[hsl(var(--gold))] font-semibold hover:bg-[hsl(var(--gold))]/10" onClick={() => navigate("/formulari")}>
-                      Počni besplatno
+                      {t("home.pricing.free.cta")}
                     </Button>
                   </AccordionContent>
                 </AccordionItem>
@@ -196,23 +196,23 @@ export default function Index() {
                   <AccordionTrigger className="px-4 py-3.5 hover:no-underline [&>svg]:text-[hsl(var(--gold))]">
                     <span className="flex items-center gap-3 text-left">
                       <span className="text-lg">⭐</span>
-                      <span className="font-bold text-white">Premium — 9,99€/mj.</span>
-                      <span className="ml-auto mr-2 rounded-full px-2 py-0.5 text-[9px] font-bold uppercase" style={{ background: "hsl(var(--gold))", color: "#000" }}>Preporučeno</span>
+                      <span className="font-bold text-white">{t("home.pricing.premium.title")}</span>
+                      <span className="ml-auto mr-2 rounded-full px-2 py-0.5 text-[9px] font-bold uppercase" style={{ background: "hsl(var(--gold))", color: "#000" }}>{t("home.pricing.premium.recommended")}</span>
                     </span>
                   </AccordionTrigger>
                   <AccordionContent className="px-4 pb-4">
-                    <p className="text-xs text-white/40 mb-3">ili 99,90€/godišnje (uštedi 17%)</p>
+                    <p className="text-xs text-white/40 mb-3">{t("home.pricing.premium.subtitle")}</p>
                     <ul className="space-y-2 text-sm text-white/80 mb-4">
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Svi Musterformulari</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Smart Guides (svi koraci)</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Viza Navigator</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> 1x Dokumenten-Check/dan</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Šabloni (PDF download)</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> BalkanLink Asistent neograničeno</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> 2 Pro oglasa/mjesečno</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.premium.f1")}</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.premium.f2")}</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.premium.f3")}</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.premium.f4")}</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.premium.f5")}</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.premium.f6")}</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.premium.f7")}</li>
                     </ul>
                     <Button className="w-full rounded-full font-bold text-black" style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-light)))", boxShadow: "0 4px 20px hsla(43,52%,54%,0.35)" }} onClick={() => navigate("/paketi")}>
-                      Postani Premium →
+                      {t("home.pricing.premium.cta")}
                     </Button>
                   </AccordionContent>
                 </AccordionItem>
@@ -222,19 +222,19 @@ export default function Index() {
                   <AccordionTrigger className="px-4 py-3.5 hover:no-underline [&>svg]:text-[hsl(var(--gold))]">
                     <span className="flex items-center gap-3 text-left">
                       <span className="text-lg">🔍</span>
-                      <span className="font-bold text-white">Dokumenten-Check — 2,99€</span>
+                      <span className="font-bold text-white">{t("home.pricing.docCheck.title")}</span>
                     </span>
                   </AccordionTrigger>
                   <AccordionContent className="px-4 pb-4">
-                    <p className="text-xs text-white/40 mb-3">Po dokumentu (bez pretplate)</p>
+                    <p className="text-xs text-white/40 mb-3">{t("home.pricing.docCheck.subtitle")}</p>
                     <ul className="space-y-2 text-sm text-white/60 mb-4">
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Detaljna analiza dokumenta</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> 11 sekcija objašnjenja</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Rokovi i finansijski uticaj</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> PDF, JPG, PNG do 10 MB</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.docCheck.f1")}</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.docCheck.f2")}</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.docCheck.f3")}</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.docCheck.f4")}</li>
                     </ul>
                     <Button variant="outline" className="w-full rounded-full border-white/15 text-white font-semibold hover:bg-white/10" onClick={() => navigate("/dokumenten-check")}>
-                      Provjeri dokument
+                      {t("home.pricing.docCheck.cta")}
                     </Button>
                   </AccordionContent>
                 </AccordionItem>
@@ -244,39 +244,27 @@ export default function Index() {
                   <AccordionTrigger className="px-4 py-3.5 hover:no-underline [&>svg]:text-[hsl(var(--gold))]">
                     <span className="flex items-center gap-3 text-left">
                       <span className="text-lg">📊</span>
-                      <span className="font-bold text-white">Besplatno vs. Premium</span>
+                      <span className="font-bold text-white">{t("home.pricing.compare.title")}</span>
                     </span>
                   </AccordionTrigger>
                   <AccordionContent className="px-0 pb-0">
                     <div className="grid grid-cols-3 px-4 py-2 text-[10px] font-bold uppercase tracking-wider border-b border-white/10">
-                      <span className="text-white/40">Funkcija</span>
-                      <span className="text-center text-white/60">Besplatno</span>
-                      <span className="text-center text-[hsl(var(--gold))]">Premium</span>
+                      <span className="text-white/40">{t("home.pricing.compare.feature")}</span>
+                      <span className="text-center text-white/60">{t("home.pricing.compare.free")}</span>
+                      <span className="text-center text-[hsl(var(--gold))]">{t("home.pricing.compare.premium")}</span>
                     </div>
                     <div className="divide-y divide-white/5">
-                      {[
-                        { feature: "Musterformulari", free: "❌", premium: "✅ Svi formulari" },
-                        { feature: "Smart Guides", free: "❌", premium: "✅ Korak-po-korak" },
-                        { feature: "Viza Navigator", free: "Osnovna info", premium: "✅ Kompletni vodič" },
-                        { feature: "Dokumenten-Check", free: "2,99€", premium: "✅ 1x dnevno" },
-                        { feature: "Šabloni", free: "✅ Kündigung", premium: "✅ Svi + PDF" },
-                        { feature: "Asistent", free: "5/dan", premium: "✅ Neograničeno" },
-                        { feature: "DeutschTrainer", free: "❌", premium: "✅ A1–C2" },
-                        { feature: "Kalkulator", free: "✅", premium: "✅" },
-                        { feature: "Pro oglasi", free: "2,99€", premium: "✅ 2/mj." },
-                        { feature: "Vodiči", free: "✅", premium: "✅" },
-                        { feature: "Wertgutschein", free: "❌", premium: "✅ do 30€" },
-                      ].map((row) => (
-                        <div key={row.feature} className="grid grid-cols-3 px-4 py-2.5 text-xs">
-                          <span className="font-medium text-white/70">{row.feature}</span>
-                          <span className="text-center text-white/40">{row.free}</span>
-                          <span className="text-center font-semibold text-[hsl(var(--gold))]">{row.premium}</span>
+                      {["muster","guides","visa","doc","templates","assistant","trainer","calc","proAds","arrival","voucher"].map((key) => (
+                        <div key={key} className="grid grid-cols-3 px-4 py-2.5 text-xs">
+                          <span className="font-medium text-white/70">{t(`home.pricing.compare.rows.${key}.feature`)}</span>
+                          <span className="text-center text-white/40">{t(`home.pricing.compare.rows.${key}.freeShort`)}</span>
+                          <span className="text-center font-semibold text-[hsl(var(--gold))]">{t(`home.pricing.compare.rows.${key}.premiumShort`)}</span>
                         </div>
                       ))}
                     </div>
                     <div className="px-4 py-4 border-t border-white/10">
                       <Button className="w-full rounded-full font-bold text-black" style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-light)))" }} onClick={() => navigate("/paketi")}>
-                        Postani Premium →
+                        {t("home.pricing.premium.cta")}
                       </Button>
                     </div>
                   </AccordionContent>
@@ -288,17 +276,17 @@ export default function Index() {
             <div className="hidden sm:grid grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
               {/* Free */}
               <motion.div whileHover={{ y: -4, boxShadow: "0 12px 40px rgba(0,0,0,0.4)" }} className="rounded-2xl p-6 flex flex-col transition-all" style={{ border: "1px solid rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)" }}>
-                <p className="text-sm font-bold text-white/50 uppercase tracking-wider mb-2">Besplatno</p>
-                <p className="text-3xl font-black text-white mb-1">0€</p>
-                <p className="text-xs text-white/40 mb-6">Zauvijek besplatno</p>
+                <p className="text-sm font-bold text-white/50 uppercase tracking-wider mb-2">{t("home.pricing.free.label")}</p>
+                <p className="text-3xl font-black text-white mb-1">{t("home.pricing.free.price")}</p>
+                <p className="text-xs text-white/40 mb-6">{t("home.pricing.free.subtitle")}</p>
                 <ul className="space-y-2 text-sm text-white/60 flex-1">
-                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Osnovni vodič</li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Pregled formulara</li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Brutto-Netto kalkulator</li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Oglasi (besplatno)</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.free.f1")}</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.free.f2")}</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.free.f3")}</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.free.f4")}</li>
                 </ul>
                 <Button variant="outline" className="mt-6 w-full rounded-full border-[hsl(var(--gold))]/40 text-[hsl(var(--gold))] font-semibold hover:bg-[hsl(var(--gold))]/10" onClick={() => navigate("/formulari")}>
-                  Počni besplatno
+                  {t("home.pricing.free.cta")}
                 </Button>
               </motion.div>
 
@@ -314,37 +302,37 @@ export default function Index() {
               >
                 {/* Pulsing ring */}
                 <div className="absolute inset-0 rounded-2xl pointer-events-none animate-glow-pulse" style={{ boxShadow: "0 0 30px hsla(43,52%,54%,0.15), inset 0 0 30px hsla(43,52%,54%,0.05)" }} />
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-4 py-1 text-[10px] font-bold uppercase tracking-wider" style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))", color: "#000" }}>Preporučeno</span>
-                <p className="text-sm font-bold text-[hsl(var(--gold))] uppercase tracking-wider mb-2">Premium</p>
-                <p className="text-3xl font-black text-white mb-1">9,99€<span className="text-base font-normal text-white/40">/mj.</span></p>
-                <p className="text-xs text-white/40 mb-6">ili 99,90€/godišnje (uštedi 17%)</p>
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-4 py-1 text-[10px] font-bold uppercase tracking-wider" style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))", color: "#000" }}>{t("home.pricing.premium.recommended")}</span>
+                <p className="text-sm font-bold text-[hsl(var(--gold))] uppercase tracking-wider mb-2">{t("home.pricing.premium.label")}</p>
+                <p className="text-3xl font-black text-white mb-1">{t("home.pricing.premium.price")}<span className="text-base font-normal text-white/40">{t("home.pricing.premium.perMonth")}</span></p>
+                <p className="text-xs text-white/40 mb-6">{t("home.pricing.premium.subtitle")}</p>
                 <ul className="space-y-2 text-sm text-white/80 flex-1">
-                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Svi Musterformulari</li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Smart Guides (svi koraci)</li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Viza Navigator</li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> 1x Dokumenten-Check/dan</li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Šabloni (PDF download)</li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> BalkanLink Asistent neograničeno</li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> 2 Pro oglasa/mjesečno</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.premium.f1")}</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.premium.f2")}</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.premium.f3")}</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.premium.f4")}</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.premium.f5")}</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.premium.f6")}</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.premium.f7")}</li>
                 </ul>
                 <Button className="mt-6 w-full rounded-full font-bold text-black" style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-light)))", boxShadow: "0 4px 20px hsla(43,52%,54%,0.35)" }} onClick={() => navigate("/paketi")}>
-                  Postani Premium →
+                  {t("home.pricing.premium.cta")}
                 </Button>
               </motion.div>
 
               {/* Dokumenten-Check */}
               <motion.div whileHover={{ y: -4, boxShadow: "0 12px 40px rgba(0,0,0,0.4)" }} className="rounded-2xl p-6 flex flex-col transition-all" style={{ border: "1px solid rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)" }}>
-                <p className="text-sm font-bold text-white/50 uppercase tracking-wider mb-2">Dokumenten-Check</p>
-                <p className="text-3xl font-black text-white mb-1">2,99€</p>
-                <p className="text-xs text-white/40 mb-6">Po dokumentu (bez pretplate)</p>
+                <p className="text-sm font-bold text-white/50 uppercase tracking-wider mb-2">{t("home.pricing.docCheck.label")}</p>
+                <p className="text-3xl font-black text-white mb-1">{t("home.pricing.docCheck.price")}</p>
+                <p className="text-xs text-white/40 mb-6">{t("home.pricing.docCheck.subtitle")}</p>
                 <ul className="space-y-2 text-sm text-white/60 flex-1">
-                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Detaljna analiza dokumenta</li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> 11 sekcija objašnjenja</li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> Rokovi i finansijski uticaj</li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> PDF, JPG, PNG do 10 MB</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.docCheck.f1")}</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.docCheck.f2")}</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.docCheck.f3")}</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.docCheck.f4")}</li>
                 </ul>
                 <Button variant="outline" className="mt-6 w-full rounded-full border-[hsl(var(--gold))]/40 text-[hsl(var(--gold))] font-semibold hover:bg-[hsl(var(--gold))]/10" onClick={() => navigate("/dokumenten-check")}>
-                  Provjeri dokument
+                  {t("home.pricing.docCheck.cta")}
                 </Button>
               </motion.div>
             </div>
@@ -352,43 +340,31 @@ export default function Index() {
             {/* ── Comparison Table (desktop) ── */}
             <div className="hidden sm:block max-w-3xl mx-auto rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(255,255,255,0.08)" }}>
               <div className="px-6 py-4 border-b border-white/10" style={{ background: "rgba(255,255,255,0.03)" }}>
-                <h3 className="font-bold text-white text-lg">Besplatno vs. Premium</h3>
+                <h3 className="font-bold text-white text-lg">{t("home.pricing.compare.title")}</h3>
               </div>
               <div className="grid grid-cols-3 px-6 py-3 text-xs font-bold uppercase tracking-wider border-b border-white/10" style={{ background: "rgba(255,255,255,0.02)" }}>
-                <span className="text-white/40">Funkcija</span>
-                <span className="text-center text-white/60">Besplatno <span className="rounded-full bg-white/10 px-2 py-0.5 text-[10px]">0€</span></span>
-                <span className="text-center text-[hsl(var(--gold))]">Premium <span className="rounded-full bg-[hsl(var(--gold))]/10 px-2 py-0.5 text-[10px]">9,99€/mj.</span></span>
+                <span className="text-white/40">{t("home.pricing.compare.feature")}</span>
+                <span className="text-center text-white/60">{t("home.pricing.compare.free")} <span className="rounded-full bg-white/10 px-2 py-0.5 text-[10px]">{t("home.pricing.free.price")}</span></span>
+                <span className="text-center text-[hsl(var(--gold))]">{t("home.pricing.compare.premium")} <span className="rounded-full bg-[hsl(var(--gold))]/10 px-2 py-0.5 text-[10px]">{t("home.pricing.premium.price")}{t("home.pricing.premium.perMonth")}</span></span>
               </div>
               <div className="divide-y divide-white/5">
-                {[
-                  { feature: "Musterformulari", free: "❌ Nije dostupno", premium: "✅ Svi formulari + primjeri" },
-                  { feature: "Smart Guides", free: "❌ Nije dostupno", premium: "✅ Korak-po-korak vodič" },
-                  { feature: "Viza Navigator", free: "Osnovna info", premium: "✅ Kompletni vodič + dokumenti" },
-                  { feature: "Dokumenten-Check", free: "2,99€ po provjeri", premium: "✅ 1x dnevno gratis" },
-                  { feature: "Šabloni / Vorlagen", free: "✅ Kündigung gratis", premium: "✅ Svi šabloni + PDF download" },
-                  { feature: "BalkanLink Asistent", free: "⚠️ 5 pitanja/dan", premium: "✅ Neograničeno" },
-                  { feature: "DeutschTrainer", free: "❌ Nije dostupno", premium: "✅ A1–C2 kompletni kurs" },
-                  { feature: "Brutto-Netto kalkulator", free: "✅ Dostupno", premium: "✅ Dostupno" },
-                  { feature: "Pro oglasi", free: "2,99€/oglas", premium: "✅ 2 uključena/mj." },
-                  { feature: "Dolazak u Njemačku vodiči", free: "✅ Potpun pristup", premium: "✅ Potpun pristup" },
-                  { feature: "Wertgutschein program", free: "❌ Nije dostupno", premium: "✅ Amazon vaučer do 30€" },
-                ].map((row) => (
-                  <div key={row.feature} className="grid grid-cols-3 px-6 py-3 text-sm">
-                    <span className="font-medium text-white/70">{row.feature}</span>
-                    <span className="text-center text-white/40">{row.free}</span>
-                    <span className="text-center font-semibold text-[hsl(var(--gold))]">{row.premium}</span>
+                {["muster","guides","visa","doc","templates","assistant","trainer","calc","proAds","arrival","voucher"].map((key) => (
+                  <div key={key} className="grid grid-cols-3 px-6 py-3 text-sm">
+                    <span className="font-medium text-white/70">{t(`home.pricing.compare.rows.${key}.feature`)}</span>
+                    <span className="text-center text-white/40">{t(`home.pricing.compare.rows.${key}.free`)}</span>
+                    <span className="text-center font-semibold text-[hsl(var(--gold))]">{t(`home.pricing.compare.rows.${key}.premium`)}</span>
                   </div>
                 ))}
               </div>
               <div className="px-6 py-5 border-t border-white/10 text-center">
                 <Button className="rounded-full font-bold text-black px-8" style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-light)))" }} onClick={() => navigate("/paketi")}>
-                  Postani Premium →
+                  {t("home.pricing.premium.cta")}
                 </Button>
               </div>
             </div>
 
             <div className="mt-8 text-center">
-              <p className="text-xs text-white/30">Prema § 19 UStG ne obračunava se PDV · Otkaži kad hoćeš · Bez ugovora</p>
+              <p className="text-xs text-white/30">{t("home.pricing.footer")}</p>
             </div>
           </motion.div>
         </div>
