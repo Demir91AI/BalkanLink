@@ -19,6 +19,7 @@ export default function MojiPodaci() {
   const [confirmEmail, setConfirmEmail] = useState("");
   const [confirmText, setConfirmText] = useState("");
   const [showConfirm, setShowConfirm] = useState(false);
+  const [deleteError, setDeleteError] = useState<string | null>(null);
 
   const handleExport = async () => {
     if (!user) {
