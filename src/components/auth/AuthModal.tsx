@@ -1,4 +1,5 @@
 import { useState, useCallback, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { X, Loader2, Eye, EyeOff, Check } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 interface AuthModalProps {
@@ -10,6 +11,7 @@ type Tab = "login" | "register";
 type View = "auth" | "forgot" | "forgot-sent";
 
 export default function AuthModal({ open, onClose }: AuthModalProps) {
+  const { t } = useTranslation("common");
   const [tab, setTab] = useState<Tab>("login");
   const [view, setView] = useState<View>("auth");
   const [email, setEmail] = useState("");
@@ -47,32 +49,32 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-    if (!email || !password) { setError("Pogrešan e-mail ili lozinka."); return; }
+    if (!email || !password) { setError(t("auth.login.wrongCredentials")); return; }
     setLoading(true);
     const { error: err } = await supabase.auth.signInWithPassword({ email, password });
     setLoading(false);
     if (err) {
-      setError("Pogrešan e-mail ili lozinka.");
+      setError(t("auth.login.wrongCredentials"));
     } else {
       handleClose();
     }
   };
 
   const pwRules = useMemo(() => [
-    { label: "Minimum 8 znakova", pass: password.length >= 8 },
-    { label: "Jedno veliko slovo (A-Z)", pass: /[A-Z]/.test(password) },
-    { label: "Jedan broj (0-9)", pass: /[0-9]/.test(password) },
-    { label: "Jedan poseban znak (!@#$%...)", pass: /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?`~]/.test(password) },
-  ], [password]);
+    { label: t("auth.register.rule1"), pass: password.length >= 8 },
+    { label: t("auth.register.rule2"), pass: /[A-Z]/.test(password) },
+    { label: t("auth.register.rule4"), pass: /[0-9]/.test(password) },
+    { label: t("auth.register.rule5"), pass: /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?`~]/.test(password) },
+  ], [password, t]);
   const allPwRulesPass = pwRules.every(r => r.pass);
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-    if (!email || !password) { setError("Registrierungsfehler."); return; }
-    if (!allPwRulesPass) { setError("Lozinka ne ispunjava sigurnosne zahtjeve."); return; }
-    if (password !== confirmPassword) { setError("Passwörter stimmen nicht überein."); return; }
-    if (!termsAccepted) { setError("Moraš prihvatiti uslove korištenja."); return; }
+    if (!email || !password) { setError(t("auth.register.errorTitleShort")); return; }
+    if (!allPwRulesPass) { setError(t("auth.register.passwordTooShortShort")); return; }
+    if (password !== confirmPassword) { setError(t("auth.register.passwordMismatch")); return; }
+    if (!termsAccepted) { setError(t("auth.login.mustAcceptTerms")); return; }
     setLoading(true);
     const { error: err } = await supabase.auth.signUp({
       email,
@@ -86,18 +88,17 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
     });
     setLoading(false);
     if (err) {
-      setError("Registrierungsfehler.");
+      setError(t("auth.register.errorTitleShort"));
     } else {
       setError("");
-      // Show success message — user needs to confirm email
-      setError("Prüfe E-Mail für Bestätigung.");
+      setError(t("auth.register.successCheckEmail"));
     }
   };
 
   const handleForgot = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-    if (!email) { setError("Pogrešan e-mail ili lozinka."); return; }
+    if (!email) { setError(t("auth.login.wrongCredentials")); return; }
     setLoading(true);
     await supabase.auth.resetPasswordForEmail(email, {
       redirectTo: `${window.location.origin}/reset-password`,
