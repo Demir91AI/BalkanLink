@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { LogOut, Crown, User, Calendar, RefreshCw, Settings, AlertTriangle, CheckCircle2, History, XCircle, Receipt, ShieldAlert } from "lucide-react";
+import { LogOut, Crown, User, Calendar, RefreshCw, Settings, AlertTriangle, CheckCircle2, History, XCircle, Receipt } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { openCustomerPortal, STRIPE_PRODUCT_IDS } from "@/lib/stripe";
 import { toast } from "@/hooks/use-toast";
