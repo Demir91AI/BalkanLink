@@ -193,13 +193,41 @@ export default function FormRightPanel({ activeSlug, formLabel, formDesc }: Prop
           </a>
         )}
         <div style={{ borderTop: '1px solid #F0EAD8', paddingTop: 12 }}>
-          <p style={{ fontSize: 11, fontWeight: 600, color: GOLD, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 8 }}>Zvanični izvor</p>
-          <a href={meta.sourceUrl} target="_blank" rel="noopener noreferrer"
-            style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#4A4A4A', fontSize: 12, textDecoration: 'none' }}
-            onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = GOLD}
-            onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#4A4A4A'}>
-            <ExternalLink size={11} color={GOLD} />{meta.sourceLabel}
-          </a>
+          <p style={{ fontSize: 11, fontWeight: 600, color: GOLD, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 8 }}>
+            {meta.extraSources && meta.extraSources.length > 0 ? 'Zvanični izvori' : 'Zvanični izvor'}
+          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+            <a
+              href={meta.sourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: 'flex', alignItems: 'flex-start', gap: 6, color: '#4A4A4A', fontSize: 12, textDecoration: 'none', lineHeight: 1.4 }}
+              onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = GOLD)}
+              onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = '#4A4A4A')}
+            >
+              <ExternalLink size={11} color={GOLD} style={{ marginTop: 2, flexShrink: 0 }} />
+              <span>{meta.sourceLabel}</span>
+            </a>
+            {meta.extraSources?.map((s, i) => (
+              <a
+                key={i}
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ display: 'flex', alignItems: 'flex-start', gap: 6, color: '#4A4A4A', fontSize: 12, textDecoration: 'none', lineHeight: 1.4 }}
+                onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = GOLD)}
+                onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = '#4A4A4A')}
+              >
+                <ExternalLink size={11} color={GOLD} style={{ marginTop: 2, flexShrink: 0 }} />
+                <span>{s.label}</span>
+              </a>
+            ))}
+          </div>
+          {meta.sourceHint && (
+            <p style={{ fontSize: 11, color: '#6B6B6B', lineHeight: 1.5, marginTop: 8, fontStyle: 'italic' }}>
+              {meta.sourceHint}
+            </p>
+          )}
         </div>
 
         <div style={{ borderTop: '1px solid #F0EAD8', paddingTop: 10, marginTop: 12 }}>
