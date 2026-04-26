@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PageNav from "@/components/navigation/PageNav";
 import { Button } from "@/components/ui/button";
@@ -10,6 +10,9 @@ import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "@/hooks/use-toast";
 import { SEO } from "@/components/SEO";
 
+// Default cooldown after a failed attempt (seconds). Server `Retry-After` overrides this.
+const DEFAULT_COOLDOWN_SECONDS = 15;
+
 export default function MojiPodaci() {
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
@@ -19,6 +22,19 @@ export default function MojiPodaci() {
   const [confirmText, setConfirmText] = useState("");
   const [showConfirm, setShowConfirm] = useState(false);
   const [deleteError, setDeleteError] = useState<string | null>(null);
+  const [cooldownUntil, setCooldownUntil] = useState<number>(0);
+  const [now, setNow] = useState<number>(() => Date.now());
+  const inFlightRef = useRef(false);
+
+  // Tick every second only while cooldown is active — keeps button label live without churn
+  useEffect(() => {
+    if (cooldownUntil <= Date.now()) return;
+    const id = window.setInterval(() => setNow(Date.now()), 1000);
+    return () => window.clearInterval(id);
+  }, [cooldownUntil]);
+
+  const cooldownRemaining = Math.max(0, Math.ceil((cooldownUntil - now) / 1000));
+  const isCoolingDown = cooldownRemaining > 0;
 
   const describeHttpError = (
     status: number,
