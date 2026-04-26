@@ -1,46 +1,68 @@
-## Šta je problem
+## Scope
+Edit only `src/pages/Pricing.tsx` (the page that contains the three cards iz screenshota — `Paketi.tsx` ne sadrži ove sekcije).
 
-1. **Stripe sync greška na profilu** — `check-subscription` edge funkcija vraća HTTP 500. Provjerio sam logove i kod: greška je u `supabaseClient.auth.getClaims(token)` (vjerovatno JWKS verifikacija puca u edge runtime-u). **Bitno**: Premium status već radi preko `stripe-webhook` koji direktno upisuje u `profiles` tabelu — zato vidiš "Premium aktivan" i transakciju u historiji. Greška u UI je kozmetička i nepotrebno alarmira.
+Stripe je već povezan i `STRIPE_PRICE_IDS` + `initiateCheckout(...)` funkcija već rade (već se koriste za Premium, DeutschTrainer i Featured Firma). Samo trebamo dodati identičnu logiku na sva tri spomenuta proizvoda.
 
-2. **GDPR sekcija (`/moji-podaci`) je previše upadljiva** — dvije velike kartice sa crvenim okvirima i ikonama dominiraju stranicom. Funkcija je obavezna po GDPR-u (čl. 15 export, čl. 17 brisanje) ali ne mora biti glavna atrakcija profila.
+---
 
-3. **JSON export kao CTA dugme** — korisnik se s pravom pita: zašto bi ja preuzimao vlastite podatke. To je legalna formalnost, ne feature.
+## 1. Istakni oglas (Nudim / Tražim)
 
-## Šta ću uraditi
+Trenutno: čisto informativna kartica, bez dugmeta.
 
-### 1. Popravak `check-subscription` 500 greške (`supabase/functions/check-subscription/index.ts`)
-- Zamijeniti `auth.getClaims(token)` sa `auth.getUser(token)` — getUser je stabilan i ne zavisi od JWKS endpoint-a koji ponekad puca.
-- Dodati strukturisano `console.error` logiranje kako bi se buduće greške vidjele u edge logovima (sad je prazno jer catch samo vraća response).
-- Garantovati da se profile ne mijenja u "free" ako Stripe API zakaže (trenutno: ako `customers.list` baci, niko ne update-uje, ali ako prođe sa 0 customera → odmah stavi free što može pogrešno degradirati Premium dok Stripe propagira).
+Promjena — dodati po jedno **„Kupi → "** dugme uz svaku cijenu:
 
-### 2. Smanjiti vizuelni teret greške na profilu (`src/pages/Profil.tsx`)
-- Sakriti crvenu "Sinhronizacija sa Stripe-om nije uspjela" alert kutiju **ako profile.is_premium === true** u bazi (jer onda znamo iz webhook-a da je premium aktivan, sync greška je nebitna).
-- Inače prikazati kao tihi sivi tekst "Status se osvježava…" umjesto crvenog upozorenja.
+- **7 dana — 1,99€** → `initiateCheckout(STRIPE_PRICE_IDS.PRO_AD_7DAY, user.id, "payment")`
+- **30 dana — 4,99€** → `initiateCheckout(STRIPE_PRICE_IDS.PRO_AD_30DAY, user.id, "payment")`
+- **Premium oglas — Gratis** → ostaje bez dugmeta (besplatno za premium korisnike)
 
-### 3. Suptilizacija GDPR pristupa
-**Cilj**: brisanje računa i export ostaju funkcionalni, ali nisu vidljivi kao glavni element.
+Ako user nije ulogovan → `navigate("/login")` (već postoji `handleCheckout` helper koji to radi).
 
-- **Maknuti veliko dugme "Moji podaci (GDPR)" sa profila** (trenutno linija 467-472 u Profil.tsx).
-- **Dodati novu disclosure sekciju "Postavke računa"** na dno profila:
-  - Ispod glavnih akcija (Nadogradi/Historija/Odjava) jedan diskretan accordion ili `<details>` elemenat sa tekstom *"Postavke računa i privatnost"*.
-  - Otvaranjem se prikazuju dva tihana text-link-a (ne dugmad sa ikonama):
-    - *"Preuzmi svoje podatke (GDPR čl. 15)"* → trigger export funkcije direktno (bez navigacije na zasebnu stranicu).
-    - *"Trajno obriši račun"* → otvara `AlertDialog` sa istom OBRIŠI/email konfirmacijom.
-- **Restrukturirati `/moji-podaci`**: stranica ostaje (za direktan link iz Datenschutz dokumenta i SEO), ali kompaktno — jedan small footer-style layout, bez velikih kartica i crvenih boxova. Zadržava cijelu funkcionalnost (export + brisanje sa konfirmacijama) jer je legalno potrebno.
+Stil dugmeta: `variant="outline"`, mali (`h-8`, `text-xs`), zlatni hover, isti pattern kao kod DeutschTrainer „Kupi →" dugmadi da ostane vizuelno konzistentno (UI preservation rule).
 
-### 4. AlertDialog za brisanje (umjesto inline forme)
-Brisanje računa ide kroz shadcn `AlertDialog` koji se otvara iz disclosure linka — sa istom validacijom (email match + tačno "OBRIŠI"), istom backend `delete-account` funkcijom (već je hardened). Nema crvenih okvira na profilu — samo unutar dialoga gdje je primjereno.
+---
 
-## Šta NE diram
-- `delete-account` edge funkciju (već radi sa konfirmacijom + Stripe cancel).
-- `export-user-data` edge funkciju (ostaje kako jest).
-- Webhook + premium logiku (rade ispravno).
-- Test fajl `MojiPodaci.test.tsx` ažuriraću samo ako struktura komponente znatno promijeni selektore.
+## 2. Dokumenten-Check
 
-## Fajlovi koje ću mijenjati
-- `supabase/functions/check-subscription/index.ts` — getUser umjesto getClaims, bolji error logging
-- `src/pages/Profil.tsx` — sakriti sync error ako je premium aktivan, dodati disclosure "Postavke računa", maknuti veliki GDPR link
-- `src/pages/MojiPodaci.tsx` — kompaktan layout, bez velikih kartica
-- `src/pages/MojiPodaci.test.tsx` — ažurirati selektore ako trebaju (zadržati gating logiku)
+Trenutno: prikazuje cijene bez dugmeta.
 
-Pritisni **Approve** da implementiram.
+Promjena:
+- **Jednokratno — 2,99€** → dodati **„Kupi →"** dugme → `initiateCheckout(STRIPE_PRICE_IDS.DOC_CHECK, user.id, "payment")`
+- **Premium 1×/dan gratis** → ostaje bez dugmeta
+
+Isti outline stil kao gore.
+
+---
+
+## 3. Reklamiraj svoju firmu — Featured
+
+Već ima dugme „Zatraži Featured →" koje vodi na Stripe (`FEATURED_FIRMA`, mode `"subscription"`). Provjerio sam — radi ispravno.
+
+Promjene:
+- **Promijeniti label dugmeta** sa „Zatraži Featured →" u **„Kupi Featured →"** (eksplicitnije, kao što je traženo).
+- **Ukloniti red:** `🎉 Promo cijena — prvih 6 mjeseci` (linije 233–235).
+- **Ukloniti red ispod cijene:** „Istaknuta kartica + flow banner" ostaje, ali tekst „prvih 6 mjeseci" se nigdje više ne spominje.
+- Zadržati cijenu **14,99€/mjes.** kao trajnu (ne promo).
+
+---
+
+## 4. Verifikacija Stripe protoka (odmah nakon edita)
+
+Nakon implementacije, koristiću `supabase--curl_edge_functions` da pozovem `create-checkout` edge funkciju sa svakim od 4 nova price ID-a (PRO_AD_7DAY, PRO_AD_30DAY, DOC_CHECK, FEATURED_FIRMA) i potvrdim da Stripe vraća validan checkout URL — bez stvarnog plaćanja, samo provjera da price ID postoji u Stripe-u i da se sesija uspješno kreira.
+
+Ako neki price ID ne postoji u live Stripe katalogu → javit ću korisniku tačno koji nedostaje umjesto da tiho pukne na klik.
+
+---
+
+## Memory update
+
+Ažurirat ću `mem://monetization/pricing-strategy` — uklanja se „promo cijena prvih 6 mjeseci" za Featured Firma; cijena je trajno 14,99€/mj.
+
+---
+
+## Šta NEĆE biti dirano
+
+- `src/pages/Paketi.tsx` (druga stranica, ne sadrži ove sekcije)
+- Layout, boje, ikone, motion animacije (UI preservation)
+- Premium subscription flow (već radi)
+- Stripe edge funkcija `create-checkout` (već radi za sve mode-ove)
+- DeutschTrainer kartice (već imaju Kupi dugmad)
