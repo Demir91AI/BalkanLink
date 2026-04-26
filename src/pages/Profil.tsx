@@ -237,14 +237,19 @@ export default function Profil() {
                 </Button>
               </div>
 
-              {lastError && (
-                <div className="rounded-md border border-destructive/30 bg-destructive/10 p-2.5 text-[11px] text-destructive flex items-start gap-2">
-                  <AlertTriangle className="h-3.5 w-3.5 mt-0.5 shrink-0" />
-                  <div className="space-y-0.5 min-w-0">
-                    <p className="font-medium">Sinhronizacija sa Stripe-om nije uspjela</p>
-                    <p className="text-destructive/80 break-words">{lastError}</p>
-                  </div>
+              {lastError && !isPremium && (
+                <div className="rounded-md border border-amber-500/20 bg-amber-500/5 p-2.5 text-[11px] text-muted-foreground flex items-start gap-2">
+                  <RefreshCw className="h-3.5 w-3.5 mt-0.5 shrink-0 text-amber-500/70" />
+                  <p>
+                    Status se osvježava… Ako Premium nije aktivan u par minuta, klikni{" "}
+                    <span className="font-medium text-foreground">Osvježi status</span>.
+                  </p>
                 </div>
+              )}
+              {lastError && isPremium && (
+                <p className="text-[10px] text-muted-foreground/60 italic">
+                  Premium status potvrđen iz tvog naloga.
+                </p>
               )}
 
               {!lastError && lastSyncedAt && (
