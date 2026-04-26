@@ -16,11 +16,12 @@ export default function Login() {
   
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { t } = useTranslation("common");
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!acceptedTerms) {
-      toast({ title: "Moraš prihvatiti uslove korištenja.", variant: "destructive" });
+      toast({ title: t("auth.login.mustAcceptTerms"), variant: "destructive" });
       return;
     }
     setLoading(true);
@@ -28,9 +29,9 @@ export default function Login() {
     setLoading(false);
 
     if (error) {
-      toast({ title: "Pogrešan e-mail ili lozinka.", description: error.message, variant: "destructive" });
+      toast({ title: t("auth.login.wrongCredentials"), description: error.message, variant: "destructive" });
     } else {
-      toast({ title: "Uspješno prijavljeni!" });
+      toast({ title: t("auth.login.successTitle") });
       navigate("/");
     }
   };
