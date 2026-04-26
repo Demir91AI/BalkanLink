@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -15,11 +16,12 @@ export default function Login() {
   
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { t } = useTranslation("common");
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!acceptedTerms) {
-      toast({ title: "Moraš prihvatiti uslove korištenja.", variant: "destructive" });
+      toast({ title: t("auth.login.mustAcceptTerms"), variant: "destructive" });
       return;
     }
     setLoading(true);
@@ -27,9 +29,9 @@ export default function Login() {
     setLoading(false);
 
     if (error) {
-      toast({ title: "Pogrešan e-mail ili lozinka.", description: error.message, variant: "destructive" });
+      toast({ title: t("auth.login.wrongCredentials"), description: error.message, variant: "destructive" });
     } else {
-      toast({ title: "Uspješno prijavljeni!" });
+      toast({ title: t("auth.login.successTitle") });
       navigate("/");
     }
   };
@@ -62,7 +64,7 @@ export default function Login() {
             <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-[hsl(var(--brand-orange)/0.12)] mb-4">
               <LogIn className="w-5 h-5 text-[hsl(var(--brand-orange))]" />
             </div>
-            <h1 className="text-2xl font-bold text-foreground tracking-tight">Prijava</h1>
+            <h1 className="text-2xl font-bold text-foreground tracking-tight">{t("auth.login.title")}</h1>
           </div>
 
           <form onSubmit={handleLogin} className="space-y-4">
@@ -73,7 +75,7 @@ export default function Login() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="E-mail adresa"
+                placeholder={t("auth.login.emailPlaceholder")}
                 className="w-full h-11 pl-10 pr-4 rounded-xl border border-border/60 bg-background/60 text-sm text-foreground placeholder:text-muted-foreground/50 shadow-sm shadow-black/[0.03] transition-all duration-200 focus:outline-none focus:border-[hsl(var(--brand-orange)/0.5)] focus:ring-2 focus:ring-[hsl(var(--brand-orange)/0.15)] focus:shadow-[0_0_0_4px_hsl(var(--brand-orange)/0.08)]"
               />
             </div>
@@ -85,7 +87,7 @@ export default function Login() {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="Lozinka"
+                placeholder={t("auth.login.passwordPlaceholder")}
                 className="w-full h-11 pl-10 pr-4 rounded-xl border border-border/60 bg-background/60 text-sm text-foreground placeholder:text-muted-foreground/50 shadow-sm shadow-black/[0.03] transition-all duration-200 focus:outline-none focus:border-[hsl(var(--brand-orange)/0.5)] focus:ring-2 focus:ring-[hsl(var(--brand-orange)/0.15)] focus:shadow-[0_0_0_4px_hsl(var(--brand-orange)/0.08)]"
               />
             </div>
@@ -98,13 +100,13 @@ export default function Login() {
                 className="mt-0.5 h-3.5 w-3.5 rounded border-border/60"
               />
               <label htmlFor="terms" className="cursor-pointer text-[11px] leading-relaxed text-muted-foreground/70">
-                Prihvatam uslove korištenja{" "}
+                {t("auth.login.termsPrefix")}{" "}
                 <Link to="/agb" target="_blank" className="font-medium text-[hsl(var(--brand-orange))] hover:underline">
-                  Uslovi korištenja
+                  {t("auth.login.termsLink")}
                 </Link>{" "}
-                i{" "}
+                {t("auth.login.termsAnd")}{" "}
                 <Link to="/datenschutz" target="_blank" className="font-medium text-[hsl(var(--brand-orange))] hover:underline">
-                  Politiku privatnosti
+                  {t("auth.login.privacyLink")}
                 </Link>
               </label>
             </div>
@@ -116,16 +118,16 @@ export default function Login() {
               disabled={loading || !acceptedTerms}
               className="w-full h-11 rounded-xl bg-gradient-to-r from-[hsl(var(--brand-orange))] to-[hsl(var(--gold-light))] text-white font-semibold text-sm shadow-md shadow-[hsl(var(--brand-orange)/0.25)] hover:shadow-lg hover:shadow-[hsl(var(--brand-orange)/0.35)] hover:brightness-105 active:scale-[0.98] transition-all duration-200 disabled:opacity-50 disabled:shadow-none"
             >
-              {loading ? "Prijava..." : "Prijavi se"}
+              {loading ? t("auth.login.loading") : t("auth.login.submit")}
             </Button>
           </form>
 
           <div className="mt-5 flex items-center justify-between text-[12px]">
             <Link to="/forgot-password" className="text-muted-foreground/60 hover:text-[hsl(var(--brand-orange))] transition-colors">
-              Zaboravljena lozinka?
+              {t("auth.login.forgotPassword")}
             </Link>
             <Link to="/register" className="font-medium text-[hsl(var(--brand-orange))] hover:underline">
-              Nemaš nalog? Registruj se
+              {t("auth.login.noAccount")}
             </Link>
           </div>
         </div>
