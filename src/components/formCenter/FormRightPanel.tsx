@@ -53,6 +53,7 @@ const FORM_META: Record<string, FormMeta> = {
   "nichterreichbarkeit":{ agency: "Jobcenter",                                                      onlineUrl: "https://jobcenter.digital", sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
   "arbeitsbescheinigung":{ agency: "Agentur für Arbeit",           musterSlug: "arbeitsbescheinigung", sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
   "antragsruecknahme":  { agency: "Jobcenter",                    musterSlug: "antragsruecknahme",  sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
+  "wirtschaftliche-jugendhilfe": { agency: "Jugendamt (lokal)",   musterSlug: "wirtschaftliche-jugendhilfe", sourceLabel: "SGB VIII — Hilfe zur Erziehung (gesetze-im-internet.de)", sourceUrl: "https://www.gesetze-im-internet.de/sgb_8/__27.html" },
 };
 
 interface Props {
