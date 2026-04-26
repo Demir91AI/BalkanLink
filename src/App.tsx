@@ -109,6 +109,7 @@ const Profil = lazy(() => import("./pages/Profil"));
 const HistorijaPlacanja = lazy(() => import("./pages/HistorijaPlacanja"));
 const MojiPodaci = lazy(() => import("./pages/MojiPodaci"));
 const Mietrecht = lazy(() => import("./pages/Mietrecht"));
+const SchufaSimulator = lazy(() => import("./pages/SchufaSimulator"));
 
 // Dev-only visual fixtures (excluded from production bundle behaviour via guard).
 const VisualFlagBA = lazy(() => import("./pages/__visual/VisualFlagBA"));
@@ -191,6 +192,8 @@ function LocalizedRoutes() {
         <Route path="guide/:slug" element={<LegacyGuideRedirect />} />
         <Route path="smart-guide/:slug" element={<LegacyGuideRedirect />} />
         <Route path="dokumenten-check" element={<DokumentenCheck />} />
+        <Route path="schufa-simulator" element={<SchufaSimulator />} />
+        <Route path="bonitet" element={<Navigate to="../schufa-simulator" replace />} />
         <Route element={<AdminGuard />}>
           <Route path="admin/forms" element={<AdminForms />} />
           <Route path="admin/forms/:slug/mapper" element={<AdminFormMapper />} />
