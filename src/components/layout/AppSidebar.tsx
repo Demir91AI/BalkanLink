@@ -124,7 +124,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
                 </div>
                 <div className="min-w-0">
                   <p className="text-sm font-semibold text-[#2D2D2D]">
-                    Dobro došao/la, {firstName}!
+                    {t("sidebar.greeting", { name: firstName })}
                   </p>
                   <p className="mt-0.5 truncate text-sm text-muted-foreground">{user.email}</p>
                 </div>
@@ -138,7 +138,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
                 }`}
               >
                 <Receipt className={`h-[18px] w-[18px] shrink-0 ${location.pathname === "/profil/placanja" ? "text-[hsl(var(--gold))]" : ""}`} />
-                <span className="text-[14px] font-medium">Historija plaćanja</span>
+                <span className="text-[14px] font-medium">{t("sidebar.paymentHistory")}</span>
               </button>
               <div className="mt-4 h-px bg-border/80" />
             </div>
@@ -148,7 +148,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
               className="flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-left text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D] transition-all duration-200"
             >
               <LogIn className="h-[18px] w-[18px] shrink-0" />
-              <span className="text-[14px] font-medium">Prijavi se / Registruj se</span>
+              <span className="text-[14px] font-medium">{t("sidebar.loginRegister")}</span>
             </button>
           )}
         </div>
