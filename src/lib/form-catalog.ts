@@ -136,15 +136,6 @@ export const formCatalog: FormGroup[] = [
       { slug: "kirchenaustritt", label: "Kirchenaustritt", desc: "Istupanje iz crkve radi ukidanja crkvenog poreza.", includes: "Vodič + Antrag Kirchenaustritt" },
     ],
   },
-  {
-    id: "ostalo",
-    icon: "📂",
-    title: "Ostalo",
-    items: [
-      { slug: "krankenkasse", label: "Krankenkasse", desc: "Prijava na zdravstveno osiguranje u Njemačkoj.", includes: "Smart Guide + Anmeldeformular" },
-      { slug: "steuerklassenwechsel", label: "Steuerklassenwechsel", desc: "Promjena porezne klase, npr. nakon vjenčanja.", includes: "Smart Guide + Antrag" },
-    ],
-  },
 ];
 
 /** Slugs that have a Musterformular page at /musterformular/:musterSlug */
