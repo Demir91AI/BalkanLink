@@ -34,9 +34,9 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
     { title: t("sidebar.items.viza"), url: "/viza", icon: Shield, premium: true, isNew: false },
     { title: t("sidebar.items.deutschTrainer"), url: "/deutsch-trainer", icon: BookOpen, premium: true, isNew: false },
     { title: t("sidebar.items.dokumentenCheck"), url: "/dokumenten-check", icon: Camera, premium: true, isNew: false },
-    { title: "Bonitet Simulator", url: "/schufa-simulator", icon: Gauge, premium: true, isNew: true },
-    { title: t("sidebar.items.nudimTrazim"), url: "/nudim-trazim", icon: Megaphone, premium: false, isNew: false },
-    { title: t("sidebar.items.vorlagen"), url: "/vorlagen", icon: FileCheck, premium: false, isNew: false },
+    { title: "Bonitet Simulator", url: "/schufa-simulator", icon: Gauge, premium: true, isNew: false, isFree: false },
+    { title: t("sidebar.items.nudimTrazim"), url: "/nudim-trazim", icon: Megaphone, premium: false, isNew: false, isFree: true },
+    { title: t("sidebar.items.vorlagen"), url: "/vorlagen", icon: FileCheck, premium: false, isNew: false, isFree: true },
   ];
 
   const secondaryItems = [
@@ -202,6 +202,11 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
                   {item.isNew && (
                     <span className="ml-auto shrink-0 rounded-full bg-emerald-500 px-1.5 py-0.5 text-[8px] font-bold leading-none text-white animate-pulse">
                       NOVO
+                    </span>
+                  )}
+                  {item.isFree && (
+                    <span className="ml-auto shrink-0 rounded-full bg-emerald-600 px-1.5 py-0.5 text-[8px] font-bold leading-none text-white">
+                      FREE
                     </span>
                   )}
                   {item.premium && !item.isNew && (
