@@ -63,7 +63,7 @@ function ShowcaseCarousel() {
                      <img src={firm.logoUrl} alt={firm.logoAlt} className="h-6 max-w-[90px] object-contain drop-shadow-sm" />
                   </div>
                   <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider" style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))", color: "#000" }}>
-                    <Star className="h-2.5 w-2.5 fill-current" /> Preporučeno
+                    <Star className="h-2.5 w-2.5 fill-current" /> {tRecommended}
                   </span>
                 </div>
                 <div className="flex flex-1 flex-col gap-3 p-5" style={{ borderTop: "2px solid hsl(var(--gold))" }}>
