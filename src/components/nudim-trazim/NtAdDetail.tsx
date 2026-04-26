@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { ChevronLeft, MapPin, Calendar, Eye, Star, Shield } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -15,8 +16,10 @@ interface Props {
 }
 
 export default function NtAdDetail({ ad, onBack, onOpen }: Props) {
+  const { t } = useTranslation("pages");
   const [showContact, setShowContact] = useState(false);
-  const catLabel = NT_CATEGORIES.find((c) => c.value === ad.category)?.label ?? ad.category;
+  const fallbackCat = NT_CATEGORIES.find((c) => c.value === ad.category)?.label ?? ad.category;
+  const catLabel = t(`classifieds.categories.${ad.category}`, fallbackCat);
   const dateStr = new Date(ad.created_at).toLocaleDateString("de-DE", {
     day: "2-digit",
     month: "2-digit",
@@ -28,7 +31,7 @@ export default function NtAdDetail({ ad, onBack, onOpen }: Props) {
   return (
     <div className="space-y-8">
       <button onClick={onBack} className="back-button">
-        <ChevronLeft className="h-4 w-4" /> Nazad
+        <ChevronLeft className="h-4 w-4" /> {t("classifieds.detail.back")}
       </button>
 
       <Card className="border-border/60">
@@ -41,7 +44,7 @@ export default function NtAdDetail({ ad, onBack, onOpen }: Props) {
                   : "bg-primary/10 text-primary"
               }
             >
-              {ad.type === "nudim" ? "Ich biete" : "Ich suche"}
+              {ad.type === "nudim" ? t("classifieds.ad.labelOfferingDe") : t("classifieds.ad.labelSeekingDe")}
             </Badge>
             <Badge variant="outline">{catLabel}</Badge>
             {ad.is_pro && (
@@ -65,7 +68,7 @@ export default function NtAdDetail({ ad, onBack, onOpen }: Props) {
             <AuthGate>
               <Button onClick={() => setShowContact((v) => !v)} className="gap-2">
                 <Eye className="h-4 w-4" />
-                {showContact ? ad.contact_value : "Prikaži kontakt"}
+                {showContact ? ad.contact_value : t("classifieds.detail.showContact")}
               </Button>
             </AuthGate>
           </div>
@@ -73,14 +76,14 @@ export default function NtAdDetail({ ad, onBack, onOpen }: Props) {
           {/* Safety hint */}
           <div className="flex items-start gap-3 rounded-lg bg-muted/50 p-4 text-sm text-muted-foreground">
             <Shield className="h-5 w-5 mt-0.5 shrink-0" />
-            <p>{"Budite oprezni pri kontaktu. BalkanLink ne provjerava identitet oglašivača i ne odgovara za dogovorene usluge."}</p>
+            <p>{t("classifieds.detail.safetyHint")}</p>
           </div>
         </CardContent>
       </Card>
 
       {similar.length > 0 && (
         <div className="space-y-4">
-          <h2 className="text-lg font-semibold text-foreground">{"Slični oglasi"}</h2>
+          <h2 className="text-lg font-semibold text-foreground">{t("classifieds.detail.similar")}</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {similar.map((a) => (
               <NtAdCard key={a.id} ad={a} onOpen={onOpen} />

@@ -2,6 +2,7 @@ import {
   Briefcase, Home, Wrench, Car,
   ShoppingBag, Baby, MoreHorizontal,
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { NT_CATEGORIES } from "@/lib/nudim-trazim-constants";
 const ICONS: Record<string, React.ElementType> = {
   Briefcase, Home, Wrench, Car,
@@ -14,6 +15,7 @@ interface Props {
 }
 
 export default function NtCategoryChips({ active, onSelect }: Props) {
+  const { t } = useTranslation("pages");
   return (
     <div className="flex flex-wrap gap-2">
       <button
@@ -24,7 +26,7 @@ export default function NtCategoryChips({ active, onSelect }: Props) {
             : "bg-secondary text-secondary-foreground hover:bg-accent"
         }`}
       >
-        {"Sve"}
+        {t("classifieds.filters.all")}
       </button>
       {NT_CATEGORIES.map((c) => {
         const Icon = ICONS[c.icon];
@@ -40,7 +42,7 @@ export default function NtCategoryChips({ active, onSelect }: Props) {
             }`}
           >
             {Icon && <Icon className="h-3.5 w-3.5" />}
-            {c.label}
+            {t(`classifieds.categories.${c.value}`, c.label)}
           </button>
         );
       })}

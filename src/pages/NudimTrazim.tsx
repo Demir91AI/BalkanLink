@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { SEO } from "@/components/SEO";
 import { PlusCircle, Megaphone, Search as SearchIcon, Star, Check, ChevronLeft, Home, ClipboardList } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -16,6 +17,7 @@ import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 
 export default function NudimTrazim() {
+  const { t } = useTranslation("pages");
   const navigate = useNavigate();
   const { searchParams, setSearchState } = useHistorySearchState();
   const [filters, setFilters] = useState({
@@ -141,9 +143,21 @@ export default function NudimTrazim() {
     );
   }
 
+  const heroStats = [
+    { value: "100%", label: t("classifieds.hero.statFree") },
+    { value: "7", label: t("classifieds.hero.statCategories") },
+    { value: "🇩🇪", label: t("classifieds.hero.statGermany") },
+  ];
+
+  const proBenefits = [
+    t("classifieds.pro.benefit1"),
+    t("classifieds.pro.benefit2"),
+    t("classifieds.pro.benefit3"),
+  ];
+
   return (
     <div className="min-h-screen bg-background">
-      <SEO title="Mali oglasi — Nudim & Tražim" description="Mali oglasi balkanske dijaspore u Njemačkoj — posao, stanovi, usluge." path="/nudim-trazim" />
+      <SEO title={t("classifieds.seoTitle")} description={t("classifieds.seoDescription")} path="/nudim-trazim" />
       {/* ── Hero ── */}
       <section className="relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0a1628 0%, #0f1f3d 40%, #1a2a50 100%)' }}>
         <div className="pointer-events-none absolute inset-0" style={{
@@ -152,25 +166,25 @@ export default function NudimTrazim() {
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8 py-14 md:py-20">
           <div className="flex items-center gap-3 mb-8">
             <button onClick={handleBack} className="flex items-center gap-1.5 text-[13px] font-medium text-white/50 hover:text-white transition-colors">
-              <ChevronLeft className="h-4 w-4" /> Nazad
+              <ChevronLeft className="h-4 w-4" /> {t("navigation.back")}
             </button>
             <button onClick={() => navigate("/")} className="flex items-center gap-1.5 text-[13px] font-medium text-white/50 hover:text-white transition-colors">
-              <Home className="h-4 w-4" /> Početna
+              <Home className="h-4 w-4" /> {t("navigation.home")}
             </button>
           </div>
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#C9A84C]/30 bg-[#C9A84C]/10 px-4 py-1.5 mb-5">
               <Megaphone className="h-3.5 w-3.5 text-[#C9A84C]" />
-              <span className="text-[11px] font-bold uppercase tracking-widest text-[#C9A84C]">Balkan-Community</span>
+              <span className="text-[11px] font-bold uppercase tracking-widest text-[#C9A84C]">{t("classifieds.hero.badge")}</span>
             </div>
             <h1 className="text-4xl sm:text-5xl font-black text-white leading-tight mb-4">
-              Ponudi, traži,<br />
+              {t("classifieds.hero.headlineLine1")}<br />
             <span style={{ background: 'linear-gradient(90deg, #C9A84C, #F0D080)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                poveži se.
+                {t("classifieds.hero.headlineLine2")}
               </span>
             </h1>
             <p className="text-white/60 text-base sm:text-lg leading-relaxed mb-8 max-w-xl">
-              Balkanska oglasna platforma u Njemačkoj — posao, stanovi, usluge, prevoz i više. Besplatno, brzo, jednostavno.
+              {t("classifieds.hero.subline")}
             </p>
             <div className="flex flex-wrap gap-3 mb-10">
               <button
@@ -178,21 +192,17 @@ export default function NudimTrazim() {
                 className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold text-[#0f1f3d] transition-all hover:opacity-90 hover:scale-[1.02]"
                 style={{ background: 'linear-gradient(135deg, #C9A84C, #F0D080)' }}
               >
-                <PlusCircle className="h-4 w-4" /> Objavi besplatno oglas
+                <PlusCircle className="h-4 w-4" /> {t("classifieds.hero.ctaPostFree")}
               </button>
               <button
                 onClick={openForm}
                 className="inline-flex items-center gap-2 rounded-full border-2 border-white/20 bg-white/5 px-7 py-3.5 text-sm font-bold text-white backdrop-blur transition-all hover:bg-white/10 hover:border-white/40"
               >
-                <SearchIcon className="h-4 w-4" /> Pretraži oglase
+                <SearchIcon className="h-4 w-4" /> {t("classifieds.hero.ctaSearch")}
               </button>
             </div>
             <div className="flex flex-wrap gap-6">
-              {[
-                { value: "100%", label: "Besplatno" },
-                { value: "7", label: "Kategorija" },
-                { value: "🇩🇪", label: "Cijela Njemačka" },
-              ].map(s => (
+              {heroStats.map(s => (
                 <div key={s.label} className="flex items-center gap-2">
                   <span className="text-lg font-black text-white">{s.value}</span>
                   <span className="text-[12px] text-white/40">{s.label}</span>
@@ -219,16 +229,16 @@ export default function NudimTrazim() {
                 <Star className="h-5 w-5 text-[hsl(var(--gold))]" />
               </div>
               <div className="flex-1">
-                <h3 className="font-bold text-sm">PRO oglasi</h3>
-                <p className="mt-1 text-xs text-muted-foreground">Istakni svoj oglas i dosegni više ljudi.</p>
+                <h3 className="font-bold text-sm">{t("classifieds.pro.title")}</h3>
+                <p className="mt-1 text-xs text-muted-foreground">{t("classifieds.pro.subtitle")}</p>
                 <ul className="mt-2 space-y-1">
-                  {["Tvoj oglas stoji na vrhu", "Dobija PRO oznaku", "Više pregleda i upita"].map((txt) => (
+                  {proBenefits.map((txt) => (
                     <li key={txt} className="flex items-center gap-1.5 text-xs text-muted-foreground">
                       <Check className="h-3 w-3 text-[hsl(var(--gold))] shrink-0" /> {txt}
                     </li>
                   ))}
                 </ul>
-                <p className="mt-2 text-[11px] text-muted-foreground">Objavljivanje oglasa je besplatno. PRO je opcija za veću vidljivost.</p>
+                <p className="mt-2 text-[11px] text-muted-foreground">{t("classifieds.pro.freeNote")}</p>
               </div>
               <Button
                 size="sm"
@@ -236,7 +246,7 @@ export default function NudimTrazim() {
                 className="shrink-0 border-[hsl(var(--gold))]/40 text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/10 text-xs"
                 onClick={openProModal}
               >
-                <Star className="mr-1 h-3 w-3" /> Saznaj više
+                <Star className="mr-1 h-3 w-3" /> {t("classifieds.pro.learnMore")}
               </Button>
             </div>
           </div>
@@ -252,7 +262,7 @@ export default function NudimTrazim() {
                         ? "bg-[hsl(var(--success))]/10 text-[hsl(var(--success))]"
                         : "bg-primary/10 text-primary"
                     }`}>
-                      {ad.type === "nudim" ? "NUDIM" : "TRAŽIM"}
+                      {ad.type === "nudim" ? t("classifieds.ad.labelOffering") : t("classifieds.ad.labelSeeking")}
                     </span>
                   </div>
                   <NtAdCard ad={ad} onOpen={openAd} />
@@ -264,23 +274,23 @@ export default function NudimTrazim() {
               <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-muted">
                 <ClipboardList className="h-8 w-8 text-muted-foreground" />
               </div>
-              <h3 className="text-xl font-bold text-foreground">Još nema oglasa</h3>
+              <h3 className="text-xl font-bold text-foreground">{t("classifieds.empty.title")}</h3>
               <p className="text-muted-foreground max-w-md mx-auto">
-                Budi prvi koji objavi oglas u svojoj zajednici!
+                {t("classifieds.empty.body")}
               </p>
               <Button onClick={openForm} size="lg" className="gap-2 mt-2">
-                <PlusCircle className="h-4 w-4" /> Objavi oglas →
+                <PlusCircle className="h-4 w-4" /> {t("classifieds.empty.cta")}
               </Button>
             </div>
           )}
 
           {/* CTA */}
           <section className="rounded-xl bg-muted/50 border border-border p-8 text-center space-y-4">
-            <h2 className="text-xl font-bold text-foreground">Želiš objaviti oglas?</h2>
-            <p className="text-muted-foreground max-w-lg mx-auto">Brzo i jednostavno objavi šta nudiš ili tražiš.</p>
+            <h2 className="text-xl font-bold text-foreground">{t("classifieds.ctaSection.title")}</h2>
+            <p className="text-muted-foreground max-w-lg mx-auto">{t("classifieds.ctaSection.body")}</p>
             <div className="flex flex-col sm:flex-row justify-center gap-3">
               <Button size="lg" onClick={openForm} className="gap-2">
-                <PlusCircle className="h-4 w-4" /> Objavi besplatno oglas
+                <PlusCircle className="h-4 w-4" /> {t("classifieds.ctaSection.post")}
               </Button>
               <Button
                 size="lg"
@@ -288,14 +298,14 @@ export default function NudimTrazim() {
                 className="gap-2 border-[hsl(var(--gold))] text-[hsl(var(--gold))] font-semibold hover:bg-[hsl(var(--gold))]/15 hover:border-[hsl(var(--gold))]"
                 onClick={openProModal}
               >
-                <Star className="h-4 w-4" /> Istakni kao PRO
+                <Star className="h-4 w-4" /> {t("classifieds.ctaSection.highlightPro")}
               </Button>
             </div>
-            <p className="text-xs text-muted-foreground">Objavljivanje oglasa je besplatno. PRO je opcija za veću vidljivost.</p>
+            <p className="text-xs text-muted-foreground">{t("classifieds.ctaSection.freeNote")}</p>
           </section>
 
           <p className="text-xs text-muted-foreground text-center max-w-3xl mx-auto leading-relaxed pt-4 border-t border-border">
-            BalkanLink u ovom dijelu služi isključivo kao posrednička i oglasna platforma. Za sadržaj, dogovore ili usluge korisnika se ne preuzima odgovornost.
+            {t("classifieds.footerNote")}
           </p>
         </div>
       </div>

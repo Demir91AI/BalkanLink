@@ -1,18 +1,19 @@
 import { useState } from "react";
 import { Lock, UserPlus, CheckCircle } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { useAuth } from "@/contexts/AuthContext";
 import { useSubscription } from "@/hooks/useSubscription";
 import AuthModal from "@/components/auth/AuthModal";
 import { useNavigate } from "react-router-dom";
 
-const BENEFITS = [
-  "Detalji za svaki dokument",
-  "Svi koraci do predaje",
-  "Adrese i radno vrijeme ureda",
-  "Savjeti za brži termin",
-  "Šta raditi ako bude odbijeno",
-  "Musterformulari za ovu vizu",
-];
+const BENEFIT_KEYS = [
+  "docDetails",
+  "allSteps",
+  "addresses",
+  "tips",
+  "ifRejected",
+  "muster",
+] as const;
 
 /**
  * Inline gate card shown after free preview content.
@@ -21,12 +22,15 @@ const BENEFITS = [
  * - Premium → nothing rendered
  */
 export default function VisaGateCard() {
+  const { t } = useTranslation("pages");
   const { user } = useAuth();
   const { isPremium } = useSubscription();
   const [authOpen, setAuthOpen] = useState(false);
   const navigate = useNavigate();
 
   if (isPremium) return null;
+
+  const benefits = BENEFIT_KEYS.map((k) => t(`visa.gateCard.benefits.${k}`));
 
   // ── Premium upsell for logged-in users ──
   if (user) {
@@ -36,11 +40,11 @@ export default function VisaGateCard() {
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[hsl(var(--gold))]/10">
             <Lock className="h-5 w-5 text-[hsl(var(--gold))]" />
           </div>
-          <h3 className="text-lg font-bold text-[#1A1A2E]">Otključaj kompletan vodič</h3>
+          <h3 className="text-lg font-bold text-[#1A1A2E]">{t("visa.gateCard.premiumTitle")}</h3>
         </div>
 
         <ul className="space-y-2 mb-6">
-          {BENEFITS.map((b) => (
+          {benefits.map((b) => (
             <li key={b} className="flex items-start gap-2 text-sm text-[#4A4A4A]">
               <CheckCircle className="h-4 w-4 text-[hsl(var(--gold))] shrink-0 mt-0.5" />
               {b}
@@ -56,7 +60,7 @@ export default function VisaGateCard() {
             color: "hsl(var(--gold-foreground))",
           }}
         >
-          Otključaj Premium — 9.99€/mjes.
+          {t("visa.gateCard.premiumCta")}
         </button>
       </div>
     );
@@ -70,11 +74,11 @@ export default function VisaGateCard() {
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[hsl(var(--gold))]/10">
             <UserPlus className="h-5 w-5 text-[hsl(var(--gold))]" />
           </div>
-          <h3 className="text-lg font-bold text-[#1A1A2E]">Vidi kompletan vodič</h3>
+          <h3 className="text-lg font-bold text-[#1A1A2E]">{t("visa.gateCard.anonTitle")}</h3>
         </div>
 
         <ul className="space-y-2 mb-6">
-          {BENEFITS.map((b) => (
+          {benefits.map((b) => (
             <li key={b} className="flex items-start gap-2 text-sm text-[#4A4A4A]">
               <CheckCircle className="h-4 w-4 text-[hsl(var(--gold))] shrink-0 mt-0.5" />
               {b}
@@ -91,13 +95,13 @@ export default function VisaGateCard() {
           }}
         >
           <UserPlus className="h-4 w-4" />
-          Registruj se besplatno →
+          {t("visa.gateCard.registerCta")}
         </button>
         <button
           onClick={() => setAuthOpen(true)}
           className="mt-2 w-full text-xs text-[#9CA3AF] hover:text-[#6B6B6B] transition-colors"
         >
-          Već imaš nalog? <span className="underline">Prijavi se</span>
+          {t("visa.gateCard.haveAccount")} <span className="underline">{t("visa.gateCard.signIn")}</span>
         </button>
       </div>
 

@@ -1,4 +1,5 @@
 import { useCallback } from "react";
+import { useTranslation } from "react-i18next";
 import { SEO } from "@/components/SEO";
 import { useSearchParams } from "react-router-dom";
 import PageNavBar from "@/components/navigation/PageNavBar";
@@ -7,7 +8,7 @@ import { VisaContentRenderer } from "@/components/visaNavigator/VisaContentRende
 import VisaRightPanel from "@/components/visaNavigator/VisaRightPanel";
 
 export default function Viza() {
-  
+  const { t } = useTranslation("pages");
   const [searchParams, setSearchParams] = useSearchParams();
 
   const selectedCountry = searchParams.get("country") || null;
@@ -40,13 +41,13 @@ export default function Viza() {
 
   return (
     <div className="min-h-screen" style={{ background: "#F5F0E8" }}>
-      <SEO title="Viza Navigator — Boravišna Dozvola u Njemačkoj" description="Saznaj koje dokumente trebaš za vizu ili boravišnu dozvolu, ovisno o državljanstvu." path="/viza" />
+      <SEO title={t("visa.navTitle")} description={t("visa.subtitle")} path="/viza" />
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-12 py-6 lg:py-8">
         <PageNavBar />
 
         <div className="mb-4">
-          <h1 className="text-[28px] font-bold text-[#2D2D2D]">Visa Navigator</h1>
-          <p className="text-[16px] text-[#6B6B6B] mt-1">Pronađi pravi status za tvoju situaciju</p>
+          <h1 className="text-[28px] font-bold text-[#2D2D2D]">{t("visa.navTitle")}</h1>
+          <p className="text-[16px] text-[#6B6B6B] mt-1">{t("visa.navSubtitle")}</p>
         </div>
 
         {/* Breadcrumb */}
@@ -54,7 +55,7 @@ export default function Viza() {
           <button onClick={handleClearAll}
             className="text-[13px] transition-colors hover:underline"
             style={{ color: selectedCountry ? '#9CA3AF' : '#2D2D2D', fontWeight: selectedCountry ? 400 : 500 }}>
-            Visa Navigator
+            {t("visa.navTitle")}
           </button>
           {selectedCountry && country && (
             <>
@@ -81,7 +82,7 @@ export default function Viza() {
           {/* LEFT SIDEBAR */}
           <div className="hidden md:block w-[220px] flex-shrink-0">
             <div className="sticky top-6">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-3 text-[hsl(var(--gold))]">EU-Länder</p>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-3 text-[hsl(var(--gold))]">{t("visa.sidebar.euCountries")}</p>
               <div className="flex flex-col gap-1 mb-5">
                 {euCountries.map(c => {
                   const active = selectedCountry === c.code;
@@ -103,7 +104,7 @@ export default function Viza() {
                 })}
               </div>
 
-              <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-3 text-[hsl(var(--gold))]">Balkanländer</p>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-3 text-[hsl(var(--gold))]">{t("visa.sidebar.balkanCountries")}</p>
               <div className="flex flex-col gap-1">
                 {nonEuCountries.map(c => {
                   const active = selectedCountry === c.code;
@@ -129,7 +130,7 @@ export default function Viza() {
               {country && !country.isEU && (
                 <>
                   <div className="h-px my-4" style={{ background: '#F0EAD8' }} />
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-3 text-[hsl(var(--gold))]">Routen</p>
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-3 text-[hsl(var(--gold))]">{t("visa.sidebar.routes")}</p>
                   <div className="flex flex-col gap-1">
                     {country.routes.map((r) => {
                       const active = selectedRoute === r.id;

@@ -1,4 +1,5 @@
 import { Globe, ExternalLink } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { COUNTRY_CONTENT } from "@/data/vizaNavigatorContent";
 
 interface Props {
@@ -8,6 +9,7 @@ interface Props {
 }
 
 const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props) => {
+  const { t } = useTranslation("pages");
   const country = COUNTRY_CONTENT.find(c => c.code === selectedCountry);
   const route = selectedRoute && country ? country.routes.find(r => r.id === selectedRoute) : null;
 
@@ -21,11 +23,11 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
         <div style={{ textAlign: 'center', marginBottom: 24 }}>
           <Globe size={40} color="#C9A84C" style={{ margin: '0 auto 12px', display: 'block' }} />
           <p style={{ fontSize: 13, color: '#6B6B6B', lineHeight: 1.6 }}>
-            Wähle ein Land aus dem linken Menü, um Informationen zu Visa und Aufenthaltsgenehmigungen zu finden.
+            {t("visa.rightPanel.introBody")}
           </p>
         </div>
         <div style={{ borderTop: '1px solid #F0EAD8', paddingTop: 16 }}>
-          <p style={{ fontSize: 11, fontWeight: 600, color: '#C9A84C', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 10 }}>Nützliche Links</p>
+          <p style={{ fontSize: 11, fontWeight: 600, color: '#C9A84C', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 10 }}>{t("visa.rightPanel.usefulLinks")}</p>
           {[
             { label: 'BAMF', url: 'https://www.bamf.de' },
             { label: 'Make it in Germany', url: 'https://www.make-it-in-germany.com' },
@@ -40,7 +42,7 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
         </div>
         <div style={{ borderTop: '1px solid #F0EAD8', paddingTop: 12, marginTop: 4 }}>
           <p style={{ fontSize: 11, color: '#9CA3AF', lineHeight: 1.5 }}>
-            BalkanLink pruža informativne smjernice. Stanje 2026.
+            {t("visa.rightPanel.disclaimer")}
           </p>
         </div>
       </div>
@@ -74,7 +76,7 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
         ))}
         <div style={{ borderTop: '1px solid #F0EAD8', paddingTop: 12, marginTop: 8 }}>
           <p style={{ fontSize: 11, color: '#9CA3AF', lineHeight: 1.5 }}>
-            BalkanLink pruža informativne smjernice. Stanje 2026.
+            {t("visa.rightPanel.disclaimer")}
           </p>
         </div>
       </div>
@@ -100,7 +102,7 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
           <ExternalLink size={13} color="#C9A84C" />
         </a>
         <div style={{ borderTop: '1px solid #F0EAD8', paddingTop: 12 }}>
-          <p style={{ fontSize: 11, fontWeight: 600, color: '#C9A84C', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 8 }}>Službeni izvori</p>
+          <p style={{ fontSize: 11, fontWeight: 600, color: '#C9A84C', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 8 }}>{t("visa.rightPanel.officialSources")}</p>
           {route.sources.slice(0, 3).map((s, i) => (
             <a key={i} href={s.url} target="_blank" rel="noopener noreferrer"
               style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#4A4A4A', fontSize: 12, textDecoration: 'none', marginBottom: 6 }}
@@ -112,7 +114,7 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
         </div>
         <div style={{ borderTop: '1px solid #F0EAD8', paddingTop: 10, marginTop: 8 }}>
           <p style={{ fontSize: 11, color: '#9CA3AF', lineHeight: 1.5 }}>
-            BalkanLink pruža informativne smjernice. Stanje 2026.
+            {t("visa.rightPanel.disclaimer")}
           </p>
         </div>
       </div>
