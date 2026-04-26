@@ -1,8 +1,10 @@
 import { Star, Check, X, Crown, Flame } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { toast } from "sonner";
+import { useAuth } from "@/contexts/AuthContext";
+import { initiateCheckout, STRIPE_PRICE_IDS } from "@/lib/stripe";
 
 interface Props {
   open: boolean;
@@ -11,11 +13,25 @@ interface Props {
 
 export default function NtProModal({ open, onClose }: Props) {
   const [selected, setSelected] = useState<"free" | "pro" | "premium">("pro");
+  const navigate = useNavigate();
+  const { user } = useAuth();
 
   if (!open) return null;
 
   const handleActivate = () => {
-    toast.success("PRO aktivacija se priprema. Hvala ti!");
+    if (selected === "free") {
+      onClose();
+      return;
+    }
+    if (!user) {
+      navigate("/login");
+      return;
+    }
+    if (selected === "pro") {
+      initiateCheckout(STRIPE_PRICE_IDS.PRO_AD_7DAY, user.id, "payment");
+    } else {
+      initiateCheckout(STRIPE_PRICE_IDS.PREMIUM_MONTHLY, user.id, "subscription");
+    }
     onClose();
   };
 
@@ -74,7 +90,7 @@ export default function NtProModal({ open, onClose }: Props) {
                 <p className="text-base font-bold">🔥 Pro oglas</p>
               </div>
               <div className="text-right">
-                <p className="text-lg font-black">2.99€</p>
+                <p className="text-lg font-black">1,99€</p>
                 <p className="text-[10px] text-muted-foreground">/ 7 dana</p>
               </div>
             </div>
@@ -107,12 +123,12 @@ export default function NtProModal({ open, onClose }: Props) {
                 <p className="text-base font-bold">⭐ Premium</p>
               </div>
               <div className="text-right">
-                <p className="text-lg font-black">9.99€</p>
+                <p className="text-lg font-black">9,99€</p>
                 <p className="text-[10px] text-muted-foreground">/ mjesec</p>
               </div>
             </div>
             <ul className="space-y-1">
-              {["2 Pro oglasa/mj", "Svaki 7 dana", "Na različitim oglasima", "Max 2 aktivna", "Dodatni 2.99€ nakon toga"].map(t => (
+              {["2 Pro oglasa/mj", "Svaki 7 dana", "Na različitim oglasima", "Max 2 aktivna", "Dodatni 1,99€ nakon toga"].map(t => (
                 <li key={t} className="flex items-center gap-1.5 text-xs text-muted-foreground">
                   <Check className="h-3 w-3 text-[hsl(var(--gold))] shrink-0" /> {t}
                 </li>
@@ -127,7 +143,11 @@ export default function NtProModal({ open, onClose }: Props) {
           onClick={handleActivate}
         >
           <Star className="h-4 w-4" />
-          {selected === "free" ? "Objavi oglas →" : selected === "pro" ? "Istakni oglas →" : "Postani Premium →"}
+          {selected === "free"
+            ? "Objavi besplatno →"
+            : selected === "pro"
+              ? "Kupi Pro — 1,99€ →"
+              : "Kupi Premium — 9,99€/mj →"}
         </Button>
 
         {/* Info block */}
