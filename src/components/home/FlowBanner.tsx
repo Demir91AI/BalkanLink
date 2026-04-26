@@ -2,6 +2,7 @@ import { useRef, useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import imgFormulari from "@/assets/carousel/formulari.jpg";
 import imgVisa from "@/assets/carousel/visa.jpg";
 import imgDeutsch from "@/assets/carousel/deutsch.jpg";
@@ -10,17 +11,23 @@ import imgGeld from "@/assets/carousel/geld.jpg";
 import imgKalkulatori from "@/assets/carousel/kalkulatori.jpg";
 import imgOglasi from "@/assets/carousel/oglasi.jpg";
 
-const flowItems = [
-  { icon: "📄", title: "Formulari", text: "Popuni bez greške — korak po korak", badge: "premium" as const, to: "/formulari", image: imgFormulari },
-  { icon: "🌍", title: "Viza", text: "Pronađi pravi put za dolazak u Njemačku", badge: "premium" as const, to: "/viza", image: imgVisa },
-  { icon: "🇩🇪", title: "Njemački", text: "Uči kroz stvarne situacije (A1–C2)", badge: "premium" as const, to: "/deutsch-trainer", image: imgDeutsch },
-  { icon: "📑", title: "Dokumenti", text: "Provjeri pisma i dokumente iz Njemačke", badge: "premium" as const, to: "/dokumenten-check", image: imgDokumente },
-  { icon: "💶", title: "Novčana pomoć", text: "Bürgergeld, Wohngeld i dodaci", badge: null, to: "/formulari", image: imgGeld },
-  { icon: "🧮", title: "Kalkulatori", text: "Izračunaj platu, poreze i više", badge: null, to: "/kalkulatori", image: imgKalkulatori },
-  { icon: "💼", title: "Oglasi", text: "Nađi posao ili objavi oglas", badge: "free" as const, to: "/nudim-trazim", image: imgOglasi },
+const flowItemsBase = [
+  { icon: "📄", key: "forms", badge: "premium" as const, to: "/formulari", image: imgFormulari },
+  { icon: "🌍", key: "visa", badge: "premium" as const, to: "/viza", image: imgVisa },
+  { icon: "🇩🇪", key: "german", badge: "premium" as const, to: "/deutsch-trainer", image: imgDeutsch },
+  { icon: "📑", key: "docs", badge: "premium" as const, to: "/dokumenten-check", image: imgDokumente },
+  { icon: "💶", key: "money", badge: null, to: "/formulari", image: imgGeld },
+  { icon: "🧮", key: "calc", badge: null, to: "/kalkulatori", image: imgKalkulatori },
+  { icon: "💼", key: "ads", badge: "free" as const, to: "/nudim-trazim", image: imgOglasi },
 ];
 
 export default function FlowBanner() {
+  const { t } = useTranslation("pages");
+  const flowItems = flowItemsBase.map((it) => ({
+    ...it,
+    title: t(`home.flowBanner.items.${it.key}.title`),
+    text: t(`home.flowBanner.items.${it.key}.text`),
+  }));
   const [activeIndex, setActiveIndex] = useState(0);
   const totalItems = flowItems.length;
   const autoplayRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -101,10 +108,10 @@ export default function FlowBanner() {
         className="relative z-10 pt-16 sm:pt-24 pb-8 sm:pb-12 text-center px-4"
       >
         <h2 className="text-2xl sm:text-4xl lg:text-6xl font-black text-white tracking-tight leading-tight px-2">
-          {"Popuni formulare bez grešaka"}
+          {t("home.flowBanner.heading")}
         </h2>
         <p className="text-base sm:text-lg lg:text-xl text-white/45 mt-4 leading-relaxed max-w-xl mx-auto">
-          {"Korak po korak na tvom jeziku"}
+          {t("home.flowBanner.subline")}
         </p>
         <div className="mx-auto mt-6 h-[3px] w-24 rounded-full bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--brand-orange))]" />
       </motion.div>
@@ -115,14 +122,14 @@ export default function FlowBanner() {
         <button
           onClick={handlePrev}
           className="absolute left-2 sm:left-8 z-30 flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/60 backdrop-blur-sm transition hover:bg-white/10 hover:text-white"
-          aria-label="Prethodni"
+          aria-label={t("home.flowBanner.prev")}
         >
           <ChevronLeft className="h-6 w-6" />
         </button>
         <button
           onClick={handleNext}
           className="absolute right-2 sm:right-8 z-30 flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/60 backdrop-blur-sm transition hover:bg-white/10 hover:text-white"
-          aria-label="Sljedeći"
+          aria-label={t("home.flowBanner.next")}
         >
           <ChevronRight className="h-6 w-6" />
         </button>
@@ -220,12 +227,12 @@ export default function FlowBanner() {
                           : "0 4px 12px rgba(200,168,76,0.2)",
                       }}
                     >
-                      ⭐ PREMIUM
+                      ⭐ {t("home.flowBanner.premium").replace("⭐ ", "")}
                     </span>
                   )}
                   {item.badge === "free" && (
                     <span className="absolute top-5 right-5 z-10 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-[11px] font-bold text-white/70 backdrop-blur-sm">
-                      {"Besplatno"}
+                      {t("home.flowBanner.free")}
                     </span>
                   )}
 
@@ -258,7 +265,7 @@ export default function FlowBanner() {
                           boxShadow: "0 8px 28px rgba(255,200,0,0.35)",
                         } : undefined}
                       >
-                        {isPremium ? "Pokreni" : "Otvori"} <ArrowRight className="h-4 w-4" />
+                        {isPremium ? t("home.flowBanner.ctaPremium") : t("home.flowBanner.ctaOpen")} <ArrowRight className="h-4 w-4" />
                       </span>
                     )}
                   </div>
@@ -297,10 +304,10 @@ export default function FlowBanner() {
             boxShadow: "0 12px 40px hsla(43,70%,55%,0.35)",
           }}
         >
-          {"Počni sada"}
+          {t("home.flowBanner.ctaStart")}
           <ArrowRight className="h-4 w-4" />
         </Link>
-        <p className="text-xs text-white/40 mt-3">{"Registracija je besplatna i traje 30 sekundi"}</p>
+        <p className="text-xs text-white/40 mt-3">{t("home.flowBanner.registerNote")}</p>
       </div>
 
       {/* Bottom edge fade */}

@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect, useCallback } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function BeforeAfterSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -7,6 +8,7 @@ export default function BeforeAfterSection() {
   const [sliderPos, setSliderPos] = useState(50);
   const dragging = useRef(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const { t } = useTranslation("pages");
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -70,17 +72,17 @@ export default function BeforeAfterSection() {
         <div className="flex items-center gap-2">
           <div className="h-8 w-8 rounded-lg flex items-center justify-center text-sm" style={{ background: "hsla(43,52%,54%,0.15)" }}>📋</div>
           <div>
-            <div className="text-sm font-bold text-white">Kindergeld — Korak 1 od 4</div>
-            <div className="text-[10px] text-white/40">Lični podaci podnosioca</div>
+            <div className="text-sm font-bold text-white">{t("home.beforeAfter.afterCard.title")}</div>
+            <div className="text-[10px] text-white/40">{t("home.beforeAfter.afterCard.subtitle")}</div>
           </div>
         </div>
         <div className="w-full h-1.5 rounded-full bg-white/10 overflow-hidden">
           <div className="h-full w-1/4 rounded-full" style={{ background: "linear-gradient(90deg, hsl(var(--gold)), hsl(var(--gold-light)))" }} />
         </div>
         {[
-          { label: "Prezime", hint: "Tvoje prezime (kao u pasošu)", example: "Kovač" },
-          { label: "Ime", hint: "Tvoje ime", example: "Maja" },
-          { label: "Datum rođenja", hint: "DD.MM.GGGG format", example: "15.03.1990" },
+          { label: t("home.beforeAfter.afterCard.field1"), hint: t("home.beforeAfter.afterCard.hint1"), example: "Kovač" },
+          { label: t("home.beforeAfter.afterCard.field2"), hint: t("home.beforeAfter.afterCard.hint2"), example: "Maja" },
+          { label: t("home.beforeAfter.afterCard.field3"), hint: t("home.beforeAfter.afterCard.hint3"), example: "15.03.1990" },
         ].map(f => (
           <div key={f.label} className="rounded-xl p-3" style={{ border: "1px solid rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)" }}>
             <div className="flex items-center justify-between mb-1">
@@ -94,7 +96,7 @@ export default function BeforeAfterSection() {
         ))}
         <div className="flex items-center gap-2 rounded-lg p-2" style={{ background: "hsla(145,60%,32%,0.1)", border: "1px solid hsla(145,60%,32%,0.2)" }}>
           <span className="text-xs">✅</span>
-          <span className="text-[10px] text-emerald-400">Sva polja su ispravno popunjena</span>
+          <span className="text-[10px] text-emerald-400">{t("home.beforeAfter.afterCard.ok")}</span>
         </div>
       </div>
     </div>
@@ -116,10 +118,10 @@ export default function BeforeAfterSection() {
           }}
         >
           <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-[900] text-white tracking-tight">
-            Od komplikovanih formulara do jasnih koraka.
+            {t("home.beforeAfter.heading")}
           </h2>
           <p className="mt-4 text-white/50 text-base max-w-lg mx-auto">
-            BalkanLink pretvara njemačku birokratiju u jednostavan proces.
+            {t("home.beforeAfter.subline")}
           </p>
         </div>
 
@@ -132,7 +134,7 @@ export default function BeforeAfterSection() {
                 tab === "before" ? "bg-red-500/20 text-red-400 border border-red-500/30" : "bg-white/5 text-white/40 border border-white/10"
               }`}
             >
-              PRIJE
+              {t("home.beforeAfter.before")}
             </button>
             <button
               onClick={() => setTab("after")}
@@ -141,7 +143,7 @@ export default function BeforeAfterSection() {
               }`}
               style={tab === "after" ? { background: "hsla(43,52%,54%,0.1)" } : {}}
             >
-              SA BALKANLINK
+              {t("home.beforeAfter.after")}
             </button>
           </div>
           <div className="rounded-2xl overflow-hidden border border-white/10" style={{ minHeight: 340 }}>
@@ -163,7 +165,7 @@ export default function BeforeAfterSection() {
           <div className="absolute inset-0">
             {beforeContent}
             <div className="absolute top-4 right-4 z-10 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider bg-red-500/20 text-red-400 border border-red-500/30 backdrop-blur-sm">
-              PRIJE
+              {t("home.beforeAfter.before")}
             </div>
           </div>
 
@@ -174,7 +176,7 @@ export default function BeforeAfterSection() {
               className="absolute top-4 left-4 z-10 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[hsl(var(--gold))] border backdrop-blur-sm"
               style={{ background: "hsla(43,52%,54%,0.15)", borderColor: "hsla(43,52%,54%,0.3)", boxShadow: "0 0 12px hsla(43,52%,54%,0.2)" }}
             >
-              SA BALKANLINK
+              {t("home.beforeAfter.after")}
             </div>
           </div>
 
