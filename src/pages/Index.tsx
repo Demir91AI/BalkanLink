@@ -157,10 +157,10 @@ export default function Index() {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
             <div className="text-center mb-10">
               <h2 className="font-heading text-3xl font-extrabold text-white sm:text-4xl">
-                Odaberi plan koji ti odgovara
+                {t("home.pricing.heading")}
               </h2>
               <p className="mt-3 text-base text-white/50 max-w-xl mx-auto">
-                Počni besplatno — nadogradi kad trebaš više. Bez ugovora, otkaži kad hoćeš.
+                {t("home.pricing.subline")}
               </p>
             </div>
 
