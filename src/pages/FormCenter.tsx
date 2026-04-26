@@ -285,7 +285,13 @@ export default function FormCenter() {
     );
   }, [search, isSearching, allEntries]);
 
-  const handleSelect = (s: string) => navigate(`/formulari/${s}`);
+  const handleSelect = (s: string) => {
+    if (s === "anerkennung-navigator") {
+      navigate("/anerkennung-navigator");
+      return;
+    }
+    navigate(`/formulari/${s}`);
+  };
 
   const toggleGroup = (id: string) => {
     setOpenGroups((prev) => {
