@@ -16,6 +16,45 @@
     "becomePremium": "Postani Premium",
     "menu": "Meni"
   },
+  "sidebar": {
+    "menu": "Meni",
+    "navAriaLabel": "Navigacioni meni",
+    "greeting": "Dobro došao/la, {{name}}!",
+    "defaultUser": "Korisniče",
+    "paymentHistory": "Historija plaćanja",
+    "loginRegister": "Prijavi se / Registruj se",
+    "packagesPricing": "Paketi i cijene",
+    "logout": "Odjavi se",
+    "mainSectionLabel": "Glavne funkcije",
+    "otherSectionLabel": "Ostalo",
+    "mobileSectionLabel": "Mobilna aplikacija",
+    "shareApp": "Podijeli BalkanLink",
+    "shareSuccess": "Link kopiran!",
+    "downloadApp": "Preuzmi BalkanLink App",
+    "items": {
+      "formulari": "Formulari",
+      "viza": "Viza Navigator",
+      "deutschTrainer": "Kurs njemačkog",
+      "dokumentenCheck": "Provjera dokumenata",
+      "zivot": "Život i dolazak",
+      "radnoPravo": "Radno pravo",
+      "mietrecht": "Mietrecht",
+      "biznis": "Biznis u Njemačkoj",
+      "nudimTrazim": "Nudim / Tražim",
+      "stellenangebote": "Oglasi za posao",
+      "wohnungen": "Ponuda stanova",
+      "kalkulatori": "Kalkulator",
+      "vorlagen": "Šabloni"
+    },
+    "premiumBadge": "PREMIUM"
+  },
+  "mobileNav": {
+    "documents": "Dokumenti",
+    "visa": "Vize",
+    "assistant": "Asistent",
+    "pricing": "Cijene",
+    "profile": "Profil"
+  },
   "footer": {
     "tagline": "Sve što ti treba za život u Njemačkoj",
     "brandTagline": "Tvoj vodič kroz njemački sistem.",

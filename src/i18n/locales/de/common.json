@@ -16,6 +16,45 @@
     "becomePremium": "Premium werden",
     "menu": "Menü"
   },
+  "sidebar": {
+    "menu": "Menü",
+    "navAriaLabel": "Navigationsmenü",
+    "greeting": "Willkommen, {{name}}!",
+    "defaultUser": "Nutzer",
+    "paymentHistory": "Zahlungsverlauf",
+    "loginRegister": "Anmelden / Registrieren",
+    "packagesPricing": "Pakete & Preise",
+    "logout": "Abmelden",
+    "mainSectionLabel": "Hauptfunktionen",
+    "otherSectionLabel": "Weiteres",
+    "mobileSectionLabel": "Mobile App",
+    "shareApp": "BalkanLink teilen",
+    "shareSuccess": "Link kopiert!",
+    "downloadApp": "BalkanLink App installieren",
+    "items": {
+      "formulari": "Formulare",
+      "viza": "Visa-Navigator",
+      "deutschTrainer": "Deutsch-Trainer",
+      "dokumentenCheck": "Dokumentenprüfung",
+      "zivot": "Leben & Ankunft",
+      "radnoPravo": "Arbeitsrecht",
+      "mietrecht": "Mietrecht",
+      "biznis": "Unternehmen in Deutschland",
+      "nudimTrazim": "Biete / Suche",
+      "stellenangebote": "Stellenangebote",
+      "wohnungen": "Wohnungsangebote",
+      "kalkulatori": "Rechner",
+      "vorlagen": "Vorlagen"
+    },
+    "premiumBadge": "PREMIUM"
+  },
+  "mobileNav": {
+    "documents": "Dokumente",
+    "visa": "Visa",
+    "assistant": "Assistent",
+    "pricing": "Preise",
+    "profile": "Profil"
+  },
   "footer": {
     "tagline": "Alles, was Sie für das Leben in Deutschland brauchen",
     "brandTagline": "Ihr Wegweiser durch das deutsche System.",
