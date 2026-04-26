@@ -259,149 +259,18 @@ export default function Profil() {
                 </>
               )}
 
-              <Button
-                onClick={() => navigate("/profil/placanja")}
-                variant="outline"
-                className="w-full"
-              >
-                <Receipt className="h-4 w-4 mr-2" />
-                Historija plaćanja
-              </Button>
-
-              <details className="group pt-2">
-                <summary className="cursor-pointer text-[11px] text-muted-foreground/70 hover:text-muted-foreground transition-colors list-none flex items-center justify-center gap-1.5 select-none py-1">
-                  <span>Detalji pretplate i računa</span>
-                  <span className="text-muted-foreground/40 group-open:rotate-180 transition-transform">⌄</span>
-                </summary>
-                <div className="pt-3 space-y-3">
-                  <div className="rounded-lg border border-border/40 bg-muted/30 px-4 py-4 space-y-3">
-                    <div className="flex items-center justify-between gap-2">
-                      <p className="text-xs text-muted-foreground">Status pretplate</p>
-                      <Button
-                        onClick={() => loadDetails(true)}
-                        disabled={refreshing}
-                        variant="ghost"
-                        size="sm"
-                        className="h-7 px-2 text-[11px] text-muted-foreground hover:text-foreground"
-                        aria-label="Osvježi status pretplate"
-                      >
-                        <RefreshCw className={`h-3 w-3 mr-1 ${refreshing ? "animate-spin" : ""}`} />
-                        {refreshing ? "Sinhronizujem..." : "Osvježi"}
-                      </Button>
-                    </div>
-
-                    {lastError && !isPremium && (
-                      <p className="text-[11px] text-muted-foreground">
-                        Status se još osvježava. Ako Premium nije aktivan, klikni Osvježi.
-                      </p>
+              {isPremium && endDate && (
+                <div className="rounded-lg border border-border/40 bg-muted/30 px-4 py-3 flex items-start gap-2 text-xs text-muted-foreground">
+                  <Calendar className="h-3.5 w-3.5 mt-0.5 shrink-0" />
+                  <p>
+                    {willCancel ? "Premium pristup ostaje aktivan do" : "Sljedeća automatska naplata"}:{" "}
+                    <span className="font-medium text-foreground">{formatDate(endDate)}</span>
+                    {typeof daysLeft === "number" && (
+                      <span className="text-muted-foreground/70"> ({daysLeft} {daysLeft === 1 ? "dan" : "dana"})</span>
                     )}
-                    {lastError && isPremium && (
-                      <p className="text-[10px] text-muted-foreground/60 italic">
-                        Premium status potvrđen iz tvog naloga.
-                      </p>
-                    )}
-
-                    {!lastError && lastSyncedAt && (
-                      <div className="rounded-md border border-emerald-500/25 bg-emerald-500/5 p-2.5 text-[11px] flex items-start gap-2">
-                        <CheckCircle2 className="h-3.5 w-3.5 mt-0.5 shrink-0 text-emerald-500/90" />
-                        <div className="space-y-1 min-w-0 flex-1">
-                          <p className="font-medium text-foreground">Sinhronizacija uspješna</p>
-                          <div className="space-y-0.5 text-muted-foreground">
-                            <p>Status: <span className="font-medium text-foreground">{details?.subscribed ? "Premium" : "Free"}</span></p>
-                            {endDate && (
-                              <p>
-                                {willCancel || !details?.subscribed ? "Premium istječe" : "Sljedeća naplata"}: <span className="font-medium text-foreground">{formatDate(endDate)}</span>
-                              </p>
-                            )}
-                            <p className="text-muted-foreground/70 text-[10px] pt-0.5">
-                              Provjereno u {lastSyncedAt.toLocaleTimeString("bs-BA", { hour: "2-digit", minute: "2-digit", second: "2-digit" })}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-
-                    {isPremium && endDate && (
-                      <div className="flex items-start gap-2 text-xs text-muted-foreground">
-                        <Calendar className="h-3.5 w-3.5 mt-0.5 shrink-0" />
-                        <p>
-                          {willCancel ? "Premium pristup ostaje aktivan do" : "Sljedeća automatska naplata"}: <span className="font-medium text-foreground">{formatDate(endDate)}</span>
-                          {typeof daysLeft === "number" && <span className="text-muted-foreground/70"> ({daysLeft} {daysLeft === 1 ? "dan" : "dana"})</span>}
-                        </p>
-                      </div>
-                    )}
-                  </div>
-
-                  {auditLog.length > 0 && (
-                    <div className="rounded-md border border-border/40 bg-background/40 p-3 space-y-2">
-                  <div className="flex items-center justify-between gap-2">
-                    <div className="flex items-center gap-1.5 text-[11px] font-medium text-foreground/90">
-                      <History className="h-3 w-3" />
-                      Historija sinhronizacija
-                      <span className="text-muted-foreground/70 font-normal">
-                        ({auditLog.length}/{AUDIT_MAX})
-                      </span>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setAuditLog([]);
-                        saveAudit([]);
-                      }}
-                      className="text-[10px] text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      Očisti
-                    </button>
-                  </div>
-                  <ul className="space-y-1.5">
-                    {auditLog.map((entry, idx) => {
-                      const ts = new Date(entry.at);
-                      return (
-                        <li
-                          key={`${entry.at}-${idx}`}
-                          className="flex items-start gap-2 text-[11px] rounded border border-border/30 bg-muted/20 px-2 py-1.5"
-                        >
-                          {entry.ok ? (
-                            <CheckCircle2 className="h-3 w-3 mt-0.5 shrink-0 text-emerald-500/90" />
-                          ) : (
-                            <XCircle className="h-3 w-3 mt-0.5 shrink-0 text-destructive" />
-                          )}
-                          <div className="min-w-0 flex-1 space-y-0.5">
-                            <div className="flex items-center justify-between gap-2 flex-wrap">
-                              <span className="font-medium text-foreground">
-                                {entry.ok ? "Uspjeh" : "Greška"}
-                                {entry.ok && entry.status && (
-                                  <span className="ml-1 text-muted-foreground font-normal">
-                                    · Stripe:{" "}
-                                    <span className={entry.subscribed ? "text-emerald-500/90" : "text-muted-foreground"}>
-                                      {entry.status}
-                                    </span>
-                                  </span>
-                                )}
-                              </span>
-                              <span className="text-muted-foreground/70 text-[10px]">
-                                {ts.toLocaleDateString("bs-BA", { day: "2-digit", month: "2-digit" })}{" "}
-                                {ts.toLocaleTimeString("bs-BA", { hour: "2-digit", minute: "2-digit", second: "2-digit" })}
-                                {" · "}{entry.durationMs}ms
-                              </span>
-                            </div>
-                            {!entry.ok && (
-                              <div className="text-destructive/90 break-words">
-                                <span className="font-mono text-[10px] uppercase">{entry.errorCode}</span>
-                                {entry.errorMessage && (
-                                  <span className="text-destructive/80"> — {entry.errorMessage}</span>
-                                )}
-                              </div>
-                            )}
-                          </div>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                    </div>
-                  )}
+                  </p>
                 </div>
-              </details>
+              )}
 
               {!isPremium && (
                 <Button
