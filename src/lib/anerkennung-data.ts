@@ -486,6 +486,156 @@ export const PROFESSIONS: ProfessionInfo[] = [
     notes:
       "Kao zaposlenik (Angestellter) često nije obavezno priznavanje. Za samostalnost (Selbstständige Tätigkeit) je obavezno.",
   },
+  {
+    id: "maurer",
+    name: "Zidar / Građevinar",
+    nameDE: "Maurerin / Maurer (und Betonbauer:in)",
+    category: "Handwerk",
+    regulation: "PARTIAL",
+    jurisdiction: "Bund",
+    topTen: false,
+    description:
+      "Zanat sa zaštićenim zvanjem za samostalan rad. Kao zaposlenik (Angestellter) ne treba formalno priznavanje. Za otvaranje firme — Meister-Anerkennung kod HWK.",
+    steps: [
+      "Provjeri ustanovu / školu u Anabin bazi",
+      "Kao zaposlenik: dovoljno svjedočanstvo + prevod (bez priznavanja)",
+      "Za samostalan rad: zahtjev kod Handwerkskammer (HWK)",
+      "Gleichwertigkeitsprüfung sa njemačkim Maurer Ausbildung-om",
+      "Ako se utvrdi razlika: Anpassungslehrgang ili Eignungsprüfung",
+      "Eintrag in die Handwerksrolle nakon Meister-priznavanja",
+    ],
+    documents: [
+      "Svjedočanstvo zanata / SSS / fakulteta građevine",
+      "Opis sadržaja školovanja + sati prakse",
+      "Apostille + ovlašteni prevod",
+      "Potvrde o radu (Arbeitszeugnisse) — što više to bolje",
+      "Lebenslauf (CV) na njemačkom",
+      "Pasoš",
+    ],
+    durationRange: "3–6 mjeseci (obična provjera) / 6–12 mjeseci (Meister)",
+    costRange: "100–600 € (HWK takse) + dodatno za Meister-postupak",
+    requiresLanguageExam: false,
+    officialLinks: [
+      {
+        label: "Anerkennung in Deutschland — Maurer",
+        url: "https://www.anerkennung-in-deutschland.de/html/de/maurerin-maurer.php",
+      },
+      { label: "BQ-Portal", url: "https://www.bq-portal.de/" },
+    ],
+    notes:
+      "Iskustvo na gradilištima u Njemačkoj (potvrde poslodavca) puno znači — često važnije od formalnog priznavanja.",
+  },
+  {
+    id: "kfz_mechatroniker",
+    name: "Auto-mehaničar (KFZ)",
+    nameDE: "Kraftfahrzeugmechatronikerin / Kraftfahrzeugmechatroniker",
+    category: "Handwerk",
+    regulation: "PARTIAL",
+    jurisdiction: "Bund",
+    topTen: false,
+    description:
+      "Reglementovano za samostalan rad. Kao zaposlenik u radionici nije obavezno priznavanje, ali olakšava bolju platu i status Fachkraft.",
+    steps: [
+      "Provjeri školu u Anabin bazi",
+      "Predaj zahtjev kod Handwerkskammer (HWK) tvog regiona",
+      "Gleichwertigkeitsprüfung",
+      "Ako razlika: Anpassungslehrgang ili Eignungsprüfung",
+      "Za samostalan rad: Meister-Anerkennung",
+    ],
+    documents: [
+      "Svjedočanstvo zanata / SSS automehaničar",
+      "Opis sadržaja školovanja",
+      "Apostille + prevod",
+      "Potvrde o radu",
+      "Lebenslauf",
+    ],
+    durationRange: "3–6 mjeseci",
+    costRange: "100–600 €",
+    requiresLanguageExam: false,
+    officialLinks: [
+      {
+        label: "Anerkennung in Deutschland — KFZ-Mechatroniker",
+        url: "https://www.anerkennung-in-deutschland.de/html/de/kraftfahrzeugmechatronikerin-kraftfahrzeugmechatroniker.php",
+      },
+    ],
+    notes:
+      "Veliki nedostatak radne snage u Njemačkoj — često radionice direktno zapošljavaju i pomažu oko Anerkennung-a.",
+  },
+  {
+    id: "schweisser",
+    name: "Zavarivač",
+    nameDE: "Schweißerin / Schweißer",
+    category: "Handwerk",
+    regulation: "NREG",
+    jurisdiction: "Bund",
+    topTen: false,
+    description:
+      "Nicht-reglementiert! Možeš odmah početi raditi. Ono što stvarno vrijedi su DIN/EN ISO certifikati zavarivanja (npr. EN ISO 9606-1) — njih izdaju SLV (Schweißtechnische Lehr- und Versuchsanstalten) i priznaju se širom EU.",
+    steps: [
+      "Donesi sve postojeće zavarivačke certifikate (DIN/EN, ISO 9606)",
+      "Ako su iz BiH/HR/SR/CG/MK/XK po EN normama — često se priznaju direktno",
+      "Ako nisu po EN — položi praktični ispit u SLV centru u Njemačkoj",
+      "OPCIONO: priznaj svjedočanstvo zanata kod IHK / HWK za Fachkraft status",
+    ],
+    documents: [
+      "Svi zavarivački certifikati (originalni + prevod)",
+      "Svjedočanstvo zanata (ako postoji)",
+      "Potvrde o radu",
+      "Lebenslauf",
+      "Pasoš",
+    ],
+    durationRange: "1–3 mjeseca (ako trebaš preispit u SLV)",
+    costRange: "200–800 € (po vrsti certifikata) / 100–400 € (priznavanje svjedočanstva)",
+    requiresLanguageExam: false,
+    officialLinks: [
+      {
+        label: "DVS — Deutscher Verband für Schweißen",
+        url: "https://www.dvs-home.de/",
+      },
+      {
+        label: "Anerkennung in Deutschland — Pretraga",
+        url: "https://www.anerkennung-in-deutschland.de/",
+      },
+    ],
+    notes:
+      "Top zanimanje za brzo zapošljavanje. Procedura preispitivanja u SLV traje par dana, certifikat važi 6 mjeseci–3 god (zavisno od vrste).",
+  },
+  {
+    id: "it_fachkraft",
+    name: "IT specijalist (programer / sistem-administrator)",
+    nameDE: "IT-Fachkraft (Fachinformatiker:in / Softwareentwickler:in)",
+    category: "Technik",
+    regulation: "NREG",
+    jurisdiction: "Bund",
+    topTen: false,
+    description:
+      "Nicht-reglementiert! IT je u Njemačkoj otvoreno tržište. Ne treba ti priznavanje za rad. Za vizu (Blue Card / §19c AufenthG) često je dovoljno radno iskustvo + ugovor o radu.",
+    steps: [
+      "Ne treba formalno priznavanje za rad",
+      "Za vizu (Blue Card EU): minimum 3 god relevantnog iskustva ILI fakultetska diploma",
+      "OPCIONO: ZAB Zeugnisbewertung (200 €) za bolji prikaz diplome poslodavcu",
+      "OPCIONO: priznavanje kod IHK kao 'Fachinformatiker' za Tarif-status",
+    ],
+    documents: [
+      "Diploma fakulteta (ako postoji) + prevod",
+      "Potvrde o radu sa opisom poslova",
+      "Portfolio / GitHub / certifikati (Microsoft, AWS, Cisco…)",
+      "Lebenslauf na njemačkom ili engleskom",
+      "Pasoš",
+    ],
+    durationRange: "0 mjeseci za rad / 2–4 mjeseca za ZAB Zeugnisbewertung",
+    costRange: "0 € za rad / 200 € za ZAB / 100–400 € za IHK",
+    requiresLanguageExam: false,
+    officialLinks: [
+      {
+        label: "Make it in Germany — IT specialists",
+        url: "https://www.make-it-in-germany.com/de/jobs/branchen/it",
+      },
+      { label: "ZAB Zeugnisbewertung", url: "https://zab.kmk.org/de/zeugnisbewertung" },
+    ],
+    notes:
+      "Mnoge firme u Njemačkoj traže IT specijaliste i nude vize + Umzugskosten. Engleski je često dovoljan.",
+  },
 ];
 
 /**

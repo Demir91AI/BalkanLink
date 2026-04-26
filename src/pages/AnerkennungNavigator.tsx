@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import {
   GraduationCap,
   CheckCircle2,
-  XCircle,
   AlertTriangle,
   ExternalLink,
   ChevronRight,
@@ -18,10 +17,17 @@ import {
   Info,
   BookOpen,
   Sparkles,
+  MapPin,
+  Mail,
+  Copy,
+  Download,
+  Building2,
 } from "lucide-react";
+import { toast } from "sonner";
 import { SEO } from "@/components/SEO";
 import PageNavBar from "@/components/navigation/PageNavBar";
 import { usePremiumAccess } from "@/hooks/usePremiumAccess";
+import { useAuth } from "@/contexts/AuthContext";
 import { navigateBackOrHome } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 import {
@@ -31,9 +37,17 @@ import {
   ANERKENNUNGSZUSCHUSS,
   OFFICIAL_PORTALS,
   type Country,
-  type ProfessionInfo,
   type Regulation,
 } from "@/lib/anerkennung-data";
+import {
+  BUNDESLAENDER,
+  getAuthority,
+  ZAB_FALLBACK,
+} from "@/lib/anerkennung-bundeslaender";
+import {
+  generateAnerkennungEmail,
+  type EmailTemplateInput,
+} from "@/lib/anerkennung-email-templates";
 
 /* ──────────── Helpers ──────────── */
 
@@ -148,11 +162,14 @@ function AnerkennungPaywall() {
 
 export default function AnerkennungNavigator() {
   const navigate = useNavigate();
-  const { isPremium, isLoggedIn } = usePremiumAccess();
+  const { isPremium } = usePremiumAccess();
+  const { displayName } = useAuth();
 
   const [selectedCountry, setSelectedCountry] = useState<Country | null>(null);
   const [selectedProfession, setSelectedProfession] = useState<string | null>(null);
   const [bundesland, setBundesland] = useState<string>("");
+  const [emailFullName, setEmailFullName] = useState<string>(displayName || "");
+  const [emailVisible, setEmailVisible] = useState(false);
 
   const profession = useMemo(
     () => PROFESSIONS.find((p) => p.id === selectedProfession) || null,
@@ -162,12 +179,57 @@ export default function AnerkennungNavigator() {
     () => COUNTRIES.find((c) => c.code === selectedCountry) || null,
     [selectedCountry]
   );
+  const bundeslandObj = useMemo(
+    () => BUNDESLAENDER.find((b) => b.code === bundesland) || null,
+    [bundesland]
+  );
+  const authority = useMemo(() => {
+    if (!profession || !bundesland) return null;
+    return getAuthority(profession.id, bundesland) || ZAB_FALLBACK;
+  }, [profession, bundesland]);
+
+  const generatedEmail = useMemo(() => {
+    if (!profession || !country || !bundeslandObj || !emailFullName.trim()) return null;
+    const input: EmailTemplateInput = {
+      fullName: emailFullName.trim(),
+      professionDE: profession.nameDE,
+      professionLocal: profession.name,
+      countryOfOrigin: country.name,
+      bundesland: bundeslandObj.name,
+      regulation: profession.regulation,
+      requiresLanguageExam: profession.requiresLanguageExam,
+    };
+    return generateAnerkennungEmail(input);
+  }, [profession, country, bundeslandObj, emailFullName]);
+
+  const copyEmail = () => {
+    if (!generatedEmail) return;
+    const fullText = `${generatedEmail.subject}\n\n${generatedEmail.body}`;
+    navigator.clipboard.writeText(fullText);
+    toast.success("Email kopiran u clipboard");
+  };
+
+  const downloadEmail = () => {
+    if (!generatedEmail) return;
+    const fullText = `Betreff: ${generatedEmail.subject}\n\n${generatedEmail.body}\n\n\n────────────────────────────────────\n${generatedEmail.bsTranslation}`;
+    const blob = new Blob([fullText], { type: "text/plain;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `Anerkennung-Email-${profession?.id || "bewerbung"}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    toast.success("Email preuzet");
+  };
 
   const handleBack = () => navigateBackOrHome(navigate);
   const resetWizard = () => {
     setSelectedCountry(null);
     setSelectedProfession(null);
     setBundesland("");
+    setEmailVisible(false);
   };
 
   // Premium gate
@@ -329,13 +391,55 @@ export default function AnerkennungNavigator() {
         </section>
       )}
 
-      {/* ────────── STEP 3: Result roadmap ────────── */}
-      {profession && country && (
+      {/* ────────── STEP 3: Bundesland ────────── */}
+      {selectedCountry && selectedProfession && !bundesland && profession && country && (
         <section className="space-y-6">
           <div className="flex items-center justify-between gap-3 flex-wrap">
             <div>
               <p className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--gold))] mb-2">
-                Korak 3 od 3 — Rezultat
+                Korak 3 od 4
+              </p>
+              <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-1 flex items-center gap-2">
+                <MapPin className="h-5 w-5 text-[hsl(var(--gold))]" />
+                U kojem Bundeslandu želiš raditi?
+              </h2>
+              <p className="text-sm text-muted-foreground">
+                Nadležna ustanova zavisi od Bundeslanda. Birajte gdje planirate
+                raditi (a ne gdje trenutno živite, ako se razlikuje).
+              </p>
+            </div>
+            <button
+              onClick={() => setSelectedProfession(null)}
+              className="text-xs font-semibold text-muted-foreground hover:text-foreground flex items-center gap-1"
+            >
+              <ChevronLeft className="h-3 w-3" /> Promijeni profesiju
+            </button>
+          </div>
+
+          <div className="grid gap-2 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
+            {BUNDESLAENDER.map((b) => (
+              <button
+                key={b.code}
+                onClick={() => setBundesland(b.code)}
+                className="group rounded-xl border border-border/40 bg-card p-3 text-left transition hover:border-[hsl(var(--gold))]/40 hover:shadow-md"
+              >
+                <p className="font-bold text-foreground text-sm">{b.name}</p>
+                <p className="text-[10px] text-muted-foreground mt-0.5">
+                  {b.capital}
+                </p>
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* ────────── STEP 4: Result roadmap ────────── */}
+      {profession && country && bundesland && (
+        <section className="space-y-6">
+          <div className="flex items-center justify-between gap-3 flex-wrap">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--gold))] mb-2">
+                Korak 4 od 4 — Rezultat
               </p>
               <h2 className="text-xl sm:text-2xl font-bold text-foreground flex items-center gap-2 flex-wrap">
                 <span>{country.flag}</span>
@@ -344,6 +448,17 @@ export default function AnerkennungNavigator() {
               <p className="text-sm text-muted-foreground italic">
                 {profession.nameDE}
               </p>
+              {bundeslandObj && (
+                <p className="mt-1 text-xs text-muted-foreground flex items-center gap-1.5">
+                  <MapPin className="h-3 w-3" /> {bundeslandObj.name}
+                  <button
+                    onClick={() => setBundesland("")}
+                    className="ml-1 text-[hsl(var(--gold))] hover:underline"
+                  >
+                    promijeni
+                  </button>
+                </p>
+              )}
             </div>
             <button
               onClick={resetWizard}
@@ -606,6 +721,131 @@ export default function AnerkennungNavigator() {
                 </a>
               ))}
             </div>
+          </SectionCard>
+
+          {/* Nadležna ustanova za Bundesland */}
+          {authority && bundeslandObj && (
+            <SectionCard
+              icon={<Building2 className="h-5 w-5" />}
+              title={`Nadležna ustanova — ${bundeslandObj.name}`}
+              tone="gold"
+            >
+              <div className="rounded-xl border border-border/40 bg-card p-4">
+                <p className="text-[11px] font-bold uppercase tracking-wider text-[hsl(var(--gold))] mb-1">
+                  {authority.authorityType}
+                </p>
+                <p className="text-sm font-bold text-foreground mb-2">
+                  {authority.name}
+                </p>
+                {authority.notes && (
+                  <p className="text-xs text-muted-foreground mb-3">
+                    {authority.notes}
+                  </p>
+                )}
+                <a
+                  href={authority.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-lg bg-[hsl(var(--gold))]/10 px-3 py-1.5 text-xs font-semibold text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/20"
+                >
+                  Otvori službenu stranicu <ExternalLink className="h-3 w-3" />
+                </a>
+              </div>
+              <p className="mt-3 text-[11px] text-muted-foreground">
+                💡 Savjet: koristi i službeni{" "}
+                <a
+                  href="https://berater.anerkennung-in-deutschland.de/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[hsl(var(--gold))] hover:underline"
+                >
+                  Profi-Filter (BIBB)
+                </a>{" "}
+                za dodatnu provjeru i kontakt podatke (telefon, email).
+              </p>
+            </SectionCard>
+          )}
+
+          {/* Email generator */}
+          <SectionCard
+            icon={<Mail className="h-5 w-5" />}
+            title="Email šablon — prvi kontakt sa ustanovom"
+            tone="gold"
+          >
+            <p className="text-sm text-foreground/90 mb-4">
+              Spreman email na njemačkom jeziku za slanje nadležnoj ustanovi.
+              Unesi svoje ime i klikni <strong>Generiši</strong>.
+            </p>
+
+            <div className="grid gap-3 sm:grid-cols-[1fr_auto] mb-4">
+              <input
+                type="text"
+                value={emailFullName}
+                onChange={(e) => setEmailFullName(e.target.value)}
+                placeholder="Tvoje ime i prezime"
+                className="rounded-lg border border-border/40 bg-card px-4 py-2.5 text-sm focus:border-[hsl(var(--gold))]/60 focus:outline-none"
+              />
+              <button
+                onClick={() => setEmailVisible(true)}
+                disabled={!emailFullName.trim()}
+                className="rounded-lg bg-[hsl(var(--gold))] px-5 py-2.5 text-sm font-bold text-[hsl(var(--primary))] disabled:opacity-50 hover:opacity-90"
+              >
+                Generiši email
+              </button>
+            </div>
+
+            {emailVisible && generatedEmail && (
+              <div className="space-y-4">
+                <div className="rounded-xl border border-border/40 bg-muted/30 p-4">
+                  <p className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-1">
+                    Betreff (naslov)
+                  </p>
+                  <p className="text-sm font-semibold text-foreground">
+                    {generatedEmail.subject}
+                  </p>
+                </div>
+
+                <div className="rounded-xl border border-border/40 bg-card p-4">
+                  <p className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-2">
+                    Tekst (njemački — kopiraj i pošalji)
+                  </p>
+                  <pre className="whitespace-pre-wrap text-xs text-foreground/90 font-sans leading-relaxed">
+                    {generatedEmail.body}
+                  </pre>
+                </div>
+
+                <details className="rounded-xl border border-border/40 bg-muted/20 p-4">
+                  <summary className="cursor-pointer text-xs font-bold text-foreground">
+                    📖 Prikaži prevod na bosanski (samo za tvoje razumijevanje)
+                  </summary>
+                  <pre className="mt-3 whitespace-pre-wrap text-xs text-foreground/80 font-sans leading-relaxed">
+                    {generatedEmail.bsTranslation}
+                  </pre>
+                </details>
+
+                <div className="flex flex-wrap gap-2">
+                  <button
+                    onClick={copyEmail}
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-border/40 bg-card px-4 py-2 text-xs font-semibold text-foreground hover:border-[hsl(var(--gold))]/40"
+                  >
+                    <Copy className="h-3.5 w-3.5" /> Kopiraj email
+                  </button>
+                  <button
+                    onClick={downloadEmail}
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-border/40 bg-card px-4 py-2 text-xs font-semibold text-foreground hover:border-[hsl(var(--gold))]/40"
+                  >
+                    <Download className="h-3.5 w-3.5" /> Preuzmi (.txt)
+                  </button>
+                </div>
+
+                <div className="rounded-lg bg-amber-500/5 border border-amber-500/20 p-3 text-xs text-amber-700 dark:text-amber-300">
+                  <AlertTriangle className="inline h-3 w-3 mr-1" />
+                  Šablon je informativni alat — prilagodi ga svojoj situaciji.
+                  Provjeri kontakt-email nadležne ustanove na njihovoj službenoj
+                  stranici prije slanja.
+                </div>
+              </div>
+            )}
           </SectionCard>
 
           {/* Official links */}
