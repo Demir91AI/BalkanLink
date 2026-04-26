@@ -200,7 +200,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
                   </span>
                   {item.premium && (
                     <span className="ml-auto shrink-0 rounded-full bg-[hsl(var(--gold))] px-1.5 py-0.5 text-[8px] font-bold leading-none text-white">
-                      PREMIUM
+                      {t("sidebar.premiumBadge")}
                     </span>
                   )}
                 </button>
@@ -210,7 +210,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
         </div>
 
         <div className="px-3 pt-5">
-          <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">Ostalo</p>
+          <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">{t("sidebar.otherSectionLabel")}</p>
           <nav className="flex flex-col gap-0.5">
             {secondaryItems.map((item) => {
               const active = currentPath === item.url || currentPath.startsWith(item.url + "/");
