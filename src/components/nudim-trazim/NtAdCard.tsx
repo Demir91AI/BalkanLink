@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { MapPin, Calendar, Eye, Star } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -11,8 +12,10 @@ interface Props {
 }
 
 export default function NtAdCard({ ad, onOpen }: Props) {
+  const { t } = useTranslation("pages");
   const [showContact, setShowContact] = useState(false);
-  const catLabel = NT_CATEGORIES.find((c) => c.value === ad.category)?.label ?? ad.category;
+  const fallbackCat = NT_CATEGORIES.find((c) => c.value === ad.category)?.label ?? ad.category;
+  const catLabel = t(`classifieds.categories.${ad.category}`, fallbackCat);
   const dateStr = new Date(ad.created_at).toLocaleDateString("de-DE", {
     day: "2-digit",
     month: "2-digit",
@@ -41,7 +44,7 @@ export default function NtAdCard({ ad, onOpen }: Props) {
                 : "bg-primary/10 text-primary shrink-0"
             }
           >
-            {ad.type === "nudim" ? "Ich biete" : "Ich suche"}
+            {ad.type === "nudim" ? t("classifieds.ad.labelOfferingDe") : t("classifieds.ad.labelSeekingDe")}
           </Badge>
           <Badge variant="outline" className="shrink-0 text-muted-foreground text-[11px]">
             {catLabel}
@@ -78,7 +81,7 @@ export default function NtAdCard({ ad, onOpen }: Props) {
             }}
           >
             <Eye className="h-3 w-3" />
-            {showContact ? ad.contact_value : "Prikaži kontakt"}
+            {showContact ? ad.contact_value : t("classifieds.ad.showContact")}
           </Button>
         </div>
       </CardContent>
