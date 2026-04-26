@@ -71,7 +71,18 @@ const FORM_META: Record<string, FormMeta> = {
   "nichterreichbarkeit":{ agency: "Jobcenter",                                                      onlineUrl: "https://jobcenter.digital", sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
   "arbeitsbescheinigung":{ agency: "Agentur für Arbeit",           musterSlug: "arbeitsbescheinigung", sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
   "antragsruecknahme":  { agency: "Jobcenter",                    musterSlug: "antragsruecknahme",  sourceLabel: "Jobcenter Digital — Online Antrag", sourceUrl: "https://jobcenter.digital" },
-  "wirtschaftliche-jugendhilfe": { agency: "Jugendamt (lokal)",   musterSlug: "wirtschaftliche-jugendhilfe", sourceLabel: "SGB VIII — Hilfe zur Erziehung (gesetze-im-internet.de)", sourceUrl: "https://www.gesetze-im-internet.de/sgb_8/__27.html" },
+  "wirtschaftliche-jugendhilfe": {
+    agency: "Jugendamt (lokal)",
+    musterSlug: "wirtschaftliche-jugendhilfe",
+    sourceLabel: "SGB VIII § 27 — Hilfe zur Erziehung (gesetze-im-internet.de)",
+    sourceUrl: "https://www.gesetze-im-internet.de/sgb_8/__27.html",
+    extraSources: [
+      { label: "BMFSFJ — Kinder- und Jugendhilfe", url: "https://www.bmfsfj.de/bmfsfj/themen/kinder-und-jugend/kinder-und-jugendhilfe" },
+      { label: "LWL — Wirtschaftliche Jugendhilfe", url: "https://www.lwl-landesjugendamt.de/de/unsere-handlungsfelder/wirtschaftliche-jugendhilfe-kostenerstattung/" },
+    ],
+    sourceHint:
+      "Ne postoji jedinstveni federalni obrazac. Konkretan formular preuzima se sa stranice lokalnog Jugendamt-a (Stadt/Landkreis).",
+  },
 };
 
 interface Props {
