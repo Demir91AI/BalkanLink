@@ -7,7 +7,7 @@
  * On selection: changes i18n language, navigates to the mirrored URL (BS root ↔ /de/*),
  * and persists the choice to localStorage.
  */
-import { useState, type ComponentType } from "react";
+import { useEffect, useState, type ComponentType } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ChevronDown, Check } from "lucide-react";
@@ -30,7 +30,44 @@ const LANGUAGES: { code: SupportedLanguage; nativeName: string; Flag: FlagComp |
   { code: "de", nativeName: "Deutsch", Flag: FlagDE },
 ];
 
-const FLAG_SLOT_PX = 28;
+/**
+ * Responsive flag slot. Larger on small screens (where dropdown buttons
+ * are tap-sized and stars must remain legible) and on high-DPR devices.
+ *  - mobile (<640px):  34
+ *  - tablet (<1024px): 30
+ *  - desktop:          28
+ * Sidebar variant adds +4px across the board.
+ * On DPR >= 2 we add +2px so anti-aliased star points stay crisp.
+ */
+function useResponsiveFlagSize(variant: "header" | "sidebar"): number {
+  const [size, setSize] = useState<number>(28);
+  useEffect(() => {
+    const compute = () => {
+      const w = window.innerWidth;
+      const dpr = window.devicePixelRatio || 1;
+      let base: number;
+      if (w < 640) base = 34;
+      else if (w < 1024) base = 30;
+      else base = 28;
+      if (variant === "sidebar") base += 4;
+      if (dpr >= 2) base += 2;
+      setSize(base);
+    };
+    compute();
+    const mqls = [
+      window.matchMedia("(max-width: 639px)"),
+      window.matchMedia("(max-width: 1023px)"),
+      window.matchMedia("(min-resolution: 2dppx)"),
+    ];
+    mqls.forEach((m) => m.addEventListener("change", compute));
+    window.addEventListener("resize", compute);
+    return () => {
+      mqls.forEach((m) => m.removeEventListener("change", compute));
+      window.removeEventListener("resize", compute);
+    };
+  }, [variant]);
+  return size;
+}
 
 const GOLD = "#D4AF37";
 
@@ -44,6 +81,7 @@ export function LanguageSwitcher({ variant = "header" }: Props) {
   const navigate = useNavigate();
   const location = useLocation();
   const [open, setOpen] = useState(false);
+  const flagSize = useResponsiveFlagSize(variant);
 
   const currentEntry =
     LANGUAGES.find((l) => l.code === i18n.language) ?? LANGUAGES[0];
@@ -106,7 +144,7 @@ export function LanguageSwitcher({ variant = "header" }: Props) {
         className={`${triggerClass} focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37]/60 data-[state=open]:scale-[1.02] transition-transform duration-200`}
         style={triggerStyle}
       >
-        {CurrentFlag ? <CurrentFlag width={FLAG_SLOT_PX} /> : null}
+        {CurrentFlag ? <CurrentFlag width={flagSize} /> : null}
         <span style={{ marginLeft: CurrentFlag ? 8 : 0 }}>{currentNative}</span>
         <ChevronDown className="h-3.5 w-3.5 opacity-70" strokeWidth={2.25} />
       </DropdownMenuTrigger>
@@ -134,12 +172,12 @@ export function LanguageSwitcher({ variant = "header" }: Props) {
             >
               <span className="flex items-center gap-2">
                 {RowFlag ? (
-                  <RowFlag width={FLAG_SLOT_PX} />
+                  <RowFlag width={flagSize} />
                 ) : (
                   // Spacer so labels with and without a flag align identically.
                   <span
                     aria-hidden
-                    style={{ width: FLAG_SLOT_PX, display: "inline-block", flexShrink: 0 }}
+                    style={{ width: flagSize, display: "inline-block", flexShrink: 0 }}
                   />
                 )}
                 <span>{lang.nativeName}</span>
