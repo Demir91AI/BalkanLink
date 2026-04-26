@@ -35,6 +35,8 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
     { title: t("sidebar.items.deutschTrainer"), url: "/deutsch-trainer", icon: BookOpen, premium: true, isNew: false },
     { title: t("sidebar.items.dokumentenCheck"), url: "/dokumenten-check", icon: Camera, premium: true, isNew: false },
     { title: "Bonitet Simulator", url: "/schufa-simulator", icon: Gauge, premium: true, isNew: true },
+    { title: t("sidebar.items.nudimTrazim"), url: "/nudim-trazim", icon: Megaphone, premium: false, isNew: false },
+    { title: t("sidebar.items.vorlagen"), url: "/vorlagen", icon: FileCheck, premium: false, isNew: false },
   ];
 
   const secondaryItems = [
@@ -42,11 +44,9 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
     { title: t("sidebar.items.radnoPravo"), url: "/radno-pravo", icon: Scale },
     { title: t("sidebar.items.mietrecht"), url: "/mietrecht", icon: Home },
     { title: t("sidebar.items.biznis"), url: "/biznis", icon: Store },
-    { title: t("sidebar.items.nudimTrazim"), url: "/nudim-trazim", icon: Megaphone },
     { title: t("sidebar.items.stellenangebote"), url: "/stellenangebote", icon: Briefcase },
     { title: t("sidebar.items.wohnungen"), url: "/wohnungen", icon: Building },
     { title: t("sidebar.items.kalkulatori"), url: "/kalkulatori", icon: Calculator },
-    { title: t("sidebar.items.vorlagen"), url: "/vorlagen", icon: FileCheck },
   ];
 
   const toggle = useCallback(() => {
