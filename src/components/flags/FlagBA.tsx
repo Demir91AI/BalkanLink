@@ -7,9 +7,9 @@
  *        ( 70,   0)   — point on top edge, ~1/3 from the left
  *        (200,   0)   — top-right corner
  *        (200, 100)   — bottom-right corner
- *    The hypotenuse runs from (70, 0) diagonally down to (200, 100).
- *  - Nine white five-pointed stars sit ON that hypotenuse, with the first
- *    star halved by the top edge and the last star halved by the right edge.
+ *  - Nine large white five-pointed stars sit on the BLUE side, parallel to
+ *    the hypotenuse but offset into the blue field. The first and last stars
+ *    are clipped by the flag rectangle so they appear halved.
  */
 interface Props {
   /** Width in px (height auto-derived from 2:1 ratio). Default: 24. */
@@ -20,7 +20,7 @@ interface Props {
 const BLUE = "#002F6C";
 const YELLOW = "#FECB00";
 
-// Hypotenuse endpoints (top → bottom-right).
+// Hypotenuse direction.
 const HX1 = 70;
 const HY1 = 0;
 const HX2 = 200;
@@ -29,16 +29,24 @@ const HY2 = 100;
 export function FlagBA({ width = 24, className }: Props) {
   const height = Math.round(width / 2);
 
-  // 9 evenly-spaced star centers along the hypotenuse. The first sits on the
-  // top edge and the last on the right edge — both end up visually halved
-  // due to the clipPath.
+  // Offset star line into the BLUE field (perpendicular to hypotenuse).
+  const dx = HX2 - HX1;
+  const dy = HY2 - HY1;
+  const len = Math.sqrt(dx * dx + dy * dy);
+  // Perpendicular unit vector pointing into the blue side (left of hypotenuse).
+  const nx = -dy / len;
+  const ny = dx / len;
+  const offset = 14; // distance from hypotenuse into blue field
+
   const starCount = 9;
-  const starRadius = 9;
+  const starRadius = 13;
   const stars = Array.from({ length: starCount }, (_, i) => {
     const t = i / (starCount - 1);
+    const baseX = HX1 + t * (HX2 - HX1);
+    const baseY = HY1 + t * (HY2 - HY1);
     return {
-      cx: HX1 + t * (HX2 - HX1),
-      cy: HY1 + t * (HY2 - HY1),
+      cx: baseX + nx * offset,
+      cy: baseY + ny * offset,
     };
   });
 
@@ -68,7 +76,6 @@ export function FlagBA({ width = 24, className }: Props) {
 
       <rect width="200" height="100" fill={BLUE} />
 
-      {/* Yellow triangle: top-edge point, top-right, bottom-right */}
       <polygon
         points={`${HX1},${HY1} 200,0 200,100`}
         fill={YELLOW}
@@ -96,3 +103,4 @@ function Star({ cx, cy, r }: { cx: number; cy: number; r: number }) {
 }
 
 export default FlagBA;
+
