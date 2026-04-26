@@ -30,6 +30,8 @@ export const FREE_FORM_SLUGS = new Set([
   "fuehrerschein",
   "fahrzeugzulassung",
   "fuehrungszeugnis",
+  "krankenkasse",
+  "steuerklassenwechsel",
 ]);
 
 export function isFormFree(slug: string): boolean {
