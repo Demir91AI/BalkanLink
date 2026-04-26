@@ -43,8 +43,9 @@ export function FlagBA({ width = 20, className }: Props) {
   // Hypotenuse from (100, 0) → (200, 100). Direction unit vector = (1, 1)/√2.
   // Place 9 stars evenly spaced; the first sits on the top edge (y=0), the last on the
   // right edge (x=200). Both end stars get clipped by the flag rectangle naturally.
+  // Star radius increased so they're visible at small sizes (e.g. 20px).
   const starCount = 9;
-  const starRadius = 7.5;
+  const starRadius = 11;
   const stars = Array.from({ length: starCount }, (_, i) => {
     const t = i / (starCount - 1);
     return { cx: 100 + t * 100, cy: 0 + t * 100 };
