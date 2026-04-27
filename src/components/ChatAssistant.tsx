@@ -1149,8 +1149,8 @@ export default function ChatAssistant() {
                         <p className="text-[10px] text-white/60">BalkanLink Asistent daje orijentacione informacije, ne pravni savjet.</p>
                       </div>
                       {!isPremium && (
-                        <p className="text-[8px] text-white/30 font-medium shrink-0 ml-2">
-                          {remaining > 0 ? `${remaining}/3` : "Limit"}
+                        <p className="text-[10px] text-white/40 font-medium shrink-0 ml-2">
+                          {remaining > 0 ? `${remaining}/5 pitanja` : "Limit dostignut"}
                         </p>
                       )}
                     </div>
