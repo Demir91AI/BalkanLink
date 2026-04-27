@@ -362,14 +362,16 @@
     "pricing": {
       "oneTimeLabel": "Jednokratno",
       "oneTimePerCheck": "po provjeri",
-      "oneTimeReset": "Resetuje se nakon svake upotrebe",
+      "oneTimeReset": "Plaća se za svaku analizu pojedinačno",
       "buyOneTime": "Kupi za 2,99€ →",
+      "creditAvailable_one": "Dostupno: {{count}} provjera",
+      "creditAvailable_other": "Dostupno: {{count}} provjera",
       "premiumLabel": "Premium",
       "premiumBadge": "⭐ Premium",
       "premiumPerMonth": "/mj.",
-      "premiumFeature1": "1×/dan gratis",
-      "premiumFeature2": "Dodatne provjere 2,99€/kom",
-      "premiumFeature3": "+ sve Premium funkcije",
+      "premiumFeature1": "Neograničene provjere — uvijek besplatno",
+      "premiumFeature2": "Brza i prioritetna analiza",
+      "premiumFeature3": "+ sve Premium funkcije platforme",
       "buyPremium": "Kupi Premium →"
     },
     "privacy": {
