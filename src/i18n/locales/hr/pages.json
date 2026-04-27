@@ -1248,5 +1248,74 @@
         }
       }
     }
+  },
+  "biznis": {
+    "seoTitle": "Posao u Njemačkoj — Gewerbe vodič | BalkanLink",
+    "seoDescription": "Sve o pokretanju i vođenju obrta u Njemačkoj: Gewerbe, porezi, dokumenti, obveze. Aktualno za 2025/2026.",
+    "heroTitle": "Posao u Njemačkoj",
+    "heroSubtitle": "Gewerbe, samozapošljavanje i poslovanje — vodič za početnike · Stand 2026",
+    "heroBadge": "📌 Informativnoga karaktera — ne predstavlja pravni, porezni ni poslovni savjet",
+    "officialSourcesTitle": "Službeni izvori i pomoć",
+    "disclaimerTitle": "Napomena",
+    "disclaimerBody": "Informacije na ovoj stranici opće su prirode i ne zamjenjuju pravni, porezni ni poslovni savjet. Za konkretne slučajeve obratite se Steuerberateru, odvjetniku ili nadležnim institucijama.",
+    "categories": {
+      "osnove": "Osnove i razumijevanje",
+      "eu-vs-trecezemlje": "Građani EU-a vs. građani trećih zemalja",
+      "pokretanje": "Pokretanje poslovanja",
+      "porezi": "Porezi i financije",
+      "fakturisanje": "Fakturiranje i administracija",
+      "obaveze": "Obveze i osiguranja",
+      "posebne-situacije": "Posebne situacije",
+      "greske-zatvaranje": "Pogreške i zatvaranje",
+      "faq": "Najčešća pitanja"
+    },
+    "sections": {
+      "explanation": "Što je to / Objašnjenje",
+      "rules": "Najvažnija pravila",
+      "examples": "Praktični primjeri",
+      "warnings": "Na što posebno paziti",
+      "myths": "Česte pogreške / Mitovi",
+      "sources": "Izvori"
+    },
+    "links": {
+      "ihkDesc": "Registracija obrta, savjeti za poduzetnike",
+      "unternehmensregisterDesc": "Prijava obrta i provjera registra",
+      "elsterDesc": "Online prijava poreza i Steuernummer",
+      "minijobDesc": "Sve o Minijob zaposlenju"
+    }
+  },
+  "radnoPravo": {
+    "seoTitle": "Radno pravo u Njemačkoj | BalkanLink",
+    "seoDescription": "Sve o radnom pravu u Njemačkoj: ugovor, plaća, odmor, otkaz, Minijob i više. Aktualno za 2026. godinu.",
+    "heroTitle": "Radno pravo",
+    "heroSubtitle": "Prava i obveze na radnom mjestu u Njemačkoj · Stand 2026",
+    "heroBadge": "📌 Informativnoga karaktera — ne predstavlja pravni savjet",
+    "officialSourcesTitle": "Službeni izvori i pomoć",
+    "disclaimerTitle": "Napomena",
+    "disclaimerBody": "Informacije na ovoj stranici opće su prirode i ne zamjenjuju pravni savjet. Za konkretne situacije obratite se Arbeitsamtu, sindikatu (Gewerkschaft) ili pravnom savjetniku.",
+    "categories": {
+      "ugovor": "Ugovor o radu",
+      "plata": "Plaća i primanja",
+      "radno-vrijeme": "Radno vrijeme",
+      "odmor-bolovanje": "Odmor i bolovanje",
+      "porodica": "Obitelj i zaštita",
+      "otkaz": "Otkaz i prestanak",
+      "posebni-oblici": "Posebni oblici rada",
+      "zastita": "Zaštita na radu"
+    },
+    "sections": {
+      "explanation": "Što je to / Objašnjenje",
+      "rules": "Najvažnija pravila",
+      "examples": "Praktični primjeri",
+      "warnings": "Na što posebno paziti",
+      "myths": "Česte pogreške / Mitovi",
+      "sources": "Izvori"
+    },
+    "links": {
+      "baDesc": "Naknada za nezaposlenost, poslovi, savjetovanje",
+      "bmasDesc": "Zakoni i propisi radnog prava",
+      "dgbDesc": "Najveći sindikat — savjeti i zaštita radnika",
+      "mlkDesc": "Aktualna minimalna plaća i izmjene"
+    }
   }
 }

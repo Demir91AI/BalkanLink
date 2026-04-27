@@ -1,14 +1,14 @@
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { SEO } from "@/components/SEO";
 import { useSearchParams } from "react-router-dom";
 import PageNavBar from "@/components/navigation/PageNavBar";
-import { COUNTRY_CONTENT } from "@/data/vizaNavigatorContent";
+import { getLocalizedCountryContent } from "@/data/viza-i18n";
 import { VisaContentRenderer } from "@/components/visaNavigator/VisaContentRenderer";
 import VisaRightPanel from "@/components/visaNavigator/VisaRightPanel";
 
 export default function Viza() {
-  const { t } = useTranslation("pages");
+  const { t, i18n } = useTranslation("pages");
   const [searchParams, setSearchParams] = useSearchParams();
 
   const selectedCountry = searchParams.get("country") || null;
@@ -34,6 +34,7 @@ export default function Viza() {
     }
   }, [selectedCountry, setSearchParams]);
 
+  const COUNTRY_CONTENT = useMemo(() => getLocalizedCountryContent(i18n.language), [i18n.language]);
   const country = COUNTRY_CONTENT.find(c => c.code === selectedCountry);
 
   const euCountries = COUNTRY_CONTENT.filter(c => c.isEU);

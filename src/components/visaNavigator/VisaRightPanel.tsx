@@ -1,6 +1,7 @@
 import { Globe, ExternalLink } from "lucide-react";
+import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { COUNTRY_CONTENT } from "@/data/vizaNavigatorContent";
+import { getLocalizedCountryContent } from "@/data/viza-i18n";
 
 interface Props {
   selectedCountry: string | null;
@@ -9,7 +10,8 @@ interface Props {
 }
 
 const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props) => {
-  const { t } = useTranslation("pages");
+  const { t, i18n } = useTranslation("pages");
+  const COUNTRY_CONTENT = useMemo(() => getLocalizedCountryContent(i18n.language), [i18n.language]);
   const country = COUNTRY_CONTENT.find(c => c.code === selectedCountry);
   const route = selectedRoute && country ? country.routes.find(r => r.id === selectedRoute) : null;
 

@@ -1,6 +1,8 @@
 import { useParams, useNavigate } from "react-router-dom";
+import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { ArrowLeft, CheckCircle, AlertTriangle, Lightbulb, BookOpen, ExternalLink, Calendar, Info, Scale } from "lucide-react";
-import { getGuideBySlug } from "@/lib/radno-pravo-data";
+import { getLocalizedRadnoPravoGuides } from "@/lib/radno-pravo-i18n";
 import { SEO } from "@/components/SEO";
 import PageNavBar from "@/components/navigation/PageNavBar";
 
@@ -9,7 +11,11 @@ const GOLD = "hsl(var(--gold))";
 export default function RadnoPravoGuide() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
-  const guide = slug ? getGuideBySlug(slug) : undefined;
+  const { i18n } = useTranslation("pages");
+  const guide = useMemo(() => {
+    if (!slug) return undefined;
+    return getLocalizedRadnoPravoGuides(i18n.language).find((g) => g.slug === slug);
+  }, [slug, i18n.language]);
 
   if (!guide) {
     return (

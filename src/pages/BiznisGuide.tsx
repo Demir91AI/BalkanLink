@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
+import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { CheckCircle, AlertTriangle, Lightbulb, BookOpen, ExternalLink, Calendar, Info, Building } from "lucide-react";
-import { getBiznisGuideBySlug } from "@/lib/biznis-data";
+import { getLocalizedBiznisGuides } from "@/lib/biznis-i18n";
 import { SEO } from "@/components/SEO";
 import PageNavBar from "@/components/navigation/PageNavBar";
 
@@ -8,7 +10,11 @@ const GOLD = "hsl(var(--gold))";
 
 export default function BiznisGuide() {
   const { slug } = useParams<{ slug: string }>();
-  const guide = slug ? getBiznisGuideBySlug(slug) : undefined;
+  const { i18n } = useTranslation("pages");
+  const guide = useMemo(() => {
+    if (!slug) return undefined;
+    return getLocalizedBiznisGuides(i18n.language).find((g) => g.slug === slug);
+  }, [slug, i18n.language]);
 
   if (!guide) {
     return (
