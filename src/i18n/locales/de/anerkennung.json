@@ -1,0 +1,472 @@
+{
+  "seo": {
+    "title": "Anerkennungs-Navigator — Anerkennung deines Abschlusses in Deutschland",
+    "description": "Assistent zur Anerkennung von Abschlüssen aus Bosnien und Herzegowina, Kroatien, Serbien, Montenegro, Nordmazedonien und dem Kosovo. Anabin-Datenbank, Berufs-Roadmap, Anerkennungszuschuss."
+  },
+  "ui": {
+    "headerTitle": "Anerkennungs-Navigator",
+    "headerSubtitle": "Anerkennung von Abschlüssen und Berufen aus BA, HR, RS, ME, MK, XK",
+    "headerSubtitleShort": "Anerkennung von Abschlüssen aus den Nachfolgestaaten Jugoslawiens in Deutschland",
+    "premiumBadge": "Premium",
+    "disclaimerTitle": "Informationswerkzeug — keine Rechtsberatung",
+    "disclaimerBody": "Alle Informationen stammen aus öffentlich zugänglichen offiziellen deutschen Quellen (Anabin, BIBB, BMFTR, ZAB) und sind orientierender Natur. Die endgültige Entscheidung über die Anerkennung trifft ausschließlich die zuständige Stelle deines Bundeslandes. Stand: 2026.",
+    "step1of3": "Schritt 1 von 3",
+    "step2of3": "Schritt 2 von 3",
+    "step3of4": "Schritt 3 von 4",
+    "step4of4": "Schritt 4 von 4 — Ergebnis",
+    "step1Title": "Aus welchem Land stammt dein Abschluss?",
+    "step1Sub": "Das Verfahren unterscheidet sich für EU- und Nicht-EU-Abschlüsse.",
+    "euMember": "🇪🇺 EU-Mitglied",
+    "thirdCountry": "Drittstaat",
+    "step2Title": "Dein Beruf",
+    "step2Sub": "Top 10 der gefragtesten Berufe laut ZAB-Statistik 2024.",
+    "changeCountry": "Land ändern",
+    "changeProfession": "Beruf ändern",
+    "changeBundesland": "ändern",
+    "newCheck": "Neue Prüfung",
+    "step3Title": "In welchem Bundesland möchtest du arbeiten?",
+    "step3Sub": "Die zuständige Stelle hängt vom Bundesland ab. Wähle, wo du arbeiten willst (nicht zwingend, wo du derzeit lebst).",
+    "yourCase": "Dein Fall",
+    "euDiploma": "🇪🇺 EU-Abschluss",
+    "regBadge": "Reglementiert",
+    "partialBadge": "Teilreglementiert",
+    "nregBadge": "Nicht reglementiert",
+    "regWarning": "PFLICHT:",
+    "regWarningBody": "Ohne formale Anerkennung darfst du diesen Beruf in Deutschland NICHT ausüben.",
+    "nregInfo": "GUTE NACHRICHT:",
+    "nregInfoBody": "Du kannst sofort arbeiten — auch ohne Anerkennung. Die Anerkennung wird empfohlen, um besseren Status und Gehalt zu erhalten.",
+    "statDuration": "Dauer",
+    "statCost": "Kosten",
+    "statLanguage": "Sprache",
+    "langRequired": "Sprachprüfung erforderlich (B2/C1)",
+    "langNotRequired": "Nicht erforderlich",
+    "stepsTitle": "Verfahrensschritte",
+    "documentsTitle": "Erforderliche Dokumente",
+    "apostilleNote": "📌 Apostille:",
+    "apostilleBody": "Alle Originaldokumente aus BA/HR/RS/ME/MK/XK müssen vor der Übersetzung mit einer Haager Apostille versehen werden. Die Apostille wird beim Gericht / Justizministerium des Herkunftslandes ausgestellt.",
+    "translationNote": "📌 Übersetzung:",
+    "translationBody": "Übersetzungen dürfen NUR von in Deutschland öffentlich bestellten / vereidigten Übersetzern angefertigt werden. Die Liste ist öffentlich auf justiz.de einsehbar.",
+    "anabinTitle": "So nutzt du die Anabin-Datenbank",
+    "anabinIntro": "Anabin (anabin.kmk.org) ist die offizielle Datenbank zur Bewertung ausländischer Bildungsabschlüsse in Deutschland. Sie ist nur auf Deutsch verfügbar — hier ist eine Erklärung auf Deutsch.",
+    "anabinInstitutions": "📚 Status der Bildungseinrichtungen (Universitäten / Schulen)",
+    "anabinDiplomas": "🎓 Status der Abschlüsse (Bewertung)",
+    "anabinOpen": "Anabin-Datenbank öffnen",
+    "zuschussTitle": "Anerkennungszuschuss — staatliche Förderung",
+    "zuschussEligibility": "✅ Anspruch hast du, wenn:",
+    "zuschussCovers": "💰 Was wird übernommen:",
+    "zuschussHowTo": "📋 So beantragst du:",
+    "authorityTitle": "Zuständige Stelle — {{bundesland}}",
+    "authorityOpen": "Offizielle Webseite öffnen",
+    "authorityHint": "💡 Tipp: Nutze auch den offiziellen",
+    "authorityHintLink": "Anerkennungs-Finder (BIBB)",
+    "authorityHintAfter": "für eine zusätzliche Prüfung und Kontaktdaten (Telefon, E-Mail).",
+    "emailTitle": "E-Mail-Vorlage — Erstkontakt mit der Behörde",
+    "emailIntro": "Vorgefertigte E-Mail auf Deutsch zum Versenden an die zuständige Stelle. Trage deinen Namen ein und klicke auf",
+    "emailIntroBold": "Generieren",
+    "emailNamePlaceholder": "Dein Vor- und Nachname",
+    "emailGenerate": "E-Mail generieren",
+    "emailSubjectLabel": "Betreff",
+    "emailBodyLabel": "Text (Deutsch — kopieren und versenden)",
+    "emailTranslationToggle": "📖 Übersetzung anzeigen (nur zum Verständnis)",
+    "emailCopy": "E-Mail kopieren",
+    "emailDownload": "Herunterladen (.txt)",
+    "emailWarning": "Die Vorlage ist ein Informationswerkzeug — passe sie an deine Situation an. Prüfe vor dem Versand die Kontakt-E-Mail der zuständigen Stelle auf deren offizieller Webseite.",
+    "emailCopiedToast": "E-Mail in die Zwischenablage kopiert",
+    "emailDownloadedToast": "E-Mail heruntergeladen",
+    "officialSourcesTitle": "Offizielle Quellen für diesen Beruf",
+    "allPortalsTitle": "📚 Alle offiziellen Quellen (immer aktuell)"
+  },
+  "paywall": {
+    "title": "Anerkennungs-Navigator",
+    "subtitle": "Assistent zur Anerkennung von Abschlüssen aus Bosnien und Herzegowina, Kroatien, Serbien, Montenegro, Nordmazedonien und dem Kosovo",
+    "feature1": "Diagnose deines Falls nach Land, Beruf und Bundesland",
+    "feature2": "Roadmap für die 10 gefragtesten Berufe (Medizin, Ingenieure, Lehrkräfte …)",
+    "feature3": "Anabin-Leitfaden auf Deutsch — was bedeuten H+, H−, gleichwertig",
+    "feature4": "Liste aller Dokumente + Apostille + vereidigter Übersetzer",
+    "feature5": "Geschätzte Dauer und Kosten je Beruf",
+    "feature6": "Anerkennungszuschuss — wie du staatliche Förderung erhältst",
+    "feature7": "Direkte Links zu zuständigen Stellen (Profi-Filter)",
+    "cta": "Premium freischalten — 9,99 €/Monat",
+    "footnote": "Rechtssicheres Informationswerkzeug — alle Informationen basieren auf offiziellen deutschen Quellen (Anabin, BIBB, BMFTR, ZAB)."
+  },
+  "countries": {
+    "BA": { "name": "Bosnien und Herzegowina", "notes": "Drittstaat. Abschlüsse werden individuell über die Anabin-Datenbank und die zuständige Stelle anerkannt. Häufig sind Anpassungslehrgang oder Kenntnisprüfung für reglementierte Berufe nötig." },
+    "HR": { "name": "Kroatien", "notes": "EU-Mitglied seit 2013. Für die meisten reglementierten Berufe gilt die EU-Richtlinie 2005/36/EG — automatische oder erleichterte Anerkennung." },
+    "RS": { "name": "Serbien", "notes": "Drittstaat. Verfahren ähnlich wie für BA — über Anabin und die zuständige Stelle nach Beruf und Bundesland." },
+    "ME": { "name": "Montenegro", "notes": "Drittstaat. Verfahren über die Anabin-Datenbank." },
+    "MK": { "name": "Nordmazedonien", "notes": "Drittstaat. Verfahren über die Anabin-Datenbank." },
+    "XK": { "name": "Kosovo", "notes": "Drittstaat. Verfahren über die Anabin-Datenbank." }
+  },
+  "professions": {
+    "pflegefachperson": {
+      "name": "Pflegefachperson / Krankenpfleger:in",
+      "description": "Der gefragteste reglementierte Beruf in Deutschland. Das Verfahren leitet die zuständige Stelle des Bundeslandes, in dem du arbeiten möchtest (z. B. Regierungspräsidium, Landesamt für Gesundheit).",
+      "durationRange": "6–18 Monate (je nach Bundesland und Vollständigkeit der Unterlagen)",
+      "costRange": "200–600 € (Verwaltungsgebühren) + Übersetzungs- und Anpassungslehrgang/Kenntnisprüfungs-Kosten",
+      "notes": "Seit 2020 sind Krankenpflege, Altenpflege und Kinderkrankenpflege zu einem Beruf 'Pflegefachperson' (generalistische Pflegeausbildung) zusammengeführt.",
+      "steps": [
+        "Prüfe deine Bildungseinrichtung und deinen Abschluss in der Anabin-Datenbank",
+        "Reiche den Antrag auf Anerkennung bei der zuständigen Stelle deines Bundeslandes ein",
+        "Lege das Dossier bei: Diplom, Notenübersicht, Inhalt der Ausbildung",
+        "Die Stelle prüft die Gleichwertigkeit (Gleichwertigkeitsprüfung)",
+        "Bei festgestellten Unterschieden: Anpassungslehrgang (bis zu 3 Jahre) ODER Kenntnisprüfung",
+        "Bestandene Fachsprachprüfung (medizinisches Deutsch B2)",
+        "Endgültige Anerkennung (Berufsurkunde)"
+      ],
+      "documents": [
+        "Diplom der Krankenpflegeschule / Hochschule (beglaubigte Kopie)",
+        "Notenübersicht mit Stundenangaben",
+        "Curriculum / Stundennachweis",
+        "Apostille (Haager) auf den Originaldokumenten",
+        "Beglaubigte Übersetzung durch vereidigten Übersetzer ins Deutsche",
+        "Reisepass / Personalausweis",
+        "Bescheinigung über Berufserfahrung (falls vorhanden)",
+        "Führungszeugnis",
+        "Ärztliches Attest über die gesundheitliche Eignung",
+        "Deutsch-Zertifikat (B2)"
+      ]
+    },
+    "arzt": {
+      "name": "Ärztin / Arzt",
+      "description": "Streng reglementiert. Ohne Approbation oder Berufserlaubnis darf in Deutschland keine ärztliche Tätigkeit ausgeübt werden.",
+      "durationRange": "12–36 Monate (Kenntnisprüfung verlängert das Verfahren)",
+      "costRange": "350–1.100 € Verwaltungsgebühren + Prüfungs- und Vorbereitungskursgebühren",
+      "notes": "Facharztanerkennungen werden getrennt vom Grundabschluss bearbeitet. Für EU-Abschlüsse gilt die automatische Anerkennung nach EU-Richtlinie 2005/36/EG.",
+      "steps": [
+        "Prüfe deine Hochschule in der Anabin-Datenbank (Status H+ ist Pflicht)",
+        "Antrag auf Approbation beim Landesprüfungsamt deines Bundeslandes",
+        "Gleichwertigkeitsprüfung des Abschlusses",
+        "Bei 'wesentlichen Unterschieden': Kenntnisprüfung (Staatsexamen) oder Anpassungslehrgang",
+        "Fachsprachenprüfung (medizinisches Deutsch C1, organisiert durch Ärztekammer)",
+        "Erlaubnis zur Berufsausübung: Berufserlaubnis (befristet, bis 2 Jahre) ODER Approbation (unbefristet)"
+      ],
+      "documents": [
+        "Diplom des Medizinstudiums + Noten",
+        "Apostille",
+        "Beglaubigte Übersetzung",
+        "Lebenslauf mit beruflichem Werdegang",
+        "Tätigkeitsnachweis als Arzt (falls vorhanden)",
+        "Führungszeugnis",
+        "Ärztliches Attest über die gesundheitliche Eignung",
+        "Deutsch-Zertifikat (B2/C1)",
+        "Erklärung, dass die Berufserlaubnis in anderen Ländern nicht entzogen wurde"
+      ]
+    },
+    "ingenieur": {
+      "name": "Ingenieur:in (Bau, Maschinenbau, Elektrotechnik)",
+      "description": "Die Bezeichnung 'Ingenieur' ist in Deutschland geschützt. Für die Führung des Titels ist eine Anerkennung durch die Ingenieurkammer des Bundeslandes erforderlich. Die ingenieurmäßige Tätigkeit selbst (nicht reglementiert) erfordert oft keine Anerkennung.",
+      "durationRange": "3–6 Monate (Zeugnisbewertung) / 6–12 Monate (Ingenieurkammer)",
+      "costRange": "200 € (Zeugnisbewertung ZAB) / 100–500 € (Ingenieurkammer, je Bundesland)",
+      "notes": "Unterschied: 'Beruf des Ingenieurs' (frei) vs. 'Titel Ingenieur' (geschützt). Für die meisten Tätigkeiten reicht eine Zeugnisbewertung der ZAB.",
+      "steps": [
+        "Prüfe deine Hochschule in der Anabin-Datenbank (Institutionsstatus)",
+        "Prüfe das genaue Studium in der Abschlussliste",
+        "Wenn du den Titel 'Ingenieur' führen willst — Antrag bei der Ingenieurkammer",
+        "Wenn du nur ingenieurmäßig arbeiten willst — meist keine formale Anerkennung nötig, eine Zeugnisbewertung der ZAB reicht",
+        "Für reglementierte Teilbereiche (Statik, Brückenbau usw.) sind zusätzliche Qualifikationen erforderlich"
+      ],
+      "documents": [
+        "Diplom + Notenübersicht",
+        "Apostille + beglaubigte Übersetzung",
+        "Studieninhalte (Modulhandbuch)",
+        "Zusammenfassung der Abschlussarbeit",
+        "Lebenslauf",
+        "Reisepass"
+      ]
+    },
+    "lehrer": {
+      "name": "Lehrer:in (Lehramt)",
+      "description": "Streng reglementiert. Jedes Bundesland hat eigene Regeln. Das Verfahren leitet das Kultusministerium oder die zuständige Bildungsbehörde des Bundeslandes.",
+      "durationRange": "8–24 Monate (stark variierend nach Bundesland)",
+      "costRange": "100–500 € Verwaltungsgebühren + Anpassungsmaßnahmen",
+      "notes": "Für EU-Abschlüsse gilt die Richtlinie 2005/36/EG, dennoch werden meist Anpassungsmaßnahmen verlangt.",
+      "steps": [
+        "Prüfe deine Hochschule in der Anabin-Datenbank",
+        "Antrag beim Kultusministerium des Bundeslandes, in dem du arbeiten willst",
+        "Gleichwertigkeitsprüfung — Bewertung der Gleichwertigkeit mit dem deutschen Lehramt",
+        "Häufig werden Unterschiede in Fächern oder pädagogischer Praxis festgestellt",
+        "Anpassungsmaßnahmen (Zusatzkurse / Vorbereitungsdienst)",
+        "Bestandene Sprachprüfung (C1/C2)"
+      ],
+      "documents": [
+        "Diplom + Noten + Fächerübersicht",
+        "Detaillierte Beschreibung des pädagogischen Studienteils",
+        "Tätigkeitsnachweis als Lehrer (falls vorhanden)",
+        "Apostille + Übersetzung",
+        "Reisepass",
+        "Führungszeugnis",
+        "Erweitertes Führungszeugnis (für Arbeit mit Kindern)"
+      ]
+    },
+    "physiotherapeut": {
+      "name": "Physiotherapeut:in",
+      "description": "Reglementierter Gesundheitsberuf. Das Verfahren leitet die zuständige Landesstelle (Landesprüfungsamt oder Regierungspräsidium).",
+      "durationRange": "6–18 Monate",
+      "costRange": "200–500 € + Kosten des Anpassungslehrgangs",
+      "steps": [
+        "Prüfe deine Schule/Hochschule in der Anabin-Datenbank",
+        "Antrag auf Erlaubnis zur Führung der Berufsbezeichnung",
+        "Gleichwertigkeitsprüfung",
+        "Bei Unterschieden: Anpassungslehrgang (bis zu 3 Jahre) oder Kenntnisprüfung",
+        "Bestandene Sprachprüfung (B2)",
+        "Berufserlaubnis"
+      ],
+      "documents": [
+        "Diplom + Noten",
+        "Inhalt der Ausbildung (Stundennachweis)",
+        "Apostille + Übersetzung",
+        "Führungszeugnis",
+        "Ärztliches Attest",
+        "B2-Deutsch-Zertifikat"
+      ]
+    },
+    "erzieher": {
+      "name": "Erzieher:in",
+      "description": "In den Bundesländern unterschiedlich reglementiert. Das Verfahren leitet die zuständige Bildungsbehörde (z. B. Senatsverwaltung in Berlin, Bezirksregierung in NRW).",
+      "durationRange": "6–18 Monate",
+      "costRange": "100–400 € + Anpassungskosten",
+      "steps": [
+        "Prüfe deine Schule in der Anabin-Datenbank",
+        "Antrag bei der zuständigen Stelle deines Bundeslandes",
+        "Gleichwertigkeitsprüfung",
+        "Häufig wird ein Anpassungslehrgang verlangt (oft inkl. Praxis im Kindergarten)",
+        "B2-Deutsch",
+        "Berufsurkunde"
+      ],
+      "documents": [
+        "Diplom + Noten",
+        "Inhalt der Ausbildung",
+        "Apostille + Übersetzung",
+        "Erweitertes Führungszeugnis (für Arbeit mit Kindern)",
+        "Ärztliches Attest"
+      ]
+    },
+    "apotheker": {
+      "name": "Apotheker:in",
+      "description": "Streng reglementiert. Für die Tätigkeit in der Apotheke ist die Approbation erforderlich.",
+      "durationRange": "12–24 Monate",
+      "costRange": "350–1.000 €",
+      "steps": [
+        "Prüfe deine Hochschule in der Anabin-Datenbank",
+        "Antrag auf Approbation beim Landesprüfungsamt",
+        "Gleichwertigkeitsprüfung",
+        "Kenntnisprüfung oder Anpassungslehrgang bei festgestellten Unterschieden",
+        "Fachsprachenprüfung (C1)",
+        "Approbation"
+      ],
+      "documents": [
+        "Diplom Pharmazie + Noten",
+        "Apostille + Übersetzung",
+        "Praktikumsbescheinigung",
+        "Führungszeugnis",
+        "Ärztliches Attest",
+        "Deutsch-Zertifikat (C1)"
+      ]
+    },
+    "zahnarzt": {
+      "name": "Zahnärztin / Zahnarzt",
+      "description": "Streng reglementiert. Approbation für die zahnärztliche Tätigkeit erforderlich.",
+      "durationRange": "12–30 Monate",
+      "costRange": "350–1.100 €",
+      "steps": [
+        "Prüfe deine Hochschule in der Anabin-Datenbank",
+        "Antrag auf Approbation",
+        "Gleichwertigkeitsprüfung",
+        "Kenntnisprüfung bei festgestellten Unterschieden",
+        "Fachsprachenprüfung (C1)",
+        "Approbation"
+      ],
+      "documents": [
+        "Diplom Zahnmedizin + Noten",
+        "Apostille + Übersetzung",
+        "Ärztliches Attest",
+        "Führungszeugnis",
+        "Deutsch-Zertifikat (C1)"
+      ]
+    },
+    "koch": {
+      "name": "Köchin / Koch",
+      "description": "Nicht reglementiert! Du kannst als Koch ohne formale Anerkennung arbeiten. Die Anerkennung ist freiwillig, aber sinnvoll für besseres Gehalt und unbefristeten Vertrag.",
+      "durationRange": "3–4 Monate (IHK-Verfahren)",
+      "costRange": "100–600 € (je nach IHK)",
+      "notes": "Ohne Anerkennung kannst du sofort arbeiten. Mit Anerkennung erhältst du den Status 'Fachkraft', was zu höherem Tarif (oft +300–500 €/Monat) führt.",
+      "steps": [
+        "OPTIONAL: Antrag auf Anerkennung bei der Industrie- und Handelskammer (IHK)",
+        "Gleichwertigkeitsprüfung mit der deutschen Ausbildung",
+        "Bescheid: 'gleichwertig' / 'wesentliche Unterschiede'",
+        "Bei Unterschieden — wahlweise Anpassungsqualifizierung"
+      ],
+      "documents": [
+        "Diplom der Kochschule / Gesellenbrief",
+        "Inhalt der Ausbildung",
+        "Apostille + Übersetzung",
+        "Tätigkeitsnachweise (falls vorhanden)",
+        "Lebenslauf"
+      ]
+    },
+    "elektroniker": {
+      "name": "Elektroniker:in",
+      "description": "Teilreglementiert. Für die selbstständige Tätigkeit im Handwerk ist ein Meister oder eine Anerkennung über die Handwerkskammer erforderlich.",
+      "durationRange": "3–8 Monate",
+      "costRange": "100–600 € (HWK-Gebühren)",
+      "notes": "Als Angestellter ist eine Anerkennung oft nicht erforderlich. Für die selbstständige Tätigkeit ist sie verpflichtend.",
+      "steps": [
+        "Antrag bei der Handwerkskammer (HWK) deiner Region",
+        "Gleichwertigkeitsprüfung mit der deutschen Ausbildung Elektroniker",
+        "Wenn du eine eigene Firma gründen willst — meist Meister-Anerkennung erforderlich",
+        "Bei Unterschieden — Anpassungslehrgang oder Kenntnisprüfung"
+      ],
+      "documents": [
+        "Gesellenbrief / Hochschulabschluss Elektrotechnik",
+        "Inhalt der Ausbildung + Praxisstunden",
+        "Apostille + Übersetzung",
+        "Tätigkeitsnachweise",
+        "Lebenslauf"
+      ]
+    },
+    "maurer": {
+      "name": "Maurer:in",
+      "description": "Handwerk mit geschütztem Titel für die selbstständige Tätigkeit. Als Angestellter keine formale Anerkennung nötig. Für die Firmengründung — Meister-Anerkennung bei der HWK.",
+      "durationRange": "3–6 Monate (einfache Prüfung) / 6–12 Monate (Meister)",
+      "costRange": "100–600 € (HWK-Gebühren) + zusätzlich für Meisterverfahren",
+      "notes": "Erfahrung auf deutschen Baustellen (Arbeitgeberbescheinigungen) zählt viel — oft wichtiger als die formale Anerkennung.",
+      "steps": [
+        "Prüfe deine Bildungseinrichtung in der Anabin-Datenbank",
+        "Als Angestellter: Zeugnis + Übersetzung reichen (ohne Anerkennung)",
+        "Für die selbstständige Tätigkeit: Antrag bei der Handwerkskammer (HWK)",
+        "Gleichwertigkeitsprüfung mit der deutschen Maurer-Ausbildung",
+        "Bei Unterschieden: Anpassungslehrgang oder Eignungsprüfung",
+        "Eintrag in die Handwerksrolle nach Meister-Anerkennung"
+      ],
+      "documents": [
+        "Gesellenbrief / SSS / Hochschulabschluss Bauwesen",
+        "Inhalt der Ausbildung + Praxisstunden",
+        "Apostille + beglaubigte Übersetzung",
+        "Arbeitszeugnisse — je mehr, desto besser",
+        "Lebenslauf auf Deutsch",
+        "Reisepass"
+      ]
+    },
+    "kfz_mechatroniker": {
+      "name": "Kraftfahrzeugmechatroniker:in",
+      "description": "Reglementiert für die selbstständige Tätigkeit. Als Angestellter in der Werkstatt nicht zwingend, erleichtert aber besseres Gehalt und Fachkraft-Status.",
+      "durationRange": "3–6 Monate",
+      "costRange": "100–600 €",
+      "notes": "Großer Fachkräftemangel in Deutschland — oft stellen Werkstätten direkt ein und unterstützen bei der Anerkennung.",
+      "steps": [
+        "Prüfe deine Schule in der Anabin-Datenbank",
+        "Antrag bei der Handwerkskammer (HWK) deiner Region",
+        "Gleichwertigkeitsprüfung",
+        "Bei Unterschieden: Anpassungslehrgang oder Eignungsprüfung",
+        "Für selbstständige Tätigkeit: Meister-Anerkennung"
+      ],
+      "documents": [
+        "Gesellenbrief / SSS Kfz-Mechatroniker",
+        "Inhalt der Ausbildung",
+        "Apostille + Übersetzung",
+        "Arbeitszeugnisse",
+        "Lebenslauf"
+      ]
+    },
+    "schweisser": {
+      "name": "Schweißer:in",
+      "description": "Nicht reglementiert! Du kannst sofort arbeiten. Was wirklich zählt, sind DIN/EN-ISO-Schweißzertifikate (z. B. EN ISO 9606-1) — diese stellen die SLV (Schweißtechnische Lehr- und Versuchsanstalten) aus und werden EU-weit anerkannt.",
+      "durationRange": "1–3 Monate (falls Nachprüfung in einer SLV erforderlich)",
+      "costRange": "200–800 € (je Zertifikatstyp) / 100–400 € (Anerkennung des Zeugnisses)",
+      "notes": "Top-Beruf für schnelle Beschäftigung. Das Nachprüfungsverfahren in einer SLV dauert wenige Tage, das Zertifikat ist 6 Monate–3 Jahre gültig (je nach Typ).",
+      "steps": [
+        "Bringe alle vorhandenen Schweißerzertifikate mit (DIN/EN, ISO 9606)",
+        "Wenn aus BA/HR/RS/ME/MK/XK nach EN-Normen — meist direkt anerkannt",
+        "Wenn nicht nach EN — praktische Prüfung in einem deutschen SLV-Zentrum",
+        "OPTIONAL: Anerkennung des Gesellenbriefs bei IHK / HWK für Fachkraft-Status"
+      ],
+      "documents": [
+        "Alle Schweißerzertifikate (Original + Übersetzung)",
+        "Gesellenbrief (falls vorhanden)",
+        "Arbeitszeugnisse",
+        "Lebenslauf",
+        "Reisepass"
+      ]
+    },
+    "it_fachkraft": {
+      "name": "IT-Fachkraft (Entwickler:in / Systemadministrator:in)",
+      "description": "Nicht reglementiert! IT ist in Deutschland ein offener Markt. Für die Tätigkeit ist keine Anerkennung erforderlich. Für das Visum (Blue Card / §19c AufenthG) reichen oft Berufserfahrung + Arbeitsvertrag.",
+      "durationRange": "0 Monate für die Tätigkeit / 2–4 Monate für ZAB-Zeugnisbewertung",
+      "costRange": "0 € für die Tätigkeit / 200 € für ZAB / 100–400 € für IHK",
+      "notes": "Viele Firmen in Deutschland suchen IT-Fachkräfte und bieten Visum + Umzugskosten. Englisch reicht oft aus.",
+      "steps": [
+        "Keine formale Anerkennung für die Tätigkeit erforderlich",
+        "Für das Visum (Blue Card EU): mindestens 3 Jahre einschlägige Erfahrung ODER Hochschulabschluss",
+        "OPTIONAL: ZAB-Zeugnisbewertung (200 €) zur besseren Darstellung des Abschlusses gegenüber dem Arbeitgeber",
+        "OPTIONAL: Anerkennung bei der IHK als 'Fachinformatiker' für Tarifstatus"
+      ],
+      "documents": [
+        "Hochschulabschluss (falls vorhanden) + Übersetzung",
+        "Arbeitszeugnisse mit Tätigkeitsbeschreibung",
+        "Portfolio / GitHub / Zertifikate (Microsoft, AWS, Cisco …)",
+        "Lebenslauf auf Deutsch oder Englisch",
+        "Reisepass"
+      ]
+    }
+  },
+  "anabin": {
+    "instH+": { "title": "H+ (anerkannt)", "description": "Die Einrichtung ist im Herkunftsland staatlich anerkannt und Abschlüsse können in Deutschland bewertet werden. BESTER Status." },
+    "instH-": { "title": "H− (nicht anerkannt)", "description": "Die Einrichtung gilt im Herkunftsland nicht als Hochschule. Abschlüsse können in Deutschland in der Regel NICHT anerkannt werden." },
+    "instH+/-": { "title": "H+/− (bedingt)", "description": "Status nicht eindeutig — es gibt unterschiedliche Fälle. Eine individuelle Prüfung ist erforderlich." },
+    "dipEntspricht": { "title": "entspricht", "description": "Der Abschluss entspricht dem entsprechenden deutschen Abschluss — gleichwertig." },
+    "dipGleichwertig": { "title": "gleichwertig", "description": "Der Abschluss ist dem deutschen gleichwertig — wird anerkannt." },
+    "dipNicht": { "title": "nicht gleichwertig", "description": "Der Abschluss gilt nicht als gleichwertig — ggf. ist ein Zusatzverfahren oder eine Nachqualifizierung erforderlich." }
+  },
+  "zuschuss": {
+    "description": "Der Anerkennungszuschuss ist eine staatliche Förderung des Bundesministeriums für Forschung, Technologie und Raumfahrt (BMFTR) für Personen mit niedrigem Einkommen, die ihre ausländische Qualifikation anerkennen lassen wollen.",
+    "eligibility": [
+      "Du hast eine ausländische berufliche Qualifikation",
+      "Niedriges Einkommen (Grenze wird individuell festgelegt)",
+      "Du trägst die Kosten des Anerkennungsverfahrens selbst",
+      "Du erhältst keine andere staatliche Förderung für dasselbe Verfahren"
+    ],
+    "covers": [
+      "Verwaltungsgebühren des Anerkennungsverfahrens",
+      "Übersetzungskosten beim vereidigten Übersetzer",
+      "Beglaubigungs- und Apostille-Kosten",
+      "Reisekosten zur zuständigen Stelle",
+      "Kosten der Kenntnisprüfung / Eignungsprüfung",
+      "In Einzelfällen auch Qualifizierungsmaßnahmen (Anpassungsqualifizierung)"
+    ],
+    "howToApply": [
+      "Wende dich an eine IQ-Beratungsstelle (kostenlose Beratung) in deiner Stadt",
+      "Die Beraterin/der Berater stellt fest, ob du Anspruch hast",
+      "Du stellst den Antrag über die Beratungsstelle oder direkt",
+      "Die Mittel werden gegen Vorlage von Belegen ausgezahlt"
+    ],
+    "important": "HINWEIS: Es besteht kein automatischer Anspruch auf den Anerkennungszuschuss — jeder Antrag wird individuell geprüft. Der genaue Betrag wird im Einzelfall festgelegt."
+  },
+  "portals": {
+    "anabin": "Offizielle Datenbank zur Bewertung ausländischer Bildungsqualifikationen. Wird von der Kultusministerkonferenz (KMK) geführt.",
+    "anerkennung": "Offizielles Portal des Bundesinstituts für Berufsbildung (BIBB) mit Details zum Anerkennungsverfahren nach Beruf und Bundesland.",
+    "bqPortal": "Portal zur Anerkennung handwerklicher und beruflicher Qualifikationen (orientiert an Arbeitgebern und Kammern).",
+    "profiFilter": "Suche nach der zuständigen Stelle nach Beruf und Bundesland inkl. Kontaktdaten.",
+    "zab": "Zentrale Stelle der KMK zur Bewertung ausländischer Bildungsdokumente. Stellt die Zeugnisbewertung aus.",
+    "makeIt": "Offizielles Regierungsportal für Anerkennung, Visa und Leben in Deutschland."
+  },
+  "email": {
+    "translationHeader": "📝 ÜBERSETZUNG (nur zu deinem Verständnis — NICHT mit der E-Mail mitsenden):",
+    "translationSubject": "Betreff: Antrag auf Anerkennung der Berufsqualifikation als {{profession}} ({{country}})",
+    "translationGreeting": "Sehr geehrte Damen und Herren,",
+    "translationIntro": "mein Name ist {{name}}. Ich habe meine Berufsqualifikation als {{profession}} in {{country}} erworben und beabsichtige, in {{bundesland}} in diesem Beruf tätig zu werden.",
+    "translationRegREG": "Da es sich um einen reglementierten Beruf handelt, beantrage ich die formelle Anerkennung meiner Berufsqualifikation.",
+    "translationRegPARTIAL": "Da der Beruf teilweise reglementiert ist, bitte ich um Auskunft, welcher Anerkennungsweg in meinem Fall in Frage kommt.",
+    "translationRegNREG": "Da der Beruf nicht reglementiert ist, möchte ich eine Gleichwertigkeitsfeststellung beantragen.",
+    "translationQuestionsLead": "Hierzu bitte ich Sie höflich um folgende Informationen:",
+    "translationQ1": "1. Welche Unterlagen werden für die Antragstellung benötigt?",
+    "translationQ2": "2. In welcher Form (Original, beglaubigte Kopie, Übersetzung, Apostille)?",
+    "translationQ3": "3. Wie hoch sind die Verfahrensgebühren und wie sind diese zu entrichten?",
+    "translationQ4": "4. Mit welcher Bearbeitungsdauer ist üblicherweise zu rechnen?",
+    "translationQ5": "5. Gibt es ein Antragsformular, das ich vorab ausfüllen kann?",
+    "translationQ6": "6. Welche Anforderungen bestehen an den Nachweis meiner Deutschkenntnisse und gibt es Vorgaben zur Fachsprachenprüfung?",
+    "translationLangNote": "Mir ist bekannt, dass für die endgültige Anerkennung B2/C1-Deutsch und die Fachsprachenprüfung erforderlich sind.",
+    "translationOutro": "Falls Ihre Behörde nicht zuständig sein sollte, bitte ich um einen Hinweis auf die zuständige Stelle.",
+    "translationThanks": "Für Ihre Unterstützung danke ich Ihnen im Voraus.",
+    "translationRegards": "Mit freundlichen Grüßen"
+  }
+}
