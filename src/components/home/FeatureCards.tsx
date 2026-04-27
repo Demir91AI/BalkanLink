@@ -48,7 +48,7 @@ export default function FeatureCards() {
         </h2>
       </div>
 
-      <div className="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+      <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4">
         {features.map((f, i) => {
           const Icon = f.icon;
           return (
