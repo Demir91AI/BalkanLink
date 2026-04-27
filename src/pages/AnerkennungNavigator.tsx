@@ -251,29 +251,8 @@ export default function AnerkennungNavigator() {
     setEmailVisible(false);
   };
 
-  // Premium gate
-  if (!isPremium) {
-    return (
-      <div className="mx-auto max-w-7xl px-4 py-6 min-h-screen">
-        <SEO
-          title={t("seo.title")}
-          description={t("seo.description")}
-          path="/anerkennung-navigator"
-        />
-        <PageNavBar onBack={handleBack} />
-        <div className="mb-6">
-          <h1 className="font-heading text-2xl sm:text-3xl font-extrabold text-foreground flex items-center gap-3">
-            <GraduationCap className="h-7 w-7 text-[hsl(var(--gold))]" />
-            {t("ui.headerTitle")}
-          </h1>
-          <p className="mt-1 text-sm text-muted-foreground">
-            {t("ui.headerSubtitleShort")}
-          </p>
-        </div>
-        <AnerkennungPaywall />
-      </div>
-    );
-  }
+  // Premium gate — free preview: Step 1 (country) is open; paywall kicks in after country selected
+  const showPaywall = !isPremium && !!selectedCountry;
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-6 min-h-screen">
@@ -348,8 +327,34 @@ export default function AnerkennungNavigator() {
         </section>
       )}
 
+      {/* ────────── PAYWALL after Step 1 (free preview) ────────── */}
+      {showPaywall && (
+        <section className="space-y-4">
+          <div className="flex items-center justify-between gap-3 flex-wrap">
+            <p className="text-xs text-muted-foreground flex items-center gap-1.5">
+              {country && <span className="text-lg">{country.flag}</span>}
+              <span>
+                {t("ui.previewSelected", {
+                  defaultValue: "Odabrano:",
+                })}{" "}
+                <strong className="text-foreground">
+                  {country ? countryT(country.code, "name", country.name) : ""}
+                </strong>
+              </span>
+            </p>
+            <button
+              onClick={() => setSelectedCountry(null)}
+              className="text-xs font-semibold text-muted-foreground hover:text-foreground flex items-center gap-1"
+            >
+              <ChevronLeft className="h-3 w-3" /> {t("ui.changeCountry")}
+            </button>
+          </div>
+          <AnerkennungPaywall />
+        </section>
+      )}
+
       {/* ────────── STEP 2: Profession ────────── */}
-      {selectedCountry && !selectedProfession && country && (
+      {!showPaywall && selectedCountry && !selectedProfession && country && (
         <section className="space-y-6">
           <div className="flex items-center justify-between gap-3 flex-wrap">
             <div>

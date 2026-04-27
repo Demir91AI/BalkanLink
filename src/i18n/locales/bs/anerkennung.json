@@ -74,7 +74,8 @@
     "emailCopiedToast": "Email kopiran u clipboard",
     "emailDownloadedToast": "Email preuzet",
     "officialSourcesTitle": "Službeni izvori za ovu profesiju",
-    "allPortalsTitle": "📚 Svi službeni izvori (uvijek aktuelno)"
+    "allPortalsTitle": "📚 Svi službeni izvori (uvijek aktuelno)",
+    "previewSelected": "Odabrano:"
   },
   "paywall": {
     "title": "Anerkennung Navigator",
@@ -90,12 +91,30 @@
     "footnote": "Pravno bezbjedan informativni alat — sve informacije bazirane na službenim njemačkim izvorima (Anabin, BIBB, BMFTR, ZAB)."
   },
   "countries": {
-    "BA": { "name": "Bosna i Hercegovina", "notes": "Treća zemlja. Diplome se priznaju individualno preko Anabin baze i nadležne ustanove. Često potreban Anpassungslehrgang ili Kenntnisprüfung za reglementovana zanimanja." },
-    "HR": { "name": "Hrvatska", "notes": "EU članica od 2013. Za većinu reglementovanih zanimanja primjenjuje se EU direktiva 2005/36/EG — automatsko ili olakšano priznavanje." },
-    "RS": { "name": "Srbija", "notes": "Treća zemlja. Postupak sličan kao za BiH — preko Anabin baze i nadležne ustanove po profesiji i Bundeslandu." },
-    "ME": { "name": "Crna Gora", "notes": "Treća zemlja. Postupak preko Anabin baze." },
-    "MK": { "name": "Sjeverna Makedonija", "notes": "Treća zemlja. Postupak preko Anabin baze." },
-    "XK": { "name": "Kosovo", "notes": "Treća zemlja. Postupak preko Anabin baze." }
+    "BA": {
+      "name": "Bosna i Hercegovina",
+      "notes": "Treća zemlja. Diplome se priznaju individualno preko Anabin baze i nadležne ustanove. Često potreban Anpassungslehrgang ili Kenntnisprüfung za reglementovana zanimanja."
+    },
+    "HR": {
+      "name": "Hrvatska",
+      "notes": "EU članica od 2013. Za većinu reglementovanih zanimanja primjenjuje se EU direktiva 2005/36/EG — automatsko ili olakšano priznavanje."
+    },
+    "RS": {
+      "name": "Srbija",
+      "notes": "Treća zemlja. Postupak sličan kao za BiH — preko Anabin baze i nadležne ustanove po profesiji i Bundeslandu."
+    },
+    "ME": {
+      "name": "Crna Gora",
+      "notes": "Treća zemlja. Postupak preko Anabin baze."
+    },
+    "MK": {
+      "name": "Sjeverna Makedonija",
+      "notes": "Treća zemlja. Postupak preko Anabin baze."
+    },
+    "XK": {
+      "name": "Kosovo",
+      "notes": "Treća zemlja. Postupak preko Anabin baze."
+    }
   },
   "professions": {
     "pflegefachperson": {
@@ -410,12 +429,30 @@
     }
   },
   "anabin": {
-    "instH+": { "title": "H+ (priznata)", "description": "Ustanova je državno priznata u zemlji porijekla i diplome se mogu vrednovati u Njemačkoj. NAJBOLJI status." },
-    "instH-": { "title": "H− (nije priznata)", "description": "Ustanova nije priznata kao visokoškolska u zemlji porijekla. Diplome se uglavnom NE mogu priznati u Njemačkoj." },
-    "instH+/-": { "title": "H+/− (uslovno)", "description": "Status nije definitivan — postoje različiti slučajevi. Potrebna je individualna provjera." },
-    "dipEntspricht": { "title": "entspricht (odgovara)", "description": "Diploma odgovara odgovarajućoj njemačkoj diplomi — ekvivalentna." },
-    "dipGleichwertig": { "title": "gleichwertig (jednakovrijedna)", "description": "Diploma je jednakovrijedna njemačkoj — priznaje se." },
-    "dipNicht": { "title": "nicht gleichwertig (nije jednakovrijedna)", "description": "Diploma se ne smatra ekvivalentnom — možda je potreban dodatni postupak ili nadogradnja." }
+    "instH+": {
+      "title": "H+ (priznata)",
+      "description": "Ustanova je državno priznata u zemlji porijekla i diplome se mogu vrednovati u Njemačkoj. NAJBOLJI status."
+    },
+    "instH-": {
+      "title": "H− (nije priznata)",
+      "description": "Ustanova nije priznata kao visokoškolska u zemlji porijekla. Diplome se uglavnom NE mogu priznati u Njemačkoj."
+    },
+    "instH+/-": {
+      "title": "H+/− (uslovno)",
+      "description": "Status nije definitivan — postoje različiti slučajevi. Potrebna je individualna provjera."
+    },
+    "dipEntspricht": {
+      "title": "entspricht (odgovara)",
+      "description": "Diploma odgovara odgovarajućoj njemačkoj diplomi — ekvivalentna."
+    },
+    "dipGleichwertig": {
+      "title": "gleichwertig (jednakovrijedna)",
+      "description": "Diploma je jednakovrijedna njemačkoj — priznaje se."
+    },
+    "dipNicht": {
+      "title": "nicht gleichwertig (nije jednakovrijedna)",
+      "description": "Diploma se ne smatra ekvivalentnom — možda je potreban dodatni postupak ili nadogradnja."
+    }
   },
   "zuschuss": {
     "description": "Anerkennungszuschuss je državna finansijska pomoć Bundesministerium für Forschung, Technologie und Raumfahrt (BMFTR) za osobe s niskim primanjima koje žele priznati svoju stranu kvalifikaciju.",
