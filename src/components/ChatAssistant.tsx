@@ -786,6 +786,21 @@ export default function ChatAssistant() {
       return;
     }
 
+    // Lokalni odgovor na pitanja o broju preostalih pitanja — bez trošenja kvote i bez poziva AI-a
+    if (isQuotaQuestion(text)) {
+      setMessages(prev => [...prev,
+        { role: "user", content: text.trim() },
+        {
+          role: "assistant",
+          content: buildQuotaAnswer(remaining, isPremium),
+          redirectUrl: isPremium ? undefined : "/paketi",
+          redirectLabel: isPremium ? undefined : "Paketi i cijene",
+        },
+      ]);
+      setInput("");
+      return;
+    }
+
     await recordQuery();
     const userMsg: Msg = { role: "user", content: text.trim() };
     const newMessages = [...messages, userMsg];
