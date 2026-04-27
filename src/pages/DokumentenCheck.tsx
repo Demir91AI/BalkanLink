@@ -294,11 +294,10 @@ export default function DokumentenCheck() {
 
     try {
       const filesPayload = await Promise.all(
-        files.map(async (f) => ({
-          base64: await fileToBase64(f),
-          mimeType: f.type || (f.name.toLowerCase().endsWith(".pdf") ? "application/pdf" : "image/jpeg"),
-          name: f.name,
-        }))
+        files.map(async (f) => {
+          const { base64, mimeType } = await fileToCompressedBase64(f);
+          return { base64, mimeType, name: f.name };
+        })
       );
       const payload = { files: filesPayload };
 
