@@ -141,6 +141,7 @@ const KEYWORD_LINKS: [RegExp, string][] = [
   // RADNO PRAVO / BIZNIS
   [/\b(Arbeitsrecht|arbeitsrecht|radno pravo)\b/gi, "/radno-pravo"],
   [/\b(Gewerbe|gewerbeanmeldung|samozaposlenje|biznis u Njemačkoj)\b/gi, "/biznis"],
+];
 
 function autoLinkKeywords(text: string): string {
   let result = text;
