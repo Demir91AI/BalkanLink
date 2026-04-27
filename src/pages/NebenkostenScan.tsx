@@ -131,7 +131,14 @@ export default function NebenkostenScan() {
     }
   }, [confirmed, files, loading, t]);
 
-  const reset = () => { setFiles([]); setAnalysis(null); setError(null); setConfirmed(false); if (fileInputRef.current) fileInputRef.current.value = ""; };
+  const reset = () => {
+    setFiles([]);
+    setAnalysis(null);
+    setError(null);
+    setConfirmed(false);
+    if (fileInputRef.current) fileInputRef.current.value = "";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   const totalSizeMB = files.reduce((s, f) => s + f.size, 0) / 1024 / 1024;
 
