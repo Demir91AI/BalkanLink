@@ -875,7 +875,7 @@ export default function ChatAssistant() {
     } finally {
       setLoading(false);
     }
-  }, [loading, messages, isPremium, chatLang, location.pathname, canChat, recordQuery]);
+  }, [loading, messages, isPremium, chatLang, location.pathname, canChat, recordQuery, remaining]);
 
   const sendMessage = useCallback(() => sendMessageWithText(input), [input, sendMessageWithText]);
   const handleKeyDown = (e: React.KeyboardEvent) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(); } };
