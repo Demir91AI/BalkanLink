@@ -1,9 +1,10 @@
 import { useTranslation } from "react-i18next";
 import PageNavBar from "@/components/navigation/PageNavBar";
+import i18n from "@/i18n";
 
 interface LegalSection {
-  heading: string;
-  html: string;
+  heading?: string;
+  html?: string;
 }
 
 interface LegalPageProps {
@@ -22,43 +23,67 @@ interface LegalPageProps {
  * Each entry has shape:
  *   { title, subtitle, sections: [{ heading, html }] }
  *
- * Section HTML may use special CSS classes:
- *   .legal-warn-yellow / .legal-warn-red / .legal-note-box
+ * Defensive against missing/malformed translation keys:
+ *  - Falls back to the default language ('bs') for the requested key
+ *  - If the key truly does not exist, renders a minimal placeholder
+ *    instead of crashing or printing the raw key path
  */
 export default function LegalPage({ tKey, children }: LegalPageProps) {
   const { t } = useTranslation("legal");
 
-  const title = t(`${tKey}.title`, { defaultValue: tKey });
-  const subtitle = t(`${tKey}.subtitle`, { defaultValue: "" });
-  // Force array return; default to [] if missing
-  const sections = t(`${tKey}.sections`, {
+  // Helper: try current lang, then fall back to default 'bs'
+  const tWithFallback = <T,>(key: string, opts?: Record<string, unknown>): T => {
+    const value = t(key, { ...opts, defaultValue: undefined as unknown as T });
+    if (value !== undefined && value !== null && value !== "") {
+      return value as T;
+    }
+    // Fallback: read directly from default language ('bs')
+    const fallback = i18n.getResource("bs", "legal", key) as T | undefined;
+    if (fallback !== undefined) return fallback;
+    return (opts?.defaultValue as T) ?? ("" as unknown as T);
+  };
+
+  const title = tWithFallback<string>(`${tKey}.title`, { defaultValue: "" });
+  const subtitle = tWithFallback<string>(`${tKey}.subtitle`, { defaultValue: "" });
+  const sectionsRaw = tWithFallback<LegalSection[]>(`${tKey}.sections`, {
     returnObjects: true,
-    defaultValue: [] as LegalSection[],
-  }) as LegalSection[];
+    defaultValue: [],
+  });
+  const sections = Array.isArray(sectionsRaw) ? sectionsRaw : [];
+
+  // Last-resort placeholder when the entire entry is missing
+  const isEmpty = !title && !subtitle && sections.length === 0 && !children;
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-6 pb-28">
       <PageNavBar />
 
-      <h1 className="mb-2 text-3xl font-bold">{title}</h1>
+      <h1 className="mb-2 text-3xl font-bold">{title || tKey}</h1>
       {subtitle && (
         <p className="mb-10 text-sm text-muted-foreground">{subtitle}</p>
       )}
 
       <div className="space-y-8 text-sm leading-relaxed text-muted-foreground legal-prose">
-        {Array.isArray(sections) &&
-          sections.map((s, i) => (
-            <section key={i}>
-              {s.heading && (
-                <h2 className="mb-3 text-lg font-semibold text-foreground">
-                  {s.heading}
-                </h2>
-              )}
+        {sections.map((s, i) => (
+          <section key={i}>
+            {s?.heading && (
+              <h2 className="mb-3 text-lg font-semibold text-foreground">
+                {s.heading}
+              </h2>
+            )}
+            {s?.html && (
               <div dangerouslySetInnerHTML={{ __html: s.html }} />
-            </section>
-          ))}
+            )}
+          </section>
+        ))}
 
         {children}
+
+        {isEmpty && (
+          <p className="text-sm opacity-60">
+            Sadržaj trenutno nije dostupan na izabranom jeziku.
+          </p>
+        )}
       </div>
     </div>
   );
