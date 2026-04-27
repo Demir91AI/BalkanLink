@@ -112,6 +112,7 @@ const Mietrecht = lazy(() => import("./pages/Mietrecht"));
 const SchufaSimulator = lazy(() => import("./pages/SchufaSimulator"));
 const AnerkennungNavigator = lazy(() => import("./pages/AnerkennungNavigator"));
 const Porezi = lazy(() => import("./pages/Porezi"));
+const PoreziWizard = lazy(() => import("./pages/PoreziWizard"));
 
 // Dev-only visual fixtures (excluded from production bundle behaviour via guard).
 const VisualFlagBA = lazy(() => import("./pages/__visual/VisualFlagBA"));
@@ -201,6 +202,10 @@ function LocalizedRoutes() {
         {/* Porezi (Tax) — landing hub. Same component, two slugs so /de/steuern works. */}
         <Route path="porezi" element={<Porezi />} />
         <Route path="steuern" element={<Porezi />} />
+        {/* Tax Wizard — slug differs per language; all four route to same component. */}
+        <Route path="porezi/da-li-moram" element={<PoreziWizard />} />
+        <Route path="porezi/moram-li-uopce" element={<PoreziWizard />} />
+        <Route path="steuern/muss-ich-ueberhaupt" element={<PoreziWizard />} />
         <Route element={<AdminGuard />}>
           <Route path="admin/forms" element={<AdminForms />} />
           <Route path="admin/forms/:slug/mapper" element={<AdminFormMapper />} />

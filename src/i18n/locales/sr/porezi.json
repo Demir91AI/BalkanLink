@@ -1,19 +1,19 @@
 {
   "seo": {
-    "title": "Porezi u Nemačkoj — Smart Guide za Steuererklärung",
-    "description": "Smart vodič kroz nemački poreski sistem: kako se radi Steuererklärung, šta možeš da odbiješ, rokovi i česte greške. Stand 2026."
+    "title": "Porezi u Nemačkoj — Smart vodič za Steuererklärung",
+    "description": "Smart vodič kroz nemački poreski sistem: kako se radi Steuererklärung, šta možete odbiti, rokovi i česte greške. Stand 2026."
   },
   "hero": {
     "badge": "Premium · Stand 2026",
     "title": "Porezi u Nemačkoj",
-    "subtitle": "Smart Guide kroz Steuererklärung — jasno, korak po korak, na tvom jeziku.",
-    "ctaPrimary": "Pokreni čarobnjak",
+    "subtitle": "Smart vodič kroz Steuererklärung — jasno, korak po korak, na vašem jeziku.",
+    "ctaPrimary": "Pokreni vodič",
     "ctaSecondary": "Pogledaj sve module"
   },
   "intro": {
-    "heading": "Šta dobijaš ovde",
-    "p1": "Edukativni vodič koji ti objašnjava kako funkcioniše nemačka poreska prijava (Einkommensteuererklärung), na šta treba da paziš i koje greške da izbegneš.",
-    "p2": "Ne dajemo ti konkretne iznose povraćaja niti zamenjujemo poreskog savetnika — pokazujemo ti sistem i pomažemo da razumeš svoju situaciju."
+    "heading": "Šta ovde dobijate",
+    "p1": "Edukativni vodič koji vam objašnjava kako funkcioniše nemačka poreska prijava (Einkommensteuererklärung), na šta treba paziti i koje greške izbeći.",
+    "p2": "Ne dajemo konkretne iznose povraćaja niti zamenjujemo poreskog savetnika — pokazujemo sistem i pomažemo da razumete svoju situaciju."
   },
   "modulesHeading": "Moduli",
   "comingSoonBadge": "Uskoro",
@@ -22,11 +22,11 @@
   "modules": {
     "wizard": {
       "title": "Da li uopšte moram da podnesem prijavu?",
-      "desc": "Interaktivni čarobnjak od 8 pitanja koji ti kaže da li je poreska prijava obavezna, preporučena ili nepotrebna."
+      "desc": "Interaktivni vodič od 8 pitanja koji vam kaže da li je poreska prijava obavezna, preporučena ili nepotrebna."
     },
     "deadlines": {
       "title": "Rokovi i kazne",
-      "desc": "Do kada se predaje prijava, šta ako kasniš, koje su posledice i izuzeci."
+      "desc": "Do kada se predaje prijava, šta ako kasnite, posledice i izuzeci."
     },
     "deductions": {
       "title": "Šta sve mogu da odbijem",
@@ -41,7 +41,7 @@
       "desc": "Korak po korak kako otvoriti nalog na ELSTER portalu i poslati prijavu elektronski."
     },
     "family": {
-      "title": "Porodica i poreske klase",
+      "title": "Porodica i poreski razredi",
       "desc": "Steuerklassen, zajednička prijava bračnih partnera, Kinderfreibetrag — kako utiču na porez."
     },
     "studentsTrainees": {
@@ -58,12 +58,176 @@
     },
     "mistakes": {
       "title": "Najčešće greške",
-      "desc": "Stvari na kojima korisnici najviše padaju — od zaboravljenih dokaza do pogrešno upisanih kategorija."
+      "desc": "Stvari na koje korisnici najviše padaju — od zaboravljenih dokaza do pogrešno upisanih kategorija."
     }
   },
   "legal": {
     "heading": "Pravna napomena",
-    "body": "Sadržaj ovog odeljenja je informativnog karaktera i ne predstavlja poreski ni pravni savet. BalkanLink nije Steuerberater niti Lohnsteuerhilfeverein. Za konkretne odluke obrati se ovlašćenom poreskom savetniku ili priznatom udruženju.",
+    "body": "Sadržaj ovog odeljka je informativnog karaktera i ne predstavlja poresku ni pravnu uslugu. BalkanLink nije Steuerberater niti Lohnsteuerhilfeverein. Za konkretne odluke obratite se ovlašćenom poreskom savetniku ili priznatom udruženju.",
     "sources": "Glavni izvori: §§ EStG (Einkommensteuergesetz), R LStR (Lohnsteuer-Richtlinien), BMF Schreiben, BFH presude. Ažurirano: januar 2026."
+  },
+
+  "wizard": {
+    "seo": {
+      "title": "Da li moram da podnesem poresku prijavu? — BalkanLink",
+      "description": "Interaktivni vodič od 8 pitanja koji vam pomaže da razumete da li je vaša Steuererklärung obavezna, preporučena ili dobrovoljna."
+    },
+    "gate": {
+      "title": "Vodič je deo Premium pristupa",
+      "body": "Za interaktivni klasifikator i sve module poreskog odeljka potrebno je Premium članstvo. Landing stranica /porezi ostaje besplatna i informativna.",
+      "ctaPremium": "Aktiviraj Premium",
+      "ctaLogin": "Prijavi se",
+      "ctaBack": "Nazad na Porezi"
+    },
+    "header": {
+      "badge": "Premium vodič",
+      "title": "Da li moram da podnesem poresku prijavu?",
+      "subtitle": "Odgovorite na 8 pitanja — pokazaćemo u koju kategoriju spadate i šta dalje. Ništa se ne čuva."
+    },
+    "progress": {
+      "step": "Korak {{current}} / {{total}}"
+    },
+    "nav": {
+      "back": "Nazad",
+      "next": "Dalje",
+      "finish": "Završi",
+      "exit": "Izlaz"
+    },
+    "legal": {
+      "heading": "Bez poresko-savetodavnog delovanja",
+      "body": "Ovaj vodič je informativni alat. Ne predstavlja poreski savet i ne daje konkretne iznose povraćaja. Za pojedinačnu odluku obratite se Steuerberateru ili priznatom Lohnsteuerhilfevereinu."
+    },
+    "steps": {
+      "year": {
+        "title": "Za koju poresku godinu pitate?",
+        "help": "Vodič procenjuje vašu situaciju u kontekstu izabrane godine. Pravila su trenutno usklađena za 2024. i 2025.",
+        "options": {
+          "2024": { "label": "Poreska godina 2024", "desc": "Prijava se obično predaje tokom 2025." },
+          "2025": { "label": "Poreska godina 2025", "desc": "Prijava se obično predaje tokom 2026." }
+        }
+      },
+      "residency": {
+        "title": "Da li ste bili poreski rezident u Nemačkoj te godine?",
+        "help": "Poreski rezident ste ako ste imali prijavljeno prebivalište ili uobičajeno boravište u Nemačkoj. Ako ste tu radili, ali ste živeli u inostranstvu cele godine, najčešće spadate u nerezidente.",
+        "options": {
+          "yesFullYear": { "label": "Da, cele godine", "desc": "Cele godine ste imali prebivalište u Nemačkoj." },
+          "yesPartial": { "label": "Da, deo godine", "desc": "Doselili ste ili otišli tokom godine." },
+          "no": { "label": "Ne, nisam bio rezident", "desc": "Bili ste nerezident — važe posebna pravila." }
+        }
+      },
+      "employer": {
+        "title": "Koliko poslodavaca ste imali te godine?",
+        "help": "Misli se na poslove sa Lohnsteuerom (klasično zaposlenje, ne čisti Minijob).",
+        "options": {
+          "singleEmployer": { "label": "Jedan poslodavac", "desc": "Cele godine kod istog poslodavca." },
+          "multipleEmployers": { "label": "Dva ili više poslodavaca", "desc": "Menjali ste posao ili imali paralelno više zaposlenja." },
+          "noEmployment": { "label": "Nisam bio zaposlen", "desc": "Niste imali Lohnsteuer prihod kod poslodavca." }
+        }
+      },
+      "wageReplacement": {
+        "title": "Da li ste primali naknade umesto plate?",
+        "help": "Naknade koje podležu Progressionsvorbehaltu — utiču na poresku stopu iako same nisu oporezovane.",
+        "options": {
+          "none": { "label": "Ne, ništa od navedenog", "desc": "Imali ste redovnu platu bez ovih naknada." },
+          "kurzarbeit": { "label": "Kurzarbeitergeld", "desc": "Naknada za skraćeno radno vreme." },
+          "elterngeld": { "label": "Elterngeld", "desc": "Roditeljska naknada." },
+          "krankengeld": { "label": "Krankengeld", "desc": "Bolovanje preko Krankenkasse." },
+          "arbeitslosengeld": { "label": "Arbeitslosengeld I", "desc": "Naknada za nezaposlene (ne Bürgergeld)." }
+        }
+      },
+      "maritalStatus": {
+        "title": "Vaš poreski status / razred",
+        "help": "Steuerklasse je bila upisana na vašoj Lohnsteuerbescheinigung. Bračni partneri biraju kombinaciju.",
+        "options": {
+          "single": { "label": "Samac (razred I) ili samohrani roditelj (II)", "desc": "Standardna situacija za neoženjene." },
+          "marriedClass3or5": { "label": "U braku, kombinacija III / V", "desc": "Jedan partner ima III, drugi V." },
+          "marriedClass4Faktor": { "label": "U braku, IV / IV sa Faktorom", "desc": "Oba partnera imaju IV sa upisanim Faktor postupkom." },
+          "marriedClass4": { "label": "U braku, IV / IV bez Faktora", "desc": "Klasična kombinacija bez Faktora." }
+        }
+      },
+      "sideIncome": {
+        "title": "Da li ste imali dodatne prihode pored plate?",
+        "help": "Npr. honorari, samostalna delatnost, kapitalni prihodi van Sparer-Pauschbetraga, najam, prihodi iz inostranstva.",
+        "options": {
+          "none": { "label": "Ne, samo plata", "desc": "Nije bilo drugih prihoda." },
+          "minor": { "label": "Manji povremeni prihodi", "desc": "Sitne sume — npr. honorar par puta godišnje." },
+          "significant": { "label": "Značajni dodatni prihodi", "desc": "Najam, redovna freelance delatnost, prihodi iz inostranstva." }
+        }
+      },
+      "freibetrag": {
+        "title": "Da li vam je upisan Lohnsteuer-Freibetrag?",
+        "help": "Freibetrag je iznos koji je Finanzamt unapred upisao u poresku karticu da bi mesečno odbijao manje poreza (npr. zbog dugog dnevnog puta do posla).",
+        "options": {
+          "yes": { "label": "Da, imao sam Freibetrag", "desc": "Mesečno je odbijano manje poreza." },
+          "no": { "label": "Ne ili ne znam", "desc": "Nije bio upisan poseban Freibetrag." }
+        }
+      },
+      "deductibles": {
+        "title": "Šta od ovoga vam se odnosi (može više)?",
+        "help": "Tipične stavke koje povećavaju verovatnoću da se prijava isplati. Ne tražimo iznose — samo relevantnost.",
+        "options": {
+          "commute": { "label": "Dnevni put do posla (Pendlerpauschale)", "desc": "Putujete na posao više od par kilometara dnevno." },
+          "homeOffice": { "label": "Rad od kuće", "desc": "Dani iz kuće (Homeoffice-Pauschale)." },
+          "doppelHaushalt": { "label": "Dvostruko domaćinstvo (DHF)", "desc": "Drugi stan zbog posla u drugom mestu." },
+          "workClothing": { "label": "Radna oprema / odeća / alat", "desc": "Kupovali ste alat, knjige, opremu za posao." },
+          "training": { "label": "Stručno usavršavanje / kursevi", "desc": "Plaćali kurseve, sertifikate, ispite vezane za posao." },
+          "donations": { "label": "Donacije / članarine", "desc": "Registrovanim organizacijama, sindikatu, crkvi." },
+          "childcare": { "label": "Troškovi čuvanja dece", "desc": "Vrtić, dadilja, hort." },
+          "healthExtras": { "label": "Veći zdravstveni izdaci", "desc": "Naočare, zubi, lekovi van osnovnog osiguranja." },
+          "householdServices": { "label": "Usluge u domaćinstvu / zanatlije", "desc": "Čišćenje, popravke, useljenje (haushaltsnahe Dienstleistungen)." },
+          "none": { "label": "Ništa od navedenog", "desc": "Ne primenjuje se nijedna stavka." }
+        }
+      }
+    },
+    "result": {
+      "incomplete": "Vodič nije kompletan. Vratite se i odgovorite na sva pitanja.",
+      "nextStepsHeading": "Šta sad",
+      "restart": "Pokreni ispočetka",
+      "elsterLink": "Otvori ELSTER portal",
+      "mandatory": {
+        "badge": "Obavezna prijava",
+        "title": "Vaša prijava je verovatno obavezna (Pflichtveranlagung)",
+        "summary": "Na osnovu vaših odgovora, kombinacija okolnosti tipično spada pod § 46 Abs. 2 EStG, zbog čega Finanzamt očekuje prijavu. Postoje zakonski rokovi i moguće su kazne ako se preda kasnije.",
+        "steps": {
+          "s1": "Pripremite Lohnsteuerbescheinigung i sve potvrde za naknade (Elterngeld, Kurzarbeit, Krankengeld) ili dokaze o dodatnim prihodima.",
+          "s2": "Proverite rok za podnošenje — bez poreskog savetnika rok je kraći nego sa savetnikom.",
+          "s3": "Razmotrite ELSTER ili angažovanje Lohnsteuerhilfevereina / Steuerberatera ako je situacija složenija."
+        },
+        "legalRef": "Pravni osnov: § 46 Abs. 2 EStG (slučajevi obavezne procene). Konkretne rokove i posledice proverite kod Finanzamta ili savetnika."
+      },
+      "recommended": {
+        "badge": "Dobrovoljno — preporučeno",
+        "title": "Prijava nije obavezna, ali se verovatno isplati",
+        "summary": "Vaši odgovori pokazuju situaciju u kojoj korisnici često imaju pravo na korekciju poreza unapred plaćenog kroz Lohnsteuer. Antragsveranlagung se podnosi dobrovoljno (§ 46 Abs. 2 Nr. 8 EStG).",
+        "steps": {
+          "s1": "Skupite dokaze za stavke koje ste označili (računi, potvrde poslodavca, kalendar puta do posla).",
+          "s2": "Proverite isplativost — Lohnsteuerhilfeverein radi prijave za zaposlene po fiksnoj članarini.",
+          "s3": "Imate nekoliko godina vremena za dobrovoljnu prijavu (Antragsveranlagung) — proverite zakonski rok."
+        },
+        "legalRef": "Pravni osnov: § 46 Abs. 2 Nr. 8 EStG (dobrovoljna procena na zahtev). Mi ne procenjujemo iznos povraćaja — samo verovatnoću isplativosti."
+      },
+      "optional": {
+        "badge": "Dobrovoljno — opciono",
+        "title": "Prijava nije obavezna i verovatno se ne isplati znatno",
+        "summary": "Na osnovu vaših odgovora, najverovatnije nemate većih stavki koje bi pomerile poresku osnovicu. Možete podneti prijavu dobrovoljno, ali efekat može biti mali ili nikakav.",
+        "steps": {
+          "s1": "Ako želite da budete sigurni, ipak proverite ELSTER kalkulaciju — sve je besplatno i bez obaveze podnošenja.",
+          "s2": "Razmislite o stavkama koje ste možda zaboravili (donacije, manji troškovi posla) — pokrenite vodič ponovo ako otkrijete nešto novo.",
+          "s3": "Ako je vaša situacija stabilna i jednostavna, slobodno preskočite — nema obaveze."
+        },
+        "legalRef": "Pravni osnov: § 46 Abs. 2 EStG. Procena isplativosti je orijentaciona — konkretan iznos može utvrditi samo izračun."
+      },
+      "nonResident": {
+        "badge": "Nerezident",
+        "title": "Bili ste nerezident — važe posebna pravila",
+        "summary": "Za nerezidente važe pravila iz § 1 Abs. 4 EStG i Doppelbesteuerungsabkommen sa zemljom prebivališta. Ovaj vodič pokriva rezidente.",
+        "steps": {
+          "s1": "Proverite da li ste možda imali tzv. fiktivno neograničeno poresko svojstvo (§ 1 Abs. 3 EStG) — može vam omogućiti rezidentske olakšice.",
+          "s2": "Pribavite Bescheinigung EU/EWR ili odgovarajući dokument iz zemlje rezidentstva ako planirate da podnesete prijavu.",
+          "s3": "Za pojedinačnu situaciju kontaktirajte Steuerberatera sa iskustvom u prekograničnim slučajevima."
+        },
+        "legalRef": "Pravni osnov: §§ 1, 49, 50 EStG i Doppelbesteuerungsabkommen Nemačke sa konkretnom državom."
+      }
+    }
   }
 }

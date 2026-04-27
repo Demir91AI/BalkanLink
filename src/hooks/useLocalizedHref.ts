@@ -4,17 +4,20 @@
  * Helpers that prefix internal paths with the active language segment
  * so links and navigations stay on the user's current language tree.
  *
- * - Bosnian (default): paths are returned untouched (e.g. "/viza").
- * - German: paths are prefixed with "/de" (e.g. "/de/viza").
+ *   bs (default) → '/viza'
+ *   de           → '/de/viza'
+ *   hr           → '/hr/viza'
+ *   sr           → '/sr/viza'
  *
- * External URLs (http/https/mailto/tel/#) and already-prefixed "/de/..."
- * paths are returned as-is.
+ * External URLs (http/https/mailto/tel/#) and already-prefixed paths
+ * (e.g. '/de/...', '/hr/...', '/sr/...') are returned as-is.
  */
 import { useCallback } from "react";
 import { useLocation, useNavigate, type NavigateOptions } from "react-router-dom";
-import { isGermanPath } from "@/lib/i18n-paths";
+import { langFromPath } from "@/lib/i18n-paths";
+import type { SupportedLanguage } from "@/i18n";
 
-const DE_PREFIX = "/de";
+const PREFIXED_RE = /^\/(de|hr|sr)(?=\/|$)/;
 
 function isExternal(path: string): boolean {
   return (
@@ -25,33 +28,34 @@ function isExternal(path: string): boolean {
   );
 }
 
-export function localizeHref(path: string, isDe: boolean): string {
+export function localizeHref(path: string, lang: SupportedLanguage): string {
   if (!path) return path;
   if (isExternal(path)) return path;
   if (!path.startsWith("/")) return path; // relative, leave alone
-  if (!isDe) return path;
-  if (path === DE_PREFIX || path.startsWith(`${DE_PREFIX}/`)) return path;
-  if (path === "/") return DE_PREFIX;
-  return `${DE_PREFIX}${path}`;
+  if (lang === "bs") return path;
+  if (PREFIXED_RE.test(path)) return path; // already prefixed
+  const prefix = `/${lang}`;
+  if (path === "/") return prefix;
+  return `${prefix}${path}`;
 }
 
 /** Returns a function that converts an internal path to the current language. */
 export function useLocalizedHref() {
   const { pathname } = useLocation();
-  const isDe = isGermanPath(pathname);
-  return useCallback((path: string) => localizeHref(path, isDe), [isDe]);
+  const lang = langFromPath(pathname);
+  return useCallback((path: string) => localizeHref(path, lang), [lang]);
 }
 
 /** Drop-in replacement for `useNavigate()` that respects the current language. */
 export function useLocalizedNavigate() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const isDe = isGermanPath(pathname);
+  const lang = langFromPath(pathname);
   return useCallback(
     (to: string | number, options?: NavigateOptions) => {
       if (typeof to === "number") return navigate(to);
-      return navigate(localizeHref(to, isDe), options);
+      return navigate(localizeHref(to, lang), options);
     },
-    [navigate, isDe],
+    [navigate, lang],
   );
 }
