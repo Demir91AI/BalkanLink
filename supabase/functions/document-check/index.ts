@@ -73,19 +73,30 @@ Deno.serve(async (req) => {
       }
     }
 
-    const { text, imageBase64, mimeType } = await req.json();
+    const body = await req.json();
+    const { text, imageBase64, mimeType } = body;
+    let files: Array<{ base64: string; mimeType: string; name?: string }> = Array.isArray(body.files) ? body.files : [];
+
+    // Backward compat: ako nije poslan files niz, koristi imageBase64/mimeType
+    if (files.length === 0 && imageBase64 && mimeType) {
+      files = [{ base64: imageBase64, mimeType }];
+    }
+
+    // Limit fajlova na serveru (defense-in-depth)
+    const MAX_FILES_SERVER = 10;
+    if (files.length > MAX_FILES_SERVER) {
+      files = files.slice(0, MAX_FILES_SERVER);
+    }
 
     console.log("Request received:", {
       userId,
       isPremium,
       hasText: !!text,
       textLength: text?.length || 0,
-      hasImage: !!imageBase64,
-      mimeType: mimeType || "none",
-      imageSize: imageBase64 ? Math.round(imageBase64.length / 1024) + "KB" : "none",
+      fileCount: files.length,
     });
 
-    if (!text && !imageBase64) {
+    if (!text && files.length === 0) {
       return new Response(
         JSON.stringify({ success: false, errorCode: "EMPTY_INPUT", message: "Kein Text oder Bild uebermittelt." }),
         { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
