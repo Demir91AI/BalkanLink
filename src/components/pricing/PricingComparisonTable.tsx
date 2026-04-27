@@ -5,6 +5,7 @@ const rows: { label: string; free: string; premium: string }[] = [
   { label: "Smart Guides",     free: "❌",             premium: "✅ Svi koraci"          },
   { label: "Viza Navigator",   free: "Osnovno",        premium: "✅ Kompletno"           },
   { label: "Dokumenten-Check", free: "2,99€/kom",      premium: "✅ 1×/dan gratis"       },
+  { label: "Nebenkosten-Scan", free: "1× ukupno",      premium: "✅ Neograničeno"        },
   { label: "Šabloni",          free: "✅ 2 gratis",    premium: "✅ Svi + PDF"           },
   { label: "Asistent",         free: "⚠️ 5/dan",      premium: "✅ Neograničeno"        },
   { label: "DeutschTrainer",   free: "3 lekcije/nivo", premium: "✅ 240 lekcija"         },
