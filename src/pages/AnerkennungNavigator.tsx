@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import {
   GraduationCap,
   CheckCircle2,
@@ -52,23 +53,24 @@ import {
 /* ──────────── Helpers ──────────── */
 
 function RegulationBadge({ reg }: { reg: Regulation }) {
+  const { t } = useTranslation("anerkennung");
   if (reg === "REG") {
     return (
       <span className="inline-flex items-center gap-1 rounded-full bg-rose-500/10 px-2 py-0.5 text-[10px] font-bold uppercase text-rose-600 dark:text-rose-400">
-        <AlertTriangle className="h-3 w-3" /> Reglementovano
+        <AlertTriangle className="h-3 w-3" /> {t("ui.regBadge")}
       </span>
     );
   }
   if (reg === "PARTIAL") {
     return (
       <span className="inline-flex items-center gap-1 rounded-full bg-amber-500/10 px-2 py-0.5 text-[10px] font-bold uppercase text-amber-600 dark:text-amber-400">
-        <Info className="h-3 w-3" /> Djelimično
+        <Info className="h-3 w-3" /> {t("ui.partialBadge")}
       </span>
     );
   }
   return (
     <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-bold uppercase text-emerald-600 dark:text-emerald-400">
-      <CheckCircle2 className="h-3 w-3" /> Nicht-reglementiert
+      <CheckCircle2 className="h-3 w-3" /> {t("ui.nregBadge")}
     </span>
   );
 }
@@ -106,6 +108,16 @@ function SectionCard({
 
 function AnerkennungPaywall() {
   const navigate = useNavigate();
+  const { t } = useTranslation("anerkennung");
+  const features = [
+    t("paywall.feature1"),
+    t("paywall.feature2"),
+    t("paywall.feature3"),
+    t("paywall.feature4"),
+    t("paywall.feature5"),
+    t("paywall.feature6"),
+    t("paywall.feature7"),
+  ];
   return (
     <div className="mx-auto max-w-2xl py-10">
       <div className="rounded-3xl border border-[hsl(var(--gold))]/30 bg-gradient-to-br from-[hsl(var(--gold))]/5 to-background p-8 text-center">
@@ -113,23 +125,12 @@ function AnerkennungPaywall() {
           <Lock className="h-8 w-8 text-[hsl(var(--gold))]" />
         </div>
         <h2 className="text-xl sm:text-2xl font-extrabold text-foreground">
-          Anerkennung Navigator
+          {t("paywall.title")}
         </h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Asistent za priznavanje diplome iz BiH, Hrvatske, Srbije, Crne Gore,
-          Sjeverne Makedonije i Kosova
-        </p>
+        <p className="mt-2 text-sm text-muted-foreground">{t("paywall.subtitle")}</p>
 
         <div className="mt-6 grid gap-3 text-left">
-          {[
-            "Dijagnostika tvog slučaja po zemlji, profesiji i Bundeslandu",
-            "Roadmap za 10 najtraženijih zanimanja (medicina, inženjeri, učitelji…)",
-            "Vodič za Anabin bazu na bosanskom — šta znače H+, H−, gleichwertig",
-            "Spisak svih dokumenata + Apostille + sudski tumač",
-            "Procijenjeno trajanje i troškovi po profesiji",
-            "Anerkennungszuschuss — kako dobiti državnu finansijsku pomoć",
-            "Direktni linkovi na nadležne ustanove (Profi-Filter)",
-          ].map((b) => (
+          {features.map((b) => (
             <div key={b} className="flex items-start gap-2 text-sm">
               <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5 shrink-0" />
               <span className="text-foreground/90">{b}</span>
@@ -146,13 +147,10 @@ function AnerkennungPaywall() {
           }}
         >
           <Crown className="inline-block mr-1.5 h-4 w-4" />
-          Otključaj Premium — 9.99 €/mj.
+          {t("paywall.cta")}
         </button>
 
-        <p className="mt-3 text-[11px] text-muted-foreground">
-          Pravno bezbjedan informativni alat — sve informacije bazirane na
-          službenim njemačkim izvorima (Anabin, BIBB, BMFTR, ZAB).
-        </p>
+        <p className="mt-3 text-[11px] text-muted-foreground">{t("paywall.footnote")}</p>
       </div>
     </div>
   );
@@ -162,6 +160,7 @@ function AnerkennungPaywall() {
 
 export default function AnerkennungNavigator() {
   const navigate = useNavigate();
+  const { t } = useTranslation("anerkennung");
   const { isPremium } = usePremiumAccess();
   const { displayName } = useAuth();
 
@@ -188,25 +187,45 @@ export default function AnerkennungNavigator() {
     return getAuthority(profession.id, bundesland) || ZAB_FALLBACK;
   }, [profession, bundesland]);
 
+  /** Lokalizovan helper za polje profesije (fallback na vrijednost iz data fajla) */
+  const profT = (id: string, key: string, fallback: string): string => {
+    const k = `professions.${id}.${key}`;
+    const val = t(k);
+    return val === k ? fallback : val;
+  };
+  /** Lokalizovan array helper za profession.steps/documents */
+  const profArr = (id: string, key: string, fallback: string[]): string[] => {
+    const k = `professions.${id}.${key}`;
+    const val = t(k, { returnObjects: true }) as unknown;
+    return Array.isArray(val) ? (val as string[]) : fallback;
+  };
+  /** Lokalizovano ime/notes zemlje */
+  const countryT = (code: string, key: "name" | "notes", fallback: string): string => {
+    const k = `countries.${code}.${key}`;
+    const val = t(k);
+    return val === k ? fallback : val;
+  };
+
   const generatedEmail = useMemo(() => {
     if (!profession || !country || !bundeslandObj || !emailFullName.trim()) return null;
     const input: EmailTemplateInput = {
       fullName: emailFullName.trim(),
       professionDE: profession.nameDE,
-      professionLocal: profession.name,
-      countryOfOrigin: country.name,
+      professionLocal: profT(profession.id, "name", profession.name),
+      countryOfOrigin: countryT(country.code, "name", country.name),
       bundesland: bundeslandObj.name,
       regulation: profession.regulation,
       requiresLanguageExam: profession.requiresLanguageExam,
     };
-    return generateAnerkennungEmail(input);
-  }, [profession, country, bundeslandObj, emailFullName]);
+    return generateAnerkennungEmail(input, t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [profession, country, bundeslandObj, emailFullName, t]);
 
   const copyEmail = () => {
     if (!generatedEmail) return;
     const fullText = `${generatedEmail.subject}\n\n${generatedEmail.body}`;
     navigator.clipboard.writeText(fullText);
-    toast.success("Email kopiran u clipboard");
+    toast.success(t("ui.emailCopiedToast"));
   };
 
   const downloadEmail = () => {
@@ -221,7 +240,7 @@ export default function AnerkennungNavigator() {
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
-    toast.success("Email preuzet");
+    toast.success(t("ui.emailDownloadedToast"));
   };
 
   const handleBack = () => navigateBackOrHome(navigate);
@@ -237,18 +256,18 @@ export default function AnerkennungNavigator() {
     return (
       <div className="mx-auto max-w-7xl px-4 py-6 min-h-screen">
         <SEO
-          title="Anerkennung Navigator — Priznavanje diplome u Njemačkoj"
-          description="Asistent za priznavanje diplome iz BiH, Hrvatske, Srbije, Crne Gore, Sjeverne Makedonije i Kosova. Anabin baza, roadmap po profesiji, Anerkennungszuschuss."
+          title={t("seo.title")}
+          description={t("seo.description")}
           path="/anerkennung-navigator"
         />
         <PageNavBar onBack={handleBack} />
         <div className="mb-6">
           <h1 className="font-heading text-2xl sm:text-3xl font-extrabold text-foreground flex items-center gap-3">
             <GraduationCap className="h-7 w-7 text-[hsl(var(--gold))]" />
-            Anerkennung Navigator
+            {t("ui.headerTitle")}
           </h1>
           <p className="mt-1 text-sm text-muted-foreground">
-            Priznavanje diplome iz zemalja bivše Jugoslavije u Njemačkoj
+            {t("ui.headerSubtitleShort")}
           </p>
         </div>
         <AnerkennungPaywall />
@@ -259,8 +278,8 @@ export default function AnerkennungNavigator() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-6 min-h-screen">
       <SEO
-        title="Anerkennung Navigator — Priznavanje diplome u Njemačkoj"
-        description="Asistent za priznavanje diplome iz BiH, Hrvatske, Srbije, Crne Gore, Sjeverne Makedonije i Kosova. Anabin baza, roadmap po profesiji, Anerkennungszuschuss."
+        title={t("seo.title")}
+        description={t("seo.description")}
         path="/anerkennung-navigator"
       />
 
@@ -272,15 +291,13 @@ export default function AnerkennungNavigator() {
             <GraduationCap className="h-5 w-5 text-[hsl(var(--gold))]" />
           </div>
           <h1 className="font-heading text-2xl sm:text-3xl font-extrabold text-foreground">
-            Anerkennung Navigator
+            {t("ui.headerTitle")}
           </h1>
           <span className="hidden sm:inline-flex items-center gap-1 rounded-full bg-[hsl(var(--gold))]/10 px-2.5 py-1 text-[10px] font-bold uppercase text-[hsl(var(--gold))]">
-            <Crown className="h-3 w-3" /> Premium
+            <Crown className="h-3 w-3" /> {t("ui.premiumBadge")}
           </span>
         </div>
-        <p className="text-sm text-muted-foreground">
-          Priznavanje diplome i zanimanja iz BiH, HR, SR, CG, MK, XK
-        </p>
+        <p className="text-sm text-muted-foreground">{t("ui.headerSubtitle")}</p>
         <div className="h-px mt-4 mb-6 bg-border/40" />
       </div>
 
@@ -289,11 +306,8 @@ export default function AnerkennungNavigator() {
         <div className="flex items-start gap-2">
           <AlertTriangle className="h-4 w-4 shrink-0 mt-0.5" />
           <div>
-            <strong className="block mb-1">Informativni alat — nije pravni savjet</strong>
-            Sve informacije su preuzete iz javno dostupnih službenih njemačkih
-            izvora (Anabin, BIBB, BMFTR, ZAB) i orijentacionog su karaktera.
-            Konačnu odluku o priznavanju donosi isključivo nadležna ustanova
-            tvog Bundeslanda. Stand: 2026.
+            <strong className="block mb-1">{t("ui.disclaimerTitle")}</strong>
+            {t("ui.disclaimerBody")}
           </div>
         </div>
       </div>
@@ -303,14 +317,12 @@ export default function AnerkennungNavigator() {
         <section className="space-y-6">
           <div>
             <p className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--gold))] mb-3">
-              Korak 1 od 3
+              {t("ui.step1of3")}
             </p>
             <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2">
-              Iz koje zemlje je tvoja diploma?
+              {t("ui.step1Title")}
             </h2>
-            <p className="text-sm text-muted-foreground">
-              Procedura se razlikuje za EU i ne-EU diplome.
-            </p>
+            <p className="text-sm text-muted-foreground">{t("ui.step1Sub")}</p>
           </div>
 
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -322,9 +334,11 @@ export default function AnerkennungNavigator() {
               >
                 <span className="text-3xl">{c.flag}</span>
                 <div className="flex-1 min-w-0">
-                  <p className="font-bold text-foreground">{c.name}</p>
+                  <p className="font-bold text-foreground">
+                    {countryT(c.code, "name", c.name)}
+                  </p>
                   <p className="text-[11px] text-muted-foreground">
-                    {c.euMember ? "🇪🇺 EU članica" : "Treća zemlja"}
+                    {c.euMember ? t("ui.euMember") : t("ui.thirdCountry")}
                   </p>
                 </div>
                 <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-[hsl(var(--gold))]" />
@@ -340,27 +354,27 @@ export default function AnerkennungNavigator() {
           <div className="flex items-center justify-between gap-3 flex-wrap">
             <div>
               <p className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--gold))] mb-2">
-                Korak 2 od 3
+                {t("ui.step2of3")}
               </p>
               <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-1 flex items-center gap-2">
-                <span>{country.flag}</span> Tvoja profesija
+                <span>{country.flag}</span> {t("ui.step2Title")}
               </h2>
-              <p className="text-sm text-muted-foreground">
-                Top 10 najtraženijih zanimanja prema ZAB statistici 2024.
-              </p>
+              <p className="text-sm text-muted-foreground">{t("ui.step2Sub")}</p>
             </div>
             <button
               onClick={() => setSelectedCountry(null)}
               className="text-xs font-semibold text-muted-foreground hover:text-foreground flex items-center gap-1"
             >
-              <ChevronLeft className="h-3 w-3" /> Promijeni zemlju
+              <ChevronLeft className="h-3 w-3" /> {t("ui.changeCountry")}
             </button>
           </div>
 
           {/* Country specific note */}
           <div className="rounded-xl border border-border/40 bg-muted/30 p-4 text-xs text-muted-foreground">
-            <strong className="text-foreground">{country.name}: </strong>
-            {country.notes}
+            <strong className="text-foreground">
+              {countryT(country.code, "name", country.name)}:{" "}
+            </strong>
+            {countryT(country.code, "notes", country.notes)}
           </div>
 
           <div className="grid gap-3 sm:grid-cols-2">
@@ -372,7 +386,9 @@ export default function AnerkennungNavigator() {
               >
                 <div className="flex items-start justify-between gap-3 mb-2">
                   <div className="min-w-0 flex-1">
-                    <p className="font-bold text-foreground truncate">{p.name}</p>
+                    <p className="font-bold text-foreground truncate">
+                      {profT(p.id, "name", p.name)}
+                    </p>
                     <p className="text-[11px] text-muted-foreground italic truncate">
                       {p.nameDE}
                     </p>
@@ -397,22 +413,19 @@ export default function AnerkennungNavigator() {
           <div className="flex items-center justify-between gap-3 flex-wrap">
             <div>
               <p className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--gold))] mb-2">
-                Korak 3 od 4
+                {t("ui.step3of4")}
               </p>
               <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-1 flex items-center gap-2">
                 <MapPin className="h-5 w-5 text-[hsl(var(--gold))]" />
-                U kojem Bundeslandu želiš raditi?
+                {t("ui.step3Title")}
               </h2>
-              <p className="text-sm text-muted-foreground">
-                Nadležna ustanova zavisi od Bundeslanda. Birajte gdje planirate
-                raditi (a ne gdje trenutno živite, ako se razlikuje).
-              </p>
+              <p className="text-sm text-muted-foreground">{t("ui.step3Sub")}</p>
             </div>
             <button
               onClick={() => setSelectedProfession(null)}
               className="text-xs font-semibold text-muted-foreground hover:text-foreground flex items-center gap-1"
             >
-              <ChevronLeft className="h-3 w-3" /> Promijeni profesiju
+              <ChevronLeft className="h-3 w-3" /> {t("ui.changeProfession")}
             </button>
           </div>
 
@@ -439,11 +452,11 @@ export default function AnerkennungNavigator() {
           <div className="flex items-center justify-between gap-3 flex-wrap">
             <div>
               <p className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--gold))] mb-2">
-                Korak 4 od 4 — Rezultat
+                {t("ui.step4of4")}
               </p>
               <h2 className="text-xl sm:text-2xl font-bold text-foreground flex items-center gap-2 flex-wrap">
                 <span>{country.flag}</span>
-                <span>{profession.name}</span>
+                <span>{profT(profession.id, "name", profession.name)}</span>
               </h2>
               <p className="text-sm text-muted-foreground italic">
                 {profession.nameDE}
@@ -455,7 +468,7 @@ export default function AnerkennungNavigator() {
                     onClick={() => setBundesland("")}
                     className="ml-1 text-[hsl(var(--gold))] hover:underline"
                   >
-                    promijeni
+                    {t("ui.changeBundesland")}
                   </button>
                 </p>
               )}
@@ -464,7 +477,7 @@ export default function AnerkennungNavigator() {
               onClick={resetWizard}
               className="text-xs font-semibold text-muted-foreground hover:text-foreground flex items-center gap-1"
             >
-              <ChevronLeft className="h-3 w-3" /> Nova provjera
+              <ChevronLeft className="h-3 w-3" /> {t("ui.newCheck")}
             </button>
           </div>
 
@@ -473,34 +486,32 @@ export default function AnerkennungNavigator() {
             <div className="flex items-center gap-2 mb-3 flex-wrap">
               <Sparkles className="h-4 w-4 text-[hsl(var(--gold))]" />
               <p className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--gold))]">
-                Tvoj slučaj
+                {t("ui.yourCase")}
               </p>
               <RegulationBadge reg={profession.regulation} />
               {country.euMember && (
                 <span className="rounded-full bg-blue-500/10 px-2 py-0.5 text-[10px] font-bold uppercase text-blue-600 dark:text-blue-400">
-                  🇪🇺 EU diploma
+                  {t("ui.euDiploma")}
                 </span>
               )}
             </div>
             <p className="text-sm text-foreground/90 leading-relaxed">
-              {profession.description}
+              {profT(profession.id, "description", profession.description)}
             </p>
             {profession.regulation === "REG" && (
               <p className="mt-3 text-xs text-rose-700 dark:text-rose-300">
-                <strong>OBAVEZNO:</strong> Bez formalnog priznavanja NE smiješ
-                obavljati ovo zanimanje u Njemačkoj.
+                <strong>{t("ui.regWarning")}</strong> {t("ui.regWarningBody")}
               </p>
             )}
             {profession.regulation === "NREG" && (
               <p className="mt-3 text-xs text-emerald-700 dark:text-emerald-300">
-                <strong>DOBRA VIJEST:</strong> Možeš odmah početi raditi i bez
-                priznavanja. Priznavanje je preporučljivo za bolji status i platu.
+                <strong>{t("ui.nregInfo")}</strong> {t("ui.nregInfoBody")}
               </p>
             )}
             {profession.notes && (
               <p className="mt-3 text-xs text-muted-foreground">
                 <Info className="inline h-3 w-3 mr-1" />
-                {profession.notes}
+                {profT(profession.id, "notes", profession.notes)}
               </p>
             )}
           </div>
@@ -510,30 +521,30 @@ export default function AnerkennungNavigator() {
             <div className="rounded-xl border border-border/40 bg-card p-4">
               <Clock className="h-4 w-4 text-[hsl(var(--gold))] mb-2" />
               <p className="text-[11px] text-muted-foreground uppercase font-semibold">
-                Trajanje
+                {t("ui.statDuration")}
               </p>
               <p className="text-sm font-bold text-foreground mt-1">
-                {profession.durationRange}
+                {profT(profession.id, "durationRange", profession.durationRange)}
               </p>
             </div>
             <div className="rounded-xl border border-border/40 bg-card p-4">
               <Euro className="h-4 w-4 text-[hsl(var(--gold))] mb-2" />
               <p className="text-[11px] text-muted-foreground uppercase font-semibold">
-                Troškovi
+                {t("ui.statCost")}
               </p>
               <p className="text-sm font-bold text-foreground mt-1">
-                {profession.costRange}
+                {profT(profession.id, "costRange", profession.costRange)}
               </p>
             </div>
             <div className="rounded-xl border border-border/40 bg-card p-4">
               <BookOpen className="h-4 w-4 text-[hsl(var(--gold))] mb-2" />
               <p className="text-[11px] text-muted-foreground uppercase font-semibold">
-                Jezik
+                {t("ui.statLanguage")}
               </p>
               <p className="text-sm font-bold text-foreground mt-1">
                 {profession.requiresLanguageExam
-                  ? "Obavezna provjera (B2/C1)"
-                  : "Nije obavezna"}
+                  ? t("ui.langRequired")
+                  : t("ui.langNotRequired")}
               </p>
             </div>
           </div>
@@ -541,10 +552,10 @@ export default function AnerkennungNavigator() {
           {/* Steps */}
           <SectionCard
             icon={<ArrowRight className="h-5 w-5" />}
-            title="Koraci postupka"
+            title={t("ui.stepsTitle")}
           >
             <ol className="space-y-3">
-              {profession.steps.map((step, i) => (
+              {profArr(profession.id, "steps", profession.steps).map((step, i) => (
                 <li key={i} className="flex gap-3">
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[hsl(var(--gold))]/10 text-[11px] font-bold text-[hsl(var(--gold))]">
                     {i + 1}
@@ -558,10 +569,10 @@ export default function AnerkennungNavigator() {
           {/* Documents */}
           <SectionCard
             icon={<FileText className="h-5 w-5" />}
-            title="Potrebni dokumenti"
+            title={t("ui.documentsTitle")}
           >
             <ul className="grid gap-2 sm:grid-cols-2">
-              {profession.documents.map((doc) => (
+              {profArr(profession.id, "documents", profession.documents).map((doc) => (
                 <li key={doc} className="flex items-start gap-2 text-sm">
                   <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-1" />
                   <span className="text-foreground/90">{doc}</span>
@@ -569,64 +580,77 @@ export default function AnerkennungNavigator() {
               ))}
             </ul>
             <div className="mt-4 rounded-lg bg-amber-500/5 border border-amber-500/20 p-3 text-xs text-amber-700 dark:text-amber-300">
-              <strong>📌 Apostille:</strong> Sva originalna dokumenta iz BiH/HR/SR/CG/MK/XK
-              moraju biti opremljena Haškim apostille-om prije prevoda. Apostille se
-              dobija u sudu / ministarstvu pravde zemlje porijekla.
+              <strong>{t("ui.apostilleNote")}</strong> {t("ui.apostilleBody")}
               <br />
-              <strong className="block mt-2">📌 Prevod:</strong> Prevode mogu raditi
-              SAMO sudski tumači (vereidigte/öffentlich bestellte Übersetzer)
-              registrovani u Njemačkoj. Lista je javna na justiz.de.
+              <strong className="block mt-2">{t("ui.translationNote")}</strong>{" "}
+              {t("ui.translationBody")}
             </div>
           </SectionCard>
 
           {/* Anabin guide */}
           <SectionCard
             icon={<Database className="h-5 w-5" />}
-            title="Kako koristiti Anabin bazu"
+            title={t("ui.anabinTitle")}
             tone="gold"
           >
-            <p className="text-sm text-foreground/90 mb-4">
-              Anabin (anabin.kmk.org) je službena baza za vrednovanje stranih
-              diploma u Njemačkoj. Dostupna je samo na njemačkom — evo vodiča na
-              bosanskom.
-            </p>
+            <p className="text-sm text-foreground/90 mb-4">{t("ui.anabinIntro")}</p>
 
             <div className="space-y-4">
               <div>
                 <p className="text-xs font-bold uppercase text-foreground mb-2">
-                  📚 Statusi institucija (univerziteta / škola)
+                  {t("ui.anabinInstitutions")}
                 </p>
                 <ul className="space-y-2">
-                  {ANABIN_STATUS.institutions.map((s) => (
-                    <li
-                      key={s.code}
-                      className="rounded-lg border border-border/40 bg-card p-3 text-xs"
-                    >
-                      <strong className="text-[hsl(var(--gold))]">
-                        {s.title}
-                      </strong>
-                      <p className="text-muted-foreground mt-1">{s.description}</p>
-                    </li>
-                  ))}
+                  {ANABIN_STATUS.institutions.map((s) => {
+                    const key =
+                      s.code === "H+"
+                        ? "instH+"
+                        : s.code === "H-"
+                          ? "instH-"
+                          : "instH+/-";
+                    return (
+                      <li
+                        key={s.code}
+                        className="rounded-lg border border-border/40 bg-card p-3 text-xs"
+                      >
+                        <strong className="text-[hsl(var(--gold))]">
+                          {t(`anabin.${key}.title`, s.title)}
+                        </strong>
+                        <p className="text-muted-foreground mt-1">
+                          {t(`anabin.${key}.description`, s.description)}
+                        </p>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
 
               <div>
                 <p className="text-xs font-bold uppercase text-foreground mb-2">
-                  🎓 Statusi diploma (vrednovanje)
+                  {t("ui.anabinDiplomas")}
                 </p>
                 <ul className="space-y-2">
-                  {ANABIN_STATUS.diplomas.map((s) => (
-                    <li
-                      key={s.code}
-                      className="rounded-lg border border-border/40 bg-card p-3 text-xs"
-                    >
-                      <strong className="text-[hsl(var(--gold))]">
-                        {s.title}
-                      </strong>
-                      <p className="text-muted-foreground mt-1">{s.description}</p>
-                    </li>
-                  ))}
+                  {ANABIN_STATUS.diplomas.map((s) => {
+                    const key =
+                      s.code === "entspricht"
+                        ? "dipEntspricht"
+                        : s.code === "gleichwertig"
+                          ? "dipGleichwertig"
+                          : "dipNicht";
+                    return (
+                      <li
+                        key={s.code}
+                        className="rounded-lg border border-border/40 bg-card p-3 text-xs"
+                      >
+                        <strong className="text-[hsl(var(--gold))]">
+                          {t(`anabin.${key}.title`, s.title)}
+                        </strong>
+                        <p className="text-muted-foreground mt-1">
+                          {t(`anabin.${key}.description`, s.description)}
+                        </p>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
 
@@ -636,7 +660,7 @@ export default function AnerkennungNavigator() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-xs font-semibold text-[hsl(var(--gold))] hover:underline"
               >
-                Otvori Anabin bazu <ExternalLink className="h-3 w-3" />
+                {t("ui.anabinOpen")} <ExternalLink className="h-3 w-3" />
               </a>
             </div>
           </SectionCard>
@@ -644,20 +668,20 @@ export default function AnerkennungNavigator() {
           {/* Anerkennungszuschuss */}
           <SectionCard
             icon={<Euro className="h-5 w-5" />}
-            title="Anerkennungszuschuss — državna pomoć"
+            title={t("ui.zuschussTitle")}
             tone="gold"
           >
             <p className="text-sm text-foreground/90 mb-4">
-              {ANERKENNUNGSZUSCHUSS.description}
+              {t("zuschuss.description", ANERKENNUNGSZUSCHUSS.description)}
             </p>
 
             <div className="grid gap-4 sm:grid-cols-2 mb-4">
               <div>
                 <p className="text-xs font-bold uppercase text-foreground mb-2">
-                  ✅ Imaš pravo ako:
+                  {t("ui.zuschussEligibility")}
                 </p>
                 <ul className="space-y-1">
-                  {ANERKENNUNGSZUSCHUSS.eligibility.map((e) => (
+                  {((t("zuschuss.eligibility", { returnObjects: true }) as unknown as string[]) || ANERKENNUNGSZUSCHUSS.eligibility).map((e) => (
                     <li
                       key={e}
                       className="text-xs text-foreground/80 flex items-start gap-2"
@@ -670,10 +694,10 @@ export default function AnerkennungNavigator() {
               </div>
               <div>
                 <p className="text-xs font-bold uppercase text-foreground mb-2">
-                  💰 Šta pokriva:
+                  {t("ui.zuschussCovers")}
                 </p>
                 <ul className="space-y-1">
-                  {ANERKENNUNGSZUSCHUSS.whatItCovers.map((w) => (
+                  {((t("zuschuss.covers", { returnObjects: true }) as unknown as string[]) || ANERKENNUNGSZUSCHUSS.whatItCovers).map((w) => (
                     <li
                       key={w}
                       className="text-xs text-foreground/80 flex items-start gap-2"
@@ -688,10 +712,10 @@ export default function AnerkennungNavigator() {
 
             <div>
               <p className="text-xs font-bold uppercase text-foreground mb-2">
-                📋 Kako podnijeti zahtjev:
+                {t("ui.zuschussHowTo")}
               </p>
               <ol className="space-y-1 mb-4">
-                {ANERKENNUNGSZUSCHUSS.howToApply.map((step, i) => (
+                {((t("zuschuss.howToApply", { returnObjects: true }) as unknown as string[]) || ANERKENNUNGSZUSCHUSS.howToApply).map((step, i) => (
                   <li
                     key={step}
                     className="text-xs text-foreground/80 flex items-start gap-2"
@@ -705,7 +729,7 @@ export default function AnerkennungNavigator() {
 
             <div className="rounded-lg bg-amber-500/5 border border-amber-500/20 p-3 text-xs text-amber-700 dark:text-amber-300 mb-4">
               <AlertTriangle className="inline h-3 w-3 mr-1" />
-              {ANERKENNUNGSZUSCHUSS.important}
+              {t("zuschuss.important", ANERKENNUNGSZUSCHUSS.important)}
             </div>
 
             <div className="flex flex-wrap gap-2">
@@ -727,7 +751,7 @@ export default function AnerkennungNavigator() {
           {authority && bundeslandObj && (
             <SectionCard
               icon={<Building2 className="h-5 w-5" />}
-              title={`Nadležna ustanova — ${bundeslandObj.name}`}
+              title={t("ui.authorityTitle", { bundesland: bundeslandObj.name })}
               tone="gold"
             >
               <div className="rounded-xl border border-border/40 bg-card p-4">
@@ -748,20 +772,20 @@ export default function AnerkennungNavigator() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 rounded-lg bg-[hsl(var(--gold))]/10 px-3 py-1.5 text-xs font-semibold text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/20"
                 >
-                  Otvori službenu stranicu <ExternalLink className="h-3 w-3" />
+                  {t("ui.authorityOpen")} <ExternalLink className="h-3 w-3" />
                 </a>
               </div>
               <p className="mt-3 text-[11px] text-muted-foreground">
-                💡 Savjet: koristi i službeni{" "}
+                {t("ui.authorityHint")}{" "}
                 <a
                   href="https://berater.anerkennung-in-deutschland.de/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[hsl(var(--gold))] hover:underline"
                 >
-                  Profi-Filter (BIBB)
+                  {t("ui.authorityHintLink")}
                 </a>{" "}
-                za dodatnu provjeru i kontakt podatke (telefon, email).
+                {t("ui.authorityHintAfter")}
               </p>
             </SectionCard>
           )}
@@ -769,12 +793,11 @@ export default function AnerkennungNavigator() {
           {/* Email generator */}
           <SectionCard
             icon={<Mail className="h-5 w-5" />}
-            title="Email šablon — prvi kontakt sa ustanovom"
+            title={t("ui.emailTitle")}
             tone="gold"
           >
             <p className="text-sm text-foreground/90 mb-4">
-              Spreman email na njemačkom jeziku za slanje nadležnoj ustanovi.
-              Unesi svoje ime i klikni <strong>Generiši</strong>.
+              {t("ui.emailIntro")} <strong>{t("ui.emailIntroBold")}</strong>.
             </p>
 
             <div className="grid gap-3 sm:grid-cols-[1fr_auto] mb-4">
@@ -782,7 +805,7 @@ export default function AnerkennungNavigator() {
                 type="text"
                 value={emailFullName}
                 onChange={(e) => setEmailFullName(e.target.value)}
-                placeholder="Tvoje ime i prezime"
+                placeholder={t("ui.emailNamePlaceholder")}
                 className="rounded-lg border border-border/40 bg-card px-4 py-2.5 text-sm focus:border-[hsl(var(--gold))]/60 focus:outline-none"
               />
               <button
@@ -790,7 +813,7 @@ export default function AnerkennungNavigator() {
                 disabled={!emailFullName.trim()}
                 className="rounded-lg bg-[hsl(var(--gold))] px-5 py-2.5 text-sm font-bold text-[hsl(var(--primary))] disabled:opacity-50 hover:opacity-90"
               >
-                Generiši email
+                {t("ui.emailGenerate")}
               </button>
             </div>
 
@@ -798,7 +821,7 @@ export default function AnerkennungNavigator() {
               <div className="space-y-4">
                 <div className="rounded-xl border border-border/40 bg-muted/30 p-4">
                   <p className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-1">
-                    Betreff (naslov)
+                    {t("ui.emailSubjectLabel")}
                   </p>
                   <p className="text-sm font-semibold text-foreground">
                     {generatedEmail.subject}
@@ -807,7 +830,7 @@ export default function AnerkennungNavigator() {
 
                 <div className="rounded-xl border border-border/40 bg-card p-4">
                   <p className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-2">
-                    Tekst (njemački — kopiraj i pošalji)
+                    {t("ui.emailBodyLabel")}
                   </p>
                   <pre className="whitespace-pre-wrap text-xs text-foreground/90 font-sans leading-relaxed">
                     {generatedEmail.body}
@@ -816,7 +839,7 @@ export default function AnerkennungNavigator() {
 
                 <details className="rounded-xl border border-border/40 bg-muted/20 p-4">
                   <summary className="cursor-pointer text-xs font-bold text-foreground">
-                    📖 Prikaži prevod na bosanski (samo za tvoje razumijevanje)
+                    {t("ui.emailTranslationToggle")}
                   </summary>
                   <pre className="mt-3 whitespace-pre-wrap text-xs text-foreground/80 font-sans leading-relaxed">
                     {generatedEmail.bsTranslation}
@@ -828,21 +851,19 @@ export default function AnerkennungNavigator() {
                     onClick={copyEmail}
                     className="inline-flex items-center gap-1.5 rounded-lg border border-border/40 bg-card px-4 py-2 text-xs font-semibold text-foreground hover:border-[hsl(var(--gold))]/40"
                   >
-                    <Copy className="h-3.5 w-3.5" /> Kopiraj email
+                    <Copy className="h-3.5 w-3.5" /> {t("ui.emailCopy")}
                   </button>
                   <button
                     onClick={downloadEmail}
                     className="inline-flex items-center gap-1.5 rounded-lg border border-border/40 bg-card px-4 py-2 text-xs font-semibold text-foreground hover:border-[hsl(var(--gold))]/40"
                   >
-                    <Download className="h-3.5 w-3.5" /> Preuzmi (.txt)
+                    <Download className="h-3.5 w-3.5" /> {t("ui.emailDownload")}
                   </button>
                 </div>
 
                 <div className="rounded-lg bg-amber-500/5 border border-amber-500/20 p-3 text-xs text-amber-700 dark:text-amber-300">
                   <AlertTriangle className="inline h-3 w-3 mr-1" />
-                  Šablon je informativni alat — prilagodi ga svojoj situaciji.
-                  Provjeri kontakt-email nadležne ustanove na njihovoj službenoj
-                  stranici prije slanja.
+                  {t("ui.emailWarning")}
                 </div>
               </div>
             )}
@@ -851,7 +872,7 @@ export default function AnerkennungNavigator() {
           {/* Official links */}
           <SectionCard
             icon={<ExternalLink className="h-5 w-5" />}
-            title="Službeni izvori za ovu profesiju"
+            title={t("ui.officialSourcesTitle")}
           >
             <div className="grid gap-2">
               {profession.officialLinks.map((l) => (
@@ -874,24 +895,41 @@ export default function AnerkennungNavigator() {
       {/* ────────── Always at bottom: official portals ────────── */}
       <div className="mt-10 pt-8 border-t border-border/40">
         <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground mb-4">
-          📚 Svi službeni izvori (uvijek aktuelno)
+          {t("ui.allPortalsTitle")}
         </h3>
         <div className="grid gap-3 sm:grid-cols-2">
-          {OFFICIAL_PORTALS.map((p) => (
-            <a
-              key={p.url}
-              href={p.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group rounded-xl border border-border/40 bg-card p-3 text-sm hover:border-[hsl(var(--gold))]/40"
-            >
-              <div className="flex items-center justify-between gap-2 mb-1">
-                <p className="font-bold text-foreground">{p.name}</p>
-                <ExternalLink className="h-3.5 w-3.5 text-muted-foreground group-hover:text-[hsl(var(--gold))] shrink-0" />
-              </div>
-              <p className="text-[11px] text-muted-foreground">{p.description}</p>
-            </a>
-          ))}
+          {OFFICIAL_PORTALS.map((p) => {
+            const portalKey =
+              p.url.includes("anabin")
+                ? "anabin"
+                : p.url.includes("anerkennung-in-deutschland")
+                  ? "anerkennung"
+                  : p.url.includes("bq-portal")
+                    ? "bqPortal"
+                    : p.url.includes("berater")
+                      ? "profiFilter"
+                      : p.url.includes("zab")
+                        ? "zab"
+                        : p.url.includes("make-it-in-germany")
+                          ? "makeIt"
+                          : null;
+            const desc = portalKey ? t(`portals.${portalKey}`, p.description) : p.description;
+            return (
+              <a
+                key={p.url}
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group rounded-xl border border-border/40 bg-card p-3 text-sm hover:border-[hsl(var(--gold))]/40"
+              >
+                <div className="flex items-center justify-between gap-2 mb-1">
+                  <p className="font-bold text-foreground">{p.name}</p>
+                  <ExternalLink className="h-3.5 w-3.5 text-muted-foreground group-hover:text-[hsl(var(--gold))] shrink-0" />
+                </div>
+                <p className="text-[11px] text-muted-foreground">{desc}</p>
+              </a>
+            );
+          })}
         </div>
       </div>
     </div>
