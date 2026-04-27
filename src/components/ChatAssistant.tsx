@@ -248,12 +248,19 @@ export default function ChatAssistant() {
   const [open, setOpen] = useState(location.pathname === "/ai-asistent");
   const { user } = useAuth();
 
-  // ── Session-scoped chat persistence ──
+  // ── Cross-device chat persistence (localStorage cache + Supabase sync) ──
   const chatStorageKey = user ? `bl-chat-${user.id}` : null;
-  // Track previous user id to detect logout vs initial load
   const prevUserIdRef = useRef<string | null | undefined>(undefined);
-  // Flag to prevent save effect from overwriting localStorage before restore completes
   const restoredRef = useRef(false);
+  // Track which messages have been synced to DB (by stable signature) to avoid duplicates
+  const syncedSigsRef = useRef<Set<string>>(new Set());
+  // Track ids of messages we received via realtime to avoid re-inserting them
+  const remoteIdsRef = useRef<Set<string>>(new Set());
+
+  function msgSignature(m: Msg, idx: number): string {
+    // Stable per-position signature (role + first 80 chars + index)
+    return `${idx}|${m.role}|${(m.content || "").slice(0, 80)}`;
+  }
 
   function loadMessagesForUser(userId: string): Msg[] {
     try {
@@ -269,12 +276,49 @@ export default function ChatAssistant() {
     return [];
   }
 
+  // Fetch full history from Supabase for cross-device restore
+  async function fetchRemoteHistory(userId: string): Promise<Msg[]> {
+    try {
+      const { data, error } = await supabase
+        .from("chat_messages")
+        .select("id, role, content, metadata, created_at")
+        .eq("user_id", userId)
+        .order("created_at", { ascending: true })
+        .limit(500);
+      if (error) {
+        console.warn("[BL-Chat] Remote history fetch failed:", error.message);
+        return [];
+      }
+      if (!data) return [];
+      return data.map((row: any) => {
+        remoteIdsRef.current.add(row.id);
+        const meta = row.metadata || {};
+        return {
+          role: row.role,
+          content: row.content,
+          guideSlug: meta.guideSlug ?? null,
+          formSlugs: meta.formSlugs ?? undefined,
+          siteTopics: meta.siteTopics ?? undefined,
+          redirectUrl: meta.redirectUrl ?? undefined,
+          redirectLabel: meta.redirectLabel ?? undefined,
+          suggestions: meta.suggestions ?? undefined,
+          feedbackGiven: meta.feedbackGiven ?? null,
+        } as Msg;
+      });
+    } catch (e) {
+      console.warn("[BL-Chat] fetchRemoteHistory error:", e);
+      return [];
+    }
+  }
+
   const [messages, setMessages] = useState<Msg[]>(() => {
-    // Try to restore on very first render if user is already available
     if (user?.id) {
       const restored = loadMessagesForUser(user.id);
       if (restored.length > 0) {
         restoredRef.current = true;
+        // Mark all locally-restored as already synced (best-effort) to avoid spam re-inserts.
+        // The remote fetch on mount will reconcile.
+        restored.forEach((m, i) => syncedSigsRef.current.add(msgSignature(m, i)));
         return restored;
       }
     }
@@ -296,61 +340,171 @@ export default function ChatAssistant() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const lastFailedMsgRef = useRef<string | null>(null);
 
-  // Persist messages to localStorage whenever they change — but never overwrite with empty before restore
+  // Persist messages to localStorage (fast cache)
   useEffect(() => {
     if (!chatStorageKey) return;
     if (messages.length > 0) {
       localStorage.setItem(chatStorageKey, JSON.stringify(messages));
     }
-    // Only remove stored chat if messages were explicitly cleared (logout), not on initial empty state
   }, [messages, chatStorageKey]);
 
-  // Restore chat when user becomes available (login or auth hydration).
-  // IMPORTANT: do NOT clear messages on transient user=null (token refresh,
-  // tab focus, INITIAL_SESSION before hydration). Clearing happens only on
-  // explicit SIGNED_OUT via the global "bl:user-signed-out" event below.
+  // Restore from cloud on login/hydration. Cloud is source of truth across devices.
   useEffect(() => {
-    if (user?.id && !restoredRef.current) {
-      const restored = loadMessagesForUser(user.id);
-      if (restored.length > 0) {
-        setMessages(restored);
-        console.debug("[BL-Chat] Restored", restored.length, "messages for user", user.id);
+    if (!user?.id) return;
+    if (restoredRef.current && prevUserIdRef.current === user.id) return;
+
+    let cancelled = false;
+    (async () => {
+      const remote = await fetchRemoteHistory(user.id);
+      if (cancelled) return;
+
+      if (remote.length > 0) {
+        // Cloud wins on cross-device login — replace local with remote
+        setMessages(remote);
+        remote.forEach((m, i) => syncedSigsRef.current.add(msgSignature(m, i)));
+        console.debug("[BL-Chat] Restored", remote.length, "messages from cloud");
+      } else {
+        // No cloud history — keep local (will be synced upward by sync effect)
+        const local = loadMessagesForUser(user.id);
+        if (local.length > 0 && messages.length === 0) {
+          setMessages(local);
+        }
       }
       restoredRef.current = true;
       prevUserIdRef.current = user.id;
-    }
+    })();
+
+    return () => { cancelled = true; };
   }, [user?.id]);
 
-  // Manual clear (Trash button) — explicit user action
+  // Push new messages to Supabase as they appear (best-effort, non-blocking)
+  useEffect(() => {
+    if (!user?.id || !restoredRef.current || messages.length === 0) return;
+    const toSync: { idx: number; msg: Msg }[] = [];
+    messages.forEach((m, i) => {
+      const sig = msgSignature(m, i);
+      if (!syncedSigsRef.current.has(sig)) {
+        toSync.push({ idx: i, msg: m });
+      }
+    });
+    if (toSync.length === 0) return;
+
+    // Mark as synced optimistically to avoid double-insert on rapid updates
+    toSync.forEach(({ idx, msg }) => syncedSigsRef.current.add(msgSignature(msg, idx)));
+
+    const rows = toSync.map(({ msg }) => ({
+      user_id: user.id,
+      role: msg.role,
+      content: msg.content,
+      metadata: {
+        guideSlug: msg.guideSlug ?? null,
+        formSlugs: msg.formSlugs ?? null,
+        siteTopics: msg.siteTopics ?? null,
+        redirectUrl: msg.redirectUrl ?? null,
+        redirectLabel: msg.redirectLabel ?? null,
+        suggestions: msg.suggestions ?? null,
+        feedbackGiven: msg.feedbackGiven ?? null,
+      },
+    }));
+
+    supabase.from("chat_messages").insert(rows).then(({ error, data }) => {
+      if (error) {
+        console.warn("[BL-Chat] Cloud sync failed:", error.message);
+        // Roll back marker so we can retry on next change
+        toSync.forEach(({ idx, msg }) => syncedSigsRef.current.delete(msgSignature(msg, idx)));
+      } else if (data) {
+        (data as any[]).forEach(r => remoteIdsRef.current.add(r.id));
+      }
+    });
+  }, [messages, user?.id]);
+
+  // Realtime: receive messages from other devices
+  useEffect(() => {
+    if (!user?.id) return;
+    const channel = supabase
+      .channel(`chat-${user.id}`)
+      .on(
+        "postgres_changes",
+        {
+          event: "INSERT",
+          schema: "public",
+          table: "chat_messages",
+          filter: `user_id=eq.${user.id}`,
+        },
+        (payload) => {
+          const row: any = payload.new;
+          if (!row?.id || remoteIdsRef.current.has(row.id)) return;
+          remoteIdsRef.current.add(row.id);
+          const meta = row.metadata || {};
+          const incoming: Msg = {
+            role: row.role,
+            content: row.content,
+            guideSlug: meta.guideSlug ?? null,
+            formSlugs: meta.formSlugs ?? undefined,
+            siteTopics: meta.siteTopics ?? undefined,
+            redirectUrl: meta.redirectUrl ?? undefined,
+            redirectLabel: meta.redirectLabel ?? undefined,
+            suggestions: meta.suggestions ?? undefined,
+            feedbackGiven: meta.feedbackGiven ?? null,
+          };
+          setMessages(prev => {
+            // Skip if this exact message is already at the tail (we just sent it locally)
+            const tail = prev[prev.length - 1];
+            if (tail && tail.role === incoming.role && tail.content === incoming.content) {
+              return prev;
+            }
+            const next = [...prev, incoming];
+            syncedSigsRef.current.add(msgSignature(incoming, next.length - 1));
+            return next;
+          });
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, [user?.id]);
+
+  // Manual clear (Trash button) — explicit user action, also wipes cloud history
   const clearChat = useCallback(() => {
     if (messages.length === 0) return;
-    const ok = window.confirm("Obrisati cijeli razgovor? Ova radnja se ne može poništiti.");
+    const ok = window.confirm("Obrisati cijeli razgovor sa svih uređaja? Ova radnja se ne može poništiti.");
     if (!ok) return;
     setMessages([]);
+    syncedSigsRef.current.clear();
+    remoteIdsRef.current.clear();
     if (chatStorageKey) localStorage.removeItem(chatStorageKey);
+    if (user?.id) {
+      supabase.from("chat_messages").delete().eq("user_id", user.id).then(({ error }) => {
+        if (error) console.warn("[BL-Chat] Cloud clear failed:", error.message);
+      });
+    }
     toast.success("Razgovor obrisan", {
-      description: "Možeš započeti novi razgovor sa BalkanLink Asistentom.",
+      description: "Historija je uklonjena sa svih tvojih uređaja.",
       duration: 3000,
     });
-  }, [messages.length, chatStorageKey]);
+  }, [messages.length, chatStorageKey, user?.id]);
 
-  // Clear chat history ONLY on real sign-out — preserves history across
-  // chat minimize/close, route changes, and token refreshes.
+  // Clear local cache ONLY on real sign-out — cloud history stays intact
+  // so the user finds their conversation when they log in again (any device).
   useEffect(() => {
     const handleSignOut = () => {
       const hadMessages = messages.length > 0;
       setMessages([]);
+      syncedSigsRef.current.clear();
+      remoteIdsRef.current.clear();
       const keys = Object.keys(localStorage).filter(k => k.startsWith("bl-chat-"));
       keys.forEach(k => localStorage.removeItem(k));
       restoredRef.current = false;
       prevUserIdRef.current = null;
       if (hadMessages) {
-        toast("Razgovor je sačuvan na ovom uređaju do odjave", {
-          description: "Tvoj chat je obrisan zbog odjave. Prijavi se ponovo za novi razgovor.",
+        toast("Odjavljen/a si", {
+          description: "Razgovor je sačuvan u oblaku — vidjet ćeš ga ponovo nakon prijave.",
           duration: 4000,
         });
       }
-      console.debug("[BL-Chat] Sign-out — chat cleared");
+      console.debug("[BL-Chat] Sign-out — local cache cleared (cloud history preserved)");
     };
     window.addEventListener("bl:user-signed-out", handleSignOut);
     return () => window.removeEventListener("bl:user-signed-out", handleSignOut);
