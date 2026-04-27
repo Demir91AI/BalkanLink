@@ -39,6 +39,7 @@ import hrErrors from "./locales/hr/errors.json";
 import hrSchufa from "./locales/hr/schufa.json";
 import hrAnerkennung from "./locales/hr/anerkennung.json";
 import hrPorezi from "./locales/hr/porezi.json";
+import hrLegal from "./locales/hr/legal.json";
 
 import srCommon from "./locales/sr/common.json";
 import srForms from "./locales/sr/forms.json";
