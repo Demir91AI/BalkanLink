@@ -290,31 +290,36 @@ export default function ChatAssistant() {
     // Only remove stored chat if messages were explicitly cleared (logout), not on initial empty state
   }, [messages, chatStorageKey]);
 
-  // Handle user changes: restore on login, clear on logout
+  // Restore chat when user becomes available (login or auth hydration).
+  // IMPORTANT: do NOT clear messages on transient user=null (token refresh,
+  // tab focus, INITIAL_SESSION before hydration). Clearing happens only on
+  // explicit SIGNED_OUT via the global "bl:user-signed-out" event below.
   useEffect(() => {
-    const prevId = prevUserIdRef.current;
-    prevUserIdRef.current = user?.id ?? null;
-
-    if (!user) {
-      // User logged out — clear chat state and localStorage
-      if (prevId && prevId !== undefined) {
-        // Actual logout (was logged in before)
-        setMessages([]);
-        const keys = Object.keys(localStorage).filter(k => k.startsWith("bl-chat-"));
-        keys.forEach(k => localStorage.removeItem(k));
-        restoredRef.current = false;
-        console.debug("[BL-Chat] Logout — chat cleared");
-      }
-    } else if (!restoredRef.current) {
-      // User just became available (login or auth hydration) — restore
+    if (user?.id && !restoredRef.current) {
       const restored = loadMessagesForUser(user.id);
       if (restored.length > 0) {
         setMessages(restored);
         console.debug("[BL-Chat] Restored", restored.length, "messages for user", user.id);
       }
       restoredRef.current = true;
+      prevUserIdRef.current = user.id;
     }
   }, [user?.id]);
+
+  // Clear chat history ONLY on real sign-out — preserves history across
+  // chat minimize/close, route changes, and token refreshes.
+  useEffect(() => {
+    const handleSignOut = () => {
+      setMessages([]);
+      const keys = Object.keys(localStorage).filter(k => k.startsWith("bl-chat-"));
+      keys.forEach(k => localStorage.removeItem(k));
+      restoredRef.current = false;
+      prevUserIdRef.current = null;
+      console.debug("[BL-Chat] Sign-out — chat cleared");
+    };
+    window.addEventListener("bl:user-signed-out", handleSignOut);
+    return () => window.removeEventListener("bl:user-signed-out", handleSignOut);
+  }, []);
 
   // Load chat lang preference
   useEffect(() => {
