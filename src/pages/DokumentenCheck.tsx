@@ -255,10 +255,44 @@ export default function DokumentenCheck() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [showPaywall, setShowPaywall] = useState(false);
   const [showExample, setShowExample] = useState(false);
+  const [creditCount, setCreditCount] = useState<number>(0);
+  const [checkoutPending, setCheckoutPending] = useState(false);
   const submittingRef = useRef(false);
 
   const { isPremium } = useSubscription();
   const { user } = useAuth();
+
+  // Fetch unconsumed Document-Check credits for the current user.
+  const refreshCredits = useCallback(async () => {
+    if (!user?.id) { setCreditCount(0); return; }
+    const { count } = await supabase
+      .from("doc_check_credits")
+      .select("id", { count: "exact", head: true })
+      .eq("user_id", user.id)
+      .is("consumed_at", null);
+    setCreditCount(count ?? 0);
+  }, [user?.id]);
+
+  // Initial + visibility-change refresh (so returning from Stripe tab updates credits).
+  useEffect(() => {
+    refreshCredits();
+    const onVis = () => { if (document.visibilityState === "visible") refreshCredits(); };
+    document.addEventListener("visibilitychange", onVis);
+    window.addEventListener("focus", refreshCredits);
+    return () => {
+      document.removeEventListener("visibilitychange", onVis);
+      window.removeEventListener("focus", refreshCredits);
+    };
+  }, [refreshCredits]);
+
+  // When a credit becomes available after returning from Stripe, surface a success toast once.
+  useEffect(() => {
+    if (checkoutPending && creditCount > 0) {
+      setCheckoutPending(false);
+      setShowPaywall(false);
+      toast.success(t("documentCheck.paywall.paymentReadyToast", "Plaćanje je primljeno. Kliknite Provjeri dokument za pokretanje analize."));
+    }
+  }, [checkoutPending, creditCount, t]);
 
   const totalSize = useMemo(() => files.reduce((s, f) => s + f.size, 0), [files]);
 
