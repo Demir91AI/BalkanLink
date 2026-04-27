@@ -240,7 +240,7 @@ export default function DokumentenCheck() {
     if (submittingRef.current || loading) return;
     if (!confirmed) { setError(t("documentCheck.errors.confirmRequired")); return; }
     if (!isPremium) { setShowPaywall(true); return; }
-    if (!file) { setError(t("documentCheck.errors.noFile")); return; }
+    if (files.length === 0) { setError(t("documentCheck.errors.noFile")); return; }
 
     submittingRef.current = true;
     setLoading(true);
@@ -248,9 +248,14 @@ export default function DokumentenCheck() {
     setAnalysis(null);
 
     try {
-      const base64 = await fileToBase64(file);
-      const mimeType = file.type || (file.name.toLowerCase().endsWith(".pdf") ? "application/pdf" : "image/jpeg");
-      const payload = { imageBase64: base64, mimeType };
+      const filesPayload = await Promise.all(
+        files.map(async (f) => ({
+          base64: await fileToBase64(f),
+          mimeType: f.type || (f.name.toLowerCase().endsWith(".pdf") ? "application/pdf" : "image/jpeg"),
+          name: f.name,
+        }))
+      );
+      const payload = { files: filesPayload };
 
       const { data, error: fnError } = await supabase.functions.invoke("document-check", { body: payload });
 
@@ -270,17 +275,17 @@ export default function DokumentenCheck() {
       setLoading(false);
       submittingRef.current = false;
     }
-  }, [confirmed, file, isPremium, loading, t]);
+  }, [confirmed, files, isPremium, loading, t]);
 
   const handleClear = useCallback(() => {
-    clearFile();
+    clearFiles();
     setAnalysis(null);
     setError(null);
     setConfirmed(false);
     setShowPaywall(false);
     setLoading(false);
     submittingRef.current = false;
-  }, [clearFile]);
+  }, [clearFiles]);
 
   const handleBack = useCallback(() => { navigateBackOrHome(navigate); }, [navigate]);
 
