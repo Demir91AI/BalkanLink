@@ -132,9 +132,9 @@ function parseAnalysisSections(text: string, fallbackTitle: string): AnalysisSec
 }
 
 function extractSummaryFromSections(sections: AnalysisSection[], t: (k: string, opts?: any) => string) {
-  const firstSection = sections.find((s) => s.id === "dokument auf einen blick");
-  const urgencySection = sections.find((s) => s.id === "fristen und dringlichkeit");
-  const financeSection = sections.find((s) => s.id === "finanzielle analyse");
+  const firstSection = sections.find((s) => s.id === "dokument na prvi pogled");
+  const urgencySection = sections.find((s) => s.id === "rokovi i hitnost");
+  const financeSection = sections.find((s) => s.id === "finansijska analiza");
 
   const extractFirstLine = (content: string | undefined) => {
     if (!content) return "—";
