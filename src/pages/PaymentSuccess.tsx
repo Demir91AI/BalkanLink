@@ -47,6 +47,8 @@ export default function PaymentSuccess() {
   const cancelledRef = useRef(false);
 
   const sessionId = searchParams.get("session_id");
+  const returnTo = searchParams.get("return_to");
+  const safeReturnTo = returnTo && returnTo.startsWith("/") && !returnTo.startsWith("//") ? returnTo : "/";
 
   useEffect(() => {
     cancelledRef.current = false;
@@ -111,9 +113,9 @@ export default function PaymentSuccess() {
   // Auto-redirect after success
   useEffect(() => {
     if (status !== "succeeded") return;
-    const t = window.setTimeout(() => navigate("/"), 6000);
+    const t = window.setTimeout(() => navigate(safeReturnTo), 6000);
     return () => window.clearTimeout(t);
-  }, [status, navigate]);
+  }, [status, navigate, safeReturnTo]);
 
   const retryNow = async () => {
     if (!sessionId) return;
@@ -286,7 +288,7 @@ export default function PaymentSuccess() {
 
         <div className="flex flex-col gap-3">
           <Button
-            onClick={() => navigate("/")}
+            onClick={() => navigate(safeReturnTo)}
             className="rounded-xl bg-[hsl(var(--gold))] text-white hover:bg-[hsl(var(--gold-light))]"
           >
             <Crown className="mr-2 h-4 w-4" />
