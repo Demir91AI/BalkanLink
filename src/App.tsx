@@ -113,6 +113,7 @@ const SchufaSimulator = lazy(() => import("./pages/SchufaSimulator"));
 const AnerkennungNavigator = lazy(() => import("./pages/AnerkennungNavigator"));
 const Porezi = lazy(() => import("./pages/Porezi"));
 const PoreziWizard = lazy(() => import("./pages/PoreziWizard"));
+const PoreziDoppelhaushalt = lazy(() => import("./pages/PoreziDoppelhaushalt"));
 
 // Dev-only visual fixtures (excluded from production bundle behaviour via guard).
 const VisualFlagBA = lazy(() => import("./pages/__visual/VisualFlagBA"));
@@ -206,6 +207,10 @@ function LocalizedRoutes() {
         <Route path="porezi/da-li-moram" element={<PoreziWizard />} />
         <Route path="porezi/moram-li-uopce" element={<PoreziWizard />} />
         <Route path="steuern/muss-ich-ueberhaupt" element={<PoreziWizard />} />
+        {/* DHF — Doppelte Haushaltsführung modul */}
+        <Route path="porezi/dvostruko-domacinstvo" element={<PoreziDoppelhaushalt />} />
+        <Route path="porezi/dvostruko-kucanstvo" element={<PoreziDoppelhaushalt />} />
+        <Route path="steuern/doppelte-haushaltsfuehrung" element={<PoreziDoppelhaushalt />} />
         <Route element={<AdminGuard />}>
           <Route path="admin/forms" element={<AdminForms />} />
           <Route path="admin/forms/:slug/mapper" element={<AdminFormMapper />} />
