@@ -354,6 +354,100 @@
       "heading": "Rechtlicher Hinweis",
       "body": "Diese Inhalte sind rein informativ und stellen keine Steuerberatung dar. BalkanLink ist kein Steuerberater und kein Lohnsteuerhilfeverein. Ihre konkrete Lage kann von typischen Fällen abweichen.",
       "sources": "Hauptquellen: § 9 Abs. 1 Nr. 5 EStG; R 9.11 LStR; BMF-Schreiben vom 25.11.2020; BFH VI R 39/16 und VI R 39/17. Stand: Januar 2026."
+    },
+    "amounts": {
+      "heading": "Paušali za dvostruko domaćinstvo 2026",
+      "intro": "Specifični iznosi za radnike koji drže drugi stan zbog posla.",
+      "disclaimer": "§ 9 Abs. 1 Nr. 5 EStG. Stand 2026.",
+      "list": {
+        "a1": {
+          "label": "Najam drugog stana (max priznato)",
+          "value": "do 1.000 € / mj.",
+          "note": "Plus Nebenkosten. Anlage N, Zeile 87."
+        },
+        "a2": {
+          "label": "Putovanje kući (Familienheimfahrten)",
+          "value": "0,30 € / km",
+          "note": "Jednom wöchentlich. Anlage N, Zeile 91."
+        },
+        "a3": {
+          "label": "Nabavka nameštaja / kućnih aparata",
+          "value": "do 5.000 €",
+          "note": "Iznad: amortizacija 7-10 Jahre."
+        },
+        "a4": {
+          "label": "Verpflegungspauschale prva 3 mjeseca",
+          "value": "28 € / dan",
+          "note": "Samo na novom mjestu, samo 90 Tage."
+        },
+        "a5": {
+          "label": "Selidba (Umzugskostenpauschale, 2026)",
+          "value": "964 € (samac) / 1.928 € (par)",
+          "note": "Plus 425 € po članu domaćinstva."
+        }
+      }
+    },
+    "steps": {
+      "heading": "Kako prijaviti DHF u ELSTER",
+      "intro": "Ide u Anlage N, sekcija 'Mehraufwendungen für eine doppelte Haushaltsführung'.",
+      "list": {
+        "s1": {
+          "title": "Dokaži glavni stan (Hauptwohnsitz)",
+          "body": "Treba dokazati da snosiš > 10 % troškova glavnog stana (npr. najam, struja). Bez ovog DHF se odbija.",
+          "zeile": "§ 9 Abs. 1 Nr. 5 EStG"
+        },
+        "s2": {
+          "title": "Drugi stan — popuni adresu i datum useljavanja (Zeile 81-83)",
+          "body": "Mora biti razumno blizu radnog mjesta (< 1h putovanja).",
+          "zeile": "Anlage N · Zeile 81-83"
+        },
+        "s3": {
+          "title": "Najamnina i Nebenkosten (Zeile 84-90)",
+          "body": "Mjesečno × broj Monate. Priloži najprije ugovor o najmu (Mietvertrag).",
+          "zeile": "Anlage N · Zeile 84-90"
+        },
+        "s4": {
+          "title": "Familienheimfahrten (Zeile 91)",
+          "body": "Jedno putovanje wöchentlich × km × 0,30 €. Auto, voz, avion — svejedno.",
+          "zeile": "Anlage N · Zeile 91"
+        },
+        "s5": {
+          "title": "Verpflegungspauschale prva 3 mjeseca (Zeile 92)",
+          "body": "Automatska prva 3 mjeseca po useljenju. Nakon toga prestaje.",
+          "zeile": "Anlage N · Zeile 92"
+        },
+        "s6": {
+          "title": "Nabavka i selidba — priložiti račune",
+          "body": "Stavke > 800 € neto: amortizacija. ELSTER pita za godinu nabavke.",
+          "zeile": "Anlage N · Zeile 93"
+        }
+      }
+    },
+    "example": {
+      "heading": "Beispiel DHF za 2025",
+      "intro": "Amela, glavni stan u Frankfurtu (porodica), radi 9 Monate u Münchenu. Drugi stan: 850 €/mj. Putovanje kući svake sedmice (380 km).",
+      "scenarioTitle": "Godišnji DHF iznos",
+      "rows": {
+        "r1": {
+          "label": "Najam drugog stana: 9 × 850 €",
+          "value": "7.650 €"
+        },
+        "r2": {
+          "label": "Familienheimfahrten: 38 × 380 × 0,30 €",
+          "value": "4.332 €"
+        },
+        "r3": {
+          "label": "Verpflegungspauschale: 90 × 28 €",
+          "value": "2.520 €"
+        },
+        "r4": {
+          "label": "Nameštaj — početna nabavka",
+          "value": "1.800 €"
+        }
+      },
+      "resultLabel": "Ukupno DHF (Werbungskosten)",
+      "resultValue": "16.302 €",
+      "disclaimer": "Pri marg. stopi 35 % to je ≈ 5.700 € povrata. Ali Finanzamt provjerava STVARNU potrebu — moraš dokazati da glavni stan nije fiktivan."
     }
   },
   "checklist": {
