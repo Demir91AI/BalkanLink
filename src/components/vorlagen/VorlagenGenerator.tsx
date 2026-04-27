@@ -1,5 +1,6 @@
 import { useState, useMemo, useCallback } from "react";
 import { Copy, Download, Check, Shield, FileCheck, Award, UserCheck, Info, ChevronDown, ChevronUp } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -18,6 +19,34 @@ interface Props {
 }
 
 export default function VorlagenGenerator({ template }: Props) {
+  const { t } = useTranslation("pages");
+
+  /** Localized field label (falls back to BS) */
+  const fieldLabel = (key: string, fallback: string): string => {
+    const k = `vorlagen.templates.${template.slug}.fields.${key}`;
+    const v = t(k);
+    return v === k ? fallback : v;
+  };
+  /** Localized variant label */
+  const variantLabel = (id: string, fallback: string): string => {
+    const k = `vorlagen.templates.${template.slug}.variants.${id}`;
+    const v = t(k);
+    return v === k ? fallback : v;
+  };
+  /** Localized hints array */
+  const localizedHints = (): { title: string; items: string[] }[] => {
+    const k = `vorlagen.templates.${template.slug}.hints`;
+    const v = t(k, { returnObjects: true }) as unknown;
+    return Array.isArray(v) ? (v as { title: string; items: string[] }[]) : template.hints;
+  };
+  /** Localized checklist */
+  const localizedChecklist = (): string[] => {
+    const k = `vorlagen.templates.${template.slug}.checklist`;
+    const v = t(k, { returnObjects: true }) as unknown;
+    return Array.isArray(v) ? (v as string[]) : template.checklist;
+  };
+
+
   const [values, setValues] = useState<Record<string, string>>(() => {
     const init: Record<string, string> = {};
     template.fields.forEach((f) => {
@@ -180,15 +209,17 @@ body{
     }, 400);
   }, [renderedText, template.titleDe, template.slug]);
 
+  const hints = localizedHints();
+  const checklist = localizedChecklist();
+
   return (
     <div className="space-y-6">
       {/* ── DSGVO Notice ── */}
       <div className="flex items-start gap-2.5 rounded-lg border border-border bg-muted/40 p-3.5">
         <Shield className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
         <p className="text-xs text-muted-foreground leading-relaxed">
-          <span className="font-semibold text-foreground">Napomena o zaštiti podataka:</span>{" "}
-          Svi uneseni podaci se obrađuju isključivo lokalno u vašem pregledniku.
-          Nema pohranjivanja niti prijenosa na servere.
+          <span className="font-semibold text-foreground">{t("vorlagen.ui.dsgvoTitle")}</span>{" "}
+          {t("vorlagen.ui.dsgvoBody")}
         </p>
       </div>
 
@@ -196,7 +227,7 @@ body{
       {hasKurz && (
         <div className="flex items-center gap-3">
           <Label htmlFor="variant-toggle" className="text-sm">
-            Standardno (profesionalno)
+            {variantLabel("standard", t("vorlagen.ui.variantStandardLabel"))}
           </Label>
           <Switch
             id="variant-toggle"
@@ -204,7 +235,7 @@ body{
             onCheckedChange={(v) => setVariantId(v ? "kurz" : "standard")}
           />
           <Label htmlFor="variant-toggle" className="text-sm">
-            Kratko i kompaktno
+            {variantLabel("kurz", t("vorlagen.ui.variantKurzLabel"))}
           </Label>
         </div>
       )}
@@ -218,7 +249,7 @@ body{
           >
             <Label className="mb-1.5 block text-xs font-medium">
               {field.label}{" "}
-              <span className="text-muted-foreground">({field.labelBs})</span>
+              <span className="text-muted-foreground">({fieldLabel(field.key, field.labelBs)})</span>
             </Label>
             {field.type === "textarea" ? (
               <Textarea
@@ -247,7 +278,7 @@ body{
       {/* ── Live Preview (DIN 5008 Letter) ── */}
       <div>
         <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-          Vorschau / Pregled
+          {t("vorlagen.ui.previewLabel")}
         </p>
         <LetterPreview text={renderedText} slug={template.slug} />
       </div>
@@ -260,36 +291,36 @@ body{
           ) : (
             <Copy className="h-4 w-4" />
           )}
-          {copied ? "Kopiert!" : "Text kopieren"}
+          {copied ? t("vorlagen.ui.copied") : t("vorlagen.ui.copy")}
         </Button>
         <Button onClick={handlePdf} className="gap-2">
           <Download className="h-4 w-4" />
-          PDF herunterladen
+          {t("vorlagen.ui.downloadPdf")}
         </Button>
       </div>
 
       {/* ── Trust Badges ── */}
       <div className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-muted-foreground">
         <span className="inline-flex items-center gap-1.5">
-          <Award className="h-3.5 w-3.5 text-primary" /> Professionell formuliert
+          <Award className="h-3.5 w-3.5 text-primary" /> {t("vorlagen.ui.trustProfessional")}
         </span>
         <span className="inline-flex items-center gap-1.5">
-          <FileCheck className="h-3.5 w-3.5 text-primary" /> Nach deutschem Standard
+          <FileCheck className="h-3.5 w-3.5 text-primary" /> {t("vorlagen.ui.trustGermanStandard")}
         </span>
         <span className="inline-flex items-center gap-1.5">
-          <UserCheck className="h-3.5 w-3.5 text-primary" /> Ohne Registrierung
+          <UserCheck className="h-3.5 w-3.5 text-primary" /> {t("vorlagen.ui.trustNoRegistration")}
         </span>
       </div>
 
       {/* ── Hints / Checklist ── */}
-      {(template.hints.length > 0 || template.checklist.length > 0) && (
+      {(hints.length > 0 || checklist.length > 0) && (
         <div className="rounded-xl border border-border bg-muted/30 overflow-hidden">
           <button
             onClick={() => setHintsOpen((o) => !o)}
             className="flex w-full items-center justify-between px-4 py-3 text-sm font-semibold hover:bg-muted/50 transition-colors"
           >
             <span className="flex items-center gap-2">
-              <Info className="h-4 w-4 text-primary" /> Važne napomene i checklista
+              <Info className="h-4 w-4 text-primary" /> {t("vorlagen.ui.hintsTitle")}
             </span>
             {hintsOpen ? (
               <ChevronUp className="h-4 w-4" />
@@ -300,7 +331,7 @@ body{
 
           {hintsOpen && (
             <div className="border-t border-border px-4 py-4 space-y-4">
-              {template.hints.map((hint, i) => (
+              {hints.map((hint, i) => (
                 <div key={i}>
                   <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1.5">
                     {hint.title}
@@ -319,13 +350,13 @@ body{
                 </div>
               ))}
 
-              {template.checklist.length > 0 && (
+              {checklist.length > 0 && (
                 <div>
                   <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1.5">
-                    Checkliste
+                    {t("vorlagen.ui.checklistLabel")}
                   </p>
                   <ul className="space-y-1">
-                    {template.checklist.map((item, j) => (
+                    {checklist.map((item, j) => (
                       <li
                         key={j}
                         className="text-xs text-muted-foreground flex items-center gap-2"

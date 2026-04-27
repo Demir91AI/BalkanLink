@@ -784,5 +784,469 @@
     "passwordChanged": "Lozinka uspješno promenjena!",
     "passwordsDontMatch": "Lozinke se ne podudaraju.",
     "errorOccurred": "Došlo je do greške"
+  },
+  "vorlagen": {
+    "ui": {
+      "pageTitle": "Šabloni / Vorlagen",
+      "pageSubtitle": "Profesionalni nemački dokumenti — popuni i preuzmi za 2 minuta",
+      "seoTitle": "Vorlagen — Pisma i dopisi",
+      "seoDescription": "Gotovi šabloni za nemačka pisma — otkaz ugovora, zahtevi, molbe. Na srpskom i nemačkom.",
+      "notFound": "Šablon nije pronađen.",
+      "freeBadge": "Besplatno",
+      "premiumBadge": "Premium",
+      "unlock": "Otključaj {{name}}",
+      "whatYouGet": "Šta dobijaš:",
+      "benefit1": "Profesionalni nemački tekst (pravno ispravan)",
+      "benefit2": "Forma sa pitanjima na tvom jeziku",
+      "benefit3": "Automatsko popunjavanje tvojih podataka",
+      "benefit4": "Preuzimanje kao PDF spreman za slanje",
+      "benefit5": "Saveti šta treba priložiti uz dokument",
+      "benefit6": "Primer pravilno popunjenog dokumenta",
+      "ctaUnlock": "Otključaj Premium — 9,99€/mes.",
+      "sectionWork": "Arbeitsrecht & Karriere",
+      "sectionWorkLocal": "Radno pravo i karijera",
+      "sectionService": "Kundenservice / Verträge",
+      "sectionServiceLocal": "Ugovori i reklamacije",
+      "sectionHealth": "Gesundheit & Versicherung",
+      "sectionHealthLocal": "Zdravstvo i osiguranje",
+      "dsgvoTitle": "Napomena o zaštiti podataka:",
+      "dsgvoBody": "Svi uneti podaci obrađuju se isključivo lokalno u vašem pregledaču. Nema čuvanja niti prenosa na servere.",
+      "variantStandardLabel": "Standardno (profesionalno)",
+      "variantKurzLabel": "Kratko i kompaktno",
+      "previewLabel": "Vorschau / Pregled",
+      "copy": "Kopiraj tekst",
+      "copied": "Kopirano!",
+      "downloadPdf": "Preuzmi PDF",
+      "trustProfessional": "Profesionalno formulisano",
+      "trustGermanStandard": "Po nemačkom standardu",
+      "trustNoRegistration": "Bez registracije",
+      "hintsTitle": "Važne napomene i čeklista",
+      "checklistLabel": "Čeklista"
+    },
+    "templates": {
+      "kuendigung": {
+        "title": "Kündigung (radni odnos)",
+        "fields": {
+          "NAME": "Vaše puno ime",
+          "ADRESSE": "Vaša adresa",
+          "FIRMA": "Ime firme",
+          "FIRMA_ADRESSE": "Adresa firme",
+          "ORT": "Mesto",
+          "DATUM": "Datum",
+          "ENDDATUM": "Željeni datum prestanka"
+        },
+        "hints": [
+          {
+            "title": "Važno je znati",
+            "items": [
+              "Zakonski otkazni rok iznosi 4 nedelje do 15. ili do kraja kalendarskog meseca (§ 622 BGB).",
+              "Ugovorni rokovi mogu biti duži — proverite svoj Arbeitsvertrag.",
+              "Kündigung mora biti u pisanoj formi (e-mail ili faks nisu dovoljni)."
+            ]
+          },
+          {
+            "title": "Versand",
+            "items": [
+              "Poštom: Einschreiben sa Rückschein.",
+              "Lično: neka se potpiše Empfangsbestätigung.",
+              "E-mail nije dovoljan za ugovore o poslu."
+            ]
+          }
+        ],
+        "checklist": [
+          "Datum ispravno upisan",
+          "Kündigungsfrist proveren",
+          "Lično potpisano",
+          "Kopija za vlastitu dokumentaciju"
+        ],
+        "variants": {
+          "standard": "Standard (profesionalno)",
+          "kurz": "Kratko i sažeto"
+        }
+      },
+      "fristlose-kuendigung": {
+        "title": "Kündigung bez otkaznog roka",
+        "fields": {
+          "NAME": "Vaše puno ime",
+          "ADRESSE": "Vaša adresa",
+          "FIRMA": "Ime firme",
+          "FIRMA_ADRESSE": "Adresa firme",
+          "ORT": "Ovde",
+          "DATUM": "Datum"
+        },
+        "hints": [
+          {
+            "title": "Važno je znati",
+            "items": [
+              "Otkaz bez otkaznog roka zahteva „važan razlog“ (§ 626 BGB).",
+              "Kündigung mora biti izvršena u roku od 2 nedelje nakon saznanja o razlogu.",
+              "U slučaju sumnje, potražite pravni savet."
+            ]
+          },
+          {
+            "title": "Dostava",
+            "items": [
+              "Preporučena pošiljka sa Empfangsbestätigung ili lična predaja."
+            ]
+          }
+        ],
+        "checklist": [
+          "Važan razlog dokumentovan",
+          "Rok od 2 nedelje poštovan",
+          "Vlastoručno potpisano"
+        ],
+        "variants": {
+          "standard": "Standard (profesionalno)"
+        }
+      },
+      "kuendigung-probezeit": {
+        "title": "Kündigung u Probezeit-u",
+        "fields": {
+          "NAME": "Vaše puno ime",
+          "ADRESSE": "Vaša adresa",
+          "FIRMA": "Ime poslodavca",
+          "FIRMA_ADRESSE": "Adresa poslodavca",
+          "ORT": "Mesto",
+          "DATUM": "Datum",
+          "ENDDATUM": "Željeni datum prestanka"
+        },
+        "hints": [
+          {
+            "title": "Važno znati",
+            "items": [
+              "U Probezeit-u se primenjuje Kündigungsfrist od 2 nedelje (§ 622 Abs. 3 BGB).",
+              "Probni period sme trajati maksimalno 6 meseci."
+            ]
+          },
+          {
+            "title": "Slanje",
+            "items": [
+              "Preporučena pošta ili lično uručenje."
+            ]
+          }
+        ],
+        "checklist": [
+          "Probni period još uvek aktivan",
+          "2-nedeljni rok ispoštovan",
+          "Lično potpisano"
+        ],
+        "variants": {
+          "standard": "Standardno (profesionalno)"
+        }
+      },
+      "mietkuendigung": {
+        "title": "Kündigung najma stana",
+        "fields": {
+          "NAME": "Vaše puno ime",
+          "ADRESSE": "Adresa stana",
+          "VERMIETER": "Ime stanodavca",
+          "VERMIETER_ADRESSE": "Adresa stanodavca",
+          "ORT": "Ovde",
+          "DATUM": "Datum",
+          "ENDDATUM": "Željeni datum prestanka"
+        },
+        "hints": [
+          {
+            "title": "Važno je znati",
+            "items": [
+              "Zakonski otkazni rok za stanare iznosi 3 meseca (§ 573c BGB).",
+              "Kündigung mora stići do 3. radnog dana u mesecu.",
+              "Sve osobe navedene u Mietvertrag-u moraju potpisati Kündigung."
+            ]
+          },
+          {
+            "title": "Slanje",
+            "items": [
+              "Preporučeno pismo sa Rückschein-om je preporučeno.",
+              "Lična predaja sa Empfangsbestätigung-om."
+            ]
+          }
+        ],
+        "checklist": [
+          "3-mesečni rok je ispoštovan",
+          "Svi stanari su potpisali",
+          "Kopija je sačuvana"
+        ],
+        "variants": {
+          "standard": "Standard (profesionalno)"
+        }
+      },
+      "vertragskundigung": {
+        "title": "Otkaz ugovora (Internet, telefon itd.)",
+        "fields": {
+          "NAME": "Vaše puno ime",
+          "ADRESSE": "Vaša adresa",
+          "KUNDENNUMMER": "Broj korisnika",
+          "ANBIETER": "Provajder / Firma",
+          "ANBIETER_ADRESSE": "Adresa provajdera",
+          "ORT": "Mesto",
+          "DATUM": "Datum"
+        },
+        "hints": [
+          {
+            "title": "Važno je znati",
+            "items": [
+              "Od decembra 2021. važe nova pravila: Ugovori se produžavaju samo za jednu nedelju (umesto 12).",
+              "Kündigungsfrist je obično jedna nedelja do isteka roka.",
+              "Onlajn Kündigung je sada obavezna kod mnogih provajdera."
+            ]
+          },
+          {
+            "title": "Slanje",
+            "items": [
+              "E-mail, korisnički portal, ili preporučeno pismo."
+            ]
+          }
+        ],
+        "checklist": [
+          "Broj korisnika naveden",
+          "Period trajanja ugovora proveren",
+          "Potvrda zatražena"
+        ],
+        "variants": {
+          "standard": "Standard (profesionalno)"
+        }
+      },
+      "bewerbung": {
+        "title": "Prijava za posao",
+        "fields": {
+          "NAME": "Vaše puno ime",
+          "ADRESSE": "Vaša adresa",
+          "FIRMA": "Ime firme",
+          "FIRMA_ADRESSE": "Adresa firme",
+          "POSITION": "Pozicija",
+          "ORT": "Mesto",
+          "DATUM": "Datum"
+        },
+        "hints": [
+          {
+            "title": "Važno je znati",
+            "items": [
+              "Prilagodite propratno pismo individualno za posao.",
+              "Izbegavajte opšte fraze — budite konkretni.",
+              "Priložite Lebenslauf i relevantne sertifikate."
+            ]
+          },
+          {
+            "title": "Slanje",
+            "items": [
+              "Putem e-maila (PDF) ili putem portala za prijavu.",
+              "Poštanskim putem samo ako se izričito traži."
+            ]
+          }
+        ],
+        "checklist": [
+          "Pozicija ispravno navedena",
+          "Ime firme provereno",
+          "Prilozi (Lebenslauf, sertifikati) priloženi"
+        ],
+        "variants": {
+          "standard": "Standardno (profesionalno)"
+        }
+      },
+      "lebenslauf": {
+        "title": "Biografija (CV)",
+        "fields": {
+          "NAME": "Puno ime",
+          "ADRESSE": "Adresa",
+          "GEBURTSDATUM": "Datum rođenja",
+          "ERFAHRUNG": "Radno iskustvo",
+          "AUSBILDUNG": "Obrazovanje",
+          "KENNTNISSE": "Veštine i znanja"
+        },
+        "hints": [
+          {
+            "title": "Važno je znati",
+            "items": [
+              "U Nemačkoj je tabelarni Lebenslauf standard.",
+              "Praznine u Lebenslauf-u treba objasniti.",
+              "Fotografija za Bewerbung nije obavezna, ali je u Nemačkoj uobičajena."
+            ]
+          }
+        ],
+        "checklist": [
+          "Hronološki (najnovije prvo)",
+          "Bez pravopisnih grešaka",
+          "Trenutni datum"
+        ],
+        "variants": {
+          "standard": "Standard (profesionalno)"
+        }
+      },
+      "reklamation": {
+        "title": "Reklamacija",
+        "fields": {
+          "NAME": "Vaše puno ime",
+          "ADRESSE": "Vaša adresa",
+          "FIRMA": "Prodavac / firma",
+          "FIRMA_ADRESSE": "Adresa prodavca",
+          "ORT": "Mesto",
+          "DATUM": "Datum kupovine",
+          "PROBLEM": "Opis problema"
+        },
+        "hints": [
+          {
+            "title": "Važno je znati",
+            "items": [
+              "Garancija: 2 godine od datuma kupovine (§ 438 BGB).",
+              "U prvih 12 meseci teret dokazivanja je na prodavcu.",
+              "Sačuvati račun ili fakturu."
+            ]
+          },
+          {
+            "title": "Slanje",
+            "items": [
+              "E-mail, pismo ili lično u radnji."
+            ]
+          }
+        ],
+        "checklist": [
+          "Datum kupovine ispravan",
+          "Nedostatak jasno opisan",
+          "Račun prisutan"
+        ],
+        "variants": {
+          "standard": "Standard (profesionalno)"
+        }
+      },
+      "widerruf": {
+        "title": "Opoziv ugovora",
+        "fields": {
+          "NAME": "Vaše puno ime",
+          "ADRESSE": "Vaša adresa",
+          "FIRMA": "firma / Provajder",
+          "FIRMA_ADRESSE": "Adresa firme",
+          "ORT": "Mesto",
+          "DATUM": "Datum ugovora"
+        },
+        "hints": [
+          {
+            "title": "Važno je znati",
+            "items": [
+              "Rok za Widerruf: 14 dana nakon sklapanja ugovora odnosno prijema robe.",
+              "Važi samo za ugovore na daljinu (online, telefon).",
+              "Nije potreban razlog."
+            ]
+          },
+          {
+            "title": "Slanje",
+            "items": [
+              "Dovoljan je e-mail (čuvati dokaz o datumu)."
+            ]
+          }
+        ],
+        "checklist": [
+          "Ispoštovan rok od 14 dana",
+          "Datum ugovora tačan",
+          "Potvrda zatražena"
+        ],
+        "variants": {
+          "standard": "Standard (profesionalno)"
+        }
+      },
+      "anschreiben": {
+        "title": "Zahtev za radnu potvrdu",
+        "fields": {
+          "NAME": "Vaše puno ime",
+          "ADRESSE": "Vaša adresa",
+          "FIRMA": "Ime firme",
+          "FIRMA_ADRESSE": "Adresa firme",
+          "ORT": "Ovde",
+          "DATUM": "Datum"
+        },
+        "hints": [
+          {
+            "title": "Važno je znati",
+            "items": [
+              "Imate pravo na kvalifikovanu radnu potvrdu (§ 109 GewO).",
+              "Potvrda mora biti dobronamerna i istinita."
+            ]
+          }
+        ],
+        "checklist": [
+          "Ime i pozicija ispravni",
+          "Kvalifikovana potvrda zatražena"
+        ],
+        "variants": {
+          "standard": "Standard (profesionalno)"
+        }
+      },
+      "widerspruch-krankenkasse": {
+        "title": "Žalba na odluku zdravstvenog osiguranja",
+        "fields": {
+          "NAME": "Vaše puno ime",
+          "ADRESSE": "Vaša adresa",
+          "KASSE": "Ime osiguravajuće kuće",
+          "KASSE_ADRESSE": "Adresa osiguravajuće kuće",
+          "VERSICHERTENNR": "Broj osiguranika",
+          "BESCHEID_DATUM": "Datum odluke",
+          "ORT": "Ovde",
+          "DATUM": "Datum"
+        },
+        "hints": [
+          {
+            "title": "Važno je znati",
+            "items": [
+              "Widerspruchsfrist je 1 mesec od prijema odluke.",
+              "Widerspruch mora biti podnesen pismeno.",
+              "Možete uložiti Widerspruch u početku bez objašnjenja i dostaviti ga kasnije."
+            ]
+          },
+          {
+            "title": "Slanje",
+            "items": [
+              "Preporučuje se Versand preporučenom pošiljkom sa Einschreiben i Rückschein.",
+              "Faks sa potvrdom o slanju je takođe dovoljan."
+            ]
+          }
+        ],
+        "checklist": [
+          "Widerspruchsfrist (1 mesec) ispoštovana",
+          "Naveden broj osiguranika",
+          "Datum odluke ispravan",
+          "Vlastoručno potpisano"
+        ],
+        "variants": {
+          "standard": "Standard (profesionalno)"
+        }
+      },
+      "kostenuebernahme": {
+        "title": "Zahtev za pokriće troškova",
+        "fields": {
+          "NAME": "Vaše puno ime",
+          "ADRESSE": "Vaša adresa",
+          "KASSE": "Ime osiguravajuće kuće",
+          "KASSE_ADRESSE": "Adresa osiguravajuće kuće",
+          "VERSICHERTENNR": "Broj osiguranika",
+          "LEISTUNG": "Tražena usluga/lečenje",
+          "ORT": "Mesto",
+          "DATUM": "Datum"
+        },
+        "hints": [
+          {
+            "title": "Važno je znati",
+            "items": [
+              "Krankenkasse mora da odluči o zahtevu u roku od 3 nedelje (§ 13 Abs. 3a SGB V).",
+              "Ako nema odgovora u roku, zahtev se smatra odobrenim.",
+              "Priložiti lekarsko uputstvo ili predračun."
+            ]
+          },
+          {
+            "title": "Slanje",
+            "items": [
+              "Poštom ili preko online poslovnice KUNDIGUNG."
+            ]
+          }
+        ],
+        "checklist": [
+          "Priloženo lekarsko uputstvo",
+          "Naveden broj osiguranika",
+          "Usluga precizno opisana"
+        ],
+        "variants": {
+          "standard": "Standard (profesionalno)"
+        }
+      }
+    }
   }
 }

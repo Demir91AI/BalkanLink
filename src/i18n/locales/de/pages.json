@@ -784,5 +784,469 @@
     "passwordChanged": "Passwort erfolgreich geändert!",
     "passwordsDontMatch": "Die Passwörter stimmen nicht überein.",
     "errorOccurred": "Ein Fehler ist aufgetreten"
+  },
+  "vorlagen": {
+    "ui": {
+      "pageTitle": "Vorlagen / Šabloni",
+      "pageSubtitle": "Professionelle deutsche Dokumente — ausfüllen und in 2 Minuten herunterladen",
+      "seoTitle": "Vorlagen — Briefe & Schreiben",
+      "seoDescription": "Fertige Vorlagen für deutsche Briefe — Kündigung, Anträge, Widersprüche.",
+      "notFound": "Vorlage nicht gefunden.",
+      "freeBadge": "Kostenlos",
+      "premiumBadge": "Premium",
+      "unlock": "{{name}} freischalten",
+      "whatYouGet": "Was du bekommst:",
+      "benefit1": "Professioneller deutscher Text (rechtlich korrekt)",
+      "benefit2": "Formular mit Fragen in deiner Sprache",
+      "benefit3": "Automatisches Ausfüllen deiner Daten",
+      "benefit4": "Download als PDF, versandbereit",
+      "benefit5": "Tipps, welche Anlagen beizufügen sind",
+      "benefit6": "Beispiel eines korrekt ausgefüllten Dokuments",
+      "ctaUnlock": "Premium freischalten — 9,99€/Monat",
+      "sectionWork": "Arbeitsrecht & Karriere",
+      "sectionWorkLocal": "Arbeitsrecht & Karriere",
+      "sectionService": "Kundenservice / Verträge",
+      "sectionServiceLocal": "Kundenservice / Verträge",
+      "sectionHealth": "Gesundheit & Versicherung",
+      "sectionHealthLocal": "Gesundheit & Versicherung",
+      "dsgvoTitle": "Hinweis zum Datenschutz:",
+      "dsgvoBody": "Alle eingegebenen Daten werden ausschließlich lokal in Ihrem Browser verarbeitet. Keine Speicherung oder Übertragung an Server.",
+      "variantStandardLabel": "Standard (professionell)",
+      "variantKurzLabel": "Kurz & kompakt",
+      "previewLabel": "Vorschau",
+      "copy": "Text kopieren",
+      "copied": "Kopiert!",
+      "downloadPdf": "PDF herunterladen",
+      "trustProfessional": "Professionell formuliert",
+      "trustGermanStandard": "Nach deutschem Standard",
+      "trustNoRegistration": "Ohne Registrierung",
+      "hintsTitle": "Wichtige Hinweise und Checkliste",
+      "checklistLabel": "Checkliste"
+    },
+    "templates": {
+      "kuendigung": {
+        "title": "Kündigung (Arbeitsverhältnis)",
+        "fields": {
+          "NAME": "Ihr vollständiger Name",
+          "ADRESSE": "Ihre Adresse",
+          "FIRMA": "Name des Arbeitgebers",
+          "FIRMA_ADRESSE": "Adresse des Arbeitgebers",
+          "ORT": "Ort",
+          "DATUM": "Datum",
+          "ENDDATUM": "Gewünschtes Enddatum"
+        },
+        "hints": [
+          {
+            "title": "Wichtig zu wissen",
+            "items": [
+              "Die gesetzliche Kündigungsfrist beträgt 4 Wochen zum 15. oder zum Ende des Kalendermonats (§ 622 BGB).",
+              "Vertragliche Fristen können länger sein — prüfen Sie Ihren Arbeitsvertrag.",
+              "Die Kündigung muss schriftlich erfolgen (E-Mail oder Fax genügen nicht)."
+            ]
+          },
+          {
+            "title": "Versand",
+            "items": [
+              "Per Post: Einschreiben mit Rückschein empfohlen.",
+              "Persönlich: Empfangsbestätigung unterschreiben lassen.",
+              "E-Mail ist bei Arbeitsverträgen nicht ausreichend."
+            ]
+          }
+        ],
+        "checklist": [
+          "Datum korrekt eingetragen",
+          "Kündigungsfrist geprüft",
+          "Eigenhändig unterschrieben",
+          "Kopie für eigene Unterlagen"
+        ],
+        "variants": {
+          "standard": "Standard (professionell)",
+          "kurz": "Kurz & kompakt"
+        }
+      },
+      "fristlose-kuendigung": {
+        "title": "Fristlose Kündigung",
+        "fields": {
+          "NAME": "Ihr vollständiger Name",
+          "ADRESSE": "Ihre Adresse",
+          "FIRMA": "Name des Arbeitgebers",
+          "FIRMA_ADRESSE": "Adresse des Arbeitgebers",
+          "ORT": "Ort",
+          "DATUM": "Datum"
+        },
+        "hints": [
+          {
+            "title": "Wichtig zu wissen",
+            "items": [
+              "Eine fristlose Kündigung erfordert einen „wichtigen Grund“ (§ 626 BGB).",
+              "Die Kündigung muss innerhalb von 2 Wochen nach Kenntnis des Grundes erfolgen.",
+              "Lassen Sie sich im Zweifel rechtlich beraten."
+            ]
+          },
+          {
+            "title": "Versand",
+            "items": [
+              "Einschreiben mit Rückschein oder persönliche Übergabe."
+            ]
+          }
+        ],
+        "checklist": [
+          "Wichtiger Grund dokumentiert",
+          "2-Wochen-Frist beachtet",
+          "Eigenhändig unterschrieben"
+        ],
+        "variants": {
+          "standard": "Standard (professionell)"
+        }
+      },
+      "kuendigung-probezeit": {
+        "title": "Kündigung in der Probezeit",
+        "fields": {
+          "NAME": "Ihr vollständiger Name",
+          "ADRESSE": "Ihre Adresse",
+          "FIRMA": "Name des Arbeitgebers",
+          "FIRMA_ADRESSE": "Adresse des Arbeitgebers",
+          "ORT": "Ort",
+          "DATUM": "Datum",
+          "ENDDATUM": "Gewünschtes Enddatum"
+        },
+        "hints": [
+          {
+            "title": "Wichtig zu wissen",
+            "items": [
+              "In der Probezeit gilt eine Kündigungsfrist von 2 Wochen (§ 622 Abs. 3 BGB).",
+              "Die Probezeit darf maximal 6 Monate betragen."
+            ]
+          },
+          {
+            "title": "Versand",
+            "items": [
+              "Einschreiben oder persönliche Übergabe."
+            ]
+          }
+        ],
+        "checklist": [
+          "Probezeit noch aktiv",
+          "2-Wochen-Frist eingehalten",
+          "Eigenhändig unterschrieben"
+        ],
+        "variants": {
+          "standard": "Standard (professionell)"
+        }
+      },
+      "mietkuendigung": {
+        "title": "Mietkündigung",
+        "fields": {
+          "NAME": "Ihr vollständiger Name",
+          "ADRESSE": "Adresse der Mietwohnung",
+          "VERMIETER": "Name des Vermieters",
+          "VERMIETER_ADRESSE": "Adresse des Vermieters",
+          "ORT": "Ort",
+          "DATUM": "Datum",
+          "ENDDATUM": "Gewünschtes Enddatum"
+        },
+        "hints": [
+          {
+            "title": "Wichtig zu wissen",
+            "items": [
+              "Die gesetzliche Kündigungsfrist für Mieter beträgt 3 Monate (§ 573c BGB).",
+              "Die Kündigung muss bis zum 3. Werktag eines Monats eingehen.",
+              "Alle im Mietvertrag genannten Personen müssen die Kündigung unterschreiben."
+            ]
+          },
+          {
+            "title": "Versand",
+            "items": [
+              "Einschreiben mit Rückschein empfohlen.",
+              "Persönliche Übergabe mit Empfangsbestätigung."
+            ]
+          }
+        ],
+        "checklist": [
+          "3-Monats-Frist beachtet",
+          "Alle Mieter haben unterschrieben",
+          "Kopie aufbewahrt"
+        ],
+        "variants": {
+          "standard": "Standard (professionell)"
+        }
+      },
+      "vertragskundigung": {
+        "title": "Vertragskündigung (Internet, Handy etc.)",
+        "fields": {
+          "NAME": "Ihr vollständiger Name",
+          "ADRESSE": "Ihre Adresse",
+          "KUNDENNUMMER": "Kundennummer",
+          "ANBIETER": "Anbieter / Firma",
+          "ANBIETER_ADRESSE": "Adresse des Anbieters",
+          "ORT": "Ort",
+          "DATUM": "Datum"
+        },
+        "hints": [
+          {
+            "title": "Wichtig zu wissen",
+            "items": [
+              "Seit Dezember 2021 gelten neue Regeln: Verträge verlängern sich nur noch um 1 Monat (statt 12).",
+              "Die Kündigungsfrist beträgt in der Regel 1 Monat zum Ende der Laufzeit.",
+              "Online-Kündigung ist bei vielen Anbietern mittlerweile verpflichtend möglich."
+            ]
+          },
+          {
+            "title": "Versand",
+            "items": [
+              "E-Mail, Kundenportal, oder Einschreiben."
+            ]
+          }
+        ],
+        "checklist": [
+          "Kundennummer angegeben",
+          "Vertragslaufzeit geprüft",
+          "Bestätigung angefordert"
+        ],
+        "variants": {
+          "standard": "Standard (professionell)"
+        }
+      },
+      "bewerbung": {
+        "title": "Bewerbungsanschreiben",
+        "fields": {
+          "NAME": "Ihr vollständiger Name",
+          "ADRESSE": "Ihre Adresse",
+          "FIRMA": "Name des Unternehmens",
+          "FIRMA_ADRESSE": "Adresse des Unternehmens",
+          "POSITION": "Position / Stelle",
+          "ORT": "Ort",
+          "DATUM": "Datum"
+        },
+        "hints": [
+          {
+            "title": "Wichtig zu wissen",
+            "items": [
+              "Passen Sie das Anschreiben individuell an die Stelle an.",
+              "Vermeiden Sie allgemeine Floskeln — seien Sie konkret.",
+              "Fügen Sie Lebenslauf und relevante Zeugnisse bei."
+            ]
+          },
+          {
+            "title": "Versand",
+            "items": [
+              "Per E-Mail (PDF) oder über das Bewerbungsportal.",
+              "Postalisch nur wenn ausdrücklich verlangt."
+            ]
+          }
+        ],
+        "checklist": [
+          "Position korrekt angegeben",
+          "Firmenname geprüft",
+          "Anhänge (Lebenslauf, Zeugnisse) beigefügt"
+        ],
+        "variants": {
+          "standard": "Standard (professionell)"
+        }
+      },
+      "lebenslauf": {
+        "title": "Lebenslauf",
+        "fields": {
+          "NAME": "Vollständiger Name",
+          "ADRESSE": "Adresse",
+          "GEBURTSDATUM": "Geburtsdatum",
+          "ERFAHRUNG": "Berufserfahrung",
+          "AUSBILDUNG": "Ausbildung",
+          "KENNTNISSE": "Kenntnisse & Fähigkeiten"
+        },
+        "hints": [
+          {
+            "title": "Wichtig zu wissen",
+            "items": [
+              "In Deutschland ist ein tabellarischer Lebenslauf Standard.",
+              "Lücken im Lebenslauf sollten erklärt werden können.",
+              "Bewerbungsfoto ist optional, aber in Deutschland üblich."
+            ]
+          }
+        ],
+        "checklist": [
+          "Chronologisch (aktuellste zuerst)",
+          "Keine Rechtschreibfehler",
+          "Aktuelles Datum"
+        ],
+        "variants": {
+          "standard": "Standard (professionell)"
+        }
+      },
+      "reklamation": {
+        "title": "Reklamation",
+        "fields": {
+          "NAME": "Ihr vollständiger Name",
+          "ADRESSE": "Ihre Adresse",
+          "FIRMA": "Händler / Firma",
+          "FIRMA_ADRESSE": "Adresse des Händlers",
+          "ORT": "Ort",
+          "DATUM": "Kaufdatum",
+          "PROBLEM": "Beschreibung des Mangels"
+        },
+        "hints": [
+          {
+            "title": "Wichtig zu wissen",
+            "items": [
+              "Gewährleistung: 2 Jahre ab Kaufdatum (§ 438 BGB).",
+              "In den ersten 12 Monaten liegt die Beweislast beim Verkäufer.",
+              "Kassenbon oder Rechnung aufbewahren."
+            ]
+          },
+          {
+            "title": "Versand",
+            "items": [
+              "E-Mail, Brief, oder persönlich im Geschäft."
+            ]
+          }
+        ],
+        "checklist": [
+          "Kaufdatum korrekt",
+          "Mangel klar beschrieben",
+          "Kassenbon vorhanden"
+        ],
+        "variants": {
+          "standard": "Standard (professionell)"
+        }
+      },
+      "widerruf": {
+        "title": "Widerruf",
+        "fields": {
+          "NAME": "Ihr vollständiger Name",
+          "ADRESSE": "Ihre Adresse",
+          "FIRMA": "Firma / Anbieter",
+          "FIRMA_ADRESSE": "Adresse der Firma",
+          "ORT": "Ort",
+          "DATUM": "Vertragsdatum"
+        },
+        "hints": [
+          {
+            "title": "Wichtig zu wissen",
+            "items": [
+              "Widerrufsfrist: 14 Tage nach Vertragsschluss bzw. Warenerhalt.",
+              "Gilt nur bei Fernabsatzverträgen (Online, Telefon).",
+              "Kein Grund erforderlich."
+            ]
+          },
+          {
+            "title": "Versand",
+            "items": [
+              "E-Mail genügt (Datum nachweisbar halten)."
+            ]
+          }
+        ],
+        "checklist": [
+          "14-Tage-Frist eingehalten",
+          "Vertragsdatum korrekt",
+          "Bestätigung angefordert"
+        ],
+        "variants": {
+          "standard": "Standard (professionell)"
+        }
+      },
+      "anschreiben": {
+        "title": "Arbeitszeugnis anfordern",
+        "fields": {
+          "NAME": "Ihr vollständiger Name",
+          "ADRESSE": "Ihre Adresse",
+          "FIRMA": "Name des Arbeitgebers",
+          "FIRMA_ADRESSE": "Adresse des Arbeitgebers",
+          "ORT": "Ort",
+          "DATUM": "Datum"
+        },
+        "hints": [
+          {
+            "title": "Wichtig zu wissen",
+            "items": [
+              "Sie haben Anspruch auf ein qualifiziertes Arbeitszeugnis (§ 109 GewO).",
+              "Das Zeugnis muss wohlwollend und wahrheitsgemäß sein."
+            ]
+          }
+        ],
+        "checklist": [
+          "Name und Position korrekt",
+          "Qualifiziertes Zeugnis angefordert"
+        ],
+        "variants": {
+          "standard": "Standard (professionell)"
+        }
+      },
+      "widerspruch-krankenkasse": {
+        "title": "Widerspruch gegen Krankenkasse",
+        "fields": {
+          "NAME": "Ihr vollständiger Name",
+          "ADRESSE": "Ihre Adresse",
+          "KASSE": "Name der Krankenkasse",
+          "KASSE_ADRESSE": "Adresse der Krankenkasse",
+          "VERSICHERTENNR": "Versichertennummer",
+          "BESCHEID_DATUM": "Datum des Bescheids",
+          "ORT": "Ort",
+          "DATUM": "Datum"
+        },
+        "hints": [
+          {
+            "title": "Wichtig zu wissen",
+            "items": [
+              "Die Widerspruchsfrist beträgt 1 Monat ab Zugang des Bescheids.",
+              "Widerspruch muss schriftlich erfolgen.",
+              "Sie können den Widerspruch zunächst ohne Begründung einlegen und diese nachreichen."
+            ]
+          },
+          {
+            "title": "Versand",
+            "items": [
+              "Einschreiben mit Rückschein empfohlen.",
+              "Fax mit Sendebericht ist ebenfalls ausreichend."
+            ]
+          }
+        ],
+        "checklist": [
+          "Widerspruchsfrist (1 Monat) eingehalten",
+          "Versichertennummer angegeben",
+          "Bescheid-Datum korrekt",
+          "Eigenhändig unterschrieben"
+        ],
+        "variants": {
+          "standard": "Standard (professionell)"
+        }
+      },
+      "kostenuebernahme": {
+        "title": "Antrag auf Kostenübernahme",
+        "fields": {
+          "NAME": "Ihr vollständiger Name",
+          "ADRESSE": "Ihre Adresse",
+          "KASSE": "Name der Krankenkasse",
+          "KASSE_ADRESSE": "Adresse der Krankenkasse",
+          "VERSICHERTENNR": "Versichertennummer",
+          "LEISTUNG": "Gewünschte Leistung",
+          "ORT": "Ort",
+          "DATUM": "Datum"
+        },
+        "hints": [
+          {
+            "title": "Wichtig zu wissen",
+            "items": [
+              "Die Krankenkasse muss innerhalb von 3 Wochen über den Antrag entscheiden (§ 13 Abs. 3a SGB V).",
+              "Bei Nichtantwort innerhalb der Frist gilt der Antrag als genehmigt.",
+              "Ärztliche Verordnung oder Kostenvoranschlag beilegen."
+            ]
+          },
+          {
+            "title": "Versand",
+            "items": [
+              "Per Post oder über die Online-Geschäftsstelle der Krankenkasse."
+            ]
+          }
+        ],
+        "checklist": [
+          "Ärztliche Verordnung beigefügt",
+          "Versichertennummer angegeben",
+          "Leistung genau beschrieben"
+        ],
+        "variants": {
+          "standard": "Standard (professionell)"
+        }
+      }
+    }
   }
 }
