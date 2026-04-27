@@ -3,7 +3,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { DEV_MODE, FREE_STEPS_PER_GUIDE } from "@/lib/dev-mode";
 import { supabase } from "@/integrations/supabase/client";
 
-const FREE_DAILY_LIMIT = 3;
+const FREE_DAILY_LIMIT = 5;
 
 export function usePremiumAccess() {
   const { isPremium: rawPremium, isAdmin, user } = useAuth();
