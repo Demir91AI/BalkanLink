@@ -281,7 +281,7 @@ export default function AnerkennungNavigator() {
       </div>
 
       {/* Disclaimer — pravna zaštita */}
-      <div className="mb-6 rounded-xl border border-amber-500/30 bg-amber-500/5 p-4 text-xs sm:text-sm text-amber-700 dark:text-amber-300">
+      <div className="mb-4 rounded-xl border border-amber-500/30 bg-amber-500/5 p-4 text-xs sm:text-sm text-amber-700 dark:text-amber-300">
         <div className="flex items-start gap-2">
           <AlertTriangle className="h-4 w-4 shrink-0 mt-0.5" />
           <div>
@@ -290,6 +290,29 @@ export default function AnerkennungNavigator() {
           </div>
         </div>
       </div>
+
+      {/* Cross-link na akademski modul */}
+      {!selectedCountry && (
+        <button
+          onClick={() => navigate("/anerkennung-fakulteti")}
+          className="mb-6 w-full text-left rounded-xl border border-[hsl(var(--gold))]/30 bg-[hsl(var(--gold))]/5 p-4 hover:bg-[hsl(var(--gold))]/10 transition-colors flex items-center gap-3"
+        >
+          <div className="h-10 w-10 rounded-xl bg-[hsl(var(--gold))]/15 flex items-center justify-center shrink-0">
+            <BookOpen className="h-5 w-5 text-[hsl(var(--gold))]" />
+          </div>
+          <div className="flex-1 min-w-0">
+            <div className="font-bold text-sm text-foreground">
+              Imaš fakultetsku diplomu (Bachelor / Master / Magistar)?
+            </div>
+            <p className="text-xs text-muted-foreground mt-0.5">
+              Detaljan vodič za priznavanje akademskih diploma sa Balkana —
+              ZAB Zeugnisbewertung, Anabin H+/H+/-/H- statusi, primjeri sa
+              Sarajevskog, Zagrebačkog i Beogradskog univerziteta.
+            </p>
+          </div>
+          <ChevronRight className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" />
+        </button>
+      )}
 
       {/* ────────── STEP 1: Country ────────── */}
       {!selectedCountry && (

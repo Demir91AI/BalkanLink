@@ -111,6 +111,7 @@ const MojiPodaci = lazy(() => import("./pages/MojiPodaci"));
 const Mietrecht = lazy(() => import("./pages/Mietrecht"));
 const SchufaSimulator = lazy(() => import("./pages/SchufaSimulator"));
 const AnerkennungNavigator = lazy(() => import("./pages/AnerkennungNavigator"));
+const AnerkennungFakulteti = lazy(() => import("./pages/AnerkennungFakulteti"));
 const Porezi = lazy(() => import("./pages/Porezi"));
 const PoreziWizard = lazy(() => import("./pages/PoreziWizard"));
 const PoreziDoppelhaushalt = lazy(() => import("./pages/PoreziDoppelhaushalt"));
@@ -208,6 +209,9 @@ function LocalizedRoutes() {
         <Route path="bonitet" element={<Navigate to="../schufa-simulator" replace />} />
         <Route path="anerkennung-navigator" element={<AnerkennungNavigator />} />
         <Route path="priznavanje-diplome" element={<Navigate to="../anerkennung-navigator" replace />} />
+        <Route path="anerkennung-fakulteti" element={<AnerkennungFakulteti />} />
+        <Route path="priznavanje-fakulteta" element={<Navigate to="../anerkennung-fakulteti" replace />} />
+        <Route path="anerkennung-hochschulen" element={<Navigate to="../anerkennung-fakulteti" replace />} />
         {/* Porezi (Tax) — landing hub. Same component, two slugs so /de/steuern works. */}
         <Route path="porezi" element={<Porezi />} />
         <Route path="steuern" element={<Porezi />} />
