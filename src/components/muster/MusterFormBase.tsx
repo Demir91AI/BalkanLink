@@ -200,11 +200,15 @@ export default function MusterFormBase({ rootId, title, subtitle, pdfUrl, pdfLab
             </div>
           </div>
 
-          <AuthGate>
-            <FormularLock locked={locked} formularId={fId}>
-              {children}
-            </FormularLock>
-          </AuthGate>
+          {isFree ? (
+            <>{children}</>
+          ) : (
+            <AuthGate>
+              <FormularLock locked={locked} formularId={fId}>
+                {children}
+              </FormularLock>
+            </AuthGate>
+          )}
 
           <div style={S.footer}>
             {footerNote}
