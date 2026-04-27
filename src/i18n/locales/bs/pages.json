@@ -414,7 +414,8 @@
       "premiumPerk": "Neograničene provjere dokumenata + sve Premium funkcije",
       "or": "ili",
       "oneTimeCta": "Plati 2,99€ za jednu analizu →",
-      "oneTimeReset": "Plaćaš za svaku analizu pojedinačno"
+      "oneTimeReset": "Plaćaš za svaku analizu pojedinačno",
+      "paymentReadyToast": "Plaćanje je primljeno. Kliknite Provjeri dokument za pokretanje analize."
     },
     "example": {
       "trigger": "👁 Primjer analize — klikni da vidiš",
