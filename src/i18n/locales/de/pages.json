@@ -1248,5 +1248,74 @@
         }
       }
     }
+  },
+  "biznis": {
+    "seoTitle": "Geschäft in Deutschland — Gewerbe-Leitfaden | BalkanLink",
+    "seoDescription": "Alles zur Gründung und Führung eines Gewerbes in Deutschland: Steuern, Dokumente, Pflichten. Aktuell für 2025/2026.",
+    "heroTitle": "Geschäft in Deutschland",
+    "heroSubtitle": "Gewerbe, Selbstständigkeit und Geschäftstätigkeit — Leitfaden für Einsteiger · Stand 2026",
+    "heroBadge": "📌 Informativ — keine Rechts-, Steuer- oder Geschäftsberatung",
+    "officialSourcesTitle": "Offizielle Quellen und Hilfe",
+    "disclaimerTitle": "Hinweis",
+    "disclaimerBody": "Die Informationen auf dieser Seite sind allgemeiner Natur und ersetzen keine Rechts-, Steuer- oder Geschäftsberatung. Für konkrete Fälle wende dich an einen Steuerberater, Anwalt oder die zuständigen Behörden.",
+    "categories": {
+      "osnove": "Grundlagen und Verständnis",
+      "eu-vs-trecezemlje": "EU-Bürger vs. Drittstaatsangehörige",
+      "pokretanje": "Gründung des Gewerbes",
+      "porezi": "Steuern und Finanzen",
+      "fakturisanje": "Rechnungsstellung und Verwaltung",
+      "obaveze": "Pflichten und Versicherungen",
+      "posebne-situacije": "Besondere Situationen",
+      "greske-zatvaranje": "Fehler und Abmeldung",
+      "faq": "Häufige Fragen"
+    },
+    "sections": {
+      "explanation": "Was ist das / Erklärung",
+      "rules": "Wichtigste Regeln",
+      "examples": "Praktische Beispiele",
+      "warnings": "Worauf besonders zu achten ist",
+      "myths": "Häufige Fehler / Mythen",
+      "sources": "Quellen"
+    },
+    "links": {
+      "ihkDesc": "Gewerbeanmeldung, Beratung für Unternehmer",
+      "unternehmensregisterDesc": "Anmeldung und Registerprüfung",
+      "elsterDesc": "Online-Steuererklärung und Steuernummer",
+      "minijobDesc": "Alles zum Minijob-Arbeitsverhältnis"
+    }
+  },
+  "radnoPravo": {
+    "seoTitle": "Arbeitsrecht in Deutschland | BalkanLink",
+    "seoDescription": "Alles zum Arbeitsrecht in Deutschland: Vertrag, Lohn, Urlaub, Kündigung, Minijob und mehr. Aktuell für 2026.",
+    "heroTitle": "Arbeitsrecht",
+    "heroSubtitle": "Rechte und Pflichten am Arbeitsplatz in Deutschland · Stand 2026",
+    "heroBadge": "📌 Informativ — keine Rechtsberatung",
+    "officialSourcesTitle": "Offizielle Quellen und Hilfe",
+    "disclaimerTitle": "Hinweis",
+    "disclaimerBody": "Die Informationen auf dieser Seite sind allgemeiner Natur und ersetzen keine Rechtsberatung. In konkreten Fällen wende dich an die Arbeitsagentur, eine Gewerkschaft oder einen Rechtsanwalt.",
+    "categories": {
+      "ugovor": "Arbeitsvertrag",
+      "plata": "Lohn und Gehalt",
+      "radno-vrijeme": "Arbeitszeit",
+      "odmor-bolovanje": "Urlaub und Krankheit",
+      "porodica": "Familie und Schutz",
+      "otkaz": "Kündigung und Beendigung",
+      "posebni-oblici": "Besondere Beschäftigungsformen",
+      "zastita": "Arbeitsschutz"
+    },
+    "sections": {
+      "explanation": "Was ist das / Erklärung",
+      "rules": "Wichtigste Regeln",
+      "examples": "Praktische Beispiele",
+      "warnings": "Worauf besonders zu achten ist",
+      "myths": "Häufige Fehler / Mythen",
+      "sources": "Quellen"
+    },
+    "links": {
+      "baDesc": "Arbeitslosengeld, Stellen, Beratung",
+      "bmasDesc": "Gesetze und Verordnungen des Arbeitsrechts",
+      "dgbDesc": "Größte Gewerkschaft — Beratung und Arbeitnehmerschutz",
+      "mlkDesc": "Aktueller Mindestlohn und Änderungen"
+    }
   }
 }
