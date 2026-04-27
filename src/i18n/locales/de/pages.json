@@ -1317,5 +1317,94 @@
       "dgbDesc": "Größte Gewerkschaft — Beratung und Arbeitnehmerschutz",
       "mlkDesc": "Aktueller Mindestlohn und Änderungen"
     }
+  },
+  "nebenkostenScan": {
+    "seoTitle": "Nebenkostenabrechnung prüfen — BalkanLink",
+    "seoDescription": "Lade deine Nebenkostenabrechnung hoch. Die KI prüft 12 rechtliche Kriterien (BetrKV, HeizkostenV) und zeigt strittige Positionen. Zweites Paar Augen — keine Rechtsberatung.",
+    "hero": {
+      "eyebrow": "NEBENKOSTEN-CHECK",
+      "headline": "Jede zweite Nebenkostenabrechnung enthält Fehler.",
+      "headlineAccent": "Prüfe deine in 30 Sekunden.",
+      "subline": "Die KI liest deine Jahresabrechnung, prüft 12 rechtliche Kriterien (BetrKV, HeizkostenV, §556 BGB) und zeigt Positionen, die rechtlich überprüft werden sollten.",
+      "stat1": "≈ 50 %",
+      "stat1Label": "der Abrechnungen sind fehlerhaft (Mieterbund 2024)",
+      "stat2": "217–317 €",
+      "stat2Label": "durchschnittlicher strittiger Betrag",
+      "stat3": "12",
+      "stat3Label": "rechtliche Prüfkriterien",
+      "ctaPrimary": "Abrechnung hochladen",
+      "ctaSecondary": "So funktioniert es"
+    },
+    "honesty": {
+      "title": "Ehrlich — was das IST und was es NICHT ist",
+      "isTitle": "✓ DAS IST",
+      "is1": "Ein zweites Paar Augen — wir zeigen rechtliche Kriterien und strittige Positionen",
+      "is2": "Aufklärung über deine Rechte (BetrKV, HeizkostenV, §556 BGB)",
+      "is3": "Vorlage für eine höfliche Anfrage an den Vermieter (Bitte um Erläuterung)",
+      "isNotTitle": "✗ DAS IST NICHT",
+      "isNot1": "Rechtsberatung im Sinne des Rechtsdienstleistungsgesetzes",
+      "isNot2": "Eine Garantie auf Geldrückgabe",
+      "isNot3": "Ersatz für Mieterbund oder Anwalt"
+    },
+    "upload": {
+      "title": "Nebenkostenabrechnung hochladen",
+      "subtitle": "PDF, JPG oder PNG — bis 10 MB. Das Dokument wird nach der Analyse nicht gespeichert.",
+      "dropzone": "Klicke oder ziehe die Datei hierher",
+      "dropzoneHint": "PDF, JPG, PNG (max. 10 MB)",
+      "selected": "Ausgewählt:",
+      "remove": "Entfernen",
+      "analyze": "Analyse starten",
+      "analyzing": "Analysiere… (bis zu 30 Sekunden)",
+      "consent": "Mir ist bewusst, dass dies keine Rechtsberatung ist und ich mich für eine verbindliche Prüfung an Mieterbund oder Anwalt wende.",
+      "errorTooLarge": "Datei zu groß (max. 10 MB).",
+      "errorWrongType": "Nur PDF, JPG und PNG erlaubt.",
+      "errorConsent": "Bitte bestätige den Hinweis vor der Analyse.",
+      "errorEmpty": "Bitte wähle eine Datei aus."
+    },
+    "result": {
+      "title": "Deine Analyse",
+      "newScan": "Neue Prüfung",
+      "premiumLockTitle": "Detaillierter Bericht — Premium",
+      "premiumLockSub": "In Premium siehst du alle strittigen Positionen mit Rechtsgrundlage, geschätzten strittigen Betrag und fertigen Text für die Anfrage an den Vermieter.",
+      "premiumCta": "Für 9,99 €/Mon. freischalten",
+      "disclaimer": "Diese Analyse ist eine informative Hilfe, keine Rechtsberatung. Für eine verbindliche Prüfung wende dich an den Mieterbund (60–90 €/Jahr) oder einen Anwalt für Mietrecht."
+    },
+    "how": {
+      "title": "So funktioniert es",
+      "step1Title": "1. Abrechnung hochladen",
+      "step1Desc": "Foto vom Handy oder PDF — sicher, verschlüsselt, wir speichern das Dokument nicht.",
+      "step2Title": "2. KI-Prüfung (30 Sek.)",
+      "step2Desc": "Das System prüft 12 rechtliche Kriterien: 12-Monats-Frist, BetrKV §2, HeizkostenV §7, Verteilerschlüssel, Mathematik.",
+      "step3Title": "3. Verständlicher Bericht",
+      "step3Desc": "Auf Deutsch/Bosnisch — mit Tags 🟢 sicher, 🟡 prüfenswert, 🔵 informativ. Keine erfundenen Garantien."
+    },
+    "criteria": {
+      "title": "Was wir genau prüfen",
+      "items": {
+        "frist": "12-Monats-Frist (§556 BGB)",
+        "period": "Abrechnungszeitraum und Gesamtkosten",
+        "schluessel": "Verteilerschlüssel (m², Personen, Einheiten)",
+        "anteil": "Dein Anteil — korrekte Berechnung",
+        "reparaturen": "Reparaturen (nicht umlagefähig)",
+        "verwaltung": "Hausverwaltung (nicht umlagefähig)",
+        "bank": "Bankgebühren (nicht umlagefähig)",
+        "leerstand": "Leerstandskosten (nicht auf Mieter)",
+        "heizung": "Heizung 50/70-Regel (HeizkostenV §7)",
+        "wasser": "Trennung Warm-/Kaltwasser",
+        "hausmeister": "Hausmeister ohne Reparaturen",
+        "mathe": "Mathematik und Summen"
+      }
+    },
+    "faq": {
+      "title": "Häufige Fragen",
+      "q1": "Speichert ihr mein Dokument?",
+      "a1": "Nein. Das Dokument wird in Echtzeit verarbeitet und nach der Analyse verworfen. Es bleibt nicht in der Datenbank.",
+      "q2": "Kann ich auf dieser Basis den Vermieter verklagen?",
+      "a2": "Nicht direkt. Diese Analyse ist informativ. Für rechtliche Schritte wende dich an Mieterbund oder Anwalt für Mietrecht.",
+      "q3": "Was, wenn ihr keinen Fehler findet?",
+      "a3": "Das schreiben wir ehrlich. Es bedeutet nicht, dass die Abrechnung zu 100 % korrekt ist — nur, dass wir keine offensichtlichen Probleme gesehen haben.",
+      "q4": "Was kostet es?",
+      "a4": "Kostenlos: 1 Prüfung pro Tag, Basisergebnis. Premium (9,99 €/Mon.): unbegrenzt + Detailbericht + Text für den Vermieter."
+    }
   }
 }
