@@ -1202,16 +1202,42 @@ function buildContextualPremiumRedirect(userText: string, lang: string): { text:
     };
   }
 
-  // Visa
+  // Visa — always points to /viza (Visa Navigator), never legacy /formulari/aufenthaltstitel
   if (/viza|visa|aufenthalt|boravišn|boravisn|residence|permit|blue.?card|radna\s+dozvola|work\s+permit/i.test(lower)) {
     return {
       text: l === "de"
         ? "Für personalisierte Visa-Beratung nutze den Visa Navigator."
         : l === "en"
         ? "For personalized visa guidance, use the Visa Navigator."
-        : "Za personalizirani vizni vodič otvori [Visa Navigator](/formulari/aufenthaltstitel). Tamo dobiješ tačne korake za tvoju situaciju.",
-      redirectUrl: "/formulari/aufenthaltstitel",
+        : "Za personalizirani vizni vodič otvori [Visa Navigator](/viza). Tamo dobiješ tačne korake za tvoju situaciju.",
+      redirectUrl: "/viza",
       redirectLabel: l === "de" ? "Visa Navigator öffnen" : l === "en" ? "Open Visa Navigator" : "Otvori Visa Navigator",
+    };
+  }
+
+  // Steuer / Porezi — points to new /porezi hub (10 modules)
+  if (/steuer(erkl[äa]rung)?|finanzamt|porez|elster|werbungskosten|doppelt[ae]?\s*haushalt/i.test(lower)) {
+    return {
+      text: l === "de"
+        ? "Für deine Steuerfragen nutze den Porezi-Hub mit 10 Modulen — Fristen, Abzüge, ELSTER und mehr."
+        : l === "en"
+        ? "For tax questions, use the Porezi hub with 10 modules — deadlines, deductions, ELSTER and more."
+        : "Za sve oko poreza koristi [Porezi vodič](/porezi) — 10 modula sa rokovima, odbicima, ELSTER vodičem i više.",
+      redirectUrl: "/porezi",
+      redirectLabel: l === "de" ? "Porezi öffnen" : l === "en" ? "Open Porezi" : "Otvori Porezi vodič",
+    };
+  }
+
+  // Anerkennung — recognition of foreign qualifications
+  if (/anerkennung|nostrifikacij|priznavanje\s+(diplome|kvalifikacij)/i.test(lower)) {
+    return {
+      text: l === "de"
+        ? "Für die Anerkennung deiner Qualifikationen nutze den Anerkennung Navigator."
+        : l === "en"
+        ? "For recognition of your qualifications, use the Anerkennung Navigator."
+        : "Za priznavanje tvoje diplome ili kvalifikacije koristi [Anerkennung Navigator](/anerkennung).",
+      redirectUrl: "/anerkennung",
+      redirectLabel: l === "de" ? "Anerkennung Navigator" : l === "en" ? "Open Anerkennung" : "Otvori Anerkennung",
     };
   }
 
