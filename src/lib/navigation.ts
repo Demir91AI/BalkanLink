@@ -15,8 +15,8 @@ const PARENT_OVERRIDES: { prefix: string; parent: string }[] = [
   { prefix: "/admin/forms", parent: "/admin/forms" },
 ];
 
-/** Podržani jezički prefiksi (proširivo). */
-const LANG_PREFIXES = ["de"] as const;
+/** Podržani jezički prefiksi (proširivo). BS je default i nema prefiks. */
+const LANG_PREFIXES = ["de", "hr", "sr"] as const;
 
 /** Izdvoji jezički prefiks iz path-a (npr. "/de/foo" → { lang: "de", rest: "/foo" }). */
 function extractLangPrefix(path: string): { lang: string | null; rest: string } {
