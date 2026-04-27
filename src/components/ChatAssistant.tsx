@@ -7,6 +7,7 @@ import ReactMarkdown from "react-markdown";
 import { useAuth } from "@/contexts/AuthContext";
 import { useChatLimit } from "@/hooks/usePremiumAccess";
 import { Link, useLocation } from "react-router-dom";
+import { supabase } from "@/integrations/supabase/client";
 import { formCatalog, type FormEntry } from "@/lib/form-catalog";
 import { isValidProductionRoute } from "@/lib/canonical-routes";
 import { BLIcon } from "@/components/BrandLogo";
