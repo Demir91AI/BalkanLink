@@ -1,7 +1,7 @@
 import React, { useState, useRef, useCallback } from "react";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
-import { Upload, FileText, X, Loader2, CheckCircle2, ShieldCheck, Lock, Receipt, Crown, AlertTriangle, ScrollText } from "lucide-react";
+import { Upload, FileText, X, Loader2, CheckCircle2, ShieldCheck, Lock, Receipt, Crown, AlertTriangle, ScrollText, Plus } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import NebenkostenResultView from "@/components/nebenkosten/NebenkostenResultView";
 import { useTranslation } from "react-i18next";
@@ -15,7 +15,9 @@ import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
 import { navigateBackOrHome } from "@/lib/navigation";
 import { toast } from "sonner";
 
-const MAX_FILE_SIZE = 10 * 1024 * 1024;
+const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB po fajlu
+const MAX_TOTAL_SIZE = 25 * 1024 * 1024; // 25 MB ukupno
+const MAX_FILES = 10;
 const ALLOWED_TYPES = ["application/pdf", "image/jpeg", "image/png"];
 const ALLOWED_EXT = [".pdf", ".jpg", ".jpeg", ".png"];
 
@@ -42,25 +44,51 @@ export default function NebenkostenScan() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const submittingRef = useRef(false);
 
-  const [file, setFile] = useState<File | null>(null);
+  const [files, setFiles] = useState<File[]>([]);
   const [confirmed, setConfirmed] = useState(false);
   const [loading, setLoading] = useState(false);
   const [analysis, setAnalysis] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  const handleFile = useCallback((selected: File | null) => {
+  const addFiles = useCallback((selected: FileList | File[] | null) => {
     if (!selected) return;
-    if (!isAllowed(selected)) { setError(t("nebenkostenScan.upload.errorWrongType")); return; }
-    if (selected.size > MAX_FILE_SIZE) { setError(t("nebenkostenScan.upload.errorTooLarge")); return; }
+    const incoming = Array.from(selected);
+    if (incoming.length === 0) return;
+
     setError(null);
     setAnalysis(null);
-    setFile(selected);
+
+    setFiles((prev) => {
+      const next = [...prev];
+      for (const f of incoming) {
+        if (next.length >= MAX_FILES) {
+          setError(t("nebenkostenScan.upload.errorTooMany", { max: MAX_FILES }));
+          break;
+        }
+        if (!isAllowed(f)) { setError(t("nebenkostenScan.upload.errorWrongType")); continue; }
+        if (f.size > MAX_FILE_SIZE) { setError(t("nebenkostenScan.upload.errorTooLarge")); continue; }
+        // izbjegni duplikate (po imenu+veličini)
+        if (next.some((x) => x.name === f.name && x.size === f.size)) continue;
+        const totalSoFar = next.reduce((s, x) => s + x.size, 0) + f.size;
+        if (totalSoFar > MAX_TOTAL_SIZE) {
+          setError(t("nebenkostenScan.upload.errorTotalTooLarge"));
+          break;
+        }
+        next.push(f);
+      }
+      return next;
+    });
   }, [t]);
+
+  const removeFile = useCallback((idx: number) => {
+    setFiles((prev) => prev.filter((_, i) => i !== idx));
+    if (fileInputRef.current) fileInputRef.current.value = "";
+  }, []);
 
   const handleAnalyze = useCallback(async () => {
     if (submittingRef.current || loading) return;
     if (!confirmed) { setError(t("nebenkostenScan.upload.errorConsent")); return; }
-    if (!file) { setError(t("nebenkostenScan.upload.errorEmpty")); return; }
+    if (files.length === 0) { setError(t("nebenkostenScan.upload.errorEmpty")); return; }
 
     submittingRef.current = true;
     setLoading(true);
@@ -68,10 +96,21 @@ export default function NebenkostenScan() {
     setAnalysis(null);
 
     try {
-      const base64 = await fileToBase64(file);
-      const mimeType = file.type || (file.name.toLowerCase().endsWith(".pdf") ? "application/pdf" : "image/jpeg");
+      const payloadFiles = await Promise.all(
+        files.map(async (f) => ({
+          base64: await fileToBase64(f),
+          mimeType: f.type || (f.name.toLowerCase().endsWith(".pdf") ? "application/pdf" : "image/jpeg"),
+          name: f.name,
+        }))
+      );
+
       const { data, error: fnError } = await supabase.functions.invoke("nebenkosten-scan", {
-        body: { imageBase64: base64, mimeType },
+        body: {
+          files: payloadFiles,
+          // backward compat:
+          imageBase64: payloadFiles[0].base64,
+          mimeType: payloadFiles[0].mimeType,
+        },
       });
       if (fnError) throw new Error(fnError.message);
       if (data?.success === false) {
@@ -90,9 +129,11 @@ export default function NebenkostenScan() {
       setLoading(false);
       submittingRef.current = false;
     }
-  }, [confirmed, file, loading, t]);
+  }, [confirmed, files, loading, t]);
 
-  const reset = () => { setFile(null); setAnalysis(null); setError(null); setConfirmed(false); if (fileInputRef.current) fileInputRef.current.value = ""; };
+  const reset = () => { setFiles([]); setAnalysis(null); setError(null); setConfirmed(false); if (fileInputRef.current) fileInputRef.current.value = ""; };
+
+  const totalSizeMB = files.reduce((s, f) => s + f.size, 0) / 1024 / 1024;
 
   return (
     <>
@@ -217,22 +258,48 @@ export default function NebenkostenScan() {
                     id="nebenkosten-file"
                     ref={fileInputRef}
                     type="file"
+                    multiple
                     accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"
                     className="hidden"
-                    onChange={(e) => handleFile(e.target.files?.[0] || null)}
+                    onChange={(e) => addFiles(e.target.files)}
                   />
                 </label>
 
-                {file && (
-                  <div className="mt-4 flex items-center gap-3 rounded-xl border border-border bg-muted/40 px-4 py-3">
-                    <FileText className="h-5 w-5 text-[hsl(var(--gold))] shrink-0" />
-                    <div className="flex-1 min-w-0">
-                      <p className="text-xs font-semibold text-foreground truncate">{file.name}</p>
-                      <p className="text-[10px] text-muted-foreground">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
+                {files.length > 0 && (
+                  <div className="mt-4 space-y-2">
+                    <div className="flex items-center justify-between text-xs text-muted-foreground px-1">
+                      <span>{t("nebenkostenScan.upload.filesCount", { count: files.length, max: MAX_FILES })}</span>
+                      <span>{totalSizeMB.toFixed(2)} MB / 25 MB</span>
                     </div>
-                    <button onClick={() => { setFile(null); if (fileInputRef.current) fileInputRef.current.value = ""; }} className="text-muted-foreground hover:text-rose-500">
-                      <X className="h-4 w-4" />
-                    </button>
+                    {files.map((f, idx) => (
+                      <div key={`${f.name}-${idx}`} className="flex items-center gap-3 rounded-xl border border-border bg-muted/40 px-4 py-3">
+                        <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[hsl(var(--gold))]/15 text-[11px] font-bold text-[hsl(var(--gold))]">
+                          {idx + 1}
+                        </div>
+                        <FileText className="h-5 w-5 text-[hsl(var(--gold))] shrink-0" />
+                        <div className="flex-1 min-w-0">
+                          <p className="text-xs font-semibold text-foreground truncate">{f.name}</p>
+                          <p className="text-[10px] text-muted-foreground">{(f.size / 1024 / 1024).toFixed(2)} MB</p>
+                        </div>
+                        <button
+                          onClick={() => removeFile(idx)}
+                          aria-label={t("nebenkostenScan.upload.remove")}
+                          className="text-muted-foreground hover:text-rose-500"
+                        >
+                          <X className="h-4 w-4" />
+                        </button>
+                      </div>
+                    ))}
+                    {files.length < MAX_FILES && (
+                      <button
+                        type="button"
+                        onClick={() => fileInputRef.current?.click()}
+                        className="flex w-full items-center justify-center gap-2 rounded-xl border border-dashed border-[hsl(var(--gold))]/40 bg-[hsl(var(--gold))]/5 px-4 py-2.5 text-xs font-semibold text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/10 transition-colors"
+                      >
+                        <Plus className="h-3.5 w-3.5" />
+                        {t("nebenkostenScan.upload.addMore")}
+                      </button>
+                    )}
                   </div>
                 )}
 
@@ -251,7 +318,7 @@ export default function NebenkostenScan() {
 
                 <Button
                   onClick={handleAnalyze}
-                  disabled={loading || !file || !confirmed}
+                  disabled={loading || files.length === 0 || !confirmed}
                   size="lg"
                   className="mt-6 w-full bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--gold-dark))] text-[#0a1230] font-bold shadow-lg hover:opacity-95"
                 >
