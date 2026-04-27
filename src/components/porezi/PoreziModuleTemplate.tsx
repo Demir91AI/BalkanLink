@@ -314,12 +314,15 @@ export function PoreziModuleTemplate({ config }: { config: PoreziModuleConfig })
                       <div className="text-sm text-foreground/80 leading-relaxed">
                         {t(k(`steps.list.${key}.body`))}
                       </div>
-                      {hasKey(t, k(`steps.list.${key}.zeile`)) && (
-                        <div className="mt-2 inline-flex items-center gap-1.5 rounded-md bg-white border border-indigo-700/30 px-2 py-1 text-[11px] font-mono text-indigo-900">
-                          <FileText className="h-3 w-3" />
-                          {t(k(`steps.list.${key}.zeile`))}
-                        </div>
-                      )}
+                      {(() => {
+                        const zeile = t(k(`steps.list.${key}.zeile`), { defaultValue: "" });
+                        return zeile ? (
+                          <div className="mt-2 inline-flex items-center gap-1.5 rounded-md bg-white border border-indigo-700/30 px-2 py-1 text-[11px] font-mono text-indigo-900">
+                            <FileText className="h-3 w-3" />
+                            {zeile}
+                          </div>
+                        ) : null;
+                      })()}
                     </div>
                   </div>
                 </li>
