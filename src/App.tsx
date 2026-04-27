@@ -206,6 +206,9 @@ function LocalizedRoutes() {
         <Route path="guide/:slug" element={<LegacyGuideRedirect />} />
         <Route path="smart-guide/:slug" element={<LegacyGuideRedirect />} />
         <Route path="dokumenten-check" element={<DokumentenCheck />} />
+        <Route path="nebenkosten-scan" element={<NebenkostenScan />} />
+        <Route path="rezije-skener" element={<Navigate to="../nebenkosten-scan" replace />} />
+        <Route path="rezije-provjera" element={<Navigate to="../nebenkosten-scan" replace />} />
         <Route path="schufa-simulator" element={<SchufaSimulator />} />
         <Route path="bonitet" element={<Navigate to="../schufa-simulator" replace />} />
         <Route path="anerkennung-navigator" element={<AnerkennungNavigator />} />
