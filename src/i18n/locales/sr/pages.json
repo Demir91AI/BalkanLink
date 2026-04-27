@@ -1317,5 +1317,94 @@
       "dgbDesc": "Najveći sindikat — saveti i zaštita radnika",
       "mlkDesc": "Aktuelna minimalna plata i izmene"
     }
+  },
+  "nebenkostenScan": {
+    "seoTitle": "Provera Nebenkostenabrechnung — BalkanLink",
+    "seoDescription": "Pošalji godišnji obračun režija. AI proverava 12 zakonskih kriterijuma (BetrKV, HeizkostenV) i pokazuje sumnjive stavke. Drugi par očiju — ne pravni savet.",
+    "hero": {
+      "eyebrow": "PROVERA NEBENKOSTENABRECHNUNG",
+      "headline": "Polovina nemačkih obračuna režija ima greške.",
+      "headlineAccent": "Proveri svoj za 30 sekundi.",
+      "subline": "AI čita tvoj godišnji obračun, proverava 12 zakonskih kriterijuma (BetrKV, HeizkostenV, §556 BGB) i pokazuje stavke koje vredi pravno proveriti.",
+      "stat1": "≈ 50 %",
+      "stat1Label": "obračuna ima grešku (Mieterbund 2024)",
+      "stat2": "217–317 €",
+      "stat2Label": "prosečan sporni iznos",
+      "stat3": "12",
+      "stat3Label": "zakonskih kriterijuma provere",
+      "ctaPrimary": "Pošalji obračun",
+      "ctaSecondary": "Kako funkcioniše"
+    },
+    "honesty": {
+      "title": "Iskreno — šta ovo JESTE i šta NIJE",
+      "isTitle": "✓ JESTE",
+      "is1": "Drugi par očiju — pokazujemo zakonske kriterijume i sumnjive stavke",
+      "is2": "Edukacija o tvojim pravima (BetrKV, HeizkostenV, §556 BGB)",
+      "is3": "Gotov tekst za meki upit gazdi (Bitte um Erläuterung)",
+      "isNotTitle": "✗ NIJE",
+      "isNot1": "Pravni savet u smislu Rechtsdienstleistungsgesetz",
+      "isNot2": "Garancija povraćaja novca",
+      "isNot3": "Zamena za Mieterbund ili advokata"
+    },
+    "upload": {
+      "title": "Pošalji Nebenkostenabrechnung",
+      "subtitle": "PDF, JPG ili PNG — do 10 MB. Dokument se ne čuva nakon analize.",
+      "dropzone": "Klikni ili prevuci fajl ovde",
+      "dropzoneHint": "PDF, JPG, PNG (max 10 MB)",
+      "selected": "Izabrano:",
+      "remove": "Ukloni",
+      "analyze": "Pokreni analizu",
+      "analyzing": "Analiziram… (do 30 sekundi)",
+      "consent": "Razumem da ovo nije pravni savet i da se za obavezujuću proveru obraćam Mieterbund-u ili advokatu.",
+      "errorTooLarge": "Fajl je prevelik (max 10 MB).",
+      "errorWrongType": "Dozvoljeni su samo PDF, JPG i PNG.",
+      "errorConsent": "Molimo prihvati napomenu pre analize.",
+      "errorEmpty": "Molimo izaberi fajl."
+    },
+    "result": {
+      "title": "Tvoja analiza",
+      "newScan": "Nova provera",
+      "premiumLockTitle": "Detaljan izveštaj — Premium",
+      "premiumLockSub": "U Premium verziji vidiš sve sumnjive stavke sa pravnom osnovom, procenu spornog iznosa i gotov tekst za upit gazdi.",
+      "premiumCta": "Otključaj za 9,99 €/mes",
+      "disclaimer": "Ova analiza je informativna pomoć, ne pravni savet. Za obavezujuću proveru kontaktirajte Mieterbund (60–90 €/god) ili advokata za Mietrecht."
+    },
+    "how": {
+      "title": "Kako funkcioniše",
+      "step1Title": "1. Pošalji obračun",
+      "step1Desc": "Slikaj telefonom ili pošalji PDF — bezbedno, šifrirano, ne čuvamo dokument.",
+      "step2Title": "2. AI provera (30 sek)",
+      "step2Desc": "Sistem prolazi kroz 12 zakonskih kriterijuma: rok 12 meseci, BetrKV §2, HeizkostenV §7, ključ raspodele, matematika.",
+      "step3Title": "3. Razumljiv izveštaj",
+      "step3Desc": "Na srpskom — sa oznakama 🟢 sigurno, 🟡 vredi proveriti, 🔵 informativno. Bez izmišljenih garancija."
+    },
+    "criteria": {
+      "title": "Šta tačno proveravamo",
+      "items": {
+        "frist": "Rok 12 meseci (§556 BGB)",
+        "period": "Period i ukupni troškovi",
+        "schluessel": "Ključ raspodele (m², osobe, jedinice)",
+        "anteil": "Tvoj udeo — tačan obračun",
+        "reparaturen": "Popravke (nisu umlagefähig)",
+        "verwaltung": "Hausverwaltung (nije umlagefähig)",
+        "bank": "Bankarske naknade (nisu umlagefähig)",
+        "leerstand": "Prazni stanovi (nisu na tebi)",
+        "heizung": "Heizung 50/70 pravilo (HeizkostenV §7)",
+        "wasser": "Razdvajanje tople/hladne vode",
+        "hausmeister": "Hausmeister bez popravki",
+        "mathe": "Matematika i sume"
+      }
+    },
+    "faq": {
+      "title": "Česta pitanja",
+      "q1": "Da li čuvate moj dokument?",
+      "a1": "Ne. Dokument se obrađuje u realnom vremenu i nakon analize se odbacuje. Ne ostaje u bazi.",
+      "q2": "Mogu li tužiti gazdu na osnovu ovoga?",
+      "a2": "Ne direktno. Ova analiza je informativna. Za pravne korake kontaktiraj Mieterbund ili advokata za Mietrecht.",
+      "q3": "Šta ako ne pronađete grešku?",
+      "a3": "Iskreno ćemo to napisati. To ne znači da je obračun 100 % ispravan — samo da nismo videli očigledne probleme.",
+      "q4": "Koliko košta?",
+      "a4": "Besplatno: 1 provera dnevno, osnovni rezultat. Premium (9,99 €/mes): neograničeno + detaljan izveštaj + tekst za gazdu."
+    }
   }
 }
