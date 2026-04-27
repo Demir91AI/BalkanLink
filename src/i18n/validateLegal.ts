@@ -102,11 +102,12 @@ export function validateLegalNamespace(): LegalValidationIssue[] {
           issues.push({ lang, path: `${key}.sections[${i}]`, problem: "not an object" });
           return;
         }
-        if (typeof s.heading !== "string" || !s.heading.trim()) {
+        // `heading` is optional — first section may be an intro paragraph
+        if (s.heading !== undefined && typeof s.heading !== "string") {
           issues.push({
             lang,
             path: `${key}.sections[${i}].heading`,
-            problem: "missing/empty",
+            problem: "wrong type",
           });
         }
         if (typeof s.html !== "string" || !s.html.trim()) {
