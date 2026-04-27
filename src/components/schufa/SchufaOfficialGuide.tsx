@@ -1,5 +1,5 @@
 import { ExternalLink, FileText, CheckCircle2, AlertTriangle, Mail, Download } from "lucide-react";
-import { Trans, useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 
 interface Props {
