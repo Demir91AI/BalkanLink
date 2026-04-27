@@ -251,6 +251,25 @@ export default function NebenkostenScan() {
                 <h2 className="text-2xl font-bold text-foreground">{t("nebenkostenScan.upload.title")}</h2>
                 <p className="mt-2 text-sm text-muted-foreground">{t("nebenkostenScan.upload.subtitle")}</p>
 
+                {/* Info box: što uploadovati */}
+                <div className="mt-5 rounded-2xl border border-[hsl(var(--gold))]/30 bg-[hsl(var(--gold))]/5 p-4">
+                  <div className="flex items-start gap-3">
+                    <div className="rounded-full bg-[hsl(var(--gold))]/15 p-2 shrink-0">
+                      <Info className="h-4 w-4 text-[hsl(var(--gold))]" />
+                    </div>
+                    <div className="space-y-2 text-xs sm:text-sm">
+                      <p className="font-semibold text-foreground">{t("nebenkostenScan.upload.whatToUploadTitle")}</p>
+                      <ul className="space-y-1.5 text-muted-foreground">
+                        <li className="flex gap-2"><span className="text-[hsl(var(--gold))]">•</span><span>{t("nebenkostenScan.upload.whatToUpload1")}</span></li>
+                        <li className="flex gap-2"><span className="text-[hsl(var(--gold))]">•</span><span>{t("nebenkostenScan.upload.whatToUpload2")}</span></li>
+                        <li className="flex gap-2"><span className="text-[hsl(var(--gold))]">•</span><span>{t("nebenkostenScan.upload.whatToUpload3")}</span></li>
+                        <li className="flex gap-2"><span className="text-[hsl(var(--gold))]">•</span><span>{t("nebenkostenScan.upload.whatToUpload4")}</span></li>
+                      </ul>
+                      <p className="pt-1 text-[11px] sm:text-xs text-muted-foreground/80 italic">{t("nebenkostenScan.upload.whatToUploadTip")}</p>
+                    </div>
+                  </div>
+                </div>
+
                 {/* Dropzone */}
                 <label
                   htmlFor="nebenkosten-file"
