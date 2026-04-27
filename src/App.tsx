@@ -111,6 +111,7 @@ const MojiPodaci = lazy(() => import("./pages/MojiPodaci"));
 const Mietrecht = lazy(() => import("./pages/Mietrecht"));
 const SchufaSimulator = lazy(() => import("./pages/SchufaSimulator"));
 const AnerkennungNavigator = lazy(() => import("./pages/AnerkennungNavigator"));
+const Porezi = lazy(() => import("./pages/Porezi"));
 
 // Dev-only visual fixtures (excluded from production bundle behaviour via guard).
 const VisualFlagBA = lazy(() => import("./pages/__visual/VisualFlagBA"));
@@ -197,6 +198,9 @@ function LocalizedRoutes() {
         <Route path="bonitet" element={<Navigate to="../schufa-simulator" replace />} />
         <Route path="anerkennung-navigator" element={<AnerkennungNavigator />} />
         <Route path="priznavanje-diplome" element={<Navigate to="../anerkennung-navigator" replace />} />
+        {/* Porezi (Tax) — landing hub. Same component, two slugs so /de/steuern works. */}
+        <Route path="porezi" element={<Porezi />} />
+        <Route path="steuern" element={<Porezi />} />
         <Route element={<AdminGuard />}>
           <Route path="admin/forms" element={<AdminForms />} />
           <Route path="admin/forms/:slug/mapper" element={<AdminFormMapper />} />
