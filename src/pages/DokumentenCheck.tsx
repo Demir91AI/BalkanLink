@@ -45,23 +45,39 @@ interface AnalysisSection {
 }
 
 const SECTION_CONFIG: Record<string, { icon: React.ReactNode; colorClass: string; iconColorClass: string; isPremium: boolean }> = {
-  "dokument auf einen blick": { icon: <Eye className="h-5 w-5" />, colorClass: "border-blue-500/30 bg-blue-50 dark:bg-blue-950/20", iconColorClass: "text-blue-500", isPremium: false },
-  "einfache erklarung": { icon: <BookOpen className="h-5 w-5" />, colorClass: "border-emerald-500/30 bg-emerald-50 dark:bg-emerald-950/20", iconColorClass: "text-emerald-500", isPremium: false },
-  "detaillierte analyse": { icon: <Search className="h-5 w-5" />, colorClass: "border-purple-500/30 bg-purple-50 dark:bg-purple-950/20", iconColorClass: "text-purple-500", isPremium: true },
-  "was wirklich wichtig ist": { icon: <AlertCircle className="h-5 w-5" />, colorClass: "border-amber-500/30 bg-amber-50 dark:bg-amber-950/20", iconColorClass: "text-amber-500", isPremium: true },
-  "fristen und dringlichkeit": { icon: <Clock className="h-5 w-5" />, colorClass: "border-red-500/30 bg-red-50 dark:bg-red-950/20", iconColorClass: "text-red-500", isPremium: true },
-  "finanzielle analyse": { icon: <DollarSign className="h-5 w-5" />, colorClass: "border-green-500/30 bg-green-50 dark:bg-green-950/20", iconColorClass: "text-green-600", isPremium: true },
-  "konkrete optionen": { icon: <Wrench className="h-5 w-5" />, colorClass: "border-indigo-500/30 bg-indigo-50 dark:bg-indigo-950/20", iconColorClass: "text-indigo-500", isPremium: true },
-  "wenn sie nichts tun": { icon: <XCircle className="h-5 w-5" />, colorClass: "border-orange-500/30 bg-orange-50 dark:bg-orange-950/20", iconColorClass: "text-orange-500", isPremium: true },
-  "risiken und haufige fehler": { icon: <ShieldAlert className="h-5 w-5" />, colorClass: "border-rose-500/30 bg-rose-50 dark:bg-rose-950/20", iconColorClass: "text-rose-500", isPremium: true },
-  "zusammenfassung": { icon: <Globe className="h-5 w-5" />, colorClass: "border-cyan-500/30 bg-cyan-50 dark:bg-cyan-950/20", iconColorClass: "text-cyan-500", isPremium: true },
-  "rechtlicher hinweis": { icon: <Scale className="h-5 w-5" />, colorClass: "border-muted bg-muted/30", iconColorClass: "text-muted-foreground", isPremium: false },
+  // Bosanski naslovi koje vraća edge funkcija (matchaju se kroz substring includes na normalizovan tekst)
+  "dokument na prvi pogled": { icon: <Eye className="h-5 w-5" />, colorClass: "border-blue-500/30 bg-blue-50 dark:bg-blue-950/20", iconColorClass: "text-blue-500", isPremium: false },
+  "jednostavno objasnjenje": { icon: <BookOpen className="h-5 w-5" />, colorClass: "border-emerald-500/30 bg-emerald-50 dark:bg-emerald-950/20", iconColorClass: "text-emerald-500", isPremium: false },
+  "detaljna analiza": { icon: <Search className="h-5 w-5" />, colorClass: "border-purple-500/30 bg-purple-50 dark:bg-purple-950/20", iconColorClass: "text-purple-500", isPremium: true },
+  "sta je stvarno bitno": { icon: <AlertCircle className="h-5 w-5" />, colorClass: "border-amber-500/30 bg-amber-50 dark:bg-amber-950/20", iconColorClass: "text-amber-500", isPremium: true },
+  "rokovi i hitnost": { icon: <Clock className="h-5 w-5" />, colorClass: "border-red-500/30 bg-red-50 dark:bg-red-950/20", iconColorClass: "text-red-500", isPremium: true },
+  "finansijska analiza": { icon: <DollarSign className="h-5 w-5" />, colorClass: "border-green-500/30 bg-green-50 dark:bg-green-950/20", iconColorClass: "text-green-600", isPremium: true },
+  "konkretne opcije": { icon: <Wrench className="h-5 w-5" />, colorClass: "border-indigo-500/30 bg-indigo-50 dark:bg-indigo-950/20", iconColorClass: "text-indigo-500", isPremium: true },
+  "ako nista ne uradis": { icon: <XCircle className="h-5 w-5" />, colorClass: "border-orange-500/30 bg-orange-50 dark:bg-orange-950/20", iconColorClass: "text-orange-500", isPremium: true },
+  "rizici i ceste greske": { icon: <ShieldAlert className="h-5 w-5" />, colorClass: "border-rose-500/30 bg-rose-50 dark:bg-rose-950/20", iconColorClass: "text-rose-500", isPremium: true },
+  "sazetak na nasem jeziku": { icon: <Globe className="h-5 w-5" />, colorClass: "border-cyan-500/30 bg-cyan-50 dark:bg-cyan-950/20", iconColorClass: "text-cyan-500", isPremium: true },
+  "sazetak": { icon: <Globe className="h-5 w-5" />, colorClass: "border-cyan-500/30 bg-cyan-50 dark:bg-cyan-950/20", iconColorClass: "text-cyan-500", isPremium: true },
+  "pravna napomena": { icon: <Scale className="h-5 w-5" />, colorClass: "border-muted bg-muted/30", iconColorClass: "text-muted-foreground", isPremium: false },
 };
 
+/**
+ * Normalizuje naslov za matching: skida emoji, dijakritike (š→s, č→c, ć→c, ž→z, đ→d),
+ * interpunkciju i višestruke razmake. Tako "## 📋 Dokument na prvi pogled" → "dokument na prvi pogled".
+ */
+function normalizeHeading(heading: string): string {
+  return heading
+    .toLowerCase()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")  // ć/č/ž/š → c/c/z/s
+    .replace(/đ/g, "d")
+    .replace(/[^\w\s]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function matchSectionKey(heading: string): string | null {
-  const lower = heading.toLowerCase().replace(/[^\w\sčćžšđ]/gi, "").trim();
+  const normalized = normalizeHeading(heading);
   for (const key of Object.keys(SECTION_CONFIG)) {
-    if (lower.includes(key)) return key;
+    if (normalized.includes(key)) return key;
   }
   return null;
 }
