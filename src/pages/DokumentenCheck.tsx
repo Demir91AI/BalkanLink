@@ -19,7 +19,7 @@ import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
 
 type InputMode = "upload";
 
-const MAX_FILE_SIZE = 10 * 1024 * 1024;
+const MAX_FILE_SIZE = 25 * 1024 * 1024;
 const MAX_FILES = 10;
 const MAX_TOTAL_SIZE = 25 * 1024 * 1024;
 const ALLOWED_TYPES = ["application/pdf", "image/jpeg", "image/png"];
@@ -299,7 +299,12 @@ export default function DokumentenCheck() {
           return { base64, mimeType, name: f.name };
         })
       );
-      const payload = { files: filesPayload };
+      const payload = {
+        files: filesPayload,
+        // Backward compat ako deployana funkcija još očekuje single-file polja
+        imageBase64: filesPayload[0]?.base64,
+        mimeType: filesPayload[0]?.mimeType,
+      };
 
       const { data, error: fnError } = await supabase.functions.invoke("document-check", { body: payload });
 
