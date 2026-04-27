@@ -2,21 +2,34 @@
   "name": "BalkanLink",
   "short_name": "BalkanLink",
   "description": "BalkanLink – pametna platforma za svakodnevni život, informacije, vodiče, formularska objašnjenja, posao, stanovanje i podršku za ljude sa Balkana u Njemačkoj",
+  "id": "/",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#faf8f3",
-  "theme_color": "#C9A84C",
   "orientation": "portrait-primary",
+  "background_color": "#020617",
+  "theme_color": "#020617",
+  "lang": "bs",
+  "dir": "ltr",
+  "categories": ["productivity", "lifestyle", "education"],
   "icons": [
     {
       "src": "/icons/icon-192x192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "/icons/icon-512x512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
     },
     {
       "src": "/icons/icon-512x512.png",
