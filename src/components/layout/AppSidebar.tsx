@@ -6,7 +6,11 @@ import {
   FileText, Shield, BookOpen, Camera, Megaphone, Plane,
   Briefcase, Building, Calculator, FileCheck, X, LogIn, LogOut, User,
   CreditCard, Scale, Store, Home, Smartphone, Share2, Receipt, Gauge, GraduationCap,
+  Landmark,
 } from "lucide-react";
+import { POREZI_HUB_PATH } from "@/lib/porezi-modules";
+import { langFromPath } from "@/lib/i18n-paths";
+import type { SupportedLanguage } from "@/i18n";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 import AuthModal from "@/components/auth/AuthModal";
