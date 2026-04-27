@@ -1287,7 +1287,8 @@ serve(async (req) => {
     const userText = typeof lastUserMsg?.content === "string" ? lastUserMsg.content : 
       Array.isArray(lastUserMsg?.content) ? lastUserMsg.content.find((c: any) => c.type === "text")?.text || "" : "";
 
-    const lang = ["bs", "hr", "sr", "me"].includes(language) ? "bs" : language === "de" ? "de" : "en";
+    // Default to BS — system prompt forces BS replies regardless. EN only if explicitly "en".
+    const lang = language === "de" ? "de" : language === "en" ? "en" : "bs";
 
     // ── SAFETY CHECK (highest priority) ──
     const safety = checkSafety(userText);
@@ -1365,7 +1366,8 @@ serve(async (req) => {
 
     // ── DB search for local business queries ──
     const dbResults = await searchDatabase(userText);
-    const systemPrompt = buildSystemPrompt(isPremium, language || "de", dbResults, pageContext);
+    // Default language for system prompt = "bs" (system prompt itself forces BS replies anyway)
+    const systemPrompt = buildSystemPrompt(isPremium, language || "bs", dbResults, pageContext);
 
     const response = await fetch(
       "https://ai.gateway.lovable.dev/v1/chat/completions",
