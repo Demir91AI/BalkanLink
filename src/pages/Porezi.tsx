@@ -240,18 +240,20 @@ export default function Porezi() {
           </div>
         </section>
 
-        {/* Coming soon */}
-        <section className="mb-10">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-semibold text-muted-foreground">
-              {t("comingSoonHeading")}
-            </h2>
-            <span className="text-xs text-muted-foreground">{comingSoonModules.length}</span>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {comingSoonModules.map(renderCard)}
-          </div>
-        </section>
+        {/* Coming soon — hidden when nothing is pending */}
+        {comingSoonModules.length > 0 && (
+          <section className="mb-10">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-lg font-semibold text-muted-foreground">
+                {t("comingSoonHeading")}
+              </h2>
+              <span className="text-xs text-muted-foreground">{comingSoonModules.length}</span>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {comingSoonModules.map(renderCard)}
+            </div>
+          </section>
+        )}
 
         {/* Legal notice */}
         <section className="rounded-xl border border-border bg-muted/40 p-4 text-xs text-muted-foreground">
