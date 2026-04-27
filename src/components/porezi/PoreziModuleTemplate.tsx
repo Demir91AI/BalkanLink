@@ -22,6 +22,9 @@ import {
   Calculator,
   ListChecks,
   RotateCcw,
+  Euro,
+  ListOrdered,
+  Sparkles,
   type LucideIcon,
 } from "lucide-react";
 
@@ -54,7 +57,11 @@ export interface PoreziModuleConfig {
   counts: {
     intro?: number; // p1, p2, ...
     criteria?: number; // c1..cN
+    amounts?: number; // a1..aN  (label + value + note)  ← NEW: 2026 iznosi/pauschali
     costs?: number; // k1..kN  (uses .title and .desc)
+    steps?: number; // s1..sN  (title + body + zeile/anlage) ← NEW: ELSTER walkthrough
+    example?: boolean; // ← NEW: realan primjer popunjavanja (intro + 1..N rows + result)
+    exampleRows?: number; // r1..rN  (label + value)
     proofs?: number; // p1..pN  (also serves as checklist source)
     mistakes?: number; // m1..mN
     faq?: number; // q1..qN  (uses .q and .a)
@@ -124,7 +131,10 @@ export function PoreziModuleTemplate({ config }: { config: PoreziModuleConfig })
   /* ─────────────── Helpers ─────────────── */
   const introKeys = range(counts.intro ?? 0, "p");
   const criteriaKeys = range(counts.criteria ?? 0, "c");
+  const amountsKeys = range(counts.amounts ?? 0, "a");
   const costsKeys = range(counts.costs ?? 0, "k");
+  const stepsKeys = range(counts.steps ?? 0, "s");
+  const exampleRowKeys = range(counts.exampleRows ?? 0, "r");
   const proofsKeys = range(counts.proofs ?? 0, "p");
   const mistakesKeys = range(counts.mistakes ?? 0, "m");
   const faqKeys = range(counts.faq ?? 0, "q");
@@ -198,6 +208,38 @@ export function PoreziModuleTemplate({ config }: { config: PoreziModuleConfig })
           </Section>
         )}
 
+        {/* Amounts (2026 paušali / iznosi sa izvorom) */}
+        {amountsKeys.length > 0 && (
+          <Section
+            icon={<Euro className="h-4 w-4 text-emerald-700" />}
+            title={t(k("amounts.heading"))}
+          >
+            <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
+              {t(k("amounts.intro"))}
+            </p>
+            <div className="overflow-hidden rounded-xl border border-emerald-600/20 divide-y divide-emerald-600/10">
+              {amountsKeys.map((key) => (
+                <div key={key} className="grid grid-cols-12 gap-2 bg-emerald-50/40 p-3">
+                  <div className="col-span-12 sm:col-span-7 text-sm font-medium text-foreground/90 leading-relaxed">
+                    {t(k(`amounts.list.${key}.label`))}
+                  </div>
+                  <div className="col-span-12 sm:col-span-5 sm:text-right">
+                    <div className="text-sm font-bold text-emerald-800">
+                      {t(k(`amounts.list.${key}.value`))}
+                    </div>
+                    <div className="text-[11px] text-muted-foreground leading-snug">
+                      {t(k(`amounts.list.${key}.note`))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="mt-2 text-[11px] text-muted-foreground italic leading-relaxed">
+              {t(k("amounts.disclaimer"))}
+            </p>
+          </Section>
+        )}
+
         {/* Costs (title + desc cards) */}
         {costsKeys.length > 0 && (
           <Section
@@ -244,6 +286,89 @@ export function PoreziModuleTemplate({ config }: { config: PoreziModuleConfig })
               t("checklist.progress", { done, total })
             }
           />
+        )}
+
+        {/* Steps — ELSTER walkthrough korak-po-korak (Anlage / Zeile reference) */}
+        {stepsKeys.length > 0 && (
+          <Section
+            icon={<ListOrdered className="h-4 w-4 text-indigo-700" />}
+            title={t(k("steps.heading"))}
+          >
+            <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
+              {t(k("steps.intro"))}
+            </p>
+            <ol className="space-y-2.5">
+              {stepsKeys.map((key, idx) => (
+                <li
+                  key={key}
+                  className="rounded-xl border border-indigo-600/20 bg-indigo-50/40 p-3"
+                >
+                  <div className="flex items-start gap-3">
+                    <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-indigo-700 text-xs font-bold text-white">
+                      {idx + 1}
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="text-sm font-semibold text-foreground mb-1">
+                        {t(k(`steps.list.${key}.title`))}
+                      </div>
+                      <div className="text-sm text-foreground/80 leading-relaxed">
+                        {t(k(`steps.list.${key}.body`))}
+                      </div>
+                      {(() => {
+                        const zeile = t(k(`steps.list.${key}.zeile`), { defaultValue: "" });
+                        return zeile ? (
+                          <div className="mt-2 inline-flex items-center gap-1.5 rounded-md bg-white border border-indigo-700/30 px-2 py-1 text-[11px] font-mono text-indigo-900">
+                            <FileText className="h-3 w-3" />
+                            {zeile}
+                          </div>
+                        ) : null;
+                      })()}
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </Section>
+        )}
+
+        {/* Example — realan primjer popunjavanja sa procijenjenom uštedom */}
+        {counts.example && exampleRowKeys.length > 0 && (
+          <Section
+            icon={<Sparkles className="h-4 w-4 text-amber-600" />}
+            title={t(k("example.heading"))}
+          >
+            <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
+              {t(k("example.intro"))}
+            </p>
+            <div className="overflow-hidden rounded-xl border border-amber-500/30">
+              <div className="bg-amber-500/10 px-3 py-2 text-xs font-semibold text-amber-900 uppercase tracking-wide">
+                {t(k("example.scenarioTitle"))}
+              </div>
+              <div className="divide-y divide-amber-500/15 bg-background">
+                {exampleRowKeys.map((key) => (
+                  <div key={key} className="grid grid-cols-12 gap-2 px-3 py-2.5">
+                    <div className="col-span-7 text-sm text-foreground/90 leading-relaxed">
+                      {t(k(`example.rows.${key}.label`))}
+                    </div>
+                    <div className="col-span-5 text-right text-sm font-semibold text-foreground">
+                      {t(k(`example.rows.${key}.value`))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="grid grid-cols-12 gap-2 bg-emerald-600/10 px-3 py-3 border-t border-emerald-600/30">
+                <div className="col-span-7 text-sm font-bold text-emerald-900">
+                  {t(k("example.resultLabel"))}
+                </div>
+                <div className="col-span-5 text-right text-base font-bold text-emerald-900">
+                  {t(k("example.resultValue"))}
+                </div>
+              </div>
+            </div>
+            <p className="mt-2 text-[11px] text-muted-foreground italic leading-relaxed">
+              {t(k("example.disclaimer"))}
+            </p>
+          </Section>
         )}
 
         {/* Mistakes */}
