@@ -288,6 +288,86 @@ export function PoreziModuleTemplate({ config }: { config: PoreziModuleConfig })
           />
         )}
 
+        {/* Steps — ELSTER walkthrough korak-po-korak (Anlage / Zeile reference) */}
+        {stepsKeys.length > 0 && (
+          <Section
+            icon={<ListOrdered className="h-4 w-4 text-indigo-700" />}
+            title={t(k("steps.heading"))}
+          >
+            <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
+              {t(k("steps.intro"))}
+            </p>
+            <ol className="space-y-2.5">
+              {stepsKeys.map((key, idx) => (
+                <li
+                  key={key}
+                  className="rounded-xl border border-indigo-600/20 bg-indigo-50/40 p-3"
+                >
+                  <div className="flex items-start gap-3">
+                    <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-indigo-700 text-xs font-bold text-white">
+                      {idx + 1}
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="text-sm font-semibold text-foreground mb-1">
+                        {t(k(`steps.list.${key}.title`))}
+                      </div>
+                      <div className="text-sm text-foreground/80 leading-relaxed">
+                        {t(k(`steps.list.${key}.body`))}
+                      </div>
+                      {hasKey(t, k(`steps.list.${key}.zeile`)) && (
+                        <div className="mt-2 inline-flex items-center gap-1.5 rounded-md bg-white border border-indigo-700/30 px-2 py-1 text-[11px] font-mono text-indigo-900">
+                          <FileText className="h-3 w-3" />
+                          {t(k(`steps.list.${key}.zeile`))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </Section>
+        )}
+
+        {/* Example — realan primjer popunjavanja sa procijenjenom uštedom */}
+        {counts.example && exampleRowKeys.length > 0 && (
+          <Section
+            icon={<Sparkles className="h-4 w-4 text-amber-600" />}
+            title={t(k("example.heading"))}
+          >
+            <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
+              {t(k("example.intro"))}
+            </p>
+            <div className="overflow-hidden rounded-xl border border-amber-500/30">
+              <div className="bg-amber-500/10 px-3 py-2 text-xs font-semibold text-amber-900 uppercase tracking-wide">
+                {t(k("example.scenarioTitle"))}
+              </div>
+              <div className="divide-y divide-amber-500/15 bg-background">
+                {exampleRowKeys.map((key) => (
+                  <div key={key} className="grid grid-cols-12 gap-2 px-3 py-2.5">
+                    <div className="col-span-7 text-sm text-foreground/90 leading-relaxed">
+                      {t(k(`example.rows.${key}.label`))}
+                    </div>
+                    <div className="col-span-5 text-right text-sm font-semibold text-foreground">
+                      {t(k(`example.rows.${key}.value`))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="grid grid-cols-12 gap-2 bg-emerald-600/10 px-3 py-3 border-t border-emerald-600/30">
+                <div className="col-span-7 text-sm font-bold text-emerald-900">
+                  {t(k("example.resultLabel"))}
+                </div>
+                <div className="col-span-5 text-right text-base font-bold text-emerald-900">
+                  {t(k("example.resultValue"))}
+                </div>
+              </div>
+            </div>
+            <p className="mt-2 text-[11px] text-muted-foreground italic leading-relaxed">
+              {t(k("example.disclaimer"))}
+            </p>
+          </Section>
+        )}
+
         {/* Mistakes */}
         {mistakesKeys.length > 0 && (
           <Section
