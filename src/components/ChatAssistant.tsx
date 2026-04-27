@@ -356,10 +356,24 @@ export default function ChatAssistant() {
     }
   }, [messages, chatStorageKey]);
 
+  // Restore from local cache immediately on auth hydration, then cloud if available.
+  useEffect(() => {
+    if (user?.id) {
+      const local = loadActiveMessages(user.id);
+      if (local.length > 0) {
+        setMessages(prev => (prev.length > 0 ? prev : local));
+        local.forEach((m, i) => syncedSigsRef.current.add(msgSignature(m, i)));
+      }
+    } else {
+      const local = loadActiveMessages();
+      if (local.length > 0) setMessages(prev => (prev.length > 0 ? prev : local));
+    }
+  }, [user?.id]);
+
   // Restore from cloud on login/hydration. Cloud is source of truth across devices.
   useEffect(() => {
     if (!user?.id) return;
-    if (restoredRef.current && prevUserIdRef.current === user.id) return;
+    if (prevUserIdRef.current === user.id) return;
 
     let cancelled = false;
     (async () => {
@@ -373,7 +387,7 @@ export default function ChatAssistant() {
         console.debug("[BL-Chat] Restored", remote.length, "messages from cloud");
       } else {
         // No cloud history — keep local (will be synced upward by sync effect)
-        const local = loadMessagesForUser(user.id);
+        const local = loadActiveMessages(user.id);
         if (local.length > 0 && messages.length === 0) {
           setMessages(local);
         }
