@@ -96,6 +96,19 @@ const STARTER_QUESTIONS = [
 
 const DEFAULT_WELCOME = "Zdravo! 👋 Ja sam BalkanLink Asistent. Pomažem Balkancima u Njemačkoj da se snađu — od formulara do svakodnevnog života. Šta te muči?";
 
+// ── Rate-limit message with reset countdown (resets at midnight local) ──
+function buildRateLimitMessage(): string {
+  const now = new Date();
+  const tomorrow = new Date(now);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  tomorrow.setHours(0, 0, 0, 0);
+  const diffMs = tomorrow.getTime() - now.getTime();
+  const hours = Math.floor(diffMs / 3_600_000);
+  const minutes = Math.floor((diffMs % 3_600_000) / 60_000);
+  const resetIn = hours > 0 ? `${hours}h ${minutes}min` : `${minutes}min`;
+  return `⚡ **Dostigao/la si dnevni limit od 3 pitanja.**\n\nNovi besplatni upiti se otključavaju za **${resetIn}** (ponoć).\n\nSa **BalkanLink Premium** (9,99 €/mj) dobijaš neograničena pitanja, prioritetne odgovore i sve premium vodiče.\n\n[👉 Aktiviraj Premium](/premium)`;
+}
+
 // ── Auto-link keywords ──
 const KEYWORD_LINKS: [RegExp, string][] = [
   // FORMULARI
