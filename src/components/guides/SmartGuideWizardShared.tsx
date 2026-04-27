@@ -219,7 +219,7 @@ export default function SmartGuideWizardShared({
               <div className="rounded-xl border p-4 border-gray-200 bg-gray-50
                               dark:border-gray-800 dark:bg-gray-900/30 sm:col-span-2">
                 <h4 className="mb-1.5 flex items-center gap-1.5 text-[11px] font-bold">
-                  <Info className="h-3.5 w-3.5" /> Napomena
+                  <Info className="h-3.5 w-3.5" /> {t("guide.card.note")}
                 </h4>
                 <p className="text-xs leading-relaxed text-foreground/80">
                   {current.note}
@@ -239,7 +239,7 @@ export default function SmartGuideWizardShared({
           onClick={handlePrev}
         >
           <ChevronLeft className="mr-1 h-4 w-4" />
-          Nazad
+          {t("guide.back")}
         </Button>
 
         {!isStepLocked && (
@@ -253,7 +253,7 @@ export default function SmartGuideWizardShared({
               }}
               onClick={onFinish}
             >
-              {finishLabel || "✅ Završeno"}
+              {finishLabel || t("guide.done")}
             </Button>
           ) : (
             <Button
@@ -265,7 +265,7 @@ export default function SmartGuideWizardShared({
               }}
               onClick={handleNext}
             >
-              Dalje
+              {t("guide.next")}
               <ChevronRight className="ml-1 h-4 w-4" />
             </Button>
           )
