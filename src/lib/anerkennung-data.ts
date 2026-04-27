@@ -140,7 +140,7 @@ export const PROFESSIONS: ProfessionInfo[] = [
     officialLinks: [
       {
         label: "Anerkennung in Deutschland (BIBB)",
-        url: "https://www.anerkennung-in-deutschland.de/html/de/pflegefachfrau-pflegefachmann.php",
+        url: "https://www.anerkennung-in-deutschland.de/de/interest/finder",
       },
       { label: "Anabin baza", url: "https://anabin.kmk.org/" },
       {
@@ -186,7 +186,7 @@ export const PROFESSIONS: ProfessionInfo[] = [
     officialLinks: [
       {
         label: "Anerkennung in Deutschland — Arzt/Ärztin",
-        url: "https://www.anerkennung-in-deutschland.de/html/de/arzt-aerztin.php",
+        url: "https://www.anerkennung-in-deutschland.de/de/interest/finder",
       },
       { label: "Anabin baza", url: "https://anabin.kmk.org/" },
     ],
@@ -224,7 +224,7 @@ export const PROFESSIONS: ProfessionInfo[] = [
     officialLinks: [
       {
         label: "Anerkennung in Deutschland — Ingenieur",
-        url: "https://www.anerkennung-in-deutschland.de/html/de/ingenieurin-ingenieur.php",
+        url: "https://www.anerkennung-in-deutschland.de/de/interest/finder",
       },
       { label: "ZAB Zeugnisbewertung", url: "https://zab.kmk.org/de/zeugnisbewertung" },
     ],
@@ -264,7 +264,7 @@ export const PROFESSIONS: ProfessionInfo[] = [
     officialLinks: [
       {
         label: "Anerkennung in Deutschland — Lehrer",
-        url: "https://www.anerkennung-in-deutschland.de/html/de/lehrerin-lehrer.php",
+        url: "https://www.anerkennung-in-deutschland.de/de/interest/finder",
       },
       {
         label: "Lista nadležnih Kultusministerien",
@@ -306,7 +306,7 @@ export const PROFESSIONS: ProfessionInfo[] = [
     officialLinks: [
       {
         label: "Anerkennung in Deutschland — Physiotherapeut",
-        url: "https://www.anerkennung-in-deutschland.de/html/de/physiotherapeutin-physiotherapeut.php",
+        url: "https://www.anerkennung-in-deutschland.de/de/interest/finder",
       },
     ],
   },
@@ -341,7 +341,7 @@ export const PROFESSIONS: ProfessionInfo[] = [
     officialLinks: [
       {
         label: "Anerkennung in Deutschland — Erzieher",
-        url: "https://www.anerkennung-in-deutschland.de/html/de/erzieherin-erzieher.php",
+        url: "https://www.anerkennung-in-deutschland.de/de/interest/finder",
       },
     ],
   },
@@ -376,7 +376,7 @@ export const PROFESSIONS: ProfessionInfo[] = [
     officialLinks: [
       {
         label: "Anerkennung in Deutschland — Apotheker",
-        url: "https://www.anerkennung-in-deutschland.de/html/de/apothekerin-apotheker.php",
+        url: "https://www.anerkennung-in-deutschland.de/de/interest/finder",
       },
     ],
   },
@@ -410,7 +410,7 @@ export const PROFESSIONS: ProfessionInfo[] = [
     officialLinks: [
       {
         label: "Anerkennung in Deutschland — Zahnarzt",
-        url: "https://www.anerkennung-in-deutschland.de/html/de/zahnaerztin-zahnarzt.php",
+        url: "https://www.anerkennung-in-deutschland.de/de/interest/finder",
       },
     ],
   },
@@ -443,7 +443,7 @@ export const PROFESSIONS: ProfessionInfo[] = [
     officialLinks: [
       {
         label: "Anerkennung in Deutschland — Koch",
-        url: "https://www.anerkennung-in-deutschland.de/html/de/koechin-koch.php",
+        url: "https://www.anerkennung-in-deutschland.de/de/interest/finder",
       },
       { label: "BQ-Portal (IHK)", url: "https://www.bq-portal.de/" },
     ],
@@ -479,7 +479,7 @@ export const PROFESSIONS: ProfessionInfo[] = [
     officialLinks: [
       {
         label: "Anerkennung in Deutschland — Elektroniker",
-        url: "https://www.anerkennung-in-deutschland.de/html/de/elektronikerin-elektroniker.php",
+        url: "https://www.anerkennung-in-deutschland.de/de/interest/finder",
       },
       { label: "BQ-Portal", url: "https://www.bq-portal.de/" },
     ],
@@ -518,7 +518,7 @@ export const PROFESSIONS: ProfessionInfo[] = [
     officialLinks: [
       {
         label: "Anerkennung in Deutschland — Maurer",
-        url: "https://www.anerkennung-in-deutschland.de/html/de/maurerin-maurer.php",
+        url: "https://www.anerkennung-in-deutschland.de/de/interest/finder",
       },
       { label: "BQ-Portal", url: "https://www.bq-portal.de/" },
     ],
@@ -555,7 +555,7 @@ export const PROFESSIONS: ProfessionInfo[] = [
     officialLinks: [
       {
         label: "Anerkennung in Deutschland — KFZ-Mechatroniker",
-        url: "https://www.anerkennung-in-deutschland.de/html/de/kraftfahrzeugmechatronikerin-kraftfahrzeugmechatroniker.php",
+        url: "https://www.anerkennung-in-deutschland.de/de/interest/finder",
       },
     ],
     notes:
@@ -594,7 +594,7 @@ export const PROFESSIONS: ProfessionInfo[] = [
       },
       {
         label: "Anerkennung in Deutschland — Pretraga",
-        url: "https://www.anerkennung-in-deutschland.de/",
+        url: "https://www.anerkennung-in-deutschland.de/de/interest/finder",
       },
     ],
     notes:
@@ -684,7 +684,7 @@ export const ANABIN_STATUS = {
 
 /**
  * Anerkennungszuschuss — financijska pomoć BMFTR
- * Izvor: https://www.anerkennung-in-deutschland.de/html/de/anerkennungszuschuss.php
+ * Izvor: https://www.anerkennung-in-deutschland.de/de/interest/finder
  *        https://www.bmftr.bund.de/SharedDocs/Publikationen/DE/3/31250_Der_Anerkennungszuschuss.html
  */
 export const ANERKENNUNGSZUSCHUSS = {
@@ -715,7 +715,7 @@ export const ANERKENNUNGSZUSCHUSS = {
   officialLinks: [
     {
       label: "BIBB — Anerkennungszuschuss",
-      url: "https://www.anerkennung-in-deutschland.de/html/de/anerkennungszuschuss.php",
+      url: "https://www.anerkennung-in-deutschland.de/de/interest/finder",
     },
     {
       label: "BMFTR — Anerkennungszuschuss flyer",
@@ -742,7 +742,7 @@ export const OFFICIAL_PORTALS = [
     name: "Anerkennung in Deutschland",
     description:
       "Službeni portal Bundesinstitut für Berufsbildung (BIBB) sa detaljima o postupku priznavanja po profesiji i Bundeslandu.",
-    url: "https://www.anerkennung-in-deutschland.de/",
+    url: "https://www.anerkennung-in-deutschland.de/de/interest/finder",
   },
   {
     name: "BQ-Portal",
