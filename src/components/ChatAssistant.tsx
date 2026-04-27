@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { SEO } from "@/components/SEO";
-import { X, Send, Copy, ShieldCheck, ExternalLink, BookOpen, ThumbsUp, ThumbsDown, Camera, Save, MessageCircle, Clock, User } from "lucide-react";
+import { X, Send, Copy, ShieldCheck, ExternalLink, BookOpen, ThumbsUp, ThumbsDown, Camera, Save, MessageCircle, Clock, User, Trash2 } from "lucide-react";
+import { toast } from "sonner";
 import { motion, AnimatePresence } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import { useAuth } from "@/contexts/AuthContext";
@@ -94,6 +95,19 @@ const STARTER_QUESTIONS = [
 ];
 
 const DEFAULT_WELCOME = "Zdravo! 👋 Ja sam BalkanLink Asistent. Pomažem Balkancima u Njemačkoj da se snađu — od formulara do svakodnevnog života. Šta te muči?";
+
+// ── Rate-limit message with reset countdown (resets at midnight local) ──
+function buildRateLimitMessage(): string {
+  const now = new Date();
+  const tomorrow = new Date(now);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  tomorrow.setHours(0, 0, 0, 0);
+  const diffMs = tomorrow.getTime() - now.getTime();
+  const hours = Math.floor(diffMs / 3_600_000);
+  const minutes = Math.floor((diffMs % 3_600_000) / 60_000);
+  const resetIn = hours > 0 ? `${hours}h ${minutes}min` : `${minutes}min`;
+  return `⚡ **Dostigao/la si dnevni limit od 3 pitanja.**\n\nNovi besplatni upiti se otključavaju za **${resetIn}** (ponoć).\n\nSa **BalkanLink Premium** (9,99 €/mj) dobijaš neograničena pitanja, prioritetne odgovore i sve premium vodiče.\n\n[👉 Aktiviraj Premium](/premium)`;
+}
 
 // ── Auto-link keywords ──
 const KEYWORD_LINKS: [RegExp, string][] = [
@@ -306,20 +320,40 @@ export default function ChatAssistant() {
     }
   }, [user?.id]);
 
+  // Manual clear (Trash button) — explicit user action
+  const clearChat = useCallback(() => {
+    if (messages.length === 0) return;
+    const ok = window.confirm("Obrisati cijeli razgovor? Ova radnja se ne može poništiti.");
+    if (!ok) return;
+    setMessages([]);
+    if (chatStorageKey) localStorage.removeItem(chatStorageKey);
+    toast.success("Razgovor obrisan", {
+      description: "Možeš započeti novi razgovor sa BalkanLink Asistentom.",
+      duration: 3000,
+    });
+  }, [messages.length, chatStorageKey]);
+
   // Clear chat history ONLY on real sign-out — preserves history across
   // chat minimize/close, route changes, and token refreshes.
   useEffect(() => {
     const handleSignOut = () => {
+      const hadMessages = messages.length > 0;
       setMessages([]);
       const keys = Object.keys(localStorage).filter(k => k.startsWith("bl-chat-"));
       keys.forEach(k => localStorage.removeItem(k));
       restoredRef.current = false;
       prevUserIdRef.current = null;
+      if (hadMessages) {
+        toast("Razgovor je sačuvan na ovom uređaju do odjave", {
+          description: "Tvoj chat je obrisan zbog odjave. Prijavi se ponovo za novi razgovor.",
+          duration: 4000,
+        });
+      }
       console.debug("[BL-Chat] Sign-out — chat cleared");
     };
     window.addEventListener("bl:user-signed-out", handleSignOut);
     return () => window.removeEventListener("bl:user-signed-out", handleSignOut);
-  }, []);
+  }, [messages.length]);
 
   // Load chat lang preference
   useEffect(() => {
@@ -405,7 +439,7 @@ export default function ChatAssistant() {
 
       try {
         if (!canChat) {
-          setMessages(prev => [...prev, { role: "assistant", content: "⚡ Dostigao/la si dnevni limit od 3 pitanja.\n\n[👉 Premium](/premium)" }]);
+          setMessages(prev => [...prev, { role: "assistant", content: buildRateLimitMessage() }]);
           setLoading(false);
           return;
         }
@@ -543,7 +577,7 @@ export default function ChatAssistant() {
     if (!canChat) {
       setMessages(prev => [...prev,
         { role: "user", content: text.trim() },
-        { role: "assistant", content: "⚡ Dostigao/la si dnevni limit od 3 pitanja.\n\nSa **BalkanLink Premium** dobijaš neograničenu pomoć.\n\n[👉 Premium](/premium)" },
+        { role: "assistant", content: buildRateLimitMessage() },
       ]);
       setInput("");
       return;
@@ -715,12 +749,18 @@ export default function ChatAssistant() {
                   <div className="flex items-center gap-1">
                     {/* Save */}
                     {messages.length > 0 && (
-                      <button onClick={saveConversation} className="rounded-lg p-1.5 text-white/30 hover:text-white/60 hover:bg-white/5 transition-all" title="Spremi razgovor">
+                      <button onClick={saveConversation} className="rounded-lg p-1.5 text-white/30 hover:text-white/60 hover:bg-white/5 transition-all" title="Spremi razgovor (.txt)" aria-label="Spremi razgovor">
                         <Save className="h-4 w-4" />
                       </button>
                     )}
+                    {/* Clear chat */}
+                    {messages.length > 0 && (
+                      <button onClick={clearChat} className="rounded-lg p-1.5 text-white/30 hover:text-red-400 hover:bg-red-500/10 transition-all" title="Obriši razgovor" aria-label="Obriši razgovor">
+                        <Trash2 className="h-4 w-4" />
+                      </button>
+                    )}
                     {/* Close */}
-                    <button onClick={handleClose} className="rounded-lg p-1.5 text-white/30 hover:text-white/60 hover:bg-white/5 transition-all">
+                    <button onClick={handleClose} className="rounded-lg p-1.5 text-white/30 hover:text-white/60 hover:bg-white/5 transition-all" title="Zatvori" aria-label="Zatvori asistenta">
                       <X className="h-5 w-5" />
                     </button>
                   </div>
