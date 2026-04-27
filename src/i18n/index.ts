@@ -21,6 +21,7 @@ import bsErrors from "./locales/bs/errors.json";
 import bsSchufa from "./locales/bs/schufa.json";
 import bsAnerkennung from "./locales/bs/anerkennung.json";
 import bsPorezi from "./locales/bs/porezi.json";
+import bsLegal from "./locales/bs/legal.json";
 
 import deCommon from "./locales/de/common.json";
 import deForms from "./locales/de/forms.json";
