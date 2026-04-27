@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import PageNavBar from "@/components/navigation/PageNavBar";
 
 import {
@@ -662,9 +663,10 @@ const SOURCES = [
 
 export default function ZivotUNjemackoj() {
   const navigate = useNavigate();
-  const lang = "bs" as const;
+  const { i18n } = useTranslation();
+  const lang = (["bs", "hr", "sr", "de"].includes(i18n.language) ? i18n.language : "bs");
   const t = (key: string) => T[lang]?.[key] ?? T.bs[key] ?? key;
-  const countries = COUNTRIES_I18N["bs"] ?? COUNTRIES_I18N.bs;
+  const countries = COUNTRIES_I18N[lang] ?? COUNTRIES_I18N.bs;
 
   const ways = [
     { tagKey: "way1Tag", titleKey: "way1Title", descKey: "way1Desc", forKey: "way1For" },

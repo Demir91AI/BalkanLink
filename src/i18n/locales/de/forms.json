@@ -28,5 +28,34 @@
     "selectOption": "Option auswählen",
     "writeHere": "Schreiben Sie hier...",
     "passwordPlaceholder": "Mindestens 8 Zeichen"
+  },
+  "guide": {
+    "source": "Quelle",
+    "form": "Formular",
+    "whoCanApply": "Wer kann einen Antrag stellen",
+    "processingTime": "Bearbeitungszeit",
+    "whatToPrepare": "Was du vorbereiten musst",
+    "commonMistakesTitle": "Die häufigsten Fehler, die zur Ablehnung führen",
+    "wizardTitle": "Smart Guide — Schritt für Schritt",
+    "wizardSubtitle": "Jedes Feld erklärt — was eintragen, wo finden, Format und häufige Fehler",
+    "step": "Schritt",
+    "back": "Zurück",
+    "next": "Weiter",
+    "done": "✅ Fertig",
+    "card": {
+      "whatToWrite": "Was genau eintragen",
+      "whereToFind": "Wo finden",
+      "format": "Format",
+      "commonMistake": "Häufige Fehler",
+      "whenToLeaveEmpty": "Wann leer lassen",
+      "example": "Ausgefülltes Beispiel",
+      "note": "Hinweis"
+    },
+    "premium": {
+      "title": "Smart Guide nur mit Premium",
+      "subtitle": "Schalte den kompletten Leitfaden für alle Formulare frei.",
+      "stepInfo": "Schritt 1–{{free}} kostenlos · Schritt {{current}} erfordert Premium",
+      "cta": "BalkanLink Premium — 9,99€/Monat"
+    }
   }
 }
