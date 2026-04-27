@@ -48,6 +48,7 @@ import srErrors from "./locales/sr/errors.json";
 import srSchufa from "./locales/sr/schufa.json";
 import srAnerkennung from "./locales/sr/anerkennung.json";
 import srPorezi from "./locales/sr/porezi.json";
+import srLegal from "./locales/sr/legal.json";
 
 export const SUPPORTED_LANGUAGES = ["bs", "de", "hr", "sr"] as const;
 export type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number];
