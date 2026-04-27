@@ -19,24 +19,28 @@ import bsForms from "./locales/bs/forms.json";
 import bsPages from "./locales/bs/pages.json";
 import bsErrors from "./locales/bs/errors.json";
 import bsSchufa from "./locales/bs/schufa.json";
+import bsAnerkennung from "./locales/bs/anerkennung.json";
 
 import deCommon from "./locales/de/common.json";
 import deForms from "./locales/de/forms.json";
 import dePages from "./locales/de/pages.json";
 import deErrors from "./locales/de/errors.json";
 import deSchufa from "./locales/de/schufa.json";
+import deAnerkennung from "./locales/de/anerkennung.json";
 
 import hrCommon from "./locales/hr/common.json";
 import hrForms from "./locales/hr/forms.json";
 import hrPages from "./locales/hr/pages.json";
 import hrErrors from "./locales/hr/errors.json";
 import hrSchufa from "./locales/hr/schufa.json";
+import hrAnerkennung from "./locales/hr/anerkennung.json";
 
 import srCommon from "./locales/sr/common.json";
 import srForms from "./locales/sr/forms.json";
 import srPages from "./locales/sr/pages.json";
 import srErrors from "./locales/sr/errors.json";
 import srSchufa from "./locales/sr/schufa.json";
+import srAnerkennung from "./locales/sr/anerkennung.json";
 
 export const SUPPORTED_LANGUAGES = ["bs", "de", "hr", "sr"] as const;
 export type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number];
