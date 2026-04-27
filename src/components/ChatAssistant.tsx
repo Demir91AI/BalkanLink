@@ -307,20 +307,40 @@ export default function ChatAssistant() {
     }
   }, [user?.id]);
 
+  // Manual clear (Trash button) — explicit user action
+  const clearChat = useCallback(() => {
+    if (messages.length === 0) return;
+    const ok = window.confirm("Obrisati cijeli razgovor? Ova radnja se ne može poništiti.");
+    if (!ok) return;
+    setMessages([]);
+    if (chatStorageKey) localStorage.removeItem(chatStorageKey);
+    toast.success("Razgovor obrisan", {
+      description: "Možeš započeti novi razgovor sa BalkanLink Asistentom.",
+      duration: 3000,
+    });
+  }, [messages.length, chatStorageKey]);
+
   // Clear chat history ONLY on real sign-out — preserves history across
   // chat minimize/close, route changes, and token refreshes.
   useEffect(() => {
     const handleSignOut = () => {
+      const hadMessages = messages.length > 0;
       setMessages([]);
       const keys = Object.keys(localStorage).filter(k => k.startsWith("bl-chat-"));
       keys.forEach(k => localStorage.removeItem(k));
       restoredRef.current = false;
       prevUserIdRef.current = null;
+      if (hadMessages) {
+        toast("Razgovor je sačuvan na ovom uređaju do odjave", {
+          description: "Tvoj chat je obrisan zbog odjave. Prijavi se ponovo za novi razgovor.",
+          duration: 4000,
+        });
+      }
       console.debug("[BL-Chat] Sign-out — chat cleared");
     };
     window.addEventListener("bl:user-signed-out", handleSignOut);
     return () => window.removeEventListener("bl:user-signed-out", handleSignOut);
-  }, []);
+  }, [messages.length]);
 
   // Load chat lang preference
   useEffect(() => {
