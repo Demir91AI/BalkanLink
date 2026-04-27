@@ -94,6 +94,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
         setSession(session);
         if (session?.user) {
+          try { localStorage.setItem("bl_last_user_id", session.user.id); } catch {}
           setTimeout(() => fetchUserMeta(session.user.id), 0);
           setTimeout(() => refreshSubscription(), 100);
         } else {
