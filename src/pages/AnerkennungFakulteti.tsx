@@ -746,10 +746,10 @@ export default function AnerkennungFakulteti() {
         <div className="mt-4 p-3 rounded-lg bg-amber-500/10 border border-amber-500/20 text-xs text-amber-700 dark:text-amber-400 flex gap-2">
           <AlertTriangle className="h-4 w-4 shrink-0 mt-0.5" />
           <span>
-            <strong>Napomena 2026:</strong> ZAB sada prihvata <em>certified
-            digital copies</em> kroz online portal — ne moraš slati originale
-            poštom ako koristiš VIDEOIDENT ovjeru ili eIDAS-priznati digitalni
-            potpis.
+            <strong>Napomena 2026:</strong> Cijeli postupak je sada digitalan
+            preko <strong>BundID</strong> računa i ZAB online portala (ePayBL
+            za uplatu). Nije potrebno slati originale poštom — dovoljni su
+            kvalitetni skenovi diplome i prevoda.
           </span>
         </div>
       </section>
