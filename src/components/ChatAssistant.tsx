@@ -96,6 +96,7 @@ const STARTER_QUESTIONS = [
 ];
 
 const DEFAULT_WELCOME = "Zdravo! 👋 Ja sam BalkanLink Asistent. Pomažem Balkancima u Njemačkoj da se snađu — od formulara do svakodnevnog života. Šta te muči?";
+const ACTIVE_CHAT_STORAGE_KEY = "bl-chat-current";
 
 // ── Rate-limit message with reset countdown (resets at midnight local) ──
 function buildRateLimitMessage(): string {
@@ -249,7 +250,7 @@ export default function ChatAssistant() {
   const { user } = useAuth();
 
   // ── Cross-device chat persistence (localStorage cache + Supabase sync) ──
-  const chatStorageKey = user ? `bl-chat-${user.id}` : null;
+  const chatStorageKey = user ? `bl-chat-${user.id}` : ACTIVE_CHAT_STORAGE_KEY;
   const prevUserIdRef = useRef<string | null | undefined>(undefined);
   const restoredRef = useRef(false);
   // Track which messages have been synced to DB (by stable signature) to avoid duplicates
@@ -262,18 +263,27 @@ export default function ChatAssistant() {
     return `${idx}|${m.role}|${(m.content || "").slice(0, 80)}`;
   }
 
-  function loadMessagesForUser(userId: string): Msg[] {
+  function loadMessagesByKey(storageKey: string): Msg[] {
     try {
-      const raw = localStorage.getItem(`bl-chat-${userId}`);
+      const raw = localStorage.getItem(storageKey);
       if (raw) {
         const parsed = JSON.parse(raw);
         if (Array.isArray(parsed) && parsed.length > 0) return parsed as Msg[];
       }
     } catch (e) {
       console.warn("[BL-Chat] Failed to parse stored chat, clearing:", e);
-      localStorage.removeItem(`bl-chat-${userId}`);
+      localStorage.removeItem(storageKey);
     }
     return [];
+  }
+
+  function loadMessagesForUser(userId: string): Msg[] {
+    return loadMessagesByKey(`bl-chat-${userId}`);
+  }
+
+  function loadActiveMessages(userId?: string): Msg[] {
+    const userMessages = userId ? loadMessagesForUser(userId) : [];
+    return userMessages.length > 0 ? userMessages : loadMessagesByKey(ACTIVE_CHAT_STORAGE_KEY);
   }
 
   // Fetch full history from Supabase for cross-device restore
