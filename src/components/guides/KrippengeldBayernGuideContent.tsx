@@ -1,3 +1,4 @@
+import { AlertTriangle } from "lucide-react";
 import LocalizedGuide from "./LocalizedGuide";
 import type { GuideContent } from "@/lib/guide-i18n";
 import type { StepData } from "./SmartGuideWizardShared";
