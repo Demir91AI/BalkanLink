@@ -346,7 +346,10 @@ export function HeaderInstallPopup() {
           </p>
         </div>
       </div>
-    </div>
+          </div>,
+          document.body
+        )}
+    </>
   );
 }
 
