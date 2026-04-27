@@ -33,9 +33,9 @@
           "label": "Nauči nemački",
           "desc": "A1–C2 uz praktične Vežbe"
         },
-        "templates": {
-          "label": "Šabloni",
-          "desc": "Gotova pisma i dokumenti"
+        "porezi": {
+          "label": "Porezi",
+          "desc": "Vodič kroz Steuererklärung"
         },
         "ads": {
           "label": "Oglasi",
