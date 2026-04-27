@@ -115,6 +115,34 @@ serve(async (req) => {
       currency = (piObj?.currency ?? session.currency ?? "eur").toUpperCase();
       transactionId = piObj?.id ?? session.id;
       paidAt = safeIso(piObj?.created) ?? safeIso(session.created);
+
+      // ── Grant a Document-Check credit if this one-off purchase was the DOC_CHECK SKU ──
+      // Idempotent: grant_doc_check_credit() is a no-op if the same session was already credited.
+      if (status === "succeeded") {
+        try {
+          const lineItems = await stripe.checkout.sessions.listLineItems(session.id, { limit: 5 });
+          const isDocCheck = lineItems.data.some(
+            (li) => li.price?.id === "price_1TQDc3R9oGwbVekBYppvp6Y7"
+          );
+          if (isDocCheck) {
+            const adminClient = createClient(
+              Deno.env.get("SUPABASE_URL") ?? "",
+              Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "",
+              { auth: { persistSession: false } }
+            );
+            const { error: grantErr } = await adminClient.rpc("grant_doc_check_credit", {
+              uid: userData.user.id,
+              session_id: session.id,
+              amt_cents: amount ?? 299,
+              curr: currency ?? "EUR",
+            });
+            if (grantErr) console.error("grant_doc_check_credit error:", grantErr.message);
+            else console.log("Doc-check credit granted for session", session.id);
+          }
+        } catch (e) {
+          console.error("Doc-check credit grant failed:", e instanceof Error ? e.message : String(e));
+        }
+      }
     }
 
     return new Response(
