@@ -1,12 +1,12 @@
 {
   "seo": {
     "title": "Bonitäts-Simulator — Indikative Einschätzung der Kreditwürdigkeit",
-    "description": "Edukativer Bonitäts-Simulator für Menschen vom Balkan in Deutschland. Verstehe Schufa-Faktoren, bevor die Bank „Nein" sagt. Kein offizieller Schufa-Score."
+    "description": "Edukativer Bonitäts-Simulator für Menschen vom Balkan in Deutschland. Verstehe Schufa-Faktoren, bevor die Bank „Nein“ sagt. Kein offizieller Schufa-Score."
   },
   "hero": {
     "badge": "Premium · Bonitäts-Simulator",
     "headline1": "Verstehe deine Kreditwürdigkeit",
-    "headline2": "bevor die Bank „Nein" sagt",
+    "headline2": "bevor die Bank „Nein“ sagt",
     "subline": "Edukative Einschätzung basierend auf öffentlichen Schufa-Faktoren. 100 % anonym — alles wird in deinem Browser berechnet."
   },
   "footer": {
@@ -34,7 +34,7 @@
     "bullet1Strong1": "indikativ",
     "bullet1": "Die Einschätzung ist {{strong1}} und basiert auf allgemeinen Faktoren — der tatsächliche Schufa-Score hängt von Daten ab, die die Schufa über dich besitzt, und diese Daten sind uns {{strong2}}.",
     "bullet1Strong2": "NICHT zugänglich",
-    "bullet2Strong": "UNBEDINGT die kostenlose „Datenkopie nach Art. 15 DSGVO"",
+    "bullet2Strong": "UNBEDINGT die kostenlose „Datenkopie nach Art. 15 DSGVO“",
     "bullet2": "Für eine offizielle Information {{strong}} direkt bei der Schufa Holding AG anfordern (1× jährlich kostenlos).",
     "bullet3Strong": "ausschließlich den offiziellen Schufa-Score",
     "bullet3": "Banken, Vermieter und Arbeitgeber nutzen {{strong}} — nicht diese Einschätzung.",
@@ -66,7 +66,7 @@
     "q6Tooltip": "Die Schufa SIEHT NICHT deinen Kontostand. Sie sieht nur, ob du einen Dispo eingeräumt bekommen hast und ob du eine Mahnung erhalten hast.",
     "q6MythTitle": "💡 Mythos / Wahrheit zum Dispo:",
     "q6MythLabel": "Mythos:",
-    "q6MythBody": "„Der Dispo ruiniert die Schufa.”",
+    "q6MythBody": "„Der Dispo ruiniert die Schufa.“",
     "q6TruthLabel": "Wahrheit:",
     "q6TruthBody": "Der Dispo selbst ist ein <strong>positives Signal</strong> (die Bank vertraut dir). Probleme entstehen erst, wenn du 90+ Tage nicht zahlst oder die Bank den Dispo kündigt.",
     "q7": "7. Hast du unbezahlte Rechnungen, Mahnungen oder Inkasso-Forderungen?",
@@ -238,7 +238,7 @@
     },
     "loansNone": {
       "label": "Keine aktiven Kredite",
-      "detail": "Ohne Kredite hat die Schufa nicht genug Daten für eine zuverlässige Einschätzung — der Score ist „dünn"."
+      "detail": "Ohne Kredite hat die Schufa nicht genug Daten für eine zuverlässige Einschätzung — der Score ist „dünn“."
     },
     "loansOne": {
       "label": "Ein aktiver Kredit (ordnungsgemäß)",
@@ -270,7 +270,7 @@
     },
     "accountsMany": {
       "label": "Zu viele Bankkonten (4+)",
-      "detail": "Mehrere Konten können wie „Verstreuung" wirken — Banken mögen ein klares Bild."
+      "detail": "Mehrere Konten können wie „Verstreuung“ wirken — Banken mögen ein klares Bild."
     },
     "accountsOk": {
       "label": "{{count}} Bankkonto/-konten",
@@ -314,7 +314,7 @@
     },
     "inquiriesFew": {
       "label": "Wenige Schufa-Anfragen (0-2 in den letzten 12 Mon.)",
-      "detail": "Geringe Anfrageaktivität zeigt, dass du nicht in „Geldnot-Panik" bist."
+      "detail": "Geringe Anfrageaktivität zeigt, dass du nicht in „Geldnot-Panik“ bist."
     },
     "inquiriesMany": {
       "label": "Viele Schufa-Anfragen (6-10)",
@@ -322,7 +322,7 @@
     },
     "inquiriesVeryMany": {
       "label": "Sehr viele Schufa-Anfragen (11+)",
-      "detail": "Banken und Vermieter interpretieren das als „verzweifelte Suche" — Tipp: pausiere Bewerbungen für 3+ Monate."
+      "detail": "Banken und Vermieter interpretieren das als „verzweifelte Suche“ — Tipp: pausiere Bewerbungen für 3+ Monate."
     },
     "insolvencyActive": {
       "label": "Aktive Privatinsolvenz",
@@ -341,7 +341,7 @@
     },
     "payInkasso": {
       "title": "Alle offenen Inkasso/Mahnungen begleichen",
-      "detail": "Nach Zahlung schriftlichen „Erledigungsvermerk" anfordern und an die Schufa senden. Der Negativeintrag kann als „erledigt" markiert werden.",
+      "detail": "Nach Zahlung schriftlichen „Erledigungsvermerk“ anfordern und an die Schufa senden. Der Negativeintrag kann als „erledigt“ markiert werden.",
       "impact": "+10-18 %"
     },
     "regulateDispo": {
@@ -351,7 +351,7 @@
     },
     "pauseInquiries": {
       "title": "Wohnungs-/Kreditbewerbungen 3 Monate pausieren",
-      "detail": "Jede Bewerbung = Schufa-Anfrage. Regel: bewerbe dich NUR auf Wohnungen, wo du realistisch eine Chance hast, nicht „aus Routine". Alte Anfragen verblassen langsam nach 12 Monaten.",
+      "detail": "Jede Bewerbung = Schufa-Anfrage. Regel: bewerbe dich NUR auf Wohnungen, wo du realistisch eine Chance hast, nicht „aus Routine“. Alte Anfragen verblassen langsam nach 12 Monaten.",
       "impact": "+2-5 %"
     },
     "closeCards": {
@@ -371,7 +371,7 @@
     },
     "buildHistory": {
       "title": "1 kleinen Kredit zum Aufbau der Historie erwägen",
-      "detail": "Eine Schufa ohne jegliche Kredite ist ein „dünner" Score. Ein kleiner, ordnungsgemäßer Ratenkredit (z. B. Handy auf Raten) baut innerhalb von 6-12 Monaten eine positive Historie auf.",
+      "detail": "Eine Schufa ohne jegliche Kredite ist ein „dünner“ Score. Ein kleiner, ordnungsgemäßer Ratenkredit (z. B. Handy auf Raten) baut innerhalb von 6-12 Monaten eine positive Historie auf.",
       "impact": "+2-4 %"
     },
     "keepDispo": {
