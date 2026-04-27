@@ -404,7 +404,8 @@
       "readError": "Greška pri čitanju datoteke",
       "fallback": "Greška servera pri analizi dokumenta.",
       "tooManyFiles": "Maksimalno {{max}} fajlova.",
-      "totalTooLarge": "Ukupna veličina prelazi 25 MB."
+      "totalTooLarge": "Ukupna veličina prelazi 25 MB.",
+      "paymentRequired": "Plaćanje 2,99€ je potrebno za analizu."
     },
     "paywall": {
       "title": "Dokumenten-Check",
