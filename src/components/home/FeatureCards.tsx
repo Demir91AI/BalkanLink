@@ -17,7 +17,6 @@ export default function FeatureCards() {
     { icon: Shield, key: "visa", to: "/viza" },
     { icon: GraduationCap, key: "german", to: "/deutsch-trainer" },
     { icon: Receipt, key: "porezi", to: "/porezi" },
-    { icon: Megaphone, key: "ads", to: "/nudim-trazim" },
   ];
 
   useEffect(() => {
