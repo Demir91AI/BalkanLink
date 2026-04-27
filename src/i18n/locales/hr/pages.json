@@ -404,16 +404,18 @@
       "readError": "Pogreška pri čitanju datoteke",
       "fallback": "Pogreška servera pri analizi dokumenta.",
       "tooManyFiles": "Maksimalno {{max}} datoteka.",
-      "totalTooLarge": "Ukupna veličina prelazi 25 MB."
+      "totalTooLarge": "Ukupna veličina prelazi 25 MB.",
+      "paymentRequired": "Plaćanje 2,99€ je potrebno za analizu."
     },
     "paywall": {
       "title": "Dokumenten-Check",
       "subtitle": "Učitaj dokument — dobiješ objašnjenje na svom jeziku",
       "premiumCta": "BalkanLink Premium — 9,99€/mj.",
-      "premiumPerk": "1×/dan gratis + sve Premium funkcije",
+      "premiumPerk": "Neograničene provjere dokumenata + sve Premium funkcije",
       "or": "ili",
-      "oneTimeCta": "Kupi jednokratno — 2,99€ →",
-      "oneTimeReset": "Resetuje se nakon svake upotrebe"
+      "oneTimeCta": "Plati 2,99€ za jednu analizu →",
+      "oneTimeReset": "Plaćaš za svaku analizu pojedinačno",
+      "paymentReadyToast": "Plaćanje je primljeno. Kliknite Provjeri dokument za pokretanje analize."
     },
     "example": {
       "trigger": "👁 Primjer analize — klikni da vidiš",
