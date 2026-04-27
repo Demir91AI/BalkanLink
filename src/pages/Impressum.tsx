@@ -41,7 +41,6 @@ export default function Impressum() {
               <a href="mailto:kontakt@balkanlink.de" className="text-primary hover:underline">
                 kontakt@balkanlink.de
               </a><br />
-              Telefon: na upit<br />
               Web:{" "}
               <a href="https://balkanlink.de" className="text-primary hover:underline">
                 https://balkanlink.de
