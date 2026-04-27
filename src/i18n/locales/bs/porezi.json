@@ -1,0 +1,69 @@
+{
+  "seo": {
+    "title": "Porezi u Njemačkoj — Smart Guide za Steuererklärung",
+    "description": "Smart vodič kroz njemački porezni sistem: kako se radi Steuererklärung, šta možeš odbiti, rokovi i česte greške. Stand 2026."
+  },
+  "hero": {
+    "badge": "Premium · Stand 2026",
+    "title": "Porezi u Njemačkoj",
+    "subtitle": "Smart Guide kroz Steuererklärung — jasno, korak po korak, na tvom jeziku.",
+    "ctaPrimary": "Pokreni wizard",
+    "ctaSecondary": "Pogledaj sve module"
+  },
+  "intro": {
+    "heading": "Šta dobiješ ovdje",
+    "p1": "Edukativni vodič koji ti objašnjava kako funkcioniše njemačka porezna prijava (Einkommensteuererklärung), na šta treba paziti i koje greške izbjeći.",
+    "p2": "Ne dajemo ti konkretne iznose povrata niti zamjenjujemo poreznog savjetnika — pokazujemo ti sistem i pomažemo da razumiješ svoju situaciju."
+  },
+  "modulesHeading": "Moduli",
+  "comingSoonBadge": "Uskoro",
+  "premiumBadge": "Premium",
+  "openModule": "Otvori",
+  "modules": {
+    "wizard": {
+      "title": "Da li uopšte moram podnositi prijavu?",
+      "desc": "Interaktivni wizard od 8 pitanja koji ti kaže da li je porezna prijava obavezna, preporučena ili nepotrebna."
+    },
+    "deadlines": {
+      "title": "Rokovi i kazne",
+      "desc": "Do kada se predaje prijava, šta ako kasniš, koje su posljedice i izuzeci."
+    },
+    "deductions": {
+      "title": "Šta sve mogu odbiti",
+      "desc": "Werbungskosten, Sonderausgaben, außergewöhnliche Belastungen — pregled tipičnih stavki za zaposlene."
+    },
+    "doppelhaushalt": {
+      "title": "Dvostruko domaćinstvo (DHF)",
+      "desc": "Kada radnik ima dva stana zbog posla — uslovi, dokazi i kako se prijavljuje."
+    },
+    "elsterGuide": {
+      "title": "ELSTER — kako se registrovati",
+      "desc": "Korak po korak kako otvoriti račun na ELSTER portalu i poslati prijavu elektronski."
+    },
+    "family": {
+      "title": "Porodica i porezne klase",
+      "desc": "Steuerklassen, zajednička prijava bračnih partnera, Kinderfreibetrag — kako utiču na porez."
+    },
+    "studentsTrainees": {
+      "title": "Studenti i pripravnici",
+      "desc": "Kada se isplati prijava za studente, Werbungskostenpauschale, Verlustvortrag i ostalo."
+    },
+    "selfEmployed": {
+      "title": "Samostalni i Freelancer",
+      "desc": "Razlika između Gewerbe i Freiberuf, EÜR, Vorsteuer i tipične greške."
+    },
+    "rentalIncome": {
+      "title": "Prihodi od izdavanja",
+      "desc": "Anlage V — kako se oporezuju prihodi od stanova/kuća, troškovi, amortizacija."
+    },
+    "mistakes": {
+      "title": "Najčešće greške",
+      "desc": "Stvari na koje korisnici najviše padaju — od zaboravljenih dokaza do pogrešno upisanih kategorija."
+    }
+  },
+  "legal": {
+    "heading": "Pravna napomena",
+    "body": "Sadržaj ovog odjela je informativnog karaktera i ne predstavlja porezni ni pravni savjet. BalkanLink nije Steuerberater niti Lohnsteuerhilfeverein. Za konkretne odluke obrati se ovlaštenom poreznom savjetniku ili priznatom udruženju.",
+    "sources": "Glavni izvori: §§ EStG (Einkommensteuergesetz), R LStR (Lohnsteuer-Richtlinien), BMF Schreiben, BFH presude. Ažurirano: januar 2026."
+  }
+}

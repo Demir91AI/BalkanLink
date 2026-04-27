@@ -20,6 +20,7 @@ import bsPages from "./locales/bs/pages.json";
 import bsErrors from "./locales/bs/errors.json";
 import bsSchufa from "./locales/bs/schufa.json";
 import bsAnerkennung from "./locales/bs/anerkennung.json";
+import bsPorezi from "./locales/bs/porezi.json";
 
 import deCommon from "./locales/de/common.json";
 import deForms from "./locales/de/forms.json";
@@ -27,6 +28,7 @@ import dePages from "./locales/de/pages.json";
 import deErrors from "./locales/de/errors.json";
 import deSchufa from "./locales/de/schufa.json";
 import deAnerkennung from "./locales/de/anerkennung.json";
+import dePorezi from "./locales/de/porezi.json";
 
 import hrCommon from "./locales/hr/common.json";
 import hrForms from "./locales/hr/forms.json";
@@ -34,6 +36,7 @@ import hrPages from "./locales/hr/pages.json";
 import hrErrors from "./locales/hr/errors.json";
 import hrSchufa from "./locales/hr/schufa.json";
 import hrAnerkennung from "./locales/hr/anerkennung.json";
+import hrPorezi from "./locales/hr/porezi.json";
 
 import srCommon from "./locales/sr/common.json";
 import srForms from "./locales/sr/forms.json";
@@ -41,6 +44,7 @@ import srPages from "./locales/sr/pages.json";
 import srErrors from "./locales/sr/errors.json";
 import srSchufa from "./locales/sr/schufa.json";
 import srAnerkennung from "./locales/sr/anerkennung.json";
+import srPorezi from "./locales/sr/porezi.json";
 
 export const SUPPORTED_LANGUAGES = ["bs", "de", "hr", "sr"] as const;
 export type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number];
@@ -48,10 +52,10 @@ export const DEFAULT_LANGUAGE: SupportedLanguage = "bs";
 export const LANG_STORAGE_KEY = "balkanlink-lang";
 
 const resources = {
-  bs: { common: bsCommon, forms: bsForms, pages: bsPages, errors: bsErrors, schufa: bsSchufa, anerkennung: bsAnerkennung },
-  de: { common: deCommon, forms: deForms, pages: dePages, errors: deErrors, schufa: deSchufa, anerkennung: deAnerkennung },
-  hr: { common: hrCommon, forms: hrForms, pages: hrPages, errors: hrErrors, schufa: hrSchufa, anerkennung: hrAnerkennung },
-  sr: { common: srCommon, forms: srForms, pages: srPages, errors: srErrors, schufa: srSchufa, anerkennung: srAnerkennung },
+  bs: { common: bsCommon, forms: bsForms, pages: bsPages, errors: bsErrors, schufa: bsSchufa, anerkennung: bsAnerkennung, porezi: bsPorezi },
+  de: { common: deCommon, forms: deForms, pages: dePages, errors: deErrors, schufa: deSchufa, anerkennung: deAnerkennung, porezi: dePorezi },
+  hr: { common: hrCommon, forms: hrForms, pages: hrPages, errors: hrErrors, schufa: hrSchufa, anerkennung: hrAnerkennung, porezi: hrPorezi },
+  sr: { common: srCommon, forms: srForms, pages: srPages, errors: srErrors, schufa: srSchufa, anerkennung: srAnerkennung, porezi: srPorezi },
 };
 
 i18n
@@ -68,7 +72,7 @@ i18n
     nonExplicitSupportedLngs: false, // 'sr-Latn' / 'hr-HR' won't auto-resolve
     load: "languageOnly", // 'de-AT' → 'de'
     defaultNS: "common",
-    ns: ["common", "forms", "pages", "errors", "schufa", "anerkennung"],
+    ns: ["common", "forms", "pages", "errors", "schufa", "anerkennung", "porezi"],
     interpolation: { escapeValue: false },
     detection: {
       // URL path takes precedence (so /de, /hr, /sr always force the language

@@ -1,0 +1,69 @@
+{
+  "seo": {
+    "title": "Steuern in Deutschland — Smart Guide zur Steuererklärung",
+    "description": "Smart Guide durchs deutsche Steuersystem: wie die Steuererklärung funktioniert, was du absetzen kannst, Fristen und häufige Fehler. Stand 2026."
+  },
+  "hero": {
+    "badge": "Premium · Stand 2026",
+    "title": "Steuern in Deutschland",
+    "subtitle": "Smart Guide zur Steuererklärung — klar, Schritt für Schritt, in deiner Sprache.",
+    "ctaPrimary": "Wizard starten",
+    "ctaSecondary": "Alle Module ansehen"
+  },
+  "intro": {
+    "heading": "Was du hier bekommst",
+    "p1": "Ein Lern-Guide, der erklärt, wie die deutsche Einkommensteuererklärung funktioniert, worauf zu achten ist und welche Fehler zu vermeiden sind.",
+    "p2": "Wir nennen keine konkreten Erstattungsbeträge und ersetzen keinen Steuerberater — wir zeigen dir das System und helfen dir, deine Situation zu verstehen."
+  },
+  "modulesHeading": "Module",
+  "comingSoonBadge": "Bald verfügbar",
+  "premiumBadge": "Premium",
+  "openModule": "Öffnen",
+  "modules": {
+    "wizard": {
+      "title": "Muss ich überhaupt eine Erklärung abgeben?",
+      "desc": "Interaktiver Wizard mit 8 Fragen, der dir sagt, ob deine Steuererklärung Pflicht, empfehlenswert oder nicht nötig ist."
+    },
+    "deadlines": {
+      "title": "Fristen und Strafen",
+      "desc": "Bis wann muss abgegeben werden, was passiert bei Verspätung, Konsequenzen und Ausnahmen."
+    },
+    "deductions": {
+      "title": "Was kann ich absetzen",
+      "desc": "Werbungskosten, Sonderausgaben, außergewöhnliche Belastungen — typische Posten für Arbeitnehmer."
+    },
+    "doppelhaushalt": {
+      "title": "Doppelte Haushaltsführung (DHF)",
+      "desc": "Wenn der Arbeitnehmer zwei Wohnungen aus beruflichen Gründen hat — Voraussetzungen, Nachweise, Eintragung."
+    },
+    "elsterGuide": {
+      "title": "ELSTER — Registrierung Schritt für Schritt",
+      "desc": "Wie du ein ELSTER-Konto eröffnest und die Erklärung elektronisch einreichst."
+    },
+    "family": {
+      "title": "Familie und Steuerklassen",
+      "desc": "Steuerklassen, Zusammenveranlagung, Kinderfreibetrag — wie sie sich auf die Steuer auswirken."
+    },
+    "studentsTrainees": {
+      "title": "Studenten und Auszubildende",
+      "desc": "Wann sich die Erklärung lohnt, Werbungskostenpauschale, Verlustvortrag und mehr."
+    },
+    "selfEmployed": {
+      "title": "Selbstständige und Freelancer",
+      "desc": "Unterschied Gewerbe vs. Freiberuf, EÜR, Vorsteuer und typische Fehler."
+    },
+    "rentalIncome": {
+      "title": "Einkünfte aus Vermietung",
+      "desc": "Anlage V — wie Mieteinnahmen besteuert werden, Kosten, Abschreibung."
+    },
+    "mistakes": {
+      "title": "Häufigste Fehler",
+      "desc": "Wo Nutzer am häufigsten stolpern — von vergessenen Nachweisen bis falsch eingetragenen Kategorien."
+    }
+  },
+  "legal": {
+    "heading": "Rechtlicher Hinweis",
+    "body": "Die Inhalte dieser Abteilung dienen ausschließlich der Orientierung und stellen keine Steuer- oder Rechtsberatung dar. BalkanLink ist weder Steuerberater noch Lohnsteuerhilfeverein. Für konkrete Entscheidungen wende dich an einen zugelassenen Steuerberater oder einen anerkannten Verein.",
+    "sources": "Hauptquellen: §§ EStG (Einkommensteuergesetz), R LStR (Lohnsteuer-Richtlinien), BMF-Schreiben, BFH-Urteile. Stand: Januar 2026."
+  }
+}
