@@ -405,82 +405,78 @@ export default function DokumentenCheck() {
             className="rounded-2xl border bg-card p-6 sm:p-8 shadow-sm">
             <div>
               <label className="mb-3 block text-sm font-bold">{t("documentCheck.upload.label")}</label>
-              {!file ? (
-                <div style={{display:'flex', flexDirection:'column', gap:'12px', width:'100%'}}>
-                  <label className="relative flex flex-col items-center justify-center min-h-[160px] w-full border-2 border-dashed border-[hsl(var(--gold))] rounded-xl cursor-pointer p-6 bg-[hsl(var(--gold))]/5 hover:bg-[hsl(var(--gold))]/10 transition-colors">
-                    <input
-                      type="file"
-                      accept=".pdf,.jpg,.jpeg,.png,image/*"
-                      capture="environment"
-                      ref={fileInputRef}
-                      className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
-                      onChange={(e) => {
-                        const f = e.target.files?.[0];
-                        if (f) {
-                          setSelectedFile(f);
-                          setPreviewName(f.name);
-                          handleFileSelect(e);
-                        }
-                      }}
-                    />
-                    <Upload className="h-10 w-10 text-[hsl(var(--gold))] mb-2" />
-                    <strong className="text-base">{t("documentCheck.upload.label")}</strong>
-                    <span className="text-sm text-muted-foreground mt-1">
-                      {t("documentCheck.upload.hint")}
-                    </span>
-                  </label>
 
-                  <p className="text-xs text-muted-foreground text-center flex items-center justify-center gap-1.5">
-                    <Lock className="h-3 w-3" />
-                    {t("documentCheck.upload.deletedAfter")}
-                  </p>
-
-                  {previewName !== '' && (
-                    <div className="py-3 px-4 bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl flex items-center justify-between">
-                      <span className="text-sm text-emerald-700 dark:text-emerald-400">
-                        ✅ {previewName}
-                      </span>
-                      <button
-                        onClick={() => { setSelectedFile(null); setPreviewName(''); clearFile(); }}
-                        className="text-muted-foreground hover:text-foreground text-lg px-1"
-                      >×</button>
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <div className="rounded-xl border bg-muted/30 p-5">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <FileText className="h-5 w-5 text-primary" />
-                      <span className="text-sm font-medium">{file.name}</span>
-                      <span className="text-xs text-muted-foreground">({(file.size / 1024).toFixed(0)} KB)</span>
-                    </div>
-                    <Button variant="ghost" size="sm" onClick={() => { clearFile(); setSelectedFile(null); setPreviewName(''); }} className="h-8 w-8 p-0"><X className="h-4 w-4" /></Button>
+              {/* Info: više stranica */}
+              <div className="mb-4 rounded-xl border border-[hsl(var(--gold))]/30 bg-[hsl(var(--gold))]/5 p-3 sm:p-4">
+                <div className="flex items-start gap-2.5">
+                  <Info className="h-4 w-4 text-[hsl(var(--gold))] shrink-0 mt-0.5" />
+                  <div className="text-xs sm:text-sm">
+                    <p className="font-semibold text-foreground">{t("documentCheck.upload.multiPageTitle")}</p>
+                    <p className="text-muted-foreground mt-1">{t("documentCheck.upload.multiPageHint")}</p>
                   </div>
-                  {filePreviewUrl && <img src={filePreviewUrl} alt="Vorschau" className="mt-4 max-h-64 rounded-lg border object-contain" />}
                 </div>
-              )}
+              </div>
+
+              <div style={{display:'flex', flexDirection:'column', gap:'12px', width:'100%'}}>
+                <label className="relative flex flex-col items-center justify-center min-h-[160px] w-full border-2 border-dashed border-[hsl(var(--gold))] rounded-xl cursor-pointer p-6 bg-[hsl(var(--gold))]/5 hover:bg-[hsl(var(--gold))]/10 transition-colors">
+                  <input
+                    type="file"
+                    multiple
+                    accept=".pdf,.jpg,.jpeg,.png,image/*"
+                    capture="environment"
+                    ref={fileInputRef}
+                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                    onChange={(e) => addFiles(e.target.files)}
+                  />
+                  <Upload className="h-10 w-10 text-[hsl(var(--gold))] mb-2" />
+                  <strong className="text-base">{t("documentCheck.upload.label")}</strong>
+                  <span className="text-sm text-muted-foreground mt-1">{t("documentCheck.upload.hint")}</span>
+                </label>
+
+                <p className="text-xs text-muted-foreground text-center flex items-center justify-center gap-1.5">
+                  <Lock className="h-3 w-3" />
+                  {t("documentCheck.upload.deletedAfter")}
+                </p>
+
+                {files.length > 0 && (
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-xs text-muted-foreground px-1">
+                      <span>{t("documentCheck.upload.filesCount", { count: files.length, max: MAX_FILES })}</span>
+                      <span>{(totalSize / 1024 / 1024).toFixed(1)} MB</span>
+                    </div>
+                    <ul className="space-y-2">
+                      {files.map((f, idx) => (
+                        <li key={`${f.name}-${idx}`} className="flex items-center justify-between gap-2 rounded-xl border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-900/20 px-3 py-2.5">
+                          <div className="flex items-center gap-2 min-w-0 flex-1">
+                            <FileText className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                            <span className="text-sm text-emerald-700 dark:text-emerald-400 truncate">{f.name}</span>
+                            <span className="text-[11px] text-muted-foreground shrink-0">({(f.size / 1024).toFixed(0)} KB)</span>
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => removeFile(idx)}
+                            className="text-muted-foreground hover:text-foreground p-1 shrink-0"
+                            aria-label={t("documentCheck.upload.remove")}
+                          >
+                            <X className="h-4 w-4" />
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                    {files.length < MAX_FILES && (
+                      <button
+                        type="button"
+                        onClick={() => fileInputRef.current?.click()}
+                        className="w-full flex items-center justify-center gap-2 rounded-xl border border-dashed border-[hsl(var(--gold))]/50 bg-[hsl(var(--gold))]/5 hover:bg-[hsl(var(--gold))]/10 px-3 py-2.5 text-xs font-semibold text-[hsl(var(--gold))] transition-colors"
+                      >
+                        <Plus className="h-4 w-4" />
+                        {t("documentCheck.upload.addMore")}
+                      </button>
+                    )}
+                  </div>
+                )}
+              </div>
             </div>
-          </motion.div>
-
-          {/* ── Confirm checkbox ── */}
-          <div className="flex items-start gap-4 rounded-2xl border bg-card p-5">
-            <Checkbox id="confirm" checked={confirmed} onCheckedChange={(v) => setConfirmed(v === true)} className="mt-0.5" />
-            <label htmlFor="confirm" className="cursor-pointer text-sm leading-relaxed text-muted-foreground">
-              {t("documentCheck.confirm")}
-            </label>
-          </div>
-
-          {/* ── Actions ── */}
-          <div className="flex gap-3">
-            <Button onClick={handleAnalyze} disabled={loading || !confirmed || !file} className="gap-2 rounded-xl px-6">
-              {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <CheckCircle2 className="h-4 w-4" />}
-              {loading ? t("documentCheck.buttons.checking") : t("documentCheck.buttons.checkDocument")}
-            </Button>
-            {(analysis || file || error) && (
-              <Button variant="outline" onClick={handleClear} className="rounded-xl">{t("documentCheck.buttons.reset")}</Button>
-            )}
-          </div>
 
           {/* ── Error ── */}
           {error && (
