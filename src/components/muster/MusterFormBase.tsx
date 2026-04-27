@@ -97,7 +97,14 @@ export default function MusterFormBase({ rootId, title, subtitle, pdfUrl, pdfLab
   const onSaveRef = useRef(onSave);
   const { hasSingleAccess, isPremium } = useSubscription();
   const fId = formularId || lsKey;
-  const isFree = isFormFree(fId);
+  // Free if explicit slug is free, OR if lsKey/formularId contains any free slug,
+  // OR if current URL is /musterformular/<freeSlug>
+  const urlSlug = typeof window !== "undefined" ? window.location.pathname.split("/musterformular/")[1]?.split(/[/?#]/)[0] : "";
+  const FREE_LIST = ["anmeldung", "steuer-id", "fuehrerschein", "fahrzeugzulassung", "fuehrungszeugnis", "krankenkasse", "steuerklasse", "steuerklassenwechsel", "kirchenaustritt"];
+  const isFree =
+    isFormFree(fId) ||
+    FREE_LIST.some((s) => fId.toLowerCase().includes(s)) ||
+    (urlSlug ? FREE_LIST.includes(urlSlug) : false);
   const locked = !isFree && !isPremium && !hasSingleAccess(fId);
 
   // Keep latest onSave reference without retriggering autosave
