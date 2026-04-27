@@ -103,180 +103,33 @@
       "body": "Dieser Wizard ist ein Informationswerkzeug. Er stellt keine Steuerberatung dar und nennt keine konkreten Erstattungsbeträge. Für eine individuelle Entscheidung wenden Sie sich an einen Steuerberater oder anerkannten Lohnsteuerhilfeverein."
     },
     "steps": {
-      "year": {
-        "title": "Für welches Steuerjahr fragen Sie?",
-        "help": "Der Wizard schätzt Ihre Lage im Kontext des gewählten Jahres ein. Die Regeln sind aktuell auf 2024 und 2025 abgestimmt.",
-        "options": {
-          "2024": {
-            "label": "Steuerjahr 2024",
-            "desc": "Erklärung wird üblicherweise 2025 abgegeben."
-          },
-          "2025": {
-            "label": "Steuerjahr 2025",
-            "desc": "Erklärung wird üblicherweise 2026 abgegeben."
-          }
-        }
-      },
-      "residency": {
-        "title": "Waren Sie in diesem Jahr in Deutschland steuerlich ansässig?",
-        "help": "Steuerlich ansässig sind Sie, wenn Sie Wohnsitz oder gewöhnlichen Aufenthalt in Deutschland hatten. Wer hier arbeitet, aber das ganze Jahr im Ausland lebte, gilt meist als nicht ansässig.",
-        "options": {
-          "yesFullYear": {
-            "label": "Ja, das ganze Jahr",
-            "desc": "Ganzjährig Wohnsitz in Deutschland."
-          },
-          "yesPartial": {
-            "label": "Ja, teilweise",
-            "desc": "Zu- oder Wegzug innerhalb des Jahres."
-          },
-          "no": {
-            "label": "Nein, nicht ansässig",
-            "desc": "Beschränkte Steuerpflicht — Sonderregeln."
-          }
-        }
-      },
-      "employer": {
-        "title": "Wie viele Arbeitgeber hatten Sie in diesem Jahr?",
-        "help": "Gemeint sind Beschäftigungen mit Lohnsteuerabzug (klassische Anstellung, kein reiner Minijob).",
-        "options": {
-          "singleEmployer": {
-            "label": "Ein Arbeitgeber",
-            "desc": "Das ganze Jahr beim selben Arbeitgeber."
-          },
-          "multipleEmployers": {
-            "label": "Zwei oder mehr Arbeitgeber",
-            "desc": "Wechsel oder mehrere parallele Anstellungen."
-          },
-          "noEmployment": {
-            "label": "Keine Anstellung",
-            "desc": "Kein Lohnsteuer-Einkommen aus Anstellung."
-          }
-        }
-      },
-      "wageReplacement": {
-        "title": "Haben Sie Lohnersatzleistungen erhalten?",
-        "help": "Leistungen, die dem Progressionsvorbehalt unterliegen — sie erhöhen den Steuersatz, sind aber selbst steuerfrei.",
-        "options": {
-          "none": {
-            "label": "Nein, nichts davon",
-            "desc": "Reguläres Gehalt ohne diese Leistungen."
-          },
-          "kurzarbeit": {
-            "label": "Kurzarbeitergeld",
-            "desc": "Leistung bei reduzierter Arbeitszeit."
-          },
-          "elterngeld": {
-            "label": "Elterngeld",
-            "desc": "Leistung für Eltern."
-          },
-          "krankengeld": {
-            "label": "Krankengeld",
-            "desc": "Über die Krankenkasse."
-          },
-          "arbeitslosengeld": {
-            "label": "Arbeitslosengeld I",
-            "desc": "Nicht Bürgergeld."
-          }
-        }
-      },
-      "maritalStatus": {
-        "title": "Ihre Steuerklasse / Familienstand",
-        "help": "Die Steuerklasse stand auf Ihrer Lohnsteuerbescheinigung. Ehepartner wählen eine Kombination.",
-        "options": {
-          "single": {
-            "label": "Ledig (Klasse I) oder Alleinerziehend (II)",
-            "desc": "Standardsituation für Unverheiratete."
-          },
-          "marriedClass3or5": {
-            "label": "Verheiratet, Kombination III / V",
-            "desc": "Ein Partner III, der andere V."
-          },
-          "marriedClass4Faktor": {
-            "label": "Verheiratet, IV / IV mit Faktor",
-            "desc": "Beide Partner IV mit eingetragenem Faktor."
-          },
-          "marriedClass4": {
-            "label": "Verheiratet, IV / IV ohne Faktor",
-            "desc": "Klassische Kombi ohne Faktor."
-          }
-        }
-      },
-      "sideIncome": {
-        "title": "Hatten Sie weitere Einkünfte neben dem Gehalt?",
-        "help": "Z. B. Honorare, selbstständige Tätigkeit, Kapitaleinkünfte über dem Sparer-Pauschbetrag, Vermietung, Auslandseinkünfte.",
-        "options": {
-          "none": {
-            "label": "Nein, nur Gehalt",
-            "desc": "Keine weiteren Einkünfte."
-          },
-          "minor": {
-            "label": "Geringe gelegentliche Einkünfte",
-            "desc": "Kleine Beträge — z. B. Honorar wenige Male im Jahr."
-          },
-          "significant": {
-            "label": "Bedeutende Nebeneinkünfte",
-            "desc": "Vermietung, regelmäßige Freelance-Tätigkeit, Auslandseinkünfte."
-          }
-        }
-      },
-      "freibetrag": {
-        "title": "Wurde ein Lohnsteuer-Freibetrag eingetragen?",
-        "help": "Ein Freibetrag wird vom Finanzamt vorab eingetragen, damit monatlich weniger Lohnsteuer einbehalten wird (z. B. wegen langer Pendlerstrecke).",
-        "options": {
-          "yes": {
-            "label": "Ja, Freibetrag war eingetragen",
-            "desc": "Monatlich wurde weniger Steuer einbehalten."
-          },
-          "no": {
-            "label": "Nein oder weiß nicht",
-            "desc": "Kein besonderer Freibetrag eingetragen."
-          }
-        }
-      },
-      "deductibles": {
-        "title": "Was davon trifft auf Sie zu (Mehrfachauswahl)?",
-        "help": "Diese Posten erhöhen typischerweise die Wahrscheinlichkeit, dass sich die Erklärung lohnt. Wir fragen keine Beträge ab — nur Relevanz.",
-        "options": {
-          "commute": {
-            "label": "Pendeln zur Arbeit (Pendlerpauschale)",
-            "desc": "Sie pendeln täglich mehr als ein paar Kilometer."
-          },
-          "homeOffice": {
-            "label": "Homeoffice",
-            "desc": "Tage im Homeoffice (Homeoffice-Pauschale)."
-          },
-          "doppelHaushalt": {
-            "label": "Doppelte Haushaltsführung",
-            "desc": "Zweitwohnung wegen Arbeit am anderen Ort."
-          },
-          "workClothing": {
-            "label": "Arbeitsmittel / Kleidung / Werkzeug",
-            "desc": "Werkzeug, Bücher, Arbeitsausrüstung gekauft."
-          },
-          "training": {
-            "label": "Fortbildung / Kurse",
-            "desc": "Kurse, Zertifikate, Prüfungen mit Berufsbezug."
-          },
-          "donations": {
-            "label": "Spenden / Beiträge",
-            "desc": "An anerkannte Organisationen, Gewerkschaft, Kirche."
-          },
-          "childcare": {
-            "label": "Kinderbetreuung",
-            "desc": "Kita, Tagesmutter, Hort."
-          },
-          "healthExtras": {
-            "label": "Höhere Gesundheitsausgaben",
-            "desc": "Brille, Zahnersatz, Medikamente außerhalb der Grundversorgung."
-          },
-          "householdServices": {
-            "label": "Haushaltsnahe Dienstleistungen / Handwerker",
-            "desc": "Reinigung, Reparaturen, Umzug."
-          },
-          "none": {
-            "label": "Nichts davon",
-            "desc": "Keiner der Posten trifft zu."
-          }
+      "heading": "Kako da znaš da li MORAŠ predati",
+      "intro": "Pet jasnih okidača koji pretvaraju dobrovoljnu prijavu u OBAVEZNU (Pflichtveranlagung).",
+      "list": {
+        "s1": {
+          "title": "Imao/la si više poslodavaca u istoj godini",
+          "body": "Lohnsteuer je obračunavan paralelno → država traži korekciju.",
+          "zeile": "§ 46 Abs. 2 EStG"
+        },
+        "s2": {
+          "title": "Lohnsteuerklassa kombinacija III/V ili IV-Faktor",
+          "body": "Bračni par sa ovim kombinacijama je automatski Pflicht.",
+          "zeile": "§ 46 Abs. 2 Nr. 3a EStG"
+        },
+        "s3": {
+          "title": "Sporedni prihodi > 410 € (npr. iznajmljivanje, freelance)",
+          "body": "Sve preko Härteausgleich-a aktivira obavezu.",
+          "zeile": "§ 46 Abs. 2 Nr. 1 EStG"
+        },
+        "s4": {
+          "title": "Primao/la si LohnerStundezleistungen > 410 € (Kurzarbeit, Elterngeld, ALG I)",
+          "body": "Ovi prihodi su porezno slobodni ali utiču na stopu (Progressionsvorbehalt).",
+          "zeile": "§ 46 Abs. 2 Nr. 1 EStG"
+        },
+        "s5": {
+          "title": "Razveden/la i ponovo oženjen/uTage iste godine",
+          "body": "Klasičan trigger — Finanzamt traži pojašnjenje.",
+          "zeile": "§ 46 Abs. 2 Nr. 6 EStG"
         }
       }
     },
@@ -329,6 +182,64 @@
         },
         "legalRef": "Rechtsgrundlage: §§ 1, 49, 50 EStG sowie das Doppelbesteuerungsabkommen mit dem konkreten Staat."
       }
+    },
+    "amounts": {
+      "heading": "Wichtige Beträge 2026",
+      "intro": "Grenzen und Schwellenwerte koje wizard koristi za odluku jesi li obavezan/preporučen/oslobođen.",
+      "disclaimer": "Iznosi su zvanične vrijednosti za poreznu godinu 2025 (predaja u 2026). Provjeri na bundesfinanzministerium.de prije slanja.",
+      "list": {
+        "a1": {
+          "label": "Grundfreibetrag (samac)",
+          "value": "12.084 €",
+          "note": "Ispod toga ne plaćaš porez na dohodak."
+        },
+        "a2": {
+          "label": "Grundfreibetrag (par, zajednička prijava)",
+          "value": "24.168 €",
+          "note": "Ehegattensplitting."
+        },
+        "a3": {
+          "label": "Werbungskostenpauschale",
+          "value": "1.230 €",
+          "note": "Automatski oduzet zaposlenima."
+        },
+        "a4": {
+          "label": "Sparer-Pauschbetrag",
+          "value": "1.000 € / 2.000 €",
+          "note": "Kapitalni prinosi (samac/par)."
+        },
+        "a5": {
+          "label": "Kazna za kasnu predaju (Verspätungszuschlag)",
+          "value": "min. 25 €/mjesec",
+          "note": "Ako si Pflichtveranlagung."
+        }
+      }
+    },
+    "example": {
+      "heading": "Beispiel odluke",
+      "intro": "Marko, samac, Steuerklasse I, jedan poslodavac, neto 32.000 € jährlich, bez sporednih prihoda.",
+      "scenarioTitle": "Da li mora?",
+      "rows": {
+        "r1": {
+          "label": "Više poslodavaca u 2025?",
+          "value": "Ne"
+        },
+        "r2": {
+          "label": "Steuerklassa III/V/IV-Faktor?",
+          "value": "Ne (samac, klasa I)"
+        },
+        "r3": {
+          "label": "Sporedni prihodi > 410 €?",
+          "value": "Ne"
+        },
+        "r4": {
+          "label": "LohnerStundezleistungen > 410 €?",
+          "value": "Ne"
+        }
+      },
+      "resultLabel": "Status",
+      "resultValue": "DOBROVOLJNA prijava — preporučeno (često povrat)",
+      "disclaimer": "Dobrovoljna prijava se može predati 4 godine unazad. Geschätzte prosjek povrata u Njemačkoj je oko 1.100 € (Statistisches Bundesamt 2024)."
     }
   },
   "dhf": {
@@ -535,6 +446,95 @@
       "heading": "Rechtlicher Hinweis",
       "body": "Dieser Inhalt ist rein informativ und stellt keine steuerliche Beratung dar. BalkanLink ist weder Steuerberater noch Lohnsteuerhilfeverein. Ihre konkrete Situation kann von den beschriebenen Standardfällen abweichen.",
       "sources": "Hauptquellen: § 25 EStG, § 149 AO, § 152 AO sowie jährliche BMF-Schreiben. Stand: Januar 2026."
+    },
+    "amounts": {
+      "heading": "Rokovi i kazne 2026",
+      "intro": "Datumi i iznosi koje moraš znati. Pogrešan rok = automatska kazna.",
+      "disclaimer": "Datumi važe za poreznu godinu 2025 (predaja u 2026). Vikend/praznik pomjera rok na sljedeći radni dan.",
+      "list": {
+        "a1": {
+          "label": "Pflichtveranlagung — samostalno (bez Steuerberatera)",
+          "value": "31.07.2026.",
+          "note": "Dobrovoljna prijava nema rok osim 4-jährlich zastare."
+        },
+        "a2": {
+          "label": "Pflichtveranlagung — uz Steuerberatera",
+          "value": "30.04.2027.",
+          "note": "Mora biti registrovan kao tvoj zastupnik."
+        },
+        "a3": {
+          "label": "Verspätungszuschlag (kazna za kašnjenje)",
+          "value": "min. 25 €/mjesec",
+          "note": "Maksimum 25.000 €. Računati svaki započeti mjesec."
+        },
+        "a4": {
+          "label": "Säumniszuschlag (kamata na neplaćeni porez)",
+          "value": "1 % monatlich",
+          "note": "Na zaokružen iznos duga (nadolje na 50 €)."
+        },
+        "a5": {
+          "label": "Zastara dobrovoljne prijave",
+          "value": "4 godine",
+          "note": "Za 2025. godinu zadnji dan = 31.12.2029."
+        }
+      }
+    },
+    "steps": {
+      "heading": "Šta uraditi ako ne stigneš",
+      "intro": "Ne paniči. Postoje 3 legalne opcije kako produžiti rok.",
+      "list": {
+        "s1": {
+          "title": "Zatraži Fristverlängerung pisano (do 30 Tage lakše)",
+          "body": "Pošalji formalni zahtjev Finanzamtu sa razlogom (bolest, čekanje dokumenata). Najbolje preko ELSTER → 'Sonstige Nachricht an das Finanzamt'.",
+          "zeile": "§ 109 AO"
+        },
+        "s2": {
+          "title": "Angažuj Steuerberatera prije 31.07.",
+          "body": "Automatski produžavaš rok do 30.04. naredne godine — ali Steuerberater mora biti zvanično tvoj zastupnik.",
+          "zeile": "§ 149 Abs. 3 AO"
+        },
+        "s3": {
+          "title": "Plati takStundeivno + Verspätungszuschlag",
+          "body": "Ako prekoračiš rok — predaj prijavu što prije. Svaki dan = veća kazna. Ne čekaj poziv Finanzamta.",
+          "zeile": "§ 152 AO"
+        },
+        "s4": {
+          "title": "Zatraži Stundung (odgodu plaćanja) ako duguješ",
+          "body": "Ako nakon prijave ostaneš dužan više nego možeš platiti — pisano traži ratu.",
+          "zeile": "§ 222 AO"
+        },
+        "s5": {
+          "title": "Provjeri Einspruch ako ti naplate Verspätungszuschlag bez osnove",
+          "body": "Imaš mjesec Tage od prijema rješenja da uložiš prigovor.",
+          "zeile": "§ 347 AO"
+        }
+      }
+    },
+    "example": {
+      "heading": "Beispiel kazne",
+      "intro": "Ana je Pflichtveranlagung (radila kod 2 poslodavca). Predala prijavu 3 mjeseca nakon 31.07.",
+      "scenarioTitle": "Račun kazne",
+      "rows": {
+        "r1": {
+          "label": "Rok",
+          "value": "31.07.2026."
+        },
+        "r2": {
+          "label": "Predato",
+          "value": "31.10.2026."
+        },
+        "r3": {
+          "label": "Mjeseci kašnjenja (svaki započeti)",
+          "value": "3"
+        },
+        "r4": {
+          "label": "Verspätungszuschlag (3 × 25 €)",
+          "value": "75 €"
+        }
+      },
+      "resultLabel": "Ukupna kazna (minimum)",
+      "resultValue": "75 €",
+      "disclaimer": "Stvarna kazna može biti veća — zavisi od dospjelog poreza (0,25 % monatlich na neplaćeni iznos, plus minimum 25 €/mjesec)."
     }
   },
   "deductions": {
@@ -642,6 +642,132 @@
       "heading": "Rechtlicher Hinweis",
       "body": "Dieser Inhalt ist rein informativ und stellt keine steuerliche Beratung dar. BalkanLink ist weder Steuerberater noch Lohnsteuerhilfeverein. Ihre konkrete Situation kann von den beschriebenen Standardfällen abweichen.",
       "sources": "Hauptquellen: § 9 EStG (Werbungskosten), § 10 EStG (Sonderausgaben), § 33 EStG (außergewöhnliche Belastungen). Stand: Januar 2026."
+    },
+    "amounts": {
+      "heading": "Paušali i granice 2026",
+      "intro": "Iznosi koje država priznaje BEZ dokaza. Sve preko toga moraš dokazati računom.",
+      "disclaimer": "Stand 2026, izvor: § 9, § 9a, § 10 EStG i Bundesfinanzministerium pregled.",
+      "list": {
+        "a1": {
+          "label": "Werbungskostenpauschale (Arbeitnehmer-Pauschbetrag)",
+          "value": "1.230 €",
+          "note": "Automatski oduzet svakom zaposlenom. Anlage N, Zeile 31."
+        },
+        "a2": {
+          "label": "Pendlerpauschale (km 1-20)",
+          "value": "0,30 € / km",
+          "note": "Jednosmjerno × radni dani × km."
+        },
+        "a3": {
+          "label": "Pendlerpauschale (km 21+)",
+          "value": "0,38 € / km",
+          "note": "Privremeno povećano do 2026."
+        },
+        "a4": {
+          "label": "Homeoffice-Pauschale",
+          "value": "6 € / dan, max 1.260 € / god.",
+          "note": "Max 210 Tage u godini. Anlage N, Zeile 45."
+        },
+        "a5": {
+          "label": "Sonderausgaben-Pauschbetrag",
+          "value": "36 € / 72 €",
+          "note": "Samac / par. Automatski."
+        },
+        "a6": {
+          "label": "Verpflegungspauschale (službeni put 8-24h)",
+          "value": "14 €",
+          "note": "Cijeli dan = 28 €. Anlage N, Zeile 49-50."
+        },
+        "a7": {
+          "label": "Donacije bez Zuwendungsbestätigung",
+          "value": "do 300 €",
+          "note": "Dokaz = bankovni izvod. Iznad: trebaš potvrdu."
+        },
+        "a8": {
+          "label": "Außergewöhnliche Belastungen — vlastiti udio",
+          "value": "1-7 % prihoda",
+          "note": "Zavisno od bračnog statusa i broja djece."
+        }
+      }
+    },
+    "steps": {
+      "heading": "So füllst du aus Anlage N (zaposleni) — korak po korak",
+      "intro": "Glavni dio prijave za sve sa Lohnsteuerbescheinigung-om. Otvori je u ELSTER → 'Anlage N' kartica.",
+      "list": {
+        "s1": {
+          "title": "Lični i poslodavčevi podaci (Zeile 4-10)",
+          "body": "Prepiši doslovno iz svoje Lohnsteuerbescheinigung — ime poslodavca, eTIN, brutto iznos, već uplaćen Lohnsteuer i Soli.",
+          "zeile": "Anlage N · Zeile 4-10"
+        },
+        "s2": {
+          "title": "Pendlerpauschale — putovanje na posao (Zeile 31-39)",
+          "body": "Adresa stana, adresa firme, broj radnih Tage (običajno 220-230), kilometara JEDNOSMJERNO. ELSTER sam množi.",
+          "zeile": "Anlage N · Zeile 31-39"
+        },
+        "s3": {
+          "title": "Homeoffice-Pauschale (Zeile 45)",
+          "body": "Broj Tage rada od kuće (max 210). 6 €/dan, ELSTER sam računa.",
+          "zeile": "Anlage N · Zeile 45"
+        },
+        "s4": {
+          "title": "Stručna literatura, alati, software (Zeile 41-44)",
+          "body": "Zbroji račune. Stavke > 952 € bruto idu u AfA (amortizacija) — ELSTER vodi kroz to.",
+          "zeile": "Anlage N · Zeile 41-44"
+        },
+        "s5": {
+          "title": "Edukacija i kursevi (Zeile 44)",
+          "body": "Fortbildung (vezano za POSTOJEĆI posao) ide ovdje. Ausbildung (novo zanimanje) ide u Sonderausgaben (Zeile 13 glavnog formulara).",
+          "zeile": "Anlage N · Zeile 44"
+        },
+        "s6": {
+          "title": "Prebaci u Sonderausgaben — osiguranja i doprinosi",
+          "body": "Riester, Rürup, privatno zdravstveno preko poslodavca: idu u Anlage Vorsorgeaufwand, NE Anlage N.",
+          "zeile": "Anlage Vorsorgeaufwand"
+        },
+        "s7": {
+          "title": "Provjeri 'Berechnung' prije slanja",
+          "body": "ELSTER ima dugme 'Steuerberechnung' — prikazuje procjenu povrata/duga. Ako je broj negativan = duguješ, ako pozitivan = povrat.",
+          "zeile": "ELSTER · Steuerberechnung"
+        }
+      }
+    },
+    "example": {
+      "heading": "Beispiel računa povrata",
+      "intro": "Mirsad, Steuerklasse I, brutto 45.000 €, 240 radnih Tage, 25 km do firme, 50 Tage home office.",
+      "scenarioTitle": "Werbungskosten — sa dokazima",
+      "rows": {
+        "r1": {
+          "label": "Pendlerpauschale: 240 × 20 km × 0,30 €",
+          "value": "1.440 €"
+        },
+        "r2": {
+          "label": "Pendlerpauschale: 240 × 5 km × 0,38 €",
+          "value": "456 €"
+        },
+        "r3": {
+          "label": "Homeoffice: 50 × 6 €",
+          "value": "300 €"
+        },
+        "r4": {
+          "label": "Stručna literatura + software",
+          "value": "420 €"
+        },
+        "r5": {
+          "label": "Mitgliedsbeiträge (komora)",
+          "value": "180 €"
+        },
+        "r6": {
+          "label": "UKUPNO Werbungskosten",
+          "value": "2.796 €"
+        },
+        "r7": {
+          "label": "Iznad paušala 1.230 € — porezno priznata razlika",
+          "value": "1.566 €"
+        }
+      },
+      "resultLabel": "Procijenjeno povećanje povrata (~30 % marg. stopa)",
+      "resultValue": "≈ 470 €",
+      "disclaimer": "Stvarni iznos zavisi od marginalne porezne stope, crkvenog poreza, Soli i ostalih stavki. Koristi ELSTER 'Steuerberechnung' za egzaktan broj."
     }
   },
   "elsterGuide": {
@@ -729,6 +855,110 @@
       "heading": "Rechtlicher Hinweis",
       "body": "Dieser Inhalt ist rein informativ und stellt keine steuerliche Beratung dar. BalkanLink ist weder Steuerberater noch Lohnsteuerhilfeverein. Ihre konkrete Situation kann von den beschriebenen Standardfällen abweichen.",
       "sources": "Hauptquellen: § 87a AO, § 25 EStG sowie offizielle ELSTER-Dokumentation. Stand: Januar 2026."
+    },
+    "amounts": {
+      "heading": "ELSTER — šta trebaš znati prije početka",
+      "intro": "Tehnički preduvjeti za otvaranje računa i slanje prve prijave.",
+      "disclaimer": "ELSTER (Elektronische Steuererklärung) je ZVANIČNI portal njemačke porezne uprave — besplatan, na njemačkom (i engleskom).",
+      "list": {
+        "a1": {
+          "label": "Cijena registracije i korištenja",
+          "value": "0 € (besplatno)",
+          "note": "Razlikovati od Taxfix/Wundertax (10-40 €)."
+        },
+        "a2": {
+          "label": "Vrijeme dolaska aktivacionog pisma",
+          "value": "2-4 sedmice poštom",
+          "note": "Šalje se na prijavljenu Meldeadresse."
+        },
+        "a3": {
+          "label": "Vrijeme za prvi setup (sa pismom)",
+          "value": "30-45 min",
+          "note": "Certifikat + lozinka + browser setup."
+        },
+        "a4": {
+          "label": "Maksimalna veličina prijave",
+          "value": "10 MB",
+          "note": "Skenirani prilozi se šalju zasebno (Belegnachreichung)."
+        },
+        "a5": {
+          "label": "Vrijeme obrade nakon slanja",
+          "value": "4-12 Wochen",
+          "note": "Bayern i Baden-Württemberg najbrži, Berlin najsporiji."
+        }
+      }
+    },
+    "steps": {
+      "heading": "Registracija i prva prijava — 8 koraka",
+      "intro": "Od nule do poslane prijave. Računaj ~3 sedmice ukupno (zbog poštanske aktivacije).",
+      "list": {
+        "s1": {
+          "title": "Otvori mein.elster.de → 'Benutzerkonto erstellen'",
+          "body": "Izaberi 'Für mich (privat)' i 'Steueridentifikationsnummer' kao metod identifikacije. Najbrža varijanta.",
+          "zeile": "mein.elster.de"
+        },
+        "s2": {
+          "title": "Unesi Steuer-ID (11 cifara) i lične podatke",
+          "body": "Steuer-ID nađeš na Lohnsteuerbescheinigung ili na pismu od Bundeszentralamt für Steuern.",
+          "zeile": "BZSt — Steuer-ID"
+        },
+        "s3": {
+          "title": "Sačekaj aktivaciono pismo (2-4 sedmice)",
+          "body": "Stiže na adresu prijavljenu u Meldeamt-u. Sadrži Aktivierungs-ID i Aktivierungs-Code.",
+          "zeile": "Brief + E-Mail"
+        },
+        "s4": {
+          "title": "Aktiviraj nalog i preuzmi certifikat (.pfx fajl)",
+          "body": "Lozinku certifikata SAČUVAJ na 2 mjesta — bez nje se ne možeš logovati nigdje.",
+          "zeile": "Datei-Zertifikat"
+        },
+        "s5": {
+          "title": "Login → 'Formulare & Leistungen' → 'Einkommensteuer'",
+          "body": "Izaberi 'Einkommensteuererklärung unbeschränkte Steuerpflicht' za odgovarajuću godinu.",
+          "zeile": "Hauptmenü"
+        },
+        "s6": {
+          "title": "Aktiviraj 'Datenübernahme' (vrlo važno!)",
+          "body": "ELSTER automatski preuzima Lohnsteuerbescheinigung, Renten-Mitteilungen, banke. Štedi Stundee i smanjuje greške.",
+          "zeile": "Belege abholen"
+        },
+        "s7": {
+          "title": "Popuni formular → 'Plausibilitätsprüfung'",
+          "body": "ELSTER provjerava sve unose i upozorava na nedostajuće podatke ili logičke greške PRIJE slanja.",
+          "zeile": "Prüfen-Button"
+        },
+        "s8": {
+          "title": "'Senden' — i sačuvaj Übermittlungsprotokoll PDF",
+          "body": "To je dokaz slanja sa vremenskim pečatom. Čuvaj minimalno 10 Jahre.",
+          "zeile": "Senden + PDF"
+        }
+      }
+    },
+    "example": {
+      "heading": "Procijeni vrijeme — prvi put",
+      "intro": "Realna procjena za zaposlenog (samo Anlage N + Mantelbogen).",
+      "scenarioTitle": "Vremenski okvir",
+      "rows": {
+        "r1": {
+          "label": "Registracija + čekanje pisma",
+          "value": "2-4 sedmice"
+        },
+        "r2": {
+          "label": "Aktivacija + certifikat setup",
+          "value": "30 min"
+        },
+        "r3": {
+          "label": "Prva prijava (sa Datenübernahme)",
+          "value": "1-2 Stundea"
+        },
+        "r4": {
+          "label": "Sljedeće godine (kopiraj prošlu)",
+          "value": "20-30 min"
+        }
+      },
+      "resultLabel": "Ušteda vs. Steuerberater (~250 €)",
+      "resultValue": "≈ 250 € / jährlich",
+      "disclaimer": "ELSTER je besplatan ali zahtijeva da sam razumiješ formulare. Ako imaš složenu situaciju (samostalni, najam, inostrane prihode) — Steuerberater se često isplati."
     }
   },
   "family": {
@@ -836,6 +1066,109 @@
       "heading": "Rechtlicher Hinweis",
       "body": "Dieser Inhalt ist rein informativ und stellt keine steuerliche Beratung dar. BalkanLink ist weder Steuerberater noch Lohnsteuerhilfeverein. Ihre konkrete Situation kann von den beschriebenen Standardfällen abweichen.",
       "sources": "Hauptquellen: § 26 EStG, § 32 EStG, § 38b EStG sowie jährliche BMF-Schreiben. Stand: Januar 2026."
+    },
+    "amounts": {
+      "heading": "Porezne klase i porodični iznosi 2026",
+      "intro": "Glavni iznosi koji utiču na bračni par i roditelje.",
+      "disclaimer": "Stand 2026. Steuerklasse mijenjaš preko ELSTER ili Finanzamt formulara.",
+      "list": {
+        "a1": {
+          "label": "Kinderfreibetrag (po djetetu)",
+          "value": "6.612 €",
+          "note": "+ Betreuungsfreibetrag 2.928 € = ukupno 9.540 €. Anlage Kind."
+        },
+        "a2": {
+          "label": "Kindergeld (monatlich)",
+          "value": "255 € / dijete",
+          "note": "Auto-poredba: ELSTER bira ono što je povoljnije."
+        },
+        "a3": {
+          "label": "Entlastungsbetrag za samohrane (1 dijete)",
+          "value": "4.260 € / god.",
+          "note": "+ 240 € za svako dodatno."
+        },
+        "a4": {
+          "label": "Ehegattensplitting prag",
+          "value": "do ~270.000 €",
+          "note": "Iznad gubi prednost; do tada zajednička prijava skoro uvijek bolja."
+        },
+        "a5": {
+          "label": "Steuerklasse III (više-zarađujući supružnik)",
+          "value": "0 € do 12.084 €",
+          "note": "Najmanji odbitak, max neto. Drugi partner ide na klasu V."
+        },
+        "a6": {
+          "label": "Steuerklasse IV s Faktor",
+          "value": "Pravičnija raspodjela",
+          "note": "Manji 'šok' kod jährlich prijave."
+        }
+      }
+    },
+    "steps": {
+      "heading": "Promjena Steuerklasse — kako i kada",
+      "intro": "Najjednostavnija promjena u njemačkom poreznom sistemu, ali većina ljudi propusti optimalan trenutak.",
+      "list": {
+        "s1": {
+          "title": "Provjeri trenutnu klasu (na Lohnsteuerbescheinigung)",
+          "body": "Stoji u prvom redu — npr. 'StKl 1' = klasa I. Single = uglavnom I, brak = III/V ili IV/IV.",
+          "zeile": "Lohnsteuerbescheinigung"
+        },
+        "s2": {
+          "title": "Procijeni: III/V vs IV/IV-Faktor",
+          "body": "III/V = velika razlika u prihodima, klasa III prima ~80 % zajedničkog odbitka. IV-Faktor = pravična raspodjela mjesec-po-mjesec.",
+          "zeile": "§ 38b EStG"
+        },
+        "s3": {
+          "title": "Online — preko ELSTER",
+          "body": "ELSTER → 'Antrag auf Steuerklassenwechsel bei Ehegatten/Lebenspartnern'. Promjena važi od narednog mjeseca.",
+          "zeile": "Formular ESt-IV-K"
+        },
+        "s4": {
+          "title": "Prijavi dijete (Kinderfreibetrag-Lohnsteuerkarte)",
+          "body": "Auto-upis ako je dijete prijavljeno na tvoju adresu i imaš Steuer-ID djeteta. Inače ručno preko Finanzamta.",
+          "zeile": "Anlage Kind"
+        },
+        "s5": {
+          "title": "Optimalni trenutak za promjenu prije roditeljstva",
+          "body": "Roditelj koji ostaje kući BAREM 6 Monate prije rođenja treba klasu III — Elterngeld se računa na neto, što znači VEĆI Elterngeld.",
+          "zeile": "BEEG § 2c"
+        },
+        "s6": {
+          "title": "Nakon razvoda — prebaci na klasu I (ili II ako sa djecom)",
+          "body": "Mora se uraditi do 30.11. iste godine kad si razveden, inače propustiš povoljnu klasu II.",
+          "zeile": "§ 24b EStG"
+        }
+      }
+    },
+    "example": {
+      "heading": "Beispiel — par sa djetetom",
+      "intro": "Sanela (zaposlena, brutto 65.000 €) i Edin (zaposlen, brutto 38.000 €), 1 dijete (3 godine).",
+      "scenarioTitle": "Klasa III/V vs IV/IV",
+      "rows": {
+        "r1": {
+          "label": "Sanela — neto klasa III/mjesec",
+          "value": "≈ 4.020 €"
+        },
+        "r2": {
+          "label": "Edin — neto klasa V/mjesec",
+          "value": "≈ 1.910 €"
+        },
+        "r3": {
+          "label": "Sanela — neto klasa IV/mjesec",
+          "value": "≈ 3.420 €"
+        },
+        "r4": {
+          "label": "Edin — neto klasa IV/mjesec",
+          "value": "≈ 2.290 €"
+        },
+        "r5": {
+          "label": "Kindergeld",
+          "value": "255 € / mj."
+        }
+      },
+      "resultLabel": "Ukupan godišnji porezni dug — gotovo identičan",
+      "resultValue": "Razlika tek pri godišnjoj prijavi",
+      "disclaimer": "III/V = veći mjesečni 'džeparac' za jednog ali često dovodi do dodatnog plaćanja u martu naredne godine. IV/IV-Faktor = mirnije."
     }
   },
   "studentsTrainees": {
@@ -943,6 +1276,104 @@
       "heading": "Rechtlicher Hinweis",
       "body": "Dieser Inhalt ist rein informativ und stellt keine steuerliche Beratung dar. BalkanLink ist weder Steuerberater noch Lohnsteuerhilfeverein. Ihre konkrete Situation kann von den beschriebenen Standardfällen abweichen.",
       "sources": "Hauptquellen: § 9 Abs. 6 EStG, § 10 EStG, § 33a EStG sowie BFH-Rechtsprechung zur Erst-/Zweitausbildung. Stand: Januar 2026."
+    },
+    "amounts": {
+      "heading": "Studenti i pripravnici 2026",
+      "intro": "Posebne kategorije: porez kod manjih prihoda i šta se može odbiti tokom studija.",
+      "disclaimer": "§ 4 Nr. 21 EStG (stipendije), § 9 EStG (Werbungskosten), § 10 EStG (Sonderausgaben). Stand 2026.",
+      "list": {
+        "a1": {
+          "label": "Minijob (Studenti, do)",
+          "value": "556 € / monatlich",
+          "note": "Bez poreza i socijalnog. Granica 2026."
+        },
+        "a2": {
+          "label": "Werkstudent — max Stundenica",
+          "value": "20 Stundei / wöchentlich",
+          "note": "Tokom semestra. Na praznicima više dozvoljeno."
+        },
+        "a3": {
+          "label": "Stipendije (DAAD, Deutschlandstipendium)",
+          "value": "Porezno slobodno",
+          "note": "§ 3 Nr. 11 + Nr. 44 EStG."
+        },
+        "a4": {
+          "label": "Erststudium — odbitak",
+          "value": "Sonderausgaben (max 6.000 €/god.)",
+          "body": "Bachelor odmah nakon Abitura ide u Sonderausgaben — daje povrat SAMO ako imaš oporezivih prihoda."
+        },
+        "a5": {
+          "label": "Zweitstudium / Master / Ausbildung — odbitak",
+          "value": "Werbungskosten (neograničeno)",
+          "note": "Master nakon Bachelor-a, ili kvalifikacija nakon Ausbildung-a — ide kao Werbungskosten i može da pravi Verlustvortrag."
+        },
+        "a6": {
+          "label": "Verlustvortrag — perenesen na buduće prihode",
+          "value": "Bez vremenske granice",
+          "note": "Ako nemaš dovoljno prihoda, gubitke iz studija prebacuješ na godine kad počneš raditi."
+        }
+      }
+    },
+    "steps": {
+      "heading": "Kako studenti predaju prijavu sa Verlustvortrag",
+      "intro": "Najveća pogreška: studenti misle da im prijava 'nije potrebna'. Zapravo, prijava sa Verlustvortrag-om može donijeti hiljade € povrata kad počnu raditi.",
+      "list": {
+        "s1": {
+          "title": "Provjeri da li je Erst- ili Zweitstudium",
+          "body": "Erststudium = bachelor odmah nakon Abitura → Sonderausgaben (slabo isplativo). Zweitstudium ili nakon Ausbildung-a → Werbungskosten (vrlo isplativo).",
+          "zeile": "§ 9 vs § 10 EStG"
+        },
+        "s2": {
+          "title": "Skupi sve troškove studija — školarine, knjige, putovanja",
+          "body": "Studijske putovanja, semestralna karta, knjige, laptop, skripta, potvrde sa kursa njemačkog.",
+          "zeile": "Anlage N + Anlage Sonderausgaben"
+        },
+        "s3": {
+          "title": "Predaj prijavu i ZA godine bez prihoda (Verlustvortrag)",
+          "body": "Forma: 'Antrag auf Feststellung des verbleibenden Verlustvortrags'. ELSTER → odgovarajuća Jahre + Anlage N (sve troškove unos, prihode 0).",
+          "zeile": "Mantelbogen + Anlage N"
+        },
+        "s4": {
+          "title": "Verlustvortrag se prenosi automatski Jahrema",
+          "body": "Finanzamt ti šalje Bescheid sa kumulativnim iznosom. Kad počneš raditi → odbija se od oporezivog dohotka.",
+          "zeile": "Verlustfeststellungsbescheid"
+        },
+        "s5": {
+          "title": "Werkstudent posao — prijavi i sve Werbungskosten",
+          "body": "Ako ti je honorar > Pauschbetrag, dodaj Pendlerpauschale, alate, software.",
+          "zeile": "Anlage N · Zeile 31+"
+        }
+      }
+    },
+    "example": {
+      "heading": "Beispiel Verlustvortrag",
+      "intro": "Lejla, Master Informatika (Zweitstudium nakon Bachelor-a). 4 semestra, bez prihoda. Radi nakon završetka kao IT specijalista.",
+      "scenarioTitle": "Akumulirani gubitak",
+      "rows": {
+        "r1": {
+          "label": "Školarina (4 semestra)",
+          "value": "1.200 €"
+        },
+        "r2": {
+          "label": "Laptop + knjige + software",
+          "value": "2.800 €"
+        },
+        "r3": {
+          "label": "Semestralna karta + putovanja",
+          "value": "1.600 €"
+        },
+        "r4": {
+          "label": "Pendler do faksa (4 sem.)",
+          "value": "2.400 €"
+        },
+        "r5": {
+          "label": "Kursevi engleskog/njemačkog",
+          "value": "900 €"
+        }
+      },
+      "resultLabel": "Ukupan Verlustvortrag (prenese se na 1. godinu rada)",
+      "resultValue": "8.900 €",
+      "disclaimer": "Pri marg. stopi 32 % to je ≈ 2.850 € povrata u prvoj godini rada. Erststudium NE može ovo — samo Zweitstudium / Master nakon Bachelor-a."
     }
   },
   "selfEmployed": {
@@ -1061,6 +1492,126 @@
       "heading": "Rechtlicher Hinweis",
       "body": "Dieser Inhalt ist rein informativ und stellt keine steuerliche Beratung dar. BalkanLink ist weder Steuerberater noch Lohnsteuerhilfeverein. Ihre konkrete Situation kann von den beschriebenen Standardfällen abweichen.",
       "sources": "Hauptquellen: § 18 EStG, § 4 Abs. 3 EStG, § 19 UStG sowie GewStG. Stand: Januar 2026."
+    },
+    "amounts": {
+      "heading": "Samostalni / Freelancer 2026",
+      "intro": "Glavne granice koje određuju da li si Kleinunternehmer, kakav porez plaćaš i šta predaješ.",
+      "disclaimer": "§ 19 UStG (Kleinunternehmer), § 18 EStG (selbstständige Arbeit), § 15 EStG (Gewerbe).",
+      "list": {
+        "a1": {
+          "label": "Kleinunternehmer-Grenze (prošla Jahre)",
+          "value": "25.000 €",
+          "note": "Promet u 2025. Stand 2026 = 25.000 € prošle + 100.000 € tekuće godine."
+        },
+        "a2": {
+          "label": "Kleinunternehmer-Grenze (tekuća Jahre)",
+          "value": "100.000 €",
+          "note": "Ako pređeš tokom godine — ostatak godine sa PDV-om (19/7 %)."
+        },
+        "a3": {
+          "label": "Gewerbesteuer-Freibetrag",
+          "value": "24.500 €",
+          "note": "Samo za Einzelunternehmer / GbR. Ispod toga 0 € Gewerbesteuer."
+        },
+        "a4": {
+          "label": "PDV stopa (UmStundezsteuer)",
+          "value": "19 % / 7 %",
+          "note": "Standard / smanjena (knjige, hrana, ljekovi)."
+        },
+        "a5": {
+          "label": "Voranmeldung — monatlich (preko)",
+          "value": "9.000 € PDV/jährlich",
+          "note": "Ispod = kvartalno. Ispod 2.000 € = jednom jährlich."
+        },
+        "a6": {
+          "label": "EÜR vs. bilanca — granica",
+          "value": "promet < 800.000 € + dobit < 80.000 €",
+          "note": "EÜR (Einnahmenüberschussrechnung) je dovoljna."
+        },
+        "a7": {
+          "label": "Künstlersozialkasse (KSK)",
+          "value": "obavezno za većinu kreativaca",
+          "note": "Plaćaš pola, država pola — kao zaposlenik."
+        }
+      }
+    },
+    "steps": {
+      "heading": "Prvi koraci kao freelancer",
+      "intro": "Šta uraditi prvih 60 Tage nakon prve fakture.",
+      "list": {
+        "s1": {
+          "title": "Anmeldung kao samostalni — Fragebogen zur steuerlichen Erfassung",
+          "body": "Šalje se preko ELSTER → 'Formulare → Fragebogen zur steuerlichen Erfassung'. U roku 4 sedmice dobiješ Steuernummer.",
+          "zeile": "FzsE preko ELSTER"
+        },
+        "s2": {
+          "title": "Odluči Kleinunternehmer DA/NE",
+          "body": "Kleinunternehmer = bez PDV-a, jednostavnije, ali ne smiješ navoditi PDV na fakture i ne dobijaš Vorsteuer. Pogodno ako su klijenti privatne osobe.",
+          "zeile": "§ 19 UStG"
+        },
+        "s3": {
+          "title": "Otvori odvojen poslovni račun",
+          "body": "Ne obavezno za Einzelunternehmer, ali ŽIVOTNO bitno za EÜR. Banka: bunq, N26 Business, Holvi — sve od 0-9 €/mj.",
+          "zeile": "Buchhaltung"
+        },
+        "s4": {
+          "title": "Šalji Voranmeldung monatlich (prvih 2 godine)",
+          "body": "Bez obzira na promet, prvih 24 mjeseca = OBAVEZNO monatlich. Kasnije možeš na kvartal/jährlich.",
+          "zeile": "UmStundezsteuer-Voranmeldung"
+        },
+        "s5": {
+          "title": "Pripremi EÜR za godišnju prijavu",
+          "body": "Anlage EÜR uz Mantelbogen. Tu navedeš sve prihode, sve troškove i izračunaš dobit. ELSTER ima ugrađen pomoćnik.",
+          "zeile": "Anlage EÜR"
+        },
+        "s6": {
+          "title": "Razdvoji Einkommensteuer-Vorauszahlungen",
+          "body": "Finanzamt ti svake godine određuje akontacije (kvartalno) na osnovu prošle dobiti. Ne troši taj novac.",
+          "zeile": "§ 37 EStG"
+        }
+      }
+    },
+    "example": {
+      "heading": "Beispiel Kleinunternehmer",
+      "intro": "Davor, IT freelancer, 1. Jahre. Promet 22.000 €. Troškovi 4.500 €. Bez zaposlenika.",
+      "scenarioTitle": "Računica za 2025",
+      "rows": {
+        "r1": {
+          "label": "Promet (UmStundez)",
+          "value": "22.000 €"
+        },
+        "r2": {
+          "label": "Troškovi (laptop, software, putovanja, ured)",
+          "value": "4.500 €"
+        },
+        "r3": {
+          "label": "Dobit (EÜR)",
+          "value": "17.500 €"
+        },
+        "r4": {
+          "label": "Grundfreibetrag (samac)",
+          "value": "-12.084 €"
+        },
+        "r5": {
+          "label": "Oporeziv dohodak",
+          "value": "5.416 €"
+        },
+        "r6": {
+          "label": "Procijenjen Einkommensteuer (~14 %)",
+          "value": "≈ 760 €"
+        },
+        "r7": {
+          "label": "Gewerbesteuer",
+          "value": "0 € (ispod 24.500 €)"
+        },
+        "r8": {
+          "label": "UmStundezsteuer",
+          "value": "0 € (Kleinunternehmer)"
+        }
+      },
+      "resultLabel": "Ukupan godišnji porez",
+      "resultValue": "≈ 760 €",
+      "disclaimer": "Plus zdravstveno (~400 €/mj. privatno ili KVdS), penziono opcionalno. Ako pređeš 25.000 € → naredne godine PDV obavezan."
     }
   },
   "rentalIncome": {
@@ -1179,6 +1730,123 @@
       "heading": "Rechtlicher Hinweis",
       "body": "Dieser Inhalt ist rein informativ und stellt keine steuerliche Beratung dar. BalkanLink ist weder Steuerberater noch Lohnsteuerhilfeverein. Ihre konkrete Situation kann von den beschriebenen Standardfällen abweichen.",
       "sources": "Hauptquellen: § 21 EStG, § 7 EStG (AfA), § 6 EStG (anschaffungsnaher Aufwand) sowie BMF-Schreiben. Stand: Januar 2026."
+    },
+    "amounts": {
+      "heading": "Prihodi od izdavanja 2026",
+      "intro": "Glavne stavke koje smanjuju oporezivu rentu.",
+      "disclaimer": "§ 21 EStG (Vermietung und Verpachtung), § 7 EStG (AfA).",
+      "list": {
+        "a1": {
+          "label": "AfA — godišnja amortizacija (zgrade nakon 1925)",
+          "value": "2 % / jährlich",
+          "note": "50 Jahre. Anlage V, Zeile 33."
+        },
+        "a2": {
+          "label": "AfA — nove zgrade (gradnja 2023+)",
+          "value": "3 % / jährlich",
+          "note": "Privremena podsticajna stopa."
+        },
+        "a3": {
+          "label": "AfA — historijske zgrade (prije 1925)",
+          "value": "2,5 % / jährlich",
+          "note": "40 Jahre."
+        },
+        "a4": {
+          "label": "Sofortabschreibung — sitan inventar",
+          "value": "do 800 € neto / komad",
+          "note": "Odmah u rashode."
+        },
+        "a5": {
+          "label": "Werbungskosten paušal nemaš",
+          "value": "Sve mora dokumentovano",
+          "note": "Anlage V — bez Pauschbetrag-a."
+        },
+        "a6": {
+          "label": "Erhaltungsaufwand (popravke)",
+          "value": "100 % odbitak iste godine",
+          "note": "Razlikovati od Herstellungskosten (amortizacija)."
+        },
+        "a7": {
+          "label": "Verlustverrechnung sa drugim prihodima",
+          "value": "do 100 % drugih prihoda",
+          "note": "Negativan rezultat → smanjuje porez na plaću."
+        }
+      }
+    },
+    "steps": {
+      "heading": "Anlage V korak po korak",
+      "intro": "Glavni formular za sve koji izdaju nekretninu — stan, kuću, garažu, parkirno mjesto.",
+      "list": {
+        "s1": {
+          "title": "Adresa nekretnine + tip + datum nabavke (Zeile 4-9)",
+          "body": "Adresa, površina, Jahre kupovine, kupoprodajna cijena (uključujući notarske i porezne troškove).",
+          "zeile": "Anlage V · Zeile 4-9"
+        },
+        "s2": {
+          "title": "Brutto prihodi od najma (Zeile 12-13)",
+          "body": "Sve najamnine plus Nebenkosten koje stanari plaćaju tebi pa ti njima Hausverwaltungu (proforma).",
+          "zeile": "Anlage V · Zeile 12-13"
+        },
+        "s3": {
+          "title": "AfA — godišnja amortizacija (Zeile 33-37)",
+          "body": "Cijena gradnje × 2 % (ili 3 % za nove). Cijena ZEMLJIŠTA se NE amortizuje — odvoji.",
+          "zeile": "Anlage V · Zeile 33-37"
+        },
+        "s4": {
+          "title": "Schuldzinsen — kamate na hipoteku (Zeile 38-40)",
+          "body": "Samo kamate, NE rate glavnice. Bankovna kontaktna potvrda krajem godine.",
+          "zeile": "Anlage V · Zeile 38-40"
+        },
+        "s5": {
+          "title": "Erhaltungsaufwand — popravke i održavanje (Zeile 41-50)",
+          "body": "Krečenje, zamjena prozora, popravak grijanja. > 4.000 € možeš rasporediti na 2-5 Jahre.",
+          "zeile": "Anlage V · Zeile 41-50"
+        },
+        "s6": {
+          "title": "Hausverwaltung, osiguranje, Grundsteuer (Zeile 47-50)",
+          "body": "Sve direktne troškove. Strujarinu/grijanje stanara NE oduzimaš (njihov je trošak).",
+          "zeile": "Anlage V · Zeile 47-50"
+        },
+        "s7": {
+          "title": "Sumarni izračun — pozitivno ili negativno",
+          "body": "Ako negativno (najčešće prvih Jahre zbog AfA + kamata): umanjuje porez na plaću = povrat.",
+          "zeile": "Anlage V · Zeile 23"
+        }
+      }
+    },
+    "example": {
+      "heading": "Beispiel izdavanja stana",
+      "intro": "Adi izdao stan u Hamburgu. Najam 1.200 €/mj. (14.400 €/god.). Stan kupljen 2023. za 380.000 € (od toga zemljište 80.000 €).",
+      "scenarioTitle": "Anlage V — godišnji bilans",
+      "rows": {
+        "r1": {
+          "label": "Brutto najam",
+          "value": "+14.400 €"
+        },
+        "r2": {
+          "label": "AfA: (380.000 - 80.000) × 2 %",
+          "value": "-6.000 €"
+        },
+        "r3": {
+          "label": "Schuldzinsen (hipoteka 250.000 € × 4 %)",
+          "value": "-10.000 €"
+        },
+        "r4": {
+          "label": "Hausverwaltung (1.500 €) + osiguranje (400 €)",
+          "value": "-1.900 €"
+        },
+        "r5": {
+          "label": "Erhaltung (krečenje, sitne popravke)",
+          "value": "-2.300 €"
+        },
+        "r6": {
+          "label": "Grundsteuer",
+          "value": "-650 €"
+        }
+      },
+      "resultLabel": "Negativni rezultat (oduzima se od plate)",
+      "resultValue": "-6.450 €",
+      "disclaimer": "Pri marg. stopi 35 % to je ≈ 2.260 € manjeg poreza. Negativan rezultat je TIPIČAN prvih 5-10 Jahre iznajmljivanja sa hipotekom."
     }
   },
   "mistakes": {
@@ -1258,6 +1926,105 @@
       "heading": "Rechtlicher Hinweis",
       "body": "Dieser Inhalt ist rein informativ und stellt keine steuerliche Beratung dar. BalkanLink ist weder Steuerberater noch Lohnsteuerhilfeverein. Ihre konkrete Situation kann von den beschriebenen Standardfällen abweichen.",
       "sources": "Hauptquellen: BFH-Rechtsprechung, AO §§ 152, 153, 173 sowie Empfehlungen der Bundessteuerberaterkammer. Stand: Januar 2026."
+    },
+    "amounts": {
+      "heading": "Fehlerstatistik i posljedica 2026",
+      "intro": "Najskuplje greške koje BalkanLink korisnici tipično prave — sa procjenom troška.",
+      "disclaimer": "Procjene zasnovane na javnim Finanzamt podacima i forumima. Tvoj slučaj može odstupati.",
+      "list": {
+        "a1": {
+          "label": "Pogrešno upisana Steuer-ID",
+          "value": "+ 4-12 Wochen obrade",
+          "note": "Najčešća greška. ELSTER provjerava ali ne uvijek presreće."
+        },
+        "a2": {
+          "label": "Nedostaje Anlage Vorsorgeaufwand",
+          "value": "do 4.000 € izgubljenog povrata",
+          "note": "Penziono i zdravstveno NE idu automatski."
+        },
+        "a3": {
+          "label": "Krivi Pendlerpauschale (ne najkraća ruta)",
+          "value": "Upit Finanzamta + revizija",
+          "note": "Provjeravaju Google Maps."
+        },
+        "a4": {
+          "label": "Donacije bez Zuwendungsbestätigung > 300 €",
+          "value": "100 % odbijeno",
+          "note": "Bankovni izvod NIJE dovoljan iznad 300 €."
+        },
+        "a5": {
+          "label": "Mješanje Erst- i Zweitausbildung",
+          "value": "Razlika u tisućama €",
+          "note": "Erst = Sonderausgaben (slabo). Zweit = Werbungskosten (jako)."
+        },
+        "a6": {
+          "label": "Kasna predaja (Pflichtveranlagung)",
+          "value": "min. 25 €/mj. + 0,25 % na neplaćeno",
+          "note": "Ne čekaj poziv Finanzamta."
+        }
+      }
+    },
+    "steps": {
+      "heading": "Kako spriječiti / popraviti greške",
+      "intro": "Šest praktičnih savjeta da ti se ne desi nepotreban gubitak.",
+      "list": {
+        "s1": {
+          "title": "Uvijek aktiviraj 'Datenübernahme' u ELSTER",
+          "body": "Auto-povlači Lohnsteuerbescheinigung, Renten-Mitteilungen, banke. Smanjuje greške za 80 %.",
+          "zeile": "ELSTER → Belege abholen"
+        },
+        "s2": {
+          "title": "Pokreni 'Plausibilitätsprüfung' PRIJE slanja",
+          "body": "ELSTER ti pokaže sve nedostatke i nelogičnosti. Besplatno, traje 5 sekundi.",
+          "zeile": "Prüfen-Button"
+        },
+        "s3": {
+          "title": "Ako stigne pogrešno rješenje — Einspruch u 30 Tage",
+          "body": "Pisani prigovor preko ELSTER (Sonstige Nachricht) ili poštom. Šablon na našoj stranici.",
+          "zeile": "§ 347 AO"
+        },
+        "s4": {
+          "title": "Ako si propustio nešto — 'Berichtigte Erklärung'",
+          "body": "Možeš poslati ispravljenu prijavu sve dok rješenje nije pravosnažno (Bestandskraft).",
+          "zeile": "§ 153 AO"
+        },
+        "s5": {
+          "title": "Čuvaj sve dokaze 10 Jahre",
+          "body": "Skeniraj sve i drži u cloudu. Finanzamt može tražiti naknadno (Stichprobe).",
+          "zeile": "§ 147 AO"
+        },
+        "s6": {
+          "title": "Sumnjaš? Pitaj Lohnsteuerhilfeverein (60-200 €)",
+          "body": "Ne svaki slučaj treba Steuerberatera. Vereini su jeftiniji za zaposlene.",
+          "zeile": "BVL"
+        }
+      }
+    },
+    "example": {
+      "heading": "Beispiel skupe greške",
+      "intro": "Lejla zaboravila prijaviti Anlage Vorsorgeaufwand 3 godine zaredom. Otkrila tek nakon razgovora sa kolegom.",
+      "scenarioTitle": "Šta je propustila",
+      "rows": {
+        "r1": {
+          "label": "Penzioni doprinosi (× 3 god.)",
+          "value": "13.500 €"
+        },
+        "r2": {
+          "label": "Privatno zdravstveno (× 3 god.)",
+          "value": "10.800 €"
+        },
+        "r3": {
+          "label": "Pflegeversicherung (× 3 god.)",
+          "value": "2.400 €"
+        },
+        "r4": {
+          "label": "Ukupno NEPRIJAVLJENO",
+          "value": "26.700 €"
+        }
+      },
+      "resultLabel": "Geschätzte izgubljeni povrat (~25 % marg.)",
+      "resultValue": "≈ 6.700 €",
+      "disclaimer": "Dobra vijest: može se ispraviti retroaktivno za sve 3 godine ako rješenja još nisu pravosnažna. Loša: nakon 4 godine = nepovratno."
     }
   }
 }
