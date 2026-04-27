@@ -48,10 +48,10 @@ export const DEFAULT_LANGUAGE: SupportedLanguage = "bs";
 export const LANG_STORAGE_KEY = "balkanlink-lang";
 
 const resources = {
-  bs: { common: bsCommon, forms: bsForms, pages: bsPages, errors: bsErrors, schufa: bsSchufa },
-  de: { common: deCommon, forms: deForms, pages: dePages, errors: deErrors, schufa: deSchufa },
-  hr: { common: hrCommon, forms: hrForms, pages: hrPages, errors: hrErrors, schufa: hrSchufa },
-  sr: { common: srCommon, forms: srForms, pages: srPages, errors: srErrors, schufa: srSchufa },
+  bs: { common: bsCommon, forms: bsForms, pages: bsPages, errors: bsErrors, schufa: bsSchufa, anerkennung: bsAnerkennung },
+  de: { common: deCommon, forms: deForms, pages: dePages, errors: deErrors, schufa: deSchufa, anerkennung: deAnerkennung },
+  hr: { common: hrCommon, forms: hrForms, pages: hrPages, errors: hrErrors, schufa: hrSchufa, anerkennung: hrAnerkennung },
+  sr: { common: srCommon, forms: srForms, pages: srPages, errors: srErrors, schufa: srSchufa, anerkennung: srAnerkennung },
 };
 
 i18n
@@ -68,7 +68,7 @@ i18n
     nonExplicitSupportedLngs: false, // 'sr-Latn' / 'hr-HR' won't auto-resolve
     load: "languageOnly", // 'de-AT' → 'de'
     defaultNS: "common",
-    ns: ["common", "forms", "pages", "errors", "schufa"],
+    ns: ["common", "forms", "pages", "errors", "schufa", "anerkennung"],
     interpolation: { escapeValue: false },
     detection: {
       // URL path takes precedence (so /de, /hr, /sr always force the language
