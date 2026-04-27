@@ -22,6 +22,9 @@ import {
   Calculator,
   ListChecks,
   RotateCcw,
+  Euro,
+  ListOrdered,
+  Sparkles,
   type LucideIcon,
 } from "lucide-react";
 
